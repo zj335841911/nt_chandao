@@ -11,10 +11,10 @@
                 <ion-list class="items">
                   <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.ProductTop.visabled" :disabled="item.ProductTop.disabled" color="primary" @click="mdctrl_click($event, 'u1f01c30', item)"><ion-icon v-if="item.ProductTop.icon" :name="item.ProductTop.icon"></ion-icon>置顶</ion-item-option>
-                            <ion-item-option v-show="item.CancelProductTop.visabled" :disabled="item.CancelProductTop.disabled" color="primary" @click="mdctrl_click($event, 'u8d9e94f', item)"><ion-icon v-if="item.CancelProductTop.icon" :name="item.CancelProductTop.icon"></ion-icon>取消置顶</ion-item-option>
-                            <ion-item-option v-show="item.CloseProductMob.visabled" :disabled="item.CloseProductMob.disabled" color="primary" @click="mdctrl_click($event, 'ubbd2867', item)"><ion-icon v-if="item.CloseProductMob.icon" :name="item.CloseProductMob.icon"></ion-icon>关闭</ion-item-option>
-                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u4089ced', item)"><ion-icon v-if="item.deleteMob.icon" :name="item.deleteMob.icon"></ion-icon>删除</ion-item-option>
+                            <ion-item-option v-show="item.ProductTop.visabled" :disabled="item.ProductTop.disabled" color="primary" @click="mdctrl_click($event, 'u1f01c30', item)"><ion-icon v-if="item.ProductTop.icon && item.ProductTop.isShowIcon" :name="item.ProductTop.icon"></ion-icon><ion-label v-if="item.ProductTop.isShowCaption">置顶</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.CancelProductTop.visabled" :disabled="item.CancelProductTop.disabled" color="primary" @click="mdctrl_click($event, 'u8d9e94f', item)"><ion-icon v-if="item.CancelProductTop.icon && item.CancelProductTop.isShowIcon" :name="item.CancelProductTop.icon"></ion-icon><ion-label v-if="item.CancelProductTop.isShowCaption">取消置顶</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.CloseProductMob.visabled" :disabled="item.CloseProductMob.disabled" color="primary" @click="mdctrl_click($event, 'ubbd2867', item)"><ion-icon v-if="item.CloseProductMob.icon && item.CloseProductMob.isShowIcon" :name="item.CloseProductMob.icon"></ion-icon><ion-label v-if="item.CloseProductMob.isShowCaption">关闭</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u4089ced', item)"><ion-icon v-if="item.deleteMob.icon && item.deleteMob.isShowIcon" :name="item.deleteMob.icon"></ion-icon><ion-label v-if="item.deleteMob.isShowCaption">删除</ion-label></ion-item-option>
                         </ion-item-options>
                     <ion-item>
                       <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
@@ -1164,6 +1164,8 @@ export default class MobBase extends Vue implements ControlInterface {
         }
     }
 
+    
+
     /**
      * 界面行为模型
      *
@@ -1171,11 +1173,13 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
-        ProductTop: { name: 'ProductTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', target: 'SINGLEKEY',icon:'fa fa-hand-o-up'},
-        CancelProductTop: { name: 'CancelProductTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'TOP', target: 'SINGLEKEY',icon:'fa fa-hand-o-down'},
-        CloseProductMob: { name: 'CloseProductMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_CLOSED_BUT', target: 'SINGLEKEY',icon:'power'},
-        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_DELETE_BUT', target: 'SINGLEKEY',icon:'close'}
+        ProductTop: { name: 'ProductTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', target: 'SINGLEKEY',icon:'fa fa-hand-o-up',isShowCaption:true,isShowIcon:true},
+        CancelProductTop: { name: 'CancelProductTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'TOP', target: 'SINGLEKEY',icon:'fa fa-hand-o-down',isShowCaption:true,isShowIcon:true},
+        CloseProductMob: { name: 'CloseProductMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_CLOSED_BUT', target: 'SINGLEKEY',icon:'power',isShowCaption:true,isShowIcon:true},
+        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_DELETE_BUT', target: 'SINGLEKEY',icon:'close',isShowCaption:true,isShowIcon:true}
     };
+
+    
 
     /**
      * 获取界面行为权限状态

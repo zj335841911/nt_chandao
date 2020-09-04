@@ -149,7 +149,7 @@ export class GridControlBase extends MDControlBase {
      * @type {number}
      * @memberof GridControlBase
      */
-    public checkboxColWidth: number = 35;
+    public checkboxColWidth: number = 40;
 
     /**
      * 是否允许拖动列宽
@@ -207,6 +207,16 @@ export class GridControlBase extends MDControlBase {
      * @memberof GridControlBase
      */
     public allExportColumns: any[] = [];
+
+    /**
+     * 表格高度
+     *
+     * @readonly
+     * @memberof GridControlBase
+     */
+    get tableHeight() {
+        return this.isEnablePagingBar ? 'calc(100% - 36px)': '100%';
+    }
 
     /**
      * 获取表格行模型

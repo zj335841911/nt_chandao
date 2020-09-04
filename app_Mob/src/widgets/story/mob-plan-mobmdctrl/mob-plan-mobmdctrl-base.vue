@@ -10,7 +10,7 @@
                     </div>
                     <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.UnlinkStoryMob.visabled" :disabled="item.UnlinkStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u07e2d84', item)"><ion-icon v-if="item.UnlinkStoryMob.icon" :name="item.UnlinkStoryMob.icon"></ion-icon>移除关联</ion-item-option>
+                            <ion-item-option v-show="item.UnlinkStoryMob.visabled" :disabled="item.UnlinkStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u07e2d84', item)"><ion-icon v-if="item.UnlinkStoryMob.icon && item.UnlinkStoryMob.isShowIcon" :name="item.UnlinkStoryMob.icon"></ion-icon><ion-label v-if="item.UnlinkStoryMob.isShowCaption">移除关联</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -30,7 +30,7 @@
                     </div>
                     <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.UnlinkStoryMob.visabled" :disabled="item.UnlinkStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u07e2d84', item)"><ion-icon v-if="item.UnlinkStoryMob.icon" :name="item.UnlinkStoryMob.icon"></ion-icon>移除关联</ion-item-option>
+                            <ion-item-option v-show="item.UnlinkStoryMob.visabled" :disabled="item.UnlinkStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u07e2d84', item)"><ion-icon v-if="item.UnlinkStoryMob.icon && item.UnlinkStoryMob.isShowIcon" :name="item.UnlinkStoryMob.icon"></ion-icon><ion-label v-if="item.UnlinkStoryMob.isShowCaption">移除关联</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -1086,6 +1086,8 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
         }
     }
 
+    
+
     /**
      * 界面行为模型
      *
@@ -1093,8 +1095,10 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
      * @memberof Mob_PlanBase
      */  
     public ActionModel:any ={
-        UnlinkStoryMob: { name: 'UnlinkStoryMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY',icon:'trash'}
+        UnlinkStoryMob: { name: 'UnlinkStoryMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY',icon:'trash',isShowCaption:false,isShowIcon:true}
     };
+
+    
 
     /**
      * 获取界面行为权限状态

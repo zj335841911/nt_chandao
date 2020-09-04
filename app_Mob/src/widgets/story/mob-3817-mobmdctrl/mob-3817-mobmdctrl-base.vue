@@ -1058,6 +1058,8 @@ export default class Mob_3817Base extends Vue implements ControlInterface {
         }
     }
 
+    
+
     /**
      * 界面行为模型
      *
@@ -1066,6 +1068,8 @@ export default class Mob_3817Base extends Vue implements ControlInterface {
      */  
     public ActionModel:any ={
     };
+
+    
 
     /**
      * 获取界面行为权限状态

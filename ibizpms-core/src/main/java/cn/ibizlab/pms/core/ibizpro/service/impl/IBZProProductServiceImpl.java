@@ -51,9 +51,6 @@ public class IBZProProductServiceImpl extends ServiceImpl<IBZProProductMapper, I
     protected cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryModuleService ibzprostorymoduleService;
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryService ibzprostoryService;
-    @Autowired
-    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
     protected int batchSize = 500;
