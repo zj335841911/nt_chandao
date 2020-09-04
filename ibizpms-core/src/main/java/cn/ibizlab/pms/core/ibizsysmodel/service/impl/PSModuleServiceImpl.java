@@ -37,7 +37,7 @@ import cn.ibizlab.pms.util.security.SpringContextHolder;
 import cn.ibizlab.pms.util.helper.OutsideAccessorUtils;
 
 /**
- * 实体[ 系统模块] 服务对象接口实现
+ * 实体[系统模块] 服务对象接口实现
  */
 @Slf4j
 @Service

@@ -26,7 +26,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import cn.ibizlab.pms.util.domain.EntityClient;
 
 /**
- * ServiceApi [ 系统模块] 对象
+ * ServiceApi [系统模块] 对象
  */
 @Data
 public class PSModule extends EntityClient implements Serializable {
