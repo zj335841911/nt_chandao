@@ -54,6 +54,74 @@
 </app-form-item>
 
 </i-col>
+<i-col class="form-layout-container" v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.type')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<dropdown-list 
+    v-model="data.type"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.type.disabled"
+    valueType="string"
+    tag='Module__type'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    
+/>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.grade.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='grade' :itemRules="this.rules.grade" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.grade')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.grade.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box 
+    v-model="data.grade"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.grade.disabled" 
+    type='number' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.short.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='short' :itemRules="this.rules.short" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.short')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.short.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box 
+    v-model="data.short"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.short.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.storytype.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='storytype' :itemRules="this.rules.storytype" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.storytype')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.storytype.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<dropdown-list 
+    v-model="data.storytype"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.storytype.disabled"
+    valueType="string"
+    tag='Ibizpro_storymodule__type'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    
+/>
+</app-form-item>
+
+</i-col>
     
     </row>
 </app-form-group>

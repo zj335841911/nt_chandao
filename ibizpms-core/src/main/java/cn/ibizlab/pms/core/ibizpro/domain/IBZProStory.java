@@ -80,6 +80,7 @@ public class IBZProStory extends EntityMP implements Serializable {
     /**
      * 需求来源
      */
+    @DEField(defaultValue = "iBiz")
     @TableField(value = "source")
     @JSONField(name = "source")
     @JsonProperty("source")
@@ -112,44 +113,6 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JSONField(name = "sourceobject")
     @JsonProperty("sourceobject")
     private String sourceobject;
-    /**
-     * 所属计划
-     */
-    @TableField(value = "plan")
-    @JSONField(name = "plan")
-    @JsonProperty("plan")
-    private String plan;
-    /**
-     * 预计工时
-     */
-    @TableField(value = "estimate")
-    @JSONField(name = "estimate")
-    @JsonProperty("estimate")
-    private Double estimate;
-    /**
-     * 创建日期
-     */
-    @TableField(value = "openeddate")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "openeddate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("openeddate")
-    private Timestamp openeddate;
-    /**
-     * 关闭日期	
-     */
-    @TableField(value = "closeddate")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "closeddate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("closeddate")
-    private Timestamp closeddate;
-    /**
-     * 最后修改日期
-     */
-    @TableField(value = "lastediteddate")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("lastediteddate")
-    private Timestamp lastediteddate;
 
     /**
      * 产品
@@ -241,76 +204,6 @@ public class IBZProStory extends EntityMP implements Serializable {
         this.modify("sourceobject",sourceobject);
     }
 
-    /**
-     * 设置 [所属计划]
-     */
-    public void setPlan(String plan){
-        this.plan = plan ;
-        this.modify("plan",plan);
-    }
-
-    /**
-     * 设置 [预计工时]
-     */
-    public void setEstimate(Double estimate){
-        this.estimate = estimate ;
-        this.modify("estimate",estimate);
-    }
-
-    /**
-     * 设置 [创建日期]
-     */
-    public void setOpeneddate(Timestamp openeddate){
-        this.openeddate = openeddate ;
-        this.modify("openeddate",openeddate);
-    }
-
-    /**
-     * 格式化日期 [创建日期]
-     */
-    public String formatOpeneddate(){
-        if (this.openeddate == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return sdf.format(openeddate);
-    }
-    /**
-     * 设置 [关闭日期	]
-     */
-    public void setCloseddate(Timestamp closeddate){
-        this.closeddate = closeddate ;
-        this.modify("closeddate",closeddate);
-    }
-
-    /**
-     * 格式化日期 [关闭日期	]
-     */
-    public String formatCloseddate(){
-        if (this.closeddate == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return sdf.format(closeddate);
-    }
-    /**
-     * 设置 [最后修改日期]
-     */
-    public void setLastediteddate(Timestamp lastediteddate){
-        this.lastediteddate = lastediteddate ;
-        this.modify("lastediteddate",lastediteddate);
-    }
-
-    /**
-     * 格式化日期 [最后修改日期]
-     */
-    public String formatLastediteddate(){
-        if (this.lastediteddate == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return sdf.format(lastediteddate);
-    }
 
 }
 

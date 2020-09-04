@@ -7188,17 +7188,6 @@
         "codelisttype":"static",
         "items": [
              {
-                "id": "iBiz",
-                "label": "iBiz",
-                "text": "iBiz",
-                "data":"",
-                "codename":"Ibiz",
-                "value": "iBiz",
-                
-                "disabled": false,
-                "default": false
-            }
-            , {
                 "id": "customer",
                 "label": "客户",
                 "text": "客户",
@@ -7352,6 +7341,17 @@
                 "disabled": false,
                 "default": false
             }
+            , {
+                "id": "iBiz",
+                "label": "iBiz",
+                "text": "iBiz",
+                "data":"",
+                "codename":"Ibiz",
+                "value": "iBiz",
+                
+                "disabled": false,
+                "default": false
+            }
         ]
     }, 
     {
@@ -7399,6 +7399,46 @@
                 "data":"",
                 "codename":"Item_4",
                 "value": 4,
+                
+                "disabled": false,
+                "default": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "Ibizpro_storymodule__type",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "pmsStoryModule",
+                "label": "PMS需求模块",
+                "text": "PMS需求模块",
+                "data":"",
+                "codename":"Pmsstorymodule",
+                "value": "pmsStoryModule",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "iBizSysModule",
+                "label": "iBiz系统模块",
+                "text": "iBiz系统模块",
+                "data":"",
+                "codename":"Ibizsysmodule",
+                "value": "iBizSysModule",
+                
+                "disabled": false,
+                "default": false
+            }
+            , {
+                "id": "iBizReqModule",
+                "label": "iBiz需求模块",
+                "text": "iBiz需求模块",
+                "data":"",
+                "codename":"Ibizreqmodule",
+                "value": "iBizReqModule",
                 
                 "disabled": false,
                 "default": false

@@ -85,6 +85,10 @@ export class MainEditFormBase extends EditFormControlBase {
         root: null,
         ibiz_id: null,
         name: null,
+        type: null,
+        grade: null,
+        short: null,
+        storytype: null,
         ibzprostorymodule:null,
     };
 
@@ -146,6 +150,14 @@ export class MainEditFormBase extends EditFormControlBase {
         ibiz_id: new FormItemModel({ caption: 'IBIZ标识', detailType: 'FORMITEM', name: 'ibiz_id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         name: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        type: new FormItemModel({ caption: '类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        grade: new FormItemModel({ caption: '级别', detailType: 'FORMITEM', name: 'grade', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        short: new FormItemModel({ caption: '简称', detailType: 'FORMITEM', name: 'short', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        storytype: new FormItemModel({ caption: '需求模块类型', detailType: 'FORMITEM', name: 'storytype', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         form: new FormTabPanelModel({ caption: 'form', detailType: 'TABPANEL', name: 'form', visible: true, isShowCaption: true, form: this, tabPages: [{ name: 'formpage1', index: 0, visible: true }, { name: 'formpage2', index: 1, visible: true }] }),
     };

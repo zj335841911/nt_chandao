@@ -5,6 +5,11 @@ export default {
     root: "编号",
     ibizid: "IBIZ标识",
     storytype: "需求模块类型",
+    type: "类型",
+    grade: "级别",
+    path: "路径",
+    ibizshort: "简称",
+    parent: "id",
   },
 	views: {
 		editview: {
@@ -33,6 +38,10 @@ export default {
 			root: "编号", 
 			ibiz_id: "IBIZ标识", 
 			name: "名称", 
+			type: "类型", 
+			grade: "级别", 
+			short: "简称", 
+			storytype: "需求模块类型", 
 		},
 		uiactions: {
 		},

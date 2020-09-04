@@ -104,49 +104,6 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     @JsonProperty("sourceobject")
     private String sourceobject;
 
-    /**
-     * 属性 [PLAN]
-     *
-     */
-    @JSONField(name = "plan")
-    @JsonProperty("plan")
-    private String plan;
-
-    /**
-     * 属性 [ESTIMATE]
-     *
-     */
-    @JSONField(name = "estimate")
-    @JsonProperty("estimate")
-    private Double estimate;
-
-    /**
-     * 属性 [OPENEDDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "openeddate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("openeddate")
-    private Timestamp openeddate;
-
-    /**
-     * 属性 [CLOSEDDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "closeddate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("closeddate")
-    private Timestamp closeddate;
-
-    /**
-     * 属性 [LASTEDITEDDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("lastediteddate")
-    private Timestamp lastediteddate;
-
 
     /**
      * 设置 [TITLE]
@@ -218,46 +175,6 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     public void setSourceobject(String  sourceobject){
         this.sourceobject = sourceobject ;
         this.modify("sourceobject",sourceobject);
-    }
-
-    /**
-     * 设置 [PLAN]
-     */
-    public void setPlan(String  plan){
-        this.plan = plan ;
-        this.modify("plan",plan);
-    }
-
-    /**
-     * 设置 [ESTIMATE]
-     */
-    public void setEstimate(Double  estimate){
-        this.estimate = estimate ;
-        this.modify("estimate",estimate);
-    }
-
-    /**
-     * 设置 [OPENEDDATE]
-     */
-    public void setOpeneddate(Timestamp  openeddate){
-        this.openeddate = openeddate ;
-        this.modify("openeddate",openeddate);
-    }
-
-    /**
-     * 设置 [CLOSEDDATE]
-     */
-    public void setCloseddate(Timestamp  closeddate){
-        this.closeddate = closeddate ;
-        this.modify("closeddate",closeddate);
-    }
-
-    /**
-     * 设置 [LASTEDITEDDATE]
-     */
-    public void setLastediteddate(Timestamp  lastediteddate){
-        this.lastediteddate = lastediteddate ;
-        this.modify("lastediteddate",lastediteddate);
     }
 
 

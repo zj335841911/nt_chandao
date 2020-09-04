@@ -71,6 +71,26 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
+        name: 'type',
+        prop: 'type',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'grade',
+        prop: 'grade',
+        dataType: 'INT',
+      },
+      {
+        name: 'short',
+        prop: 'ibizshort',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'storytype',
+        prop: 'storytype',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'ibzprostorymodule',
         prop: 'id',
         dataType: 'FONTKEY',
