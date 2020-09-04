@@ -831,6 +831,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugEditView",
             "viewtag": "46517a803b2470cd0bef27aeda0dbcaf"
         },
+        "ibzproproductgridview": {
+            "title": "平台产品表格视图",
+            "caption": "平台产品",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IBZProProductGridView",
+            "viewtag": "46854d548e698f79dc9b2bda5e5d5331"
+        },
         "ibzlibeditview9": {
             "title": "用例库编辑视图",
             "caption": "用例库",
@@ -1878,6 +1886,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "ReleaseGridView",
             "viewtag": "9ae49b10ec96e8f7b063be2ed4172247"
+        },
+        "ibzproproducteditview": {
+            "title": "平台产品编辑视图",
+            "caption": "平台产品",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IBZProProductEditView",
+            "viewtag": "9bcbf0cd15b37b97657fec9a157595fe"
         },
         "productmoduleeditview": {
             "title": "产品模块编辑视图",

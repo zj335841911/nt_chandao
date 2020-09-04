@@ -4,6 +4,7 @@ export default {
     name: "名称",
     root: "编号",
     ibizid: "IBIZ标识",
+    storytype: "需求模块类型",
   },
 	views: {
 		editview: {

@@ -37,4 +37,12 @@ export interface IBZProStoryModule {
      * @memberof IBZProStoryModule
      */
     ibizid?: any;
+
+    /**
+     * 需求模块类型
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    storytype?: any;
 }
