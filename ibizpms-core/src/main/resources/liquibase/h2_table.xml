@@ -866,7 +866,7 @@
 
 
     <!--输出实体[IBZPRO_STORYMODULE]数据结构 -->
-    <changeSet author="zentao" id="tab-ibzpro_storymodule-61-27">
+    <changeSet author="zentao" id="tab-ibzpro_storymodule-63-27">
         <createTable tableName="zt_module">
                 <column name="ID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZPRO_STORYMODULE_ID"/>
@@ -2379,7 +2379,7 @@
        <addForeignKeyConstraint baseColumnNames="MODULE" baseTableName="zt_story" constraintName="DER1N_IBZPRO_STORY_IBZPRO_STOR" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_module" validate="true"/>
     </changeSet>
         <!--输出实体[IBZPRO_STORYMODULE]外键关系 -->
-    <changeSet author="zentao" id="fk-ibzpro_storymodule-61-134">
+    <changeSet author="zentao" id="fk-ibzpro_storymodule-63-134">
        <addForeignKeyConstraint baseColumnNames="ROOT" baseTableName="zt_module" constraintName="DER1N_IBZPRO_STORYMODULE_IBZPR" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
         <!--输出实体[IBZ_LOGIN]外键关系 -->

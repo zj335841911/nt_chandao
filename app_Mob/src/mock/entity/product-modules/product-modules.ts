@@ -492,15 +492,25 @@ mock.onPost(new RegExp(/^\/productmodules\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).re
     return [status, data];
 });
 
-
+    
 // SyncFromIBIZ
-mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productmodules\/syncfromibiz$/)).reply((config: any) => {
+mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productmodules\/([a-zA-Z0-9\-\;]{1,35})\/syncfromibiz$/)).reply((config: any) => {
     console.groupCollapsed("实体:productmodule 方法: SyncFromIBIZ");
     console.table({url:config.url, method: config.method, data:config.data});
-    // SyncFromIBIZ
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productmodules\/([a-zA-Z0-9\-\;]{1,35})\/syncfromibiz$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
     }
     console.groupCollapsed("response数据  status: "+status+" data: ");
     console.table({});
@@ -508,21 +518,43 @@ mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productmodules\/sy
     console.groupEnd();
     return [status, {}];
 });
-
+        
 // SyncFromIBIZ
-mock.onPost(new RegExp(/^\/productmodules\/syncfromibiz$/)).reply((config: any) => {
+mock.onPost(new RegExp(/^\/productmodules\/?([a-zA-Z0-9\-\;]{0,35})\/syncfromibiz$/)).reply((config: any) => {
     console.groupCollapsed("实体:productmodule 方法: SyncFromIBIZ");
     console.table({url:config.url, method: config.method, data:config.data});
-    // SyncFromIBIZ
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/productmodules\/([a-zA-Z0-9\-\;]{1,35})\/syncfromibiz$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
     }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
     console.groupCollapsed("response数据  status: "+status+" data: ");
-    console.table({});
+    console.table(data);
     console.groupEnd();
     console.groupEnd();
-    return [status, {}];
+    return [status, data];
 });
 
 
