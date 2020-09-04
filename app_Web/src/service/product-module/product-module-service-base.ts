@@ -256,16 +256,15 @@ export default class ProductModuleServiceBase extends EntityService {
      * @memberof ProductModuleServiceBase
      */
     public async SyncFromIBIZ(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && true){
-            let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/syncfromibiz`,isloading);
-            res.data.productmodule = data.productmodule;
+        if(context.product && context.productmodule){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/syncfromibiz`,data,isloading);
             
             return res;
         }
-        let res:any = await  Http.getInstance().post(`/productmodules/syncfromibiz`,isloading);
-        res.data.productmodule = data.productmodule;
-        
-        return res;
+            let res:any = Http.getInstance().post(`/productmodules/${context.productmodule}/syncfromibiz`,data,isloading);
+            return res;
     }
 
     /**
