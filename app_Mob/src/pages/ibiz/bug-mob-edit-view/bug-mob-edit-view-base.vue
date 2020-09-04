@@ -51,7 +51,7 @@
                 <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
                 <ion-fab-list class="fab-list" side="top">
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_assingtobugmob.visabled" :disabled="righttoolbarModels.deuiaction1_assingtobugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assingtobugmob' }, $event)">
-                <ion-icon name="fa fa-hand-o-right"></ion-icon>
+                <ion-icon name="hand-o-right"></ion-icon>
             {{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_assingtobugmob.caption')}}    
             </ion-fab-button>
         

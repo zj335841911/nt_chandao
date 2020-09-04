@@ -1,57 +1,12 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobtabexpview': true, 'product-stats-mob-tab-exp-view': true }">
-    
-    <ion-header>
-        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
-            <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
-            </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-        </ion-toolbar>
-                    <ion-toolbar>
-                        <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel">
-                              <ion-icon name="briefcase"></ion-icon>
-                            
-                            详情</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel2">
-                              <ion-icon name="text"></ion-icon>
-                            
-                            需求</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel4">
-                              <ion-icon name="reorder"></ion-icon>
-                            
-                            计划</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel5">
-                            
-                            发布</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel3">
-                              <ion-icon name="bug"></ion-icon>
-                            
-                            BUG</ion-segment-button>
-                        </ion-segment>
-                    </ion-toolbar>
-    </ion-header>
+!!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-
-    <ion-content>
-                <view_tabexppanel
-            :viewState="viewState"
-            viewName="ProductStatsMobTabExpView"  
-            :viewparams="viewparams" 
-            :context="context" 
-            :activiedTabViewPanel="activiedTabViewPanel"     
-            @changepanel="changePanel"
-            @counterInit="counterInit"
-            name="tabexppanel"  
-            ref='tabexppanel' 
-            @closeview="closeView($event)">
-        </view_tabexppanel>
-    </ion-content>
-</ion-page>
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: @setIcon tabviewpanel  [in template "TEMPLCODE_en_US" at line 10, column 35]
+----
 </template>
 
 
