@@ -1,4 +1,5 @@
 import { Vue, Component, Prop, Emit } from 'vue-property-decorator';
+import { localList } from '@locale/local-list';
 import './user-info.less';
 
 /**
@@ -30,6 +31,14 @@ export class UserInfo extends Vue {
     public menus!: any[];
 
     /**
+     * 语言名称
+     *
+     * @type {string}
+     * @memberof UserInfo
+     */
+    public langTitle: string = ''
+
+    /**
      * 菜单项点击
      *
      * @param {*} item
@@ -49,6 +58,9 @@ export class UserInfo extends Vue {
         if (theme) {
             this.changeTheme(theme);
         }
+        const lang: string = this.$i18n.locale;
+        const local: any = localList.find((_local: any) => Object.is(_local.type, lang));
+        this.langTitle = local.name;
     }
 
     /**
@@ -62,6 +74,11 @@ export class UserInfo extends Vue {
         // 是否为切换主题
         if (name.indexOf('app-theme-') === 0) {
             this.changeTheme(name);
+            return;
+        }
+        // 切换语言
+        if (name.indexOf('app-lang-') === 0) {
+            this.changeLang(name.substring(9));
             return;
         }
         if (name === 'custom-logout') {
@@ -79,6 +96,20 @@ export class UserInfo extends Vue {
         if (item) {
             this.menuClick(item);
         }
+    }
+
+    /**
+     * 切换语言
+     *
+     * @protected
+     * @param {string} name
+     * @memberof UserInfo
+     */
+    protected changeLang(name: string) {
+        this.$i18n.locale = name;
+        const local: any = localList.find((_local: any) => Object.is(_local.type, name));
+        this.langTitle = local.name;
+        localStorage.setItem('local', name);
     }
 
     /**
@@ -209,6 +240,22 @@ export class UserInfo extends Vue {
             <template slot="list">
                 <dropdownMenu>
                     {this.renderMenuItems(this.menus)}
+                    {
+                        localList.length > 1 ? (
+                        <dropdown class="user-menu-child" placement="left-start">
+                            <dropdownItem name="语言" title="切换语言">
+                                <i class="fa fa-language"></i>
+                                {this.langTitle}
+                            </dropdownItem>
+                            <dropdown-menu slot='list'>
+                                {
+                                    localList.map((item: any) => {
+                                        return <dropdown-item name={'app-lang-' + item.type}>{item.name}</dropdown-item>
+                                    })
+                                }
+                            </dropdown-menu>
+                        </dropdown>) : null
+                    }
                     <dropdown class="user-menu-child" placement="left-start">
                         <dropdownItem name="主题" title="切换主题">
                             <icon type="ios-arrow-back"></icon>
