@@ -48,9 +48,6 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
 
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryService ibzprostoryService;
-    @Autowired
-    @Lazy
     protected cn.ibizlab.pms.core.ibizpro.service.IIBZProProductService ibzproproductService;
     @Autowired
     @Lazy

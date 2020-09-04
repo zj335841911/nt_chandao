@@ -90,72 +90,6 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
-    /**
-     * 产品（开发系统）标识
-     */
-    @TableField(value = "product")
-    @JSONField(name = "product")
-    @JsonProperty("product")
-    private String product;
-    /**
-     * 需求模块标识
-     */
-    @TableField(value = "storymodule")
-    @JSONField(name = "storymodule")
-    @JsonProperty("storymodule")
-    private String storymodule;
-    /**
-     * 编号
-     */
-    @TableField(value = "pmsstory")
-    @JSONField(name = "pmsstory")
-    @JsonProperty("pmsstory")
-    private BigInteger pmsstory;
-    /**
-     * 需求
-     */
-    @TableField(exist = false)
-    @JSONField(name = "pmsstoryname")
-    @JsonProperty("pmsstoryname")
-    private String pmsstoryname;
-    /**
-     * 产品
-     */
-    @TableField(exist = false)
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    private String productname;
-    /**
-     * 需求模块
-     */
-    @TableField(exist = false)
-    @JSONField(name = "storymodulename")
-    @JsonProperty("storymodulename")
-    private String storymodulename;
-
-    /**
-     * 
-     */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
-    private cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct ibzproProduct;
-
-    /**
-     * 
-     */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
-    private cn.ibizlab.pms.core.ibizpro.domain.IBZProStoryModule ibzproStorymodule;
-
-    /**
-     * 
-     */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
-    private cn.ibizlab.pms.core.zentao.domain.Story ztStory;
 
 
 
@@ -165,30 +99,6 @@ public class IBZProStory extends EntityMP implements Serializable {
     public void setIbzprostoryname(String ibzprostoryname){
         this.ibzprostoryname = ibzprostoryname ;
         this.modify("ibzpro_storyname",ibzprostoryname);
-    }
-
-    /**
-     * 设置 [产品（开发系统）标识]
-     */
-    public void setProduct(String product){
-        this.product = product ;
-        this.modify("product",product);
-    }
-
-    /**
-     * 设置 [需求模块标识]
-     */
-    public void setStorymodule(String storymodule){
-        this.storymodule = storymodule ;
-        this.modify("storymodule",storymodule);
-    }
-
-    /**
-     * 设置 [编号]
-     */
-    public void setPmsstory(BigInteger pmsstory){
-        this.pmsstory = pmsstory ;
-        this.modify("pmsstory",pmsstory);
     }
 
 

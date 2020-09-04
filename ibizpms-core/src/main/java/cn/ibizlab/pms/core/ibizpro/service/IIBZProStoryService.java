@@ -38,12 +38,6 @@ public interface IIBZProStoryService extends IService<IBZProStory>{
     boolean save(IBZProStory et) ;
     void saveBatch(List<IBZProStory> list) ;
     Page<IBZProStory> searchDefault(IBZProStorySearchContext context) ;
-    List<IBZProStory> selectByProduct(String ibzpro_productid) ;
-    void removeByProduct(String ibzpro_productid) ;
-    List<IBZProStory> selectByStorymodule(String ibzprostorymoduleid) ;
-    void removeByStorymodule(String ibzprostorymoduleid) ;
-    List<IBZProStory> selectByPmsstory(BigInteger id) ;
-    void removeByPmsstory(BigInteger id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
