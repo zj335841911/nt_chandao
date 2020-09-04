@@ -1934,6 +1934,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '87ca9109af86ed2745dcf7aa21294541',
+            viewmodule: 'ibizpro',
+            viewname: 'IBZProStoryModuleOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '8af65044ab1633eb5b68d99478e9350f',
             viewmodule: 'zentao',
             viewname: 'BugUsr2GridView',
@@ -3507,6 +3516,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '87ca9109af86ed2745dcf7aa21294541',
                 '500a15957867996d6e20e7a37db8b004',
             ],
         },

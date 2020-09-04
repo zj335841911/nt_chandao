@@ -1671,6 +1671,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryReleaseSubGridView",
             "viewtag": "87b3a9ce09500f304291ed2d69799d5e"
         },
+        "ibzprostorymoduleoptionview": {
+            "title": "需求模块选项操作视图同步",
+            "caption": "同步",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IBZProStoryModuleOptionView",
+            "viewtag": "87ca9109af86ed2745dcf7aa21294541"
+        },
         "bugusr2gridview": {
             "title": "Bug表格视图",
             "caption": "Bug",

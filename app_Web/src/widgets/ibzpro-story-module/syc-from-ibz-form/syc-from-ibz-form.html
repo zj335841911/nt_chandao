@@ -1,0 +1,37 @@
+<i-form :model="this.data" class='app-form' ref='form'  id='ibzprostorymodule_sycfromibz' style="">
+    <input style="display:none;" />
+    <row >
+            
+<i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.ibzprostorymodule.sycfromibz_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col class="form-layout-container" v-show="detailsModel.storytype.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='storytype' :itemRules="this.rules.storytype" class='' :caption="$t('entities.ibzprostorymodule.sycfromibz_form.details.storytype')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.storytype.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<dropdown-list 
+    v-model="data.storytype"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.storytype.disabled"
+    valueType="string"
+    tag='Ibizpro_storymodule__type'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    
+/>
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+
+
+    </row>
+</i-form>

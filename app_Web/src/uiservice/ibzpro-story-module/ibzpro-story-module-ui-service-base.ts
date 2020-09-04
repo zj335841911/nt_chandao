@@ -90,6 +90,7 @@ export default class IBZProStoryModuleUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'ibzprostorymodules',component:'ibzpro-story-module-edit-view'});
+        this.allViewMap.set(':',{viewname:'optionview',srfappde:'ibzprostorymodules',component:'ibzpro-story-module-option-view'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'ibzprostorymodules',component:'ibzpro-story-module-grid-view'});
     }
 
@@ -121,7 +122,8 @@ export default class IBZProStoryModuleUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async IBZProStoryModule_syncFromIBIZ(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async IBZProStoryModule_syncFromIBIZ(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
@@ -140,37 +142,20 @@ export default class IBZProStoryModuleUIServiceBase extends UIService {
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzprostorymodules', parameterName: 'ibzprostorymodule' },
+            { pathName: 'optionview', parameterName: 'optionview' },
+        ];
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+            return null;
         }
-        const backend = () => {
-            const curService:IBZProStoryModuleService =  new IBZProStoryModuleService();
-            curService.SyncFromIBIZ(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '同步成功！' });
-
-                const _this: any = actionContext;
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                }
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        backend();
+        openIndexViewTab(data);
     }
 
 

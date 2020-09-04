@@ -11314,6 +11314,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-test-left-sidebar-list-view/product-test-left-sidebar-list-view.vue'),
                 },
                 {
+                    path: 'ibzprostorymodules/:ibzprostorymodule?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.ibzprostorymodule.views.optionview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzprostorymodules', parameterName: 'ibzprostorymodule' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibzpro-story-module-option-view/ibzpro-story-module-option-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/plansubeditview/:plansubeditview?',
                     meta: {
                         caption: 'entities.story.views.plansubeditview.title',

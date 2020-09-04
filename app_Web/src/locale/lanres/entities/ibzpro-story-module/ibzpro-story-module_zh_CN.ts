@@ -16,9 +16,31 @@ export default {
 			caption: "需求模块",
       		title: "需求模块编辑视图",
 		},
+		optionview: {
+			caption: "同步",
+      		title: "需求模块选项操作视图同步",
+		},
 		gridview: {
 			caption: "需求模块",
       		title: "需求模块表格视图",
+		},
+	},
+	sycfromibz_form: {
+		details: {
+			group1: "需求模块基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "id", 
+			srfmajortext: "名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			storytype: "需求模块类型", 
+			type: "类型", 
+			id: "id", 
+		},
+		uiactions: {
 		},
 	},
 	main_form: {

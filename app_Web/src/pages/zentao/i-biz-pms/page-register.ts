@@ -285,6 +285,7 @@ export const PageComponents = {
         Vue.component('story-close-view', () => import('@pages/zentao/story-close-view/story-close-view.vue'));
         Vue.component('bug-close-view', () => import('@pages/zentao/bug-close-view/bug-close-view.vue'));
         Vue.component('product-test-left-sidebar-list-view', () => import('@pages/zentao/product-test-left-sidebar-list-view/product-test-left-sidebar-list-view.vue'));
+        Vue.component('ibzpro-story-module-option-view', () => import('@pages/ibizpro/ibzpro-story-module-option-view/ibzpro-story-module-option-view.vue'));
         Vue.component('story-plan-sub-edit-view', () => import('@pages/zentao/story-plan-sub-edit-view/story-plan-sub-edit-view.vue'));
         Vue.component('test-result-edit-view9', () => import('@pages/zentao/test-result-edit-view9/test-result-edit-view9.vue'));
         Vue.component('project-test-tab-exp-view', () => import('@pages/zentao/project-test-tab-exp-view/project-test-tab-exp-view.vue'));
