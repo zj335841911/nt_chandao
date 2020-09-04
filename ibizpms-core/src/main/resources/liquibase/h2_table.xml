@@ -875,6 +875,8 @@
                 </column>
                 <column name="ROOT" remarks="" type="BIGINT">
                 </column>
+                <column name="IBIZ_ID" remarks="" type="VARCHAR(100)">
+                </column>
                 <column name="STORYTYPE" remarks="" type="VARCHAR(60)">
                 </column>
                 <column name="TYPE" remarks="" type="VARCHAR(30)">

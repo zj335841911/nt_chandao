@@ -208,7 +208,6 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
                 et.setIbzproproduct(majorEntity);
                 ibzproproduct=majorEntity;
             }
-            et.setIbizid(ibzproproduct.getIbizid());
             et.setProductname(ibzproproduct.getName());
         }
     }

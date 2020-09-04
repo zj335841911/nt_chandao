@@ -65,7 +65,8 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     /**
      * IBIZ标识
      */
-    @TableField(exist = false)
+    @DEField(name = "ibiz_id")
+    @TableField(value = "ibiz_id")
     @JSONField(name = "ibizid")
     @JsonProperty("ibizid")
     private String ibizid;
@@ -155,6 +156,14 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     public void setRoot(BigInteger root){
         this.root = root ;
         this.modify("root",root);
+    }
+
+    /**
+     * 设置 [IBIZ标识]
+     */
+    public void setIbizid(String ibizid){
+        this.ibizid = ibizid ;
+        this.modify("ibiz_id",ibizid);
     }
 
     /**

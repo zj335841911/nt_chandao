@@ -58,7 +58,7 @@ export default class SycFromIbzModel {
       {
         name: 'ibiz_id',
         prop: 'ibizid',
-        dataType: 'PICKUPDATA',
+        dataType: 'TEXT',
       },
       {
         name: 'productname',

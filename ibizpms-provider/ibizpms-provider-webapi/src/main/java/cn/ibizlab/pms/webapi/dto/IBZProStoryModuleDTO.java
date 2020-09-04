@@ -130,6 +130,14 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [IBIZ_ID]
+     */
+    public void setIbizid(String  ibizid){
+        this.ibizid = ibizid ;
+        this.modify("ibiz_id",ibizid);
+    }
+
+    /**
      * 设置 [STORYTYPE]
      */
     public void setStorytype(String  storytype){
