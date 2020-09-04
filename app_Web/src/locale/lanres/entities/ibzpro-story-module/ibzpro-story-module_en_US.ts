@@ -38,6 +38,8 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			storytype: "需求模块类型", 
+			ibiz_id: "IBIZ标识", 
+			root: "编号", 
 			type: "类型", 
 			id: "id", 
 		},

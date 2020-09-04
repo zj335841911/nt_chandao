@@ -56,6 +56,16 @@ export default class SycFromIbzModel {
         dataType: 'SSCODELIST',
       },
       {
+        name: 'ibiz_id',
+        prop: 'ibizid',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'root',
+        prop: 'root',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'type',
         prop: 'type',
         dataType: 'SSCODELIST',
