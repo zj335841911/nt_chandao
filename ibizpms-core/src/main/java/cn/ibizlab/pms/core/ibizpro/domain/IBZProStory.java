@@ -77,6 +77,34 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JSONField(name = "ibizid")
     @JsonProperty("ibizid")
     private String ibizid;
+    /**
+     * 需求来源
+     */
+    @TableField(value = "source")
+    @JSONField(name = "source")
+    @JsonProperty("source")
+    private String source;
+    /**
+     * 来源备注
+     */
+    @TableField(value = "sourcenote")
+    @JSONField(name = "sourcenote")
+    @JsonProperty("sourcenote")
+    private String sourcenote;
+    /**
+     * 来源对象标识
+     */
+    @TableField(value = "sourceid")
+    @JSONField(name = "sourceid")
+    @JsonProperty("sourceid")
+    private String sourceid;
+    /**
+     * 来源对象名称
+     */
+    @TableField(value = "sourcename")
+    @JSONField(name = "sourcename")
+    @JsonProperty("sourcename")
+    private String sourcename;
 
     /**
      * 产品
@@ -126,6 +154,38 @@ public class IBZProStory extends EntityMP implements Serializable {
     public void setIbizid(String ibizid){
         this.ibizid = ibizid ;
         this.modify("ibiz_id",ibizid);
+    }
+
+    /**
+     * 设置 [需求来源]
+     */
+    public void setSource(String source){
+        this.source = source ;
+        this.modify("source",source);
+    }
+
+    /**
+     * 设置 [来源备注]
+     */
+    public void setSourcenote(String sourcenote){
+        this.sourcenote = sourcenote ;
+        this.modify("sourcenote",sourcenote);
+    }
+
+    /**
+     * 设置 [来源对象标识]
+     */
+    public void setSourceid(String sourceid){
+        this.sourceid = sourceid ;
+        this.modify("sourceid",sourceid);
+    }
+
+    /**
+     * 设置 [来源对象名称]
+     */
+    public void setSourcename(String sourcename){
+        this.sourcename = sourcename ;
+        this.modify("sourcename",sourcename);
     }
 
 

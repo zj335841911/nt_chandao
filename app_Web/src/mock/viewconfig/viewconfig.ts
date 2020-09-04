@@ -111,6 +111,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductLifeRoadMapListView",
             "viewtag": "07327890c326f9c806b9343f0c660fc1"
         },
+        "ibzprostorygridview": {
+            "title": "需求表格视图",
+            "caption": "需求",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IBZProStoryGridView",
+            "viewtag": "077af636991c5ae68e1bc260baffc10f"
+        },
         "producthtmlview": {
             "title": "iBiz软件生产管理",
             "caption": "iBiz软件生产管理",
@@ -1358,6 +1366,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseCurSuitGridView",
             "viewtag": "74e206764fd747fa31467bd5a9f371df"
+        },
+        "ibzprostoryeditview": {
+            "title": "需求编辑视图",
+            "caption": "需求",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IBZProStoryEditView",
+            "viewtag": "75ddfe042245299b90c10c572b3d9436"
         },
         "storytabexpview": {
             "title": "需求分页导航视图",

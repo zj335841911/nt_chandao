@@ -64,6 +64,38 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     @JsonProperty("ibizid")
     private String ibizid;
 
+    /**
+     * 属性 [SOURCE]
+     *
+     */
+    @JSONField(name = "source")
+    @JsonProperty("source")
+    private String source;
+
+    /**
+     * 属性 [SOURCENOTE]
+     *
+     */
+    @JSONField(name = "sourcenote")
+    @JsonProperty("sourcenote")
+    private String sourcenote;
+
+    /**
+     * 属性 [SOURCEID]
+     *
+     */
+    @JSONField(name = "sourceid")
+    @JsonProperty("sourceid")
+    private String sourceid;
+
+    /**
+     * 属性 [SOURCENAME]
+     *
+     */
+    @JSONField(name = "sourcename")
+    @JsonProperty("sourcename")
+    private String sourcename;
+
 
     /**
      * 设置 [TITLE]
@@ -95,6 +127,38 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     public void setIbizid(String  ibizid){
         this.ibizid = ibizid ;
         this.modify("ibiz_id",ibizid);
+    }
+
+    /**
+     * 设置 [SOURCE]
+     */
+    public void setSource(String  source){
+        this.source = source ;
+        this.modify("source",source);
+    }
+
+    /**
+     * 设置 [SOURCENOTE]
+     */
+    public void setSourcenote(String  sourcenote){
+        this.sourcenote = sourcenote ;
+        this.modify("sourcenote",sourcenote);
+    }
+
+    /**
+     * 设置 [SOURCEID]
+     */
+    public void setSourceid(String  sourceid){
+        this.sourceid = sourceid ;
+        this.modify("sourceid",sourceid);
+    }
+
+    /**
+     * 设置 [SOURCENAME]
+     */
+    public void setSourcename(String  sourcename){
+        this.sourcename = sourcename ;
+        this.modify("sourcename",sourcename);
     }
 
 
