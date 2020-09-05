@@ -106,16 +106,26 @@
     :disabled="detailsModel.linename.disabled"
     :error="detailsModel.linename.error" 
     :isEmptyCaption="false">
-        !!!!模版产生代码错误:----
-Tip: It's the step after the last dot that caused this error, not those before it.
-----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if editor.getPSCodeList()??  [in template "TEMPLCODE_en_US" at line 91, column 5]
-----
+        <app-mob-select-drop-down 
+    name='linename' 
+    deMajorField='name'
+    deKeyField='moduleid'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    :viewparams="viewparams"
+    :itemParam='{ }' 
+    :disabled="detailsModel.linename.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'module', interfaceName: 'FetchLine'}"
+    :value="data.linename" 
+    @change="($event)=>this.data.linename = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 

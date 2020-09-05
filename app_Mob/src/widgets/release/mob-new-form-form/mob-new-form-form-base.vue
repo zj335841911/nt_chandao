@@ -30,16 +30,26 @@
     :disabled="detailsModel.productname.disabled"
     :error="detailsModel.productname.error" 
     :isEmptyCaption="false">
-        !!!!模版产生代码错误:----
-Tip: It's the step after the last dot that caused this error, not those before it.
-----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if editor.getPSCodeList()??  [in template "TEMPLCODE_en_US" at line 91, column 5]
-----
+        <app-mob-select-drop-down 
+    name='productname' 
+    deMajorField='name'
+    deKeyField='productid'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    :viewparams="viewparams"
+    :itemParam='{ }' 
+    :disabled="detailsModel.productname.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'product', interfaceName: 'FetchDefault'}"
+    :value="data.productname" 
+    @change="($event)=>this.data.productname = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
@@ -128,16 +138,26 @@ FTL stack trace ("~" means nesting-related):
     :disabled="detailsModel.buildname.disabled"
     :error="detailsModel.buildname.error" 
     :isEmptyCaption="false">
-        !!!!模版产生代码错误:----
-Tip: It's the step after the last dot that caused this error, not those before it.
-----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if editor.getPSCodeList()??  [in template "TEMPLCODE_en_US" at line 91, column 5]
-----
+        <app-mob-select-drop-down 
+    name='buildname' 
+    deMajorField='name'
+    deKeyField='buildid'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    :viewparams="viewparams"
+    :itemParam='{ }' 
+    :disabled="detailsModel.buildname.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'build', interfaceName: 'FetchDefault'}"
+    :value="data.buildname" 
+    @change="($event)=>this.data.buildname = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 

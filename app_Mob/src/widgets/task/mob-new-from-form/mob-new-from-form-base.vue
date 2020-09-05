@@ -30,16 +30,26 @@
     :disabled="detailsModel.projectname.disabled"
     :error="detailsModel.projectname.error" 
     :isEmptyCaption="false">
-        !!!!模版产生代码错误:----
-Tip: It's the step after the last dot that caused this error, not those before it.
-----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if editor.getPSCodeList()??  [in template "TEMPLCODE_en_US" at line 91, column 5]
-----
+        <app-mob-select-drop-down 
+    name='projectname' 
+    deMajorField='name'
+    deKeyField='projectid'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    :viewparams="viewparams"
+    :itemParam='{ }' 
+    :disabled="detailsModel.projectname.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'project', interfaceName: 'FetchCurUser'}"
+    :value="data.projectname" 
+    @change="($event)=>this.data.projectname = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
@@ -90,16 +100,26 @@ FTL stack trace ("~" means nesting-related):
     :disabled="detailsModel.modulename.disabled"
     :error="detailsModel.modulename.error" 
     :isEmptyCaption="false">
-        !!!!模版产生代码错误:----
-Tip: It's the step after the last dot that caused this error, not those before it.
-----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if editor.getPSCodeList()??  [in template "TEMPLCODE_en_US" at line 91, column 5]
-----
+        <app-mob-select-drop-down 
+    name='modulename' 
+    deMajorField='name'
+    deKeyField='projectmoduleid'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :navigateContext ='{ "project": "%project%", "allmodules": "%allmodules%" } '
+    :navigateParam ='{ "project": "%project%", "allmodules": "%allmodules%" } '
+    :viewparams="viewparams"
+    :itemParam='{ }' 
+    :disabled="detailsModel.modulename.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'projectmodule', interfaceName: 'FetchTaskModules'}"
+    :value="data.modulename" 
+    @change="($event)=>this.data.modulename = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
@@ -174,16 +194,26 @@ FTL stack trace ("~" means nesting-related):
     :disabled="detailsModel.storyname.disabled"
     :error="detailsModel.storyname.error" 
     :isEmptyCaption="false">
-        !!!!模版产生代码错误:----
-Tip: It's the step after the last dot that caused this error, not those before it.
-----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if editor.getPSCodeList()??  [in template "TEMPLCODE_en_US" at line 91, column 5]
-----
+        <app-mob-select-drop-down 
+    name='storyname' 
+    deMajorField='title'
+    deKeyField='storyid'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :navigateContext ='{ "n_module_eq": "%module%", "project": "%project%" } '
+    :navigateParam ='{ "project": "%project%", "n_module_eq": "%module%" } '
+    :viewparams="viewparams"
+    :itemParam='{ }' 
+    :disabled="detailsModel.storyname.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'story', interfaceName: 'FetchTaskRelatedStory'}"
+    :value="data.storyname" 
+    @change="($event)=>this.data.storyname = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
