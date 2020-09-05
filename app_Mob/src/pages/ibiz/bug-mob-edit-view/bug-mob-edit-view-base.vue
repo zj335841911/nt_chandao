@@ -61,7 +61,7 @@
             </ion-fab-button>
         
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_activationmob.visabled" :disabled="righttoolbarModels.deuiaction1_activationmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_activationmob' }, $event)">
-                <ion-icon name="pin"></ion-icon>
+                <ion-icon name="color-wand"></ion-icon>
             {{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_activationmob.caption')}}    
             </ion-fab-button>
         
