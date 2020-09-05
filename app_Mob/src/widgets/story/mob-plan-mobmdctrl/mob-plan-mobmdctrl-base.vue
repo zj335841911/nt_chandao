@@ -100,7 +100,7 @@
                     loadingText="正在加载数据">
                 </ion-infinite-scroll-content>
             </ion-infinite-scroll>    
-            <div class="pic" v-if="items.length == 0"><div class="text">暂无数据</div><img src="@/../public/assets/images/no-data.svg" /> </div>
+            <div class="no-data" v-if="items.length == 0">暂无数据</div>
           </van-pull-refresh>
         </div>
     </div>

@@ -4,7 +4,7 @@
           <van-pull-refresh class="app-mob-mdctrl-refresh" v-model="isLoading" success-text="刷新成功"  @refresh="refresh" :disabled="!isEnableRefresh">
                     <app-list-index :items="items" @clickItem="item_click"></app-list-index>
 
-            <div class="pic" v-if="items.length == 0"><div class="text">暂无数据</div><img src="@/../public/assets/images/no-data.svg" /> </div>
+            <div class="no-data" v-if="items.length == 0">暂无数据</div>
           </van-pull-refresh>
         </div>
     </div>
