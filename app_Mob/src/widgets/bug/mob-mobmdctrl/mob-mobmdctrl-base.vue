@@ -4,6 +4,6 @@ Tip: If the failing expression is known to be legally refer to something that's 
 
 ----
 FTL stack trace ("~" means nesting-related):
-	- Failed at: #if item.getPSSysImage().getCssClass?...  [in template "TEMPLCODE_en_US" in macro "setIcon" at line 580, column 1]
+	- Failed at: #if item.getPSSysImage?? && item.getP...  [in template "TEMPLCODE_en_US" in macro "setIcon" at line 580, column 1]
 	- Reached through: @setIcon item  [in template "TEMPLCODE_en_US" at line 1445, column 330]
 ----
