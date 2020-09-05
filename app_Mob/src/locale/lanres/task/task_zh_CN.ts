@@ -304,8 +304,8 @@ export default {
 			tip: '删除',
 		},
 	},
-	favoritemobmdviewrighttoolbar_toolbar: {
-	},
 	assmobmdviewrighttoolbar_toolbar: {
+	},
+	favoritemobmdviewrighttoolbar_toolbar: {
 	},
 };

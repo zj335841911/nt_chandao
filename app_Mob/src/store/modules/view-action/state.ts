@@ -104,7 +104,7 @@ export const viewstate: any = {
                 '86fe20f86bf10c309e08f52cf7259b9d',
                 'e643a925b1d0dab04ef917b973354baa',
                 'af40519acfe1bc985738eb3f0ff91a24',
-                '1afb3df498f4daa660709cca53ece0b2',
+                '70d570ae5cafd7af092084e6d0e6b2f7',
                 '5d43b04926a6169dfa0d6e8c35d1918b',
             ],
         },
@@ -496,6 +496,20 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '16bfeba2aa5ae0287f8821660cf2dc78',
+            ],
+        },
+        {
+            viewtag: '70d570ae5cafd7af092084e6d0e6b2f7',
+            viewmodule: 'ibiz',
+            viewname: 'IbzMyTerritoryMobDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'a784b546d5d05850930cbaf23f8727a1',
+                '6e91454cb4217d3aa1260161a539c803',
+                '899ab4d4cfc33b089a9c4aa5118acbf3',
+                'a4a6fd9906bc1ecaac85b44ffcc466fe',
+                '8d13feb9b1401f28a033fec23ffd7e90',
             ],
         },
         {
