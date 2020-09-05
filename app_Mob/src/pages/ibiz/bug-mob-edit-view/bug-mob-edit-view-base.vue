@@ -56,10 +56,12 @@
             </ion-fab-button>
         
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_confirmbugmob.visabled" :disabled="righttoolbarModels.deuiaction1_confirmbugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_confirmbugmob' }, $event)">
+                <ion-icon name="check-square-o"></ion-icon>
             {{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmbugmob.caption')}}    
             </ion-fab-button>
         
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_activationmob.visabled" :disabled="righttoolbarModels.deuiaction1_activationmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_activationmob' }, $event)">
+                <ion-icon name="pin"></ion-icon>
             {{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_activationmob.caption')}}    
             </ion-fab-button>
         
@@ -68,6 +70,7 @@
             </ion-fab-button>
         
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_closebugmob.visabled" :disabled="righttoolbarModels.deuiaction1_closebugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closebugmob' }, $event)">
+                <ion-icon name="close"></ion-icon>
             {{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_closebugmob.caption')}}    
             </ion-fab-button>
         
