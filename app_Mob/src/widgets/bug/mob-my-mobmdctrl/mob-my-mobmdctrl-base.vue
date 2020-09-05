@@ -1242,9 +1242,9 @@ export default class Mob_MyBase extends Vue implements ControlInterface {
      */  
     public ActionModel:any ={
         AssingToBugMob: { name: 'AssingToBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_ASSIGNTO_BUT', target: 'SINGLEKEY',icon:'hand-o-right',isShowCaption:false,isShowIcon:true},
-        ConfirmBugMob: { name: 'ConfirmBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CONFIRM_BUT', target: 'SINGLEKEY',icon:'check-square-o',isShowCaption:false,isShowIcon:true},
+        ConfirmBugMob: { name: 'ConfirmBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CONFIRM_BUT', target: 'SINGLEKEY',icon:'eye',isShowCaption:false,isShowIcon:true},
         ActivationMob: { name: 'ActivationMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_ACTIVATE_BUT', target: 'SINGLEKEY',icon:'pin',isShowCaption:false,isShowIcon:true},
-        ResolveBugMob: { name: 'ResolveBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', target: 'SINGLEKEY',icon:'',isShowCaption:false,isShowIcon:true},
+        ResolveBugMob: { name: 'ResolveBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', target: 'SINGLEKEY',icon:'check-square-o',isShowCaption:false,isShowIcon:true},
         CloseBugMob: { name: 'CloseBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CLOSE_BUT', target: 'SINGLEKEY',icon:'close',isShowCaption:false,isShowIcon:true}
     };
 
