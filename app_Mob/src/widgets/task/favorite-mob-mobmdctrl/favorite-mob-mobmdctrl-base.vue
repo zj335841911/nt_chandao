@@ -308,6 +308,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     }
 
 
+
     /**
      * 视图类型
      *

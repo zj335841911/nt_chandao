@@ -344,6 +344,7 @@ export default class MobBase extends Vue implements ControlInterface {
     }
 
 
+
     /**
      * 视图类型
      *
@@ -1174,8 +1175,8 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
-        ProductTop: { name: 'ProductTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', target: 'SINGLEKEY',icon:'fa fa-hand-o-up',isShowCaption:true,isShowIcon:true},
-        CancelProductTop: { name: 'CancelProductTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'TOP', target: 'SINGLEKEY',icon:'fa fa-hand-o-down',isShowCaption:true,isShowIcon:true},
+        ProductTop: { name: 'ProductTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', target: 'SINGLEKEY',icon:'hand-o-up',isShowCaption:true,isShowIcon:true},
+        CancelProductTop: { name: 'CancelProductTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'TOP', target: 'SINGLEKEY',icon:'hand-o-down',isShowCaption:true,isShowIcon:true},
         CloseProductMob: { name: 'CloseProductMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_CLOSED_BUT', target: 'SINGLEKEY',icon:'power',isShowCaption:true,isShowIcon:true},
         deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_DELETE_BUT', target: 'SINGLEKEY',icon:'close',isShowCaption:true,isShowIcon:true}
     };

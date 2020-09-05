@@ -312,6 +312,7 @@ export default class MobBase extends Vue implements ControlInterface {
     }
 
 
+
     /**
      * 视图类型
      *
@@ -1139,10 +1140,10 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
-        ProjectTop: { name: 'ProjectTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', target: 'SINGLEKEY',icon:'fa fa-hand-o-up',isShowCaption:true,isShowIcon:true},
-        CancelProjectTop: { name: 'CancelProjectTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'TOP', target: 'SINGLEKEY',icon:'fa fa-hand-o-down',isShowCaption:true,isShowIcon:true},
+        ProjectTop: { name: 'ProjectTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', target: 'SINGLEKEY',icon:'hand-o-up',isShowCaption:true,isShowIcon:true},
+        CancelProjectTop: { name: 'CancelProjectTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'TOP', target: 'SINGLEKEY',icon:'hand-o-down',isShowCaption:true,isShowIcon:true},
         deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_DELETE_BUT', target: 'SINGLEKEY',icon:'close',isShowCaption:true,isShowIcon:true},
-        Exit: { name: 'Exit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: '',icon:'fa fa-sign-out',}
+        Exit: { name: 'Exit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: '',icon:'sign-out',}
     };
 
     

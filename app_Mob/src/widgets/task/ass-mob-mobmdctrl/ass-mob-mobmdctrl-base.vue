@@ -440,6 +440,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
     }
 
 
+
     /**
      * 视图类型
      *

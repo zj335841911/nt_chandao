@@ -275,6 +275,7 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
     }
 
 
+
     /**
      * 视图类型
      *

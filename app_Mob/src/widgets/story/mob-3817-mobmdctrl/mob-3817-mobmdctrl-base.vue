@@ -238,6 +238,7 @@ export default class Mob_3817Base extends Vue implements ControlInterface {
     }
 
 
+
     /**
      * 视图类型
      *

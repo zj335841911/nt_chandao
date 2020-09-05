@@ -407,6 +407,7 @@ export default class MobBase extends Vue implements ControlInterface {
     }
 
 
+
     /**
      * 视图类型
      *
