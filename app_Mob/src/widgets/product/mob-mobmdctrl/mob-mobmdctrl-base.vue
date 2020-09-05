@@ -82,6 +82,7 @@
     </div>
 </template>
 
+
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
@@ -342,7 +343,6 @@ export default class MobBase extends Vue implements ControlInterface {
         let _this: any = this;
         _this.$emit('closeview', args);
     }
-
 
 
     /**
