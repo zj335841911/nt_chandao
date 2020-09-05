@@ -2,7 +2,7 @@
      <div v-if="overload" class="app-mobile-select-drop-down">
         <div class="cancel-icon" v-if="curvalue"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
         <div v-if="curvalue== null || curvalue==''" class="ion-select-icon"></div>
-        <ion-select :value="curvalue"  :disabled="disabled " @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
+        <ion-select :value="curvalue"  :disabled="disabled " @click="onSearch" @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
             <ion-select-option  v-for="option of items" :key="option.value" :value="option.value">{{option.text}}</ion-select-option>
         </ion-select>
     </div>   
@@ -23,17 +23,6 @@ export default class AppSelectDropDown extends Vue {
      * @memberof AppSelectDropDown
      */
     @Prop() public context!: any;
-
-    /**
-     * 监听context
-     * @memberof AppSelectDropDown
-     */
-    @Watch('context')
-    onContextChange(){
-        if (Object.is(this.editortype, 'dropdown')) {
-            this.onSearch(null, true);
-        }
-    }
 
     /**
      * 视图参数
@@ -165,6 +154,23 @@ export default class AppSelectDropDown extends Vue {
     @Prop({ default: {} }) protected navigateContext?: any;
 
     /**
+     * 表单请求完成
+     *
+     * @type {*}
+     * @memberof AppSelectDropDown
+     */
+    @Prop() public dataOverLoad?: any;
+
+    /**
+     * 监听表单请求完成
+     * @memberof AppSelectDropDown
+     */
+    @Watch("dataOverLoad")
+    onDataOverLoadChange(newVal: any, oldVal: any){
+        this.onSearch();
+    }
+
+    /**
      * 当前值
      *
      * @type {string}
@@ -271,17 +277,7 @@ export default class AppSelectDropDown extends Vue {
      * @memberof AppSelectDropDown
      */
     public mounted() {
-           if (Object.is(this.editortype, 'dropdown')) {
-            this.onSearch(null, true);
-        }
-    }
-
-    /**
-     * 组件销毁
-     *
-     * @memberof AppSelectDropDown
-     */
-    public destroyed(): void {
+        this.onSearch(null, true);
     }
 
     /**
@@ -299,7 +295,7 @@ export default class AppSelectDropDown extends Vue {
      * @param query 
      * @param callback 
      */
-    public async onSearch(query: any, other: boolean): Promise<any> {
+    public async onSearch(query: any = {}, other: boolean = false): Promise<any> {
         // 公共参数处理
         let data: any = {};
         const bcancel: boolean = this.handlePublicParams(data);
@@ -332,10 +328,6 @@ export default class AppSelectDropDown extends Vue {
             }
         }
     }
-
-
-
-
 
 
     /**

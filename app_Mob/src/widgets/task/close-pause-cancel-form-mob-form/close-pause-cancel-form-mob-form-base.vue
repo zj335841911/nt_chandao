@@ -222,6 +222,12 @@ export default class ClosePauseCancelFormMobBase extends Vue implements ControlI
         _this.$emit('closeview', args);
     }
 
+    /**
+     * 加载完成
+     *
+     * @memberof ClosePauseCancelFormMob
+     */
+    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -1215,6 +1221,7 @@ export default class ClosePauseCancelFormMobBase extends Vue implements ControlI
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
+            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

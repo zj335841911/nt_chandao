@@ -386,6 +386,12 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
         _this.$emit('closeview', args);
     }
 
+    /**
+     * 加载完成
+     *
+     * @memberof CompleteFormMob
+     */
+    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -1518,6 +1524,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
+            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
