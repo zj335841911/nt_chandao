@@ -327,15 +327,50 @@ export default class AssMobBase extends Vue implements ControlInterface {
      * @memberof AssMob
      */
     protected async load(data: any, type: any): Promise<any> {
-        const response: any = await this.service.search(this.fetchAction, this.context, data, this.showBusyIndicator);
-        if (response && response.status === 200) {
-            let datelist = response.data.records;
-            this.formatdate(datelist);
-            this.$emit("load",this.items);
-        } else if (response && response.status !== 401) {
-            const { data: _data } = response;
-            this.$notice.error(_data.message)
+        if (!data.page) {
+            Object.assign(data, { page: this.pageNumber });
         }
+        if (!data.size) {
+            Object.assign(data, { size: this.pageSize });
+        }
+        //部件排序
+        if(this.sort){
+​           Object.assign(data,this.sort);
+        }
+        //视图排序
+        if(data.data && data.data.sort){
+            Object.assign(data, { sort:data.data.sort });
+        }
+        const parentdata: any = {};
+        this.$emit('beforeload', parentdata);
+        Object.assign(data, parentdata);
+        let tempViewParams:any = parentdata.viewparams?parentdata.viewparams:{};
+        Object.assign(tempViewParams,JSON.parse(JSON.stringify(this.viewparams)));
+        Object.assign(data,{viewparams:tempViewParams});
+        const response: any = await this.service.search(this.fetchAction, this.context, data, this.showBusyIndicator);
+        if (!response || response.status !== 200) {
+            this.$notify({ type: 'danger', message: response.error.message });
+            return response;
+        }
+
+        this.$emit('load', (response.data && response.data.records) ? response.data.records : []);
+        this.pageTotal = response.data.total;
+        if (type == 'top') {
+            this.items = [];
+            this.items = response.data.records;
+        } else if (type == 'bottom') {
+            for (let i = 0; i < response.data.records.length; i++) {
+                this.items.push(response.data.records[i]);
+            }
+        } else {
+            this.items = [];
+            this.items = response.data.records;
+        }
+        this.items.forEach((item:any)=>{
+            Object.assign(item,this.getActionState(item));    
+            this.setSlidingDisabled(item);
+        });
+        return response;
     }
 
     /**
