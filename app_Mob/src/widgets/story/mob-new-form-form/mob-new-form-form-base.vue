@@ -30,26 +30,16 @@
     :disabled="detailsModel.prodoctname.disabled"
     :error="detailsModel.prodoctname.error" 
     :isEmptyCaption="false">
-        <app-mob-select-drop-down 
-    name='prodoctname' 
-    deMajorField='name'
-    deKeyField='productid'
-    valueitem='' 
-    style="" 
-    editortype="dropdown" 
-    :formState="formState"
-    :data="data"
-    :context="context"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    :viewparams="viewparams"
-    :itemParam='{ }' 
-    :disabled="detailsModel.prodoctname.disabled"
-    :service="service"
-    :acParams="{ serviceName: 'product', interfaceName: 'FetchDefault'}"
-    :value="data.prodoctname" 
-    @change="($event)=>this.data.prodoctname = $event">
-</app-mob-select-drop-down>
+        !!!!模版产生代码错误:----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if editor.getPSCodeList()??  [in template "TEMPLCODE_en_US" at line 91, column 5]
+----
 </app-form-item>
 
 
@@ -100,26 +90,16 @@
     :disabled="detailsModel.modulename.disabled"
     :error="detailsModel.modulename.error" 
     :isEmptyCaption="false">
-        <app-mob-select-drop-down 
-    name='modulename' 
-    deMajorField='name'
-    deKeyField='productmoduleid'
-    valueitem='' 
-    style="" 
-    editortype="dropdown" 
-    :formState="formState"
-    :data="data"
-    :context="context"
-    :navigateContext ='{ "product": "%product%" } '
-    :navigateParam ='{ "product": "%product%" } '
-    :viewparams="viewparams"
-    :itemParam='{ }' 
-    :disabled="detailsModel.modulename.disabled"
-    :service="service"
-    :acParams="{ serviceName: 'productmodule', interfaceName: 'FetchStoryModule'}"
-    :value="data.modulename" 
-    @change="($event)=>this.data.modulename = $event">
-</app-mob-select-drop-down>
+        !!!!模版产生代码错误:----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: #if editor.getPSCodeList()??  [in template "TEMPLCODE_en_US" at line 91, column 5]
+----
 </app-form-item>
 
 
