@@ -353,8 +353,6 @@ export default {
 	},
 	mobmdviewrighttoolbar_toolbar: {
 	},
-	assmobmdviewrighttoolbar_toolbar: {
-	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: '保存',
@@ -366,6 +364,8 @@ export default {
 			caption: '新建',
 			tip: '新建',
 		},
+	},
+	assmobmdviewrighttoolbar_toolbar: {
 	},
 	confirmmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {

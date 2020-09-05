@@ -22,50 +22,6 @@
     @closeview="closeView($event)">
 </view_dashboard_sysportlet2>
             </ion-card>
-            <ion-card>
-            <view_dashboard_sysportlet3
-    :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
-    :viewparams="viewparams" 
-    :context="context" 
-    name="dashboard_sysportlet3"  
-    ref='dashboard_sysportlet3' 
-    @closeview="closeView($event)">
-</view_dashboard_sysportlet3>
-            </ion-card>
-            <ion-card>
-            <view_dashboard_sysportlet4
-    :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
-    :viewparams="viewparams" 
-    :context="context" 
-    name="dashboard_sysportlet4"  
-    ref='dashboard_sysportlet4' 
-    @closeview="closeView($event)">
-</view_dashboard_sysportlet4>
-            </ion-card>
-            <ion-card>
-            <view_dashboard_sysportlet5
-    :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
-    :viewparams="viewparams" 
-    :context="context" 
-    name="dashboard_sysportlet5"  
-    ref='dashboard_sysportlet5' 
-    @closeview="closeView($event)">
-</view_dashboard_sysportlet5>
-            </ion-card>
-            <ion-card>
-            <view_dashboard_sysportlet6
-    :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
-    :viewparams="viewparams" 
-    :context="context" 
-    name="dashboard_sysportlet6"  
-    ref='dashboard_sysportlet6' 
-    @closeview="closeView($event)">
-</view_dashboard_sysportlet6>
-            </ion-card>
     </ion-grid>
 </template>
 
