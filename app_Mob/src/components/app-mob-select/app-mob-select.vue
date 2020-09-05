@@ -123,6 +123,15 @@ export default class AppSelect extends Vue {
     @Prop({ default: {} }) protected context?: any;
 
     /**
+     * 监听context
+     * @memberof AppSelect
+     */
+    @Watch('context')
+    onContextChange(){
+      this.chooseData();
+    }
+
+    /**
      * 导航参数
      *
      * @type {*}
@@ -188,6 +197,14 @@ export default class AppSelect extends Vue {
      * mounted
      */
     public mounted() {
+        this.chooseData();
+    }
+
+    /**
+     * 选择加载数据方式
+     * @memberof AppSelect
+     */
+    public chooseData(){
         if (Object.is(this.codeListType, "STATIC")) {
             this.overload = true;
             this.options = this.$store.getters.getCodeListItems(this.tag);

@@ -25,6 +25,17 @@ export default class AppSelectDropDown extends Vue {
     @Prop() public context!: any;
 
     /**
+     * 监听context
+     * @memberof AppSelectDropDown
+     */
+    @Watch('context')
+    onContextChange(){
+        if (Object.is(this.editortype, 'dropdown')) {
+            this.onSearch(null, true);
+        }
+    }
+
+    /**
      * 视图参数
      *
      * @type {*}
@@ -259,18 +270,10 @@ export default class AppSelectDropDown extends Vue {
      *
      * @memberof AppSelectDropDown
      */
-    public created() {
-        if (Object.is(this.editortype, 'dropdown')) {
+    public mounted() {
+           if (Object.is(this.editortype, 'dropdown')) {
             this.onSearch(null, true);
         }
-    }
-
-    /**
-     * vue 生命周期
-     *
-     * @memberof AppSelectDropDown
-     */
-    public mounted() {
     }
 
     /**
