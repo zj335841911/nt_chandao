@@ -333,10 +333,6 @@ export default class AssMobBase extends Vue implements ControlInterface {
         if (!data.size) {
             Object.assign(data, { size: this.pageSize });
         }
-        //部件排序
-        if(this.sort){
-​           Object.assign(data,this.sort);
-        }
         //视图排序
         if(data.data && data.data.sort){
             Object.assign(data, { sort:data.data.sort });
@@ -366,10 +362,6 @@ export default class AssMobBase extends Vue implements ControlInterface {
             this.items = [];
             this.items = response.data.records;
         }
-        this.items.forEach((item:any)=>{
-            Object.assign(item,this.getActionState(item));    
-            this.setSlidingDisabled(item);
-        });
         return response;
     }
 
