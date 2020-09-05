@@ -128,6 +128,14 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JsonProperty("collector")
     private String collector;
 
+    /**
+     * 属性 [DELETED]
+     *
+     */
+    @JSONField(name = "deleted")
+    @JsonProperty("deleted")
+    private String deleted;
+
 
     /**
      * 设置 [NAME]

@@ -109,4 +109,12 @@ export interface IBZProStoryModule {
      * @memberof IBZProStoryModule
      */
     collector?: any;
+
+    /**
+     * 已删除
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    deleted?: any;
 }

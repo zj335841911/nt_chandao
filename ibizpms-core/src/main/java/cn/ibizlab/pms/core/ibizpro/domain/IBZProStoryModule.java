@@ -139,6 +139,14 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     @JSONField(name = "collector")
     @JsonProperty("collector")
     private String collector;
+    /**
+     * 已删除
+     */
+    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID)
+    @TableField(value = "deleted")
+    @JSONField(name = "deleted")
+    @JsonProperty("deleted")
+    private String deleted;
 
     /**
      * 产品

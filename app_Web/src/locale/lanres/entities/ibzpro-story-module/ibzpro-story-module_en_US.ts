@@ -14,6 +14,7 @@ export default {
     productname: "产品",
     owner: "owner",
     collector: "collector",
+    deleted: "已删除",
   },
 	views: {
 		editview: {
