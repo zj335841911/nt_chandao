@@ -326,7 +326,7 @@ public class IBZProStory extends EntityMP implements Serializable {
     @TableField(value = "duplicatestory")
     @JSONField(name = "duplicatestory")
     @JsonProperty("duplicatestory")
-    private String duplicatestory;
+    private Integer duplicatestory;
     /**
      * 来源Bug
      */
@@ -668,7 +668,7 @@ public class IBZProStory extends EntityMP implements Serializable {
     /**
      * 设置 [重复需求]
      */
-    public void setDuplicatestory(String duplicatestory){
+    public void setDuplicatestory(Integer duplicatestory){
         this.duplicatestory = duplicatestory ;
         this.modify("duplicatestory",duplicatestory);
     }

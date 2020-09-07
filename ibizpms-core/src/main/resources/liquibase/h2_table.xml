@@ -915,7 +915,7 @@
                 </column>
                 <column name="TOBUG" remarks="" type="INT">
                 </column>
-                <column name="DUPLICATESTORY" remarks="" type="VARCHAR(100)">
+                <column name="DUPLICATESTORY" remarks="" type="INT">
                 </column>
                 <column name="FROMBUG" remarks="" type="INT">
                 </column>

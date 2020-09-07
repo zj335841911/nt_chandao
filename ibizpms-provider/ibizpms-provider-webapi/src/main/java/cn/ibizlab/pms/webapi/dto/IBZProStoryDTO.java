@@ -339,7 +339,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "duplicatestory")
     @JsonProperty("duplicatestory")
-    private String duplicatestory;
+    private Integer duplicatestory;
 
     /**
      * 属性 [FROMBUG]
@@ -625,7 +625,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     /**
      * 设置 [DUPLICATESTORY]
      */
-    public void setDuplicatestory(String  duplicatestory){
+    public void setDuplicatestory(Integer  duplicatestory){
         this.duplicatestory = duplicatestory ;
         this.modify("duplicatestory",duplicatestory);
     }
