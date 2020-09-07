@@ -186,6 +186,30 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     @JsonProperty("stage")
     private String stage;
 
+    /**
+     * 属性 [PRI]
+     *
+     */
+    @JSONField(name = "pri")
+    @JsonProperty("pri")
+    private String pri;
+
+    /**
+     * 属性 [COLOR]
+     *
+     */
+    @JSONField(name = "color")
+    @JsonProperty("color")
+    private String color;
+
+    /**
+     * 属性 [PROJECT]
+     *
+     */
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    private String project;
+
 
     /**
      * 设置 [TITLE]
@@ -321,6 +345,22 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     public void setStage(String  stage){
         this.stage = stage ;
         this.modify("stage",stage);
+    }
+
+    /**
+     * 设置 [PRI]
+     */
+    public void setPri(String  pri){
+        this.pri = pri ;
+        this.modify("pri",pri);
+    }
+
+    /**
+     * 设置 [COLOR]
+     */
+    public void setColor(String  color){
+        this.color = color ;
+        this.modify("color",color);
     }
 
 

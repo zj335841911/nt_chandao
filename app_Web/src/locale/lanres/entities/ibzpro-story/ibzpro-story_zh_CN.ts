@@ -20,6 +20,9 @@ export default {
     status: "状态",
     type: "需求类型",
     stage: "需求阶段",
+    pri: "优先级",
+    color: "颜色",
+    project: "项目",
   },
 	views: {
 		gridview: {

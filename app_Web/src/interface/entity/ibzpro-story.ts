@@ -165,4 +165,28 @@ export interface IBZProStory {
      * @memberof IBZProStory
      */
     stage?: any;
+
+    /**
+     * 优先级
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    pri?: any;
+
+    /**
+     * 颜色
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    color?: any;
+
+    /**
+     * 项目
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    project?: any;
 }

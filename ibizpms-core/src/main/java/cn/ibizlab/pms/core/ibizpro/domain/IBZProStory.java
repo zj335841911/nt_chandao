@@ -191,6 +191,27 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JSONField(name = "stage")
     @JsonProperty("stage")
     private String stage;
+    /**
+     * 优先级
+     */
+    @TableField(value = "pri")
+    @JSONField(name = "pri")
+    @JsonProperty("pri")
+    private String pri;
+    /**
+     * 颜色
+     */
+    @TableField(value = "color")
+    @JSONField(name = "color")
+    @JsonProperty("color")
+    private String color;
+    /**
+     * 项目
+     */
+    @TableField(exist = false)
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    private String project;
 
     /**
      * 产品
@@ -354,6 +375,22 @@ public class IBZProStory extends EntityMP implements Serializable {
     public void setStage(String stage){
         this.stage = stage ;
         this.modify("stage",stage);
+    }
+
+    /**
+     * 设置 [优先级]
+     */
+    public void setPri(String pri){
+        this.pri = pri ;
+        this.modify("pri",pri);
+    }
+
+    /**
+     * 设置 [颜色]
+     */
+    public void setColor(String color){
+        this.color = color ;
+        this.modify("color",color);
     }
 
 

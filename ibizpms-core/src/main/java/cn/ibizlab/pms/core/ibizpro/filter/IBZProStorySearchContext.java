@@ -90,6 +90,20 @@ public class IBZProStorySearchContext extends QueryWrapperContext<IBZProStory> {
             this.getSearchCond().eq("stage", n_stage_eq);
         }
     }
+	private String n_pri_eq;//[优先级]
+	public void setN_pri_eq(String n_pri_eq) {
+        this.n_pri_eq = n_pri_eq;
+        if(!ObjectUtils.isEmpty(this.n_pri_eq)){
+            this.getSearchCond().eq("pri", n_pri_eq);
+        }
+    }
+	private String n_color_eq;//[颜色]
+	public void setN_color_eq(String n_color_eq) {
+        this.n_color_eq = n_color_eq;
+        if(!ObjectUtils.isEmpty(this.n_color_eq)){
+            this.getSearchCond().eq("color", n_color_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索
