@@ -51,7 +51,6 @@
             @showCheackChange="showCheackChange"
             :isTempMode="false"
             :isEnableChoose="false"
-            :isEnableRefresh="true"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  

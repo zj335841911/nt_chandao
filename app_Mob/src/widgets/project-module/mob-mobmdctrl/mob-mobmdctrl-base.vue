@@ -1,7 +1,6 @@
 <template>
     <div  class="app-mob-mdctrl projectmodule-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl">
-          <van-pull-refresh class="app-mob-mdctrl-refresh" v-model="isLoading" success-text="刷新成功"  @refresh="refresh" :disabled="!isEnableRefresh">
             <ion-list class="items">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
@@ -83,7 +82,6 @@
                 </template>
             </ion-list>
             <div class="no-data" v-if="items.length == 0">暂无数据</div>
-          </van-pull-refresh>
         </div>
     </div>
 </template>
@@ -325,14 +323,6 @@ export default class MobBase extends Vue implements ControlInterface {
     @Prop() public opendata?: Function; 
 
     /**
-    * 是否能下拉刷新
-    *
-    * @type {Function}
-    * @memberof Mob
-    */
-    @Prop({ default: true }) public isEnableRefresh?: Boolean;
-
-    /**
     * 是否能长按
     *
     * @type {Function}
@@ -364,14 +354,6 @@ export default class MobBase extends Vue implements ControlInterface {
     * @memberof Mob
     */
     @Prop({ default: false}) public isTempMode?:boolean;
-
-    /**
-    * 是否正在加载
-    *
-    * @type {boolean}
-    * @memberof Mob
-    */
-    public isLoading:boolean = true;
 
     /**
     * 存放多数据选择数组（多选）
@@ -649,13 +631,10 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mdctrl
      */
     public refresh(): Promise<any> {
-        this.isLoading = true;
         return new Promise((resolve: any, reject: any) => {
             this.load().then((res) => {
-                this.isLoading = false;
                 resolve(res);
             }).catch((error: any) => {
-                this.isLoading = false;
                 reject(error);
             })
         })
