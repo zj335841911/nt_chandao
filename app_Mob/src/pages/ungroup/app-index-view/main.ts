@@ -26,6 +26,7 @@ const pathToRegExp = require('path-to-regexp');
 import { AppComponents } from '@/app-register';
 import { PageComponents } from './page-register';
 import { UserComponent } from '@/user-register';
+import { PortletComponent } from '@/portlet-register';
 import store from '@/store';
 import router from './router';
 import { Interceptors } from '@/utils';
@@ -51,6 +52,7 @@ Vue.prototype.$pathToRegExp = pathToRegExp;
 Vue.use(AppComponents);
 Vue.use(PageComponents);
 Vue.use(UserComponent);
+Vue.use(PortletComponent);
 //富文本
 import 'quill/dist/quill.snow.css'
 import VueQuillEditor from 'vue-quill-editor'
