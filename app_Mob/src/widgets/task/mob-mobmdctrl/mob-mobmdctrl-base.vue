@@ -110,12 +110,6 @@
                     </ion-radio-group>
                 </template>
             </ion-list>
-            <ion-infinite-scroll v-if="viewType == 'DEMOBMDVIEW'" :disabled="allLoaded" ref="loadmoreBottom" @ionInfinite="loadBottom" distince="1%">
-                <ion-infinite-scroll-content
-                    loadingSpinner="bubbles"
-                    loadingText="正在加载数据">
-                </ion-infinite-scroll-content>
-            </ion-infinite-scroll>    
             <div class="no-data" v-if="items.length == 0">暂无数据</div>
           </van-pull-refresh>
         </div>

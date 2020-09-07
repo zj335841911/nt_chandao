@@ -25,8 +25,6 @@
             @load="dashboard_load($event)"  
             @closeview="closeView($event)">
         </view_dashboard>
-        
-        .ibzmyterritory-dashboard{}
     </ion-content>
 </ion-page>
 </template>

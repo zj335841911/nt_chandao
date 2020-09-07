@@ -83,6 +83,13 @@ public class ProductPlanSearchContext extends QueryWrapperContext<ProductPlan> {
             this.getSearchCond().eq("delta", n_delta_eq);
         }
     }
+	private String n_isexpired_eq;//[是否过期]
+	public void setN_isexpired_eq(String n_isexpired_eq) {
+        this.n_isexpired_eq = n_isexpired_eq;
+        if(!ObjectUtils.isEmpty(this.n_isexpired_eq)){
+            this.getSearchCond().eq("isexpired", n_isexpired_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

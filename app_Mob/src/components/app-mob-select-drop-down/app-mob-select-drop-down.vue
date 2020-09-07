@@ -2,7 +2,7 @@
      <div v-if="overload" class="app-mobile-select-drop-down">
         <div class="cancel-icon" v-if="curvalue"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
         <div v-if="curvalue== null || curvalue==''" class="ion-select-icon"></div>
-        <ion-select :value="curvalue"  :disabled="disabled " @click="onSearch" @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
+        <ion-select :value="curvalue"  :disabled="disabled " @click="onSearch(null)" @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
             <ion-select-option  v-for="option of items" :key="option.value" :value="option.value">{{option.text}}</ion-select-option>
         </ion-select>
     </div>   
