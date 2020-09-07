@@ -109,5 +109,7 @@ export const AppComponents = {
         v.component('app-list-index-text',() => import('@/components/app-list-index-text/app-list-index-text.vue'));
         // 富文本（模态）
         v.component('app-rich-text',() => import('@/components/app-rich-text/app-rich-text.vue'));
+        // 定制组件
+        v.component('app-customize',() => import('@/components/app-customize/app-customize.vue'));
     },
 };

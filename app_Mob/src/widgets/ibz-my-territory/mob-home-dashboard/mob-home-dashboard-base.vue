@@ -1,6 +1,6 @@
 <template>
     <ion-grid class="app-mob-dashboard ibzmyterritory-dashboard ">
-        <div v-show="isEnableCustomized" class="dashboard-enableCustomized">定制仪表盘<ion-icon name="settings-outline"></ion-icon></div>
+        <div v-show="isEnableCustomized" class="dashboard-enableCustomized" @click="openCustomized">定制仪表盘<ion-icon name="settings-outline"></ion-icon></div>
             <div class="dashboard-item">
             <view_dashboard_sysportlet1
     :viewState="viewState"
@@ -258,6 +258,15 @@ export default class MobHomeBase extends Vue implements ControlInterface {
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
         }
+    }
+
+    /**
+     * 打开定制仪表盘界面
+     *
+     * @memberof MobHome
+     */
+    public openCustomized() {
+        this.openPopupModal({ viewname: 'app-customize', title: 'app-customize'},{},{modelId:this.modelId,utilServiceName:this.utilServiceName});
     }
 
 }
