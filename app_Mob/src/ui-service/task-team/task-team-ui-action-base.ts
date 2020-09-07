@@ -89,6 +89,8 @@ export default class TaskTeamUIActionBase extends EntityUIActionBase {
      * @memberof  TaskTeamUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'mobeditview9',srfappde:'taskteams'});
+        this.allViewMap.set(':',{viewname:'mobmeditview9',srfappde:'taskteams'});
         this.allViewMap.set(':',{viewname:'mobmdview9',srfappde:'taskteams'});
     }
 

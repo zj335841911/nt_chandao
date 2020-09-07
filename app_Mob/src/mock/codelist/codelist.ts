@@ -419,6 +419,14 @@ const datas: Array<any> = [
         ]
     },
     {
+        "srfkey": "UserRealNameTask",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"User",
+        "appdedataset":"FetchProjectTeamUser_Task",
+        "items": []
+    },
+    {
         srfkey: 'Pri',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -2162,6 +2170,27 @@ const datas: Array<any> = [
                 label: '其他',
                 text: '其他',
                 value: 'others',
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Team__type',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'project',
+                label: '项目团队',
+                text: '项目团队',
+                value: 'project',
+                disabled: false,
+            },
+            {
+                id: 'task',
+                label: '任务团队',
+                text: '任务团队',
+                value: 'task',
                 disabled: false,
             },
         ]

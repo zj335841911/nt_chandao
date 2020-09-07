@@ -76,6 +76,9 @@ export default {
         ' release_changestatus_normal': '正常',
         empty: '',
     },
+    UserRealNameTask: {
+        empty: '',
+    },
     Pri: {
         '1': '一般',
         '2': '最高',
@@ -379,6 +382,11 @@ export default {
         'automation': '测试脚本',
         'designdefect': '设计缺陷',
         'others': '其他',
+        empty: '',
+    },
+    Team__type: {
+        'project': '项目团队',
+        'task': '任务团队',
         empty: '',
     },
     Zt__delta: {

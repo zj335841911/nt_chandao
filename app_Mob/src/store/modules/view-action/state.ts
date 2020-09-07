@@ -702,6 +702,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '99f684f22f1b774d72964f4419f16d8d',
+            viewmodule: 'ibiz',
+            viewname: 'TaskTeamMobEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '9a78bd0bf4ddaee8cfa25375dbd766c6',
             viewmodule: 'ibiz',
             viewname: 'BugAssignToMobEditView',
@@ -800,6 +809,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '75af8ee328e72edea074420d8daace01',
+            ],
+        },
+        {
+            viewtag: 'b33e569c1f501174e55e46274bf76406',
+            viewmodule: 'ibiz',
+            viewname: 'TaskTeamMobMEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '99f684f22f1b774d72964f4419f16d8d',
             ],
         },
         {
