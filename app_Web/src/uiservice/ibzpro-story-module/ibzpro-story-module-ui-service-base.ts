@@ -90,6 +90,7 @@ export default class IBZProStoryModuleUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'ibzprostorymodules',component:'ibzpro-story-module-edit-view'});
+        this.allViewMap.set(':',{viewname:'optionview',srfappde:'ibzprostorymodules',component:'ibzpro-story-module-option-view'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'ibzprostorymodules',component:'ibzpro-story-module-grid-view'});
     }
 
@@ -110,7 +111,7 @@ export default class IBZProStoryModuleUIServiceBase extends UIService {
     }
 
     /**
-     * 推送
+     * 同步
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -121,16 +122,14 @@ export default class IBZProStoryModuleUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async IBZProStoryModule_Push(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async IBZProStoryModule_syncFromIBIZ(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { ibzprostorymodule: '%ibzprostorymodule%' });
-        Object.assign(params, { ibzprostorymoduleid: '%ibzprostorymodule%' });
-        Object.assign(params, { ibzprostorymodulename: '%ibzprostorymodulename%' });
+        const actionTarget: string | null = 'NONE';
         if(_this.context){
             parentContext = _this.context;
         }
@@ -143,37 +142,30 @@ export default class IBZProStoryModuleUIServiceBase extends UIService {
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        const backend = () => {
-            const curService:IBZProStoryModuleService =  new IBZProStoryModuleService();
-            curService.Push(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '推送成功！' });
-
-                const _this: any = actionContext;
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                }
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        backend();
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzprostorymodules', parameterName: 'ibzprostorymodule' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'ibzpro-story-module-option-view', 
+                height: 500, 
+                width: 800,  
+                title: actionContext.$t('entities.ibzprostorymodule.views.optionview.title'),
+            };
+            openPopupModal(view, data);
     }
 
 

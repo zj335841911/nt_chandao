@@ -15,9 +15,7 @@
                         <ion-icon :name=" item.iconcls ? item.iconcls : 'home' ">
                         </ion-icon>
                         <ion-label>{{$t(`app.menus.${menuName}.${item.name}`)}}</ion-label>
-                        <template v-if="counterdata[item.counterid]">
-                            <ion-badge color="danger">{{counterdata[item.counterid]}}</ion-badge>
-                        </template>
+                        <ion-badge color="danger" v-if="counterServide && counterServide.counterData && counterServide.counterData[item.counterid]"><ion-label>{{counterServide.counterData[item.counterid]}}</ion-label></ion-badge>
                     </ion-tab-button>
                 </template>
             </template>
@@ -174,8 +172,15 @@ export default class AppMobMenuDefaultView extends Vue {
      * @memberof AppMobMenuDefaultView
      */
     public destroyed() {
-        this.counterdata = null;
+        this.counterServide.destroyCounter();
     }
+
+    /**
+     * 计数器
+     *
+     * @memberof AppMobMenuDefaultView
+     */
+    public counterServide:any = null;
 
     /**
      * 加载计数器数据
@@ -185,12 +190,7 @@ export default class AppMobMenuDefaultView extends Vue {
      */
     public async loadCounterData(): Promise<any> {
         const counterServiceConstructor = window.counterServiceConstructor;
-        const counterServide = await counterServiceConstructor.getService(this.counterName);
-        if (counterServide) {
-            setTimeout(() => {
-                this.counterdata = counterServide.counterData;
-            }, 1000);
-        }
+        this.counterServide = await counterServiceConstructor.getService(this.counterName);
     }
 
     /**

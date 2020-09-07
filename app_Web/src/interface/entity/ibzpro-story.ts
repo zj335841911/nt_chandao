@@ -7,12 +7,12 @@
 export interface IBZProStory {
 
     /**
-     * 建立时间
+     * 编号
      *
      * @returns {*}
      * @memberof IBZProStory
      */
-    createdate?: any;
+    id?: any;
 
     /**
      * 需求名称
@@ -20,55 +20,15 @@ export interface IBZProStory {
      * @returns {*}
      * @memberof IBZProStory
      */
-    ibzprostoryname?: any;
+    title?: any;
 
     /**
-     * 需求标识
+     * id
      *
      * @returns {*}
      * @memberof IBZProStory
      */
-    ibzprostoryid?: any;
-
-    /**
-     * 建立人
-     *
-     * @returns {*}
-     * @memberof IBZProStory
-     */
-    createman?: any;
-
-    /**
-     * 更新人
-     *
-     * @returns {*}
-     * @memberof IBZProStory
-     */
-    updateman?: any;
-
-    /**
-     * 更新时间
-     *
-     * @returns {*}
-     * @memberof IBZProStory
-     */
-    updatedate?: any;
-
-    /**
-     * 产品（开发系统）标识
-     *
-     * @returns {*}
-     * @memberof IBZProStory
-     */
-    product?: any;
-
-    /**
-     * 需求模块标识
-     *
-     * @returns {*}
-     * @memberof IBZProStory
-     */
-    storymodule?: any;
+    module?: any;
 
     /**
      * 编号
@@ -76,29 +36,53 @@ export interface IBZProStory {
      * @returns {*}
      * @memberof IBZProStory
      */
-    pmsstory?: any;
+    product?: any;
 
     /**
-     * 需求
+     * IBIZ标识
      *
      * @returns {*}
      * @memberof IBZProStory
      */
-    pmsstoryname?: any;
+    ibizid?: any;
 
     /**
-     * 产品
+     * 需求来源
      *
      * @returns {*}
      * @memberof IBZProStory
      */
-    productname?: any;
+    source?: any;
 
     /**
-     * 需求模块
+     * 来源备注
      *
      * @returns {*}
      * @memberof IBZProStory
      */
-    storymodulename?: any;
+    sourcenote?: any;
+
+    /**
+     * 来源对象标识
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    sourceid?: any;
+
+    /**
+     * 来源对象名称
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    sourcename?: any;
+
+    /**
+     * 来源对象
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    sourceobject?: any;
 }

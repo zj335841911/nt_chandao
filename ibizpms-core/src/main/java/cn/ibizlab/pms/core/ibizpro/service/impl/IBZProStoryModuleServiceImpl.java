@@ -46,15 +46,14 @@ import org.springframework.util.StringUtils;
 @Service("IBZProStoryModuleServiceImpl")
 public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleMapper, IBZProStoryModule> implements IIBZProStoryModuleService {
 
+
+    protected cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryModuleService ibzprostorymoduleService = this;
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryService ibzprostoryService;
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibizpro.service.IIBZProProductService ibzproproductService;
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.IModuleService moduleService;
 
     protected int batchSize = 500;
 
@@ -64,7 +63,7 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
         fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
-        CachedBeanCopier.copy(get(et.getIbzprostorymoduleid()),et);
+        CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
@@ -78,9 +77,9 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
     @Transactional
     public boolean update(IBZProStoryModule et) {
         fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibzpro_storymoduleid",et.getIbzprostorymoduleid())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
-        CachedBeanCopier.copy(get(et.getIbzprostorymoduleid()),et);
+        CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
@@ -92,23 +91,23 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
 
     @Override
     @Transactional
-    public boolean remove(String key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<String> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public IBZProStoryModule get(String key) {
+    public IBZProStoryModule get(BigInteger key) {
         IBZProStoryModule et = getById(key);
         if(et==null){
             et=new IBZProStoryModule();
-            et.setIbzprostorymoduleid(key);
+            et.setId(key);
         }
         else{
         }
@@ -123,15 +122,8 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
 
     @Override
     public boolean checkKey(IBZProStoryModule et) {
-        return (!ObjectUtils.isEmpty(et.getIbzprostorymoduleid()))&&(!Objects.isNull(this.getById(et.getIbzprostorymoduleid())));
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
-    @Transactional
-    public IBZProStoryModule push(IBZProStoryModule et) {
-        //自定义代码
-        return et;
-    }
-
     @Override
     @Transactional
     public boolean save(IBZProStoryModule et) {
@@ -163,25 +155,32 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
         saveOrUpdateBatch(list,batchSize);
     }
 
+    @Override
+    @Transactional
+    public IBZProStoryModule syncFromIBIZ(IBZProStoryModule et) {
+        //自定义代码
+        return et;
+    }
+
 
 	@Override
-    public List<IBZProStoryModule> selectByProduct(String ibzpro_productid) {
-        return baseMapper.selectByProduct(ibzpro_productid);
+    public List<IBZProStoryModule> selectByRoot(BigInteger id) {
+        return baseMapper.selectByRoot(id);
     }
 
     @Override
-    public void removeByProduct(String ibzpro_productid) {
-        this.remove(new QueryWrapper<IBZProStoryModule>().eq("product",ibzpro_productid));
+    public void removeByRoot(BigInteger id) {
+        this.remove(new QueryWrapper<IBZProStoryModule>().eq("root",id));
     }
 
 	@Override
-    public List<IBZProStoryModule> selectByPmsstorymodule(BigInteger id) {
-        return baseMapper.selectByPmsstorymodule(id);
+    public List<IBZProStoryModule> selectByParent(BigInteger id) {
+        return baseMapper.selectByParent(id);
     }
 
     @Override
-    public void removeByPmsstorymodule(BigInteger id) {
-        this.remove(new QueryWrapper<IBZProStoryModule>().eq("pmsstorymodule",id));
+    public void removeByParent(BigInteger id) {
+        this.remove(new QueryWrapper<IBZProStoryModule>().eq("parent",id));
     }
 
 
@@ -201,25 +200,15 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
      * @param et
      */
     private void fillParentData(IBZProStoryModule et){
-        //实体关系[DER1N_IBZPRO_STORYMODULE_IBZPRO_PRODUCT_PRODUCT]
-        if(!ObjectUtils.isEmpty(et.getProduct())){
-            cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct ibzproProduct=et.getIbzproProduct();
-            if(ObjectUtils.isEmpty(ibzproProduct)){
-                cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct majorEntity=ibzproproductService.get(et.getProduct());
-                et.setIbzproProduct(majorEntity);
-                ibzproProduct=majorEntity;
+        //实体关系[DER1N_IBZPRO_STORYMODULE_IBZPRO_PRODUCT_ROOT]
+        if(!ObjectUtils.isEmpty(et.getRoot())){
+            cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct ibzproproduct=et.getIbzproproduct();
+            if(ObjectUtils.isEmpty(ibzproproduct)){
+                cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct majorEntity=ibzproproductService.get(et.getRoot());
+                et.setIbzproproduct(majorEntity);
+                ibzproproduct=majorEntity;
             }
-            et.setProductname(ibzproProduct.getIbzproProductname());
-        }
-        //实体关系[DER1N_IBZPRO_STORYMODULE_ZT_MODULE_PMSSTORYMODULE]
-        if(!ObjectUtils.isEmpty(et.getPmsstorymodule())){
-            cn.ibizlab.pms.core.zentao.domain.Module ztModule=et.getZtModule();
-            if(ObjectUtils.isEmpty(ztModule)){
-                cn.ibizlab.pms.core.zentao.domain.Module majorEntity=moduleService.get(et.getPmsstorymodule());
-                et.setZtModule(majorEntity);
-                ztModule=majorEntity;
-            }
-            et.setPmsstorymodulename(ztModule.getName());
+            et.setProductname(ibzproproduct.getName());
         }
     }
 
@@ -250,25 +239,6 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
         return true;
     }
 
-    @Override
-    public List<IBZProStoryModule> getIbzprostorymoduleByIds(List<String> ids) {
-         return this.listByIds(ids);
-    }
-
-    @Override
-    public List<IBZProStoryModule> getIbzprostorymoduleByEntities(List<IBZProStoryModule> entities) {
-        List ids =new ArrayList();
-        for(IBZProStoryModule entity : entities){
-            Serializable id=entity.getIbzprostorymoduleid();
-            if(!ObjectUtils.isEmpty(id)){
-                ids.add(id);
-            }
-        }
-        if(ids.size()>0)
-           return this.listByIds(ids);
-        else
-           return entities;
-    }
 
 }
 

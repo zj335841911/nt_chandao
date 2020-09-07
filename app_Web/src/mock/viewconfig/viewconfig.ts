@@ -115,7 +115,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "title": "需求表格视图",
             "caption": "需求",
             "viewtype": "DEGRIDVIEW",
-            "viewmodule": "ibiz",
+            "viewmodule": "ibizpro",
             "viewname": "IBZProStoryGridView",
             "viewtag": "077af636991c5ae68e1bc260baffc10f"
         },
@@ -832,10 +832,10 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "46517a803b2470cd0bef27aeda0dbcaf"
         },
         "ibzproproductgridview": {
-            "title": "产品（开发系统）表格视图",
-            "caption": "产品（开发系统）",
+            "title": "平台产品表格视图",
+            "caption": "平台产品",
             "viewtype": "DEGRIDVIEW",
-            "viewmodule": "ibiz",
+            "viewmodule": "ibizpro",
             "viewname": "IBZProProductGridView",
             "viewtag": "46854d548e698f79dc9b2bda5e5d5331"
         },
@@ -963,7 +963,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "title": "需求模块编辑视图",
             "caption": "需求模块",
             "viewtype": "DEEDITVIEW",
-            "viewmodule": "ibiz",
+            "viewmodule": "ibizpro",
             "viewname": "IBZProStoryModuleEditView",
             "viewtag": "500a15957867996d6e20e7a37db8b004"
         },
@@ -1387,7 +1387,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "title": "需求编辑视图",
             "caption": "需求",
             "viewtype": "DEEDITVIEW",
-            "viewmodule": "ibiz",
+            "viewmodule": "ibizpro",
             "viewname": "IBZProStoryEditView",
             "viewtag": "75ddfe042245299b90c10c572b3d9436"
         },
@@ -1671,6 +1671,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryReleaseSubGridView",
             "viewtag": "87b3a9ce09500f304291ed2d69799d5e"
         },
+        "ibzprostorymoduleoptionview": {
+            "title": "需求模块选项操作视图同步",
+            "caption": "同步",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "ibizpro",
+            "viewname": "IBZProStoryModuleOptionView",
+            "viewtag": "87ca9109af86ed2745dcf7aa21294541"
+        },
         "bugusr2gridview": {
             "title": "Bug表格视图",
             "caption": "Bug",
@@ -1888,10 +1896,10 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "9ae49b10ec96e8f7b063be2ed4172247"
         },
         "ibzproproducteditview": {
-            "title": "产品（开发系统）编辑视图",
-            "caption": "产品（开发系统）",
+            "title": "平台产品编辑视图",
+            "caption": "平台产品",
             "viewtype": "DEEDITVIEW",
-            "viewmodule": "ibiz",
+            "viewmodule": "ibizpro",
             "viewname": "IBZProProductEditView",
             "viewtag": "9bcbf0cd15b37b97657fec9a157595fe"
         },
@@ -2979,7 +2987,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "title": "需求模块表格视图",
             "caption": "需求模块",
             "viewtype": "DEGRIDVIEW",
-            "viewmodule": "ibiz",
+            "viewmodule": "ibizpro",
             "viewname": "IBZProStoryModuleGridView",
             "viewtag": "f9dd61cc8713a81451f3cb410cf11bbb"
         },

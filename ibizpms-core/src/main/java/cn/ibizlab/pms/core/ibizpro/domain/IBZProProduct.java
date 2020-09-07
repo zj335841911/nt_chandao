@@ -29,136 +29,57 @@ import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
 
 /**
- * 实体[产品（开发系统）]
+ * 实体[平台产品]
  */
 @Getter
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "T_IBZPRO_PRODUCT",resultMap = "IBZProProductResultMap")
+@TableName(value = "zt_product",resultMap = "IBZProProductResultMap")
 public class IBZProProduct extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 产品（开发系统）标识
-     */
-    @DEField(name = "ibzpro_productid" , isKeyField=true)
-    @TableId(value= "ibzpro_productid",type=IdType.ASSIGN_UUID)
-    @JSONField(name = "ibzpro_productid")
-    @JsonProperty("ibzpro_productid")
-    private String ibzproProductid;
-    /**
-     * 建立时间
-     */
-    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "createdate" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
-    /**
-     * 建立人
-     */
-    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "createman" , fill = FieldFill.INSERT)
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
-    /**
-     * 产品（开发系统）名称
-     */
-    @DEField(name = "ibzpro_productname")
-    @TableField(value = "ibzpro_productname")
-    @JSONField(name = "ibzpro_productname")
-    @JsonProperty("ibzpro_productname")
-    private String ibzproProductname;
-    /**
-     * 更新时间
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @TableField(value = "updatedate")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-    /**
-     * 更新人
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
-    @TableField(value = "updateman")
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    private String updateman;
-    /**
-     * 生产体系类型
-     */
-    @TableField(value = "pssystype")
-    @JSONField(name = "pssystype")
-    @JsonProperty("pssystype")
-    private String pssystype;
-    /**
-     * 生产对象标识
-     */
-    @TableField(value = "psobjectid")
-    @JSONField(name = "psobjectid")
-    @JsonProperty("psobjectid")
-    private String psobjectid;
-    /**
      * 编号
      */
-    @TableField(value = "pmsproduct")
-    @JSONField(name = "pmsproduct")
-    @JsonProperty("pmsproduct")
-    private BigInteger pmsproduct;
+    @DEField(isKeyField=true)
+    @TableId(value= "id",type=IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private BigInteger id;
     /**
-     * 产品
+     * 产品名称
      */
-    @TableField(exist = false)
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    private String productname;
+    @TableField(value = "name")
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    private String name;
+    /**
+     * IBIZ标识
+     */
+    @DEField(name = "ibiz_id")
+    @TableField(value = "ibiz_id")
+    @JSONField(name = "ibizid")
+    @JsonProperty("ibizid")
+    private String ibizid;
+
+
 
     /**
-     * 
+     * 设置 [产品名称]
      */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
-    private cn.ibizlab.pms.core.zentao.domain.Product ztProduct;
-
-
-
-    /**
-     * 设置 [产品（开发系统）名称]
-     */
-    public void setIbzproProductname(String ibzproProductname){
-        this.ibzproProductname = ibzproProductname ;
-        this.modify("ibzpro_productname",ibzproProductname);
+    public void setName(String name){
+        this.name = name ;
+        this.modify("name",name);
     }
 
     /**
-     * 设置 [生产体系类型]
+     * 设置 [IBIZ标识]
      */
-    public void setPssystype(String pssystype){
-        this.pssystype = pssystype ;
-        this.modify("pssystype",pssystype);
-    }
-
-    /**
-     * 设置 [生产对象标识]
-     */
-    public void setPsobjectid(String psobjectid){
-        this.psobjectid = psobjectid ;
-        this.modify("psobjectid",psobjectid);
-    }
-
-    /**
-     * 设置 [编号]
-     */
-    public void setPmsproduct(BigInteger pmsproduct){
-        this.pmsproduct = pmsproduct ;
-        this.modify("pmsproduct",pmsproduct);
+    public void setIbizid(String ibizid){
+        this.ibizid = ibizid ;
+        this.modify("ibiz_id",ibizid);
     }
 
 

@@ -35,75 +35,80 @@ import cn.ibizlab.pms.util.domain.EntityMP;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
-@TableName(value = "T_IBZPRO_STORYMODULE",resultMap = "IBZProStoryModuleResultMap")
+@TableName(value = "zt_module",resultMap = "IBZProStoryModuleResultMap")
 public class IBZProStoryModule extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 需求模块名称
+     * id
      */
-    @DEField(name = "ibzpro_storymodulename")
-    @TableField(value = "ibzpro_storymodulename")
-    @JSONField(name = "ibzprostorymodulename")
-    @JsonProperty("ibzprostorymodulename")
-    private String ibzprostorymodulename;
+    @DEField(isKeyField=true)
+    @TableId(value= "id",type=IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private BigInteger id;
     /**
-     * 需求模块标识
+     * 名称
      */
-    @DEField(name = "ibzpro_storymoduleid" , isKeyField=true)
-    @TableId(value= "ibzpro_storymoduleid",type=IdType.ASSIGN_UUID)
-    @JSONField(name = "ibzprostorymoduleid")
-    @JsonProperty("ibzprostorymoduleid")
-    private String ibzprostorymoduleid;
+    @TableField(value = "name")
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    private String name;
     /**
-     * 更新人
+     * 编号
      */
-    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
-    @TableField(value = "updateman")
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    private String updateman;
+    @TableField(value = "root")
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    private BigInteger root;
     /**
-     * 更新时间
+     * IBIZ标识
      */
-    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @TableField(value = "updatedate")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
+    @DEField(name = "ibiz_id")
+    @TableField(value = "ibiz_id")
+    @JSONField(name = "ibizid")
+    @JsonProperty("ibizid")
+    private String ibizid;
     /**
-     * 建立人
+     * 类型
      */
-    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "createman" , fill = FieldFill.INSERT)
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
+    @DEField(defaultValue = "story")
+    @TableField(value = "type")
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
     /**
-     * 建立时间
+     * 级别
      */
-    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "createdate" , fill = FieldFill.INSERT)
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
+    @DEField(defaultValue = "0")
+    @TableField(value = "grade")
+    @JSONField(name = "grade")
+    @JsonProperty("grade")
+    private Integer grade;
     /**
-     * 产品（开发系统）标识
+     * 路径
      */
-    @TableField(value = "product")
-    @JSONField(name = "product")
-    @JsonProperty("product")
-    private String product;
+    @DEField(defaultValue = "，")
+    @TableField(value = "path")
+    @JSONField(name = "path")
+    @JsonProperty("path")
+    private String path;
+    /**
+     * 简称
+     */
+    @DEField(defaultValue = "/")
+    @TableField(value = "short")
+    @JSONField(name = "ibizshort")
+    @JsonProperty("ibizshort")
+    private String ibizshort;
     /**
      * id
      */
-    @TableField(value = "pmsstorymodule")
-    @JSONField(name = "pmsstorymodule")
-    @JsonProperty("pmsstorymodule")
-    private BigInteger pmsstorymodule;
+    @TableField(value = "parent")
+    @JSONField(name = "parent")
+    @JsonProperty("parent")
+    private BigInteger parent;
     /**
      * 产品
      */
@@ -112,12 +117,45 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     @JsonProperty("productname")
     private String productname;
     /**
-     * 模块
+     * owner
      */
+    @DEField(defaultValue = "/")
+    @TableField(value = "owner")
+    @JSONField(name = "owner")
+    @JsonProperty("owner")
+    private String owner;
+    /**
+     * collector
+     */
+    @DEField(defaultValue = "/")
+    @TableField(value = "collector")
+    @JSONField(name = "collector")
+    @JsonProperty("collector")
+    private String collector;
+    /**
+     * 已删除
+     */
+    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID)
+    @TableField(value = "deleted")
+    @JSONField(name = "deleted")
+    @JsonProperty("deleted")
+    private String deleted;
+    /**
+     * 需求模块类型
+     */
+    @DEField(name = "ibiz_storytype")
+    @TableField(value = "ibiz_storytype")
+    @JSONField(name = "ibiz_storytype")
+    @JsonProperty("ibiz_storytype")
+    private String ibizStorytype;
+
+    /**
+     * 产品
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
     @TableField(exist = false)
-    @JSONField(name = "pmsstorymodulename")
-    @JsonProperty("pmsstorymodulename")
-    private String pmsstorymodulename;
+    private cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct ibzproproduct;
 
     /**
      * 
@@ -125,40 +163,96 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     @JsonIgnore
     @JSONField(serialize = false)
     @TableField(exist = false)
-    private cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct ibzproProduct;
-
-    /**
-     * 
-     */
-    @JsonIgnore
-    @JSONField(serialize = false)
-    @TableField(exist = false)
-    private cn.ibizlab.pms.core.zentao.domain.Module ztModule;
+    private cn.ibizlab.pms.core.ibizpro.domain.IBZProStoryModule parentmodule;
 
 
 
     /**
-     * 设置 [需求模块名称]
+     * 设置 [名称]
      */
-    public void setIbzprostorymodulename(String ibzprostorymodulename){
-        this.ibzprostorymodulename = ibzprostorymodulename ;
-        this.modify("ibzpro_storymodulename",ibzprostorymodulename);
+    public void setName(String name){
+        this.name = name ;
+        this.modify("name",name);
     }
 
     /**
-     * 设置 [产品（开发系统）标识]
+     * 设置 [编号]
      */
-    public void setProduct(String product){
-        this.product = product ;
-        this.modify("product",product);
+    public void setRoot(BigInteger root){
+        this.root = root ;
+        this.modify("root",root);
+    }
+
+    /**
+     * 设置 [IBIZ标识]
+     */
+    public void setIbizid(String ibizid){
+        this.ibizid = ibizid ;
+        this.modify("ibiz_id",ibizid);
+    }
+
+    /**
+     * 设置 [类型]
+     */
+    public void setType(String type){
+        this.type = type ;
+        this.modify("type",type);
+    }
+
+    /**
+     * 设置 [级别]
+     */
+    public void setGrade(Integer grade){
+        this.grade = grade ;
+        this.modify("grade",grade);
+    }
+
+    /**
+     * 设置 [路径]
+     */
+    public void setPath(String path){
+        this.path = path ;
+        this.modify("path",path);
+    }
+
+    /**
+     * 设置 [简称]
+     */
+    public void setIbizshort(String ibizshort){
+        this.ibizshort = ibizshort ;
+        this.modify("short",ibizshort);
     }
 
     /**
      * 设置 [id]
      */
-    public void setPmsstorymodule(BigInteger pmsstorymodule){
-        this.pmsstorymodule = pmsstorymodule ;
-        this.modify("pmsstorymodule",pmsstorymodule);
+    public void setParent(BigInteger parent){
+        this.parent = parent ;
+        this.modify("parent",parent);
+    }
+
+    /**
+     * 设置 [owner]
+     */
+    public void setOwner(String owner){
+        this.owner = owner ;
+        this.modify("owner",owner);
+    }
+
+    /**
+     * 设置 [collector]
+     */
+    public void setCollector(String collector){
+        this.collector = collector ;
+        this.modify("collector",collector);
+    }
+
+    /**
+     * 设置 [需求模块类型]
+     */
+    public void setIbizStorytype(String ibizStorytype){
+        this.ibizStorytype = ibizStorytype ;
+        this.modify("ibiz_storytype",ibizStorytype);
     }
 
 

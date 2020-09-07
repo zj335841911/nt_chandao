@@ -25,54 +25,28 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [CREATEDATE]
+     * 属性 [ID]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private BigInteger id;
 
     /**
-     * 属性 [IBZPRO_STORYNAME]
+     * 属性 [TITLE]
      *
      */
-    @JSONField(name = "ibzprostoryname")
-    @JsonProperty("ibzprostoryname")
-    private String ibzprostoryname;
+    @JSONField(name = "title")
+    @JsonProperty("title")
+    private String title;
 
     /**
-     * 属性 [IBZPRO_STORYID]
+     * 属性 [MODULE]
      *
      */
-    @JSONField(name = "ibzprostoryid")
-    @JsonProperty("ibzprostoryid")
-    private String ibzprostoryid;
-
-    /**
-     * 属性 [CREATEMAN]
-     *
-     */
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
-
-    /**
-     * 属性 [UPDATEMAN]
-     *
-     */
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    private String updateman;
-
-    /**
-     * 属性 [UPDATEDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
+    @JSONField(name = "module")
+    @JsonProperty("module")
+    private BigInteger module;
 
     /**
      * 属性 [PRODUCT]
@@ -80,79 +54,127 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
-    private String product;
+    private BigInteger product;
 
     /**
-     * 属性 [STORYMODULE]
+     * 属性 [IBIZ_ID]
      *
      */
-    @JSONField(name = "storymodule")
-    @JsonProperty("storymodule")
-    private String storymodule;
+    @JSONField(name = "ibizid")
+    @JsonProperty("ibizid")
+    private String ibizid;
 
     /**
-     * 属性 [PMSSTORY]
+     * 属性 [SOURCE]
      *
      */
-    @JSONField(name = "pmsstory")
-    @JsonProperty("pmsstory")
-    private BigInteger pmsstory;
+    @JSONField(name = "source")
+    @JsonProperty("source")
+    private String source;
 
     /**
-     * 属性 [PMSSTORYNAME]
+     * 属性 [SOURCENOTE]
      *
      */
-    @JSONField(name = "pmsstoryname")
-    @JsonProperty("pmsstoryname")
-    private String pmsstoryname;
+    @JSONField(name = "sourcenote")
+    @JsonProperty("sourcenote")
+    private String sourcenote;
 
     /**
-     * 属性 [PRODUCTNAME]
+     * 属性 [IBIZ_SOURCEOBJECT]
      *
      */
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    private String productname;
+    @JSONField(name = "ibiz_sourceobject")
+    @JsonProperty("ibiz_sourceobject")
+    private String ibizSourceobject;
 
     /**
-     * 属性 [STORYMODULENAME]
+     * 属性 [IBIZ_SOURCENAME]
      *
      */
-    @JSONField(name = "storymodulename")
-    @JsonProperty("storymodulename")
-    private String storymodulename;
+    @JSONField(name = "ibiz_sourcename")
+    @JsonProperty("ibiz_sourcename")
+    private String ibizSourcename;
+
+    /**
+     * 属性 [IBIZ_SOURCEID]
+     *
+     */
+    @JSONField(name = "ibiz_sourceid")
+    @JsonProperty("ibiz_sourceid")
+    private String ibizSourceid;
 
 
     /**
-     * 设置 [IBZPRO_STORYNAME]
+     * 设置 [TITLE]
      */
-    public void setIbzprostoryname(String  ibzprostoryname){
-        this.ibzprostoryname = ibzprostoryname ;
-        this.modify("ibzpro_storyname",ibzprostoryname);
+    public void setTitle(String  title){
+        this.title = title ;
+        this.modify("title",title);
+    }
+
+    /**
+     * 设置 [MODULE]
+     */
+    public void setModule(BigInteger  module){
+        this.module = module ;
+        this.modify("module",module);
     }
 
     /**
      * 设置 [PRODUCT]
      */
-    public void setProduct(String  product){
+    public void setProduct(BigInteger  product){
         this.product = product ;
         this.modify("product",product);
     }
 
     /**
-     * 设置 [STORYMODULE]
+     * 设置 [IBIZ_ID]
      */
-    public void setStorymodule(String  storymodule){
-        this.storymodule = storymodule ;
-        this.modify("storymodule",storymodule);
+    public void setIbizid(String  ibizid){
+        this.ibizid = ibizid ;
+        this.modify("ibiz_id",ibizid);
     }
 
     /**
-     * 设置 [PMSSTORY]
+     * 设置 [SOURCE]
      */
-    public void setPmsstory(BigInteger  pmsstory){
-        this.pmsstory = pmsstory ;
-        this.modify("pmsstory",pmsstory);
+    public void setSource(String  source){
+        this.source = source ;
+        this.modify("source",source);
+    }
+
+    /**
+     * 设置 [SOURCENOTE]
+     */
+    public void setSourcenote(String  sourcenote){
+        this.sourcenote = sourcenote ;
+        this.modify("sourcenote",sourcenote);
+    }
+
+    /**
+     * 设置 [IBIZ_SOURCEOBJECT]
+     */
+    public void setIbizSourceobject(String  ibizSourceobject){
+        this.ibizSourceobject = ibizSourceobject ;
+        this.modify("ibiz_sourceobject",ibizSourceobject);
+    }
+
+    /**
+     * 设置 [IBIZ_SOURCENAME]
+     */
+    public void setIbizSourcename(String  ibizSourcename){
+        this.ibizSourcename = ibizSourcename ;
+        this.modify("ibiz_sourcename",ibizSourcename);
+    }
+
+    /**
+     * 设置 [IBIZ_SOURCEID]
+     */
+    public void setIbizSourceid(String  ibizSourceid){
+        this.ibizSourceid = ibizSourceid ;
+        this.modify("ibiz_sourceid",ibizSourceid);
     }
 
 

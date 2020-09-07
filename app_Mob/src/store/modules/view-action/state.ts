@@ -104,7 +104,7 @@ export const viewstate: any = {
                 '86fe20f86bf10c309e08f52cf7259b9d',
                 'e643a925b1d0dab04ef917b973354baa',
                 'af40519acfe1bc985738eb3f0ff91a24',
-                '1afb3df498f4daa660709cca53ece0b2',
+                '70d570ae5cafd7af092084e6d0e6b2f7',
                 '5d43b04926a6169dfa0d6e8c35d1918b',
             ],
         },
@@ -499,6 +499,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '70d570ae5cafd7af092084e6d0e6b2f7',
+            viewmodule: 'ibiz',
+            viewname: 'IbzMyTerritoryMobDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '72d73b7f458439bc2355414e5a810ad5',
             viewmodule: 'ibiz',
             viewname: 'BuildMobEditView',
@@ -693,6 +702,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '99f684f22f1b774d72964f4419f16d8d',
+            viewmodule: 'ibiz',
+            viewname: 'TaskTeamMobEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '9a78bd0bf4ddaee8cfa25375dbd766c6',
             viewmodule: 'ibiz',
             viewname: 'BugAssignToMobEditView',
@@ -791,6 +809,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '75af8ee328e72edea074420d8daace01',
+            ],
+        },
+        {
+            viewtag: 'b33e569c1f501174e55e46274bf76406',
+            viewmodule: 'ibiz',
+            viewname: 'TaskTeamMobMEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '99f684f22f1b774d72964f4419f16d8d',
             ],
         },
         {
@@ -1001,6 +1029,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'b33e569c1f501174e55e46274bf76406',
                 'fff6b013908d42dfb7dc46a67e7467b9',
                 'b1c76392040ff2e9ed2e3ae2b0260602',
                 'f48661e4f3797c86502abe30dae2f89f',

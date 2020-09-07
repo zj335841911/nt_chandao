@@ -28,16 +28,14 @@ export class ZentaoBase extends Vue {
                     this.clickAuto5(item); break;
                 case 'Auto8': 
                     this.clickAuto8(item); break;
-                case '_3': 
-                    this.click_3(item); break;
                 case 'Auto2': 
                     this.clickAuto2(item); break;
-                case '_6': 
-                    this.click_6(item); break;
+                case '_7': 
+                    this.click_7(item); break;
                 case 'Auto6': 
                     this.clickAuto6(item); break;
-                case '_5': 
-                    this.click_5(item); break;
+                case '_6': 
+                    this.click_6(item); break;
                 case 'Auto10': 
                     this.clickAuto10(item); break;
                 case 'Auto9': 
@@ -46,20 +44,22 @@ export class ZentaoBase extends Vue {
                     this.clickAuto11(item); break;
                 case '_2': 
                     this.click_2(item); break;
-                case '_9': 
-                    this.click_9(item); break;
-                case 'Auto15': 
-                    this.clickAuto15(item); break;
-                case '_7': 
-                    this.click_7(item); break;
-                case 'Auto19': 
-                    this.clickAuto19(item); break;
                 case '_8': 
                     this.click_8(item); break;
-                case 'Auto1': 
-                    this.clickAuto1(item); break;
+                case 'Auto15': 
+                    this.clickAuto15(item); break;
                 case '_4': 
                     this.click_4(item); break;
+                case 'Auto19': 
+                    this.clickAuto19(item); break;
+                case '_3': 
+                    this.click_3(item); break;
+                case '_9': 
+                    this.click_9(item); break;
+                case 'Auto1': 
+                    this.clickAuto1(item); break;
+                case '_5': 
+                    this.click_5(item); break;
                 default:
                     judge = false;
                     console.warn('未指定应用功能');
@@ -117,29 +117,6 @@ export class ZentaoBase extends Vue {
     }
     
     /**
-     * prod需求
-     *
-     * @param {*} [item={}]
-     * @memberof Zentao
-     */
-    public click_3(item: any = {}) {
-        const viewparam: any = {};
-        Object.assign(viewparam, {});
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'ibzprostories', parameterName: 'ibzprostory' },
-            { pathName: 'gridview', parameterName: 'gridview' },
-        ];
-        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        if(Object.is(this.$route.fullPath,path)){
-            return;
-        }
-        this.$nextTick(function(){
-            this.$router.push(path);
-        })
-    }
-    
-    /**
      * 左边栏产品列表视图
      *
      * @param {*} [item={}]
@@ -168,7 +145,7 @@ export class ZentaoBase extends Vue {
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_6(item: any = {}) {
+    public click_7(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
@@ -213,7 +190,7 @@ export class ZentaoBase extends Vue {
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_5(item: any = {}) {
+    public click_6(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
@@ -322,12 +299,12 @@ export class ZentaoBase extends Vue {
     }
     
     /**
-     * prod产品
+     * PRO产品
      *
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_9(item: any = {}) {
+    public click_8(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
@@ -368,12 +345,12 @@ export class ZentaoBase extends Vue {
     }
     
     /**
-     * prod模块
+     * Pro模块
      *
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_7(item: any = {}) {
+    public click_4(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
@@ -414,12 +391,35 @@ export class ZentaoBase extends Vue {
     }
     
     /**
+     * Pro需求
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public click_3(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzprostorymodules', parameterName: 'ibzprostorymodule' },
+            { pathName: 'gridview', parameterName: 'gridview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
+    }
+    
+    /**
      * story主数据视图（链接）
      *
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_8(item: any = {}) {
+    public click_9(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
@@ -464,7 +464,7 @@ export class ZentaoBase extends Vue {
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_4(item: any = {}) {
+    public click_5(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];

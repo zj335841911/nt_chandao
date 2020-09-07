@@ -90,6 +90,7 @@ export default class IbzMyTerritoryUIActionBase extends EntityUIActionBase {
      */  
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'mobtabexpview',srfappde:'ibzmyterritories'});
+        this.allViewMap.set(':',{viewname:'mobdashboardview',srfappde:'ibzmyterritories'});
     }
 
     /**

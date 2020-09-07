@@ -26,21 +26,16 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
-        name: 'srfupdatedate',
-        prop: 'updatedate',
-        dataType: 'DATETIME',
-      },
-      {
         name: 'srforikey',
       },
       {
         name: 'srfkey',
-        prop: 'ibzprostorymoduleid',
-        dataType: 'GUID',
+        prop: 'id',
+        dataType: 'ACID',
       },
       {
         name: 'srfmajortext',
-        prop: 'ibzprostorymodulename',
+        prop: 'name',
         dataType: 'TEXT',
       },
       {
@@ -56,58 +51,48 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'product',
-        prop: 'product',
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
+      },
+      {
+        name: 'root',
+        prop: 'root',
         dataType: 'PICKUP',
       },
       {
-        name: 'pmsstorymodule',
-        prop: 'pmsstorymodule',
-        dataType: 'PICKUP',
-      },
-      {
-        name: 'productname',
-        prop: 'productname',
-        dataType: 'PICKUPTEXT',
-      },
-      {
-        name: 'pmsstorymodulename',
-        prop: 'pmsstorymodulename',
-        dataType: 'PICKUPTEXT',
-      },
-      {
-        name: 'ibzpro_storymodulename',
-        prop: 'ibzprostorymodulename',
+        name: 'ibiz_id',
+        prop: 'ibizid',
         dataType: 'TEXT',
       },
       {
-        name: 'createman',
-        prop: 'createman',
+        name: 'name',
+        prop: 'name',
         dataType: 'TEXT',
       },
       {
-        name: 'createdate',
-        prop: 'createdate',
-        dataType: 'DATETIME',
+        name: 'type',
+        prop: 'type',
+        dataType: 'SSCODELIST',
       },
       {
-        name: 'updateman',
-        prop: 'updateman',
+        name: 'grade',
+        prop: 'grade',
+        dataType: 'INT',
+      },
+      {
+        name: 'short',
+        prop: 'ibizshort',
         dataType: 'TEXT',
       },
       {
-        name: 'updatedate',
-        prop: 'updatedate',
-        dataType: 'DATETIME',
-      },
-      {
-        name: 'ibzpro_storymoduleid',
-        prop: 'ibzprostorymoduleid',
-        dataType: 'GUID',
+        name: 'storytype',
+        prop: 'storytype',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'ibzprostorymodule',
-        prop: 'ibzprostorymoduleid',
+        prop: 'id',
         dataType: 'FONTKEY',
       },
     ]

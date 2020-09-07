@@ -57,7 +57,7 @@ export class MainGridBase extends GridControlBase {
      * @type {string}
      * @memberof MainGridBase
      */
-    protected appDeLogicName: string = '产品（开发系统）';
+    protected appDeLogicName: string = '平台产品';
 
     /**
      * 界面UI服务对象
@@ -93,49 +93,17 @@ export class MainGridBase extends GridControlBase {
      */
     public allColumns: any[] = [
         {
-            name: 'pmsproduct',
+            name: 'id',
             label: '编号',
-            langtag: 'entities.ibzproproduct.main_grid.columns.pmsproduct',
+            langtag: 'entities.ibzproproduct.main_grid.columns.id',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
         },
         {
-            name: 'productname',
-            label: '产品',
-            langtag: 'entities.ibzproproduct.main_grid.columns.productname',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
-            name: 'ibzpro_productname',
-            label: '产品（开发系统）名称',
-            langtag: 'entities.ibzproproduct.main_grid.columns.ibzpro_productname',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
-            name: 'pssystype',
-            label: '生产体系类型',
-            langtag: 'entities.ibzproproduct.main_grid.columns.pssystype',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
-            name: 'updateman',
-            label: '更新人',
-            langtag: 'entities.ibzproproduct.main_grid.columns.updateman',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
-            name: 'updatedate',
-            label: '更新时间',
-            langtag: 'entities.ibzproproduct.main_grid.columns.updatedate',
+            name: 'name',
+            label: '产品名称',
+            langtag: 'entities.ibzproproduct.main_grid.columns.name',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -162,8 +130,8 @@ export class MainGridBase extends GridControlBase {
      */
     public rules: any = {
         srfkey: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '产品（开发系统）标识 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '产品（开发系统）标识 值不能为空', trigger: 'blur' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '编号 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -174,12 +142,8 @@ export class MainGridBase extends GridControlBase {
      * @memberof MainBase
      */
     public hasRowEdit: any = {
-        'pmsproduct':false,
-        'productname':false,
-        'ibzpro_productname':false,
-        'pssystype':false,
-        'updateman':false,
-        'updatedate':false,
+        'id':false,
+        'name':false,
     };
 
     /**
@@ -205,22 +169,6 @@ export class MainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-            {
-                name: 'pssystype',
-                srfkey: 'Ibzpro__pssystype',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
-                name: 'updateman',
-                srfkey: 'SysOperator',
-                codelistType : 'DYNAMIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
         ]);
     }
 

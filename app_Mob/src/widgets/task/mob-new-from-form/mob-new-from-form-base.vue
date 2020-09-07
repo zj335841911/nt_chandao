@@ -40,6 +40,7 @@
     :formState="formState"
     :data="data"
     :context="context"
+    :dataOverLoad="dataOverLoad"
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     :viewparams="viewparams"
@@ -110,6 +111,7 @@
     :formState="formState"
     :data="data"
     :context="context"
+    :dataOverLoad="dataOverLoad"
     :navigateContext ='{ "project": "%project%", "allmodules": "%allmodules%" } '
     :navigateParam ='{ "project": "%project%", "allmodules": "%allmodules%" } '
     :viewparams="viewparams"
@@ -179,6 +181,29 @@
 
 
 
+<app-form-druipart
+    class='' 
+    parameterName='task' 
+    refviewtype='DEMOBMEDITVIEW9'  
+    refreshitems='' 
+    viewname='task-team-mob-medit-view9' 
+    paramItem='task' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdefname":"ROOT","srfparentdename":"ZT_TASK","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_IBZ_TASKTEAM_ZT_TASK_ROOT","SRFDER1NID":"DER1N_IBZ_TASKTEAM_ZT_TASK_ROOT"}' 
+    :parameters="[
+        { pathName: 'tasks', parameterName: 'task' },
+    ]" 
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
+
 <app-form-item 
     name='storyname' 
     class='' 
@@ -204,6 +229,7 @@
     :formState="formState"
     :data="data"
     :context="context"
+    :dataOverLoad="dataOverLoad"
     :navigateContext ='{ "n_module_eq": "%module%", "project": "%project%" } '
     :navigateParam ='{ "project": "%project%", "n_module_eq": "%module%" } '
     :viewparams="viewparams"
@@ -550,6 +576,12 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
+    /**
+     * 加载完成
+     *
+     * @memberof MobNewFrom
+     */
+    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -1009,6 +1041,8 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
      * @memberof MobNewFrom
      */
     protected detailsModel: any = {
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+, 
         group1: new FormGroupPanelModel({ caption: 'task基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.mobnewfrom_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
@@ -1407,6 +1441,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 
@@ -1902,6 +1937,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
+            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
@@ -1974,7 +2010,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
             return Promise.reject();
         }
         if (isStateNext) {
-            this.drcounter = 0;
+            this.drcounter = 1;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();

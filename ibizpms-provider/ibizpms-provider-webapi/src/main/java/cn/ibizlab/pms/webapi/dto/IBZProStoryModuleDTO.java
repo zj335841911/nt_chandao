@@ -25,70 +25,76 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [IBZPRO_STORYMODULENAME]
+     * 属性 [ID]
      *
      */
-    @JSONField(name = "ibzprostorymodulename")
-    @JsonProperty("ibzprostorymodulename")
-    private String ibzprostorymodulename;
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private BigInteger id;
 
     /**
-     * 属性 [IBZPRO_STORYMODULEID]
+     * 属性 [NAME]
      *
      */
-    @JSONField(name = "ibzprostorymoduleid")
-    @JsonProperty("ibzprostorymoduleid")
-    private String ibzprostorymoduleid;
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    private String name;
 
     /**
-     * 属性 [UPDATEMAN]
+     * 属性 [ROOT]
      *
      */
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    private String updateman;
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    private BigInteger root;
 
     /**
-     * 属性 [UPDATEDATE]
+     * 属性 [IBIZ_ID]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
+    @JSONField(name = "ibizid")
+    @JsonProperty("ibizid")
+    private String ibizid;
 
     /**
-     * 属性 [CREATEMAN]
+     * 属性 [TYPE]
      *
      */
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
 
     /**
-     * 属性 [CREATEDATE]
+     * 属性 [GRADE]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
+    @JSONField(name = "grade")
+    @JsonProperty("grade")
+    private Integer grade;
 
     /**
-     * 属性 [PRODUCT]
+     * 属性 [PATH]
      *
      */
-    @JSONField(name = "product")
-    @JsonProperty("product")
-    private String product;
+    @JSONField(name = "path")
+    @JsonProperty("path")
+    private String path;
 
     /**
-     * 属性 [PMSSTORYMODULE]
+     * 属性 [SHORT]
      *
      */
-    @JSONField(name = "pmsstorymodule")
-    @JsonProperty("pmsstorymodule")
-    private BigInteger pmsstorymodule;
+    @JSONField(name = "ibizshort")
+    @JsonProperty("ibizshort")
+    private String ibizshort;
+
+    /**
+     * 属性 [PARENT]
+     *
+     */
+    @JSONField(name = "parent")
+    @JsonProperty("parent")
+    private BigInteger parent;
 
     /**
      * 属性 [PRODUCTNAME]
@@ -99,36 +105,124 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     private String productname;
 
     /**
-     * 属性 [PMSSTORYMODULENAME]
+     * 属性 [OWNER]
      *
      */
-    @JSONField(name = "pmsstorymodulename")
-    @JsonProperty("pmsstorymodulename")
-    private String pmsstorymodulename;
+    @JSONField(name = "owner")
+    @JsonProperty("owner")
+    private String owner;
+
+    /**
+     * 属性 [COLLECTOR]
+     *
+     */
+    @JSONField(name = "collector")
+    @JsonProperty("collector")
+    private String collector;
+
+    /**
+     * 属性 [DELETED]
+     *
+     */
+    @JSONField(name = "deleted")
+    @JsonProperty("deleted")
+    private String deleted;
+
+    /**
+     * 属性 [IBIZ_STORYTYPE]
+     *
+     */
+    @JSONField(name = "ibiz_storytype")
+    @JsonProperty("ibiz_storytype")
+    private String ibizStorytype;
 
 
     /**
-     * 设置 [IBZPRO_STORYMODULENAME]
+     * 设置 [NAME]
      */
-    public void setIbzprostorymodulename(String  ibzprostorymodulename){
-        this.ibzprostorymodulename = ibzprostorymodulename ;
-        this.modify("ibzpro_storymodulename",ibzprostorymodulename);
+    public void setName(String  name){
+        this.name = name ;
+        this.modify("name",name);
     }
 
     /**
-     * 设置 [PRODUCT]
+     * 设置 [ROOT]
      */
-    public void setProduct(String  product){
-        this.product = product ;
-        this.modify("product",product);
+    public void setRoot(BigInteger  root){
+        this.root = root ;
+        this.modify("root",root);
     }
 
     /**
-     * 设置 [PMSSTORYMODULE]
+     * 设置 [IBIZ_ID]
      */
-    public void setPmsstorymodule(BigInteger  pmsstorymodule){
-        this.pmsstorymodule = pmsstorymodule ;
-        this.modify("pmsstorymodule",pmsstorymodule);
+    public void setIbizid(String  ibizid){
+        this.ibizid = ibizid ;
+        this.modify("ibiz_id",ibizid);
+    }
+
+    /**
+     * 设置 [TYPE]
+     */
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
+    }
+
+    /**
+     * 设置 [GRADE]
+     */
+    public void setGrade(Integer  grade){
+        this.grade = grade ;
+        this.modify("grade",grade);
+    }
+
+    /**
+     * 设置 [PATH]
+     */
+    public void setPath(String  path){
+        this.path = path ;
+        this.modify("path",path);
+    }
+
+    /**
+     * 设置 [SHORT]
+     */
+    public void setIbizshort(String  ibizshort){
+        this.ibizshort = ibizshort ;
+        this.modify("short",ibizshort);
+    }
+
+    /**
+     * 设置 [PARENT]
+     */
+    public void setParent(BigInteger  parent){
+        this.parent = parent ;
+        this.modify("parent",parent);
+    }
+
+    /**
+     * 设置 [OWNER]
+     */
+    public void setOwner(String  owner){
+        this.owner = owner ;
+        this.modify("owner",owner);
+    }
+
+    /**
+     * 设置 [COLLECTOR]
+     */
+    public void setCollector(String  collector){
+        this.collector = collector ;
+        this.modify("collector",collector);
+    }
+
+    /**
+     * 设置 [IBIZ_STORYTYPE]
+     */
+    public void setIbizStorytype(String  ibizStorytype){
+        this.ibizStorytype = ibizStorytype ;
+        this.modify("ibiz_storytype",ibizStorytype);
     }
 
 

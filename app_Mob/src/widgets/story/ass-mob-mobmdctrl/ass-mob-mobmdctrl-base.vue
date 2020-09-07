@@ -1,7 +1,6 @@
 <template>
     <div  class="app-mob-mdctrl story-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl">
-          <van-pull-refresh class="app-mob-mdctrl-refresh" v-model="isLoading" success-text="刷新成功"  @refresh="refresh" :disabled="!isEnableRefresh">
             <ion-list class="items">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
@@ -104,16 +103,11 @@
                     </ion-radio-group>
                 </template>
             </ion-list>
-            <ion-infinite-scroll v-if="viewType == 'DEMOBMDVIEW'" :disabled="allLoaded" ref="loadmoreBottom" @ionInfinite="loadBottom" distince="1%">
-                <ion-infinite-scroll-content
-                    loadingSpinner="bubbles"
-                    loadingText="正在加载数据">
-                </ion-infinite-scroll-content>
-            </ion-infinite-scroll>    
-          </van-pull-refresh>
+            <div class="no-data" v-if="items.length == 0">暂无数据</div>
         </div>
     </div>
 </template>
+
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
@@ -537,14 +531,6 @@ export default class AssMOBBase extends Vue implements ControlInterface {
     @Prop() public opendata?: Function; 
 
     /**
-    * 是否能下拉刷新
-    *
-    * @type {Function}
-    * @memberof Mob
-    */
-    @Prop({ default: true }) public isEnableRefresh?: Boolean;
-
-    /**
     * 是否能长按
     *
     * @type {Function}
@@ -576,14 +562,6 @@ export default class AssMOBBase extends Vue implements ControlInterface {
     * @memberof AssMOB
     */
     @Prop({ default: false}) public isTempMode?:boolean;
-
-    /**
-    * 是否正在加载
-    *
-    * @type {boolean}
-    * @memberof AssMOB
-    */
-    public isLoading:boolean = true;
 
     /**
     * 存放多数据选择数组（多选）
@@ -861,13 +839,10 @@ export default class AssMOBBase extends Vue implements ControlInterface {
      * @memberof Mdctrl
      */
     public refresh(): Promise<any> {
-        this.isLoading = true;
         return new Promise((resolve: any, reject: any) => {
             this.load().then((res) => {
-                this.isLoading = false;
                 resolve(res);
             }).catch((error: any) => {
-                this.isLoading = false;
                 reject(error);
             })
         })

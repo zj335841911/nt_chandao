@@ -22,14 +22,14 @@ public class IBZProStoryModuleExService extends IBZProStoryModuleServiceImpl {
     }
 
     /**
-     * 自定义行为[Push]用户扩展
+     * 自定义行为[SyncFromIBIZ]用户扩展
      * @param et
      * @return
      */
     @Override
     @Transactional
-    public IBZProStoryModule push(IBZProStoryModule et) {
-        return super.push(et);
+    public IBZProStoryModule syncFromIBIZ(IBZProStoryModule et) {
+        return super.syncFromIBIZ(et);
     }
 }
 

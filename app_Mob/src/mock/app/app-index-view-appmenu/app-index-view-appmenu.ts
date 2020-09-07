@@ -25,7 +25,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	iconcls: 'heart-circle',
 	icon: '',
 	textcls: '',
-	appfunctag: '_2',
+	appfunctag: '_3',
 	resourcetag: '',
 },
             {
@@ -97,7 +97,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	iconcls: 'person',
 	icon: '',
 	textcls: '',
-	appfunctag: 'Auto22',
+	appfunctag: '_2',
 	resourcetag: '',
 },
         ],

@@ -247,6 +247,27 @@ export default class ProductModuleServiceBase extends EntityService {
     }
 
     /**
+     * SyncFromIBIZ接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductModuleServiceBase
+     */
+    public async SyncFromIBIZ(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productmodules/${context.productmodule}/syncfromibiz`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/productmodules/${context.productmodule}/syncfromibiz`,data,isloading);
+            return res;
+    }
+
+    /**
      * FetchByPath接口方法
      *
      * @param {*} [context={}]

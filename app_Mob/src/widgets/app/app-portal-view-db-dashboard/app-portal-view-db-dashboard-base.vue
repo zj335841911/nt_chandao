@@ -1,6 +1,7 @@
 <template>
     <ion-grid class="app-mob-dashboard  ">
-            <ion-card>
+        <div v-show="isEnableCustomized" class="dashboard-enableCustomized">定制仪表盘<ion-icon name="settings-outline"></ion-icon></div>
+            <div class="dashboard-item">
             <view_db_appmenu1
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -10,8 +11,8 @@
     ref='db_appmenu1' 
     @closeview="closeView($event)">
 </view_db_appmenu1>
-            </ion-card>
-            <ion-card>
+            </div>
+            <div class="dashboard-item">
             <view_db_appmenu2
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -21,8 +22,8 @@
     ref='db_appmenu2' 
     @closeview="closeView($event)">
 </view_db_appmenu2>
-            </ion-card>
-            <ion-card>
+            </div>
+            <div class="dashboard-item">
             <view_db_appmenu3
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -32,7 +33,7 @@
     ref='db_appmenu3' 
     @closeview="closeView($event)">
 </view_db_appmenu3>
-            </ion-card>
+            </div>
     </ion-grid>
 </template>
 
@@ -144,6 +145,15 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
     }
 
 
+
+    
+    /**
+     * 支持定制
+     *
+     * @type {boolean}
+     * @memberof AppPortalView_db
+     */
+    protected isEnableCustomized: boolean = false;
 
     /**
      * 获取多项数据

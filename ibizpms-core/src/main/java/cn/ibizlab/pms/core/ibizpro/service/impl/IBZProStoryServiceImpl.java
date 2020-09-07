@@ -52,63 +52,56 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryModuleService ibzprostorymoduleService;
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
 
     protected int batchSize = 500;
 
     @Override
     @Transactional
     public boolean create(IBZProStory et) {
-        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
-        CachedBeanCopier.copy(get(et.getIbzprostoryid()),et);
+        CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
     @Override
     public void createBatch(List<IBZProStory> list) {
-        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(IBZProStory et) {
-        fillParentData(et);
-        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("ibzpro_storyid",et.getIbzprostoryid())))
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
-        CachedBeanCopier.copy(get(et.getIbzprostoryid()),et);
+        CachedBeanCopier.copy(get(et.getId()),et);
         return true;
     }
 
     @Override
     public void updateBatch(List<IBZProStory> list) {
-        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
     @Override
     @Transactional
-    public boolean remove(String key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<String> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public IBZProStory get(String key) {
+    public IBZProStory get(BigInteger key) {
         IBZProStory et = getById(key);
         if(et==null){
             et=new IBZProStory();
-            et.setIbzprostoryid(key);
+            et.setId(key);
         }
         else{
         }
@@ -117,21 +110,13 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
 
     @Override
     public IBZProStory getDraft(IBZProStory et) {
-        fillParentData(et);
         return et;
     }
 
     @Override
     public boolean checkKey(IBZProStory et) {
-        return (!ObjectUtils.isEmpty(et.getIbzprostoryid()))&&(!Objects.isNull(this.getById(et.getIbzprostoryid())));
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
-    @Transactional
-    public IBZProStory push(IBZProStory et) {
-        //自定义代码
-        return et;
-    }
-
     @Override
     @Transactional
     public boolean save(IBZProStory et) {
@@ -152,46 +137,41 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
 
     @Override
     public boolean saveBatch(Collection<IBZProStory> list) {
-        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<IBZProStory> list) {
-        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
+    @Override
+    @Transactional
+    public IBZProStory syncFromIBIZ(IBZProStory et) {
+        //自定义代码
+        return et;
+    }
+
 
 	@Override
-    public List<IBZProStory> selectByProduct(String ibzpro_productid) {
-        return baseMapper.selectByProduct(ibzpro_productid);
+    public List<IBZProStory> selectByProduct(BigInteger id) {
+        return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(String ibzpro_productid) {
-        this.remove(new QueryWrapper<IBZProStory>().eq("product",ibzpro_productid));
+    public void removeByProduct(BigInteger id) {
+        this.remove(new QueryWrapper<IBZProStory>().eq("product",id));
     }
 
 	@Override
-    public List<IBZProStory> selectByStorymodule(String ibzprostorymoduleid) {
-        return baseMapper.selectByStorymodule(ibzprostorymoduleid);
+    public List<IBZProStory> selectByModule(BigInteger id) {
+        return baseMapper.selectByModule(id);
     }
 
     @Override
-    public void removeByStorymodule(String ibzprostorymoduleid) {
-        this.remove(new QueryWrapper<IBZProStory>().eq("storymodule",ibzprostorymoduleid));
-    }
-
-	@Override
-    public List<IBZProStory> selectByPmsstory(BigInteger id) {
-        return baseMapper.selectByPmsstory(id);
-    }
-
-    @Override
-    public void removeByPmsstory(BigInteger id) {
-        this.remove(new QueryWrapper<IBZProStory>().eq("pmsstory",id));
+    public void removeByModule(BigInteger id) {
+        this.remove(new QueryWrapper<IBZProStory>().eq("module",id));
     }
 
 
@@ -206,42 +186,6 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
 
 
 
-    /**
-     * 为当前实体填充父数据（外键值文本、外键值附加数据）
-     * @param et
-     */
-    private void fillParentData(IBZProStory et){
-        //实体关系[DER1N_IBZPRO_STORY_IBZPRO_PRODUCT_PRODUCT]
-        if(!ObjectUtils.isEmpty(et.getProduct())){
-            cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct ibzproProduct=et.getIbzproProduct();
-            if(ObjectUtils.isEmpty(ibzproProduct)){
-                cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct majorEntity=ibzproproductService.get(et.getProduct());
-                et.setIbzproProduct(majorEntity);
-                ibzproProduct=majorEntity;
-            }
-            et.setProductname(ibzproProduct.getIbzproProductname());
-        }
-        //实体关系[DER1N_IBZPRO_STORY_IBZPRO_STORYMODULE_STORYMODULE]
-        if(!ObjectUtils.isEmpty(et.getStorymodule())){
-            cn.ibizlab.pms.core.ibizpro.domain.IBZProStoryModule ibzproStorymodule=et.getIbzproStorymodule();
-            if(ObjectUtils.isEmpty(ibzproStorymodule)){
-                cn.ibizlab.pms.core.ibizpro.domain.IBZProStoryModule majorEntity=ibzprostorymoduleService.get(et.getStorymodule());
-                et.setIbzproStorymodule(majorEntity);
-                ibzproStorymodule=majorEntity;
-            }
-            et.setStorymodulename(ibzproStorymodule.getIbzprostorymodulename());
-        }
-        //实体关系[DER1N_IBZPRO_STORY_ZT_STORY_PMSSTORY]
-        if(!ObjectUtils.isEmpty(et.getPmsstory())){
-            cn.ibizlab.pms.core.zentao.domain.Story ztStory=et.getZtStory();
-            if(ObjectUtils.isEmpty(ztStory)){
-                cn.ibizlab.pms.core.zentao.domain.Story majorEntity=storyService.get(et.getPmsstory());
-                et.setZtStory(majorEntity);
-                ztStory=majorEntity;
-            }
-            et.setPmsstoryname(ztStory.getTitle());
-        }
-    }
 
 
 
@@ -270,25 +214,6 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
         return true;
     }
 
-    @Override
-    public List<IBZProStory> getIbzprostoryByIds(List<String> ids) {
-         return this.listByIds(ids);
-    }
-
-    @Override
-    public List<IBZProStory> getIbzprostoryByEntities(List<IBZProStory> entities) {
-        List ids =new ArrayList();
-        for(IBZProStory entity : entities){
-            Serializable id=entity.getIbzprostoryid();
-            if(!ObjectUtils.isEmpty(id)){
-                ids.add(id);
-            }
-        }
-        if(ids.size()>0)
-           return this.listByIds(ids);
-        else
-           return entities;
-    }
 
 }
 

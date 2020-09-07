@@ -27,25 +27,39 @@ import cn.ibizlab.pms.core.ibizpro.domain.IBZProStoryModule;
 @Data
 public class IBZProStoryModuleSearchContext extends QueryWrapperContext<IBZProStoryModule> {
 
-	private String n_ibzpro_storymodulename_like;//[需求模块名称]
-	public void setN_ibzpro_storymodulename_like(String n_ibzpro_storymodulename_like) {
-        this.n_ibzpro_storymodulename_like = n_ibzpro_storymodulename_like;
-        if(!ObjectUtils.isEmpty(this.n_ibzpro_storymodulename_like)){
-            this.getSearchCond().like("ibzpro_storymodulename", n_ibzpro_storymodulename_like);
+	private String n_name_like;//[名称]
+	public void setN_name_like(String n_name_like) {
+        this.n_name_like = n_name_like;
+        if(!ObjectUtils.isEmpty(this.n_name_like)){
+            this.getSearchCond().like("name", n_name_like);
         }
     }
-	private String n_product_eq;//[产品（开发系统）标识]
-	public void setN_product_eq(String n_product_eq) {
-        this.n_product_eq = n_product_eq;
-        if(!ObjectUtils.isEmpty(this.n_product_eq)){
-            this.getSearchCond().eq("product", n_product_eq);
+	private BigInteger n_root_eq;//[编号]
+	public void setN_root_eq(BigInteger n_root_eq) {
+        this.n_root_eq = n_root_eq;
+        if(!ObjectUtils.isEmpty(this.n_root_eq)){
+            this.getSearchCond().eq("root", n_root_eq);
         }
     }
-	private BigInteger n_pmsstorymodule_eq;//[id]
-	public void setN_pmsstorymodule_eq(BigInteger n_pmsstorymodule_eq) {
-        this.n_pmsstorymodule_eq = n_pmsstorymodule_eq;
-        if(!ObjectUtils.isEmpty(this.n_pmsstorymodule_eq)){
-            this.getSearchCond().eq("pmsstorymodule", n_pmsstorymodule_eq);
+	private String n_ibiz_id_eq;//[IBIZ标识]
+	public void setN_ibiz_id_eq(String n_ibiz_id_eq) {
+        this.n_ibiz_id_eq = n_ibiz_id_eq;
+        if(!ObjectUtils.isEmpty(this.n_ibiz_id_eq)){
+            this.getSearchCond().eq("ibiz_id", n_ibiz_id_eq);
+        }
+    }
+	private String n_type_eq;//[类型]
+	public void setN_type_eq(String n_type_eq) {
+        this.n_type_eq = n_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_type_eq)){
+            this.getSearchCond().eq("type", n_type_eq);
+        }
+    }
+	private BigInteger n_parent_eq;//[id]
+	public void setN_parent_eq(BigInteger n_parent_eq) {
+        this.n_parent_eq = n_parent_eq;
+        if(!ObjectUtils.isEmpty(this.n_parent_eq)){
+            this.getSearchCond().eq("parent", n_parent_eq);
         }
     }
 	private String n_productname_eq;//[产品]
@@ -62,18 +76,11 @@ public class IBZProStoryModuleSearchContext extends QueryWrapperContext<IBZProSt
             this.getSearchCond().like("productname", n_productname_like);
         }
     }
-	private String n_pmsstorymodulename_eq;//[模块]
-	public void setN_pmsstorymodulename_eq(String n_pmsstorymodulename_eq) {
-        this.n_pmsstorymodulename_eq = n_pmsstorymodulename_eq;
-        if(!ObjectUtils.isEmpty(this.n_pmsstorymodulename_eq)){
-            this.getSearchCond().eq("pmsstorymodulename", n_pmsstorymodulename_eq);
-        }
-    }
-	private String n_pmsstorymodulename_like;//[模块]
-	public void setN_pmsstorymodulename_like(String n_pmsstorymodulename_like) {
-        this.n_pmsstorymodulename_like = n_pmsstorymodulename_like;
-        if(!ObjectUtils.isEmpty(this.n_pmsstorymodulename_like)){
-            this.getSearchCond().like("pmsstorymodulename", n_pmsstorymodulename_like);
+	private String n_ibiz_storytype_eq;//[需求模块类型]
+	public void setN_ibiz_storytype_eq(String n_ibiz_storytype_eq) {
+        this.n_ibiz_storytype_eq = n_ibiz_storytype_eq;
+        if(!ObjectUtils.isEmpty(this.n_ibiz_storytype_eq)){
+            this.getSearchCond().eq("ibiz_storytype", n_ibiz_storytype_eq);
         }
     }
 
@@ -85,7 +92,7 @@ public class IBZProStoryModuleSearchContext extends QueryWrapperContext<IBZProSt
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
-                     wrapper.like("ibzpro_storymodulename", query)   
+                     wrapper.like("name", query)   
             );
 		 }
 	}

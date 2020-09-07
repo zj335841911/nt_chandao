@@ -16,67 +16,109 @@
     <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.ibzprostorymodule.main_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.productname')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
+        <i-col class="form-layout-container" v-show="detailsModel.id.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='id' :itemRules="this.rules.id" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.id')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.id.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.productname.disabled"
-  name='productname'
-  deMajorField='ibzpro_productname'
-  deKeyField='ibzproproduct'
-  :service="service"
-  :acParams="{ serviceName: 'IBZProProductService', interfaceName: 'FetchDefault'}"
-  valueitem='product' 
-  :value="data.productname" 
-  editortype="dropdown"
-  style="" 
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+<app-span name='id' :value="data.id" dataType="ACID"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.pmsstorymodulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='pmsstorymodulename' :itemRules="this.rules.pmsstorymodulename" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.pmsstorymodulename')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.pmsstorymodulename.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.pmsstorymodulename.disabled"
-  name='pmsstorymodulename'
-  deMajorField='name'
-  deKeyField='module'
-  :service="service"
-  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDefault'}"
-  valueitem='pmsstorymodule' 
-  :value="data.pmsstorymodulename" 
-  editortype="dropdown"
-  style="" 
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.ibzpro_storymodulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='ibzpro_storymodulename' :itemRules="this.rules.ibzpro_storymodulename" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.ibzpro_storymodulename')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.ibzpro_storymodulename.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col class="form-layout-container" v-show="detailsModel.ibiz_id.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='ibiz_id' :itemRules="this.rules.ibiz_id" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.ibiz_id')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.ibiz_id.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
-    v-model="data.ibzpro_storymodulename"  
+    v-model="data.ibiz_id"  
     @enter="onEnter($event)"  
      unit=""  
-    :disabled="detailsModel.ibzpro_storymodulename.disabled" 
+    :disabled="detailsModel.ibiz_id.disabled" 
     type='text' 
     style="">
 </input-box>
 
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box 
+    v-model="data.name"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.name.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.type')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<dropdown-list 
+    v-model="data.type"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.type.disabled"
+    valueType="string"
+    tag='Module__type'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    
+/>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.grade.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='grade' :itemRules="this.rules.grade" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.grade')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.grade.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box 
+    v-model="data.grade"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.grade.disabled" 
+    type='number' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.short.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='short' :itemRules="this.rules.short" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.short')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.short.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box 
+    v-model="data.short"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.short.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.storytype.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='storytype' :itemRules="this.rules.storytype" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.storytype')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.storytype.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<dropdown-list 
+    v-model="data.storytype"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.storytype.disabled"
+    valueType="string"
+    tag='Ibizpro_storymodule__type'
+    codelistType='STATIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
@@ -101,47 +143,7 @@
     <app-form-group :model="detailsModel.group2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.ibzprostorymodule.main_form.details.group2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group2" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.createman.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='createman' :itemRules="this.rules.createman" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.createman')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.createman.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='createman' :value="data.createman" dataType="TEXT"     :precision="0"
-tag='SysOperator' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.createdate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='createdate' :itemRules="this.rules.createdate" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.createdate')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.createdate.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='createdate' :value="data.createdate" dataType="DATETIME" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.updateman.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='updateman' :itemRules="this.rules.updateman" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.updateman')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.updateman.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='updateman' :value="data.updateman" dataType="TEXT"     :precision="0"
-tag='SysOperator' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.updatedate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='updatedate' :itemRules="this.rules.updatedate" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.updatedate')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.updatedate.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='updatedate' :value="data.updatedate" dataType="DATETIME" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-    
+            
     </row>
 </app-form-group>
 

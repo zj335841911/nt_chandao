@@ -26,21 +26,16 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
-        name: 'srfupdatedate',
-        prop: 'updatedate',
-        dataType: 'DATETIME',
-      },
-      {
         name: 'srforikey',
       },
       {
         name: 'srfkey',
-        prop: 'ibzpro_productid',
-        dataType: 'GUID',
+        prop: 'id',
+        dataType: 'ACID',
       },
       {
         name: 'srfmajortext',
-        prop: 'ibzpro_productname',
+        prop: 'name',
         dataType: 'TEXT',
       },
       {
@@ -56,58 +51,23 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'ibzpro_productname',
-        prop: 'ibzpro_productname',
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
+      },
+      {
+        name: 'name',
+        prop: 'name',
         dataType: 'TEXT',
       },
       {
-        name: 'productname',
-        prop: 'productname',
-        dataType: 'PICKUPTEXT',
-      },
-      {
-        name: 'pssystype',
-        prop: 'pssystype',
-        dataType: 'SSCODELIST',
-      },
-      {
-        name: 'pmsproduct',
-        prop: 'pmsproduct',
-        dataType: 'PICKUP',
-      },
-      {
-        name: 'ibzpro_productid',
-        prop: 'ibzpro_productid',
-        dataType: 'GUID',
-      },
-      {
-        name: 'psobjectid',
-        prop: 'psobjectid',
+        name: 'ibiz_id',
+        prop: 'ibizid',
         dataType: 'TEXT',
-      },
-      {
-        name: 'createman',
-        prop: 'createman',
-        dataType: 'TEXT',
-      },
-      {
-        name: 'createdate',
-        prop: 'createdate',
-        dataType: 'DATETIME',
-      },
-      {
-        name: 'updateman',
-        prop: 'updateman',
-        dataType: 'TEXT',
-      },
-      {
-        name: 'updatedate',
-        prop: 'updatedate',
-        dataType: 'DATETIME',
       },
       {
         name: 'ibzproproduct',
-        prop: 'ibzpro_productid',
+        prop: 'id',
         dataType: 'FONTKEY',
       },
     ]

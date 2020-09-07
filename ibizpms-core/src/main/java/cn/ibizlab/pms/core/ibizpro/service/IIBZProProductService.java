@@ -29,16 +29,14 @@ public interface IIBZProProductService extends IService<IBZProProduct>{
     void createBatch(List<IBZProProduct> list) ;
     boolean update(IBZProProduct et) ;
     void updateBatch(List<IBZProProduct> list) ;
-    boolean remove(String key) ;
-    void removeBatch(Collection<String> idList) ;
-    IBZProProduct get(String key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    IBZProProduct get(BigInteger key) ;
     IBZProProduct getDraft(IBZProProduct et) ;
     boolean checkKey(IBZProProduct et) ;
     boolean save(IBZProProduct et) ;
     void saveBatch(List<IBZProProduct> list) ;
     Page<IBZProProduct> searchDefault(IBZProProductSearchContext context) ;
-    List<IBZProProduct> selectByPmsproduct(BigInteger id) ;
-    void removeByPmsproduct(BigInteger id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
@@ -54,8 +52,6 @@ public interface IIBZProProductService extends IService<IBZProProduct>{
      */
     boolean execute(String sql, Map param);
 
-    List<IBZProProduct> getIbzproproductByIds(List<String> ids) ;
-    List<IBZProProduct> getIbzproproductByEntities(List<IBZProProduct> entities) ;
 }
 
 

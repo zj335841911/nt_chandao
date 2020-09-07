@@ -62,6 +62,4 @@ public interface IBZProProductMapper extends BaseMapper<IBZProProduct>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
-    List<IBZProProduct> selectByPmsproduct(@Param("id") Serializable id) ;
-
 }

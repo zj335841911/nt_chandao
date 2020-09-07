@@ -67,15 +67,8 @@ export default {
         "on": "暂时不设定时间",
         "empty": "",
     },
-    SysOperator: {
-        "empty": "",
-    },
     UserRealNameW: {
         "empty": "未指派",
-    },
-    Ibzpro__pssystype: {
-        "iBizSys6": "iBizSys6",
-        "empty": "",
     },
     Bug__os: {
         "all": "全部",
@@ -903,6 +896,7 @@ export default {
         "bug": "Bug",
         "forum": "论坛",
         "other": "其它",
+        "iBiz": "iBiz",
         "empty": "",
     },
     Testcase__pri: {
@@ -910,6 +904,12 @@ export default {
         "2": "2",
         "3": "3",
         "4": "4",
+        "empty": "",
+    },
+    Ibizpro_storymodule__type: {
+        "pmsStoryModule": "PMS需求模块",
+        "iBizSysModule": "iBiz系统模块",
+        "iBizReqModule": "iBiz需求模块",
         "empty": "",
     },
     ProjectQuickpacket: {

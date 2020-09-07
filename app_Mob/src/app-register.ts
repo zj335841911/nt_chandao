@@ -109,5 +109,9 @@ export const AppComponents = {
         v.component('app-list-index-text',() => import('@/components/app-list-index-text/app-list-index-text.vue'));
         // 富文本（模态）
         v.component('app-rich-text',() => import('@/components/app-rich-text/app-rich-text.vue'));
+        // 500错误提示页
+        v.component('app-500',() => import('@/components/500/500.vue'));
+        // 404错误提示页
+        v.component('app-404',() => import('@/components/404/404.vue'));
     },
 };

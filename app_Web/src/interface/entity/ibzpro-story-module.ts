@@ -7,60 +7,76 @@
 export interface IBZProStoryModule {
 
     /**
-     * 需求模块名称
+     * id
      *
      * @returns {*}
      * @memberof IBZProStoryModule
      */
-    ibzprostorymodulename?: any;
+    id?: any;
 
     /**
-     * 需求模块标识
+     * 名称
      *
      * @returns {*}
      * @memberof IBZProStoryModule
      */
-    ibzprostorymoduleid?: any;
+    name?: any;
 
     /**
-     * 更新人
+     * 编号
      *
      * @returns {*}
      * @memberof IBZProStoryModule
      */
-    updateman?: any;
+    root?: any;
 
     /**
-     * 更新时间
+     * IBIZ标识
      *
      * @returns {*}
      * @memberof IBZProStoryModule
      */
-    updatedate?: any;
+    ibizid?: any;
 
     /**
-     * 建立人
+     * 需求模块类型
      *
      * @returns {*}
      * @memberof IBZProStoryModule
      */
-    createman?: any;
+    storytype?: any;
 
     /**
-     * 建立时间
+     * 类型
      *
      * @returns {*}
      * @memberof IBZProStoryModule
      */
-    createdate?: any;
+    type?: any;
 
     /**
-     * 产品（开发系统）标识
+     * 级别
      *
      * @returns {*}
      * @memberof IBZProStoryModule
      */
-    product?: any;
+    grade?: any;
+
+    /**
+     * 路径
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    path?: any;
+
+    /**
+     * 简称
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    ibizshort?: any;
 
     /**
      * id
@@ -68,7 +84,7 @@ export interface IBZProStoryModule {
      * @returns {*}
      * @memberof IBZProStoryModule
      */
-    pmsstorymodule?: any;
+    parent?: any;
 
     /**
      * 产品
@@ -79,10 +95,26 @@ export interface IBZProStoryModule {
     productname?: any;
 
     /**
-     * 模块
+     * owner
      *
      * @returns {*}
      * @memberof IBZProStoryModule
      */
-    pmsstorymodulename?: any;
+    owner?: any;
+
+    /**
+     * collector
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    collector?: any;
+
+    /**
+     * 已删除
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    deleted?: any;
 }

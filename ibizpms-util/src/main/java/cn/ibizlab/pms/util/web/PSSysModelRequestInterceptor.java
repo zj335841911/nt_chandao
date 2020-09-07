@@ -34,6 +34,7 @@ public class PSSysModelRequestInterceptor implements RequestInterceptor {
     private String devSlnSysId;
     private String token;
 
+    private SimpleTokenUtil authTokenUtil = new SimpleTokenUtil();
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     public PSSysModelRequestInterceptor(ApplicationContext applicationContext, String authServiceTag, boolean https, String authUser, String authPassword, String devSlnSysId) {
@@ -42,7 +43,20 @@ public class PSSysModelRequestInterceptor implements RequestInterceptor {
         this.authPassword = authPassword;
         this.devSlnSysId = devSlnSysId;
         this.applicationContext = applicationContext;
+        String strSecret = applicationContext.getEnvironment().getProperty("ibiz.jwt.secret","ibzsecret");
+        authTokenUtil.setSecret(strSecret);
         this.psSysModelLoginClient = OutsideAccessorUtils.buildAccessor(applicationContext, PSSysModelLoginClient.class, https, authServiceTag);
+    }
+
+    public PSSysModelRequestInterceptor(ApplicationContext applicationContext, String url, String authUser, String authPassword, String devSlnSysId) {
+        this.authServiceTag = url;
+        this.authUser = authUser;
+        this.authPassword = authPassword;
+        this.devSlnSysId = devSlnSysId;
+        this.applicationContext = applicationContext;
+        String strSecret = applicationContext.getEnvironment().getProperty("ibiz.jwt.secret","ibzsecret");
+        authTokenUtil.setSecret(strSecret);
+        this.psSysModelLoginClient = OutsideAccessorUtils.buildAccessorByUrl(applicationContext, PSSysModelLoginClient.class, false, url);
     }
 
     @Override
@@ -57,7 +71,6 @@ public class PSSysModelRequestInterceptor implements RequestInterceptor {
 
 
     public String getToken() {
-        AuthTokenUtil authTokenUtil = new SimpleTokenUtil();
         if (StringUtils.isNotBlank(this.token)) {
             if (authTokenUtil.getExpirationDateFromToken(this.token).after(new Date())) {
                 return this.token;

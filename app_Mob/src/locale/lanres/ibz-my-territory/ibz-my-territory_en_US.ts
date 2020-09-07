@@ -53,5 +53,8 @@ export default {
 		mobtabexpview: {
 			caption: '我的地盘',
 		},
+		mobdashboardview: {
+			caption: '我的地盘',
+		},
 	},
 };

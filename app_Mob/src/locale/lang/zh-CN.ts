@@ -6,6 +6,7 @@ import build_zh_CN from '@locale/lanres/build/build_zh_CN';
 import task_zh_CN from '@locale/lanres/task/task_zh_CN';
 import module_zh_CN from '@locale/lanres/module/module_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
+import dynadashboard_zh_CN from '@locale/lanres/dyna-dashboard/dyna-dashboard_zh_CN';
 import action_zh_CN from '@locale/lanres/action/action_zh_CN';
 import casestep_zh_CN from '@locale/lanres/case-step/case-step_zh_CN';
 import productline_zh_CN from '@locale/lanres/product-line/product-line_zh_CN';
@@ -168,6 +169,7 @@ export default {
     task: task_zh_CN,
     module: module_zh_CN,
     product: product_zh_CN,
+    dynadashboard: dynadashboard_zh_CN,
     action: action_zh_CN,
     casestep: casestep_zh_CN,
     productline: productline_zh_CN,

@@ -6,7 +6,7 @@ import IBZProProductService from '@/service/ibzpro-product/ibzpro-product-servic
 import IBZProProductAuthService from '@/authservice/ibzpro-product/ibzpro-product-auth-service';
 
 /**
- * 产品（开发系统）UI服务对象基类
+ * 平台产品UI服务对象基类
  *
  * @export
  * @class IBZProProductUIServiceBase

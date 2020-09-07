@@ -1,5 +1,6 @@
 import { HttpResponse } from '@/ibiz-core/utils';
 import  CurProductPlan  from '@/app-core/code-list/cur-product-plan';
+import  UserRealNameTask  from '@/app-core/code-list/user-real-name-task';
 import  UserRealName  from '@/app-core/code-list/user-real-name';
 import  ProductBranch  from '@/app-core/code-list/product-branch';
 import  CurProductBuild  from '@/app-core/code-list/cur-product-build';
@@ -47,6 +48,8 @@ export class CodeListService {
     protected allCodeList: any = {
         // 当前产品计划（动态）_缓存
         CurProductPlan: new CurProductPlan(),
+        // 用户真实名称（项目团队成员-任务）
+        UserRealNameTask: new UserRealNameTask(),
         // 用户真实名称（动态）
         UserRealName: new UserRealName(),
         // 产品平台（动态）

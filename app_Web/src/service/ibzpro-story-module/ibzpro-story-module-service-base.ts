@@ -29,9 +29,9 @@ export default class IBZProStoryModuleServiceBase extends EntityService {
      */
     public initBasicData(){
         this.APPLYDEKEY ='ibzprostorymodule';
-        this.APPDEKEY = 'ibzprostorymoduleid';
+        this.APPDEKEY = 'id';
         this.APPDENAME = 'ibzprostorymodules';
-        this.APPDETEXT = 'ibzprostorymodulename';
+        this.APPDETEXT = 'name';
         this.APPNAME = 'web';
         this.SYSTEMNAME = 'pms';
     }
@@ -154,20 +154,6 @@ export default class IBZProStoryModuleServiceBase extends EntityService {
     }
 
     /**
-     * Push接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof IBZProStoryModuleServiceBase
-     */
-    public async Push(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzprostorymodules/${context.ibzprostorymodule}/push`,data,isloading);
-            return res;
-    }
-
-    /**
      * Save接口方法
      *
      * @param {*} [context={}]
@@ -181,6 +167,20 @@ export default class IBZProStoryModuleServiceBase extends EntityService {
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/ibzprostorymodules/${context.ibzprostorymodule}/save`,data,isloading);
             
+            return res;
+    }
+
+    /**
+     * SyncFromIBIZ接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZProStoryModuleServiceBase
+     */
+    public async SyncFromIBIZ(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/ibzprostorymodules/${context.ibzprostorymodule}/syncfromibiz`,data,isloading);
             return res;
     }
 

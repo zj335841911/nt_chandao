@@ -1,62 +1,43 @@
 export default {
   fields: {
-    ibzpro_productid: "产品（开发系统）标识",
-    createdate: "建立时间",
-    createman: "建立人",
-    ibzpro_productname: "产品（开发系统）名称",
-    updatedate: "更新时间",
-    updateman: "更新人",
-    pssystype: "生产体系类型",
-    psobjectid: "生产对象标识",
-    pmsproduct: "编号",
-    productname: "产品",
+    id: "编号",
+    name: "产品名称",
+    ibizid: "IBIZ标识",
   },
 	views: {
 		gridview: {
-			caption: "产品（开发系统）",
-      		title: "产品（开发系统）表格视图",
+			caption: "平台产品",
+      		title: "平台产品表格视图",
 		},
 		editview: {
-			caption: "产品（开发系统）",
-      		title: "产品（开发系统）编辑视图",
+			caption: "平台产品",
+      		title: "平台产品编辑视图",
 		},
 	},
 	main_form: {
 		details: {
-			group1: "产品（开发系统）基本信息", 
+			group1: "平台产品基本信息", 
 			formpage1: "基本信息", 
 			group2: "操作信息", 
 			formpage2: "其它", 
-			srfupdatedate: "更新时间", 
 			srforikey: "", 
-			srfkey: "产品（开发系统）标识", 
-			srfmajortext: "产品（开发系统）名称", 
+			srfkey: "编号", 
+			srfmajortext: "产品名称", 
 			srftempmode: "", 
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			ibzpro_productname: "产品（开发系统）名称", 
-			productname: "产品", 
-			pssystype: "生产体系类型", 
-			pmsproduct: "编号", 
-			ibzpro_productid: "产品（开发系统）标识", 
-			psobjectid: "生产对象标识", 
-			createman: "建立人", 
-			createdate: "建立时间", 
-			updateman: "更新人", 
-			updatedate: "更新时间", 
+			id: "编号", 
+			name: "产品名称", 
+			ibiz_id: "IBIZ标识", 
 		},
 		uiactions: {
 		},
 	},
 	main_grid: {
 		columns: {
-			pmsproduct: "编号",
-			productname: "产品",
-			ibzpro_productname: "产品（开发系统）名称",
-			pssystype: "生产体系类型",
-			updateman: "更新人",
-			updatedate: "更新时间",
+			id: "编号",
+			name: "产品名称",
 		},
 		uiactions: {
 		},
@@ -69,31 +50,79 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
-		deuiaction1: {
+		tbitem3: {
 			caption: "新建",
 			tip: "新建",
 		},
-		seperator1: {
-			caption: "",
+		tbitem4: {
+			caption: "编辑",
+			tip: "编辑",
+		},
+		tbitem6: {
+			caption: "拷贝",
+			tip: "拷贝",
+		},
+		tbitem7: {
+			caption: "-",
 			tip: "",
 		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
+		tbitem8: {
+			caption: "删除",
+			tip: "删除",
 		},
-		seperator3: {
-			caption: "",
+		tbitem9: {
+			caption: "-",
 			tip: "",
 		},
-		deuiaction4: {
+		tbitem13: {
 			caption: "导出",
 			tip: "导出",
 		},
+		tbitem10: {
+			caption: "-",
+			tip: "",
+		},
+		tbitem16: {
+			caption: "其它",
+			tip: "其它",
+		},
+		tbitem21: {
+			caption: "导出数据模型",
+			tip: "导出数据模型",
+		},
+		tbitem23: {
+			caption: "数据导入",
+			tip: "数据导入",
+		},
+		tbitem17: {
+			caption: "-",
+			tip: "",
+		},
+		tbitem19: {
+			caption: "过滤",
+			tip: "过滤",
+		},
+		tbitem18: {
+			caption: "帮助",
+			tip: "帮助",
+		},
 	},
 	editviewtoolbar_toolbar: {
-		deuiaction1: {
+		tbitem3: {
+			caption: "保存",
+			tip: "保存",
+		},
+		tbitem4: {
+			caption: "保存并新建",
+			tip: "保存并新建",
+		},
+		tbitem5: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
+		},
+		tbitem7: {
+			caption: "删除",
+			tip: "删除",
 		},
 	},
 };

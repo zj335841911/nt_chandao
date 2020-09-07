@@ -116,6 +116,7 @@
     :formState="formState"
     :data="data"
     :context="context"
+    :dataOverLoad="dataOverLoad"
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     :viewparams="viewparams"
@@ -461,6 +462,12 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
+    /**
+     * 加载完成
+     *
+     * @memberof MobNewFROM
+     */
+    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -1630,6 +1637,7 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
+            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
