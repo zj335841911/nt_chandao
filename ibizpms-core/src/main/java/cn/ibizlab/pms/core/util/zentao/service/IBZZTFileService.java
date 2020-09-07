@@ -140,9 +140,18 @@ public class IBZZTFileService implements IIBZZTFileService {
         if (ztFile == null) {
             throw new InternalServerErrorException("文件不存在");
         }
-        File file = new File(filePath + ztFile.getPathname());
+        String relationPath = ztFile.getPathname();
+        File file = new File(filePath + relationPath);
         if (!file.exists()) {
-            throw new InternalServerErrorException("文件不存在");
+            if (relationPath.lastIndexOf(".") >= 0) {
+                relationPath = relationPath.substring(0, relationPath.lastIndexOf("."));
+                file = new File(filePath + relationPath);
+                if (!file.exists()) {
+                    throw new InternalServerErrorException("文件不存在");
+                }
+            } else {
+                throw new InternalServerErrorException("文件不存在");
+            }
         }
         downloadFile.setFile(file);
         downloadFile.setFileName(ztFile.getTitle());
