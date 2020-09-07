@@ -436,7 +436,7 @@ export default class MainBase extends Vue implements ControlInterface {
         promice.then((response: any) => {
             if (!response.status || response.status !== 200) {
                 if (response.errorMessage) {
-                    this.$notify({ type: 'danger', message: response.errorMessage });
+                    this.$notice.error(response.error.message);
                 }
                 return;
             }
@@ -450,7 +450,7 @@ export default class MainBase extends Vue implements ControlInterface {
             if (response && response.status === 401) {
                 return;
             }
-            this.$notify({ type: 'danger', message: response.errorMessage });
+            this.$notice.error(response.error.message);
         });
     }
 
@@ -468,7 +468,7 @@ export default class MainBase extends Vue implements ControlInterface {
         promice.then((response: any) => {
             if (!response.status || response.status !== 200) {
                 if (response.errorMessage) {
-                    this.$notify({ type: 'danger', message: response.errorMessage });
+                    this.$notice.error(response.error.message);
                 }
                 return;
             }
@@ -478,7 +478,7 @@ export default class MainBase extends Vue implements ControlInterface {
             if (response && response.status === 401) {
                 return;
             }
-            this.$notify({ type: 'danger', message: response.errorMessage });
+            this.$notice.error(response.error.message);
         });
     }
 

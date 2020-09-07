@@ -1,5 +1,5 @@
 import UtilService from '../util-service';
-import DynaDashboardService from '@/service/dyna-dashboard/dyna-dashboard-service';
+import DynaDashboardService from '@/app-core/service/dyna-dashboard/dyna-dashboard-service';
 
 /**
  * 移动端动态数据看板功能服务对象基类
