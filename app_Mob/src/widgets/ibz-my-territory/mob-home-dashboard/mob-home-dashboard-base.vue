@@ -269,6 +269,19 @@ export default class MobHomeBase extends Vue implements ControlInterface {
         this.openPopupModal({ viewname: 'app-customize', title: 'app-customize'},{},{modelId:this.modelId,utilServiceName:this.utilServiceName});
     }
 
+    /**
+     * 打开定制仪表盘界面
+     *
+     * @type {string}
+     * @memberof AppRichTextEditor
+     */
+    private async openPopupModal(view: any, context: any, param: any): Promise<any> {
+        const result: any = await this.$appmodal.openModal(view, context, param);
+        if (result || Object.is(result.ret, 'OK')) {
+            // this.reValue = result.datas[0];
+        }
+    }
+
 }
 </script>
 
