@@ -334,6 +334,20 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JSONField(name = "frombug")
     @JsonProperty("frombug")
     private Integer frombug;
+    /**
+     * 需求描述
+     */
+    @TableField(exist = false)
+    @JSONField(name = "spec")
+    @JsonProperty("spec")
+    private String spec;
+    /**
+     * 验收标准
+     */
+    @TableField(exist = false)
+    @JSONField(name = "verify")
+    @JsonProperty("verify")
+    private String verify;
 
     /**
      * 产品

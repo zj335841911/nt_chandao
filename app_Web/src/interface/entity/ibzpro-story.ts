@@ -325,4 +325,20 @@ export interface IBZProStory {
      * @memberof IBZProStory
      */
     frombug?: any;
+
+    /**
+     * 需求描述
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    spec?: any;
+
+    /**
+     * 验收标准
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    verify?: any;
 }

@@ -41,6 +41,8 @@ export default {
     tobug: "转Bug",
     duplicatestory: "重复需求",
     frombug: "来源Bug",
+    spec: "需求描述",
+    verify: "验收标准",
   },
 	views: {
 		gridview: {
