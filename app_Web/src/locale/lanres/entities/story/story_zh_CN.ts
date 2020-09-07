@@ -1008,6 +1008,10 @@ export default {
 		},
 	},
 	maingridviewtoolbar_toolbar: {
+		deuiaction1_syncfromibiz: {
+			caption: "同步",
+			tip: "同步",
+		},
 		deuiaction1_create: {
 			caption: "新建需求",
 			tip: "新建需求",

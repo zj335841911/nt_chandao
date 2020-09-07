@@ -4,7 +4,6 @@ export default {
     name: "名称",
     root: "编号",
     ibizid: "IBIZ标识",
-    storytype: "需求模块类型",
     type: "类型",
     grade: "级别",
     path: "路径",
@@ -14,6 +13,7 @@ export default {
     owner: "owner",
     collector: "collector",
     deleted: "已删除",
+    ibiz_storytype: "需求模块类型",
   },
 	views: {
 		editview: {
@@ -40,7 +40,6 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			storytype: "需求模块类型", 
 			ibiz_id: "IBIZ标识", 
 			productname: "产品", 
 			root: "编号", 
@@ -70,7 +69,6 @@ export default {
 			type: "类型", 
 			grade: "级别", 
 			short: "简称", 
-			storytype: "需求模块类型", 
 		},
 		uiactions: {
 		},

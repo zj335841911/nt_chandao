@@ -116,6 +116,81 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JSONField(name = "ibiz_sourceid")
     @JsonProperty("ibiz_sourceid")
     private String ibizSourceid;
+    /**
+     * 版本号
+     */
+    @DEField(defaultValue = "1")
+    @TableField(value = "version")
+    @JSONField(name = "version")
+    @JsonProperty("version")
+    private Integer version;
+    /**
+     * 预计工时
+     */
+    @TableField(value = "estimate")
+    @JSONField(name = "estimate")
+    @JsonProperty("estimate")
+    private Double estimate;
+    /**
+     * 关键词
+     */
+    @TableField(value = "keywords")
+    @JSONField(name = "keywords")
+    @JsonProperty("keywords")
+    private String keywords;
+    /**
+     * 创建日期
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
+    @TableField(value = "openeddate" , fill = FieldFill.INSERT)
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "openeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("openeddate")
+    private Timestamp openeddate;
+    /**
+     * 最后修改日期
+     */
+    @TableField(value = "lastediteddate")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("lastediteddate")
+    private Timestamp lastediteddate;
+    /**
+     * 已删除
+     */
+    @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID)
+    @TableField(value = "deleted")
+    @JSONField(name = "deleted")
+    @JsonProperty("deleted")
+    private String deleted;
+    /**
+     * 由谁创建
+     */
+    @TableField(value = "openedby")
+    @JSONField(name = "openedby")
+    @JsonProperty("openedby")
+    private String openedby;
+    /**
+     * 状态
+     */
+    @TableField(value = "status")
+    @JSONField(name = "status")
+    @JsonProperty("status")
+    private String status;
+    /**
+     * 需求类型
+     */
+    @TableField(value = "type")
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
+    /**
+     * 需求阶段
+     */
+    @TableField(value = "stage")
+    @JSONField(name = "stage")
+    @JsonProperty("stage")
+    private String stage;
 
     /**
      * 产品
@@ -205,6 +280,80 @@ public class IBZProStory extends EntityMP implements Serializable {
     public void setIbizSourceid(String ibizSourceid){
         this.ibizSourceid = ibizSourceid ;
         this.modify("ibiz_sourceid",ibizSourceid);
+    }
+
+    /**
+     * 设置 [版本号]
+     */
+    public void setVersion(Integer version){
+        this.version = version ;
+        this.modify("version",version);
+    }
+
+    /**
+     * 设置 [预计工时]
+     */
+    public void setEstimate(Double estimate){
+        this.estimate = estimate ;
+        this.modify("estimate",estimate);
+    }
+
+    /**
+     * 设置 [关键词]
+     */
+    public void setKeywords(String keywords){
+        this.keywords = keywords ;
+        this.modify("keywords",keywords);
+    }
+
+    /**
+     * 设置 [最后修改日期]
+     */
+    public void setLastediteddate(Timestamp lastediteddate){
+        this.lastediteddate = lastediteddate ;
+        this.modify("lastediteddate",lastediteddate);
+    }
+
+    /**
+     * 格式化日期 [最后修改日期]
+     */
+    public String formatLastediteddate(){
+        if (this.lastediteddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(lastediteddate);
+    }
+    /**
+     * 设置 [由谁创建]
+     */
+    public void setOpenedby(String openedby){
+        this.openedby = openedby ;
+        this.modify("openedby",openedby);
+    }
+
+    /**
+     * 设置 [状态]
+     */
+    public void setStatus(String status){
+        this.status = status ;
+        this.modify("status",status);
+    }
+
+    /**
+     * 设置 [需求类型]
+     */
+    public void setType(String type){
+        this.type = type ;
+        this.modify("type",type);
+    }
+
+    /**
+     * 设置 [需求阶段]
+     */
+    public void setStage(String stage){
+        this.stage = stage ;
+        this.modify("stage",stage);
     }
 
 

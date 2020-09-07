@@ -63,12 +63,12 @@ export interface IBZProStory {
     sourcenote?: any;
 
     /**
-     * 来源对象标识
+     * 来源对象
      *
      * @returns {*}
      * @memberof IBZProStory
      */
-    sourceid?: any;
+    ibiz_sourceobject?: any;
 
     /**
      * 来源对象名称
@@ -76,13 +76,93 @@ export interface IBZProStory {
      * @returns {*}
      * @memberof IBZProStory
      */
-    sourcename?: any;
+    ibiz_sourcename?: any;
 
     /**
-     * 来源对象
+     * 来源对象标识
      *
      * @returns {*}
      * @memberof IBZProStory
      */
-    sourceobject?: any;
+    ibiz_sourceid?: any;
+
+    /**
+     * 版本号
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    version?: any;
+
+    /**
+     * 预计工时
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    estimate?: any;
+
+    /**
+     * 关键词
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    keywords?: any;
+
+    /**
+     * 创建日期
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    openeddate?: any;
+
+    /**
+     * 最后修改日期
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    lastediteddate?: any;
+
+    /**
+     * 已删除
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    deleted?: any;
+
+    /**
+     * 由谁创建
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    openedby?: any;
+
+    /**
+     * 状态
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    status?: any;
+
+    /**
+     * 需求类型
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    type?: any;
+
+    /**
+     * 需求阶段
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    stage?: any;
 }

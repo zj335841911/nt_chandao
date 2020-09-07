@@ -39,14 +39,6 @@ export interface IBZProStoryModule {
     ibizid?: any;
 
     /**
-     * 需求模块类型
-     *
-     * @returns {*}
-     * @memberof IBZProStoryModule
-     */
-    storytype?: any;
-
-    /**
      * 类型
      *
      * @returns {*}
@@ -117,4 +109,12 @@ export interface IBZProStoryModule {
      * @memberof IBZProStoryModule
      */
     deleted?: any;
+
+    /**
+     * 需求模块类型
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    ibiz_storytype?: any;
 }

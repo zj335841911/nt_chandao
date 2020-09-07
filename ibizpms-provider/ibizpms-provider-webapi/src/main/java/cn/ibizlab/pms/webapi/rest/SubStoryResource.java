@@ -537,6 +537,17 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-SyncFromIBIZ-all')")
+    @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/syncfromibiz")
+    public ResponseEntity<SubStoryDTO> syncFromIBIZByStory(@PathVariable("story_id") BigInteger story_id, @PathVariable("substory_id") BigInteger substory_id, @RequestBody SubStoryDTO substorydto) {
+        Story domain = substoryMapping.toDomain(substorydto);
+        domain.setParent(story_id);
+        domain = storyService.syncFromIBIZ(domain) ;
+        substorydto = substoryMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(substorydto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-UnlinkStory-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/unlinkstory")
@@ -1426,6 +1437,17 @@ public class SubStoryResource {
         Story domain = substoryMapping.toDomain(substorydto);
         domain.setParent(story_id);
         domain = storyService.storyNFavorites(domain) ;
+        substorydto = substoryMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(substorydto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-SyncFromIBIZ-all')")
+    @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/syncfromibiz")
+    public ResponseEntity<SubStoryDTO> syncFromIBIZByProductStory(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("substory_id") BigInteger substory_id, @RequestBody SubStoryDTO substorydto) {
+        Story domain = substoryMapping.toDomain(substorydto);
+        domain.setParent(story_id);
+        domain = storyService.syncFromIBIZ(domain) ;
         substorydto = substoryMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }

@@ -576,6 +576,13 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
          return et ;
     }
 
+    @Override
+    @Transactional
+    public Story syncFromIBIZ(Story et) {
+        //自定义代码
+        return et;
+    }
+
         @Override
     @Transactional
     public Story unlinkStory(Story et) {

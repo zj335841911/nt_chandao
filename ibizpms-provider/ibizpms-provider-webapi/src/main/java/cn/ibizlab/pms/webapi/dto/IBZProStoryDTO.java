@@ -104,6 +104,88 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     @JsonProperty("ibiz_sourceid")
     private String ibizSourceid;
 
+    /**
+     * 属性 [VERSION]
+     *
+     */
+    @JSONField(name = "version")
+    @JsonProperty("version")
+    private Integer version;
+
+    /**
+     * 属性 [ESTIMATE]
+     *
+     */
+    @JSONField(name = "estimate")
+    @JsonProperty("estimate")
+    private Double estimate;
+
+    /**
+     * 属性 [KEYWORDS]
+     *
+     */
+    @JSONField(name = "keywords")
+    @JsonProperty("keywords")
+    private String keywords;
+
+    /**
+     * 属性 [OPENEDDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "openeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("openeddate")
+    private Timestamp openeddate;
+
+    /**
+     * 属性 [LASTEDITEDDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("lastediteddate")
+    private Timestamp lastediteddate;
+
+    /**
+     * 属性 [DELETED]
+     *
+     */
+    @JSONField(name = "deleted")
+    @JsonProperty("deleted")
+    private String deleted;
+
+    /**
+     * 属性 [OPENEDBY]
+     *
+     */
+    @JSONField(name = "openedby")
+    @JsonProperty("openedby")
+    private String openedby;
+
+    /**
+     * 属性 [STATUS]
+     *
+     */
+    @JSONField(name = "status")
+    @JsonProperty("status")
+    private String status;
+
+    /**
+     * 属性 [TYPE]
+     *
+     */
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
+
+    /**
+     * 属性 [STAGE]
+     *
+     */
+    @JSONField(name = "stage")
+    @JsonProperty("stage")
+    private String stage;
+
 
     /**
      * 设置 [TITLE]
@@ -175,6 +257,70 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     public void setIbizSourceid(String  ibizSourceid){
         this.ibizSourceid = ibizSourceid ;
         this.modify("ibiz_sourceid",ibizSourceid);
+    }
+
+    /**
+     * 设置 [VERSION]
+     */
+    public void setVersion(Integer  version){
+        this.version = version ;
+        this.modify("version",version);
+    }
+
+    /**
+     * 设置 [ESTIMATE]
+     */
+    public void setEstimate(Double  estimate){
+        this.estimate = estimate ;
+        this.modify("estimate",estimate);
+    }
+
+    /**
+     * 设置 [KEYWORDS]
+     */
+    public void setKeywords(String  keywords){
+        this.keywords = keywords ;
+        this.modify("keywords",keywords);
+    }
+
+    /**
+     * 设置 [LASTEDITEDDATE]
+     */
+    public void setLastediteddate(Timestamp  lastediteddate){
+        this.lastediteddate = lastediteddate ;
+        this.modify("lastediteddate",lastediteddate);
+    }
+
+    /**
+     * 设置 [OPENEDBY]
+     */
+    public void setOpenedby(String  openedby){
+        this.openedby = openedby ;
+        this.modify("openedby",openedby);
+    }
+
+    /**
+     * 设置 [STATUS]
+     */
+    public void setStatus(String  status){
+        this.status = status ;
+        this.modify("status",status);
+    }
+
+    /**
+     * 设置 [TYPE]
+     */
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
+    }
+
+    /**
+     * 设置 [STAGE]
+     */
+    public void setStage(String  stage){
+        this.stage = stage ;
+        this.modify("stage",stage);
     }
 
 

@@ -62,6 +62,27 @@ public class IBZProStorySearchContext extends QueryWrapperContext<IBZProStory> {
             this.getSearchCond().eq("ibiz_sourceobject", n_ibiz_sourceobject_eq);
         }
     }
+	private String n_status_eq;//[状态]
+	public void setN_status_eq(String n_status_eq) {
+        this.n_status_eq = n_status_eq;
+        if(!ObjectUtils.isEmpty(this.n_status_eq)){
+            this.getSearchCond().eq("status", n_status_eq);
+        }
+    }
+	private String n_type_eq;//[需求类型]
+	public void setN_type_eq(String n_type_eq) {
+        this.n_type_eq = n_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_type_eq)){
+            this.getSearchCond().eq("type", n_type_eq);
+        }
+    }
+	private String n_stage_eq;//[需求阶段]
+	public void setN_stage_eq(String n_stage_eq) {
+        this.n_stage_eq = n_stage_eq;
+        if(!ObjectUtils.isEmpty(this.n_stage_eq)){
+            this.getSearchCond().eq("stage", n_stage_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

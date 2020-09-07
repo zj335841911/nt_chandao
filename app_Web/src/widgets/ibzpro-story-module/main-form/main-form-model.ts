@@ -86,11 +86,6 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
-        name: 'storytype',
-        prop: 'storytype',
-        dataType: 'SSCODELIST',
-      },
-      {
         name: 'ibzprostorymodule',
         prop: 'id',
         dataType: 'FONTKEY',

@@ -18,7 +18,7 @@ export class AppHeader extends Vue {
      * @returns {VNode}
      * @memberof AppHeader
      */
-    public render(): VNode {
+    public render(h: any): VNode {
         return <div class="app-header">
             <div class="app-header-left">
                 {this.$slots.header_left}
@@ -28,6 +28,7 @@ export class AppHeader extends Vue {
                 {this.$slots.header_content}
             </div>
             <div class="app-header-right">
+                {this.$topRenderService.rightItemsRenders.forEach((fun: any) => fun(h))}
                 {this.$slots.header_right}
             </div>
         </div>;

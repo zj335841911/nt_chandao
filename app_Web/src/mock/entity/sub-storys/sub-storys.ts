@@ -2238,6 +2238,60 @@ mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/substories\/([a-zA-
 });
 
     
+// SyncFromIBIZ
+mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/substories\/([a-zA-Z0-9\-\;]{1,35})\/syncfromibiz$/)).reply((config: any) => {
+    console.groupCollapsed("实体:substory 方法: SyncFromIBIZ");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id','id'];
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/substories\/([a-zA-Z0-9\-\;]{1,35})\/syncfromibiz$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
+// SyncFromIBIZ
+mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/substories\/([a-zA-Z0-9\-\;]{1,35})\/syncfromibiz$/)).reply((config: any) => {
+    console.groupCollapsed("实体:substory 方法: SyncFromIBIZ");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/substories\/([a-zA-Z0-9\-\;]{1,35})\/syncfromibiz$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
 // UnlinkStory
 mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/substories\/([a-zA-Z0-9\-\;]{1,35})\/unlinkstory$/)).reply((config: any) => {
     console.groupCollapsed("实体:substory 方法: UnlinkStory");

@@ -17,7 +17,7 @@
       <el-dropdown
         v-if="item.children"
         class="app-quick-item-dropdown"
-        trigger="click"
+        trigger="hover"
         @command="handleCommand($event,item)"
       >
         <span :style="{color:item.color}" :class="{'app-seleted-item':isSelectedItem(item)}">
