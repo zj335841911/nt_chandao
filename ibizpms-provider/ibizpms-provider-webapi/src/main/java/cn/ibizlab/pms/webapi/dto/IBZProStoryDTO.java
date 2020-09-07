@@ -192,7 +192,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "pri")
     @JsonProperty("pri")
-    private String pri;
+    private Integer pri;
 
     /**
      * 属性 [COLOR]
@@ -258,7 +258,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "branch")
     @JsonProperty("branch")
-    private String branch;
+    private Integer branch;
 
     /**
      * 属性 [MAILTO]
@@ -331,7 +331,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "tobug")
     @JsonProperty("tobug")
-    private String tobug;
+    private Integer tobug;
 
     /**
      * 属性 [DUPLICATESTORY]
@@ -347,7 +347,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "frombug")
     @JsonProperty("frombug")
-    private String frombug;
+    private Integer frombug;
 
 
     /**
@@ -489,7 +489,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PRI]
      */
-    public void setPri(String  pri){
+    public void setPri(Integer  pri){
         this.pri = pri ;
         this.modify("pri",pri);
     }
@@ -545,7 +545,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     /**
      * 设置 [BRANCH]
      */
-    public void setBranch(String  branch){
+    public void setBranch(Integer  branch){
         this.branch = branch ;
         this.modify("branch",branch);
     }
@@ -617,7 +617,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     /**
      * 设置 [TOBUG]
      */
-    public void setTobug(String  tobug){
+    public void setTobug(Integer  tobug){
         this.tobug = tobug ;
         this.modify("tobug",tobug);
     }
@@ -633,7 +633,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     /**
      * 设置 [FROMBUG]
      */
-    public void setFrombug(String  frombug){
+    public void setFrombug(Integer  frombug){
         this.frombug = frombug ;
         this.modify("frombug",frombug);
     }

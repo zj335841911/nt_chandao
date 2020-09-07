@@ -197,7 +197,7 @@ public class IBZProStory extends EntityMP implements Serializable {
     @TableField(value = "pri")
     @JSONField(name = "pri")
     @JsonProperty("pri")
-    private String pri;
+    private Integer pri;
     /**
      * 颜色
      */
@@ -255,7 +255,7 @@ public class IBZProStory extends EntityMP implements Serializable {
     @TableField(value = "branch")
     @JSONField(name = "branch")
     @JsonProperty("branch")
-    private String branch;
+    private Integer branch;
     /**
      * 抄送给
      */
@@ -319,7 +319,7 @@ public class IBZProStory extends EntityMP implements Serializable {
     @TableField(value = "tobug")
     @JSONField(name = "tobug")
     @JsonProperty("tobug")
-    private String tobug;
+    private Integer tobug;
     /**
      * 重复需求
      */
@@ -333,7 +333,7 @@ public class IBZProStory extends EntityMP implements Serializable {
     @TableField(value = "frombug")
     @JSONField(name = "frombug")
     @JsonProperty("frombug")
-    private String frombug;
+    private Integer frombug;
 
     /**
      * 产品
@@ -502,7 +502,7 @@ public class IBZProStory extends EntityMP implements Serializable {
     /**
      * 设置 [优先级]
      */
-    public void setPri(String pri){
+    public void setPri(Integer pri){
         this.pri = pri ;
         this.modify("pri",pri);
     }
@@ -578,7 +578,7 @@ public class IBZProStory extends EntityMP implements Serializable {
     /**
      * 设置 [平台]
      */
-    public void setBranch(String branch){
+    public void setBranch(Integer branch){
         this.branch = branch ;
         this.modify("branch",branch);
     }
@@ -660,7 +660,7 @@ public class IBZProStory extends EntityMP implements Serializable {
     /**
      * 设置 [转Bug]
      */
-    public void setTobug(String tobug){
+    public void setTobug(Integer tobug){
         this.tobug = tobug ;
         this.modify("tobug",tobug);
     }
@@ -676,7 +676,7 @@ public class IBZProStory extends EntityMP implements Serializable {
     /**
      * 设置 [来源Bug]
      */
-    public void setFrombug(String frombug){
+    public void setFrombug(Integer frombug){
         this.frombug = frombug ;
         this.modify("frombug",frombug);
     }

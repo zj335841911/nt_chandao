@@ -881,7 +881,7 @@
                 </column>
                 <column name="STAGE" remarks="" type="VARCHAR(60)">
                 </column>
-                <column name="PRI" remarks="" type="VARCHAR(60)">
+                <column name="PRI" remarks="" type="INT">
                 </column>
                 <column name="COLOR" remarks="" type="VARCHAR(60)">
                 </column>
@@ -895,7 +895,7 @@
                 </column>
                 <column name="REVIEWEDDATE" remarks="" type="DATETIME">
                 </column>
-                <column name="BRANCH" remarks="" type="VARCHAR(100)">
+                <column name="BRANCH" remarks="" type="INT">
                 </column>
                 <column name="MAILTO" remarks="" type="VARCHAR(100)">
                 </column>
@@ -913,11 +913,11 @@
                 </column>
                 <column name="CLOSEDREASON" remarks="" type="VARCHAR(100)">
                 </column>
-                <column name="TOBUG" remarks="" type="VARCHAR(100)">
+                <column name="TOBUG" remarks="" type="INT">
                 </column>
                 <column name="DUPLICATESTORY" remarks="" type="VARCHAR(100)">
                 </column>
-                <column name="FROMBUG" remarks="" type="VARCHAR(100)">
+                <column name="FROMBUG" remarks="" type="INT">
                 </column>
         </createTable>
     </changeSet>
