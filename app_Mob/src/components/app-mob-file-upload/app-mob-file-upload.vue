@@ -48,7 +48,7 @@ Vue.use(Uploader);
                 upload_failed: 'Upload failed!',
             }
         }
-    }
+    },
     components: {}
 })
 export default class AppMobFileUpload extends Vue {

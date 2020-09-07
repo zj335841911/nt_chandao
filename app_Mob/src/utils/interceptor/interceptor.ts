@@ -109,14 +109,14 @@ export class Interceptors {
             let { data: _data } = res;
 
             if (res.status === 401) {
-                Loading.hidden();
+                // Loading.hidden();
                 this.doNoLogin(_data.data);
             }
             if (res.status === 404) {
-                Loading.hidden();
+                // Loading.hidden();
                 this.router.push({ path: '/404' });
             } else if (res.status === 500) {
-                Loading.hidden();
+                // Loading.hidden();
                 this.router.push({ path: '/500' });
             }
 

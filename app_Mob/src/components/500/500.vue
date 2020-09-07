@@ -49,6 +49,8 @@ export default class App404 extends Vue {
    */
   public backindex() {
     this.$router.push({ path: "/" });
+    let ionModal:any = document.querySelector(".show-modal");
+    if(ionModal){ ionModal.dismiss(); }
   }
 }
 </script>
