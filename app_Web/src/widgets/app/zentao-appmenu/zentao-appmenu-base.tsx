@@ -401,7 +401,7 @@ export class ZentaoBase extends Vue {
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'ibzprostorymodules', parameterName: 'ibzprostorymodule' },
+            { pathName: 'ibzprostories', parameterName: 'ibzprostory' },
             { pathName: 'gridview', parameterName: 'gridview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);

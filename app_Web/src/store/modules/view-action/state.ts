@@ -84,6 +84,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '077af636991c5ae68e1bc260baffc10f',
+            viewmodule: 'ibizpro',
+            viewname: 'IBZProStoryGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '75ddfe042245299b90c10c572b3d9436',
+            ],
+        },
+        {
             viewtag: '0846a45e5ffdd4d8f857575cfa955dce',
             viewmodule: 'zentao',
             viewname: 'ProductHtmlView',
@@ -441,6 +451,7 @@ export const viewstate: any = {
                 'e2f8bc0ff75f204383d2a5c15117b476',
                 '46854d548e698f79dc9b2bda5e5d5331',
                 '8ca39819b87c5e3e8669fcd7409cf9a2',
+                '077af636991c5ae68e1bc260baffc10f',
             ],
         },
         {
@@ -1628,6 +1639,15 @@ export const viewstate: any = {
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '5890a810365fec51e801d2cffce44fde',
                 '27e6b14e0243582fc67753b58a64066d',
+            ],
+        },
+        {
+            viewtag: '75ddfe042245299b90c10c572b3d9436',
+            viewmodule: 'ibizpro',
+            viewname: 'IBZProStoryEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

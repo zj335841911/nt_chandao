@@ -6326,6 +6326,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-pickup-grid-view4/story-pickup-grid-view4.vue'),
                 },
                 {
+                    path: 'ibzprostories/:ibzprostory?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.ibzprostory.views.editview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzprostories', parameterName: 'ibzprostory' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibzpro-story-edit-view/ibzpro-story-edit-view.vue'),
+                },
+                {
                     path: 'ibzprostorymodules/:ibzprostorymodule?/gridview/:gridview?',
                     meta: {
                         caption: 'entities.ibzprostorymodule.views.gridview.title',
@@ -9221,6 +9235,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibizpro/ibzpro-product-grid-view/ibzpro-product-grid-view.vue'),
+                },
+                {
+                    path: 'ibzprostories/:ibzprostory?/gridview/:gridview?',
+                    meta: {
+                        caption: 'entities.ibzprostory.views.gridview.title',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzprostories', parameterName: 'ibzprostory' },
+                            { pathName: 'gridview', parameterName: 'gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibzpro-story-grid-view/ibzpro-story-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/testreports/:testreport?/maininfoview/:maininfoview?',

@@ -266,7 +266,7 @@ export default class MainService extends ControlService {
                 if(response.data){
                     Object.assign(response.data,{srfuf:'0'});
                     //仿真主键数据
-                    response.data.ibzprostoryid = Util.createUUID();
+                    response.data.id = Util.createUUID();
                 }
                 this.handleResponse(action, response, true);
                 resolve(response);
