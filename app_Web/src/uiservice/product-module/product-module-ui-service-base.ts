@@ -270,6 +270,8 @@ export default class ProductModuleUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{PRODUCTMODULE:"0"});
+        Object.assign(params,{productmodule:"0"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         if(_this.context){
