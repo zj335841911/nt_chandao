@@ -43,6 +43,7 @@ export default {
     frombug: "来源Bug",
     spec: "需求描述",
     verify: "验收标准",
+    comment: "备注",
   },
 	views: {
 		gridview: {

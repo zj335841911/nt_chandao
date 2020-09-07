@@ -341,4 +341,12 @@ export interface IBZProStory {
      * @memberof IBZProStory
      */
     verify?: any;
+
+    /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    comment?: any;
 }
