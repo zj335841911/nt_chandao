@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.productcancelproducttop" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.productcancelproducttop">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="productcancelproducttopdefault" type="cn.ibizlab.pms.core.zentao.domain.Product" />
+        </extensionElements>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="productcancelproducttoprawsqlcall1" id="9B99FE64-8A60-4CA1-94CF-FE50E9043430" implementation="http://www.jboss.org/drools/rule" name="删除置顶"/>
+     <endEvent id="9B99FE64-8A60-4CA1-94CF-FE50E9043430_End" name="End"/>
+     <sequenceFlow id="9B99FE64-8A60-4CA1-94CF-FE50E9043430_End_Line" sourceRef="9B99FE64-8A60-4CA1-94CF-FE50E9043430" targetRef="9B99FE64-8A60-4CA1-94CF-FE50E9043430_End"/>
+     <startEvent id="C5EF7BC5-38C8-49EC-927B-A09B6151CC0E" isInterrupting="true"/>
+     <sequenceFlow id="B58F04E2-71DF-4CB1-BAF6-73EC67A76A31" sourceRef="C5EF7BC5-38C8-49EC-927B-A09B6151CC0E" targetRef="9B99FE64-8A60-4CA1-94CF-FE50E9043430">
+     </sequenceFlow>
+    </process>
+</definitions>
+

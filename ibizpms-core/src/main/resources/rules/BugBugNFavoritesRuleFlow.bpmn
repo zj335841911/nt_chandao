@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.bugbugnfavorites" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.bugbugnfavorites">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="bugbugnfavoritesdefault" type="cn.ibizlab.pms.core.zentao.domain.Bug" />
+        </extensionElements>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="bugbugnfavoritesrawsqlcall1" id="25c11328dc9a2ed7a97247c938e33d63" implementation="http://www.jboss.org/drools/rule" name="取消收藏"/>
+     <endEvent id="25c11328dc9a2ed7a97247c938e33d63_End" name="End"/>
+     <sequenceFlow id="25c11328dc9a2ed7a97247c938e33d63_End_Line" sourceRef="25c11328dc9a2ed7a97247c938e33d63" targetRef="25c11328dc9a2ed7a97247c938e33d63_End"/>
+     <startEvent id="a3cc58209cb3d4e259acdc8a2478b9d6" isInterrupting="true"/>
+     <sequenceFlow id="fab34664210838c0617ae151e3236dd7" sourceRef="a3cc58209cb3d4e259acdc8a2478b9d6" targetRef="25c11328dc9a2ed7a97247c938e33d63">
+     </sequenceFlow>
+    </process>
+</definitions>
+

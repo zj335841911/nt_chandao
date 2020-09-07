@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.productmobproductcounter" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.productmobproductcounter">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="productmobproductcounterdefault" type="cn.ibizlab.pms.core.zentao.domain.Product" />
+        </extensionElements>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="productmobproductcounterrawsqlcall4" id="E21DE48B-01AF-4419-9C42-518E7250F7B1" implementation="http://www.jboss.org/drools/rule" name="发布数"/>
+     <endEvent id="E21DE48B-01AF-4419-9C42-518E7250F7B1_End" name="End"/>
+     <sequenceFlow id="E21DE48B-01AF-4419-9C42-518E7250F7B1_End_Line" sourceRef="E21DE48B-01AF-4419-9C42-518E7250F7B1" targetRef="E21DE48B-01AF-4419-9C42-518E7250F7B1_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="productmobproductcounterrawsqlcall2" id="C2FEB5E0-A830-4231-9BBB-135B0B7E66E4" implementation="http://www.jboss.org/drools/rule" name="获取需求数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="productmobproductcounterrawsqlcall1" id="EAEDC737-F6D4-41F9-BE24-9AD2AC24588C" implementation="http://www.jboss.org/drools/rule" name="获取相关BUG数"/>
+     <startEvent id="8F02CDA7-66EF-40EE-8A37-83780ED37D82" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="productmobproductcounterrawsqlcall3" id="00FF9A5A-3F16-45BC-83F8-98B17805956A" implementation="http://www.jboss.org/drools/rule" name="计划数"/>
+     <sequenceFlow id="A9FD4837-C739-4AEA-8993-2C352D79CF13" sourceRef="00FF9A5A-3F16-45BC-83F8-98B17805956A" targetRef="E21DE48B-01AF-4419-9C42-518E7250F7B1">
+     </sequenceFlow>
+     <sequenceFlow id="F887EDF5-B4CD-4339-A515-B74FA6A6B6B0" sourceRef="8F02CDA7-66EF-40EE-8A37-83780ED37D82" targetRef="EAEDC737-F6D4-41F9-BE24-9AD2AC24588C">
+     </sequenceFlow>
+     <sequenceFlow id="87EEA6A8-F27F-4015-9BF7-9E0E63443C8E" sourceRef="C2FEB5E0-A830-4231-9BBB-135B0B7E66E4" targetRef="00FF9A5A-3F16-45BC-83F8-98B17805956A">
+     </sequenceFlow>
+     <sequenceFlow id="22F5CC39-B7C9-489E-83E7-D1EF8FB2EA19" sourceRef="EAEDC737-F6D4-41F9-BE24-9AD2AC24588C" targetRef="C2FEB5E0-A830-4231-9BBB-135B0B7E66E4">
+     </sequenceFlow>
+    </process>
+</definitions>
+

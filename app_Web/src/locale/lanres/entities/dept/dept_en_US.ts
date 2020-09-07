@@ -1,0 +1,131 @@
+
+export default {
+  fields: {
+    manager: "负责人",
+    grade: "grade",
+    function: "function",
+    order: "order",
+    path: "path",
+    position: "position",
+    id: "id",
+    name: "部门名称",
+    parentname: "上级部门",
+    parent: "parent",
+    isleaf: "无子部门",
+  },
+	views: {
+		pickupview: {
+			caption: "部门",
+      		title: "部门数据选择视图",
+		},
+		maingridview: {
+			caption: "部门",
+      		title: "部门",
+		},
+		infoeditview: {
+			caption: "部门信息",
+      		title: "部门编辑视图",
+		},
+		editview: {
+			caption: "部门信息",
+      		title: "部门编辑视图",
+		},
+		pickupgridview: {
+			caption: "部门",
+      		title: "部门选择表格视图",
+		},
+	},
+	main_form: {
+		details: {
+			group1: "基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "id", 
+			srfmajortext: "部门名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			name: "部门名称", 
+			parentname: "上级部门", 
+			manager: "负责人", 
+			id: "id", 
+			parent: "parent", 
+		},
+		uiactions: {
+		},
+	},
+	info_form: {
+		details: {
+			group1: "基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "id", 
+			srfmajortext: "部门名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			name: "部门名称", 
+			parentname: "上级部门", 
+			manager: "负责人", 
+			id: "id", 
+		},
+		uiactions: {
+		},
+	},
+	main_grid: {
+		columns: {
+			id: "ID",
+			name: "部门",
+			parentname: "上级部门",
+			manager: "负责人",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+        dept_delete: "删除",
+        dept_edit: "编辑",
+		},
+	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
+		},
+		uiactions: {
+		},
+	},
+	editviewtoolbar_toolbar: {
+		tbitem3: {
+			caption: "Save",
+			tip: "Save",
+		},
+		tbitem4: {
+			caption: "Save And New",
+			tip: "Save And New",
+		},
+		tbitem5: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+		tbitem7: {
+			caption: "Remove And Close",
+			tip: "Remove And Close Window",
+		},
+	},
+	maingridviewtoolbar_toolbar: {
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
+		},
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+	},
+	infoeditviewtoolbar_toolbar: {
+	},
+};

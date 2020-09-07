@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.bugsendnotice" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.bugsendnotice">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="bugsendnoticedefault" type="cn.ibizlab.pms.core.zentao.domain.Bug" />
+        </extensionElements>
+     <startEvent id="93BB7D08-6EE3-45E1-8159-36A552748A42" isInterrupting="true"/>
+     <endEvent id="93BB7D08-6EE3-45E1-8159-36A552748A42_End" name="End"/>
+     <sequenceFlow id="93BB7D08-6EE3-45E1-8159-36A552748A42_End_Line" sourceRef="93BB7D08-6EE3-45E1-8159-36A552748A42" targetRef="93BB7D08-6EE3-45E1-8159-36A552748A42_End"/>
+    </process>
+</definitions>
+

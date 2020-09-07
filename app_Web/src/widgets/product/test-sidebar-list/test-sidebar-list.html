@@ -1,0 +1,8 @@
+<div :class="['app-list', this.items.length > 0 ? '' : 'app-list-empty' ]">
+    <div v-if="items.length > 0" style="height:100%;">
+                <test-list :items="items" @item-click="handleDblClick.apply(_self, arguments)" @item-action-click="itemActionClick.apply(_self, arguments)"/>
+    </div>
+    <div v-else>
+        {{ $t('app.commonWords.noData') }}
+    </div>
+</div>

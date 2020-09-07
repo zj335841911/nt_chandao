@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.taskremovetempmajor__msdeny" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.taskremovetempmajor__msdeny">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="taskremovetempmajor__msdenytemp" type="cn.ibizlab.pms.core.zentao.domain.Task" />
+        <tns:global identifier="taskremovetempmajor__msdenydefault" type="cn.ibizlab.pms.core.zentao.domain.Task" />
+        </extensionElements>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetempmajor__msdenydenybywait_0" id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__wait_0" implementation="http://www.jboss.org/drools/rule" name="状态[未进行_未收藏]拒绝[RemoveTempMajor]操作"/>
+     <endEvent id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__wait_0_End" name="End"/>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__wait_0_End_Line" sourceRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__wait_0" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__wait_0_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetempmajor__msdenydenybydone_1" id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__done_1" implementation="http://www.jboss.org/drools/rule" name="状态[已完成_已收藏]拒绝[RemoveTempMajor]操作"/>
+     <endEvent id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__done_1_End" name="End"/>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__done_1_End_Line" sourceRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__done_1" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__done_1_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetempmajor__msdenydenybywait_1" id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__wait_1" implementation="http://www.jboss.org/drools/rule" name="状态[未进行_已收藏]拒绝[RemoveTempMajor]操作"/>
+     <endEvent id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__wait_1_End" name="End"/>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__wait_1_End_Line" sourceRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__wait_1" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__wait_1_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetempmajor__msdenydenybyclosed_1" id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__closed_1" implementation="http://www.jboss.org/drools/rule" name="状态[已关闭_已收藏]拒绝[RemoveTempMajor]操作"/>
+     <endEvent id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__closed_1_End" name="End"/>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__closed_1_End_Line" sourceRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__closed_1" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__closed_1_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetempmajor__msdenydenybyclosed_0" id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__closed_0" implementation="http://www.jboss.org/drools/rule" name="状态[已关闭_未收藏]拒绝[RemoveTempMajor]操作"/>
+     <endEvent id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__closed_0_End" name="End"/>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__closed_0_End_Line" sourceRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__closed_0" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__closed_0_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetempmajor__msdenypreparetemp" id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__PREPARETEMP" implementation="http://www.jboss.org/drools/rule" name="准备临时参数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetempmajor__msdenydenybydone_0" id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__done_0" implementation="http://www.jboss.org/drools/rule" name="状态[已完成_未收藏]拒绝[RemoveTempMajor]操作"/>
+     <endEvent id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__done_0_End" name="End"/>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__done_0_End_Line" sourceRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__done_0" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__done_0_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetempmajor__msdenydenybypause_1" id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__pause_1" implementation="http://www.jboss.org/drools/rule" name="状态[已暂停_已收藏]拒绝[RemoveTempMajor]操作"/>
+     <endEvent id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__pause_1_End" name="End"/>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__pause_1_End_Line" sourceRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__pause_1" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__pause_1_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetempmajor__msdenydenybycancel_1" id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__cancel_1" implementation="http://www.jboss.org/drools/rule" name="状态[已取消_已收藏]拒绝[RemoveTempMajor]操作"/>
+     <endEvent id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__cancel_1_End" name="End"/>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__cancel_1_End_Line" sourceRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__cancel_1" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__cancel_1_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetempmajor__msdenydenybycancel_0" id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__cancel_0" implementation="http://www.jboss.org/drools/rule" name="状态[已取消_未收藏]拒绝[RemoveTempMajor]操作"/>
+     <endEvent id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__cancel_0_End" name="End"/>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__cancel_0_End_Line" sourceRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__cancel_0" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__cancel_0_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetempmajor__msdenydenybydoing_0" id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__doing_0" implementation="http://www.jboss.org/drools/rule" name="状态[进行中_未收藏]拒绝[RemoveTempMajor]操作"/>
+     <endEvent id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__doing_0_End" name="End"/>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__doing_0_End_Line" sourceRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__doing_0" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__doing_0_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetempmajor__msdenydenybydoing_1" id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__doing_1" implementation="http://www.jboss.org/drools/rule" name="状态[进行中_已收藏]拒绝[RemoveTempMajor]操作"/>
+     <endEvent id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__doing_1_End" name="End"/>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__doing_1_End_Line" sourceRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__doing_1" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__doing_1_End"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetempmajor__msdenydenybypause_0" id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__pause_0" implementation="http://www.jboss.org/drools/rule" name="状态[已暂停_未收藏]拒绝[RemoveTempMajor]操作"/>
+     <endEvent id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__pause_0_End" name="End"/>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__pause_0_End_Line" sourceRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__pause_0" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__pause_0_End"/>
+     <startEvent id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__BEGIN" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetempmajor__msdenyget" id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__PREPARETEMP" sourceRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__BEGIN" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__PREPARETEMP">
+     </sequenceFlow>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET" sourceRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__PREPARETEMP" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET">
+     </sequenceFlow>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__cancel_0" sourceRef="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__cancel_0">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskremovetempmajor__msdenytemp:Task();
+            $taskremovetempmajor__msdenydefault:Task();
+            eval($taskremovetempmajor__msdenytemp==taskremovetempmajor__msdenytemp && $taskremovetempmajor__msdenydefault==taskremovetempmajor__msdenydefault);
+                eval((RuleUtils.test($taskremovetempmajor__msdenytemp.get("STATUS"),"EQ","cancel"))&&(RuleUtils.test($taskremovetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__cancel_1" sourceRef="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__cancel_1">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskremovetempmajor__msdenytemp:Task();
+            $taskremovetempmajor__msdenydefault:Task();
+            eval($taskremovetempmajor__msdenytemp==taskremovetempmajor__msdenytemp && $taskremovetempmajor__msdenydefault==taskremovetempmajor__msdenydefault);
+                eval((RuleUtils.test($taskremovetempmajor__msdenytemp.get("STATUS"),"EQ","cancel"))&&(RuleUtils.test($taskremovetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__closed_0" sourceRef="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__closed_0">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskremovetempmajor__msdenytemp:Task();
+            $taskremovetempmajor__msdenydefault:Task();
+            eval($taskremovetempmajor__msdenytemp==taskremovetempmajor__msdenytemp && $taskremovetempmajor__msdenydefault==taskremovetempmajor__msdenydefault);
+                eval((RuleUtils.test($taskremovetempmajor__msdenytemp.get("STATUS"),"EQ","closed"))&&(RuleUtils.test($taskremovetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__closed_1" sourceRef="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__closed_1">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskremovetempmajor__msdenytemp:Task();
+            $taskremovetempmajor__msdenydefault:Task();
+            eval($taskremovetempmajor__msdenytemp==taskremovetempmajor__msdenytemp && $taskremovetempmajor__msdenydefault==taskremovetempmajor__msdenydefault);
+                eval((RuleUtils.test($taskremovetempmajor__msdenytemp.get("STATUS"),"EQ","closed"))&&(RuleUtils.test($taskremovetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__doing_0" sourceRef="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__doing_0">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskremovetempmajor__msdenytemp:Task();
+            $taskremovetempmajor__msdenydefault:Task();
+            eval($taskremovetempmajor__msdenytemp==taskremovetempmajor__msdenytemp && $taskremovetempmajor__msdenydefault==taskremovetempmajor__msdenydefault);
+                eval((RuleUtils.test($taskremovetempmajor__msdenytemp.get("STATUS"),"EQ","doing"))&&(RuleUtils.test($taskremovetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__doing_1" sourceRef="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__doing_1">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskremovetempmajor__msdenytemp:Task();
+            $taskremovetempmajor__msdenydefault:Task();
+            eval($taskremovetempmajor__msdenytemp==taskremovetempmajor__msdenytemp && $taskremovetempmajor__msdenydefault==taskremovetempmajor__msdenydefault);
+                eval((RuleUtils.test($taskremovetempmajor__msdenytemp.get("STATUS"),"EQ","doing"))&&(RuleUtils.test($taskremovetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__done_0" sourceRef="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__done_0">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskremovetempmajor__msdenytemp:Task();
+            $taskremovetempmajor__msdenydefault:Task();
+            eval($taskremovetempmajor__msdenytemp==taskremovetempmajor__msdenytemp && $taskremovetempmajor__msdenydefault==taskremovetempmajor__msdenydefault);
+                eval((RuleUtils.test($taskremovetempmajor__msdenytemp.get("STATUS"),"EQ","done"))&&(RuleUtils.test($taskremovetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__done_1" sourceRef="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__done_1">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskremovetempmajor__msdenytemp:Task();
+            $taskremovetempmajor__msdenydefault:Task();
+            eval($taskremovetempmajor__msdenytemp==taskremovetempmajor__msdenytemp && $taskremovetempmajor__msdenydefault==taskremovetempmajor__msdenydefault);
+                eval((RuleUtils.test($taskremovetempmajor__msdenytemp.get("STATUS"),"EQ","done"))&&(RuleUtils.test($taskremovetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__pause_0" sourceRef="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__pause_0">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskremovetempmajor__msdenytemp:Task();
+            $taskremovetempmajor__msdenydefault:Task();
+            eval($taskremovetempmajor__msdenytemp==taskremovetempmajor__msdenytemp && $taskremovetempmajor__msdenydefault==taskremovetempmajor__msdenydefault);
+                eval((RuleUtils.test($taskremovetempmajor__msdenytemp.get("STATUS"),"EQ","pause"))&&(RuleUtils.test($taskremovetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__pause_1" sourceRef="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__pause_1">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskremovetempmajor__msdenytemp:Task();
+            $taskremovetempmajor__msdenydefault:Task();
+            eval($taskremovetempmajor__msdenytemp==taskremovetempmajor__msdenytemp && $taskremovetempmajor__msdenydefault==taskremovetempmajor__msdenydefault);
+                eval((RuleUtils.test($taskremovetempmajor__msdenytemp.get("STATUS"),"EQ","pause"))&&(RuleUtils.test($taskremovetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__wait_0" sourceRef="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__wait_0">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskremovetempmajor__msdenytemp:Task();
+            $taskremovetempmajor__msdenydefault:Task();
+            eval($taskremovetempmajor__msdenytemp==taskremovetempmajor__msdenytemp && $taskremovetempmajor__msdenydefault==taskremovetempmajor__msdenydefault);
+                eval((RuleUtils.test($taskremovetempmajor__msdenytemp.get("STATUS"),"EQ","wait"))&&(RuleUtils.test($taskremovetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","0")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__wait_1" sourceRef="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET" targetRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__wait_1">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskremovetempmajor__msdenytemp:Task();
+            $taskremovetempmajor__msdenydefault:Task();
+            eval($taskremovetempmajor__msdenytemp==taskremovetempmajor__msdenytemp && $taskremovetempmajor__msdenydefault==taskremovetempmajor__msdenydefault);
+                eval((RuleUtils.test($taskremovetempmajor__msdenytemp.get("STATUS"),"EQ","wait"))&&(RuleUtils.test($taskremovetempmajor__msdenytemp.get("ISFAVORITES"),"EQ","1")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+    <exclusiveGateway id="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET" name="Gateway" gatewayDirection="Diverging" default="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET_End_Line"></exclusiveGateway>
+    <sequenceFlow id="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__cancel_0-gatewayline" sourceRef="82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET" targetRef="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET"></sequenceFlow>
+    <sequenceFlow id="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET_End_Line" sourceRef="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET" targetRef="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET_End"/>
+    <endEvent id="gateway-82AA639F-00C3-4BFF-BAF2-FF877D17BEA7__MSDENY__GET_End" name="End"/>
+    </process>
+</definitions>
+

@@ -1,0 +1,152 @@
+package cn.ibizlab.pms.webapi.dto;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+import java.math.BigInteger;
+import java.util.Map;
+import java.util.HashMap;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.alibaba.fastjson.annotation.JSONField;
+import cn.ibizlab.pms.util.domain.DTOBase;
+import cn.ibizlab.pms.util.domain.DTOClient;
+import lombok.Data;
+
+/**
+ * 服务DTO对象[IbzTopDTO]
+ */
+@Data
+public class IbzTopDTO extends DTOBase implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+    /**
+     * 属性 [IBZ_TOPID]
+     *
+     */
+    @JSONField(name = "ibztopid")
+    @JsonProperty("ibztopid")
+    private String ibztopid;
+
+    /**
+     * 属性 [CREATEDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("createdate")
+    private Timestamp createdate;
+
+    /**
+     * 属性 [UPDATEMAN]
+     *
+     */
+    @JSONField(name = "updateman")
+    @JsonProperty("updateman")
+    private String updateman;
+
+    /**
+     * 属性 [IBZ_TOPNAME]
+     *
+     */
+    @JSONField(name = "ibztopname")
+    @JsonProperty("ibztopname")
+    private String ibztopname;
+
+    /**
+     * 属性 [CREATEMAN]
+     *
+     */
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    private String createman;
+
+    /**
+     * 属性 [UPDATEDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
+
+    /**
+     * 属性 [TYPE]
+     *
+     */
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
+
+    /**
+     * 属性 [OBJECTID]
+     *
+     */
+    @JSONField(name = "objectid")
+    @JsonProperty("objectid")
+    private Integer objectid;
+
+    /**
+     * 属性 [OBJECTORDER]
+     *
+     */
+    @JSONField(name = "objectorder")
+    @JsonProperty("objectorder")
+    private Integer objectorder;
+
+    /**
+     * 属性 [ACCOUNT]
+     *
+     */
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    private String account;
+
+
+    /**
+     * 设置 [IBZ_TOPNAME]
+     */
+    public void setIbztopname(String  ibztopname){
+        this.ibztopname = ibztopname ;
+        this.modify("ibz_topname",ibztopname);
+    }
+
+    /**
+     * 设置 [TYPE]
+     */
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
+    }
+
+    /**
+     * 设置 [OBJECTID]
+     */
+    public void setObjectid(Integer  objectid){
+        this.objectid = objectid ;
+        this.modify("objectid",objectid);
+    }
+
+    /**
+     * 设置 [OBJECTORDER]
+     */
+    public void setObjectorder(Integer  objectorder){
+        this.objectorder = objectorder ;
+        this.modify("objectorder",objectorder);
+    }
+
+    /**
+     * 设置 [ACCOUNT]
+     */
+    public void setAccount(String  account){
+        this.account = account ;
+        this.modify("account",account);
+    }
+
+
+}
+
