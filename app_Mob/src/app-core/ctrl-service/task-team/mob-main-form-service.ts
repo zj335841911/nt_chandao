@@ -72,7 +72,7 @@ export class MobMainService extends FormServiceBase {
      */
     public mergeDefaults(response:any = {}): void {
         if (response.data) {
-            Object.assign(response.data, { 'type': 'project' });
+            Object.assign(response.data, { 'type': 'task' });
         }
     }
 
