@@ -218,6 +218,56 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     @JsonProperty("stagedby")
     private String stagedby;
 
+    /**
+     * 属性 [ASSIGNEDTO]
+     *
+     */
+    @JSONField(name = "assignedto")
+    @JsonProperty("assignedto")
+    private String assignedto;
+
+    /**
+     * 属性 [ASSIGNEDDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "assigneddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("assigneddate")
+    private Timestamp assigneddate;
+
+    /**
+     * 属性 [REVIEWEDBY]
+     *
+     */
+    @JSONField(name = "reviewedby")
+    @JsonProperty("reviewedby")
+    private String reviewedby;
+
+    /**
+     * 属性 [REVIEWEDDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "revieweddate" , format="yyyy-MM-dd")
+    @JsonProperty("revieweddate")
+    private Timestamp revieweddate;
+
+    /**
+     * 属性 [BRANCH]
+     *
+     */
+    @JSONField(name = "branch")
+    @JsonProperty("branch")
+    private String branch;
+
+    /**
+     * 属性 [MAILTO]
+     *
+     */
+    @JSONField(name = "mailto")
+    @JsonProperty("mailto")
+    private String mailto;
+
 
     /**
      * 设置 [TITLE]
@@ -377,6 +427,54 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     public void setStagedby(String  stagedby){
         this.stagedby = stagedby ;
         this.modify("stagedby",stagedby);
+    }
+
+    /**
+     * 设置 [ASSIGNEDTO]
+     */
+    public void setAssignedto(String  assignedto){
+        this.assignedto = assignedto ;
+        this.modify("assignedto",assignedto);
+    }
+
+    /**
+     * 设置 [ASSIGNEDDATE]
+     */
+    public void setAssigneddate(Timestamp  assigneddate){
+        this.assigneddate = assigneddate ;
+        this.modify("assigneddate",assigneddate);
+    }
+
+    /**
+     * 设置 [REVIEWEDBY]
+     */
+    public void setReviewedby(String  reviewedby){
+        this.reviewedby = reviewedby ;
+        this.modify("reviewedby",reviewedby);
+    }
+
+    /**
+     * 设置 [REVIEWEDDATE]
+     */
+    public void setRevieweddate(Timestamp  revieweddate){
+        this.revieweddate = revieweddate ;
+        this.modify("revieweddate",revieweddate);
+    }
+
+    /**
+     * 设置 [BRANCH]
+     */
+    public void setBranch(String  branch){
+        this.branch = branch ;
+        this.modify("branch",branch);
+    }
+
+    /**
+     * 设置 [MAILTO]
+     */
+    public void setMailto(String  mailto){
+        this.mailto = mailto ;
+        this.modify("mailto",mailto);
     }
 
 

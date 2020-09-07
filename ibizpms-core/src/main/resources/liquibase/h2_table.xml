@@ -887,6 +887,18 @@
                 </column>
                 <column name="STAGEDBY" remarks="" type="VARCHAR(60)">
                 </column>
+                <column name="ASSIGNEDTO" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ASSIGNEDDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="REVIEWEDBY" remarks="" type="VARCHAR(2000)">
+                </column>
+                <column name="REVIEWEDDATE" remarks="" type="DATETIME">
+                </column>
+                <column name="BRANCH" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="MAILTO" remarks="" type="VARCHAR(100)">
+                </column>
         </createTable>
     </changeSet>
 

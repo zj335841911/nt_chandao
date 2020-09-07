@@ -197,4 +197,52 @@ export interface IBZProStory {
      * @memberof IBZProStory
      */
     stagedby?: any;
+
+    /**
+     * 指派给
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    assignedto?: any;
+
+    /**
+     * 指派日期
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    assigneddate?: any;
+
+    /**
+     * 由谁评审
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    reviewedby?: any;
+
+    /**
+     * 评审时间
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    revieweddate?: any;
+
+    /**
+     * 平台
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    branch?: any;
+
+    /**
+     * 抄送给
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    mailto?: any;
 }

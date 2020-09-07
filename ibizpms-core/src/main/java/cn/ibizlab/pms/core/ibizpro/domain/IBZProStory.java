@@ -219,6 +219,50 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JSONField(name = "stagedby")
     @JsonProperty("stagedby")
     private String stagedby;
+    /**
+     * 指派给
+     */
+    @TableField(value = "assignedto")
+    @JSONField(name = "assignedto")
+    @JsonProperty("assignedto")
+    private String assignedto;
+    /**
+     * 指派日期
+     */
+    @TableField(value = "assigneddate")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "assigneddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("assigneddate")
+    private Timestamp assigneddate;
+    /**
+     * 由谁评审
+     */
+    @TableField(value = "reviewedby")
+    @JSONField(name = "reviewedby")
+    @JsonProperty("reviewedby")
+    private String reviewedby;
+    /**
+     * 评审时间
+     */
+    @TableField(value = "revieweddate")
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "revieweddate" , format="yyyy-MM-dd")
+    @JsonProperty("revieweddate")
+    private Timestamp revieweddate;
+    /**
+     * 平台
+     */
+    @TableField(value = "branch")
+    @JSONField(name = "branch")
+    @JsonProperty("branch")
+    private String branch;
+    /**
+     * 抄送给
+     */
+    @TableField(value = "mailto")
+    @JSONField(name = "mailto")
+    @JsonProperty("mailto")
+    private String mailto;
 
     /**
      * 产品
@@ -406,6 +450,74 @@ public class IBZProStory extends EntityMP implements Serializable {
     public void setStagedby(String stagedby){
         this.stagedby = stagedby ;
         this.modify("stagedby",stagedby);
+    }
+
+    /**
+     * 设置 [指派给]
+     */
+    public void setAssignedto(String assignedto){
+        this.assignedto = assignedto ;
+        this.modify("assignedto",assignedto);
+    }
+
+    /**
+     * 设置 [指派日期]
+     */
+    public void setAssigneddate(Timestamp assigneddate){
+        this.assigneddate = assigneddate ;
+        this.modify("assigneddate",assigneddate);
+    }
+
+    /**
+     * 格式化日期 [指派日期]
+     */
+    public String formatAssigneddate(){
+        if (this.assigneddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(assigneddate);
+    }
+    /**
+     * 设置 [由谁评审]
+     */
+    public void setReviewedby(String reviewedby){
+        this.reviewedby = reviewedby ;
+        this.modify("reviewedby",reviewedby);
+    }
+
+    /**
+     * 设置 [评审时间]
+     */
+    public void setRevieweddate(Timestamp revieweddate){
+        this.revieweddate = revieweddate ;
+        this.modify("revieweddate",revieweddate);
+    }
+
+    /**
+     * 格式化日期 [评审时间]
+     */
+    public String formatRevieweddate(){
+        if (this.revieweddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(revieweddate);
+    }
+    /**
+     * 设置 [平台]
+     */
+    public void setBranch(String branch){
+        this.branch = branch ;
+        this.modify("branch",branch);
+    }
+
+    /**
+     * 设置 [抄送给]
+     */
+    public void setMailto(String mailto){
+        this.mailto = mailto ;
+        this.modify("mailto",mailto);
     }
 
 

@@ -24,6 +24,12 @@ export default {
     color: "颜色",
     project: "项目",
     stagedby: "设置阶段者",
+    assignedto: "指派给",
+    assigneddate: "指派日期",
+    reviewedby: "由谁评审",
+    revieweddate: "评审时间",
+    branch: "平台",
+    mailto: "抄送给",
   },
 	views: {
 		gridview: {
