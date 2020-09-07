@@ -93,26 +93,29 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JsonProperty("sourcenote")
     private String sourcenote;
     /**
-     * 来源对象标识
+     * 来源对象
      */
-    @TableField(value = "sourceid")
-    @JSONField(name = "sourceid")
-    @JsonProperty("sourceid")
-    private String sourceid;
+    @DEField(name = "ibiz_sourceobject")
+    @TableField(value = "ibiz_sourceobject")
+    @JSONField(name = "ibiz_sourceobject")
+    @JsonProperty("ibiz_sourceobject")
+    private String ibizSourceobject;
     /**
      * 来源对象名称
      */
-    @TableField(value = "sourcename")
-    @JSONField(name = "sourcename")
-    @JsonProperty("sourcename")
-    private String sourcename;
+    @DEField(name = "ibiz_sourcename")
+    @TableField(value = "ibiz_sourcename")
+    @JSONField(name = "ibiz_sourcename")
+    @JsonProperty("ibiz_sourcename")
+    private String ibizSourcename;
     /**
-     * 来源对象
+     * 来源对象标识
      */
-    @TableField(value = "sourceobject")
-    @JSONField(name = "sourceobject")
-    @JsonProperty("sourceobject")
-    private String sourceobject;
+    @DEField(name = "ibiz_sourceid")
+    @TableField(value = "ibiz_sourceid")
+    @JSONField(name = "ibiz_sourceid")
+    @JsonProperty("ibiz_sourceid")
+    private String ibizSourceid;
 
     /**
      * 产品
@@ -181,27 +184,27 @@ public class IBZProStory extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [来源对象标识]
+     * 设置 [来源对象]
      */
-    public void setSourceid(String sourceid){
-        this.sourceid = sourceid ;
-        this.modify("sourceid",sourceid);
+    public void setIbizSourceobject(String ibizSourceobject){
+        this.ibizSourceobject = ibizSourceobject ;
+        this.modify("ibiz_sourceobject",ibizSourceobject);
     }
 
     /**
      * 设置 [来源对象名称]
      */
-    public void setSourcename(String sourcename){
-        this.sourcename = sourcename ;
-        this.modify("sourcename",sourcename);
+    public void setIbizSourcename(String ibizSourcename){
+        this.ibizSourcename = ibizSourcename ;
+        this.modify("ibiz_sourcename",ibizSourcename);
     }
 
     /**
-     * 设置 [来源对象]
+     * 设置 [来源对象标识]
      */
-    public void setSourceobject(String sourceobject){
-        this.sourceobject = sourceobject ;
-        this.modify("sourceobject",sourceobject);
+    public void setIbizSourceid(String ibizSourceid){
+        this.ibizSourceid = ibizSourceid ;
+        this.modify("ibiz_sourceid",ibizSourceid);
     }
 
 

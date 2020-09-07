@@ -13,6 +13,7 @@ import './entity/builds/builds';
 import './entity/tasks/tasks';
 import './entity/modules/modules';
 import './entity/products/products';
+import './entity/dyna-dashboards/dyna-dashboards';
 import './entity/actions/actions';
 import './entity/case-steps/case-steps';
 import './entity/product-lines/product-lines';

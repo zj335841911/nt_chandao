@@ -1,5 +1,6 @@
 <template>
     <ion-grid class="app-mob-dashboard ibzmyterritory-dashboard ">
+        <div v-show="isEnableCustomized" class="dashboard-enableCustomized">定制仪表盘<ion-icon name="settings-outline"></ion-icon></div>
             <div class="dashboard-item">
             <view_dashboard_sysportlet1
     :viewState="viewState"
@@ -163,6 +164,15 @@ export default class MobHomeBase extends Vue implements ControlInterface {
     }
 
 
+
+    
+    /**
+     * 支持定制
+     *
+     * @type {boolean}
+     * @memberof MobHome
+     */
+    protected isEnableCustomized: boolean = true;
 
     /**
      * 获取多项数据

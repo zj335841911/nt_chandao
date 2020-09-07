@@ -71,13 +71,6 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     @JsonProperty("ibizid")
     private String ibizid;
     /**
-     * 需求模块类型
-     */
-    @TableField(value = "storytype")
-    @JSONField(name = "storytype")
-    @JsonProperty("storytype")
-    private String storytype;
-    /**
      * 类型
      */
     @DEField(defaultValue = "story")
@@ -147,6 +140,14 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
+    /**
+     * 需求模块类型
+     */
+    @DEField(name = "ibiz_storytype")
+    @TableField(value = "ibiz_storytype")
+    @JSONField(name = "ibiz_storytype")
+    @JsonProperty("ibiz_storytype")
+    private String ibizStorytype;
 
     /**
      * 产品
@@ -188,14 +189,6 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     public void setIbizid(String ibizid){
         this.ibizid = ibizid ;
         this.modify("ibiz_id",ibizid);
-    }
-
-    /**
-     * 设置 [需求模块类型]
-     */
-    public void setStorytype(String storytype){
-        this.storytype = storytype ;
-        this.modify("storytype",storytype);
     }
 
     /**
@@ -252,6 +245,14 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     public void setCollector(String collector){
         this.collector = collector ;
         this.modify("collector",collector);
+    }
+
+    /**
+     * 设置 [需求模块类型]
+     */
+    public void setIbizStorytype(String ibizStorytype){
+        this.ibizStorytype = ibizStorytype ;
+        this.modify("ibiz_storytype",ibizStorytype);
     }
 
 

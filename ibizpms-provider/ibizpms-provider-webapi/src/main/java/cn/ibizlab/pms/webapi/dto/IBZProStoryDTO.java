@@ -81,28 +81,28 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     private String sourcenote;
 
     /**
-     * 属性 [SOURCEID]
+     * 属性 [IBIZ_SOURCEOBJECT]
      *
      */
-    @JSONField(name = "sourceid")
-    @JsonProperty("sourceid")
-    private String sourceid;
+    @JSONField(name = "ibiz_sourceobject")
+    @JsonProperty("ibiz_sourceobject")
+    private String ibizSourceobject;
 
     /**
-     * 属性 [SOURCENAME]
+     * 属性 [IBIZ_SOURCENAME]
      *
      */
-    @JSONField(name = "sourcename")
-    @JsonProperty("sourcename")
-    private String sourcename;
+    @JSONField(name = "ibiz_sourcename")
+    @JsonProperty("ibiz_sourcename")
+    private String ibizSourcename;
 
     /**
-     * 属性 [SOURCEOBJECT]
+     * 属性 [IBIZ_SOURCEID]
      *
      */
-    @JSONField(name = "sourceobject")
-    @JsonProperty("sourceobject")
-    private String sourceobject;
+    @JSONField(name = "ibiz_sourceid")
+    @JsonProperty("ibiz_sourceid")
+    private String ibizSourceid;
 
 
     /**
@@ -154,27 +154,27 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [SOURCEID]
+     * 设置 [IBIZ_SOURCEOBJECT]
      */
-    public void setSourceid(String  sourceid){
-        this.sourceid = sourceid ;
-        this.modify("sourceid",sourceid);
+    public void setIbizSourceobject(String  ibizSourceobject){
+        this.ibizSourceobject = ibizSourceobject ;
+        this.modify("ibiz_sourceobject",ibizSourceobject);
     }
 
     /**
-     * 设置 [SOURCENAME]
+     * 设置 [IBIZ_SOURCENAME]
      */
-    public void setSourcename(String  sourcename){
-        this.sourcename = sourcename ;
-        this.modify("sourcename",sourcename);
+    public void setIbizSourcename(String  ibizSourcename){
+        this.ibizSourcename = ibizSourcename ;
+        this.modify("ibiz_sourcename",ibizSourcename);
     }
 
     /**
-     * 设置 [SOURCEOBJECT]
+     * 设置 [IBIZ_SOURCEID]
      */
-    public void setSourceobject(String  sourceobject){
-        this.sourceobject = sourceobject ;
-        this.modify("sourceobject",sourceobject);
+    public void setIbizSourceid(String  ibizSourceid){
+        this.ibizSourceid = ibizSourceid ;
+        this.modify("ibiz_sourceid",ibizSourceid);
     }
 
 

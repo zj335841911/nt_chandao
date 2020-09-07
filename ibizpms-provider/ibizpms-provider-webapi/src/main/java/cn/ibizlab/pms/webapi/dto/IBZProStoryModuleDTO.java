@@ -57,14 +57,6 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     private String ibizid;
 
     /**
-     * 属性 [STORYTYPE]
-     *
-     */
-    @JSONField(name = "storytype")
-    @JsonProperty("storytype")
-    private String storytype;
-
-    /**
      * 属性 [TYPE]
      *
      */
@@ -136,6 +128,14 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JsonProperty("deleted")
     private String deleted;
 
+    /**
+     * 属性 [IBIZ_STORYTYPE]
+     *
+     */
+    @JSONField(name = "ibiz_storytype")
+    @JsonProperty("ibiz_storytype")
+    private String ibizStorytype;
+
 
     /**
      * 设置 [NAME]
@@ -159,14 +159,6 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     public void setIbizid(String  ibizid){
         this.ibizid = ibizid ;
         this.modify("ibiz_id",ibizid);
-    }
-
-    /**
-     * 设置 [STORYTYPE]
-     */
-    public void setStorytype(String  storytype){
-        this.storytype = storytype ;
-        this.modify("storytype",storytype);
     }
 
     /**
@@ -223,6 +215,14 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     public void setCollector(String  collector){
         this.collector = collector ;
         this.modify("collector",collector);
+    }
+
+    /**
+     * 设置 [IBIZ_STORYTYPE]
+     */
+    public void setIbizStorytype(String  ibizStorytype){
+        this.ibizStorytype = ibizStorytype ;
+        this.modify("ibiz_storytype",ibizStorytype);
     }
 
 

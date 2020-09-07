@@ -55,6 +55,13 @@ public class IBZProStorySearchContext extends QueryWrapperContext<IBZProStory> {
             this.getSearchCond().eq("source", n_source_eq);
         }
     }
+	private String n_ibiz_sourceobject_eq;//[来源对象]
+	public void setN_ibiz_sourceobject_eq(String n_ibiz_sourceobject_eq) {
+        this.n_ibiz_sourceobject_eq = n_ibiz_sourceobject_eq;
+        if(!ObjectUtils.isEmpty(this.n_ibiz_sourceobject_eq)){
+            this.getSearchCond().eq("ibiz_sourceobject", n_ibiz_sourceobject_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

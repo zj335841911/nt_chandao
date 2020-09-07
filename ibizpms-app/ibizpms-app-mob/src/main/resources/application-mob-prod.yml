@@ -39,6 +39,10 @@ zuul:
       path: /products/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    dynadashboard:
+      path: /dynadashboards/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_action:
       path: /actions/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
