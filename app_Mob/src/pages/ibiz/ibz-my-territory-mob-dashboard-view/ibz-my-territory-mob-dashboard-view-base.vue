@@ -20,6 +20,7 @@
             viewName="IbzMyTerritoryMobDashboardView"  
             :viewparams="viewparams" 
             :context="context" 
+            isEnableCustomized="false"
             name="dashboard"  
             ref='dashboard' 
             @load="dashboard_load($event)"  

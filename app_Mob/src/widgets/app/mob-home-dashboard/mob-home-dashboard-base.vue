@@ -1,6 +1,6 @@
 <template>
     <ion-grid class="app-mob-dashboard ibzmyterritory-dashboard ">
-            <ion-card>
+            <div class="dashboard-item">
             <view_dashboard_sysportlet1
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
@@ -10,8 +10,8 @@
     ref='dashboard_sysportlet1' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet1>
-            </ion-card>
-            <ion-card>
+            </div>
+            <div class="dashboard-item">
             <view_dashboard_sysportlet2
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
@@ -21,7 +21,7 @@
     ref='dashboard_sysportlet2' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet2>
-            </ion-card>
+            </div>
     </ion-grid>
 </template>
 

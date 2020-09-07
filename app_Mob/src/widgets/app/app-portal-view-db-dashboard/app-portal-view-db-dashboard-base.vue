@@ -1,6 +1,6 @@
 <template>
     <ion-grid class="app-mob-dashboard  ">
-            <ion-card>
+            <div class="dashboard-item">
             <view_db_appmenu1
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -10,8 +10,8 @@
     ref='db_appmenu1' 
     @closeview="closeView($event)">
 </view_db_appmenu1>
-            </ion-card>
-            <ion-card>
+            </div>
+            <div class="dashboard-item">
             <view_db_appmenu2
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -21,8 +21,8 @@
     ref='db_appmenu2' 
     @closeview="closeView($event)">
 </view_db_appmenu2>
-            </ion-card>
-            <ion-card>
+            </div>
+            <div class="dashboard-item">
             <view_db_appmenu3
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -32,7 +32,7 @@
     ref='db_appmenu3' 
     @closeview="closeView($event)">
 </view_db_appmenu3>
-            </ion-card>
+            </div>
     </ion-grid>
 </template>
 
