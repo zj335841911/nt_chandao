@@ -7,8 +7,8 @@
             <div  class="dropdown-item-text">{{item.label}}</div>
         </div>
         </div>
-      <van-button  class="dropdown-btn" @click="onReset" >重置</van-button>
-      <van-button  class="dropdown-btn" type="info" @click="onConfirm">确定</van-button>
+      <van-button  class="dropdown-btn" @click="onReset" >{{$t('reset')}}</van-button>
+      <van-button  class="dropdown-btn" type="info" @click="onConfirm">{{$t('confirm')}}</van-button>
     </van-dropdown-item>
   </van-dropdown-menu>
 </template>
@@ -24,7 +24,19 @@ import {
 } from "vue-property-decorator";
 
 @Component({
-  components: {}
+  components: {},
+  i18n: {
+      messages: {
+          'ZH-CN': {
+              confirm: '确定',
+              reset: '重置',
+          },
+          'EN-US': {
+              confirm: 'Confirm',
+              reset: 'Reset',
+          }
+      }
+  }
 })
 export default class AppVanSelect extends Vue {
 

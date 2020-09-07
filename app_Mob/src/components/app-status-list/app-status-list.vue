@@ -8,22 +8,22 @@
             {{item.srfmajortext}}
           </label>
           <div class="status_s">
-            状态
+            {{$t('status')}}
           </div>
         </div>
         <div class="list-hr"></div>
         <div class="list03-box-line">
           <div>
             <p class="typeinfo" v-if="item.subtitle">{{item.subtitle}}</p>
-            <p class="type-p">字段一</p>
+            <p class="type-p">{{$t('field_one')}}</p>
           </div>
           <div>
             <p class="typeinfo" v-if="item.content">{{item.content}}</p>
-            <p class="type-p">字段二</p>
+            <p class="type-p">{{$t('field_two')}}</p>
           </div>
           <div>
             <p class="typeinfo" v-if="item.time" >{{item.time.substr(0,10)}}</p>
-            <p class="type-p">字段三</p>
+            <p class="type-p">{{$t('field_three')}}</p>
           </div>
         </div>
       </div>
@@ -41,7 +41,23 @@ import {
 } from "vue-property-decorator";
 
 @Component({
-  components: {}
+  components: {},
+    i18n: {
+        messages: {
+            'ZH-CN': {
+                status: '状态',
+                field_one: '字段一',
+                field_two: '字段二',
+                field_three: '字段三',
+            },
+            'EN-US': {
+                status: 'Status',
+                field_one: 'Field one',
+                field_two: 'Field two',
+                field_three: 'Field three',
+            }
+        }
+    }
 })
 export default class AppStatusList extends Vue{
 

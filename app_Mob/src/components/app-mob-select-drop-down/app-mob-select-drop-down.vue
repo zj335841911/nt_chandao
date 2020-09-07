@@ -13,7 +13,23 @@ import { Vue, Component, Prop, Watch, Model } from "vue-property-decorator";
 import { Subject } from 'rxjs';
 import { ViewOpenService } from '../../utils/view-open-service/view-open-service';
 @Component({
-    components: {}
+    components: {},
+    i18n: {
+        messages: {
+            'ZH-CN': {
+                associated_entity: '请在对应实体属性中配置关联实体与数据集!',
+                error_request: '错误，请求异常!',
+                error_system: '错误，系统异常!',
+                error_value: '错误,值项异常!',
+            },
+            'EN-US': {
+                associated_entity: 'Please configure the associated entity and data set in the corresponding entity properties!',
+                error_request: 'Error, request exception!',
+                error_system: 'Error, the system is abnormal!',
+                error_value: 'Error, abnormal value item!',                
+            }
+        }
+    }
 })
 export default class AppSelectDropDown extends Vue {
     /**
@@ -312,7 +328,7 @@ export default class AppSelectDropDown extends Vue {
         this.inputState = false;
         Object.assign(_param, { query: query });
         if (!this.acParams.serviceName || !this.acParams.interfaceName) {
-            this.$notice.error('请在对应实体属性中配置关联实体与数据集！');
+            this.$notice.error(`${this.$t('associated_entity')}` );
             return;
         }
         const appEntityServiceConstructor = window.appEntityServiceConstructor;
@@ -324,7 +340,7 @@ export default class AppSelectDropDown extends Vue {
                 this.items = response.data;
                 this.result(this.items);
             } else {
-                this.$notice.error('错误，请求异常！');
+                this.$notice.error(`${this.$t('error_request')}` );
             }
         }
     }
@@ -513,7 +529,7 @@ export default class AppSelectDropDown extends Vue {
     private openRedirectView($event: any, view: any, data: any): void {
         this.$http.get(view.url, data).then((response: any) => {
             if (!response || response.status !== 200) {
-                this.$notice.error('错误，请求异常！');
+                this.$notice.error(`${this.$t('error_request')}`);
             }
             if (response.status === 401) {
                 return;
@@ -565,7 +581,7 @@ export default class AppSelectDropDown extends Vue {
             }
         }).catch((response: any) => {
             if (!response || !response.status || !response.data) {
-                this.$notice.error('错误，系统异常！');
+                this.$notice.error(`${this.$t('error_system')}`);
                 return;
             }
             if (response.status === 401) {
@@ -584,7 +600,7 @@ export default class AppSelectDropDown extends Vue {
             return;
         }
         if (!this.data || !this.valueitem || !this.data[this.valueitem]) {
-            this.$notice.error('错误,值项异常');
+            this.$notice.error(`${this.$t('error_value')}`);
             return;
         }
         // 公共参数处理

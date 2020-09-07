@@ -37,7 +37,18 @@ import { Uploader } from 'vant';
 import { Loading, Util } from '@/ibiz-core/utils';
 Vue.use(Uploader);
 @Component({
-    components: {
+    components: {},
+    i18n: {
+        messages: {
+            'ZH-CN': {
+                one_doc: '该功能只支持单个文件上传',
+                upload_failed: '上传失败!',
+            },
+            'EN-US': {
+                one_doc: 'This function only supports single file upload',
+                upload_failed: 'Upload failed!',
+            }
+        }
     }
 })
 export default class AppMobPicture extends Vue {
@@ -119,7 +130,7 @@ export default class AppMobPicture extends Vue {
     public beforeRead(file: any, detail: any): boolean {
         this.dataProcess();
         if (file && Array.isArray(file)) {
-            this.$notify({ type: 'warning', message: '该功能只支持单个文件上传' });
+            this.$notify({ type: 'warning', message: `${this.$t('one_doc')}` });
             return false;
         }
         return true;
@@ -464,7 +475,7 @@ export default class AppMobPicture extends Vue {
      * @memberof AppMobPicture
      */
     public onError(error: any, file: any, fileList: any) {
-        this.$notify({ type: 'danger', message: '上传失败' });
+        this.$notify({ type: 'danger', message: `${this.$t('upload_failed')}` });
     }
 
     /**

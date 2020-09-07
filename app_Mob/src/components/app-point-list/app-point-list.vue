@@ -6,7 +6,7 @@
         <van-cell v-if="i.group == item" :title="i.srfmajortext" @click="test" />
       </div>
     </div>
-    <div v-if="marklist.length==0">没有group属性无法分组</div>
+    <div v-if="marklist.length==0">{{$t('without_group')}}</div>
   </van-index-bar>
 </template>
 <script lang="ts">
@@ -20,7 +20,17 @@ import {
 } from "vue-property-decorator";
 
 @Component({
-  components: {}
+  components: {},
+    i18n: {
+        messages: {
+            'ZH-CN': {
+                without_group: '没有group属性无法分组',
+            },
+            'EN-US': {
+                without_group: 'Cannot group without group attribute',     
+            }
+        }
+    }
 })
 export default class AppPointList extends Vue {
   /**

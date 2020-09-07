@@ -185,6 +185,24 @@ export default class MobHomeBase extends Vue implements ControlInterface {
     }
 
     /**
+     * modleId
+     *
+     * @type {string}
+     * @memberof MobHomeBase
+     */
+    public modelId:string = "dashboard_ibzmyterritory_mobhome";
+
+
+    /**
+     * 功能服务名称
+     *
+     * @type {string}
+     * @memberof MobHomeBase
+     */
+    public utilServiceName:string = "dynadashboard";
+
+
+    /**
      * 获取单项树
      *
      * @returns {*}

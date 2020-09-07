@@ -114,10 +114,10 @@ export class Interceptors {
             }
             if (res.status === 404) {
                 Loading.hidden();
-                this.router.push({ name:'errorTransfer', params:{errorPage:res.status} });
+                this.router.push({ path: '/404' });
             } else if (res.status === 500) {
                 Loading.hidden();
-                this.router.push({ name:'errorTransfer', params:{errorPage:res.status} });
+                this.router.push({ path: '/500' });
             }
 
             return Promise.reject(res);

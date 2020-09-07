@@ -166,6 +166,24 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
     }
 
     /**
+     * modleId
+     *
+     * @type {string}
+     * @memberof AppPortalView_dbBase
+     */
+    public modelId:string = "dashboard_app_appportalview_db";
+
+
+    /**
+     * 功能服务名称
+     *
+     * @type {string}
+     * @memberof AppPortalView_dbBase
+     */
+    public utilServiceName:string = "dynadashboard";
+
+
+    /**
      * 获取单项树
      *
      * @returns {*}
