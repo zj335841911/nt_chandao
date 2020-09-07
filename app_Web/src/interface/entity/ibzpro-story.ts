@@ -189,4 +189,12 @@ export interface IBZProStory {
      * @memberof IBZProStory
      */
     project?: any;
+
+    /**
+     * 设置阶段者
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    stagedby?: any;
 }

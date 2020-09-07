@@ -104,6 +104,13 @@ public class IBZProStorySearchContext extends QueryWrapperContext<IBZProStory> {
             this.getSearchCond().eq("color", n_color_eq);
         }
     }
+	private String n_stagedby_eq;//[设置阶段者]
+	public void setN_stagedby_eq(String n_stagedby_eq) {
+        this.n_stagedby_eq = n_stagedby_eq;
+        if(!ObjectUtils.isEmpty(this.n_stagedby_eq)){
+            this.getSearchCond().eq("stagedby", n_stagedby_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

@@ -210,6 +210,14 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     @JsonProperty("project")
     private String project;
 
+    /**
+     * 属性 [STAGEDBY]
+     *
+     */
+    @JSONField(name = "stagedby")
+    @JsonProperty("stagedby")
+    private String stagedby;
+
 
     /**
      * 设置 [TITLE]
@@ -361,6 +369,14 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     public void setColor(String  color){
         this.color = color ;
         this.modify("color",color);
+    }
+
+    /**
+     * 设置 [STAGEDBY]
+     */
+    public void setStagedby(String  stagedby){
+        this.stagedby = stagedby ;
+        this.modify("stagedby",stagedby);
     }
 
 

@@ -23,6 +23,7 @@ export default {
     pri: "优先级",
     color: "颜色",
     project: "项目",
+    stagedby: "设置阶段者",
   },
 	views: {
 		gridview: {

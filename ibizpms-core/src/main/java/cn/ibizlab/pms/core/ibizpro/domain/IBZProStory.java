@@ -212,6 +212,13 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     private String project;
+    /**
+     * 设置阶段者
+     */
+    @TableField(value = "stagedby")
+    @JSONField(name = "stagedby")
+    @JsonProperty("stagedby")
+    private String stagedby;
 
     /**
      * 产品
@@ -391,6 +398,14 @@ public class IBZProStory extends EntityMP implements Serializable {
     public void setColor(String color){
         this.color = color ;
         this.modify("color",color);
+    }
+
+    /**
+     * 设置 [设置阶段者]
+     */
+    public void setStagedby(String stagedby){
+        this.stagedby = stagedby ;
+        this.modify("stagedby",stagedby);
     }
 
 
