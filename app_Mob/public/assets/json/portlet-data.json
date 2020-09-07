@@ -1,8 +1,37 @@
-!!!!模版产生代码错误:----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if appPortlet_has_next  [in template "TEMPLCODE_en_US" at line 11, column 44]
-----
+[
+{"type":"appde",
+"appCodeName":"Task",
+"appName":"任务",
+"portletCodeName": "MyTaskMob",
+"portletName": "（移动端）我的任务"},
+{"type":"appde",
+"appCodeName":"Story",
+"appName":"需求",
+"portletCodeName": "MyStoryMob",
+"portletName": "（移动端）我的需求"},
+{"type":"app",
+"appCodeName":"Task",
+"appName":"任务",
+"portletCodeName": "MyTaskMob",
+"portletName": "（移动端）我的任务"},
+{"type":"app",
+"appCodeName":"Story",
+"appName":"需求",
+"portletCodeName": "MyStoryMob",
+"portletName": "（移动端）我的需求"},
+{"type":"app",
+"appCodeName":"Mob",
+"appName":"iBiz软件生产管理（Mob）",
+"portletCodeName": "ImgswipeStyleMenu",
+"portletName": "图片滑动"},
+{"type":"app",
+"appCodeName":"Mob",
+"appName":"iBiz软件生产管理（Mob）",
+"portletCodeName": "IconStyleMenu",
+"portletName": "图标"},
+{"type":"app",
+"appCodeName":"Mob",
+"appName":"iBiz软件生产管理（Mob）",
+"portletCodeName": "ListMenu",
+"portletName": "列表"}
+]
