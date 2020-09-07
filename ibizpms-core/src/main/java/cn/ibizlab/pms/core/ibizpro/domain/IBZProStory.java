@@ -263,6 +263,77 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JSONField(name = "mailto")
     @JsonProperty("mailto")
     private String mailto;
+    /**
+     * 最后修改者
+     */
+    @TableField(value = "lasteditedby")
+    @JSONField(name = "lasteditedby")
+    @JsonProperty("lasteditedby")
+    private String lasteditedby;
+    /**
+     * 需求细分
+     */
+    @TableField(value = "childstories")
+    @JSONField(name = "childstories")
+    @JsonProperty("childstories")
+    private String childstories;
+    /**
+     * 相关需求
+     */
+    @TableField(value = "linkstories")
+    @JSONField(name = "linkstories")
+    @JsonProperty("linkstories")
+    private String linkstories;
+    /**
+     * 由谁关闭
+     */
+    @TableField(value = "closedby")
+    @JSONField(name = "closedby")
+    @JsonProperty("closedby")
+    private String closedby;
+    /**
+     * 子状态
+     */
+    @TableField(value = "substatus")
+    @JSONField(name = "substatus")
+    @JsonProperty("substatus")
+    private String substatus;
+    /**
+     * 关闭日期	
+     */
+    @TableField(value = "closeddate")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "closeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("closeddate")
+    private Timestamp closeddate;
+    /**
+     * 关闭原因
+     */
+    @TableField(value = "closedreason")
+    @JSONField(name = "closedreason")
+    @JsonProperty("closedreason")
+    private String closedreason;
+    /**
+     * 转Bug
+     */
+    @TableField(value = "tobug")
+    @JSONField(name = "tobug")
+    @JsonProperty("tobug")
+    private String tobug;
+    /**
+     * 重复需求
+     */
+    @TableField(value = "duplicatestory")
+    @JSONField(name = "duplicatestory")
+    @JsonProperty("duplicatestory")
+    private String duplicatestory;
+    /**
+     * 来源Bug
+     */
+    @TableField(value = "frombug")
+    @JSONField(name = "frombug")
+    @JsonProperty("frombug")
+    private String frombug;
 
     /**
      * 产品
@@ -518,6 +589,96 @@ public class IBZProStory extends EntityMP implements Serializable {
     public void setMailto(String mailto){
         this.mailto = mailto ;
         this.modify("mailto",mailto);
+    }
+
+    /**
+     * 设置 [最后修改者]
+     */
+    public void setLasteditedby(String lasteditedby){
+        this.lasteditedby = lasteditedby ;
+        this.modify("lasteditedby",lasteditedby);
+    }
+
+    /**
+     * 设置 [需求细分]
+     */
+    public void setChildstories(String childstories){
+        this.childstories = childstories ;
+        this.modify("childstories",childstories);
+    }
+
+    /**
+     * 设置 [相关需求]
+     */
+    public void setLinkstories(String linkstories){
+        this.linkstories = linkstories ;
+        this.modify("linkstories",linkstories);
+    }
+
+    /**
+     * 设置 [由谁关闭]
+     */
+    public void setClosedby(String closedby){
+        this.closedby = closedby ;
+        this.modify("closedby",closedby);
+    }
+
+    /**
+     * 设置 [子状态]
+     */
+    public void setSubstatus(String substatus){
+        this.substatus = substatus ;
+        this.modify("substatus",substatus);
+    }
+
+    /**
+     * 设置 [关闭日期	]
+     */
+    public void setCloseddate(Timestamp closeddate){
+        this.closeddate = closeddate ;
+        this.modify("closeddate",closeddate);
+    }
+
+    /**
+     * 格式化日期 [关闭日期	]
+     */
+    public String formatCloseddate(){
+        if (this.closeddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(closeddate);
+    }
+    /**
+     * 设置 [关闭原因]
+     */
+    public void setClosedreason(String closedreason){
+        this.closedreason = closedreason ;
+        this.modify("closedreason",closedreason);
+    }
+
+    /**
+     * 设置 [转Bug]
+     */
+    public void setTobug(String tobug){
+        this.tobug = tobug ;
+        this.modify("tobug",tobug);
+    }
+
+    /**
+     * 设置 [重复需求]
+     */
+    public void setDuplicatestory(String duplicatestory){
+        this.duplicatestory = duplicatestory ;
+        this.modify("duplicatestory",duplicatestory);
+    }
+
+    /**
+     * 设置 [来源Bug]
+     */
+    public void setFrombug(String frombug){
+        this.frombug = frombug ;
+        this.modify("frombug",frombug);
     }
 
 

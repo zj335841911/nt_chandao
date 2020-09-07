@@ -30,6 +30,16 @@ export default {
     revieweddate: "评审时间",
     branch: "平台",
     mailto: "抄送给",
+    lasteditedby: "最后修改者",
+    childstories: "需求细分",
+    linkstories: "相关需求",
+    closedby: "由谁关闭",
+    substatus: "子状态",
+    closeddate: "关闭日期	",
+    closedreason: "关闭原因",
+    tobug: "转Bug",
+    duplicatestory: "重复需求",
+    frombug: "来源Bug",
   },
 	views: {
 		gridview: {

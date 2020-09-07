@@ -268,6 +268,87 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     @JsonProperty("mailto")
     private String mailto;
 
+    /**
+     * 属性 [LASTEDITEDBY]
+     *
+     */
+    @JSONField(name = "lasteditedby")
+    @JsonProperty("lasteditedby")
+    private String lasteditedby;
+
+    /**
+     * 属性 [CHILDSTORIES]
+     *
+     */
+    @JSONField(name = "childstories")
+    @JsonProperty("childstories")
+    private String childstories;
+
+    /**
+     * 属性 [LINKSTORIES]
+     *
+     */
+    @JSONField(name = "linkstories")
+    @JsonProperty("linkstories")
+    private String linkstories;
+
+    /**
+     * 属性 [CLOSEDBY]
+     *
+     */
+    @JSONField(name = "closedby")
+    @JsonProperty("closedby")
+    private String closedby;
+
+    /**
+     * 属性 [SUBSTATUS]
+     *
+     */
+    @JSONField(name = "substatus")
+    @JsonProperty("substatus")
+    private String substatus;
+
+    /**
+     * 属性 [CLOSEDDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "closeddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("closeddate")
+    private Timestamp closeddate;
+
+    /**
+     * 属性 [CLOSEDREASON]
+     *
+     */
+    @JSONField(name = "closedreason")
+    @JsonProperty("closedreason")
+    private String closedreason;
+
+    /**
+     * 属性 [TOBUG]
+     *
+     */
+    @JSONField(name = "tobug")
+    @JsonProperty("tobug")
+    private String tobug;
+
+    /**
+     * 属性 [DUPLICATESTORY]
+     *
+     */
+    @JSONField(name = "duplicatestory")
+    @JsonProperty("duplicatestory")
+    private String duplicatestory;
+
+    /**
+     * 属性 [FROMBUG]
+     *
+     */
+    @JSONField(name = "frombug")
+    @JsonProperty("frombug")
+    private String frombug;
+
 
     /**
      * 设置 [TITLE]
@@ -475,6 +556,86 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     public void setMailto(String  mailto){
         this.mailto = mailto ;
         this.modify("mailto",mailto);
+    }
+
+    /**
+     * 设置 [LASTEDITEDBY]
+     */
+    public void setLasteditedby(String  lasteditedby){
+        this.lasteditedby = lasteditedby ;
+        this.modify("lasteditedby",lasteditedby);
+    }
+
+    /**
+     * 设置 [CHILDSTORIES]
+     */
+    public void setChildstories(String  childstories){
+        this.childstories = childstories ;
+        this.modify("childstories",childstories);
+    }
+
+    /**
+     * 设置 [LINKSTORIES]
+     */
+    public void setLinkstories(String  linkstories){
+        this.linkstories = linkstories ;
+        this.modify("linkstories",linkstories);
+    }
+
+    /**
+     * 设置 [CLOSEDBY]
+     */
+    public void setClosedby(String  closedby){
+        this.closedby = closedby ;
+        this.modify("closedby",closedby);
+    }
+
+    /**
+     * 设置 [SUBSTATUS]
+     */
+    public void setSubstatus(String  substatus){
+        this.substatus = substatus ;
+        this.modify("substatus",substatus);
+    }
+
+    /**
+     * 设置 [CLOSEDDATE]
+     */
+    public void setCloseddate(Timestamp  closeddate){
+        this.closeddate = closeddate ;
+        this.modify("closeddate",closeddate);
+    }
+
+    /**
+     * 设置 [CLOSEDREASON]
+     */
+    public void setClosedreason(String  closedreason){
+        this.closedreason = closedreason ;
+        this.modify("closedreason",closedreason);
+    }
+
+    /**
+     * 设置 [TOBUG]
+     */
+    public void setTobug(String  tobug){
+        this.tobug = tobug ;
+        this.modify("tobug",tobug);
+    }
+
+    /**
+     * 设置 [DUPLICATESTORY]
+     */
+    public void setDuplicatestory(String  duplicatestory){
+        this.duplicatestory = duplicatestory ;
+        this.modify("duplicatestory",duplicatestory);
+    }
+
+    /**
+     * 设置 [FROMBUG]
+     */
+    public void setFrombug(String  frombug){
+        this.frombug = frombug ;
+        this.modify("frombug",frombug);
     }
 
 

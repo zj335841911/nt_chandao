@@ -245,4 +245,84 @@ export interface IBZProStory {
      * @memberof IBZProStory
      */
     mailto?: any;
+
+    /**
+     * 最后修改者
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    lasteditedby?: any;
+
+    /**
+     * 需求细分
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    childstories?: any;
+
+    /**
+     * 相关需求
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    linkstories?: any;
+
+    /**
+     * 由谁关闭
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    closedby?: any;
+
+    /**
+     * 子状态
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    substatus?: any;
+
+    /**
+     * 关闭日期	
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    closeddate?: any;
+
+    /**
+     * 关闭原因
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    closedreason?: any;
+
+    /**
+     * 转Bug
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    tobug?: any;
+
+    /**
+     * 重复需求
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    duplicatestory?: any;
+
+    /**
+     * 来源Bug
+     *
+     * @returns {*}
+     * @memberof IBZProStory
+     */
+    frombug?: any;
 }
