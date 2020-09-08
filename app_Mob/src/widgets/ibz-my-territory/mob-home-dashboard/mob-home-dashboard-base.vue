@@ -314,7 +314,7 @@ export default class MobHomeBase extends Vue implements ControlInterface {
                     this.viewState.next({ tag: name, action: action, data: data });
                 });
                 if(this.isEnableCustomized){
-                    this.loadModel(this.utilServiceName,this.context,Object.assign(this.viewparams,{utilServiceName:this.utilServiceName,modelid:this.modelId}));
+                    this.loadModel(this.utilServiceName,this.context,Object.assign({utilServiceName:this.utilServiceName,modelid:this.modelId},this.viewparams));
                 }
             });
         }
@@ -358,7 +358,7 @@ export default class MobHomeBase extends Vue implements ControlInterface {
     private async openPopupModal(view: any, context: any, param: any): Promise<any> {
         const result: any = await this.$appmodal.openModal(view, context, param);
         if (result || Object.is(result.ret, 'OK')) {
-            this.loadModel(this.utilServiceName,this.context,Object.assign(this.viewparams,{utilServiceName:this.utilServiceName,modelid:this.modelId}));
+            this.loadModel(this.utilServiceName,this.context,Object.assign({utilServiceName:this.utilServiceName,modelid:this.modelId},this.viewparams));
         }
     }
 

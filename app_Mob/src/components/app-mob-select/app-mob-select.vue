@@ -51,6 +51,23 @@ export default class AppSelect extends Vue {
     }
 
     /**
+     * 监听表单请求完成
+     * @memberof AppSelectDropDown
+     */
+    @Watch("dataOverLoad")
+    onDataOverLoadChange(newVal: any, oldVal: any){
+        this.load();
+    }
+
+    /**
+     * 表单请求完成
+     *
+     * @type {*}
+     * @memberof AppSelectDropDown
+     */
+    @Prop() public dataOverLoad?: any;
+
+    /**
      * change事件
      *
      * @memberof AppSelect

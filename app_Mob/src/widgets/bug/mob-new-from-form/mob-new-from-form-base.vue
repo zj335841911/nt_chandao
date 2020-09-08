@@ -91,7 +91,8 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.branch"  
+    :value="data.branch"
+    :dataOverLoad="dataOverLoad"  
     :navigateContext ='{ "product": "%product%" } '
     :navigateParam ='{ "product": "%product%" } '
     @change="($event)=>this.data.branch = $event" />
@@ -232,7 +233,8 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.assignedto"  
+    :value="data.assignedto"
+    :dataOverLoad="dataOverLoad"  
     :navigateContext ='{ "project": "%project%" } '
     :navigateParam ='{ "project": "%project%" } '
     @change="($event)=>this.data.assignedto = $event" />
@@ -288,7 +290,8 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.type"  
+    :value="data.type"
+    :dataOverLoad="dataOverLoad"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.type = $event" />
@@ -319,7 +322,8 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.os"  
+    :value="data.os"
+    :dataOverLoad="dataOverLoad"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.os = $event" />
@@ -350,7 +354,8 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.browser"  
+    :value="data.browser"
+    :dataOverLoad="dataOverLoad"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.browser = $event" />
@@ -410,7 +415,8 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.severity"  
+    :value="data.severity"
+    :dataOverLoad="dataOverLoad"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.severity = $event" />
@@ -441,7 +447,8 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.pri"  
+    :value="data.pri"
+    :dataOverLoad="dataOverLoad"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.pri = $event" />
@@ -2191,6 +2198,7 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
+            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

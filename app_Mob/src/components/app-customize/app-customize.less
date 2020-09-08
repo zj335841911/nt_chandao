@@ -9,41 +9,32 @@
       height: 40px;
       line-height: 40px;
       color:#BDC4CD;
-      font-size: 15px;
+      font-size: 12px;
     }
     .content{
       width: 100%;
-      height: 50px;
       background-color: white;
       position: relative;
       margin-bottom: 10px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 12px 0;
       .start{
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 5px;
         font-size: 30px;
-        color: #ED9691;
+        color: #ea382d;
       }
       .drag-list-pic{
         width: 50px;
         height: 50px;
         background-color: skyblue;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 50px;
       }
       .drag-list-text{
-        width: 200px;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 120px;
+        width: 60%;
         div:nth-child(1){
           font-size: 15px;
           color: #484a4b;
-          font-weight: 600;
         }
         div:nth-child(2){
           font-size: 12px;
@@ -51,12 +42,9 @@
         }
       }
       .end{
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 10px;
         font-size: 20px;
         color: #797979;
+        min-width: 20px;
       }
     }
   }
