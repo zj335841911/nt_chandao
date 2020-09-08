@@ -2,9 +2,6 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'task-ass-mob-mdview': true }">
     
     <ion-header>
-        <ion-toolbar>
-            <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
-        </ion-toolbar>
     </ion-header>
 
 
@@ -36,12 +33,6 @@
             @load="mdctrl_load($event)"  
             @closeview="closeView($event)">
         </view_mdctrl>
-        <ion-infinite-scroll  @ionInfinite="loadMore" distance="2%" >
-          <ion-infinite-scroll-content
-          loadingSpinner="bubbles"
-          loadingText="Loading more data...">
-        </ion-infinite-scroll-content>
-        </ion-infinite-scroll>
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
         
@@ -674,37 +665,6 @@ export default class TaskAssMobMDViewBase extends Vue {
         }
     }
 
-
-    /**
-     * 搜索值
-     *
-     * @type {string}
-     * @memberof TaskAssMobMDViewBase
-     */
-    public query: string = '';
-
-    /**
-     * 快速搜索值变化
-     *
-     * @param {*} event
-     * @returns
-     * @memberof TaskAssMobMDViewBase
-     */
-    public async quickValueChange(event: any) {
-        let { detail } = event;
-        if (!detail) {
-            return;
-        }
-        let { value } = detail;
-        this.query = value;
-
-        const mdctrl: any = this.$refs.mdctrl;
-        if (mdctrl) {
-            let response = await mdctrl.quickSearch(this.query);
-            if (response) {
-            }
-        }
-    }
 
    /**
      * 是否单选

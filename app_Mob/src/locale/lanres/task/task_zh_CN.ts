@@ -305,18 +305,4 @@ export default {
 			tip: '删除',
 		},
 	},
-	favoritemobmdviewrighttoolbar_toolbar: {
-	},
-	mobdashboardviewdashboard_sysportlet4_list_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: '更多',
-			tip: '更多',
-		},
-	},
-	portlet_myfavoritetask_list_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: '更多',
-			tip: '更多',
-		},
-	},
 };

@@ -325,6 +325,4 @@ export default {
 			tip: '删除',
 		},
 	},
-	assmobmdviewrighttoolbar_toolbar: {
-	},
 };

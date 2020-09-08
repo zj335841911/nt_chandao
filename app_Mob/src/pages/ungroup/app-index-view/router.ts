@@ -2075,6 +2075,33 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-mob-edit-view/product-mob-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/assmobmdview',
+                    meta: {
+                        caption: 'story.views.assmobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'assmobmdview', parameterName: 'assmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/story-ass-mob-mdview/story-ass-mob-mdview.vue'),
+                },
+                {
+                    path: 'stories/:story?/assmobmdview',
+                    meta: {
+                        caption: 'story.views.assmobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'assmobmdview', parameterName: 'assmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/story-ass-mob-mdview/story-ass-mob-mdview.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/newmobeditview',
                     meta: {
                         caption: 'story.views.newmobeditview.caption',
