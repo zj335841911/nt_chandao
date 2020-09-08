@@ -328,16 +328,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '15859f5ecc4a3f3e02dac44d1de521af',
-            viewmodule: 'zentao',
-            viewname: 'ProjectMGEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'ac21af5f9696e38031a7c2291ed02d64',
-            ],
-        },
-        {
             viewtag: '16b54862dad958907853dc7eb084a0c0',
             viewmodule: 'zentao',
             viewname: 'DeptPickupView',
@@ -1756,7 +1746,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '15859f5ecc4a3f3e02dac44d1de521af',
+                '846ddf8e555650608d4f75c4595c1270',
                 'f83dac873b9215483c4bb91673284b41',
                 'fd0b8748ff96edcde009d39903a9f211',
             ],

@@ -619,20 +619,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-pickup-grid-view/bug-pickup-grid-view.vue'),
                 },
                 {
-                    path: 'projects/:project?/mgeditview/:mgeditview?',
-                    meta: {
-                        caption: 'entities.project.views.mgeditview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'mgeditview', parameterName: 'mgeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/project-mgedit-view/project-mgedit-view.vue'),
-                },
-                {
                     path: 'productstats/:productstats?/testeditview9/:testeditview9?',
                     meta: {
                         caption: 'entities.productstats.views.testeditview9.title',

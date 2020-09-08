@@ -17,7 +17,6 @@ export const PageComponents = {
         Vue.component('ibz-lib-module-edit-view', () => import('@pages/ibiz/ibz-lib-module-edit-view/ibz-lib-module-edit-view.vue'));
         Vue.component('bug-my-favorite-grid-view', () => import('@pages/ibiz/bug-my-favorite-grid-view/bug-my-favorite-grid-view.vue'));
         Vue.component('bug-pickup-grid-view', () => import('@pages/zentao/bug-pickup-grid-view/bug-pickup-grid-view.vue'));
-        Vue.component('project-mgedit-view', () => import('@pages/zentao/project-mgedit-view/project-mgedit-view.vue'));
         Vue.component('product-stats-test-edit-view9', () => import('@pages/zentao/product-stats-test-edit-view9/product-stats-test-edit-view9.vue'));
         Vue.component('ibz-case-info-edit-view9', () => import('@pages/ibiz/ibz-case-info-edit-view9/ibz-case-info-edit-view9.vue'));
         Vue.component('product-left-sidebar-list-view', () => import('@pages/zentao/product-left-sidebar-list-view/product-left-sidebar-list-view.vue'));
