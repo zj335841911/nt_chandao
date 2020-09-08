@@ -377,8 +377,6 @@ export default {
 			tip: '保存',
 		},
 	},
-	assmobmdviewrighttoolbar_toolbar: {
-	},
 	resolvemobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: '保存',
