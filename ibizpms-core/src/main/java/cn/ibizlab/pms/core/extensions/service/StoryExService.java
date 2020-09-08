@@ -62,6 +62,27 @@ public class StoryExService extends StoryServiceImpl {
     }
 
     @Override
+    public void saveBatch(List<Story> list) {
+        if(list.isEmpty() || list.size() == 0) {
+            return;
+        }
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo = new JSONObject();
+        jo.put("product",list.get(0).getProduct());
+        jo.put("branch",0);
+        jo.put("module",0);
+        jo.put("parent",list.get(0).getParent());
+        jo.put("srfArray", list);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.batchCreate(zentaoSid, jo, rst);
+        if(bRst) {
+            log.error("需求细分操作成功");
+        }else {
+            log.error("需求细分失败");
+        }
+    }
+
+    @Override
     @Transactional
     public Story syncFromIBIZ(Story et) {
         IBZProProduct ibzProProduct =  iibzProProductService.get(et.getProduct());

@@ -280,6 +280,20 @@ final public class ZTStoryHelper {
         ACTION_PARAMS_CREATE.put("assignedTo", null);
         ACTION_PARAMS_CREATE.put("needNotReview", null);
 
+        // BATCHCREATE
+        ACTION_PARAMS_BATCHCREATE.put("title[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("module[]", 0);
+        ACTION_PARAMS_BATCHCREATE.put("plan[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("source[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("uploadImage[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("pri[]", 3);
+        ACTION_PARAMS_BATCHCREATE.put("estimate[]", 0);
+        ACTION_PARAMS_BATCHCREATE.put("spec[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("verify[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("color[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("keywords[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("needNotReview", null);
+
         // EDIT
         ACTION_PARAMS_EDIT.put("product", 0);
         ACTION_PARAMS_EDIT.put("branch", 0);
@@ -351,6 +365,12 @@ final public class ZTStoryHelper {
         ACTION_URL_PARAMS_CREATE.add("plan");
         ACTION_URL_PARAMS_CREATE.add("todo");
 
+        // BATCHCREATE
+        ACTION_URL_PARAMS_BATCHCREATE.add("product");
+        ACTION_URL_PARAMS_BATCHCREATE.add("branch");
+        ACTION_URL_PARAMS_BATCHCREATE.add("module");
+        ACTION_URL_PARAMS_BATCHCREATE.add("parent");
+
         // EDIT
         ACTION_URL_PARAMS_EDIT.add("id");
 
@@ -409,6 +429,28 @@ final public class ZTStoryHelper {
         List<String> actionUrlParams = ACTION_URL_PARAMS_CREATE;
         String returnUrlRegexPrev = ACTION_RETURNURL_CREATE;
         List<ZTCheckItem> checkList = ACTION_CHECKLIST_CREATE;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * batchCreate 创建
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean batchCreate(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_BATCHCREATE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_BATCHCREATE;
+        Map<String, Object> actionParams = ACTION_PARAMS_BATCHCREATE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_BATCHCREATE;
+        String returnUrlRegexPrev = ACTION_RETURNURL_BATCHCREATE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_BATCHCREATE;
 
         return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
     }

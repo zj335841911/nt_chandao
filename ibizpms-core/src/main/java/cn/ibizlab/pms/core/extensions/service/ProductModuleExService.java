@@ -49,7 +49,7 @@ public class ProductModuleExService extends ProductModuleServiceImpl {
     @Override
     @Transactional
     public ProductModule syncFromIBIZ(ProductModule et) {
-        IBZProProduct ibzProProduct =  iibzProProductService.get(et.getRoot());
+        IBZProProduct ibzProProduct =  iibzProProductService.get(Long.parseLong(String.valueOf(et.getRoot())));
         Page<PSModule> psModules = ipsModuleService.searchDefault(ibzProProduct.getIbizid(),new PSModuleSearchContext());
         List<IBZProStoryModule> createList = new ArrayList<>();
         List<IBZProStoryModule> updateList = new ArrayList<>();
@@ -66,7 +66,7 @@ public class ProductModuleExService extends ProductModuleServiceImpl {
                 ibzProStoryModule.setId(ibzProStoryModules.getContent().get(0).getId());
                 iIBZProStoryModuleService.update(ibzProStoryModule);
             }else {
-                ibzProStoryModule.setRoot(et.getRoot());
+                ibzProStoryModule.setRoot(Long.parseLong(String.valueOf(et.getRoot())));
                 ibzProStoryModule.setType("story");
                 ibzProStoryModule.setOwner("");
                 ibzProStoryModule.setCollector("/");

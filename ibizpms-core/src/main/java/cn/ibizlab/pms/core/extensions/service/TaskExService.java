@@ -15,7 +15,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.text.DecimalFormat;
 import java.util.*;
 
 /**
@@ -131,7 +133,7 @@ public class TaskExService extends TaskServiceImpl {
         JSONArray jsonArray = new JSONArray();
         for(TaskEstimate taskEstimate : list) {
             if(taskEstimate.getId() == null) {
-                taskEstimate.setId(new BigInteger(String.valueOf(i)));
+                taskEstimate.setId(Long.parseLong(String.valueOf(i)));
                 JSONObject jsonObject = (JSONObject) JSONObject.toJSON(taskEstimate);
                 i ++;
                 jsonArray.add(jsonObject);
@@ -174,21 +176,22 @@ public class TaskExService extends TaskServiceImpl {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
+        DecimalFormat df = new DecimalFormat("#.00");
         if(et.getMultiple() != null && et.getMultiple() == 1) {
             List<TaskTeam> list = et.getTaskteam();
             if(!list.isEmpty() && list.size() > 0) {
                 jo.put("assignedTo", list.get(0).getAccount());
-                double estimate = 0;
+                BigDecimal estimate = new BigDecimal(0.0);
                 JSONArray team = new JSONArray();
                 JSONArray teamEstimate = new JSONArray();
                 for (TaskTeam taskTeam : list) {
                     team.add(taskTeam.getAccount());
                     teamEstimate.add(taskTeam.getEstimate());
                     if(taskTeam.getEstimate() != null) {
-                        estimate += taskTeam.getEstimate();
+                        estimate.add(taskTeam.getEstimate());
                     }
                 }
-                jo.put("estimate", estimate);
+                jo.put("estimate", df.format(estimate));
                 jo.put("team", team);
                 jo.put("teamEstimate", teamEstimate);
             }
@@ -265,7 +268,7 @@ public class TaskExService extends TaskServiceImpl {
 
     @Override
     @Transactional
-    public Task get(BigInteger key) {
+    public Task get(Long key) {
         Task et = getById(key);
         if(et==null){
             et=new Task();
