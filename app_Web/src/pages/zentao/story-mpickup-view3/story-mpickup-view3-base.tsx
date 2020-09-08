@@ -57,16 +57,6 @@ export class StoryMPickupView3Base extends MPickupViewBase {
      */
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof StoryMPickupView3Base
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航参数集合
 	 *
@@ -130,6 +120,15 @@ export class StoryMPickupView3Base extends MPickupViewBase {
      * @memberof StoryMPickupView3Base
      */
     public engine: MPickupViewEngine = new MPickupViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof StoryMPickupView3Base
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

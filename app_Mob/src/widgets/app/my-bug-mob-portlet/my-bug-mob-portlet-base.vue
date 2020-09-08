@@ -1,7 +1,6 @@
 <template>
     <ion-row>
-        <ion-list class='app-mob-portlet ibzmyterritory-dashboard_sysportlet3 '>
-            <ion-list-header class='app-mob-portlet__header'>我的Bug </ion-list-header>
+        <ion-list class='app-mob-portlet ibzmyterritory-portlet_AssTOMyBug '>
                 <bug-ass-mob-mdview :_context="JSON.stringify(context)" :_viewparams="JSON.stringify(viewparams)" :viewDefaultUsage="false" ></bug-ass-mob-mdview>
         </ion-list>
     </ion-row>

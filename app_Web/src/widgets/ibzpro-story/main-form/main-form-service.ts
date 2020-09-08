@@ -2,9 +2,6 @@ import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import IBZProStoryService from '@/service/ibzpro-story/ibzpro-story-service';
 import MainModel from './main-form-model';
-import IBZProProductService from '@/service/ibzpro-product/ibzpro-product-service';
-import IBZProStoryModuleService from '@/service/ibzpro-story-module/ibzpro-story-module-service';
-import StoryService from '@/service/story/story-service';
 
 
 /**
@@ -43,30 +40,6 @@ export default class MainService extends ControlService {
         super(opts);
         this.model = new MainModel();
     }
-
-    /**
-     * 产品（开发系统）服务对象
-     *
-     * @type {IBZProProductService}
-     * @memberof MainService
-     */
-    public ibzproproductService: IBZProProductService = new IBZProProductService();
-
-    /**
-     * 需求模块服务对象
-     *
-     * @type {IBZProStoryModuleService}
-     * @memberof MainService
-     */
-    public ibzprostorymoduleService: IBZProStoryModuleService = new IBZProStoryModuleService();
-
-    /**
-     * 需求服务对象
-     *
-     * @type {StoryService}
-     * @memberof MainService
-     */
-    public storyService: StoryService = new StoryService();
 
     /**
      * 处理数据
@@ -109,15 +82,6 @@ export default class MainService extends ControlService {
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
         data.page = data.page ? data.page : 0;
         data.size = data.size ? data.size : 1000;
-        if (Object.is(serviceName, 'IBZProProductService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.ibzproproductService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'ibzpro_productid', 'ibzproproduct');
-        }
-        if (Object.is(serviceName, 'IBZProStoryModuleService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.ibzprostorymoduleService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'ibzprostorymoduleid', 'ibzprostorymodule');
-        }
-        if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.storyService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');
-        }
 
         return Promise.reject([])
     }
@@ -199,6 +163,7 @@ export default class MainService extends ControlService {
     @Errorlog
     public add(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         const {data:Data,context:Context} = this.handleRequestData(action,context,data);
+        Object.assign(Data,{id: data.id, srffrontuf: '1'});
         return new Promise((resolve: any, reject: any) => {
             let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
@@ -320,7 +285,7 @@ export default class MainService extends ControlService {
         const {data:Data,context:Context} = this.handleRequestData(action,context,data);
         //仿真主键数据
         const PrimaryKey = Util.createUUID();
-        Data.ibzprostoryid = PrimaryKey;
+        Data.id = PrimaryKey;
         Data.ibzprostory = PrimaryKey;
         return new Promise((resolve: any, reject: any) => {
             let result: Promise<any>;
@@ -331,7 +296,7 @@ export default class MainService extends ControlService {
                 result = this.appEntityService.GetDraft(Context,Data, isloading);
             }
             result.then((response) => {
-                response.data.ibzprostoryid = PrimaryKey;
+                response.data.id = PrimaryKey;
                 this.handleResponse(action, response, true);
                 resolve(response);
             }).catch(response => {

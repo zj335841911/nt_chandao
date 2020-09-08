@@ -40,10 +40,12 @@ Vue.use(Uploader);
     i18n: {
         messages: {
             'ZH-CN': {
-                uploadtext: '上传文件'
+                one_doc: '该功能只支持单个文件上传',
+                upload_failed: '上传失败!',
             },
             'EN-US': {
-                uploadtext: 'upload files'
+                one_doc: 'This function only supports single file upload',
+                upload_failed: 'Upload failed!',
             }
         }
     },
@@ -123,7 +125,7 @@ export default class AppMobFileUpload extends Vue {
     public beforeRead(file: any, detail: any): boolean {
         this.dataProcess();
         if (file && Array.isArray(file)) {
-            this.$notice.warning('该功能只支持单个文件上传');
+            this.$notice.warning(`${this.$t('one_doc')}`);
             return false;
         }
         return true;
@@ -468,7 +470,7 @@ export default class AppMobFileUpload extends Vue {
      * @memberof AppMobFileUpload
      */
     public onError(error: any, file: any, fileList: any) {
-        this.$notice.error('上传失败');
+        this.$notice.error(`${this.$t('upload_failed')}`);
     }
 
     /**

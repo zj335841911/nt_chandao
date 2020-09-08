@@ -84,6 +84,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '077af636991c5ae68e1bc260baffc10f',
+            viewmodule: 'ibizpro',
+            viewname: 'IBZProStoryGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '75ddfe042245299b90c10c572b3d9436',
+            ],
+        },
+        {
             viewtag: '0846a45e5ffdd4d8f857575cfa955dce',
             viewmodule: 'zentao',
             viewname: 'ProductHtmlView',
@@ -318,16 +328,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '15859f5ecc4a3f3e02dac44d1de521af',
-            viewmodule: 'zentao',
-            viewname: 'ProjectMGEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'ac21af5f9696e38031a7c2291ed02d64',
-            ],
-        },
-        {
             viewtag: '16b54862dad958907853dc7eb084a0c0',
             viewmodule: 'zentao',
             viewname: 'DeptPickupView',
@@ -441,6 +441,7 @@ export const viewstate: any = {
                 'e2f8bc0ff75f204383d2a5c15117b476',
                 '46854d548e698f79dc9b2bda5e5d5331',
                 '8ca39819b87c5e3e8669fcd7409cf9a2',
+                '077af636991c5ae68e1bc260baffc10f',
             ],
         },
         {
@@ -1631,6 +1632,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '75ddfe042245299b90c10c572b3d9436',
+            viewmodule: 'ibizpro',
+            viewname: 'IBZProStoryEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '76bd64e6d21e10838e42517992e58c65',
             viewmodule: 'zentao',
             viewname: 'StoryTabExpView',
@@ -1736,7 +1746,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '15859f5ecc4a3f3e02dac44d1de521af',
+                '846ddf8e555650608d4f75c4595c1270',
                 'f83dac873b9215483c4bb91673284b41',
                 'fd0b8748ff96edcde009d39903a9f211',
             ],

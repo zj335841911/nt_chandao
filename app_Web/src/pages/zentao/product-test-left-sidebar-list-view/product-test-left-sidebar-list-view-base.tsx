@@ -60,16 +60,6 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
      */
     public appUIService: ProductUIService = new ProductUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ProductTestLeftSidebarListViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -143,6 +133,15 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
      * @memberof ProductTestLeftSidebarListViewBase
      */
     public engine: ListViewEngine = new ListViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProductTestLeftSidebarListViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

@@ -49,6 +49,8 @@ import { DingTalkService } from '../../ibiz-core/third-party-service/DingTalkSer
                 submit: '提交',
                 usernametipinfo: '用户名为空',
                 passwordtipinfo: '密码为空',
+                dingdingfailed: '钉钉认证失败，请联系管理员',
+                badlogin: '登录异常',
             },
             'EN-US': {
                 username: 'User name',
@@ -56,6 +58,8 @@ import { DingTalkService } from '../../ibiz-core/third-party-service/DingTalkSer
                 submit: 'Submit',
                 usernametipinfo: 'User name is empty.',
                 passwordtipinfo: 'Password id empty.',
+                dingdingfailed: 'Dingding authentication failed, please contact the administrator',
+                badlogin: 'Login exception',
             }
         }
     }
@@ -110,7 +114,7 @@ export default class Login extends Vue {
     public async thirdLogin(){
         let loginStatus :any = await this.thirdPartyService.login();
         if(!loginStatus.issuccess){
-            this.$notice.error(loginStatus.message?loginStatus.message:"钉钉认证失败，请联系管理员");
+            this.$notice.error(loginStatus.message?loginStatus.message:`${this.$t('dingdingfailed')}` );
             setTimeout(()=>{
                 this.thirdPartyService.close();
             },1500);
@@ -181,7 +185,7 @@ export default class Login extends Vue {
             }
         }).catch((error: any) => {
             this.isLoadding = false;
-            this.$notice.error(error?error.error.message:"登录异常");
+            this.$notice.error(error?error.error.message:`${this.$t('badlogin')}`);
         });
     }
 

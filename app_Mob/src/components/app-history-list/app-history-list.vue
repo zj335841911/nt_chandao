@@ -3,14 +3,26 @@
     <div class="onecontent" ref="onecontent">   
       <div v-for="item in items" :key="item.id" class="oneitem" ref="oneitem">
             <div class="header"><span>{{item.date}}</span> <span>{{item.method}}</span></div>
-            <div class="footer"> 
+            <div class="footer">
+              <span>{{$t('by')}} </span>
               <strong>{{item.actor}}</strong> 
               {{item.method}} 
               <span v-if="item.actions !== 'closed'">
-                <strong>{{item.file}}</strong>
-                <strong v-html="item.comment" class="comment"></strong>
-                <span v-if="item.actions == 'edited'">
-                旧值为<span v-html="item.old"></span>,新值为<span v-html="item.new"></span>
+                <span v-if="item.actions !=='suspended'">
+                  <span v-if="item.actions !=='delayed'">
+                  <strong>{{item.file}}</strong>
+                  </span>
+                </span>
+                <span v-if="item.actions == 'delayed'">
+                </span>
+                <span v-if="item.actions == 'commented' ">
+                  <strong v-html="item.comment" class="comment"></strong>
+                </span>
+                <span v-if="item.actions == 'edited' ">
+                  {{$t('oldvalue')}} <span v-html="item.old"></span>,{{$t('newvalue')}} <span v-html="item.new"></span>
+                </span>
+                <span v-if="item.actions == 'activated'">
+                  {{$t('oldvalue')}} <span v-html="item.old"></span>,{{$t('newvalue')}} <span v-html="item.new"></span> 
                 </span>
               </span>
             </div>
@@ -20,7 +32,7 @@
       <div @click="loadMore"><span>{{text}}</span></div>
     </div>
     <div class="zero" v-if="items.length == 0">
-      <div>暂无记录</div>
+      <div>{{$t('nodata')}}</div>
     </div>
   </div>
 </template>
@@ -30,7 +42,23 @@ import { Vue, Component, Prop,Watch } from 'vue-property-decorator';
 import { CodeListService } from "@/ibiz-core";
 
 @Component({
-    components: {}
+    components: {},
+    i18n: {
+        messages: {
+            'ZH-CN': {
+                by: '由',
+                oldvalue: '旧值为',
+                newvalue: '新值为',
+                nodata: '暂无记录',
+            },
+            'EN-US': {
+                by: 'By',
+                oldvalue: 'Old value:',
+                newvalue: 'New value:',
+                nodata: 'No data',
+            }
+        }
+    }
 })
 export default class APPHistoryList extends Vue {
     /**
@@ -221,6 +249,7 @@ export default class APPHistoryList extends Vue {
      */
     public created(){
       this.handler();
+      console.log('items',this.items)
     }
 
     /**
@@ -251,7 +280,9 @@ export default class APPHistoryList extends Vue {
      * @returns {void}
      * @memberof APPHistoryList
      */
-    public mounted(){}
+    public mounted(){
+      this.setHeight();
+    }
 
 }
 </script>

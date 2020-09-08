@@ -1,5 +1,4 @@
 import qs from 'qs';
-import { Route } from 'vue-router';
 import Schema from "async-validator";
 
 /**
@@ -445,13 +444,14 @@ export class Util {
      * 设置cookie
      *
      * @static
-     * @param {string} name
-     * @param {string} value
-     * @param {number} [day=0]
-     * @param {boolean} [isDomain=false]
+     * @param {*} name 名称
+     * @param {*} value 值
+     * @param {*} day 过期天数
+     * @param {boolean} [isDomain=false] 是否设置在主域下
+     * @param {string} [path='/'] 默认归属路径
      * @memberof Util
      */
-    public static setCookie(name: string, value: string, day: number = 0, isDomain: boolean = false): void {
+    public static setCookie(name: string, value: string, day: number = 0, isDomain: boolean = false, path: string = '/'): void {
         let domain = '';
         // 设置cookie到主域下
         if (isDomain) {
@@ -466,16 +466,11 @@ export class Util {
             }
         }
         if (day !== 0) { //当设置的时间等于0时，不设置expires属性，cookie在浏览器关闭后删除
-            let curDate = new Date();
-            let curTamp = curDate.getTime();
-            let curWeeHours = new Date(curDate.toLocaleDateString()).getTime() - 1;
-            let passedTamp = curTamp - curWeeHours;
-            let leftTamp = 24 * 60 * 60 * 1000 - passedTamp;
-            let leftTime = new Date();
-            leftTime.setTime(leftTamp + curTamp);
-            document.cookie = name + "=" + escape(value) + ";expires=" + leftTime.toUTCString() + domain;
+            const expires = day * 24 * 60 * 60 * 1000;
+            const date = new Date(new Date().getTime() + expires);
+            document.cookie = `${name}=${escape(value)};path=${path};expires=${date.toUTCString()}${domain}`;
         } else {
-            document.cookie = name + "=" + escape(value) + domain;
+            document.cookie = `${name}=${escape(value)};path=${path}${domain}`;
         }
     }
 
@@ -484,13 +479,11 @@ export class Util {
      *
      * @static
      * @param {string} cookieName
-     * @returns
+     * @param {boolean} [isDomain] 是否在主域下
      * @memberof Util
      */
-    public static clearCookie(cookieName: string): void {
-        const date = new Date();
-        date.setTime(date.getTime() - 1);
-        document.cookie = cookieName + "=;expires=" + date.toUTCString() + ";";
+    public static clearCookie(cookieName: string, isDomain?: boolean) {
+        this.setCookie(cookieName, '', -1, isDomain);
     }
 
     /**
@@ -501,13 +494,13 @@ export class Util {
      * @return {*}  {*}
      * @memberof Util
      */
-    public static getCookie(name: string): string | null {
+    public static getCookie(name: string): string {
         const reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
         const arr = document.cookie.match(reg);
         if (arr && arr.length > 1) {
             return unescape(arr[2]);
         } else {
-            return null;
+            return '';
         }
     }
 }

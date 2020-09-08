@@ -57,16 +57,6 @@ export class TestTaskMainTabExpViewBase extends TabExpViewBase {
      */
     public appUIService: TestTaskUIService = new TestTaskUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof TestTaskMainTabExpViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -111,6 +101,15 @@ export class TestTaskMainTabExpViewBase extends TabExpViewBase {
      * @memberof TestTaskMainTabExpViewBase
      */
     public engine: TabExpViewEngine = new TabExpViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof TestTaskMainTabExpViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

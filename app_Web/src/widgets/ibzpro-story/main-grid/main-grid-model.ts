@@ -32,59 +32,44 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'ibzpro_storyname',
-          prop: 'ibzprostoryname',
-          dataType: 'TEXT',
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
         },
         {
-          name: 'storymodule',
-          prop: 'storymodule',
+          name: 'module',
+          prop: 'module',
           dataType: 'PICKUP',
         },
         {
-          name: 'updateman',
-          prop: 'updateman',
+          name: 'title',
+          prop: 'title',
           dataType: 'TEXT',
         },
         {
-          name: 'pmsstory',
-          prop: 'pmsstory',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'updatedate',
-          prop: 'updatedate',
-          dataType: 'DATETIME',
+          name: 'ibiz_id',
+          prop: 'ibizid',
+          dataType: 'TEXT',
         },
         {
           name: 'srfmajortext',
-          prop: 'ibzprostoryname',
+          prop: 'title',
           dataType: 'TEXT',
         },
         {
           name: 'srfdataaccaction',
-          prop: 'ibzprostoryid',
-          dataType: 'GUID',
+          prop: 'id',
+          dataType: 'ACID',
         },
         {
           name: 'srfkey',
-          prop: 'ibzprostoryid',
-          dataType: 'GUID',
+          prop: 'id',
+          dataType: 'ACID',
           isEditable:true
         },
         {
-          name: 'storymodulename',
-          prop: 'storymodulename',
-          dataType: 'PICKUPTEXT',
-        },
-        {
-          name: 'productname',
-          prop: 'productname',
-          dataType: 'PICKUPTEXT',
-        },
-        {
           name: 'ibzprostory',
-          prop: 'ibzprostoryid',
+          prop: 'id',
         },
 
         {

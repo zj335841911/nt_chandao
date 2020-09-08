@@ -57,16 +57,6 @@ export class TaskEstimateOptionViewBase extends OptionViewBase {
      */
     public appUIService: TaskEstimateUIService = new TaskEstimateUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof TaskEstimateOptionViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -117,6 +107,15 @@ export class TaskEstimateOptionViewBase extends OptionViewBase {
      * @memberof TaskEstimateOptionViewBase
      */
     public engine: OptionViewEngine = new OptionViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof TaskEstimateOptionViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

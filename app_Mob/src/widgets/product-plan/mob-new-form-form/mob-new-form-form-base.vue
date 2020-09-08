@@ -51,7 +51,8 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.branch"  
+    :value="data.branch"
+    :dataOverLoad="dataOverLoad"  
     :navigateContext ='{ "product": "%product%" } '
     :navigateParam ='{ "product": "%product%" } '
     @change="($event)=>this.data.branch = $event" />
@@ -1484,6 +1485,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
+            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

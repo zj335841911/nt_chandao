@@ -104,8 +104,7 @@ export const viewstate: any = {
                 '86fe20f86bf10c309e08f52cf7259b9d',
                 'e643a925b1d0dab04ef917b973354baa',
                 'af40519acfe1bc985738eb3f0ff91a24',
-                '70d570ae5cafd7af092084e6d0e6b2f7',
-                '5d43b04926a6169dfa0d6e8c35d1918b',
+                '1afb3df498f4daa660709cca53ece0b2',
             ],
         },
         {
@@ -152,10 +151,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'a784b546d5d05850930cbaf23f8727a1',
                 '899ab4d4cfc33b089a9c4aa5118acbf3',
-                'a4a6fd9906bc1ecaac85b44ffcc466fe',
-                '8d13feb9b1401f28a033fec23ffd7e90',
+                '70d570ae5cafd7af092084e6d0e6b2f7',
             ],
         },
         {
@@ -400,6 +397,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5c7549595faf9ebf62619140c2bf32e3',
+            viewmodule: 'zentao',
+            viewname: 'TodoMobListView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e848fcc53d765ca86681f329895f792c',
+            ],
+        },
+        {
             viewtag: '5cfddd273247bd1dc4c940fae4671f14',
             viewmodule: 'ibiz',
             viewname: 'ReleaseMobEditView',
@@ -505,6 +512,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '6e91454cb4217d3aa1260161a539c803',
+                '8d13feb9b1401f28a033fec23ffd7e90',
             ],
         },
         {

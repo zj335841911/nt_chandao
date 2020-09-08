@@ -177,6 +177,9 @@ export default class BaseInfoModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'ischild',
+      },
     ]
   }
 

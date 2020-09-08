@@ -57,16 +57,6 @@ export class IbzMyTerritoryDashboardViewBase extends DashboardViewBase {
      */
     public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof IbzMyTerritoryDashboardViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -111,6 +101,15 @@ export class IbzMyTerritoryDashboardViewBase extends DashboardViewBase {
      * @memberof IbzMyTerritoryDashboardViewBase
      */
     public engine: PortalViewEngine = new PortalViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof IbzMyTerritoryDashboardViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

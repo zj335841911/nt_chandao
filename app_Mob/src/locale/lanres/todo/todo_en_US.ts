@@ -37,6 +37,9 @@ export default {
 		newmobeditview: {
 			caption: '快速新建',
 		},
+		moblistview: {
+			caption: '待办事宜表',
+		},
 		mobmdview: {
 			caption: '待办事宜表',
 		},
@@ -133,5 +136,7 @@ export default {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
+	},
+	moblistviewrighttoolbar_toolbar: {
 	},
 };

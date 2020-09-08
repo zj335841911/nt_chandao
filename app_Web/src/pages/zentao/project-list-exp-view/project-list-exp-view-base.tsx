@@ -57,16 +57,6 @@ export class ProjectListExpViewBase extends ListExpViewBase {
      */
     public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ProjectListExpViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -111,6 +101,15 @@ export class ProjectListExpViewBase extends ListExpViewBase {
      * @memberof ProjectListExpViewBase
      */
     public engine: ListExpViewEngine = new ListExpViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProjectListExpViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

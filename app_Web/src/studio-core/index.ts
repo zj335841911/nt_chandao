@@ -79,17 +79,20 @@ import { StudioEmbedView } from './components/studio-embed-view/studio-embed-vie
 import { StudioEmbedViewStyle2 } from './components/studio-embed-view-style2/studio-embed-view-style2';
 import { ViewToolbar } from './components/view-toolbar/view-toolbar';
 import { ViewConfigActions } from './components/view-config-actions/view-config-actions';
-import HtmlContainer from './components/html-container/html-container';
+import HtmlContainer from './components/html-container/html-container.vue';
+import { ViewQuickGroupTab } from './components/view-quick-group-tab/view-quick-group-tab';
 // 组件 End
 // 服务 Start
 import { acc } from './message-center/app-communications-center';
 import { AppService } from './service/app-service/AppService';
 import { FooterItemsService } from './service/FooterItemsService';
+import { TopItemsService } from './service/TopItemsService';
 import { UIStateService } from './service/UIStateService';
 export {
     acc,
     AppService,
     FooterItemsService,
+    TopItemsService,
     UIStateService
 }
 // 服务 End
@@ -103,7 +106,8 @@ export const StudioCore = {
         // 注册服务
         v.prototype.$acc = acc;
         v.prototype.$appService = new AppService();
-        v.prototype.$footerMenuService = new FooterItemsService();
+        v.prototype.$footerRenderService = new FooterItemsService();
+        v.prototype.$topRenderService = new TopItemsService();
         v.prototype.$uiState = new UIStateService();
         // 注册组件
         v.component('app-layout', AppLayout);
@@ -125,6 +129,7 @@ export const StudioCore = {
         v.component('view-toolbar', ViewToolbar);
         v.component('view-config-actions', ViewConfigActions);
         v.component('html-container', HtmlContainer);
+        v.component('view-quick-group-tab', ViewQuickGroupTab);
         // 注册指令
         v.directive('notification-signal', NotificationSignal);
     }

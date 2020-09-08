@@ -60,16 +60,6 @@ export class ActionAddCommentHistoryListViewBase extends ListViewBase {
      */
     public appUIService: ActionUIService = new ActionUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ActionAddCommentHistoryListViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航上下文集合
 	 *
@@ -151,6 +141,15 @@ export class ActionAddCommentHistoryListViewBase extends ListViewBase {
      * @memberof ActionAddCommentHistoryListViewBase
      */
     public engine: ListViewEngine = new ListViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ActionAddCommentHistoryListViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

@@ -57,16 +57,6 @@ export class IbzCaseNewEditViewBase extends EditViewBase {
      */
     public appUIService: IbzCaseUIService = new IbzCaseUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof IbzCaseNewEditViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -124,6 +114,15 @@ export class IbzCaseNewEditViewBase extends EditViewBase {
      * @memberof IbzCaseNewEditViewBase
      */
     public engine: EditViewEngine = new EditViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof IbzCaseNewEditViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

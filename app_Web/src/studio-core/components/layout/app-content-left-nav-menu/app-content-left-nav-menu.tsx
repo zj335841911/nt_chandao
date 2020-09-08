@@ -86,7 +86,7 @@ export class AppContentLeftNavMenu extends Vue {
         if (this.$route && this.$route.matched.length === 1) {
             this.openDefault();
         }
-        this.$footerMenuService.registerLeftItem((h: any) => {
+        this.$footerRenderService.registerLeftItem((h: any) => {
             return <icon title={this.uiState.layoutState.leftNavMenuCollapse ? '展开菜单' : '收起菜单'} type="md-menu" style="font-size: 20px;vertical-align: -3px;" on-click={() => this.uiState.leftNavMenuCollapseChange()} />;
         }, 0);
     }

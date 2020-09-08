@@ -90,6 +90,7 @@ export default class TodoUIActionBase extends EntityUIActionBase {
      */  
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'todos'});
+        this.allViewMap.set(':',{viewname:'moblistview',srfappde:'todos'});
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'todos'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'todos'});
         this.allViewMap.set(':',{viewname:'moboptionview',srfappde:'todos'});

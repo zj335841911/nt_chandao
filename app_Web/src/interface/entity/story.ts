@@ -437,4 +437,12 @@ export interface Story {
      * @memberof Story
      */
     isfavorites?: any;
+
+    /**
+     * 是否可以细分
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    ischild?: any;
 }

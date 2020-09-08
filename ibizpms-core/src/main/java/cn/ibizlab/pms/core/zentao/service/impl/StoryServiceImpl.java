@@ -576,6 +576,13 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
          return et ;
     }
 
+    @Override
+    @Transactional
+    public Story syncFromIBIZ(Story et) {
+        //自定义代码
+        return et;
+    }
+
         @Override
     @Transactional
     public Story unlinkStory(Story et) {
@@ -660,6 +667,15 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         this.remove(new QueryWrapper<Story>().eq("parent",id));
     }
 
+
+    /**
+     * 查询集合 指派给我的需求
+     */
+    @Override
+    public Page<Story> searchAssignedToMyStory(StorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchAssignedToMyStory(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
 
     /**
      * 查询集合 版本关联已完成的需求（选择数据源）

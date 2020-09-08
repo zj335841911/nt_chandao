@@ -291,7 +291,7 @@ export default class ZentaoModel {
                         	textcls: '',
                         	appfunctag: '_3',
                         	appfuncyype: 'APPVIEW',
-                        	viewname: 'ibzpro-story-module-grid-view',
+                        	viewname: 'ibzpro-story-grid-view',
                         	resourcetag: '',
                         	authtag:'Web-zentao-menuitem17',
                         }
@@ -720,11 +720,11 @@ export default class ZentaoModel {
             appfunctag: '_3',
             appfuncyype: 'APPVIEW',
             openmode: '',
-            codename: 'ibzprostorymodulegridview',
+            codename: 'ibzprostorygridview',
             deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/ibzprostorymodules/:ibzprostorymodule?/gridview/:gridview?',
+            routepath: '/ibizpms/:ibizpms?/ibzprostories/:ibzprostory?/gridview/:gridview?',
             parameters: [
-                { pathName: 'ibzprostorymodules', parameterName: 'ibzprostorymodule' },
+                { pathName: 'ibzprostories', parameterName: 'ibzprostory' },
                 { pathName: 'gridview', parameterName: 'gridview' },
             ],
         },

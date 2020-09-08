@@ -57,16 +57,6 @@ export class IbzLibModuleTreeExpViewBase extends TreeExpViewBase {
      */
     public appUIService: IbzLibModuleUIService = new IbzLibModuleUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof IbzLibModuleTreeExpViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -111,6 +101,15 @@ export class IbzLibModuleTreeExpViewBase extends TreeExpViewBase {
      * @memberof IbzLibModuleTreeExpViewBase
      */
     public engine: TreeExpViewEngine = new TreeExpViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof IbzLibModuleTreeExpViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

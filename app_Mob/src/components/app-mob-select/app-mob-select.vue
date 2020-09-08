@@ -43,12 +43,27 @@ export default class AppSelect extends Vue {
      * @memberof AppSelect
      */
     get curValue(){
-        return  this.value
+        return  this.value;
     }
     
-    set curValue(value:any){
-        this.$emit("change", value.detail.value);
+    set curValue(value:any){}
+
+    /**
+     * 监听表单请求完成
+     * @memberof AppSelectDropDown
+     */
+    @Watch("dataOverLoad")
+    onDataOverLoadChange(newVal: any, oldVal: any){
+        this.load();
     }
+
+    /**
+     * 表单请求完成
+     *
+     * @type {*}
+     * @memberof AppSelectDropDown
+     */
+    @Prop() public dataOverLoad?: any;
 
     /**
      * change事件
@@ -191,8 +206,6 @@ export default class AppSelect extends Vue {
         if (Object.is(this.codeListType, "STATIC")) {
             this.overload = true;
             this.options = this.$store.getters.getCodeListItems(this.tag);
-        } else {
-            this.load();
         }
     }
 

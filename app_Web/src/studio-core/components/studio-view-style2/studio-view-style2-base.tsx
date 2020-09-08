@@ -63,6 +63,9 @@ export class StudioViewStyle2Base extends StudioViewBase {
                 </div> : null}
                 {this.$slots.quickSearchForm ? <div class="quick-search-form">{this.$slots.quickSearchForm}</div> : null}
             </div> : null,
+            this.$slots.quickGroupTab ? <div class='quick-group-tab'>
+                {this.$slots.quickGroupTab}
+            </div> : null,
             <div class={{ 'view-content': true, 'show-search-form': this.$slots.searchForm }} key="view-content">
                 {this.$slots.searchForm ? <div class="search-form-wrapper">
                     <transition name="width-transition">

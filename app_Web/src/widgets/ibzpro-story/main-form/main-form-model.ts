@@ -26,21 +26,16 @@ export default class MainModel {
         dataType: 'TEXT',
       },
       {
-        name: 'srfupdatedate',
-        prop: 'updatedate',
-        dataType: 'DATETIME',
-      },
-      {
         name: 'srforikey',
       },
       {
         name: 'srfkey',
-        prop: 'ibzprostoryid',
-        dataType: 'GUID',
+        prop: 'id',
+        dataType: 'ACID',
       },
       {
         name: 'srfmajortext',
-        prop: 'ibzprostoryname',
+        prop: 'title',
         dataType: 'TEXT',
       },
       {
@@ -56,68 +51,23 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'pmsstory',
-        prop: 'pmsstory',
-        dataType: 'PICKUP',
+        name: 'id',
+        prop: 'id',
+        dataType: 'ACID',
       },
       {
-        name: 'product',
-        prop: 'product',
-        dataType: 'PICKUP',
-      },
-      {
-        name: 'productname',
-        prop: 'productname',
-        dataType: 'PICKUPTEXT',
-      },
-      {
-        name: 'storymodulename',
-        prop: 'storymodulename',
-        dataType: 'PICKUPTEXT',
-      },
-      {
-        name: 'pmsstoryname',
-        prop: 'pmsstoryname',
-        dataType: 'PICKUPTEXT',
-      },
-      {
-        name: 'ibzpro_storyname',
-        prop: 'ibzprostoryname',
+        name: 'title',
+        prop: 'title',
         dataType: 'TEXT',
       },
       {
-        name: 'storymodule',
-        prop: 'storymodule',
-        dataType: 'PICKUP',
-      },
-      {
-        name: 'createman',
-        prop: 'createman',
+        name: 'ibiz_id',
+        prop: 'ibizid',
         dataType: 'TEXT',
-      },
-      {
-        name: 'createdate',
-        prop: 'createdate',
-        dataType: 'DATETIME',
-      },
-      {
-        name: 'updateman',
-        prop: 'updateman',
-        dataType: 'TEXT',
-      },
-      {
-        name: 'updatedate',
-        prop: 'updatedate',
-        dataType: 'DATETIME',
-      },
-      {
-        name: 'ibzpro_storyid',
-        prop: 'ibzprostoryid',
-        dataType: 'GUID',
       },
       {
         name: 'ibzprostory',
-        prop: 'ibzprostoryid',
+        prop: 'id',
         dataType: 'FONTKEY',
       },
     ]

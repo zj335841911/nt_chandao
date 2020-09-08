@@ -6813,43 +6813,6 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
-        srfkey: "Ibizpro_storymodule__type",
-        emptytext: "未定义",
-        "codelisttype":"static",
-        items: [
-            {
-                id: "pmsStoryModule",
-                label: "PMS需求模块",
-                text: "PMS需求模块",
-                "data":"",
-                "codename":"Pmsstorymodule",
-                value: "pmsStoryModule",
-                
-                disabled: false,
-            },
-            {
-                id: "iBizSysModule",
-                label: "iBiz系统模块",
-                text: "iBiz系统模块",
-                "data":"",
-                "codename":"Ibizsysmodule",
-                value: "iBizSysModule",
-                
-                disabled: false,
-            },
-            {
-                id: "iBizReqModule",
-                label: "iBiz需求模块",
-                text: "iBiz需求模块",
-                "data":"",
-                "codename":"Ibizreqmodule",
-                value: "iBizReqModule",
-                
-                disabled: false,
-            },
-        ]
-    },
-    {
         srfkey: "ProjectQuickpacket",
         emptytext: "未定义",
         "codelisttype":"static",

@@ -484,7 +484,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * @type {number}
     * @memberof FavoriteMOB
     */
-    public pageSize: number = 25;
+    public pageSize: number = 5;
 
     /**
     * 总页数

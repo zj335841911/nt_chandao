@@ -1,4 +1,4 @@
-import { Http,Util } from '@/ibiz-core/utils';
+import { Http,Util,HttpResponse } from '@/ibiz-core/utils';
 import  { EntityService }  from '@/ibiz-core';
 import { MyTerritoryCountLogic } from './my-territory-count-logic';
 

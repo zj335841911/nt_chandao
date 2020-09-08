@@ -56,14 +56,16 @@ const Recorder = require('recorder-core/recorder.mp3.min');
     i18n: {
         messages: {
             'ZH-CN': {
-                openrecorder: '打开录音',
-                startrecorder: '开始录音',
-                endrecorder: '结束录音',
+                notopenrecorder: '未打开录音',
+                recorderhasopened: '录音功能已打开',
+                recorderopenfailed: '录音功能打开失败',
+                uploadfailed: '上传失败!',
             },
             'EN-US': {
-                openrecorder: 'open recorder',
-                startrecorder: 'start recorder',
-                endrecorder: 'end recorder',
+                notopenrecorder: 'Recorder is not turned on',
+                recorderhasopened: 'Recorder is turned on',
+                recorderopenfailed: 'Recorder failed to open',
+                uploadfailed: 'Upload failed!',                
             }
         }
     }
@@ -177,7 +179,7 @@ export default class AppMobRecorder extends Vue {
         this.rec = null;
         if (!rec) {
             // This.reclog("未打开录音", 1);
-            this.$notice.error('未打开录音');
+            this.$notice.error(`${this.$t('notopenrecorder')}`);
             return;
         }
 
@@ -200,7 +202,7 @@ export default class AppMobRecorder extends Vue {
     public recStart() {
         if (!this.rec) {
             // this.reclog("未打开录音", 1);
-            this.$notice.error('未打开录音');
+            this.$notice.error(`${this.$t('notopenrecorder')}`);
             return;
         }
         this.rec.start();
@@ -234,13 +236,13 @@ export default class AppMobRecorder extends Vue {
         rec.open(() => {
             // This.dialogCancel();
             // This.reclog("已打开:" + This.type + " " + This.sampleRate + "hz " + This.bitRate + "kbps", 2);
-            this.$notice.success('录音功能已打开');
+            this.$notice.success(`${this.$t('recorderhasopened')}`);
 
             // this.wave = Recorder.WaveView({ elem: this.$refs.recorder });
         }, (msg: any, isUserNotAllow: any) => {
             // This.dialogCancel();
             // This.reclog((isUserNotAllow ? "UserNotAllow，" : "") + "打开失败：" + msg, 1);
-            this.$notice.success('录音功能打开失败');
+            this.$notice.success(`${this.$t('recorderopenfailed')}`);
         });
         // This.waitDialogClickFn = () => {
         //     This.dialogCancel();
@@ -639,7 +641,7 @@ export default class AppMobRecorder extends Vue {
      * @memberof AppMobRecorder
      */
     public onError(error: any, file: any, fileList: any) {
-        this.$notify({ type: 'danger', message: '上传失败' });
+        this.$notify({ type: 'danger', message: `${this.$t('uploadfailed')}` });
     }
 
     /**

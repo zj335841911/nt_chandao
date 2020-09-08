@@ -177,6 +177,9 @@ export default class AssignedToMeStoryModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'ischild',
+      },
     ]
   }
 

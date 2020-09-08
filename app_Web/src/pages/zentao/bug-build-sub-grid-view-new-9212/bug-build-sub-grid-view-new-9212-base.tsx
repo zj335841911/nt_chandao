@@ -60,16 +60,6 @@ export class BugBuildSubGridView_New_9212Base extends GridViewBase {
      */
     public appUIService: BugUIService = new BugUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof BugBuildSubGridView_New_9212Base
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -127,6 +117,15 @@ export class BugBuildSubGridView_New_9212Base extends GridViewBase {
      * @memberof BugBuildSubGridView_New_9212Base
      */
     public engine: GridViewEngine = new GridViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof BugBuildSubGridView_New_9212Base
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

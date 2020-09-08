@@ -32,6 +32,8 @@ Vue.config.errorHandler = function (err: any, vm: any, info: any) {
     console.error(err);
 }
 Vue.config.productionTip = false;
+// 排除自定义组件
+Vue.config.ignoredElements = [/^ion-/];
 Vue.use(Print);
 // Vue.use(ibizLab);
 Vue.use(Vuex);

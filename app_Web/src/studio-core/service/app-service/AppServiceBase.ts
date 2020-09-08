@@ -73,21 +73,24 @@ export class AppServiceBase {
             }
             loginUrl = `${loginUrl}${_url}`;
             location.href = loginUrl;
-        } else
-        // 后期此处应调用后天退出，明确可以退出后才退出
-        if (Environment.LoginMode === 'UAA') {
-            location.href = `${Environment.LoginUrl}?redirect=${encodeURIComponent(location.href)}`;
-        } else if (Environment.LoginMode === 'CAS') {
-            location.href = `${Environment.CasUrl}/logout?service=${encodeURIComponent(`${Environment.CasUrl}/login?service=${encodeURIComponent(`${window.location.origin}${Environment.BaseUrl}/appdata?RU=${encodeURIComponent(location.href)}`)}`)}`;
         } else {
-            location.href = `${location.origin}${location.pathname}#/login?redirect=${encodeURIComponent(location.href)}`;
-        }
-        const x = document.getElementById('app-loading-x');
-        if (x) {
-            x.style.display = 'block';
+            // 后期此处应调用后天退出，明确可以退出后才退出
+            if (Environment.LoginMode === 'UAA') {
+                location.href = `${Environment.LoginUrl}?redirect=${encodeURIComponent(location.href)}`;
+            } else if (Environment.LoginMode === 'CAS') {
+                location.href = `${Environment.CasUrl}/logout?service=${encodeURIComponent(`${Environment.CasUrl}/login?service=${encodeURIComponent(`${window.location.origin}${Environment.BaseUrl}/appdata?RU=${encodeURIComponent(location.href)}`)}`)}`;
+            } else {
+                location.href = `${location.origin}${location.pathname}#/login?redirect=${encodeURIComponent(location.href)}`;
+            }
+            const x = document.getElementById('app-loading-x');
+            if (x) {
+                x.style.display = 'block';
+            }
         }
         win.isDoLogin = true;
-        location.reload();
+        setTimeout(() => {
+            location.reload();
+        }, 100);
     }
 
     /**
@@ -98,7 +101,6 @@ export class AppServiceBase {
      */
     public setToken(token: string): void {
         Util.setCookie('ibzuaa-token', token, 7, true);
-        localStorage.setItem('token', token);
     }
 
     /**
@@ -108,15 +110,7 @@ export class AppServiceBase {
      * @memberof AppServiceBase
      */
     public getToken(): string {
-        let token = localStorage.getItem('token');
-        if (!token) {
-            token = Util.getCookie('ibzuaa-token');
-        }
-        if (token) {
-            localStorage.setItem('token', token);
-            return token;
-        }
-        return '';
+        return Util.getCookie('ibzuaa-token');
     }
 
     /**
@@ -125,7 +119,6 @@ export class AppServiceBase {
      * @memberof AppServiceBase
      */
     public clearToken(): void {
-        Util.clearCookie('ibzuaa-token');
-        localStorage.removeItem('token');
+        Util.clearCookie('ibzuaa-token', true);
     }
 }

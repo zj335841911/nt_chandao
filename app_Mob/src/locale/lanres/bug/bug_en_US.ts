@@ -365,8 +365,6 @@ export default {
 			tip: 'deuiaction1',
 		},
 	},
-	assmobmdviewrighttoolbar_toolbar: {
-	},
 	confirmmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',

@@ -48,6 +48,13 @@ public class IBZProStorySearchContext extends QueryWrapperContext<IBZProStory> {
             this.getSearchCond().eq("product", n_product_eq);
         }
     }
+	private String n_ibiz_id_eq;//[IBIZ标识]
+	public void setN_ibiz_id_eq(String n_ibiz_id_eq) {
+        this.n_ibiz_id_eq = n_ibiz_id_eq;
+        if(!ObjectUtils.isEmpty(this.n_ibiz_id_eq)){
+            this.getSearchCond().eq("ibiz_id", n_ibiz_id_eq);
+        }
+    }
 	private String n_source_eq;//[需求来源]
 	public void setN_source_eq(String n_source_eq) {
         this.n_source_eq = n_source_eq;
@@ -55,11 +62,60 @@ public class IBZProStorySearchContext extends QueryWrapperContext<IBZProStory> {
             this.getSearchCond().eq("source", n_source_eq);
         }
     }
+	private String n_sourcenote_eq;//[来源备注]
+	public void setN_sourcenote_eq(String n_sourcenote_eq) {
+        this.n_sourcenote_eq = n_sourcenote_eq;
+        if(!ObjectUtils.isEmpty(this.n_sourcenote_eq)){
+            this.getSearchCond().eq("sourcenote", n_sourcenote_eq);
+        }
+    }
 	private String n_ibiz_sourceobject_eq;//[来源对象]
 	public void setN_ibiz_sourceobject_eq(String n_ibiz_sourceobject_eq) {
         this.n_ibiz_sourceobject_eq = n_ibiz_sourceobject_eq;
         if(!ObjectUtils.isEmpty(this.n_ibiz_sourceobject_eq)){
             this.getSearchCond().eq("ibiz_sourceobject", n_ibiz_sourceobject_eq);
+        }
+    }
+	private String n_status_eq;//[状态]
+	public void setN_status_eq(String n_status_eq) {
+        this.n_status_eq = n_status_eq;
+        if(!ObjectUtils.isEmpty(this.n_status_eq)){
+            this.getSearchCond().eq("status", n_status_eq);
+        }
+    }
+	private String n_type_eq;//[需求类型]
+	public void setN_type_eq(String n_type_eq) {
+        this.n_type_eq = n_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_type_eq)){
+            this.getSearchCond().eq("type", n_type_eq);
+        }
+    }
+	private String n_stage_eq;//[需求阶段]
+	public void setN_stage_eq(String n_stage_eq) {
+        this.n_stage_eq = n_stage_eq;
+        if(!ObjectUtils.isEmpty(this.n_stage_eq)){
+            this.getSearchCond().eq("stage", n_stage_eq);
+        }
+    }
+	private Integer n_pri_eq;//[优先级]
+	public void setN_pri_eq(Integer n_pri_eq) {
+        this.n_pri_eq = n_pri_eq;
+        if(!ObjectUtils.isEmpty(this.n_pri_eq)){
+            this.getSearchCond().eq("pri", n_pri_eq);
+        }
+    }
+	private String n_color_eq;//[颜色]
+	public void setN_color_eq(String n_color_eq) {
+        this.n_color_eq = n_color_eq;
+        if(!ObjectUtils.isEmpty(this.n_color_eq)){
+            this.getSearchCond().eq("color", n_color_eq);
+        }
+    }
+	private String n_stagedby_eq;//[设置阶段者]
+	public void setN_stagedby_eq(String n_stagedby_eq) {
+        this.n_stagedby_eq = n_stagedby_eq;
+        if(!ObjectUtils.isEmpty(this.n_stagedby_eq)){
+            this.getSearchCond().eq("stagedby", n_stagedby_eq);
         }
     }
 

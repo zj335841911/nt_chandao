@@ -14,7 +14,7 @@
      loadAction="Get"
      createAction="Create"
      :showBusyIndicator="true"  
-     fetchAction="FetchDefault" 
+     fetchAction="FetchAssignedToMyStory" 
     controlStyle=""
     name="dashboard_sysportlet1_list"  
     ref='dashboard_sysportlet1_list' 

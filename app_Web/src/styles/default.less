@@ -181,6 +181,9 @@ div::-webkit-scrollbar-thumb {
         .el-table__body tr.current-row>td {
             background-color: transparent;
         }
+        .el-table__body tr.hover-row>td {
+            background: rgba(var(--view-background-color-active-rgb), 0.5) !important;
+        }
 
         >.el-table__header-wrapper, .el-table__fixed-header-wrapper {
 
@@ -1393,4 +1396,18 @@ div::-webkit-scrollbar-thumb {
     height: 100%;
     width: 100%;
 }
+
+// 分页导航
+.tabexppanel {
+    .ivu-tabs-tab {
+        .ivu-badge {
+            >.ivu-badge-count {
+                height: 18px;
+                top: -2px;
+                line-height: 16px;
+            }
+        }
+    }
+}
+
 @import './user.less';

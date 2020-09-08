@@ -906,12 +906,6 @@ export default {
         "4": "4",
         "empty": ""
     },
-    Ibizpro_storymodule__type: {
-        "pmsStoryModule": "PMS需求模块",
-        "iBizSysModule": "iBiz系统模块",
-        "iBizReqModule": "iBiz需求模块",
-        "empty": ""
-    },
     ProjectQuickpacket: {
         "All": "所有",
         "nowait": "未完成",

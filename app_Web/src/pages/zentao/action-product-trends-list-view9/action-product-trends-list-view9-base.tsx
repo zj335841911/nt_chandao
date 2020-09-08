@@ -60,16 +60,6 @@ export class ActionProductTrendsListView9Base extends ListView9Base {
      */
     public appUIService: ActionUIService = new ActionUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ActionProductTrendsListView9Base
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -114,6 +104,15 @@ export class ActionProductTrendsListView9Base extends ListView9Base {
      * @memberof ActionProductTrendsListView9Base
      */
     public engine: ListView9Engine = new ListView9Engine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ActionProductTrendsListView9Base
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

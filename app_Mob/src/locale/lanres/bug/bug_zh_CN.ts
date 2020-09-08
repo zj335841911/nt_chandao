@@ -365,8 +365,6 @@ export default {
 			tip: '新建',
 		},
 	},
-	assmobmdviewrighttoolbar_toolbar: {
-	},
 	confirmmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: '保存',

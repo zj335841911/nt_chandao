@@ -18,7 +18,6 @@
                     <ion-item>
                       <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                           <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
-                          <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px); "      @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                       </template>
                       <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
                           <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>

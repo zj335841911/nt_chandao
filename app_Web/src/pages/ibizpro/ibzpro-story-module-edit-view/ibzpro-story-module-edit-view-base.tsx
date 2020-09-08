@@ -57,16 +57,6 @@ export class IBZProStoryModuleEditViewBase extends EditViewBase {
      */
     public appUIService: IBZProStoryModuleUIService = new IBZProStoryModuleUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof IBZProStoryModuleEditViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -122,6 +112,15 @@ export class IBZProStoryModuleEditViewBase extends EditViewBase {
      * @memberof IBZProStoryModuleEditViewBase
      */
     public engine: EditViewEngine = new EditViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof IBZProStoryModuleEditViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

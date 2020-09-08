@@ -71,7 +71,9 @@ public interface IStoryService extends IService<Story>{
     Story sendMsgPreProcess(Story et) ;
     Story storyFavorites(Story et) ;
     Story storyNFavorites(Story et) ;
+    Story syncFromIBIZ(Story et) ;
     Story unlinkStory(Story et) ;
+    Page<Story> searchAssignedToMyStory(StorySearchContext context) ;
     Page<Story> searchBuildLinkCompletedStories(StorySearchContext context) ;
     Page<Story> searchBuildLinkableStories(StorySearchContext context) ;
     Page<Story> searchBuildStories(StorySearchContext context) ;

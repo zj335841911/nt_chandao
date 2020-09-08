@@ -78,7 +78,8 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.branch"  
+    :value="data.branch"
+    :dataOverLoad="dataOverLoad"  
     :navigateContext ='{ "product": "%product%" } '
     :navigateParam ='{ "product": "%product%" } '
     @change="($event)=>this.data.branch = $event" />
@@ -149,7 +150,8 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.plan"  
+    :value="data.plan"
+    :dataOverLoad="dataOverLoad"  
     :navigateContext ='{ "n_product_eq": "%product%" } '
     :navigateParam ='{ "n_product_eq": "%product%" } '
     @change="($event)=>this.data.plan = $event" />
@@ -180,7 +182,8 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.source"  
+    :value="data.source"
+    :dataOverLoad="dataOverLoad"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.source = $event" />
@@ -236,7 +239,8 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.assignedto"  
+    :value="data.assignedto"
+    :dataOverLoad="dataOverLoad"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.assignedto = $event" />
@@ -267,7 +271,8 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.neednotreview"  
+    :value="data.neednotreview"
+    :dataOverLoad="dataOverLoad"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.neednotreview = $event" />
@@ -323,7 +328,8 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.pri"  
+    :value="data.pri"
+    :dataOverLoad="dataOverLoad"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.pri = $event" />
@@ -1937,6 +1943,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
+            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

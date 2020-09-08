@@ -1,103 +1,42 @@
 <i-form :model="this.data" class='app-form' ref='form'  id='ibzprostory_main' style="">
     <input style="display:none;" />
     <row >
-    <tabs :animated="false" size="small" name='main' :value="detailsModel.form.activiedPage" 
-        @on-click="detailsModel.form.clickPage($event)">
-            <tab-pane v-show="detailsModel.formpage1.visible" name='formpage1' :index="0" tab='main' class=''  
-                :label="(h) =>{
-                    return h('span',{
-                        class:'caption'
-                    },[
-                    $t('entities.ibzprostory.main_form.details.formpage1')
-                    ])
-                }">
-                    
+            
 <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.ibzprostory.main_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.ibzprostory.main_form.details.productname')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
+        <i-col class="form-layout-container" v-show="detailsModel.id.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='id' :itemRules="this.rules.id" class='' :caption="$t('entities.ibzprostory.main_form.details.id')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.id.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.productname.disabled"
-  name='productname'
-  deMajorField='ibzpro_productname'
-  deKeyField='ibzproproduct'
-  :service="service"
-  :acParams="{ serviceName: 'IBZProProductService', interfaceName: 'FetchDefault'}"
-  valueitem='product' 
-  :value="data.productname" 
-  editortype="dropdown"
-  style="" 
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+<app-span name='id' :value="data.id" dataType="ACID"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.storymodulename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='storymodulename' :itemRules="this.rules.storymodulename" class='' :caption="$t('entities.ibzprostory.main_form.details.storymodulename')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.storymodulename.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.storymodulename.disabled"
-  name='storymodulename'
-  deMajorField='ibzprostorymodulename'
-  deKeyField='ibzprostorymodule'
-  :service="service"
-  :acParams="{ serviceName: 'IBZProStoryModuleService', interfaceName: 'FetchDefault'}"
-  valueitem='storymodule' 
-  :value="data.storymodulename" 
-  editortype="dropdown"
-  style="" 
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.pmsstoryname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='pmsstoryname' :itemRules="this.rules.pmsstoryname" class='' :caption="$t('entities.ibzprostory.main_form.details.pmsstoryname')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.pmsstoryname.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-picker  
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.pmsstoryname.disabled"
-  name='pmsstoryname'
-  deMajorField='title'
-  deKeyField='story'
-  :service="service"
-  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchDefault'}"
-  valueitem='pmsstory' 
-  :value="data.pmsstoryname" 
-  editortype="dropdown"
-  style="" 
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.ibzpro_storyname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='ibzpro_storyname' :itemRules="this.rules.ibzpro_storyname" class='' :caption="$t('entities.ibzprostory.main_form.details.ibzpro_storyname')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.ibzpro_storyname.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.ibzprostory.main_form.details.title')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
-    v-model="data.ibzpro_storyname"  
+    v-model="data.title"  
     @enter="onEnter($event)"  
      unit=""  
-    :disabled="detailsModel.ibzpro_storyname.disabled" 
+    :disabled="detailsModel.title.disabled" 
+    type='text' 
+    style="">
+</input-box>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.ibiz_id.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='ibiz_id' :itemRules="this.rules.ibiz_id" class='' :caption="$t('entities.ibzprostory.main_form.details.ibiz_id')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.ibiz_id.error" :isEmptyCaption="false" labelPos="LEFT">
+    <input-box 
+    v-model="data.ibiz_id"  
+    @enter="onEnter($event)"  
+     unit=""  
+    :disabled="detailsModel.ibiz_id.disabled" 
     type='text' 
     style="">
 </input-box>
@@ -112,68 +51,5 @@
 </i-col>
 
 
-            </tab-pane> 
-            <tab-pane v-show="detailsModel.formpage2.visible" name='formpage2' :index="1" tab='main' class=''  
-                :label="(h) =>{
-                    return h('span',{
-                        class:'caption'
-                    },[
-                    $t('entities.ibzprostory.main_form.details.formpage2')
-                    ])
-                }">
-                    
-<i-col class="form-layout-container" v-show="detailsModel.group2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.group2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.ibzprostory.main_form.details.group2')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
-    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group2" :data="data" :context="context" :viewparams="viewparams"/>
-    <row>
-        <i-col class="form-layout-container" v-show="detailsModel.createman.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='createman' :itemRules="this.rules.createman" class='' :caption="$t('entities.ibzprostory.main_form.details.createman')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.createman.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='createman' :value="data.createman" dataType="TEXT"     :precision="0"
-tag='SysOperator' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.createdate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='createdate' :itemRules="this.rules.createdate" class='' :caption="$t('entities.ibzprostory.main_form.details.createdate')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.createdate.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='createdate' :value="data.createdate" dataType="DATETIME" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.updateman.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='updateman' :itemRules="this.rules.updateman" class='' :caption="$t('entities.ibzprostory.main_form.details.updateman')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.updateman.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='updateman' :value="data.updateman" dataType="TEXT"     :precision="0"
-tag='SysOperator' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.updatedate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='updatedate' :itemRules="this.rules.updatedate" class='' :caption="$t('entities.ibzprostory.main_form.details.updatedate')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.updatedate.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='updatedate' :value="data.updatedate" dataType="DATETIME" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-    
-    </row>
-</app-form-group>
-
-</i-col>
-
-
-            </tab-pane> 
-    </tabs>
     </row>
 </i-form>

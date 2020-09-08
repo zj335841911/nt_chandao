@@ -2,15 +2,6 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobportalview': true, 'ibz-my-territory-mob-dashboard-view': true }">
     
     <ion-header>
-        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
-            <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
-            </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-        </ion-toolbar>
     </ion-header>
 
 
@@ -253,13 +244,50 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
 
 
 
+   /**
+    * 工具栏 IbzMyTerritoryMobDashboardView 模型
+    *
+    * @type {*}
+    * @memberof IbzMyTerritoryMobDashboardView
+    */
+    public dashboard_sysportlet4_list_quicktoolbarModels: any = {
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyFavMore', target: 'NONE' } },
+
+    };
+
+    
+
+
+
+
+
+
+
+
+   /**
+    * 工具栏 IbzMyTerritoryMobDashboardView 模型
+    *
+    * @type {*}
+    * @memberof IbzMyTerritoryMobDashboardView
+    */
+    public dashboard_sysportlet2_list_quicktoolbarModels: any = {
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyAssMore', target: 'NONE' } },
+
+    };
+
+    
+
+
+
+
+
 
     /**
      * 工具栏模型集合名
      *
      * @memberof IbzMyTerritoryMobDashboardViewBase
      */
-    public toolbarModelList:any = []
+    public toolbarModelList:any = ['dashboard_sysportlet4_list_quicktoolbarModels','dashboard_sysportlet2_list_quicktoolbarModels',]
 
     /**
      * 解析视图参数
@@ -484,7 +512,8 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
         if (this.viewDefaultUsage === "routerView" ) {
             this.$store.commit("deletePage", this.$route.fullPath);
             this.$router.go(-1);
-        }else{
+        }
+        if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
         

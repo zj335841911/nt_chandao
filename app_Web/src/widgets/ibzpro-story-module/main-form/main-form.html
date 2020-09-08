@@ -102,26 +102,6 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.storytype.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='storytype' :itemRules="this.rules.storytype" class='' :caption="$t('entities.ibzprostorymodule.main_form.details.storytype')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.storytype.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<dropdown-list 
-    v-model="data.storytype"
-    :data="data"
-    :context="context"
-    :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
-    :disabled="detailsModel.storytype.disabled"
-    valueType="string"
-    tag='Ibizpro_storymodule__type'
-    codelistType='STATIC'
-    placeholder='请选择...'
-    
-/>
-</app-form-item>
-
-</i-col>
     
     </row>
 </app-form-group>

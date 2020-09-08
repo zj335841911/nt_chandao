@@ -56,16 +56,6 @@ export class TestResultMEditView9Base extends EditView9Base {
      */
     public appUIService: TestResultUIService = new TestResultUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof TestResultMEditView9Base
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -101,6 +91,15 @@ export class TestResultMEditView9Base extends EditView9Base {
      */
 	protected viewtag: string = '136cd30bd141450ecd9e7791215733e6';
 
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof TestResultMEditView9Base
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

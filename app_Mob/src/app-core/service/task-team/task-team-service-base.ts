@@ -1,4 +1,4 @@
-import { Http,Util } from '@/ibiz-core/utils';
+import { Http,Util,HttpResponse } from '@/ibiz-core/utils';
 import  { EntityService }  from '@/ibiz-core';
 
 
@@ -400,12 +400,12 @@ export class TaskTeamServiceBase extends EntityService {
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
             if(result){
-                return {"status":200,"data":result};
+                return new HttpResponse(200,{});
             }else{
-                return {"status":200,"data":[]};
+                return new HttpResponse(200,{});
             } 
         }else{
-            return {"status":200,"data":[]};
+            return new HttpResponse(200,{});
         }
     }
 }

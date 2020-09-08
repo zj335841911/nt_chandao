@@ -668,7 +668,7 @@ public class ZenTaoHttpHelper {
         if (source == null || source.isEmpty()) {
             return source;
         }
-        String regex = "\\{(\\d+)(\\..+)\\}";
+        String regex = "\\{(\\d+)(\\..+?)\\}";
         source = source.replaceAll(regex, "/zentao/file-read-$1$2");
         return source;
     }

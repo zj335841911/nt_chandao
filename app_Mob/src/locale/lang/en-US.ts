@@ -78,7 +78,6 @@ export default {
                 menuitem12: '更多',
             },
             appindexview: {
-                menuitem5: '收藏',
                 menuitem1: '产品',
                 menuitem2: '项目',
                 menuitem3: '测试',

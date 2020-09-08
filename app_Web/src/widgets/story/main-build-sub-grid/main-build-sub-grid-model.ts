@@ -126,6 +126,11 @@ export default class Main_BuildSubModel {
           dataType: 'TEXT',
         },
         {
+          name: 'ischild',
+          prop: 'ischild',
+          dataType: 'TEXT',
+        },
+        {
           name: 'story',
           prop: 'id',
         },

@@ -437,4 +437,12 @@ export interface SubStory {
      * @memberof SubStory
      */
     isfavorites?: any;
+
+    /**
+     * 是否可以细分
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    ischild?: any;
 }

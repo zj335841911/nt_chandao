@@ -51,11 +51,6 @@ export default class SycFromIbzModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'storytype',
-        prop: 'storytype',
-        dataType: 'SSCODELIST',
-      },
-      {
         name: 'ibiz_id',
         prop: 'ibizid',
         dataType: 'TEXT',

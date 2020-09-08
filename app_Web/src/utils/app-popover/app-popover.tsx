@@ -157,13 +157,14 @@ export class AppPopover {
      *
      * @param {*} event
      * @param {(h: CreateElement) => any} [content]
-     * @param {Placement} [position='left']
+     * @param {Placement} [position='left-end']
      * @param {boolean} [isAutoClose=true]
      * @param {number} [width=300]
      * @param {number} [height=300]
+     * @param {*} [popperOption={}]
      * @memberof AppPopover
      */
-    public openPopover(event: any, content?: (h: CreateElement) => any, position: Placement = 'left-end', isAutoClose: boolean = true, width: number = 300, height: number = 300): void {
+    public openPopover(event: any, content?: (h: CreateElement) => any, position: Placement = 'left-end', isAutoClose: boolean = true, width: number = 300, height: number = 300, popperOption: any = {}): void {
         // 阻止事件冒泡
         event.stopPropagation();
         const element: Element = event.toElement || event.srcElement;
@@ -185,7 +186,8 @@ export class AppPopover {
         this.popperExample = createPopper(element, el, {
             placement: position,
             strategy: 'absolute',
-            modifiers: [preventOverflow, flip]
+            modifiers: [preventOverflow, flip],
+            ...popperOption
         });
         this.vueExample.$forceUpdate();
     }

@@ -51,7 +51,8 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.resolution"  
+    :value="data.resolution"
+    :dataOverLoad="dataOverLoad"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.resolution = $event" />
@@ -82,7 +83,8 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.resolvedbuild"  
+    :value="data.resolvedbuild"
+    :dataOverLoad="dataOverLoad"  
     :navigateContext ='{ "bugproduct": "%product%", "product": "%product%" } '
     :navigateParam ='{ "product": "%product%", "bugproduct": "%product%" } '
     @change="($event)=>this.data.resolvedbuild = $event" />
@@ -137,7 +139,8 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.assignedto"  
+    :value="data.assignedto"
+    :dataOverLoad="dataOverLoad"  
     :navigateContext ='{ "project": "%project%" } '
     :navigateParam ='{ "project": "%project%" } '
     @change="($event)=>this.data.assignedto = $event" />
@@ -1513,6 +1516,7 @@ export default class ResolveMobBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
+            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

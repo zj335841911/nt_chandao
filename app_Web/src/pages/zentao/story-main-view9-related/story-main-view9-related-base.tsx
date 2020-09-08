@@ -57,16 +57,6 @@ export class StoryMainView9_RelatedBase extends EditView9Base {
      */
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof StoryMainView9_RelatedBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -111,6 +101,15 @@ export class StoryMainView9_RelatedBase extends EditView9Base {
      * @memberof StoryMainView9_RelatedBase
      */
     public engine: EditView9Engine = new EditView9Engine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof StoryMainView9_RelatedBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

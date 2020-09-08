@@ -60,16 +60,6 @@ export class StoryMainGridViewBase extends GridViewBase {
      */
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof StoryMainGridViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航上下文集合
 	 *
@@ -115,6 +105,8 @@ export class StoryMainGridViewBase extends GridViewBase {
      * @memberof StoryMainGridView
      */
     public toolBarModels: any = {
+        deuiaction1_syncfromibiz: { name: 'deuiaction1_syncfromibiz', caption: '同步', 'isShowCaption': true, 'isShowIcon': true, tooltip: '同步', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SyncFromIBIZ', target: 'NONE', class: '' } },
+
         deuiaction1_create: { name: 'deuiaction1_create', caption: '新建需求', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建需求', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
 
         deuiaction4: { name: 'deuiaction4', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
@@ -143,6 +135,15 @@ export class StoryMainGridViewBase extends GridViewBase {
      * @memberof StoryMainGridViewBase
      */
     public engine: GridViewEngine = new GridViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof StoryMainGridViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化
@@ -174,6 +175,9 @@ export class StoryMainGridViewBase extends GridViewBase {
      * @memberof StoryMainGridViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
+        if (Object.is($event.tag, 'deuiaction1_syncfromibiz')) {
+            this.toolbar_deuiaction1_syncfromibiz_click(null, '', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction1_create')) {
             this.toolbar_deuiaction1_create_click(null, '', $event2);
         }
@@ -238,6 +242,35 @@ export class StoryMainGridViewBase extends GridViewBase {
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction1_syncfromibiz_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_SyncFromIBIZ(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
     /**

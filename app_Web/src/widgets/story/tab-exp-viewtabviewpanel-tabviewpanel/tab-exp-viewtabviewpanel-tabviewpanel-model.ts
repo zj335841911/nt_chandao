@@ -177,6 +177,9 @@ export default class TabExpViewtabviewpanelModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'ischild',
+      },
     ]
   }
 

@@ -60,16 +60,6 @@ export class BugReleaseSubGridView_DoneBase extends GridViewBase {
      */
     public appUIService: BugUIService = new BugUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof BugReleaseSubGridView_DoneBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -127,6 +117,15 @@ export class BugReleaseSubGridView_DoneBase extends GridViewBase {
      * @memberof BugReleaseSubGridView_DoneBase
      */
     public engine: GridViewEngine = new GridViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof BugReleaseSubGridView_DoneBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化
