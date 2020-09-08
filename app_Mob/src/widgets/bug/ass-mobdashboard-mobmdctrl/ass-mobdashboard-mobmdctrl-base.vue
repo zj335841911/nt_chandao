@@ -1,5 +1,5 @@
 <template>
-    <div  class="app-mob-mdctrl task-mdctrl ">
+    <div  class="app-mob-mdctrl bug-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl">
             <ion-list class="items">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
@@ -9,8 +9,11 @@
                     </div>
                     <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.TaskFavoritesMob.visabled" :disabled="item.TaskFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'ucc540fe', item)"><ion-icon v-if="item.TaskFavoritesMob.icon && item.TaskFavoritesMob.isShowIcon" :name="item.TaskFavoritesMob.icon"></ion-icon><ion-label v-if="item.TaskFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.TaskNFavoritesMob.visabled" :disabled="item.TaskNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'uf0e6d83', item)"><ion-icon v-if="item.TaskNFavoritesMob.icon && item.TaskNFavoritesMob.isShowIcon" :name="item.TaskNFavoritesMob.icon"></ion-icon><ion-label v-if="item.TaskNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.AssingToBugMob.visabled" :disabled="item.AssingToBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u407998a', item)"><ion-icon v-if="item.AssingToBugMob.icon && item.AssingToBugMob.isShowIcon" :name="item.AssingToBugMob.icon"></ion-icon><ion-label v-if="item.AssingToBugMob.isShowCaption">指派</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ConfirmBugMob.visabled" :disabled="item.ConfirmBugMob.disabled" color="primary" @click="mdctrl_click($event, 'uf4807eb', item)"><ion-icon v-if="item.ConfirmBugMob.icon && item.ConfirmBugMob.isShowIcon" :name="item.ConfirmBugMob.icon"></ion-icon><ion-label v-if="item.ConfirmBugMob.isShowCaption">确认</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ActivationMob.visabled" :disabled="item.ActivationMob.disabled" color="primary" @click="mdctrl_click($event, 'ub160c90', item)"><ion-icon v-if="item.ActivationMob.icon && item.ActivationMob.isShowIcon" :name="item.ActivationMob.icon"></ion-icon><ion-label v-if="item.ActivationMob.isShowCaption">激活</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ResolveBugMob.visabled" :disabled="item.ResolveBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u9ab7459', item)"><ion-icon v-if="item.ResolveBugMob.icon && item.ResolveBugMob.isShowIcon" :name="item.ResolveBugMob.icon"></ion-icon><ion-label v-if="item.ResolveBugMob.isShowCaption">解决</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.CloseBugMob.visabled" :disabled="item.CloseBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u704707e', item)"><ion-icon v-if="item.CloseBugMob.icon && item.CloseBugMob.isShowIcon" :name="item.CloseBugMob.icon"></ion-icon><ion-label v-if="item.CloseBugMob.isShowCaption">关闭</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -30,8 +33,11 @@
                     </div>
                     <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.TaskFavoritesMob.visabled" :disabled="item.TaskFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'ucc540fe', item)"><ion-icon v-if="item.TaskFavoritesMob.icon && item.TaskFavoritesMob.isShowIcon" :name="item.TaskFavoritesMob.icon"></ion-icon><ion-label v-if="item.TaskFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.TaskNFavoritesMob.visabled" :disabled="item.TaskNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'uf0e6d83', item)"><ion-icon v-if="item.TaskNFavoritesMob.icon && item.TaskNFavoritesMob.isShowIcon" :name="item.TaskNFavoritesMob.icon"></ion-icon><ion-label v-if="item.TaskNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.AssingToBugMob.visabled" :disabled="item.AssingToBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u407998a', item)"><ion-icon v-if="item.AssingToBugMob.icon && item.AssingToBugMob.isShowIcon" :name="item.AssingToBugMob.icon"></ion-icon><ion-label v-if="item.AssingToBugMob.isShowCaption">指派</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ConfirmBugMob.visabled" :disabled="item.ConfirmBugMob.disabled" color="primary" @click="mdctrl_click($event, 'uf4807eb', item)"><ion-icon v-if="item.ConfirmBugMob.icon && item.ConfirmBugMob.isShowIcon" :name="item.ConfirmBugMob.icon"></ion-icon><ion-label v-if="item.ConfirmBugMob.isShowCaption">确认</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ActivationMob.visabled" :disabled="item.ActivationMob.disabled" color="primary" @click="mdctrl_click($event, 'ub160c90', item)"><ion-icon v-if="item.ActivationMob.icon && item.ActivationMob.isShowIcon" :name="item.ActivationMob.icon"></ion-icon><ion-label v-if="item.ActivationMob.isShowCaption">激活</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ResolveBugMob.visabled" :disabled="item.ResolveBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u9ab7459', item)"><ion-icon v-if="item.ResolveBugMob.icon && item.ResolveBugMob.isShowIcon" :name="item.ResolveBugMob.icon"></ion-icon><ion-label v-if="item.ResolveBugMob.isShowCaption">解决</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.CloseBugMob.visabled" :disabled="item.CloseBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u704707e', item)"><ion-icon v-if="item.CloseBugMob.icon && item.CloseBugMob.isShowIcon" :name="item.CloseBugMob.icon"></ion-icon><ion-label v-if="item.CloseBugMob.isShowCaption">关闭</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -107,10 +113,10 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskService from '@/app-core/service/task/task-service';
-import FavoriteMOBService from '@/app-core/ctrl-service/task/favorite-mob-mobmdctrl-service';
+import BugService from '@/app-core/service/bug/bug-service';
+import AssMOBDASHBOARDService from '@/app-core/ctrl-service/bug/ass-mobdashboard-mobmdctrl-service';
 
-import TaskUIService from '@/ui-service/task/task-ui-action';
+import BugUIService from '@/ui-service/bug/bug-ui-action';
 
 
 
@@ -118,13 +124,13 @@ import TaskUIService from '@/ui-service/task/task-ui-action';
     components: {
     }
 })
-export default class FavoriteMOBBase extends Vue implements ControlInterface {
+export default class AssMOBDASHBOARDBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     @Prop() protected name?: string;
 
@@ -132,7 +138,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 视图名称
      *
      * @type {string}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     @Prop() protected viewName!: string;
 
@@ -141,7 +147,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     @Prop() protected viewState!: Subject<ViewState>;
 
@@ -149,7 +155,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     @Prop({ default: {} }) protected context?: any;
 
@@ -157,7 +163,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     @Prop({ default: {} }) protected viewparams?: any;
 
@@ -166,7 +172,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      *
      * @protected
      * @type {(Subscription | undefined)}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     protected viewStateEvent: Subscription | undefined;
 
@@ -174,7 +180,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     protected getControlType(): string {
         return 'MOBMDCTRL'
@@ -184,7 +190,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -193,7 +199,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 转化数据
      *
      * @param {any} args
-     * @memberof  FavoriteMOBBase
+     * @memberof  AssMOBDASHBOARDBase
      */
     public transformData(args: any) {
         let _this: any = this;
@@ -205,26 +211,26 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     /**
      * 建构部件服务对象
      *
-     * @type {FavoriteMOBService}
-     * @memberof FavoriteMOB
+     * @type {AssMOBDASHBOARDService}
+     * @memberof AssMOBDASHBOARD
      */
-    protected service: FavoriteMOBService = new FavoriteMOBService({$store:this.$store});
+    protected service: AssMOBDASHBOARDService = new AssMOBDASHBOARDService({$store:this.$store});
 
     /**
      * 实体服务对象
      *
-     * @type {TaskService}
-     * @memberof FavoriteMOB
+     * @type {BugService}
+     * @memberof AssMOBDASHBOARD
      */
-    protected appEntityService: TaskService = new TaskService();
+    protected appEntityService: BugService = new BugService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {TaskUIService}
-     * @memberof FavoriteMOBBase
+     * @type {BugUIService}
+     * @memberof AssMOBDASHBOARDBase
      */  
-    public deUIService:TaskUIService = new TaskUIService(this.$store);
+    public deUIService:BugUIService = new BugUIService(this.$store);
     
 
     /**
@@ -237,7 +243,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_ucc540fe_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u407998a_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -252,9 +258,9 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
             datas = [..._this.getDatas()];
         }
         // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
         if (curUIService) {
-            curUIService.Task_TaskFavoritesMob(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Bug_AssingToBugMob(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -268,7 +274,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_uf0e6d83_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_uf4807eb_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -283,9 +289,102 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
             datas = [..._this.getDatas()];
         }
         // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
         if (curUIService) {
-            curUIService.Task_TaskNFavoritesMob(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Bug_ConfirmBugMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_ub160c90_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_ActivationMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u9ab7459_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_ResolveBugMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u704707e_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_CloseBugMob(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -293,7 +392,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     protected closeView(args: any[]): void {
         let _this: any = this;
@@ -305,7 +404,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 视图类型
      *
      * @type {string}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     @Prop() protected viewType?: string | 'DEMOBMDVIEW' | 'DEMOBMDVIEW9' | 'DEMOBWFMDVIEW';
 
@@ -313,7 +412,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     @Prop({ default: true }) protected showBusyIndicator?: boolean;
 
@@ -321,7 +420,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     @Prop() protected updateAction!: string;
     
@@ -329,7 +428,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     @Prop() protected fetchAction!: string;
     
@@ -337,7 +436,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     @Prop() protected removeAction!: string;
     
@@ -345,7 +444,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     @Prop() protected loadAction!: string;
     
@@ -353,7 +452,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     @Prop() protected loaddraftAction!: string;
     
@@ -361,7 +460,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     @Prop() protected createAction!: string;
 
@@ -369,14 +468,14 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 部件样式
      *
      * @type {string}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     @Prop({default: 'LISTVIEW'}) protected controlStyle!: string | 'ICONVIEW'  | 'LISTVIEW' | 'SWIPERVIEW' | 'LISTVIEW2' | 'LISTVIEW3' | 'LISTVIEW4';
 
     /**
     *上级传递的选中项
     *@type {Array}
-    *@memberof FavoriteMOB
+    *@memberof AssMOBDASHBOARD
     */
      @Prop() public selectedData?:Array<any>;
 
@@ -385,7 +484,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 新建打开视图
     *
     * @type {Function}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     @Prop() public newdata?: Function; 
 
@@ -394,7 +493,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 打开视图
     *
     * @type {Function}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     @Prop() public opendata?: Function; 
 
@@ -410,7 +509,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 当前选中数组
     *
     * @type {array}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     public  selectdata :any = [];
 
@@ -418,7 +517,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 关闭行为
     *
     * @type {Function}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     @Prop() public close?:Function;
 
@@ -427,7 +526,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 是否为临时模式
     *
     * @type {boolean}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     @Prop({ default: false}) public isTempMode?:boolean;
 
@@ -435,7 +534,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 存放多数据选择数组（多选）
     *
     * @type {array}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     public checkboxList:Array<string> = [];
 
@@ -443,7 +542,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 存放数据选择数组(单选)
     *
     * @type {object}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     public radio:any = '';
 
@@ -452,7 +551,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 点击多选按钮触发
     *
     *
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     public change(){
         if(this.isMutli){
@@ -474,7 +573,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 列表键值对
     *
     * @type {Map}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     public listMap: any = new Map();
 
@@ -482,15 +581,15 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 分页大小
     *
     * @type {number}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
-    public pageSize: number = 25;
+    public pageSize: number = 5;
 
     /**
     * 总页数
     *
     * @type {number}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
      public pageTotal: number = 0;
 
@@ -498,7 +597,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 当前页数
     *
     * @type {number}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
      public pageNumber: number = 1;
 
@@ -506,7 +605,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 判断底部数据是否全部加载完成，若为真，则 bottomMethod 不会被再次触发
     *
     * @type {number}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     get allLoaded() {
         return ((this.pageNumber + 1) * this.pageSize) >= this.pageTotal ? true : false;
@@ -516,7 +615,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 底部状态
     *
     * @type {String}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     // public bottomStatus: String = "";
 
@@ -524,7 +623,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 顶部状态
     *
     * @type {String}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     // public topStatus: String = "";
 
@@ -532,7 +631,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 
     *
     * @type {Number}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     // public moveTranslate: Number = 0;
 
@@ -540,7 +639,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * searchKey 搜索关键字
     *
     * @type {string}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
      public searchKey:string = '';
 
@@ -548,7 +647,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 列表数组
     *
     * @param {Array<any>}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     public items:Array<any> =[];
 
@@ -556,7 +655,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 选中数组
     *
     * @param {Array<any>}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     public selectedArray:Array<any> = [];
 
@@ -564,7 +663,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 多选计数
     *
     * @param {number}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     public selectednumber:number =0;
 
@@ -572,7 +671,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 搜索行为
     *
     * @param {string}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     @Prop() public searchAction?:string;
 
@@ -580,7 +679,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 是否为选择视图
     *
     * @param {boolean} 
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     @Prop() public isSelected?:boolean;
 
@@ -588,7 +687,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 是否多选
     *
     * @type {boolean}
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     @Prop({default:false}) public isMutli?: boolean;
 
@@ -596,7 +695,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 单选选择值
     *
     * @param {string} 
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     public selectedValue:string = ""; 
 
@@ -604,14 +703,14 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * 部件排序对象
     *
     * @param {object} 
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     public sort: any = { sort:'id,desc'};
     
     /**
     * 底部改变状态
     * 
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     public handleBottomChange(status: String) {
     //   this.bottomStatus = status;
@@ -620,7 +719,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     /**
     * 顶部改变状态
     * 
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     public handleTopChange(status: String) {
     //   this.moveTranslate = 1;
@@ -630,7 +729,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     /**
      * 上拉加载更多数据
      *
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     public async loadBottom(): Promise<any> {
         this.pageNumber++;
@@ -663,7 +762,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
                 if (!Object.is(infoStr, '')) {
                     infoStr += '、';
                 }
-                infoStr += data.name;
+                infoStr += data.title;
             }
         });
         if(datas.length <= 0 ){
@@ -677,7 +776,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
         }
         return new Promise((resolve, reject) => {
             const _remove = async () => {
-                let _context: any = { task: keys.join(';') }
+                let _context: any = { bug: keys.join(';') }
                 const response: any = await this.service.delete(this.removeAction, Object.assign({}, this.context, _context), arg, this.showBusyIndicator);
                 if (response && response.status === 200 && response.data.records) {
                     this.$notice.success((this.$t('app.message.deleteSccess') as string));
@@ -719,7 +818,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     /**
      * 长按
      *
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     public onPress(){
         let _this = this;
@@ -732,7 +831,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     /**
      * 长按状态改变事件
      *
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     public onCheackChange(){
         this.$emit('showCheackChange', !this.showCheack);
@@ -743,7 +842,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      *
      * @param {string} query
      * @returns {Promise<any>}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     public async quickSearch(query: string): Promise<any> {
         this.searchKey = query;
@@ -759,7 +858,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * @param {*} [data={}]
      * @param {string} [type=""]
      * @returns {Promise<any>}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     private async load(data: any = {}, type: string = ""): Promise<any> {
         if (!data.page) {
@@ -813,7 +912,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     *
     * @private
     * @param {*} [arg={}]
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     private handleClick() {
         this.items.forEach((item: any) => {
@@ -827,7 +926,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      *
      * @param {*} data
      * @returns
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     public checkboxChange(data: any) {
         let { detail } = data;
@@ -840,7 +939,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
             if (item.value) {
                 this.selectednumber++;
             }
-            if (Object.is(item.taskid, value)) {
+            if (Object.is(item.bugid, value)) {
                 if (detail.checked) {
                     this.selectdata.push(this.items[index]);
                 } else {
@@ -855,7 +954,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 下拉刷新
      *
      * @returns {Promise<any>}
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     public async pullDownToRefresh(): Promise<any> {
         this.pageNumber = 0;
@@ -871,7 +970,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     /**
     * 点击回调事件
     *
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     public item_click(item:any){
         if(this.showCheack){
@@ -891,7 +990,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     /**
     * 点击列表数据跳转
     *
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     public goPage(item: any) {
         this.$emit('rowclick',item);
@@ -900,7 +999,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     /**
     * 获取多项数据
     *
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     public getDatas(): any[] {
       return this.selectedArray;
@@ -909,7 +1008,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     /**
     * 获取单项数据
     *
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     public getData(): any {
         return this.selectedArray[0];
@@ -918,7 +1017,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     /**
     * vue生命周期created
     *
-    * @memberof FavoriteMOB
+    * @memberof AssMOBDASHBOARD
     */
     public created() {
         if (this.isEnableChoose) {
@@ -930,7 +1029,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof FavoriteMOB
+     *  @memberof AssMOBDASHBOARD
      */    
     protected afterCreated(){
         if (this.viewState) {
@@ -961,7 +1060,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     public destroyed() {
         this.afterDestroy();
@@ -970,7 +1069,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     protected afterDestroy() {
         if (this.viewStateEvent) {
@@ -982,7 +1081,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期 activated
      *
-     * @memberof FavoriteMOB
+     * @memberof AssMOBDASHBOARD
      */
     public activated() {
         this.items.forEach((item:any)=>{
@@ -1003,11 +1102,20 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'ucc540fe')) {
-            this.mdctrl_ucc540fe_click();
+        if (Object.is(tag, 'u407998a')) {
+            this.mdctrl_u407998a_click();
         }
-        if (Object.is(tag, 'uf0e6d83')) {
-            this.mdctrl_uf0e6d83_click();
+        if (Object.is(tag, 'uf4807eb')) {
+            this.mdctrl_uf4807eb_click();
+        }
+        if (Object.is(tag, 'ub160c90')) {
+            this.mdctrl_ub160c90_click();
+        }
+        if (Object.is(tag, 'u9ab7459')) {
+            this.mdctrl_u9ab7459_click();
+        }
+        if (Object.is(tag, 'u704707e')) {
+            this.mdctrl_u704707e_click();
         }
         let curr :any = this.$refs[item.srfkey];
         curr[0].closeOpened();
@@ -1103,11 +1211,14 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * 界面行为模型
      *
      * @type {*}
-     * @memberof FavoriteMOBBase
+     * @memberof AssMOBDASHBOARDBase
      */  
     public ActionModel:any ={
-        TaskFavoritesMob: { name: 'TaskFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', target: 'SINGLEKEY',icon:'star-outline',isShowCaption:false,isShowIcon:true},
-        TaskNFavoritesMob: { name: 'TaskNFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', target: 'SINGLEKEY',icon:'star',isShowCaption:false,isShowIcon:true}
+        AssingToBugMob: { name: 'AssingToBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_ASSIGNTO_BUT', target: 'SINGLEKEY',icon:'hand-o-right',isShowCaption:false,isShowIcon:true},
+        ConfirmBugMob: { name: 'ConfirmBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CONFIRM_BUT', target: 'SINGLEKEY',icon:'eye',isShowCaption:false,isShowIcon:true},
+        ActivationMob: { name: 'ActivationMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_ACTIVATE_BUT', target: 'SINGLEKEY',icon:'color-wand',isShowCaption:false,isShowIcon:true},
+        ResolveBugMob: { name: 'ResolveBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', target: 'SINGLEKEY',icon:'check-square-o',isShowCaption:false,isShowIcon:true},
+        CloseBugMob: { name: 'CloseBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CLOSE_BUT', target: 'SINGLEKEY',icon:'close',isShowCaption:false,isShowIcon:true}
     };
 
     
@@ -1115,7 +1226,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     /**
      * 获取界面行为权限状态
      *
-     * @memberof FavoriteMOBBase
+     * @memberof AssMOBDASHBOARDBase
      */
     public getActionState(data:any){
         //let targetData:any = this.transformData(data);
@@ -1127,7 +1238,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     /**
     * 判断列表项左滑右滑禁用状态
     *
-    * @memberof FavoriteMOBBase
+    * @memberof AssMOBDASHBOARDBase
     */
     public setSlidingDisabled(item:any){
         item.sliding_disabled = true;
@@ -1142,5 +1253,5 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './favorite-mob-mobmdctrl.less';
+@import './ass-mobdashboard-mobmdctrl.less';
 </style>
