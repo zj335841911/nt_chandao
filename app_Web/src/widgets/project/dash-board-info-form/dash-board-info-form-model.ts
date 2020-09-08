@@ -66,11 +66,6 @@ export default class DashBoardInfoModel {
         dataType: 'TEXT',
       },
       {
-        name: 'desc',
-        prop: 'desc',
-        dataType: 'LONGTEXT',
-      },
-      {
         name: 'type',
         prop: 'type',
         dataType: 'SSCODELIST',
@@ -79,6 +74,19 @@ export default class DashBoardInfoModel {
         name: 'status',
         prop: 'status',
         dataType: 'SSCODELIST',
+      },
+      {
+        name: 'formitem6',
+        prop: 'totalwh',
+        dataType: 'INT',
+      },
+      {
+        name: 'formitem7',
+        prop: 'totalconsumed',
+        dataType: 'FLOAT',
+      },
+      {
+        name: 'formitemex1',
       },
       {
         name: 'begin',

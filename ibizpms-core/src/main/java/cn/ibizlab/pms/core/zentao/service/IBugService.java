@@ -56,6 +56,7 @@ public interface IBugService extends IService<Bug>{
     Bug sendMsgPreProcess(Bug et) ;
     Bug toStory(Bug et) ;
     Bug unlinkBug(Bug et) ;
+    Page<Bug> searchAssignedToMyBug(BugSearchContext context) ;
     Page<Bug> searchBuildBugs(BugSearchContext context) ;
     Page<Bug> searchBuildLinkResolvedBugs(BugSearchContext context) ;
     Page<Bug> searchBuildOpenBugs(BugSearchContext context) ;
