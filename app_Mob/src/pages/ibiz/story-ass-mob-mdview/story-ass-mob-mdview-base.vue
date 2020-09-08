@@ -2,27 +2,10 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'story-ass-mob-mdview': true }">
     
     <ion-header>
-        <ion-toolbar>
-            <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
-        </ion-toolbar>
     </ion-header>
 
 
     <ion-content>
-        <ion-refresher 
-            slot="fixed" 
-            ref="loadmore" 
-            pull-factor="0.5" 
-            pull-min="50" 
-            pull-max="100" 
-            @ionRefresh="pullDownToRefresh($event)">
-            <ion-refresher-content
-                pulling-icon="arrow-down-outline"
-                :pulling-text="$t('app.pulling_text')"
-                refreshing-spinner="circles"
-                refreshing-text="">
-            </ion-refresher-content>
-        </ion-refresher>
                 <view_mdctrl
             :viewState="viewState"
             viewName="StoryAssMobMDView"  
@@ -254,7 +237,6 @@ export default class StoryAssMobMDViewBase extends Vue {
      */
     protected containerModel: any = {
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
-        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
 
     /**
@@ -275,25 +257,12 @@ export default class StoryAssMobMDViewBase extends Vue {
     @Prop({default:true}) protected showTitle?: boolean;
 
 
-
-   /**
-    * 工具栏 StoryAssMobMDView 模型
-    *
-    * @type {*}
-    * @memberof StoryAssMobMDView
-    */
-    public righttoolbarModels: any = {
-    };
-
-    
-
-
     /**
      * 工具栏模型集合名
      *
      * @memberof StoryAssMobMDViewBase
      */
-    public toolbarModelList:any = ['righttoolbarModels',]
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数
@@ -319,23 +288,6 @@ export default class StoryAssMobMDViewBase extends Vue {
             return false;
         }
         return true;
-    }
-
-    /**
-     * 下拉刷新
-     *
-     * @param {*} $event
-     * @returns {Promise<any>}
-     * @memberof StoryAssMobMDViewBase
-     */
-    public async pullDownToRefresh($event: any): Promise<any> {
-        let mdctrl: any = this.$refs.mdctrl;
-        if (mdctrl && mdctrl.pullDownToRefresh instanceof Function) {
-            const response: any = await mdctrl.pullDownToRefresh();
-            if (response) {
-                $event.srcElement.complete();
-            }
-        }
     }
 
     /**
@@ -691,37 +643,6 @@ export default class StoryAssMobMDViewBase extends Vue {
         }
     }
 
-
-    /**
-     * 搜索值
-     *
-     * @type {string}
-     * @memberof StoryAssMobMDViewBase
-     */
-    public query: string = '';
-
-    /**
-     * 快速搜索值变化
-     *
-     * @param {*} event
-     * @returns
-     * @memberof StoryAssMobMDViewBase
-     */
-    public async quickValueChange(event: any) {
-        let { detail } = event;
-        if (!detail) {
-            return;
-        }
-        let { value } = detail;
-        this.query = value;
-
-        const mdctrl: any = this.$refs.mdctrl;
-        if (mdctrl) {
-            let response = await mdctrl.quickSearch(this.query);
-            if (response) {
-            }
-        }
-    }
 
    /**
      * 是否单选

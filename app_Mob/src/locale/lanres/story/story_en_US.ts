@@ -325,6 +325,4 @@ export default {
 			tip: 'deuiaction1_deletemob',
 		},
 	},
-	assmobmdviewrighttoolbar_toolbar: {
-	},
 };
