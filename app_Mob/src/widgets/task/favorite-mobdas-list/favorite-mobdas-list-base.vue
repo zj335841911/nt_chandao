@@ -1,23 +1,23 @@
 <template>
-    <div  class="app-mob-mdctrl task-dashboard_sysportlet2_list ">
+    <div  class="app-mob-mdctrl task-dashboard_sysportlet4_list ">
         <div v-if="listMode==='LISTEXPBAR'">
             <van-sidebar v-model="listItem" @change="switchView">
                 <van-sidebar-item class="app-mob-list-item" v-for="item in items" :key="item.srfkey" :title='item.srfmajortext'/>
             </van-sidebar>
         </div>
-        <div v-else class="app-mob-mdctrl-dashboard_sysportlet2_list">
+        <div v-else class="app-mob-mdctrl-dashboard_sysportlet4_list">
             <ion-list class="items">
                 <template v-if="controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding v-for="(item, index) in items" :key="index" class="app-mob-mdctrl-item">
                         <div style="width:100%;">
-                        <layout_dashboard_sysportlet2_list_itempanel :context="{}" :viewparams="{}" :item="item"></layout_dashboard_sysportlet2_list_itempanel>
+                        <layout_dashboard_sysportlet4_list_itempanel :context="{}" :viewparams="{}" :item="item"></layout_dashboard_sysportlet4_list_itempanel>
                         </div>
                     </ion-item-sliding>
                 </template>
                 <template v-else-if="controlStyle != 'LISTVIEW' ">
                         <ion-item-sliding v-for="(item, index) in items" :key="index" class="app-mob-mdctrl-item">
                             <div style="width:100%;">
-                            <layout_dashboard_sysportlet2_list_itempanel :context="{}" :viewparams="{}" :item="item"></layout_dashboard_sysportlet2_list_itempanel>
+                            <layout_dashboard_sysportlet4_list_itempanel :context="{}" :viewparams="{}" :item="item"></layout_dashboard_sysportlet4_list_itempanel>
                             </div>
                         </ion-item-sliding>
                     </template>
@@ -36,7 +36,7 @@ import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskService from '@/app-core/service/task/task-service';
-import AssMobDASHBOARDService from '@/app-core/ctrl-service/task/ass-mob-dashboard-list-service';
+import FavoriteMOBDasService from '@/app-core/ctrl-service/task/favorite-mobdas-list-service';
 
 import TaskUIService from '@/ui-service/task/task-ui-action';
 
@@ -46,13 +46,13 @@ import TaskUIService from '@/ui-service/task/task-ui-action';
     components: {
     }
 })
-export default class AssMobDASHBOARDBase extends Vue implements ControlInterface {
+export default class FavoriteMOBDasBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     @Prop() protected name?: string;
 
@@ -60,7 +60,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 视图名称
      *
      * @type {string}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     @Prop() protected viewName!: string;
 
@@ -69,7 +69,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     @Prop() protected viewState!: Subject<ViewState>;
 
@@ -77,7 +77,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 应用上下文
      *
      * @type {*}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     @Prop({ default: {} }) protected context?: any;
 
@@ -85,7 +85,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 视图参数
      *
      * @type {*}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     @Prop({ default: {} }) protected viewparams?: any;
 
@@ -94,7 +94,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      *
      * @protected
      * @type {(Subscription | undefined)}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     protected viewStateEvent: Subscription | undefined;
 
@@ -102,7 +102,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     protected getControlType(): string {
         return 'LIST'
@@ -112,7 +112,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -121,7 +121,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 转化数据
      *
      * @param {any} args
-     * @memberof  AssMobDASHBOARDBase
+     * @memberof  FavoriteMOBDasBase
      */
     public transformData(args: any) {
         let _this: any = this;
@@ -133,16 +133,16 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     /**
      * 建构部件服务对象
      *
-     * @type {AssMobDASHBOARDService}
-     * @memberof AssMobDASHBOARD
+     * @type {FavoriteMOBDasService}
+     * @memberof FavoriteMOBDas
      */
-    protected service: AssMobDASHBOARDService = new AssMobDASHBOARDService({$store:this.$store});
+    protected service: FavoriteMOBDasService = new FavoriteMOBDasService({$store:this.$store});
 
     /**
      * 实体服务对象
      *
      * @type {TaskService}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     protected appEntityService: TaskService = new TaskService();
 
@@ -150,20 +150,20 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 界面UI服务对象
      *
      * @type {TaskUIService}
-     * @memberof AssMobDASHBOARDBase
+     * @memberof FavoriteMOBDasBase
      */  
     public deUIService:TaskUIService = new TaskUIService(this.$store);
 
     /**
-     * dashboard_sysportlet2_list_quicktoolbar 部件 click 事件
+     * dashboard_sysportlet4_list_quicktoolbar 部件 click 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
-    protected dashboard_sysportlet2_list_quicktoolbar_click($event: any, $event2?: any) {
+    protected dashboard_sysportlet4_list_quicktoolbar_click($event: any, $event2?: any) {
         if (Object.is($event.tag, 'deuiaction1')) {
-            this.dashboard_sysportlet2_list_quicktoolbar_deuiaction1_click($event, 'dashboard_sysportlet2_list_quicktoolbar', $event2);
+            this.dashboard_sysportlet4_list_quicktoolbar_deuiaction1_click($event, 'dashboard_sysportlet4_list_quicktoolbar', $event2);
         }
     }
     
@@ -176,9 +176,9 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * @param {*} [tag]
      * @param {*} [$event]
      * @returns {Promise<any>}
-     * @memberof Dashboard_sysportlet2_listBase
+     * @memberof Dashboard_sysportlet4_listBase
      */
-    protected async dashboard_sysportlet2_list_quicktoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async dashboard_sysportlet4_list_quicktoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -196,7 +196,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
         // 界面行为
         const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
-            curUIService.Task_MyAssMore(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Task_MyFavMore(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -204,7 +204,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     protected closeView(args: any[]): void {
         let _this: any = this;
@@ -216,7 +216,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof AssMobDASHBOARDBase
+     * @memberof FavoriteMOBDasBase
      */
     public getDatas(): any[] {
         return [];
@@ -226,7 +226,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 获取单项树
      *
      * @returns {*}
-     * @memberof AssMobDASHBOARDBase
+     * @memberof FavoriteMOBDasBase
      */
     public getData(): any {
         return null;
@@ -236,7 +236,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     @Prop({ default: true }) protected showBusyIndicator?: boolean;
     
@@ -244,7 +244,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     @Prop() protected fetchAction!: string;
 
@@ -252,7 +252,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 列表数组
      *
      * @type {Array<any>}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     public items: Array<any> = [];
 
@@ -260,7 +260,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 列表类型
      *
      * @type {string}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     @Prop({default:'LIST'}) protected listMode?: 'LISTEXPBAR' | 'LIST' | string;
 
@@ -268,7 +268,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 列表选中项的索引
      *
      * @type {string}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     public listItem: number = 0;
 
@@ -276,7 +276,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 分页大小
      *
      * @type {number}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     public pageSize: number = 5;
 
@@ -284,7 +284,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 总页数
      *
      * @type {number}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     public pageTotal: number = 0;
 
@@ -292,7 +292,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 当前页数
      *
      * @type {number}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     public pageNumber: number = 0;
 
@@ -300,14 +300,14 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * 部件样式
      *
      * @type {string}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     @Prop({default: ''}) protected controlStyle!: string;
 
     /**
      * vue生命周期created
      *
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     public created() {
         this.handleCreated();
@@ -316,7 +316,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     /**
      * 执行created后的逻辑
      *
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     public handleCreated() {
         if (this.viewState) {
@@ -332,7 +332,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     /**
      * vue 生命周期
      *
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     protected destroyed() {
         this.afterDestroy();
@@ -341,7 +341,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     protected afterDestroy() {
         if (this.viewStateEvent) {
@@ -352,7 +352,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     /**
      * 列表切换回调
      * @param {number} listIndex
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     public switchView(listIndex:number){
         this.items.findIndex((item,index)=>{
@@ -369,7 +369,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * @param {*} data
      * @param {*} type
      * @returns {Promise<any>}
-     * @memberof AssMobDASHBOARD
+     * @memberof FavoriteMOBDas
      */
     protected async load(data: any, type: any): Promise<any> {
         if (!data.page) {
@@ -425,5 +425,5 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
 </script>
 
 <style lang='less'>
-@import './ass-mob-dashboard-list.less';
+@import './favorite-mobdas-list.less';
 </style>

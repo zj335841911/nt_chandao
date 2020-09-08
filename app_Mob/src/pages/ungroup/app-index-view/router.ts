@@ -367,6 +367,33 @@ const router = new Router({
                     component: () => import('@pages/ibiz/story-mob-edit-view/story-mob-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/asmoboptionview',
+                    meta: {
+                        caption: 'story.views.asmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'asmoboptionview', parameterName: 'asmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/story-as-mob-option-view/story-as-mob-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/asmoboptionview',
+                    meta: {
+                        caption: 'story.views.asmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'asmoboptionview', parameterName: 'asmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/story-as-mob-option-view/story-as-mob-option-view.vue'),
+                },
+                {
                     path: 'products/:product?/releases/:release?/mobmdview',
                     meta: {
                         caption: 'release.views.mobmdview.caption',
@@ -405,33 +432,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/todo-mob-mdview/todo-mob-mdview.vue'),
-                },
-                {
-                    path: 'products/:product?/stories/:story?/asmoboptionview',
-                    meta: {
-                        caption: 'story.views.asmoboptionview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'asmoboptionview', parameterName: 'asmoboptionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/story-as-mob-option-view/story-as-mob-option-view.vue'),
-                },
-                {
-                    path: 'stories/:story?/asmoboptionview',
-                    meta: {
-                        caption: 'story.views.asmoboptionview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'asmoboptionview', parameterName: 'asmoboptionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/story-as-mob-option-view/story-as-mob-option-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/planmobmdview9',
@@ -2098,6 +2098,62 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-prod-mob-tab-exp-view/product-prod-mob-tab-exp-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/assmobmdview',
+                    meta: {
+                        caption: 'task.views.assmobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'assmobmdview', parameterName: 'assmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-ass-mob-mdview/task-ass-mob-mdview.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/assmobmdview',
+                    meta: {
+                        caption: 'task.views.assmobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'assmobmdview', parameterName: 'assmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-ass-mob-mdview/task-ass-mob-mdview.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/assmobmdview',
+                    meta: {
+                        caption: 'task.views.assmobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'assmobmdview', parameterName: 'assmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-ass-mob-mdview/task-ass-mob-mdview.vue'),
+                },
+                {
+                    path: 'tasks/:task?/assmobmdview',
+                    meta: {
+                        caption: 'task.views.assmobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'assmobmdview', parameterName: 'assmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-ass-mob-mdview/task-ass-mob-mdview.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/startmoboptionview',
                     meta: {
                         caption: 'task.views.startmoboptionview.caption',
@@ -2165,6 +2221,62 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/project-sup-mob-edit-view/project-sup-mob-edit-view.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/favoritemobmdview',
+                    meta: {
+                        caption: 'task.views.favoritemobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'favoritemobmdview', parameterName: 'favoritemobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-favorite-mob-mdview/task-favorite-mob-mdview.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/favoritemobmdview',
+                    meta: {
+                        caption: 'task.views.favoritemobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'favoritemobmdview', parameterName: 'favoritemobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-favorite-mob-mdview/task-favorite-mob-mdview.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/favoritemobmdview',
+                    meta: {
+                        caption: 'task.views.favoritemobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'favoritemobmdview', parameterName: 'favoritemobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-favorite-mob-mdview/task-favorite-mob-mdview.vue'),
+                },
+                {
+                    path: 'tasks/:task?/favoritemobmdview',
+                    meta: {
+                        caption: 'task.views.favoritemobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'favoritemobmdview', parameterName: 'favoritemobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-favorite-mob-mdview/task-favorite-mob-mdview.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/mobmdview',
@@ -2735,6 +2847,33 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-cmob-option-view/story-cmob-option-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/rmoboptionview',
+                    meta: {
+                        caption: 'story.views.rmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'rmoboptionview', parameterName: 'rmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/story-rmob-option-view/story-rmob-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/rmoboptionview',
+                    meta: {
+                        caption: 'story.views.rmoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'rmoboptionview', parameterName: 'rmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/story-rmob-option-view/story-rmob-option-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/mobmdview',
                     meta: {
                         caption: 'case.views.mobmdview.caption',
@@ -2789,33 +2928,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/case-mob-mdview/case-mob-mdview.vue'),
-                },
-                {
-                    path: 'products/:product?/stories/:story?/rmoboptionview',
-                    meta: {
-                        caption: 'story.views.rmoboptionview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'rmoboptionview', parameterName: 'rmoboptionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/story-rmob-option-view/story-rmob-option-view.vue'),
-                },
-                {
-                    path: 'stories/:story?/rmoboptionview',
-                    meta: {
-                        caption: 'story.views.rmoboptionview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'rmoboptionview', parameterName: 'rmoboptionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/story-rmob-option-view/story-rmob-option-view.vue'),
                 },
                 {
                     path: 'products/:product?/releases/:release?/mobeditview',

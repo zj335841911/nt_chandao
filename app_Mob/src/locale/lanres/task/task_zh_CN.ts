@@ -305,8 +305,32 @@ export default {
 			tip: '删除',
 		},
 	},
+	assmobmdviewrighttoolbar_toolbar: {
+	},
+	mobdashboardviewdashboard_sysportlet2_list_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: '更多',
+			tip: '更多',
+		},
+	},
 	favoritemobmdviewrighttoolbar_toolbar: {
 	},
-	assmobmdviewrighttoolbar_toolbar: {
+	mobdashboardviewdashboard_sysportlet4_list_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: '更多',
+			tip: '更多',
+		},
+	},
+	portlet_myfavoritetask_list_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: '更多',
+			tip: '更多',
+		},
+	},
+	portlet_mytaskmob_list_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: '更多',
+			tip: '更多',
+		},
 	},
 };
