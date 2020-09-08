@@ -370,6 +370,30 @@ export default class Mob_3817Base extends Vue implements ControlInterface {
     public checkboxList:Array<string> = [];
 
     /**
+    * 是否为分组模式
+    *
+    * @type {boolean}
+    * @memberof Mob_3817
+    */
+    public isEnableGroup:boolean =  false;
+
+    /**
+    * 分组细节
+    *
+    * @type {boolean}
+    * @memberof Mob_3817
+    */
+    public group_detail:any = {};
+
+    /**
+    * 分组数据
+    *
+    * @type {array}
+    * @memberof Mob_3817
+    */
+    public group_data?:any = [];
+
+    /**
     * 存放数据选择数组(单选)
     *
     * @type {object}

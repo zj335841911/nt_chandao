@@ -440,6 +440,30 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     public checkboxList:Array<string> = [];
 
     /**
+    * 是否为分组模式
+    *
+    * @type {boolean}
+    * @memberof FavoriteMOB
+    */
+    public isEnableGroup:boolean =  false;
+
+    /**
+    * 分组细节
+    *
+    * @type {boolean}
+    * @memberof FavoriteMOB
+    */
+    public group_detail:any = {};
+
+    /**
+    * 分组数据
+    *
+    * @type {array}
+    * @memberof FavoriteMOB
+    */
+    public group_data?:any = [];
+
+    /**
     * 存放数据选择数组(单选)
     *
     * @type {object}
