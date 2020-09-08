@@ -182,7 +182,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     }
     @Override
     @Transactional
-    public Product get(BigInteger key) {
+    public Product get(Long key) {
         Product et = getById(key);
         if(et==null){
             et=new Product();
@@ -277,12 +277,12 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
 
 	@Override
-    public List<Product> selectByLine(BigInteger id) {
+    public List<Product> selectByLine(Long id) {
         return baseMapper.selectByLine(id);
     }
 
     @Override
-    public void removeByLine(BigInteger id) {
+    public void removeByLine(Long id) {
         this.remove(new QueryWrapper<Product>().eq("line",id));
     }
 

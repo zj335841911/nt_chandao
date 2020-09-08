@@ -85,19 +85,19 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public Dept get(BigInteger key) {
+    public Dept get(Long key) {
         Dept et = getById(key);
         if(et==null){
             et=new Dept();
@@ -151,12 +151,12 @@ public class DeptServiceImpl extends ServiceImpl<DeptMapper, Dept> implements ID
 
 
 	@Override
-    public List<Dept> selectByParent(BigInteger id) {
+    public List<Dept> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
 
     @Override
-    public void removeByParent(BigInteger id) {
+    public void removeByParent(Long id) {
         this.remove(new QueryWrapper<Dept>().eq("parent",id));
     }
 

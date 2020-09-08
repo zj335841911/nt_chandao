@@ -11,6 +11,7 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -29,9 +30,9 @@ public interface IFileService extends IService<File>{
     void createBatch(List<File> list) ;
     boolean update(File et) ;
     void updateBatch(List<File> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    File get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    File get(Long key) ;
     File getDraft(File et) ;
     boolean checkKey(File et) ;
     boolean save(File et) ;

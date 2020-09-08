@@ -79,19 +79,19 @@ public class Im_chatuserServiceImpl extends ServiceImpl<Im_chatuserMapper, Im_ch
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public Im_chatuser get(BigInteger key) {
+    public Im_chatuser get(Long key) {
         Im_chatuser et = getById(key);
         if(et==null){
             et=new Im_chatuser();

@@ -120,7 +120,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     }
     @Override
     @Transactional
-    public Module get(BigInteger key) {
+    public Module get(Long key) {
         Module et = getById(key);
         if(et==null){
             et=new Module();
@@ -187,22 +187,22 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
 
 
 	@Override
-    public List<Module> selectByBranch(BigInteger id) {
+    public List<Module> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
 
     @Override
-    public void removeByBranch(BigInteger id) {
+    public void removeByBranch(Long id) {
         this.remove(new QueryWrapper<Module>().eq("branch",id));
     }
 
 	@Override
-    public List<Module> selectByParent(BigInteger id) {
+    public List<Module> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
 
     @Override
-    public void removeByParent(BigInteger id) {
+    public void removeByParent(Long id) {
         this.remove(new QueryWrapper<Module>().eq("parent",id));
     }
 

@@ -94,19 +94,19 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public Doc get(BigInteger key) {
+    public Doc get(Long key) {
         Doc et = getById(key);
         if(et==null){
             et=new Doc();
@@ -157,42 +157,42 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
 
 
 	@Override
-    public List<Doc> selectByLib(BigInteger id) {
+    public List<Doc> selectByLib(Long id) {
         return baseMapper.selectByLib(id);
     }
 
     @Override
-    public void removeByLib(BigInteger id) {
+    public void removeByLib(Long id) {
         this.remove(new QueryWrapper<Doc>().eq("lib",id));
     }
 
 	@Override
-    public List<Doc> selectByModule(BigInteger id) {
+    public List<Doc> selectByModule(Long id) {
         return baseMapper.selectByModule(id);
     }
 
     @Override
-    public void removeByModule(BigInteger id) {
+    public void removeByModule(Long id) {
         this.remove(new QueryWrapper<Doc>().eq("module",id));
     }
 
 	@Override
-    public List<Doc> selectByProduct(BigInteger id) {
+    public List<Doc> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(BigInteger id) {
+    public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<Doc>().eq("product",id));
     }
 
 	@Override
-    public List<Doc> selectByProject(BigInteger id) {
+    public List<Doc> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
 
     @Override
-    public void removeByProject(BigInteger id) {
+    public void removeByProject(Long id) {
         this.remove(new QueryWrapper<Doc>().eq("project",id));
     }
 

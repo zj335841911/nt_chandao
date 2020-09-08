@@ -79,19 +79,19 @@ public class JenkinsServiceImpl extends ServiceImpl<JenkinsMapper, Jenkins> impl
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public Jenkins get(BigInteger key) {
+    public Jenkins get(Long key) {
         Jenkins et = getById(key);
         if(et==null){
             et=new Jenkins();

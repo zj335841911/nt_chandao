@@ -113,7 +113,7 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     }
     @Override
     @Transactional
-    public TestSuite get(BigInteger key) {
+    public TestSuite get(Long key) {
         TestSuite et = getById(key);
         if(et==null){
             et=new TestSuite();
@@ -164,12 +164,12 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
 
 
 	@Override
-    public List<TestSuite> selectByProduct(BigInteger id) {
+    public List<TestSuite> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(BigInteger id) {
+    public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<TestSuite>().eq("product",id));
     }
 

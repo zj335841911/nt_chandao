@@ -79,19 +79,19 @@ public class CronServiceImpl extends ServiceImpl<CronMapper, Cron> implements IC
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public Cron get(BigInteger key) {
+    public Cron get(Long key) {
         Cron et = getById(key);
         if(et==null){
             et=new Cron();
