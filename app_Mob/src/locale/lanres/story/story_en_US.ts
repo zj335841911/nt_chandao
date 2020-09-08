@@ -325,8 +325,6 @@ export default {
 			tip: 'deuiaction1_deletemob',
 		},
 	},
-	favoritemobmdviewrighttoolbar_toolbar: {
-	},
 	assmobmdviewrighttoolbar_toolbar: {
 	},
 };
