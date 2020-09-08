@@ -73,17 +73,17 @@ export class AppIndexViewModel {
 	name: 'menuitem4',
 	text: '我的',
 	type: 'MENUITEM',
-	counterid: 'myterritorycnt',
+	counterid: '',
 	tooltip: '我的',
-	expanded: false,
+	expanded: true,
 	separator: false,
 	hidden: false,
 	hidesidebar: false,
-	opendefault: false,
+	opendefault: true,
 	iconcls: 'person',
 	icon: '',
 	textcls: '',
-	appfunctag: '_2',
+	appfunctag: 'Auto22',
 	resourcetag: '',
 },
     ];
@@ -96,6 +96,19 @@ export class AppIndexViewModel {
 	 * @memberof AppIndexViewModel
 	 */
 	private funcs: any[] = [
+        {
+            appfunctag: 'Auto22',
+            appfuncyype: 'APPVIEW',
+            openmode: '', 
+            componentname: 'ibz-my-territory-mob-tab-exp-view', 
+            codename: 'ibzmyterritorymobtabexpview',
+            deResParameters: [],
+            routepath: '/appindexview/:appindexview?/ibzmyterritories/:ibzmyterritory?/mobtabexpview/:mobtabexpview?',
+            parameters: [
+                { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+            ],
+        },
         {
             appfunctag: 'Auto13',
             appfuncyype: 'APPVIEW',
@@ -133,19 +146,6 @@ export class AppIndexViewModel {
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'testmobmdview', parameterName: 'testmobmdview' },
-            ],
-        },
-        {
-            appfunctag: '_2',
-            appfuncyype: 'APPVIEW',
-            openmode: '', 
-            componentname: 'ibz-my-territory-mob-dashboard-view', 
-            codename: 'ibzmyterritorymobdashboardview',
-            deResParameters: [],
-            routepath: '/appindexview/:appindexview?/ibzmyterritories/:ibzmyterritory?/mobdashboardview/:mobdashboardview?',
-            parameters: [
-                { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
-                { pathName: 'mobdashboardview', parameterName: 'mobdashboardview' },
             ],
         },
 	];

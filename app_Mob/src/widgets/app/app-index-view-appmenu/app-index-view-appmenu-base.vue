@@ -421,6 +421,9 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
     private click(item: any) {
         if (item) {
             switch (item.appfunctag) {
+                case 'Auto22': 
+                    this.clickAuto22(item);
+                    return;
                 case 'Auto13': 
                     this.clickAuto13(item);
                     return;
@@ -430,15 +433,33 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
                 case 'Auto20': 
                     this.clickAuto20(item);
                     return;
-                case '_2': 
-                    this.click_2(item);
-                    return;
                 default:
                     console.warn('未指定应用功能');
             }
         }
     }
 
+    
+    /**
+     * 我的地盘
+     *
+     * @param {*} [item={}]
+     * @memberof AppIndexView
+     */
+    protected clickAuto22(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
     
     /**
      * 产品
@@ -498,27 +519,6 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
         const parameters: any[] = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'testmobmdview', parameterName: 'testmobmdview' },
-        ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
-        this.globaluiservice.openService.openView(routeParam);
-    }
-    
-    /**
-     * 我的地盘
-     *
-     * @param {*} [item={}]
-     * @memberof AppIndexView
-     */
-    protected click_2(item: any = {}) {
-        let navigateParam: any = { } ;
-        let navigateContext: any = { } ;
-        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
-        let context = { ..._context };
-        let param = { ..._param };
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
-            { pathName: 'mobdashboardview', parameterName: 'mobdashboardview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);

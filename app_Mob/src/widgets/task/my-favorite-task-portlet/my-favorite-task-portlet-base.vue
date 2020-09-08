@@ -1,7 +1,7 @@
 <template>
     <ion-row>
         <ion-list class='app-mob-portlet task-dashboard_sysportlet4 '>
-            <ion-list-header class='app-mob-portlet__header'>我的收藏 </ion-list-header>
+            <ion-list-header class='app-mob-portlet__header'>我收藏的任务 </ion-list-header>
                 <view_dashboard_sysportlet4_list
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
