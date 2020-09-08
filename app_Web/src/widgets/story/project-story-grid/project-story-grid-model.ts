@@ -136,6 +136,11 @@ export default class ProjectStoryModel {
           dataType: 'TEXT',
         },
         {
+          name: 'ischild',
+          prop: 'ischild',
+          dataType: 'TEXT',
+        },
+        {
           name: 'story',
           prop: 'id',
         },

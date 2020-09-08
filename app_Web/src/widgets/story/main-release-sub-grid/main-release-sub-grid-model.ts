@@ -106,6 +106,11 @@ export default class Main_ReleaseSubModel {
           dataType: 'TEXT',
         },
         {
+          name: 'ischild',
+          prop: 'ischild',
+          dataType: 'TEXT',
+        },
+        {
           name: 'story',
           prop: 'id',
         },

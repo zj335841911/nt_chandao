@@ -70,15 +70,15 @@ export default class Main_PlanSubModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
         },
         {
           name: 'openedby',
@@ -128,6 +128,11 @@ export default class Main_PlanSubModel {
         {
           name: 'isfavorites',
           prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'ischild',
+          prop: 'ischild',
           dataType: 'TEXT',
         },
         {
