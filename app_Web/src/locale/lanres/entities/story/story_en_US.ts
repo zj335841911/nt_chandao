@@ -55,6 +55,7 @@ export default {
     preversion: "之前的版本",
     neednotreview: "不需要评审",
     isfavorites: "是否收藏",
+    ischild: "是否可以细分",
   },
 	views: {
 		pickupgridview4: {

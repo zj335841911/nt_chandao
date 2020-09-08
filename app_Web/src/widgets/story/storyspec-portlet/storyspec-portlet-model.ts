@@ -177,6 +177,9 @@ export default class StoryspecModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'ischild',
+      },
     ]
   }
 

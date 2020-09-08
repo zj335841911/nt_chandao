@@ -177,6 +177,9 @@ export default class ProjectMPickupView3pickupviewpanelModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'ischild',
+      },
     ]
   }
 

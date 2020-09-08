@@ -177,6 +177,9 @@ export default class Usr2MPickupViewpickupviewpanelModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'ischild',
+      },
     ]
   }
 
