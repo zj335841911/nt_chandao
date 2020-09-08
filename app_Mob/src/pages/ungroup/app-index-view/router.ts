@@ -794,6 +794,76 @@ const router = new Router({
                     component: () => import('@pages/ibiz/project-mob-pickup-mdview/project-mob-pickup-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/bugs/:bug?/assmobmdview',
+                    meta: {
+                        caption: 'bug.views.assmobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'assmobmdview', parameterName: 'assmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-ass-mob-mdview/bug-ass-mob-mdview.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/assmobmdview',
+                    meta: {
+                        caption: 'bug.views.assmobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'assmobmdview', parameterName: 'assmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-ass-mob-mdview/bug-ass-mob-mdview.vue'),
+                },
+                {
+                    path: 'stories/:story?/bugs/:bug?/assmobmdview',
+                    meta: {
+                        caption: 'bug.views.assmobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'assmobmdview', parameterName: 'assmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-ass-mob-mdview/bug-ass-mob-mdview.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/assmobmdview',
+                    meta: {
+                        caption: 'bug.views.assmobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'assmobmdview', parameterName: 'assmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-ass-mob-mdview/bug-ass-mob-mdview.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/assmobmdview',
+                    meta: {
+                        caption: 'bug.views.assmobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'assmobmdview', parameterName: 'assmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-ass-mob-mdview/bug-ass-mob-mdview.vue'),
+                },
+                {
                     path: 'projects/:project?/builds/:build?/mobpickupmdview',
                     meta: {
                         caption: 'build.views.mobpickupmdview.caption',
@@ -1952,19 +2022,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-module-mob-pickup-mdview/product-module-mob-pickup-mdview.vue'),
                 },
                 {
-                    path: 'modules/:module?/mobpickupmdview',
-                    meta: {
-                        caption: 'module.views.mobpickupmdview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'modules', parameterName: 'module' },
-                            { pathName: 'mobpickupmdview', parameterName: 'mobpickupmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/module-mob-pickup-mdview/module-mob-pickup-mdview.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/changemoboptionview',
                     meta: {
                         caption: 'story.views.changemoboptionview.caption',
@@ -1990,6 +2047,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/story-change-mob-option-view/story-change-mob-option-view.vue'),
+                },
+                {
+                    path: 'modules/:module?/mobpickupmdview',
+                    meta: {
+                        caption: 'module.views.mobpickupmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'modules', parameterName: 'module' },
+                            { pathName: 'mobpickupmdview', parameterName: 'mobpickupmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/module-mob-pickup-mdview/module-mob-pickup-mdview.vue'),
                 },
                 {
                     path: 'products/:product?/mobeditview',
