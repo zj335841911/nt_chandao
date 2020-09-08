@@ -52,8 +52,8 @@ public class BugDTO extends DTOBase implements Serializable {
      * 属性 [ACTIVATEDDATE]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "activateddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "activateddate" , format="yyyy-MM-dd")
     @JsonProperty("activateddate")
     private Timestamp activateddate;
 

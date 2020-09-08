@@ -237,6 +237,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      */
     protected containerModel: any = {
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
+        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
 
     /**
@@ -257,12 +258,25 @@ export default class TaskAssMobMDViewBase extends Vue {
     @Prop({default:true}) protected showTitle?: boolean;
 
 
+
+   /**
+    * 工具栏 TaskAssMobMDView 模型
+    *
+    * @type {*}
+    * @memberof TaskAssMobMDView
+    */
+    public righttoolbarModels: any = {
+    };
+
+    
+
+
     /**
      * 工具栏模型集合名
      *
      * @memberof TaskAssMobMDViewBase
      */
-    public toolbarModelList:any = []
+    public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数

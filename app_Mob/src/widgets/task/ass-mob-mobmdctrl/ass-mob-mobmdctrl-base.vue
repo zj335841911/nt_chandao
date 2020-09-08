@@ -640,7 +640,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
     * @type {number}
     * @memberof AssMob
     */
-    public pageSize: number = 25;
+    public pageSize: number = 5;
 
     /**
     * 总页数
