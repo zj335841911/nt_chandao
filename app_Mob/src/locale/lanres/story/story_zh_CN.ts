@@ -60,6 +60,9 @@ export default {
 		newmobeditview: {
 			caption: '需求',
 		},
+		moblistview: {
+			caption: '需求',
+		},
 		mobmdview9: {
 			caption: '需求',
 		},

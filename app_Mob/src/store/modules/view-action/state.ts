@@ -66,6 +66,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0e1c41e8bc26190c02e9ed5f01bf32b5',
+            viewmodule: 'ibiz',
+            viewname: 'StoryMobListView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd096e8789265e730da5eefa1423479dc',
+            ],
+        },
+        {
             viewtag: '0e2762177f3bf384b00d863798bd744c',
             viewmodule: 'ibiz',
             viewname: 'ModuleMobPickupView',
@@ -513,6 +523,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '6e91454cb4217d3aa1260161a539c803',
+                '0e1c41e8bc26190c02e9ed5f01bf32b5',
                 '8d13feb9b1401f28a033fec23ffd7e90',
             ],
         },
