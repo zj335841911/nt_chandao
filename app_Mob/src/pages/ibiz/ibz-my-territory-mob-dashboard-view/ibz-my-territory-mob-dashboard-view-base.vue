@@ -244,22 +244,6 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
 
 
 
-   /**
-    * 工具栏 IbzMyTerritoryMobDashboardView 模型
-    *
-    * @type {*}
-    * @memberof IbzMyTerritoryMobDashboardView
-    */
-    public dashboard_sysportlet4_list_quicktoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyFavMore', target: 'NONE' } },
-
-    };
-
-    
-
-
-
-
 
 
 
@@ -268,7 +252,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      *
      * @memberof IbzMyTerritoryMobDashboardViewBase
      */
-    public toolbarModelList:any = ['dashboard_sysportlet4_list_quicktoolbarModels',]
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数

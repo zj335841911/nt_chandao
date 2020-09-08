@@ -305,10 +305,4 @@ export default {
 			tip: 'deuiaction1_deletemob',
 		},
 	},
-	mobdashboardviewdashboard_sysportlet4_list_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: '更多',
-			tip: 'deuiaction1',
-		},
-	},
 };

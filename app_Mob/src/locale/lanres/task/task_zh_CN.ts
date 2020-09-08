@@ -305,10 +305,4 @@ export default {
 			tip: '删除',
 		},
 	},
-	mobdashboardviewdashboard_sysportlet4_list_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: '更多',
-			tip: '更多',
-		},
-	},
 };
