@@ -79,19 +79,19 @@ public class EffortServiceImpl extends ServiceImpl<EffortMapper, Effort> impleme
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public Effort get(Long key) {
+    public Effort get(BigInteger key) {
         Effort et = getById(key);
         if(et==null){
             et=new Effort();

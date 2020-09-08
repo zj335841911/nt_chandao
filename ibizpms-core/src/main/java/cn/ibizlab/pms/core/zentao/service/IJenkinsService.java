@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface IJenkinsService extends IService<Jenkins>{
     void createBatch(List<Jenkins> list) ;
     boolean update(Jenkins et) ;
     void updateBatch(List<Jenkins> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    Jenkins get(Long key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Jenkins get(BigInteger key) ;
     Jenkins getDraft(Jenkins et) ;
     boolean checkKey(Jenkins et) ;
     boolean save(Jenkins et) ;

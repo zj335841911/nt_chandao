@@ -158,32 +158,32 @@ public class SuiteCaseServiceImpl extends ServiceImpl<SuiteCaseMapper, SuiteCase
 
 
 	@Override
-    public List<SuiteCase> selectByIbizcase(Long id) {
+    public List<SuiteCase> selectByIbizcase(BigInteger id) {
         return baseMapper.selectByIbizcase(id);
     }
 
     @Override
-    public void removeByIbizcase(Long id) {
+    public void removeByIbizcase(BigInteger id) {
         this.remove(new QueryWrapper<SuiteCase>().eq("case",id));
     }
 
 	@Override
-    public List<SuiteCase> selectByProduct(Long id) {
+    public List<SuiteCase> selectByProduct(BigInteger id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(Long id) {
+    public void removeByProduct(BigInteger id) {
         this.remove(new QueryWrapper<SuiteCase>().eq("product",id));
     }
 
 	@Override
-    public List<SuiteCase> selectBySuite(Long id) {
+    public List<SuiteCase> selectBySuite(BigInteger id) {
         return baseMapper.selectBySuite(id);
     }
 
     @Override
-    public void removeBySuite(Long id) {
+    public void removeBySuite(BigInteger id) {
         this.remove(new QueryWrapper<SuiteCase>().eq("suite",id));
     }
 

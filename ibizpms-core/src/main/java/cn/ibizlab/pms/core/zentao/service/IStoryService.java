@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface IStoryService extends IService<Story>{
     void createBatch(List<Story> list) ;
     boolean update(Story et) ;
     void updateBatch(List<Story> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    Story get(Long key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Story get(BigInteger key) ;
     Story getDraft(Story et) ;
     Story activate(Story et) ;
     Story assignTo(Story et) ;
@@ -92,20 +91,20 @@ public interface IStoryService extends IService<Story>{
     Page<Story> searchStoryRelated(StorySearchContext context) ;
     Page<Story> searchSubStory(StorySearchContext context) ;
     Page<Story> searchTaskRelatedStory(StorySearchContext context) ;
-    List<Story> selectByModule(Long id) ;
-    void removeByModule(Long id) ;
-    List<Story> selectByBranch(Long id) ;
-    void removeByBranch(Long id) ;
-    List<Story> selectByFrombug(Long id) ;
-    void removeByFrombug(Long id) ;
-    List<Story> selectByTobug(Long id) ;
-    void removeByTobug(Long id) ;
-    List<Story> selectByProduct(Long id) ;
-    void removeByProduct(Long id) ;
-    List<Story> selectByDuplicatestory(Long id) ;
-    void removeByDuplicatestory(Long id) ;
-    List<Story> selectByParent(Long id) ;
-    void removeByParent(Long id) ;
+    List<Story> selectByModule(BigInteger id) ;
+    void removeByModule(BigInteger id) ;
+    List<Story> selectByBranch(BigInteger id) ;
+    void removeByBranch(BigInteger id) ;
+    List<Story> selectByFrombug(BigInteger id) ;
+    void removeByFrombug(BigInteger id) ;
+    List<Story> selectByTobug(BigInteger id) ;
+    void removeByTobug(BigInteger id) ;
+    List<Story> selectByProduct(BigInteger id) ;
+    void removeByProduct(BigInteger id) ;
+    List<Story> selectByDuplicatestory(BigInteger id) ;
+    void removeByDuplicatestory(BigInteger id) ;
+    List<Story> selectByParent(BigInteger id) ;
+    void removeByParent(BigInteger id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

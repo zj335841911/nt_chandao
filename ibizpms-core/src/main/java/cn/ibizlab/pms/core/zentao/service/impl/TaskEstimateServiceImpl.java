@@ -104,7 +104,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     }
     @Override
     @Transactional
-    public TaskEstimate get(Long key) {
+    public TaskEstimate get(BigInteger key) {
         TaskEstimate et = getById(key);
         if(et==null){
             et=new TaskEstimate();
@@ -155,12 +155,12 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
 
 
 	@Override
-    public List<TaskEstimate> selectByTask(Long id) {
+    public List<TaskEstimate> selectByTask(BigInteger id) {
         return baseMapper.selectByTask(id);
     }
 
     @Override
-    public void removeByTask(Long id) {
+    public void removeByTask(BigInteger id) {
         this.remove(new QueryWrapper<TaskEstimate>().eq("task",id));
     }
 
@@ -168,10 +168,10 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     @Lazy
     ITaskEstimateService proxyService;
 	@Override
-    public void saveByTask(Long id,List<TaskEstimate> list) {
+    public void saveByTask(BigInteger id,List<TaskEstimate> list) {
         if(list==null)
             return;
-        Set<Long> delIds=new HashSet<Long>();
+        Set<BigInteger> delIds=new HashSet<BigInteger>();
         List<TaskEstimate> _update=new ArrayList<TaskEstimate>();
         List<TaskEstimate> _create=new ArrayList<TaskEstimate>();
         for(TaskEstimate before:selectByTask(id)){
@@ -180,7 +180,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
         for(TaskEstimate sub:list) {
             sub.setTask(id);
             if(ObjectUtils.isEmpty(sub.getId()))
-                sub.setId((Long)sub.getDefaultKey(true));
+                sub.setId((BigInteger)sub.getDefaultKey(true));
             if(delIds.contains(sub.getId())) {
                 delIds.remove(sub.getId());
                 _update.add(sub);

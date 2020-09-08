@@ -79,19 +79,19 @@ public class RelationServiceImpl extends ServiceImpl<RelationMapper, Relation> i
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public Relation get(Long key) {
+    public Relation get(BigInteger key) {
         Relation et = getById(key);
         if(et==null){
             et=new Relation();

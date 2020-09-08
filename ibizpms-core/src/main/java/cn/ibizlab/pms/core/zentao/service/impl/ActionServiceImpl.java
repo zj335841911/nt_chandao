@@ -90,19 +90,19 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public Action get(Long key) {
+    public Action get(BigInteger key) {
         Action et = getById(key);
         if(et==null){
             et=new Action();
@@ -173,12 +173,12 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
 
 
 	@Override
-    public List<Action> selectByProject(Long id) {
+    public List<Action> selectByProject(BigInteger id) {
         return baseMapper.selectByProject(id);
     }
 
     @Override
-    public void removeByProject(Long id) {
+    public void removeByProject(BigInteger id) {
         this.remove(new QueryWrapper<Action>().eq("project",id));
     }
 

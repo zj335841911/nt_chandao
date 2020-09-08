@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface ITodoService extends IService<Todo>{
     void createBatch(List<Todo> list) ;
     boolean update(Todo et) ;
     void updateBatch(List<Todo> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    Todo get(Long key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Todo get(BigInteger key) ;
     Todo getDraft(Todo et) ;
     Todo activate(Todo et) ;
     Todo assignTo(Todo et) ;

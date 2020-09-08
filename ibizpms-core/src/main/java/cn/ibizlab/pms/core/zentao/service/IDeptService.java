@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,17 +29,17 @@ public interface IDeptService extends IService<Dept>{
     void createBatch(List<Dept> list) ;
     boolean update(Dept et) ;
     void updateBatch(List<Dept> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    Dept get(Long key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Dept get(BigInteger key) ;
     Dept getDraft(Dept et) ;
     boolean checkKey(Dept et) ;
     boolean save(Dept et) ;
     void saveBatch(List<Dept> list) ;
     Page<Dept> searchDefault(DeptSearchContext context) ;
     Page<Dept> searchRoot(DeptSearchContext context) ;
-    List<Dept> selectByParent(Long id) ;
-    void removeByParent(Long id) ;
+    List<Dept> selectByParent(BigInteger id) ;
+    void removeByParent(BigInteger id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

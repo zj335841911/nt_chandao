@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface IJobService extends IService<Job>{
     void createBatch(List<Job> list) ;
     boolean update(Job et) ;
     void updateBatch(List<Job> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    Job get(Long key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Job get(BigInteger key) ;
     Job getDraft(Job et) ;
     boolean checkKey(Job et) ;
     boolean save(Job et) ;

@@ -86,19 +86,19 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public ProjectTeam get(Long key) {
+    public ProjectTeam get(BigInteger key) {
         ProjectTeam et = getById(key);
         if(et==null){
             et=new ProjectTeam();
@@ -157,12 +157,12 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
 
 
 	@Override
-    public List<ProjectTeam> selectByRoot(Long id) {
+    public List<ProjectTeam> selectByRoot(BigInteger id) {
         return baseMapper.selectByRoot(id);
     }
 
     @Override
-    public void removeByRoot(Long id) {
+    public void removeByRoot(BigInteger id) {
         this.remove(new QueryWrapper<ProjectTeam>().eq("root",id));
     }
 
@@ -170,10 +170,10 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Lazy
     IProjectTeamService proxyService;
 	@Override
-    public void saveByRoot(Long id,List<ProjectTeam> list) {
+    public void saveByRoot(BigInteger id,List<ProjectTeam> list) {
         if(list==null)
             return;
-        Set<Long> delIds=new HashSet<Long>();
+        Set<BigInteger> delIds=new HashSet<BigInteger>();
         List<ProjectTeam> _update=new ArrayList<ProjectTeam>();
         List<ProjectTeam> _create=new ArrayList<ProjectTeam>();
         for(ProjectTeam before:selectByRoot(id)){
@@ -182,7 +182,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
         for(ProjectTeam sub:list) {
             sub.setRoot(id);
             if(ObjectUtils.isEmpty(sub.getId()))
-                sub.setId((Long)sub.getDefaultKey(true));
+                sub.setId((BigInteger)sub.getDefaultKey(true));
             if(delIds.contains(sub.getId())) {
                 delIds.remove(sub.getId());
                 _update.add(sub);

@@ -153,7 +153,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     }
     @Override
     @Transactional
-    public Story get(Long key) {
+    public Story get(BigInteger key) {
         Story tempET=new Story();
         tempET.set("id",key);
         Story et = getById(key);
@@ -598,72 +598,72 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 
 
 	@Override
-    public List<Story> selectByModule(Long id) {
+    public List<Story> selectByModule(BigInteger id) {
         return baseMapper.selectByModule(id);
     }
 
     @Override
-    public void removeByModule(Long id) {
+    public void removeByModule(BigInteger id) {
         this.remove(new QueryWrapper<Story>().eq("module",id));
     }
 
 	@Override
-    public List<Story> selectByBranch(Long id) {
+    public List<Story> selectByBranch(BigInteger id) {
         return baseMapper.selectByBranch(id);
     }
 
     @Override
-    public void removeByBranch(Long id) {
+    public void removeByBranch(BigInteger id) {
         this.remove(new QueryWrapper<Story>().eq("branch",id));
     }
 
 	@Override
-    public List<Story> selectByFrombug(Long id) {
+    public List<Story> selectByFrombug(BigInteger id) {
         return baseMapper.selectByFrombug(id);
     }
 
     @Override
-    public void removeByFrombug(Long id) {
+    public void removeByFrombug(BigInteger id) {
         this.remove(new QueryWrapper<Story>().eq("frombug",id));
     }
 
 	@Override
-    public List<Story> selectByTobug(Long id) {
+    public List<Story> selectByTobug(BigInteger id) {
         return baseMapper.selectByTobug(id);
     }
 
     @Override
-    public void removeByTobug(Long id) {
+    public void removeByTobug(BigInteger id) {
         this.remove(new QueryWrapper<Story>().eq("tobug",id));
     }
 
 	@Override
-    public List<Story> selectByProduct(Long id) {
+    public List<Story> selectByProduct(BigInteger id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(Long id) {
+    public void removeByProduct(BigInteger id) {
         this.remove(new QueryWrapper<Story>().eq("product",id));
     }
 
 	@Override
-    public List<Story> selectByDuplicatestory(Long id) {
+    public List<Story> selectByDuplicatestory(BigInteger id) {
         return baseMapper.selectByDuplicatestory(id);
     }
 
     @Override
-    public void removeByDuplicatestory(Long id) {
+    public void removeByDuplicatestory(BigInteger id) {
         this.remove(new QueryWrapper<Story>().eq("duplicatestory",id));
     }
 
 	@Override
-    public List<Story> selectByParent(Long id) {
+    public List<Story> selectByParent(BigInteger id) {
         return baseMapper.selectByParent(id);
     }
 
     @Override
-    public void removeByParent(Long id) {
+    public void removeByParent(BigInteger id) {
         this.remove(new QueryWrapper<Story>().eq("parent",id));
     }
 

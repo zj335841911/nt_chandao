@@ -79,19 +79,19 @@ public class IbzLibCaseStepServiceImpl extends ServiceImpl<IbzLibCaseStepMapper,
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public IbzLibCaseStep get(Long key) {
+    public IbzLibCaseStep get(BigInteger key) {
         IbzLibCaseStep et = getById(key);
         if(et==null){
             et=new IbzLibCaseStep();

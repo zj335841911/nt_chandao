@@ -92,19 +92,19 @@ public class TestRunServiceImpl extends ServiceImpl<TestRunMapper, TestRun> impl
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public TestRun get(Long key) {
+    public TestRun get(BigInteger key) {
         TestRun et = getById(key);
         if(et==null){
             et=new TestRun();
@@ -158,22 +158,22 @@ public class TestRunServiceImpl extends ServiceImpl<TestRunMapper, TestRun> impl
 
 
 	@Override
-    public List<TestRun> selectByIbizcase(Long id) {
+    public List<TestRun> selectByIbizcase(BigInteger id) {
         return baseMapper.selectByIbizcase(id);
     }
 
     @Override
-    public void removeByIbizcase(Long id) {
+    public void removeByIbizcase(BigInteger id) {
         this.remove(new QueryWrapper<TestRun>().eq("case",id));
     }
 
 	@Override
-    public List<TestRun> selectByTask(Long id) {
+    public List<TestRun> selectByTask(BigInteger id) {
         return baseMapper.selectByTask(id);
     }
 
     @Override
-    public void removeByTask(Long id) {
+    public void removeByTask(BigInteger id) {
         this.remove(new QueryWrapper<TestRun>().eq("task",id));
     }
 

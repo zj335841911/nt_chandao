@@ -90,19 +90,19 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public CaseStep get(Long key) {
+    public CaseStep get(BigInteger key) {
         CaseStep et = getById(key);
         if(et==null){
             et=new CaseStep();
@@ -157,12 +157,12 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
 
 
 	@Override
-    public List<CaseStep> selectByIbizcase(Long id) {
+    public List<CaseStep> selectByIbizcase(BigInteger id) {
         return baseMapper.selectByIbizcase(id);
     }
 
     @Override
-    public void removeByIbizcase(Long id) {
+    public void removeByIbizcase(BigInteger id) {
         this.remove(new QueryWrapper<CaseStep>().eq("case",id));
     }
 
@@ -170,10 +170,10 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
     @Lazy
     ICaseStepService proxyService;
 	@Override
-    public void saveByIbizcase(Long id,List<CaseStep> list) {
+    public void saveByIbizcase(BigInteger id,List<CaseStep> list) {
         if(list==null)
             return;
-        Set<Long> delIds=new HashSet<Long>();
+        Set<BigInteger> delIds=new HashSet<BigInteger>();
         List<CaseStep> _update=new ArrayList<CaseStep>();
         List<CaseStep> _create=new ArrayList<CaseStep>();
         for(CaseStep before:selectByIbizcase(id)){
@@ -182,7 +182,7 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
         for(CaseStep sub:list) {
             sub.setIbizcase(id);
             if(ObjectUtils.isEmpty(sub.getId()))
-                sub.setId((Long)sub.getDefaultKey(true));
+                sub.setId((BigInteger)sub.getDefaultKey(true));
             if(delIds.contains(sub.getId())) {
                 delIds.remove(sub.getId());
                 _update.add(sub);
@@ -199,20 +199,20 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
 	}
 
 	@Override
-    public List<CaseStep> selectByParent(Long id) {
+    public List<CaseStep> selectByParent(BigInteger id) {
         return baseMapper.selectByParent(id);
     }
 
     @Override
-    public void removeByParent(Long id) {
+    public void removeByParent(BigInteger id) {
         this.remove(new QueryWrapper<CaseStep>().eq("parent",id));
     }
 
 	@Override
-    public void saveByParent(Long id,List<CaseStep> list) {
+    public void saveByParent(BigInteger id,List<CaseStep> list) {
         if(list==null)
             return;
-        Set<Long> delIds=new HashSet<Long>();
+        Set<BigInteger> delIds=new HashSet<BigInteger>();
         List<CaseStep> _update=new ArrayList<CaseStep>();
         List<CaseStep> _create=new ArrayList<CaseStep>();
         for(CaseStep before:selectByParent(id)){
@@ -221,7 +221,7 @@ public class CaseStepServiceImpl extends ServiceImpl<CaseStepMapper, CaseStep> i
         for(CaseStep sub:list) {
             sub.setParent(id);
             if(ObjectUtils.isEmpty(sub.getId()))
-                sub.setId((Long)sub.getDefaultKey(true));
+                sub.setId((BigInteger)sub.getDefaultKey(true));
             if(delIds.contains(sub.getId())) {
                 delIds.remove(sub.getId());
                 _update.add(sub);

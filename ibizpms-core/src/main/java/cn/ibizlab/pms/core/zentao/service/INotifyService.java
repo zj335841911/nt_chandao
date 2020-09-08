@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface INotifyService extends IService<Notify>{
     void createBatch(List<Notify> list) ;
     boolean update(Notify et) ;
     void updateBatch(List<Notify> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    Notify get(Long key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Notify get(BigInteger key) ;
     Notify getDraft(Notify et) ;
     boolean checkKey(Notify et) ;
     boolean save(Notify et) ;

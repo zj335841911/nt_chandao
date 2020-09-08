@@ -152,12 +152,12 @@ public class StorySpecServiceImpl extends ServiceImpl<StorySpecMapper, StorySpec
 
 
 	@Override
-    public List<StorySpec> selectByStory(Long id) {
+    public List<StorySpec> selectByStory(BigInteger id) {
         return baseMapper.selectByStory(id);
     }
 
     @Override
-    public void removeByStory(Long id) {
+    public void removeByStory(BigInteger id) {
         this.remove(new QueryWrapper<StorySpec>().eq("story",id));
     }
 

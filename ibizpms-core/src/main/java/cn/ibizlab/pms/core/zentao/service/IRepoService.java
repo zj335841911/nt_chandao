@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface IRepoService extends IService<Repo>{
     void createBatch(List<Repo> list) ;
     boolean update(Repo et) ;
     void updateBatch(List<Repo> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    Repo get(Long key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Repo get(BigInteger key) ;
     Repo getDraft(Repo et) ;
     boolean checkKey(Repo et) ;
     boolean save(Repo et) ;

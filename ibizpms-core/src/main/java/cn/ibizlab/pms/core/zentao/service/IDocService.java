@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,22 +29,22 @@ public interface IDocService extends IService<Doc>{
     void createBatch(List<Doc> list) ;
     boolean update(Doc et) ;
     void updateBatch(List<Doc> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    Doc get(Long key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Doc get(BigInteger key) ;
     Doc getDraft(Doc et) ;
     boolean checkKey(Doc et) ;
     boolean save(Doc et) ;
     void saveBatch(List<Doc> list) ;
     Page<Doc> searchDefault(DocSearchContext context) ;
-    List<Doc> selectByLib(Long id) ;
-    void removeByLib(Long id) ;
-    List<Doc> selectByModule(Long id) ;
-    void removeByModule(Long id) ;
-    List<Doc> selectByProduct(Long id) ;
-    void removeByProduct(Long id) ;
-    List<Doc> selectByProject(Long id) ;
-    void removeByProject(Long id) ;
+    List<Doc> selectByLib(BigInteger id) ;
+    void removeByLib(BigInteger id) ;
+    List<Doc> selectByModule(BigInteger id) ;
+    void removeByModule(BigInteger id) ;
+    List<Doc> selectByProduct(BigInteger id) ;
+    void removeByProduct(BigInteger id) ;
+    List<Doc> selectByProject(BigInteger id) ;
+    void removeByProject(BigInteger id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

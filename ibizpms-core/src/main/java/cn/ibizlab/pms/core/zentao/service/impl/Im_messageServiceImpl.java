@@ -79,19 +79,19 @@ public class Im_messageServiceImpl extends ServiceImpl<Im_messageMapper, Im_mess
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public Im_message get(Long key) {
+    public Im_message get(BigInteger key) {
         Im_message et = getById(key);
         if(et==null){
             et=new Im_message();

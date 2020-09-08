@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface IUserTplService extends IService<UserTpl>{
     void createBatch(List<UserTpl> list) ;
     boolean update(UserTpl et) ;
     void updateBatch(List<UserTpl> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    UserTpl get(Long key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    UserTpl get(BigInteger key) ;
     UserTpl getDraft(UserTpl et) ;
     boolean checkKey(UserTpl et) ;
     boolean save(UserTpl et) ;

@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -40,10 +39,10 @@ public interface IBurnService extends IService<Burn>{
     void saveBatch(List<Burn> list) ;
     Page<Burn> searchDefault(BurnSearchContext context) ;
     Page<Burn> searchESTIMATEANDLEFT(BurnSearchContext context) ;
-    List<Burn> selectByProject(Long id) ;
-    void removeByProject(Long id) ;
-    List<Burn> selectByTask(Long id) ;
-    void removeByTask(Long id) ;
+    List<Burn> selectByProject(BigInteger id) ;
+    void removeByProject(BigInteger id) ;
+    List<Burn> selectByTask(BigInteger id) ;
+    void removeByTask(BigInteger id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

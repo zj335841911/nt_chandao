@@ -113,7 +113,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
     }
     @Override
     @Transactional
-    public IbzCase get(Long key) {
+    public IbzCase get(BigInteger key) {
         IbzCase et = getById(key);
         if(et==null){
             et=new IbzCase();
@@ -168,22 +168,22 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
 
 
 	@Override
-    public List<IbzCase> selectByModule(Long id) {
+    public List<IbzCase> selectByModule(BigInteger id) {
         return baseMapper.selectByModule(id);
     }
 
     @Override
-    public void removeByModule(Long id) {
+    public void removeByModule(BigInteger id) {
         this.remove(new QueryWrapper<IbzCase>().eq("module",id));
     }
 
 	@Override
-    public List<IbzCase> selectByLib(Long id) {
+    public List<IbzCase> selectByLib(BigInteger id) {
         return baseMapper.selectByLib(id);
     }
 
     @Override
-    public void removeByLib(Long id) {
+    public void removeByLib(BigInteger id) {
         this.remove(new QueryWrapper<IbzCase>().eq("lib",id));
     }
 
