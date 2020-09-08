@@ -39,7 +39,8 @@ export class CounterServiceRegister {
      * @memberof CounterServiceRegister
      */
     protected init(): void {
-            }
+                this.allCounterService.set('projectcounter', () => import('@/counter/project-counter/project-counter-counter'));
+    }
 
     /**
      * 加载计数器服务

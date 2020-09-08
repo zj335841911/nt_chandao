@@ -1,6 +1,7 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, TabExpPanelControlBase } from '@/studio-core';
+import  ProjectCounterCounterService  from '@/counter/project-counter/project-counter-counter';
 import ProjectService from '@/service/project/project-service';
 import MainTabExpViewtabexppanelService from './main-tab-exp-viewtabexppanel-tabexppanel-service';
 import ProjectUIService from '@/uiservice/project/project-ui-service';
@@ -23,6 +24,22 @@ export class MainTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @memberof MainTabExpViewtabexppanelTabexppanelBase
      */
     protected controlType: string = 'TABEXPPANEL';
+    
+    /**
+     * ProjectCounterCounterService计数器服务对象
+     *
+     * @type {ProjectCounterCounterService}
+     * @memberof MainTabExpViewtabexppanelTabexppanelBase
+     */
+    public projectcountercounterservice: ProjectCounterCounterService = new ProjectCounterCounterService({$store: this.$store,context:this.context,viewparams:this.viewparams});
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof MainTabExpViewtabexppanelTabexppanelBase
+     */    
+    public counterServiceArray:Array<any> = [this.projectcountercounterservice];
 
     /**
      * 建构部件服务对象
