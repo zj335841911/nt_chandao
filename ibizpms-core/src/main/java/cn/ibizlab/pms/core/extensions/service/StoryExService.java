@@ -295,7 +295,7 @@ public class StoryExService extends StoryServiceImpl {
      */
     @Override
     @Transactional
-    public Story get(BigInteger key) {
+    public Story get(Long key) {
         Story et = super.get(key);
         this.getStorySpec(et);
         return et;
