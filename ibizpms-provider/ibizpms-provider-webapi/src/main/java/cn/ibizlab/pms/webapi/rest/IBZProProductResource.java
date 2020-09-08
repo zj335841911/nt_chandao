@@ -67,7 +67,7 @@ public class IBZProProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProProduct-Update-all')")
     @ApiOperation(value = "更新平台产品", tags = {"平台产品" },  notes = "更新平台产品")
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibzproproducts/{ibzproproduct_id}")
-    public ResponseEntity<IBZProProductDTO> update(@PathVariable("ibzproproduct_id") BigInteger ibzproproduct_id, @RequestBody IBZProProductDTO ibzproproductdto) {
+    public ResponseEntity<IBZProProductDTO> update(@PathVariable("ibzproproduct_id") Long ibzproproduct_id, @RequestBody IBZProProductDTO ibzproproductdto) {
 		IBZProProduct domain  = ibzproproductMapping.toDomain(ibzproproductdto);
         domain .setId(ibzproproduct_id);
 		ibzproproductService.update(domain );
@@ -86,14 +86,14 @@ public class IBZProProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProProduct-Remove-all')")
     @ApiOperation(value = "删除平台产品", tags = {"平台产品" },  notes = "删除平台产品")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzproproducts/{ibzproproduct_id}")
-    public ResponseEntity<Boolean> remove(@PathVariable("ibzproproduct_id") BigInteger ibzproproduct_id) {
+    public ResponseEntity<Boolean> remove(@PathVariable("ibzproproduct_id") Long ibzproproduct_id) {
          return ResponseEntity.status(HttpStatus.OK).body(ibzproproductService.remove(ibzproproduct_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProProduct-Remove-all')")
     @ApiOperation(value = "批量删除平台产品", tags = {"平台产品" },  notes = "批量删除平台产品")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzproproducts/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         ibzproproductService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -101,7 +101,7 @@ public class IBZProProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProProduct-Get-all')")
     @ApiOperation(value = "获取平台产品", tags = {"平台产品" },  notes = "获取平台产品")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzproproducts/{ibzproproduct_id}")
-    public ResponseEntity<IBZProProductDTO> get(@PathVariable("ibzproproduct_id") BigInteger ibzproproduct_id) {
+    public ResponseEntity<IBZProProductDTO> get(@PathVariable("ibzproproduct_id") Long ibzproproduct_id) {
         IBZProProduct domain = ibzproproductService.get(ibzproproduct_id);
         IBZProProductDTO dto = ibzproproductMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);

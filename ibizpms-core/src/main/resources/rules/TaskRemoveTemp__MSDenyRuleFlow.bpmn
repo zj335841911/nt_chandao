@@ -8,32 +8,32 @@
         <tns:global identifier="taskremovetemp__msdenydefault" type="cn.ibizlab.pms.core.zentao.domain.Task" />
         <tns:global identifier="taskremovetemp__msdenytemp" type="cn.ibizlab.pms.core.zentao.domain.Task" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetemp__msdenydenybycancel_1" id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__cancel_1" implementation="http://www.jboss.org/drools/rule" name="状态[已取消_已收藏]拒绝[RemoveTemp]操作"/>
-     <endEvent id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__cancel_1_End" name="End"/>
-     <sequenceFlow id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__cancel_1_End_Line" sourceRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__cancel_1" targetRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__cancel_1_End"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetemp__msdenydenybywait_1" id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__wait_1" implementation="http://www.jboss.org/drools/rule" name="状态[未进行_已收藏]拒绝[RemoveTemp]操作"/>
-     <endEvent id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__wait_1_End" name="End"/>
-     <sequenceFlow id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__wait_1_End_Line" sourceRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__wait_1" targetRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__wait_1_End"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetemp__msdenydenybydone_1" id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__done_1" implementation="http://www.jboss.org/drools/rule" name="状态[已完成_已收藏]拒绝[RemoveTemp]操作"/>
-     <endEvent id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__done_1_End" name="End"/>
-     <sequenceFlow id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__done_1_End_Line" sourceRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__done_1" targetRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__done_1_End"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetemp__msdenydenybypause_1" id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__pause_1" implementation="http://www.jboss.org/drools/rule" name="状态[已暂停_已收藏]拒绝[RemoveTemp]操作"/>
-     <endEvent id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__pause_1_End" name="End"/>
-     <sequenceFlow id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__pause_1_End_Line" sourceRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__pause_1" targetRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__pause_1_End"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetemp__msdenyget" id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__GET" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetemp__msdenydenybydoing_1" id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__doing_1" implementation="http://www.jboss.org/drools/rule" name="状态[进行中_已收藏]拒绝[RemoveTemp]操作"/>
-     <endEvent id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__doing_1_End" name="End"/>
-     <sequenceFlow id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__doing_1_End_Line" sourceRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__doing_1" targetRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__doing_1_End"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetemp__msdenypreparetemp" id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__PREPARETEMP" implementation="http://www.jboss.org/drools/rule" name="准备临时参数"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetemp__msdenydenybyclosed_1" id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__closed_1" implementation="http://www.jboss.org/drools/rule" name="状态[已关闭_已收藏]拒绝[RemoveTemp]操作"/>
-     <endEvent id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__closed_1_End" name="End"/>
-     <sequenceFlow id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__closed_1_End_Line" sourceRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__closed_1" targetRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__closed_1_End"/>
-     <startEvent id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__BEGIN" isInterrupting="true"/>
-     <sequenceFlow id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__PREPARETEMP" sourceRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__BEGIN" targetRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__PREPARETEMP">
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetemp__msdenydenybycancel_1" id="denybycancel_1" implementation="http://www.jboss.org/drools/rule" name="状态[已取消_已收藏]拒绝[RemoveTemp]操作"/>
+     <endEvent id="denybycancel_1_end" name="end"/>
+     <sequenceFlow id="denybycancel_1_end_line" sourceRef="denybycancel_1" targetRef="denybycancel_1_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetemp__msdenydenybywait_1" id="denybywait_1" implementation="http://www.jboss.org/drools/rule" name="状态[未进行_已收藏]拒绝[RemoveTemp]操作"/>
+     <endEvent id="denybywait_1_end" name="end"/>
+     <sequenceFlow id="denybywait_1_end_line" sourceRef="denybywait_1" targetRef="denybywait_1_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetemp__msdenydenybydone_1" id="denybydone_1" implementation="http://www.jboss.org/drools/rule" name="状态[已完成_已收藏]拒绝[RemoveTemp]操作"/>
+     <endEvent id="denybydone_1_end" name="end"/>
+     <sequenceFlow id="denybydone_1_end_line" sourceRef="denybydone_1" targetRef="denybydone_1_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetemp__msdenydenybypause_1" id="denybypause_1" implementation="http://www.jboss.org/drools/rule" name="状态[已暂停_已收藏]拒绝[RemoveTemp]操作"/>
+     <endEvent id="denybypause_1_end" name="end"/>
+     <sequenceFlow id="denybypause_1_end_line" sourceRef="denybypause_1" targetRef="denybypause_1_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetemp__msdenyget" id="get" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetemp__msdenydenybydoing_1" id="denybydoing_1" implementation="http://www.jboss.org/drools/rule" name="状态[进行中_已收藏]拒绝[RemoveTemp]操作"/>
+     <endEvent id="denybydoing_1_end" name="end"/>
+     <sequenceFlow id="denybydoing_1_end_line" sourceRef="denybydoing_1" targetRef="denybydoing_1_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetemp__msdenypreparetemp" id="preparetemp" implementation="http://www.jboss.org/drools/rule" name="准备临时参数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremovetemp__msdenydenybyclosed_1" id="denybyclosed_1" implementation="http://www.jboss.org/drools/rule" name="状态[已关闭_已收藏]拒绝[RemoveTemp]操作"/>
+     <endEvent id="denybyclosed_1_end" name="end"/>
+     <sequenceFlow id="denybyclosed_1_end_line" sourceRef="denybyclosed_1" targetRef="denybyclosed_1_end"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <sequenceFlow id="begin_preparetemp" sourceRef="begin" targetRef="preparetemp">
      </sequenceFlow>
-     <sequenceFlow id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__GET" sourceRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__PREPARETEMP" targetRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__GET">
+     <sequenceFlow id="preparetemp_get" sourceRef="preparetemp" targetRef="get">
      </sequenceFlow>
-     <sequenceFlow id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__cancel_1" sourceRef="gateway-124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__GET" targetRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__cancel_1">
+     <sequenceFlow id="gateway-get_denybycancel_1" sourceRef="gateway-get" targetRef="denybycancel_1">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $taskremovetemp__msdenydefault:Task();
             $taskremovetemp__msdenytemp:Task();
@@ -42,7 +42,7 @@
                 ]]>
             </conditionExpression>
      </sequenceFlow>
-     <sequenceFlow id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__closed_1" sourceRef="gateway-124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__GET" targetRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__closed_1">
+     <sequenceFlow id="gateway-get_denybyclosed_1" sourceRef="gateway-get" targetRef="denybyclosed_1">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $taskremovetemp__msdenydefault:Task();
             $taskremovetemp__msdenytemp:Task();
@@ -51,7 +51,7 @@
                 ]]>
             </conditionExpression>
      </sequenceFlow>
-     <sequenceFlow id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__doing_1" sourceRef="gateway-124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__GET" targetRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__doing_1">
+     <sequenceFlow id="gateway-get_denybydoing_1" sourceRef="gateway-get" targetRef="denybydoing_1">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $taskremovetemp__msdenydefault:Task();
             $taskremovetemp__msdenytemp:Task();
@@ -60,7 +60,7 @@
                 ]]>
             </conditionExpression>
      </sequenceFlow>
-     <sequenceFlow id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__done_1" sourceRef="gateway-124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__GET" targetRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__done_1">
+     <sequenceFlow id="gateway-get_denybydone_1" sourceRef="gateway-get" targetRef="denybydone_1">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $taskremovetemp__msdenydefault:Task();
             $taskremovetemp__msdenytemp:Task();
@@ -69,7 +69,7 @@
                 ]]>
             </conditionExpression>
      </sequenceFlow>
-     <sequenceFlow id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__pause_1" sourceRef="gateway-124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__GET" targetRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__pause_1">
+     <sequenceFlow id="gateway-get_denybypause_1" sourceRef="gateway-get" targetRef="denybypause_1">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $taskremovetemp__msdenydefault:Task();
             $taskremovetemp__msdenytemp:Task();
@@ -78,7 +78,7 @@
                 ]]>
             </conditionExpression>
      </sequenceFlow>
-     <sequenceFlow id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__wait_1" sourceRef="gateway-124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__GET" targetRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__wait_1">
+     <sequenceFlow id="gateway-get_denybywait_1" sourceRef="gateway-get" targetRef="denybywait_1">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $taskremovetemp__msdenydefault:Task();
             $taskremovetemp__msdenytemp:Task();
@@ -87,10 +87,10 @@
                 ]]>
             </conditionExpression>
      </sequenceFlow>
-    <exclusiveGateway id="gateway-124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__GET" name="Gateway" gatewayDirection="Diverging" default="gateway-124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__GET_End_Line"></exclusiveGateway>
-    <sequenceFlow id="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__cancel_1-gatewayline" sourceRef="124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__GET" targetRef="gateway-124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__GET"></sequenceFlow>
-    <sequenceFlow id="gateway-124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__GET_End_Line" sourceRef="gateway-124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__GET" targetRef="gateway-124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__GET_End"/>
-    <endEvent id="gateway-124A3939-CC4D-4585-9A87-DD0678DCE5C5__MSDENY__GET_End" name="End"/>
+    <exclusiveGateway id="gateway-get" name="Gateway" gatewayDirection="Diverging" default="gateway-get_end_line"></exclusiveGateway>
+    <sequenceFlow id="get_gateway-get_gatewayline" sourceRef="get" targetRef="gateway-get"></sequenceFlow>
+    <sequenceFlow id="gateway-get_end_line" sourceRef="gateway-get" targetRef="gateway-get_end"/>
+    <endEvent id="gateway-get_end" name="end"/>
     </process>
 </definitions>
 

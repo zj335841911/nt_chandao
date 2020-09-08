@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[文档]
@@ -84,7 +85,7 @@ public class Doc extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 文档标题
      */
@@ -160,28 +161,28 @@ public class Doc extends EntityMP implements Serializable {
     @TableField(value = "lib")
     @JSONField(name = "lib")
     @JsonProperty("lib")
-    private BigInteger lib;
+    private Long lib;
     /**
      * 所属项目
      */
     @TableField(value = "project")
     @JSONField(name = "project")
     @JsonProperty("project")
-    private BigInteger project;
+    private Long project;
     /**
      * 所属产品
      */
     @TableField(value = "product")
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
     /**
      * 所属分类
      */
     @TableField(value = "module")
     @JSONField(name = "module")
     @JsonProperty("module")
-    private BigInteger module;
+    private Long module;
 
     /**
      * 
@@ -318,7 +319,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [所属文档库]
      */
-    public void setLib(BigInteger lib){
+    public void setLib(Long lib){
         this.lib = lib ;
         this.modify("lib",lib);
     }
@@ -326,7 +327,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [所属项目]
      */
-    public void setProject(BigInteger project){
+    public void setProject(Long project){
         this.project = project ;
         this.modify("project",project);
     }
@@ -334,7 +335,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [所属产品]
      */
-    public void setProduct(BigInteger product){
+    public void setProduct(Long product){
         this.product = product ;
         this.modify("product",product);
     }
@@ -342,12 +343,16 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 设置 [所属分类]
      */
-    public void setModule(BigInteger module){
+    public void setModule(Long module){
         this.module = module ;
         this.modify("module",module);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
 }
 
 

@@ -8,17 +8,17 @@
         <tns:global identifier="productproducttopibztop" type="cn.ibizlab.pms.core.ibiz.domain.IbzTop" />
         <tns:global identifier="productproducttopdefault" type="cn.ibizlab.pms.core.zentao.domain.Product" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="productproducttopdeaction1" id="21A07717-8ABE-492C-AC77-062475BFB315" implementation="http://www.jboss.org/drools/rule" name="save置顶"/>
-     <endEvent id="21A07717-8ABE-492C-AC77-062475BFB315_End" name="End"/>
-     <sequenceFlow id="21A07717-8ABE-492C-AC77-062475BFB315_End_Line" sourceRef="21A07717-8ABE-492C-AC77-062475BFB315" targetRef="21A07717-8ABE-492C-AC77-062475BFB315_End"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="productproducttopprepareparam1" id="DB68EDB2-DF5D-4E5C-A5B5-A189D6A6077B" implementation="http://www.jboss.org/drools/rule" name="设置置顶数据"/>
-     <startEvent id="A062E59A-5E49-4CD8-A1D9-07301EA2C693" isInterrupting="true"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="productproducttoprawsqlcall1" id="216B09AC-C1C3-4B05-A042-70521C490D9E" implementation="http://www.jboss.org/drools/rule" name="获取置顶最大排序值"/>
-     <sequenceFlow id="05D41ABC-BCDB-483C-8CB4-FD7C691D2F44" sourceRef="216B09AC-C1C3-4B05-A042-70521C490D9E" targetRef="DB68EDB2-DF5D-4E5C-A5B5-A189D6A6077B">
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="productproducttopdeaction1" id="deaction1" implementation="http://www.jboss.org/drools/rule" name="save置顶"/>
+     <endEvent id="deaction1_end" name="end"/>
+     <sequenceFlow id="deaction1_end_line" sourceRef="deaction1" targetRef="deaction1_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="productproducttopprepareparam1" id="prepareparam1" implementation="http://www.jboss.org/drools/rule" name="设置置顶数据"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="productproducttoprawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取置顶最大排序值"/>
+     <sequenceFlow id="rawsqlcall1_prepareparam1" sourceRef="rawsqlcall1" targetRef="prepareparam1">
      </sequenceFlow>
-     <sequenceFlow id="619CA235-EC5A-45AE-89BC-96B877EB723F" sourceRef="A062E59A-5E49-4CD8-A1D9-07301EA2C693" targetRef="216B09AC-C1C3-4B05-A042-70521C490D9E">
+     <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
      </sequenceFlow>
-     <sequenceFlow id="21983BDB-A72C-45C5-9CD2-2844E4559280" sourceRef="DB68EDB2-DF5D-4E5C-A5B5-A189D6A6077B" targetRef="21A07717-8ABE-492C-AC77-062475BFB315">
+     <sequenceFlow id="prepareparam1_deaction1" sourceRef="prepareparam1" targetRef="deaction1">
      </sequenceFlow>
     </process>
 </definitions>

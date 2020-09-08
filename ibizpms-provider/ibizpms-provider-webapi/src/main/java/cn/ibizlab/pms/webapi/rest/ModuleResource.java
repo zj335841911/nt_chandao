@@ -67,7 +67,7 @@ public class ModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Update-all')")
     @ApiOperation(value = "更新模块", tags = {"模块" },  notes = "更新模块")
 	@RequestMapping(method = RequestMethod.PUT, value = "/modules/{module_id}")
-    public ResponseEntity<ModuleDTO> update(@PathVariable("module_id") BigInteger module_id, @RequestBody ModuleDTO moduledto) {
+    public ResponseEntity<ModuleDTO> update(@PathVariable("module_id") Long module_id, @RequestBody ModuleDTO moduledto) {
 		Module domain  = moduleMapping.toDomain(moduledto);
         domain .setId(module_id);
 		moduleService.update(domain );
@@ -86,14 +86,14 @@ public class ModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Remove-all')")
     @ApiOperation(value = "删除模块", tags = {"模块" },  notes = "删除模块")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/modules/{module_id}")
-    public ResponseEntity<Boolean> remove(@PathVariable("module_id") BigInteger module_id) {
+    public ResponseEntity<Boolean> remove(@PathVariable("module_id") Long module_id) {
          return ResponseEntity.status(HttpStatus.OK).body(moduleService.remove(module_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Remove-all')")
     @ApiOperation(value = "批量删除模块", tags = {"模块" },  notes = "批量删除模块")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/modules/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         moduleService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -101,7 +101,7 @@ public class ModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Get-all')")
     @ApiOperation(value = "获取模块", tags = {"模块" },  notes = "获取模块")
 	@RequestMapping(method = RequestMethod.GET, value = "/modules/{module_id}")
-    public ResponseEntity<ModuleDTO> get(@PathVariable("module_id") BigInteger module_id) {
+    public ResponseEntity<ModuleDTO> get(@PathVariable("module_id") Long module_id) {
         Module domain = moduleService.get(module_id);
         ModuleDTO dto = moduleMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
@@ -122,7 +122,7 @@ public class ModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Fix-all')")
     @ApiOperation(value = "重建模块路径", tags = {"模块" },  notes = "重建模块路径")
 	@RequestMapping(method = RequestMethod.POST, value = "/modules/{module_id}/fix")
-    public ResponseEntity<ModuleDTO> fix(@PathVariable("module_id") BigInteger module_id, @RequestBody ModuleDTO moduledto) {
+    public ResponseEntity<ModuleDTO> fix(@PathVariable("module_id") Long module_id, @RequestBody ModuleDTO moduledto) {
         Module domain = moduleMapping.toDomain(moduledto);
         domain.setId(module_id);
         domain = moduleService.fix(domain);

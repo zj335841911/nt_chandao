@@ -67,7 +67,7 @@ public class UserTplResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserTpl-Update-all')")
     @ApiOperation(value = "更新用户模板", tags = {"用户模板" },  notes = "更新用户模板")
 	@RequestMapping(method = RequestMethod.PUT, value = "/usertpls/{usertpl_id}")
-    public ResponseEntity<UserTplDTO> update(@PathVariable("usertpl_id") BigInteger usertpl_id, @RequestBody UserTplDTO usertpldto) {
+    public ResponseEntity<UserTplDTO> update(@PathVariable("usertpl_id") Long usertpl_id, @RequestBody UserTplDTO usertpldto) {
 		UserTpl domain  = usertplMapping.toDomain(usertpldto);
         domain .setId(usertpl_id);
 		usertplService.update(domain );
@@ -86,14 +86,14 @@ public class UserTplResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserTpl-Remove-all')")
     @ApiOperation(value = "删除用户模板", tags = {"用户模板" },  notes = "删除用户模板")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/usertpls/{usertpl_id}")
-    public ResponseEntity<Boolean> remove(@PathVariable("usertpl_id") BigInteger usertpl_id) {
+    public ResponseEntity<Boolean> remove(@PathVariable("usertpl_id") Long usertpl_id) {
          return ResponseEntity.status(HttpStatus.OK).body(usertplService.remove(usertpl_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserTpl-Remove-all')")
     @ApiOperation(value = "批量删除用户模板", tags = {"用户模板" },  notes = "批量删除用户模板")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/usertpls/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         usertplService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -101,7 +101,7 @@ public class UserTplResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserTpl-Get-all')")
     @ApiOperation(value = "获取用户模板", tags = {"用户模板" },  notes = "获取用户模板")
 	@RequestMapping(method = RequestMethod.GET, value = "/usertpls/{usertpl_id}")
-    public ResponseEntity<UserTplDTO> get(@PathVariable("usertpl_id") BigInteger usertpl_id) {
+    public ResponseEntity<UserTplDTO> get(@PathVariable("usertpl_id") Long usertpl_id) {
         UserTpl domain = usertplService.get(usertpl_id);
         UserTplDTO dto = usertplMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);

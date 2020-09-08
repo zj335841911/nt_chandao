@@ -62,7 +62,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
 
     /**
      * 属性 [PLAN]
@@ -70,7 +70,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "plan")
     @JsonProperty("plan")
-    private BigInteger plan;
+    private Long plan;
 
     /**
      * 属性 [BRANCH]
@@ -78,7 +78,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "branch")
     @JsonProperty("branch")
-    private BigInteger branch;
+    private Long branch;
 
     /**
      * 属性 [PROJECT]
@@ -86,13 +86,13 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "project")
     @JsonProperty("project")
-    private BigInteger project;
+    private Long project;
 
 
     /**
      * 设置 [PRODUCT]
      */
-    public void setProduct(BigInteger  product){
+    public void setProduct(Long  product){
         this.product = product ;
         this.modify("product",product);
     }
@@ -100,7 +100,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PLAN]
      */
-    public void setPlan(BigInteger  plan){
+    public void setPlan(Long  plan){
         this.plan = plan ;
         this.modify("plan",plan);
     }
@@ -108,7 +108,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
     /**
      * 设置 [BRANCH]
      */
-    public void setBranch(BigInteger  branch){
+    public void setBranch(Long  branch){
         this.branch = branch ;
         this.modify("branch",branch);
     }
@@ -116,7 +116,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PROJECT]
      */
-    public void setProject(BigInteger  project){
+    public void setProject(Long  project){
         this.project = project ;
         this.modify("project",project);
     }

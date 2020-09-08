@@ -67,7 +67,7 @@ public class UserResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Update-all')")
     @ApiOperation(value = "更新用户", tags = {"用户" },  notes = "更新用户")
 	@RequestMapping(method = RequestMethod.PUT, value = "/users/{user_id}")
-    public ResponseEntity<UserDTO> update(@PathVariable("user_id") BigInteger user_id, @RequestBody UserDTO userdto) {
+    public ResponseEntity<UserDTO> update(@PathVariable("user_id") Long user_id, @RequestBody UserDTO userdto) {
 		User domain  = userMapping.toDomain(userdto);
         domain .setId(user_id);
 		userService.update(domain );
@@ -86,14 +86,14 @@ public class UserResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Remove-all')")
     @ApiOperation(value = "删除用户", tags = {"用户" },  notes = "删除用户")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/users/{user_id}")
-    public ResponseEntity<Boolean> remove(@PathVariable("user_id") BigInteger user_id) {
+    public ResponseEntity<Boolean> remove(@PathVariable("user_id") Long user_id) {
          return ResponseEntity.status(HttpStatus.OK).body(userService.remove(user_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Remove-all')")
     @ApiOperation(value = "批量删除用户", tags = {"用户" },  notes = "批量删除用户")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/users/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         userService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -101,7 +101,7 @@ public class UserResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Get-all')")
     @ApiOperation(value = "获取用户", tags = {"用户" },  notes = "获取用户")
 	@RequestMapping(method = RequestMethod.GET, value = "/users/{user_id}")
-    public ResponseEntity<UserDTO> get(@PathVariable("user_id") BigInteger user_id) {
+    public ResponseEntity<UserDTO> get(@PathVariable("user_id") Long user_id) {
         User domain = userService.get(user_id);
         UserDTO dto = userMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
@@ -122,7 +122,7 @@ public class UserResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-GetByCommiter-all')")
     @ApiOperation(value = "根据代码账户查询用户信息", tags = {"用户" },  notes = "根据代码账户查询用户信息")
 	@RequestMapping(method = RequestMethod.GET, value = "/users/{user_id}/getbycommiter")
-    public ResponseEntity<UserDTO> getByCommiter(@PathVariable("user_id") BigInteger user_id, @RequestBody UserDTO userdto) {
+    public ResponseEntity<UserDTO> getByCommiter(@PathVariable("user_id") Long user_id, @RequestBody UserDTO userdto) {
         User domain = userMapping.toDomain(userdto);
         domain.setId(user_id);
         domain = userService.getByCommiter(domain);
@@ -148,7 +148,7 @@ public class UserResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-SyncAccount-all')")
     @ApiOperation(value = "同步账号", tags = {"用户" },  notes = "同步账号")
 	@RequestMapping(method = RequestMethod.POST, value = "/users/{user_id}/syncaccount")
-    public ResponseEntity<UserDTO> syncAccount(@PathVariable("user_id") BigInteger user_id, @RequestBody UserDTO userdto) {
+    public ResponseEntity<UserDTO> syncAccount(@PathVariable("user_id") Long user_id, @RequestBody UserDTO userdto) {
         User domain = userMapping.toDomain(userdto);
         domain.setId(user_id);
         domain = userService.syncAccount(domain);

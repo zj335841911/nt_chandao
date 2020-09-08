@@ -8,14 +8,14 @@
         <tns:global identifier="tasktaskfavoritesibzfavorites" type="cn.ibizlab.pms.core.ibiz.domain.IbzFavorites" />
         <tns:global identifier="tasktaskfavoritesdefault" type="cn.ibizlab.pms.core.zentao.domain.Task" />
         </extensionElements>
-     <startEvent id="5695e20f6116aa2fe68a6be49eb0885d" isInterrupting="true"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="tasktaskfavoritesprepareparam1" id="99732b274e1284ad50c01c1d09775364" implementation="http://www.jboss.org/drools/rule" name="设置收藏参数"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="tasktaskfavoritesdeaction1" id="12b040ced461f792bb621933d26514ff" implementation="http://www.jboss.org/drools/rule" name="创建收藏信息"/>
-     <endEvent id="12b040ced461f792bb621933d26514ff_End" name="End"/>
-     <sequenceFlow id="12b040ced461f792bb621933d26514ff_End_Line" sourceRef="12b040ced461f792bb621933d26514ff" targetRef="12b040ced461f792bb621933d26514ff_End"/>
-     <sequenceFlow id="acdc43018e6e0c12ea5046935ae285ea" sourceRef="5695e20f6116aa2fe68a6be49eb0885d" targetRef="99732b274e1284ad50c01c1d09775364">
+     <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="tasktaskfavoritesprepareparam1" id="prepareparam1" implementation="http://www.jboss.org/drools/rule" name="设置收藏参数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="tasktaskfavoritesdeaction1" id="deaction1" implementation="http://www.jboss.org/drools/rule" name="创建收藏信息"/>
+     <endEvent id="deaction1_end" name="end"/>
+     <sequenceFlow id="deaction1_end_line" sourceRef="deaction1" targetRef="deaction1_end"/>
+     <sequenceFlow id="begin_prepareparam1" sourceRef="begin" targetRef="prepareparam1">
      </sequenceFlow>
-     <sequenceFlow id="5999ffb261848a9eb96ac208561d1c1a" sourceRef="99732b274e1284ad50c01c1d09775364" targetRef="12b040ced461f792bb621933d26514ff">
+     <sequenceFlow id="prepareparam1_deaction1" sourceRef="prepareparam1" targetRef="deaction1">
      </sequenceFlow>
     </process>
 </definitions>

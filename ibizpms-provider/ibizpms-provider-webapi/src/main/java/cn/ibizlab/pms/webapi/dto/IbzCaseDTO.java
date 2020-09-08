@@ -145,7 +145,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [PRECONDITION]
@@ -209,7 +209,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "lib")
     @JsonProperty("lib")
-    private BigInteger lib;
+    private Long lib;
 
     /**
      * 属性 [MODULE]
@@ -217,7 +217,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "module")
     @JsonProperty("module")
-    private BigInteger module;
+    private Long module;
 
     /**
      * 属性 [MODULENAME]
@@ -391,7 +391,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [LIB]
      */
-    public void setLib(BigInteger  lib){
+    public void setLib(Long  lib){
         this.lib = lib ;
         this.modify("lib",lib);
     }
@@ -399,7 +399,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [MODULE]
      */
-    public void setModule(BigInteger  module){
+    public void setModule(Long  module){
         this.module = module ;
         this.modify("module",module);
     }

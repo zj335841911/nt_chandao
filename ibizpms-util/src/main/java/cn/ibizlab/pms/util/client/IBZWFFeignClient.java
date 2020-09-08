@@ -2,6 +2,7 @@ package cn.ibizlab.pms.util.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
+import com.alibaba.fastjson.JSONObject;
 import java.util.*;
 
 @FeignClient(value = "${ibiz.ref.service.wf:ibzwf-api}",fallback = IBZWFFallback.class)
@@ -18,4 +19,9 @@ public interface IBZWFFeignClient
 
 	@RequestMapping(method = RequestMethod.POST, value = "/deploybpmn")
 	Boolean deployBpmnFile(@RequestBody List<Map<String,Object>> bpmnfiles);
+
+	@RequestMapping(method = RequestMethod.POST, value = "/{system}-app-{appname}/{entity}/{businessKey}/process-instances")
+	JSONObject wfstart(@PathVariable("system") String system, @PathVariable("appname") String appname,
+					   @PathVariable("entity") String entity,
+					   @PathVariable("businessKey") String businessKey, @RequestBody JSONObject instance);
 }

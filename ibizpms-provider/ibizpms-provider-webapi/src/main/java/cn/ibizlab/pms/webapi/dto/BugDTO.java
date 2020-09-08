@@ -277,7 +277,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [FOUND]
@@ -389,7 +389,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "tostory")
     @JsonProperty("tostory")
-    private BigInteger tostory;
+    private Long tostory;
 
     /**
      * 属性 [ENTRY]
@@ -397,7 +397,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "entry")
     @JsonProperty("entry")
-    private BigInteger entry;
+    private Long entry;
 
     /**
      * 属性 [PRODUCT]
@@ -405,7 +405,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
 
     /**
      * 属性 [TOTASK]
@@ -413,7 +413,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "totask")
     @JsonProperty("totask")
-    private BigInteger totask;
+    private Long totask;
 
     /**
      * 属性 [PLAN]
@@ -421,7 +421,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "plan")
     @JsonProperty("plan")
-    private BigInteger plan;
+    private Long plan;
 
     /**
      * 属性 [MODULE]
@@ -429,7 +429,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "module")
     @JsonProperty("module")
-    private BigInteger module;
+    private Long module;
 
     /**
      * 属性 [BRANCH]
@@ -437,7 +437,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "branch")
     @JsonProperty("branch")
-    private BigInteger branch;
+    private Long branch;
 
     /**
      * 属性 [DUPLICATEBUG]
@@ -445,7 +445,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "duplicatebug")
     @JsonProperty("duplicatebug")
-    private BigInteger duplicatebug;
+    private Long duplicatebug;
 
     /**
      * 属性 [REPO]
@@ -453,7 +453,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "repo")
     @JsonProperty("repo")
-    private BigInteger repo;
+    private Long repo;
 
     /**
      * 属性 [STORY]
@@ -461,7 +461,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "story")
     @JsonProperty("story")
-    private BigInteger story;
+    private Long story;
 
     /**
      * 属性 [CASE]
@@ -469,7 +469,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
-    private BigInteger ibizcase;
+    private Long ibizcase;
 
     /**
      * 属性 [PROJECT]
@@ -477,7 +477,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "project")
     @JsonProperty("project")
-    private BigInteger project;
+    private Long project;
 
     /**
      * 属性 [TASK]
@@ -485,7 +485,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "task")
     @JsonProperty("task")
-    private BigInteger task;
+    private Long task;
 
     /**
      * 属性 [TESTTASK]
@@ -493,7 +493,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "testtask")
     @JsonProperty("testtask")
-    private BigInteger testtask;
+    private Long testtask;
 
     /**
      * 属性 [COMMENT]
@@ -891,7 +891,7 @@ public class BugDTO extends DTOBase implements Serializable {
     /**
      * 设置 [TOSTORY]
      */
-    public void setTostory(BigInteger  tostory){
+    public void setTostory(Long  tostory){
         this.tostory = tostory ;
         this.modify("tostory",tostory);
     }
@@ -899,7 +899,7 @@ public class BugDTO extends DTOBase implements Serializable {
     /**
      * 设置 [ENTRY]
      */
-    public void setEntry(BigInteger  entry){
+    public void setEntry(Long  entry){
         this.entry = entry ;
         this.modify("entry",entry);
     }
@@ -907,7 +907,7 @@ public class BugDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PRODUCT]
      */
-    public void setProduct(BigInteger  product){
+    public void setProduct(Long  product){
         this.product = product ;
         this.modify("product",product);
     }
@@ -915,7 +915,7 @@ public class BugDTO extends DTOBase implements Serializable {
     /**
      * 设置 [TOTASK]
      */
-    public void setTotask(BigInteger  totask){
+    public void setTotask(Long  totask){
         this.totask = totask ;
         this.modify("totask",totask);
     }
@@ -923,7 +923,7 @@ public class BugDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PLAN]
      */
-    public void setPlan(BigInteger  plan){
+    public void setPlan(Long  plan){
         this.plan = plan ;
         this.modify("plan",plan);
     }
@@ -931,7 +931,7 @@ public class BugDTO extends DTOBase implements Serializable {
     /**
      * 设置 [MODULE]
      */
-    public void setModule(BigInteger  module){
+    public void setModule(Long  module){
         this.module = module ;
         this.modify("module",module);
     }
@@ -939,7 +939,7 @@ public class BugDTO extends DTOBase implements Serializable {
     /**
      * 设置 [BRANCH]
      */
-    public void setBranch(BigInteger  branch){
+    public void setBranch(Long  branch){
         this.branch = branch ;
         this.modify("branch",branch);
     }
@@ -947,7 +947,7 @@ public class BugDTO extends DTOBase implements Serializable {
     /**
      * 设置 [DUPLICATEBUG]
      */
-    public void setDuplicatebug(BigInteger  duplicatebug){
+    public void setDuplicatebug(Long  duplicatebug){
         this.duplicatebug = duplicatebug ;
         this.modify("duplicatebug",duplicatebug);
     }
@@ -955,7 +955,7 @@ public class BugDTO extends DTOBase implements Serializable {
     /**
      * 设置 [REPO]
      */
-    public void setRepo(BigInteger  repo){
+    public void setRepo(Long  repo){
         this.repo = repo ;
         this.modify("repo",repo);
     }
@@ -963,7 +963,7 @@ public class BugDTO extends DTOBase implements Serializable {
     /**
      * 设置 [STORY]
      */
-    public void setStory(BigInteger  story){
+    public void setStory(Long  story){
         this.story = story ;
         this.modify("story",story);
     }
@@ -971,7 +971,7 @@ public class BugDTO extends DTOBase implements Serializable {
     /**
      * 设置 [CASE]
      */
-    public void setIbizcase(BigInteger  ibizcase){
+    public void setIbizcase(Long  ibizcase){
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
@@ -979,7 +979,7 @@ public class BugDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PROJECT]
      */
-    public void setProject(BigInteger  project){
+    public void setProject(Long  project){
         this.project = project ;
         this.modify("project",project);
     }
@@ -987,7 +987,7 @@ public class BugDTO extends DTOBase implements Serializable {
     /**
      * 设置 [TASK]
      */
-    public void setTask(BigInteger  task){
+    public void setTask(Long  task){
         this.task = task ;
         this.modify("task",task);
     }
@@ -995,7 +995,7 @@ public class BugDTO extends DTOBase implements Serializable {
     /**
      * 设置 [TESTTASK]
      */
-    public void setTesttask(BigInteger  testtask){
+    public void setTesttask(Long  testtask){
         this.testtask = testtask ;
         this.modify("testtask",testtask);
     }

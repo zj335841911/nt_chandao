@@ -190,7 +190,7 @@ public class BurnResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Create-all')")
     @ApiOperation(value = "根据项目建立burn", tags = {"burn" },  notes = "根据项目建立burn")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/burns")
-    public ResponseEntity<BurnDTO> createByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BurnDTO burndto) {
+    public ResponseEntity<BurnDTO> createByProject(@PathVariable("project_id") Long project_id, @RequestBody BurnDTO burndto) {
         Burn domain = burnMapping.toDomain(burndto);
         domain.setProject(project_id);
 		burnService.create(domain);
@@ -201,7 +201,7 @@ public class BurnResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Create-all')")
     @ApiOperation(value = "根据项目批量建立burn", tags = {"burn" },  notes = "根据项目批量建立burn")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/burns/batch")
-    public ResponseEntity<Boolean> createBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<BurnDTO> burndtos) {
+    public ResponseEntity<Boolean> createBatchByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BurnDTO> burndtos) {
         List<Burn> domainlist=burnMapping.toDomain(burndtos);
         for(Burn domain:domainlist){
             domain.setProject(project_id);
@@ -213,7 +213,7 @@ public class BurnResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Update-all')")
     @ApiOperation(value = "根据项目更新burn", tags = {"burn" },  notes = "根据项目更新burn")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/burns/{burn_id}")
-    public ResponseEntity<BurnDTO> updateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("burn_id") String burn_id, @RequestBody BurnDTO burndto) {
+    public ResponseEntity<BurnDTO> updateByProject(@PathVariable("project_id") Long project_id, @PathVariable("burn_id") String burn_id, @RequestBody BurnDTO burndto) {
         Burn domain = burnMapping.toDomain(burndto);
         domain.setProject(project_id);
         domain.setId(burn_id);
@@ -225,7 +225,7 @@ public class BurnResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Update-all')")
     @ApiOperation(value = "根据项目批量更新burn", tags = {"burn" },  notes = "根据项目批量更新burn")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/burns/batch")
-    public ResponseEntity<Boolean> updateBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<BurnDTO> burndtos) {
+    public ResponseEntity<Boolean> updateBatchByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BurnDTO> burndtos) {
         List<Burn> domainlist=burnMapping.toDomain(burndtos);
         for(Burn domain:domainlist){
             domain.setProject(project_id);
@@ -237,7 +237,7 @@ public class BurnResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Remove-all')")
     @ApiOperation(value = "根据项目删除burn", tags = {"burn" },  notes = "根据项目删除burn")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/burns/{burn_id}")
-    public ResponseEntity<Boolean> removeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("burn_id") String burn_id) {
+    public ResponseEntity<Boolean> removeByProject(@PathVariable("project_id") Long project_id, @PathVariable("burn_id") String burn_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(burnService.remove(burn_id));
     }
 
@@ -252,7 +252,7 @@ public class BurnResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Get-all')")
     @ApiOperation(value = "根据项目获取burn", tags = {"burn" },  notes = "根据项目获取burn")
 	@RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/burns/{burn_id}")
-    public ResponseEntity<BurnDTO> getByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("burn_id") String burn_id) {
+    public ResponseEntity<BurnDTO> getByProject(@PathVariable("project_id") Long project_id, @PathVariable("burn_id") String burn_id) {
         Burn domain = burnService.get(burn_id);
         BurnDTO dto = burnMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
@@ -260,7 +260,7 @@ public class BurnResource {
 
     @ApiOperation(value = "根据项目获取burn草稿", tags = {"burn" },  notes = "根据项目获取burn草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/burns/getdraft")
-    public ResponseEntity<BurnDTO> getDraftByProject(@PathVariable("project_id") BigInteger project_id) {
+    public ResponseEntity<BurnDTO> getDraftByProject(@PathVariable("project_id") Long project_id) {
         Burn domain = new Burn();
         domain.setProject(project_id);
         return ResponseEntity.status(HttpStatus.OK).body(burnMapping.toDto(burnService.getDraft(domain)));
@@ -268,14 +268,14 @@ public class BurnResource {
 
     @ApiOperation(value = "根据项目检查burn", tags = {"burn" },  notes = "根据项目检查burn")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/burns/checkkey")
-    public ResponseEntity<Boolean> checkKeyByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BurnDTO burndto) {
+    public ResponseEntity<Boolean> checkKeyByProject(@PathVariable("project_id") Long project_id, @RequestBody BurnDTO burndto) {
         return  ResponseEntity.status(HttpStatus.OK).body(burnService.checkKey(burnMapping.toDomain(burndto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-ComputeBurn-all')")
     @ApiOperation(value = "根据项目burn", tags = {"burn" },  notes = "根据项目burn")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/burns/{burn_id}/computeburn")
-    public ResponseEntity<BurnDTO> computeBurnByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("burn_id") String burn_id, @RequestBody BurnDTO burndto) {
+    public ResponseEntity<BurnDTO> computeBurnByProject(@PathVariable("project_id") Long project_id, @PathVariable("burn_id") String burn_id, @RequestBody BurnDTO burndto) {
         Burn domain = burnMapping.toDomain(burndto);
         domain.setProject(project_id);
         domain = burnService.computeBurn(domain) ;
@@ -286,7 +286,7 @@ public class BurnResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Save-all')")
     @ApiOperation(value = "根据项目保存burn", tags = {"burn" },  notes = "根据项目保存burn")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/burns/save")
-    public ResponseEntity<Boolean> saveByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BurnDTO burndto) {
+    public ResponseEntity<Boolean> saveByProject(@PathVariable("project_id") Long project_id, @RequestBody BurnDTO burndto) {
         Burn domain = burnMapping.toDomain(burndto);
         domain.setProject(project_id);
         return ResponseEntity.status(HttpStatus.OK).body(burnService.save(domain));
@@ -295,7 +295,7 @@ public class BurnResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Save-all')")
     @ApiOperation(value = "根据项目批量保存burn", tags = {"burn" },  notes = "根据项目批量保存burn")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/burns/savebatch")
-    public ResponseEntity<Boolean> saveBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<BurnDTO> burndtos) {
+    public ResponseEntity<Boolean> saveBatchByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BurnDTO> burndtos) {
         List<Burn> domainlist=burnMapping.toDomain(burndtos);
         for(Burn domain:domainlist){
              domain.setProject(project_id);
@@ -307,7 +307,7 @@ public class BurnResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-searchDefault-all')")
 	@ApiOperation(value = "根据项目获取DEFAULT", tags = {"burn" } ,notes = "根据项目获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/burns/fetchdefault")
-	public ResponseEntity<List<BurnDTO>> fetchBurnDefaultByProject(@PathVariable("project_id") BigInteger project_id,BurnSearchContext context) {
+	public ResponseEntity<List<BurnDTO>> fetchBurnDefaultByProject(@PathVariable("project_id") Long project_id,BurnSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Burn> domains = burnService.searchDefault(context) ;
         List<BurnDTO> list = burnMapping.toDto(domains.getContent());
@@ -321,7 +321,7 @@ public class BurnResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-searchDefault-all')")
 	@ApiOperation(value = "根据项目查询DEFAULT", tags = {"burn" } ,notes = "根据项目查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/burns/searchdefault")
-	public ResponseEntity<Page<BurnDTO>> searchBurnDefaultByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BurnSearchContext context) {
+	public ResponseEntity<Page<BurnDTO>> searchBurnDefaultByProject(@PathVariable("project_id") Long project_id, @RequestBody BurnSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Burn> domains = burnService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -330,7 +330,7 @@ public class BurnResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-searchESTIMATEANDLEFT-all')")
 	@ApiOperation(value = "根据项目获取燃尽图预计（含周末）", tags = {"burn" } ,notes = "根据项目获取燃尽图预计（含周末）")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/burns/fetchestimateandleft")
-	public ResponseEntity<List<BurnDTO>> fetchBurnESTIMATEANDLEFTByProject(@PathVariable("project_id") BigInteger project_id,BurnSearchContext context) {
+	public ResponseEntity<List<BurnDTO>> fetchBurnESTIMATEANDLEFTByProject(@PathVariable("project_id") Long project_id,BurnSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Burn> domains = burnService.searchESTIMATEANDLEFT(context) ;
         List<BurnDTO> list = burnMapping.toDto(domains.getContent());
@@ -344,7 +344,7 @@ public class BurnResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-searchESTIMATEANDLEFT-all')")
 	@ApiOperation(value = "根据项目查询燃尽图预计（含周末）", tags = {"burn" } ,notes = "根据项目查询燃尽图预计（含周末）")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/burns/searchestimateandleft")
-	public ResponseEntity<Page<BurnDTO>> searchBurnESTIMATEANDLEFTByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BurnSearchContext context) {
+	public ResponseEntity<Page<BurnDTO>> searchBurnESTIMATEANDLEFTByProject(@PathVariable("project_id") Long project_id, @RequestBody BurnSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Burn> domains = burnService.searchESTIMATEANDLEFT(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)

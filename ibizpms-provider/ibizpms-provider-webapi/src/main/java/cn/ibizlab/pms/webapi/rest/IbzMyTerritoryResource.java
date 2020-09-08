@@ -67,7 +67,7 @@ public class IbzMyTerritoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Update-all')")
     @ApiOperation(value = "更新我的地盘", tags = {"我的地盘" },  notes = "更新我的地盘")
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibzmyterritories/{ibzmyterritory_id}")
-    public ResponseEntity<IbzMyTerritoryDTO> update(@PathVariable("ibzmyterritory_id") BigInteger ibzmyterritory_id, @RequestBody IbzMyTerritoryDTO ibzmyterritorydto) {
+    public ResponseEntity<IbzMyTerritoryDTO> update(@PathVariable("ibzmyterritory_id") Long ibzmyterritory_id, @RequestBody IbzMyTerritoryDTO ibzmyterritorydto) {
 		IbzMyTerritory domain  = ibzmyterritoryMapping.toDomain(ibzmyterritorydto);
         domain .setId(ibzmyterritory_id);
 		ibzmyterritoryService.update(domain );
@@ -86,14 +86,14 @@ public class IbzMyTerritoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Remove-all')")
     @ApiOperation(value = "删除我的地盘", tags = {"我的地盘" },  notes = "删除我的地盘")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzmyterritories/{ibzmyterritory_id}")
-    public ResponseEntity<Boolean> remove(@PathVariable("ibzmyterritory_id") BigInteger ibzmyterritory_id) {
+    public ResponseEntity<Boolean> remove(@PathVariable("ibzmyterritory_id") Long ibzmyterritory_id) {
          return ResponseEntity.status(HttpStatus.OK).body(ibzmyterritoryService.remove(ibzmyterritory_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Remove-all')")
     @ApiOperation(value = "批量删除我的地盘", tags = {"我的地盘" },  notes = "批量删除我的地盘")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzmyterritories/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         ibzmyterritoryService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -101,7 +101,7 @@ public class IbzMyTerritoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Get-all')")
     @ApiOperation(value = "获取我的地盘", tags = {"我的地盘" },  notes = "获取我的地盘")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzmyterritories/{ibzmyterritory_id}")
-    public ResponseEntity<IbzMyTerritoryDTO> get(@PathVariable("ibzmyterritory_id") BigInteger ibzmyterritory_id) {
+    public ResponseEntity<IbzMyTerritoryDTO> get(@PathVariable("ibzmyterritory_id") Long ibzmyterritory_id) {
         IbzMyTerritory domain = ibzmyterritoryService.get(ibzmyterritory_id);
         IbzMyTerritoryDTO dto = ibzmyterritoryMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);

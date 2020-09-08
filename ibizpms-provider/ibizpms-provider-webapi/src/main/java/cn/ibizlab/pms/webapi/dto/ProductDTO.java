@@ -54,7 +54,7 @@ public class ProductDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [DELETED]
@@ -175,7 +175,7 @@ public class ProductDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "line")
     @JsonProperty("line")
-    private BigInteger line;
+    private Long line;
 
     /**
      * 属性 [ACTIVEBUGCNT]
@@ -453,7 +453,7 @@ public class ProductDTO extends DTOBase implements Serializable {
     /**
      * 设置 [LINE]
      */
-    public void setLine(BigInteger  line){
+    public void setLine(Long  line){
         this.line = line ;
         this.modify("line",line);
     }

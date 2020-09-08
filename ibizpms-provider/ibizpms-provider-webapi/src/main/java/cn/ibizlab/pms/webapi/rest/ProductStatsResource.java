@@ -67,7 +67,7 @@ public class ProductStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Update-all')")
     @ApiOperation(value = "更新产品统计", tags = {"产品统计" },  notes = "更新产品统计")
 	@RequestMapping(method = RequestMethod.PUT, value = "/productstats/{productstats_id}")
-    public ResponseEntity<ProductStatsDTO> update(@PathVariable("productstats_id") BigInteger productstats_id, @RequestBody ProductStatsDTO productstatsdto) {
+    public ResponseEntity<ProductStatsDTO> update(@PathVariable("productstats_id") Long productstats_id, @RequestBody ProductStatsDTO productstatsdto) {
 		ProductStats domain  = productstatsMapping.toDomain(productstatsdto);
         domain .setId(productstats_id);
 		productstatsService.update(domain );
@@ -86,14 +86,14 @@ public class ProductStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Remove-all')")
     @ApiOperation(value = "删除产品统计", tags = {"产品统计" },  notes = "删除产品统计")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/productstats/{productstats_id}")
-    public ResponseEntity<Boolean> remove(@PathVariable("productstats_id") BigInteger productstats_id) {
+    public ResponseEntity<Boolean> remove(@PathVariable("productstats_id") Long productstats_id) {
          return ResponseEntity.status(HttpStatus.OK).body(productstatsService.remove(productstats_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Remove-all')")
     @ApiOperation(value = "批量删除产品统计", tags = {"产品统计" },  notes = "批量删除产品统计")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/productstats/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         productstatsService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -101,7 +101,7 @@ public class ProductStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Get-all')")
     @ApiOperation(value = "获取产品统计", tags = {"产品统计" },  notes = "获取产品统计")
 	@RequestMapping(method = RequestMethod.GET, value = "/productstats/{productstats_id}")
-    public ResponseEntity<ProductStatsDTO> get(@PathVariable("productstats_id") BigInteger productstats_id) {
+    public ResponseEntity<ProductStatsDTO> get(@PathVariable("productstats_id") Long productstats_id) {
         ProductStats domain = productstatsService.get(productstats_id);
         ProductStatsDTO dto = productstatsMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
@@ -122,7 +122,7 @@ public class ProductStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-GetTestStats-all')")
     @ApiOperation(value = "获取测试统计详情", tags = {"产品统计" },  notes = "获取测试统计详情")
 	@RequestMapping(method = RequestMethod.GET, value = "/productstats/{productstats_id}/getteststats")
-    public ResponseEntity<ProductStatsDTO> getTestStats(@PathVariable("productstats_id") BigInteger productstats_id, @RequestBody ProductStatsDTO productstatsdto) {
+    public ResponseEntity<ProductStatsDTO> getTestStats(@PathVariable("productstats_id") Long productstats_id, @RequestBody ProductStatsDTO productstatsdto) {
         ProductStats domain = productstatsMapping.toDomain(productstatsdto);
         domain.setId(productstats_id);
         domain = productstatsService.getTestStats(domain);

@@ -88,7 +88,7 @@ public class TestTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [STATUS]
@@ -136,7 +136,7 @@ public class TestTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
 
     /**
      * 属性 [BUILD]
@@ -144,7 +144,7 @@ public class TestTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "build")
     @JsonProperty("build")
-    private BigInteger build;
+    private Long build;
 
     /**
      * 属性 [PROJECT]
@@ -152,7 +152,7 @@ public class TestTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "project")
     @JsonProperty("project")
-    private BigInteger project;
+    private Long project;
 
     /**
      * 属性 [PRODUCTNAME]
@@ -278,7 +278,7 @@ public class TestTaskDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PRODUCT]
      */
-    public void setProduct(BigInteger  product){
+    public void setProduct(Long  product){
         this.product = product ;
         this.modify("product",product);
     }
@@ -286,7 +286,7 @@ public class TestTaskDTO extends DTOBase implements Serializable {
     /**
      * 设置 [BUILD]
      */
-    public void setBuild(BigInteger  build){
+    public void setBuild(Long  build){
         this.build = build ;
         this.modify("build",build);
     }
@@ -294,7 +294,7 @@ public class TestTaskDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PROJECT]
      */
-    public void setProject(BigInteger  project){
+    public void setProject(Long  project){
         this.project = project ;
         this.modify("project",project);
     }

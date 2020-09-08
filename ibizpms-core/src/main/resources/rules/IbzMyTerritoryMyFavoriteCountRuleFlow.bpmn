@@ -7,17 +7,17 @@
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="ibzmyterritorymyfavoritecountdefault" type="cn.ibizlab.pms.core.ibiz.domain.IbzMyTerritory" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymyfavoritecountrawsqlcall3" id="70A5EC44-E290-4932-A3DD-596F59772297" implementation="http://www.jboss.org/drools/rule" name="我的收藏任务数"/>
-     <endEvent id="70A5EC44-E290-4932-A3DD-596F59772297_End" name="End"/>
-     <sequenceFlow id="70A5EC44-E290-4932-A3DD-596F59772297_End_Line" sourceRef="70A5EC44-E290-4932-A3DD-596F59772297" targetRef="70A5EC44-E290-4932-A3DD-596F59772297_End"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymyfavoritecountrawsqlcall2" id="C9F5BF4A-0921-434D-AEE0-B56D10833533" implementation="http://www.jboss.org/drools/rule" name="我的收藏Bug数"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymyfavoritecountrawsqlcall1" id="B8668DA5-A622-4934-8572-D65567211EA4" implementation="http://www.jboss.org/drools/rule" name="获取我的收藏需求数"/>
-     <startEvent id="1A8E4E70-76A8-47BB-9F8C-ADCCDA0C32EE" isInterrupting="true"/>
-     <sequenceFlow id="95AF21DA-5468-4938-B7E5-BE9A39EB4B73" sourceRef="1A8E4E70-76A8-47BB-9F8C-ADCCDA0C32EE" targetRef="B8668DA5-A622-4934-8572-D65567211EA4">
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymyfavoritecountrawsqlcall3" id="rawsqlcall3" implementation="http://www.jboss.org/drools/rule" name="我的收藏任务数"/>
+     <endEvent id="rawsqlcall3_end" name="end"/>
+     <sequenceFlow id="rawsqlcall3_end_line" sourceRef="rawsqlcall3" targetRef="rawsqlcall3_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymyfavoritecountrawsqlcall2" id="rawsqlcall2" implementation="http://www.jboss.org/drools/rule" name="我的收藏Bug数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymyfavoritecountrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取我的收藏需求数"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
      </sequenceFlow>
-     <sequenceFlow id="6E706B7F-BCD7-4CBE-81E8-645999FC6170" sourceRef="B8668DA5-A622-4934-8572-D65567211EA4" targetRef="C9F5BF4A-0921-434D-AEE0-B56D10833533">
+     <sequenceFlow id="rawsqlcall1_rawsqlcall2" sourceRef="rawsqlcall1" targetRef="rawsqlcall2">
      </sequenceFlow>
-     <sequenceFlow id="C658127D-FC8C-4668-AA51-765C47251960" sourceRef="C9F5BF4A-0921-434D-AEE0-B56D10833533" targetRef="70A5EC44-E290-4932-A3DD-596F59772297">
+     <sequenceFlow id="rawsqlcall2_rawsqlcall3" sourceRef="rawsqlcall2" targetRef="rawsqlcall3">
      </sequenceFlow>
     </process>
 </definitions>

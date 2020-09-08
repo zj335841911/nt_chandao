@@ -62,7 +62,7 @@ public class HistoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [ACTION]
@@ -70,7 +70,7 @@ public class HistoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "action")
     @JsonProperty("action")
-    private BigInteger action;
+    private Long action;
 
 
     /**
@@ -108,7 +108,7 @@ public class HistoryDTO extends DTOBase implements Serializable {
     /**
      * 设置 [ACTION]
      */
-    public void setAction(BigInteger  action){
+    public void setAction(Long  action){
         this.action = action ;
         this.modify("action",action);
     }

@@ -30,7 +30,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [TITLE]
@@ -46,7 +46,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "module")
     @JsonProperty("module")
-    private BigInteger module;
+    private Long module;
 
     /**
      * 属性 [PRODUCT]
@@ -54,7 +54,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
 
     /**
      * 属性 [IBIZ_ID]
@@ -385,7 +385,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     /**
      * 设置 [MODULE]
      */
-    public void setModule(BigInteger  module){
+    public void setModule(Long  module){
         this.module = module ;
         this.modify("module",module);
     }
@@ -393,7 +393,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PRODUCT]
      */
-    public void setProduct(BigInteger  product){
+    public void setProduct(Long  product){
         this.product = product ;
         this.modify("product",product);
     }

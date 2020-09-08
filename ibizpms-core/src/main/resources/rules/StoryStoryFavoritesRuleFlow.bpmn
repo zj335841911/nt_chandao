@@ -8,14 +8,14 @@
         <tns:global identifier="storystoryfavoritesibzfavorites" type="cn.ibizlab.pms.core.ibiz.domain.IbzFavorites" />
         <tns:global identifier="storystoryfavoritesdefault" type="cn.ibizlab.pms.core.zentao.domain.Story" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="storystoryfavoritesdeaction1" id="F2CB0DC8-21A7-4326-9080-EC0DC0048DA3" implementation="http://www.jboss.org/drools/rule" name="创建收藏信息"/>
-     <endEvent id="F2CB0DC8-21A7-4326-9080-EC0DC0048DA3_End" name="End"/>
-     <sequenceFlow id="F2CB0DC8-21A7-4326-9080-EC0DC0048DA3_End_Line" sourceRef="F2CB0DC8-21A7-4326-9080-EC0DC0048DA3" targetRef="F2CB0DC8-21A7-4326-9080-EC0DC0048DA3_End"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="storystoryfavoritesprepareparam1" id="D18EA64F-09D5-47AB-A7C0-D497627A6598" implementation="http://www.jboss.org/drools/rule" name="设置收藏参数"/>
-     <startEvent id="784E6674-D671-4079-A177-4091F3E0BE1E" isInterrupting="true"/>
-     <sequenceFlow id="84F23E61-1207-4DF3-9758-D8EADE70CF42" sourceRef="784E6674-D671-4079-A177-4091F3E0BE1E" targetRef="D18EA64F-09D5-47AB-A7C0-D497627A6598">
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="storystoryfavoritesdeaction1" id="deaction1" implementation="http://www.jboss.org/drools/rule" name="创建收藏信息"/>
+     <endEvent id="deaction1_end" name="end"/>
+     <sequenceFlow id="deaction1_end_line" sourceRef="deaction1" targetRef="deaction1_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="storystoryfavoritesprepareparam1" id="prepareparam1" implementation="http://www.jboss.org/drools/rule" name="设置收藏参数"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <sequenceFlow id="begin_prepareparam1" sourceRef="begin" targetRef="prepareparam1">
      </sequenceFlow>
-     <sequenceFlow id="300B62CA-ADF9-4F5A-8E5E-DF40475CABBB" sourceRef="D18EA64F-09D5-47AB-A7C0-D497627A6598" targetRef="F2CB0DC8-21A7-4326-9080-EC0DC0048DA3">
+     <sequenceFlow id="prepareparam1_deaction1" sourceRef="prepareparam1" targetRef="deaction1">
      </sequenceFlow>
     </process>
 </definitions>

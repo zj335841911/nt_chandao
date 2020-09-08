@@ -46,7 +46,7 @@ public class ReleaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [LEFTBUGS]
@@ -127,7 +127,7 @@ public class ReleaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
 
     /**
      * 属性 [BUILD]
@@ -135,7 +135,7 @@ public class ReleaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "build")
     @JsonProperty("build")
-    private BigInteger build;
+    private Long build;
 
     /**
      * 属性 [BRANCH]
@@ -143,7 +143,7 @@ public class ReleaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "branch")
     @JsonProperty("branch")
-    private BigInteger branch;
+    private Long branch;
 
     /**
      * 属性 [PRODUCTNAME]
@@ -237,7 +237,7 @@ public class ReleaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PRODUCT]
      */
-    public void setProduct(BigInteger  product){
+    public void setProduct(Long  product){
         this.product = product ;
         this.modify("product",product);
     }
@@ -245,7 +245,7 @@ public class ReleaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [BUILD]
      */
-    public void setBuild(BigInteger  build){
+    public void setBuild(Long  build){
         this.build = build ;
         this.modify("build",build);
     }
@@ -253,7 +253,7 @@ public class ReleaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [BRANCH]
      */
-    public void setBranch(BigInteger  branch){
+    public void setBranch(Long  branch){
         this.branch = branch ;
         this.modify("branch",branch);
     }

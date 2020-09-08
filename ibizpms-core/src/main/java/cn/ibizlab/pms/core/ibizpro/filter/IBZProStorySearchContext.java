@@ -34,15 +34,15 @@ public class IBZProStorySearchContext extends QueryWrapperContext<IBZProStory> {
             this.getSearchCond().like("title", n_title_like);
         }
     }
-	private BigInteger n_module_eq;//[id]
-	public void setN_module_eq(BigInteger n_module_eq) {
+	private Long n_module_eq;//[id]
+	public void setN_module_eq(Long n_module_eq) {
         this.n_module_eq = n_module_eq;
         if(!ObjectUtils.isEmpty(this.n_module_eq)){
             this.getSearchCond().eq("module", n_module_eq);
         }
     }
-	private BigInteger n_product_eq;//[编号]
-	public void setN_product_eq(BigInteger n_product_eq) {
+	private Long n_product_eq;//[编号]
+	public void setN_product_eq(Long n_product_eq) {
         this.n_product_eq = n_product_eq;
         if(!ObjectUtils.isEmpty(this.n_product_eq)){
             this.getSearchCond().eq("product", n_product_eq);

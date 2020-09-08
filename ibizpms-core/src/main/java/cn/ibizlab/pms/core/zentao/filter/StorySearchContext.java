@@ -104,8 +104,8 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
             this.getSearchCond().eq("openedby", n_openedby_eq);
         }
     }
-	private BigInteger n_id_eq;//[编号]
-	public void setN_id_eq(BigInteger n_id_eq) {
+	private Long n_id_eq;//[编号]
+	public void setN_id_eq(Long n_id_eq) {
         this.n_id_eq = n_id_eq;
         if(!ObjectUtils.isEmpty(this.n_id_eq)){
             this.getSearchCond().eq("id", n_id_eq);
@@ -216,50 +216,50 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
             this.getSearchCond().like("prodoctname", n_prodoctname_like);
         }
     }
-	private BigInteger n_frombug_eq;//[来源Bug]
-	public void setN_frombug_eq(BigInteger n_frombug_eq) {
+	private Long n_frombug_eq;//[来源Bug]
+	public void setN_frombug_eq(Long n_frombug_eq) {
         this.n_frombug_eq = n_frombug_eq;
         if(!ObjectUtils.isEmpty(this.n_frombug_eq)){
             this.getSearchCond().eq("frombug", n_frombug_eq);
         }
     }
-	private BigInteger n_parent_eq;//[父需求]
-	public void setN_parent_eq(BigInteger n_parent_eq) {
+	private Long n_parent_eq;//[父需求]
+	public void setN_parent_eq(Long n_parent_eq) {
         this.n_parent_eq = n_parent_eq;
         if(!ObjectUtils.isEmpty(this.n_parent_eq)){
             this.getSearchCond().eq("parent", n_parent_eq);
         }
     }
-	private BigInteger n_module_eq;//[所属模块]
-	public void setN_module_eq(BigInteger n_module_eq) {
+	private Long n_module_eq;//[所属模块]
+	public void setN_module_eq(Long n_module_eq) {
         this.n_module_eq = n_module_eq;
         if(!ObjectUtils.isEmpty(this.n_module_eq)){
             this.getSearchCond().eq("module", n_module_eq);
         }
     }
-	private BigInteger n_product_eq;//[所属产品]
-	public void setN_product_eq(BigInteger n_product_eq) {
+	private Long n_product_eq;//[所属产品]
+	public void setN_product_eq(Long n_product_eq) {
         this.n_product_eq = n_product_eq;
         if(!ObjectUtils.isEmpty(this.n_product_eq)){
             this.getSearchCond().eq("product", n_product_eq);
         }
     }
-	private BigInteger n_duplicatestory_eq;//[重复需求ID]
-	public void setN_duplicatestory_eq(BigInteger n_duplicatestory_eq) {
+	private Long n_duplicatestory_eq;//[重复需求ID]
+	public void setN_duplicatestory_eq(Long n_duplicatestory_eq) {
         this.n_duplicatestory_eq = n_duplicatestory_eq;
         if(!ObjectUtils.isEmpty(this.n_duplicatestory_eq)){
             this.getSearchCond().eq("duplicatestory", n_duplicatestory_eq);
         }
     }
-	private BigInteger n_branch_eq;//[平台/分支]
-	public void setN_branch_eq(BigInteger n_branch_eq) {
+	private Long n_branch_eq;//[平台/分支]
+	public void setN_branch_eq(Long n_branch_eq) {
         this.n_branch_eq = n_branch_eq;
         if(!ObjectUtils.isEmpty(this.n_branch_eq)){
             this.getSearchCond().eq("branch", n_branch_eq);
         }
     }
-	private BigInteger n_tobug_eq;//[转Bug]
-	public void setN_tobug_eq(BigInteger n_tobug_eq) {
+	private Long n_tobug_eq;//[转Bug]
+	public void setN_tobug_eq(Long n_tobug_eq) {
         this.n_tobug_eq = n_tobug_eq;
         if(!ObjectUtils.isEmpty(this.n_tobug_eq)){
             this.getSearchCond().eq("tobug", n_tobug_eq);

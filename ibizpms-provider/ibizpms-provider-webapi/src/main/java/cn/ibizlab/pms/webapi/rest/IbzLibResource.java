@@ -67,7 +67,7 @@ public class IbzLibResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLib-Update-all')")
     @ApiOperation(value = "更新用例库", tags = {"用例库" },  notes = "更新用例库")
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibzlibs/{ibzlib_id}")
-    public ResponseEntity<IbzLibDTO> update(@PathVariable("ibzlib_id") BigInteger ibzlib_id, @RequestBody IbzLibDTO ibzlibdto) {
+    public ResponseEntity<IbzLibDTO> update(@PathVariable("ibzlib_id") Long ibzlib_id, @RequestBody IbzLibDTO ibzlibdto) {
 		IbzLib domain  = ibzlibMapping.toDomain(ibzlibdto);
         domain .setId(ibzlib_id);
 		ibzlibService.update(domain );
@@ -86,14 +86,14 @@ public class IbzLibResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLib-Remove-all')")
     @ApiOperation(value = "删除用例库", tags = {"用例库" },  notes = "删除用例库")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzlibs/{ibzlib_id}")
-    public ResponseEntity<Boolean> remove(@PathVariable("ibzlib_id") BigInteger ibzlib_id) {
+    public ResponseEntity<Boolean> remove(@PathVariable("ibzlib_id") Long ibzlib_id) {
          return ResponseEntity.status(HttpStatus.OK).body(ibzlibService.remove(ibzlib_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLib-Remove-all')")
     @ApiOperation(value = "批量删除用例库", tags = {"用例库" },  notes = "批量删除用例库")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzlibs/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         ibzlibService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -101,7 +101,7 @@ public class IbzLibResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLib-Get-all')")
     @ApiOperation(value = "获取用例库", tags = {"用例库" },  notes = "获取用例库")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzlibs/{ibzlib_id}")
-    public ResponseEntity<IbzLibDTO> get(@PathVariable("ibzlib_id") BigInteger ibzlib_id) {
+    public ResponseEntity<IbzLibDTO> get(@PathVariable("ibzlib_id") Long ibzlib_id) {
         IbzLib domain = ibzlibService.get(ibzlib_id);
         IbzLibDTO dto = ibzlibMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);

@@ -169,7 +169,7 @@ public class SubStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [SOURCE]
@@ -307,7 +307,7 @@ public class SubStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "frombug")
     @JsonProperty("frombug")
-    private BigInteger frombug;
+    private Long frombug;
 
     /**
      * 属性 [PARENT]
@@ -315,7 +315,7 @@ public class SubStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "parent")
     @JsonProperty("parent")
-    private BigInteger parent;
+    private Long parent;
 
     /**
      * 属性 [MODULE]
@@ -323,7 +323,7 @@ public class SubStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "module")
     @JsonProperty("module")
-    private BigInteger module;
+    private Long module;
 
     /**
      * 属性 [PRODUCT]
@@ -331,7 +331,7 @@ public class SubStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
 
     /**
      * 属性 [DUPLICATESTORY]
@@ -339,7 +339,7 @@ public class SubStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "duplicatestory")
     @JsonProperty("duplicatestory")
-    private BigInteger duplicatestory;
+    private Long duplicatestory;
 
     /**
      * 属性 [BRANCH]
@@ -347,7 +347,7 @@ public class SubStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "branch")
     @JsonProperty("branch")
-    private BigInteger branch;
+    private Long branch;
 
     /**
      * 属性 [TOBUG]
@@ -355,7 +355,7 @@ public class SubStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "tobug")
     @JsonProperty("tobug")
-    private BigInteger tobug;
+    private Long tobug;
 
     /**
      * 属性 [SPEC]
@@ -681,7 +681,7 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     /**
      * 设置 [FROMBUG]
      */
-    public void setFrombug(BigInteger  frombug){
+    public void setFrombug(Long  frombug){
         this.frombug = frombug ;
         this.modify("frombug",frombug);
     }
@@ -689,7 +689,7 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PARENT]
      */
-    public void setParent(BigInteger  parent){
+    public void setParent(Long  parent){
         this.parent = parent ;
         this.modify("parent",parent);
     }
@@ -697,7 +697,7 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     /**
      * 设置 [MODULE]
      */
-    public void setModule(BigInteger  module){
+    public void setModule(Long  module){
         this.module = module ;
         this.modify("module",module);
     }
@@ -705,7 +705,7 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PRODUCT]
      */
-    public void setProduct(BigInteger  product){
+    public void setProduct(Long  product){
         this.product = product ;
         this.modify("product",product);
     }
@@ -713,7 +713,7 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     /**
      * 设置 [DUPLICATESTORY]
      */
-    public void setDuplicatestory(BigInteger  duplicatestory){
+    public void setDuplicatestory(Long  duplicatestory){
         this.duplicatestory = duplicatestory ;
         this.modify("duplicatestory",duplicatestory);
     }
@@ -721,7 +721,7 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     /**
      * 设置 [BRANCH]
      */
-    public void setBranch(BigInteger  branch){
+    public void setBranch(Long  branch){
         this.branch = branch ;
         this.modify("branch",branch);
     }
@@ -729,7 +729,7 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     /**
      * 设置 [TOBUG]
      */
-    public void setTobug(BigInteger  tobug){
+    public void setTobug(Long  tobug){
         this.tobug = tobug ;
         this.modify("tobug",tobug);
     }

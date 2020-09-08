@@ -54,7 +54,7 @@ public class IBZTaskEstimateDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [DATE]
@@ -79,7 +79,7 @@ public class IBZTaskEstimateDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "task")
     @JsonProperty("task")
-    private BigInteger task;
+    private Long task;
 
     /**
      * 属性 [DATES]
@@ -134,7 +134,7 @@ public class IBZTaskEstimateDTO extends DTOBase implements Serializable {
     /**
      * 设置 [TASK]
      */
-    public void setTask(BigInteger  task){
+    public void setTask(Long  task){
         this.task = task ;
         this.modify("task",task);
     }

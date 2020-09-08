@@ -267,7 +267,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [PRECONDITION]
@@ -307,7 +307,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "fromcaseid")
     @JsonProperty("fromcaseid")
-    private BigInteger fromcaseid;
+    private Long fromcaseid;
 
     /**
      * 属性 [BRANCH]
@@ -315,7 +315,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "branch")
     @JsonProperty("branch")
-    private BigInteger branch;
+    private Long branch;
 
     /**
      * 属性 [FROMBUG]
@@ -323,7 +323,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "frombug")
     @JsonProperty("frombug")
-    private BigInteger frombug;
+    private Long frombug;
 
     /**
      * 属性 [STORY]
@@ -331,7 +331,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "story")
     @JsonProperty("story")
-    private BigInteger story;
+    private Long story;
 
     /**
      * 属性 [PRODUCT]
@@ -339,7 +339,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
 
     /**
      * 属性 [LIB]
@@ -347,7 +347,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "lib")
     @JsonProperty("lib")
-    private BigInteger lib;
+    private Long lib;
 
     /**
      * 属性 [MODULE]
@@ -355,7 +355,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "module")
     @JsonProperty("module")
-    private BigInteger module;
+    private Long module;
 
     /**
      * 属性 [MODULENAME]
@@ -697,7 +697,7 @@ public class CaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [FROMCASEID]
      */
-    public void setFromcaseid(BigInteger  fromcaseid){
+    public void setFromcaseid(Long  fromcaseid){
         this.fromcaseid = fromcaseid ;
         this.modify("fromcaseid",fromcaseid);
     }
@@ -705,7 +705,7 @@ public class CaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [BRANCH]
      */
-    public void setBranch(BigInteger  branch){
+    public void setBranch(Long  branch){
         this.branch = branch ;
         this.modify("branch",branch);
     }
@@ -713,7 +713,7 @@ public class CaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [FROMBUG]
      */
-    public void setFrombug(BigInteger  frombug){
+    public void setFrombug(Long  frombug){
         this.frombug = frombug ;
         this.modify("frombug",frombug);
     }
@@ -721,7 +721,7 @@ public class CaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [STORY]
      */
-    public void setStory(BigInteger  story){
+    public void setStory(Long  story){
         this.story = story ;
         this.modify("story",story);
     }
@@ -729,7 +729,7 @@ public class CaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PRODUCT]
      */
-    public void setProduct(BigInteger  product){
+    public void setProduct(Long  product){
         this.product = product ;
         this.modify("product",product);
     }
@@ -737,7 +737,7 @@ public class CaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [LIB]
      */
-    public void setLib(BigInteger  lib){
+    public void setLib(Long  lib){
         this.lib = lib ;
         this.modify("lib",lib);
     }
@@ -745,7 +745,7 @@ public class CaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [MODULE]
      */
-    public void setModule(BigInteger  module){
+    public void setModule(Long  module){
         this.module = module ;
         this.modify("module",module);
     }

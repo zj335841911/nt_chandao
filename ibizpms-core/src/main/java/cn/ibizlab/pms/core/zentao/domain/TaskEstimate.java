@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[任务预计]
@@ -69,7 +70,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 日期
      */
@@ -91,7 +92,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
     @TableField(value = "task")
     @JSONField(name = "task")
     @JsonProperty("task")
-    private BigInteger task;
+    private Long task;
     /**
      * 日期
      */
@@ -164,12 +165,16 @@ public class TaskEstimate extends EntityMP implements Serializable {
     /**
      * 设置 [任务]
      */
-    public void setTask(BigInteger task){
+    public void setTask(Long task){
         this.task = task ;
         this.modify("task",task);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
 }
 
 

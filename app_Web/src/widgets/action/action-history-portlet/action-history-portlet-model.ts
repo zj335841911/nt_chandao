@@ -54,6 +54,9 @@ export default class ActionHistoryModel {
       {
         name: 'actionmanner',
       },
+      {
+        name: 'isactor',
+      },
     ]
   }
 

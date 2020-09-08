@@ -7,11 +7,11 @@
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="taskresettaskestimatedefault" type="cn.ibizlab.pms.core.zentao.domain.Task" />
         </extensionElements>
-     <startEvent id="82363EE1-DD9E-493E-853A-C647A48530A8" isInterrupting="true"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskresettaskestimateprepareparam1" id="AAB6190E-25E9-4F17-A7BB-99E1130C3212" implementation="http://www.jboss.org/drools/rule" name="重置工时统计"/>
-     <endEvent id="AAB6190E-25E9-4F17-A7BB-99E1130C3212_End" name="End"/>
-     <sequenceFlow id="AAB6190E-25E9-4F17-A7BB-99E1130C3212_End_Line" sourceRef="AAB6190E-25E9-4F17-A7BB-99E1130C3212" targetRef="AAB6190E-25E9-4F17-A7BB-99E1130C3212_End"/>
-     <sequenceFlow id="2135E150-D390-4330-B009-55FA6242F463" sourceRef="82363EE1-DD9E-493E-853A-C647A48530A8" targetRef="AAB6190E-25E9-4F17-A7BB-99E1130C3212">
+     <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskresettaskestimateprepareparam1" id="prepareparam1" implementation="http://www.jboss.org/drools/rule" name="重置工时统计"/>
+     <endEvent id="prepareparam1_end" name="end"/>
+     <sequenceFlow id="prepareparam1_end_line" sourceRef="prepareparam1" targetRef="prepareparam1_end"/>
+     <sequenceFlow id="begin_prepareparam1" sourceRef="begin" targetRef="prepareparam1">
      </sequenceFlow>
     </process>
 </definitions>

@@ -41,8 +41,8 @@ public class TestSuiteSearchContext extends QueryWrapperContext<TestSuite> {
             this.getSearchCond().eq("type", n_type_eq);
         }
     }
-	private BigInteger n_product_eq;//[所属产品]
-	public void setN_product_eq(BigInteger n_product_eq) {
+	private Long n_product_eq;//[所属产品]
+	public void setN_product_eq(Long n_product_eq) {
         this.n_product_eq = n_product_eq;
         if(!ObjectUtils.isEmpty(this.n_product_eq)){
             this.getSearchCond().eq("product", n_product_eq);

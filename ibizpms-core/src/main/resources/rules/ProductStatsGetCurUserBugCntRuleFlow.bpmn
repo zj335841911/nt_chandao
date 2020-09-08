@@ -7,11 +7,11 @@
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="productstatsgetcuruserbugcntdefault" type="cn.ibizlab.pms.core.ibiz.domain.ProductStats" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="productstatsgetcuruserbugcntrawsqlcall1" id="8B513BBF-0AD9-4370-A8A8-E5FAB2121494" implementation="http://www.jboss.org/drools/rule" name="获取bug数"/>
-     <endEvent id="8B513BBF-0AD9-4370-A8A8-E5FAB2121494_End" name="End"/>
-     <sequenceFlow id="8B513BBF-0AD9-4370-A8A8-E5FAB2121494_End_Line" sourceRef="8B513BBF-0AD9-4370-A8A8-E5FAB2121494" targetRef="8B513BBF-0AD9-4370-A8A8-E5FAB2121494_End"/>
-     <startEvent id="1E831FDC-0286-4762-8DE2-005DC4F2AAB7" isInterrupting="true"/>
-     <sequenceFlow id="A927AB82-CBA0-4D8B-9DEF-41125A79BDDC" sourceRef="1E831FDC-0286-4762-8DE2-005DC4F2AAB7" targetRef="8B513BBF-0AD9-4370-A8A8-E5FAB2121494">
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="productstatsgetcuruserbugcntrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取bug数"/>
+     <endEvent id="rawsqlcall1_end" name="end"/>
+     <sequenceFlow id="rawsqlcall1_end_line" sourceRef="rawsqlcall1" targetRef="rawsqlcall1_end"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
      </sequenceFlow>
     </process>
 </definitions>

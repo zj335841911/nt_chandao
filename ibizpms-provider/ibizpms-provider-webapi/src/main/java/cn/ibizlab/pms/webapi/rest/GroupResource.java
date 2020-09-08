@@ -67,7 +67,7 @@ public class GroupResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Update-all')")
     @ApiOperation(value = "更新群组", tags = {"群组" },  notes = "更新群组")
 	@RequestMapping(method = RequestMethod.PUT, value = "/groups/{group_id}")
-    public ResponseEntity<GroupDTO> update(@PathVariable("group_id") BigInteger group_id, @RequestBody GroupDTO groupdto) {
+    public ResponseEntity<GroupDTO> update(@PathVariable("group_id") Long group_id, @RequestBody GroupDTO groupdto) {
 		Group domain  = groupMapping.toDomain(groupdto);
         domain .setId(group_id);
 		groupService.update(domain );
@@ -86,14 +86,14 @@ public class GroupResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Remove-all')")
     @ApiOperation(value = "删除群组", tags = {"群组" },  notes = "删除群组")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/groups/{group_id}")
-    public ResponseEntity<Boolean> remove(@PathVariable("group_id") BigInteger group_id) {
+    public ResponseEntity<Boolean> remove(@PathVariable("group_id") Long group_id) {
          return ResponseEntity.status(HttpStatus.OK).body(groupService.remove(group_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Remove-all')")
     @ApiOperation(value = "批量删除群组", tags = {"群组" },  notes = "批量删除群组")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/groups/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         groupService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -101,7 +101,7 @@ public class GroupResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Get-all')")
     @ApiOperation(value = "获取群组", tags = {"群组" },  notes = "获取群组")
 	@RequestMapping(method = RequestMethod.GET, value = "/groups/{group_id}")
-    public ResponseEntity<GroupDTO> get(@PathVariable("group_id") BigInteger group_id) {
+    public ResponseEntity<GroupDTO> get(@PathVariable("group_id") Long group_id) {
         Group domain = groupService.get(group_id);
         GroupDTO dto = groupMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);

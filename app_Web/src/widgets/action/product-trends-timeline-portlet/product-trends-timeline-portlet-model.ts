@@ -54,6 +54,9 @@ export default class ProductTrendsTimelineModel {
       {
         name: 'actionmanner',
       },
+      {
+        name: 'isactor',
+      },
     ]
   }
 

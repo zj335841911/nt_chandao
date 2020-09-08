@@ -79,7 +79,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [VERSION]
@@ -95,7 +95,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "job")
     @JsonProperty("job")
-    private BigInteger job;
+    private Long job;
 
     /**
      * 属性 [CASE]
@@ -103,7 +103,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
-    private BigInteger ibizcase;
+    private Long ibizcase;
 
     /**
      * 属性 [RUN]
@@ -111,7 +111,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "run")
     @JsonProperty("run")
-    private BigInteger run;
+    private Long run;
 
     /**
      * 属性 [COMPILE]
@@ -119,7 +119,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "compile")
     @JsonProperty("compile")
-    private BigInteger compile;
+    private Long compile;
 
     /**
      * 属性 [TASK]
@@ -143,7 +143,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "story")
     @JsonProperty("story")
-    private BigInteger story;
+    private Long story;
 
     /**
      * 属性 [MODULE]
@@ -151,7 +151,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "module")
     @JsonProperty("module")
-    private BigInteger module;
+    private Long module;
 
     /**
      * 属性 [PRODUCT]
@@ -159,7 +159,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
 
     /**
      * 属性 [PRECONDITION]
@@ -229,7 +229,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
     /**
      * 设置 [JOB]
      */
-    public void setJob(BigInteger  job){
+    public void setJob(Long  job){
         this.job = job ;
         this.modify("job",job);
     }
@@ -237,7 +237,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
     /**
      * 设置 [CASE]
      */
-    public void setIbizcase(BigInteger  ibizcase){
+    public void setIbizcase(Long  ibizcase){
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
@@ -245,7 +245,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
     /**
      * 设置 [RUN]
      */
-    public void setRun(BigInteger  run){
+    public void setRun(Long  run){
         this.run = run ;
         this.modify("run",run);
     }
@@ -253,7 +253,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
     /**
      * 设置 [COMPILE]
      */
-    public void setCompile(BigInteger  compile){
+    public void setCompile(Long  compile){
         this.compile = compile ;
         this.modify("compile",compile);
     }

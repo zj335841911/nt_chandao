@@ -46,7 +46,7 @@ public class SuiteCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "suite")
     @JsonProperty("suite")
-    private BigInteger suite;
+    private Long suite;
 
     /**
      * 属性 [CASE]
@@ -54,7 +54,7 @@ public class SuiteCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
-    private BigInteger ibizcase;
+    private Long ibizcase;
 
     /**
      * 属性 [PRODUCT]
@@ -62,7 +62,7 @@ public class SuiteCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
 
 
     /**
@@ -76,7 +76,7 @@ public class SuiteCaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [SUITE]
      */
-    public void setSuite(BigInteger  suite){
+    public void setSuite(Long  suite){
         this.suite = suite ;
         this.modify("suite",suite);
     }
@@ -84,7 +84,7 @@ public class SuiteCaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [CASE]
      */
-    public void setIbizcase(BigInteger  ibizcase){
+    public void setIbizcase(Long  ibizcase){
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
@@ -92,7 +92,7 @@ public class SuiteCaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PRODUCT]
      */
-    public void setProduct(BigInteger  product){
+    public void setProduct(Long  product){
         this.product = product ;
         this.modify("product",product);
     }

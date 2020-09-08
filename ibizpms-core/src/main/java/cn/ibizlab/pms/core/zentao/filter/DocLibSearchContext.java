@@ -41,15 +41,15 @@ public class DocLibSearchContext extends QueryWrapperContext<DocLib> {
             this.getSearchCond().like("name", n_name_like);
         }
     }
-	private BigInteger n_project_eq;//[项目库]
-	public void setN_project_eq(BigInteger n_project_eq) {
+	private Long n_project_eq;//[项目库]
+	public void setN_project_eq(Long n_project_eq) {
         this.n_project_eq = n_project_eq;
         if(!ObjectUtils.isEmpty(this.n_project_eq)){
             this.getSearchCond().eq("project", n_project_eq);
         }
     }
-	private BigInteger n_product_eq;//[产品库]
-	public void setN_product_eq(BigInteger n_product_eq) {
+	private Long n_product_eq;//[产品库]
+	public void setN_product_eq(Long n_product_eq) {
         this.n_product_eq = n_product_eq;
         if(!ObjectUtils.isEmpty(this.n_product_eq)){
             this.getSearchCond().eq("product", n_product_eq);

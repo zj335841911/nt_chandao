@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[项目中需要做的需求]
@@ -68,21 +69,21 @@ public class ProjectStory extends EntityMP implements Serializable {
     @TableField(value = "story")
     @JSONField(name = "story")
     @JsonProperty("story")
-    private BigInteger story;
+    private Long story;
     /**
      * 项目
      */
     @TableField(value = "project")
     @JSONField(name = "project")
     @JsonProperty("project")
-    private BigInteger project;
+    private Long project;
     /**
      * 所属产品
      */
     @TableField(value = "product")
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
 
     /**
      * 
@@ -129,7 +130,7 @@ public class ProjectStory extends EntityMP implements Serializable {
     /**
      * 设置 [需求]
      */
-    public void setStory(BigInteger story){
+    public void setStory(Long story){
         this.story = story ;
         this.modify("story",story);
     }
@@ -137,7 +138,7 @@ public class ProjectStory extends EntityMP implements Serializable {
     /**
      * 设置 [项目]
      */
-    public void setProject(BigInteger project){
+    public void setProject(Long project){
         this.project = project ;
         this.modify("project",project);
     }
@@ -145,7 +146,7 @@ public class ProjectStory extends EntityMP implements Serializable {
     /**
      * 设置 [所属产品]
      */
-    public void setProduct(BigInteger product){
+    public void setProduct(Long product){
         this.product = product ;
         this.modify("product",product);
     }

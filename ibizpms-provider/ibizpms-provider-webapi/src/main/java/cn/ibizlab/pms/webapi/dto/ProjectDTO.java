@@ -79,7 +79,7 @@ public class ProjectDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [NAME]
@@ -283,7 +283,7 @@ public class ProjectDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "parent")
     @JsonProperty("parent")
-    private BigInteger parent;
+    private Long parent;
 
     /**
      * 属性 [TASKCNT]
@@ -380,7 +380,7 @@ public class ProjectDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "hours")
     @JsonProperty("hours")
-    private Double hours;
+    private BigDecimal hours;
 
     /**
      * 属性 [ROLE]
@@ -428,7 +428,7 @@ public class ProjectDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "totalhours")
     @JsonProperty("totalhours")
-    private Double totalhours;
+    private BigDecimal totalhours;
 
     /**
      * 属性 [MOBIMAGE]
@@ -706,7 +706,7 @@ public class ProjectDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PARENT]
      */
-    public void setParent(BigInteger  parent){
+    public void setParent(Long  parent){
         this.parent = parent ;
         this.modify("parent",parent);
     }

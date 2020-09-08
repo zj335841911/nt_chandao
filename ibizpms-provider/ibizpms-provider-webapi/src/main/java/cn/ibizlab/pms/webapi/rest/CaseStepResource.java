@@ -49,7 +49,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Create-all')")
     @ApiOperation(value = "根据测试用例建立用例步骤", tags = {"用例步骤" },  notes = "根据测试用例建立用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/casesteps")
-    public ResponseEntity<CaseStepDTO> createByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepDTO casestepdto) {
+    public ResponseEntity<CaseStepDTO> createByCase(@PathVariable("case_id") Long case_id, @RequestBody CaseStepDTO casestepdto) {
         CaseStep domain = casestepMapping.toDomain(casestepdto);
         domain.setIbizcase(case_id);
 		casestepService.create(domain);
@@ -60,7 +60,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Create-all')")
     @ApiOperation(value = "根据测试用例批量建立用例步骤", tags = {"用例步骤" },  notes = "根据测试用例批量建立用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/casesteps/batch")
-    public ResponseEntity<Boolean> createBatchByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
+    public ResponseEntity<Boolean> createBatchByCase(@PathVariable("case_id") Long case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
         List<CaseStep> domainlist=casestepMapping.toDomain(casestepdtos);
         for(CaseStep domain:domainlist){
             domain.setIbizcase(case_id);
@@ -72,7 +72,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Update-all')")
     @ApiOperation(value = "根据测试用例更新用例步骤", tags = {"用例步骤" },  notes = "根据测试用例更新用例步骤")
 	@RequestMapping(method = RequestMethod.PUT, value = "/cases/{case_id}/casesteps/{casestep_id}")
-    public ResponseEntity<CaseStepDTO> updateByCase(@PathVariable("case_id") BigInteger case_id, @PathVariable("casestep_id") BigInteger casestep_id, @RequestBody CaseStepDTO casestepdto) {
+    public ResponseEntity<CaseStepDTO> updateByCase(@PathVariable("case_id") Long case_id, @PathVariable("casestep_id") Long casestep_id, @RequestBody CaseStepDTO casestepdto) {
         CaseStep domain = casestepMapping.toDomain(casestepdto);
         domain.setIbizcase(case_id);
         domain.setId(casestep_id);
@@ -84,7 +84,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Update-all')")
     @ApiOperation(value = "根据测试用例批量更新用例步骤", tags = {"用例步骤" },  notes = "根据测试用例批量更新用例步骤")
 	@RequestMapping(method = RequestMethod.PUT, value = "/cases/{case_id}/casesteps/batch")
-    public ResponseEntity<Boolean> updateBatchByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
+    public ResponseEntity<Boolean> updateBatchByCase(@PathVariable("case_id") Long case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
         List<CaseStep> domainlist=casestepMapping.toDomain(casestepdtos);
         for(CaseStep domain:domainlist){
             domain.setIbizcase(case_id);
@@ -96,14 +96,14 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Remove-all')")
     @ApiOperation(value = "根据测试用例删除用例步骤", tags = {"用例步骤" },  notes = "根据测试用例删除用例步骤")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/cases/{case_id}/casesteps/{casestep_id}")
-    public ResponseEntity<Boolean> removeByCase(@PathVariable("case_id") BigInteger case_id, @PathVariable("casestep_id") BigInteger casestep_id) {
+    public ResponseEntity<Boolean> removeByCase(@PathVariable("case_id") Long case_id, @PathVariable("casestep_id") Long casestep_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(casestepService.remove(casestep_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Remove-all')")
     @ApiOperation(value = "根据测试用例批量删除用例步骤", tags = {"用例步骤" },  notes = "根据测试用例批量删除用例步骤")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/cases/{case_id}/casesteps/batch")
-    public ResponseEntity<Boolean> removeBatchByCase(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatchByCase(@RequestBody List<Long> ids) {
         casestepService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -111,7 +111,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Get-all')")
     @ApiOperation(value = "根据测试用例获取用例步骤", tags = {"用例步骤" },  notes = "根据测试用例获取用例步骤")
 	@RequestMapping(method = RequestMethod.GET, value = "/cases/{case_id}/casesteps/{casestep_id}")
-    public ResponseEntity<CaseStepDTO> getByCase(@PathVariable("case_id") BigInteger case_id, @PathVariable("casestep_id") BigInteger casestep_id) {
+    public ResponseEntity<CaseStepDTO> getByCase(@PathVariable("case_id") Long case_id, @PathVariable("casestep_id") Long casestep_id) {
         CaseStep domain = casestepService.get(casestep_id);
         CaseStepDTO dto = casestepMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
@@ -119,7 +119,7 @@ public class CaseStepResource {
 
     @ApiOperation(value = "根据测试用例获取用例步骤草稿", tags = {"用例步骤" },  notes = "根据测试用例获取用例步骤草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/cases/{case_id}/casesteps/getdraft")
-    public ResponseEntity<CaseStepDTO> getDraftByCase(@PathVariable("case_id") BigInteger case_id) {
+    public ResponseEntity<CaseStepDTO> getDraftByCase(@PathVariable("case_id") Long case_id) {
         CaseStep domain = new CaseStep();
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(casestepMapping.toDto(casestepService.getDraft(domain)));
@@ -127,14 +127,14 @@ public class CaseStepResource {
 
     @ApiOperation(value = "根据测试用例检查用例步骤", tags = {"用例步骤" },  notes = "根据测试用例检查用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/casesteps/checkkey")
-    public ResponseEntity<Boolean> checkKeyByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepDTO casestepdto) {
+    public ResponseEntity<Boolean> checkKeyByCase(@PathVariable("case_id") Long case_id, @RequestBody CaseStepDTO casestepdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(casestepService.checkKey(casestepMapping.toDomain(casestepdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Save-all')")
     @ApiOperation(value = "根据测试用例保存用例步骤", tags = {"用例步骤" },  notes = "根据测试用例保存用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/casesteps/save")
-    public ResponseEntity<Boolean> saveByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepDTO casestepdto) {
+    public ResponseEntity<Boolean> saveByCase(@PathVariable("case_id") Long case_id, @RequestBody CaseStepDTO casestepdto) {
         CaseStep domain = casestepMapping.toDomain(casestepdto);
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(casestepService.save(domain));
@@ -143,7 +143,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Save-all')")
     @ApiOperation(value = "根据测试用例批量保存用例步骤", tags = {"用例步骤" },  notes = "根据测试用例批量保存用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/casesteps/savebatch")
-    public ResponseEntity<Boolean> saveBatchByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
+    public ResponseEntity<Boolean> saveBatchByCase(@PathVariable("case_id") Long case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
         List<CaseStep> domainlist=casestepMapping.toDomain(casestepdtos);
         for(CaseStep domain:domainlist){
              domain.setIbizcase(case_id);
@@ -155,7 +155,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchCurTest-all')")
 	@ApiOperation(value = "根据测试用例获取当前测试步骤", tags = {"用例步骤" } ,notes = "根据测试用例获取当前测试步骤")
     @RequestMapping(method= RequestMethod.GET , value="/cases/{case_id}/casesteps/fetchcurtest")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepCurTestByCase(@PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepCurTestByCase(@PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchCurTest(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -169,7 +169,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchCurTest-all')")
 	@ApiOperation(value = "根据测试用例查询当前测试步骤", tags = {"用例步骤" } ,notes = "根据测试用例查询当前测试步骤")
     @RequestMapping(method= RequestMethod.POST , value="/cases/{case_id}/casesteps/searchcurtest")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepCurTestByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepCurTestByCase(@PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchCurTest(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -178,7 +178,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault-all')")
 	@ApiOperation(value = "根据测试用例获取DEFAULT", tags = {"用例步骤" } ,notes = "根据测试用例获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/cases/{case_id}/casesteps/fetchdefault")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepDefaultByCase(@PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepDefaultByCase(@PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -192,7 +192,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault-all')")
 	@ApiOperation(value = "根据测试用例查询DEFAULT", tags = {"用例步骤" } ,notes = "根据测试用例查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/cases/{case_id}/casesteps/searchdefault")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepDefaultByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepDefaultByCase(@PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -201,7 +201,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault1-all')")
 	@ApiOperation(value = "根据测试用例获取DEFAULT1", tags = {"用例步骤" } ,notes = "根据测试用例获取DEFAULT1")
     @RequestMapping(method= RequestMethod.GET , value="/cases/{case_id}/casesteps/fetchdefault1")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepDefault1ByCase(@PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepDefault1ByCase(@PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault1(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -215,7 +215,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault1-all')")
 	@ApiOperation(value = "根据测试用例查询DEFAULT1", tags = {"用例步骤" } ,notes = "根据测试用例查询DEFAULT1")
     @RequestMapping(method= RequestMethod.POST , value="/cases/{case_id}/casesteps/searchdefault1")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepDefault1ByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepDefault1ByCase(@PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault1(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -224,7 +224,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchMob-all')")
 	@ApiOperation(value = "根据测试用例获取Mob", tags = {"用例步骤" } ,notes = "根据测试用例获取Mob")
     @RequestMapping(method= RequestMethod.GET , value="/cases/{case_id}/casesteps/fetchmob")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepMobByCase(@PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepMobByCase(@PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchMob(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -238,7 +238,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchMob-all')")
 	@ApiOperation(value = "根据测试用例查询Mob", tags = {"用例步骤" } ,notes = "根据测试用例查询Mob")
     @RequestMapping(method= RequestMethod.POST , value="/cases/{case_id}/casesteps/searchmob")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepMobByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepMobByCase(@PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchMob(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -247,7 +247,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersion-all')")
 	@ApiOperation(value = "根据测试用例获取版本", tags = {"用例步骤" } ,notes = "根据测试用例获取版本")
     @RequestMapping(method= RequestMethod.GET , value="/cases/{case_id}/casesteps/fetchversion")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionByCase(@PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionByCase(@PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchVersion(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -261,7 +261,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersion-all')")
 	@ApiOperation(value = "根据测试用例查询版本", tags = {"用例步骤" } ,notes = "根据测试用例查询版本")
     @RequestMapping(method= RequestMethod.POST , value="/cases/{case_id}/casesteps/searchversion")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionByCase(@PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchVersion(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -270,7 +270,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersions-all')")
 	@ApiOperation(value = "根据测试用例获取版本1", tags = {"用例步骤" } ,notes = "根据测试用例获取版本1")
     @RequestMapping(method= RequestMethod.GET , value="/cases/{case_id}/casesteps/fetchversions")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionsByCase(@PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionsByCase(@PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchVersions(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -284,7 +284,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersions-all')")
 	@ApiOperation(value = "根据测试用例查询版本1", tags = {"用例步骤" } ,notes = "根据测试用例查询版本1")
     @RequestMapping(method= RequestMethod.POST , value="/cases/{case_id}/casesteps/searchversions")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionsByCase(@PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionsByCase(@PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchVersions(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -293,7 +293,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Create-all')")
     @ApiOperation(value = "根据产品测试用例建立用例步骤", tags = {"用例步骤" },  notes = "根据产品测试用例建立用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/casesteps")
-    public ResponseEntity<CaseStepDTO> createByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepDTO casestepdto) {
+    public ResponseEntity<CaseStepDTO> createByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepDTO casestepdto) {
         CaseStep domain = casestepMapping.toDomain(casestepdto);
         domain.setIbizcase(case_id);
 		casestepService.create(domain);
@@ -304,7 +304,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Create-all')")
     @ApiOperation(value = "根据产品测试用例批量建立用例步骤", tags = {"用例步骤" },  notes = "根据产品测试用例批量建立用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/casesteps/batch")
-    public ResponseEntity<Boolean> createBatchByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
+    public ResponseEntity<Boolean> createBatchByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
         List<CaseStep> domainlist=casestepMapping.toDomain(casestepdtos);
         for(CaseStep domain:domainlist){
             domain.setIbizcase(case_id);
@@ -316,7 +316,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Update-all')")
     @ApiOperation(value = "根据产品测试用例更新用例步骤", tags = {"用例步骤" },  notes = "根据产品测试用例更新用例步骤")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/cases/{case_id}/casesteps/{casestep_id}")
-    public ResponseEntity<CaseStepDTO> updateByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @PathVariable("casestep_id") BigInteger casestep_id, @RequestBody CaseStepDTO casestepdto) {
+    public ResponseEntity<CaseStepDTO> updateByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @PathVariable("casestep_id") Long casestep_id, @RequestBody CaseStepDTO casestepdto) {
         CaseStep domain = casestepMapping.toDomain(casestepdto);
         domain.setIbizcase(case_id);
         domain.setId(casestep_id);
@@ -328,7 +328,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Update-all')")
     @ApiOperation(value = "根据产品测试用例批量更新用例步骤", tags = {"用例步骤" },  notes = "根据产品测试用例批量更新用例步骤")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/cases/{case_id}/casesteps/batch")
-    public ResponseEntity<Boolean> updateBatchByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
+    public ResponseEntity<Boolean> updateBatchByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
         List<CaseStep> domainlist=casestepMapping.toDomain(casestepdtos);
         for(CaseStep domain:domainlist){
             domain.setIbizcase(case_id);
@@ -340,14 +340,14 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Remove-all')")
     @ApiOperation(value = "根据产品测试用例删除用例步骤", tags = {"用例步骤" },  notes = "根据产品测试用例删除用例步骤")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/cases/{case_id}/casesteps/{casestep_id}")
-    public ResponseEntity<Boolean> removeByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @PathVariable("casestep_id") BigInteger casestep_id) {
+    public ResponseEntity<Boolean> removeByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @PathVariable("casestep_id") Long casestep_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(casestepService.remove(casestep_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Remove-all')")
     @ApiOperation(value = "根据产品测试用例批量删除用例步骤", tags = {"用例步骤" },  notes = "根据产品测试用例批量删除用例步骤")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/cases/{case_id}/casesteps/batch")
-    public ResponseEntity<Boolean> removeBatchByProductCase(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatchByProductCase(@RequestBody List<Long> ids) {
         casestepService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -355,7 +355,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Get-all')")
     @ApiOperation(value = "根据产品测试用例获取用例步骤", tags = {"用例步骤" },  notes = "根据产品测试用例获取用例步骤")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/cases/{case_id}/casesteps/{casestep_id}")
-    public ResponseEntity<CaseStepDTO> getByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @PathVariable("casestep_id") BigInteger casestep_id) {
+    public ResponseEntity<CaseStepDTO> getByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @PathVariable("casestep_id") Long casestep_id) {
         CaseStep domain = casestepService.get(casestep_id);
         CaseStepDTO dto = casestepMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
@@ -363,7 +363,7 @@ public class CaseStepResource {
 
     @ApiOperation(value = "根据产品测试用例获取用例步骤草稿", tags = {"用例步骤" },  notes = "根据产品测试用例获取用例步骤草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/cases/{case_id}/casesteps/getdraft")
-    public ResponseEntity<CaseStepDTO> getDraftByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id) {
+    public ResponseEntity<CaseStepDTO> getDraftByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id) {
         CaseStep domain = new CaseStep();
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(casestepMapping.toDto(casestepService.getDraft(domain)));
@@ -371,14 +371,14 @@ public class CaseStepResource {
 
     @ApiOperation(value = "根据产品测试用例检查用例步骤", tags = {"用例步骤" },  notes = "根据产品测试用例检查用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/casesteps/checkkey")
-    public ResponseEntity<Boolean> checkKeyByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepDTO casestepdto) {
+    public ResponseEntity<Boolean> checkKeyByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepDTO casestepdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(casestepService.checkKey(casestepMapping.toDomain(casestepdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Save-all')")
     @ApiOperation(value = "根据产品测试用例保存用例步骤", tags = {"用例步骤" },  notes = "根据产品测试用例保存用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/casesteps/save")
-    public ResponseEntity<Boolean> saveByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepDTO casestepdto) {
+    public ResponseEntity<Boolean> saveByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepDTO casestepdto) {
         CaseStep domain = casestepMapping.toDomain(casestepdto);
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(casestepService.save(domain));
@@ -387,7 +387,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Save-all')")
     @ApiOperation(value = "根据产品测试用例批量保存用例步骤", tags = {"用例步骤" },  notes = "根据产品测试用例批量保存用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/casesteps/savebatch")
-    public ResponseEntity<Boolean> saveBatchByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
+    public ResponseEntity<Boolean> saveBatchByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
         List<CaseStep> domainlist=casestepMapping.toDomain(casestepdtos);
         for(CaseStep domain:domainlist){
              domain.setIbizcase(case_id);
@@ -399,7 +399,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchCurTest-all')")
 	@ApiOperation(value = "根据产品测试用例获取当前测试步骤", tags = {"用例步骤" } ,notes = "根据产品测试用例获取当前测试步骤")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/{case_id}/casesteps/fetchcurtest")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepCurTestByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepCurTestByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchCurTest(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -413,7 +413,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchCurTest-all')")
 	@ApiOperation(value = "根据产品测试用例查询当前测试步骤", tags = {"用例步骤" } ,notes = "根据产品测试用例查询当前测试步骤")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/{case_id}/casesteps/searchcurtest")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepCurTestByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepCurTestByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchCurTest(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -422,7 +422,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault-all')")
 	@ApiOperation(value = "根据产品测试用例获取DEFAULT", tags = {"用例步骤" } ,notes = "根据产品测试用例获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/{case_id}/casesteps/fetchdefault")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepDefaultByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepDefaultByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -436,7 +436,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault-all')")
 	@ApiOperation(value = "根据产品测试用例查询DEFAULT", tags = {"用例步骤" } ,notes = "根据产品测试用例查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/{case_id}/casesteps/searchdefault")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepDefaultByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepDefaultByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -445,7 +445,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault1-all')")
 	@ApiOperation(value = "根据产品测试用例获取DEFAULT1", tags = {"用例步骤" } ,notes = "根据产品测试用例获取DEFAULT1")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/{case_id}/casesteps/fetchdefault1")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepDefault1ByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepDefault1ByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault1(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -459,7 +459,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault1-all')")
 	@ApiOperation(value = "根据产品测试用例查询DEFAULT1", tags = {"用例步骤" } ,notes = "根据产品测试用例查询DEFAULT1")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/{case_id}/casesteps/searchdefault1")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepDefault1ByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepDefault1ByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault1(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -468,7 +468,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchMob-all')")
 	@ApiOperation(value = "根据产品测试用例获取Mob", tags = {"用例步骤" } ,notes = "根据产品测试用例获取Mob")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/{case_id}/casesteps/fetchmob")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepMobByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepMobByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchMob(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -482,7 +482,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchMob-all')")
 	@ApiOperation(value = "根据产品测试用例查询Mob", tags = {"用例步骤" } ,notes = "根据产品测试用例查询Mob")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/{case_id}/casesteps/searchmob")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepMobByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepMobByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchMob(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -491,7 +491,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersion-all')")
 	@ApiOperation(value = "根据产品测试用例获取版本", tags = {"用例步骤" } ,notes = "根据产品测试用例获取版本")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/{case_id}/casesteps/fetchversion")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchVersion(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -505,7 +505,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersion-all')")
 	@ApiOperation(value = "根据产品测试用例查询版本", tags = {"用例步骤" } ,notes = "根据产品测试用例查询版本")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/{case_id}/casesteps/searchversion")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchVersion(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -514,7 +514,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersions-all')")
 	@ApiOperation(value = "根据产品测试用例获取版本1", tags = {"用例步骤" } ,notes = "根据产品测试用例获取版本1")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/{case_id}/casesteps/fetchversions")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionsByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionsByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchVersions(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -528,7 +528,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersions-all')")
 	@ApiOperation(value = "根据产品测试用例查询版本1", tags = {"用例步骤" } ,notes = "根据产品测试用例查询版本1")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/{case_id}/casesteps/searchversions")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionsByProductCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionsByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchVersions(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -537,7 +537,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Create-all')")
     @ApiOperation(value = "根据需求测试用例建立用例步骤", tags = {"用例步骤" },  notes = "根据需求测试用例建立用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/casesteps")
-    public ResponseEntity<CaseStepDTO> createByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepDTO casestepdto) {
+    public ResponseEntity<CaseStepDTO> createByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepDTO casestepdto) {
         CaseStep domain = casestepMapping.toDomain(casestepdto);
         domain.setIbizcase(case_id);
 		casestepService.create(domain);
@@ -548,7 +548,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Create-all')")
     @ApiOperation(value = "根据需求测试用例批量建立用例步骤", tags = {"用例步骤" },  notes = "根据需求测试用例批量建立用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/casesteps/batch")
-    public ResponseEntity<Boolean> createBatchByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
+    public ResponseEntity<Boolean> createBatchByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
         List<CaseStep> domainlist=casestepMapping.toDomain(casestepdtos);
         for(CaseStep domain:domainlist){
             domain.setIbizcase(case_id);
@@ -560,7 +560,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Update-all')")
     @ApiOperation(value = "根据需求测试用例更新用例步骤", tags = {"用例步骤" },  notes = "根据需求测试用例更新用例步骤")
 	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/cases/{case_id}/casesteps/{casestep_id}")
-    public ResponseEntity<CaseStepDTO> updateByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @PathVariable("casestep_id") BigInteger casestep_id, @RequestBody CaseStepDTO casestepdto) {
+    public ResponseEntity<CaseStepDTO> updateByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @PathVariable("casestep_id") Long casestep_id, @RequestBody CaseStepDTO casestepdto) {
         CaseStep domain = casestepMapping.toDomain(casestepdto);
         domain.setIbizcase(case_id);
         domain.setId(casestep_id);
@@ -572,7 +572,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Update-all')")
     @ApiOperation(value = "根据需求测试用例批量更新用例步骤", tags = {"用例步骤" },  notes = "根据需求测试用例批量更新用例步骤")
 	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/cases/{case_id}/casesteps/batch")
-    public ResponseEntity<Boolean> updateBatchByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
+    public ResponseEntity<Boolean> updateBatchByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
         List<CaseStep> domainlist=casestepMapping.toDomain(casestepdtos);
         for(CaseStep domain:domainlist){
             domain.setIbizcase(case_id);
@@ -584,14 +584,14 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Remove-all')")
     @ApiOperation(value = "根据需求测试用例删除用例步骤", tags = {"用例步骤" },  notes = "根据需求测试用例删除用例步骤")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/stories/{story_id}/cases/{case_id}/casesteps/{casestep_id}")
-    public ResponseEntity<Boolean> removeByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @PathVariable("casestep_id") BigInteger casestep_id) {
+    public ResponseEntity<Boolean> removeByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @PathVariable("casestep_id") Long casestep_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(casestepService.remove(casestep_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Remove-all')")
     @ApiOperation(value = "根据需求测试用例批量删除用例步骤", tags = {"用例步骤" },  notes = "根据需求测试用例批量删除用例步骤")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/stories/{story_id}/cases/{case_id}/casesteps/batch")
-    public ResponseEntity<Boolean> removeBatchByStoryCase(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatchByStoryCase(@RequestBody List<Long> ids) {
         casestepService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -599,7 +599,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Get-all')")
     @ApiOperation(value = "根据需求测试用例获取用例步骤", tags = {"用例步骤" },  notes = "根据需求测试用例获取用例步骤")
 	@RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/cases/{case_id}/casesteps/{casestep_id}")
-    public ResponseEntity<CaseStepDTO> getByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @PathVariable("casestep_id") BigInteger casestep_id) {
+    public ResponseEntity<CaseStepDTO> getByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @PathVariable("casestep_id") Long casestep_id) {
         CaseStep domain = casestepService.get(casestep_id);
         CaseStepDTO dto = casestepMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
@@ -607,7 +607,7 @@ public class CaseStepResource {
 
     @ApiOperation(value = "根据需求测试用例获取用例步骤草稿", tags = {"用例步骤" },  notes = "根据需求测试用例获取用例步骤草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/cases/{case_id}/casesteps/getdraft")
-    public ResponseEntity<CaseStepDTO> getDraftByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id) {
+    public ResponseEntity<CaseStepDTO> getDraftByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id) {
         CaseStep domain = new CaseStep();
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(casestepMapping.toDto(casestepService.getDraft(domain)));
@@ -615,14 +615,14 @@ public class CaseStepResource {
 
     @ApiOperation(value = "根据需求测试用例检查用例步骤", tags = {"用例步骤" },  notes = "根据需求测试用例检查用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/casesteps/checkkey")
-    public ResponseEntity<Boolean> checkKeyByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepDTO casestepdto) {
+    public ResponseEntity<Boolean> checkKeyByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepDTO casestepdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(casestepService.checkKey(casestepMapping.toDomain(casestepdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Save-all')")
     @ApiOperation(value = "根据需求测试用例保存用例步骤", tags = {"用例步骤" },  notes = "根据需求测试用例保存用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/casesteps/save")
-    public ResponseEntity<Boolean> saveByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepDTO casestepdto) {
+    public ResponseEntity<Boolean> saveByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepDTO casestepdto) {
         CaseStep domain = casestepMapping.toDomain(casestepdto);
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(casestepService.save(domain));
@@ -631,7 +631,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Save-all')")
     @ApiOperation(value = "根据需求测试用例批量保存用例步骤", tags = {"用例步骤" },  notes = "根据需求测试用例批量保存用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/casesteps/savebatch")
-    public ResponseEntity<Boolean> saveBatchByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
+    public ResponseEntity<Boolean> saveBatchByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
         List<CaseStep> domainlist=casestepMapping.toDomain(casestepdtos);
         for(CaseStep domain:domainlist){
              domain.setIbizcase(case_id);
@@ -643,7 +643,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchCurTest-all')")
 	@ApiOperation(value = "根据需求测试用例获取当前测试步骤", tags = {"用例步骤" } ,notes = "根据需求测试用例获取当前测试步骤")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/{case_id}/casesteps/fetchcurtest")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepCurTestByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepCurTestByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchCurTest(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -657,7 +657,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchCurTest-all')")
 	@ApiOperation(value = "根据需求测试用例查询当前测试步骤", tags = {"用例步骤" } ,notes = "根据需求测试用例查询当前测试步骤")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/{case_id}/casesteps/searchcurtest")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepCurTestByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepCurTestByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchCurTest(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -666,7 +666,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault-all')")
 	@ApiOperation(value = "根据需求测试用例获取DEFAULT", tags = {"用例步骤" } ,notes = "根据需求测试用例获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/{case_id}/casesteps/fetchdefault")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepDefaultByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepDefaultByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -680,7 +680,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault-all')")
 	@ApiOperation(value = "根据需求测试用例查询DEFAULT", tags = {"用例步骤" } ,notes = "根据需求测试用例查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/{case_id}/casesteps/searchdefault")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepDefaultByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepDefaultByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -689,7 +689,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault1-all')")
 	@ApiOperation(value = "根据需求测试用例获取DEFAULT1", tags = {"用例步骤" } ,notes = "根据需求测试用例获取DEFAULT1")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/{case_id}/casesteps/fetchdefault1")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepDefault1ByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepDefault1ByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault1(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -703,7 +703,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault1-all')")
 	@ApiOperation(value = "根据需求测试用例查询DEFAULT1", tags = {"用例步骤" } ,notes = "根据需求测试用例查询DEFAULT1")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/{case_id}/casesteps/searchdefault1")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepDefault1ByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepDefault1ByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault1(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -712,7 +712,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchMob-all')")
 	@ApiOperation(value = "根据需求测试用例获取Mob", tags = {"用例步骤" } ,notes = "根据需求测试用例获取Mob")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/{case_id}/casesteps/fetchmob")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepMobByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepMobByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchMob(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -726,7 +726,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchMob-all')")
 	@ApiOperation(value = "根据需求测试用例查询Mob", tags = {"用例步骤" } ,notes = "根据需求测试用例查询Mob")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/{case_id}/casesteps/searchmob")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepMobByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepMobByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchMob(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -735,7 +735,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersion-all')")
 	@ApiOperation(value = "根据需求测试用例获取版本", tags = {"用例步骤" } ,notes = "根据需求测试用例获取版本")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/{case_id}/casesteps/fetchversion")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchVersion(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -749,7 +749,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersion-all')")
 	@ApiOperation(value = "根据需求测试用例查询版本", tags = {"用例步骤" } ,notes = "根据需求测试用例查询版本")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/{case_id}/casesteps/searchversion")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchVersion(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -758,7 +758,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersions-all')")
 	@ApiOperation(value = "根据需求测试用例获取版本1", tags = {"用例步骤" } ,notes = "根据需求测试用例获取版本1")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/{case_id}/casesteps/fetchversions")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionsByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionsByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchVersions(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -772,7 +772,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersions-all')")
 	@ApiOperation(value = "根据需求测试用例查询版本1", tags = {"用例步骤" } ,notes = "根据需求测试用例查询版本1")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/{case_id}/casesteps/searchversions")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionsByStoryCase(@PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionsByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchVersions(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -781,7 +781,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Create-all')")
     @ApiOperation(value = "根据产品需求测试用例建立用例步骤", tags = {"用例步骤" },  notes = "根据产品需求测试用例建立用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps")
-    public ResponseEntity<CaseStepDTO> createByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepDTO casestepdto) {
+    public ResponseEntity<CaseStepDTO> createByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepDTO casestepdto) {
         CaseStep domain = casestepMapping.toDomain(casestepdto);
         domain.setIbizcase(case_id);
 		casestepService.create(domain);
@@ -792,7 +792,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Create-all')")
     @ApiOperation(value = "根据产品需求测试用例批量建立用例步骤", tags = {"用例步骤" },  notes = "根据产品需求测试用例批量建立用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/batch")
-    public ResponseEntity<Boolean> createBatchByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
+    public ResponseEntity<Boolean> createBatchByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
         List<CaseStep> domainlist=casestepMapping.toDomain(casestepdtos);
         for(CaseStep domain:domainlist){
             domain.setIbizcase(case_id);
@@ -804,7 +804,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Update-all')")
     @ApiOperation(value = "根据产品需求测试用例更新用例步骤", tags = {"用例步骤" },  notes = "根据产品需求测试用例更新用例步骤")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/{casestep_id}")
-    public ResponseEntity<CaseStepDTO> updateByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @PathVariable("casestep_id") BigInteger casestep_id, @RequestBody CaseStepDTO casestepdto) {
+    public ResponseEntity<CaseStepDTO> updateByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @PathVariable("casestep_id") Long casestep_id, @RequestBody CaseStepDTO casestepdto) {
         CaseStep domain = casestepMapping.toDomain(casestepdto);
         domain.setIbizcase(case_id);
         domain.setId(casestep_id);
@@ -816,7 +816,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Update-all')")
     @ApiOperation(value = "根据产品需求测试用例批量更新用例步骤", tags = {"用例步骤" },  notes = "根据产品需求测试用例批量更新用例步骤")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/batch")
-    public ResponseEntity<Boolean> updateBatchByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
+    public ResponseEntity<Boolean> updateBatchByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
         List<CaseStep> domainlist=casestepMapping.toDomain(casestepdtos);
         for(CaseStep domain:domainlist){
             domain.setIbizcase(case_id);
@@ -828,14 +828,14 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Remove-all')")
     @ApiOperation(value = "根据产品需求测试用例删除用例步骤", tags = {"用例步骤" },  notes = "根据产品需求测试用例删除用例步骤")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/{casestep_id}")
-    public ResponseEntity<Boolean> removeByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @PathVariable("casestep_id") BigInteger casestep_id) {
+    public ResponseEntity<Boolean> removeByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @PathVariable("casestep_id") Long casestep_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(casestepService.remove(casestep_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Remove-all')")
     @ApiOperation(value = "根据产品需求测试用例批量删除用例步骤", tags = {"用例步骤" },  notes = "根据产品需求测试用例批量删除用例步骤")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/batch")
-    public ResponseEntity<Boolean> removeBatchByProductStoryCase(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatchByProductStoryCase(@RequestBody List<Long> ids) {
         casestepService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -843,7 +843,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Get-all')")
     @ApiOperation(value = "根据产品需求测试用例获取用例步骤", tags = {"用例步骤" },  notes = "根据产品需求测试用例获取用例步骤")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/{casestep_id}")
-    public ResponseEntity<CaseStepDTO> getByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @PathVariable("casestep_id") BigInteger casestep_id) {
+    public ResponseEntity<CaseStepDTO> getByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @PathVariable("casestep_id") Long casestep_id) {
         CaseStep domain = casestepService.get(casestep_id);
         CaseStepDTO dto = casestepMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
@@ -851,7 +851,7 @@ public class CaseStepResource {
 
     @ApiOperation(value = "根据产品需求测试用例获取用例步骤草稿", tags = {"用例步骤" },  notes = "根据产品需求测试用例获取用例步骤草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/getdraft")
-    public ResponseEntity<CaseStepDTO> getDraftByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id) {
+    public ResponseEntity<CaseStepDTO> getDraftByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id) {
         CaseStep domain = new CaseStep();
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(casestepMapping.toDto(casestepService.getDraft(domain)));
@@ -859,14 +859,14 @@ public class CaseStepResource {
 
     @ApiOperation(value = "根据产品需求测试用例检查用例步骤", tags = {"用例步骤" },  notes = "根据产品需求测试用例检查用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/checkkey")
-    public ResponseEntity<Boolean> checkKeyByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepDTO casestepdto) {
+    public ResponseEntity<Boolean> checkKeyByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepDTO casestepdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(casestepService.checkKey(casestepMapping.toDomain(casestepdto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Save-all')")
     @ApiOperation(value = "根据产品需求测试用例保存用例步骤", tags = {"用例步骤" },  notes = "根据产品需求测试用例保存用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/save")
-    public ResponseEntity<Boolean> saveByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepDTO casestepdto) {
+    public ResponseEntity<Boolean> saveByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepDTO casestepdto) {
         CaseStep domain = casestepMapping.toDomain(casestepdto);
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(casestepService.save(domain));
@@ -875,7 +875,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-Save-all')")
     @ApiOperation(value = "根据产品需求测试用例批量保存用例步骤", tags = {"用例步骤" },  notes = "根据产品需求测试用例批量保存用例步骤")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/savebatch")
-    public ResponseEntity<Boolean> saveBatchByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
+    public ResponseEntity<Boolean> saveBatchByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody List<CaseStepDTO> casestepdtos) {
         List<CaseStep> domainlist=casestepMapping.toDomain(casestepdtos);
         for(CaseStep domain:domainlist){
              domain.setIbizcase(case_id);
@@ -887,7 +887,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchCurTest-all')")
 	@ApiOperation(value = "根据产品需求测试用例获取当前测试步骤", tags = {"用例步骤" } ,notes = "根据产品需求测试用例获取当前测试步骤")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/fetchcurtest")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepCurTestByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepCurTestByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchCurTest(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -901,7 +901,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchCurTest-all')")
 	@ApiOperation(value = "根据产品需求测试用例查询当前测试步骤", tags = {"用例步骤" } ,notes = "根据产品需求测试用例查询当前测试步骤")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/searchcurtest")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepCurTestByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepCurTestByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchCurTest(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -910,7 +910,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault-all')")
 	@ApiOperation(value = "根据产品需求测试用例获取DEFAULT", tags = {"用例步骤" } ,notes = "根据产品需求测试用例获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/fetchdefault")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepDefaultByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepDefaultByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -924,7 +924,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault-all')")
 	@ApiOperation(value = "根据产品需求测试用例查询DEFAULT", tags = {"用例步骤" } ,notes = "根据产品需求测试用例查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/searchdefault")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepDefaultByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepDefaultByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -933,7 +933,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault1-all')")
 	@ApiOperation(value = "根据产品需求测试用例获取DEFAULT1", tags = {"用例步骤" } ,notes = "根据产品需求测试用例获取DEFAULT1")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/fetchdefault1")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepDefault1ByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepDefault1ByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault1(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -947,7 +947,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchDefault1-all')")
 	@ApiOperation(value = "根据产品需求测试用例查询DEFAULT1", tags = {"用例步骤" } ,notes = "根据产品需求测试用例查询DEFAULT1")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/searchdefault1")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepDefault1ByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepDefault1ByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchDefault1(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -956,7 +956,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchMob-all')")
 	@ApiOperation(value = "根据产品需求测试用例获取Mob", tags = {"用例步骤" } ,notes = "根据产品需求测试用例获取Mob")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/fetchmob")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepMobByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepMobByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchMob(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -970,7 +970,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchMob-all')")
 	@ApiOperation(value = "根据产品需求测试用例查询Mob", tags = {"用例步骤" } ,notes = "根据产品需求测试用例查询Mob")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/searchmob")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepMobByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepMobByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchMob(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -979,7 +979,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersion-all')")
 	@ApiOperation(value = "根据产品需求测试用例获取版本", tags = {"用例步骤" } ,notes = "根据产品需求测试用例获取版本")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/fetchversion")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchVersion(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -993,7 +993,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersion-all')")
 	@ApiOperation(value = "根据产品需求测试用例查询版本", tags = {"用例步骤" } ,notes = "根据产品需求测试用例查询版本")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/searchversion")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchVersion(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -1002,7 +1002,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersions-all')")
 	@ApiOperation(value = "根据产品需求测试用例获取版本1", tags = {"用例步骤" } ,notes = "根据产品需求测试用例获取版本1")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/fetchversions")
-	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionsByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id,CaseStepSearchContext context) {
+	public ResponseEntity<List<CaseStepDTO>> fetchCaseStepVersionsByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id,CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchVersions(context) ;
         List<CaseStepDTO> list = casestepMapping.toDto(domains.getContent());
@@ -1016,7 +1016,7 @@ public class CaseStepResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStep-searchVersions-all')")
 	@ApiOperation(value = "根据产品需求测试用例查询版本1", tags = {"用例步骤" } ,notes = "根据产品需求测试用例查询版本1")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/{case_id}/casesteps/searchversions")
-	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionsByProductStoryCase(@PathVariable("product_id") BigInteger product_id, @PathVariable("story_id") BigInteger story_id, @PathVariable("case_id") BigInteger case_id, @RequestBody CaseStepSearchContext context) {
+	public ResponseEntity<Page<CaseStepDTO>> searchCaseStepVersionsByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseStepSearchContext context) {
         context.setN_case_eq(case_id);
         Page<CaseStep> domains = casestepService.searchVersions(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)

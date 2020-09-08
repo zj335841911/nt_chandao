@@ -54,6 +54,9 @@ export default class AllTrendsModel {
       {
         name: 'actionmanner',
       },
+      {
+        name: 'isactor',
+      },
     ]
   }
 

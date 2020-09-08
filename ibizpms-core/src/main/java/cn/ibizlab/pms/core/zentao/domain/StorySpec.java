@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[需求描述]
@@ -81,7 +82,7 @@ public class StorySpec extends EntityMP implements Serializable {
     @TableField(value = "story")
     @JSONField(name = "story")
     @JsonProperty("story")
-    private BigInteger story;
+    private Long story;
 
     /**
      * 
@@ -128,7 +129,7 @@ public class StorySpec extends EntityMP implements Serializable {
     /**
      * 设置 [需求]
      */
-    public void setStory(BigInteger story){
+    public void setStory(Long story){
         this.story = story ;
         this.modify("story",story);
     }

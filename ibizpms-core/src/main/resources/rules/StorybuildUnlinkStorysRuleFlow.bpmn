@@ -7,14 +7,14 @@
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="storybuildunlinkstorysdefault" type="cn.ibizlab.pms.core.zentao.domain.Story" />
         </extensionElements>
-     <startEvent id="A59F4127-D1BC-4D2C-BF24-95BFDBBCB4F8" isInterrupting="true"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="storybuildunlinkstorysprepareparam1" id="380E74D6-2A39-48FF-B08E-EAC821714950" implementation="http://www.jboss.org/drools/rule" name="参数"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="storybuildunlinkstorysdeaction1" id="27F560A6-83D4-4D90-A6D4-002BEE50D160" implementation="http://www.jboss.org/drools/rule" name="处理"/>
-     <endEvent id="27F560A6-83D4-4D90-A6D4-002BEE50D160_End" name="End"/>
-     <sequenceFlow id="27F560A6-83D4-4D90-A6D4-002BEE50D160_End_Line" sourceRef="27F560A6-83D4-4D90-A6D4-002BEE50D160" targetRef="27F560A6-83D4-4D90-A6D4-002BEE50D160_End"/>
-     <sequenceFlow id="D0FC8D88-B3C3-48A7-848A-1026C3E1C861" sourceRef="380E74D6-2A39-48FF-B08E-EAC821714950" targetRef="27F560A6-83D4-4D90-A6D4-002BEE50D160">
+     <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="storybuildunlinkstorysprepareparam1" id="prepareparam1" implementation="http://www.jboss.org/drools/rule" name="参数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="storybuildunlinkstorysdeaction1" id="deaction1" implementation="http://www.jboss.org/drools/rule" name="处理"/>
+     <endEvent id="deaction1_end" name="end"/>
+     <sequenceFlow id="deaction1_end_line" sourceRef="deaction1" targetRef="deaction1_end"/>
+     <sequenceFlow id="prepareparam1_deaction1" sourceRef="prepareparam1" targetRef="deaction1">
      </sequenceFlow>
-     <sequenceFlow id="479809B9-C5BA-43DF-A5DD-EA193BBD6104" sourceRef="A59F4127-D1BC-4D2C-BF24-95BFDBBCB4F8" targetRef="380E74D6-2A39-48FF-B08E-EAC821714950">
+     <sequenceFlow id="begin_prepareparam1" sourceRef="begin" targetRef="prepareparam1">
      </sequenceFlow>
     </process>
 </definitions>

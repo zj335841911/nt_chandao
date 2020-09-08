@@ -7,26 +7,26 @@
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="ibzmyterritorymobmenucountdefault" type="cn.ibizlab.pms.core.ibiz.domain.IbzMyTerritory" />
         </extensionElements>
-     <startEvent id="F32B689E-3B32-4D8E-BC9F-D8FE603102BC" isInterrupting="true"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymobmenucountrawsqlcall1" id="AF297B88-7F3B-4EAB-8018-0AA6908B2BB8" implementation="http://www.jboss.org/drools/rule" name="产品数"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymobmenucountrawsqlcall4" id="892634E2-7AE5-47BC-A8B3-F96631D3B1B4" implementation="http://www.jboss.org/drools/rule" name="计算我的"/>
-     <endEvent id="892634E2-7AE5-47BC-A8B3-F96631D3B1B4_End" name="End"/>
-     <sequenceFlow id="892634E2-7AE5-47BC-A8B3-F96631D3B1B4_End_Line" sourceRef="892634E2-7AE5-47BC-A8B3-F96631D3B1B4" targetRef="892634E2-7AE5-47BC-A8B3-F96631D3B1B4_End"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymobmenucountdeaction1" id="BB30B0A1-976E-40CF-8207-B88F9A0A95F7" implementation="http://www.jboss.org/drools/rule" name="收藏"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymobmenucountdeaction2" id="9911B001-C6FB-4E79-AE20-F65BD5C9FA81" implementation="http://www.jboss.org/drools/rule" name="我的"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymobmenucountrawsqlcall2" id="4E20378B-6600-49C1-9E82-7D10AA99D9F6" implementation="http://www.jboss.org/drools/rule" name="项目数"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymobmenucountrawsqlcall3" id="2A6DD0D5-FEE3-458C-937A-22597B3D981E" implementation="http://www.jboss.org/drools/rule" name="计算我的收藏数"/>
-     <sequenceFlow id="FF0E851B-88DD-4A69-91B8-46C9EE750A3B" sourceRef="2A6DD0D5-FEE3-458C-937A-22597B3D981E" targetRef="9911B001-C6FB-4E79-AE20-F65BD5C9FA81">
+     <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymobmenucountrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="产品数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymobmenucountrawsqlcall4" id="rawsqlcall4" implementation="http://www.jboss.org/drools/rule" name="计算我的"/>
+     <endEvent id="rawsqlcall4_end" name="end"/>
+     <sequenceFlow id="rawsqlcall4_end_line" sourceRef="rawsqlcall4" targetRef="rawsqlcall4_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymobmenucountdeaction1" id="deaction1" implementation="http://www.jboss.org/drools/rule" name="收藏"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymobmenucountdeaction2" id="deaction2" implementation="http://www.jboss.org/drools/rule" name="我的"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymobmenucountrawsqlcall2" id="rawsqlcall2" implementation="http://www.jboss.org/drools/rule" name="项目数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymobmenucountrawsqlcall3" id="rawsqlcall3" implementation="http://www.jboss.org/drools/rule" name="计算我的收藏数"/>
+     <sequenceFlow id="rawsqlcall3_deaction2" sourceRef="rawsqlcall3" targetRef="deaction2">
      </sequenceFlow>
-     <sequenceFlow id="8C9EC570-1FBA-4F2E-B3FD-C0D238CBF722" sourceRef="4E20378B-6600-49C1-9E82-7D10AA99D9F6" targetRef="BB30B0A1-976E-40CF-8207-B88F9A0A95F7">
+     <sequenceFlow id="rawsqlcall2_deaction1" sourceRef="rawsqlcall2" targetRef="deaction1">
      </sequenceFlow>
-     <sequenceFlow id="FB1C7287-9F11-4F4C-98ED-2DD414AB2660" sourceRef="9911B001-C6FB-4E79-AE20-F65BD5C9FA81" targetRef="892634E2-7AE5-47BC-A8B3-F96631D3B1B4">
+     <sequenceFlow id="deaction2_rawsqlcall4" sourceRef="deaction2" targetRef="rawsqlcall4">
      </sequenceFlow>
-     <sequenceFlow id="4355A3AA-2CD9-49F4-844A-CA3CB0624C73" sourceRef="AF297B88-7F3B-4EAB-8018-0AA6908B2BB8" targetRef="4E20378B-6600-49C1-9E82-7D10AA99D9F6">
+     <sequenceFlow id="rawsqlcall1_rawsqlcall2" sourceRef="rawsqlcall1" targetRef="rawsqlcall2">
      </sequenceFlow>
-     <sequenceFlow id="FDF37ADB-1CD4-4EF1-9172-55BB2FBB0ABA" sourceRef="BB30B0A1-976E-40CF-8207-B88F9A0A95F7" targetRef="2A6DD0D5-FEE3-458C-937A-22597B3D981E">
+     <sequenceFlow id="deaction1_rawsqlcall3" sourceRef="deaction1" targetRef="rawsqlcall3">
      </sequenceFlow>
-     <sequenceFlow id="5BF121C2-5DDA-4DCE-9CAA-EC35B8B009B4" sourceRef="F32B689E-3B32-4D8E-BC9F-D8FE603102BC" targetRef="AF297B88-7F3B-4EAB-8018-0AA6908B2BB8">
+     <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
      </sequenceFlow>
     </process>
 </definitions>

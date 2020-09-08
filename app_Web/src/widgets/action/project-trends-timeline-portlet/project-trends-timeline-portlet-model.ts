@@ -54,6 +54,9 @@ export default class ProjectTrendsTimelineModel {
       {
         name: 'actionmanner',
       },
+      {
+        name: 'isactor',
+      },
     ]
   }
 

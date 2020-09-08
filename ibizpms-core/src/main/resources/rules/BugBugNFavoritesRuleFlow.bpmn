@@ -7,11 +7,11 @@
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="bugbugnfavoritesdefault" type="cn.ibizlab.pms.core.zentao.domain.Bug" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="bugbugnfavoritesrawsqlcall1" id="25c11328dc9a2ed7a97247c938e33d63" implementation="http://www.jboss.org/drools/rule" name="取消收藏"/>
-     <endEvent id="25c11328dc9a2ed7a97247c938e33d63_End" name="End"/>
-     <sequenceFlow id="25c11328dc9a2ed7a97247c938e33d63_End_Line" sourceRef="25c11328dc9a2ed7a97247c938e33d63" targetRef="25c11328dc9a2ed7a97247c938e33d63_End"/>
-     <startEvent id="a3cc58209cb3d4e259acdc8a2478b9d6" isInterrupting="true"/>
-     <sequenceFlow id="fab34664210838c0617ae151e3236dd7" sourceRef="a3cc58209cb3d4e259acdc8a2478b9d6" targetRef="25c11328dc9a2ed7a97247c938e33d63">
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="bugbugnfavoritesrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="取消收藏"/>
+     <endEvent id="rawsqlcall1_end" name="end"/>
+     <sequenceFlow id="rawsqlcall1_end_line" sourceRef="rawsqlcall1" targetRef="rawsqlcall1_end"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
      </sequenceFlow>
     </process>
 </definitions>

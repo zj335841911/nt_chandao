@@ -67,7 +67,7 @@ public class FileResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-Update-all')")
     @ApiOperation(value = "更新附件", tags = {"附件" },  notes = "更新附件")
 	@RequestMapping(method = RequestMethod.PUT, value = "/files/{file_id}")
-    public ResponseEntity<FileDTO> update(@PathVariable("file_id") BigInteger file_id, @RequestBody FileDTO filedto) {
+    public ResponseEntity<FileDTO> update(@PathVariable("file_id") Long file_id, @RequestBody FileDTO filedto) {
 		File domain  = fileMapping.toDomain(filedto);
         domain .setId(file_id);
 		fileService.update(domain );
@@ -86,14 +86,14 @@ public class FileResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-Remove-all')")
     @ApiOperation(value = "删除附件", tags = {"附件" },  notes = "删除附件")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/files/{file_id}")
-    public ResponseEntity<Boolean> remove(@PathVariable("file_id") BigInteger file_id) {
+    public ResponseEntity<Boolean> remove(@PathVariable("file_id") Long file_id) {
          return ResponseEntity.status(HttpStatus.OK).body(fileService.remove(file_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-Remove-all')")
     @ApiOperation(value = "批量删除附件", tags = {"附件" },  notes = "批量删除附件")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/files/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         fileService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -101,7 +101,7 @@ public class FileResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-Get-all')")
     @ApiOperation(value = "获取附件", tags = {"附件" },  notes = "获取附件")
 	@RequestMapping(method = RequestMethod.GET, value = "/files/{file_id}")
-    public ResponseEntity<FileDTO> get(@PathVariable("file_id") BigInteger file_id) {
+    public ResponseEntity<FileDTO> get(@PathVariable("file_id") Long file_id) {
         File domain = fileService.get(file_id);
         FileDTO dto = fileMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);

@@ -71,7 +71,7 @@ public class TestRunDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [VERSION]
@@ -87,7 +87,7 @@ public class TestRunDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
-    private BigInteger ibizcase;
+    private Long ibizcase;
 
     /**
      * 属性 [TASK]
@@ -95,7 +95,7 @@ public class TestRunDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "task")
     @JsonProperty("task")
-    private BigInteger task;
+    private Long task;
 
 
     /**
@@ -149,7 +149,7 @@ public class TestRunDTO extends DTOBase implements Serializable {
     /**
      * 设置 [CASE]
      */
-    public void setIbizcase(BigInteger  ibizcase){
+    public void setIbizcase(Long  ibizcase){
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
@@ -157,7 +157,7 @@ public class TestRunDTO extends DTOBase implements Serializable {
     /**
      * 设置 [TASK]
      */
-    public void setTask(BigInteger  task){
+    public void setTask(Long  task){
         this.task = task ;
         this.modify("task",task);
     }

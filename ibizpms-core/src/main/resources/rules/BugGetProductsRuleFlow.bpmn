@@ -7,11 +7,11 @@
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="buggetproductsdefault" type="cn.ibizlab.pms.core.zentao.domain.Bug" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="buggetproductsrawsqlcall1" id="2499A3FD-C4B6-4C87-97C1-35F6CEB755CC" implementation="http://www.jboss.org/drools/rule" name="获取产品"/>
-     <endEvent id="2499A3FD-C4B6-4C87-97C1-35F6CEB755CC_End" name="End"/>
-     <sequenceFlow id="2499A3FD-C4B6-4C87-97C1-35F6CEB755CC_End_Line" sourceRef="2499A3FD-C4B6-4C87-97C1-35F6CEB755CC" targetRef="2499A3FD-C4B6-4C87-97C1-35F6CEB755CC_End"/>
-     <startEvent id="A60B5562-3150-4E53-A103-7BCC135FF379" isInterrupting="true"/>
-     <sequenceFlow id="4988AF84-BFB2-4296-9505-7AF291EE128D" sourceRef="A60B5562-3150-4E53-A103-7BCC135FF379" targetRef="2499A3FD-C4B6-4C87-97C1-35F6CEB755CC">
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="buggetproductsrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取产品"/>
+     <endEvent id="rawsqlcall1_end" name="end"/>
+     <sequenceFlow id="rawsqlcall1_end_line" sourceRef="rawsqlcall1" targetRef="rawsqlcall1_end"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
      </sequenceFlow>
     </process>
 </definitions>

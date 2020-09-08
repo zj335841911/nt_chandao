@@ -38,7 +38,7 @@ public class IBZTaskTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "root")
     @JsonProperty("root")
-    private BigInteger root;
+    private Long root;
 
     /**
      * 属性 [LIMITED]
@@ -94,7 +94,7 @@ public class IBZTaskTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "estimate")
     @JsonProperty("estimate")
-    private Double estimate;
+    private BigDecimal estimate;
 
     /**
      * 属性 [ACCOUNT]
@@ -110,7 +110,7 @@ public class IBZTaskTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
-    private Double consumed;
+    private BigDecimal consumed;
 
     /**
      * 属性 [ID]
@@ -118,7 +118,7 @@ public class IBZTaskTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [JOIN]
@@ -143,7 +143,7 @@ public class IBZTaskTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "left")
     @JsonProperty("left")
-    private Double left;
+    private BigDecimal left;
 
 
     /**
@@ -157,7 +157,7 @@ public class IBZTaskTeamDTO extends DTOBase implements Serializable {
     /**
      * 设置 [ROOT]
      */
-    public void setRoot(BigInteger  root){
+    public void setRoot(Long  root){
         this.root = root ;
         this.modify("root",root);
     }
@@ -197,7 +197,7 @@ public class IBZTaskTeamDTO extends DTOBase implements Serializable {
     /**
      * 设置 [ESTIMATE]
      */
-    public void setEstimate(Double  estimate){
+    public void setEstimate(BigDecimal  estimate){
         this.estimate = estimate ;
         this.modify("estimate",estimate);
     }
@@ -213,7 +213,7 @@ public class IBZTaskTeamDTO extends DTOBase implements Serializable {
     /**
      * 设置 [CONSUMED]
      */
-    public void setConsumed(Double  consumed){
+    public void setConsumed(BigDecimal  consumed){
         this.consumed = consumed ;
         this.modify("consumed",consumed);
     }
@@ -237,7 +237,7 @@ public class IBZTaskTeamDTO extends DTOBase implements Serializable {
     /**
      * 设置 [LEFT]
      */
-    public void setLeft(Double  left){
+    public void setLeft(BigDecimal  left){
         this.left = left ;
         this.modify("left",left);
     }

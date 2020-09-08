@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[发布]
@@ -62,7 +63,7 @@ public class Release extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 遗留的Bug
      */
@@ -137,21 +138,21 @@ public class Release extends EntityMP implements Serializable {
     @TableField(value = "product")
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
     /**
      * 版本
      */
     @TableField(value = "build")
     @JSONField(name = "build")
     @JsonProperty("build")
-    private BigInteger build;
+    private Long build;
     /**
      * 平台/分支
      */
     @TableField(value = "branch")
     @JSONField(name = "branch")
     @JsonProperty("branch")
-    private BigInteger branch;
+    private Long branch;
     /**
      * 产品名称
      */
@@ -278,7 +279,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 设置 [产品]
      */
-    public void setProduct(BigInteger product){
+    public void setProduct(Long product){
         this.product = product ;
         this.modify("product",product);
     }
@@ -286,7 +287,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 设置 [版本]
      */
-    public void setBuild(BigInteger build){
+    public void setBuild(Long build){
         this.build = build ;
         this.modify("build",build);
     }
@@ -294,12 +295,16 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 设置 [平台/分支]
      */
-    public void setBranch(BigInteger branch){
+    public void setBranch(Long branch){
         this.branch = branch ;
         this.modify("branch",branch);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
 }
 
 

@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[套件用例]
@@ -60,7 +61,7 @@ public class SuiteCase extends EntityMP implements Serializable {
     @TableField(value = "suite")
     @JSONField(name = "suite")
     @JsonProperty("suite")
-    private BigInteger suite;
+    private Long suite;
     /**
      * 用例
      */
@@ -68,14 +69,14 @@ public class SuiteCase extends EntityMP implements Serializable {
     @TableField(value = "case")
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
-    private BigInteger ibizcase;
+    private Long ibizcase;
     /**
      * 所属产品
      */
     @TableField(value = "product")
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
 
     /**
      * 
@@ -114,7 +115,7 @@ public class SuiteCase extends EntityMP implements Serializable {
     /**
      * 设置 [测试套件]
      */
-    public void setSuite(BigInteger suite){
+    public void setSuite(Long suite){
         this.suite = suite ;
         this.modify("suite",suite);
     }
@@ -122,7 +123,7 @@ public class SuiteCase extends EntityMP implements Serializable {
     /**
      * 设置 [用例]
      */
-    public void setIbizcase(BigInteger ibizcase){
+    public void setIbizcase(Long ibizcase){
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
@@ -130,7 +131,7 @@ public class SuiteCase extends EntityMP implements Serializable {
     /**
      * 设置 [所属产品]
      */
-    public void setProduct(BigInteger product){
+    public void setProduct(Long product){
         this.product = product ;
         this.modify("product",product);
     }

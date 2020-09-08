@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[操作历史]
@@ -76,7 +77,7 @@ public class History extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 关联日志
      */
@@ -84,7 +85,7 @@ public class History extends EntityMP implements Serializable {
     @TableField(value = "action")
     @JSONField(name = "action")
     @JsonProperty("action")
-    private BigInteger action;
+    private Long action;
 
     /**
      * 关联日志
@@ -131,12 +132,16 @@ public class History extends EntityMP implements Serializable {
     /**
      * 设置 [关联日志]
      */
-    public void setAction(BigInteger action){
+    public void setAction(Long action){
         this.action = action ;
         this.modify("action",action);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
 }
 
 

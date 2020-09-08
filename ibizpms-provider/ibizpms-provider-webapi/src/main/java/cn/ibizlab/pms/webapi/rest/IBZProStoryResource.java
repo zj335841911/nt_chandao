@@ -67,7 +67,7 @@ public class IBZProStoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProStory-Update-all')")
     @ApiOperation(value = "更新需求", tags = {"需求" },  notes = "更新需求")
 	@RequestMapping(method = RequestMethod.PUT, value = "/ibzprostories/{ibzprostory_id}")
-    public ResponseEntity<IBZProStoryDTO> update(@PathVariable("ibzprostory_id") BigInteger ibzprostory_id, @RequestBody IBZProStoryDTO ibzprostorydto) {
+    public ResponseEntity<IBZProStoryDTO> update(@PathVariable("ibzprostory_id") Long ibzprostory_id, @RequestBody IBZProStoryDTO ibzprostorydto) {
 		IBZProStory domain  = ibzprostoryMapping.toDomain(ibzprostorydto);
         domain .setId(ibzprostory_id);
 		ibzprostoryService.update(domain );
@@ -86,14 +86,14 @@ public class IBZProStoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProStory-Remove-all')")
     @ApiOperation(value = "删除需求", tags = {"需求" },  notes = "删除需求")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzprostories/{ibzprostory_id}")
-    public ResponseEntity<Boolean> remove(@PathVariable("ibzprostory_id") BigInteger ibzprostory_id) {
+    public ResponseEntity<Boolean> remove(@PathVariable("ibzprostory_id") Long ibzprostory_id) {
          return ResponseEntity.status(HttpStatus.OK).body(ibzprostoryService.remove(ibzprostory_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProStory-Remove-all')")
     @ApiOperation(value = "批量删除需求", tags = {"需求" },  notes = "批量删除需求")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/ibzprostories/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         ibzprostoryService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -101,7 +101,7 @@ public class IBZProStoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProStory-Get-all')")
     @ApiOperation(value = "获取需求", tags = {"需求" },  notes = "获取需求")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzprostories/{ibzprostory_id}")
-    public ResponseEntity<IBZProStoryDTO> get(@PathVariable("ibzprostory_id") BigInteger ibzprostory_id) {
+    public ResponseEntity<IBZProStoryDTO> get(@PathVariable("ibzprostory_id") Long ibzprostory_id) {
         IBZProStory domain = ibzprostoryService.get(ibzprostory_id);
         IBZProStoryDTO dto = ibzprostoryMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
@@ -137,7 +137,7 @@ public class IBZProStoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProStory-SyncFromIBIZ-all')")
     @ApiOperation(value = "同步Ibz平台需求", tags = {"需求" },  notes = "同步Ibz平台需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzprostories/{ibzprostory_id}/syncfromibiz")
-    public ResponseEntity<IBZProStoryDTO> syncFromIBIZ(@PathVariable("ibzprostory_id") BigInteger ibzprostory_id, @RequestBody IBZProStoryDTO ibzprostorydto) {
+    public ResponseEntity<IBZProStoryDTO> syncFromIBIZ(@PathVariable("ibzprostory_id") Long ibzprostory_id, @RequestBody IBZProStoryDTO ibzprostorydto) {
         IBZProStory domain = ibzprostoryMapping.toDomain(ibzprostorydto);
         domain.setId(ibzprostory_id);
         domain = ibzprostoryService.syncFromIBIZ(domain);

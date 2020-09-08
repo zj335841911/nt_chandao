@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[产品]
@@ -69,7 +70,7 @@ public class Product extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 已删除
      */
@@ -180,7 +181,7 @@ public class Product extends EntityMP implements Serializable {
     @TableField(value = "line")
     @JSONField(name = "line")
     @JsonProperty("line")
-    private BigInteger line;
+    private Long line;
     /**
      * 未解决Bug数
      */
@@ -446,12 +447,16 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 设置 [产品线]
      */
-    public void setLine(BigInteger line){
+    public void setLine(Long line){
         this.line = line ;
         this.modify("line",line);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
 }
 
 

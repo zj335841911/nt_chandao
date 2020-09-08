@@ -63,7 +63,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [FINISHEDBY]
@@ -303,7 +303,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
 
     /**
      * 属性 [STORYVERSION]
@@ -335,7 +335,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "project")
     @JsonProperty("project")
-    private BigInteger project;
+    private Long project;
 
     /**
      * 属性 [STORY]
@@ -343,7 +343,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "story")
     @JsonProperty("story")
-    private BigInteger story;
+    private Long story;
 
     /**
      * 属性 [PARENT]
@@ -351,7 +351,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "parent")
     @JsonProperty("parent")
-    private BigInteger parent;
+    private Long parent;
 
     /**
      * 属性 [FROMBUG]
@@ -359,7 +359,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "frombug")
     @JsonProperty("frombug")
-    private BigInteger frombug;
+    private Long frombug;
 
     /**
      * 属性 [DURATION]
@@ -375,7 +375,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "module")
     @JsonProperty("module")
-    private BigInteger module;
+    private Long module;
 
     /**
      * 属性 [PATH]
@@ -661,7 +661,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PROJECT]
      */
-    public void setProject(BigInteger  project){
+    public void setProject(Long  project){
         this.project = project ;
         this.modify("project",project);
     }
@@ -669,7 +669,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     /**
      * 设置 [STORY]
      */
-    public void setStory(BigInteger  story){
+    public void setStory(Long  story){
         this.story = story ;
         this.modify("story",story);
     }
@@ -677,7 +677,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PARENT]
      */
-    public void setParent(BigInteger  parent){
+    public void setParent(Long  parent){
         this.parent = parent ;
         this.modify("parent",parent);
     }
@@ -685,7 +685,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     /**
      * 设置 [FROMBUG]
      */
-    public void setFrombug(BigInteger  frombug){
+    public void setFrombug(Long  frombug){
         this.frombug = frombug ;
         this.modify("frombug",frombug);
     }
@@ -693,7 +693,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     /**
      * 设置 [MODULE]
      */
-    public void setModule(BigInteger  module){
+    public void setModule(Long  module){
         this.module = module ;
         this.modify("module",module);
     }

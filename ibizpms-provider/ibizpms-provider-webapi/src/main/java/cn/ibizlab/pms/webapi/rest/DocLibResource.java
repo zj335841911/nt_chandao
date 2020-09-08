@@ -67,7 +67,7 @@ public class DocLibResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-Update-all')")
     @ApiOperation(value = "更新文档库", tags = {"文档库" },  notes = "更新文档库")
 	@RequestMapping(method = RequestMethod.PUT, value = "/doclibs/{doclib_id}")
-    public ResponseEntity<DocLibDTO> update(@PathVariable("doclib_id") BigInteger doclib_id, @RequestBody DocLibDTO doclibdto) {
+    public ResponseEntity<DocLibDTO> update(@PathVariable("doclib_id") Long doclib_id, @RequestBody DocLibDTO doclibdto) {
 		DocLib domain  = doclibMapping.toDomain(doclibdto);
         domain .setId(doclib_id);
 		doclibService.update(domain );
@@ -86,14 +86,14 @@ public class DocLibResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-Remove-all')")
     @ApiOperation(value = "删除文档库", tags = {"文档库" },  notes = "删除文档库")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/doclibs/{doclib_id}")
-    public ResponseEntity<Boolean> remove(@PathVariable("doclib_id") BigInteger doclib_id) {
+    public ResponseEntity<Boolean> remove(@PathVariable("doclib_id") Long doclib_id) {
          return ResponseEntity.status(HttpStatus.OK).body(doclibService.remove(doclib_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-Remove-all')")
     @ApiOperation(value = "批量删除文档库", tags = {"文档库" },  notes = "批量删除文档库")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/doclibs/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         doclibService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -101,7 +101,7 @@ public class DocLibResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-Get-all')")
     @ApiOperation(value = "获取文档库", tags = {"文档库" },  notes = "获取文档库")
 	@RequestMapping(method = RequestMethod.GET, value = "/doclibs/{doclib_id}")
-    public ResponseEntity<DocLibDTO> get(@PathVariable("doclib_id") BigInteger doclib_id) {
+    public ResponseEntity<DocLibDTO> get(@PathVariable("doclib_id") Long doclib_id) {
         DocLib domain = doclibService.get(doclib_id);
         DocLibDTO dto = doclibMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);

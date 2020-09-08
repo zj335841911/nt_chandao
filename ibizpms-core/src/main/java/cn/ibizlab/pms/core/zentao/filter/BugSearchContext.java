@@ -197,99 +197,99 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
             this.getSearchCond().like("storyname", n_storyname_like);
         }
     }
-	private BigInteger n_tostory_eq;//[转需求]
-	public void setN_tostory_eq(BigInteger n_tostory_eq) {
+	private Long n_tostory_eq;//[转需求]
+	public void setN_tostory_eq(Long n_tostory_eq) {
         this.n_tostory_eq = n_tostory_eq;
         if(!ObjectUtils.isEmpty(this.n_tostory_eq)){
             this.getSearchCond().eq("tostory", n_tostory_eq);
         }
     }
-	private BigInteger n_entry_eq;//[应用]
-	public void setN_entry_eq(BigInteger n_entry_eq) {
+	private Long n_entry_eq;//[应用]
+	public void setN_entry_eq(Long n_entry_eq) {
         this.n_entry_eq = n_entry_eq;
         if(!ObjectUtils.isEmpty(this.n_entry_eq)){
             this.getSearchCond().eq("entry", n_entry_eq);
         }
     }
-	private BigInteger n_product_eq;//[所属产品]
-	public void setN_product_eq(BigInteger n_product_eq) {
+	private Long n_product_eq;//[所属产品]
+	public void setN_product_eq(Long n_product_eq) {
         this.n_product_eq = n_product_eq;
         if(!ObjectUtils.isEmpty(this.n_product_eq)){
             this.getSearchCond().eq("product", n_product_eq);
         }
     }
-	private BigInteger n_totask_eq;//[转任务]
-	public void setN_totask_eq(BigInteger n_totask_eq) {
+	private Long n_totask_eq;//[转任务]
+	public void setN_totask_eq(Long n_totask_eq) {
         this.n_totask_eq = n_totask_eq;
         if(!ObjectUtils.isEmpty(this.n_totask_eq)){
             this.getSearchCond().eq("totask", n_totask_eq);
         }
     }
-	private BigInteger n_plan_eq;//[所属计划]
-	public void setN_plan_eq(BigInteger n_plan_eq) {
+	private Long n_plan_eq;//[所属计划]
+	public void setN_plan_eq(Long n_plan_eq) {
         this.n_plan_eq = n_plan_eq;
         if(!ObjectUtils.isEmpty(this.n_plan_eq)){
             this.getSearchCond().eq("plan", n_plan_eq);
         }
     }
-	private BigInteger n_module_eq;//[所属模块]
-	public void setN_module_eq(BigInteger n_module_eq) {
+	private Long n_module_eq;//[所属模块]
+	public void setN_module_eq(Long n_module_eq) {
         this.n_module_eq = n_module_eq;
         if(!ObjectUtils.isEmpty(this.n_module_eq)){
             this.getSearchCond().eq("module", n_module_eq);
         }
     }
-	private BigInteger n_branch_eq;//[平台/分支]
-	public void setN_branch_eq(BigInteger n_branch_eq) {
+	private Long n_branch_eq;//[平台/分支]
+	public void setN_branch_eq(Long n_branch_eq) {
         this.n_branch_eq = n_branch_eq;
         if(!ObjectUtils.isEmpty(this.n_branch_eq)){
             this.getSearchCond().eq("branch", n_branch_eq);
         }
     }
-	private BigInteger n_duplicatebug_eq;//[重复ID]
-	public void setN_duplicatebug_eq(BigInteger n_duplicatebug_eq) {
+	private Long n_duplicatebug_eq;//[重复ID]
+	public void setN_duplicatebug_eq(Long n_duplicatebug_eq) {
         this.n_duplicatebug_eq = n_duplicatebug_eq;
         if(!ObjectUtils.isEmpty(this.n_duplicatebug_eq)){
             this.getSearchCond().eq("duplicatebug", n_duplicatebug_eq);
         }
     }
-	private BigInteger n_repo_eq;//[代码]
-	public void setN_repo_eq(BigInteger n_repo_eq) {
+	private Long n_repo_eq;//[代码]
+	public void setN_repo_eq(Long n_repo_eq) {
         this.n_repo_eq = n_repo_eq;
         if(!ObjectUtils.isEmpty(this.n_repo_eq)){
             this.getSearchCond().eq("repo", n_repo_eq);
         }
     }
-	private BigInteger n_story_eq;//[相关需求]
-	public void setN_story_eq(BigInteger n_story_eq) {
+	private Long n_story_eq;//[相关需求]
+	public void setN_story_eq(Long n_story_eq) {
         this.n_story_eq = n_story_eq;
         if(!ObjectUtils.isEmpty(this.n_story_eq)){
             this.getSearchCond().eq("story", n_story_eq);
         }
     }
-	private BigInteger n_case_eq;//[相关用例]
-	public void setN_case_eq(BigInteger n_case_eq) {
+	private Long n_case_eq;//[相关用例]
+	public void setN_case_eq(Long n_case_eq) {
         this.n_case_eq = n_case_eq;
         if(!ObjectUtils.isEmpty(this.n_case_eq)){
             this.getSearchCond().eq("case", n_case_eq);
         }
     }
-	private BigInteger n_project_eq;//[所属项目]
-	public void setN_project_eq(BigInteger n_project_eq) {
+	private Long n_project_eq;//[所属项目]
+	public void setN_project_eq(Long n_project_eq) {
         this.n_project_eq = n_project_eq;
         if(!ObjectUtils.isEmpty(this.n_project_eq)){
             this.getSearchCond().eq("project", n_project_eq);
         }
     }
-	private BigInteger n_task_eq;//[相关任务]
-	public void setN_task_eq(BigInteger n_task_eq) {
+	private Long n_task_eq;//[相关任务]
+	public void setN_task_eq(Long n_task_eq) {
         this.n_task_eq = n_task_eq;
         if(!ObjectUtils.isEmpty(this.n_task_eq)){
             this.getSearchCond().eq("task", n_task_eq);
         }
     }
-	private BigInteger n_testtask_eq;//[测试单]
-	public void setN_testtask_eq(BigInteger n_testtask_eq) {
+	private Long n_testtask_eq;//[测试单]
+	public void setN_testtask_eq(Long n_testtask_eq) {
         this.n_testtask_eq = n_testtask_eq;
         if(!ObjectUtils.isEmpty(this.n_testtask_eq)){
             this.getSearchCond().eq("testtask", n_testtask_eq);

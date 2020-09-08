@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[项目]
@@ -92,7 +93,7 @@ public class Project extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 项目名称
      */
@@ -277,7 +278,7 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "parent")
     @JSONField(name = "parent")
     @JsonProperty("parent")
-    private BigInteger parent;
+    private Long parent;
     /**
      * 任务总数
      */
@@ -362,7 +363,7 @@ public class Project extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "hours")
     @JsonProperty("hours")
-    private Double hours;
+    private BigDecimal hours;
     /**
      * 角色
      */
@@ -404,7 +405,7 @@ public class Project extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "totalhours")
     @JsonProperty("totalhours")
-    private Double totalhours;
+    private BigDecimal totalhours;
     /**
      * 移动端图片
      */
@@ -731,12 +732,16 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [父项目]
      */
-    public void setParent(BigInteger parent){
+    public void setParent(Long parent){
         this.parent = parent ;
         this.modify("parent",parent);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
 }
 
 

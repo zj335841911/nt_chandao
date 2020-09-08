@@ -71,7 +71,7 @@ public class BurnDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "project")
     @JsonProperty("project")
-    private BigInteger project;
+    private Long project;
 
     /**
      * 属性 [TASK]
@@ -79,7 +79,7 @@ public class BurnDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "task")
     @JsonProperty("task")
-    private BigInteger task;
+    private Long task;
 
 
     /**
@@ -117,7 +117,7 @@ public class BurnDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PROJECT]
      */
-    public void setProject(BigInteger  project){
+    public void setProject(Long  project){
         this.project = project ;
         this.modify("project",project);
     }
@@ -125,7 +125,7 @@ public class BurnDTO extends DTOBase implements Serializable {
     /**
      * 设置 [TASK]
      */
-    public void setTask(BigInteger  task){
+    public void setTask(Long  task){
         this.task = task ;
         this.modify("task",task);
     }

@@ -109,4 +109,12 @@ export interface Action {
      * @memberof Action
      */
     actionmanner?: any;
+
+    /**
+     * 当前用户
+     *
+     * @returns {*}
+     * @memberof Action
+     */
+    isactor?: any;
 }

@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[测试用例]
@@ -153,7 +154,7 @@ public class IbzCase extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 前置条件
      */
@@ -209,14 +210,14 @@ public class IbzCase extends EntityMP implements Serializable {
     @TableField(value = "lib")
     @JSONField(name = "lib")
     @JsonProperty("lib")
-    private BigInteger lib;
+    private Long lib;
     /**
      * id
      */
     @TableField(value = "module")
     @JSONField(name = "module")
     @JsonProperty("module")
-    private BigInteger module;
+    private Long module;
     /**
      * 所属模块
      */
@@ -432,7 +433,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [编号]
      */
-    public void setLib(BigInteger lib){
+    public void setLib(Long lib){
         this.lib = lib ;
         this.modify("lib",lib);
     }
@@ -440,7 +441,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 设置 [id]
      */
-    public void setModule(BigInteger module){
+    public void setModule(Long module){
         this.module = module ;
         this.modify("module",module);
     }
@@ -454,6 +455,10 @@ public class IbzCase extends EntityMP implements Serializable {
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
 }
 
 

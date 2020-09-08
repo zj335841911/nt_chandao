@@ -53,7 +53,7 @@ export default class SubStoryUIServiceBase extends UIService {
      * 
      * @memberof  SubStoryUIServiceBase
      */  
-    public mainStateFields:Array<any> = ['status','isfavorites'];
+    public mainStateFields:Array<any> = ['status','isfavorites','ischild'];
 
     /**
      * 主状态集合Map

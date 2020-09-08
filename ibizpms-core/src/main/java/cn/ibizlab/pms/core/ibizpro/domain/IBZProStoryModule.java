@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[需求模块]
@@ -47,7 +48,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 名称
      */
@@ -61,7 +62,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     @TableField(value = "root")
     @JSONField(name = "root")
     @JsonProperty("root")
-    private BigInteger root;
+    private Long root;
     /**
      * IBIZ标识
      */
@@ -108,7 +109,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     @TableField(value = "parent")
     @JSONField(name = "parent")
     @JsonProperty("parent")
-    private BigInteger parent;
+    private Long parent;
     /**
      * 产品
      */
@@ -178,7 +179,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     /**
      * 设置 [编号]
      */
-    public void setRoot(BigInteger root){
+    public void setRoot(Long root){
         this.root = root ;
         this.modify("root",root);
     }
@@ -226,7 +227,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     /**
      * 设置 [id]
      */
-    public void setParent(BigInteger parent){
+    public void setParent(Long parent){
         this.parent = parent ;
         this.modify("parent",parent);
     }
@@ -256,6 +257,10 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
 }
 
 
