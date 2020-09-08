@@ -2,11 +2,11 @@
 import { Component } from 'vue-property-decorator';
 import AssMOBDASHBOARDBase from './ass-mobdashboard-list-base.vue';
 
-import layout_portlet_MyStoryMob_list_itempanel from '@widgets/story/mob-panel/mob-panel.vue';
+import layout_dashboard_sysportlet1_list_itempanel from '@widgets/story/mob-panel/mob-panel.vue';
  
 @Component({
     components: {
-        layout_portlet_MyStoryMob_list_itempanel,
+        layout_dashboard_sysportlet1_list_itempanel,
          
     }
 })

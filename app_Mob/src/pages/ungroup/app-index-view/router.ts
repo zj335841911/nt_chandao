@@ -1952,6 +1952,19 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-module-mob-pickup-mdview/product-module-mob-pickup-mdview.vue'),
                 },
                 {
+                    path: 'modules/:module?/mobpickupmdview',
+                    meta: {
+                        caption: 'module.views.mobpickupmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'modules', parameterName: 'module' },
+                            { pathName: 'mobpickupmdview', parameterName: 'mobpickupmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/module-mob-pickup-mdview/module-mob-pickup-mdview.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/changemoboptionview',
                     meta: {
                         caption: 'story.views.changemoboptionview.caption',
@@ -1977,19 +1990,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/story-change-mob-option-view/story-change-mob-option-view.vue'),
-                },
-                {
-                    path: 'modules/:module?/mobpickupmdview',
-                    meta: {
-                        caption: 'module.views.mobpickupmdview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'modules', parameterName: 'module' },
-                            { pathName: 'mobpickupmdview', parameterName: 'mobpickupmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/module-mob-pickup-mdview/module-mob-pickup-mdview.vue'),
                 },
                 {
                     path: 'products/:product?/mobeditview',
@@ -2567,33 +2567,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/product-close-mob-edit-view/product-close-mob-edit-view.vue'),
-                },
-                {
-                    path: 'products/:product?/stories/:story?/moblistview',
-                    meta: {
-                        caption: 'story.views.moblistview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'moblistview', parameterName: 'moblistview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/story-mob-list-view/story-mob-list-view.vue'),
-                },
-                {
-                    path: 'stories/:story?/moblistview',
-                    meta: {
-                        caption: 'story.views.moblistview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'moblistview', parameterName: 'moblistview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/story-mob-list-view/story-mob-list-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/mobmdview9',

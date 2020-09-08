@@ -5,7 +5,7 @@ import view_dashboard_sysportlet4 from '@widgets/task/my-favorite-task-portlet/m
 import view_dashboard_sysportlet5 from '@widgets/story/my-favorite-story-portlet/my-favorite-story-portlet.vue';
 import view_dashboard_sysportlet2 from '@widgets/task/mytasks-portlet/mytasks-portlet.vue';
 import view_dashboard_sysportlet3 from '@widgets/bug/my-bug-portlet/my-bug-portlet.vue';
-import view_dashboard_sysportlet1 from '@widgets/ibz-my-territory/mystory-portlet/mystory-portlet.vue';
+import view_dashboard_sysportlet1 from '@widgets/story/mystorys-portlet/mystorys-portlet.vue';
 
  
 @Component({
