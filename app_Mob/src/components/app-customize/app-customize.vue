@@ -8,7 +8,7 @@
                     {{$t('app.button.back')}}
                 </ion-button>
             </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"> 自定义仪表盘</label></ion-title>
+            <ion-title class="view-title"><label class="title-label">自定义仪表盘</label></ion-title>
         </ion-toolbar>
     </ion-header>
     <ion-content>
@@ -16,12 +16,12 @@
     <div class="drag-list-item added">
       <div class="header">已经添加的卡片</div>
       <draggable v-model="list_added" handle=".end" :animation="200" @end="dragEnd">
-        <div class="content" v-for="item in list_added" :key="item.id">
+        <div class="content" v-for="item in list_added" :key="item.componentName">
           <div class="start" @click="delteItem(item.id)"><ion-icon name="remove-circle-outline"></ion-icon></div> 
           <div class="drag-list-pic"></div>
           <div class="drag-list-text">
-            <div>{{item.title}}</div>
-            <div>{{item.text}}</div>
+            <div>{{item.appName}}</div>
+            <div>{{item.portletName}}</div>
           </div>
           <div class="end">
             <ion-icon name = "drag-point"></ion-icon>
@@ -33,13 +33,12 @@
     <div class="drag-list-item add">
       <div class="header">可添加的卡片</div>
       <template v-for="item in list_add" >
-        <div class="content" v-if="item.componentName"  :key="item.id">
-         
+        <div class="content" v-if="item.componentName"  :key="item.componentName">
             <div class="start" @click="addItem(item.id)"><ion-icon name="add-circle-outline"></ion-icon></div> 
           <div class="drag-list-pic"></div>
           <div class="drag-list-text">
-            <div>{{item.title}}</div>
-            <div>{{item.text}}</div>
+            <div>{{item.appName}}</div>
+            <div>{{item.portletName}}</div>
           </div>
          
         </div>
@@ -61,6 +60,7 @@ import {
 } from "vue-property-decorator";
 import draggable from 'vuedraggable';
 import { Http } from '@/ibiz-core/utils';
+import UtilService from '@/utilservice/util-service';
 @Component({
   components: {
     draggable,
@@ -85,15 +85,22 @@ export default class App404 extends Vue {
    */
   @Prop() protected _viewparams!: string;
 
+    /**
+     * 工具服务对象
+     *
+     * @protected
+     * @type {UtilService}
+     * @memberof AppDashboardDesignService
+     */
+    protected utilService: UtilService = new UtilService();
+
   /**
    * 传入数据list_add
    *
    * @type {Array}
    * @memberof APPDragList
    */
-  public list_add?:any = [
-
-  ]
+  public list_add?:any = []
 
   /**
    * 减少item
@@ -110,6 +117,7 @@ export default class App404 extends Vue {
       v.id = i + 1;
     })
     this.list_add.push(item);
+    this.customizeChange();
   }
 
   /**
@@ -137,6 +145,7 @@ export default class App404 extends Vue {
    * @memberof APPDragList
    */
   public dragEnd(){
+    this.customizeChange();
     console.log(this.list_added)
   }
 
@@ -206,13 +215,16 @@ export default class App404 extends Vue {
    * 解析data
    */
   public parseData(data:any) {
-    data.forEach((item:any,index:number) => {
-      item.id = index;
-      item.text = item.portletName;
-      item.title = item.appName;
-
+    this.selectMode.forEach((i:any,ins:number)=>{
+          data.forEach((item:any,index:number) => {
+            if(i.componentName == item.componentName){
+              data.splice(index, 1);
+            }
+          });
     });
     this.list_add = data;
+    this.list_added = this.selectMode;
+    
   }
 
     /**
@@ -236,7 +248,7 @@ export default class App404 extends Vue {
    * customizeChange
    */
   public customizeChange() {
-
+    this.saveModel(this.utilServiceName,{},{utilServiceName:this.utilServiceName,modelid:this.modelId,model:this.list_added});
   }
 
   /**
@@ -247,7 +259,9 @@ export default class App404 extends Vue {
     if(parm){
       this.modelId = parm.modelId?parm.modelId:"";
       this.utilServiceName =  parm.utilServiceName?parm.utilServiceName:"";
+      this.selectMode =  parm.selectMode?parm.selectMode:"";
     }
+    console.log(this.selectMode);
     
   }
 
@@ -255,8 +269,36 @@ export default class App404 extends Vue {
    * 关闭视图
    */
   public closeView() {
-    this.$emit("close", []);
+    this.$emit("close", [this.selectMode]);
   }
+
+
+  public selectMode = [];
+
+    /**
+     * 保存模型
+     *
+     * @param {string} serviceName
+     * @param {*} context
+     * @param {*} viewparams
+     * @returns
+     * @memberof AppDashboardDesignService
+     */
+    public saveModel(serviceName: string, context: any, viewparams: any) {
+        return new Promise((resolve: any, reject: any) => {
+            this.utilService.getService(serviceName).then((service: any) => {
+                service.saveModelData(JSON.stringify(context), '', viewparams).then((response: any) => {
+                    resolve(response);
+                }).catch((response: any) => {
+                    reject(response);
+                });
+            }).catch((response: any) => {
+                reject(response);
+            });
+        });
+    }
+
+
 }
 </script>
 <style lang = "less">

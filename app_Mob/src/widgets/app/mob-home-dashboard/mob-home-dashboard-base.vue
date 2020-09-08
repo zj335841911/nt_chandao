@@ -1,7 +1,7 @@
 <template>
     <ion-grid class="app-mob-dashboard ibzmyterritory-dashboard ">
         <div v-show="isEnableCustomized" class="dashboard-enableCustomized" @click="openCustomized">定制仪表盘<ion-icon name="settings-outline"></ion-icon></div>
-            <div class="dashboard-item">
+            <div class="dashboard-item" v-if="!isEnableCustomized">
             <view_dashboard_sysportlet1
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
@@ -12,7 +12,7 @@
     @closeview="closeView($event)">
 </view_dashboard_sysportlet1>
             </div>
-            <div class="dashboard-item">
+            <div class="dashboard-item" v-if="!isEnableCustomized">
             <view_dashboard_sysportlet2
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
@@ -23,6 +23,11 @@
     @closeview="closeView($event)">
 </view_dashboard_sysportlet2>
             </div>
+            <template v-for="item in customizeModel">
+                <div class="dashboard-item"  :key="item.id" v-if="isEnableCustomized">
+                    <component :is="item.componentName" :viewState="viewState" :name="item.portletCodeName" :context="context" :viewparams="viewparams"></component>
+                </div>
+            </template>
     </ion-grid>
 </template>
 
@@ -37,6 +42,7 @@ import MobHomeService from '@/app-core/ctrl-service/ibz-my-territory/mob-home-da
 
 import IbzMyTerritoryUIService from '@/ui-service/ibz-my-territory/ibz-my-territory-ui-action';
 
+import UtilService from '@/utilservice/util-service';
 
 
 @Component({
@@ -201,6 +207,44 @@ export default class MobHomeBase extends Vue implements ControlInterface {
      */
     public utilServiceName:string = "dynadashboard";
 
+    /**
+     * 工具服务对象
+     *
+     * @protected
+     * @type {UtilService}
+     * @memberof MobHomeBase
+     */
+    protected utilService: UtilService = new UtilService();
+
+    /**
+     * 加载数据模型
+     *
+     * @param {string} serviceName
+     * @param {*} context
+     * @param {*} viewparams
+     * @memberof MobHomeBase
+     */
+    public loadModel(serviceName: string, context: any, viewparams: any) {
+        return new Promise((resolve: any, reject: any) => {
+            this.utilService.getService(serviceName).then((service: any) => {
+                service.loadModelData(JSON.stringify(context), viewparams).then((response: any) => {
+                    this.customizeModel = response.data;
+                    setTimeout(() => {
+                        this.customizeModel.forEach((item: any) => {
+                        this.viewState.next({ tag: item.portletCodeName, action: "", data: {} });});
+                    }, 1);
+                    resolve(response);
+                }).catch((response: any) => {
+                    reject(response);
+                });
+            }).catch((response: any) => {
+                reject(response);
+            });
+        });
+    }
+
+
+    public customizeModel :any = [];
 
     /**
      * 获取单项树
@@ -236,6 +280,9 @@ export default class MobHomeBase extends Vue implements ControlInterface {
                 Object.keys(refs).forEach((name: string) => {
                     this.viewState.next({ tag: name, action: action, data: data });
                 });
+                if(this.isEnableCustomized){
+                    this.loadModel(this.utilServiceName,this.context,Object.assign(this.viewparams,{utilServiceName:this.utilServiceName,modelid:this.modelId}));
+                }
             });
         }
     }
@@ -266,7 +313,7 @@ export default class MobHomeBase extends Vue implements ControlInterface {
      * @memberof MobHome
      */
     public openCustomized() {
-        this.openPopupModal({ viewname: 'app-customize', title: 'app-customize'},{},{modelId:this.modelId,utilServiceName:this.utilServiceName});
+        this.openPopupModal({ viewname: 'app-customize', title: 'app-customize'},{},{modelId:this.modelId,utilServiceName:this.utilServiceName,selectMode:this.customizeModel});
     }
 
     /**
@@ -278,7 +325,7 @@ export default class MobHomeBase extends Vue implements ControlInterface {
     private async openPopupModal(view: any, context: any, param: any): Promise<any> {
         const result: any = await this.$appmodal.openModal(view, context, param);
         if (result || Object.is(result.ret, 'OK')) {
-            // this.reValue = result.datas[0];
+            this.loadModel(this.utilServiceName,this.context,Object.assign(this.viewparams,{utilServiceName:this.utilServiceName,modelid:this.modelId}));
         }
     }
 

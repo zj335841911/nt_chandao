@@ -1,7 +1,7 @@
 <template>
     <ion-grid class="app-mob-dashboard  ">
         <div v-show="isEnableCustomized" class="dashboard-enableCustomized" @click="openCustomized">定制仪表盘<ion-icon name="settings-outline"></ion-icon></div>
-            <div class="dashboard-item">
+            <div class="dashboard-item" v-if="!isEnableCustomized">
             <view_db_appmenu1
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -12,7 +12,7 @@
     @closeview="closeView($event)">
 </view_db_appmenu1>
             </div>
-            <div class="dashboard-item">
+            <div class="dashboard-item" v-if="!isEnableCustomized">
             <view_db_appmenu2
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -23,7 +23,7 @@
     @closeview="closeView($event)">
 </view_db_appmenu2>
             </div>
-            <div class="dashboard-item">
+            <div class="dashboard-item" v-if="!isEnableCustomized">
             <view_db_appmenu3
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -34,6 +34,11 @@
     @closeview="closeView($event)">
 </view_db_appmenu3>
             </div>
+            <template v-for="item in customizeModel">
+                <div class="dashboard-item"  :key="item.id" v-if="isEnableCustomized">
+                    <component :is="item.componentName" :viewState="viewState" :name="item.portletCodeName" :context="context" :viewparams="viewparams"></component>
+                </div>
+            </template>
     </ion-grid>
 </template>
 
@@ -46,6 +51,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import AppPortalView_dbService from '@/app-core/ctrl-service/app/app-portal-view-db-dashboard-service';
 
 
+import UtilService from '@/utilservice/util-service';
 
 
 @Component({
@@ -182,6 +188,44 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
      */
     public utilServiceName:string = "dynadashboard";
 
+    /**
+     * 工具服务对象
+     *
+     * @protected
+     * @type {UtilService}
+     * @memberof AppPortalView_dbBase
+     */
+    protected utilService: UtilService = new UtilService();
+
+    /**
+     * 加载数据模型
+     *
+     * @param {string} serviceName
+     * @param {*} context
+     * @param {*} viewparams
+     * @memberof AppPortalView_dbBase
+     */
+    public loadModel(serviceName: string, context: any, viewparams: any) {
+        return new Promise((resolve: any, reject: any) => {
+            this.utilService.getService(serviceName).then((service: any) => {
+                service.loadModelData(JSON.stringify(context), viewparams).then((response: any) => {
+                    this.customizeModel = response.data;
+                    setTimeout(() => {
+                        this.customizeModel.forEach((item: any) => {
+                        this.viewState.next({ tag: item.portletCodeName, action: "", data: {} });});
+                    }, 1);
+                    resolve(response);
+                }).catch((response: any) => {
+                    reject(response);
+                });
+            }).catch((response: any) => {
+                reject(response);
+            });
+        });
+    }
+
+
+    public customizeModel :any = [];
 
     /**
      * 获取单项树
@@ -217,6 +261,9 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
                 Object.keys(refs).forEach((name: string) => {
                     this.viewState.next({ tag: name, action: action, data: data });
                 });
+                if(this.isEnableCustomized){
+                    this.loadModel(this.utilServiceName,this.context,Object.assign(this.viewparams,{utilServiceName:this.utilServiceName,modelid:this.modelId}));
+                }
             });
         }
     }
@@ -247,7 +294,7 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
      * @memberof AppPortalView_db
      */
     public openCustomized() {
-        this.openPopupModal({ viewname: 'app-customize', title: 'app-customize'},{},{modelId:this.modelId,utilServiceName:this.utilServiceName});
+        this.openPopupModal({ viewname: 'app-customize', title: 'app-customize'},{},{modelId:this.modelId,utilServiceName:this.utilServiceName,selectMode:this.customizeModel});
     }
 
     /**
@@ -259,7 +306,7 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
     private async openPopupModal(view: any, context: any, param: any): Promise<any> {
         const result: any = await this.$appmodal.openModal(view, context, param);
         if (result || Object.is(result.ret, 'OK')) {
-            // this.reValue = result.datas[0];
+            this.loadModel(this.utilServiceName,this.context,Object.assign(this.viewparams,{utilServiceName:this.utilServiceName,modelid:this.modelId}));
         }
     }
 
