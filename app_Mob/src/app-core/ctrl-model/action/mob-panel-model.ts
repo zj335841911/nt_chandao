@@ -55,7 +55,7 @@ export class MobModel {
         name: 'actionmanner',
       },
       {
-        name: 'isactor',
+        name: 'isactorss',
       },
     ]
   }

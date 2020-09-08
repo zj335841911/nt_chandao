@@ -35,7 +35,7 @@
 </view_db_appmenu3>
             </div>
             <template v-for="item in customizeModel">
-                <div class="dashboard-item"  :key="item.id" v-if="isEnableCustomized">
+                <div class="dashboard-item" :class="item.componentName + 'dashboard'"  :key="item.id" v-if="isEnableCustomized">
                     <component :is="item.componentName" :viewState="viewState" :name="item.portletCodeName" :context="context" :viewparams="viewparams"></component>
                 </div>
             </template>

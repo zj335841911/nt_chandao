@@ -57,7 +57,7 @@
 </view_dashboard_sysportlet4>
             </div>
             <template v-for="item in customizeModel">
-                <div class="dashboard-item"  :key="item.id" v-if="isEnableCustomized">
+                <div class="dashboard-item" :class="item.componentName + 'dashboard'"  :key="item.id" v-if="isEnableCustomized">
                     <component :is="item.componentName" :viewState="viewState" :name="item.portletCodeName" :context="context" :viewparams="viewparams"></component>
                 </div>
             </template>
