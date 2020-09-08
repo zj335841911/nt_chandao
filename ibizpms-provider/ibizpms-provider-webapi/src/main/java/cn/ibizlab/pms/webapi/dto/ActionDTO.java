@@ -130,12 +130,12 @@ public class ActionDTO extends DTOBase implements Serializable {
     private String actionmanner;
 
     /**
-     * 属性 [ISACTOR]
+     * 属性 [ISACTORSS]
      *
      */
-    @JSONField(name = "isactor")
-    @JsonProperty("isactor")
-    private Integer isactor;
+    @JSONField(name = "isactorss")
+    @JsonProperty("isactorss")
+    private Integer isactorss;
 
 
     /**

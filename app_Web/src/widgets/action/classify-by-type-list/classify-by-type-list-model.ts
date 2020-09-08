@@ -23,7 +23,7 @@ export default class ClassifyByTypeModel {
 				dataType: 'SSCODELIST',
 			},
 			{
-				name: 'isactor',
+				name: 'isactorss',
 			},
 			{
 				name: 'actor',
