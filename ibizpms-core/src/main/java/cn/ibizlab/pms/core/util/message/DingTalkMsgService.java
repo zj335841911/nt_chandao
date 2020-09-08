@@ -107,8 +107,7 @@ public class DingTalkMsgService implements IMsgService {
     public void sendLinkMessage(String userids, String redirectUrl, String title, String content) {
         log.info("redirectURL:[{}]", redirectUrl);
         JSONObject message = new JSONObject();
-//        message.put("templateid", "pms");
-        message.put("templateid", "pms-mobr7pc");
+        message.put("templateid", "pms");
         message.put("msgtypes", MsgConstants.MESSAGE_TYPE);
         message.put("userids", userids);
         message.put("title", title);
@@ -143,8 +142,7 @@ public class DingTalkMsgService implements IMsgService {
         log.info("userid:[{}]", userids);
         JSONObject message = new JSONObject();
         message.put("to_users", userids);
-//        message.put("template_id", "pms");
-        message.put("template_id", "pms-mobr7pc");
+        message.put("template_id", "pms");
         message.put("title", title == null ? MsgConstants.APP_NAME : title);
         message.put("content", content);
         message.put("msg_link", redirectUrl);
