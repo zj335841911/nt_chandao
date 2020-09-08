@@ -842,6 +842,22 @@ export default class BugPlanMobMDView9Base extends Vue {
         this.onViewLoad();
     }
 
+    /**
+     * 触底加载
+     *
+     * @param {*} value
+     * @memberof BugPlanMobMDView9Base
+     */
+    public async loadMore(event:any){
+      let mdctrl:any = this.$refs.mdctrl;
+      if(mdctrl && mdctrl.loadBottom && mdctrl.loadBottom instanceof Function){
+        mdctrl.loadBottom();
+      }
+      if(event.target && event.target.complete && event.target.complete instanceof Function){
+        event.target.complete();
+      }
+    }
+
 
 
 

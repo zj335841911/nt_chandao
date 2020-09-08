@@ -15,7 +15,7 @@
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel4">
                             <ion-badge color="danger">{{counter.counterData.mytodocnt?counter.counterData.mytodocnt:''}}</ion-badge>
-                            待办</ion-segment-button>
+                            我的待办</ion-segment-button>
                             <ion-segment-button value="tabviewpanel">
                             
                             仪表盘</ion-segment-button>

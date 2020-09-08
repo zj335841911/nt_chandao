@@ -397,6 +397,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '5c7549595faf9ebf62619140c2bf32e3',
+            viewmodule: 'zentao',
+            viewname: 'TodoMobListView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e848fcc53d765ca86681f329895f792c',
+            ],
+        },
+        {
             viewtag: '5cfddd273247bd1dc4c940fae4671f14',
             viewmodule: 'ibiz',
             viewname: 'ReleaseMobEditView',

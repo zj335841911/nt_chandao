@@ -43,12 +43,10 @@ export default class AppSelect extends Vue {
      * @memberof AppSelect
      */
     get curValue(){
-        return  this.value
+        return  this.value;
     }
     
-    set curValue(value:any){
-        this.$emit("change", value.detail.value);
-    }
+    set curValue(value:any){}
 
     /**
      * 监听表单请求完成
@@ -208,8 +206,6 @@ export default class AppSelect extends Vue {
         if (Object.is(this.codeListType, "STATIC")) {
             this.overload = true;
             this.options = this.$store.getters.getCodeListItems(this.tag);
-        } else {
-            this.load();
         }
     }
 

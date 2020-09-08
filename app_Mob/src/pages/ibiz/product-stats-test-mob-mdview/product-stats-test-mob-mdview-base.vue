@@ -56,6 +56,12 @@
             @load="mdctrl_load($event)"  
             @closeview="closeView($event)">
         </view_mdctrl>
+        <ion-infinite-scroll  @ionInfinite="loadMore" distance="2%" >
+          <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
         
@@ -821,6 +827,22 @@ export default class ProductStatsTestMobMDViewBase extends Vue {
     public onCategory(value:any){
         this.categoryValue = value;
         this.onViewLoad();
+    }
+
+    /**
+     * 触底加载
+     *
+     * @param {*} value
+     * @memberof ProductStatsTestMobMDViewBase
+     */
+    public async loadMore(event:any){
+      let mdctrl:any = this.$refs.mdctrl;
+      if(mdctrl && mdctrl.loadBottom && mdctrl.loadBottom instanceof Function){
+        mdctrl.loadBottom();
+      }
+      if(event.target && event.target.complete && event.target.complete instanceof Function){
+        event.target.complete();
+      }
     }
 
 

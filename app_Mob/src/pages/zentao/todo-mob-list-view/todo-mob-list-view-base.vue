@@ -1,7 +1,22 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'task-ass-mob-mdview': true }">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demoblistview': true, 'todo-mob-list-view': true }">
     
     <ion-header>
+        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
+            <ion-buttons slot="start">
+                <ion-button v-show="isShowBackButton" @click="closeView">
+                    <ion-icon name="chevron-back"></ion-icon>
+                    {{$t('app.button.back')}}
+                </ion-button>
+            </ion-buttons>
+            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+            <ion-buttons slot="end">
+                                <div class="app-toolbar-container ">
+                    <div class="app-quick-toolbar toolbar-right-bottons">
+                    </div>
+                </div>
+            </ion-buttons>
+        </ion-toolbar>
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
         </ion-toolbar>
@@ -9,57 +24,8 @@
 
 
     <ion-content>
-        <ion-refresher 
-            slot="fixed" 
-            ref="loadmore" 
-            pull-factor="0.5" 
-            pull-min="50" 
-            pull-max="100" 
-            @ionRefresh="pullDownToRefresh($event)">
-            <ion-refresher-content
-                pulling-icon="arrow-down-outline"
-                :pulling-text="$t('app.pulling_text')"
-                refreshing-spinner="circles"
-                refreshing-text="">
-            </ion-refresher-content>
-        </ion-refresher>
-                <view_mdctrl
-            :viewState="viewState"
-            viewName="TaskAssMobMDView"  
-            :viewparams="viewparams" 
-            :context="context" 
-            :showBusyIndicator="true" 
-            viewType="DEMOBMDVIEW"
-            controlStyle="LISTVIEW"
-            updateAction="Update"
-            removeAction="Remove"
-            loaddraftAction=""
-            loadAction="Get"
-            createAction="Create"
-            fetchAction="FetchDefault" 
-            :isMutli="!isSingleSelect"
-            :showCheack="showCheack"
-            @showCheackChange="showCheackChange"
-            :isTempMode="false"
-            :isEnableChoose="false"
-            name="mdctrl"  
-            ref='mdctrl' 
-            @selectionchange="mdctrl_selectionchange($event)"  
-            @beforeload="mdctrl_beforeload($event)"  
-            @rowclick="mdctrl_rowclick($event)"  
-            @load="mdctrl_load($event)"  
-            @closeview="closeView($event)">
-        </view_mdctrl>
-        <ion-infinite-scroll  @ionInfinite="loadMore" distance="2%" >
-          <ion-infinite-scroll-content
-          loadingSpinner="bubbles"
-          loadingText="Loading more data...">
-        </ion-infinite-scroll-content>
-        </ion-infinite-scroll>
+                <div>列表视图已废弃，请选择多数据视图</div>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
-        
-    </ion-footer>
 </ion-page>
 </template>
 
@@ -67,47 +33,46 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskService from '@/app-core/service/task/task-service';
+import TodoService from '@/app-core/service/todo/todo-service';
 
-import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-import TaskUIService from '@/ui-service/task/task-ui-action';
+import TodoUIService from '@/ui-service/todo/todo-ui-action';
 
 @Component({
     components: {
     },
 })
-export default class TaskAssMobMDViewBase extends Vue {
+export default class TodoMobListViewBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
     /**
      * 实体服务对象
      *
-     * @type {TaskService}
-     * @memberof TaskAssMobMDViewBase
+     * @type {TodoService}
+     * @memberof TodoMobListViewBase
      */
-    protected appEntityService: TaskService = new TaskService();
+    protected appEntityService: TodoService = new TodoService();
 
     /**
      * 实体UI服务对象
      *
-     * @type TaskUIService
-     * @memberof TaskAssMobMDViewBase
+     * @type TodoUIService
+     * @memberof TodoMobListViewBase
      */
-    public appUIService: TaskUIService = new TaskUIService(this.$store);
+    public appUIService: TodoUIService = new TodoUIService(this.$store);
 
     /**
      * 数据变化
      *
      * @param {*} val
      * @returns {*}
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -118,7 +83,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     @Prop() protected _context!: string;
 
@@ -126,7 +91,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -134,7 +99,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -142,15 +107,15 @@ export default class TaskAssMobMDViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof TaskAssMobMDViewBase
+	 * @memberof TodoMobListViewBase
 	 */
-	protected viewtag: string = '8d13feb9b1401f28a033fec23ffd7e90';
+	protected viewtag: string = '5c7549595faf9ebf62619140c2bf32e3';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     protected context: any = {};
 
@@ -158,7 +123,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     protected viewparams: any = {};
 
@@ -166,14 +131,14 @@ export default class TaskAssMobMDViewBase extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     public titleStatus :boolean = true;
 
@@ -182,7 +147,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     protected navContext: any = {};
 
@@ -191,19 +156,19 @@ export default class TaskAssMobMDViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
-    protected navParam: any = { 'n_assignedto_eq': '%srfloginname%' };
+    protected navParam: any = {};
 
     /**
      * 视图模型数据
      *
      * @type {*}
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     protected model: any = {
-        srfTitle: '任务移动端多数据视图',
-        srfCaption: 'task.views.assmobmdview.caption',
+        srfTitle: '待办事宜表移动端列表视图',
+        srfCaption: 'todo.views.moblistview.caption',
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
@@ -215,7 +180,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  TaskAssMobMDViewBase
+     * @memberof  TodoMobListViewBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -243,7 +208,7 @@ export default class TaskAssMobMDViewBase extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -256,7 +221,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     protected containerModel: any = {
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
@@ -267,7 +232,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -276,17 +241,17 @@ export default class TaskAssMobMDViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
 
 
    /**
-    * 工具栏 TaskAssMobMDView 模型
+    * 工具栏 TodoMobListView 模型
     *
     * @type {*}
-    * @memberof TaskAssMobMDView
+    * @memberof TodoMobListView
     */
     public righttoolbarModels: any = {
     };
@@ -297,14 +262,14 @@ export default class TaskAssMobMDViewBase extends Vue {
     /**
      * 工具栏模型集合名
      *
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
      *
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -317,7 +282,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -327,56 +292,19 @@ export default class TaskAssMobMDViewBase extends Vue {
         return true;
     }
 
-    /**
-     * 下拉刷新
-     *
-     * @param {*} $event
-     * @returns {Promise<any>}
-     * @memberof TaskAssMobMDViewBase
-     */
-    public async pullDownToRefresh($event: any): Promise<any> {
-        let mdctrl: any = this.$refs.mdctrl;
-        if (mdctrl && mdctrl.pullDownToRefresh instanceof Function) {
-            const response: any = await mdctrl.pullDownToRefresh();
-            if (response) {
-                $event.srcElement.complete();
-            }
-        }
-    }
-
-    /**
-     * 视图引擎
-     *
-     * @type {Engine}
-     * @memberof TaskAssMobMDViewBase
-     */
-    protected engine: MobMDViewEngine = new MobMDViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     protected engineInit(): void {
-        this.engine.init({
-            view: this,
-            opendata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
-                this.opendata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
-            },
-            mdctrl: this.$refs.mdctrl,
-            newdata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
-                this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
-            },
-            keyPSDEField: 'task',
-            majorPSDEField: 'name',
-            isLoadDefault: true,
-        });
     }
 
     /**
      * Vue声明周期
      *
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     protected created() {
         this.afterCreated();
@@ -385,7 +313,7 @@ export default class TaskAssMobMDViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     public activated() {
         this.afterMounted();
@@ -394,7 +322,7 @@ export default class TaskAssMobMDViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -408,7 +336,7 @@ export default class TaskAssMobMDViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -417,7 +345,7 @@ export default class TaskAssMobMDViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     protected mounted() {
         this.afterMounted();
@@ -427,7 +355,7 @@ export default class TaskAssMobMDViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -442,7 +370,7 @@ export default class TaskAssMobMDViewBase extends Vue {
     /**
      * 第三方容器初始化
      * 
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -454,7 +382,7 @@ export default class TaskAssMobMDViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -463,7 +391,7 @@ export default class TaskAssMobMDViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
@@ -474,50 +402,6 @@ export default class TaskAssMobMDViewBase extends Vue {
             });
         }
 
-    }
-
-    /**
-     * mdctrl 部件 selectionchange 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof TaskAssMobMDViewBase
-     */
-    protected mdctrl_selectionchange($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('mdctrl', 'selectionchange', $event);
-    }
-
-    /**
-     * mdctrl 部件 beforeload 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof TaskAssMobMDViewBase
-     */
-    protected mdctrl_beforeload($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('mdctrl', 'beforeload', $event);
-    }
-
-    /**
-     * mdctrl 部件 rowclick 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof TaskAssMobMDViewBase
-     */
-    protected mdctrl_rowclick($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('mdctrl', 'rowclick', $event);
-    }
-
-    /**
-     * mdctrl 部件 load 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof TaskAssMobMDViewBase
-     */
-    protected mdctrl_load($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('mdctrl', 'load', $event);
     }
 
 
@@ -532,7 +416,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      * @param {*} [container]
      * @param {string} [srfParentDeName]
      * @returns {Promise<any>}
-     * @memberof TaskAssMobMDView
+     * @memberof TodoMobListView
      */
     public async newdata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const params: any = { ...paramJO };
@@ -545,26 +429,9 @@ export default class TaskAssMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-        if (context.project && true) {
-            deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-        }
-        if (context.story && true) {
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-
+        const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'todos', parameterName: 'todo' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
@@ -592,7 +459,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      * @param {*} [container]
      * @param {string} [srfParentDeName]
      * @returns {Promise<any>}
-     * @memberof TaskAssMobMDView
+     * @memberof TodoMobListView
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const params: any = { ...paramJO };
@@ -605,26 +472,9 @@ export default class TaskAssMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-        if (context.project && true) {
-            deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-        }
-        if (context.story && true) {
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-
+        const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'todos', parameterName: 'todo' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
@@ -645,7 +495,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -669,7 +519,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
@@ -690,7 +540,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -702,7 +552,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof TaskAssMobMDViewBase
+     * @memberof TodoMobListViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -719,165 +569,9 @@ export default class TaskAssMobMDViewBase extends Vue {
     }
 
 
-    /**
-     * 搜索值
-     *
-     * @type {string}
-     * @memberof TaskAssMobMDViewBase
-     */
-    public query: string = '';
-
-    /**
-     * 快速搜索值变化
-     *
-     * @param {*} event
-     * @returns
-     * @memberof TaskAssMobMDViewBase
-     */
-    public async quickValueChange(event: any) {
-        let { detail } = event;
-        if (!detail) {
-            return;
-        }
-        let { value } = detail;
-        this.query = value;
-
-        const mdctrl: any = this.$refs.mdctrl;
-        if (mdctrl) {
-            let response = await mdctrl.quickSearch(this.query);
-            if (response) {
-            }
-        }
-    }
-
-   /**
-     * 是否单选
-     *
-     * @type {boolean}
-     * @memberof TaskAssMobMDViewBase
-     */
-    @Prop({ default: true }) protected isSingleSelect!: boolean;
-
-
-    /**
-     * 分类值
-     *
-     * @type {boolean}
-     * @memberof TaskAssMobMDViewBase
-     */
-    public categoryValue :any = {};
-
-    /**
-     * 排序值
-     *
-     * @type {boolean}
-     * @memberof TaskAssMobMDViewBase
-     */
-    public sortValue :any = {};
-
-    /**
-     * 刷新视图
-     *
-     * @memberof TaskAssMobMDViewBase
-     */
-    public onRefreshView() {
-        let mdctrl: any = this.$refs.mdctrl;
-        if (mdctrl) {
-            mdctrl.refresh();
-        }
-    }
-
-    /**
-     * 打开搜索表单
-     *
-     * @memberof TaskAssMobMDViewBase
-     */
-    public openSearchform() {
-      let search :any = this.$refs.searchformtaskassmobmdview;
-      if(search){
-          search.open();
-      }
-    }
-
-    /**
-     * 关闭搜索表单
-     *
-     * @memberof TaskAssMobMDViewBase
-     */
-    public closeSearchform(){
-      let search :any = this.$refs.searchformtaskassmobmdview;
-      if(search){
-          search.close();
-      }
-    }
-
-    /**
-     * 多选状态改变事件
-     *
-     * @memberof TaskAssMobMDViewBase
-     */
-    public showCheackChange(value:any){
-        this.showCheack = value;
-    }
-
-    /**
-     * 多选状态
-     *
-     * @memberof TaskAssMobMDViewBase
-     */
-    public showCheack = false;
-
-    /**
-     * 取消选择状态
-     * @memberof TaskAssMobMDViewBase
-     */
-    public cancelSelect() {
-        this.showCheackChange(false);
-    }
-
-    /**
-     * 视图加载（排序|分类）
-     * @memberof TaskAssMobMDViewBase
-     */
-    public onViewLoad() {
-        let value = Object.assign(this.categoryValue,this.sortValue);
-        this.engine.onViewEvent('mdctrl','viewload',value);
-    }
-
-    /**
-     * 分类搜索
-     *
-     * @param {*} value
-     * @memberof TaskAssMobMDViewBase
-     */
-    public onCategory(value:any){
-        this.categoryValue = value;
-        this.onViewLoad();
-    }
-
-    /**
-     * 触底加载
-     *
-     * @param {*} value
-     * @memberof TaskAssMobMDViewBase
-     */
-    public async loadMore(event:any){
-      let mdctrl:any = this.$refs.mdctrl;
-      if(mdctrl && mdctrl.loadBottom && mdctrl.loadBottom instanceof Function){
-        mdctrl.loadBottom();
-      }
-      if(event.target && event.target.complete && event.target.complete instanceof Function){
-        event.target.complete();
-      }
-    }
-
-
-
-
-
 }
 </script>
 
 <style lang='less'>
-@import './task-ass-mob-mdview.less';
+@import './todo-mob-list-view.less';
 </style>

@@ -177,6 +177,9 @@ export class MYSTORYSModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'ischild',
+      },
     ]
   }
 
