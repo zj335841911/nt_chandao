@@ -375,6 +375,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
         this.items = datelist;
     }
 
+
 }
 </script>
 

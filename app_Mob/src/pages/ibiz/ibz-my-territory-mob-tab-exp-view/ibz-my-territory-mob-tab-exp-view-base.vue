@@ -13,18 +13,12 @@
         </ion-toolbar>
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel">
-                            <ion-badge color="danger">{{counter.counterData.mystorys?counter.counterData.mystorys:''}}</ion-badge>
-                            需求</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel2">
-                            <ion-badge color="danger">{{counter.counterData.mytasks?counter.counterData.mytasks:''}}</ion-badge>
-                            任务</ion-segment-button>
-                            <ion-segment-button value="tabviewpanel3">
-                            <ion-badge color="danger">{{counter.counterData.mybugs?counter.counterData.mybugs:''}}</ion-badge>
-                            Bug</ion-segment-button>
                             <ion-segment-button value="tabviewpanel4">
                             <ion-badge color="danger">{{counter.counterData.mytodocnt?counter.counterData.mytodocnt:''}}</ion-badge>
                             待办</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel">
+                            
+                            仪表盘</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>
@@ -268,8 +262,6 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
 
 
 
-
-
     /**
      * 工具栏模型集合名
      *
@@ -328,7 +320,7 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
      * @type {string}
      * @memberof  IbzMyTerritoryMobTabExpViewBase
      */
-    protected activiedTabViewPanel: string = 'tabviewpanel';
+    protected activiedTabViewPanel: string = 'tabviewpanel4';
 
     /**
      * 分页导航栏激活
@@ -387,7 +379,7 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
         if (info.name && info.name == 'ibzmyterritory' && info.id && info.id == this.context.ibzmyterritory) {
           this.activiedTabViewPanel = info.value;
         } else { 
-          this.activiedTabViewPanel = 'tabviewpanel';
+          this.activiedTabViewPanel = 'tabviewpanel4';
         }
         }
     }

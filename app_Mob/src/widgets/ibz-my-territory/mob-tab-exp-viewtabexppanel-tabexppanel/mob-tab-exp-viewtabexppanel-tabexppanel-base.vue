@@ -1,38 +1,5 @@
 <template>
     <span>
-        <span v-show="activiedTabViewPanel == 'tabviewpanel'">
-                        <view_tabviewpanel
-                :viewState="viewState"
-                viewName="IbzMyTerritoryMobTabExpView"  
-                :viewparams="viewparams" 
-                :context="context" 
-                name="tabviewpanel"  
-                ref='tabviewpanel' 
-                @closeview="closeView($event)">
-            </view_tabviewpanel>
-        </span>
-        <span v-show="activiedTabViewPanel == 'tabviewpanel2'">
-                        <view_tabviewpanel2
-                :viewState="viewState"
-                viewName="IbzMyTerritoryMobTabExpView"  
-                :viewparams="viewparams" 
-                :context="context" 
-                name="tabviewpanel2"  
-                ref='tabviewpanel2' 
-                @closeview="closeView($event)">
-            </view_tabviewpanel2>
-        </span>
-        <span v-show="activiedTabViewPanel == 'tabviewpanel3'">
-                        <view_tabviewpanel3
-                :viewState="viewState"
-                viewName="IbzMyTerritoryMobTabExpView"  
-                :viewparams="viewparams" 
-                :context="context" 
-                name="tabviewpanel3"  
-                ref='tabviewpanel3' 
-                @closeview="closeView($event)">
-            </view_tabviewpanel3>
-        </span>
         <span v-show="activiedTabViewPanel == 'tabviewpanel4'">
                         <view_tabviewpanel4
                 :viewState="viewState"
@@ -43,6 +10,17 @@
                 ref='tabviewpanel4' 
                 @closeview="closeView($event)">
             </view_tabviewpanel4>
+        </span>
+        <span v-show="activiedTabViewPanel == 'tabviewpanel'">
+                        <view_tabviewpanel
+                :viewState="viewState"
+                viewName="IbzMyTerritoryMobTabExpView"  
+                :viewparams="viewparams" 
+                :context="context" 
+                name="tabviewpanel"  
+                ref='tabviewpanel' 
+                @closeview="closeView($event)">
+            </view_tabviewpanel>
         </span>
     </span>
 </template>
@@ -259,7 +237,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @type {string}
      * @memberof MobTabExpViewtabexppanel
      */
-    @Prop({ default: 'tabviewpanel' }) protected activiedTabViewPanel?: string;     
+    @Prop({ default: 'tabviewpanel4' }) protected activiedTabViewPanel?: string;     
              
     /**
      * vue 生命周期

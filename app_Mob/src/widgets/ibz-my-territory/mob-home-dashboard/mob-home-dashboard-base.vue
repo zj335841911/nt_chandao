@@ -23,6 +23,39 @@
     @closeview="closeView($event)">
 </view_dashboard_sysportlet2>
             </div>
+            <div class="dashboard-item" v-if="!isEnableCustomized">
+            <view_dashboard_sysportlet3
+    :viewState="viewState"
+    viewName="IbzMyTerritoryMobDashboardView"  
+    :viewparams="viewparams" 
+    :context="context" 
+    name="dashboard_sysportlet3"  
+    ref='dashboard_sysportlet3' 
+    @closeview="closeView($event)">
+</view_dashboard_sysportlet3>
+            </div>
+            <div class="dashboard-item" v-if="!isEnableCustomized">
+            <view_dashboard_sysportlet5
+    :viewState="viewState"
+    viewName="IbzMyTerritoryMobDashboardView"  
+    :viewparams="viewparams" 
+    :context="context" 
+    name="dashboard_sysportlet5"  
+    ref='dashboard_sysportlet5' 
+    @closeview="closeView($event)">
+</view_dashboard_sysportlet5>
+            </div>
+            <div class="dashboard-item" v-if="!isEnableCustomized">
+            <view_dashboard_sysportlet4
+    :viewState="viewState"
+    viewName="IbzMyTerritoryMobDashboardView"  
+    :viewparams="viewparams" 
+    :context="context" 
+    name="dashboard_sysportlet4"  
+    ref='dashboard_sysportlet4' 
+    @closeview="closeView($event)">
+</view_dashboard_sysportlet4>
+            </div>
             <template v-for="item in customizeModel">
                 <div class="dashboard-item"  :key="item.id" v-if="isEnableCustomized">
                     <component :is="item.componentName" :viewState="viewState" :name="item.portletCodeName" :context="context" :viewparams="viewparams"></component>

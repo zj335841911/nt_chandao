@@ -2478,6 +2478,26 @@ export class StoryServiceBase extends EntityService {
     }
 
     /**
+     * FetchAssignedToMyStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async FetchAssignedToMyStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchassignedtomystory`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/stories/fetchassignedtomystory`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchBuildLinkCompletedStories接口方法
      *
      * @param {*} [context={}]

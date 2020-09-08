@@ -152,10 +152,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'a784b546d5d05850930cbaf23f8727a1',
                 '899ab4d4cfc33b089a9c4aa5118acbf3',
-                'a4a6fd9906bc1ecaac85b44ffcc466fe',
-                '8d13feb9b1401f28a033fec23ffd7e90',
+                '70d570ae5cafd7af092084e6d0e6b2f7',
             ],
         },
         {
