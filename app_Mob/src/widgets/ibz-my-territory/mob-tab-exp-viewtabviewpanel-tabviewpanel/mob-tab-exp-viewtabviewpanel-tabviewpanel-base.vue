@@ -6,7 +6,7 @@
             :isChildView="true"
             :panelNavParam="panelNavParam"
             :panelNavContext="panelNavContext"
-            :viewDefaultUsage="false" >
+            viewDefaultUsage="includedView" >
         </ibz-my-territory-mob-dashboard-view>
     </div>
 </template>

@@ -6,7 +6,7 @@
             :isChildView="true"
             :panelNavParam="panelNavParam"
             :panelNavContext="panelNavContext"
-            :viewDefaultUsage="false" >
+            viewDefaultUsage="includedView" >
         </release-mob-mdview>
     </div>
 </template>

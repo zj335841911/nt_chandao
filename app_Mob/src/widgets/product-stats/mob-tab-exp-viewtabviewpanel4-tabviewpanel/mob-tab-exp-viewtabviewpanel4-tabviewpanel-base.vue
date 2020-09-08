@@ -6,7 +6,7 @@
             :isChildView="true"
             :panelNavParam="panelNavParam"
             :panelNavContext="panelNavContext"
-            :viewDefaultUsage="false" >
+            viewDefaultUsage="includedView" >
         </product-plan-mob-mdview>
     </div>
 </template>

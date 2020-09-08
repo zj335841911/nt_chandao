@@ -12,7 +12,7 @@
               class="viewcontainer2"
               :_context="toString(item.viewdata)"
               :_viewparam="toString(item.viewparam)"
-              :viewDefaultUsage="false"
+              viewDefaultUsage="includedView"
               :panelState="panelState"
               :showTitle="false"
               @viewdataschange="viewDataChange"
