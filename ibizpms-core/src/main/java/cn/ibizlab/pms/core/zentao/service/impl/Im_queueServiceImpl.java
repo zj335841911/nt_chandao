@@ -79,19 +79,19 @@ public class Im_queueServiceImpl extends ServiceImpl<Im_queueMapper, Im_queue> i
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public Im_queue get(BigInteger key) {
+    public Im_queue get(Long key) {
         Im_queue et = getById(key);
         if(et==null){
             et=new Im_queue();

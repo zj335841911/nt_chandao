@@ -121,7 +121,7 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     }
     @Override
     @Transactional
-    public Release get(BigInteger key) {
+    public Release get(Long key) {
         Release et = getById(key);
         if(et==null){
             et=new Release();
@@ -292,32 +292,32 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
 
 
 	@Override
-    public List<Release> selectByBranch(BigInteger id) {
+    public List<Release> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
 
     @Override
-    public void removeByBranch(BigInteger id) {
+    public void removeByBranch(Long id) {
         this.remove(new QueryWrapper<Release>().eq("branch",id));
     }
 
 	@Override
-    public List<Release> selectByBuild(BigInteger id) {
+    public List<Release> selectByBuild(Long id) {
         return baseMapper.selectByBuild(id);
     }
 
     @Override
-    public void removeByBuild(BigInteger id) {
+    public void removeByBuild(Long id) {
         this.remove(new QueryWrapper<Release>().eq("build",id));
     }
 
 	@Override
-    public List<Release> selectByProduct(BigInteger id) {
+    public List<Release> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(BigInteger id) {
+    public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<Release>().eq("product",id));
     }
 

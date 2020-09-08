@@ -91,19 +91,19 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public IbzLibModule get(BigInteger key) {
+    public IbzLibModule get(Long key) {
         IbzLibModule et = getById(key);
         if(et==null){
             et=new IbzLibModule();
@@ -157,22 +157,22 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
 
 
 	@Override
-    public List<IbzLibModule> selectByParent(BigInteger id) {
+    public List<IbzLibModule> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
 
     @Override
-    public void removeByParent(BigInteger id) {
+    public void removeByParent(Long id) {
         this.remove(new QueryWrapper<IbzLibModule>().eq("parent",id));
     }
 
 	@Override
-    public List<IbzLibModule> selectByRoot(BigInteger id) {
+    public List<IbzLibModule> selectByRoot(Long id) {
         return baseMapper.selectByRoot(id);
     }
 
     @Override
-    public void removeByRoot(BigInteger id) {
+    public void removeByRoot(Long id) {
         this.remove(new QueryWrapper<IbzLibModule>().eq("root",id));
     }
 

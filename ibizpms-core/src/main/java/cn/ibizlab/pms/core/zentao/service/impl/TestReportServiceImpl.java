@@ -89,19 +89,19 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public TestReport get(BigInteger key) {
+    public TestReport get(Long key) {
         TestReport et = getById(key);
         if(et==null){
             et=new TestReport();
@@ -155,22 +155,22 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
 
 
 	@Override
-    public List<TestReport> selectByProduct(BigInteger id) {
+    public List<TestReport> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(BigInteger id) {
+    public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<TestReport>().eq("product",id));
     }
 
 	@Override
-    public List<TestReport> selectByProject(BigInteger id) {
+    public List<TestReport> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
 
     @Override
-    public void removeByProject(BigInteger id) {
+    public void removeByProject(Long id) {
         this.remove(new QueryWrapper<TestReport>().eq("project",id));
     }
 
