@@ -2,7 +2,6 @@ package cn.ibizlab.pms.core.util.message;
 
 import cn.ibizlab.pms.core.ibiz.domain.TaskMsgRecord;
 import cn.ibizlab.pms.core.ibiz.service.ITaskMsgRecordService;
-import cn.ibizlab.pms.core.zentao.domain.Bug;
 import cn.ibizlab.pms.util.client.IBZNotifyFeignClient;
 import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.log.IBIZTraceLog;
@@ -58,8 +57,10 @@ public class DingTalkMsgService implements IMsgService {
 
         //当前数据相关信息, 类名、id、标题
         String className = et.getClass().getSimpleName().toLowerCase();
-        BigInteger id = (BigInteger) et.get("id");
+        Long idLong = (Long) et.get("id");
+        BigInteger id = BigInteger.valueOf(idLong);
         String title = (String) et.get("title");
+
         if (StringUtils.isEmpty(title)) {
             title = (String) et.get("name");
         }
