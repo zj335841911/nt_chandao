@@ -1,0 +1,124 @@
+// 主题公共函数
+.theme(@theme-color,@text-color) {
+  ion-tab-bar {
+    ion-tab-button {
+      --color-selected: @theme-color;
+    }
+  }
+  // 按钮样式
+  ion-button {
+    --background: @theme-color;
+    --color: @text-color;
+  }
+  ion-fab-button{
+    --background:@theme-color;
+    --box-shadow:-1px 1px 5px #8e9eab;
+    --background-activated:@theme-color;
+  }
+  .view-container {
+    ion-header {
+      .ionoc-view-header {
+        --background: @theme-color;
+        --color: @text-color;
+      }
+    }
+  }
+  ion-toggle {
+    --background-checked: @theme-color;
+  }
+  .app-form-item.item-has-focus {
+    > ion-label {
+      color: @theme-color;
+    }
+  }
+  ion-picker {
+    color: @theme-color;
+    .picker-toolbar-button {
+      button {
+        color: @theme-color;
+      }
+    }
+  }
+  ion-action-sheet {
+    --button-color: @theme-color;
+    --max-height: 60%;
+  }
+  ion-alert {
+    .alert-button {
+      color: @theme-color;
+    }
+    [aria-checked="true"].sc-ion-alert-ios
+      .alert-checkbox-icon.sc-ion-alert-ios {
+      background-color: @theme-color;
+      border-color: @theme-color;
+    }
+  }
+  ion-checkbox {
+    --background-checked: @theme-color;
+    --border-color-checked: @theme-color;
+  }
+  .app-embed-view {
+    .embed-view-header {
+      ion-toolbar {
+        --background: @theme-color;
+      }
+    }
+  }
+  .app-mobile-radio-list {
+    .van-radio__icon--checked .van-icon {
+      color: #fff;
+      background-color: @theme-color;
+      border-color: @theme-color;
+    }
+  }
+  .listexpbar_list {
+    .van-sidebar-item--select::before {
+      background-color: @theme-color;
+    }
+    .van-sidebar-item--select {
+      border-color: @theme-color;
+    }
+  }
+  .van-rate__icon--full {
+    color: @theme-color;
+  }
+  ion-range {
+    --bar-background-active: @theme-color;
+  }
+
+  // 多数据分类器样式
+  .ibiz-dropdown-menu {
+    .van-button--info {
+      background-color: @theme-color;
+      border: 1px solid @theme-color;
+    }
+    .dropdown-item-icon {
+      color: @theme-color;
+    }
+  }
+  .ibiz-dropdown-menu.dropdown-menu-ative {
+    .van-ellipsis {
+      color: @theme-color;
+    }
+    .van-dropdown-menu__title::after {
+      color: @theme-color;
+    }
+  }
+  //多编辑面板底部新增按钮
+  .app-medit-view-panel{
+    ion-fab{
+        ion-fab-button{
+            --background:@theme-color;
+        }
+    }
+  }
+  // 选项操作视图底部按钮
+  .mobtestmob-option-view{
+    .option-view-btnbox{
+      .success{
+        --background: @theme-color;
+        --color: @text-color;
+      }
+    }
+  }
+}
