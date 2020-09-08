@@ -13,7 +13,7 @@ export default {
     project: "项目",
     lastcomment: "备注",
     actionmanner: "操作方式",
-    isactor: "当前用户",
+    isactorss: "当前用户",
   },
 	views: {
 		myalltrendslistview: {

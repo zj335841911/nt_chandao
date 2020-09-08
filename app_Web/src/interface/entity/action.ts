@@ -116,5 +116,5 @@ export interface Action {
      * @returns {*}
      * @memberof Action
      */
-    isactor?: any;
+    isactorss?: any;
 }
