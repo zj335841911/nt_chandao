@@ -148,6 +148,8 @@ export class DashBoardInfoEditFormBase extends EditFormControlBase {
 
         grouppanel7: new FormGroupPanelModel({ caption: '关联计划', detailType: 'GROUPPANEL', name: 'grouppanel7', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.project.dashboardinfo_form', extractMode: 'ITEM', details: [] } }),
 
+        grouppanel8: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel8', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.project.dashboardinfo_form', extractMode: 'ITEM', details: [] } }),
+
         grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.project.dashboardinfo_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel3: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.project.dashboardinfo_form', extractMode: 'ITEM', details: [] } }),

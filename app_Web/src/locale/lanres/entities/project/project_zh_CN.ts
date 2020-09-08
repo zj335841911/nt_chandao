@@ -268,6 +268,7 @@ export default {
 			grouppanel6: "关联产品", 
 			druipart2: "", 
 			grouppanel7: "关联计划", 
+			grouppanel8: "分组面板", 
 			grouppanel2: "分组面板", 
 			grouppanel3: "分组面板", 
 			grouppanel1: "工时统计", 
