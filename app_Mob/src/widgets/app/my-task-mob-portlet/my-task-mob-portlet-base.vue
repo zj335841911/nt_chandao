@@ -1,7 +1,6 @@
 <template>
     <ion-row>
-        <ion-list class='app-mob-portlet ibzmyterritory-dashboard_sysportlet2 '>
-            <ion-list-header class='app-mob-portlet__header'>我的任务 </ion-list-header>
+        <ion-list class='app-mob-portlet ibzmyterritory-portlet_MyTaskMob '>
                 <task-ass-mob-mdview :_context="JSON.stringify(context)" :_viewparams="JSON.stringify(viewparams)" :viewDefaultUsage="false" ></task-ass-mob-mdview>
         </ion-list>
     </ion-row>
