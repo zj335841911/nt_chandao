@@ -1,21 +1,15 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobportalview': true, 'ibz-my-territory-mob-dashboard-view': true }">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demoblistview': true, 'story-mob-list-view': true }">
     
     <ion-header>
+        <ion-toolbar>
+            <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
+        </ion-toolbar>
     </ion-header>
 
 
     <ion-content>
-                <view_dashboard
-            :viewState="viewState"
-            viewName="IbzMyTerritoryMobDashboardView"  
-            :viewparams="viewparams" 
-            :context="context" 
-            name="dashboard"  
-            ref='dashboard' 
-            @load="dashboard_load($event)"  
-            @closeview="closeView($event)">
-        </view_dashboard>
+                <div>列表视图已废弃，请选择多数据视图</div>
     </ion-content>
 </ion-page>
 </template>
@@ -24,47 +18,46 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzMyTerritoryService from '@/app-core/service/ibz-my-territory/ibz-my-territory-service';
+import StoryService from '@/app-core/service/story/story-service';
 
-import MobPortalViewEngine from '@engine/view/mob-portal-view-engine';
-import IbzMyTerritoryUIService from '@/ui-service/ibz-my-territory/ibz-my-territory-ui-action';
+import StoryUIService from '@/ui-service/story/story-ui-action';
 
 @Component({
     components: {
     },
 })
-export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
+export default class StoryMobListViewBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
     /**
      * 实体服务对象
      *
-     * @type {IbzMyTerritoryService}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @type {StoryService}
+     * @memberof StoryMobListViewBase
      */
-    protected appEntityService: IbzMyTerritoryService = new IbzMyTerritoryService();
+    protected appEntityService: StoryService = new StoryService();
 
     /**
      * 实体UI服务对象
      *
-     * @type IbzMyTerritoryUIService
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @type StoryUIService
+     * @memberof StoryMobListViewBase
      */
-    public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
      * 数据变化
      *
      * @param {*} val
      * @returns {*}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -75,7 +68,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     @Prop() protected _context!: string;
 
@@ -83,7 +76,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -91,7 +84,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -99,15 +92,15 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof IbzMyTerritoryMobDashboardViewBase
+	 * @memberof StoryMobListViewBase
 	 */
-	protected viewtag: string = '70d570ae5cafd7af092084e6d0e6b2f7';
+	protected viewtag: string = '0e1c41e8bc26190c02e9ed5f01bf32b5';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     protected context: any = {};
 
@@ -115,7 +108,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     protected viewparams: any = {};
 
@@ -123,14 +116,14 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     public titleStatus :boolean = true;
 
@@ -139,7 +132,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     protected navContext: any = {};
 
@@ -148,7 +141,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     protected navParam: any = {};
 
@@ -156,11 +149,11 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      * 视图模型数据
      *
      * @type {*}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     protected model: any = {
-        srfTitle: '我的地盘移动端数据看板视图',
-        srfCaption: 'ibzmyterritory.views.mobdashboardview.caption',
+        srfTitle: '需求移动端列表视图',
+        srfCaption: 'story.views.moblistview.caption',
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
@@ -172,7 +165,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  IbzMyTerritoryMobDashboardViewBase
+     * @memberof  StoryMobListViewBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -200,7 +193,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -213,17 +206,17 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     protected containerModel: any = {
-        view_dashboard: { name: 'dashboard', type: 'DASHBOARD' },
+        view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
     };
 
     /**
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -232,66 +225,22 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
-
-
-
-
-
-
-
-
-
-   /**
-    * 工具栏 IbzMyTerritoryMobDashboardView 模型
-    *
-    * @type {*}
-    * @memberof IbzMyTerritoryMobDashboardView
-    */
-    public dashboard_sysportlet4_list_quicktoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyFavMore', target: 'NONE' } },
-
-    };
-
-    
-
-
-
-
-
-
-
-
-   /**
-    * 工具栏 IbzMyTerritoryMobDashboardView 模型
-    *
-    * @type {*}
-    * @memberof IbzMyTerritoryMobDashboardView
-    */
-    public dashboard_sysportlet2_list_quicktoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyAssMore', target: 'NONE' } },
-
-    };
-
-    
-
-
-
 
 
     /**
      * 工具栏模型集合名
      *
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
-    public toolbarModelList:any = ['dashboard_sysportlet4_list_quicktoolbarModels','dashboard_sysportlet2_list_quicktoolbarModels',]
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数
      *
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -304,7 +253,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -314,54 +263,19 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
         return true;
     }
 
-    /**
-     * 获取多项数据
-     *
-     * @returns {any[]}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
-     */
-    public getDatas(): any[] {
-        return [this.context];
-    }
-
-    /**
-     * 获取单项树
-     *
-     * @returns {*}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
-     */
-    public getData(): any {
-        return this.context;
-    }
-
-
-    /**
-     * 视图引擎
-     *
-     * @type {Engine}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
-     */
-    protected engine: MobPortalViewEngine = new MobPortalViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     protected engineInit(): void {
-        this.engine.init({
-            view: this,
-            dashboard: this.$refs.dashboard,
-            keyPSDEField: 'ibzmyterritory',
-            majorPSDEField: 'realname',
-            isLoadDefault: true,
-        });
     }
 
     /**
      * Vue声明周期
      *
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     protected created() {
         this.afterCreated();
@@ -370,7 +284,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     public activated() {
         this.afterMounted();
@@ -379,7 +293,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -393,7 +307,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -402,7 +316,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     protected mounted() {
         this.afterMounted();
@@ -412,7 +326,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -427,7 +341,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
     /**
      * 第三方容器初始化
      * 
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -439,7 +353,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -448,7 +362,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
@@ -461,15 +375,102 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
 
     }
 
+
     /**
-     * dashboard 部件 load 事件
+     * 打开新建数据视图
      *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @param {any[]} args
+     * @param {*} [contextJO={}]
+     * @param {*} [paramJO={}]
+     * @param {*} [$event]
+     * @param {*} [xData]
+     * @param {*} [container]
+     * @param {string} [srfParentDeName]
+     * @returns {Promise<any>}
+     * @memberof StoryMobListView
      */
-    protected dashboard_load($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('dashboard', 'load', $event);
+    public async newdata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const params: any = { ...paramJO };
+        let context = { ...this.context, ...contextJO };
+        if (args.length > 0) {
+            Object.assign(context, args[0]);
+        }
+        let response: any = null;
+        let panelNavParam = { } ;
+        let panelNavContext = { } ;
+        //导航参数处理
+        const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        let deResParameters: any[] = [];
+        if (context.product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
+        response = await this.globaluiservice.openService.openView(routeParam);
+        if (response) {
+            if (!response || !Object.is(response.ret, 'OK')) {
+                return;
+            }
+            if (!xData || !(xData.refresh instanceof Function)) {
+                return;
+            }
+            xData.refresh(response.datas);
+        }
+    }
+
+
+    /**
+     * 打开编辑数据视图
+     *
+     * @param {any[]} args
+     * @param {*} [contextJO={}]
+     * @param {*} [paramJO={}]
+     * @param {*} [$event]
+     * @param {*} [xData]
+     * @param {*} [container]
+     * @param {string} [srfParentDeName]
+     * @returns {Promise<any>}
+     * @memberof StoryMobListView
+     */
+    public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const params: any = { ...paramJO };
+        let context = { ...this.context, ...contextJO };
+        if (args.length > 0) {
+            Object.assign(context, args[0]);
+        }
+        let response: any = null;
+        let panelNavParam = { } ;
+        let panelNavContext = { } ;
+        //导航参数处理
+        const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        let deResParameters: any[] = [];
+        if (context.product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
+        response = await this.globaluiservice.openService.openView(routeParam);
+        if (response) {
+            if (!response || !Object.is(response.ret, 'OK')) {
+                return;
+            }
+            if (!xData || !(xData.refresh instanceof Function)) {
+                return;
+            }
+            xData.refresh(response.datas);
+        }
     }
 
 
@@ -477,7 +478,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -501,7 +502,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
@@ -523,7 +524,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -535,7 +536,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof IbzMyTerritoryMobDashboardViewBase
+     * @memberof StoryMobListViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -556,5 +557,5 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
 </script>
 
 <style lang='less'>
-@import './ibz-my-territory-mob-dashboard-view.less';
+@import './story-mob-list-view.less';
 </style>

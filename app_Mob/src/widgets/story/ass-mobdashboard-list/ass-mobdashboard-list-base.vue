@@ -1,23 +1,23 @@
 <template>
-    <div  class="app-mob-mdctrl story-dashboard_sysportlet1_list ">
+    <div  class="app-mob-mdctrl story-portlet_MyStoryMob_list ">
         <div v-if="listMode==='LISTEXPBAR'">
             <van-sidebar v-model="listItem" @change="switchView">
                 <van-sidebar-item class="app-mob-list-item" v-for="item in items" :key="item.srfkey" :title='item.srfmajortext'/>
             </van-sidebar>
         </div>
-        <div v-else class="app-mob-mdctrl-dashboard_sysportlet1_list">
+        <div v-else class="app-mob-mdctrl-portlet_MyStoryMob_list">
             <ion-list class="items">
                 <template v-if="controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding v-for="(item, index) in items" :key="index" class="app-mob-mdctrl-item">
                         <div style="width:100%;">
-                        <layout_dashboard_sysportlet1_list_itempanel :context="{}" :viewparams="{}" :item="item"></layout_dashboard_sysportlet1_list_itempanel>
+                        <layout_portlet_MyStoryMob_list_itempanel :context="{}" :viewparams="{}" :item="item"></layout_portlet_MyStoryMob_list_itempanel>
                         </div>
                     </ion-item-sliding>
                 </template>
                 <template v-else-if="controlStyle != 'LISTVIEW' ">
                         <ion-item-sliding v-for="(item, index) in items" :key="index" class="app-mob-mdctrl-item">
                             <div style="width:100%;">
-                            <layout_dashboard_sysportlet1_list_itempanel :context="{}" :viewparams="{}" :item="item"></layout_dashboard_sysportlet1_list_itempanel>
+                            <layout_portlet_MyStoryMob_list_itempanel :context="{}" :viewparams="{}" :item="item"></layout_portlet_MyStoryMob_list_itempanel>
                             </div>
                         </ion-item-sliding>
                     </template>

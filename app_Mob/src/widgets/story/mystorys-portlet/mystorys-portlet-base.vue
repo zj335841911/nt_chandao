@@ -1,10 +1,9 @@
 <template>
     <ion-row>
-        <ion-list class='app-mob-portlet story-dashboard_sysportlet1 '>
-            <ion-list-header class='app-mob-portlet__header'>我的需求 </ion-list-header>
-                <view_dashboard_sysportlet1_list
+        <ion-list class='app-mob-portlet story-portlet_MyStoryMob '>
+                <view_portlet_MyStoryMob_list
     :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
+    viewName="AppPortletContainerView"  
     :viewparams="viewparams" 
     :context="context" 
         listMode="LIST"
@@ -16,10 +15,10 @@
      :showBusyIndicator="true"  
      fetchAction="FetchAssignedToMyStory" 
     controlStyle=""
-    name="dashboard_sysportlet1_list"  
-    ref='dashboard_sysportlet1_list' 
+    name="portlet_MyStoryMob_list"  
+    ref='portlet_MyStoryMob_list' 
     @closeview="closeView($event)">
-</view_dashboard_sysportlet1_list>
+</view_portlet_MyStoryMob_list>
 
         </ion-list>
     </ion-row>

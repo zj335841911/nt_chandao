@@ -10,7 +10,7 @@ export class AssMOBDASHBOARDModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof AssMOBDASHBOARDPortlet_MyStoryMob_listMode
+	 * @memberof AssMOBDASHBOARDMdctrlModel
 	 */
 	public getDataItems(): any[] {
 		return [
@@ -85,19 +85,36 @@ export class AssMOBDASHBOARDModel {
 				prop: 'id',
 				dataType: 'FONTKEY',
 			},
-      {
-        name:'size',
-        prop:'size'
-      },
-      {
-        name:'query',
-        prop:'query'
-      },
-      {
-        name:'page',
-        prop:'page'
-      }
-		]
+			{
+				name: 'size',
+				prop: 'size'
+			},
+			{
+				name: 'query',
+				prop: 'query'
+			},
+			{
+				name: 'page',
+				prop: 'page'
+			},
+			{
+				name: 'sort',
+				prop: 'sort'
+			},
+			{
+				name: 'srfparentdata',
+				prop: 'srfparentdata'
+			},
+            // 工作流使用
+			{
+				name: 'processDefinitionKey',
+				prop: 'processDefinitionKey',
+			},
+			{
+				name: 'userTaskId',
+				prop: 'userTaskId',
+			},
+		];
 	}
 
 }
