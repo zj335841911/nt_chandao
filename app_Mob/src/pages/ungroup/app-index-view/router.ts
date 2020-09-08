@@ -2431,6 +2431,33 @@ const router = new Router({
                     component: () => import('@pages/ibiz/project-mob-edit-view/project-mob-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/favoritemobmdview',
+                    meta: {
+                        caption: 'story.views.favoritemobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'favoritemobmdview', parameterName: 'favoritemobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/story-favorite-mob-mdview/story-favorite-mob-mdview.vue'),
+                },
+                {
+                    path: 'stories/:story?/favoritemobmdview',
+                    meta: {
+                        caption: 'story.views.favoritemobmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'favoritemobmdview', parameterName: 'favoritemobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/story-favorite-mob-mdview/story-favorite-mob-mdview.vue'),
+                },
+                {
                     path: 'products/:product?/releases/:release?/newmobeditview',
                     meta: {
                         caption: 'release.views.newmobeditview.caption',

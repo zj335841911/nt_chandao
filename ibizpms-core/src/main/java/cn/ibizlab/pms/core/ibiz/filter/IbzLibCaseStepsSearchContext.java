@@ -34,8 +34,8 @@ public class IbzLibCaseStepsSearchContext extends QueryWrapperContext<IbzLibCase
             this.getSearchCond().eq("version", n_version_eq);
         }
     }
-	private BigInteger n_case_eq;//[用例编号]
-	public void setN_case_eq(BigInteger n_case_eq) {
+	private Long n_case_eq;//[用例编号]
+	public void setN_case_eq(Long n_case_eq) {
         this.n_case_eq = n_case_eq;
         if(!ObjectUtils.isEmpty(this.n_case_eq)){
             this.getSearchCond().eq("`case`", n_case_eq);

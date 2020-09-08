@@ -11,6 +11,7 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -29,9 +30,9 @@ public interface IBuildService extends IService<Build>{
     void createBatch(List<Build> list) ;
     boolean update(Build et) ;
     void updateBatch(List<Build> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Build get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Build get(Long key) ;
     Build getDraft(Build et) ;
     boolean checkKey(Build et) ;
     Build linkStory(Build et) ;
@@ -41,12 +42,12 @@ public interface IBuildService extends IService<Build>{
     Page<Build> searchCurProduct(BuildSearchContext context) ;
     Page<Build> searchDefault(BuildSearchContext context) ;
     Page<Build> searchTestBuild(BuildSearchContext context) ;
-    List<Build> selectByBranch(BigInteger id) ;
-    void removeByBranch(BigInteger id) ;
-    List<Build> selectByProduct(BigInteger id) ;
-    void removeByProduct(BigInteger id) ;
-    List<Build> selectByProject(BigInteger id) ;
-    void removeByProject(BigInteger id) ;
+    List<Build> selectByBranch(Long id) ;
+    void removeByBranch(Long id) ;
+    List<Build> selectByProduct(Long id) ;
+    void removeByProduct(Long id) ;
+    List<Build> selectByProject(Long id) ;
+    void removeByProject(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

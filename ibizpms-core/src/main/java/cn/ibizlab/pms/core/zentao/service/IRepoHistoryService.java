@@ -11,6 +11,7 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -29,9 +30,9 @@ public interface IRepoHistoryService extends IService<RepoHistory>{
     void createBatch(List<RepoHistory> list) ;
     boolean update(RepoHistory et) ;
     void updateBatch(List<RepoHistory> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    RepoHistory get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    RepoHistory get(Long key) ;
     RepoHistory getDraft(RepoHistory et) ;
     boolean checkKey(RepoHistory et) ;
     boolean save(RepoHistory et) ;

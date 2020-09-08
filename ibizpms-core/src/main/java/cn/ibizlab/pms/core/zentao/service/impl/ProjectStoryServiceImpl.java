@@ -158,32 +158,32 @@ public class ProjectStoryServiceImpl extends ServiceImpl<ProjectStoryMapper, Pro
 
 
 	@Override
-    public List<ProjectStory> selectByProduct(BigInteger id) {
+    public List<ProjectStory> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(BigInteger id) {
+    public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<ProjectStory>().eq("product",id));
     }
 
 	@Override
-    public List<ProjectStory> selectByProject(BigInteger id) {
+    public List<ProjectStory> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
 
     @Override
-    public void removeByProject(BigInteger id) {
+    public void removeByProject(Long id) {
         this.remove(new QueryWrapper<ProjectStory>().eq("project",id));
     }
 
 	@Override
-    public List<ProjectStory> selectByStory(BigInteger id) {
+    public List<ProjectStory> selectByStory(Long id) {
         return baseMapper.selectByStory(id);
     }
 
     @Override
-    public void removeByStory(BigInteger id) {
+    public void removeByStory(Long id) {
         this.remove(new QueryWrapper<ProjectStory>().eq("story",id));
     }
 

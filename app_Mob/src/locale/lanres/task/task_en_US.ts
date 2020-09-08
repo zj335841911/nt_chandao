@@ -305,14 +305,6 @@ export default {
 			tip: 'deuiaction1_deletemob',
 		},
 	},
-	assmobmdviewrighttoolbar_toolbar: {
-	},
-	mobdashboardviewdashboard_sysportlet2_list_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: '更多',
-			tip: 'deuiaction1',
-		},
-	},
 	favoritemobmdviewrighttoolbar_toolbar: {
 	},
 	mobdashboardviewdashboard_sysportlet4_list_quicktoolbar_toolbar: {
@@ -322,12 +314,6 @@ export default {
 		},
 	},
 	portlet_myfavoritetask_list_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: '更多',
-			tip: 'deuiaction1',
-		},
-	},
-	portlet_mytaskmob_list_quicktoolbar_toolbar: {
 		deuiaction1: {
 			caption: '更多',
 			tip: 'deuiaction1',

@@ -21,11 +21,13 @@ import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
+import cn.ibizlab.pms.util.annotation.Audit;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[任务模块]
@@ -62,7 +64,7 @@ public class ProjectModule extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 逻辑删除标志
      */
@@ -91,7 +93,7 @@ public class ProjectModule extends EntityMP implements Serializable {
      * owner
      */
     @DEField(defaultValue = "/")
-    @TableField(value = "`owner`")
+    @TableField(value = "owner")
     @JSONField(name = "owner")
     @JsonProperty("owner")
     private String owner;
@@ -122,7 +124,7 @@ public class ProjectModule extends EntityMP implements Serializable {
      * 排序值
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.ORDERVALUE)
-    @TableField(value = "`order`")
+    @TableField(value = "order")
     @JSONField(name = "order")
     @JsonProperty("order")
     private Integer order;
@@ -140,14 +142,14 @@ public class ProjectModule extends EntityMP implements Serializable {
     @TableField(value = "parent")
     @JSONField(name = "parent")
     @JsonProperty("parent")
-    private BigInteger parent;
+    private Long parent;
     /**
      * 项目
      */
     @TableField(value = "root")
     @JSONField(name = "root")
     @JsonProperty("root")
-    private BigInteger root;
+    private Long root;
     /**
      * 所属项目
      */
@@ -248,7 +250,7 @@ public class ProjectModule extends EntityMP implements Serializable {
     /**
      * 设置 [id]
      */
-    public void setParent(BigInteger parent){
+    public void setParent(Long parent){
         this.parent = parent ;
         this.modify("parent",parent);
     }
@@ -256,12 +258,16 @@ public class ProjectModule extends EntityMP implements Serializable {
     /**
      * 设置 [项目]
      */
-    public void setRoot(BigInteger root){
+    public void setRoot(Long root){
         this.root = root ;
         this.modify("root",root);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
 }
 
 

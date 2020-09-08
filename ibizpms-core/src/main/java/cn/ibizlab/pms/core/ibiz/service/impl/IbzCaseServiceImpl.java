@@ -94,7 +94,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
     }
         @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         IbzCase et = this.get(key);
@@ -104,16 +104,16 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList){
+    public void removeBatch(Collection<Long> idList){
         if (idList != null && !idList.isEmpty()) {
-            for (BigInteger id : idList) {
+            for (Long id : idList) {
                 this.remove(id);
             }
         }
     }
     @Override
     @Transactional
-    public IbzCase get(BigInteger key) {
+    public IbzCase get(Long key) {
         IbzCase et = getById(key);
         if(et==null){
             et=new IbzCase();
@@ -168,22 +168,22 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
 
 
 	@Override
-    public List<IbzCase> selectByModule(BigInteger id) {
+    public List<IbzCase> selectByModule(Long id) {
         return baseMapper.selectByModule(id);
     }
 
     @Override
-    public void removeByModule(BigInteger id) {
+    public void removeByModule(Long id) {
         this.remove(new QueryWrapper<IbzCase>().eq("module",id));
     }
 
 	@Override
-    public List<IbzCase> selectByLib(BigInteger id) {
+    public List<IbzCase> selectByLib(Long id) {
         return baseMapper.selectByLib(id);
     }
 
     @Override
-    public void removeByLib(BigInteger id) {
+    public void removeByLib(Long id) {
         this.remove(new QueryWrapper<IbzCase>().eq("lib",id));
     }
 

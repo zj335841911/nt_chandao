@@ -11,6 +11,7 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -29,9 +30,9 @@ public interface IIm_chatuserService extends IService<Im_chatuser>{
     void createBatch(List<Im_chatuser> list) ;
     boolean update(Im_chatuser et) ;
     void updateBatch(List<Im_chatuser> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Im_chatuser get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Im_chatuser get(Long key) ;
     Im_chatuser getDraft(Im_chatuser et) ;
     boolean checkKey(Im_chatuser et) ;
     boolean save(Im_chatuser et) ;

@@ -140,7 +140,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     }
         @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         Bug et = this.get(key);
@@ -150,16 +150,16 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList){
+    public void removeBatch(Collection<Long> idList){
         if (idList != null && !idList.isEmpty()) {
-            for (BigInteger id : idList) {
+            for (Long id : idList) {
                 this.remove(id);
             }
         }
     }
     @Override
     @Transactional
-    public Bug get(BigInteger key) {
+    public Bug get(Long key) {
         Bug et = getById(key);
         if(et==null){
             et=new Bug();
@@ -472,142 +472,142 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
 
 
 	@Override
-    public List<Bug> selectByBranch(BigInteger id) {
+    public List<Bug> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
 
     @Override
-    public void removeByBranch(BigInteger id) {
+    public void removeByBranch(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("branch",id));
     }
 
 	@Override
-    public List<Bug> selectByDuplicatebug(BigInteger id) {
+    public List<Bug> selectByDuplicatebug(Long id) {
         return baseMapper.selectByDuplicatebug(id);
     }
 
     @Override
-    public void removeByDuplicatebug(BigInteger id) {
+    public void removeByDuplicatebug(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("duplicatebug",id));
     }
 
 	@Override
-    public List<Bug> selectByIbizcase(BigInteger id) {
+    public List<Bug> selectByIbizcase(Long id) {
         return baseMapper.selectByIbizcase(id);
     }
 
     @Override
-    public void removeByIbizcase(BigInteger id) {
+    public void removeByIbizcase(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("case",id));
     }
 
 	@Override
-    public List<Bug> selectByEntry(BigInteger id) {
+    public List<Bug> selectByEntry(Long id) {
         return baseMapper.selectByEntry(id);
     }
 
     @Override
-    public void removeByEntry(BigInteger id) {
+    public void removeByEntry(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("entry",id));
     }
 
 	@Override
-    public List<Bug> selectByModule(BigInteger id) {
+    public List<Bug> selectByModule(Long id) {
         return baseMapper.selectByModule(id);
     }
 
     @Override
-    public void removeByModule(BigInteger id) {
+    public void removeByModule(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("module",id));
     }
 
 	@Override
-    public List<Bug> selectByPlan(BigInteger id) {
+    public List<Bug> selectByPlan(Long id) {
         return baseMapper.selectByPlan(id);
     }
 
     @Override
-    public void removeByPlan(BigInteger id) {
+    public void removeByPlan(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("plan",id));
     }
 
 	@Override
-    public List<Bug> selectByProduct(BigInteger id) {
+    public List<Bug> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(BigInteger id) {
+    public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("product",id));
     }
 
 	@Override
-    public List<Bug> selectByProject(BigInteger id) {
+    public List<Bug> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
 
     @Override
-    public void removeByProject(BigInteger id) {
+    public void removeByProject(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("project",id));
     }
 
 	@Override
-    public List<Bug> selectByRepo(BigInteger id) {
+    public List<Bug> selectByRepo(Long id) {
         return baseMapper.selectByRepo(id);
     }
 
     @Override
-    public void removeByRepo(BigInteger id) {
+    public void removeByRepo(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("repo",id));
     }
 
 	@Override
-    public List<Bug> selectByStory(BigInteger id) {
+    public List<Bug> selectByStory(Long id) {
         return baseMapper.selectByStory(id);
     }
 
     @Override
-    public void removeByStory(BigInteger id) {
+    public void removeByStory(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("story",id));
     }
 
 	@Override
-    public List<Bug> selectByTostory(BigInteger id) {
+    public List<Bug> selectByTostory(Long id) {
         return baseMapper.selectByTostory(id);
     }
 
     @Override
-    public void removeByTostory(BigInteger id) {
+    public void removeByTostory(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("tostory",id));
     }
 
 	@Override
-    public List<Bug> selectByTask(BigInteger id) {
+    public List<Bug> selectByTask(Long id) {
         return baseMapper.selectByTask(id);
     }
 
     @Override
-    public void removeByTask(BigInteger id) {
+    public void removeByTask(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("task",id));
     }
 
 	@Override
-    public List<Bug> selectByTotask(BigInteger id) {
+    public List<Bug> selectByTotask(Long id) {
         return baseMapper.selectByTotask(id);
     }
 
     @Override
-    public void removeByTotask(BigInteger id) {
+    public void removeByTotask(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("totask",id));
     }
 
 	@Override
-    public List<Bug> selectByTesttask(BigInteger id) {
+    public List<Bug> selectByTesttask(Long id) {
         return baseMapper.selectByTesttask(id);
     }
 
     @Override
-    public void removeByTesttask(BigInteger id) {
+    public void removeByTesttask(Long id) {
         this.remove(new QueryWrapper<Bug>().eq("testtask",id));
     }
 

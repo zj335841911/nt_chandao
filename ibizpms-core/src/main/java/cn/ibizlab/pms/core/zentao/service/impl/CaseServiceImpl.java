@@ -133,7 +133,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     }
         @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         Case et = this.get(key);
@@ -143,16 +143,16 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList){
+    public void removeBatch(Collection<Long> idList){
         if (idList != null && !idList.isEmpty()) {
-            for (BigInteger id : idList) {
+            for (Long id : idList) {
                 this.remove(id);
             }
         }
     }
     @Override
     @Transactional
-    public Case get(BigInteger key) {
+    public Case get(Long key) {
         Case et = getById(key);
         if(et==null){
             et=new Case();
@@ -346,72 +346,72 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
 
 	@Override
-    public List<Case> selectByBranch(BigInteger id) {
+    public List<Case> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
 
     @Override
-    public void removeByBranch(BigInteger id) {
+    public void removeByBranch(Long id) {
         this.remove(new QueryWrapper<Case>().eq("branch",id));
     }
 
 	@Override
-    public List<Case> selectByFrombug(BigInteger id) {
+    public List<Case> selectByFrombug(Long id) {
         return baseMapper.selectByFrombug(id);
     }
 
     @Override
-    public void removeByFrombug(BigInteger id) {
+    public void removeByFrombug(Long id) {
         this.remove(new QueryWrapper<Case>().eq("frombug",id));
     }
 
 	@Override
-    public List<Case> selectByFromcaseid(BigInteger id) {
+    public List<Case> selectByFromcaseid(Long id) {
         return baseMapper.selectByFromcaseid(id);
     }
 
     @Override
-    public void removeByFromcaseid(BigInteger id) {
+    public void removeByFromcaseid(Long id) {
         this.remove(new QueryWrapper<Case>().eq("fromcaseid",id));
     }
 
 	@Override
-    public List<Case> selectByModule(BigInteger id) {
+    public List<Case> selectByModule(Long id) {
         return baseMapper.selectByModule(id);
     }
 
     @Override
-    public void removeByModule(BigInteger id) {
+    public void removeByModule(Long id) {
         this.remove(new QueryWrapper<Case>().eq("module",id));
     }
 
 	@Override
-    public List<Case> selectByProduct(BigInteger id) {
+    public List<Case> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(BigInteger id) {
+    public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<Case>().eq("product",id));
     }
 
 	@Override
-    public List<Case> selectByStory(BigInteger id) {
+    public List<Case> selectByStory(Long id) {
         return baseMapper.selectByStory(id);
     }
 
     @Override
-    public void removeByStory(BigInteger id) {
+    public void removeByStory(Long id) {
         this.remove(new QueryWrapper<Case>().eq("story",id));
     }
 
 	@Override
-    public List<Case> selectByLib(BigInteger id) {
+    public List<Case> selectByLib(Long id) {
         return baseMapper.selectByLib(id);
     }
 
     @Override
-    public void removeByLib(BigInteger id) {
+    public void removeByLib(Long id) {
         this.remove(new QueryWrapper<Case>().eq("lib",id));
     }
 

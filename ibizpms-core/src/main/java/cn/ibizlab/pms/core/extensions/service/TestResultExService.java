@@ -24,7 +24,7 @@ public class TestResultExService extends TestResultServiceImpl {
      */
     @Override
     public Page<TestResult> searchDefault(TestResultSearchContext context) {
-        BigInteger c = context.getN_case_eq();
+        Long c = context.getN_case_eq();
         context.getSelectCond().clear();
         context.getSelectCond().eq("`case`", c);
         context.setSort("t1.`id`,desc");
@@ -37,7 +37,7 @@ public class TestResultExService extends TestResultServiceImpl {
      */
     @Override
     public Page<TestResult> searchCurTestRun(TestResultSearchContext context) {
-        BigInteger c = context.getN_case_eq();
+        Long c = context.getN_case_eq();
         context.getSelectCond().clear();
         context.getSelectCond().eq("`case`", c);
         context.setSort("t1.`id`,desc");

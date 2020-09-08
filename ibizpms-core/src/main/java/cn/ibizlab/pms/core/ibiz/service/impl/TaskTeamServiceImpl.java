@@ -82,19 +82,19 @@ public class TaskTeamServiceImpl extends ServiceImpl<TaskTeamMapper, TaskTeam> i
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public TaskTeam get(BigInteger key) {
+    public TaskTeam get(Long key) {
         TaskTeam et = getById(key);
         if(et==null){
             et=new TaskTeam();
@@ -145,12 +145,12 @@ public class TaskTeamServiceImpl extends ServiceImpl<TaskTeamMapper, TaskTeam> i
 
 
 	@Override
-    public List<TaskTeam> selectByRoot(BigInteger id) {
+    public List<TaskTeam> selectByRoot(Long id) {
         return baseMapper.selectByRoot(id);
     }
 
     @Override
-    public void removeByRoot(BigInteger id) {
+    public void removeByRoot(Long id) {
         this.remove(new QueryWrapper<TaskTeam>().eq("root",id));
     }
 
@@ -158,10 +158,10 @@ public class TaskTeamServiceImpl extends ServiceImpl<TaskTeamMapper, TaskTeam> i
     @Lazy
     ITaskTeamService proxyService;
 	@Override
-    public void saveByRoot(BigInteger id,List<TaskTeam> list) {
+    public void saveByRoot(Long id,List<TaskTeam> list) {
         if(list==null)
             return;
-        Set<BigInteger> delIds=new HashSet<BigInteger>();
+        Set<Long> delIds=new HashSet<Long>();
         List<TaskTeam> _update=new ArrayList<TaskTeam>();
         List<TaskTeam> _create=new ArrayList<TaskTeam>();
         for(TaskTeam before:selectByRoot(id)){
@@ -170,7 +170,7 @@ public class TaskTeamServiceImpl extends ServiceImpl<TaskTeamMapper, TaskTeam> i
         for(TaskTeam sub:list) {
             sub.setRoot(id);
             if(ObjectUtils.isEmpty(sub.getId()))
-                sub.setId((BigInteger)sub.getDefaultKey(true));
+                sub.setId((Long)sub.getDefaultKey(true));
             if(delIds.contains(sub.getId())) {
                 delIds.remove(sub.getId());
                 _update.add(sub);

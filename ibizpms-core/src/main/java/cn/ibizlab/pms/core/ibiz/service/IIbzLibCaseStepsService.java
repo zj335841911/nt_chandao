@@ -11,6 +11,7 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -29,20 +30,20 @@ public interface IIbzLibCaseStepsService extends IService<IbzLibCaseSteps>{
     void createBatch(List<IbzLibCaseSteps> list) ;
     boolean update(IbzLibCaseSteps et) ;
     void updateBatch(List<IbzLibCaseSteps> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    IbzLibCaseSteps get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    IbzLibCaseSteps get(Long key) ;
     IbzLibCaseSteps getDraft(IbzLibCaseSteps et) ;
     boolean checkKey(IbzLibCaseSteps et) ;
     boolean save(IbzLibCaseSteps et) ;
     void saveBatch(List<IbzLibCaseSteps> list) ;
     Page<IbzLibCaseSteps> searchDefault(IbzLibCaseStepsSearchContext context) ;
-    List<IbzLibCaseSteps> selectByIbizcase(BigInteger id) ;
-    void removeByIbizcase(BigInteger id) ;
-    void saveByIbizcase(BigInteger id,List<IbzLibCaseSteps> list) ;
-    List<IbzLibCaseSteps> selectByParent(BigInteger id) ;
-    void removeByParent(BigInteger id) ;
-    void saveByParent(BigInteger id,List<IbzLibCaseSteps> list) ;
+    List<IbzLibCaseSteps> selectByIbizcase(Long id) ;
+    void removeByIbizcase(Long id) ;
+    void saveByIbizcase(Long id,List<IbzLibCaseSteps> list) ;
+    List<IbzLibCaseSteps> selectByParent(Long id) ;
+    void removeByParent(Long id) ;
+    void saveByParent(Long id,List<IbzLibCaseSteps> list) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

@@ -79,19 +79,19 @@ public class Im_conferenceServiceImpl extends ServiceImpl<Im_conferenceMapper, I
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public Im_conference get(BigInteger key) {
+    public Im_conference get(Long key) {
         Im_conference et = getById(key);
         if(et==null){
             et=new Im_conference();

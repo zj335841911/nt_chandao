@@ -155,22 +155,22 @@ public class StoryStageServiceImpl extends ServiceImpl<StoryStageMapper, StorySt
 
 
 	@Override
-    public List<StoryStage> selectByBranch(BigInteger id) {
+    public List<StoryStage> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
 
     @Override
-    public void removeByBranch(BigInteger id) {
+    public void removeByBranch(Long id) {
         this.remove(new QueryWrapper<StoryStage>().eq("branch",id));
     }
 
 	@Override
-    public List<StoryStage> selectByStory(BigInteger id) {
+    public List<StoryStage> selectByStory(Long id) {
         return baseMapper.selectByStory(id);
     }
 
     @Override
-    public void removeByStory(BigInteger id) {
+    public void removeByStory(Long id) {
         this.remove(new QueryWrapper<StoryStage>().eq("story",id));
     }
 

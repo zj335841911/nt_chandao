@@ -82,19 +82,19 @@ public class EntryServiceImpl extends ServiceImpl<EntryMapper, Entry> implements
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public Entry get(BigInteger key) {
+    public Entry get(Long key) {
         Entry et = getById(key);
         if(et==null){
             et=new Entry();

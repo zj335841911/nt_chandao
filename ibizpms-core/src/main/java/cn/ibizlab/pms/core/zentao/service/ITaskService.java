@@ -11,6 +11,7 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -29,9 +30,9 @@ public interface ITaskService extends IService<Task>{
     void createBatch(List<Task> list) ;
     boolean update(Task et) ;
     void updateBatch(List<Task> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Task get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Task get(Long key) ;
     Task getDraft(Task et) ;
     Task activate(Task et) ;
     Task assignTo(Task et) ;
@@ -59,16 +60,16 @@ public interface ITaskService extends IService<Task>{
     Page<Task> searchProjectTASK(TaskSearchContext context) ;
     Page<Task> searchRootTask(TaskSearchContext context) ;
     Page<HashMap> searchTypeGroup(TaskSearchContext context) ;
-    List<Task> selectByModule(BigInteger id) ;
-    void removeByModule(BigInteger id) ;
-    List<Task> selectByFrombug(BigInteger id) ;
-    void removeByFrombug(BigInteger id) ;
-    List<Task> selectByProject(BigInteger id) ;
-    void removeByProject(BigInteger id) ;
-    List<Task> selectByStory(BigInteger id) ;
-    void removeByStory(BigInteger id) ;
-    List<Task> selectByParent(BigInteger id) ;
-    void removeByParent(BigInteger id) ;
+    List<Task> selectByModule(Long id) ;
+    void removeByModule(Long id) ;
+    List<Task> selectByFrombug(Long id) ;
+    void removeByFrombug(Long id) ;
+    List<Task> selectByProject(Long id) ;
+    void removeByProject(Long id) ;
+    List<Task> selectByStory(Long id) ;
+    void removeByStory(Long id) ;
+    List<Task> selectByParent(Long id) ;
+    void removeByParent(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

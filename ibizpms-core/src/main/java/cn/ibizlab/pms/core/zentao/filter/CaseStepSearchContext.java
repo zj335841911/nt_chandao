@@ -27,8 +27,8 @@ import cn.ibizlab.pms.core.zentao.domain.CaseStep;
 @Data
 public class CaseStepSearchContext extends QueryWrapperContext<CaseStep> {
 
-	private BigInteger n_case_eq;//[用例]
-	public void setN_case_eq(BigInteger n_case_eq) {
+	private Long n_case_eq;//[用例]
+	public void setN_case_eq(Long n_case_eq) {
         this.n_case_eq = n_case_eq;
         if(!ObjectUtils.isEmpty(this.n_case_eq)){
             this.getSearchCond().eq("`case`", n_case_eq);

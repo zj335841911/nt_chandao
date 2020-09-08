@@ -25,6 +25,7 @@
                         <app-list-swipe :items="items"></app-list-swipe>
                     </template>
             </ion-list>
+            <div class="no-data" v-if="items.length == 0">暂无数据</div>
         </div>
     </div>
 </template>

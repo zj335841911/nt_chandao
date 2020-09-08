@@ -11,6 +11,7 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -29,16 +30,16 @@ public interface IDocContentService extends IService<DocContent>{
     void createBatch(List<DocContent> list) ;
     boolean update(DocContent et) ;
     void updateBatch(List<DocContent> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    DocContent get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    DocContent get(Long key) ;
     DocContent getDraft(DocContent et) ;
     boolean checkKey(DocContent et) ;
     boolean save(DocContent et) ;
     void saveBatch(List<DocContent> list) ;
     Page<DocContent> searchDefault(DocContentSearchContext context) ;
-    List<DocContent> selectByDoc(BigInteger id) ;
-    void removeByDoc(BigInteger id) ;
+    List<DocContent> selectByDoc(Long id) ;
+    void removeByDoc(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

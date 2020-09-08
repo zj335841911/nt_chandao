@@ -11,6 +11,7 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -37,12 +38,12 @@ public interface IProjectStoryService extends IService<ProjectStory>{
     boolean save(ProjectStory et) ;
     void saveBatch(List<ProjectStory> list) ;
     Page<ProjectStory> searchDefault(ProjectStorySearchContext context) ;
-    List<ProjectStory> selectByProduct(BigInteger id) ;
-    void removeByProduct(BigInteger id) ;
-    List<ProjectStory> selectByProject(BigInteger id) ;
-    void removeByProject(BigInteger id) ;
-    List<ProjectStory> selectByStory(BigInteger id) ;
-    void removeByStory(BigInteger id) ;
+    List<ProjectStory> selectByProduct(Long id) ;
+    void removeByProduct(Long id) ;
+    List<ProjectStory> selectByProject(Long id) ;
+    void removeByProject(Long id) ;
+    List<ProjectStory> selectByStory(Long id) ;
+    void removeByStory(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

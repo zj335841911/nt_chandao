@@ -102,7 +102,7 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     }
         @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         Release et = this.get(key);
@@ -112,16 +112,16 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList){
+    public void removeBatch(Collection<Long> idList){
         if (idList != null && !idList.isEmpty()) {
-            for (BigInteger id : idList) {
+            for (Long id : idList) {
                 this.remove(id);
             }
         }
     }
     @Override
     @Transactional
-    public Release get(BigInteger key) {
+    public Release get(Long key) {
         Release et = getById(key);
         if(et==null){
             et=new Release();
@@ -292,32 +292,32 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
 
 
 	@Override
-    public List<Release> selectByBranch(BigInteger id) {
+    public List<Release> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
 
     @Override
-    public void removeByBranch(BigInteger id) {
+    public void removeByBranch(Long id) {
         this.remove(new QueryWrapper<Release>().eq("branch",id));
     }
 
 	@Override
-    public List<Release> selectByBuild(BigInteger id) {
+    public List<Release> selectByBuild(Long id) {
         return baseMapper.selectByBuild(id);
     }
 
     @Override
-    public void removeByBuild(BigInteger id) {
+    public void removeByBuild(Long id) {
         this.remove(new QueryWrapper<Release>().eq("build",id));
     }
 
 	@Override
-    public List<Release> selectByProduct(BigInteger id) {
+    public List<Release> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(BigInteger id) {
+    public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<Release>().eq("product",id));
     }
 
