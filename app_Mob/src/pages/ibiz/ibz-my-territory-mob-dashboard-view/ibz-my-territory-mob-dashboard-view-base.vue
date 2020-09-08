@@ -264,29 +264,12 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
 
 
 
-   /**
-    * 工具栏 IbzMyTerritoryMobDashboardView 模型
-    *
-    * @type {*}
-    * @memberof IbzMyTerritoryMobDashboardView
-    */
-    public dashboard_sysportlet2_list_quicktoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyAssMore', target: 'NONE' } },
-
-    };
-
-    
-
-
-
-
-
     /**
      * 工具栏模型集合名
      *
      * @memberof IbzMyTerritoryMobDashboardViewBase
      */
-    public toolbarModelList:any = ['dashboard_sysportlet4_list_quicktoolbarModels','dashboard_sysportlet2_list_quicktoolbarModels',]
+    public toolbarModelList:any = ['dashboard_sysportlet4_list_quicktoolbarModels',]
 
     /**
      * 解析视图参数

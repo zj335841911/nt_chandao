@@ -1,25 +1,8 @@
 <template>
     <ion-row>
-        <ion-list class='app-mob-portlet story-portlet_MyStoryMob '>
-                <view_portlet_MyStoryMob_list
-    :viewState="viewState"
-    viewName="AppPortletContainerView"  
-    :viewparams="viewparams" 
-    :context="context" 
-        listMode="LIST"
-     updateAction="Update"
-     removeAction="Remove"
-     loaddraftAction=""
-     loadAction="Get"
-     createAction="Create"
-     :showBusyIndicator="true"  
-     fetchAction="FetchAssignedToMyStory" 
-    controlStyle=""
-    name="portlet_MyStoryMob_list"  
-    ref='portlet_MyStoryMob_list' 
-    @closeview="closeView($event)">
-</view_portlet_MyStoryMob_list>
-
+        <ion-list class='app-mob-portlet ibzmyterritory-dashboard_sysportlet2 '>
+            <ion-list-header class='app-mob-portlet__header'>我的任务 </ion-list-header>
+                <task-ass-mob-mdview :_context="JSON.stringify(context)" :_viewparams="JSON.stringify(viewparams)" :viewDefaultUsage="false" ></task-ass-mob-mdview>
         </ion-list>
     </ion-row>
 </template>
@@ -31,10 +14,10 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
-import MYSTORYSService from '@/app-core/ctrl-service/story/mystorys-portlet-service';
+import IbzMyTerritoryService from '@/app-core/service/ibz-my-territory/ibz-my-territory-service';
+import MyTaskMobService from '@/app-core/ctrl-service/ibz-my-territory/my-task-mob-portlet-service';
 
-import StoryUIService from '@/ui-service/story/story-ui-action';
+import IbzMyTerritoryUIService from '@/ui-service/ibz-my-territory/ibz-my-territory-ui-action';
 
 
 
@@ -42,13 +25,13 @@ import StoryUIService from '@/ui-service/story/story-ui-action';
     components: {
     }
 })
-export default class MYSTORYSBase extends Vue implements ControlInterface {
+export default class MyTaskMobBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof MYSTORYS
+     * @memberof MyTaskMob
      */
     @Prop() protected name?: string;
 
@@ -56,7 +39,7 @@ export default class MYSTORYSBase extends Vue implements ControlInterface {
      * 视图名称
      *
      * @type {string}
-     * @memberof MYSTORYS
+     * @memberof MyTaskMob
      */
     @Prop() protected viewName!: string;
 
@@ -65,7 +48,7 @@ export default class MYSTORYSBase extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof MYSTORYS
+     * @memberof MyTaskMob
      */
     @Prop() protected viewState!: Subject<ViewState>;
 
@@ -73,7 +56,7 @@ export default class MYSTORYSBase extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof MYSTORYS
+     * @memberof MyTaskMob
      */
     @Prop({ default: {} }) protected context?: any;
 
@@ -81,7 +64,7 @@ export default class MYSTORYSBase extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof MYSTORYS
+     * @memberof MyTaskMob
      */
     @Prop({ default: {} }) protected viewparams?: any;
 
@@ -90,7 +73,7 @@ export default class MYSTORYSBase extends Vue implements ControlInterface {
      *
      * @protected
      * @type {(Subscription | undefined)}
-     * @memberof MYSTORYS
+     * @memberof MyTaskMob
      */
     protected viewStateEvent: Subscription | undefined;
 
@@ -98,7 +81,7 @@ export default class MYSTORYSBase extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof MYSTORYS
+     * @memberof MyTaskMob
      */
     protected getControlType(): string {
         return 'PORTLET'
@@ -108,7 +91,7 @@ export default class MYSTORYSBase extends Vue implements ControlInterface {
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof MYSTORYS
+     * @memberof MyTaskMob
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -117,7 +100,7 @@ export default class MYSTORYSBase extends Vue implements ControlInterface {
      * 转化数据
      *
      * @param {any} args
-     * @memberof  MYSTORYSBase
+     * @memberof  MyTaskMobBase
      */
     public transformData(args: any) {
         let _this: any = this;
@@ -129,33 +112,33 @@ export default class MYSTORYSBase extends Vue implements ControlInterface {
     /**
      * 建构部件服务对象
      *
-     * @type {MYSTORYSService}
-     * @memberof MYSTORYS
+     * @type {MyTaskMobService}
+     * @memberof MyTaskMob
      */
-    protected service: MYSTORYSService = new MYSTORYSService({$store:this.$store});
+    protected service: MyTaskMobService = new MyTaskMobService({$store:this.$store});
 
     /**
      * 实体服务对象
      *
-     * @type {StoryService}
-     * @memberof MYSTORYS
+     * @type {IbzMyTerritoryService}
+     * @memberof MyTaskMob
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: IbzMyTerritoryService = new IbzMyTerritoryService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {StoryUIService}
-     * @memberof MYSTORYSBase
+     * @type {IbzMyTerritoryUIService}
+     * @memberof MyTaskMobBase
      */  
-    public deUIService:StoryUIService = new StoryUIService(this.$store);
+    public deUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
     
 
     /**
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof MYSTORYS
+     * @memberof MyTaskMob
      */
     protected closeView(args: any[]): void {
         let _this: any = this;
@@ -168,7 +151,7 @@ export default class MYSTORYSBase extends Vue implements ControlInterface {
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof MYSTORYS
+     * @memberof MyTaskMob
      */    
     protected counterServiceArray:Array<any> = [];
 
@@ -177,7 +160,7 @@ export default class MYSTORYSBase extends Vue implements ControlInterface {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof MYSTORYS
+     * @memberof MyTaskMob
      */
     public getDatas(): any[] {
         return [];
@@ -187,7 +170,7 @@ export default class MYSTORYSBase extends Vue implements ControlInterface {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof MYSTORYS
+     * @memberof MyTaskMob
      */
     public getData(): any {
         return {};
@@ -196,7 +179,7 @@ export default class MYSTORYSBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof MYSTORYS
+     * @memberof MyTaskMob
      */
     protected created() {
         this.afterCreated();
@@ -205,7 +188,7 @@ export default class MYSTORYSBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof MYSTORYS
+     *  @memberof MyTaskMob
      */    
     protected afterCreated(){
         if (this.viewState) {
@@ -224,7 +207,7 @@ export default class MYSTORYSBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof MYSTORYS
+     * @memberof MyTaskMob
      */
     protected destroyed() {
         this.afterDestroy();
@@ -233,7 +216,7 @@ export default class MYSTORYSBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof MYSTORYS
+     * @memberof MyTaskMob
      */
     protected afterDestroy() {
         if (this.viewStateEvent) {
@@ -245,5 +228,5 @@ export default class MYSTORYSBase extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './mystorys-portlet.less';
+@import './my-task-mob-portlet.less';
 </style>
