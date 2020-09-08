@@ -8,7 +8,7 @@ spring:
       spec: initialCapacity=5,maximumSize=500,expireAfterWrite=3600s
   redis:
     host: 172.16.100.243
-    port: 6379
+    port: 6380
     password:
     database: 0
     lettuce:
