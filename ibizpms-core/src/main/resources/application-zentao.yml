@@ -24,7 +24,7 @@ ibiz:
     service:
       uaa: ibzuaa-api
       ou: ibzou-api
-      notify: ibznotify-api-nn
+      notify: ibznotify-api
   cacheLevel: L2
 
   #消息推送相关

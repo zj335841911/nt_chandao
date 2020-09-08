@@ -33,7 +33,7 @@ ibiz:
     service:
       pms-webapi: pms-webapi
       uaa: ibzuaa-api
-      ou: ibzou-apipms
+      ou: ibzou-api
   auth:
     token:
       # 本地ZT账户认证模式：SimpleTokenUtil
