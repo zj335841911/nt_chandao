@@ -5,6 +5,7 @@ import cn.ibizlab.pms.core.ibiz.service.ITaskMsgRecordService;
 import cn.ibizlab.pms.core.zentao.domain.Bug;
 import cn.ibizlab.pms.util.client.IBZNotifyFeignClient;
 import cn.ibizlab.pms.util.domain.EntityBase;
+import cn.ibizlab.pms.util.log.IBIZTraceLog;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.csp.sentinel.util.StringUtil;
 import com.alibaba.fastjson.JSONObject;
@@ -27,6 +28,7 @@ import java.time.LocalTime;
 import java.util.Map;
 
 @Slf4j
+@IBIZTraceLog
 @Component
 public class DingTalkMsgService implements IMsgService {
     @Autowired
@@ -104,7 +106,8 @@ public class DingTalkMsgService implements IMsgService {
     public void sendLinkMessage(String userids, String redirectUrl, String title, String content) {
         log.info("redirectURL:[{}]", redirectUrl);
         JSONObject message = new JSONObject();
-        message.put("templateid", "pms");
+//        message.put("templateid", "pms");
+        message.put("templateid", "pms-mobr7pc");
         message.put("msgtypes", MsgConstants.MESSAGE_TYPE);
         message.put("userids", userids);
         message.put("title", title);
@@ -139,7 +142,8 @@ public class DingTalkMsgService implements IMsgService {
         log.info("userid:[{}]", userids);
         JSONObject message = new JSONObject();
         message.put("to_users", userids);
-        message.put("template_id", "pms");
+//        message.put("template_id", "pms");
+        message.put("template_id", "pms-mobr7pc");
         message.put("title", title == null ? MsgConstants.APP_NAME : title);
         message.put("content", content);
         message.put("msg_link", redirectUrl);
