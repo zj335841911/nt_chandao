@@ -22,9 +22,9 @@ ibiz:
       util: UAATokenUtil
   ref:
     service:
-      uaa: ibzuaa-apipms
-      ou: ibzou-apipms
-      notify: ibznotify-api
+      uaa: ibzuaa-api
+      ou: ibzou-api
+      notify: ibznotify-api-nn
   cacheLevel: L2
 
   #消息推送相关
@@ -57,3 +57,10 @@ pms:
     #同步权限资源。
     uaa: true
 
+  #是否跟踪数据流
+  trace: true
+
+#Log配置
+logging:
+  level:
+    cn.ibizlab.pms: debug

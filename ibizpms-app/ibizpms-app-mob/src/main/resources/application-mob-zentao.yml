@@ -4,21 +4,21 @@ zuul:
       path:
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
-    v7:
-      path: /appdata
-      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
-      stripPrefix: false
+#    v7:
+#      path: /appdata
+#      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+#      stripPrefix: false
     ibizutil:
       path: /ibizutil/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     dingtalktoken:
       path: /uaa/open/dingtalk/access_token
-      serviceId: ${ibiz.ref.service.uaa:pms-webapi}
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     dingtalkauth:
       path:  /uaa/open/dingtalk/auth/**
-      serviceId: ${ibiz.ref.service.uaa:pms-webapi}
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     guest:
       path:  /login/guest
@@ -32,7 +32,7 @@ ibiz:
   ref:
     service:
       pms-webapi: pms-webapi
-      uaa: ibzuaa-apipms
+      uaa: ibzuaa-api
       ou: ibzou-apipms
   auth:
     token:
@@ -48,3 +48,13 @@ spring:
       max-file-size: 100MB
       # 代表文件上传最大总大小
       max-request-size: 1024MB
+
+
+pms:
+  #是否跟踪数据流
+  trace: false
+
+#Log配置
+logging:
+  level:
+    cn.ibizlab.pms: debug

@@ -28,7 +28,8 @@ public class IBZNotifyFallback implements IBZNotifyFeignClient {
 	}
 
 	@Override
-	public Boolean finishDingTalkWorkRecord(JSONObject msg) {
+	public Boolean finishDingTalkWorkRecord(String msgId) {
 		return null;
 	}
+
 }

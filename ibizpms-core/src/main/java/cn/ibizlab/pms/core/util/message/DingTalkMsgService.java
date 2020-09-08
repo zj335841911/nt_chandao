@@ -138,12 +138,12 @@ public class DingTalkMsgService implements IMsgService {
         log.info("redirectURL:[{}]", redirectUrl);
         log.info("userid:[{}]", userids);
         JSONObject message = new JSONObject();
-        message.put("userids", userids);
-        message.put("templateid", "pms");
+        message.put("to_users", userids);
+        message.put("template_id", "pms");
         message.put("title", title == null ? MsgConstants.APP_NAME : title);
         message.put("content", content);
-        message.put("url", redirectUrl);
-        message.put("pcUrl", pcredirectUrl);
+        message.put("msg_link", redirectUrl);
+        message.put("msg_link_pc", pcredirectUrl);
         String recordids = null;
         try {
             recordids = feignClient.createDingTalkWorkRecord(message);
@@ -194,14 +194,14 @@ public class DingTalkMsgService implements IMsgService {
                     .orderByDesc(TaskMsgRecord::getCreatedate), false);
 
             if (taskMsgRecord != null) {
-                JSONObject message = new JSONObject();
-                message.put("userids", userid);
-                message.put("templateid", "pms");
-                message.put("recordid", taskMsgRecord.getApptaskid());
-                Boolean markCompleted = feignClient.finishDingTalkWorkRecord(message);
+//                JSONObject message = new JSONObject();
+//                message.put("userids", userid);
+//                message.put("templateid", "pms");
+//                message.put("recordid", taskMsgRecord.getApptaskid());
+                Boolean markCompleted = feignClient.finishDingTalkWorkRecord(taskMsgRecord.getApptaskid());
 
                 if (markCompleted) {
-                    log.info("发送已办成功,内容为[{}]", message);
+                    log.info("发送已办成功,消息记录信息：[{}]", taskMsgRecord);
                     taskMsgRecordService.remove(taskMsgRecord.getTaskmsgrecordid());
                 }
             }

@@ -140,7 +140,8 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
                .antMatchers("/ztlogin").permitAll()
                //开放账号名查询接口
                .antMatchers("/ztusers/uaaloginname").permitAll()
-
+               .antMatchers("/uaa/open/dingtalk/auth/**").permitAll()
+               .antMatchers("/uaa/open/dingtalk/access_token").permitAll()
 //               .antMatchers("/depts/all").permitAll()
 //
 //               .antMatchers("/users/all").permitAll()
