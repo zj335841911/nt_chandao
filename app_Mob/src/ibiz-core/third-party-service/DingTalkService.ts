@@ -84,8 +84,8 @@ export class DingTalkService {
      */
     public async login(): Promise<any> {
             const access_token :any= await this.get(`/uaa/open/dingtalk/access_token`);
-            if(access_token.status == 200 && access_token.data && access_token.data.regionid){
-                const res: any= await dd.runtime.permission.requestAuthCode({ corpId: access_token.data.regionid });
+            if(access_token.status == 200 && access_token.data && access_token.data.corp_id){
+                const res: any= await dd.runtime.permission.requestAuthCode({ corpId: access_token.data.corp_id });
                 if (res && res.code) {
                     const userInfo:any = await this.get(`/uaa/open/dingtalk/auth/${res.code}`);
                     if(userInfo.status == 200 && userInfo.data.token && userInfo.data.user){
