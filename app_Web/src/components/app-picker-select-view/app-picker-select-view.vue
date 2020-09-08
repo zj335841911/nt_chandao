@@ -469,7 +469,7 @@ export default class AppPickerSelectView extends Vue {
      * @memberof AppPickerSelectView
      */
     private openPopOver($event: any, view: any, context: any, param: any): void {
-        let container: Subject<any> = this.$apppopover.openPop($event, view, context, param);
+        let container = this.$apppopover.openPop($event, view, context, param);
         container.subscribe((result: any) => {
             if (!result || !Object.is(result.ret, 'OK')) {
                 return;

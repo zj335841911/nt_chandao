@@ -307,7 +307,7 @@ export class IBizPMSBase extends Vue {
   /**
    * 绘制内容
    */
-  public render(): any {
+  public render(h: any): any {
     const styleMode = this.$uiState.layoutState.styleMode;
     let leftContent: any;
     switch (styleMode) {
@@ -329,6 +329,7 @@ export class IBizPMSBase extends Vue {
             </template>
             <template slot="header_right">
               <app-header-menus ref="headerMenus" ctrlName="zentao" menus={this.top_menus.items} on-menu-click={(item: any) => this.click(item)}/>
+              {this.$topRenderService.rightItemsRenders.map((fun: any) => fun(h))}
               <user-info ref="userInfo" ctrlName="zentao" menus={this.user_menus.items} on-menu-click={(item: any) => this.click(item)}/>
             </template>
           </app-header>

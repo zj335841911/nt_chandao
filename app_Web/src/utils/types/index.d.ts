@@ -1,4 +1,4 @@
-import { Util } from "../util/util";
+import { AppPopover } from "../app-popover/app-popover";
 
 declare module "vue/types/vue" {
     interface Vue {
@@ -9,5 +9,12 @@ declare module "vue/types/vue" {
          * @memberof Vue
          */
         $util: any;
+        /**
+         * 飘窗服务
+         *
+         * @type {AppPopover}
+         * @memberof Vue
+         */
+        $apppopover: AppPopover;
     }
 }
