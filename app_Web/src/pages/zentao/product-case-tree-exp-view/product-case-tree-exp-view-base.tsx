@@ -57,16 +57,6 @@ export class ProductCaseTreeExpViewBase extends TreeExpViewBase {
      */
     public appUIService: ProductUIService = new ProductUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ProductCaseTreeExpViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -111,6 +101,15 @@ export class ProductCaseTreeExpViewBase extends TreeExpViewBase {
      * @memberof ProductCaseTreeExpViewBase
      */
     public engine: TreeExpViewEngine = new TreeExpViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProductCaseTreeExpViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

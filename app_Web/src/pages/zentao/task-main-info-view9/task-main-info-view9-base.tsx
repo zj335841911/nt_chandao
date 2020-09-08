@@ -57,16 +57,6 @@ export class TaskMainInfoView9Base extends EditView9Base {
      */
     public appUIService: TaskUIService = new TaskUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof TaskMainInfoView9Base
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -111,6 +101,15 @@ export class TaskMainInfoView9Base extends EditView9Base {
      * @memberof TaskMainInfoView9Base
      */
     public engine: EditView9Engine = new EditView9Engine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof TaskMainInfoView9Base
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

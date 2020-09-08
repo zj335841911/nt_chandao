@@ -61,16 +61,6 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      */
     public appUIService: TaskUIService = new TaskUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof TaskKanbanViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -130,6 +120,15 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      * @memberof TaskKanbanViewBase
      */
     public engine: KanBanViewEngine = new KanBanViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof TaskKanbanViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

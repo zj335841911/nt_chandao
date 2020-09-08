@@ -57,16 +57,6 @@ export class TaskOpenTaskViewBase extends OptionViewBase {
      */
     public appUIService: TaskUIService = new TaskUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof TaskOpenTaskViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航上下文集合
 	 *
@@ -129,6 +119,15 @@ export class TaskOpenTaskViewBase extends OptionViewBase {
      * @memberof TaskOpenTaskViewBase
      */
     public engine: OptionViewEngine = new OptionViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof TaskOpenTaskViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

@@ -11,16 +11,6 @@ import { PortalViewBase } from '@/studio-core';
  */
 export class ProductPortalViewBase extends PortalViewBase {
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ProductPortalViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -56,6 +46,15 @@ export class ProductPortalViewBase extends PortalViewBase {
      */
 	protected viewtag: string = 'A49E5FD9-FC90-434B-9E13-192873F6F2AC';
 
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProductPortalViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

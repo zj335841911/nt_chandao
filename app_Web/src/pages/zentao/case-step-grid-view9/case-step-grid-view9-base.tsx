@@ -60,16 +60,6 @@ export class CaseStepGridView9Base extends GridView9Base {
      */
     public appUIService: CaseStepUIService = new CaseStepUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof CaseStepGridView9Base
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航上下文集合
 	 *
@@ -136,6 +126,15 @@ export class CaseStepGridView9Base extends GridView9Base {
      * @memberof CaseStepGridView9Base
      */
     public engine: GridView9Engine = new GridView9Engine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof CaseStepGridView9Base
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

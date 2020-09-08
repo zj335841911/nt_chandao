@@ -57,16 +57,6 @@ export class IbzCaseDashboardViewBase extends DashboardViewBase {
      */
     public appUIService: IbzCaseUIService = new IbzCaseUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof IbzCaseDashboardViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航上下文集合
 	 *
@@ -123,6 +113,15 @@ export class IbzCaseDashboardViewBase extends DashboardViewBase {
      * @memberof IbzCaseDashboardViewBase
      */
     public engine: PortalViewEngine = new PortalViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof IbzCaseDashboardViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

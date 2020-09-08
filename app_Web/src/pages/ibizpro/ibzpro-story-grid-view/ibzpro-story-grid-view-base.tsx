@@ -60,16 +60,6 @@ export class IBZProStoryGridViewBase extends GridViewBase {
      */
     public appUIService: IBZProStoryUIService = new IBZProStoryUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof IBZProStoryGridViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -134,6 +124,15 @@ export class IBZProStoryGridViewBase extends GridViewBase {
      * @memberof IBZProStoryGridViewBase
      */
     public engine: GridViewEngine = new GridViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof IBZProStoryGridViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

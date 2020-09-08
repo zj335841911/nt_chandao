@@ -61,16 +61,6 @@ export class StoryKanbanViewBase extends KanBanViewBase {
      */
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof StoryKanbanViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -134,6 +124,15 @@ export class StoryKanbanViewBase extends KanBanViewBase {
      * @memberof StoryKanbanViewBase
      */
     public engine: KanBanViewEngine = new KanBanViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof StoryKanbanViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

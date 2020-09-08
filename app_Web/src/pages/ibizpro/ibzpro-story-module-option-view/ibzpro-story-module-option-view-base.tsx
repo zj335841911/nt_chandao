@@ -57,16 +57,6 @@ export class IBZProStoryModuleOptionViewBase extends OptionViewBase {
      */
     public appUIService: IBZProStoryModuleUIService = new IBZProStoryModuleUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof IBZProStoryModuleOptionViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -117,6 +107,15 @@ export class IBZProStoryModuleOptionViewBase extends OptionViewBase {
      * @memberof IBZProStoryModuleOptionViewBase
      */
     public engine: OptionViewEngine = new OptionViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof IBZProStoryModuleOptionViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

@@ -60,16 +60,6 @@ export class ProductPlanGridViewBase extends GridViewBase {
      */
     public appUIService: ProductPlanUIService = new ProductPlanUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ProductPlanGridViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -131,6 +121,15 @@ export class ProductPlanGridViewBase extends GridViewBase {
      * @memberof ProductPlanGridViewBase
      */
     public engine: GridViewEngine = new GridViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProductPlanGridViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

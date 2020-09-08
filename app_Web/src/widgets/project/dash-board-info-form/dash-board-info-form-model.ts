@@ -66,6 +66,11 @@ export default class DashBoardInfoModel {
         dataType: 'TEXT',
       },
       {
+        name: 'desc',
+        prop: 'desc',
+        dataType: 'LONGTEXT',
+      },
+      {
         name: 'type',
         prop: 'type',
         dataType: 'SSCODELIST',

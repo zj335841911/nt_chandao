@@ -60,16 +60,6 @@ export class TaskGridView9_AssignedToMeBase extends GridView9Base {
      */
     public appUIService: TaskUIService = new TaskUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof TaskGridView9_AssignedToMeBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航参数集合
 	 *
@@ -125,6 +115,15 @@ export class TaskGridView9_AssignedToMeBase extends GridView9Base {
      * @memberof TaskGridView9_AssignedToMeBase
      */
     public engine: GridView9Engine = new GridView9Engine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof TaskGridView9_AssignedToMeBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

@@ -57,16 +57,6 @@ export class CaseEditViewBase extends EditViewBase {
      */
     public appUIService: CaseUIService = new CaseUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof CaseEditViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -124,6 +114,15 @@ export class CaseEditViewBase extends EditViewBase {
      * @memberof CaseEditViewBase
      */
     public engine: EditViewEngine = new EditViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof CaseEditViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

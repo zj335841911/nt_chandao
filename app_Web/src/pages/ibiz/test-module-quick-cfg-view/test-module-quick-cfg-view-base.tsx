@@ -57,16 +57,6 @@ export class TestModuleQuickCfgViewBase extends OptionViewBase {
      */
     public appUIService: TestModuleUIService = new TestModuleUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof TestModuleQuickCfgViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -117,6 +107,15 @@ export class TestModuleQuickCfgViewBase extends OptionViewBase {
      * @memberof TestModuleQuickCfgViewBase
      */
     public engine: OptionViewEngine = new OptionViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof TestModuleQuickCfgViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

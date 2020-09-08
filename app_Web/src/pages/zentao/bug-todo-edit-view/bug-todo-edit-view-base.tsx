@@ -57,16 +57,6 @@ export class BugTodoEditViewBase extends EditViewBase {
      */
     public appUIService: BugUIService = new BugUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof BugTodoEditViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -122,6 +112,15 @@ export class BugTodoEditViewBase extends EditViewBase {
      * @memberof BugTodoEditViewBase
      */
     public engine: EditViewEngine = new EditViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof BugTodoEditViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

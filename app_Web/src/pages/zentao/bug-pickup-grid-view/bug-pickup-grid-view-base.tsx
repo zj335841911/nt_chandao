@@ -57,16 +57,6 @@ export class BugPickupGridViewBase extends PickupGridViewBase {
      */
     public appUIService: BugUIService = new BugUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof BugPickupGridViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -111,6 +101,15 @@ export class BugPickupGridViewBase extends PickupGridViewBase {
      * @memberof BugPickupGridViewBase
      */
     public engine: PickupGridViewEngine = new PickupGridViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof BugPickupGridViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

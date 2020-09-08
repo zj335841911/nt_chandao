@@ -57,16 +57,6 @@ export class ProductPlanSubPlanCreateViewBase extends EditViewBase {
      */
     public appUIService: SubProductPlanUIService = new SubProductPlanUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ProductPlanSubPlanCreateViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -124,6 +114,15 @@ export class ProductPlanSubPlanCreateViewBase extends EditViewBase {
      * @memberof ProductPlanSubPlanCreateViewBase
      */
     public engine: EditViewEngine = new EditViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProductPlanSubPlanCreateViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

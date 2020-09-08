@@ -14,7 +14,7 @@
                                     <img v-else :src="item.meta.imgPath" class="text-icon" />
                                     &nbsp;{{item.title}}
                                 </div>
-                            </div>w
+                            </div>
                         </Tag>
                     </template>
                 </transition-group>

@@ -57,16 +57,6 @@ export class ProjectMainTabExpViewBase extends TabExpViewBase {
      */
     public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ProjectMainTabExpViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航上下文集合
 	 *
@@ -133,6 +123,15 @@ export class ProjectMainTabExpViewBase extends TabExpViewBase {
      * @memberof ProjectMainTabExpViewBase
      */
     public engine: TabExpViewEngine = new TabExpViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProjectMainTabExpViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

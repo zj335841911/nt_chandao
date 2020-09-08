@@ -93,6 +93,7 @@ export class DashBoardInfoEditFormBase extends EditFormControlBase {
         id: null,
         code: null,
         name: null,
+        desc: null,
         type: null,
         status: null,
         formitem6: null,
@@ -178,6 +179,8 @@ export class DashBoardInfoEditFormBase extends EditFormControlBase {
         code: new FormItemModel({ caption: '项目代号', detailType: 'FORMITEM', name: 'code', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         name: new FormItemModel({ caption: '项目名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        desc: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         type: new FormItemModel({ caption: '项目类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

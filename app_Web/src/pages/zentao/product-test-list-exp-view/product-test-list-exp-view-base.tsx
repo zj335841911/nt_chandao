@@ -57,16 +57,6 @@ export class ProductTestListExpViewBase extends ListExpViewBase {
      */
     public appUIService: ProductUIService = new ProductUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ProductTestListExpViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -123,6 +113,15 @@ export class ProductTestListExpViewBase extends ListExpViewBase {
      * @memberof ProductTestListExpViewBase
      */
     public engine: ListExpViewEngine = new ListExpViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProductTestListExpViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

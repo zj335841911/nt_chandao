@@ -57,16 +57,6 @@ export class StoryPickupGridView2Base extends PickupGridViewBase {
      */
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof StoryPickupGridView2Base
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -111,6 +101,15 @@ export class StoryPickupGridView2Base extends PickupGridViewBase {
      * @memberof StoryPickupGridView2Base
      */
     public engine: PickupGridViewEngine = new PickupGridViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof StoryPickupGridView2Base
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

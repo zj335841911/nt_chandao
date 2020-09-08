@@ -57,16 +57,6 @@ export class ProjectEditView_ActivateBase extends EditViewBase {
      */
     public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ProjectEditView_ActivateBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -124,6 +114,15 @@ export class ProjectEditView_ActivateBase extends EditViewBase {
      * @memberof ProjectEditView_ActivateBase
      */
     public engine: EditViewEngine = new EditViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProjectEditView_ActivateBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

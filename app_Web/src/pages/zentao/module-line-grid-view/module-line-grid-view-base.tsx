@@ -60,16 +60,6 @@ export class ModuleLineGridViewBase extends GridViewBase {
      */
     public appUIService: ModuleUIService = new ModuleUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ModuleLineGridViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -131,6 +121,15 @@ export class ModuleLineGridViewBase extends GridViewBase {
      * @memberof ModuleLineGridViewBase
      */
     public engine: GridViewEngine = new GridViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ModuleLineGridViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化
