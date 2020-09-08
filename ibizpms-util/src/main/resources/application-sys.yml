@@ -7,7 +7,7 @@ spring:
     caffeine:
       spec: initialCapacity=5,maximumSize=500,expireAfterWrite=3600s
   redis:
-    host: 172.16.100.243
+    host: 172.16.240.110
     port: 6380
     password:
     database: 0

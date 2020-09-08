@@ -129,6 +129,14 @@ public class ActionDTO extends DTOBase implements Serializable {
     @JsonProperty("actionmanner")
     private String actionmanner;
 
+    /**
+     * 属性 [ISACTOR]
+     *
+     */
+    @JSONField(name = "isactor")
+    @JsonProperty("isactor")
+    private Integer isactor;
+
 
     /**
      * 设置 [EXTRA]
