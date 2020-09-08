@@ -66,7 +66,7 @@ public class Action extends EntityMP implements Serializable {
     /**
      * 备注
      */
-    @TableField(value = "comment")
+    @TableField(value = "`comment`")
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
@@ -74,7 +74,7 @@ public class Action extends EntityMP implements Serializable {
      * 已读
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "read")
+    @TableField(value = "`read`")
     @JSONField(name = "read")
     @JsonProperty("read")
     private String read;

@@ -136,7 +136,7 @@ public class IBZZTFileService implements IIBZZTFileService {
             downloadFile.setFileName(parent.listFiles()[0].getName());
             return downloadFile;
         }
-        cn.ibizlab.pms.core.zentao.domain.File ztFile = fileService.get(new BigInteger(fileId));
+        cn.ibizlab.pms.core.zentao.domain.File ztFile = fileService.get(Long.parseLong(fileId));
         if (ztFile == null) {
             throw new InternalServerErrorException("文件不存在");
         }

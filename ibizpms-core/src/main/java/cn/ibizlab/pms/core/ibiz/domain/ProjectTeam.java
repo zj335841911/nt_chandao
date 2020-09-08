@@ -45,7 +45,7 @@ public class ProjectTeam extends EntityMP implements Serializable {
      * 加盟日
      */
     @DEField(defaultValue = "0000-00-00")
-    @TableField(value = "join")
+    @TableField(value = "`join`")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "join" , format="yyyy-MM-dd")
     @JsonProperty("join")
@@ -69,7 +69,7 @@ public class ProjectTeam extends EntityMP implements Serializable {
      * 预计剩余
      */
     @DEField(defaultValue = "0.00")
-    @TableField(value = "left")
+    @TableField(value = "`left`")
     @JSONField(name = "left")
     @JsonProperty("left")
     private BigDecimal left;
@@ -101,7 +101,7 @@ public class ProjectTeam extends EntityMP implements Serializable {
      * 排序
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "order")
+    @TableField(value = "`order`")
     @JSONField(name = "order")
     @JsonProperty("order")
     private Integer order;
@@ -132,7 +132,7 @@ public class ProjectTeam extends EntityMP implements Serializable {
      * 团队类型
      */
     @DEField(defaultValue = "project")
-    @TableField(value = "type")
+    @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;

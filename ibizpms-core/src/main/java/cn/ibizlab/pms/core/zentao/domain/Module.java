@@ -67,7 +67,7 @@ public class Module extends EntityMP implements Serializable {
     /**
      * 模块名称
      */
-    @TableField(value = "name")
+    @TableField(value = "`name`")
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
@@ -75,7 +75,7 @@ public class Module extends EntityMP implements Serializable {
      * 排序
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "order")
+    @TableField(value = "`order`")
     @JSONField(name = "order")
     @JsonProperty("order")
     private Integer order;
@@ -83,7 +83,7 @@ public class Module extends EntityMP implements Serializable {
      * 负责人
      */
     @DEField(defaultValue = "/")
-    @TableField(value = "owner")
+    @TableField(value = "`owner`")
     @JSONField(name = "owner")
     @JsonProperty("owner")
     private String owner;

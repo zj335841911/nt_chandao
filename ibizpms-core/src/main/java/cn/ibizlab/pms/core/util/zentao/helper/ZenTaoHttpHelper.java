@@ -566,7 +566,7 @@ public class ZenTaoHttpHelper {
         String locate = rstJO.getString("locate");
         if (returnUrlRegexPrev != null) {
             String idStr = locate.substring(returnUrlRegexPrev.length(), locate.indexOf(".json"));
-            rst.setEtId(new BigInteger(idStr));
+            rst.setEtId(Long.parseLong(idStr));
         }
         return rst;
     }
