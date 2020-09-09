@@ -488,7 +488,7 @@ export class TaskMainGridViewBase extends GridViewBase {
      * @type {ProjectTaskQCounterCounterService}
      * @memberof TaskMainGridViewBase
      */
-    protected ProjectTaskQCountercounterservice: ProjectTaskQCounterCounterService = new ProjectTaskQCounterCounterService({ $store: this.$store });
+    protected projecttaskqcountercounterservice: ProjectTaskQCounterCounterService = new ProjectTaskQCounterCounterService({ $store: this.$store,context:this.context,viewparams:this.viewparams });
 
     /**
      * 是否启用快速分组

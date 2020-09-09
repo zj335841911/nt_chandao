@@ -181,11 +181,13 @@ div::-webkit-scrollbar-thumb {
         .el-table__body tr.current-row>td {
             background-color: transparent;
         }
+
         .el-table__body tr.hover-row>td {
             background: rgba(var(--view-background-color-active-rgb), 0.5) !important;
         }
 
-        >.el-table__header-wrapper, .el-table__fixed-header-wrapper {
+        >.el-table__header-wrapper,
+        .el-table__fixed-header-wrapper {
 
             >table {
 
@@ -231,7 +233,8 @@ div::-webkit-scrollbar-thumb {
             }
         }
 
-        >.el-table__body-wrapper, .el-table__fixed-body-wrapper {
+        >.el-table__body-wrapper,
+        .el-table__fixed-body-wrapper {
             // height: calc(100% - 30px);
             // overflow-y: auto;
 
@@ -509,28 +512,36 @@ div::-webkit-scrollbar-thumb {
 .studio-view.view-container {
 
     .quick-search-form {
-    
+
         .app-search-form.ivu-form {
             height: 100%;
             padding: 0;
-    
+
             .form-content {
                 height: 100%;
             }
-    
+
             .form-layout-container {
                 height: 100%;
                 display: flex;
                 align-items: center;
             }
-    
+
             .app-form-item {
                 margin-bottom: 0;
-    
+
                 .ivu-form-item-content {
                     min-height: 26px;
                     line-height: 26px;
                 }
+            }
+        }
+
+        .dropdown-list.ivu-select {
+
+            .ivu-select-input {
+                height: 24px;
+                line-height: 24px;
             }
         }
     }
@@ -795,6 +806,7 @@ div::-webkit-scrollbar-thumb {
                 .ivu-input-number:hover {
                     border-color: var(--form-editor-active-color);
                 }
+
                 .ivu-input-number-disabled {
                     .ivu-input-number-input {
                         background-color: var(--form-disable-editor-background-color);
@@ -1250,7 +1262,8 @@ div::-webkit-scrollbar-thumb {
             margin-bottom: 10px;
         }
 
-        .single-card-data.selected, .single-card-data:hover {
+        .single-card-data.selected,
+        .single-card-data:hover {
             transform: scale(1.1);
         }
 
@@ -1328,41 +1341,50 @@ div::-webkit-scrollbar-thumb {
             color: var(--form-editor-font-color);
         }
     }
-    .el-icon-arrow-up,.el-icon-arrow-down {
+
+    .el-icon-arrow-up,
+    .el-icon-arrow-down {
         color: var(--form-editor-font-color);
     }
 }
 
 // 工作流动态导航表格视图
-.dewfdynaexpgridview{
+.dewfdynaexpgridview {
     .el-tree {
         padding-right: 10px;
     }
+
     .el-tree-node__content {
         height: 40px;
         border-left: solid transparent;
 
     }
+
     .el-tree-node:nth-child(1) {
         margin-top: 0px;
     }
+
     .el-tree--highlight-current .el-tree-node.is-current>.el-tree-node__content {
         background-color: #e4ecf5;
-        border-color:  #1890ff6e;
+        border-color: #1890ff6e;
     }
-    .custom-tree-node{
-        .tree-node-label{
+
+    .custom-tree-node {
+        .tree-node-label {
             font-size: 15px;
             font-family: "Microsoft YaHei";
         }
-        .tree-node-count{
+
+        .tree-node-count {
             margin-left: 4px;
         }
     }
+
     .ivu-split-horizontal {
-        .ivu-split-pane >div {
+        .ivu-split-pane>div {
             height: 100%;
             overflow-y: auto;
+
             .content-container {
                 height: 100%;
                 display: -webkit-box;
@@ -1383,6 +1405,7 @@ div::-webkit-scrollbar-thumb {
     .ivu-select-dropdown {
         background-color: var(--view-button-background-color);
         color: var(--view-button-color);
+
         .ivu-dropdown-item {
             padding: 5px 8px;
             background-color: var(--view-button-background-color-active);
