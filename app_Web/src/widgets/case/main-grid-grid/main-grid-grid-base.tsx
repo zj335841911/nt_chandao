@@ -560,4 +560,6 @@ export class MainGridGridBase extends GridControlBase {
             this.grid_uagridcolumn1_u8d84f61_click(row, tag, $event);
         }
     }
+
+
 }

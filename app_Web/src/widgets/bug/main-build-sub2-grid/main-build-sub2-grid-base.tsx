@@ -318,4 +318,6 @@ export class Main_BuildSub2GridBase extends GridControlBase {
             this.grid_uagridcolumn1_u82990f2_click(row, tag, $event);
         }
     }
+
+
 }

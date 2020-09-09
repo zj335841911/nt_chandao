@@ -384,4 +384,6 @@ export class ProjectStoryGridBase extends GridControlBase {
             this.grid_uagridcolumn1_ucdf692f_click(row, tag, $event);
         }
     }
+
+
 }

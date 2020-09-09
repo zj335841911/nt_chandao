@@ -587,4 +587,6 @@ export class MyFavoriteMainGridBase extends GridControlBase {
             this.grid_uagridcolumn1_u9190267_click(row, tag, $event);
         }
     }
+
+
 }

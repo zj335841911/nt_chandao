@@ -347,4 +347,6 @@ export class SubStoryNewGridBase extends GridControlBase {
             row['parent'] = this.viewparams['parent'];
         }
     }
+
+
 }

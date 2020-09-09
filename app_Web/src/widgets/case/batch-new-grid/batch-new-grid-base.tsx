@@ -276,4 +276,6 @@ export class BatchNewGridBase extends GridControlBase {
             row['product'] = this.viewparams['product'];
         }
     }
+
+
 }

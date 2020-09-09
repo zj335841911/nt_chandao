@@ -549,4 +549,6 @@ export class Main3GridBase extends GridControlBase {
             this.grid_uagridcolumn1_u0ac3876_click(row, tag, $event);
         }
     }
+
+
 }

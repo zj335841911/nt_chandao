@@ -400,4 +400,6 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
             this.grid_uagridcolumn1_u8fd0327_click(row, tag, $event);
         }
     }
+
+
 }
