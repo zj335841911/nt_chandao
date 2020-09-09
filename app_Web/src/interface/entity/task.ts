@@ -437,4 +437,12 @@ export interface Task {
      * @memberof Task
      */
     isfavorites?: any;
+
+    /**
+     * 任务状态
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    status1?: any;
 }

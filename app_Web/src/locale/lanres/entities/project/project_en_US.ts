@@ -70,6 +70,7 @@ export default {
     mycompletetaskcnt: "我完成任务数",
     closetaskcnt: "关闭任务数",
     canceltaskcnt: "取消任务数",
+    storychangecnt: "需求变更数",
   },
 	views: {
 		storymeditview9: {

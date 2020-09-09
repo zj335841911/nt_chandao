@@ -222,6 +222,9 @@ export default class UnClosedProjectModel {
       {
         name: 'canceltaskcnt',
       },
+      {
+        name: 'storychangecnt',
+      },
     ]
   }
 

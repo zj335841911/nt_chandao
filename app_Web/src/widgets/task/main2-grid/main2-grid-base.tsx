@@ -141,9 +141,9 @@ export class Main2GridBase extends GridControlBase {
             isEnableRowEdit: false,
         },
         {
-            name: 'status',
+            name: 'status1',
             label: '任务状态',
-            langtag: 'entities.task.main2_grid.columns.status',
+            langtag: 'entities.task.main2_grid.columns.status1',
             show: true,
             unit: 'PX',
             isEnableRowEdit: false,
@@ -185,7 +185,7 @@ export class Main2GridBase extends GridControlBase {
         'id':false,
         'pri':false,
         'name':false,
-        'status':false,
+        'status1':false,
     };
 
     /**
@@ -220,8 +220,8 @@ export class Main2GridBase extends GridControlBase {
                 valueSeparator: ',',
             },
             {
-                name: 'status',
-                srfkey: 'Task__status',
+                name: 'status1',
+                srfkey: 'TaskStatusCK',
                 codelistType : 'STATIC',
                 renderMode: 'other',
                 textSeparator: '、',

@@ -222,6 +222,9 @@ export default class DashBoradInfoViewModel {
       {
         name: 'canceltaskcnt',
       },
+      {
+        name: 'storychangecnt',
+      },
     ]
   }
 

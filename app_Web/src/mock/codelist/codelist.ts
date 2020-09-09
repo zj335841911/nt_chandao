@@ -1231,6 +1231,90 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "TaskStatusCK",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "wait",
+                label: "未开始",
+                text: "未开始",
+                "data":"",
+                "codename":"Wait",
+                "color": "rgba(131, 138, 157, 1)",
+                value: "wait",
+                
+                disabled: false,
+            },
+            {
+                id: "doing",
+                label: "进行中",
+                text: "进行中",
+                "data":"",
+                "codename":"Doing",
+                "color": "rgba(255, 93, 93, 1)",
+                value: "doing",
+                
+                disabled: false,
+            },
+            {
+                id: "done",
+                label: "已完成",
+                text: "已完成",
+                "data":"",
+                "codename":"Done",
+                "color": "rgba(67, 160, 71, 1)",
+                value: "done",
+                
+                disabled: false,
+            },
+            {
+                id: "pause",
+                label: "已暂停",
+                text: "已暂停",
+                "data":"",
+                "codename":"Pause",
+                "color": "rgba(255, 152, 0, 1)",
+                value: "pause",
+                
+                disabled: false,
+            },
+            {
+                id: "cancel",
+                label: "已取消",
+                text: "已取消",
+                "data":"",
+                "codename":"Cancel",
+                "color": "rgba(131, 138, 157, 1)",
+                value: "cancel",
+                
+                disabled: false,
+            },
+            {
+                id: "closed",
+                label: "已关闭",
+                text: "已关闭",
+                "data":"",
+                "codename":"Closed",
+                "color": "rgba(131, 138, 157, 1)",
+                value: "closed",
+                
+                disabled: false,
+            },
+            {
+                id: "storychange",
+                label: "需求变更",
+                text: "需求变更",
+                "data":"",
+                "codename":"Storychange",
+                "color": "rgba(245, 8, 8, 1)",
+                value: "storychange",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Testtask__pri",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -3648,6 +3732,16 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":{"n_assignedto_eq":"%srfloginname%"},
                 "codename":"ASSTOMYTASKCNT",
                 value: "TOME",
+                
+                disabled: false,
+            },
+            {
+                id: "storychange",
+                label: "需求变更",
+                text: "需求变更",
+                "data":{"n_status1_eq":"storychange"},
+                "codename":"STORYCHANGECNT",
+                value: "storychange",
                 
                 disabled: false,
             },

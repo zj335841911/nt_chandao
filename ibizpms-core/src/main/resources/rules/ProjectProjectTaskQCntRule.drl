@@ -181,6 +181,24 @@ ruleflow-group "projectprojecttaskqcntrawsqlcall10"
     update(projectprojecttaskqcntdefault);//更新fact中变量值
     end
 
+//逻辑处理节点[需求变更数]
+rule "rawsqlcall11"
+ruleflow-group "projectprojecttaskqcntrawsqlcall11"
+    when
+    then
+    Map param =new HashMap();
+    param.put("param0",projectprojecttaskqcntdefault.get("id"));
+    String strSql="select count(t.id) as STORYCHANGECNT from zt_task t left join zt_story t21 on t.story = t21.id where t.deleted = '0'  and t.project = #{et.param0} and t.storyVersion < t21.version and t21.`status` <> 'changed'";
+    java.util.List<JSONObject> entities=iBzSysProjectDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        for (Map.Entry entry : entity.entrySet()) {
+            projectprojecttaskqcntdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+        }
+    }
+    update(projectprojecttaskqcntdefault);//更新fact中变量值
+    end
+
 //逻辑处理节点[未关闭任务数]
 rule "rawsqlcall1"
 ruleflow-group "projectprojecttaskqcntrawsqlcall1"

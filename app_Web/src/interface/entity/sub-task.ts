@@ -437,4 +437,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     isfavorites?: any;
+
+    /**
+     * 任务状态
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    status1?: any;
 }
