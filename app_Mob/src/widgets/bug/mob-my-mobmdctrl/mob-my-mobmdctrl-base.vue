@@ -539,6 +539,30 @@ export default class Mob_MyBase extends Vue implements ControlInterface {
     public checkboxList:Array<string> = [];
 
     /**
+    * 是否为分组模式
+    *
+    * @type {boolean}
+    * @memberof Mob_My
+    */
+    public isEnableGroup:boolean =  false;
+
+    /**
+    * 分组细节
+    *
+    * @type {boolean}
+    * @memberof Mob_My
+    */
+    public group_detail:any = {};
+
+    /**
+    * 分组数据
+    *
+    * @type {array}
+    * @memberof Mob_My
+    */
+    public group_data?:any = [];
+
+    /**
     * 存放数据选择数组(单选)
     *
     * @type {object}
@@ -583,7 +607,7 @@ export default class Mob_MyBase extends Vue implements ControlInterface {
     * @type {number}
     * @memberof Mob_My
     */
-    public pageSize: number = 20;
+    public pageSize: number = 25;
 
     /**
     * 总页数

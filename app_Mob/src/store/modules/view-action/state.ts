@@ -1148,6 +1148,21 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'f007d26d7f0f56600e074c77d4f0b4ab',
+            viewmodule: 'ibiz',
+            viewname: 'BugAssMoreMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9349ea1684c700138349df5c672a7c19',
+                '206584f40a0caade6c253a360fad96c1',
+                '3cada37cd0f6b5c0492af340b3aa0a65',
+                '185395a40f8fd1f3e93bf040beb60f4f',
+                '69a540ab88c1edd1da7f89cebe5f4588',
+                'eadccf64ed59f1b4f8a23dcc8d14ccf7',
+            ],
+        },
+        {
             viewtag: 'f38d9a9c6a87f0fdc4c94663ce13327b',
             viewmodule: 'ibiz',
             viewname: 'BuildMobMPickupView',

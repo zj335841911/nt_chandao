@@ -120,6 +120,9 @@ export default {
 		closemoboptionview: {
 			caption: '关闭Bug',
 		},
+		assmoremobmdview: {
+			caption: 'Bug',
+		},
 	},
 	closemob_form: {
 		details: {
