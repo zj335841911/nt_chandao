@@ -47,8 +47,6 @@ export default class AppSelect extends Vue {
             let isIncluded = this.options.some((option:any)=>{return option.value === this.value})
             if (isIncluded) {
                 return this.value;
-            } else {
-                return "";
             }
         }
         return "";
