@@ -46,24 +46,9 @@ export default class AppSelect extends Vue {
         return  this.value;
     }
     
-    set curValue(value:any){}
-
-    /**
-     * 监听表单请求完成
-     * @memberof AppSelectDropDown
-     */
-    @Watch("dataOverLoad")
-    onDataOverLoadChange(newVal: any, oldVal: any){
-        this.load();
+    set curValue(value:any){
+        this.$emit("change", value);
     }
-
-    /**
-     * 表单请求完成
-     *
-     * @type {*}
-     * @memberof AppSelectDropDown
-     */
-    @Prop() public dataOverLoad?: any;
 
     /**
      * change事件
@@ -80,11 +65,11 @@ export default class AppSelect extends Vue {
         if (Object.is(this.codeListType, 'DYNAMIC')) {
          for(let key in this.options){
            if (typeof this.options[key].id == 'number') {
-              devalue = +devalue
+              devalue = +devalue;
            }
          }
         }
-        this.$emit("change", devalue);
+        this.curValue = devalue;
     }
 
     /**
@@ -192,10 +177,10 @@ export default class AppSelect extends Vue {
      * @param {*} val
      * @memberof AppSelect
      */
-    @Watch('data', { deep: true })
-    onDataChange(newVal: any, val: any) {
+    @Watch('value')
+    onDataChange(newVal: any, oldVal: any) {
         if (newVal) {
-            // this.handleOtherParam();
+            this.load();
         }
     }
 
@@ -206,6 +191,10 @@ export default class AppSelect extends Vue {
         if (Object.is(this.codeListType, "STATIC")) {
             this.overload = true;
             this.options = this.$store.getters.getCodeListItems(this.tag);
+        } else {
+            if (this.curValue) {
+                this.load();
+            }
         }
     }
 

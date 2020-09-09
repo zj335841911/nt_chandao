@@ -130,8 +130,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.period"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.period"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.period = $event" />
@@ -250,8 +249,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.type"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.type"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.type = $event" />
@@ -307,8 +305,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.acl"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.acl"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.acl = $event" />
@@ -1650,7 +1647,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

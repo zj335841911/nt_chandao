@@ -51,8 +51,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.assignedto"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.assignedto"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.assignedto = $event" />
@@ -83,8 +82,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.neednotreview"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.neednotreview"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.neednotreview = $event" />
@@ -1578,7 +1576,6 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

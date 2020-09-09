@@ -99,8 +99,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.result"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.result"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.result = $event" />
@@ -144,8 +143,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.pri"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.pri"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.pri = $event" />
@@ -205,8 +203,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.preversion"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.preversion"  
     :navigateContext ='{ "n_version_noteq": "%version%" } '
     :navigateParam ='{ "n_version_noteq": "%version%" } '
     @change="($event)=>this.data.preversion = $event" />
@@ -250,8 +247,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.closedreason"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.closedreason"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.closedreason = $event" />
@@ -286,8 +282,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.assignedto"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.assignedto"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.assignedto = $event" />
@@ -1743,7 +1738,6 @@ export default class ReviewMobBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

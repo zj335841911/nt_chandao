@@ -32,7 +32,7 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                    <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                      <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.ConfirmBugMob.visabled" :disabled="item.ConfirmBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u1c99d88', item)"><ion-icon v-if="item.ConfirmBugMob.icon && item.ConfirmBugMob.isShowIcon" :name="item.ConfirmBugMob.icon"></ion-icon><ion-label v-if="item.ConfirmBugMob.isShowCaption">确认</ion-label></ion-item-option>
                             <ion-item-option v-show="item.AssingToBugMob.visabled" :disabled="item.AssingToBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u79d161d', item)"><ion-icon v-if="item.AssingToBugMob.icon && item.AssingToBugMob.isShowIcon" :name="item.AssingToBugMob.icon"></ion-icon><ion-label v-if="item.AssingToBugMob.isShowCaption">指派</ion-label></ion-item-option>
@@ -47,7 +47,7 @@
                                 <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
                             </ion-item>
                         </div>
-                    </ion-item-sliding>
+                      </ion-item-sliding>
                     <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px);"  @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                 </template>
                 <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
@@ -585,7 +585,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @type {boolean}
     * @memberof Mob
     */
-    public group_detail:any = {};
+    public group_detail:any = '';
 
     /**
     * 分组数据
@@ -594,6 +594,14 @@ export default class MobBase extends Vue implements ControlInterface {
     * @memberof Mob
     */
     public group_data?:any = [];
+
+    /**
+    * 分组标识
+    *
+    * @type {array}
+    * @memberof Mob
+    */
+    public group_field:string = '';
 
     /**
     * 存放数据选择数组(单选)
@@ -961,7 +969,40 @@ export default class MobBase extends Vue implements ControlInterface {
             Object.assign(item,this.getActionState(item));    
             this.setSlidingDisabled(item);
         });
+        if(this.isEnableGroup){
+          this.getGroupData(this.items);
+        }
         return response;
+    }
+
+    /**
+     * 获取分组数据
+     *
+     * @memberof Mob
+     */
+    public getGroupData(items:any){
+      let data:any =[];
+      let obj:any = {};
+      items.forEach((item:any,index:number,items:Array<number>)=>{
+        if(!obj[item[this.group_field]]){
+          obj[item[this.group_field]] = item[this.group_field];
+          data.push(this.filterByTag(items,item[this.group_field]));
+        }
+      })
+      data.forEach((arr:any,index:number)=>{
+        this.group_data[index] = {};
+        this.group_data[index].text = this.group_detail[ arr[0][this.group_field] ];
+        this.group_data[index].items = arr;
+      })
+    }
+
+    /**
+     * 单条件过滤数组数据
+     *
+     * @memberof Mob
+     */
+    public filterByTag(arr:Array<number>, tag:any) {
+        return arr.filter((item:any) => item[this.group_field] == tag);
     }
 
     /**

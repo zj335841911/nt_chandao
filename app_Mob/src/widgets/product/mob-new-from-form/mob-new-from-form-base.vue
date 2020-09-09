@@ -158,8 +158,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.po"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.po"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.po = $event" />
@@ -190,8 +189,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.qd"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.qd"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.qd = $event" />
@@ -222,8 +220,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.rd"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.rd"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.rd = $event" />
@@ -254,8 +251,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.type"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.type"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.type = $event" />
@@ -311,8 +307,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.acl"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.acl"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.acl = $event" />
@@ -1610,7 +1605,6 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
