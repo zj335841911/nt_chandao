@@ -189,6 +189,39 @@ export default class MainTabExpViewtabviewpanel7Model {
       {
         name: 'teamcnt',
       },
+      {
+        name: 'alltaskcnt',
+      },
+      {
+        name: 'unclosetaskcnt',
+      },
+      {
+        name: 'asstomytaskcnt',
+      },
+      {
+        name: 'unstarttaskcnt',
+      },
+      {
+        name: 'moretaskcnt',
+      },
+      {
+        name: 'ystarttaskcnt',
+      },
+      {
+        name: 'uncompletetaskcnt',
+      },
+      {
+        name: 'ycompletetaskcnt',
+      },
+      {
+        name: 'mycompletetaskcnt',
+      },
+      {
+        name: 'closetaskcnt',
+      },
+      {
+        name: 'canceltaskcnt',
+      },
     ]
   }
 

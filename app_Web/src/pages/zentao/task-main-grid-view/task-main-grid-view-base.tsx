@@ -7,6 +7,7 @@ import TaskAuthService from '@/authservice/task/task-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import TaskUIService from '@/uiservice/task/task-ui-service';
 import CodeListService from "@service/app/codelist-service";
+import  ProjectTaskQCounterCounterService  from '@/counter/project-task-qcounter/project-task-qcounter-counter';
 
 
 /**
@@ -458,6 +459,14 @@ export class TaskMainGridViewBase extends GridViewBase {
         }
         xData.exportExcel($event.exportparms);
     }
+
+    /**
+     * ProjectTaskQCounterCounterService计数器服务对象
+     *
+     * @type {ProjectTaskQCounterCounterService}
+     * @memberof TaskMainGridViewBase
+     */
+    protected ProjectTaskQCountercounterservice: ProjectTaskQCounterCounterService = new ProjectTaskQCounterCounterService({ $store: this.$store });
 
     /**
      * 是否启用快速分组

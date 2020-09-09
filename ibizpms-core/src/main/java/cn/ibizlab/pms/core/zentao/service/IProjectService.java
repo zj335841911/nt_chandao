@@ -42,6 +42,7 @@ public interface IProjectService extends IService<Project>{
     Project linkStory(Project et) ;
     Project manageMembers(Project et) ;
     Project mobProjectCount(Project et) ;
+    Project projectTaskQCnt(Project et) ;
     Project projectTop(Project et) ;
     Project putoff(Project et) ;
     boolean save(Project et) ;

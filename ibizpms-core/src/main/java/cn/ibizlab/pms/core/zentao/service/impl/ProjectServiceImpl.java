@@ -110,6 +110,10 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProjectProjectTaskQCntLogic projecttaskqcntLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProjectProjectTopLogic projecttopLogic;
 
     @Autowired
@@ -282,6 +286,13 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     @Transactional
     public Project mobProjectCount(Project et) {
         mobprojectcountLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public Project projectTaskQCnt(Project et) {
+        projecttaskqcntLogic.execute(et);
          return et ;
     }
 

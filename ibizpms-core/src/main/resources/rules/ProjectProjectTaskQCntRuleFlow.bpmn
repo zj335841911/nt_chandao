@@ -7,9 +7,21 @@
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="projectprojecttaskqcntdefault" type="cn.ibizlab.pms.core.zentao.domain.Project" />
         </extensionElements>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectprojecttaskqcntrawsqlcall3" id="rawsqlcall3" implementation="http://www.jboss.org/drools/rule" name="已完成的任务数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectprojecttaskqcntrawsqlcall4" id="rawsqlcall4" implementation="http://www.jboss.org/drools/rule" name="我完成的任务数"/>
+     <endEvent id="rawsqlcall4_end" name="end"/>
+     <sequenceFlow id="rawsqlcall4_end_line" sourceRef="rawsqlcall4" targetRef="rawsqlcall4_end"/>
      <startEvent id="begin" isInterrupting="true"/>
-     <endEvent id="begin_end" name="end"/>
-     <sequenceFlow id="begin_end_line" sourceRef="begin" targetRef="begin_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectprojecttaskqcntrawsqlcall2" id="rawsqlcall2" implementation="http://www.jboss.org/drools/rule" name="指派给我的任务数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectprojecttaskqcntrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="未关闭任务数"/>
+     <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
+     </sequenceFlow>
+     <sequenceFlow id="rawsqlcall1_rawsqlcall2" sourceRef="rawsqlcall1" targetRef="rawsqlcall2">
+     </sequenceFlow>
+     <sequenceFlow id="rawsqlcall2_rawsqlcall3" sourceRef="rawsqlcall2" targetRef="rawsqlcall3">
+     </sequenceFlow>
+     <sequenceFlow id="rawsqlcall3_rawsqlcall4" sourceRef="rawsqlcall3" targetRef="rawsqlcall4">
+     </sequenceFlow>
     </process>
 </definitions>
 
