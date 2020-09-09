@@ -2,7 +2,7 @@
     <ion-row>
         <ion-list class='app-mob-portlet ibzmyterritory-dashboard_sysportlet5 '>
             <ion-list-header class='app-mob-portlet__header'>我的需求 </ion-list-header>
-                <story-ass-mob-mdview :_context="JSON.stringify(context)" :isChildView="true" :_viewparams="JSON.stringify(viewparams)" :viewDefaultUsage="false" ></story-ass-mob-mdview>
+                <story-ass-mob-mdview :_context="JSON.stringify(context)" :isChildView="true" :_viewparams="JSON.stringify(viewparams)" :viewDefaultUsage="includedView" ></story-ass-mob-mdview>
         </ion-list>
     </ion-row>
 </template>
