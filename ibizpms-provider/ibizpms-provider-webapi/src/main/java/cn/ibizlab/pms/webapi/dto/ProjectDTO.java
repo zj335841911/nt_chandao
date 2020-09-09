@@ -494,6 +494,94 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JsonProperty("teamcnt")
     private Integer teamcnt;
 
+    /**
+     * 属性 [ALLTASKCNT]
+     *
+     */
+    @JSONField(name = "alltaskcnt")
+    @JsonProperty("alltaskcnt")
+    private Integer alltaskcnt;
+
+    /**
+     * 属性 [UNCLOSETASKCNT]
+     *
+     */
+    @JSONField(name = "unclosetaskcnt")
+    @JsonProperty("unclosetaskcnt")
+    private Integer unclosetaskcnt;
+
+    /**
+     * 属性 [ASSTOMYTASKCNT]
+     *
+     */
+    @JSONField(name = "asstomytaskcnt")
+    @JsonProperty("asstomytaskcnt")
+    private Integer asstomytaskcnt;
+
+    /**
+     * 属性 [UNSTARTTASKCNT]
+     *
+     */
+    @JSONField(name = "unstarttaskcnt")
+    @JsonProperty("unstarttaskcnt")
+    private Integer unstarttaskcnt;
+
+    /**
+     * 属性 [MORETASKCNT]
+     *
+     */
+    @JSONField(name = "moretaskcnt")
+    @JsonProperty("moretaskcnt")
+    private Integer moretaskcnt;
+
+    /**
+     * 属性 [YSTARTASKCNT]
+     *
+     */
+    @JSONField(name = "ystarttaskcnt")
+    @JsonProperty("ystarttaskcnt")
+    private Integer ystarttaskcnt;
+
+    /**
+     * 属性 [UNCOMPLETETASKCNT]
+     *
+     */
+    @JSONField(name = "uncompletetaskcnt")
+    @JsonProperty("uncompletetaskcnt")
+    private Integer uncompletetaskcnt;
+
+    /**
+     * 属性 [YCOMPLETETASKCNT]
+     *
+     */
+    @JSONField(name = "ycompletetaskcnt")
+    @JsonProperty("ycompletetaskcnt")
+    private Integer ycompletetaskcnt;
+
+    /**
+     * 属性 [MYCOMPLETETASKCNT]
+     *
+     */
+    @JSONField(name = "mycompletetaskcnt")
+    @JsonProperty("mycompletetaskcnt")
+    private Integer mycompletetaskcnt;
+
+    /**
+     * 属性 [CLOSETASKCNT]
+     *
+     */
+    @JSONField(name = "closetaskcnt")
+    @JsonProperty("closetaskcnt")
+    private Integer closetaskcnt;
+
+    /**
+     * 属性 [CANCELTASKCNT]
+     *
+     */
+    @JSONField(name = "canceltaskcnt")
+    @JsonProperty("canceltaskcnt")
+    private Integer canceltaskcnt;
+
 
     /**
      * 设置 [OPENEDVERSION]

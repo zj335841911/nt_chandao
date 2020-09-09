@@ -76,7 +76,7 @@ zuul:
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_story:
-      path: /substories/**
+      path: /stories/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_myterritory:

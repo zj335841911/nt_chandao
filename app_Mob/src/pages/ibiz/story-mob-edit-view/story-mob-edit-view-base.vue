@@ -52,25 +52,25 @@
                 <ion-fab-list class="fab-list" side="top">
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_changestorydetailmob.visabled" :disabled="righttoolbarModels.deuiaction1_changestorydetailmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_changestorydetailmob' }, $event)">
                 <ion-icon name="swap"></ion-icon>
-            {{$t('substory.mobeditviewrighttoolbar_toolbar.deuiaction1_changestorydetailmob.caption')}}    
+            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_changestorydetailmob.caption')}}    
             </ion-fab-button>
         
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_assigntomob.visabled" :disabled="righttoolbarModels.deuiaction1_assigntomob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assigntomob' }, $event)">
-            {{$t('substory.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntomob.caption')}}    
+            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntomob.caption')}}    
             </ion-fab-button>
         
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_reviewstorymob.visabled" :disabled="righttoolbarModels.deuiaction1_reviewstorymob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_reviewstorymob' }, $event)">
-            {{$t('substory.mobeditviewrighttoolbar_toolbar.deuiaction1_reviewstorymob.caption')}}    
+            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_reviewstorymob.caption')}}    
             </ion-fab-button>
         
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_closestorymob.visabled" :disabled="righttoolbarModels.deuiaction1_closestorymob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closestorymob' }, $event)">
                 <ion-icon name="close"></ion-icon>
-            {{$t('substory.mobeditviewrighttoolbar_toolbar.deuiaction1_closestorymob.caption')}}    
+            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_closestorymob.caption')}}    
             </ion-fab-button>
         
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_deletemob.visabled" :disabled="righttoolbarModels.deuiaction1_deletemob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event)">
                 <ion-icon name="remove"></ion-icon>
-            {{$t('substory.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}    
+            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}    
             </ion-fab-button>
         
                 </ion-fab-list>
@@ -85,10 +85,10 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import SubStoryService from '@/app-core/service/sub-story/sub-story-service';
+import StoryService from '@/app-core/service/story/story-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
-import SubStoryUIService from '@/ui-service/sub-story/sub-story-ui-action';
+import StoryUIService from '@/ui-service/story/story-ui-action';
 
 @Component({
     components: {
@@ -107,18 +107,18 @@ export default class StoryMobEditViewBase extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {SubStoryService}
+     * @type {StoryService}
      * @memberof StoryMobEditViewBase
      */
-    protected appEntityService: SubStoryService = new SubStoryService();
+    protected appEntityService: StoryService = new StoryService();
 
     /**
      * 实体UI服务对象
      *
-     * @type SubStoryUIService
+     * @type StoryUIService
      * @memberof StoryMobEditViewBase
      */
-    public appUIService: SubStoryUIService = new SubStoryUIService(this.$store);
+    public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
      * 数据变化
@@ -221,7 +221,7 @@ export default class StoryMobEditViewBase extends Vue {
      */
     protected model: any = {
         srfTitle: '需求移动端编辑视图',
-        srfCaption: 'substory.views.mobeditview.caption',
+        srfCaption: 'story.views.mobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
@@ -399,7 +399,7 @@ export default class StoryMobEditViewBase extends Vue {
         this.engine.init({
             view: this,
             form: this.$refs.form,
-            keyPSDEField: 'substory',
+            keyPSDEField: 'story',
             majorPSDEField: 'title',
             isLoadDefault: true,
         });
@@ -619,7 +619,7 @@ export default class StoryMobEditViewBase extends Vue {
             datas = [...xData.getDatas()];
         }
         // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('substory_ui_action');
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
         if (curUIService) {
             curUIService.Story_ChangeStoryDetailMob(datas, contextJO, paramJO, $event, xData, this);
         }
@@ -651,7 +651,7 @@ export default class StoryMobEditViewBase extends Vue {
             datas = [...xData.getDatas()];
         }
         // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('substory_ui_action');
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
         if (curUIService) {
             curUIService.Story_AssignToMob(datas, contextJO, paramJO, $event, xData, this);
         }
@@ -683,7 +683,7 @@ export default class StoryMobEditViewBase extends Vue {
             datas = [...xData.getDatas()];
         }
         // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('substory_ui_action');
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
         if (curUIService) {
             curUIService.Story_ReviewStoryMob(datas, contextJO, paramJO, $event, xData, this);
         }
@@ -715,7 +715,7 @@ export default class StoryMobEditViewBase extends Vue {
             datas = [...xData.getDatas()];
         }
         // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('substory_ui_action');
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
         if (curUIService) {
             curUIService.Story_CloseStoryMob(datas, contextJO, paramJO, $event, xData, this);
         }
@@ -747,7 +747,7 @@ export default class StoryMobEditViewBase extends Vue {
             datas = [...xData.getDatas()];
         }
         // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('substory_ui_action');
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
         if (curUIService) {
             curUIService.Story_deleteMob(datas, contextJO, paramJO, $event, xData, this);
         }

@@ -462,6 +462,83 @@ public class Project extends EntityMP implements Serializable {
     @JSONField(name = "teamcnt")
     @JsonProperty("teamcnt")
     private Integer teamcnt;
+    /**
+     * 所有任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "alltaskcnt")
+    @JsonProperty("alltaskcnt")
+    private Integer alltaskcnt;
+    /**
+     * 未关闭任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "unclosetaskcnt")
+    @JsonProperty("unclosetaskcnt")
+    private Integer unclosetaskcnt;
+    /**
+     * 指派给我任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "asstomytaskcnt")
+    @JsonProperty("asstomytaskcnt")
+    private Integer asstomytaskcnt;
+    /**
+     * 未开始任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "unstarttaskcnt")
+    @JsonProperty("unstarttaskcnt")
+    private Integer unstarttaskcnt;
+    /**
+     * 更多任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "moretaskcnt")
+    @JsonProperty("moretaskcnt")
+    private Integer moretaskcnt;
+    /**
+     * 进行中任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "ystarttaskcnt")
+    @JsonProperty("ystarttaskcnt")
+    private Integer ystarttaskcnt;
+    /**
+     * 未完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "uncompletetaskcnt")
+    @JsonProperty("uncompletetaskcnt")
+    private Integer uncompletetaskcnt;
+    /**
+     * 已完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "ycompletetaskcnt")
+    @JsonProperty("ycompletetaskcnt")
+    private Integer ycompletetaskcnt;
+    /**
+     * 我完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mycompletetaskcnt")
+    @JsonProperty("mycompletetaskcnt")
+    private Integer mycompletetaskcnt;
+    /**
+     * 关闭任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closetaskcnt")
+    @JsonProperty("closetaskcnt")
+    private Integer closetaskcnt;
+    /**
+     * 取消任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "canceltaskcnt")
+    @JsonProperty("canceltaskcnt")
+    private Integer canceltaskcnt;
 
     /**
      * 

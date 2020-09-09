@@ -22,7 +22,7 @@ import './entity/task-teams/task-teams';
 import './entity/product-modules/product-modules';
 import './entity/projects/projects';
 import './entity/todos/todos';
-import './entity/sub-storys/sub-storys';
+import './entity/storys/storys';
 import './entity/ibz-my-territorys/ibz-my-territorys';
 import './entity/cases/cases';
 import './entity/test-modules/test-modules';

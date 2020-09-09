@@ -230,9 +230,20 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
         if (context.project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
 
@@ -279,9 +290,20 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
         if (context.project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
 
@@ -333,9 +355,20 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
         if (context.project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
 
@@ -440,9 +473,20 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
         if (context.project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
 
@@ -494,9 +538,20 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
         if (context.project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
 
@@ -601,9 +656,20 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
         if (context.project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
 
@@ -652,9 +718,20 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
         if (context.project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
 
@@ -703,9 +780,20 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
         if (context.project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
 
@@ -752,9 +840,20 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
         if (context.project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
             ]
         }
 

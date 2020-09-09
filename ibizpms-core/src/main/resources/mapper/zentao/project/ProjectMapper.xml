@@ -12,6 +12,7 @@
     <resultMap id="ProjectResultMap" type="cn.ibizlab.pms.core.zentao.domain.Project" autoMapping="true">
         <id property="id" column="id" /><!--主键字段映射-->
 		<result property="parent" column="parent" />
+		<result property="ystarttaskcnt" column="ystartaskcnt" />
             
 		
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->

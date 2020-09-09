@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import StoryChangeMobOptionViewBase from './story-change-mob-option-view-base.vue';
 
-import view_form from '@widgets/sub-story/mob-chage-form-form/mob-chage-form-form.vue';
+import view_form from '@widgets/story/mob-chage-form-form/mob-chage-form-form.vue';
 @Component({
     components: {
         view_form, 

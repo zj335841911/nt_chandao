@@ -1,5 +1,6 @@
 import { Http,Util,HttpResponse } from '@/ibiz-core/utils';
 import  { EntityService }  from '@/ibiz-core';
+import { ProjectTaskQCntLogic } from './project-task-qcnt-logic';
 
 
 

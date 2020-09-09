@@ -135,6 +135,7 @@
     :formState="formState" 
     :parentdata='{"srfparentdename":"ZT_PRODUCTPLAN","SRFPARENTTYPE":"CUSTOM"}' 
     :parameters="[
+        { pathName: 'products', parameterName: 'product' },
     ]" 
     :context="context" 
     :viewparams="viewparams" 

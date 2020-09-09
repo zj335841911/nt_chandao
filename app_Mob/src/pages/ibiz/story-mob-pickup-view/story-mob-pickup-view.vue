@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import StoryMobPickupViewBase from './story-mob-pickup-view-base.vue';
 
-import view_pickupviewpanel from '@widgets/sub-story/mob-pickup-viewpickupviewpanel-pickupviewpanel/mob-pickup-viewpickupviewpanel-pickupviewpanel.vue';
+import view_pickupviewpanel from '@widgets/story/mob-pickup-viewpickupviewpanel-pickupviewpanel/mob-pickup-viewpickupviewpanel-pickupviewpanel.vue';
 @Component({
     components: {
         view_pickupviewpanel, 

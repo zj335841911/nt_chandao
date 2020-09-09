@@ -15,7 +15,7 @@ import taskteam_zh_CN from '@locale/lanres/task-team/task-team_zh_CN';
 import productmodule_zh_CN from '@locale/lanres/product-module/product-module_zh_CN';
 import project_zh_CN from '@locale/lanres/project/project_zh_CN';
 import todo_zh_CN from '@locale/lanres/todo/todo_zh_CN';
-import substory_zh_CN from '@locale/lanres/sub-story/sub-story_zh_CN';
+import story_zh_CN from '@locale/lanres/story/story_zh_CN';
 import ibzmyterritory_zh_CN from '@locale/lanres/ibz-my-territory/ibz-my-territory_zh_CN';
 import case_zh_CN from '@locale/lanres/case/case_zh_CN';
 import testmodule_zh_CN from '@locale/lanres/test-module/test-module_zh_CN';
@@ -177,7 +177,7 @@ export default {
     productmodule: productmodule_zh_CN,
     project: project_zh_CN,
     todo: todo_zh_CN,
-    substory: substory_zh_CN,
+    story: story_zh_CN,
     ibzmyterritory: ibzmyterritory_zh_CN,
     case: case_zh_CN,
     testmodule: testmodule_zh_CN,

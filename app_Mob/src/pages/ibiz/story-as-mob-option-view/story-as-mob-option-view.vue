@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import StoryAsMobOptionViewBase from './story-as-mob-option-view-base.vue';
 
-import view_form from '@widgets/sub-story/assign-to-mob-form/assign-to-mob-form.vue';
+import view_form from '@widgets/story/assign-to-mob-form/assign-to-mob-form.vue';
 @Component({
     components: {
         view_form, 

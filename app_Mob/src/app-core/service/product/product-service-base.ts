@@ -98,6 +98,7 @@ export class ProductServiceBase extends EntityService {
         this.tempStorage.setItem(tempContext.srfsessionkey+'_productmodules',JSON.stringify(res.data.productmodules?res.data.productmodules:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_productplans',JSON.stringify(res.data.productplans?res.data.productplans:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_releases',JSON.stringify(res.data.releases?res.data.releases:[]));
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_stories',JSON.stringify(res.data.stories?res.data.stories:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_testmodules',JSON.stringify(res.data.testmodules?res.data.testmodules:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_testtasks',JSON.stringify(res.data.testtasks?res.data.testtasks:[]));
         

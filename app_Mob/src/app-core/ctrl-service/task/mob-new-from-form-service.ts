@@ -63,8 +63,8 @@ export class MobNewFromService extends FormServiceBase {
             const response: any = await service.FetchTaskModules(data);
             return this.doItems(response);
         }
-        if (Object.is(serviceName, 'SubStoryService') && Object.is(interfaceName, 'FetchTaskRelatedStory')) {
-            const service: any = await this.getService('substory');
+        if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchTaskRelatedStory')) {
+            const service: any = await this.getService('story');
             await this.onBeforeAction(interfaceName, context, data, isLoading);
             const response: any = await service.FetchTaskRelatedStory(data);
             return this.doItems(response);
