@@ -42,17 +42,16 @@ export default class AppSelect extends Vue {
      * 当前选中值
      * @memberof AppSelect
      */
-    get curValue(){
-        
-        if(this.options.length > 0){
-            let index = this.options.indexOf(this.value)
-            if (index !== -1) {
-                return  this.value;
+    get curValue() {
+        if (this.value && this.options.length > 0) {
+            let isIncluded = this.options.some((option:any)=>{return option.value === this.value})
+            if (isIncluded) {
+                return this.value;
             } else {
-                return ""
-            } 
+                return "";
+            }
         }
-        return ""
+        return "";
     }
     
     set curValue(value:any){
