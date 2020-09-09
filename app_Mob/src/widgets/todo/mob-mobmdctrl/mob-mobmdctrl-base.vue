@@ -32,7 +32,7 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                       <div class="item-grouped" v-for="obj in group_data" :key="obj.index">
-                        <div class="text">{{obj.text}}</div>
+                        <div class="text">{{obj.text}}（<label v-if="obj.items && obj.items.length > 0">{{obj.items.length}}</label>）</div>
                       <ion-item-sliding  :ref="item.srfkey" v-for="item in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.assignToMob.visabled" :disabled="item.assignToMob.disabled" color="primary" @click="mdctrl_click($event, 'u5a26748', item)"><ion-icon v-if="item.assignToMob.icon && item.assignToMob.isShowIcon" :name="item.assignToMob.icon"></ion-icon><ion-label v-if="item.assignToMob.isShowCaption">指派</ion-label></ion-item-option>
