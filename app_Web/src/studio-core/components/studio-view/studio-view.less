@@ -10,7 +10,10 @@
         flex-direction: row-reverse;
         >.search-button {
             flex-shrink: 0;
-        }
+            >.ivu-btn {
+                margin-left: 4px;
+            }
+         }
         >.form-content {
             flex-grow: 1;
         }
@@ -115,6 +118,22 @@
             flex-grow: 1;
             overflow-y: auto;
             overflow-x: hidden;
+        }
+    }
+    >.view-content {
+        >.search-bar-wrapper {
+            >div {
+                display: flex;
+                .filter-group {
+                    flex-grow: 1;
+                }
+                .search-bar-footer {
+                    margin-top: 4px;
+                    .ivu-btn {
+                        margin-left: 4px;
+                    }
+                }
+            }
         }
     }
 }
