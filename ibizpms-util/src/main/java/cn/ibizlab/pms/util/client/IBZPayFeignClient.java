@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(value = "${ibiz.ref.service.pay:ibzpay-api}",fallback = IBZPayFallback.class)
+@FeignClient(value = "${ibiz.ref.service.pay:ibzpay-api}",contextId = "pay",fallback = IBZPayFallback.class)
 public interface IBZPayFeignClient
 {
 	@RequestMapping(method = RequestMethod.POST,value = "/pay/trade/precreate")

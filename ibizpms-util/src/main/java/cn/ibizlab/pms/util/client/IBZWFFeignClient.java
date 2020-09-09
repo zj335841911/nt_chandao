@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import com.alibaba.fastjson.JSONObject;
 import java.util.*;
 
-@FeignClient(value = "${ibiz.ref.service.wf:ibzwf-api}",fallback = IBZWFFallback.class)
+@FeignClient(value = "${ibiz.ref.service.wf:ibzwf-api}",contextId = "wf",fallback = IBZWFFallback.class)
 public interface IBZWFFeignClient
 {
 	@RequestMapping(method = RequestMethod.GET, value = "/{system}-app-{appname}/{entity}/process-definitions/{processDefinitionKey}/usertasks/{taskDefinitionKey}/tasks")
