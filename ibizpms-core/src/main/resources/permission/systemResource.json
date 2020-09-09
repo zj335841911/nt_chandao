@@ -498,6 +498,11 @@
        }
         ,
        {
+            "unirescode":"TASK_XQCHANGE_BUT",
+            "uniresname":"任务确认需求变更"
+       }
+        ,
+       {
             "unirescode":"STORY_EDIT_BUT",
             "uniresname":"需求编辑"
        }

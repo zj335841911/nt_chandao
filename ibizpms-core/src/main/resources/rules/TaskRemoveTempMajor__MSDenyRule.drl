@@ -39,9 +39,27 @@ ruleflow-group "taskremovetempmajor__msdenydenybywait_1"
     update(taskremovetempmajor__msdenydefault);//更新fact中变量值
     end
 
+//逻辑处理节点[状态[需求变更_已收藏]拒绝[removetempmajor]操作]
+rule "denybystorychange_1"
+ruleflow-group "taskremovetempmajor__msdenydenybystorychange_1"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
 //逻辑处理节点[状态[已关闭_已收藏]拒绝[removetempmajor]操作]
 rule "denybyclosed_1"
 ruleflow-group "taskremovetempmajor__msdenydenybyclosed_1"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[需求变更_未收藏]拒绝[removetempmajor]操作]
+rule "denybystorychange_0"
+ruleflow-group "taskremovetempmajor__msdenydenybystorychange_0"
     when
     then
     update(taskremovetempmajor__msdenytemp);//更新fact中变量值

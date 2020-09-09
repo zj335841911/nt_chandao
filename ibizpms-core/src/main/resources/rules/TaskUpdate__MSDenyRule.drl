@@ -19,6 +19,15 @@ ruleflow-group "taskupdate__msdenybegin"
     then
     end
 
+//逻辑处理节点[状态[需求变更_已收藏]拒绝[update]操作]
+rule "denybystorychange_1"
+ruleflow-group "taskupdate__msdenydenybystorychange_1"
+    when
+    then
+    update(taskupdate__msdenytemp);//更新fact中变量值
+    update(taskupdate__msdenydefault);//更新fact中变量值
+    end
+
 //逻辑处理节点[状态[未进行_已收藏]拒绝[update]操作]
 rule "denybywait_1"
 ruleflow-group "taskupdate__msdenydenybywait_1"
@@ -59,6 +68,15 @@ ruleflow-group "taskupdate__msdenydenybypause_1"
 //逻辑处理节点[状态[已取消_已收藏]拒绝[update]操作]
 rule "denybycancel_1"
 ruleflow-group "taskupdate__msdenydenybycancel_1"
+    when
+    then
+    update(taskupdate__msdenytemp);//更新fact中变量值
+    update(taskupdate__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[需求变更_未收藏]拒绝[update]操作]
+rule "denybystorychange_0"
+ruleflow-group "taskupdate__msdenydenybystorychange_0"
     when
     then
     update(taskupdate__msdenytemp);//更新fact中变量值

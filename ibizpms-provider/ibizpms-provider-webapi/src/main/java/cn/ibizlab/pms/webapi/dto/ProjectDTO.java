@@ -582,6 +582,14 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JsonProperty("canceltaskcnt")
     private Integer canceltaskcnt;
 
+    /**
+     * 属性 [STORYCHANGECNT]
+     *
+     */
+    @JSONField(name = "storychangecnt")
+    @JsonProperty("storychangecnt")
+    private Integer storychangecnt;
+
 
     /**
      * 设置 [OPENEDVERSION]
