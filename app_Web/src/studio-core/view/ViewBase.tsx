@@ -437,6 +437,14 @@ export class ViewBase extends Vue {
         this.accLocalTags.forEach(((str: string) => {
             this.$acc.unsubscribeLocal(str);
         }));
+        // 销毁计数器定时器
+        if(this.counterServiceArray && this.counterServiceArray.length >0){
+            this.counterServiceArray.forEach((item:any) =>{
+                if(item.destroyCounter && item.destroyCounter instanceof Function){
+                    item.destroyCounter();
+                }
+            })
+        }
     }
 
     /**

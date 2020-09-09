@@ -64,5 +64,6 @@ export class ListViewExpBarControlBase extends ExpControlBase {
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
         }
+        super.ctrlDestroyed();
     }
 }

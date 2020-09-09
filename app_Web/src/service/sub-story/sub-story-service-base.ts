@@ -250,6 +250,34 @@ export default class SubStoryServiceBase extends EntityService {
     }
 
     /**
+     * AllPush接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async AllPush(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.substory){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/${context.substory}/allpush`,data,isloading);
+            
+            return res;
+        }
+        if(context.story && context.substory){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/substories/${context.substory}/allpush`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/allpush`,data,isloading);
+            return res;
+    }
+
+    /**
      * AssignTo接口方法
      *
      * @param {*} [context={}]

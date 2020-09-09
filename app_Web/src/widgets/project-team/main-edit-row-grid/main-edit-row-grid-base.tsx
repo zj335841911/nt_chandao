@@ -460,6 +460,7 @@ export class Main_EditRowGridBase extends GridControlBase {
                     title: (this.$t('app.commonWords.saveSuccess') as string),
                     duration: 3
                 });
+                this.closeView(response.data);
             }
         }).catch((error: any) =>{
             this.$Notice.error({

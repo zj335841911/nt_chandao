@@ -696,6 +696,7 @@ export default {
 			story_substory: "需求细分",
 			story_storyfavorites: "收藏",
 			story_storynfavorites: "取消收藏",
+			story_push: "推送",
 		},
 	},
 	main_plansub_grid: {
@@ -796,6 +797,7 @@ export default {
 			story_substory: "需求细分",
 			story_storyfavorites: "收藏",
 			story_storynfavorites: "取消收藏",
+			story_push: "推送",
 		},
 	},
 	main_releasesub_grid: {
@@ -848,6 +850,7 @@ export default {
 			story_substory: "需求细分",
 			story_storyfavorites: "收藏",
 			story_storynfavorites: "取消收藏",
+			story_push: "推送",
 		},
 	},
 	main9_grid: {
@@ -882,6 +885,7 @@ export default {
 			story_substory: "需求细分",
 			story_storyfavorites: "收藏",
 			story_storynfavorites: "取消收藏",
+			story_push: "推送",
 		},
 	},
 	main2_grid: {
@@ -900,6 +904,7 @@ export default {
 			story_substory: "需求细分",
 			story_storyfavorites: "收藏",
 			story_storynfavorites: "取消收藏",
+			story_push: "推送",
 		},
 	},
 	default_searchform: {
@@ -1037,6 +1042,10 @@ export default {
 		deuiaction1_syncfromibiz: {
 			caption: "同步",
 			tip: "同步",
+		},
+		deuiaction1_allpush: {
+			caption: "推送",
+			tip: "推送",
 		},
 		deuiaction1_create: {
 			caption: "新建需求",

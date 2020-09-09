@@ -185,6 +185,13 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         return et;
     }
 
+    @Override
+    @Transactional
+    public Story allPush(Story et) {
+        //自定义代码
+        return et;
+    }
+
         @Override
     @Transactional
     public Story assignTo(Story et) {

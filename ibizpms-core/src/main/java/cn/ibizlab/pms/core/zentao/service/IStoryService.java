@@ -35,6 +35,7 @@ public interface IStoryService extends IService<Story>{
     Story get(Long key) ;
     Story getDraft(Story et) ;
     Story activate(Story et) ;
+    Story allPush(Story et) ;
     Story assignTo(Story et) ;
     Story batchAssignTo(Story et) ;
     Story batchChangeBranch(Story et) ;

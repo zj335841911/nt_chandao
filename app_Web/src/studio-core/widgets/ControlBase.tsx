@@ -229,7 +229,16 @@ export class ControlBase extends Vue {
      * @protected
      * @memberof ControlBase
      */
-    protected ctrlDestroyed(): void { }
+    protected ctrlDestroyed(): void {
+        // 销毁计数器定时器
+        if(this.counterServiceArray && this.counterServiceArray.length >0){
+            this.counterServiceArray.forEach((item:any) =>{
+                if(item.destroyCounter && item.destroyCounter instanceof Function){
+                    item.destroyCounter();
+                }
+            })
+        }
+    }
 
     /**
      * 计数器刷新

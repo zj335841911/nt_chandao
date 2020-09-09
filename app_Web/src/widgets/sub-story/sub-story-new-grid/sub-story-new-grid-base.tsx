@@ -374,6 +374,7 @@ export class SubStoryNewGridBase extends GridControlBase {
                     title: (this.$t('app.commonWords.saveSuccess') as string),
                     duration: 3
                 });
+                this.closeView(response.data);
             }
         }).catch((error: any) =>{
             this.$Notice.error({

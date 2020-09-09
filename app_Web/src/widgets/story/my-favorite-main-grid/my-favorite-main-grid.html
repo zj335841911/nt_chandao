@@ -231,6 +231,11 @@
                             <i class='fa fa-star'></i>
                             
                           </a>
+                          <divider v-show="scope.row.Push.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.Push.visabled" :disabled="scope.row.Push.disabled" @click="uiAction(scope.row, 'Push', $event)" :title="$t('entities.story.myfavoritemain_grid.uiactions.story_push')">
+                            <i class='fa fa-rotate-right'></i>
+                            
+                          </a>
                         </div>
                     </template>
                 </el-table-column>
