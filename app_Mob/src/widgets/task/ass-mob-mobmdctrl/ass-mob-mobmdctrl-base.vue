@@ -585,7 +585,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
     * @type {boolean}
     * @memberof AssMob
     */
-    public group_detail:any = ;
+    public group_detail:any = {};
 
     /**
     * 分组数据
@@ -594,14 +594,6 @@ export default class AssMobBase extends Vue implements ControlInterface {
     * @memberof AssMob
     */
     public group_data?:any = [];
-
-    /**
-    * 分组标识
-    *
-    * @type {array}
-    * @memberof AssMob
-    */
-    public group_field:string = ;
 
     /**
     * 存放数据选择数组(单选)
@@ -969,40 +961,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
             Object.assign(item,this.getActionState(item));    
             this.setSlidingDisabled(item);
         });
-        if(this.isEnableGroup){
-          this.getGroupData(this.items);
-        }
         return response;
-    }
-
-    /**
-     * 获取分组数据
-     *
-     * @memberof AssMob
-     */
-    public getGroupData(items:any){
-      let data:any =[];
-      let obj:any = {};
-      items.forEach((item:any,index:number,items:Array<number>)=>{
-        if(!obj[item[this.group_field]]){
-          obj[item[this.group_field]] = item[this.group_field];
-          data.push(this.filterByTag(items,item[this.group_field]));
-        }
-      })
-      data.forEach((arr:any,index:number)=>{
-        this.group_data[index] = {};
-        this.group_data[index].text = this.group_detail[ arr[0][this.group_field] ];
-        this.group_data[index].items = arr;
-      })
-    }
-
-    /**
-     * 单条件过滤数组数据
-     *
-     * @memberof AssMob
-     */
-    public filterByTag(arr:Array<number>, tag:any) {
-        return arr.filter((item:any) => item[this.group_field] == tag);
     }
 
     /**
