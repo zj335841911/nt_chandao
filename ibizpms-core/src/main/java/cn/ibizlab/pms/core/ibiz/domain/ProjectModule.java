@@ -93,7 +93,7 @@ public class ProjectModule extends EntityMP implements Serializable {
      * owner
      */
     @DEField(defaultValue = "/")
-    @TableField(value = "owner")
+    @TableField(value = "`owner`")
     @JSONField(name = "owner")
     @JsonProperty("owner")
     private String owner;
@@ -124,7 +124,7 @@ public class ProjectModule extends EntityMP implements Serializable {
      * 排序值
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.ORDERVALUE)
-    @TableField(value = "order")
+    @TableField(value = "`order`")
     @JSONField(name = "order")
     @JsonProperty("order")
     private Integer order;
