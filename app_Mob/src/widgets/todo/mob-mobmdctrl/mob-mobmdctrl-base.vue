@@ -556,7 +556,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @type {boolean}
     * @memberof Mob
     */
-    public group_detail:any =   { 'wait':'未开始', 'doing':'进行中', 'done':'已完成', 'closed':'已关闭',};
+    public group_detail:any =   [ {"value":'wait',"text":'未开始'}, {"value":'doing',"text":'进行中'}, {"value":'done',"text":'已完成'}, {"value":'closed',"text":'已关闭'},];
 
     /**
     * 分组数据
@@ -952,17 +952,23 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     public getGroupData(items:any){
-      let data:any =[];
-      let obj:any = {};
-      items.forEach((item:any,index:number,items:Array<number>)=>{
-        if(!obj[item[this.group_field]]){
-          obj[item[this.group_field]] = item[this.group_field];
-          data.push(this.filterByTag(items,item[this.group_field]));
-        }
+      let data:any = [];
+      let iobj:any = {};
+      this.group_detail.forEach((obj:any,index:number)=>{
+        let idata
+        items.forEach((item:any,i:number)=>{
+          if (item[this.group_field] === obj.value) {
+            if(!iobj[ item[this.group_field] ]){
+            iobj[ item[this.group_field] ] = item[this.group_field];
+            data.push(this.filterByTag(items,item[this.group_field]));
+            }
+          }
+        })
+
       })
       data.forEach((arr:any,index:number)=>{
         this.group_data[index] = {};
-        this.group_data[index].text = this.group_detail[ arr[0][this.group_field] ];
+        this.group_data[index].text = this.group_detail[ index ].text;
         this.group_data[index].items = arr;
       })
     }
