@@ -833,6 +833,8 @@
                 </column>
                 <column name="IBIZ_ID" remarks="" type="VARCHAR(100)">
                 </column>
+                <column name="CODE" remarks="" type="VARCHAR(45)">
+                </column>
         </createTable>
     </changeSet>
 

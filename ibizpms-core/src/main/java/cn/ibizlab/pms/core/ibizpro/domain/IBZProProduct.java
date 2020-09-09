@@ -64,6 +64,13 @@ public class IBZProProduct extends EntityMP implements Serializable {
     @JSONField(name = "ibizid")
     @JsonProperty("ibizid")
     private String ibizid;
+    /**
+     * 产品代号
+     */
+    @TableField(value = "code")
+    @JSONField(name = "code")
+    @JsonProperty("code")
+    private String code;
 
 
 
@@ -81,6 +88,14 @@ public class IBZProProduct extends EntityMP implements Serializable {
     public void setIbizid(String ibizid){
         this.ibizid = ibizid ;
         this.modify("ibiz_id",ibizid);
+    }
+
+    /**
+     * 设置 [产品代号]
+     */
+    public void setCode(String code){
+        this.code = code ;
+        this.modify("code",code);
     }
 
 
