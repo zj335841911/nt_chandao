@@ -36,7 +36,7 @@ ruleflow-group "projectprojecttaskqcntrawsqlcall4"
     Map param =new HashMap();
     param.put("param0",curuser.getSessionParams().get("srfloginname"));
     param.put("param1",projectprojecttaskqcntdefault.get("id"));
-    String strSql="select count(t.id) as YCOMPLETETASKCNT from zt_task t where t.deleted = '0' and t.`finishedby` = #{et.param0} and t.project = #{et.param1}";
+    String strSql="select count(t.id) as MYCOMPLETETASKCNT from zt_task t where t.deleted = '0' and t.`finishedby` = #{et.param0} and t.project = #{et.param1}";
     java.util.List<JSONObject> entities=iBzSysProjectDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);

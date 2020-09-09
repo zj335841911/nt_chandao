@@ -39,6 +39,7 @@ public interface ITaskService extends IService<Task>{
     Task cancel(Task et) ;
     boolean checkKey(Task et) ;
     Task close(Task et) ;
+    Task confirmStoryChange(Task et) ;
     Task deleteEstimate(Task et) ;
     Task editEstimate(Task et) ;
     Task finish(Task et) ;

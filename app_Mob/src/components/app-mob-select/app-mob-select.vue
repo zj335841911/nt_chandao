@@ -1,5 +1,5 @@
 <template>
-    <div v-if="overload" class="app-mobile-select" data-tap-disabled="true">
+    <div class="app-mobile-select" data-tap-disabled="true">
         <div class="cancel-icon" v-if="curValue"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
         <div v-if="curValue== null || curValue==''" class="ion-select-icon"></div>
         <ion-select  :value="curValue" :disabled="disabled ? disabled : false" @ionChange="change" interface="action-sheet" @click="load" :cancel-text="$t('app.button.cancel')">
@@ -43,7 +43,16 @@ export default class AppSelect extends Vue {
      * @memberof AppSelect
      */
     get curValue(){
-        return  this.value;
+        
+        if(this.options.length > 0){
+            let index = this.options.indexOf(this.value)
+            if (index !== -1) {
+                return  this.value;
+            } else {
+                return ""
+            } 
+        }
+        return ""
     }
     
     set curValue(value:any){
@@ -163,14 +172,6 @@ export default class AppSelect extends Vue {
     public isCached: boolean = false;
 
     /**
-     * 加载完成
-     *
-     * @type {*}
-     * @memberof AppSelect
-     */
-    public overload: boolean = false;
-
-    /**
      * 监听表单数据
      *
      * @param {*} newVal
@@ -189,7 +190,6 @@ export default class AppSelect extends Vue {
      */
     public mounted() {
         if (Object.is(this.codeListType, "STATIC")) {
-            this.overload = true;
             this.options = this.$store.getters.getCodeListItems(this.tag);
         } else {
             if (this.curValue) {
@@ -217,13 +217,11 @@ export default class AppSelect extends Vue {
         }
         let response: any = await this.codeListService.getItems(this.tag,  param.context, param.param);
         if (response) {
-            this.overload = true;
             this.options = response
             if (this.isCache) {
                 this.isCached = true;
             }
         } else {
-            this.overload = true;
             this.options = [];
         }
     }
