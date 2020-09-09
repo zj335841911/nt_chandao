@@ -58,7 +58,7 @@
             </div>
             <template v-for="item in customizeModel">
                 <div class="dashboard-item" :class="item.componentName + 'dashboard'"  :key="item.id" v-if="isEnableCustomized">
-                    <component :is="item.componentName" :viewState="viewState" :name="item.portletCodeName" :context="context" :viewparams="viewparams"></component>
+                    <component :is="item.componentName" :viewState="viewState" :name="item.portletCodeName" :context="context" isChildView="true" :viewparams="viewparams"></component>
                 </div>
             </template>
     </ion-grid>
@@ -309,13 +309,14 @@ export default class MobHomeBase extends Vue implements ControlInterface {
                 if (!Object.is(tag, this.name)) {
                     return;
                 }
+                if(this.isEnableCustomized){
+                    this.loadModel(this.utilServiceName,this.context,Object.assign({utilServiceName:this.utilServiceName,modelid:this.modelId},this.viewparams));
+                    return;
+                }
                 const refs: any = this.$refs;
                 Object.keys(refs).forEach((name: string) => {
                     this.viewState.next({ tag: name, action: action, data: data });
                 });
-                if(this.isEnableCustomized){
-                    this.loadModel(this.utilServiceName,this.context,Object.assign({utilServiceName:this.utilServiceName,modelid:this.modelId},this.viewparams));
-                }
             });
         }
     }

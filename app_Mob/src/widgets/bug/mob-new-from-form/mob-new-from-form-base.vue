@@ -508,7 +508,7 @@
         <app-mob-select-drop-down 
     name='storyname' 
     deMajorField='title'
-    deKeyField='storyid'
+    deKeyField='substoryid'
     valueitem='' 
     style="" 
     editortype="dropdown" 
@@ -522,7 +522,7 @@
     :itemParam='{ }' 
     :disabled="detailsModel.storyname.disabled"
     :service="service"
-    :acParams="{ serviceName: 'story', interfaceName: 'FetchDefault'}"
+    :acParams="{ serviceName: 'substory', interfaceName: 'FetchDefault'}"
     :value="data.storyname" 
     @change="($event)=>this.data.storyname = $event">
 </app-mob-select-drop-down>

@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import StoryRMobOptionViewBase from './story-rmob-option-view-base.vue';
 
-import view_form from '@widgets/story/review-mob-form/review-mob-form.vue';
+import view_form from '@widgets/sub-story/review-mob-form/review-mob-form.vue';
 @Component({
     components: {
         view_form, 

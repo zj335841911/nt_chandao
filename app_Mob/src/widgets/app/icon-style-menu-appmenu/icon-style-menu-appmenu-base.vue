@@ -469,7 +469,7 @@ export default class IconStyleMenuBase extends Vue implements ControlInterface {
         let param = { ..._param };
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'substories', parameterName: 'substory' },
             { pathName: 'mobmdview', parameterName: 'mobmdview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);

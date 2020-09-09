@@ -47,10 +47,10 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
+import SubStoryService from '@/app-core/service/sub-story/sub-story-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-import StoryUIService from '@/ui-service/story/story-ui-action';
+import SubStoryUIService from '@/ui-service/sub-story/sub-story-ui-action';
 
 @Component({
     components: {
@@ -69,18 +69,18 @@ export default class StoryFavoriteMoreMobMDViewBase extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {StoryService}
+     * @type {SubStoryService}
      * @memberof StoryFavoriteMoreMobMDViewBase
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: SubStoryService = new SubStoryService();
 
     /**
      * 实体UI服务对象
      *
-     * @type StoryUIService
+     * @type SubStoryUIService
      * @memberof StoryFavoriteMoreMobMDViewBase
      */
-    public appUIService: StoryUIService = new StoryUIService(this.$store);
+    public appUIService: SubStoryUIService = new SubStoryUIService(this.$store);
 
     /**
      * 数据变化
@@ -183,7 +183,7 @@ export default class StoryFavoriteMoreMobMDViewBase extends Vue {
      */
     protected model: any = {
         srfTitle: '需求移动端多数据视图',
-        srfCaption: 'story.views.favoritemoremobmdview.caption',
+        srfCaption: 'substory.views.favoritemoremobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
@@ -316,7 +316,7 @@ export default class StoryFavoriteMoreMobMDViewBase extends Vue {
             newdata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
                 this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
             },
-            keyPSDEField: 'story',
+            keyPSDEField: 'substory',
             majorPSDEField: 'title',
             isLoadDefault: true,
         });
@@ -494,15 +494,9 @@ export default class StoryFavoriteMoreMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        let deResParameters: any[] = [];
-        if (context.product && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-
+        const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'substories', parameterName: 'substory' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
@@ -543,15 +537,9 @@ export default class StoryFavoriteMoreMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        let deResParameters: any[] = [];
-        if (context.product && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-
+        const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'substories', parameterName: 'substory' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);

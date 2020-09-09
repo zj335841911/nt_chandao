@@ -34,10 +34,10 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
+import SubStoryService from '@/app-core/service/sub-story/sub-story-service';
 
 import MobPickupMDViewEngine from '@engine/view/mob-pickup-mdview-engine';
-import StoryUIService from '@/ui-service/story/story-ui-action';
+import SubStoryUIService from '@/ui-service/sub-story/sub-story-ui-action';
 
 @Component({
     components: {
@@ -56,18 +56,18 @@ export default class StoryMobPickupMDViewBase extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {StoryService}
+     * @type {SubStoryService}
      * @memberof StoryMobPickupMDViewBase
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: SubStoryService = new SubStoryService();
 
     /**
      * 实体UI服务对象
      *
-     * @type StoryUIService
+     * @type SubStoryUIService
      * @memberof StoryMobPickupMDViewBase
      */
-    public appUIService: StoryUIService = new StoryUIService(this.$store);
+    public appUIService: SubStoryUIService = new SubStoryUIService(this.$store);
 
     /**
      * 数据变化
@@ -170,7 +170,7 @@ export default class StoryMobPickupMDViewBase extends Vue {
      */
     protected model: any = {
         srfTitle: '需求移动端选择多数据视图',
-        srfCaption: 'story.views.mobpickupmdview.caption',
+        srfCaption: 'substory.views.mobpickupmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
@@ -297,7 +297,7 @@ export default class StoryMobPickupMDViewBase extends Vue {
         this.engine.init({
             view: this,
             mdctrl: this.$refs.mdctrl,
-            keyPSDEField: 'story',
+            keyPSDEField: 'substory',
             majorPSDEField: 'title',
             isLoadDefault: true,
         });

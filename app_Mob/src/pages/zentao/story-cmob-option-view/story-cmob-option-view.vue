@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import StoryCMobOptionViewBase from './story-cmob-option-view-base.vue';
 
-import view_form from '@widgets/story/close-mob-form/close-mob-form.vue';
+import view_form from '@widgets/sub-story/close-mob-form/close-mob-form.vue';
 @Component({
     components: {
         view_form, 

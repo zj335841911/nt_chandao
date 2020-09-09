@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import StoryMobEditViewBase from './story-mob-edit-view-base.vue';
 
-import view_form from '@widgets/story/mob-main-form/mob-main-form.vue';
+import view_form from '@widgets/sub-story/mob-main-form/mob-main-form.vue';
 @Component({
     components: {
         view_form, 

@@ -64,10 +64,10 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import StoryService from '@/app-core/service/story/story-service';
+import SubStoryService from '@/app-core/service/sub-story/sub-story-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
-import StoryUIService from '@/ui-service/story/story-ui-action';
+import SubStoryUIService from '@/ui-service/sub-story/sub-story-ui-action';
 
 @Component({
     components: {
@@ -86,18 +86,18 @@ export default class StoryNewMobEditViewBase extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {StoryService}
+     * @type {SubStoryService}
      * @memberof StoryNewMobEditViewBase
      */
-    protected appEntityService: StoryService = new StoryService();
+    protected appEntityService: SubStoryService = new SubStoryService();
 
     /**
      * 实体UI服务对象
      *
-     * @type StoryUIService
+     * @type SubStoryUIService
      * @memberof StoryNewMobEditViewBase
      */
-    public appUIService: StoryUIService = new StoryUIService(this.$store);
+    public appUIService: SubStoryUIService = new SubStoryUIService(this.$store);
 
     /**
      * 数据变化
@@ -200,7 +200,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      */
     protected model: any = {
         srfTitle: '需求移动端编辑视图（新建）',
-        srfCaption: 'story.views.newmobeditview.caption',
+        srfCaption: 'substory.views.newmobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
@@ -370,7 +370,7 @@ export default class StoryNewMobEditViewBase extends Vue {
         this.engine.init({
             view: this,
             form: this.$refs.form,
-            keyPSDEField: 'story',
+            keyPSDEField: 'substory',
             majorPSDEField: 'title',
             isLoadDefault: true,
         });

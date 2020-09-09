@@ -48,18 +48,8 @@ export class TaskTeamServiceBase extends EntityService {
      * @memberof TaskTeamServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.task && context.taskteam){
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}/select`,isloading);
-            
-            return res;
-        }
         if(context.project && context.task && context.taskteam){
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskteams/${context.taskteam}/select`,isloading);
-            
-            return res;
-        }
-        if(context.story && context.task && context.taskteam){
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}/select`,isloading);
             
             return res;
         }
@@ -80,20 +70,6 @@ export class TaskTeamServiceBase extends EntityService {
      * @memberof TaskTeamServiceBase
      */
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.task && true){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            if(!data.srffrontuf || data.srffrontuf !== "1"){
-                data[this.APPDEKEY] = null;
-            }
-            if(data.srffrontuf){
-                delete data.srffrontuf;
-            }
-            let tempContext:any = JSON.parse(JSON.stringify(context));
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskteams`,data,isloading);
-            
-            return res;
-        }
         if(context.project && context.task && true){
             let masterData:any = {};
             Object.assign(data,masterData);
@@ -105,20 +81,6 @@ export class TaskTeamServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/taskteams`,data,isloading);
-            
-            return res;
-        }
-        if(context.story && context.task && true){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            if(!data.srffrontuf || data.srffrontuf !== "1"){
-                data[this.APPDEKEY] = null;
-            }
-            if(data.srffrontuf){
-                delete data.srffrontuf;
-            }
-            let tempContext:any = JSON.parse(JSON.stringify(context));
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/taskteams`,data,isloading);
             
             return res;
         }
@@ -148,24 +110,10 @@ export class TaskTeamServiceBase extends EntityService {
      * @memberof TaskTeamServiceBase
      */
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.task && context.taskteam){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}`,data,isloading);
-            
-            return res;
-        }
         if(context.project && context.task && context.taskteam){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/projects/${context.project}/tasks/${context.task}/taskteams/${context.taskteam}`,data,isloading);
-            
-            return res;
-        }
-        if(context.story && context.task && context.taskteam){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().put(`/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}`,data,isloading);
             
             return res;
         }
@@ -188,16 +136,8 @@ export class TaskTeamServiceBase extends EntityService {
      * @memberof TaskTeamServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.task && context.taskteam){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}`,isloading);
-            return res;
-        }
         if(context.project && context.task && context.taskteam){
             let res:any = Http.getInstance().delete(`/projects/${context.project}/tasks/${context.task}/taskteams/${context.taskteam}`,isloading);
-            return res;
-        }
-        if(context.story && context.task && context.taskteam){
-            let res:any = Http.getInstance().delete(`/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}`,isloading);
             return res;
         }
         if(context.task && context.taskteam){
@@ -216,18 +156,8 @@ export class TaskTeamServiceBase extends EntityService {
      * @memberof TaskTeamServiceBase
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.task && context.taskteam){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}`,isloading);
-            
-            return res;
-        }
         if(context.project && context.task && context.taskteam){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskteams/${context.taskteam}`,isloading);
-            
-            return res;
-        }
-        if(context.story && context.task && context.taskteam){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}`,isloading);
             
             return res;
         }
@@ -248,20 +178,8 @@ export class TaskTeamServiceBase extends EntityService {
      * @memberof TaskTeamServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.task && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskteams/getdraft`,isloading);
-            res.data.taskteam = data.taskteam;
-            
-            return res;
-        }
         if(context.project && context.task && true){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskteams/getdraft`,isloading);
-            res.data.taskteam = data.taskteam;
-            
-            return res;
-        }
-        if(context.story && context.task && true){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskteams/getdraft`,isloading);
             res.data.taskteam = data.taskteam;
             
             return res;
@@ -284,24 +202,10 @@ export class TaskTeamServiceBase extends EntityService {
      * @memberof TaskTeamServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.task && context.taskteam){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}/checkkey`,data,isloading);
-            
-            return res;
-        }
         if(context.project && context.task && context.taskteam){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/taskteams/${context.taskteam}/checkkey`,data,isloading);
-            
-            return res;
-        }
-        if(context.story && context.task && context.taskteam){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}/checkkey`,data,isloading);
             
             return res;
         }
@@ -324,24 +228,10 @@ export class TaskTeamServiceBase extends EntityService {
      * @memberof TaskTeamServiceBase
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.task && context.taskteam){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}/save`,data,isloading);
-            
-            return res;
-        }
         if(context.project && context.task && context.taskteam){
             let masterData:any = {};
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/taskteams/${context.taskteam}/save`,data,isloading);
-            
-            return res;
-        }
-        if(context.story && context.task && context.taskteam){
-            let masterData:any = {};
-            Object.assign(data,masterData);
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/taskteams/${context.taskteam}/save`,data,isloading);
             
             return res;
         }
@@ -364,19 +254,9 @@ export class TaskTeamServiceBase extends EntityService {
      * @memberof TaskTeamServiceBase
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.task && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskteams/fetchdefault`,tempData,isloading);
-            return res;
-        }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskteams/fetchdefault`,tempData,isloading);
-            return res;
-        }
-        if(context.story && context.task && true){
-            let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskteams/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.task && true){
