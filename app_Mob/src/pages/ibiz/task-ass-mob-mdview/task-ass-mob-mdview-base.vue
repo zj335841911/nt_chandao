@@ -265,6 +265,21 @@ export default class TaskAssMobMDViewBase extends Vue {
     * @type {*}
     * @memberof TaskAssMobMDView
     */
+    public mdctrl_quicktoolbarModels: any = {
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyAssMore', target: 'NONE' } },
+
+    };
+
+    
+
+
+
+   /**
+    * 工具栏 TaskAssMobMDView 模型
+    *
+    * @type {*}
+    * @memberof TaskAssMobMDView
+    */
     public righttoolbarModels: any = {
     };
 
@@ -276,7 +291,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      *
      * @memberof TaskAssMobMDViewBase
      */
-    public toolbarModelList:any = ['righttoolbarModels',]
+    public toolbarModelList:any = ['mdctrl_quicktoolbarModels','righttoolbarModels',]
 
     /**
      * 解析视图参数

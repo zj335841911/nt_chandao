@@ -257,12 +257,27 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
     @Prop({default:true}) protected showTitle?: boolean;
 
 
+
+   /**
+    * 工具栏 TaskFavoriteMobMDView 模型
+    *
+    * @type {*}
+    * @memberof TaskFavoriteMobMDView
+    */
+    public mdctrl_quicktoolbarModels: any = {
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyFavMore', target: 'NONE' } },
+
+    };
+
+    
+
+
     /**
      * 工具栏模型集合名
      *
      * @memberof TaskFavoriteMobMDViewBase
      */
-    public toolbarModelList:any = []
+    public toolbarModelList:any = ['mdctrl_quicktoolbarModels',]
 
     /**
      * 解析视图参数

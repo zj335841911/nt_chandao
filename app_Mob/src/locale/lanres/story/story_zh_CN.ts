@@ -72,6 +72,9 @@ export default {
 		mobpickupmdview: {
 			caption: '需求',
 		},
+		favoritemoremobmdview: {
+			caption: '需求',
+		},
 		asmoboptionview: {
 			caption: '指派',
 		},
@@ -85,6 +88,9 @@ export default {
 			caption: '激活',
 		},
 		mobmdview: {
+			caption: '需求',
+		},
+		assmoremobmdview: {
 			caption: '需求',
 		},
 		favoritemobmdview: {

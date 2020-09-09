@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import TaskFavoriteMobMDViewBase from './task-favorite-mob-mdview-base.vue';
 
-import view_mdctrl from '@widgets/task/favorite-mob-mobmdctrl/favorite-mob-mobmdctrl.vue';
+import view_mdctrl from '@widgets/task/favorite-mobdas-mobmdctrl/favorite-mobdas-mobmdctrl.vue';
 @Component({
     components: {
         view_mdctrl, 
