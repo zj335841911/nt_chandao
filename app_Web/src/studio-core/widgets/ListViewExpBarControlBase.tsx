@@ -10,15 +10,6 @@ import { ExpControlBase } from './ExpControlBase';
 export class ListViewExpBarControlBase extends ExpControlBase {
 
     /**
-     * 是否单选
-     * 
-     * @public
-     * @type {(boolean)}
-     * @memberof ListViewExpBarControlBase
-     */
-    public isSingleSelect: boolean = true;
-
-    /**
      * 分割宽度
      *
      * @type {number}

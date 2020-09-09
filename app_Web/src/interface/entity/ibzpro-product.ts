@@ -29,4 +29,12 @@ export interface IBZProProduct {
      * @memberof IBZProProduct
      */
     ibizid?: any;
+
+    /**
+     * 产品代号
+     *
+     * @returns {*}
+     * @memberof IBZProProduct
+     */
+    code?: any;
 }

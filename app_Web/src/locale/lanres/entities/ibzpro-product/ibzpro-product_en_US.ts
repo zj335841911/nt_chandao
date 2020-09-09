@@ -4,6 +4,7 @@ export default {
     id: "编号",
     name: "产品名称",
     ibizid: "IBIZ标识",
+    code: "产品代号",
   },
 	views: {
 		gridview: {
