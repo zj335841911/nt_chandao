@@ -67,8 +67,8 @@ public class Bug extends EntityMP implements Serializable {
      * 激活日期
      */
     @TableField(value = "activateddate")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "activateddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "activateddate" , format="yyyy-MM-dd")
     @JsonProperty("activateddate")
     private Timestamp activateddate;
     /**
@@ -706,7 +706,7 @@ public class Bug extends EntityMP implements Serializable {
         if (this.activateddate == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(activateddate);
     }
     /**

@@ -143,7 +143,7 @@ export default class DashboardMainEditModel {
       {
         name: 'activateddate',
         prop: 'activateddate',
-        dataType: 'DATETIME',
+        dataType: 'DATE',
       },
       {
         name: 'confirmed',

@@ -267,4 +267,6 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
             this.grid_uagridcolumn1_ue198e4c_click(row, tag, $event);
         }
     }
+
+
 }

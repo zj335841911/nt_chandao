@@ -499,4 +499,6 @@ export class Main_BuildSubGridBase extends GridControlBase {
             this.grid_uagridcolumn1_uea0faba_click(row, tag, $event);
         }
     }
+
+
 }

@@ -282,4 +282,6 @@ export class PlatformManagementGridBase extends GridControlBase {
             this.grid_uagridcolumn1_u7324c5a_click(row, tag, $event);
         }
     }
+
+
 }

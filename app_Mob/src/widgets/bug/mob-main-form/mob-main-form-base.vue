@@ -40,24 +40,27 @@
 
 
 <app-form-item 
-    name='branchname' 
+    name='branch' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="branchname_item"  
-    :itemValue="this.data.branchname" 
-    v-show="detailsModel.branchname.visible" 
-    :itemRules="this.rules.branchname" 
-    :caption="$t('bug.mobmain_form.details.branchname')"  
+    ref="branch_item"  
+    :itemValue="this.data.branch" 
+    v-show="detailsModel.branch.visible" 
+    :itemRules="this.rules.branch" 
+    :caption="$t('bug.mobmain_form.details.branch')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.branchname.disabled"
-    :error="detailsModel.branchname.error" 
+    :disabled="detailsModel.branch.disabled"
+    :error="detailsModel.branch.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.branchname" 
+        codeListType="DYNAMIC" 
+    tag="ProductBranch"
+    :isCache="false" 
+    v-if="data.branch" 
     :context="context" 
-    :value="data.branchname" 
+    :value="data.branch" 
     :itemParam="{}"/>
 </app-form-item>
 
@@ -838,6 +841,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         productname: null,
+        branch: null,
         branchname: null,
         modulename1: null,
         projectname: null,
@@ -943,6 +947,12 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { type: 'string', message: '产品 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '产品 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '产品 值不能为空', trigger: 'blur' },
+        ],
+        branch: [
+            { type: 'string', message: '平台/分支 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '平台/分支 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '平台/分支 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '平台/分支 值不能为空', trigger: 'blur' },
         ],
         branchname: [
             { type: 'string', message: '平台/分支 值必须为字符串类型', trigger: 'change' },
@@ -1162,6 +1172,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         productname: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        branch: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         branchname: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branchname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         modulename1: new FormItemModel({ caption: '模块名称', detailType: 'FORMITEM', name: 'modulename1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -1306,6 +1318,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.productname')
     onProductnameChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'productname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 branch 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.branch')
+    onBranchChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'branch', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1591,6 +1615,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
 
 
 
+
     }
 
 
@@ -1766,7 +1791,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['productname_item', 'branchname_item', 'modulename1_item', 'projectname_item', 'openedbuild_item', 'title_item', 'type_item', 'severity_item', 'pri_item', 'os_item', 'browser_item', 'deadline_item', 'repotype_item', 'status_item', 'resolution_item', 'resolveddate_item', 'resolvedby_item', 'steps_item', ];
+        const refArr: Array<string> = ['productname_item', 'branch_item', 'modulename1_item', 'projectname_item', 'openedbuild_item', 'title_item', 'type_item', 'severity_item', 'pri_item', 'os_item', 'browser_item', 'deadline_item', 'repotype_item', 'status_item', 'resolution_item', 'resolveddate_item', 'resolvedby_item', 'steps_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];

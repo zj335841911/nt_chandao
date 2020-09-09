@@ -155,6 +155,22 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1a957197655fae1ce44ceccda6f65852',
+            viewmodule: 'ibiz',
+            viewname: 'TaskAssMoreMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3dceefbdc55213c1c17b2eb35095fb3c',
+                '20d9ad91186fc647b9fd98d0b562341b',
+                '5417edd9f4126190105417c652149d76',
+                'd739ee414172cbfdc3d6e2d2e01e3676',
+                '78beacb29481bfa83dfce62ac4bd9d13',
+                '4a68a7fca37b1f7d3cf396c66fd2347a',
+                '16bfeba2aa5ae0287f8821660cf2dc78',
+            ],
+        },
+        {
             viewtag: '1afb3df498f4daa660709cca53ece0b2',
             viewmodule: 'ibiz',
             viewname: 'IbzMyTerritoryMobTabExpView',
@@ -437,6 +453,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '61673d1a86a046c9ff672f16ab4b7ce7',
+            viewmodule: 'ibiz',
+            viewname: 'TaskFavoriteMoreMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '16bfeba2aa5ae0287f8821660cf2dc78',
+            ],
+        },
+        {
             viewtag: '61b907edfc7822d020b6b2c2246ee8e0',
             viewmodule: 'ibiz',
             viewname: 'ProductMobPickupView',
@@ -444,6 +470,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '2a07bb13f1ffd6dabae943ff44cd0b2c',
+            ],
+        },
+        {
+            viewtag: '62196028f5dcb2261905206f6bf86ec6',
+            viewmodule: 'ibiz',
+            viewname: 'StoryFavoriteMoreMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd096e8789265e730da5eefa1423479dc',
             ],
         },
         {
@@ -512,6 +548,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '61673d1a86a046c9ff672f16ab4b7ce7',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },
@@ -524,6 +561,7 @@ export const viewstate: any = {
             refviews: [
                 'a784b546d5d05850930cbaf23f8727a1',
                 '6e91454cb4217d3aa1260161a539c803',
+                'a4a6fd9906bc1ecaac85b44ffcc466fe',
                 'c55172fa3818041e87a38262949c0c96',
                 '8d13feb9b1401f28a033fec23ffd7e90',
             ],
@@ -644,6 +682,7 @@ export const viewstate: any = {
                 '5417edd9f4126190105417c652149d76',
                 'd739ee414172cbfdc3d6e2d2e01e3676',
                 '78beacb29481bfa83dfce62ac4bd9d13',
+                '1a957197655fae1ce44ceccda6f65852',
                 '4a68a7fca37b1f7d3cf396c66fd2347a',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
@@ -864,6 +903,20 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'c52c57693a3e848c0274a08033492394',
+            viewmodule: 'ibiz',
+            viewname: 'StoryAssMoreMobMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd096e8789265e730da5eefa1423479dc',
+                '95cda0105e1825b7d41889deceb93c23',
+                '6530030850ee815ed2c26f0be4f53bad',
+                '2b6e052f3fa1629c2d2ac11a1823d95d',
+                'cacf8bf823f555d6b1952c3aeddf8223',
             ],
         },
         {

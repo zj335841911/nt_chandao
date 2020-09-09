@@ -62,6 +62,9 @@ export default {
 		mobeditview: {
 			caption: '任务',
 		},
+		assmoremobmdview: {
+			caption: '任务',
+		},
 		stopmoboptionview: {
 			caption: '暂停',
 		},
@@ -79,6 +82,9 @@ export default {
 		},
 		startmoboptionview: {
 			caption: '开始',
+		},
+		favoritemoremobmdview: {
+			caption: '任务',
 		},
 		favoritemobmdview: {
 			caption: '任务',
@@ -305,15 +311,15 @@ export default {
 			tip: '删除',
 		},
 	},
-	favoritemobmdviewrighttoolbar_toolbar: {
-	},
-	mobdashboardviewdashboard_sysportlet4_list_quicktoolbar_toolbar: {
+	assmobmdviewmdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {
 			caption: '更多',
 			tip: '更多',
 		},
 	},
-	portlet_myfavoritetask_list_quicktoolbar_toolbar: {
+	assmobmdviewrighttoolbar_toolbar: {
+	},
+	favoritemobmdviewmdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {
 			caption: '更多',
 			tip: '更多',

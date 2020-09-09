@@ -318,4 +318,6 @@ export class Main_PlanSubGridBase extends GridControlBase {
             this.grid_uagridcolumn1_uda12208_click(row, tag, $event);
         }
     }
+
+
 }

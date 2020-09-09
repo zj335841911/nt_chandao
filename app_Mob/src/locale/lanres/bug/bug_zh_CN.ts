@@ -156,6 +156,7 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			productname: '产品', 
+			branch: '平台/分支', 
 			branchname: '平台/分支', 
 			modulename1: '模块名称', 
 			projectname: '项目', 
