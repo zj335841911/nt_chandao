@@ -1487,9 +1487,11 @@ export default class StoryUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
-        deResParameters = [
+        if(context.story && true){
+            deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
-        ];
+            ]
+        }
         const parameters: any[] = [
             { pathName: 'substories', parameterName: 'substory' },
         ];

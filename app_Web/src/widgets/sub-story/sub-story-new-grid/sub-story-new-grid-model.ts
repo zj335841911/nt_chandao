@@ -131,11 +131,6 @@ export default class SubStoryNewModel {
           dataType: 'LONGTEXT',
         },
         {
-          name: 'story',
-          prop: 'parent',
-          dataType: 'FONTKEY',
-        },
-        {
           name: 'substory',
           prop: 'id',
         },
