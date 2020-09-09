@@ -149,6 +149,15 @@ export class ProjectTaskQCntLogicBase {
     }
 
     /**
+     * 计算10节点结果
+     * 
+     * @param params 传入参数
+     */
+    public compute10Cond(params:any):boolean{
+        return true;
+    }
+
+    /**
      * 执行逻辑
      * 
      * @param context 应用上下文
@@ -274,6 +283,18 @@ export class ProjectTaskQCntLogicBase {
     * @param params 传入参数
     */
     private async executeRawsqlcall10(context:any,params:any,isloading:boolean){
+        // RAWSQLCALL暂未支持
+        console.log("RAWSQLCALL暂未支持");
+        return this.paramsMap.get(this.defaultParamName).data;
+    }
+
+    /**
+    * 需求变更数
+    * 
+    * @param context 应用上下文
+    * @param params 传入参数
+    */
+    private async executeRawsqlcall11(context:any,params:any,isloading:boolean){
         // RAWSQLCALL暂未支持
         console.log("RAWSQLCALL暂未支持");
         return this.paramsMap.get(this.defaultParamName).data;

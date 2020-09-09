@@ -170,14 +170,6 @@ export default class AppSelectDropDown extends Vue {
     @Prop({ default: {} }) protected navigateContext?: any;
 
     /**
-     * 当前值
-     *
-     * @type {string}
-     * @memberof AppSelectDropDown
-     */
-    public curvalue: string = '';
-
-    /**
      * 下拉数组
      * @type {any[]}
      * @memberof AppSelectDropDown
@@ -221,16 +213,19 @@ export default class AppSelectDropDown extends Vue {
      * @readonly
      * @memberof AppSelectDropDown
      */
-    get refvalue() {
-        if (this.valueitem && this.data && this.items.length > 0) {
-            let index = this.items.indexOf(this.data[this.valueitem])
-            if(index !== -1){
-                return this.data[this.valueitem];
+    get curvalue() {
+        if(this.value && this.items.length > 0){ // 判断是否拿到表单传来的值、列表项是否加载完成
+            let isIncluded = this.items.some((item:any)=>{return item.name === this.value})
+            if (isIncluded) {
+                return this.value;
             } else {
-                return this.curvalue;
+                return "";
             }
+        } else if (this.valueitem && this.data) {  // 是否有配置值项
+            return this.data[this.valueitem];
+        } else {
+            return "";
         }
-        return this.curvalue;
     }
 
     /**
@@ -239,7 +234,7 @@ export default class AppSelectDropDown extends Vue {
       * @readonly
       * @memberof AppSelectDropDown
       */
-    set refvalue(item: any) {
+    set curvalue(item: any) {
         this.onSelect(item);
     }
 
