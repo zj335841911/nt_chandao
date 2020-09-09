@@ -214,18 +214,15 @@ export default class AppSelectDropDown extends Vue {
      * @memberof AppSelectDropDown
      */
     get curvalue() {
-        if(this.value && this.items.length > 0){ // 判断是否拿到表单传来的值、列表项是否加载完成
-            let isIncluded = this.items.some((item:any)=>{return item.name === this.value})
+        if (this.value && this.items.length > 0) { // 判断是否拿到表单传来的值、列表项是否加载完成
+            let isIncluded = this.items.some((item:any)=>{return item.name === this.value});
             if (isIncluded) {
                 return this.value;
-            } else {
-                return "";
             }
         } else if (this.valueitem && this.data) {  // 是否有配置值项
             return this.data[this.valueitem];
-        } else {
-            return "";
         }
+        return "";
     }
 
     /**

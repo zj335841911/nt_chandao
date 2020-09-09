@@ -585,7 +585,7 @@ export default class AssMOBDASHBOARDBase extends Vue implements ControlInterface
     * @type {boolean}
     * @memberof AssMOBDASHBOARD
     */
-    public group_detail:any = '';
+    public group_detail:any = [];
 
     /**
     * 分组数据
@@ -978,20 +978,26 @@ export default class AssMOBDASHBOARDBase extends Vue implements ControlInterface
     /**
      * 获取分组数据
      *
-     * @memberof AssMOBDASHBOARD
+     * @memberof Mob
      */
     public getGroupData(items:any){
-      let data:any =[];
-      let obj:any = {};
-      items.forEach((item:any,index:number,items:Array<number>)=>{
-        if(!obj[item[this.group_field]]){
-          obj[item[this.group_field]] = item[this.group_field];
-          data.push(this.filterByTag(items,item[this.group_field]));
-        }
+      let data:any = [];
+      let iobj:any = {};
+      this.group_detail.forEach((obj:any,index:number)=>{
+        let idata
+        items.forEach((item:any,i:number)=>{
+          if (item[this.group_field] === obj.value) {
+            if(!iobj[ item[this.group_field] ]){
+            iobj[ item[this.group_field] ] = item[this.group_field];
+            data.push(this.filterByTag(items,item[this.group_field]));
+            }
+          }
+        })
+
       })
       data.forEach((arr:any,index:number)=>{
         this.group_data[index] = {};
-        this.group_data[index].text = this.group_detail[ arr[0][this.group_field] ];
+        this.group_data[index].text = this.group_detail[ index ].text;
         this.group_data[index].items = arr;
       })
     }
