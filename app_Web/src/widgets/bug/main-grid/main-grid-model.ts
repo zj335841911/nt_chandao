@@ -29,7 +29,7 @@ export default class MainModel {
         {
           name: 'activateddate',
           prop: 'activateddate',
-          dataType: 'DATETIME',
+          dataType: 'DATE',
         },
         {
           name: 'tostory',
