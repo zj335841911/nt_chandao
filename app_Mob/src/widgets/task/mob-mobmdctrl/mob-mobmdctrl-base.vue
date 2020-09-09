@@ -1459,7 +1459,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
-        confirmStoryChange: { name: 'confirmStoryChange',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', target: 'SINGLEKEY',icon:'search',isShowCaption:false,isShowIcon:true},
+        confirmStoryChange: { name: 'confirmStoryChange',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', target: 'SINGLEKEY',icon:'search',isShowCaption:false,isShowIcon:true},
         TaskFavoritesMob: { name: 'TaskFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_NFAVOR_BUT', target: 'SINGLEKEY',icon:'star-outline',isShowCaption:false,isShowIcon:true},
         TaskNFavoritesMob: { name: 'TaskNFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_FAVOR_BUT', target: 'SINGLEKEY',icon:'star',isShowCaption:false,isShowIcon:true},
         StartTaskMob: { name: 'StartTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_START_BUT', target: 'SINGLEKEY',icon:'play',isShowCaption:false,isShowIcon:true},

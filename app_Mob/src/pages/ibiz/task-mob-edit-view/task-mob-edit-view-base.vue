@@ -324,7 +324,7 @@ export default class TaskMobEditViewBase extends Vue {
     * @memberof TaskMobEditView
     */
     public righttoolbarModels: any = {
-            deuiaction1_confirmstorychange: { name: 'deuiaction1_confirmstorychange', caption: '确认', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', uiaction: { tag: 'confirmStoryChange', target: 'SINGLEKEY' } },
+            deuiaction1_confirmstorychange: { name: 'deuiaction1_confirmstorychange', caption: '确认', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', uiaction: { tag: 'confirmStoryChange', target: 'SINGLEKEY' } },
 
             deuiaction1_starttaskmob: { name: 'deuiaction1_starttaskmob', caption: '开始', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_START_BUT', uiaction: { tag: 'StartTaskMob', target: 'SINGLEKEY' } },
 
