@@ -3998,7 +3998,7 @@
                 "id": "UNACCOMPLISHED",
                 "label": "未完成",
                 "text": "未完成",
-                "data":{"n_status_in":"wait,cancel,doing"},
+                "data":{"n_status_in":"wait;cancel;doing"},
                 "codename":"UNCOMPLETETASKCNT",
                 "value": "UNACCOMPLISHED",
                 "pvalue": "MORE",
