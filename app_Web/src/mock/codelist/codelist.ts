@@ -3685,7 +3685,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "UNACCOMPLISHED",
                 label: "未完成",
                 text: "未完成",
-                "data":{"n_status_noteq":"done"},
+                "data":{"n_status_in":"wait,cancel,doing"},
                 "codename":"UNCOMPLETETASKCNT",
                 value: "UNACCOMPLISHED",
                 "pvalue": "MORE",
