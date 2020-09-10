@@ -386,6 +386,7 @@ export default class MainBase extends Vue implements ControlInterface {
         const [{ pathName, parameterName }] = this.parameters;
         datas.forEach((arg: any) => {
             let id: string = arg[parameterName] ? arg[parameterName] : this.$util.createUUID();
+            let title :string = arg.ibztaskteamname ?  arg.ibztaskteamname :'';
             let item: any = { id: id,title:title, viewdata: {}, viewparam: {} };
             Object.assign(item.viewdata, this.$viewTool.getIndexViewParam());
             Object.assign(item.viewdata, this.context);

@@ -345,9 +345,5 @@ export default {
 		},
 	},
 	mobmdviewcurprojectrighttoolbar_toolbar: {
-		deuiaction1: {
-			caption: '关联需求',
-			tip: '关联需求',
-		},
 	},
 };

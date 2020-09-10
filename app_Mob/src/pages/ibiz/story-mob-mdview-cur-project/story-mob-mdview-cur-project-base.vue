@@ -56,13 +56,6 @@
             <div class="bottom_menu">
         
         
-            <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
-                <ion-icon name="link"></ion-icon>
-                
-            </ion-fab-button>
-        
-            </ion-fab>
             </div>
         </div>
         
@@ -296,8 +289,6 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
     * @memberof StoryMobMDViewCurProject
     */
     public righttoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', uiaction: { tag: 'projectLinkStoriesMob', target: 'NONE' } },
-
     };
 
     /**
@@ -556,51 +547,6 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
         this.engine.onCtrlEvent('mdctrl', 'load', $event);
     }
 
-    /**
-     * righttoolbar 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof StoryMobMDViewCurProjectBase
-     */
-    protected righttoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.righttoolbar_deuiaction1_click($event, '', $event2);
-        }
-    }
-
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof StoryMobMDViewCurProjectBase
-     */
-    protected async righttoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        Object.assign(paramJO, {});
-        xData = this.$refs.mdctrl;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
-        if (curUIService) {
-            curUIService.Story_projectLinkStoriesMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
 
     /**
      * 打开新建数据视图
