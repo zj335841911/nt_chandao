@@ -19,6 +19,21 @@ export default class AppRichTextEditor extends Vue {
      */
     @Prop() public value?: any;
 
+    /**
+     * 是否禁用
+     *
+     * @type {boolean}
+     * @memberof AppRichTextEditor
+     */
+    @Prop() public disabled?: boolean;
+
+
+    /**
+     * 富文本显示值
+     *
+     * @type {boolean}
+     * @memberof AppRichTextEditor
+     */
     public showVal:string = "";
     
     /**
@@ -126,6 +141,9 @@ export default class AppRichTextEditor extends Vue {
      * @memberof AppRichTextEditor
      */
     public open(){
+      if (this.disabled) {
+        return false;
+      }
       let curVal:any = null;
       if(this.value){
         const url:string = this.downloadUrl.indexOf('../') === 0 ? this.downloadUrl.substring(3) : this.downloadUrl;
