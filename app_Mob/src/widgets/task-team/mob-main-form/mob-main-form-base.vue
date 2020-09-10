@@ -39,8 +39,8 @@
     :context="context" 
     :viewparams="viewparams"
     :value="data.account"  
-    :navigateContext ='{ "project": "%root%" } '
-    :navigateParam ='{ "project": "%root%" } '
+    :navigateContext ='{ "project": "%project%" } '
+    :navigateParam ='{ "project": "%project%" } '
     @change="($event)=>this.data.account = $event" />
 </app-form-item>
 
