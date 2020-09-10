@@ -31,7 +31,7 @@
     :error="detailsModel.account.error" 
     :isEmptyCaption="false">
         <app-mob-select 
-    tag="UserRealNameTask"
+    tag="UserRealNameProject"
     codeListType="DYNAMIC" 
     :isCache="false" 
     :disabled="detailsModel.account.disabled" 

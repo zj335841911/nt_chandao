@@ -76,9 +76,6 @@ export default {
         ' release_changestatus_normal': '正常',
         empty: '',
     },
-    UserRealNameTask: {
-        empty: '',
-    },
     Pri: {
         '1': '一般',
         '2': '最高',

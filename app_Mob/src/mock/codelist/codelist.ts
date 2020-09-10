@@ -419,14 +419,6 @@ const datas: Array<any> = [
         ]
     },
     {
-        "srfkey": "UserRealNameTask",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"User",
-        "appdedataset":"FetchProjectTeamUser_Task",
-        "items": []
-    },
-    {
         srfkey: 'Pri',
         emptytext: '未定义',
         "codelisttype":"static",
