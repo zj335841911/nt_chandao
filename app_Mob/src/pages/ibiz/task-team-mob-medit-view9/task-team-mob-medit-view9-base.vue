@@ -473,7 +473,7 @@ if(this.formDruipart){
      * @memberof TaskTeamMobMEditView9
      */
     public async newdata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        this.$notice.warning('未指定关系视图');
+        //this.$notice.warning('未指定关系视图');
     }
 
 
@@ -491,7 +491,7 @@ if(this.formDruipart){
      * @memberof TaskTeamMobMEditView9
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        this.$notice.warning('未指定关系视图');
+        //this.$notice.warning('未指定关系视图');
     }
 
 
