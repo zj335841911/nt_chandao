@@ -461,7 +461,6 @@
     :caption="$t('bug.mobnewfrom_form.details.steps')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.steps.disabled"
     :error="detailsModel.steps.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.steps" @change="(val) =>{this.data.steps =val}" :disabled="detailsModel.steps.disabled" :data="JSON.stringify(this.data)"  name="steps" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""/>
