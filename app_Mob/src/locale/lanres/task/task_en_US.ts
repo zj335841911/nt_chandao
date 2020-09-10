@@ -283,9 +283,9 @@ export default {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
-		deuiaction1_confirmstorychange: {
+		deuiaction1_confirmstorychangecz: {
 			caption: '确认',
-			tip: 'deuiaction1_confirmstorychange',
+			tip: 'deuiaction1_confirmstorychangecz',
 		},
 		deuiaction1_starttaskmob: {
 			caption: '开始',

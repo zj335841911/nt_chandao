@@ -225,6 +225,13 @@ public class PSSysReqModule extends EntityClient implements Serializable {
     /**
      * 
      */
+    @JSONField(name = "psmodule")
+    @JsonProperty("psmodule")
+    private cn.ibizlab.pms.core.ibizsysmodel.domain.PSModule psmodule;
+
+    /**
+     * 
+     */
     @JSONField(name = "ppsysreqmodule")
     @JsonProperty("ppsysreqmodule")
     private cn.ibizlab.pms.core.ibizsysmodel.domain.PSSysReqModule ppsysreqmodule;
@@ -374,14 +381,6 @@ public class PSSysReqModule extends EntityClient implements Serializable {
     public void setPsmoduleid(String psmoduleid){
         this.psmoduleid = psmoduleid ;
         this.modify("psmoduleid",psmoduleid);
-    }
-
-    /**
-     * 设置 [系统模块]
-     */
-    public void setPsmodulename(String psmodulename){
-        this.psmodulename = psmodulename ;
-        this.modify("psmodulename",psmodulename);
     }
 
 

@@ -35,6 +35,12 @@ public class PSSysReqModuleSearchContext extends SearchContextBase {
 
 	private String n_ppssysreqmodulename_like;//[父需求模块]
 
+	private String n_psmoduleid_eq;//[系统模块]
+
+	private String n_psmodulename_eq;//[系统模块]
+
+	private String n_psmodulename_like;//[系统模块]
+
 }
 
 

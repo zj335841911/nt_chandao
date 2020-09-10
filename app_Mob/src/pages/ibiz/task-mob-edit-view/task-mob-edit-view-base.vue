@@ -50,9 +50,9 @@
             <ion-fab v-show="getToolBarLimit">
                 <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
                 <ion-fab-list class="fab-list" side="top">
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_confirmstorychange.visabled" :disabled="righttoolbarModels.deuiaction1_confirmstorychange.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_confirmstorychange' }, $event)">
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_confirmstorychangecz.visabled" :disabled="righttoolbarModels.deuiaction1_confirmstorychangecz.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_confirmstorychangecz' }, $event)">
                 <ion-icon name="search"></ion-icon>
-            {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmstorychange.caption')}}    
+            {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmstorychangecz.caption')}}    
             </ion-fab-button>
         
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_starttaskmob.visabled" :disabled="righttoolbarModels.deuiaction1_starttaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_starttaskmob' }, $event)">
@@ -324,7 +324,7 @@ export default class TaskMobEditViewBase extends Vue {
     * @memberof TaskMobEditView
     */
     public righttoolbarModels: any = {
-            deuiaction1_confirmstorychange: { name: 'deuiaction1_confirmstorychange', caption: '确认', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', uiaction: { tag: 'confirmStoryChange', target: 'SINGLEKEY' } },
+            deuiaction1_confirmstorychangecz: { name: 'deuiaction1_confirmstorychangecz', caption: '确认', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', uiaction: { tag: 'confirmStoryChangeCz', target: 'SINGLEKEY' } },
 
             deuiaction1_starttaskmob: { name: 'deuiaction1_starttaskmob', caption: '开始', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_START_BUT', uiaction: { tag: 'StartTaskMob', target: 'SINGLEKEY' } },
 
@@ -598,8 +598,8 @@ export default class TaskMobEditViewBase extends Vue {
      * @memberof TaskMobEditViewBase
      */
     protected righttoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1_confirmstorychange')) {
-            this.righttoolbar_deuiaction1_confirmstorychange_click($event, '', $event2);
+        if (Object.is($event.tag, 'deuiaction1_confirmstorychangecz')) {
+            this.righttoolbar_deuiaction1_confirmstorychangecz_click($event, '', $event2);
         }
         if (Object.is($event.tag, 'deuiaction1_starttaskmob')) {
             this.righttoolbar_deuiaction1_starttaskmob_click($event, '', $event2);
@@ -635,7 +635,7 @@ export default class TaskMobEditViewBase extends Vue {
      * @returns {Promise<any>}
      * @memberof TaskMobEditViewBase
      */
-    protected async righttoolbar_deuiaction1_confirmstorychange_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async righttoolbar_deuiaction1_confirmstorychangecz_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -653,7 +653,7 @@ export default class TaskMobEditViewBase extends Vue {
         // 界面行为
         const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
-            curUIService.Task_confirmStoryChange(datas, contextJO, paramJO, $event, xData, this);
+            curUIService.Task_confirmStoryChangeCz(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 

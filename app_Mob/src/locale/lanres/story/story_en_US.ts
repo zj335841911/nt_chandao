@@ -69,8 +69,14 @@ export default {
 		rmoboptionview: {
 			caption: '评审',
 		},
+		mobmdviewcurproject: {
+			caption: '需求',
+		},
 		mobpickupmdview: {
 			caption: '需求',
+		},
+		linkstorymobmpickupview: {
+			caption: '管理需求',
 		},
 		favoritemoremobmdview: {
 			caption: '需求',
@@ -98,6 +104,9 @@ export default {
 		},
 		changemoboptionview: {
 			caption: '变更',
+		},
+		linkstorymobpickupmdview: {
+			caption: '关联需求',
 		},
 		mobeditview: {
 			caption: '需求',
@@ -329,6 +338,12 @@ export default {
 		deuiaction1_deletemob: {
 			caption: '删除',
 			tip: 'deuiaction1_deletemob',
+		},
+	},
+	mobmdviewcurprojectrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '关联需求',
+			tip: 'deuiaction1',
 		},
 	},
 };

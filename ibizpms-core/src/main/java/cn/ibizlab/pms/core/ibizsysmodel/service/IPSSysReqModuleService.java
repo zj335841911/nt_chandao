@@ -35,6 +35,8 @@ public interface IPSSysReqModuleService{
     boolean save(PSSysReqModule et) ;
     void saveBatch(List<PSSysReqModule> list) ;
     Page<PSSysReqModule> searchDefault(PSSysReqModuleSearchContext context) ;
+    List<PSSysReqModule> selectByPsmoduleid(String psmoduleid) ;
+    void removeByPsmoduleid(String psmoduleid) ;
     List<PSSysReqModule> selectByPpssysreqmoduleid(String pssysreqmoduleid) ;
     void removeByPpssysreqmoduleid(String pssysreqmoduleid) ;
 
@@ -51,6 +53,8 @@ public interface IPSSysReqModuleService{
     boolean save(String devSlnSysId , PSSysReqModule et) ;
     void saveBatch(String devSlnSysId , List<PSSysReqModule> list) ;
     Page<PSSysReqModule> searchDefault(String devSlnSysId , PSSysReqModuleSearchContext context) ;
+    List<PSSysReqModule> selectByPsmoduleid(String devSlnSysId , String psmoduleid) ;
+    void removeByPsmoduleid(String devSlnSysId , String psmoduleid) ;
     List<PSSysReqModule> selectByPpssysreqmoduleid(String devSlnSysId , String pssysreqmoduleid) ;
     void removeByPpssysreqmoduleid(String devSlnSysId , String pssysreqmoduleid) ;
 

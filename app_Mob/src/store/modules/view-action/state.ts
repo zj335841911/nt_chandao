@@ -303,6 +303,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '3f8c805b81dddfc3dc5c2c7e04fa68c5',
+            viewmodule: 'ibiz',
+            viewname: 'StoryMobMDViewCurProject',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '4b500f8f7a721180f34e61392e89e08e',
+                'd096e8789265e730da5eefa1423479dc',
+            ],
+        },
+        {
             viewtag: '42217665efecfb18bd26480ca0e2780a',
             viewmodule: 'ibiz',
             viewname: 'StoryMobPickupMDView',
@@ -348,6 +359,16 @@ export const viewstate: any = {
             refviews: [
                 '81d40495e3ca8e2b6530decbba345dca',
                 'fa666a1ef668f58d01a55f0925d7e0fe',
+            ],
+        },
+        {
+            viewtag: '4b500f8f7a721180f34e61392e89e08e',
+            viewmodule: 'ibiz',
+            viewname: 'StoryLinkStoryMobMPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'cd0c5811ef5687b2485bc66b148402d5',
             ],
         },
         {
@@ -967,6 +988,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
+            viewtag: 'cd0c5811ef5687b2485bc66b148402d5',
+            viewmodule: 'ibiz',
+            viewname: 'StoryLinkStoryMobPickupMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
