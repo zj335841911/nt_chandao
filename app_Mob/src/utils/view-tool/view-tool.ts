@@ -336,10 +336,9 @@ export class ViewTool {
 
         let data = this.formatNavigateParam(view.navContext, view.navParam, _context, _param, {});
 
-        if (isPSDEView) {
+        if (isPSDEView && !data.context.hasOwnProperty('srfsessionid')) {
             Object.assign(data.context, { srfsessionid: Util.createUUID() });
         }
-
         return data;
     }
 
