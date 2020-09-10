@@ -30,26 +30,28 @@
     :disabled="detailsModel.productname.disabled"
     :error="detailsModel.productname.error" 
     :isEmptyCaption="false">
-        <app-mob-select-drop-down 
-    name='productname' 
-    deMajorField='name'
+        <app-mob-picker
+    name='productname'
+    deMajorField='productname'
     deKeyField='productid'
     valueitem='' 
-    style="" 
-    editortype="dropdown" 
+    editortype="" 
+    style=""  
     :formState="formState"
     :data="data"
     :context="context"
+    :viewparams="viewparams"
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    :viewparams="viewparams"
     :itemParam='{ }' 
     :disabled="detailsModel.productname.disabled"
     :service="service"
     :acParams="{ serviceName: 'product', interfaceName: 'FetchDefault'}"
     :value="data.productname" 
-    @change="($event)=>this.data.productname = $event">
-</app-mob-select-drop-down>
+    :pickupView="{ viewname: 'product-mob-pickup-view', title: '产品移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-picker>
+
 </app-form-item>
 
 
@@ -138,26 +140,28 @@
     :disabled="detailsModel.buildname.disabled"
     :error="detailsModel.buildname.error" 
     :isEmptyCaption="false">
-        <app-mob-select-drop-down 
-    name='buildname' 
-    deMajorField='name'
+        <app-mob-picker
+    name='buildname'
+    deMajorField='buildname'
     deKeyField='buildid'
     valueitem='' 
-    style="" 
-    editortype="dropdown" 
+    editortype="" 
+    style=""  
     :formState="formState"
     :data="data"
     :context="context"
+    :viewparams="viewparams"
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    :viewparams="viewparams"
     :itemParam='{ }' 
     :disabled="detailsModel.buildname.disabled"
     :service="service"
     :acParams="{ serviceName: 'build', interfaceName: 'FetchDefault'}"
     :value="data.buildname" 
-    @change="($event)=>this.data.buildname = $event">
-</app-mob-select-drop-down>
+    :pickupView="{ viewname: 'build-mob-pickup-view', title: '版本移动端数据选择视图', deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'builds', parameterName: 'build' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-picker>
+
 </app-form-item>
 
 

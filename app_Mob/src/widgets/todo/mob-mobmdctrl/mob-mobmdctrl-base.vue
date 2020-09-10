@@ -33,7 +33,7 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                       <div class="item-grouped" v-for="obj in group_data" :key="obj.index">
-                        <div class="text">{{obj.text}}（<label v-if="obj.items && obj.items.length > 0">{{obj.items.length}}</label>）</div>
+                        <div class="text" v-if="obj.items && obj.items.length > 0">{{obj.text}}（<label v-if="obj.items && obj.items.length > 0">{{obj.items.length}}</label>）</div>
                       <ion-item-sliding  :ref="item.srfkey" v-for="item in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.assignToMob.visabled" :disabled="item.assignToMob.disabled" color="primary" @click="mdctrl_click($event, 'u5a26748', item)"><ion-icon v-if="item.assignToMob.icon && item.assignToMob.isShowIcon" :name="item.assignToMob.icon"></ion-icon><ion-label v-if="item.assignToMob.isShowCaption">指派</ion-label></ion-item-option>
@@ -616,6 +616,20 @@ export default class MobBase extends Vue implements ControlInterface {
     public group_field:string = 'status';
 
     /**
+     * 分组方法
+     *
+     * @memberof Mob
+     */
+    public group(){
+      let _this:any = this;
+      if(_this.getGroupDataByCodeList && _this.getGroupDataByCodeList instanceof Function && Object.is(_this.group_mode,"CODELIST") ){
+        _this.getGroupDataByCodeList(_this.items);
+      }else if(_this.getGroupDataAuto && _this.getGroupDataAuto instanceof Function && Object.is(_this.group_mode,"AUTO") ){
+        _this.getGroupDataAuto(_this.items);
+      }
+    }
+
+    /**
     * 存放数据选择数组(单选)
     *
     * @type {object}
@@ -982,11 +996,7 @@ export default class MobBase extends Vue implements ControlInterface {
             this.setSlidingDisabled(item);
         });
         if(this.isEnableGroup){
-          if (this.group_mode == 'AUTO') {
-            this.getGroupDataAuto(this.items);
-          }else{
-            this.getGroupDataByCodeList(this.items);
-          }
+          this.group();
         }
         return response;
     }
@@ -1019,31 +1029,6 @@ export default class MobBase extends Vue implements ControlInterface {
       })
     }
 
-    /**
-     * 
-     * 自动分组，获取分组数据
-     *
-     * @memberof Mob
-     */
-    public getGroupDataAuto(items:any){
-      let groups:Array<any> = [];
-      items.forEach((item:any)=>{
-        if(item.hasOwnProperty(this.group_field)){
-          groups.push(item[this.group_field]);
-        }
-      })
-      groups = [...new Set(groups)];
-      groups.forEach((group:any,index:number)=>{
-        this.group_data[index] = {};
-        this.group_data[index].items = [];
-        items.forEach((item:any,i:number)=>{
-          if (group == item[this.group_field]) {
-            this.group_data[index].text = group;
-            this.group_data[index].items.push(item);
-          }
-        })
-      })
-    }
 
     /**
     * 全选

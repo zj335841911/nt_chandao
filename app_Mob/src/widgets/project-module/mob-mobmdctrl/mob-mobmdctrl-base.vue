@@ -404,6 +404,20 @@ export default class MobBase extends Vue implements ControlInterface {
     public group_field:string = '';
 
     /**
+     * 分组方法
+     *
+     * @memberof Mob
+     */
+    public group(){
+      let _this:any = this;
+      if(_this.getGroupDataByCodeList && _this.getGroupDataByCodeList instanceof Function && Object.is(_this.group_mode,"CODELIST") ){
+        _this.getGroupDataByCodeList(_this.items);
+      }else if(_this.getGroupDataAuto && _this.getGroupDataAuto instanceof Function && Object.is(_this.group_mode,"AUTO") ){
+        _this.getGroupDataAuto(_this.items);
+      }
+    }
+
+    /**
     * 存放数据选择数组(单选)
     *
     * @type {object}
@@ -770,68 +784,12 @@ export default class MobBase extends Vue implements ControlInterface {
             this.setSlidingDisabled(item);
         });
         if(this.isEnableGroup){
-          if (this.group_mode == 'AUTO') {
-            this.getGroupDataAuto(this.items);
-          }else{
-            this.getGroupDataByCodeList(this.items);
-          }
+          this.group();
         }
         return response;
     }
 
-    /**
-     * 代码表分组，获取分组数据
-     *
-     * @memberof Mob
-     */
-    public getGroupDataByCodeList(items:any){
-      let group:Array<any> = [];
-      this.group_detail.forEach((obj:any,index:number)=>{
-        let data:any = [];
-        items.forEach((item:any,i:number)=>{
-          if (item[this.group_field] === obj.value) {
-            data.push(item);
-          }
-        })
-        group.push(data);
-      })
-      group.forEach((arr:any,index:number)=>{
-        this.group_data[index] = {};
-        this.group_data[index].text = this.group_detail[index].text;
-        this.group_data[index].items = arr;
-      })
-      this.group_data.forEach((item:any,i:number)=>{
-        if (item.items.length == 0) {
-          this.group_data.splice(i,1);
-        }
-      })
-    }
 
-    /**
-     * 
-     * 自动分组，获取分组数据
-     *
-     * @memberof Mob
-     */
-    public getGroupDataAuto(items:any){
-      let groups:Array<any> = [];
-      items.forEach((item:any)=>{
-        if(item.hasOwnProperty(this.group_field)){
-          groups.push(item[this.group_field]);
-        }
-      })
-      groups = [...new Set(groups)];
-      groups.forEach((group:any,index:number)=>{
-        this.group_data[index] = {};
-        this.group_data[index].items = [];
-        items.forEach((item:any,i:number)=>{
-          if (group == item[this.group_field]) {
-            this.group_data[index].text = group;
-            this.group_data[index].items.push(item);
-          }
-        })
-      })
-    }
 
     /**
     * 全选

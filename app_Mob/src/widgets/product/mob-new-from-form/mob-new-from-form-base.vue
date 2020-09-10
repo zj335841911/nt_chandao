@@ -106,26 +106,28 @@
     :disabled="detailsModel.linename.disabled"
     :error="detailsModel.linename.error" 
     :isEmptyCaption="false">
-        <app-mob-select-drop-down 
-    name='linename' 
-    deMajorField='name'
+        <app-mob-picker
+    name='linename'
+    deMajorField='modulename'
     deKeyField='moduleid'
     valueitem='' 
-    style="" 
-    editortype="dropdown" 
+    editortype="" 
+    style=""  
     :formState="formState"
     :data="data"
     :context="context"
+    :viewparams="viewparams"
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    :viewparams="viewparams"
     :itemParam='{ }' 
     :disabled="detailsModel.linename.disabled"
     :service="service"
     :acParams="{ serviceName: 'module', interfaceName: 'FetchLine'}"
     :value="data.linename" 
-    @change="($event)=>this.data.linename = $event">
-</app-mob-select-drop-down>
+    :pickupView="{ viewname: 'module-mob-pickup-view', title: '模块移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'modules', parameterName: 'module' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-picker>
+
 </app-form-item>
 
 
