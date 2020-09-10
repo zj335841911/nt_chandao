@@ -105,7 +105,7 @@ export class StoryMainGridViewBase extends GridViewBase {
      * @memberof StoryMainGridView
      */
     public toolBarModels: any = {
-        deuiaction1_syncfromibiz: { name: 'deuiaction1_syncfromibiz', caption: '同步', 'isShowCaption': true, 'isShowIcon': true, tooltip: '同步', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SyncFromIBIZ', target: 'NONE', class: '' } },
+        deuiaction1_syncfromibiz: { name: 'deuiaction1_syncfromibiz', caption: '同步', 'isShowCaption': true, 'isShowIcon': true, tooltip: '同步', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'SyncFromIBIZ', target: 'SINGLEKEY', class: '' } },
 
         deuiaction1_allpush: { name: 'deuiaction1_allpush', caption: '推送', 'isShowCaption': true, 'isShowIcon': true, tooltip: '推送', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ALLPush', target: 'NONE', class: '' } },
 
