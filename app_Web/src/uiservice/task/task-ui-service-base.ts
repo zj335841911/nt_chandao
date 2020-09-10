@@ -356,11 +356,6 @@ export default class TaskUIServiceBase extends UIService {
             openDrawer(view, data);
     }
 
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #elseif (item.getFrontProcessType() =...  [in template "TEMPLCODE_en_US" at line 180, column 5]
-----
-无法获取指定应用视图，标识为[2ffcff308f010f37ffa99c4ffb31564f]，请确认实体视图[ZT_TASK][任务实体移动端多数据视图（我的收藏）（更多）]已经添加到应用[iBiz软件生产管理]中
     /**
      * 指派
      *
@@ -1331,11 +1326,6 @@ FTL stack trace ("~" means nesting-related):
             openPopupModal(view, data);
     }
 
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #elseif (item.getFrontProcessType() =...  [in template "TEMPLCODE_en_US" at line 180, column 5]
-----
-无法获取指定应用视图，标识为[383ecbb72f0d5345eb208ef69b009e0d]，请确认实体视图[ZT_TASK][任务实体移动端多数据视图（指派给我）（更多）]已经添加到应用[iBiz软件生产管理]中
     /**
      * 子任务
      *
