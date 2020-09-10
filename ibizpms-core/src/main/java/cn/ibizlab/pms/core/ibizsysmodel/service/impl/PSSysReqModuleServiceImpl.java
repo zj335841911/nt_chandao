@@ -170,7 +170,7 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
 
     @Override
     public String getByCodeName(String devSlnSysId,String codeName) {
-        return codeName;
+        return getPSSysReqModuleFeignClient(devSlnSysId).getByCodeName(codeName);
     }
 
     @Override

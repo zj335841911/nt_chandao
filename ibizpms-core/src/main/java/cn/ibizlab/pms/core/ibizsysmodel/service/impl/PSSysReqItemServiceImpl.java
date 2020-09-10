@@ -170,7 +170,7 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
 
     @Override
     public String getByCodeName(String devSlnSysId,String codeName) {
-        return codeName;
+        return getPSSysReqItemFeignClient(devSlnSysId).getByCodeName(codeName);
     }
 
     @Override
