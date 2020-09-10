@@ -150,6 +150,7 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='version' 
     viewname='case-step-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
     paramItem='case' 
     style="" 
     :formState="formState" 
