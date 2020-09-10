@@ -3,7 +3,7 @@
         <div class="cancel-icon" v-if="curvalue"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
         <div v-if="curvalue== null || curvalue==''" class="ion-select-icon"></div>
         <ion-select :value="curvalue"  :disabled="disabled " @click="onSearch(null)" @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
-            <ion-select-option  v-for="option of items" :key="option.text" :value="option.value">{{option.text}}</ion-select-option>
+            <ion-select-option  v-for="option of items" :key="option.value" :value="option.value">{{option.text}}</ion-select-option>
         </ion-select>
     </div>   
 </template>
@@ -215,7 +215,7 @@ export default class AppSelectDropDown extends Vue {
      */
     get curvalue() {
         if (this.value && this.items.length > 0) { // 判断是否拿到表单传来的值、列表项是否加载完成
-            let isIncluded = this.items.some((item:any)=>{return item.text === this.value});
+            let isIncluded = this.items.some((item:any)=>{return item.name === this.value});
             if (isIncluded) {
                 return this.value;
             }
