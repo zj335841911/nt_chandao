@@ -584,12 +584,20 @@ export default class MobBase extends Vue implements ControlInterface {
     public isEnableGroup:boolean =  true;
 
     /**
-    * 分组细节
+    * 代码表分组细节
     *
-    * @type {boolean}
+    * @type {Object}
     * @memberof Mob
     */
     public group_detail:any =   [ {"value":'wait',"text":'未开始'}, {"value":'doing',"text":'进行中'}, {"value":'done',"text":'已完成'}, {"value":'closed',"text":'已关闭'},];
+
+    /**
+    * 分组模式
+    *
+    * @type {string}
+    * @memberof Mob
+    */
+    public group_mode = 'CODELIST';
 
     /**
     * 分组数据
@@ -974,45 +982,67 @@ export default class MobBase extends Vue implements ControlInterface {
             this.setSlidingDisabled(item);
         });
         if(this.isEnableGroup){
-          this.getGroupData(this.items);
+          if (this.group_mode == 'AUTO') {
+            this.getGroupDataAuto(this.items);
+          }else{
+            this.getGroupDataByCodeList(this.items);
+          }
         }
         return response;
     }
 
     /**
-     * 获取分组数据
+     * 代码表分组，获取分组数据
      *
      * @memberof Mob
      */
-    public getGroupData(items:any){
-      let data:any = [];
-      let iobj:any = {};
+    public getGroupDataByCodeList(items:any){
+      let group:Array<any> = [];
       this.group_detail.forEach((obj:any,index:number)=>{
-        let idata
+        let data:any = [];
         items.forEach((item:any,i:number)=>{
           if (item[this.group_field] === obj.value) {
-            if(!iobj[ item[this.group_field] ]){
-            iobj[ item[this.group_field] ] = item[this.group_field];
-            data.push(this.filterByTag(items,item[this.group_field]));
-            }
+            data.push(item);
           }
         })
-
+        group.push(data);
       })
-      data.forEach((arr:any,index:number)=>{
+      group.forEach((arr:any,index:number)=>{
         this.group_data[index] = {};
-        this.group_data[index].text = this.group_detail[ index ].text;
+        this.group_data[index].text = this.group_detail[index].text;
         this.group_data[index].items = arr;
+      })
+      this.group_data.forEach((item:any,i:number)=>{
+        if (item.items.length == 0) {
+          this.group_data.splice(i,1);
+        }
       })
     }
 
     /**
-     * 单条件过滤数组数据
+     * 
+     * 自动分组，获取分组数据
      *
      * @memberof Mob
      */
-    public filterByTag(arr:Array<number>, tag:any) {
-        return arr.filter((item:any) => item[this.group_field] == tag);
+    public getGroupDataAuto(items:any){
+      let groups:Array<any> = [];
+      items.forEach((item:any)=>{
+        if(item.hasOwnProperty(this.group_field)){
+          groups.push(item[this.group_field]);
+        }
+      })
+      groups = [...new Set(groups)];
+      groups.forEach((group:any,index:number)=>{
+        this.group_data[index] = {};
+        this.group_data[index].items = [];
+        items.forEach((item:any,i:number)=>{
+          if (group == item[this.group_field]) {
+            this.group_data[index].text = group;
+            this.group_data[index].items.push(item);
+          }
+        })
+      })
     }
 
     /**
