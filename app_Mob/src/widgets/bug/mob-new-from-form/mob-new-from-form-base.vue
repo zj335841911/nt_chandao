@@ -117,7 +117,7 @@
     name='modulename' 
     deMajorField='name'
     deKeyField='moduleid'
-    valueitem='' 
+    valueitem='module' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
@@ -156,7 +156,7 @@
     name='projectname' 
     deMajorField='name'
     deKeyField='projectid'
-    valueitem='' 
+    valueitem='project' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
@@ -1705,6 +1705,7 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
         }
         if (Object.is(name, 'branch')) {
             this.onFormItemValueChange({ name: 'modulename', value: null });
+            this.onFormItemValueChange({ name: 'module', value: null });
         }
         if (Object.is(name, 'modulename')) {
             this.onFormItemValueChange({ name: 'storyname', value: null });
