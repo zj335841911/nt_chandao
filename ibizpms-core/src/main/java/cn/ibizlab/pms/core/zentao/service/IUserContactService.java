@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface IUserContactService extends IService<UserContact>{
     void createBatch(List<UserContact> list) ;
     boolean update(UserContact et) ;
     void updateBatch(List<UserContact> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    UserContact get(Long key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    UserContact get(BigInteger key) ;
     UserContact getDraft(UserContact et) ;
     boolean checkKey(UserContact et) ;
     boolean save(UserContact et) ;

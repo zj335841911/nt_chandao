@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface IProductModuleService extends IService<ProductModule>{
     void createBatch(List<ProductModule> list) ;
     boolean update(ProductModule et) ;
     void updateBatch(List<ProductModule> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    ProductModule get(Long key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    ProductModule get(BigInteger key) ;
     ProductModule getDraft(ProductModule et) ;
     boolean checkKey(ProductModule et) ;
     ProductModule fix(ProductModule et) ;
@@ -44,10 +43,10 @@ public interface IProductModuleService extends IService<ProductModule>{
     Page<ProductModule> searchRoot(ProductModuleSearchContext context) ;
     Page<ProductModule> searchRoot_NoBranch(ProductModuleSearchContext context) ;
     Page<ProductModule> searchStoryModule(ProductModuleSearchContext context) ;
-    List<ProductModule> selectByParent(Long id) ;
-    void removeByParent(Long id) ;
-    List<ProductModule> selectByRoot(Long id) ;
-    void removeByRoot(Long id) ;
+    List<ProductModule> selectByParent(BigInteger id) ;
+    void removeByParent(BigInteger id) ;
+    List<ProductModule> selectByRoot(BigInteger id) ;
+    void removeByRoot(BigInteger id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

@@ -101,7 +101,7 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
     }
     @Override
     @Transactional
-    public UserTpl get(Long key) {
+    public UserTpl get(BigInteger key) {
         UserTpl et = getById(key);
         if(et==null){
             et=new UserTpl();

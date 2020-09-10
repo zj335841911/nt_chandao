@@ -90,19 +90,19 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public IbzLibCaseSteps get(Long key) {
+    public IbzLibCaseSteps get(BigInteger key) {
         IbzLibCaseSteps et = getById(key);
         if(et==null){
             et=new IbzLibCaseSteps();
@@ -157,12 +157,12 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
 
 
 	@Override
-    public List<IbzLibCaseSteps> selectByIbizcase(Long id) {
+    public List<IbzLibCaseSteps> selectByIbizcase(BigInteger id) {
         return baseMapper.selectByIbizcase(id);
     }
 
     @Override
-    public void removeByIbizcase(Long id) {
+    public void removeByIbizcase(BigInteger id) {
         this.remove(new QueryWrapper<IbzLibCaseSteps>().eq("case",id));
     }
 
@@ -170,10 +170,10 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
     @Lazy
     IIbzLibCaseStepsService proxyService;
 	@Override
-    public void saveByIbizcase(Long id,List<IbzLibCaseSteps> list) {
+    public void saveByIbizcase(BigInteger id,List<IbzLibCaseSteps> list) {
         if(list==null)
             return;
-        Set<Long> delIds=new HashSet<Long>();
+        Set<BigInteger> delIds=new HashSet<BigInteger>();
         List<IbzLibCaseSteps> _update=new ArrayList<IbzLibCaseSteps>();
         List<IbzLibCaseSteps> _create=new ArrayList<IbzLibCaseSteps>();
         for(IbzLibCaseSteps before:selectByIbizcase(id)){
@@ -182,7 +182,7 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
         for(IbzLibCaseSteps sub:list) {
             sub.setIbizcase(id);
             if(ObjectUtils.isEmpty(sub.getId()))
-                sub.setId((Long)sub.getDefaultKey(true));
+                sub.setId((BigInteger)sub.getDefaultKey(true));
             if(delIds.contains(sub.getId())) {
                 delIds.remove(sub.getId());
                 _update.add(sub);
@@ -199,20 +199,20 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
 	}
 
 	@Override
-    public List<IbzLibCaseSteps> selectByParent(Long id) {
+    public List<IbzLibCaseSteps> selectByParent(BigInteger id) {
         return baseMapper.selectByParent(id);
     }
 
     @Override
-    public void removeByParent(Long id) {
+    public void removeByParent(BigInteger id) {
         this.remove(new QueryWrapper<IbzLibCaseSteps>().eq("parent",id));
     }
 
 	@Override
-    public void saveByParent(Long id,List<IbzLibCaseSteps> list) {
+    public void saveByParent(BigInteger id,List<IbzLibCaseSteps> list) {
         if(list==null)
             return;
-        Set<Long> delIds=new HashSet<Long>();
+        Set<BigInteger> delIds=new HashSet<BigInteger>();
         List<IbzLibCaseSteps> _update=new ArrayList<IbzLibCaseSteps>();
         List<IbzLibCaseSteps> _create=new ArrayList<IbzLibCaseSteps>();
         for(IbzLibCaseSteps before:selectByParent(id)){
@@ -221,7 +221,7 @@ public class IbzLibCaseStepsServiceImpl extends ServiceImpl<IbzLibCaseStepsMappe
         for(IbzLibCaseSteps sub:list) {
             sub.setParent(id);
             if(ObjectUtils.isEmpty(sub.getId()))
-                sub.setId((Long)sub.getDefaultKey(true));
+                sub.setId((BigInteger)sub.getDefaultKey(true));
             if(delIds.contains(sub.getId())) {
                 delIds.remove(sub.getId());
                 _update.add(sub);

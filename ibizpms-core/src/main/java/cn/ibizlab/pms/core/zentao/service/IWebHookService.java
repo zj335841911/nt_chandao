@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface IWebHookService extends IService<WebHook>{
     void createBatch(List<WebHook> list) ;
     boolean update(WebHook et) ;
     void updateBatch(List<WebHook> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    WebHook get(Long key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    WebHook get(BigInteger key) ;
     WebHook getDraft(WebHook et) ;
     boolean checkKey(WebHook et) ;
     boolean save(WebHook et) ;

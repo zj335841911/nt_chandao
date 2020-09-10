@@ -82,19 +82,19 @@ public class HistoryServiceImpl extends ServiceImpl<HistoryMapper, History> impl
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public History get(Long key) {
+    public History get(BigInteger key) {
         History et = getById(key);
         if(et==null){
             et=new History();
@@ -145,12 +145,12 @@ public class HistoryServiceImpl extends ServiceImpl<HistoryMapper, History> impl
 
 
 	@Override
-    public List<History> selectByAction(Long id) {
+    public List<History> selectByAction(BigInteger id) {
         return baseMapper.selectByAction(id);
     }
 
     @Override
-    public void removeByAction(Long id) {
+    public void removeByAction(BigInteger id) {
         this.remove(new QueryWrapper<History>().eq("action",id));
     }
 

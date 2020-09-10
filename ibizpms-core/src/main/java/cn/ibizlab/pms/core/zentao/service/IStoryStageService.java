@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -38,10 +37,10 @@ public interface IStoryStageService extends IService<StoryStage>{
     boolean save(StoryStage et) ;
     void saveBatch(List<StoryStage> list) ;
     Page<StoryStage> searchDefault(StoryStageSearchContext context) ;
-    List<StoryStage> selectByBranch(Long id) ;
-    void removeByBranch(Long id) ;
-    List<StoryStage> selectByStory(Long id) ;
-    void removeByStory(Long id) ;
+    List<StoryStage> selectByBranch(BigInteger id) ;
+    void removeByBranch(BigInteger id) ;
+    List<StoryStage> selectByStory(BigInteger id) ;
+    void removeByStory(BigInteger id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

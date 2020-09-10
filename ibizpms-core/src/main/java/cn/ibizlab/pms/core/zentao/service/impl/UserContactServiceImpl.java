@@ -79,19 +79,19 @@ public class UserContactServiceImpl extends ServiceImpl<UserContactMapper, UserC
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public UserContact get(Long key) {
+    public UserContact get(BigInteger key) {
         UserContact et = getById(key);
         if(et==null){
             et=new UserContact();

@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,17 +29,17 @@ public interface ITestSuiteService extends IService<TestSuite>{
     void createBatch(List<TestSuite> list) ;
     boolean update(TestSuite et) ;
     void updateBatch(List<TestSuite> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    TestSuite get(Long key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    TestSuite get(BigInteger key) ;
     TestSuite getDraft(TestSuite et) ;
     boolean checkKey(TestSuite et) ;
     boolean save(TestSuite et) ;
     void saveBatch(List<TestSuite> list) ;
     Page<TestSuite> searchDefault(TestSuiteSearchContext context) ;
     Page<TestSuite> searchPublicTestSuite(TestSuiteSearchContext context) ;
-    List<TestSuite> selectByProduct(Long id) ;
-    void removeByProduct(Long id) ;
+    List<TestSuite> selectByProduct(BigInteger id) ;
+    void removeByProduct(BigInteger id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

@@ -119,7 +119,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     }
     @Override
     @Transactional
-    public Build get(Long key) {
+    public Build get(BigInteger key) {
         Build et = getById(key);
         if(et==null){
             et=new Build();
@@ -186,32 +186,32 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
 
 	@Override
-    public List<Build> selectByBranch(Long id) {
+    public List<Build> selectByBranch(BigInteger id) {
         return baseMapper.selectByBranch(id);
     }
 
     @Override
-    public void removeByBranch(Long id) {
+    public void removeByBranch(BigInteger id) {
         this.remove(new QueryWrapper<Build>().eq("branch",id));
     }
 
 	@Override
-    public List<Build> selectByProduct(Long id) {
+    public List<Build> selectByProduct(BigInteger id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(Long id) {
+    public void removeByProduct(BigInteger id) {
         this.remove(new QueryWrapper<Build>().eq("product",id));
     }
 
 	@Override
-    public List<Build> selectByProject(Long id) {
+    public List<Build> selectByProject(BigInteger id) {
         return baseMapper.selectByProject(id);
     }
 
     @Override
-    public void removeByProject(Long id) {
+    public void removeByProject(BigInteger id) {
         this.remove(new QueryWrapper<Build>().eq("project",id));
     }
 

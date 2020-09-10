@@ -95,19 +95,19 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public TestResult get(Long key) {
+    public TestResult get(BigInteger key) {
         TestResult et = getById(key);
         if(et==null){
             et=new TestResult();
@@ -161,42 +161,42 @@ public class TestResultServiceImpl extends ServiceImpl<TestResultMapper, TestRes
 
 
 	@Override
-    public List<TestResult> selectByIbizcase(Long id) {
+    public List<TestResult> selectByIbizcase(BigInteger id) {
         return baseMapper.selectByIbizcase(id);
     }
 
     @Override
-    public void removeByIbizcase(Long id) {
+    public void removeByIbizcase(BigInteger id) {
         this.remove(new QueryWrapper<TestResult>().eq("case",id));
     }
 
 	@Override
-    public List<TestResult> selectByCompile(Long id) {
+    public List<TestResult> selectByCompile(BigInteger id) {
         return baseMapper.selectByCompile(id);
     }
 
     @Override
-    public void removeByCompile(Long id) {
+    public void removeByCompile(BigInteger id) {
         this.remove(new QueryWrapper<TestResult>().eq("compile",id));
     }
 
 	@Override
-    public List<TestResult> selectByJob(Long id) {
+    public List<TestResult> selectByJob(BigInteger id) {
         return baseMapper.selectByJob(id);
     }
 
     @Override
-    public void removeByJob(Long id) {
+    public void removeByJob(BigInteger id) {
         this.remove(new QueryWrapper<TestResult>().eq("job",id));
     }
 
 	@Override
-    public List<TestResult> selectByRun(Long id) {
+    public List<TestResult> selectByRun(BigInteger id) {
         return baseMapper.selectByRun(id);
     }
 
     @Override
-    public void removeByRun(Long id) {
+    public void removeByRun(BigInteger id) {
         this.remove(new QueryWrapper<TestResult>().eq("run",id));
     }
 

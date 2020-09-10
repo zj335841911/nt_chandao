@@ -91,19 +91,19 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public IbzMyTerritory get(Long key) {
+    public IbzMyTerritory get(BigInteger key) {
         IbzMyTerritory et = getById(key);
         if(et==null){
             et=new IbzMyTerritory();

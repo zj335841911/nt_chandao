@@ -81,19 +81,19 @@ public class RepoFilesServiceImpl extends ServiceImpl<RepoFilesMapper, RepoFiles
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public RepoFiles get(Long key) {
+    public RepoFiles get(BigInteger key) {
         RepoFiles et = getById(key);
         if(et==null){
             et=new RepoFiles();
@@ -144,12 +144,12 @@ public class RepoFilesServiceImpl extends ServiceImpl<RepoFilesMapper, RepoFiles
 
 
 	@Override
-    public List<RepoFiles> selectByParent(Long id) {
+    public List<RepoFiles> selectByParent(BigInteger id) {
         return baseMapper.selectByParent(id);
     }
 
     @Override
-    public void removeByParent(Long id) {
+    public void removeByParent(BigInteger id) {
         this.remove(new QueryWrapper<RepoFiles>().eq("parent",id));
     }
 

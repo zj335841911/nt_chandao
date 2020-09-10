@@ -94,19 +94,19 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public Doc get(Long key) {
+    public Doc get(BigInteger key) {
         Doc et = getById(key);
         if(et==null){
             et=new Doc();
@@ -157,42 +157,42 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
 
 
 	@Override
-    public List<Doc> selectByLib(Long id) {
+    public List<Doc> selectByLib(BigInteger id) {
         return baseMapper.selectByLib(id);
     }
 
     @Override
-    public void removeByLib(Long id) {
+    public void removeByLib(BigInteger id) {
         this.remove(new QueryWrapper<Doc>().eq("lib",id));
     }
 
 	@Override
-    public List<Doc> selectByModule(Long id) {
+    public List<Doc> selectByModule(BigInteger id) {
         return baseMapper.selectByModule(id);
     }
 
     @Override
-    public void removeByModule(Long id) {
+    public void removeByModule(BigInteger id) {
         this.remove(new QueryWrapper<Doc>().eq("module",id));
     }
 
 	@Override
-    public List<Doc> selectByProduct(Long id) {
+    public List<Doc> selectByProduct(BigInteger id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(Long id) {
+    public void removeByProduct(BigInteger id) {
         this.remove(new QueryWrapper<Doc>().eq("product",id));
     }
 
 	@Override
-    public List<Doc> selectByProject(Long id) {
+    public List<Doc> selectByProject(BigInteger id) {
         return baseMapper.selectByProject(id);
     }
 
     @Override
-    public void removeByProject(Long id) {
+    public void removeByProject(BigInteger id) {
         this.remove(new QueryWrapper<Doc>().eq("project",id));
     }
 

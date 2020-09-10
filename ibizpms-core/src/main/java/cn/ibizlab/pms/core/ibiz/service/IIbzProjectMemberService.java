@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface IIbzProjectMemberService extends IService<IbzProjectMember>{
     void createBatch(List<IbzProjectMember> list) ;
     boolean update(IbzProjectMember et) ;
     void updateBatch(List<IbzProjectMember> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    IbzProjectMember get(Long key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    IbzProjectMember get(BigInteger key) ;
     IbzProjectMember getDraft(IbzProjectMember et) ;
     boolean checkKey(IbzProjectMember et) ;
     boolean save(IbzProjectMember et) ;

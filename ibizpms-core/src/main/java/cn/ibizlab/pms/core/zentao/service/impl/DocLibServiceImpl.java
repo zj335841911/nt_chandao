@@ -88,19 +88,19 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public DocLib get(Long key) {
+    public DocLib get(BigInteger key) {
         DocLib et = getById(key);
         if(et==null){
             et=new DocLib();
@@ -151,22 +151,22 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
 
 
 	@Override
-    public List<DocLib> selectByProduct(Long id) {
+    public List<DocLib> selectByProduct(BigInteger id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(Long id) {
+    public void removeByProduct(BigInteger id) {
         this.remove(new QueryWrapper<DocLib>().eq("product",id));
     }
 
 	@Override
-    public List<DocLib> selectByProject(Long id) {
+    public List<DocLib> selectByProject(BigInteger id) {
         return baseMapper.selectByProject(id);
     }
 
     @Override
-    public void removeByProject(Long id) {
+    public void removeByProject(BigInteger id) {
         this.remove(new QueryWrapper<DocLib>().eq("project",id));
     }
 

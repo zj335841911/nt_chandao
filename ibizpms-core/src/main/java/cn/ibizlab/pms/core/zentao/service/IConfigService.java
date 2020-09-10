@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface IConfigService extends IService<Config>{
     void createBatch(List<Config> list) ;
     boolean update(Config et) ;
     void updateBatch(List<Config> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    Config get(Long key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    Config get(BigInteger key) ;
     Config getDraft(Config et) ;
     boolean checkKey(Config et) ;
     boolean save(Config et) ;

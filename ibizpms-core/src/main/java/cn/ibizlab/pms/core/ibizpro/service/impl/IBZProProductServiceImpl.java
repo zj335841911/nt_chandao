@@ -85,19 +85,19 @@ public class IBZProProductServiceImpl extends ServiceImpl<IBZProProductMapper, I
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public IBZProProduct get(Long key) {
+    public IBZProProduct get(BigInteger key) {
         IBZProProduct et = getById(key);
         if(et==null){
             et=new IBZProProduct();

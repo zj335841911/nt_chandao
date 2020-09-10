@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,19 +29,19 @@ public interface IIBZProStoryService extends IService<IBZProStory>{
     void createBatch(List<IBZProStory> list) ;
     boolean update(IBZProStory et) ;
     void updateBatch(List<IBZProStory> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    IBZProStory get(Long key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    IBZProStory get(BigInteger key) ;
     IBZProStory getDraft(IBZProStory et) ;
     boolean checkKey(IBZProStory et) ;
     boolean save(IBZProStory et) ;
     void saveBatch(List<IBZProStory> list) ;
     IBZProStory syncFromIBIZ(IBZProStory et) ;
     Page<IBZProStory> searchDefault(IBZProStorySearchContext context) ;
-    List<IBZProStory> selectByProduct(Long id) ;
-    void removeByProduct(Long id) ;
-    List<IBZProStory> selectByModule(Long id) ;
-    void removeByModule(Long id) ;
+    List<IBZProStory> selectByProduct(BigInteger id) ;
+    void removeByProduct(BigInteger id) ;
+    List<IBZProStory> selectByModule(BigInteger id) ;
+    void removeByModule(BigInteger id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

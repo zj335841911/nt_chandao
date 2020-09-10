@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface IProjectTeamService extends IService<ProjectTeam>{
     void createBatch(List<ProjectTeam> list) ;
     boolean update(ProjectTeam et) ;
     void updateBatch(List<ProjectTeam> list) ;
-    boolean remove(Long key) ;
-    void removeBatch(Collection<Long> idList) ;
-    ProjectTeam get(Long key) ;
+    boolean remove(BigInteger key) ;
+    void removeBatch(Collection<BigInteger> idList) ;
+    ProjectTeam get(BigInteger key) ;
     ProjectTeam getDraft(ProjectTeam et) ;
     boolean checkKey(ProjectTeam et) ;
     ProjectTeam getUserRole(ProjectTeam et) ;
@@ -40,9 +39,9 @@ public interface IProjectTeamService extends IService<ProjectTeam>{
     void saveBatch(List<ProjectTeam> list) ;
     Page<ProjectTeam> searchDefault(ProjectTeamSearchContext context) ;
     Page<ProjectTeam> searchRowEditDefault(ProjectTeamSearchContext context) ;
-    List<ProjectTeam> selectByRoot(Long id) ;
-    void removeByRoot(Long id) ;
-    void saveByRoot(Long id,List<ProjectTeam> list) ;
+    List<ProjectTeam> selectByRoot(BigInteger id) ;
+    void removeByRoot(BigInteger id) ;
+    void saveByRoot(BigInteger id,List<ProjectTeam> list) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

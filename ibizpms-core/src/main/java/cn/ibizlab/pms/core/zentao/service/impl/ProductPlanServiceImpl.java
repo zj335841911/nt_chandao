@@ -122,7 +122,7 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     }
     @Override
     @Transactional
-    public ProductPlan get(Long key) {
+    public ProductPlan get(BigInteger key) {
         ProductPlan et = getById(key);
         if(et==null){
             et=new ProductPlan();
@@ -255,32 +255,32 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
 
 
 	@Override
-    public List<ProductPlan> selectByBranch(Long id) {
+    public List<ProductPlan> selectByBranch(BigInteger id) {
         return baseMapper.selectByBranch(id);
     }
 
     @Override
-    public void removeByBranch(Long id) {
+    public void removeByBranch(BigInteger id) {
         this.remove(new QueryWrapper<ProductPlan>().eq("branch",id));
     }
 
 	@Override
-    public List<ProductPlan> selectByProduct(Long id) {
+    public List<ProductPlan> selectByProduct(BigInteger id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(Long id) {
+    public void removeByProduct(BigInteger id) {
         this.remove(new QueryWrapper<ProductPlan>().eq("product",id));
     }
 
 	@Override
-    public List<ProductPlan> selectByParent(Long id) {
+    public List<ProductPlan> selectByParent(BigInteger id) {
         return baseMapper.selectByParent(id);
     }
 
     @Override
-    public void removeByParent(Long id) {
+    public void removeByParent(BigInteger id) {
         this.remove(new QueryWrapper<ProductPlan>().eq("parent",id));
     }
 

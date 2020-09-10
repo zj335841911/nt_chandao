@@ -85,19 +85,19 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public IBZProStory get(Long key) {
+    public IBZProStory get(BigInteger key) {
         IBZProStory et = getById(key);
         if(et==null){
             et=new IBZProStory();
@@ -155,22 +155,22 @@ public class IBZProStoryServiceImpl extends ServiceImpl<IBZProStoryMapper, IBZPr
 
 
 	@Override
-    public List<IBZProStory> selectByProduct(Long id) {
+    public List<IBZProStory> selectByProduct(BigInteger id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(Long id) {
+    public void removeByProduct(BigInteger id) {
         this.remove(new QueryWrapper<IBZProStory>().eq("product",id));
     }
 
 	@Override
-    public List<IBZProStory> selectByModule(Long id) {
+    public List<IBZProStory> selectByModule(BigInteger id) {
         return baseMapper.selectByModule(id);
     }
 
     @Override
-    public void removeByModule(Long id) {
+    public void removeByModule(BigInteger id) {
         this.remove(new QueryWrapper<IBZProStory>().eq("module",id));
     }
 

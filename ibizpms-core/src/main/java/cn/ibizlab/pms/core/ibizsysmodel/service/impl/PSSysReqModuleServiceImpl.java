@@ -33,6 +33,9 @@ import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
 import cn.ibizlab.pms.core.ibizsysmodel.client.PSSysReqModuleFeignClient;
+import cn.ibizlab.pms.util.security.SpringContextHolder;
+import cn.ibizlab.pms.util.helper.OutsideAccessorUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 实体[系统需求模块] 服务对象接口实现
@@ -41,8 +44,30 @@ import cn.ibizlab.pms.core.ibizsysmodel.client.PSSysReqModuleFeignClient;
 @Service
 public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
 
-    @Autowired
+//    @Autowired
     PSSysReqModuleFeignClient pSSysReqModuleFeignClient;
+    
+    @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceid:ibizpssysmodelapi-sysmodelapi}")
+    private String serviceName;
+
+    @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceurl:ibizpssysmodelapi-sysmodelapi}")
+    private String serviceUrl;
+
+    @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.loginname:loginname}")
+    private String loginname;
+
+    @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.password:password}")
+    private String password;
+    
+    public PSSysReqModuleFeignClient getPSSysReqModuleFeignClient(String devSlnSysId) {
+        if(StringUtils.isNotBlank(serviceName)){
+            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysReqModuleFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
+        }else if(StringUtils.isNotBlank(serviceUrl)){
+            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysReqModuleFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password,devSlnSysId);
+        }else{
+            throw new RuntimeException("缺少平台服务配置信息。");
+        }
+    }
 
 
     @Override
@@ -54,8 +79,21 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
         return true;
     }
 
+    @Override
+    public boolean create(String devSlnSysId,PSSysReqModule et) {
+        PSSysReqModule rt = getPSSysReqModuleFeignClient(devSlnSysId).create(et);
+        if(rt==null)
+            return false;
+        CachedBeanCopier.copy(rt,et);
+        return true;
+    }
+
     public void createBatch(List<PSSysReqModule> list){
         pSSysReqModuleFeignClient.createBatch(list) ;
+    }
+
+    public void createBatch(String devSlnSysId,List<PSSysReqModule> list){
+        getPSSysReqModuleFeignClient(devSlnSysId).createBatch(list) ;
     }
 
     @Override
@@ -68,8 +106,22 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
 
     }
 
+    @Override
+    public boolean update(String devSlnSysId,PSSysReqModule et) {
+        PSSysReqModule rt = getPSSysReqModuleFeignClient(devSlnSysId).update(et.getPssysreqmoduleid(),et);
+        if(rt==null)
+            return false;
+        CachedBeanCopier.copy(rt,et);
+        return true;
+
+    }
+
     public void updateBatch(List<PSSysReqModule> list){
         pSSysReqModuleFeignClient.updateBatch(list) ;
+    }
+
+    public void updateBatch(String devSlnSysId,List<PSSysReqModule> list){
+        getPSSysReqModuleFeignClient(devSlnSysId).updateBatch(list) ;
     }
 
     @Override
@@ -78,8 +130,18 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
         return result;
     }
 
+    @Override
+    public boolean remove(String devSlnSysId,String pssysreqmoduleid) {
+        boolean result=getPSSysReqModuleFeignClient(devSlnSysId).remove(pssysreqmoduleid) ;
+        return result;
+    }
+
     public void removeBatch(Collection<String> idList){
         pSSysReqModuleFeignClient.removeBatch(idList);
+    }
+
+    public void removeBatch(String devSlnSysId,Collection<String> idList){
+        getPSSysReqModuleFeignClient(devSlnSysId).removeBatch(idList);
     }
 
     @Override
@@ -95,8 +157,31 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
     }
 
     @Override
+    public PSSysReqModule get(String devSlnSysId,String pssysreqmoduleid) {
+		PSSysReqModule et=getPSSysReqModuleFeignClient(devSlnSysId).get(pssysreqmoduleid);
+        if(et==null){
+            et=new PSSysReqModule();
+            et.setPssysreqmoduleid(pssysreqmoduleid);
+        }
+        else{
+        }
+        return  et;
+    }
+
+    @Override
+    public String getByCodeName(String devSlnSysId,String codeName) {
+        return codeName;
+    }
+
+    @Override
     public PSSysReqModule getDraft(PSSysReqModule et) {
         et=pSSysReqModuleFeignClient.getDraft();
+        return et;
+    }
+
+    @Override
+    public PSSysReqModule getDraft(String devSlnSysId,PSSysReqModule et) {
+        et=getPSSysReqModuleFeignClient(devSlnSysId).getDraft();
         return et;
     }
 
@@ -104,6 +189,12 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
     public boolean checkKey(PSSysReqModule et) {
         return pSSysReqModuleFeignClient.checkKey(et);
     }
+
+    @Override
+    public boolean checkKey(String devSlnSysId,PSSysReqModule et) {
+        return getPSSysReqModuleFeignClient(devSlnSysId).checkKey(et);
+    }
+
     @Override
     @Transactional
     public boolean save(PSSysReqModule et) {
@@ -114,8 +205,22 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
     }
 
     @Override
+    @Transactional
+    public boolean save(String devSlnSysId,PSSysReqModule et) {
+        if(et.getPssysreqmoduleid()==null) et.setPssysreqmoduleid((String)et.getDefaultKey(true));
+        if(!getPSSysReqModuleFeignClient(devSlnSysId).save(et))
+            return false;
+        return true;
+    }
+
+    @Override
     public void saveBatch(List<PSSysReqModule> list) {
         pSSysReqModuleFeignClient.saveBatch(list) ;
+    }
+
+    @Override
+    public void saveBatch(String devSlnSysId,List<PSSysReqModule> list) {
+        getPSSysReqModuleFeignClient(devSlnSysId).saveBatch(list) ;
     }
 
 
@@ -129,9 +234,27 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
     }
 
     @Override
+    public List<PSSysReqModule> selectByPpssysreqmoduleid(String devSlnSysId,String pssysreqmoduleid) {
+        PSSysReqModuleSearchContext context=new PSSysReqModuleSearchContext();
+        context.setSize(Integer.MAX_VALUE);
+        context.setN_ppssysreqmoduleid_eq(pssysreqmoduleid);
+        return getPSSysReqModuleFeignClient(devSlnSysId).searchDefault(context).getContent();
+    }
+
+    @Override
     public void removeByPpssysreqmoduleid(String pssysreqmoduleid) {
         Set<String> delIds=new HashSet<String>();
         for(PSSysReqModule before:selectByPpssysreqmoduleid(pssysreqmoduleid)){
+            delIds.add(before.getPssysreqmoduleid());
+        }
+        if(delIds.size()>0)
+            this.removeBatch(delIds);
+    }
+
+    @Override
+    public void removeByPpssysreqmoduleid(String devSlnSysId,String pssysreqmoduleid) {
+        Set<String> delIds=new HashSet<String>();
+        for(PSSysReqModule before:selectByPpssysreqmoduleid(devSlnSysId,pssysreqmoduleid)){
             delIds.add(before.getPssysreqmoduleid());
         }
         if(delIds.size()>0)
@@ -146,6 +269,12 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
     @Override
     public Page<PSSysReqModule> searchDefault(PSSysReqModuleSearchContext context) {
         Page<PSSysReqModule> pSSysReqModules=pSSysReqModuleFeignClient.searchDefault(context);
+        return pSSysReqModules;
+    }
+
+    @Override
+    public Page<PSSysReqModule> searchDefault(String devSlnSysId,PSSysReqModuleSearchContext context) {
+        Page<PSSysReqModule> pSSysReqModules=getPSSysReqModuleFeignClient(devSlnSysId).searchDefault(context);
         return pSSysReqModules;
     }
 

@@ -16,7 +16,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 /**
  * 实体[PSSysReqModule] 服务对象接口
  */
-@FeignClient(value = "${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi:ibizpssysmodelapi-sysmodelapi}", contextId = "PSSysReqModule", fallback = PSSysReqModuleFallback.class)
+//@FeignClient(value = "${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi:ibizpssysmodelapi-sysmodelapi}", contextId = "PSSysReqModule", fallback = PSSysReqModuleFallback.class)
 public interface PSSysReqModuleFeignClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/pssysreqmodules/select")
@@ -47,6 +47,9 @@ public interface PSSysReqModuleFeignClient {
     @RequestMapping(method = RequestMethod.GET, value = "/pssysreqmodules/{pssysreqmoduleid}")
     PSSysReqModule get(@PathVariable("pssysreqmoduleid") String pssysreqmoduleid);
 
+    @RequestMapping(method = RequestMethod.GET, value = "/pssysreqmodules/getbycodename/{pssysreqmoduleid}")
+    String getByCodeName(@PathVariable("pssysreqmoduleid") String codeName);
+
 
     @RequestMapping(method = RequestMethod.GET, value = "/pssysreqmodules/getdraft")
     PSSysReqModule getDraft();
@@ -59,7 +62,7 @@ public interface PSSysReqModuleFeignClient {
     @RequestMapping(method = RequestMethod.POST, value = "/pssysreqmodules/save")
     Boolean save(@RequestBody PSSysReqModule pssysreqmodule);
 
-    @RequestMapping(method = RequestMethod.POST, value = "/pssysreqmodules/save")
+    @RequestMapping(method = RequestMethod.POST, value = "/pssysreqmodules/savebatch")
     Boolean saveBatch(@RequestBody List<PSSysReqModule> pssysreqmodules);
 
 

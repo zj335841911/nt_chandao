@@ -152,7 +152,7 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     }
     @Override
     @Transactional
-    public Case get(Long key) {
+    public Case get(BigInteger key) {
         Case et = getById(key);
         if(et==null){
             et=new Case();
@@ -346,72 +346,72 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
 
 	@Override
-    public List<Case> selectByBranch(Long id) {
+    public List<Case> selectByBranch(BigInteger id) {
         return baseMapper.selectByBranch(id);
     }
 
     @Override
-    public void removeByBranch(Long id) {
+    public void removeByBranch(BigInteger id) {
         this.remove(new QueryWrapper<Case>().eq("branch",id));
     }
 
 	@Override
-    public List<Case> selectByFrombug(Long id) {
+    public List<Case> selectByFrombug(BigInteger id) {
         return baseMapper.selectByFrombug(id);
     }
 
     @Override
-    public void removeByFrombug(Long id) {
+    public void removeByFrombug(BigInteger id) {
         this.remove(new QueryWrapper<Case>().eq("frombug",id));
     }
 
 	@Override
-    public List<Case> selectByFromcaseid(Long id) {
+    public List<Case> selectByFromcaseid(BigInteger id) {
         return baseMapper.selectByFromcaseid(id);
     }
 
     @Override
-    public void removeByFromcaseid(Long id) {
+    public void removeByFromcaseid(BigInteger id) {
         this.remove(new QueryWrapper<Case>().eq("fromcaseid",id));
     }
 
 	@Override
-    public List<Case> selectByModule(Long id) {
+    public List<Case> selectByModule(BigInteger id) {
         return baseMapper.selectByModule(id);
     }
 
     @Override
-    public void removeByModule(Long id) {
+    public void removeByModule(BigInteger id) {
         this.remove(new QueryWrapper<Case>().eq("module",id));
     }
 
 	@Override
-    public List<Case> selectByProduct(Long id) {
+    public List<Case> selectByProduct(BigInteger id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(Long id) {
+    public void removeByProduct(BigInteger id) {
         this.remove(new QueryWrapper<Case>().eq("product",id));
     }
 
 	@Override
-    public List<Case> selectByStory(Long id) {
+    public List<Case> selectByStory(BigInteger id) {
         return baseMapper.selectByStory(id);
     }
 
     @Override
-    public void removeByStory(Long id) {
+    public void removeByStory(BigInteger id) {
         this.remove(new QueryWrapper<Case>().eq("story",id));
     }
 
 	@Override
-    public List<Case> selectByLib(Long id) {
+    public List<Case> selectByLib(BigInteger id) {
         return baseMapper.selectByLib(id);
     }
 
     @Override
-    public void removeByLib(Long id) {
+    public void removeByLib(BigInteger id) {
         this.remove(new QueryWrapper<Case>().eq("lib",id));
     }
 

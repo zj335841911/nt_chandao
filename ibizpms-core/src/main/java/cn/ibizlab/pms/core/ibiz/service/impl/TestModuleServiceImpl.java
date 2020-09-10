@@ -94,19 +94,19 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
 
     @Override
     @Transactional
-    public boolean remove(Long key) {
+    public boolean remove(BigInteger key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<Long> idList) {
+    public void removeBatch(Collection<BigInteger> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public TestModule get(Long key) {
+    public TestModule get(BigInteger key) {
         TestModule et = getById(key);
         if(et==null){
             et=new TestModule();
@@ -167,22 +167,22 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
 
 
 	@Override
-    public List<TestModule> selectByParent(Long id) {
+    public List<TestModule> selectByParent(BigInteger id) {
         return baseMapper.selectByParent(id);
     }
 
     @Override
-    public void removeByParent(Long id) {
+    public void removeByParent(BigInteger id) {
         this.remove(new QueryWrapper<TestModule>().eq("parent",id));
     }
 
 	@Override
-    public List<TestModule> selectByRoot(Long id) {
+    public List<TestModule> selectByRoot(BigInteger id) {
         return baseMapper.selectByRoot(id);
     }
 
     @Override
-    public void removeByRoot(Long id) {
+    public void removeByRoot(BigInteger id) {
         this.remove(new QueryWrapper<TestModule>().eq("root",id));
     }
 
