@@ -59,7 +59,7 @@ zuul:
       path: /releases/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
-    ibz_taskteam:
+    zt_taskteam:
       path: /taskteams/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
@@ -97,6 +97,10 @@ zuul:
       stripPrefix: false
     ibz_projectstats:
       path: /projectstats/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_taskteam:
+      path: /ibztaskteams/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_bug:

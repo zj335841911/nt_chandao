@@ -1,5 +1,5 @@
-import TaskTeamService from '@/app-core/service/task-team/task-team-service';
-import TaskTeamAuthService from '@/app-core/auth-service/task-team/task-team-auth-service';
+import IbztaskteamService from '@/app-core/service/ibztaskteam/ibztaskteam-service';
+import IbztaskteamAuthService from '@/app-core/auth-service/ibztaskteam/ibztaskteam-auth-service';
 import EntityUIActionBase from '@/utils/ui-service-base/entity-ui-action-base';
 import { Util, Loading } from '@/ibiz-core/utils';
 import { Notice } from '@/utils';
@@ -8,76 +8,76 @@ import { Environment } from '@/environments/environment';
  * 任务团队UI服务对象基类
  *
  * @export
- * @class TaskTeamUIActionBase
+ * @class IbztaskteamUIActionBase
  * @extends {UIActionBase}
  */
-export default class TaskTeamUIActionBase extends EntityUIActionBase {
+export default class IbztaskteamUIActionBase extends EntityUIActionBase {
 
     /**
      * 是否支持工作流
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IbztaskteamUIServiceBase
      */
     public isEnableWorkflow:boolean = false;
 
     /**
      * 当前UI服务对应的数据服务对象
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IbztaskteamUIServiceBase
      */
-    public dataService:TaskTeamService = new TaskTeamService();
+    public dataService:IbztaskteamService = new IbztaskteamService();
 
     /**
      * 所有关联视图
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IbztaskteamUIServiceBase
      */ 
     public allViewMap: Map<string, Object> = new Map();
 
     /**
      * 状态值
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IbztaskteamUIServiceBase
      */ 
     public stateValue: number = 0;
 
     /**
      * 状态属性
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IbztaskteamUIServiceBase
      */ 
     public stateField: string = "";
 
     /**
      * 主状态属性集合
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IbztaskteamUIServiceBase
      */  
     public mainStateFields:Array<any> = [];
 
     /**
      * 主状态集合Map
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IbztaskteamUIServiceBase
      */  
     public allDeMainStateMap:Map<string,string> = new Map();
 
     /**
      * 主状态操作标识Map
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IbztaskteamUIServiceBase
      */ 
     public allDeMainStateOPPrivsMap:Map<string,any> = new Map();
 
     /**
-     * Creates an instance of  TaskTeamUIServiceBase.
+     * Creates an instance of  IbztaskteamUIServiceBase.
      * 
      * @param {*} [opts={}]
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IbztaskteamUIServiceBase
      */
     constructor(opts: any = {}) {
         super();
-        this.authService = new TaskTeamAuthService(opts);
+        this.authService = new IbztaskteamAuthService(opts);
         this.initViewMap();
         this.initDeMainStateMap();
         this.initDeMainStateOPPrivsMap();
@@ -86,16 +86,17 @@ export default class TaskTeamUIActionBase extends EntityUIActionBase {
     /**
      * 初始化视图Map
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IbztaskteamUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'mobmdview9',srfappde:'taskteams'});
+        this.allViewMap.set(':',{viewname:'mobeditview9',srfappde:'ibztaskteams'});
+        this.allViewMap.set(':',{viewname:'mobmeditview9',srfappde:'ibztaskteams'});
     }
 
     /**
      * 初始化主状态集合
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IbztaskteamUIServiceBase
      */  
     public initDeMainStateMap(){
     }
@@ -103,7 +104,7 @@ export default class TaskTeamUIActionBase extends EntityUIActionBase {
     /**
      * 初始化主状态操作标识
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IbztaskteamUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
     }
@@ -114,12 +115,12 @@ export default class TaskTeamUIActionBase extends EntityUIActionBase {
      * 
      * @param srfkey 数据主键
      * @param isEnableWorkflow  重定向视图是否需要处理流程中的数据
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IbztaskteamUIServiceBase
      */
     public async getRDAppView(srfkey:string,isEnableWorkflow:boolean){
         this.isEnableWorkflow = isEnableWorkflow;
         // 进行数据查询
-        let result:any = await this.dataService.Get({taskteam:srfkey});
+        let result:any = await this.dataService.Get({ibztaskteam:srfkey});
         const curData:any = result.data;
         //判断当前数据模式,默认为true，todo
         const iRealDEModel:boolean = true;
@@ -146,7 +147,7 @@ export default class TaskTeamUIActionBase extends EntityUIActionBase {
     /**
 	 * 获取实际的数据类型
      * 
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IbztaskteamUIServiceBase
 	 */
 	public getRealDEType(entity:any){
 
@@ -158,7 +159,7 @@ export default class TaskTeamUIActionBase extends EntityUIActionBase {
      * @param curData 当前数据
      * @param bDataInWF 是否有数据在工作流中
      * @param bWFMode   是否工作流模式
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IbztaskteamUIServiceBase
      */
     public async getDESDDEViewPDTParam(curData:any, bDataInWF:boolean, bWFMode:boolean){
         let strPDTParam:string = '';
@@ -191,7 +192,7 @@ export default class TaskTeamUIActionBase extends EntityUIActionBase {
      * 获取数据对象的主状态标识
      * 
      * @param curData 当前数据
-     * @memberof  TaskTeamUIServiceBase
+     * @memberof  IbztaskteamUIServiceBase
      */  
     public getDEMainStateTag(curData:any){
         if(this.mainStateFields.length === 0) return null;
@@ -227,7 +228,7 @@ export default class TaskTeamUIActionBase extends EntityUIActionBase {
     * 获取数据对象当前操作标识
     * 
     * @param data 当前数据
-    * @memberof  TaskTeamUIServiceBase
+    * @memberof  IbztaskteamUIServiceBase
     */  
    public getDEMainStateOPPrivs(data:any){
         if(this.getDEMainStateTag(data)){
@@ -241,7 +242,7 @@ export default class TaskTeamUIActionBase extends EntityUIActionBase {
     * 获取数据对象所有的操作标识
     * 
     * @param data 当前数据
-    * @memberof  TaskTeamUIServiceBase
+    * @memberof  IbztaskteamUIServiceBase
     */ 
    public getAllOPPrivs(data:any){
        return this.authService.getOPPrivs(this.getDEMainStateOPPrivs(data));
