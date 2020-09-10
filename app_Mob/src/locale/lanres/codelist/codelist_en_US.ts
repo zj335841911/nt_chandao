@@ -21,6 +21,9 @@ export default {
         'public': '公开',
         empty: '',
     },
+    RelatedStory: {
+        empty: '',
+    },
     Testcase__stage: {
         'unittest': '单元测试阶段',
         'feature': '功能测试阶段',

@@ -962,7 +962,9 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
         severity: null,
         pri: null,
         steps: null,
+        task: null,
         storyname: null,
+        story: null,
         taskname: null,
         mailto: null,
         keywords: null,
@@ -1151,11 +1153,23 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '重现步骤 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '重现步骤 值不能为空', trigger: 'blur' },
         ],
+        task: [
+            { type: 'number', message: '相关任务 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '相关任务 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '相关任务 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '相关任务 值不能为空', trigger: 'blur' },
+        ],
         storyname: [
             { type: 'string', message: '相关需求 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '相关需求 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '相关需求 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '相关需求 值不能为空', trigger: 'blur' },
+        ],
+        story: [
+            { type: 'number', message: '相关需求 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '相关需求 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '相关需求 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '相关需求 值不能为空', trigger: 'blur' },
         ],
         taskname: [
             { type: 'string', message: '相关任务 值必须为字符串类型', trigger: 'change' },
@@ -1323,7 +1337,11 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
 , 
         steps: new FormItemModel({ caption: '重现步骤', detailType: 'FORMITEM', name: 'steps', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        task: new FormItemModel({ caption: '相关任务', detailType: 'FORMITEM', name: 'task', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         storyname: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'storyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         taskname: new FormItemModel({ caption: '相关任务', detailType: 'FORMITEM', name: 'taskname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1636,6 +1654,18 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 task 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFROM
+     */
+    @Watch('data.task')
+    onTaskChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'task', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 storyname 值
      *
      * @param {*} newVal
@@ -1645,6 +1675,18 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
     @Watch('data.storyname')
     onStorynameChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'storyname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 story 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFROM
+     */
+    @Watch('data.story')
+    onStoryChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'story', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1711,8 +1753,14 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
             this.onFormItemValueChange({ name: 'modulename', value: null });
             this.onFormItemValueChange({ name: 'module', value: null });
         }
+        if (Object.is(name, 'project')) {
+            this.onFormItemValueChange({ name: 'task', value: null });
+        }
         if (Object.is(name, 'modulename')) {
             this.onFormItemValueChange({ name: 'storyname', value: null });
+        }
+        if (Object.is(name, 'product')) {
+            this.onFormItemValueChange({ name: 'story', value: null });
         }
         if (Object.is(name, 'projectname')) {
             this.onFormItemValueChange({ name: 'taskname', value: null });
@@ -1744,6 +1792,8 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
 
 
 

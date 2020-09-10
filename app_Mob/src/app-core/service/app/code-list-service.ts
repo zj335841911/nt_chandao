@@ -1,4 +1,5 @@
 import { HttpResponse } from '@/ibiz-core/utils';
+import  RelatedStory  from '@/app-core/code-list/related-story';
 import  CurProductPlan  from '@/app-core/code-list/cur-product-plan';
 import  UserRealName  from '@/app-core/code-list/user-real-name';
 import  ProductBranch  from '@/app-core/code-list/product-branch';
@@ -45,6 +46,8 @@ export class CodeListService {
      * @memberof CodeListService
      */
     protected allCodeList: any = {
+        // 关联需求（动态）
+        RelatedStory: new RelatedStory(),
         // 当前产品计划（动态）_缓存
         CurProductPlan: new CurProductPlan(),
         // 用户真实名称（动态）
