@@ -13,10 +13,10 @@ import cn.ibizlab.pms.core.zentao.domain.StorySpec;
 import cn.ibizlab.pms.core.zentao.filter.StorySearchContext;
 import cn.ibizlab.pms.core.zentao.filter.StorySpecSearchContext;
 import cn.ibizlab.pms.core.zentao.service.impl.StoryServiceImpl;
-import cn.ibizlab.pms.util.ibizsysmodel.domain.PSDataEntity;
-import cn.ibizlab.pms.util.ibizsysmodel.filter.PSDataEntitySearchContext;
-import cn.ibizlab.pms.util.ibizsysmodel.service.IPSDataEntityService;
-import cn.ibizlab.pms.util.ibizsysmodel.service.IPSModuleService;
+//import cn.ibizlab.pms.util.ibizsysmodel.domain.PSDataEntity;
+//import cn.ibizlab.pms.util.ibizsysmodel.filter.PSDataEntitySearchContext;
+//import cn.ibizlab.pms.util.ibizsysmodel.service.IPSDataEntityService;
+//import cn.ibizlab.pms.util.ibizsysmodel.service.IPSModuleService;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -41,8 +41,8 @@ import java.util.*;
 @Service("StoryExService")
 public class StoryExService extends StoryServiceImpl {
 
-    @Autowired
-    IPSModuleService ipsModuleService;
+//    @Autowired
+//    IPSModuleService ipsModuleService;
 
     @Autowired
     IIBZProProductService iibzProProductService;
@@ -50,8 +50,8 @@ public class StoryExService extends StoryServiceImpl {
     @Autowired
     IIBZProStoryModuleService iIBZProStoryModuleService;
 
-    @Autowired
-    IPSDataEntityService ipsDataEntityService;
+//    @Autowired
+//    IPSDataEntityService ipsDataEntityService;
 
     @Autowired
     IIBZProStoryService iibzProStoryService;
@@ -85,73 +85,73 @@ public class StoryExService extends StoryServiceImpl {
     @Override
     @Transactional
     public Story syncFromIBIZ(Story et) {
-        IBZProProduct ibzProProduct =  iibzProProductService.get(et.getProduct());
-        String ibiz_id = ibzProProduct.getIbizid();
-        Page<PSDataEntity> psDataEntities = ipsDataEntityService.searchDefault(ibiz_id, new PSDataEntitySearchContext());
-        List<IBZProStory> createList = new ArrayList<>();
-        List<IBZProStory> updateList = new ArrayList<>();
-        Timestamp timestamp = new Timestamp(new Date().getTime());
-        for(PSDataEntity psDataEntity : psDataEntities) {
-            IBZProStory ibzProStory = new IBZProStory();
-            //
-            ibzProStory.setIbizid(psDataEntity.getPsdataentityid());
-            ibzProStory.setProduct(et.getProduct());
-            ibzProStory.setIbizSourceobject("sourcenote__dataentity");
-            ibzProStory.setSource("iBiz");
-            ibzProStory.setSourcenote(psDataEntity.getPsdataentityname());
-            // 获取实体所有属性
-            ibzProStory.setVerify("");
-            ibzProStory.setSpec("");
-            ibzProStory.setComment(psDataEntity.getMemo());
-            ibzProStory.setTitle(psDataEntity.getLogicname());
-            ibzProStory.setIbizSourceid(psDataEntity.getCodename());
-            ibzProStory.setIbizSourcename(psDataEntity.getPsdataentityname());
-            IBZProStoryModuleSearchContext ibzProStoryModuleSearchContext = new IBZProStoryModuleSearchContext();
-            ibzProStoryModuleSearchContext.setN_ibiz_id_eq(psDataEntity.getPsmoduleid());
-            Page<IBZProStoryModule> ibzProStoryModules = iIBZProStoryModuleService.searchDefault(ibzProStoryModuleSearchContext);
-            if(ibzProStoryModules.getContent().size() > 0) {
-                ibzProStory.setModule(ibzProStoryModules.getContent().get(0).getId());
-            }
-            IBZProStorySearchContext ibzProStorySearchContext = new IBZProStorySearchContext();
-            ibzProStorySearchContext.setN_ibiz_id_eq(psDataEntity.getPsdataentityid());
-            List<IBZProStory> ibzProStories = iibzProStoryService.searchDefault(ibzProStorySearchContext).getContent();
-            if(ibzProStories.size() > 0) {
-                ibzProStory.setId(ibzProStories.get(0).getId());
-                String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-                cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-                JSONObject jo = cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(ibzProStory, "change");
-                jo.put("needNotReview",0);
-                boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.change(zentaoSid, jo, rst);
-                if(bRst) {
-                    updateList.add(ibzProStory);
-                }
-            }else {
-                String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-                cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-                JSONObject jo = cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(ibzProStory, "create");
-                jo.put("needNotReview",1);
-                boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.create(zentaoSid, jo, rst);
-                if(bRst) {
-                    updateList.add(ibzProStory);
-                }
-
-            }
-
-        }
-
-        for(IBZProStory ibzProStory : updateList) {
-            if(ibzProStory.getId() == null) {
-                IBZProStorySearchContext ibzProStorySearchContext = new IBZProStorySearchContext();
-                ibzProStorySearchContext.setN_product_eq(et.getProduct());
-                ibzProStorySearchContext.setN_module_eq(ibzProStory.getModule());
-                ibzProStorySearchContext.setN_sourcenote_eq(ibzProStory.getSourcenote());
-                List<IBZProStory> ibzProStories = iibzProStoryService.searchDefault(ibzProStorySearchContext).getContent();
-                if(ibzProStories.size() > 0) {
-                    ibzProStory.setId(ibzProStories.get(0).getId());
-                }
-            }
-        }
-        iibzProStoryService.updateBatch(updateList);
+//        IBZProProduct ibzProProduct =  iibzProProductService.get(et.getProduct());
+//        String ibiz_id = ibzProProduct.getIbizid();
+//        Page<PSDataEntity> psDataEntities = ipsDataEntityService.searchDefault(ibiz_id, new PSDataEntitySearchContext());
+//        List<IBZProStory> createList = new ArrayList<>();
+//        List<IBZProStory> updateList = new ArrayList<>();
+//        Timestamp timestamp = new Timestamp(new Date().getTime());
+//        for(PSDataEntity psDataEntity : psDataEntities) {
+//            IBZProStory ibzProStory = new IBZProStory();
+//            //
+//            ibzProStory.setIbizid(psDataEntity.getPsdataentityid());
+//            ibzProStory.setProduct(et.getProduct());
+//            ibzProStory.setIbizSourceobject("sourcenote__dataentity");
+//            ibzProStory.setSource("iBiz");
+//            ibzProStory.setSourcenote(psDataEntity.getPsdataentityname());
+//            // 获取实体所有属性
+//            ibzProStory.setVerify("");
+//            ibzProStory.setSpec("");
+//            ibzProStory.setComment(psDataEntity.getMemo());
+//            ibzProStory.setTitle(psDataEntity.getLogicname());
+//            ibzProStory.setIbizSourceid(psDataEntity.getCodename());
+//            ibzProStory.setIbizSourcename(psDataEntity.getPsdataentityname());
+//            IBZProStoryModuleSearchContext ibzProStoryModuleSearchContext = new IBZProStoryModuleSearchContext();
+//            ibzProStoryModuleSearchContext.setN_ibiz_id_eq(psDataEntity.getPsmoduleid());
+//            Page<IBZProStoryModule> ibzProStoryModules = iIBZProStoryModuleService.searchDefault(ibzProStoryModuleSearchContext);
+//            if(ibzProStoryModules.getContent().size() > 0) {
+//                ibzProStory.setModule(ibzProStoryModules.getContent().get(0).getId());
+//            }
+//            IBZProStorySearchContext ibzProStorySearchContext = new IBZProStorySearchContext();
+//            ibzProStorySearchContext.setN_ibiz_id_eq(psDataEntity.getPsdataentityid());
+//            List<IBZProStory> ibzProStories = iibzProStoryService.searchDefault(ibzProStorySearchContext).getContent();
+//            if(ibzProStories.size() > 0) {
+//                ibzProStory.setId(ibzProStories.get(0).getId());
+//                String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+//                cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+//                JSONObject jo = cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(ibzProStory, "change");
+//                jo.put("needNotReview",0);
+//                boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.change(zentaoSid, jo, rst);
+//                if(bRst) {
+//                    updateList.add(ibzProStory);
+//                }
+//            }else {
+//                String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+//                cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+//                JSONObject jo = cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(ibzProStory, "create");
+//                jo.put("needNotReview",1);
+//                boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.create(zentaoSid, jo, rst);
+//                if(bRst) {
+//                    updateList.add(ibzProStory);
+//                }
+//
+//            }
+//
+//        }
+//
+//        for(IBZProStory ibzProStory : updateList) {
+//            if(ibzProStory.getId() == null) {
+//                IBZProStorySearchContext ibzProStorySearchContext = new IBZProStorySearchContext();
+//                ibzProStorySearchContext.setN_product_eq(et.getProduct());
+//                ibzProStorySearchContext.setN_module_eq(ibzProStory.getModule());
+//                ibzProStorySearchContext.setN_sourcenote_eq(ibzProStory.getSourcenote());
+//                List<IBZProStory> ibzProStories = iibzProStoryService.searchDefault(ibzProStorySearchContext).getContent();
+//                if(ibzProStories.size() > 0) {
+//                    ibzProStory.setId(ibzProStories.get(0).getId());
+//                }
+//            }
+//        }
+//        iibzProStoryService.updateBatch(updateList);
         return et;
     }
 

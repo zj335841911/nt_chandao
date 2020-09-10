@@ -6,9 +6,9 @@ import cn.ibizlab.pms.core.ibizpro.domain.IBZProStoryModule;
 import cn.ibizlab.pms.core.ibizpro.filter.IBZProStoryModuleSearchContext;
 import cn.ibizlab.pms.core.ibizpro.service.IIBZProProductService;
 import cn.ibizlab.pms.core.ibizpro.service.IIBZProStoryModuleService;
-import cn.ibizlab.pms.util.ibizsysmodel.domain.PSModule;
-import cn.ibizlab.pms.util.ibizsysmodel.filter.PSModuleSearchContext;
-import cn.ibizlab.pms.util.ibizsysmodel.service.IPSModuleService;
+//import cn.ibizlab.pms.util.ibizsysmodel.domain.PSModule;
+//import cn.ibizlab.pms.util.ibizsysmodel.filter.PSModuleSearchContext;
+//import cn.ibizlab.pms.util.ibizsysmodel.service.IPSModuleService;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.ibiz.domain.ProductModule;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +26,8 @@ import java.util.*;
 @Service("ProductModuleExService")
 public class ProductModuleExService extends ProductModuleServiceImpl {
 
-    @Autowired
-    IPSModuleService ipsModuleService;
+//    @Autowired
+//    IPSModuleService ipsModuleService;
 
     @Autowired
     IIBZProProductService iibzProProductService;
@@ -49,31 +49,31 @@ public class ProductModuleExService extends ProductModuleServiceImpl {
     @Override
     @Transactional
     public ProductModule syncFromIBIZ(ProductModule et) {
-        IBZProProduct ibzProProduct =  iibzProProductService.get(Long.parseLong(String.valueOf(et.getRoot())));
-        Page<PSModule> psModules = ipsModuleService.searchDefault(ibzProProduct.getIbizid(),new PSModuleSearchContext());
-        List<IBZProStoryModule> createList = new ArrayList<>();
-        List<IBZProStoryModule> updateList = new ArrayList<>();
-        for(PSModule psModule : psModules) {
-            IBZProStoryModuleSearchContext ibzProStoryModuleSearchContext = new IBZProStoryModuleSearchContext();
-            ibzProStoryModuleSearchContext.setN_ibiz_id_eq(psModule.getPsmoduleid());
-            Page<IBZProStoryModule>  ibzProStoryModules = iIBZProStoryModuleService.searchDefault(ibzProStoryModuleSearchContext);
-            IBZProStoryModule ibzProStoryModule = new IBZProStoryModule();
-            ibzProStoryModule.setName(psModule.getPsmodulename());
-            ibzProStoryModule.setIbizshort(psModule.getPsmodulename());
-            ibzProStoryModule.setDeleted("0");
-            ibzProStoryModule.setIbizid(psModule.getPsmoduleid());
-            if(ibzProStoryModules.getContent().size() > 0) {
-                ibzProStoryModule.setId(ibzProStoryModules.getContent().get(0).getId());
-                iIBZProStoryModuleService.update(ibzProStoryModule);
-            }else {
-                ibzProStoryModule.setRoot(Long.parseLong(String.valueOf(et.getRoot())));
-                ibzProStoryModule.setType("story");
-                ibzProStoryModule.setOwner("");
-                ibzProStoryModule.setCollector("/");
-                ibzProStoryModule.setIbizStorytype("iBizSysModule");
-                iIBZProStoryModuleService.create(ibzProStoryModule);
-            }
-        }
+//        IBZProProduct ibzProProduct =  iibzProProductService.get(Long.parseLong(String.valueOf(et.getRoot())));
+//        Page<PSModule> psModules = ipsModuleService.searchDefault(ibzProProduct.getIbizid(),new PSModuleSearchContext());
+//        List<IBZProStoryModule> createList = new ArrayList<>();
+//        List<IBZProStoryModule> updateList = new ArrayList<>();
+//        for(PSModule psModule : psModules) {
+//            IBZProStoryModuleSearchContext ibzProStoryModuleSearchContext = new IBZProStoryModuleSearchContext();
+//            ibzProStoryModuleSearchContext.setN_ibiz_id_eq(psModule.getPsmoduleid());
+//            Page<IBZProStoryModule>  ibzProStoryModules = iIBZProStoryModuleService.searchDefault(ibzProStoryModuleSearchContext);
+//            IBZProStoryModule ibzProStoryModule = new IBZProStoryModule();
+//            ibzProStoryModule.setName(psModule.getPsmodulename());
+//            ibzProStoryModule.setIbizshort(psModule.getPsmodulename());
+//            ibzProStoryModule.setDeleted("0");
+//            ibzProStoryModule.setIbizid(psModule.getPsmoduleid());
+//            if(ibzProStoryModules.getContent().size() > 0) {
+//                ibzProStoryModule.setId(ibzProStoryModules.getContent().get(0).getId());
+//                iIBZProStoryModuleService.update(ibzProStoryModule);
+//            }else {
+//                ibzProStoryModule.setRoot(Long.parseLong(String.valueOf(et.getRoot())));
+//                ibzProStoryModule.setType("story");
+//                ibzProStoryModule.setOwner("");
+//                ibzProStoryModule.setCollector("/");
+//                ibzProStoryModule.setIbizStorytype("iBizSysModule");
+//                iIBZProStoryModuleService.create(ibzProStoryModule);
+//            }
+//        }
         return super.syncFromIBIZ(et);
     }
 
