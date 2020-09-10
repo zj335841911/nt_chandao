@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="onecontent" ref="onecontent">   
-      <div v-for="item in items" :key="item.id" class="oneitem" ref="oneitem">
+      <div v-for="item in listItems" :key="item.id" class="oneitem" ref="oneitem">
             <div class="header"><span>{{item.date}}</span> <span>{{item.method}}</span></div>
             <div class="footer">
               <span>{{$t('by')}} </span>
@@ -19,10 +19,10 @@
                   <strong v-html="item.comment" class="comment"></strong>
                 </span>
                 <span v-if="item.actions == 'edited' ">
-                  {{$t('oldvalue')}} <span v-html="item.old"></span>,{{$t('newvalue')}} <span v-html="item.new"></span>
+                  <span v-if="item.old">{{$t('oldvalue')}}</span> <span v-html="item.old"></span>,<span v-if="item.new">{{$t('newvalue')}}</span> <span v-html="item.new"></span>
                 </span>
                 <span v-if="item.actions == 'activated'">
-                  {{$t('oldvalue')}} <span v-html="item.old"></span>,{{$t('newvalue')}} <span v-html="item.new"></span> 
+                  <span v-if="item.old">{{$t('oldvalue')}}</span> <span v-html="item.old"></span>,<span v-if="item.new">{{$t('newvalue')}}</span> <span v-html="item.new"></span> 
                 </span>
               </span>
             </div>
@@ -40,6 +40,7 @@
 <script lang="ts">
 import { Vue, Component, Prop,Watch } from 'vue-property-decorator';
 import { CodeListService } from "@/ibiz-core";
+
 
 @Component({
     components: {},
@@ -77,6 +78,16 @@ export default class APPHistoryList extends Vue {
      * @memberof APPHistoryList
      */
     @Prop() public items?: Array<any>;
+
+    public listItems:Array<any> = [];
+
+    @Watch("items")
+    onItemChange (newVal:any , oldVal:any) {
+      if (newVal && this.items) {
+        this.listItems = this.items;
+      }
+    }
+
 
     /**
      * 传入数据itemNameDetail
@@ -249,7 +260,6 @@ export default class APPHistoryList extends Vue {
      */
     public created(){
       this.handler();
-      console.log('items',this.items)
     }
 
     /**
@@ -282,6 +292,7 @@ export default class APPHistoryList extends Vue {
      */
     public mounted(){
       this.setHeight();
+      // console.log("this.items",this.items)
     }
 
 }
