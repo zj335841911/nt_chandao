@@ -1,9 +1,9 @@
 <template>
      <div class="app-mobile-select-drop-down">
-        <div class="cancel-icon" v-if="curvalue"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
+        <div class="cancel-icon" v-if="curvalue"><ion-icon name="close-circle-outline" @click="onClear"></ion-icon></div>
         <div v-if="curvalue== null || curvalue==''" class="ion-select-icon"></div>
         <div class="select_text" style="height: 40px;" @click="openSelect">{{curvalue}}</div>
-        <ion-select :value="selectValue" :ref="name+'select'" v-show="false"   :disabled="disabled " @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
+        <ion-select :selected-text="selectValue" :ref="name+'select'" v-show="false"   :disabled="disabled " @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
             <ion-select-option  v-for="option of items" :key="option.value" :value="option.value">{{option.text}}</ion-select-option>
         </ion-select>
     </div>   
@@ -199,7 +199,7 @@ export default class AppSelectDropDown extends Vue {
       * @type {string}
       * @memberof AppSelectDropDown
       */
-    public selectValue = "";
+    public selectValue :any= "";
 
 
     /**
@@ -382,6 +382,7 @@ export default class AppSelectDropDown extends Vue {
         if (this.name) {
             this.$emit('formitemvaluechange', { name: this.name, value: '' });
         }
+        this.selectValue = null;
         this.$forceUpdate();
     }
 
@@ -772,7 +773,9 @@ export default class AppSelectDropDown extends Vue {
         this.onSearch(null);
         let select :any= this.$refs[this.name+'select'];
         if(select){
-            select.open();
+            setTimeout(() => {
+                select.open();
+            }, 1);
         }
     }
 }
