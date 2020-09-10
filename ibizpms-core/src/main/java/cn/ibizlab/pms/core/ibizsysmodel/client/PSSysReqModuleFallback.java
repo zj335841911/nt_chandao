@@ -50,6 +50,11 @@ public class PSSysReqModuleFallback implements PSSysReqModuleFeignClient{
      }
 
 
+    String getByCodeName(@PathVariable("pssysreqmoduleid") String codeName){
+            return null;
+    }
+
+
     public PSSysReqModule getDraft(){
             return null;
     }
