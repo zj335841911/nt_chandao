@@ -325,7 +325,7 @@ export class MainEditFormBase extends EditFormControlBase {
             this.data['allmodules'] = '1';
         }
         if (this.data.hasOwnProperty('multiple')) {
-            this.data['multiple'] = 0;
+            this.data['multiple'] = '0';
         }
         if (this.data.hasOwnProperty('story')) {
             this.data['story'] = this.viewparams['story'];

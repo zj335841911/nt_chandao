@@ -153,7 +153,7 @@ export default class MainInfoModel {
       {
         name: 'multiple',
         prop: 'multiple',
-        dataType: 'INT',
+        dataType: 'TEXT',
       },
       {
         name: 'id',

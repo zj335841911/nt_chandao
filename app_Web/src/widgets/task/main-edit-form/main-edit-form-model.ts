@@ -68,7 +68,7 @@ export default class MainEditModel {
       {
         name: 'multiple',
         prop: 'multiple',
-        dataType: 'INT',
+        dataType: 'TEXT',
       },
       {
         name: 'desc',
