@@ -177,7 +177,7 @@ public class TaskExService extends TaskServiceImpl {
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
         DecimalFormat df = new DecimalFormat("#.00");
-        if(et.getMultiple() != null && et.getMultiple() == 1) {
+        if(et.getMultiple() != null && "1".equals(et.getMultiple())) {
             List<TaskTeam> list = et.getTaskteam();
             if(!list.isEmpty() && list.size() > 0) {
                 jo.put("assignedTo", list.get(0).getAccount());
@@ -211,7 +211,7 @@ public class TaskExService extends TaskServiceImpl {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
-        if(et.getMultiple() != null && et.getMultiple() == 1) {
+        if(et.getMultiple() != null && "1".equals(et.getMultiple())) {
             List<TaskTeam> list = et.getTaskteam();
             if(!list.isEmpty() && list.size() > 0) {
                 JSONArray team = new JSONArray();
