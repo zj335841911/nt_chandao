@@ -47,7 +47,7 @@ public interface IPSSysReqItemService{
     boolean remove(String devSlnSysId , String key) ;
     void removeBatch(String devSlnSysId , Collection<String> idList) ;
     PSSysReqItem get(String devSlnSysId , String key) ;
-    String getByCodeName(String devSlnSysId , codeName) ;
+    String getByCodeName(String devSlnSysId , String codeName) ;
     PSSysReqItem getDraft(String devSlnSysId , PSSysReqItem et) ;
     boolean checkKey(String devSlnSysId , PSSysReqItem et) ;
     boolean save(String devSlnSysId , PSSysReqItem et) ;

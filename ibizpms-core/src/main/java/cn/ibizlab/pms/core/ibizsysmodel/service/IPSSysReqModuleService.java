@@ -45,7 +45,7 @@ public interface IPSSysReqModuleService{
     boolean remove(String devSlnSysId , String key) ;
     void removeBatch(String devSlnSysId , Collection<String> idList) ;
     PSSysReqModule get(String devSlnSysId , String key) ;
-    String getByCodeName(String devSlnSysId , codeName) ;
+    String getByCodeName(String devSlnSysId , String codeName) ;
     PSSysReqModule getDraft(String devSlnSysId , PSSysReqModule et) ;
     boolean checkKey(String devSlnSysId , PSSysReqModule et) ;
     boolean save(String devSlnSysId , PSSysReqModule et) ;
