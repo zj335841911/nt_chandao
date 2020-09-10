@@ -162,7 +162,7 @@ export default class AppRichTextEditor extends Vue {
    */
   public onClickOk(): void {
     if(this.resFile){
-      this.backEndValue = this.resloutValue.replace(this.resFile.url,"{"+this.resFile.id+this.resFile.ext+"}");
+      this.backEndValue = this.resFile.imgsrc.replace(this.resFile.url,"{"+this.resFile.id+this.resFile.ext+"}");
       this.$emit("close", [{frontEnd:this.resloutValue,backEnd:this.backEndValue}]);
     } else {
       this.$emit("close", [{frontEnd:this.resloutValue,backEnd:this.resloutValue}]);
@@ -247,7 +247,9 @@ export default class AppRichTextEditor extends Vue {
       _downloadUrl += `&${this.export_params.exportParamStr}`;
     }
     file.url = _downloadUrl;
-    this.resloutValue = this.resloutValue + '<img src="' + file.url + '" alt="'+file.filename+'">';
+    this.resFile.url = _downloadUrl;
+    this.resloutValue = this.resloutValue + '<img src="' + file.url + '"alt="'+file.filename+'">';
+    this.resFile.imgsrc = this.resloutValue;
   }
 }
 </script>
