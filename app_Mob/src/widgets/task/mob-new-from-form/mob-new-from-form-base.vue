@@ -40,7 +40,6 @@
     :formState="formState"
     :data="data"
     :context="context"
-    :dataOverLoad="dataOverLoad"
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     :viewparams="viewparams"
@@ -111,7 +110,6 @@
     :formState="formState"
     :data="data"
     :context="context"
-    :dataOverLoad="dataOverLoad"
     :navigateContext ='{ "project": "%project%", "allmodules": "%allmodules%" } '
     :navigateParam ='{ "project": "%project%", "allmodules": "%allmodules%" } '
     :viewparams="viewparams"
@@ -194,6 +192,7 @@
     :parameters="[
         { pathName: 'tasks', parameterName: 'task' },
     ]" 
+    tempMode='2'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
@@ -229,7 +228,6 @@
     :formState="formState"
     :data="data"
     :context="context"
-    :dataOverLoad="dataOverLoad"
     :navigateContext ='{ "n_module_eq": "%module%", "project": "%project%" } '
     :navigateParam ='{ "project": "%project%", "n_module_eq": "%module%" } '
     :viewparams="viewparams"
@@ -576,12 +574,6 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
-    /**
-     * 加载完成
-     *
-     * @memberof MobNewFrom
-     */
-    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -1937,7 +1929,6 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

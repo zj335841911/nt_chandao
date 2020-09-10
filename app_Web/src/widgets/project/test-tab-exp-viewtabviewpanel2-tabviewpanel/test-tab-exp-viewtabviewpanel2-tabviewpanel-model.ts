@@ -222,6 +222,9 @@ export default class TestTabExpViewtabviewpanel2Model {
       {
         name: 'canceltaskcnt',
       },
+      {
+        name: 'storychangecnt',
+      },
     ]
   }
 

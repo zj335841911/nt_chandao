@@ -177,6 +177,9 @@ export default class ToolbarModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'status1',
+      },
     ]
   }
 

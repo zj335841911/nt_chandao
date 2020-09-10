@@ -222,6 +222,9 @@ export default class TaskTreeExpViewtreeexpbarModel {
       {
         name: 'canceltaskcnt',
       },
+      {
+        name: 'storychangecnt',
+      },
     ]
   }
 

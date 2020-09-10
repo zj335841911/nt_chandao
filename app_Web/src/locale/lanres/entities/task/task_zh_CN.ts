@@ -54,6 +54,7 @@ export default {
     modulename1: "所属模块",
     ibztaskestimates: "工时",
     isfavorites: "是否收藏",
+    status1: "任务状态",
   },
 	views: {
 		assigntaskview: {
@@ -570,7 +571,7 @@ export default {
 			id: "编号",
 			pri: "P",
 			name: "任务名称",
-			status: "任务状态",
+			status1: "任务状态",
 		},
 		uiactions: {
 		},
@@ -580,7 +581,7 @@ export default {
 			id: "ID",
 			pri: "P",
 			name: "任务名称",
-			status: "任务状态",
+			status1: "任务状态",
 			assignedto: "指派给",
 			finishedby: "完成者",
 			estimate: "预计",
@@ -591,6 +592,7 @@ export default {
 		},
 		uiactions: {
 			task_assigntask: "指派",
+			task_confirmstorychange: "确认",
 			task_starttask: "开始",
 			task_closetask: "关闭",
 			task_donetask: "完成",
@@ -636,7 +638,7 @@ export default {
 			productname: "产品",
 			projectname: "所属项目",
 			name: "任务名称",
-			status: "任务状态",
+			status1: "任务状态",
 			assignedto: "指派给",
 			finishedby: "完成者",
 			estimate: "预计",
@@ -647,6 +649,7 @@ export default {
 		},
 		uiactions: {
 			task_assigntask: "指派",
+			task_confirmstorychange: "确认",
 			task_starttask: "开始",
 			task_closetask: "关闭",
 			task_donetask: "完成",
@@ -661,7 +664,7 @@ export default {
 			id: "编号",
 			name: "任务名称",
 			assignedto: "指派给",
-			status: "任务状态",
+			status1: "任务状态",
 			consumed: "总计消耗",
 			left: "预计剩余",
 		},

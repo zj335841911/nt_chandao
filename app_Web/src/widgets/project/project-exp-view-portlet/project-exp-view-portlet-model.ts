@@ -222,6 +222,9 @@ export default class ProjectExpViewModel {
       {
         name: 'canceltaskcnt',
       },
+      {
+        name: 'storychangecnt',
+      },
     ]
   }
 

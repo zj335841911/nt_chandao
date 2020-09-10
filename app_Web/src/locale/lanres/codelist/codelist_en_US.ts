@@ -181,6 +181,16 @@ export default {
         "on": "待定",
         "empty": ""
     },
+    TaskStatusCK: {
+        "wait": "未开始",
+        "doing": "进行中",
+        "done": "已完成",
+        "pause": "已暂停",
+        "cancel": "已取消",
+        "closed": "已关闭",
+        "storychange": "需求变更",
+        "empty": ""
+    },
     Testtask__pri: {
         "1": "1",
         "2": "2",
@@ -489,6 +499,7 @@ export default {
         "All": "所有",
         "UNCLOSED": "未关闭",
         "TOME": "指派给我",
+        "storychange": "需求变更",
         "MORE": "更多",
         "NOTSTARTED": "未开始",
         "INPROGRESS": "进行中",

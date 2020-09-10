@@ -105,6 +105,14 @@ export default class Login extends Vue {
             }
         }, 300);
         addEventListener('keydown', this.onKeyDown);
+        let token = localStorage.getItem('token');
+        let user = localStorage.getItem('user');
+        if(token){
+            localStorage.removeItem("token");
+        }
+        if(user){
+            localStorage.removeItem("user");
+        }
     }
 
     /**
@@ -147,6 +155,7 @@ export default class Login extends Vue {
             return;
         }
         this.appService.clearToken();
+
         const form: any = this.$refs.loginForm;
         let validatestate: boolean = true;
         form.validate((valid: boolean) => {

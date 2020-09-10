@@ -222,6 +222,9 @@ export default class MainTabExpViewtabviewpanel8Model {
       {
         name: 'canceltaskcnt',
       },
+      {
+        name: 'storychangecnt',
+      },
     ]
   }
 

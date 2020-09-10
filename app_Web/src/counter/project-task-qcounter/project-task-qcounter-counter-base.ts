@@ -18,7 +18,7 @@ export default class ProjectTaskQCounterCounterServiceBase extends CounterServic
         this.initCounterData();
         this.timer = setInterval(() => {
             this.fetchCounterData(this.context,this.viewparams);
-        }, 6000);
+        }, 120000);
     }
 
     /**

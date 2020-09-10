@@ -12,6 +12,12 @@
      <endEvent id="denybyclosed_1_end" name="end"/>
      <sequenceFlow id="denybyclosed_1_end_line" sourceRef="denybyclosed_1" targetRef="denybyclosed_1_end"/>
      <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremove__msdenydenybystorychange_0" id="denybystorychange_0" implementation="http://www.jboss.org/drools/rule" name="状态[需求变更_未收藏]拒绝[Remove]操作"/>
+     <endEvent id="denybystorychange_0_end" name="end"/>
+     <sequenceFlow id="denybystorychange_0_end_line" sourceRef="denybystorychange_0" targetRef="denybystorychange_0_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremove__msdenydenybystorychange_1" id="denybystorychange_1" implementation="http://www.jboss.org/drools/rule" name="状态[需求变更_已收藏]拒绝[Remove]操作"/>
+     <endEvent id="denybystorychange_1_end" name="end"/>
+     <sequenceFlow id="denybystorychange_1_end_line" sourceRef="denybystorychange_1" targetRef="denybystorychange_1_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="taskremove__msdenydenybypause_1" id="denybypause_1" implementation="http://www.jboss.org/drools/rule" name="状态[已暂停_已收藏]拒绝[Remove]操作"/>
      <endEvent id="denybypause_1_end" name="end"/>
      <sequenceFlow id="denybypause_1_end_line" sourceRef="denybypause_1" targetRef="denybypause_1_end"/>
@@ -38,7 +44,7 @@
             $taskremove__msdenydefault:Task();
             $taskremove__msdenytemp:Task();
             eval($taskremove__msdenydefault==taskremove__msdenydefault && $taskremove__msdenytemp==taskremove__msdenytemp);
-                eval((RuleUtils.test($taskremove__msdenytemp.get("STATUS"),"EQ","cancel"))&&(RuleUtils.test($taskremove__msdenytemp.get("ISFAVORITES"),"EQ","1")))
+                eval((RuleUtils.test($taskremove__msdenytemp.get("STATUS1"),"EQ","cancel"))&&(RuleUtils.test($taskremove__msdenytemp.get("ISFAVORITES"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -47,7 +53,7 @@
             $taskremove__msdenydefault:Task();
             $taskremove__msdenytemp:Task();
             eval($taskremove__msdenydefault==taskremove__msdenydefault && $taskremove__msdenytemp==taskremove__msdenytemp);
-                eval((RuleUtils.test($taskremove__msdenytemp.get("STATUS"),"EQ","closed"))&&(RuleUtils.test($taskremove__msdenytemp.get("ISFAVORITES"),"EQ","1")))
+                eval((RuleUtils.test($taskremove__msdenytemp.get("STATUS1"),"EQ","closed"))&&(RuleUtils.test($taskremove__msdenytemp.get("ISFAVORITES"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -56,7 +62,7 @@
             $taskremove__msdenydefault:Task();
             $taskremove__msdenytemp:Task();
             eval($taskremove__msdenydefault==taskremove__msdenydefault && $taskremove__msdenytemp==taskremove__msdenytemp);
-                eval((RuleUtils.test($taskremove__msdenytemp.get("STATUS"),"EQ","doing"))&&(RuleUtils.test($taskremove__msdenytemp.get("ISFAVORITES"),"EQ","1")))
+                eval((RuleUtils.test($taskremove__msdenytemp.get("STATUS1"),"EQ","doing"))&&(RuleUtils.test($taskremove__msdenytemp.get("ISFAVORITES"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -65,7 +71,7 @@
             $taskremove__msdenydefault:Task();
             $taskremove__msdenytemp:Task();
             eval($taskremove__msdenydefault==taskremove__msdenydefault && $taskremove__msdenytemp==taskremove__msdenytemp);
-                eval((RuleUtils.test($taskremove__msdenytemp.get("STATUS"),"EQ","done"))&&(RuleUtils.test($taskremove__msdenytemp.get("ISFAVORITES"),"EQ","1")))
+                eval((RuleUtils.test($taskremove__msdenytemp.get("STATUS1"),"EQ","done"))&&(RuleUtils.test($taskremove__msdenytemp.get("ISFAVORITES"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -74,7 +80,25 @@
             $taskremove__msdenydefault:Task();
             $taskremove__msdenytemp:Task();
             eval($taskremove__msdenydefault==taskremove__msdenydefault && $taskremove__msdenytemp==taskremove__msdenytemp);
-                eval((RuleUtils.test($taskremove__msdenytemp.get("STATUS"),"EQ","pause"))&&(RuleUtils.test($taskremove__msdenytemp.get("ISFAVORITES"),"EQ","1")))
+                eval((RuleUtils.test($taskremove__msdenytemp.get("STATUS1"),"EQ","pause"))&&(RuleUtils.test($taskremove__msdenytemp.get("ISFAVORITES"),"EQ","1")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="gateway-get_denybystorychange_0" sourceRef="gateway-get" targetRef="denybystorychange_0">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskremove__msdenydefault:Task();
+            $taskremove__msdenytemp:Task();
+            eval($taskremove__msdenydefault==taskremove__msdenydefault && $taskremove__msdenytemp==taskremove__msdenytemp);
+                eval((RuleUtils.test($taskremove__msdenytemp.get("STATUS1"),"EQ","storychange"))&&(RuleUtils.test($taskremove__msdenytemp.get("ISFAVORITES"),"EQ","0")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+     <sequenceFlow id="gateway-get_denybystorychange_1" sourceRef="gateway-get" targetRef="denybystorychange_1">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $taskremove__msdenydefault:Task();
+            $taskremove__msdenytemp:Task();
+            eval($taskremove__msdenydefault==taskremove__msdenydefault && $taskremove__msdenytemp==taskremove__msdenytemp);
+                eval((RuleUtils.test($taskremove__msdenytemp.get("STATUS1"),"EQ","storychange"))&&(RuleUtils.test($taskremove__msdenytemp.get("ISFAVORITES"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
@@ -83,7 +107,7 @@
             $taskremove__msdenydefault:Task();
             $taskremove__msdenytemp:Task();
             eval($taskremove__msdenydefault==taskremove__msdenydefault && $taskremove__msdenytemp==taskremove__msdenytemp);
-                eval((RuleUtils.test($taskremove__msdenytemp.get("STATUS"),"EQ","wait"))&&(RuleUtils.test($taskremove__msdenytemp.get("ISFAVORITES"),"EQ","1")))
+                eval((RuleUtils.test($taskremove__msdenytemp.get("STATUS1"),"EQ","wait"))&&(RuleUtils.test($taskremove__msdenytemp.get("ISFAVORITES"),"EQ","1")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>

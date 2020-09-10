@@ -55,6 +55,7 @@ export default {
     modulename1: "所属模块",
     ibztaskestimates: "工时",
     isfavorites: "是否收藏",
+    status1: "任务状态",
   },
 	views: {
 		subtasknewview: {

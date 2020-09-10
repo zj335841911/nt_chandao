@@ -177,6 +177,9 @@ export default class MainDetailModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'status1',
+      },
     ]
   }
 

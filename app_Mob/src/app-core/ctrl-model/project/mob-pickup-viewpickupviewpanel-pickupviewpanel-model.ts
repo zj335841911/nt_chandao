@@ -222,6 +222,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'canceltaskcnt',
       },
+      {
+        name: 'storychangecnt',
+      },
     ]
   }
 

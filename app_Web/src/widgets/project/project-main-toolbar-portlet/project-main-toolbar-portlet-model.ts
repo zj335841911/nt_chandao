@@ -222,6 +222,9 @@ export default class ProjectMainToolbarModel {
       {
         name: 'canceltaskcnt',
       },
+      {
+        name: 'storychangecnt',
+      },
     ]
   }
 

@@ -222,6 +222,9 @@ export class MobTabExpViewtabexppanelModel {
       {
         name: 'canceltaskcnt',
       },
+      {
+        name: 'storychangecnt',
+      },
     ]
   }
 

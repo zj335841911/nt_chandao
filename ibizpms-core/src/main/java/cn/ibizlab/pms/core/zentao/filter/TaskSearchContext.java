@@ -90,6 +90,13 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
             this.getSearchCond().eq("status", n_status_eq);
         }
     }
+	private String n_status_in;//[任务状态]
+	public void setN_status_in(String n_status_in) {
+        this.n_status_in = n_status_in;
+        if(!ObjectUtils.isEmpty(this.n_status_in)){
+			this.getSearchCond().in("status",this.n_status_in.split(";"));
+        }
+    }
 	private String n_status_noteq;//[任务状态]
 	public void setN_status_noteq(String n_status_noteq) {
         this.n_status_noteq = n_status_noteq;
@@ -228,6 +235,13 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
         this.n_path_like = n_path_like;
         if(!ObjectUtils.isEmpty(this.n_path_like)){
             this.getSearchCond().like("path", n_path_like);
+        }
+    }
+	private String n_status1_eq;//[任务状态]
+	public void setN_status1_eq(String n_status1_eq) {
+        this.n_status1_eq = n_status1_eq;
+        if(!ObjectUtils.isEmpty(this.n_status1_eq)){
+            this.getSearchCond().eq("status1", n_status1_eq);
         }
     }
 

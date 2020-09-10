@@ -449,6 +449,14 @@ public class TaskDTO extends DTOBase implements Serializable {
     @JsonProperty("isfavorites")
     private String isfavorites;
 
+    /**
+     * 属性 [STATUS1]
+     *
+     */
+    @JSONField(name = "status1")
+    @JsonProperty("status1")
+    private String status1;
+
 
     /**
      * 设置 [CANCELEDBY]

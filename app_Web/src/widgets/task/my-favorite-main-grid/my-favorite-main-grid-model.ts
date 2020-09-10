@@ -47,6 +47,11 @@ export default class MyFavoriteMainModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'status1',
+          prop: 'status1',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',

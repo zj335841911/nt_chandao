@@ -557,4 +557,12 @@ export interface Project {
      * @memberof Project
      */
     canceltaskcnt?: any;
+
+    /**
+     * 需求变更数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    storychangecnt?: any;
 }

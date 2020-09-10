@@ -1,5 +1,5 @@
 <template>
-     <div v-if="overload" class="app-mobile-select-drop-down">
+     <div class="app-mobile-select-drop-down">
         <div class="cancel-icon" v-if="curvalue"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
         <div v-if="curvalue== null || curvalue==''" class="ion-select-icon"></div>
         <ion-select :value="curvalue"  :disabled="disabled " @click="onSearch(null)" @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
@@ -170,31 +170,6 @@ export default class AppSelectDropDown extends Vue {
     @Prop({ default: {} }) protected navigateContext?: any;
 
     /**
-     * 表单请求完成
-     *
-     * @type {*}
-     * @memberof AppSelectDropDown
-     */
-    @Prop() public dataOverLoad?: any;
-
-    /**
-     * 监听表单请求完成
-     * @memberof AppSelectDropDown
-     */
-    @Watch("dataOverLoad")
-    onDataOverLoadChange(newVal: any, oldVal: any){
-        this.onSearch();
-    }
-
-    /**
-     * 当前值
-     *
-     * @type {string}
-     * @memberof AppSelectDropDown
-     */
-    public curvalue: string = '';
-
-    /**
      * 下拉数组
      * @type {any[]}
      * @memberof AppSelectDropDown
@@ -238,11 +213,16 @@ export default class AppSelectDropDown extends Vue {
      * @readonly
      * @memberof AppSelectDropDown
      */
-    get refvalue() {
-        if (this.valueitem && this.data) {
+    get curvalue() {
+        if (this.value && this.items.length > 0) { // 判断是否拿到表单传来的值、列表项是否加载完成
+            let isIncluded = this.items.some((item:any)=>{return item.name === this.value});
+            if (isIncluded) {
+                return this.value;
+            }
+        } else if (this.valueitem && this.data) {  // 是否有配置值项
             return this.data[this.valueitem];
         }
-        return this.curvalue;
+        return "";
     }
 
     /**
@@ -251,7 +231,7 @@ export default class AppSelectDropDown extends Vue {
       * @readonly
       * @memberof AppSelectDropDown
       */
-    set refvalue(item: any) {
+    set curvalue(item: any) {
         this.onSelect(item);
     }
 
@@ -278,14 +258,6 @@ export default class AppSelectDropDown extends Vue {
             this.onSearch(newVal, false);
         }
     }
-
-    /**
-     * 加载完成
-     *
-     * @type {*}
-     * @memberof AppSelectDropDown
-     */
-    public overload: boolean = false;
 
     /**
      * vue 生命周期
@@ -336,7 +308,6 @@ export default class AppSelectDropDown extends Vue {
         if (entityService && entityService[this.acParams.interfaceName] && entityService[this.acParams.interfaceName] instanceof Function) {
             const response = await entityService[this.acParams.interfaceName](_context, _param);
             if (response && response.status === 200) {
-                this.overload = true;
                 this.items = response.data;
                 this.result(this.items);
             } else {

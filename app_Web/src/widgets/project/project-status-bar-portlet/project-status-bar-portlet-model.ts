@@ -222,6 +222,9 @@ export default class ProjectStatusBarModel {
       {
         name: 'canceltaskcnt',
       },
+      {
+        name: 'storychangecnt',
+      },
     ]
   }
 
