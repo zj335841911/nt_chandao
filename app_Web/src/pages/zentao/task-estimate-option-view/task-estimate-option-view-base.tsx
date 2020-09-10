@@ -58,6 +58,13 @@ export class TaskEstimateOptionViewBase extends OptionViewBase {
     public appUIService: TaskEstimateUIService = new TaskEstimateUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof TaskEstimateOptionViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

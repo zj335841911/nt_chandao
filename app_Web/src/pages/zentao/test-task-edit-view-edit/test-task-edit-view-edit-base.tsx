@@ -58,6 +58,13 @@ export class TestTaskEditView_EditBase extends EditViewBase {
     public appUIService: TestTaskUIService = new TestTaskUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof TestTaskEditView_EditBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

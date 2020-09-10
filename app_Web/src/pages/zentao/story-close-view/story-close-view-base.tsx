@@ -70,6 +70,13 @@ export class StoryCloseViewBase extends OptionViewBase {
     };
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof StoryCloseViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

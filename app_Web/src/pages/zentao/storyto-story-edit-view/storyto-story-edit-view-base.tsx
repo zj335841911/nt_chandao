@@ -58,6 +58,13 @@ export class StorytoStoryEditViewBase extends EditViewBase {
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof StorytoStoryEditViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

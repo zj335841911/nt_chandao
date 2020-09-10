@@ -58,6 +58,13 @@ export class IbzMyTerritoryDashboardViewBase extends DashboardViewBase {
     public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof IbzMyTerritoryDashboardViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

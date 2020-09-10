@@ -58,6 +58,13 @@ export class ProjectListExpViewBase extends ListExpViewBase {
     public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof ProjectListExpViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

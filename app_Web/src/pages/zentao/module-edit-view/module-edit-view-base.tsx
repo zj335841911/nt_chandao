@@ -58,6 +58,13 @@ export class ModuleEditViewBase extends EditViewBase {
     public appUIService: ModuleUIService = new ModuleUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof ModuleEditViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

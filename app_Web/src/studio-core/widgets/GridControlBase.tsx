@@ -273,6 +273,11 @@ export class GridControlBase extends MDControlBase {
                 this.load();
             }
         }, 'all', this.appDeName.toUpperCase()));
+        this.accLocalTags.push(this.$acc.command(() => {
+            if (this.isActive) {
+                this.load();
+            }
+        }, 'all', this.appDeName.toUpperCase()));
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {

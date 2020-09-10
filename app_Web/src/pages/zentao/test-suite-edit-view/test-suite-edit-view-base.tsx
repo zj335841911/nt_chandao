@@ -80,6 +80,13 @@ export class TestSuiteEditViewBase extends EditViewBase {
     };
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof TestSuiteEditViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

@@ -70,6 +70,13 @@ export class CaseTestMainDashboardViewBase extends DashboardViewBase {
     };
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof CaseTestMainDashboardViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

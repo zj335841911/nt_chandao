@@ -58,6 +58,13 @@ export class CaseEditViewBase extends EditViewBase {
     public appUIService: CaseUIService = new CaseUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof CaseEditViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

@@ -186,7 +186,7 @@ export default class AppFormDRUIPart extends Vue {
      * @type {[boolean]}
      * @memberof AppFormDRUIPart
      */
-    protected timer?: number;
+    protected timer?: any;
 
     /**
      * 关系视图加载完毕触发事件

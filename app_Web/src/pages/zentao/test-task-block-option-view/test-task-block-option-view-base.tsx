@@ -69,6 +69,13 @@ export class TestTaskBlockOptionViewBase extends OptionViewBase {
     };
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof TestTaskBlockOptionViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

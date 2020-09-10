@@ -80,6 +80,13 @@ export class UserEditViewBase extends EditViewBase {
     };
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof UserEditViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

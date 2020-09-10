@@ -70,6 +70,13 @@ export class TestTaskMainDashboardViewBase extends DashboardViewBase {
     };
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof TestTaskMainDashboardViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

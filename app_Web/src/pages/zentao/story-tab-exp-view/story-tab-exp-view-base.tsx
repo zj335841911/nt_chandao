@@ -58,6 +58,13 @@ export class StoryTabExpViewBase extends TabExpViewBase {
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof StoryTabExpViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

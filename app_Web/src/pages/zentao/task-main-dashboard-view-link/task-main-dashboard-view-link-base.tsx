@@ -70,6 +70,13 @@ export class TaskMainDashboardView_LinkBase extends DashboardViewBase {
     };
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof TaskMainDashboardView_LinkBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

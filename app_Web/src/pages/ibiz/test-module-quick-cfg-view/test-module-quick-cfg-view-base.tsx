@@ -58,6 +58,13 @@ export class TestModuleQuickCfgViewBase extends OptionViewBase {
     public appUIService: TestModuleUIService = new TestModuleUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof TestModuleQuickCfgViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

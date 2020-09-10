@@ -75,7 +75,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u7b97712_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_ud5c812e_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -103,7 +103,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_uc74c61c_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u26a772c_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -131,7 +131,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u824d7d6_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u19d1986_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -159,7 +159,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u7480d3d_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u57d0f95_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -187,7 +187,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u5aaa4ae_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_ue885baf_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -215,7 +215,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u1c090d0_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u93d88d5_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -243,7 +243,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ucfd61f1_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u2573869_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -271,7 +271,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u0ac3876_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_ud775625_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -292,49 +292,20 @@ export class MyFavoriteMainGridBase extends GridControlBase {
     }
 
     /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_ue4f5101_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_Push(datas,contextJO, paramJO,  $event, xData,this,"Story");
-    }
-
-    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof MyFavoriteMainBase
      */  
     public ActionModel: any = {
-        ChangeStoryDetail: { name: 'ChangeStoryDetail',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', actiontarget: 'SINGLEKEY'},
-        ReviewStory: { name: 'ReviewStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', actiontarget: 'SINGLEKEY'},
-        CloseStory: { name: 'CloseStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', actiontarget: 'SINGLEKEY'},
-        OpenBaseInfoEditView: { name: 'OpenBaseInfoEditView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_EDIT_BUT', actiontarget: 'SINGLEKEY'},
-        OpenCaseCreateView: { name: 'OpenCaseCreateView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CCASE_BUT', actiontarget: 'SINGLEKEY'},
-        SubStory: { name: 'SubStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_XQXF_BUT', actiontarget: 'SINGLEKEY'},
-        StoryFavorites: { name: 'StoryFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
-        StoryNFavorites: { name: 'StoryNFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', actiontarget: 'SINGLEKEY'},
-        Push: { name: 'Push',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
+        ChangeStoryDetail: { name: 'ChangeStoryDetail',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', target: 'SINGLEKEY'},
+        ReviewStory: { name: 'ReviewStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', target: 'SINGLEKEY'},
+        CloseStory: { name: 'CloseStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', target: 'SINGLEKEY'},
+        OpenBaseInfoEditView: { name: 'OpenBaseInfoEditView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_EDIT_BUT', target: 'SINGLEKEY'},
+        OpenCaseCreateView: { name: 'OpenCaseCreateView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CCASE_BUT', target: 'SINGLEKEY'},
+        SubStory: { name: 'SubStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_XQXF_BUT', target: 'SINGLEKEY'},
+        StoryFavorites: { name: 'StoryFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_NFAVOR_BUT', target: 'SINGLEKEY'},
+        StoryNFavorites: { name: 'StoryNFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', target: 'SINGLEKEY'}
     };
 
     /**
@@ -599,33 +570,129 @@ export class MyFavoriteMainGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('ChangeStoryDetail', tag)) {
-            this.grid_uagridcolumn1_u7b97712_click(row, tag, $event);
+            this.grid_uagridcolumn1_ud5c812e_click(row, tag, $event);
         }
         if(Object.is('ReviewStory', tag)) {
-            this.grid_uagridcolumn1_uc74c61c_click(row, tag, $event);
+            this.grid_uagridcolumn1_u26a772c_click(row, tag, $event);
         }
         if(Object.is('CloseStory', tag)) {
-            this.grid_uagridcolumn1_u824d7d6_click(row, tag, $event);
+            this.grid_uagridcolumn1_u19d1986_click(row, tag, $event);
         }
         if(Object.is('OpenBaseInfoEditView', tag)) {
-            this.grid_uagridcolumn1_u7480d3d_click(row, tag, $event);
+            this.grid_uagridcolumn1_u57d0f95_click(row, tag, $event);
         }
         if(Object.is('OpenCaseCreateView', tag)) {
-            this.grid_uagridcolumn1_u5aaa4ae_click(row, tag, $event);
+            this.grid_uagridcolumn1_ue885baf_click(row, tag, $event);
         }
         if(Object.is('SubStory', tag)) {
-            this.grid_uagridcolumn1_u1c090d0_click(row, tag, $event);
+            this.grid_uagridcolumn1_u93d88d5_click(row, tag, $event);
         }
         if(Object.is('StoryFavorites', tag)) {
-            this.grid_uagridcolumn1_ucfd61f1_click(row, tag, $event);
+            this.grid_uagridcolumn1_u2573869_click(row, tag, $event);
         }
         if(Object.is('StoryNFavorites', tag)) {
-            this.grid_uagridcolumn1_u0ac3876_click(row, tag, $event);
-        }
-        if(Object.is('Push', tag)) {
-            this.grid_uagridcolumn1_ue4f5101_click(row, tag, $event);
+            this.grid_uagridcolumn1_ud775625_click(row, tag, $event);
         }
     }
 
+    /**
+     * 表格数据加载
+     *
+     * @param {*} [opt={}]
+     * @param {boolean} [pageReset=false]
+     * @returns {void}
+     * @memberof MyFavoriteMainGridBase
+     */
+    public load(opt: any = {}, pageReset: boolean = false): void {
+        if (!this.fetchAction) {
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.gridpage.notConfig.fetchAction') as string) });
+            return;
+        }
+        if (pageReset) {
+            this.curPage = 1;
+        }
+        const arg: any = { ...opt };
+        const page: any = {};
+        if (this.isEnablePagingBar) {
+            Object.assign(page, { page: this.curPage - 1, size: this.limit });
+        }
+        // 设置排序
+        if (!this.isNoSort && !Object.is(this.minorSortDir, '') && !Object.is(this.minorSortPSDEF, '')) {
+            const sort: string = this.minorSortPSDEF + "," + this.minorSortDir;
+            Object.assign(page, { sort: sort });
+        }
+        Object.assign(arg, page);
+        const parentdata: any = {};
+        this.$emit('beforeload', parentdata);
+        Object.assign(arg, parentdata);
+        let tempViewParams: any = parentdata.viewparams ? parentdata.viewparams : {};
+        Object.assign(tempViewParams, JSON.parse(JSON.stringify(this.viewparams)));
+        Object.assign(arg, { viewparams: tempViewParams });
+        const post: Promise<any> = this.service.search(this.fetchAction, JSON.parse(JSON.stringify(this.context)), arg, this.showBusyIndicator);
+        post.then((response: any) => {
+            if (!response.status || response.status !== 200) {
+                if (response.errorMessage) {
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
+                }
+                return;
+            }
+            const data: any = response.data;
+            this.totalRecord = response.total;
+            this.items = JSON.parse(JSON.stringify(data));
+            // 清空selections,gridItemsModel
+            this.selections = [];
+            this.gridItemsModel = [];
+            this.items.forEach(() => { this.gridItemsModel.push(this.getGridRowModel()) });
+            this.items.forEach((item: any) => {
+                this.setActionState(item);
+            });
+            this.$emit('load', this.items);
+            // 向上下文中填充当前数据
+            this.$appService.contextStore.setContextData(this.context, this.appDeName, { items: this.items });
+            // 设置默认选中
+            setTimeout(() => {
+                if (this.isSelectFirstDefault) {
+                    this.rowClick(this.items[0]);
+                }
+                if (this.selectedData) {
+                    const refs: any = this.$refs;
+                    if (refs.multipleTable) {
+                        refs.multipleTable.clearSelection();
+                        JSON.parse(this.selectedData).forEach((selection: any) => {
+                            let selectedItem = this.items.find((item: any) => {
+                                return Object.is(item.srfkey, selection.srfkey);
+                            });
+                            if (selectedItem) {
+                                this.rowClick(selectedItem);
+                            }
+                        });
+                    }
+                }
+            }, 300);
+            // 
+        }).catch((response: any) => {
+            if (response && response.status === 401) {
+                return;
+            }
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
+        });
+    }
 
+    /**
+     * 表格数据加载
+     *
+     * @param {*} item
+     * @returns {void}
+     * @memberof MyFavoriteMainGridBase
+     */
+    public setActionState(item: any) {
+        Object.assign(item, this.getActionState(item));
+        if(item.items && item.items.length > 0) {
+            item.items.forEach((data: any) => {
+                let _data: any = this.service.handleResponseData('', data);
+                Object.assign(data, _data);
+                this.setActionState(data);
+            })
+        }
+    }
 }

@@ -58,6 +58,13 @@ export class ProductBugTreeExpViewBase extends TreeExpViewBase {
     public appUIService: ProductUIService = new ProductUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof ProductBugTreeExpViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

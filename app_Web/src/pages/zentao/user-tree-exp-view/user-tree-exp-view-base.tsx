@@ -58,6 +58,13 @@ export class UserTreeExpViewBase extends TreeExpViewBase {
     public appUIService: UserUIService = new UserUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof UserTreeExpViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

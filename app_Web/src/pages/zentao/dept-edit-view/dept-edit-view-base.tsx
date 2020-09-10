@@ -58,6 +58,13 @@ export class DeptEditViewBase extends EditViewBase {
     public appUIService: DeptUIService = new DeptUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof DeptEditViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

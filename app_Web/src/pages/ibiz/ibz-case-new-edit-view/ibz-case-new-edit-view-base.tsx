@@ -58,6 +58,13 @@ export class IbzCaseNewEditViewBase extends EditViewBase {
     public appUIService: IbzCaseUIService = new IbzCaseUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof IbzCaseNewEditViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

@@ -58,6 +58,13 @@ export class CaseOptionViewBase extends OptionViewBase {
     public appUIService: CaseUIService = new CaseUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof CaseOptionViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

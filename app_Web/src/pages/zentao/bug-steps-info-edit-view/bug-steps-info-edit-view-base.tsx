@@ -58,6 +58,13 @@ export class BugStepsInfoEditViewBase extends EditViewBase {
     public appUIService: BugUIService = new BugUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof BugStepsInfoEditViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

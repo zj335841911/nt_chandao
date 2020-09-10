@@ -58,6 +58,13 @@ export class BranchPMInfoEditViewBase extends EditViewBase {
     public appUIService: BranchUIService = new BranchUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof BranchPMInfoEditViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

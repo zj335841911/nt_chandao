@@ -58,6 +58,13 @@ export class IbzLibModuleCaseTreeExpViewBase extends TreeExpViewBase {
     public appUIService: IbzLibModuleUIService = new IbzLibModuleUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof IbzLibModuleCaseTreeExpViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

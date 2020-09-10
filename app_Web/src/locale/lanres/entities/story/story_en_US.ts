@@ -851,7 +851,6 @@ export default {
         story_substory: "需求细分",
         story_storyfavorites: "收藏",
         story_storynfavorites: "取消收藏",
-        story_push: "推送",
 		},
 	},
 	main9_grid: {

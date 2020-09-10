@@ -58,6 +58,13 @@ export class TaskTodoEditViewBase extends EditViewBase {
     public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof TaskTodoEditViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

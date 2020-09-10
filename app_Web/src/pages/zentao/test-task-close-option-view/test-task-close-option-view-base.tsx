@@ -69,6 +69,13 @@ export class TestTaskCloseOptionViewBase extends OptionViewBase {
     };
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof TestTaskCloseOptionViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

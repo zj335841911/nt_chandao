@@ -19,6 +19,13 @@ export class ViewBase extends Vue {
     public viewState: Subject<ViewState> = new Subject();
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof ViewBase
+     */
+    isShowDataInfoBar = false;
+
+    /**
      * 视图标题
      *
      * @readonly
@@ -26,8 +33,8 @@ export class ViewBase extends Vue {
      * @memberof ViewBase
      */
     get viewCaption(): string {
-        if (isExistAndNotEmpty(this.model.dataInfo)) {
-            return `${this.model.srfCaption} - ${this.model.dataInfo}`;
+        if (this.isShowDataInfoBar && isExistAndNotEmpty(this.model.dataInfo)) {
+            return `${this.model.srfCaption}：${this.model.dataInfo}`;
         }
         return this.model.srfCaption;
     }
