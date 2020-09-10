@@ -30,28 +30,27 @@
     :disabled="detailsModel.projectname.disabled"
     :error="detailsModel.projectname.error" 
     :isEmptyCaption="false">
-        <app-mob-picker
-    name='projectname'
-    deMajorField='projectname'
-    deKeyField='projectid'
+        <app-mob-select-drop-down 
+    name='projectname' 
+    deMajorField='name'
+    deKeyField='id'
     valueitem='' 
-    editortype="" 
-    style=""  
+    style="" 
+    editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :viewparams="viewparams"
     :navigateContext ='{ } '
     :navigateParam ='{ } '
+    :viewparams="viewparams"
     :itemParam='{ }' 
     :disabled="detailsModel.projectname.disabled"
     :service="service"
     :acParams="{ serviceName: 'project', interfaceName: 'FetchCurUser'}"
     :value="data.projectname" 
-    :pickupView="{ viewname: 'project-mob-pickup-view', title: '项目移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange">
-</app-mob-picker>
-
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.projectname = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
@@ -102,28 +101,27 @@
     :disabled="detailsModel.modulename.disabled"
     :error="detailsModel.modulename.error" 
     :isEmptyCaption="false">
-        <app-mob-picker
-    name='modulename'
-    deMajorField='projectmodulename'
-    deKeyField='projectmoduleid'
+        <app-mob-select-drop-down 
+    name='modulename' 
+    deMajorField='name'
+    deKeyField='id'
     valueitem='' 
-    editortype="" 
-    style=""  
+    style="" 
+    editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :viewparams="viewparams"
     :navigateContext ='{ "project": "%project%", "allmodules": "%allmodules%" } '
     :navigateParam ='{ "project": "%project%", "allmodules": "%allmodules%" } '
+    :viewparams="viewparams"
     :itemParam='{ }' 
     :disabled="detailsModel.modulename.disabled"
     :service="service"
     :acParams="{ serviceName: 'projectmodule', interfaceName: 'FetchTaskModules'}"
     :value="data.modulename" 
-    :pickupView="{ viewname: 'project-module-mob-pickup-view', title: '任务模块移动端数据选择视图', deResParameters: [{ pathName: 'projects', parameterName: 'project' }, ], parameters: [{ pathName: 'projectmodules', parameterName: 'projectmodule' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange">
-</app-mob-picker>
-
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.modulename = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
@@ -222,28 +220,27 @@
     :disabled="detailsModel.storyname.disabled"
     :error="detailsModel.storyname.error" 
     :isEmptyCaption="false">
-        <app-mob-picker
-    name='storyname'
-    deMajorField='storyname'
-    deKeyField='storyid'
+        <app-mob-select-drop-down 
+    name='storyname' 
+    deMajorField='title'
+    deKeyField='id'
     valueitem='' 
-    editortype="" 
-    style=""  
+    style="" 
+    editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :viewparams="viewparams"
     :navigateContext ='{ "n_module_eq": "%module%", "project": "%project%" } '
     :navigateParam ='{ "project": "%project%", "n_module_eq": "%module%" } '
+    :viewparams="viewparams"
     :itemParam='{ }' 
     :disabled="detailsModel.storyname.disabled"
     :service="service"
     :acParams="{ serviceName: 'story', interfaceName: 'FetchTaskRelatedStory'}"
     :value="data.storyname" 
-    :pickupView="{ viewname: 'story-mob-pickup-view', title: '需求移动端数据选择视图', deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'stories', parameterName: 'story' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange">
-</app-mob-picker>
-
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.storyname = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
