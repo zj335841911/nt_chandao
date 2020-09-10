@@ -181,6 +181,30 @@
 
 
 
+<app-form-item 
+    name='multiple' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="multiple_item"  
+    :itemValue="this.data.multiple" 
+    v-show="detailsModel.multiple.visible" 
+    :itemRules="this.rules.multiple" 
+    :caption="$t('task.mobnewfrom_form.details.multiple')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.multiple.disabled"
+    :error="detailsModel.multiple.error" 
+    :isEmptyCaption="false">
+        <app-mob-switch 
+    class="app-form-item-switch" 
+    :value="data.multiple"  
+    :disabled="detailsModel.multiple.disabled"
+    @change="($event)=>this.data.multiple = $event" />
+</app-form-item>
+
+
+
 <app-form-druipart
     class='' 
     parameterName='task' 
@@ -757,6 +781,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
         modulename: null,
         allmodules: null,
         assignedto: null,
+        multiple: null,
         story: null,
         storyname: null,
         name: null,
@@ -890,6 +915,12 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
             { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'blur' },
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
+        ],
+        multiple: [
+            { type: 'number', message: '多人任务 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '多人任务 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '多人任务 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '多人任务 值不能为空', trigger: 'blur' },
         ],
         story: [
             { type: 'number', message: '相关需求 值必须为数值类型', trigger: 'change' },
@@ -1035,7 +1066,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
      * @memberof MobNewFrom
      */
     protected detailsModel: any = {
-        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: false, isShowCaption: true, form: this })
 , 
         group1: new FormGroupPanelModel({ caption: 'task基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.mobnewfrom_form', extractMode: 'ITEM', details: [] } })
 , 
@@ -1070,6 +1101,8 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
         allmodules: new FormItemModel({ caption: '所有模块', detailType: 'FORMITEM', name: 'allmodules', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1274,6 +1307,18 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 multiple 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFrom
+     */
+    @Watch('data.multiple')
+    onMultipleChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'multiple', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 story 值
      *
      * @param {*} newVal
@@ -1435,6 +1480,14 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+        if (Object.is(name, '') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_multiple, 'EQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.druipart1.setVisible(ret);
+        }
 
 
 
@@ -1473,6 +1526,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
             }
             this.detailsModel.assignedto.setDisabled(!ret);
         }
+
 
 
 
@@ -1667,7 +1721,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
      * @memberof MobNewFrom
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['projectname_item', 'type_item', 'modulename_item', 'allmodules_item', 'assignedto_item', 'storyname_item', 'name_item', 'pri_item', 'estimate_item', 'eststarted_item', 'deadline_item', 'desc_item', 'mailto_item', ];
+        const refArr: Array<string> = ['projectname_item', 'type_item', 'modulename_item', 'allmodules_item', 'assignedto_item', 'multiple_item', 'storyname_item', 'name_item', 'pri_item', 'estimate_item', 'eststarted_item', 'deadline_item', 'desc_item', 'mailto_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];
