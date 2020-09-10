@@ -29,9 +29,9 @@ public interface ITestModuleService extends IService<TestModule>{
     void createBatch(List<TestModule> list) ;
     boolean update(TestModule et) ;
     void updateBatch(List<TestModule> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    TestModule get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    TestModule get(Long key) ;
     TestModule getDraft(TestModule et) ;
     boolean checkKey(TestModule et) ;
     TestModule fix(TestModule et) ;
@@ -42,10 +42,10 @@ public interface ITestModuleService extends IService<TestModule>{
     Page<TestModule> searchRoot(TestModuleSearchContext context) ;
     Page<TestModule> searchRoot_NoBranch(TestModuleSearchContext context) ;
     Page<TestModule> searchTestModule(TestModuleSearchContext context) ;
-    List<TestModule> selectByParent(BigInteger id) ;
-    void removeByParent(BigInteger id) ;
-    List<TestModule> selectByRoot(BigInteger id) ;
-    void removeByRoot(BigInteger id) ;
+    List<TestModule> selectByParent(Long id) ;
+    void removeByParent(Long id) ;
+    List<TestModule> selectByRoot(Long id) ;
+    void removeByRoot(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

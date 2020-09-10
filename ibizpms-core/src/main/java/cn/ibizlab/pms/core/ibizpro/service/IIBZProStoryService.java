@@ -29,19 +29,19 @@ public interface IIBZProStoryService extends IService<IBZProStory>{
     void createBatch(List<IBZProStory> list) ;
     boolean update(IBZProStory et) ;
     void updateBatch(List<IBZProStory> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    IBZProStory get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    IBZProStory get(Long key) ;
     IBZProStory getDraft(IBZProStory et) ;
     boolean checkKey(IBZProStory et) ;
     boolean save(IBZProStory et) ;
     void saveBatch(List<IBZProStory> list) ;
     IBZProStory syncFromIBIZ(IBZProStory et) ;
     Page<IBZProStory> searchDefault(IBZProStorySearchContext context) ;
-    List<IBZProStory> selectByProduct(BigInteger id) ;
-    void removeByProduct(BigInteger id) ;
-    List<IBZProStory> selectByModule(BigInteger id) ;
-    void removeByModule(BigInteger id) ;
+    List<IBZProStory> selectByProduct(Long id) ;
+    void removeByProduct(Long id) ;
+    List<IBZProStory> selectByModule(Long id) ;
+    void removeByModule(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

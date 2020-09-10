@@ -29,9 +29,9 @@ public interface IReleaseService extends IService<Release>{
     void createBatch(List<Release> list) ;
     boolean update(Release et) ;
     void updateBatch(List<Release> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Release get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Release get(Long key) ;
     Release getDraft(Release et) ;
     Release activate(Release et) ;
     Release batchUnlinkBug(Release et) ;
@@ -46,12 +46,12 @@ public interface IReleaseService extends IService<Release>{
     Release terminate(Release et) ;
     Release unlinkBug(Release et) ;
     Page<Release> searchDefault(ReleaseSearchContext context) ;
-    List<Release> selectByBranch(BigInteger id) ;
-    void removeByBranch(BigInteger id) ;
-    List<Release> selectByBuild(BigInteger id) ;
-    void removeByBuild(BigInteger id) ;
-    List<Release> selectByProduct(BigInteger id) ;
-    void removeByProduct(BigInteger id) ;
+    List<Release> selectByBranch(Long id) ;
+    void removeByBranch(Long id) ;
+    List<Release> selectByBuild(Long id) ;
+    void removeByBuild(Long id) ;
+    List<Release> selectByProduct(Long id) ;
+    void removeByProduct(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

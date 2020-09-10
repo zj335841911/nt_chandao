@@ -29,9 +29,9 @@ public interface IUserQueryService extends IService<UserQuery>{
     void createBatch(List<UserQuery> list) ;
     boolean update(UserQuery et) ;
     void updateBatch(List<UserQuery> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    UserQuery get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    UserQuery get(Long key) ;
     UserQuery getDraft(UserQuery et) ;
     boolean checkKey(UserQuery et) ;
     boolean save(UserQuery et) ;

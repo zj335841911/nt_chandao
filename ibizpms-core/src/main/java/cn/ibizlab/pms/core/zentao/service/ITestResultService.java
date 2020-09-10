@@ -29,23 +29,23 @@ public interface ITestResultService extends IService<TestResult>{
     void createBatch(List<TestResult> list) ;
     boolean update(TestResult et) ;
     void updateBatch(List<TestResult> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    TestResult get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    TestResult get(Long key) ;
     TestResult getDraft(TestResult et) ;
     boolean checkKey(TestResult et) ;
     boolean save(TestResult et) ;
     void saveBatch(List<TestResult> list) ;
     Page<TestResult> searchCurTestRun(TestResultSearchContext context) ;
     Page<TestResult> searchDefault(TestResultSearchContext context) ;
-    List<TestResult> selectByIbizcase(BigInteger id) ;
-    void removeByIbizcase(BigInteger id) ;
-    List<TestResult> selectByCompile(BigInteger id) ;
-    void removeByCompile(BigInteger id) ;
-    List<TestResult> selectByJob(BigInteger id) ;
-    void removeByJob(BigInteger id) ;
-    List<TestResult> selectByRun(BigInteger id) ;
-    void removeByRun(BigInteger id) ;
+    List<TestResult> selectByIbizcase(Long id) ;
+    void removeByIbizcase(Long id) ;
+    List<TestResult> selectByCompile(Long id) ;
+    void removeByCompile(Long id) ;
+    List<TestResult> selectByJob(Long id) ;
+    void removeByJob(Long id) ;
+    List<TestResult> selectByRun(Long id) ;
+    void removeByRun(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

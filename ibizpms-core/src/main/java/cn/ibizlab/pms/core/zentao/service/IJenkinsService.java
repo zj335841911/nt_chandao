@@ -29,9 +29,9 @@ public interface IJenkinsService extends IService<Jenkins>{
     void createBatch(List<Jenkins> list) ;
     boolean update(Jenkins et) ;
     void updateBatch(List<Jenkins> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Jenkins get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Jenkins get(Long key) ;
     Jenkins getDraft(Jenkins et) ;
     boolean checkKey(Jenkins et) ;
     boolean save(Jenkins et) ;

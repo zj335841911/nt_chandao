@@ -29,9 +29,9 @@ public interface INotifyService extends IService<Notify>{
     void createBatch(List<Notify> list) ;
     boolean update(Notify et) ;
     void updateBatch(List<Notify> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Notify get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Notify get(Long key) ;
     Notify getDraft(Notify et) ;
     boolean checkKey(Notify et) ;
     boolean save(Notify et) ;

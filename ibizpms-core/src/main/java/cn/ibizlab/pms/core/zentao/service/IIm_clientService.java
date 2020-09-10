@@ -29,9 +29,9 @@ public interface IIm_clientService extends IService<Im_client>{
     void createBatch(List<Im_client> list) ;
     boolean update(Im_client et) ;
     void updateBatch(List<Im_client> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Im_client get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Im_client get(Long key) ;
     Im_client getDraft(Im_client et) ;
     boolean checkKey(Im_client et) ;
     boolean save(Im_client et) ;

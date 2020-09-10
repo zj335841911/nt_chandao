@@ -29,9 +29,9 @@ public interface IBlockService extends IService<Block>{
     void createBatch(List<Block> list) ;
     boolean update(Block et) ;
     void updateBatch(List<Block> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Block get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Block get(Long key) ;
     Block getDraft(Block et) ;
     boolean checkKey(Block et) ;
     boolean save(Block et) ;

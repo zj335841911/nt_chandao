@@ -163,7 +163,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     }
     @Override
     @Transactional
-    public Task get(BigInteger key) {
+    public Task get(Long key) {
         Task tempET=new Task();
         tempET.set("id",key);
         Task et = getById(key);
@@ -428,52 +428,52 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
 
 	@Override
-    public List<Task> selectByModule(BigInteger id) {
+    public List<Task> selectByModule(Long id) {
         return baseMapper.selectByModule(id);
     }
 
     @Override
-    public void removeByModule(BigInteger id) {
+    public void removeByModule(Long id) {
         this.remove(new QueryWrapper<Task>().eq("module",id));
     }
 
 	@Override
-    public List<Task> selectByFrombug(BigInteger id) {
+    public List<Task> selectByFrombug(Long id) {
         return baseMapper.selectByFrombug(id);
     }
 
     @Override
-    public void removeByFrombug(BigInteger id) {
+    public void removeByFrombug(Long id) {
         this.remove(new QueryWrapper<Task>().eq("frombug",id));
     }
 
 	@Override
-    public List<Task> selectByProject(BigInteger id) {
+    public List<Task> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
 
     @Override
-    public void removeByProject(BigInteger id) {
+    public void removeByProject(Long id) {
         this.remove(new QueryWrapper<Task>().eq("project",id));
     }
 
 	@Override
-    public List<Task> selectByStory(BigInteger id) {
+    public List<Task> selectByStory(Long id) {
         return baseMapper.selectByStory(id);
     }
 
     @Override
-    public void removeByStory(BigInteger id) {
+    public void removeByStory(Long id) {
         this.remove(new QueryWrapper<Task>().eq("story",id));
     }
 
 	@Override
-    public List<Task> selectByParent(BigInteger id) {
+    public List<Task> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
 
     @Override
-    public void removeByParent(BigInteger id) {
+    public void removeByParent(Long id) {
         this.remove(new QueryWrapper<Task>().eq("parent",id));
     }
 

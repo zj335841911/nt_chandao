@@ -29,9 +29,9 @@ public interface IRelationService extends IService<Relation>{
     void createBatch(List<Relation> list) ;
     boolean update(Relation et) ;
     void updateBatch(List<Relation> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Relation get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Relation get(Long key) ;
     Relation getDraft(Relation et) ;
     boolean checkKey(Relation et) ;
     boolean save(Relation et) ;

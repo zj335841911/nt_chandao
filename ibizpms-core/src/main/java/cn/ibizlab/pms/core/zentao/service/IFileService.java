@@ -29,9 +29,9 @@ public interface IFileService extends IService<File>{
     void createBatch(List<File> list) ;
     boolean update(File et) ;
     void updateBatch(List<File> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    File get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    File get(Long key) ;
     File getDraft(File et) ;
     boolean checkKey(File et) ;
     boolean save(File et) ;

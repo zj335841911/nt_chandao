@@ -29,9 +29,9 @@ public interface IProductPlanService extends IService<ProductPlan>{
     void createBatch(List<ProductPlan> list) ;
     boolean update(ProductPlan et) ;
     void updateBatch(List<ProductPlan> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    ProductPlan get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    ProductPlan get(Long key) ;
     ProductPlan getDraft(ProductPlan et) ;
     ProductPlan batchUnlinkBug(ProductPlan et) ;
     ProductPlan batchUnlinkStory(ProductPlan et) ;
@@ -45,12 +45,12 @@ public interface IProductPlanService extends IService<ProductPlan>{
     Page<ProductPlan> searchCurProductPlan(ProductPlanSearchContext context) ;
     Page<ProductPlan> searchDefault(ProductPlanSearchContext context) ;
     Page<ProductPlan> searchProjectPlan(ProductPlanSearchContext context) ;
-    List<ProductPlan> selectByBranch(BigInteger id) ;
-    void removeByBranch(BigInteger id) ;
-    List<ProductPlan> selectByProduct(BigInteger id) ;
-    void removeByProduct(BigInteger id) ;
-    List<ProductPlan> selectByParent(BigInteger id) ;
-    void removeByParent(BigInteger id) ;
+    List<ProductPlan> selectByBranch(Long id) ;
+    void removeByBranch(Long id) ;
+    List<ProductPlan> selectByProduct(Long id) ;
+    void removeByProduct(Long id) ;
+    List<ProductPlan> selectByParent(Long id) ;
+    void removeByParent(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

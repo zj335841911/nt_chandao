@@ -29,16 +29,16 @@ public interface IRepoFilesService extends IService<RepoFiles>{
     void createBatch(List<RepoFiles> list) ;
     boolean update(RepoFiles et) ;
     void updateBatch(List<RepoFiles> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    RepoFiles get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    RepoFiles get(Long key) ;
     RepoFiles getDraft(RepoFiles et) ;
     boolean checkKey(RepoFiles et) ;
     boolean save(RepoFiles et) ;
     void saveBatch(List<RepoFiles> list) ;
     Page<RepoFiles> searchDefault(RepoFilesSearchContext context) ;
-    List<RepoFiles> selectByParent(BigInteger id) ;
-    void removeByParent(BigInteger id) ;
+    List<RepoFiles> selectByParent(Long id) ;
+    void removeByParent(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

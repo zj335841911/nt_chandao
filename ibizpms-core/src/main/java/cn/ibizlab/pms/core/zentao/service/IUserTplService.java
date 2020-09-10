@@ -29,9 +29,9 @@ public interface IUserTplService extends IService<UserTpl>{
     void createBatch(List<UserTpl> list) ;
     boolean update(UserTpl et) ;
     void updateBatch(List<UserTpl> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    UserTpl get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    UserTpl get(Long key) ;
     UserTpl getDraft(UserTpl et) ;
     boolean checkKey(UserTpl et) ;
     boolean save(UserTpl et) ;

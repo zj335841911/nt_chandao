@@ -29,9 +29,9 @@ public interface IScoreService extends IService<Score>{
     void createBatch(List<Score> list) ;
     boolean update(Score et) ;
     void updateBatch(List<Score> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Score get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Score get(Long key) ;
     Score getDraft(Score et) ;
     boolean checkKey(Score et) ;
     boolean save(Score et) ;

@@ -29,16 +29,16 @@ public interface IHistoryService extends IService<History>{
     void createBatch(List<History> list) ;
     boolean update(History et) ;
     void updateBatch(List<History> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    History get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    History get(Long key) ;
     History getDraft(History et) ;
     boolean checkKey(History et) ;
     boolean save(History et) ;
     void saveBatch(List<History> list) ;
     Page<History> searchDefault(HistorySearchContext context) ;
-    List<History> selectByAction(BigInteger id) ;
-    void removeByAction(BigInteger id) ;
+    List<History> selectByAction(Long id) ;
+    void removeByAction(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

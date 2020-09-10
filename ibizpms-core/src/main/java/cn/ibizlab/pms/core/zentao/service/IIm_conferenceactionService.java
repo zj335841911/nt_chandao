@@ -29,9 +29,9 @@ public interface IIm_conferenceactionService extends IService<Im_conferenceactio
     void createBatch(List<Im_conferenceaction> list) ;
     boolean update(Im_conferenceaction et) ;
     void updateBatch(List<Im_conferenceaction> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Im_conferenceaction get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Im_conferenceaction get(Long key) ;
     Im_conferenceaction getDraft(Im_conferenceaction et) ;
     boolean checkKey(Im_conferenceaction et) ;
     boolean save(Im_conferenceaction et) ;

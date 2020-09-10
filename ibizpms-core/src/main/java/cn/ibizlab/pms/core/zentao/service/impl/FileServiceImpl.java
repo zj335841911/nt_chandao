@@ -98,7 +98,7 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
     }
     @Override
     @Transactional
-    public File get(BigInteger key) {
+    public File get(Long key) {
         File et = getById(key);
         if(et==null){
             et=new File();

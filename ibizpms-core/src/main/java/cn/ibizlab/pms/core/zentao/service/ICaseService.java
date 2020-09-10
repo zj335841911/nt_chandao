@@ -29,9 +29,9 @@ public interface ICaseService extends IService<Case>{
     void createBatch(List<Case> list) ;
     boolean update(Case et) ;
     void updateBatch(List<Case> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Case get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Case get(Long key) ;
     Case getDraft(Case et) ;
     boolean checkKey(Case et) ;
     Case confirmChange(Case et) ;
@@ -55,20 +55,20 @@ public interface ICaseService extends IService<Case>{
     Page<Case> searchDefault(CaseSearchContext context) ;
     Page<Case> searchNotCurTestSuite(CaseSearchContext context) ;
     Page<Case> searchNotCurTestTask(CaseSearchContext context) ;
-    List<Case> selectByBranch(BigInteger id) ;
-    void removeByBranch(BigInteger id) ;
-    List<Case> selectByFrombug(BigInteger id) ;
-    void removeByFrombug(BigInteger id) ;
-    List<Case> selectByFromcaseid(BigInteger id) ;
-    void removeByFromcaseid(BigInteger id) ;
-    List<Case> selectByModule(BigInteger id) ;
-    void removeByModule(BigInteger id) ;
-    List<Case> selectByProduct(BigInteger id) ;
-    void removeByProduct(BigInteger id) ;
-    List<Case> selectByStory(BigInteger id) ;
-    void removeByStory(BigInteger id) ;
-    List<Case> selectByLib(BigInteger id) ;
-    void removeByLib(BigInteger id) ;
+    List<Case> selectByBranch(Long id) ;
+    void removeByBranch(Long id) ;
+    List<Case> selectByFrombug(Long id) ;
+    void removeByFrombug(Long id) ;
+    List<Case> selectByFromcaseid(Long id) ;
+    void removeByFromcaseid(Long id) ;
+    List<Case> selectByModule(Long id) ;
+    void removeByModule(Long id) ;
+    List<Case> selectByProduct(Long id) ;
+    void removeByProduct(Long id) ;
+    List<Case> selectByStory(Long id) ;
+    void removeByStory(Long id) ;
+    List<Case> selectByLib(Long id) ;
+    void removeByLib(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

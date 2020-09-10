@@ -29,9 +29,9 @@ public interface IIbzMyTerritoryService extends IService<IbzMyTerritory>{
     void createBatch(List<IbzMyTerritory> list) ;
     boolean update(IbzMyTerritory et) ;
     void updateBatch(List<IbzMyTerritory> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    IbzMyTerritory get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    IbzMyTerritory get(Long key) ;
     IbzMyTerritory getDraft(IbzMyTerritory et) ;
     boolean checkKey(IbzMyTerritory et) ;
     IbzMyTerritory mobMenuCount(IbzMyTerritory et) ;

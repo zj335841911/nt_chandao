@@ -82,19 +82,19 @@ public class CompileServiceImpl extends ServiceImpl<CompileMapper, Compile> impl
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public Compile get(BigInteger key) {
+    public Compile get(Long key) {
         Compile et = getById(key);
         if(et==null){
             et=new Compile();

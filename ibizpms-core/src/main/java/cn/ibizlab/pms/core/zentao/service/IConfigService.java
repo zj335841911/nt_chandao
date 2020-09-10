@@ -29,9 +29,9 @@ public interface IConfigService extends IService<Config>{
     void createBatch(List<Config> list) ;
     boolean update(Config et) ;
     void updateBatch(List<Config> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Config get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Config get(Long key) ;
     Config getDraft(Config et) ;
     boolean checkKey(Config et) ;
     boolean save(Config et) ;

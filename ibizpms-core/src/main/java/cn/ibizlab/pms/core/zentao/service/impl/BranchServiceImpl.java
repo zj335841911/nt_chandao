@@ -128,7 +128,7 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
     }
     @Override
     @Transactional
-    public Branch get(BigInteger key) {
+    public Branch get(Long key) {
         Branch et = getById(key);
         if(et==null){
             et=new Branch();
@@ -192,12 +192,12 @@ public class BranchServiceImpl extends ServiceImpl<BranchMapper, Branch> impleme
 
 
 	@Override
-    public List<Branch> selectByProduct(BigInteger id) {
+    public List<Branch> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(BigInteger id) {
+    public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<Branch>().eq("product",id));
     }
 

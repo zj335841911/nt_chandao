@@ -185,7 +185,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     }
     @Override
     @Transactional
-    public Project get(BigInteger key) {
+    public Project get(Long key) {
         Project tempET=new Project();
         tempET.set("id",key);
         Project et = getById(key);
@@ -414,12 +414,12 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
 
 
 	@Override
-    public List<Project> selectByParent(BigInteger id) {
+    public List<Project> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
 
     @Override
-    public void removeByParent(BigInteger id) {
+    public void removeByParent(Long id) {
         this.remove(new QueryWrapper<Project>().eq("parent",id));
     }
 
