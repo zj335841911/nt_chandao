@@ -1030,10 +1030,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '指派日期 值不能为空', trigger: 'blur' },
         ],
         multiple: [
-            { type: 'number', message: '多人任务 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '多人任务 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '多人任务 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '多人任务 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '多人任务 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '多人任务 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'blur' },
         ],
         status: [
             { type: 'string', message: '任务状态 值必须为字符串类型', trigger: 'change' },

@@ -88,7 +88,7 @@ export class MobNewFromModel {
             {
                 name: 'multiple',
                 prop: 'multiple',
-                dataType: 'INT',
+                dataType: 'TEXT',
             },
             {
                 name: 'story',
