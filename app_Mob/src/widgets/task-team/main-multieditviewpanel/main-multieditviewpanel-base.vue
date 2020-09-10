@@ -22,7 +22,6 @@
           </ion-card-content>
         </ion-card>
     </div>
-    <div class="meditviewpanel_ion-fab_space"></div>
     <div @click="handleAdd" class="meditviewpanel_add_btn"><ion-icon name="add"></ion-icon></div>
 </div>
 </div>
