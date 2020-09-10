@@ -68,6 +68,11 @@
             {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_closestorymob.caption')}}    
             </ion-fab-button>
         
+                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.visabled" :disabled="righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_openbaseinfoeditviewmob' }, $event)">
+                <ion-icon name="edit (alias)"></ion-icon>
+            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_openbaseinfoeditviewmob.caption')}}    
+            </ion-fab-button>
+        
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_deletemob.visabled" :disabled="righttoolbarModels.deuiaction1_deletemob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event)">
                 <ion-icon name="remove"></ion-icon>
             {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}    
@@ -314,6 +319,8 @@ export default class StoryMobEditViewBase extends Vue {
             deuiaction1_reviewstorymob: { name: 'deuiaction1_reviewstorymob', caption: '评审', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', uiaction: { tag: 'ReviewStoryMob', target: 'SINGLEKEY' } },
 
             deuiaction1_closestorymob: { name: 'deuiaction1_closestorymob', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', uiaction: { tag: 'CloseStoryMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_openbaseinfoeditviewmob: { name: 'deuiaction1_openbaseinfoeditviewmob', caption: '编辑', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_EDIT_BUT', uiaction: { tag: 'OpenBaseInfoEditViewMob', target: 'SINGLEKEY' } },
 
             deuiaction1_deletemob: { name: 'deuiaction1_deletemob', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
 
@@ -587,6 +594,9 @@ export default class StoryMobEditViewBase extends Vue {
         if (Object.is($event.tag, 'deuiaction1_closestorymob')) {
             this.righttoolbar_deuiaction1_closestorymob_click($event, '', $event2);
         }
+        if (Object.is($event.tag, 'deuiaction1_openbaseinfoeditviewmob')) {
+            this.righttoolbar_deuiaction1_openbaseinfoeditviewmob_click($event, '', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction1_deletemob')) {
             this.righttoolbar_deuiaction1_deletemob_click($event, '', $event2);
         }
@@ -718,6 +728,38 @@ export default class StoryMobEditViewBase extends Vue {
         const curUIService: any = await this.globaluiservice.getService('story_ui_action');
         if (curUIService) {
             curUIService.Story_CloseStoryMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof StoryMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_openbaseinfoeditviewmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
+        if (curUIService) {
+            curUIService.Story_OpenBaseInfoEditViewMob(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 

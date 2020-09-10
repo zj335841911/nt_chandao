@@ -335,6 +335,10 @@ export default {
 			caption: '关闭',
 			tip: '关闭',
 		},
+		deuiaction1_openbaseinfoeditviewmob: {
+			caption: '编辑',
+			tip: '编辑',
+		},
 		deuiaction1_deletemob: {
 			caption: '删除',
 			tip: '删除',
