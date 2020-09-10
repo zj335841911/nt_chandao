@@ -2,7 +2,8 @@
      <div class="app-mobile-select-drop-down">
         <div class="cancel-icon" v-if="curvalue"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
         <div v-if="curvalue== null || curvalue==''" class="ion-select-icon"></div>
-        <ion-select :value="curvalue"  :disabled="disabled " @click="onSearch(null)" @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
+        <div class="select_text" style="height: 40px;" @click="openSelect">{{curvalue}}</div>
+        <ion-select :value="selectValue" :ref="name+'select'" v-show="false"   :disabled="disabled " @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
             <ion-select-option  v-for="option of items" :key="option.value" :value="option.value">{{option.text}}</ion-select-option>
         </ion-select>
     </div>   
@@ -32,6 +33,7 @@ import { ViewOpenService } from '../../utils/view-open-service/view-open-service
     }
 })
 export default class AppSelectDropDown extends Vue {
+
     /**
      * 视图上下文
      *
@@ -197,7 +199,8 @@ export default class AppSelectDropDown extends Vue {
       * @type {string}
       * @memberof AppSelectDropDown
       */
-    public selectValue = this.value;
+    public selectValue = "";
+
 
     /**
      * 视图打开服务
@@ -207,6 +210,7 @@ export default class AppSelectDropDown extends Vue {
      */
     public openService: ViewOpenService = ViewOpenService.getInstance();
 
+
     /**
      * 获取关联数据项值
      *
@@ -215,14 +219,11 @@ export default class AppSelectDropDown extends Vue {
      */
     get curvalue() {
         if (this.value && this.items.length > 0) { // 判断是否拿到表单传来的值、列表项是否加载完成
-            let isIncluded = this.items.some((item:any)=>{return item.name === this.value});
-            if (isIncluded) {
+            if (this.valueitem && this.items.every((item:any)=>{return item[this.deKeyField] != this.value })) {
                 return this.value;
             }
-        } else if (this.valueitem && this.data) {  // 是否有配置值项
-            return this.data[this.valueitem];
         }
-        return "";
+        return this.value;
     }
 
     /**
@@ -339,12 +340,14 @@ export default class AppSelectDropDown extends Vue {
      * @param item 
      */
     public onACSelect(item: any): void {
-        this.selectValue = item[this.deMajorField];
         if (this.valueitem) {
-            this.$emit('formitemvaluechange', { name: this.valueitem, value: item[this.deKeyField] });
+            let tempvalue = item[this.deKeyField] ? item[this.deKeyField] : item.srfkey;
+            this.$emit('formitemvaluechange', { name: this.valueitem, value: tempvalue });
+            
         }
         if (this.name) {
-            this.$emit('formitemvaluechange', { name: this.name, value: item[this.deKeyField] });
+            let temptext = item[this.deMajorField] ? item[this.deMajorField] : item.srfmajortext;
+            this.$emit('formitemvaluechange', { name: this.name, value: temptext });
         }
     }
 
@@ -355,7 +358,7 @@ export default class AppSelectDropDown extends Vue {
      * @memberof AppSelectDropDown
      */
     public onSelect(val: string) {
-        let index = this.items.findIndex((item) => Object.is(item[this.deKeyField], val));
+        let index = this.items.findIndex((item) => {return item[this.deKeyField] == val} );
         if (index >= 0) {
             this.onACSelect(this.items[index]);
         }
@@ -747,8 +750,7 @@ export default class AppSelectDropDown extends Vue {
      * @memberof AppSelect
      */
     public change(value: any) {
-        this.curvalue = value.detail.value;
-        this.$emit("change", value.detail.value);
+        this.curvalue = value.detail.value;        
     }
 
     /**
@@ -758,6 +760,20 @@ export default class AppSelectDropDown extends Vue {
     public clear() {
         this.curvalue = "";
         this.$emit('change', '')
+    }
+
+    /**
+     * open选择器
+     *
+     * @type {*}
+     * @memberof AppSelectDropDown
+     */
+    public openSelect(){
+        this.onSearch(null);
+        let select :any= this.$refs[this.name+'select'];
+        if(select){
+            select.open();
+        }
     }
 }
 </script>
