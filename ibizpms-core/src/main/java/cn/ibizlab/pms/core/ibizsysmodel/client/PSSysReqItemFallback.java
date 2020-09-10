@@ -50,7 +50,7 @@ public class PSSysReqItemFallback implements PSSysReqItemFeignClient{
      }
 
 
-    public String getByCodeName(@PathVariable("pssysreqitemid") String codeName){
+    public String getByCodeName(String codeName){
             return null;
     }
 
