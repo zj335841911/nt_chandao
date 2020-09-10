@@ -483,7 +483,7 @@ export default class CaseStepMobMDView9Base extends Vue {
      * @memberof CaseStepMobMDView9
      */
     public async newdata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        this.$notice.warning('未指定关系视图');
+        //this.$notice.warning('未指定关系视图');
     }
 
 
@@ -501,7 +501,7 @@ export default class CaseStepMobMDView9Base extends Vue {
      * @memberof CaseStepMobMDView9
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        this.$notice.warning('未指定关系视图');
+        //this.$notice.warning('未指定关系视图');
     }
 
 

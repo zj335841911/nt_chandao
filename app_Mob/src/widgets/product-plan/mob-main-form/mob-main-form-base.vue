@@ -130,6 +130,7 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='story-mob-mdview9' 
+    v-show="detailsModel.druipart2.visible" 
     paramItem='productplan' 
     style="" 
     :formState="formState" 
@@ -195,6 +196,7 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='bug-plan-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
     paramItem='productplan' 
     style="" 
     :formState="formState" 

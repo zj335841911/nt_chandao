@@ -211,6 +211,7 @@
     refviewtype='DEMOBMEDITVIEW9'  
     refreshitems='' 
     viewname='task-team-mob-medit-view9' 
+    v-show="detailsModel.druipart1.visible" 
     paramItem='task' 
     style="" 
     :formState="formState" 

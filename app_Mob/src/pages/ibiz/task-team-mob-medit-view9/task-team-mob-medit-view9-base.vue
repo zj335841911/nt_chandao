@@ -35,10 +35,10 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskTeamService from '@/app-core/service/task-team/task-team-service';
+import IbztaskteamService from '@/app-core/service/ibztaskteam/ibztaskteam-service';
 
 import MobMEditView9Engine from '@engine/view/mob-medit-view9-engine';
-import TaskTeamUIService from '@/ui-service/task-team/task-team-ui-action';
+import IbztaskteamUIService from '@/ui-service/ibztaskteam/ibztaskteam-ui-action';
 
 @Component({
     components: {
@@ -57,18 +57,18 @@ export default class TaskTeamMobMEditView9Base extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {TaskTeamService}
+     * @type {IbztaskteamService}
      * @memberof TaskTeamMobMEditView9Base
      */
-    protected appEntityService: TaskTeamService = new TaskTeamService();
+    protected appEntityService: IbztaskteamService = new IbztaskteamService();
 
     /**
      * 实体UI服务对象
      *
-     * @type TaskTeamUIService
+     * @type IbztaskteamUIService
      * @memberof TaskTeamMobMEditView9Base
      */
-    public appUIService: TaskTeamUIService = new TaskTeamUIService(this.$store);
+    public appUIService: IbztaskteamUIService = new IbztaskteamUIService(this.$store);
 
     /**
      * 数据变化
@@ -171,7 +171,7 @@ export default class TaskTeamMobMEditView9Base extends Vue {
      */
     protected model: any = {
         srfTitle: '任务团队多表单编辑视图',
-        srfCaption: 'taskteam.views.mobmeditview9.caption',
+        srfCaption: 'ibztaskteam.views.mobmeditview9.caption',
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
@@ -298,7 +298,7 @@ export default class TaskTeamMobMEditView9Base extends Vue {
         this.engine.init({
             view: this,
             meditviewpanel: this.$refs.meditviewpanel,
-            keyPSDEField: 'taskteam',
+            keyPSDEField: 'ibztaskteam',
             majorPSDEField: 'account',
             isLoadDefault: true,
         });
@@ -473,7 +473,7 @@ if(this.formDruipart){
      * @memberof TaskTeamMobMEditView9
      */
     public async newdata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        this.$notice.warning('未指定关系视图');
+        //this.$notice.warning('未指定关系视图');
     }
 
 
@@ -491,7 +491,7 @@ if(this.formDruipart){
      * @memberof TaskTeamMobMEditView9
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        this.$notice.warning('未指定关系视图');
+        //this.$notice.warning('未指定关系视图');
     }
 
 

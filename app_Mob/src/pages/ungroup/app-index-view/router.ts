@@ -2624,7 +2624,7 @@ const router = new Router({
                     component: () => import('@pages/zentao/release-new-mob-edit-view/release-new-mob-edit-view.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/tasks/:task?/taskteams/:taskteam?/mobmeditview9',
+                    path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobmeditview9',
                     meta: {
                         caption: 'taskteam.views.mobmeditview9.caption',
                         parameters: [
@@ -2632,7 +2632,7 @@ const router = new Router({
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
                             { pathName: 'mobmeditview9', parameterName: 'mobmeditview9' },
                         ],
                         requireAuth: true,
@@ -2640,14 +2640,14 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-team-mob-medit-view9/task-team-mob-medit-view9.vue'),
                 },
                 {
-                    path: 'projects/:project?/tasks/:task?/taskteams/:taskteam?/mobmeditview9',
+                    path: 'projects/:project?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobmeditview9',
                     meta: {
                         caption: 'taskteam.views.mobmeditview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
                             { pathName: 'mobmeditview9', parameterName: 'mobmeditview9' },
                         ],
                         requireAuth: true,
@@ -2655,14 +2655,14 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-team-mob-medit-view9/task-team-mob-medit-view9.vue'),
                 },
                 {
-                    path: 'stories/:story?/tasks/:task?/taskteams/:taskteam?/mobmeditview9',
+                    path: 'stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobmeditview9',
                     meta: {
                         caption: 'taskteam.views.mobmeditview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
                             { pathName: 'mobmeditview9', parameterName: 'mobmeditview9' },
                         ],
                         requireAuth: true,
@@ -2670,13 +2670,13 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-team-mob-medit-view9/task-team-mob-medit-view9.vue'),
                 },
                 {
-                    path: 'tasks/:task?/taskteams/:taskteam?/mobmeditview9',
+                    path: 'tasks/:task?/ibztaskteams/:ibztaskteam?/mobmeditview9',
                     meta: {
                         caption: 'taskteam.views.mobmeditview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
                             { pathName: 'mobmeditview9', parameterName: 'mobmeditview9' },
                         ],
                         requireAuth: true,
@@ -2684,12 +2684,12 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-team-mob-medit-view9/task-team-mob-medit-view9.vue'),
                 },
                 {
-                    path: 'taskteams/:taskteam?/mobmeditview9',
+                    path: 'ibztaskteams/:ibztaskteam?/mobmeditview9',
                     meta: {
                         caption: 'taskteam.views.mobmeditview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
                             { pathName: 'mobmeditview9', parameterName: 'mobmeditview9' },
                         ],
                         requireAuth: true,
@@ -2832,7 +2832,7 @@ const router = new Router({
                     component: () => import('@pages/ibiz/story-mob-mdview9/story-mob-mdview9.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/tasks/:task?/taskteams/:taskteam?/mobeditview9',
+                    path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobeditview9',
                     meta: {
                         caption: 'taskteam.views.mobeditview9.caption',
                         parameters: [
@@ -2840,7 +2840,7 @@ const router = new Router({
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
                             { pathName: 'mobeditview9', parameterName: 'mobeditview9' },
                         ],
                         requireAuth: true,
@@ -2848,14 +2848,14 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-team-mob-edit-view9/task-team-mob-edit-view9.vue'),
                 },
                 {
-                    path: 'projects/:project?/tasks/:task?/taskteams/:taskteam?/mobeditview9',
+                    path: 'projects/:project?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobeditview9',
                     meta: {
                         caption: 'taskteam.views.mobeditview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
                             { pathName: 'mobeditview9', parameterName: 'mobeditview9' },
                         ],
                         requireAuth: true,
@@ -2863,14 +2863,14 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-team-mob-edit-view9/task-team-mob-edit-view9.vue'),
                 },
                 {
-                    path: 'stories/:story?/tasks/:task?/taskteams/:taskteam?/mobeditview9',
+                    path: 'stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobeditview9',
                     meta: {
                         caption: 'taskteam.views.mobeditview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
                             { pathName: 'mobeditview9', parameterName: 'mobeditview9' },
                         ],
                         requireAuth: true,
@@ -2878,13 +2878,13 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-team-mob-edit-view9/task-team-mob-edit-view9.vue'),
                 },
                 {
-                    path: 'tasks/:task?/taskteams/:taskteam?/mobeditview9',
+                    path: 'tasks/:task?/ibztaskteams/:ibztaskteam?/mobeditview9',
                     meta: {
                         caption: 'taskteam.views.mobeditview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
                             { pathName: 'mobeditview9', parameterName: 'mobeditview9' },
                         ],
                         requireAuth: true,
@@ -2892,12 +2892,12 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-team-mob-edit-view9/task-team-mob-edit-view9.vue'),
                 },
                 {
-                    path: 'taskteams/:taskteam?/mobeditview9',
+                    path: 'ibztaskteams/:ibztaskteam?/mobeditview9',
                     meta: {
                         caption: 'taskteam.views.mobeditview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
                             { pathName: 'mobeditview9', parameterName: 'mobeditview9' },
                         ],
                         requireAuth: true,

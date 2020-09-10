@@ -158,14 +158,6 @@ export default class StoryUIActionBase extends EntityUIActionBase {
         this.allDeMainStateOPPrivsMap.set('draft__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,}));
     }
 
-!!!!模版产生代码错误:----
-Tip: If the parameter value expression on the caller side is known to be legally null/missing, you may want to specify a default value for it with the "!" operator, like paramValue!defaultValue.
-----
-
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: @outPutViewInfo dataview  [in template "TEMPLCODE_en_US" at line 236, column 13]
-----
     /**
      * 编辑
      *

@@ -21,6 +21,7 @@ import case_en_US from '@locale/lanres/case/case_en_US';
 import testmodule_en_US from '@locale/lanres/test-module/test-module_en_US';
 import productplan_en_US from '@locale/lanres/product-plan/product-plan_en_US';
 import projectstats_en_US from '@locale/lanres/project-stats/project-stats_en_US';
+import ibztaskteam_en_US from '@locale/lanres/ibztaskteam/ibztaskteam_en_US';
 import bug_en_US from '@locale/lanres/bug/bug_en_US';
 import projectmodule_en_US from '@locale/lanres/project-module/project-module_en_US';
 import productstats_en_US from '@locale/lanres/product-stats/product-stats_en_US';
@@ -182,6 +183,7 @@ export default {
     testmodule: testmodule_en_US,
     productplan: productplan_en_US,
     projectstats: projectstats_en_US,
+    ibztaskteam: ibztaskteam_en_US,
     bug: bug_en_US,
     projectmodule: projectmodule_en_US,
     productstats: productstats_en_US,

@@ -231,6 +231,7 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
     paramItem='story' 
     style="" 
     :formState="formState" 
