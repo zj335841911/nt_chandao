@@ -46,7 +46,7 @@
         <app-mob-select-drop-down 
     name='productname' 
     deMajorField='name'
-    deKeyField='productid'
+    deKeyField='id'
     valueitem='' 
     style="" 
     editortype="dropdown" 
@@ -117,7 +117,7 @@
         <app-mob-select-drop-down 
     name='modulename' 
     deMajorField='name'
-    deKeyField='moduleid'
+    deKeyField='id'
     valueitem='module' 
     style="" 
     editortype="dropdown" 
@@ -157,7 +157,7 @@
         <app-mob-select-drop-down 
     name='projectname' 
     deMajorField='name'
-    deKeyField='projectid'
+    deKeyField='id'
     valueitem='project' 
     style="" 
     editortype="dropdown" 
@@ -501,7 +501,7 @@
         <app-mob-select-drop-down 
     name='storyname' 
     deMajorField='title'
-    deKeyField='storyid'
+    deKeyField='id'
     valueitem='' 
     style="" 
     editortype="dropdown" 
@@ -541,7 +541,7 @@
         <app-mob-select-drop-down 
     name='taskname' 
     deMajorField='name'
-    deKeyField='taskid'
+    deKeyField='id'
     valueitem='' 
     style="" 
     editortype="dropdown" 

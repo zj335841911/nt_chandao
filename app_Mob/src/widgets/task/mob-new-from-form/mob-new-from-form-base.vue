@@ -33,7 +33,7 @@
         <app-mob-select-drop-down 
     name='projectname' 
     deMajorField='name'
-    deKeyField='projectid'
+    deKeyField='id'
     valueitem='' 
     style="" 
     editortype="dropdown" 
@@ -104,7 +104,7 @@
         <app-mob-select-drop-down 
     name='modulename' 
     deMajorField='name'
-    deKeyField='projectmoduleid'
+    deKeyField='id'
     valueitem='' 
     style="" 
     editortype="dropdown" 
@@ -223,7 +223,7 @@
         <app-mob-select-drop-down 
     name='storyname' 
     deMajorField='title'
-    deKeyField='storyid'
+    deKeyField='id'
     valueitem='' 
     style="" 
     editortype="dropdown" 
