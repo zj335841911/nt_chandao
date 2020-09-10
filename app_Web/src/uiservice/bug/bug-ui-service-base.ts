@@ -1802,6 +1802,9 @@ export default class BugUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
                     return result.datas;
                 });
             }
