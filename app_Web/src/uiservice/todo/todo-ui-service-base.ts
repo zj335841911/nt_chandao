@@ -424,6 +424,7 @@ export default class TodoUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:TodoService =  new TodoService();
             curService.Close(context,data, true).then((response: any) => {
@@ -561,6 +562,7 @@ export default class TodoUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:TodoService =  new TodoService();
             curService.Remove(context,data, true).then((response: any) => {
@@ -705,7 +707,7 @@ export default class TodoUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
-              actionContext.closeView(null);
+        
         const backend = () => {
             const curService:TodoService =  new TodoService();
             curService.Remove(context,data, true).then((response: any) => {
@@ -719,6 +721,7 @@ export default class TodoUIServiceBase extends UIService {
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
                 }
+                actionContext.closeView(null);
                 const { data: result } = response;
                 let _args: any[] = [];
                 if (Object.is(actionContext.$util.typeOf(result), 'array')) {
@@ -913,6 +916,7 @@ export default class TodoUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:TodoService =  new TodoService();
             curService.Activate(context,data, true).then((response: any) => {
@@ -1049,6 +1053,7 @@ export default class TodoUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:TodoService =  new TodoService();
             curService.Finish(context,data, true).then((response: any) => {

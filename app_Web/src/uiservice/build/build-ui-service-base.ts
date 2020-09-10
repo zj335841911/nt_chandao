@@ -208,6 +208,7 @@ export default class BuildUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:BuildService =  new BuildService();
             curService.LinkStory(context,data, true).then((response: any) => {
@@ -479,6 +480,7 @@ export default class BuildUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:BuildService =  new BuildService();
             curService.Remove(context,data, true).then((response: any) => {

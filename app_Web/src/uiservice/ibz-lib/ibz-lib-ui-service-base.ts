@@ -151,6 +151,7 @@ export default class IbzLibUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:IbzLibService =  new IbzLibService();
             curService.Remove(context,data, true).then((response: any) => {
@@ -218,6 +219,7 @@ export default class IbzLibUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:IbzLibService =  new IbzLibService();
             curService.Remove(context,data, true).then((response: any) => {

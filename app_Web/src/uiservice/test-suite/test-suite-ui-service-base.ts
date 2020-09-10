@@ -289,7 +289,7 @@ export default class TestSuiteUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
-              actionContext.closeView(null);
+        
         const backend = () => {
             const curService:TestSuiteService =  new TestSuiteService();
             curService.Remove(context,data, true).then((response: any) => {
@@ -303,6 +303,7 @@ export default class TestSuiteUIServiceBase extends UIService {
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
                 }
+                actionContext.closeView(null);
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {

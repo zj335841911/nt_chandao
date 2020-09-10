@@ -198,6 +198,7 @@ export default class BugUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:BugService =  new BugService();
             curService.BugNFavorites(context,data, true).then((response: any) => {
@@ -267,7 +268,7 @@ export default class BugUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
-              actionContext.closeView(null);
+        
         const backend = () => {
             const curService:BugService =  new BugService();
             curService.BuildLinkBug(context,data, true).then((response: any) => {
@@ -281,6 +282,7 @@ export default class BugUIServiceBase extends UIService {
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
                 }
+                actionContext.closeView(null);
                 const { data: result } = response;
                 let _args: any[] = [];
                 if (Object.is(actionContext.$util.typeOf(result), 'array')) {
@@ -360,6 +362,7 @@ export default class BugUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:BugService =  new BugService();
             curService.BuildUnlinkBug(context,data, true).then((response: any) => {
@@ -552,6 +555,7 @@ export default class BugUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:BugService =  new BugService();
             curService.LinkBug(context,data, true).then((response: any) => {
@@ -902,6 +906,7 @@ export default class BugUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:BugService =  new BugService();
             curService.UnlinkBug(context,data, true).then((response: any) => {
@@ -968,6 +973,7 @@ export default class BugUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:BugService =  new BugService();
             curService.Create(context,data, true).then((response: any) => {
@@ -1108,6 +1114,7 @@ export default class BugUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:BugService =  new BugService();
             curService.ReleaseLinkBugbyBug(context,data, true).then((response: any) => {
@@ -1252,6 +1259,7 @@ export default class BugUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:BugService =  new BugService();
             curService.BugFavorites(context,data, true).then((response: any) => {
@@ -1571,6 +1579,7 @@ export default class BugUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:BugService =  new BugService();
             curService.ReleaseLinkBugbyLeftBug(context,data, true).then((response: any) => {
@@ -1659,7 +1668,7 @@ export default class BugUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
-              actionContext.closeView(null);
+        
         const backend = () => {
             const curService:BugService =  new BugService();
             curService.Remove(context,data, true).then((response: any) => {
@@ -1673,6 +1682,7 @@ export default class BugUIServiceBase extends UIService {
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
                 }
+                actionContext.closeView(null);
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {

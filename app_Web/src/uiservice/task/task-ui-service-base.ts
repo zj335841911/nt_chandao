@@ -469,7 +469,7 @@ export default class TaskUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
-              actionContext.closeView(null);
+        
         const backend = () => {
             const curService:TaskService =  new TaskService();
             curService.Remove(context,data, true).then((response: any) => {
@@ -483,6 +483,7 @@ export default class TaskUIServiceBase extends UIService {
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
                 }
+                actionContext.closeView(null);
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
@@ -853,6 +854,7 @@ export default class TaskUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:TaskService =  new TaskService();
             curService.TaskFavorites(context,data, true).then((response: any) => {
@@ -983,6 +985,7 @@ export default class TaskUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:TaskService =  new TaskService();
             curService.ConfirmStoryChange(context,data, true).then((response: any) => {
@@ -1554,6 +1557,7 @@ export default class TaskUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:TaskService =  new TaskService();
             curService.TaskNFavorites(context,data, true).then((response: any) => {

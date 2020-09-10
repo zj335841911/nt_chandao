@@ -159,6 +159,7 @@ export default class ProjectTeamUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:ProjectTeamService =  new ProjectTeamService();
             curService.Remove(context,data, true).then((response: any) => {

@@ -283,6 +283,7 @@ export default class ProductPlanUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:ProductPlanService =  new ProductPlanService();
             curService.LinkStory(context,data, true).then((response: any) => {
@@ -488,6 +489,7 @@ export default class ProductPlanUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:ProductPlanService =  new ProductPlanService();
             curService.LinkBug(context,data, true).then((response: any) => {

@@ -282,6 +282,7 @@ export default class BranchUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:BranchService =  new BranchService();
             curService.Remove(context,data, true).then((response: any) => {

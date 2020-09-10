@@ -197,7 +197,7 @@ export default class ProjectUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
-              actionContext.closeView(null);
+        
         const backend = () => {
             const curService:ProjectService =  new ProjectService();
             curService.Remove(context,data, true).then((response: any) => {
@@ -211,6 +211,7 @@ export default class ProjectUIServiceBase extends UIService {
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
                 }
+                actionContext.closeView(null);
                 const { data: result } = response;
                 let _args: any[] = [];
                 if (Object.is(actionContext.$util.typeOf(result), 'array')) {
@@ -277,6 +278,7 @@ export default class ProjectUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:ProjectService =  new ProjectService();
             curService.ProjectTop(context,data, true).then((response: any) => {
@@ -507,6 +509,7 @@ export default class ProjectUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:ProjectService =  new ProjectService();
             curService.CancelProjectTop(context,data, true).then((response: any) => {

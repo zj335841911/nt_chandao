@@ -312,6 +312,7 @@ export default class TestTaskUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:TestTaskService =  new TestTaskService();
             curService.Remove(context,data, true).then((response: any) => {

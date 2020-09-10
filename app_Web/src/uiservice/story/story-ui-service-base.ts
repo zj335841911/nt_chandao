@@ -419,6 +419,7 @@ export default class StoryUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:StoryService =  new StoryService();
             curService.ProjectLinkStory(context,data, true).then((response: any) => {
@@ -512,6 +513,7 @@ export default class StoryUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:StoryService =  new StoryService();
             curService.ProjectUnlinkStory(context,data, true).then((response: any) => {
@@ -840,6 +842,7 @@ export default class StoryUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:StoryService =  new StoryService();
             curService.AllPush(context,data, true).then((response: any) => {
@@ -918,7 +921,7 @@ export default class StoryUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
-              actionContext.closeView(null);
+        
         const backend = () => {
             const curService:StoryService =  new StoryService();
             curService.Remove(context,data, true).then((response: any) => {
@@ -932,6 +935,7 @@ export default class StoryUIServiceBase extends UIService {
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
                 }
+                actionContext.closeView(null);
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
@@ -986,6 +990,7 @@ export default class StoryUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:StoryService =  new StoryService();
             curService.StoryNFavorites(context,data, true).then((response: any) => {
@@ -1055,6 +1060,7 @@ export default class StoryUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:StoryService =  new StoryService();
             curService.ReleaseUnlinkStory(context,data, true).then((response: any) => {
@@ -1122,6 +1128,7 @@ export default class StoryUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:StoryService =  new StoryService();
             curService.Push(context,data, true).then((response: any) => {
@@ -1318,6 +1325,7 @@ export default class StoryUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:StoryService =  new StoryService();
             curService.BuildLinkStory(context,data, true).then((response: any) => {
@@ -1397,6 +1405,7 @@ export default class StoryUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:StoryService =  new StoryService();
             curService.LinkStory(context,data, true).then((response: any) => {
@@ -1554,6 +1563,7 @@ export default class StoryUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:StoryService =  new StoryService();
             curService.BuildUnlinkStory(context,data, true).then((response: any) => {
@@ -1688,6 +1698,7 @@ export default class StoryUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:StoryService =  new StoryService();
             curService.SyncFromIBIZ(context,data, true).then((response: any) => {
@@ -1882,6 +1893,7 @@ export default class StoryUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:StoryService =  new StoryService();
             curService.ReleaseLinkStory(context,data, true).then((response: any) => {
@@ -2028,6 +2040,7 @@ export default class StoryUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:StoryService =  new StoryService();
             curService.StoryFavorites(context,data, true).then((response: any) => {
@@ -2244,6 +2257,7 @@ export default class StoryUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:StoryService =  new StoryService();
             curService.UnlinkStory(context,data, true).then((response: any) => {

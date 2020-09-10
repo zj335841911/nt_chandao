@@ -166,6 +166,7 @@ export default class ReleaseUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:ReleaseService =  new ReleaseService();
             curService.Remove(context,data, true).then((response: any) => {
@@ -233,6 +234,7 @@ export default class ReleaseUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:ReleaseService =  new ReleaseService();
             curService.Terminate(context,data, true).then((response: any) => {
@@ -431,6 +433,7 @@ export default class ReleaseUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:ReleaseService =  new ReleaseService();
             curService.LinkBug(context,data, true).then((response: any) => {
@@ -498,6 +501,7 @@ export default class ReleaseUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:ReleaseService =  new ReleaseService();
             curService.Activate(context,data, true).then((response: any) => {
@@ -565,7 +569,7 @@ export default class ReleaseUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
-              actionContext.closeView(null);
+        
         const backend = () => {
             const curService:ReleaseService =  new ReleaseService();
             curService.LinkStory(context,data, true).then((response: any) => {
@@ -579,6 +583,7 @@ export default class ReleaseUIServiceBase extends UIService {
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
                 }
+                actionContext.closeView(null);
                 const { data: result } = response;
                 let _args: any[] = [];
                 if (Object.is(actionContext.$util.typeOf(result), 'array')) {

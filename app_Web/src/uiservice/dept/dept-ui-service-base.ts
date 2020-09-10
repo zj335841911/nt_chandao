@@ -213,6 +213,7 @@ export default class DeptUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:DeptService =  new DeptService();
             curService.Remove(context,data, true).then((response: any) => {

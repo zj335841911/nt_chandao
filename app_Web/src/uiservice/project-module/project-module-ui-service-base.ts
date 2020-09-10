@@ -157,6 +157,7 @@ export default class ProjectModuleUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:ProjectModuleService =  new ProjectModuleService();
             curService.Fix(context,data, true).then((response: any) => {

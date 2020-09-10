@@ -254,7 +254,7 @@ export default class CaseUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
-              actionContext.closeView(null);
+        
         const backend = () => {
             const curService:CaseService =  new CaseService();
             curService.Remove(context,data, true).then((response: any) => {
@@ -268,6 +268,7 @@ export default class CaseUIServiceBase extends UIService {
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
                 }
+                actionContext.closeView(null);
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
@@ -387,6 +388,7 @@ export default class CaseUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:CaseService =  new CaseService();
             curService.UnlinkCases(context,data, true).then((response: any) => {
@@ -650,6 +652,7 @@ export default class CaseUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:CaseService =  new CaseService();
             curService.ConfirmChange(context,data, true).then((response: any) => {
@@ -717,6 +720,7 @@ export default class CaseUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:CaseService =  new CaseService();
             curService.Confirmstorychange(context,data, true).then((response: any) => {
@@ -1040,7 +1044,7 @@ export default class CaseUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
-              actionContext.closeView(null);
+        
         const backend = () => {
             const curService:CaseService =  new CaseService();
             curService.TestsuitelinkCase(context,data, true).then((response: any) => {
@@ -1054,6 +1058,7 @@ export default class CaseUIServiceBase extends UIService {
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
                 }
+                actionContext.closeView(null);
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
@@ -1182,7 +1187,7 @@ export default class CaseUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
-              actionContext.closeView(null);
+        
         const backend = () => {
             const curService:CaseService =  new CaseService();
             curService.Remove(context,data, true).then((response: any) => {
@@ -1196,6 +1201,7 @@ export default class CaseUIServiceBase extends UIService {
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
                 }
+                actionContext.closeView(null);
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
@@ -1252,6 +1258,7 @@ export default class CaseUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:CaseService =  new CaseService();
             curService.UnlinkSuiteCases(context,data, true).then((response: any) => {
@@ -1514,7 +1521,7 @@ export default class CaseUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
-              actionContext.closeView(null);
+        
         const backend = () => {
             const curService:CaseService =  new CaseService();
             curService.LinkCase(context,data, true).then((response: any) => {
@@ -1528,6 +1535,7 @@ export default class CaseUIServiceBase extends UIService {
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
                 }
+                actionContext.closeView(null);
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {

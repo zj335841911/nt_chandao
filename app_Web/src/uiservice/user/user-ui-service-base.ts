@@ -149,6 +149,7 @@ export default class UserUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:UserService =  new UserService();
             curService.SyncAccount(context,data, true).then((response: any) => {
@@ -216,6 +217,7 @@ export default class UserUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:UserService =  new UserService();
             curService.Remove(context,data, true).then((response: any) => {

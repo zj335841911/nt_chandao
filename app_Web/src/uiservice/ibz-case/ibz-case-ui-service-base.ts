@@ -294,6 +294,7 @@ export default class IbzCaseUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:IbzCaseService =  new IbzCaseService();
             curService.Remove(context,data, true).then((response: any) => {
@@ -372,6 +373,7 @@ export default class IbzCaseUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:IbzCaseService =  new IbzCaseService();
             curService.Remove(context,data, true).then((response: any) => {

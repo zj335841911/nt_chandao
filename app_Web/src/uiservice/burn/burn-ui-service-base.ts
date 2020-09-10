@@ -158,6 +158,7 @@ export default class BurnUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:BurnService =  new BurnService();
             curService.ComputeBurn(context,data, true).then((response: any) => {

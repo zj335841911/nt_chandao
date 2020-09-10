@@ -159,6 +159,7 @@ export default class ProductModuleUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:ProductModuleService =  new ProductModuleService();
             curService.Fix(context,data, true).then((response: any) => {
@@ -291,6 +292,7 @@ export default class ProductModuleUIServiceBase extends UIService {
           context.srfsessionkey = context.srfsessionid;
             delete context.srfsessionid;
         }
+        
         const backend = () => {
             const curService:ProductModuleService =  new ProductModuleService();
             curService.SyncFromIBIZ(context,data, true).then((response: any) => {
