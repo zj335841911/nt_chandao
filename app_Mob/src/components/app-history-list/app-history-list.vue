@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="onecontent" ref="onecontent">   
-      <div v-for="item in listItems" :key="item.id" class="oneitem" ref="oneitem">
+      <div v-for="item in items" :key="item.id" class="oneitem" ref="oneitem">
             <div class="header"><span>{{item.date}}</span> <span>{{item.method}}</span></div>
             <div class="footer">
               <span>{{$t('by')}} </span>
@@ -10,7 +10,7 @@
               <span v-if="item.actions !== 'closed'">
                 <span v-if="item.actions !=='suspended'">
                   <span v-if="item.actions !=='delayed'">
-                  <strong>{{item.file}}</strong>
+                  <strong>{{item.file}} </strong>
                   </span>
                 </span>
                 <span v-if="item.actions == 'delayed'">
@@ -81,14 +81,6 @@ export default class APPHistoryList extends Vue {
 
     public listItems:Array<any> = [];
 
-    @Watch("items")
-    onItemChange (newVal:any , oldVal:any) {
-      if (newVal && this.items) {
-        this.listItems = this.items;
-      }
-    }
-
-
     /**
      * 传入数据itemNameDetail
      *
@@ -116,7 +108,7 @@ export default class APPHistoryList extends Vue {
      */
     @Watch('items',{immediate: true, deep: true})
     itemsChange(){
-      if (this.items!=undefined && this.items.length !== 0) {
+      if (this.items && this.items.length !== 0) {
         this.text = '查看更多记录';
       } else {
         this.text = '暂无更多记录';
@@ -146,7 +138,7 @@ export default class APPHistoryList extends Vue {
      * @memberof APPHistoryList
      */
     public handler(){
-      if (this.items != undefined) {
+      if (this.items) {
         this.items.forEach((v:any)=>{
           let file:string = "";
           let method:string = "";
