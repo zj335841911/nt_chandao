@@ -679,6 +679,20 @@ public class PSDataEntity extends EntityClient implements Serializable {
     @JsonProperty("pssubsysserviceapiname")
     private String pssubsysserviceapiname;
 
+    /**
+     * 系统设计需求
+     */
+    @JSONField(name = "pssysreqitemname")
+    @JsonProperty("pssysreqitemname")
+    private String pssysreqitemname;
+
+    /**
+     * 系统设计需求
+     */
+    @JSONField(name = "pssysreqitemid")
+    @JsonProperty("pssysreqitemid")
+    private String pssysreqitemid;
+
 
     /**
      * 
@@ -700,6 +714,13 @@ public class PSDataEntity extends EntityClient implements Serializable {
     @JSONField(name = "pssubsysserviceapi")
     @JsonProperty("pssubsysserviceapi")
     private cn.ibizlab.pms.core.ibizsysmodel.domain.PSSubSysServiceAPI pssubsysserviceapi;
+
+    /**
+     * 
+     */
+    @JSONField(name = "pssysreqitem")
+    @JsonProperty("pssysreqitem")
+    private cn.ibizlab.pms.core.ibizsysmodel.domain.PSSysReqItem pssysreqitem;
 
 
 
@@ -1342,6 +1363,14 @@ public class PSDataEntity extends EntityClient implements Serializable {
     public void setPssubsysserviceapiid(String pssubsysserviceapiid){
         this.pssubsysserviceapiid = pssubsysserviceapiid ;
         this.modify("pssubsysserviceapiid",pssubsysserviceapiid);
+    }
+
+    /**
+     * 设置 [系统设计需求]
+     */
+    public void setPssysreqitemid(String pssysreqitemid){
+        this.pssysreqitemid = pssysreqitemid ;
+        this.modify("pssysreqitemid",pssysreqitemid);
     }
 
 

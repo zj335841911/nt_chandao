@@ -333,6 +333,42 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
             this.removeBatch(delIds);
     }
 
+	@Override
+    public List<PSDataEntity> selectByPssysreqitemid(String pssysreqitemid) {
+        PSDataEntitySearchContext context=new PSDataEntitySearchContext();
+        context.setSize(Integer.MAX_VALUE);
+        context.setN_pssysreqitemid_eq(pssysreqitemid);
+        return pSDataEntityFeignClient.searchDefault(context).getContent();
+    }
+
+    @Override
+    public List<PSDataEntity> selectByPssysreqitemid(String devSlnSysId,String pssysreqitemid) {
+        PSDataEntitySearchContext context=new PSDataEntitySearchContext();
+        context.setSize(Integer.MAX_VALUE);
+        context.setN_pssysreqitemid_eq(pssysreqitemid);
+        return getPSDataEntityFeignClient(devSlnSysId).searchDefault(context).getContent();
+    }
+
+    @Override
+    public void removeByPssysreqitemid(String pssysreqitemid) {
+        Set<String> delIds=new HashSet<String>();
+        for(PSDataEntity before:selectByPssysreqitemid(pssysreqitemid)){
+            delIds.add(before.getPsdataentityid());
+        }
+        if(delIds.size()>0)
+            this.removeBatch(delIds);
+    }
+
+    @Override
+    public void removeByPssysreqitemid(String devSlnSysId,String pssysreqitemid) {
+        Set<String> delIds=new HashSet<String>();
+        for(PSDataEntity before:selectByPssysreqitemid(devSlnSysId,pssysreqitemid)){
+            delIds.add(before.getPsdataentityid());
+        }
+        if(delIds.size()>0)
+            this.removeBatch(delIds);
+    }
+
 
 
     /**

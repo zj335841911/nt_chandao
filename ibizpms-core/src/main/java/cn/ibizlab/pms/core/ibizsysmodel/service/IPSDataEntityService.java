@@ -41,6 +41,8 @@ public interface IPSDataEntityService{
     void removeByPssubsyssadeid(String pssubsyssadeid) ;
     List<PSDataEntity> selectByPssubsysserviceapiid(String pssubsysserviceapiid) ;
     void removeByPssubsysserviceapiid(String pssubsysserviceapiid) ;
+    List<PSDataEntity> selectByPssysreqitemid(String pssysreqitemid) ;
+    void removeByPssysreqitemid(String pssysreqitemid) ;
 
     boolean create(String devSlnSysId , PSDataEntity et) ;
     void createBatch(String devSlnSysId , List<PSDataEntity> list) ;
@@ -61,6 +63,8 @@ public interface IPSDataEntityService{
     void removeByPssubsyssadeid(String devSlnSysId , String pssubsyssadeid) ;
     List<PSDataEntity> selectByPssubsysserviceapiid(String devSlnSysId , String pssubsysserviceapiid) ;
     void removeByPssubsysserviceapiid(String devSlnSysId , String pssubsysserviceapiid) ;
+    List<PSDataEntity> selectByPssysreqitemid(String devSlnSysId , String pssysreqitemid) ;
+    void removeByPssysreqitemid(String devSlnSysId , String pssysreqitemid) ;
 
 }
 

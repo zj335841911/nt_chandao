@@ -91,6 +91,12 @@ public class PSDataEntitySearchContext extends SearchContextBase {
 
 	private String n_pssubsysserviceapiname_like;//[子系统服务接口]
 
+	private String n_pssysreqitemname_eq;//[系统设计需求]
+
+	private String n_pssysreqitemname_like;//[系统设计需求]
+
+	private String n_pssysreqitemid_eq;//[系统设计需求]
+
 }
 
 
