@@ -815,7 +815,7 @@ export class ModuleExpTreeBase extends MainControlBase {
         }
         const id: string = node.key ? node.key : '#';
         const param: any = { srfnodeid: id };
-        this.refresh_node(tempContext,param, true);
+        this.refresh_node(tempContext,param, false);
     }
 
     /**
@@ -947,6 +947,7 @@ export class ModuleExpTreeBase extends MainControlBase {
             if (parentnode) {
                 this.currentselectedNode = {};
             }
+            this.$forceUpdate();
             this.setDefaultSelection(_items);
         }).catch((response: any) => {
             if (response && response.status === 401) {
