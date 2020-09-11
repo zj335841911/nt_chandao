@@ -1942,7 +1942,7 @@ const router = new Router({
                     component: () => import('@pages/ibiz/bug-acmob-option-view/bug-acmob-option-view.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/tasks/:task?/taskestimates/:taskestimate?/mobmeditview9',
+                    path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobmeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobmeditview9.caption',
                         parameters: [
@@ -1950,7 +1950,7 @@ const router = new Router({
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
                             { pathName: 'mobmeditview9', parameterName: 'mobmeditview9' },
                         ],
                         requireAuth: true,
@@ -1958,14 +1958,14 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-estimate-mob-medit-view9/task-estimate-mob-medit-view9.vue'),
                 },
                 {
-                    path: 'projects/:project?/tasks/:task?/taskestimates/:taskestimate?/mobmeditview9',
+                    path: 'projects/:project?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobmeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobmeditview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
                             { pathName: 'mobmeditview9', parameterName: 'mobmeditview9' },
                         ],
                         requireAuth: true,
@@ -1973,14 +1973,14 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-estimate-mob-medit-view9/task-estimate-mob-medit-view9.vue'),
                 },
                 {
-                    path: 'stories/:story?/tasks/:task?/taskestimates/:taskestimate?/mobmeditview9',
+                    path: 'stories/:story?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobmeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobmeditview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
                             { pathName: 'mobmeditview9', parameterName: 'mobmeditview9' },
                         ],
                         requireAuth: true,
@@ -1988,13 +1988,13 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-estimate-mob-medit-view9/task-estimate-mob-medit-view9.vue'),
                 },
                 {
-                    path: 'tasks/:task?/taskestimates/:taskestimate?/mobmeditview9',
+                    path: 'tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobmeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobmeditview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
                             { pathName: 'mobmeditview9', parameterName: 'mobmeditview9' },
                         ],
                         requireAuth: true,
@@ -2002,12 +2002,12 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-estimate-mob-medit-view9/task-estimate-mob-medit-view9.vue'),
                 },
                 {
-                    path: 'taskestimates/:taskestimate?/mobmeditview9',
+                    path: 'ibztaskestimates/:ibztaskestimate?/mobmeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobmeditview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
                             { pathName: 'mobmeditview9', parameterName: 'mobmeditview9' },
                         ],
                         requireAuth: true,
@@ -2469,7 +2469,7 @@ const router = new Router({
                     component: () => import('@pages/zentao/todo-mob-option-view/todo-mob-option-view.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/tasks/:task?/taskestimates/:taskestimate?/mobeditview9',
+                    path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobeditview9.caption',
                         parameters: [
@@ -2477,7 +2477,7 @@ const router = new Router({
                             { pathName: 'products', parameterName: 'product' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
                             { pathName: 'mobeditview9', parameterName: 'mobeditview9' },
                         ],
                         requireAuth: true,
@@ -2485,14 +2485,14 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-estimate-mob-edit-view9/task-estimate-mob-edit-view9.vue'),
                 },
                 {
-                    path: 'projects/:project?/tasks/:task?/taskestimates/:taskestimate?/mobeditview9',
+                    path: 'projects/:project?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobeditview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
                             { pathName: 'mobeditview9', parameterName: 'mobeditview9' },
                         ],
                         requireAuth: true,
@@ -2500,14 +2500,14 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-estimate-mob-edit-view9/task-estimate-mob-edit-view9.vue'),
                 },
                 {
-                    path: 'stories/:story?/tasks/:task?/taskestimates/:taskestimate?/mobeditview9',
+                    path: 'stories/:story?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobeditview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
                             { pathName: 'mobeditview9', parameterName: 'mobeditview9' },
                         ],
                         requireAuth: true,
@@ -2515,13 +2515,13 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-estimate-mob-edit-view9/task-estimate-mob-edit-view9.vue'),
                 },
                 {
-                    path: 'tasks/:task?/taskestimates/:taskestimate?/mobeditview9',
+                    path: 'tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobeditview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
                             { pathName: 'mobeditview9', parameterName: 'mobeditview9' },
                         ],
                         requireAuth: true,
@@ -2529,12 +2529,12 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-estimate-mob-edit-view9/task-estimate-mob-edit-view9.vue'),
                 },
                 {
-                    path: 'taskestimates/:taskestimate?/mobeditview9',
+                    path: 'ibztaskestimates/:ibztaskestimate?/mobeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobeditview9.caption',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
                             { pathName: 'mobeditview9', parameterName: 'mobeditview9' },
                         ],
                         requireAuth: true,

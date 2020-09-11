@@ -12,11 +12,11 @@
                 @viewdatadirty="onViewDataDirty" 
                 @drdatasaved="onDRDataSaved" 
                 updateAction=""
-                removeAction="Remove"
+                removeAction="RemoveTemp"
                 loaddraftAction="GetDraftTemp"
                 loadAction=""
                 createAction=""
-                fetchAction="FetchDefaults"
+                fetchAction="FetchTempDefaults"
                 name="meditviewpanel"  
                 ref='meditviewpanel' 
                 @datachange="meditviewpanel_datachange($event)"  
@@ -35,10 +35,10 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskEstimateService from '@/app-core/service/task-estimate/task-estimate-service';
+import IbzTaskestimateService from '@/app-core/service/ibz-taskestimate/ibz-taskestimate-service';
 
 import MobMEditView9Engine from '@engine/view/mob-medit-view9-engine';
-import TaskEstimateUIService from '@/ui-service/task-estimate/task-estimate-ui-action';
+import IbzTaskestimateUIService from '@/ui-service/ibz-taskestimate/ibz-taskestimate-ui-action';
 
 @Component({
     components: {
@@ -57,18 +57,18 @@ export default class TaskEstimateMobMEditView9Base extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {TaskEstimateService}
+     * @type {IbzTaskestimateService}
      * @memberof TaskEstimateMobMEditView9Base
      */
-    protected appEntityService: TaskEstimateService = new TaskEstimateService();
+    protected appEntityService: IbzTaskestimateService = new IbzTaskestimateService();
 
     /**
      * 实体UI服务对象
      *
-     * @type TaskEstimateUIService
+     * @type IbzTaskestimateUIService
      * @memberof TaskEstimateMobMEditView9Base
      */
-    public appUIService: TaskEstimateUIService = new TaskEstimateUIService(this.$store);
+    public appUIService: IbzTaskestimateUIService = new IbzTaskestimateUIService(this.$store);
 
     /**
      * 数据变化
@@ -171,7 +171,7 @@ export default class TaskEstimateMobMEditView9Base extends Vue {
      */
     protected model: any = {
         srfTitle: '任务预计多表单编辑视图',
-        srfCaption: 'taskestimate.views.mobmeditview9.caption',
+        srfCaption: 'ibztaskestimate.views.mobmeditview9.caption',
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
@@ -298,7 +298,7 @@ export default class TaskEstimateMobMEditView9Base extends Vue {
         this.engine.init({
             view: this,
             meditviewpanel: this.$refs.meditviewpanel,
-            keyPSDEField: 'taskestimate',
+            keyPSDEField: 'ibztaskestimate',
             majorPSDEField: 'id',
             isLoadDefault: true,
         });

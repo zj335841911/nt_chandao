@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import TaskEstimateMobMEditView9Base from './task-estimate-mob-medit-view9-base.vue';
 
-import view_meditviewpanel from '@widgets/task-estimate/main-multieditviewpanel/main-multieditviewpanel.vue';
+import view_meditviewpanel from '@widgets/ibz-taskestimate/main-multieditviewpanel/main-multieditviewpanel.vue';
 @Component({
     components: {
         view_meditviewpanel, 

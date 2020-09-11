@@ -1,54 +1,103 @@
 <template>
-    <div ref='form' class="app-form task-form ">
+    <div ref='form' class="app-form ibztaskestimate-form ">
                 
 
-<app-form-druipart
+<app-form-item 
+    name='date' 
     class='' 
-    parameterName='task' 
-    refviewtype='DEMOBMDVIEW'  
-    refreshitems='' 
-    viewname='task-estimate-mob-mdview' 
-    v-show="detailsModel.druipart2.visible" 
-    paramItem='task' 
-    style="" 
-    :formState="formState" 
-    :parentdata='{"srfparentdefname":"TASK","srfparentdename":"ZT_TASK","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_TASKESTIMATE_ZT_TASK_TASK","SRFDER1NID":"DER1N_ZT_TASKESTIMATE_ZT_TASK_TASK"}' 
-    :parameters="[
-        { pathName: 'tasks', parameterName: 'task' },
-    ]" 
-    tempMode='0'
-    :context="context" 
-    :viewparams="viewparams" 
-    :navigateContext ='{ } ' 
-    :navigateParam ='{ } ' 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)"  
-    @drdatasaved="drdatasaved($event)"/>
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="date_item"  
+    :itemValue="this.data.date" 
+    v-show="detailsModel.date.visible" 
+    :itemRules="this.rules.date" 
+    :caption="$t('ibztaskestimate.newform_form.details.date')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.date.disabled"
+    :error="detailsModel.date.error" 
+    :isEmptyCaption="false">
+        <app-mob-datetime-picker 
+    displayFormat="YYYY-MM-DD"
+    class="app-form-item-datetime" 
+    :value="data.date" 
+    :disabled="detailsModel.date.disabled"
+    @change="($event)=>this.data.date = $event"/>
+</app-form-item>
 
 
 
-<app-form-druipart
+<app-form-item 
+    name='consumed' 
     class='' 
-    parameterName='task' 
-    refviewtype='DEMOBMEDITVIEW9'  
-    refreshitems='' 
-    viewname='task-estimate-mob-medit-view9' 
-    v-show="detailsModel.druipart1.visible" 
-    paramItem='task' 
-    style="" 
-    :formState="formState" 
-    :parentdata='{"srfparentdefname":"TASK","srfparentdename":"ZT_TASK","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_TASKESTIMATE_ZT_TASK_TASK","SRFDER1NID":"DER1N_ZT_TASKESTIMATE_ZT_TASK_TASK"}' 
-    :parameters="[
-        { pathName: 'tasks', parameterName: 'task' },
-    ]" 
-    tempMode='2'
-    :context="context" 
-    :viewparams="viewparams" 
-    :navigateContext ='{ } ' 
-    :navigateParam ='{ } ' 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)"  
-    @drdatasaved="drdatasaved($event)"/>
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="consumed_item"  
+    :itemValue="this.data.consumed" 
+    v-show="detailsModel.consumed.visible" 
+    :itemRules="this.rules.consumed" 
+    :caption="$t('ibztaskestimate.newform_form.details.consumed')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.consumed.disabled"
+    :error="detailsModel.consumed.error" 
+    :isEmptyCaption="false">
+        <app-mob-input 
+    class="app-form-item-number" 
+        type="number"  
+    :value="data.consumed" 
+    :disabled="detailsModel.consumed.disabled" 
+    @change="($event)=>this.data.consumed = $event"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='left' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="left_item"  
+    :itemValue="this.data.left" 
+    v-show="detailsModel.left.visible" 
+    :itemRules="this.rules.left" 
+    :caption="$t('ibztaskestimate.newform_form.details.left')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.left.disabled"
+    :error="detailsModel.left.error" 
+    :isEmptyCaption="false">
+        <app-mob-input 
+    class="app-form-item-number" 
+        type="number"  
+    :value="data.left" 
+    :disabled="detailsModel.left.disabled" 
+    @change="($event)=>this.data.left = $event"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='work' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="work_item"  
+    :itemValue="this.data.work" 
+    v-show="detailsModel.work.visible" 
+    :itemRules="this.rules.work" 
+    :caption="$t('ibztaskestimate.newform_form.details.work')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.work.disabled"
+    :error="detailsModel.work.error" 
+    :isEmptyCaption="false">
+        <app-mob-textarea  
+    class="app-form-item-textarea" 
+        :value="data.work" 
+    :disabled="detailsModel.work.disabled" 
+    @change="($event)=>this.data.work = $event" />
+</app-form-item>
 
 
 
@@ -61,10 +110,10 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskService from '@/app-core/service/task/task-service';
-import EstimateMobService from '@/app-core/ctrl-service/task/estimate-mob-form-service';
+import IbzTaskestimateService from '@/app-core/service/ibz-taskestimate/ibz-taskestimate-service';
+import NewFormService from '@/app-core/ctrl-service/ibz-taskestimate/new-form-form-service';
 
-import TaskUIService from '@/ui-service/task/task-ui-action';
+import IbzTaskestimateUIService from '@/ui-service/ibz-taskestimate/ibz-taskestimate-ui-action';
 
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -75,13 +124,13 @@ import {  Util } from '@/ibiz-core/utils';
     components: {
     }
 })
-export default class EstimateMobBase extends Vue implements ControlInterface {
+export default class NewFormBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Prop() protected name?: string;
 
@@ -89,7 +138,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 视图名称
      *
      * @type {string}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Prop() protected viewName!: string;
 
@@ -98,7 +147,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Prop() protected viewState!: Subject<ViewState>;
 
@@ -106,7 +155,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Prop({ default: {} }) protected context?: any;
 
@@ -114,7 +163,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Prop({ default: {} }) protected viewparams?: any;
 
@@ -123,7 +172,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      *
      * @protected
      * @type {(Subscription | undefined)}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected viewStateEvent: Subscription | undefined;
 
@@ -131,7 +180,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected getControlType(): string {
         return 'FORM'
@@ -141,7 +190,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -150,7 +199,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 转化数据
      *
      * @param {any} args
-     * @memberof  EstimateMobBase
+     * @memberof  NewFormBase
      */
     public transformData(args: any) {
         let _this: any = this;
@@ -162,33 +211,33 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
     /**
      * 建构部件服务对象
      *
-     * @type {EstimateMobService}
-     * @memberof EstimateMob
+     * @type {NewFormService}
+     * @memberof NewForm
      */
-    protected service: EstimateMobService = new EstimateMobService({$store:this.$store});
+    protected service: NewFormService = new NewFormService({$store:this.$store});
 
     /**
      * 实体服务对象
      *
-     * @type {TaskService}
-     * @memberof EstimateMob
+     * @type {IbzTaskestimateService}
+     * @memberof NewForm
      */
-    protected appEntityService: TaskService = new TaskService();
+    protected appEntityService: IbzTaskestimateService = new IbzTaskestimateService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {TaskUIService}
-     * @memberof EstimateMobBase
+     * @type {IbzTaskestimateUIService}
+     * @memberof NewFormBase
      */  
-    public deUIService:TaskUIService = new TaskUIService(this.$store);
+    public deUIService:IbzTaskestimateUIService = new IbzTaskestimateUIService(this.$store);
     
 
     /**
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected closeView(args: any[]): void {
         let _this: any = this;
@@ -199,7 +248,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
     /**
      * 工作流审批意见控件绑定值
      *
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Prop() srfwfmemo?: string;
 
@@ -207,7 +256,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     public getDatas(): any[] {
         return [this.data];
@@ -217,7 +266,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     public getData(): any {
         return this.data;
@@ -227,7 +276,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 是否默认保存
      *
      * @type {boolean}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Prop({ default: false }) protected autosave?: boolean;
 
@@ -235,7 +284,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Prop({ default: true }) protected showBusyIndicator!: boolean;
 
@@ -243,7 +292,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 部件行为--submit
      *
      * @type {string}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Prop() protected WFSubmitAction!: string;
     
@@ -251,7 +300,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 部件行为--start
      *
      * @type {string}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Prop() protected WFStartAction!: string;
     
@@ -259,7 +308,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Prop() protected updateAction!: string;
     
@@ -267,7 +316,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Prop() protected removeAction!: string;
     
@@ -275,7 +324,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Prop() protected loaddraftAction!: string;
     
@@ -283,7 +332,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Prop() protected loadAction!: string;
     
@@ -291,7 +340,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Prop() protected createAction!: string;
 
@@ -299,7 +348,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Prop() protected searchAction!: string;
 
@@ -307,7 +356,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 视图标识
      *
      * @type {string}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Prop() protected viewtag!: string;
 
@@ -315,7 +364,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 表单状态
      *
      * @type {Subject<any>}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected formState: Subject<any> = new Subject();
 
@@ -323,7 +372,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 忽略表单项值变化
      *
      * @type {boolean}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected ignorefieldvaluechange: boolean = false;
 
@@ -332,7 +381,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {Subject<any>}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     private dataChang: Subject<any> = new Subject();
 
@@ -341,7 +390,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {(Subscription | undefined)}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     private dataChangEvent: Subscription | undefined;
 
@@ -350,7 +399,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      *
      * @private
      * @type {*}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     private oldData: any = {};
 
@@ -358,10 +407,9 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected data: any = {
-        srfupdatedate: null,
         srforikey: null,
         srfkey: null,
         srfmajortext: null,
@@ -369,16 +417,19 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        date: null,
+        consumed: null,
+        left: null,
+        work: null,
         id: null,
-        name: null,
-        task: null,
+        ibztaskestimate: null,
     };
 
     /**
       * 当前执行的行为逻辑
       *
       * @type {string}
-      * @memberof EstimateMob
+      * @memberof NewForm
       */
     protected currentAction: string = "";
 
@@ -386,7 +437,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
       * 关系界面计数器
       *
       * @type {number}
-      * @memberof EstimateMob
+      * @memberof NewForm
       */
     protected drcounter: number = 0;
 
@@ -394,7 +445,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
       * 表单保存回调存储对象
       *
       * @type {any}
-      * @memberof EstimateMob
+      * @memberof NewForm
       */
     protected saveState:any ;
 
@@ -402,15 +453,9 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected rules: any = {
-        srfupdatedate: [
-            { type: 'string', message: '最后修改日期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '最后修改日期 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '最后修改日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '最后修改日期 值不能为空', trigger: 'blur' },
-        ],
         srforikey: [
             { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
@@ -424,10 +469,10 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
         ],
         srfmajortext: [
-            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
+            { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
         ],
         srftempmode: [
             { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
@@ -453,17 +498,35 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
+        date: [
+            { type: 'string', message: '日期 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '日期 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '日期 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '日期 值不能为空', trigger: 'blur' },
+        ],
+        consumed: [
+            { type: 'number', message: '工时 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '工时 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '工时 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '工时 值不能为空', trigger: 'blur' },
+        ],
+        left: [
+            { type: 'number', message: '剩余 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '剩余 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '剩余 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '剩余 值不能为空', trigger: 'blur' },
+        ],
+        work: [
+            { type: 'string', message: '备注 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '备注 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
+        ],
         id: [
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
             { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        name: [
-            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -471,7 +534,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 属性值规则
      *
      * @type {*}
-     * @memberof EstimateMobBase
+     * @memberof NewFormBase
      */
     public deRules:any = {
     };
@@ -481,7 +544,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      *
      * @public
      * @param {{ name: string }} { name }
-     * @memberof EstimateMobBase
+     * @memberof NewFormBase
      */
     public verifyDeRules(name:string,rule:any = this.deRules,op:string = "AND") :{isPast:boolean,infoMessage:string}{
         let falg:any = {infoMessage:""};
@@ -546,22 +609,16 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected detailsModel: any = {
-        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
-, 
-        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
-, 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
-, 
-        srfupdatedate: new FormItemModel({ caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         srfkey: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
-        srfmajortext: new FormItemModel({ caption: '任务名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        srfmajortext: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -571,30 +628,24 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        consumed: new FormItemModel({ caption: '工时', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        left: new FormItemModel({ caption: '剩余', detailType: 'FORMITEM', name: 'left', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        work: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'work', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
-        name: new FormItemModel({ caption: '任务名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
     };
-
-    /**
-     * 监控表单属性 srfupdatedate 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof EstimateMob
-     */
-    @Watch('data.srfupdatedate')
-    onSrfupdatedateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'srfupdatedate', newVal: newVal, oldVal: oldVal });
-    }
 
     /**
      * 监控表单属性 srforikey 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Watch('data.srforikey')
     onSrforikeyChange(newVal: any, oldVal: any) {
@@ -606,7 +657,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Watch('data.srfkey')
     onSrfkeyChange(newVal: any, oldVal: any) {
@@ -618,7 +669,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Watch('data.srfmajortext')
     onSrfmajortextChange(newVal: any, oldVal: any) {
@@ -630,7 +681,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Watch('data.srftempmode')
     onSrftempmodeChange(newVal: any, oldVal: any) {
@@ -642,7 +693,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Watch('data.srfuf')
     onSrfufChange(newVal: any, oldVal: any) {
@@ -654,7 +705,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Watch('data.srfdeid')
     onSrfdeidChange(newVal: any, oldVal: any) {
@@ -666,7 +717,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Watch('data.srfsourcekey')
     onSrfsourcekeyChange(newVal: any, oldVal: any) {
@@ -674,27 +725,63 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 date 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof NewForm
+     */
+    @Watch('data.date')
+    onDateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'date', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 consumed 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof NewForm
+     */
+    @Watch('data.consumed')
+    onConsumedChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'consumed', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 left 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof NewForm
+     */
+    @Watch('data.left')
+    onLeftChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'left', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 work 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof NewForm
+     */
+    @Watch('data.work')
+    onWorkChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'work', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
      * @param {*} oldVal
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     @Watch('data.id')
     onIdChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 name 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof EstimateMob
-     */
-    @Watch('data.name')
-    onNameChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'name', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -703,7 +790,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      *
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     private resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
     }
@@ -729,7 +816,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      *
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
@@ -774,7 +861,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * @public
      * @param {{ filter: string}} { filter}
      * @returns {void}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     public async validAll(filter:string = "defult") {
         let validateState = true;
@@ -797,7 +884,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * @private
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @returns {void}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     private formDataChange({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
         if (this.ignorefieldvaluechange) {
@@ -815,7 +902,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * @private
      * @param {*} [data={}]
      * @param {string} [action]
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     private onFormLoad(data: any = {},action:string): void {
         this.setFormEnableCond(data);
@@ -831,7 +918,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      *
      * @param {*} [_datas={}]
      * @param {string} [action]
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected fillForm(_datas: any = {},action:string): void {
         this.ignorefieldvaluechange = true;
@@ -856,7 +943,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      *
      * @protected
      * @param {*} data
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected setFormEnableCond(data: any): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -872,7 +959,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 重置草稿表单状态
      *
      * @private
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     private resetDraftFormStates(): void {
         const form: any = this.$refs.form;
@@ -884,7 +971,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
     /**
      * 重置校验结果
      *
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected resetValidates(): void {
         Object.values(this.detailsModel).forEach((detail: any) => {
@@ -900,7 +987,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 填充校验结果 （后台）
      *
      * @param {any[]} fieldErrors
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected fillValidates(fieldErrors: any[]): void {
         fieldErrors.forEach((error: any) => {
@@ -918,10 +1005,10 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 表单校验状态
      *
      * @returns {boolean} 
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = [];
+        const refArr: Array<string> = ['date_item', 'consumed_item', 'left_item', 'work_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];
@@ -936,7 +1023,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 获取全部值
      *
      * @returns {*}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected getValues(): any {
         return this.data;
@@ -947,7 +1034,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      *
      * @param {{ name: string, value: any }} $event
      * @returns {void}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected onFormItemValueChange($event: { name: string, value: any }): void {
         if (!$event) {
@@ -965,7 +1052,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * @param {string} name
      * @param {*} value
      * @returns {void}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected setDataItemValue(name: string, value: any): void {
         if (!name || Object.is(name, '') || !this.data.hasOwnProperty(name)) {
@@ -983,7 +1070,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 分组界面行为事件
      *
      * @param {*} $event
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected groupUIActionClick($event: any): void {
         if (!$event) {
@@ -995,7 +1082,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
     /**
      * Vue声明周期(处理组件的输入属性)
      *
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected created(): void {
         this.afterCreated();
@@ -1004,7 +1091,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof EstimateMob
+     *  @memberof NewForm
      */    
     protected afterCreated(){
         if (this.viewState) {
@@ -1057,7 +1144,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected destroyed() {
         this.afterDestroy();
@@ -1066,7 +1153,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected afterDestroy() {
         if (this.viewStateEvent) {
@@ -1081,7 +1168,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 拷贝内容
      *
      * @param {*} [arg={}]
-     * @memberof @memberof EstimateMob
+     * @memberof @memberof NewForm
      */
     protected copy(arg: any = {}): void {
         this.loadDraft(arg);
@@ -1091,7 +1178,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 部件刷新
      *
      * @param {any[]} args
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected refresh(args: any[]): void {
         let arg: any = {};
@@ -1114,7 +1201,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      *
      * @param {*} [arg={}]
      * @returns {void}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected autoLoad(arg: any = {}): void {
         if (arg.srfkey && !Object.is(arg.srfkey, '')) {
@@ -1136,7 +1223,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * @private
      * @param {*} [opt={}]
      * @returns {Promise<any>}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     private async load(opt: any = {}): Promise<any> {
         if (!this.loadAction) {
@@ -1164,7 +1251,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 加载草稿
      *
      * @param {*} [opt={}]
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected async loadDraft(opt: any = {}): Promise<any> {
         if (!this.loaddraftAction) {
@@ -1176,8 +1263,8 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
         const response: any = await this.service.loadDraft(this.loaddraftAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
             const data = response.data;
-            if(data.task){
-                Object.assign(this.context, { task: data.task });
+            if(data.ibztaskestimate){
+                Object.assign(this.context, { ibztaskestimate: data.ibztaskestimate });
             }
             this.resetDraftFormStates();
             this.onFormLoad(data, 'loadDraft');
@@ -1198,7 +1285,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * @protected
      * @param {*} [opt={}]
      * @returns {Promise<any>}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected async autoSave(opt: any = {}): Promise<any> {
         if (!await this.validAll()) {
@@ -1242,7 +1329,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * @param {boolean} [showResultInfo]
      * @param {boolean} [isStateNext=true] 是否下发通知
      * @returns {Promise<any>}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected async save(opt: any = {}, showResultInfo?: boolean, isStateNext: boolean = true): Promise<any> {
         showResultInfo = showResultInfo === undefined ? true : false;
@@ -1257,7 +1344,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
             return Promise.reject();
         }
         if (isStateNext) {
-            this.drcounter = 2;
+            this.drcounter = 0;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();
@@ -1338,7 +1425,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * @protected
      * @param {*} data
      * @returns {Promise<any>}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected async wfstart(data: any): Promise<any> {
         const _this: any = this;
@@ -1361,7 +1448,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * @param {*} linkItem
      * @param {*} datas
      * @returns {Promise<any>}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected async wfsubmit(data: any, linkItem: any, datas: any): Promise<any> {
         const arg: any = { ...data };
@@ -1388,7 +1475,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * @param {string[]} updateDetails 更新项
      * @param {boolean} [showloading] 是否显示加载状态
      * @returns {Promise<any>}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected async updateFormItems(mode: string, data: any = {}, updateDetails: string[], showloading?: boolean): Promise<any> {
         if (!mode || (mode && Object.is(mode, ''))) {
@@ -1428,7 +1515,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * 回车事件
      *
      * @param {*} $event
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected onEnter($event: any): void {
     }
@@ -1439,7 +1526,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected async saveAndExit(data: any[]): Promise<any> {
         const arg: any = { ...data[0] };
@@ -1457,7 +1544,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected async saveAndNew(data: any[]): Promise<any> {
         let arg: any = { ...data[0] };
@@ -1476,7 +1563,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * @protected
      * @param {any[]} data
      * @returns {Promise<any>}
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     protected async removeAndExit(data: any[]): Promise<any> {
         let arg: any = { ...data[0] };
@@ -1491,7 +1578,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
     * 关系界面数据保存完成
     *
     * @param {any} $event
-    * @memberof EstimateMob
+    * @memberof NewForm
     */
     protected drdatasaved($event:any){
         let _this = this;
@@ -1514,14 +1601,14 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
 
     /**
      * 新建默认值
-     * @memberof EstimateMob
+     * @memberof NewForm
      */
     public createDefault(){                    
     }
 
         /**
      * 更新默认值
-     * @memberof EstimateMobBase
+     * @memberof NewFormBase
      */
     public updateDefault(){                    
     }
@@ -1550,5 +1637,5 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './estimate-mob-form.less';
+@import './new-form-form.less';
 </style>

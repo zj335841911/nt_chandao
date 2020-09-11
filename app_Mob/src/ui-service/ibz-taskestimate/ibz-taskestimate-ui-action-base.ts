@@ -89,6 +89,8 @@ export default class IbzTaskestimateUIActionBase extends EntityUIActionBase {
      * @memberof  IbzTaskestimateUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'mobeditview9',srfappde:'ibztaskestimates'});
+        this.allViewMap.set(':',{viewname:'mobmeditview9',srfappde:'ibztaskestimates'});
     }
 
     /**

@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import TaskEstimateMobEditView9Base from './task-estimate-mob-edit-view9-base.vue';
 
-import view_form from '@widgets/task-estimate/new-form-form/new-form-form.vue';
+import view_form from '@widgets/ibz-taskestimate/new-form-form/new-form-form.vue';
 @Component({
     components: {
         view_form, 
