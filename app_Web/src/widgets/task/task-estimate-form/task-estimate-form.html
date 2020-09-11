@@ -22,7 +22,7 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.druipart2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.druipart2.visible" :style="{'height': '200px !important',}"  :lg="{ span: 24, offset: 0 }">
     <app-form-druipart
     
     :formState="formState"
@@ -44,7 +44,7 @@
     viewname='task-estimate-edit-grid-view9' 
     :data="JSON.stringify(this.data)" 
     @drdatasaved="drdatasaved($event)"
-    style="overflow: auto;">
+    style="height:200px;overflow: auto;">
 </app-form-druipart>
 
 </i-col>
