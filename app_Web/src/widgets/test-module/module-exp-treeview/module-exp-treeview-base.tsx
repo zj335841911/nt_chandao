@@ -742,6 +742,9 @@ export class ModuleExpTreeBase extends MainControlBase {
                 if (Object.is('refresh_parent', action)) {
                     this.refresh_parent();
                 }
+                if (Object.is('refresh_current', action)) {
+                    this.refresh_current();
+                }
             });
         }
     }
@@ -786,6 +789,33 @@ export class ModuleExpTreeBase extends MainControlBase {
         this.$nextTick(() => {
             this.inited = true;
         });
+    }
+
+    /**
+     * 刷新当前
+     *
+     * @memberof ModuleExpBase
+     */
+    public refresh_current(): void {
+        if (Object.keys(this.currentselectedNode).length === 0) {
+            return;
+        }
+        const tree: any = this.$refs.treeexpbar_tree;
+        const node: any = tree.getNode(this.currentselectedNode.id);
+        if (!node || !node.parent) {
+            return;
+        }
+        let curNode:any = {}; 
+        curNode = this.$util.deepObjectMerge(curNode,node);
+        let tempContext:any = {};
+        if(curNode.data && curNode.data.srfappctx){
+            Object.assign(tempContext,curNode.data.srfappctx);
+        }else{
+            Object.assign(tempContext,this.context);
+        }
+        const id: string = node.key ? node.key : '#';
+        const param: any = { srfnodeid: id };
+        this.refresh_node(tempContext,param, true);
     }
 
     /**

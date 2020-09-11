@@ -117,6 +117,7 @@ export class TreeExpBarControlBase extends ExpControlBase {
      */
     public onViewDatasChange($event: any): void {
         this.$emit('selectionchange', $event);
+        this.viewState.next({ tag: 'treeexpbar_tree', action: 'refresh_current', data: {} });
     }
 
     /**
@@ -127,16 +128,6 @@ export class TreeExpBarControlBase extends ExpControlBase {
      */
     public viewDatasActivated($event: any): void {
         this.$emit('activated', $event);
-    }
-
-    /**
-     * 导航视图数据变更
-     *
-     * @param {*} $event
-     * @memberof TreeExpBarControlBase
-     */
-    public viewDataChange($event: any) {
-        this.viewState.next({ tag: 'treeexpbar_tree', action: 'refresh_parent', data: {} });
     }
 
     /**
