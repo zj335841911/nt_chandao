@@ -184,7 +184,7 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
      * @type {*}
      * @memberof StoryMobMDViewCurProjectBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'srfparentkey': '%project%' };
 
     /**
      * 视图导航参数
@@ -193,7 +193,7 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
      * @type {*}
      * @memberof StoryMobMDViewCurProjectBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%project%' };
 
     /**
      * 视图模型数据
