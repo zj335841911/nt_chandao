@@ -92,6 +92,7 @@ export const PageComponents = {
         Vue.component('case-mob-mdview', () => import('@pages/ibiz/case-mob-mdview/case-mob-mdview.vue'));
         Vue.component('release-mob-edit-view', () => import('@pages/ibiz/release-mob-edit-view/release-mob-edit-view.vue'));
         Vue.component('test-suite-mob-edit-view', () => import('@pages/ibiz/test-suite-mob-edit-view/test-suite-mob-edit-view.vue'));
+        Vue.component('task-estimate-mob-option-view', () => import('@pages/ibiz/task-estimate-mob-option-view/task-estimate-mob-option-view.vue'));
         Vue.component('build-mob-pickup-view', () => import('@pages/ibiz/build-mob-pickup-view/build-mob-pickup-view.vue'));
         Vue.component('bug-close-mob-option-view', () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'));
     }

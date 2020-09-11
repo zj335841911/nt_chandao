@@ -1,7 +1,7 @@
 <template>
     <div class='view-container'>
     <ion-row class="app-layoutpanel">
-        <ion-col v-show="detailsModel.container1.visible"  :size="12" style="" class="app-layoutpanel-container">
+        <ion-col v-show="detailsModel.container1.visible"  :size="12" style="" class="app-layoutpanel-container mob_list_card">
             <ion-row style="height:100%;">
                 
                 <ion-col v-show="detailsModel.date.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
@@ -13,7 +13,13 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.consumed.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.rawitem2.visible"  :lg="2" :size="2" style="" class="app-layoutpanel-rowitem">
+                    工时
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.consumed.visible"  :lg="2" :size="2" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.consumed" :context="context" :value="data.consumed" :itemParam="{}"  ></app-mob-span>
@@ -22,7 +28,13 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.left.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.rawitem1.visible"  :lg="2" :size="2" style="" class="app-layoutpanel-rowitem">
+                    剩余
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.left.visible"  :lg="2" :size="2" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.left" :context="context" :value="data.left" :itemParam="{}"  ></app-mob-span>
@@ -296,6 +308,8 @@ export default class MobEstimateBase extends Vue implements ControlInterface {
 
 
 
+
+
     }
 
    /**
@@ -307,7 +321,11 @@ export default class MobEstimateBase extends Vue implements ControlInterface {
     protected detailsModel: any = {
         date: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'date', panel: this, visible: true  })
 , 
+        rawitem2: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem2', panel: this, visible: true  })
+, 
         consumed: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'consumed', panel: this, visible: true  })
+, 
+        rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem1', panel: this, visible: true  })
 , 
         left: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'left', panel: this, visible: true  })
 , 

@@ -3481,6 +3481,79 @@ const router = new Router({
                     component: () => import('@pages/ibiz/test-suite-mob-edit-view/test-suite-mob-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/taskestimates/:taskestimate?/moboptionview',
+                    meta: {
+                        caption: 'taskestimate.views.moboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'moboptionview', parameterName: 'moboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-estimate-mob-option-view/task-estimate-mob-option-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/taskestimates/:taskestimate?/moboptionview',
+                    meta: {
+                        caption: 'taskestimate.views.moboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'moboptionview', parameterName: 'moboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-estimate-mob-option-view/task-estimate-mob-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/taskestimates/:taskestimate?/moboptionview',
+                    meta: {
+                        caption: 'taskestimate.views.moboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'moboptionview', parameterName: 'moboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-estimate-mob-option-view/task-estimate-mob-option-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/taskestimates/:taskestimate?/moboptionview',
+                    meta: {
+                        caption: 'taskestimate.views.moboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'moboptionview', parameterName: 'moboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-estimate-mob-option-view/task-estimate-mob-option-view.vue'),
+                },
+                {
+                    path: 'taskestimates/:taskestimate?/moboptionview',
+                    meta: {
+                        caption: 'taskestimate.views.moboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'moboptionview', parameterName: 'moboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-estimate-mob-option-view/task-estimate-mob-option-view.vue'),
+                },
+                {
                     path: 'projects/:project?/builds/:build?/mobpickupview',
                     meta: {
                         caption: 'build.views.mobpickupview.caption',
