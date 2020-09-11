@@ -99,6 +99,9 @@ export default {
 		moboptionview: {
 			caption: '指派',
 		},
+		gsmoboptionview: {
+			caption: '工时',
+		},
 		newmobeditview: {
 			caption: '任务',
 		},
@@ -271,6 +274,25 @@ export default {
 		uiactions: {
 		},
 	},
+	estimatemob_form: {
+		details: {
+			druipart2: '', 
+			druipart1: '', 
+			formpage1: '基本信息', 
+			srfupdatedate: '最后修改日期', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '任务名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			id: '编号', 
+			name: '任务名称', 
+		},
+		uiactions: {
+		},
+	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',
@@ -295,6 +317,10 @@ export default {
 		deuiaction1_assigntaskmob: {
 			caption: '指派',
 			tip: 'deuiaction1_assigntaskmob',
+		},
+		deuiaction1_workhoursmob: {
+			caption: '工时',
+			tip: 'deuiaction1_workhoursmob',
 		},
 		deuiaction1_donetaskmob: {
 			caption: '完成',

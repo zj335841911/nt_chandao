@@ -1,35 +1,34 @@
 <template>
-<embed-view :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview9': true, 'task-estimate-mob-edit-view9': true }">
-    <template slot="header">
-    </template>
-    <template slot="content">
-                <view_form
-            :viewState="viewState"
-            viewName="TaskEstimateMobEditView9"  
-            :viewparams="viewparams" 
-            :context="context" 
-            :autosave="false" 
-            :viewtag="viewtag"
-            :showBusyIndicator="true"
-            updateAction="UpdateTemp"
-            removeAction="RemoveTemp"
-            loaddraftAction="GetDraftTemp"
-            loadAction="GetTemp"
-            createAction="CreateTemp"
-            WFSubmitAction=""
-            WFStartAction=""
-            style='' 
-            name="form"  
-            ref='form' 
-            @save="form_save($event)"  
-            @beforeload="form_beforeload($event)"  
-            @remove="form_remove($event)"  
-            @beforesave="form_beforesave($event)"  
-            @load="form_load($event)"  
-            @closeview="closeView($event)">
-        </view_form>
-    </template>
-</embed-view>
+<div  class="view-container  app-view-mobmeditview9  task-estimate-mob-medit-view9">
+    <div  class="view-content-ctrl">
+        <div>
+                        <view_meditviewpanel
+                :viewState="viewState"
+                viewName="TaskEstimateMobMEditView9"  
+                :viewparams="viewparams" 
+                :context="context" 
+                :showBusyIndicator="true" 
+                :saveRefView="saveRefView" 
+                @viewdatadirty="onViewDataDirty" 
+                @drdatasaved="onDRDataSaved" 
+                updateAction=""
+                removeAction="RemoveTemp"
+                loaddraftAction="GetDraftTemp"
+                loadAction=""
+                createAction=""
+                fetchAction="FetchTempDefaults"
+                name="meditviewpanel"  
+                ref='meditviewpanel' 
+                @datachange="meditviewpanel_datachange($event)"  
+                @save="meditviewpanel_save($event)"  
+                @beforesave="meditviewpanel_beforesave($event)"  
+                @load="meditviewpanel_load($event)"  
+                @closeview="closeView($event)">
+            </view_meditviewpanel>
+        </div>
+    </div>
+</div>
+
 </template>
 
 <script lang='ts'>
@@ -38,20 +37,20 @@ import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskEstimateService from '@/app-core/service/task-estimate/task-estimate-service';
 
-import MobEditView9Engine from '@engine/view/mob-edit-view9-engine';
+import MobMEditView9Engine from '@engine/view/mob-medit-view9-engine';
 import TaskEstimateUIService from '@/ui-service/task-estimate/task-estimate-ui-action';
 
 @Component({
     components: {
     },
 })
-export default class TaskEstimateMobEditView9Base extends Vue {
+export default class TaskEstimateMobMEditView9Base extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -59,7 +58,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 实体服务对象
      *
      * @type {TaskEstimateService}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected appEntityService: TaskEstimateService = new TaskEstimateService();
 
@@ -67,7 +66,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 实体UI服务对象
      *
      * @type TaskEstimateUIService
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     public appUIService: TaskEstimateUIService = new TaskEstimateUIService(this.$store);
 
@@ -76,7 +75,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      *
      * @param {*} val
      * @returns {*}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -87,7 +86,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     @Prop() protected _context!: string;
 
@@ -95,7 +94,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     @Prop() protected _viewparams!: string;
 
@@ -103,7 +102,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -111,15 +110,15 @@ export default class TaskEstimateMobEditView9Base extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof TaskEstimateMobEditView9Base
+	 * @memberof TaskEstimateMobMEditView9Base
 	 */
-	protected viewtag: string = '2e9c460751885723925d122172641576';
+	protected viewtag: string = 'ce04a737203226c24842d0d5b7d5e903';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected context: any = {};
 
@@ -127,7 +126,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected viewparams: any = {};
 
@@ -135,14 +134,14 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     public titleStatus :boolean = true;
 
@@ -151,7 +150,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected navContext: any = {};
 
@@ -160,7 +159,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected navParam: any = {};
 
@@ -168,11 +167,11 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 视图模型数据
      *
      * @type {*}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected model: any = {
-        srfTitle: '任务预计移动端编辑视图',
-        srfCaption: 'taskestimate.views.mobeditview9.caption',
+        srfTitle: '任务预计多表单编辑视图',
+        srfCaption: 'taskestimate.views.mobmeditview9.caption',
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
@@ -184,7 +183,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  TaskEstimateMobEditView9Base
+     * @memberof  TaskEstimateMobMEditView9Base
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -212,7 +211,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -225,17 +224,17 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected containerModel: any = {
-        view_form: { name: 'form', type: 'FORM' },
+        view_meditviewpanel: { name: 'meditviewpanel', type: 'MULTIEDITVIEWPANEL' },
     };
 
     /**
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -244,7 +243,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
@@ -252,14 +251,14 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * 工具栏模型集合名
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     public toolbarModelList:any = []
 
     /**
      * 解析视图参数
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -272,7 +271,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -286,19 +285,19 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
-    protected engine: MobEditView9Engine = new MobEditView9Engine();
+    protected engine: MobMEditView9Engine = new MobMEditView9Engine();
 
     /**
      * 引擎初始化
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected engineInit(): void {
         this.engine.init({
             view: this,
-            form: this.$refs.form,
+            meditviewpanel: this.$refs.meditviewpanel,
             keyPSDEField: 'taskestimate',
             majorPSDEField: 'id',
             isLoadDefault: true,
@@ -308,7 +307,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected created() {
         this.afterCreated();
@@ -317,7 +316,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     public activated() {
         this.afterMounted();
@@ -326,7 +325,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -334,25 +333,13 @@ export default class TaskEstimateMobEditView9Base extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-        if (this.panelState) {
-            this.panelState.subscribe((res: any) => {
-                if (Object.is(res.tag, 'meditviewpanel')) {
-                    if (Object.is(res.action, 'save')) {
-                        this.viewState.next({ tag: 'form', action: 'save', data: res.data });
-                    }
-                    if (Object.is(res.action, 'remove')) {
-                        this.viewState.next({ tag: 'form', action: 'remove', data: res.data });
-                    }
-                }
-            });
-        }
 
     }
 
     /**
      * 销毁之前
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -361,7 +348,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected mounted() {
         this.afterMounted();
@@ -371,7 +358,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected afterMounted(){
         const _this: any = this;
@@ -380,13 +367,27 @@ export default class TaskEstimateMobEditView9Base extends Vue {
             _this.loadModel();
         }
         this.thirdPartyInit();
+if(this.formDruipart){
+            this.formDruipart.subscribe((res) =>{
+                if(Object.is(res.action,'save')){
+                    let opt ={data:res.data};
+                    Object.assign(opt,this.context);
+                    this.viewState.next({ tag:'meditviewpanel', action: 'save', data: opt });
+                }
+                if(Object.is(res.action,'remove')){
+                    let opt ={data:res.data};
+                    Object.assign(opt,this.context);
+                    this.viewState.next({ tag:'meditviewpanel', action: 'remove', data: opt });
+                }
+            });
+        }           
 
     }
 
     /**
      * 第三方容器初始化
      * 
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -398,7 +399,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -407,68 +408,90 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected afterDestroyed(){
-        if (this.panelState) {
-            this.panelState.unsubscribe();
-        }
 
     }
 
     /**
-     * form 部件 save 事件
+     * meditviewpanel 部件 datachange 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
-    protected form_save($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('form', 'save', $event);
+    protected meditviewpanel_datachange($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('meditviewpanel', 'datachange', $event);
     }
 
     /**
-     * form 部件 beforeload 事件
+     * meditviewpanel 部件 save 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
-    protected form_beforeload($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('form', 'beforeload', $event);
+    protected meditviewpanel_save($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('meditviewpanel', 'save', $event);
     }
 
     /**
-     * form 部件 remove 事件
+     * meditviewpanel 部件 beforesave 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
-    protected form_remove($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('form', 'remove', $event);
+    protected meditviewpanel_beforesave($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('meditviewpanel', 'beforesave', $event);
     }
 
     /**
-     * form 部件 beforesave 事件
+     * meditviewpanel 部件 load 事件
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
-    protected form_beforesave($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('form', 'beforesave', $event);
+    protected meditviewpanel_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('meditviewpanel', 'load', $event);
     }
 
+
     /**
-     * form 部件 load 事件
+     * 打开新建数据视图
      *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof TaskEstimateMobEditView9Base
+     * @param {any[]} args
+     * @param {*} [contextJO={}]
+     * @param {*} [paramJO={}]
+     * @param {*} [$event]
+     * @param {*} [xData]
+     * @param {*} [container]
+     * @param {string} [srfParentDeName]
+     * @returns {Promise<any>}
+     * @memberof TaskEstimateMobMEditView9
      */
-    protected form_load($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('form', 'load', $event);
+    public async newdata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        //this.$notice.warning('未指定关系视图');
+    }
+
+
+    /**
+     * 打开编辑数据视图
+     *
+     * @param {any[]} args
+     * @param {*} [contextJO={}]
+     * @param {*} [paramJO={}]
+     * @param {*} [$event]
+     * @param {*} [xData]
+     * @param {*} [container]
+     * @param {string} [srfParentDeName]
+     * @returns {Promise<any>}
+     * @memberof TaskEstimateMobMEditView9
+     */
+    public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        //this.$notice.warning('未指定关系视图');
     }
 
 
@@ -476,7 +499,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -500,7 +523,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
@@ -526,7 +549,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -538,7 +561,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskEstimateMobMEditView9Base
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -554,19 +577,49 @@ export default class TaskEstimateMobEditView9Base extends Vue {
         }
     }
 
+    /**
+    * 界面关系通讯对象
+    *
+    * @type {Subject<ViewState>}
+    * @memberof IBZSAM02MobMEditView9
+    */
+    @Prop() public formDruipart!: Subject<ViewState>;
+
+
+
 
     /**
-     * 面板定于对象
+     * 刷新数据参数
      *
-     * @type {Subject<ViewState>}
-     * @memberof TaskEstimateMobEditView9Base
+     * @type {number}
+     * @memberof TaskEstimateMobMEditView9
      */
-    @Prop() public panelState ?:Subject<ViewState>;
+    @Prop() public saveRefView?: number;
+
+    /**
+     * 关系数据变化
+     *
+     * @param {*} $event
+     * @memberof TaskEstimateMobMEditView9
+     */
+    public onViewDataDirty($event: any) {
+        this.$emit('drdatachange', $event);
+    }
+
+    /**
+     * 关系数据保存执行完成
+     *
+     * @param {*} $event
+     * @memberof TaskEstimateMobMEditView9
+     */
+    public onDRDataSaved($event: any) {
+        this.$emit('drdatasaved', $event);
+    }
 
 
 }
 </script>
 
 <style lang='less'>
-@import './task-estimate-mob-edit-view9.less';
+@import './task-estimate-mob-medit-view9.less';
 </style>

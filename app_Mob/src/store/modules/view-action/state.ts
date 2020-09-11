@@ -128,6 +128,7 @@ export const viewstate: any = {
                 '20d9ad91186fc647b9fd98d0b562341b',
                 '5417edd9f4126190105417c652149d76',
                 'd739ee414172cbfdc3d6e2d2e01e3676',
+                'd782757fc67316b491cc796a66a68f2b',
                 '78beacb29481bfa83dfce62ac4bd9d13',
                 'e7bc340642f7bc0346a1f220d1523954',
                 '4a68a7fca37b1f7d3cf396c66fd2347a',
@@ -512,15 +513,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '62a5d87af94fd31f6703b9e2c1c05ad6',
-            viewmodule: 'ibiz',
-            viewname: 'TaskEstimateMobEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '6530030850ee815ed2c26f0be4f53bad',
             viewmodule: 'ibiz',
             viewname: 'StoryAsMobOptionView',
@@ -650,6 +642,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
+            viewtag: '7fe7a6fba30b701351c3ed7b2acbd738',
+            viewmodule: 'ibiz',
+            viewname: 'TaskEstimateMobOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -950,7 +951,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '62a5d87af94fd31f6703b9e2c1c05ad6',
+                '7fe7a6fba30b701351c3ed7b2acbd738',
             ],
         },
         {
@@ -1026,6 +1027,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'ce04a737203226c24842d0d5b7d5e903',
+            viewmodule: 'zentao',
+            viewname: 'TaskEstimateMobMEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'cf9c89f414fccc3284362e09ae506d64',
             viewmodule: 'ibiz',
             viewname: 'ProductLineMobPickupView',
@@ -1078,6 +1088,17 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
+            viewtag: 'd782757fc67316b491cc796a66a68f2b',
+            viewmodule: 'ibiz',
+            viewname: 'TaskGSMobOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'c2ab529c7d645ca0bace6b925ea02c99',
+                'ce04a737203226c24842d0d5b7d5e903',
             ],
         },
         {

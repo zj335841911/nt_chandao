@@ -1,82 +1,99 @@
 <template>
-<embed-view :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview9': true, 'task-estimate-mob-edit-view9': true }">
-    <template slot="header">
-    </template>
-    <template slot="content">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demoboptview': true, 'task-gsmob-option-view': true }">
+    
+    <ion-header>
+        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
+            <ion-buttons slot="start">
+                <ion-button v-show="isShowBackButton" @click="closeView">
+                    <ion-icon name="chevron-back"></ion-icon>
+                    {{$t('app.button.back')}}
+                </ion-button>
+            </ion-buttons>
+            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+
+    <ion-content>
                 <view_form
             :viewState="viewState"
-            viewName="TaskEstimateMobEditView9"  
+            viewName="TaskGSMobOptionView"  
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 
             :viewtag="viewtag"
             :showBusyIndicator="true"
-            updateAction="UpdateTemp"
-            removeAction="RemoveTemp"
-            loaddraftAction="GetDraftTemp"
-            loadAction="GetTemp"
-            createAction="CreateTemp"
+            updateAction="RecordEstimate"
+            removeAction="RemoveTempMajor"
+            loaddraftAction="GetDraftTempMajor"
+            loadAction="GetTempMajor"
+            createAction="Pause"
             WFSubmitAction=""
             WFStartAction=""
             style='' 
             name="form"  
             ref='form' 
             @save="form_save($event)"  
-            @beforeload="form_beforeload($event)"  
             @remove="form_remove($event)"  
-            @beforesave="form_beforesave($event)"  
             @load="form_load($event)"  
             @closeview="closeView($event)">
         </view_form>
-    </template>
-</embed-view>
+    </ion-content>
+    <ion-footer class="view-footer" style="z-index:9;">
+        <div class="option-view-btnbox">
+  <ion-button class="option-btn medium" color="medium" @click="back">返回</ion-button>
+  <ion-button class="option-btn success" @click="save">保存</ion-button> 
+</div>
+
+    </ion-footer>
+</ion-page>
 </template>
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskEstimateService from '@/app-core/service/task-estimate/task-estimate-service';
+import TaskService from '@/app-core/service/task/task-service';
 
-import MobEditView9Engine from '@engine/view/mob-edit-view9-engine';
-import TaskEstimateUIService from '@/ui-service/task-estimate/task-estimate-ui-action';
+import MobOptionViewEngine from '@engine/view/mob-option-view-engine';
+import TaskUIService from '@/ui-service/task/task-ui-action';
 
 @Component({
     components: {
     },
 })
-export default class TaskEstimateMobEditView9Base extends Vue {
+export default class TaskGSMobOptionViewBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
     /**
      * 实体服务对象
      *
-     * @type {TaskEstimateService}
-     * @memberof TaskEstimateMobEditView9Base
+     * @type {TaskService}
+     * @memberof TaskGSMobOptionViewBase
      */
-    protected appEntityService: TaskEstimateService = new TaskEstimateService();
+    protected appEntityService: TaskService = new TaskService();
 
     /**
      * 实体UI服务对象
      *
-     * @type TaskEstimateUIService
-     * @memberof TaskEstimateMobEditView9Base
+     * @type TaskUIService
+     * @memberof TaskGSMobOptionViewBase
      */
-    public appUIService: TaskEstimateUIService = new TaskEstimateUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     /**
      * 数据变化
      *
      * @param {*} val
      * @returns {*}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -87,7 +104,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     @Prop() protected _context!: string;
 
@@ -95,7 +112,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -103,7 +120,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -111,15 +128,15 @@ export default class TaskEstimateMobEditView9Base extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof TaskEstimateMobEditView9Base
+	 * @memberof TaskGSMobOptionViewBase
 	 */
-	protected viewtag: string = '2e9c460751885723925d122172641576';
+	protected viewtag: string = 'd782757fc67316b491cc796a66a68f2b';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected context: any = {};
 
@@ -127,7 +144,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected viewparams: any = {};
 
@@ -135,14 +152,14 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     public titleStatus :boolean = true;
 
@@ -151,28 +168,28 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'task', 'srfparentkey': '%task%' };
 
     /**
      * 视图导航参数
      *
      * @protected
      * @type {*}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%task%', 'objecttype': 'task' };
 
     /**
      * 视图模型数据
      *
      * @type {*}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected model: any = {
-        srfTitle: '任务预计移动端编辑视图',
-        srfCaption: 'taskestimate.views.mobeditview9.caption',
+        srfTitle: '任务选项操作视图（工时）',
+        srfCaption: 'task.views.gsmoboptionview.caption',
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
@@ -184,7 +201,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  TaskEstimateMobEditView9Base
+     * @memberof  TaskGSMobOptionViewBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -212,7 +229,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -225,7 +242,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected containerModel: any = {
         view_form: { name: 'form', type: 'FORM' },
@@ -235,7 +252,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -244,7 +261,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
@@ -252,14 +269,14 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * 工具栏模型集合名
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     public toolbarModelList:any = []
 
     /**
      * 解析视图参数
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -272,7 +289,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -286,21 +303,22 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
-    protected engine: MobEditView9Engine = new MobEditView9Engine();
+    protected engine: MobOptionViewEngine = new MobOptionViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected engineInit(): void {
         this.engine.init({
             view: this,
             form: this.$refs.form,
-            keyPSDEField: 'taskestimate',
-            majorPSDEField: 'id',
+            p2k: '0',
+            keyPSDEField: 'task',
+            majorPSDEField: 'name',
             isLoadDefault: true,
         });
     }
@@ -308,7 +326,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected created() {
         this.afterCreated();
@@ -317,7 +335,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     public activated() {
         this.afterMounted();
@@ -326,7 +344,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -334,25 +352,13 @@ export default class TaskEstimateMobEditView9Base extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-        if (this.panelState) {
-            this.panelState.subscribe((res: any) => {
-                if (Object.is(res.tag, 'meditviewpanel')) {
-                    if (Object.is(res.action, 'save')) {
-                        this.viewState.next({ tag: 'form', action: 'save', data: res.data });
-                    }
-                    if (Object.is(res.action, 'remove')) {
-                        this.viewState.next({ tag: 'form', action: 'remove', data: res.data });
-                    }
-                }
-            });
-        }
 
     }
 
     /**
      * 销毁之前
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -361,7 +367,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected mounted() {
         this.afterMounted();
@@ -371,7 +377,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -386,7 +392,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * 第三方容器初始化
      * 
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -398,7 +404,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -407,11 +413,15 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected afterDestroyed(){
-        if (this.panelState) {
-            this.panelState.unsubscribe();
+        if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
+            Object.keys(localStorage).forEach((item: string) => {
+                if (item.startsWith(this.context.srfsessionid)) {
+                    localStorage.removeItem(item);
+                }
+            });
         }
 
     }
@@ -421,21 +431,10 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected form_save($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'save', $event);
-    }
-
-    /**
-     * form 部件 beforeload 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof TaskEstimateMobEditView9Base
-     */
-    protected form_beforeload($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('form', 'beforeload', $event);
     }
 
     /**
@@ -443,21 +442,10 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected form_remove($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'remove', $event);
-    }
-
-    /**
-     * form 部件 beforesave 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof TaskEstimateMobEditView9Base
-     */
-    protected form_beforesave($event: any, $event2?: any) {
-        this.engine.onCtrlEvent('form', 'beforesave', $event);
     }
 
     /**
@@ -465,7 +453,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected form_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'load', $event);
@@ -476,7 +464,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -500,7 +488,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
@@ -526,7 +514,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -538,7 +526,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof TaskEstimateMobEditView9Base
+     * @memberof TaskGSMobOptionViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -556,17 +544,42 @@ export default class TaskEstimateMobEditView9Base extends Vue {
 
 
     /**
-     * 面板定于对象
+     * 保存按钮事件
      *
-     * @type {Subject<ViewState>}
-     * @memberof TaskEstimateMobEditView9Base
+     * @protected
+     * @memberof MOBTESTMobOptionViewBase
      */
-    @Prop() public panelState ?:Subject<ViewState>;
+    protected save() {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        this.viewState.next({ tag: 'form', action: 'saveandexit', data: datas });
+    }
 
+    /**
+     * 返回按钮事件
+     *
+     * @protected
+     * @memberof MOBTESTMobOptionViewBase
+     */
+    protected back(args: any[]) {
+        if (this.viewDefaultUsage === "routerView" ) {
+            this.$store.commit("deletePage", this.$route.fullPath);
+            this.$router.go(-1);
+        } else {
+            this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
+        }
+    }
 
 }
 </script>
 
 <style lang='less'>
-@import './task-estimate-mob-edit-view9.less';
+@import './task-gsmob-option-view.less';
 </style>
