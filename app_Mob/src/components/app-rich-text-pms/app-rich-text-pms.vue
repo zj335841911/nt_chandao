@@ -9,8 +9,10 @@
     ></quill-editor>
     <ion-toolbar class="quill-editor-button">
       <van-uploader v-show="false" :after-read="afterRead" ref="upload" />
-      <ion-button @click="onClickCancel" color="light">{{$t('app.button.cancel')}}</ion-button>
-      <ion-button @click="onClickOk">{{$t('app.button.confirm')}}</ion-button>
+      <div class="rich-text-pms-btn">
+      <ion-button class="pms-btn" @click="onClickCancel" color="medium">{{$t('app.button.cancel')}}</ion-button>
+      <ion-button class="pms-btn" @click="onClickOk">{{$t('app.button.confirm')}}</ion-button>
+      </div>
     </ion-toolbar>
   </div>
 </template>
