@@ -8,6 +8,9 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                     <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.RemoveMemberMob.visabled" :disabled="item.RemoveMemberMob.disabled" color="primary" @click="mdctrl_click($event, 'uc41813b', item)"><ion-icon v-if="item.RemoveMemberMob.icon && item.RemoveMemberMob.isShowIcon" :name="item.RemoveMemberMob.icon"></ion-icon><ion-label v-if="item.RemoveMemberMob.isShowCaption">移除成员</ion-label></ion-item-option>
+                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -25,6 +28,9 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                       <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.RemoveMemberMob.visabled" :disabled="item.RemoveMemberMob.disabled" color="primary" @click="mdctrl_click($event, 'uc41813b', item)"><ion-icon v-if="item.RemoveMemberMob.icon && item.RemoveMemberMob.isShowIcon" :name="item.RemoveMemberMob.icon"></ion-icon><ion-label v-if="item.RemoveMemberMob.isShowCaption">移除成员</ion-label></ion-item-option>
+                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -220,6 +226,37 @@ export default class MobBase extends Vue implements ControlInterface {
      */  
     public deUIService:ProjectTeamUIService = new ProjectTeamUIService(this.$store);
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_uc41813b_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('projectteam_ui_action');
+        if (curUIService) {
+            curUIService.ProjectTeam_RemoveMemberMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 关闭视图
@@ -994,6 +1031,9 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
+        if (Object.is(tag, 'uc41813b')) {
+            this.mdctrl_uc41813b_click();
+        }
         let curr :any = this.$refs[item.srfkey];
         curr[0].closeOpened();
     }
@@ -1091,6 +1131,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
+        RemoveMemberMob: { name: 'RemoveMemberMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJT_TM_BUT', target: 'SINGLEKEY',icon:'close-circle',isShowCaption:false,isShowIcon:true}
     };
 
     

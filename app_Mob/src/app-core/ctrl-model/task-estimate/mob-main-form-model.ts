@@ -46,8 +46,8 @@ export class MobMainModel {
                 name: 'srfsourcekey',
             },
             {
-                name: 'date',
-                prop: 'date',
+                name: 'dates',
+                prop: 'dates',
                 dataType: 'DATE',
             },
             {

@@ -25,6 +25,9 @@
                             <ion-segment-button value="tabviewpanel5">
                             <ion-badge color="danger">{{counter.counterData.bugcnt?counter.counterData.bugcnt:''}}</ion-badge>
                             Bug</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel6">
+                            <ion-badge color="danger">{{counter.counterData.storycnt?counter.counterData.storycnt:''}}</ion-badge>
+                            需求</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">
                             <ion-badge color="danger">{{counter.counterData.teamcnt?counter.counterData.teamcnt:''}}</ion-badge>
                             团队</ion-segment-button>
@@ -267,6 +270,7 @@ export default class ProjectMobTabExpViewBase extends Vue {
      * @memberof ProjectMobTabExpViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
 

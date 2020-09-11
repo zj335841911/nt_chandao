@@ -1167,8 +1167,8 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
-        EditMob: { name: 'EditMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'edit (alias)',isShowCaption:false,isShowIcon:true},
-        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'remove (alias)',isShowCaption:false,isShowIcon:true}
+        EditMob: { name: 'EditMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'edit (alias)',isShowCaption:true,isShowIcon:true},
+        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'remove (alias)',isShowCaption:true,isShowIcon:true}
     };
 
     

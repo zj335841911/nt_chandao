@@ -3,26 +3,26 @@
                 
 
 <app-form-item 
-    name='date' 
+    name='dates' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="date_item"  
-    :itemValue="this.data.date" 
-    v-show="detailsModel.date.visible" 
-    :itemRules="this.rules.date" 
-    :caption="$t('taskestimate.mobmain_form.details.date')"  
+    ref="dates_item"  
+    :itemValue="this.data.dates" 
+    v-show="detailsModel.dates.visible" 
+    :itemRules="this.rules.dates" 
+    :caption="$t('taskestimate.mobmain_form.details.dates')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.date.disabled"
-    :error="detailsModel.date.error" 
+    :disabled="detailsModel.dates.disabled"
+    :error="detailsModel.dates.error" 
     :isEmptyCaption="false">
         <app-mob-datetime-picker 
     displayFormat="YYYY-MM-DD"
     class="app-form-item-datetime" 
-    :value="data.date" 
-    :disabled="detailsModel.date.disabled"
-    @change="($event)=>this.data.date = $event"/>
+    :value="data.dates" 
+    :disabled="detailsModel.dates.disabled"
+    @change="($event)=>this.data.dates = $event"/>
 </app-form-item>
 
 
@@ -417,7 +417,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        date: null,
+        dates: null,
         consumed: null,
         left: null,
         work: null,
@@ -498,7 +498,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
-        date: [
+        dates: [
             { type: 'string', message: '日期 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '日期 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '日期 值不能为空', trigger: 'change' },
@@ -628,7 +628,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        date: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        dates: new FormItemModel({ caption: '日期', detailType: 'FORMITEM', name: 'dates', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         consumed: new FormItemModel({ caption: '工时', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -725,15 +725,15 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 date 值
+     * 监控表单属性 dates 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobMain
      */
-    @Watch('data.date')
-    onDateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'date', newVal: newVal, oldVal: oldVal });
+    @Watch('data.dates')
+    onDatesChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'dates', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1008,7 +1008,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['date_item', 'consumed_item', 'left_item', 'work_item', ];
+        const refArr: Array<string> = ['dates_item', 'consumed_item', 'left_item', 'work_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];
