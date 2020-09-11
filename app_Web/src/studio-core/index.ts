@@ -60,6 +60,7 @@ export { SearchFormControlBase } from './widgets/SearchFormControlBase';
 export { TabExpPanelControlBase } from './widgets/TabExpPanelControlBase';
 export { DataViewExpBarControlBase } from './widgets/DataViewExpBarControlBase';
 export { ListViewExpBarControlBase } from './widgets/ListViewExpBarControlBase';
+export { TreeExpBarControlBase } from './widgets/TreeExpBarControlBase';
 // 组件 Start
 import { AppLayout } from './components/layout/app-layout/app-layout';
 import { AppHeader } from './components/layout/app-header/app-header';

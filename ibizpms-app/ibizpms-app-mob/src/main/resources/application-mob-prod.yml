@@ -31,6 +31,10 @@ zuul:
       path: /tasks/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    zt_taskestimate:
+      path: /taskestimates/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_module:
       path: /modules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -93,6 +97,10 @@ zuul:
       stripPrefix: false
     zt_productplan:
       path: /productplans/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_taskestimate:
+      path: /ibztaskestimates/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_projectstats:
