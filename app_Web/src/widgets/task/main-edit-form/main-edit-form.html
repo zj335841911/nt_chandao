@@ -33,8 +33,20 @@
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.task.mainedit_form.details.desc')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="NONE">
-    <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"task",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"task",objectid: "%id%",version:"editor"}'  style=""></app-rich-text-editor>
-
+    
+<rich-text-editor 
+    :formState="formState" 
+    :value="data.desc"
+    @change="(val) =>{this.data.desc =val}" 
+    :disabled="detailsModel.desc.disabled" 
+    :data="JSON.stringify(this.data)"  
+    name="desc" 
+    :viewparams="viewparams"
+    :context="context"
+    :uploadparams='{objecttype:"task",objectid: "%id%",version:"editor"}' 
+    :exportparams='{objecttype:"task",objectid: "%id%",version:"editor"}' 
+    :templParams='{ account:"%srfloginname%", public:"0", type:"task" }' 
+    style=""/>
 </app-form-item>
 
 </i-col>
