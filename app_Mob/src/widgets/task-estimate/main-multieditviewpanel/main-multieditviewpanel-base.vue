@@ -8,7 +8,7 @@
             <ion-icon class="meditviewpanel_delete_icon" @click="deleteItem(item)" name="close-circle-outline"></ion-icon>
           </ion-card-header>
           <ion-card-content>
-            <task-estimate-mob-medit-view9 
+            <task-estimate-mob-edit-view9 
               class="viewcontainer2"
               viewDefaultUsage="includedView"
               :_context="toString(item.viewdata)"
@@ -19,7 +19,7 @@
               @viewdataschange="viewDataChange"
               @viewload="viewload"
               @viewdirty="viewdirty(item,$event)"
-            ></task-estimate-mob-medit-view9 >
+            ></task-estimate-mob-edit-view9 >
           </ion-card-content>
         </ion-card>
     </div>
@@ -290,7 +290,7 @@ export default class MainBase extends Vue implements ControlInterface {
      * @type {string}
      * @memberof Main
      */
-    protected viewname: string = 'task-estimate-mob-medit-view9';
+    protected viewname: string = 'task-estimate-mob-edit-view9';
 
     /**
      * 获取数据对象

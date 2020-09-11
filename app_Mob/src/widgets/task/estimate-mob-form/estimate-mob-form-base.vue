@@ -2,54 +2,6 @@
     <div ref='form' class="app-form task-form ">
                 
 
-<app-form-item 
-    name='id' 
-    class='panelitem-borad' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="id_item"  
-    :itemValue="this.data.id" 
-    v-show="detailsModel.id.visible" 
-    :itemRules="this.rules.id" 
-    :caption="$t('task.estimatemob_form.details.id')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.id.disabled"
-    :error="detailsModel.id.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        v-if="data.id" 
-    :context="context" 
-    :value="data.id" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='name' 
-    class='MainInfo2' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="name_item"  
-    :itemValue="this.data.name" 
-    v-show="detailsModel.name.visible" 
-    :itemRules="this.rules.name" 
-    :caption="$t('task.estimatemob_form.details.name')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.name.disabled"
-    :error="detailsModel.name.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        v-if="data.name" 
-    :context="context" 
-    :value="data.name" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
 <app-form-druipart
     class='' 
     parameterName='task' 
@@ -969,7 +921,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      * @memberof EstimateMob
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['id_item', 'name_item', ];
+        const refArr: Array<string> = [];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];
