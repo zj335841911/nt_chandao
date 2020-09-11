@@ -22,15 +22,6 @@ export class MainService extends MultiEditViewPanelServiceBase {
     protected model: MainModel = new MainModel();
 
     /**
-     * 是否为从数据临时模式
-     *
-     * @protected
-     * @type {boolean}
-     * @memberof MainService
-     */
-    protected isTempMode: boolean = true;
-
-    /**
      * 应用实体名称
      *
      * @protected

@@ -22,15 +22,6 @@ export class NewFormService extends FormServiceBase {
     protected model: NewFormModel = new NewFormModel();
 
     /**
-     * 是否为从数据临时模式
-     *
-     * @protected
-     * @type {boolean}
-     * @memberof NewFormService
-     */
-    protected isTempMode: boolean = true;
-
-    /**
      * 应用实体名称
      *
      * @protected

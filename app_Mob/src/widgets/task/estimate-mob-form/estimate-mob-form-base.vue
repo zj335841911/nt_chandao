@@ -89,7 +89,7 @@
     :parameters="[
         { pathName: 'tasks', parameterName: 'task' },
     ]" 
-    tempMode='2'
+    tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 

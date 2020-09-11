@@ -12,11 +12,11 @@
                 @viewdatadirty="onViewDataDirty" 
                 @drdatasaved="onDRDataSaved" 
                 updateAction=""
-                removeAction="RemoveTemp"
+                removeAction="Remove"
                 loaddraftAction="GetDraftTemp"
                 loadAction=""
                 createAction=""
-                fetchAction="FetchTempDefaults"
+                fetchAction="FetchDefaults"
                 name="meditviewpanel"  
                 ref='meditviewpanel' 
                 @datachange="meditviewpanel_datachange($event)"  
