@@ -4,6 +4,7 @@ import ibzfavorites_en_US from '@locale/lanres/ibz-favorites/ibz-favorites_en_US
 import projectteam_en_US from '@locale/lanres/project-team/project-team_en_US';
 import build_en_US from '@locale/lanres/build/build_en_US';
 import task_en_US from '@locale/lanres/task/task_en_US';
+import taskestimate_en_US from '@locale/lanres/task-estimate/task-estimate_en_US';
 import module_en_US from '@locale/lanres/module/module_en_US';
 import product_en_US from '@locale/lanres/product/product_en_US';
 import dynadashboard_en_US from '@locale/lanres/dyna-dashboard/dyna-dashboard_en_US';
@@ -20,6 +21,7 @@ import ibzmyterritory_en_US from '@locale/lanres/ibz-my-territory/ibz-my-territo
 import case_en_US from '@locale/lanres/case/case_en_US';
 import testmodule_en_US from '@locale/lanres/test-module/test-module_en_US';
 import productplan_en_US from '@locale/lanres/product-plan/product-plan_en_US';
+import ibztaskestimate_en_US from '@locale/lanres/ibz-taskestimate/ibz-taskestimate_en_US';
 import projectstats_en_US from '@locale/lanres/project-stats/project-stats_en_US';
 import ibztaskteam_en_US from '@locale/lanres/ibztaskteam/ibztaskteam_en_US';
 import bug_en_US from '@locale/lanres/bug/bug_en_US';
@@ -166,6 +168,7 @@ export default {
     projectteam: projectteam_en_US,
     build: build_en_US,
     task: task_en_US,
+    taskestimate: taskestimate_en_US,
     module: module_en_US,
     product: product_en_US,
     dynadashboard: dynadashboard_en_US,
@@ -182,6 +185,7 @@ export default {
     case: case_en_US,
     testmodule: testmodule_en_US,
     productplan: productplan_en_US,
+    ibztaskestimate: ibztaskestimate_en_US,
     projectstats: projectstats_en_US,
     ibztaskteam: ibztaskteam_en_US,
     bug: bug_en_US,

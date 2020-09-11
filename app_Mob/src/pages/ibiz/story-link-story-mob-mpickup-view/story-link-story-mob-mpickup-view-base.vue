@@ -2,11 +2,9 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmpickupview': true, 'story-link-story-mob-mpickup-view': true }">
     
     <ion-header>
-                <van-search
-    v-model="quickValue"
-    :placeholder="$t('app.fastsearch')"
-    @input="quickValueChange($event)"
-  />
+              <ion-toolbar>
+    <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
+  </ion-toolbar>
 
     </ion-header>
 

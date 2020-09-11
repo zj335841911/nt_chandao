@@ -4,6 +4,7 @@ import ibzfavorites_zh_CN from '@locale/lanres/ibz-favorites/ibz-favorites_zh_CN
 import projectteam_zh_CN from '@locale/lanres/project-team/project-team_zh_CN';
 import build_zh_CN from '@locale/lanres/build/build_zh_CN';
 import task_zh_CN from '@locale/lanres/task/task_zh_CN';
+import taskestimate_zh_CN from '@locale/lanres/task-estimate/task-estimate_zh_CN';
 import module_zh_CN from '@locale/lanres/module/module_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
 import dynadashboard_zh_CN from '@locale/lanres/dyna-dashboard/dyna-dashboard_zh_CN';
@@ -20,6 +21,7 @@ import ibzmyterritory_zh_CN from '@locale/lanres/ibz-my-territory/ibz-my-territo
 import case_zh_CN from '@locale/lanres/case/case_zh_CN';
 import testmodule_zh_CN from '@locale/lanres/test-module/test-module_zh_CN';
 import productplan_zh_CN from '@locale/lanres/product-plan/product-plan_zh_CN';
+import ibztaskestimate_zh_CN from '@locale/lanres/ibz-taskestimate/ibz-taskestimate_zh_CN';
 import projectstats_zh_CN from '@locale/lanres/project-stats/project-stats_zh_CN';
 import ibztaskteam_zh_CN from '@locale/lanres/ibztaskteam/ibztaskteam_zh_CN';
 import bug_zh_CN from '@locale/lanres/bug/bug_zh_CN';
@@ -167,6 +169,7 @@ export default {
     projectteam: projectteam_zh_CN,
     build: build_zh_CN,
     task: task_zh_CN,
+    taskestimate: taskestimate_zh_CN,
     module: module_zh_CN,
     product: product_zh_CN,
     dynadashboard: dynadashboard_zh_CN,
@@ -183,6 +186,7 @@ export default {
     case: case_zh_CN,
     testmodule: testmodule_zh_CN,
     productplan: productplan_zh_CN,
+    ibztaskestimate: ibztaskestimate_zh_CN,
     projectstats: projectstats_zh_CN,
     ibztaskteam: ibztaskteam_zh_CN,
     bug: bug_zh_CN,

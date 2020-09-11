@@ -67,18 +67,20 @@
                     </li>
                 </template>
                 <template v-else>
-                    <ion-list  v-model="selectedArray"   v-if="isMutli">
+                    <ion-list  v-model="selectedArray"   v-if="isMutli" class="pickUpList">
                         <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item" >
                             <ion-checkbox color="secondary" :value="item.srfkey" @ionChange="checkboxChange"  slot="end"></ion-checkbox>
                             <ion-label>{{item.productlinename}}</ion-label>
                         </ion-item>
                     </ion-list>
+                    <div class="pickUpList">
                     <ion-radio-group  :value="selectedValue" v-if="!isMutli">
                         <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
                             <ion-label>{{item.productlinename}}</ion-label>
                             <ion-radio slot="end" :value="item.srfkey"></ion-radio>
                         </ion-item>
                     </ion-radio-group>
+                    </div>
                 </template>
             </ion-list>
             <div class="no-data" v-if="items.length == 0">暂无数据</div>

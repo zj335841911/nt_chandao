@@ -10,11 +10,12 @@
           <ion-card-content>
             <task-team-mob-edit-view9 
               class="viewcontainer2"
+              viewDefaultUsage="includedView"
               :_context="toString(item.viewdata)"
               :_viewparam="toString(item.viewparam)"
-              viewDefaultUsage="includedView"
               :panelState="panelState"
               :showTitle="false"
+              :isChildView="true"
               @viewdataschange="viewDataChange"
               @viewload="viewload"
               @viewdirty="viewdirty(item,$event)"
