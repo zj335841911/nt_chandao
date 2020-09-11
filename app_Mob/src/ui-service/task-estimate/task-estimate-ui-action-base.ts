@@ -91,6 +91,7 @@ export default class TaskEstimateUIActionBase extends EntityUIActionBase {
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'moboptionview',srfappde:'taskestimates'});
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'taskestimates'});
+        this.allViewMap.set(':',{viewname:'mobmdview9',srfappde:'taskestimates'});
     }
 
     /**

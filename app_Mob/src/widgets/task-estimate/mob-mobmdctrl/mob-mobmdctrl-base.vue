@@ -8,10 +8,6 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                     <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.EditMob.visabled" :disabled="item.EditMob.disabled" color="primary" @click="mdctrl_click($event, 'ucc1eaf8', item)"><ion-icon v-if="item.EditMob.icon && item.EditMob.isShowIcon" :name="item.EditMob.icon"></ion-icon><ion-label v-if="item.EditMob.isShowCaption">编辑</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.Remove.visabled" :disabled="item.Remove.disabled" color="danger" @click="mdctrl_click($event, 'u06de784', item)"><ion-icon v-if="item.Remove.icon && item.Remove.isShowIcon" :name="item.Remove.icon"></ion-icon><ion-label v-if="item.Remove.isShowCaption">删除</ion-label></ion-item-option>
-                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -29,10 +25,6 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                       <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.EditMob.visabled" :disabled="item.EditMob.disabled" color="primary" @click="mdctrl_click($event, 'ucc1eaf8', item)"><ion-icon v-if="item.EditMob.icon && item.EditMob.isShowIcon" :name="item.EditMob.icon"></ion-icon><ion-label v-if="item.EditMob.isShowCaption">编辑</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.Remove.visabled" :disabled="item.Remove.disabled" color="danger" @click="mdctrl_click($event, 'u06de784', item)"><ion-icon v-if="item.Remove.icon && item.Remove.isShowIcon" :name="item.Remove.icon"></ion-icon><ion-label v-if="item.Remove.isShowCaption">删除</ion-label></ion-item-option>
-                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -228,68 +220,6 @@ export default class MobBase extends Vue implements ControlInterface {
      */  
     public deUIService:TaskEstimateUIService = new TaskEstimateUIService(this.$store);
     
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_ucc1eaf8_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('taskestimate_ui_action');
-        if (curUIService) {
-            curUIService.TaskEstimate_EditMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_u06de784_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('taskestimate_ui_action');
-        if (curUIService) {
-            curUIService.TaskEstimate_Remove(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
 
     /**
      * 关闭视图
@@ -1064,12 +994,6 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'ucc1eaf8')) {
-            this.mdctrl_ucc1eaf8_click();
-        }
-        if (Object.is(tag, 'u06de784')) {
-            this.mdctrl_u06de784_click();
-        }
         let curr :any = this.$refs[item.srfkey];
         curr[0].closeOpened();
     }
@@ -1167,8 +1091,6 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
-        EditMob: { name: 'EditMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'edit (alias)',isShowCaption:false,isShowIcon:true},
-        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'remove (alias)',isShowCaption:false,isShowIcon:true}
     };
 
     

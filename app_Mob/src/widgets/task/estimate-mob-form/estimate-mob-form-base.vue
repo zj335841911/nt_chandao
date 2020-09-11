@@ -10,7 +10,7 @@
     v-show="detailsModel.grouppanel1.visible" 
     :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
     :caption="$t('task.estimatemob_form.details.grouppanel1')" 
-    :isShowCaption="true" 
+    :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
     @groupuiactionclick="groupUIActionClick($event)">
@@ -18,9 +18,9 @@
 <app-form-druipart
     class='' 
     parameterName='task' 
-    refviewtype='DEMOBMDVIEW'  
+    refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
-    viewname='task-estimate-mob-mdview' 
+    viewname='task-estimate-mob-mdview9' 
     v-show="detailsModel.druipart2.visible" 
     paramItem='task' 
     style="" 
@@ -568,7 +568,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
     protected detailsModel: any = {
         druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
 , 
-        grouppanel1: new FormGroupPanelModel({ caption: '工时', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'task.estimatemob_form', extractMode: 'ITEM', details: [] } })
+        grouppanel1: new FormGroupPanelModel({ caption: '工时', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'task.estimatemob_form', extractMode: 'ITEM', details: [] } })
 , 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
 , 

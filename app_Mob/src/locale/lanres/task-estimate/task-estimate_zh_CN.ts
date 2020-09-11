@@ -16,6 +16,9 @@ export default {
 		mobmdview: {
 			caption: '任务预计',
 		},
+		mobmdview9: {
+			caption: '任务预计',
+		},
 	},
 	mobmain_form: {
 		details: {
