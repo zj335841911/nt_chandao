@@ -36,7 +36,8 @@
             :viewparam="JSON.stringify(selection.viewparam)"
             @viewdataschange="onViewDatasChange.apply(_self, arguments)"
             @viewdatasactivated="viewDatasActivated.apply(_self, arguments)"
-            @drdatasaved="onViewDatasChange.apply(_self, arguments)"
+            @drdatasaved="onDrViewDatasChange.apply(_self, arguments)"
+            @drdatasremove="onDrViewDatasChange.apply(_self, arguments)"
             @viewload="onViewLoad.apply(_self, arguments)">
         </component>
     </div>

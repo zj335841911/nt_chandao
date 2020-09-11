@@ -462,6 +462,6 @@ export default class MDViewEngine extends ViewEngine {
      * @memberof MDViewEngine
      */
     public MDCtrlRemove(arg: any = {}): void {
-        this.view.$emit('viewdataschange', arg);
+        this.view.$emit('drdatasremove', arg);
     }
 }

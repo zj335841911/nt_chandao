@@ -69,4 +69,13 @@ export class CalendarViewBase extends MDViewBase {
         this.onSearch();
     }
 
+    /**
+     * 刷新
+     *
+     * @memberof ViewBase
+     */
+    public refresh() {
+        this.onSearch();
+    };
+
 }

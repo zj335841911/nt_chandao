@@ -312,6 +312,8 @@ export class ViewBase extends Vue {
                 this.viewDataChange(newVal, oldVal);
                 if (this.engine) {
                     this.engine.load();
+                } else {
+                    this.refresh();
                 }
             });
         }
@@ -445,9 +447,9 @@ export class ViewBase extends Vue {
             this.$acc.unsubscribeLocal(str);
         }));
         // 销毁计数器定时器
-        if(this.counterServiceArray && this.counterServiceArray.length >0){
-            this.counterServiceArray.forEach((item:any) =>{
-                if(item.destroyCounter && item.destroyCounter instanceof Function){
+        if (this.counterServiceArray && this.counterServiceArray.length > 0) {
+            this.counterServiceArray.forEach((item: any) => {
+                if (item.destroyCounter && item.destroyCounter instanceof Function) {
                     item.destroyCounter();
                 }
             })
@@ -612,4 +614,11 @@ export class ViewBase extends Vue {
             this.$appService.navHistory.pop();
         }
     }
+
+    /**
+     * 刷新
+     *
+     * @memberof ViewBase
+     */
+    public refresh() { };
 }
