@@ -46,8 +46,8 @@ export class NewFormModel {
                 name: 'srfsourcekey',
             },
             {
-                name: 'date',
-                prop: 'date',
+                name: 'dates',
+                prop: 'dates',
                 dataType: 'DATE',
             },
             {

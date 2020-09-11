@@ -27,7 +27,7 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
-			date: '日期', 
+			dates: '日期', 
 			consumed: '工时', 
 			left: '剩余', 
 			work: '备注', 

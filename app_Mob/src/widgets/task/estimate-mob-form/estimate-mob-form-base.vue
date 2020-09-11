@@ -2,6 +2,19 @@
     <div ref='form' class="app-form task-form ">
                 
 
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel1.visible" 
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
+    :caption="$t('task.estimatemob_form.details.grouppanel1')" 
+    :isShowCaption="true" 
+    :titleBarCloseMode="0" 
+    :isInfoGroupMode="false" 
+    @groupuiactionclick="groupUIActionClick($event)">
+    
 <app-form-druipart
     class='' 
     parameterName='task' 
@@ -24,6 +37,10 @@
     :ignorefieldvaluechange="ignorefieldvaluechange" 
     :data="JSON.stringify(this.data)"  
     @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
 
 
 
@@ -551,6 +568,8 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
     protected detailsModel: any = {
         druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this })
 , 
+        grouppanel1: new FormGroupPanelModel({ caption: '工时', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'task.estimatemob_form', extractMode: 'ITEM', details: [] } })
+, 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
@@ -733,6 +752,7 @@ export default class EstimateMobBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

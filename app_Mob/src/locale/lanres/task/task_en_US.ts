@@ -277,6 +277,7 @@ export default {
 	estimatemob_form: {
 		details: {
 			druipart2: '', 
+			grouppanel1: '工时', 
 			druipart1: '', 
 			formpage1: '基本信息', 
 			srfupdatedate: '最后修改日期', 
