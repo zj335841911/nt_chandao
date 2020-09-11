@@ -10,9 +10,6 @@ export default {
     dates: "日期",
   },
 	views: {
-		mobmeditview9: {
-			caption: '任务预计',
-		},
 		mobeditview9: {
 			caption: '任务预计',
 		},

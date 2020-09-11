@@ -4,15 +4,6 @@
 export const viewstate: any = {
     appviews: [
         {
-            viewtag: '00049df6ff414fe25df5025bb5b1bb3c',
-            viewmodule: 'ibiz',
-            viewname: 'TaskEstimateMobMEditView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '04397afc992f5947c2d1b4250af66e37',
             viewmodule: 'zentao',
             viewname: 'StoryNewMobEditView',
