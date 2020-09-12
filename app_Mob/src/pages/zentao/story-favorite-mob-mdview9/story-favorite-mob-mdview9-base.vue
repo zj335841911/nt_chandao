@@ -689,37 +689,6 @@ export default class StoryFavoriteMobMDView9Base extends Vue {
     @Prop() public formDruipart !: Subject<ViewState>;
 
 
-    /**
-     * 搜索值
-     *
-     * @type {string}
-     * @memberof StoryFavoriteMobMDView9Base
-     */
-    public query: string = '';
-
-    /**
-     * 快速搜索值变化
-     *
-     * @param {*} event
-     * @returns
-     * @memberof StoryFavoriteMobMDView9Base
-     */
-    public async quickValueChange(event: any) {
-        let { detail } = event;
-        if (!detail) {
-            return;
-        }
-        let { value } = detail;
-        this.query = value;
-
-        const mdctrl: any = this.$refs.mdctrl;
-        if (mdctrl) {
-            let response = await mdctrl.quickSearch(this.query);
-            if (response) {
-            }
-        }
-    }
-
    /**
      * 是否单选
      *
