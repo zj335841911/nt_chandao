@@ -631,6 +631,20 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '74324efc79a8f2da4cc5bccb10015ab5',
+            viewmodule: 'zentao',
+            viewname: 'StoryAssMobMDView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd096e8789265e730da5eefa1423479dc',
+                '95cda0105e1825b7d41889deceb93c23',
+                '6530030850ee815ed2c26f0be4f53bad',
+                '2b6e052f3fa1629c2d2ac11a1823d95d',
+                'cacf8bf823f555d6b1952c3aeddf8223',
+            ],
+        },
+        {
             viewtag: '75af8ee328e72edea074420d8daace01',
             viewmodule: 'ibiz',
             viewname: 'ProjectMobPickupMDView',

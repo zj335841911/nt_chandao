@@ -84,6 +84,9 @@ export default {
 		asmoboptionview: {
 			caption: '指派',
 		},
+		assmobmdview9: {
+			caption: '需求',
+		},
 		favoritemobmdview9: {
 			caption: '需求',
 		},
