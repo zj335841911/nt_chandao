@@ -356,6 +356,8 @@ export default {
 			tip: '更多',
 		},
 	},
+	assmobmdview9righttoolbar_toolbar: {
+	},
 	favoritemobmdview9mdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {
 			caption: '更多',

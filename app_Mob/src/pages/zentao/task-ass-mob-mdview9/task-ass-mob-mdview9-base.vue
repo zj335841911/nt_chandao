@@ -1,6 +1,15 @@
 <template>
 <embed-view :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview9': true, 'task-ass-mob-mdview9': true }">
     <template slot="header">
+        <ion-toolbar>
+            <ion-title v-if="showTitle">{{$t(model.srfCaption)}}</ion-title>
+            <ion-buttons slot="end" class="ibiz-top-right-buttons ibiz-buttonGroup">
+                                <div class="app-toolbar-container ">
+                    <div class="app-quick-toolbar toolbar-right-bottons">
+                    </div>
+                </div>
+            </ion-buttons>
+        </ion-toolbar>
     </template>
     <template slot="content">
                 <view_mdctrl
@@ -235,6 +244,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      */
     protected containerModel: any = {
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
+        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
 
     /**
@@ -270,12 +280,25 @@ export default class TaskAssMobMDView9Base extends Vue {
     
 
 
+
+   /**
+    * 工具栏 TaskAssMobMDView9 模型
+    *
+    * @type {*}
+    * @memberof TaskAssMobMDView9
+    */
+    public righttoolbarModels: any = {
+    };
+
+    
+
+
     /**
      * 工具栏模型集合名
      *
      * @memberof TaskAssMobMDView9Base
      */
-    public toolbarModelList:any = ['mdctrl_quicktoolbarModels',]
+    public toolbarModelList:any = ['mdctrl_quicktoolbarModels','righttoolbarModels',]
 
     /**
      * 解析视图参数
