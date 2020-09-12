@@ -4,7 +4,7 @@
                 <ion-list class="items">
                   <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                       <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
-                      <ion-button v-if="!isTempMode && !allLoaded" class="loadmore_btn"   @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
+                      <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn"   @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                   </template>
                 </ion-list>
                 <ion-list class="items">
@@ -391,6 +391,13 @@ export default class MobBase extends Vue implements ControlInterface {
     */
      @Prop() public selectedData?:Array<any>;
 
+    /**
+     * 部件行为--update
+     *
+     * @type {string}
+     * @memberof Mob
+     */
+    @Prop({default: true}) protected needLoadMore?: boolean;
 
     /**
     * 新建打开视图

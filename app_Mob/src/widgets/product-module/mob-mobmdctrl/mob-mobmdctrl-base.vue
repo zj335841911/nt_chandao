@@ -16,7 +16,7 @@
                             <app-icon-list :item="item" v-if="controlStyle === 'ICONVIEW'"></app-icon-list>
                         </ion-item>
                     </ion-item-sliding>
-                    <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" class="loadmore_btn" @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
+                    <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn" @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                 </template>
             </ion-list>
             <ion-list class="items">
@@ -34,7 +34,7 @@
                             <app-icon-list :item="item" v-if="controlStyle === 'ICONVIEW'"></app-icon-list>
                         </ion-item>                      
                       </ion-item-sliding>
-                    <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" class="loadmore_btn" @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
+                    <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn" @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                 </template>
                 <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
                 </template>
@@ -306,6 +306,13 @@ export default class MobBase extends Vue implements ControlInterface {
     */
      @Prop() public selectedData?:Array<any>;
 
+    /**
+     * 部件行为--update
+     *
+     * @type {string}
+     * @memberof Mob
+     */
+    @Prop({default: true}) protected needLoadMore?: boolean;
 
     /**
     * 新建打开视图

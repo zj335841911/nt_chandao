@@ -15,7 +15,7 @@
                             </ion-item>
                         </div>
                     </ion-item-sliding>
-                    <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" class="loadmore_btn" @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
+                    <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn" @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                 </template>
             </ion-list>
             <ion-list class="items">
@@ -32,7 +32,7 @@
                             </ion-item>
                         </div>
                       </ion-item-sliding>
-                    <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" class="loadmore_btn" @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
+                    <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn" @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                 </template>
                 <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
                 </template>
@@ -312,6 +312,13 @@ export default class Mob_3817Base extends Vue implements ControlInterface {
     */
      @Prop() public selectedData?:Array<any>;
 
+    /**
+     * 部件行为--update
+     *
+     * @type {string}
+     * @memberof Mob_3817
+     */
+    @Prop({default: true}) protected needLoadMore?: boolean;
 
     /**
     * 新建打开视图
