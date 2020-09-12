@@ -41,6 +41,9 @@ export class TrendsMobModel {
 				name: 'date',
 			},
 			{
+				name: 'date1',
+			},
+			{
 				name: 'objectid',
 			},
 			{
