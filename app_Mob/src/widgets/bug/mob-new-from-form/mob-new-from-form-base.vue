@@ -497,28 +497,27 @@
     :disabled="detailsModel.storyname.disabled"
     :error="detailsModel.storyname.error" 
     :isEmptyCaption="false">
-        <app-mob-picker
-    name='storyname'
-    deMajorField='storyname'
-    deKeyField='storyid'
+        <app-mob-select-drop-down 
+    name='storyname' 
+    deMajorField='title'
+    deKeyField='id'
     valueitem='story' 
-    editortype="" 
-    style=""  
+    style="" 
+    editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :viewparams="viewparams"
-    :navigateContext ='{ "zt_product": "%product%", "n_product_eq": "%product%", "n_project_eq": "%project%", "n_module_eq": "%module%" } '
+    :navigateContext ='{ "n_module_eq": "%module%", "n_project_eq": "%project%", "n_product_eq": "%product%" } '
     :navigateParam ='{ "n_product_eq": "%product%", "n_project_eq": "%project%", "n_module_eq": "%module%" } '
-    :itemParam='{ context:{"ZT_PRODUCT":"%product%"},param:{"n_product_eq":"%product%"},}' 
+    :viewparams="viewparams"
+    :itemParam='{ }' 
     :disabled="detailsModel.storyname.disabled"
     :service="service"
     :acParams="{ serviceName: 'story', interfaceName: 'FetchBugStory'}"
     :value="data.storyname" 
-    :pickupView="{ viewname: 'story-mob-pickup-view', title: '需求移动端数据选择视图', deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'stories', parameterName: 'story' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange">
-</app-mob-picker>
-
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.storyname = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
