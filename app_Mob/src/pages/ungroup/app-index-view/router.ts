@@ -1283,33 +1283,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-favorite-more-mob-mdview/task-favorite-more-mob-mdview.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/assmobmdview',
-                    meta: {
-                        caption: 'story.views.assmobmdview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'assmobmdview', parameterName: 'assmobmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/story-ass-mob-mdview/story-ass-mob-mdview.vue'),
-                },
-                {
-                    path: 'stories/:story?/assmobmdview',
-                    meta: {
-                        caption: 'story.views.assmobmdview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'assmobmdview', parameterName: 'assmobmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/story-ass-mob-mdview/story-ass-mob-mdview.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/newmobeditview',
                     meta: {
                         caption: 'story.views.newmobeditview.caption',
@@ -3182,6 +3155,33 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/ibz-my-territory-mob-dashboard-view/ibz-my-territory-mob-dashboard-view.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/assmobmdview9',
+                    meta: {
+                        caption: 'story.views.assmobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'assmobmdview9', parameterName: 'assmobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-ass-mob-mdview9/story-ass-mob-mdview9.vue'),
+                },
+                {
+                    path: 'stories/:story?/assmobmdview9',
+                    meta: {
+                        caption: 'story.views.assmobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'assmobmdview9', parameterName: 'assmobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-ass-mob-mdview9/story-ass-mob-mdview9.vue'),
                 },
                 {
                     path: 'projects/:project?/mobmdview',
