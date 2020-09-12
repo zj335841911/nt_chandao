@@ -1,3 +1,4 @@
+
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demoboptview': true, 'story-rmob-option-view': true }">
     
@@ -491,6 +492,8 @@ export default class StoryRMobOptionViewBase extends Vue {
      * @memberof StoryRMobOptionViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+              let result = await this.cheackChange();
+      if(result){
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;
@@ -506,6 +509,8 @@ export default class StoryRMobOptionViewBase extends Vue {
         if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
+      }
+
         
     }
 
@@ -577,6 +582,28 @@ export default class StoryRMobOptionViewBase extends Vue {
         }
     }
 
+    /**
+     * 检查表单是否修改
+     *
+     * @param {any[]} args
+     * @memberof PimEducationMobEditViewBase
+     */
+    public async cheackChange(): Promise<any>{
+        const view = this.$store.getters['viewaction/getAppView'](this.viewtag);
+        if (view && view.viewdatachange) {
+                const title: any = this.$t('app.tabpage.sureclosetip.title');
+                const contant: any = this.$t('app.tabpage.sureclosetip.content');
+                const result = await this.$notice.confirm(title, contant, this.$store);
+                if (result) {
+                    this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
+                    return true;
+                } else {
+                    return false;
+                }
+        }else{
+            return true;
+        }
+    }
 }
 </script>
 

@@ -1022,7 +1022,9 @@ export default class MOBPorjectBase extends Vue implements ControlInterface {
     public activated() {
         this.items.forEach((item:any)=>{
             let curr:any = this.$refs[item.srfkey];
-            curr[0].close();
+            if (curr && curr[0]) {
+                curr[0].close();
+            }
         })
     }
 
@@ -1042,7 +1044,9 @@ export default class MOBPorjectBase extends Vue implements ControlInterface {
             this.mdctrl_u3a6091c_click();
         }
         let curr :any = this.$refs[item.srfkey];
-        curr[0].closeOpened();
+        if (curr && curr[0]) {
+            curr[0].closeOpened();
+        }
     }
 
     /**

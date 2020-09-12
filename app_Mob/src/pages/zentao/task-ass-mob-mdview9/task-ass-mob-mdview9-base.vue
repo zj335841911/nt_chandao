@@ -3,6 +3,10 @@
     <template slot="header">
         <ion-toolbar>
             <ion-title v-if="showTitle">{{$t(model.srfCaption)}}</ion-title>
+        </ion-toolbar>
+    </template>
+
+    <template slot="toolbar">
             <ion-buttons slot="end" class="ibiz-top-right-buttons ibiz-buttonGroup">
                                 <div class="app-toolbar-container ">
                     <div class="app-quick-toolbar toolbar-right-bottons">
@@ -19,7 +23,6 @@
                     </div>
                 </div>
             </ion-buttons>
-        </ion-toolbar>
     </template>
     <template slot="content">
                 <view_mdctrl

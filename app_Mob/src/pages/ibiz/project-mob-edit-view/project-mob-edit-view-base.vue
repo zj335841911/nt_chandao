@@ -426,7 +426,6 @@ export default class ProjectMobEditViewBase extends Vue {
             const bainfo:any = JSON.parse(this.$route.query.bsinfo as string);
             Object.assign(this.viewparams,bainfo);
         }
-        this.$store.commit('changeHasClose',true);
 
     }
 

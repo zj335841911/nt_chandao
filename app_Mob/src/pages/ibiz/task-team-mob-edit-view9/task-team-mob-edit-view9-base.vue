@@ -2,6 +2,15 @@
 <embed-view :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview9': true, 'task-team-mob-edit-view9': true }">
     <template slot="header">
     </template>
+
+    <template slot="toolbar">
+            <ion-buttons slot="end" class="ibiz-top-right-buttons ibiz-buttonGroup">
+                                <div class="app-toolbar-container ">
+                    <div class="app-quick-toolbar toolbar-right-bottons">
+                    </div>
+                </div>
+            </ion-buttons>
+    </template>
     <template slot="content">
                 <view_form
             :viewState="viewState"

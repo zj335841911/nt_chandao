@@ -2,6 +2,9 @@
 <embed-view :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview9': true, 'story-mob-mdview9': true }">
     <template slot="header">
     </template>
+
+    <template slot="toolbar">
+    </template>
     <template slot="content">
                 <view_mdctrl
             :viewState="viewState"
