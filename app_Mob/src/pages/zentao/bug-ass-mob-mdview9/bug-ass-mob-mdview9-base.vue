@@ -1,11 +1,9 @@
 <template>
-<embed-view :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview9': true, 'task-ass-mob-mdview9': true }">
-    <template slot="header">
-    </template>
+<embed-view :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview9': true, 'bug-ass-mob-mdview9': true }">
     <template slot="content">
                 <view_mdctrl
             :viewState="viewState"
-            viewName="TaskAssMobMDView9"  
+            viewName="BugAssMobMDView9"  
             :viewparams="viewparams" 
             :context="context" 
             :showBusyIndicator="true" 
@@ -16,7 +14,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchDefault" 
+            fetchAction="" 
             :isMutli="!isSingleSelect"
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
@@ -41,47 +39,47 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskService from '@/app-core/service/task/task-service';
+import BugService from '@/app-core/service/bug/bug-service';
 
 import MobMDView9Engine from '@engine/view/mob-mdview9-engine';
-import TaskUIService from '@/ui-service/task/task-ui-action';
+import BugUIService from '@/ui-service/bug/bug-ui-action';
 
 @Component({
     components: {
     },
 })
-export default class TaskAssMobMDView9Base extends Vue {
+export default class BugAssMobMDView9Base extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
     /**
      * 实体服务对象
      *
-     * @type {TaskService}
-     * @memberof TaskAssMobMDView9Base
+     * @type {BugService}
+     * @memberof BugAssMobMDView9Base
      */
-    protected appEntityService: TaskService = new TaskService();
+    protected appEntityService: BugService = new BugService();
 
     /**
      * 实体UI服务对象
      *
-     * @type TaskUIService
-     * @memberof TaskAssMobMDView9Base
+     * @type BugUIService
+     * @memberof BugAssMobMDView9Base
      */
-    public appUIService: TaskUIService = new TaskUIService(this.$store);
+    public appUIService: BugUIService = new BugUIService(this.$store);
 
     /**
      * 数据变化
      *
      * @param {*} val
      * @returns {*}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -92,7 +90,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     @Prop() protected _context!: string;
 
@@ -100,7 +98,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     @Prop() protected _viewparams!: string;
 
@@ -108,7 +106,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -116,15 +114,15 @@ export default class TaskAssMobMDView9Base extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof TaskAssMobMDView9Base
+	 * @memberof BugAssMobMDView9Base
 	 */
-	protected viewtag: string = 'dc64d438e2778b16e0996277b8feabce';
+	protected viewtag: string = '62bf2b41c1c5e5c96fcdcf923f53898d';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected context: any = {};
 
@@ -132,7 +130,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected viewparams: any = {};
 
@@ -140,14 +138,14 @@ export default class TaskAssMobMDView9Base extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     public titleStatus :boolean = true;
 
@@ -156,7 +154,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected navContext: any = {};
 
@@ -165,7 +163,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected navParam: any = {};
 
@@ -173,11 +171,11 @@ export default class TaskAssMobMDView9Base extends Vue {
      * 视图模型数据
      *
      * @type {*}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected model: any = {
-        srfTitle: '任务移动端多数据视图',
-        srfCaption: 'task.views.assmobmdview9.caption',
+        srfTitle: 'Bug移动端多数据视图',
+        srfCaption: 'bug.views.assmobmdview9.caption',
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
@@ -189,7 +187,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  TaskAssMobMDView9Base
+     * @memberof  BugAssMobMDView9Base
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -217,7 +215,7 @@ export default class TaskAssMobMDView9Base extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -230,7 +228,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected containerModel: any = {
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
@@ -240,7 +238,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -249,37 +247,22 @@ export default class TaskAssMobMDView9Base extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     @Prop({default:true}) protected showTitle?: boolean;
-
-
-
-   /**
-    * 工具栏 TaskAssMobMDView9 模型
-    *
-    * @type {*}
-    * @memberof TaskAssMobMDView9
-    */
-    public mdctrl_quicktoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyAssMore', target: 'NONE' } },
-
-    };
-
-    
 
 
     /**
      * 工具栏模型集合名
      *
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
-    public toolbarModelList:any = ['mdctrl_quicktoolbarModels',]
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数
      *
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -292,7 +275,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -306,14 +289,14 @@ export default class TaskAssMobMDView9Base extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected engine: MobMDView9Engine = new MobMDView9Engine();
 
     /**
      * 引擎初始化
      *
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected engineInit(): void {
         this.engine.init({
@@ -325,8 +308,8 @@ export default class TaskAssMobMDView9Base extends Vue {
             newdata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
                 this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
             },
-            keyPSDEField: 'task',
-            majorPSDEField: 'name',
+            keyPSDEField: 'bug',
+            majorPSDEField: 'title',
             isLoadDefault: true,
         });
     }
@@ -334,7 +317,7 @@ export default class TaskAssMobMDView9Base extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected created() {
         this.afterCreated();
@@ -343,7 +326,7 @@ export default class TaskAssMobMDView9Base extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     public activated() {
         this.afterMounted();
@@ -352,7 +335,7 @@ export default class TaskAssMobMDView9Base extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -375,7 +358,7 @@ export default class TaskAssMobMDView9Base extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -384,7 +367,7 @@ export default class TaskAssMobMDView9Base extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected mounted() {
         this.afterMounted();
@@ -394,7 +377,7 @@ export default class TaskAssMobMDView9Base extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected afterMounted(){
         const _this: any = this;
@@ -409,7 +392,7 @@ export default class TaskAssMobMDView9Base extends Vue {
     /**
      * 第三方容器初始化
      * 
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -421,7 +404,7 @@ export default class TaskAssMobMDView9Base extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -430,7 +413,7 @@ export default class TaskAssMobMDView9Base extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
@@ -451,7 +434,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected mdctrl_selectionchange($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'selectionchange', $event);
@@ -462,7 +445,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected mdctrl_beforeload($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'beforeload', $event);
@@ -473,7 +456,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected mdctrl_rowclick($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'rowclick', $event);
@@ -484,7 +467,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected mdctrl_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('mdctrl', 'load', $event);
@@ -502,7 +485,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * @param {*} [container]
      * @param {string} [srfParentDeName]
      * @returns {Promise<any>}
-     * @memberof TaskAssMobMDView9
+     * @memberof BugAssMobMDView9
      */
     public async newdata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const params: any = { ...paramJO };
@@ -532,9 +515,14 @@ export default class TaskAssMobMDView9Base extends Vue {
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+        if (context.product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
 
         const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'bugs', parameterName: 'bug' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
@@ -562,7 +550,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * @param {*} [container]
      * @param {string} [srfParentDeName]
      * @returns {Promise<any>}
-     * @memberof TaskAssMobMDView9
+     * @memberof BugAssMobMDView9
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const params: any = { ...paramJO };
@@ -592,9 +580,14 @@ export default class TaskAssMobMDView9Base extends Vue {
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+        if (context.product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
 
         const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'bugs', parameterName: 'bug' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
@@ -615,7 +608,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -639,7 +632,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
@@ -665,7 +658,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -677,7 +670,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -698,7 +691,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      *  app-form-druipart 组件订阅对象
      *
      * @type {Subject}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     @Prop() public formDruipart !: Subject<ViewState>;
 
@@ -707,7 +700,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * 是否单选
      *
      * @type {boolean}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
 
@@ -715,7 +708,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * 分类值
      *
      * @type {boolean}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     public categoryValue :any = {};
 
@@ -723,14 +716,14 @@ export default class TaskAssMobMDView9Base extends Vue {
      * 排序值
      *
      * @type {boolean}
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     public sortValue :any = {};
 
     /**
      * 刷新视图
      *
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     public onRefreshView() {
         let mdctrl: any = this.$refs.mdctrl;
@@ -742,10 +735,10 @@ export default class TaskAssMobMDView9Base extends Vue {
     /**
      * 打开搜索表单
      *
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     public openSearchform() {
-      let search :any = this.$refs.searchformtaskassmobmdview9;
+      let search :any = this.$refs.searchformbugassmobmdview9;
       if(search){
           search.open();
       }
@@ -754,10 +747,10 @@ export default class TaskAssMobMDView9Base extends Vue {
     /**
      * 关闭搜索表单
      *
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     public closeSearchform(){
-      let search :any = this.$refs.searchformtaskassmobmdview9;
+      let search :any = this.$refs.searchformbugassmobmdview9;
       if(search){
           search.close();
       }
@@ -766,7 +759,7 @@ export default class TaskAssMobMDView9Base extends Vue {
     /**
      * 多选状态改变事件
      *
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     public showCheackChange(value:any){
         this.showCheack = value;
@@ -775,13 +768,13 @@ export default class TaskAssMobMDView9Base extends Vue {
     /**
      * 多选状态
      *
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     public showCheack = false;
 
     /**
      * 取消选择状态
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     public cancelSelect() {
         this.showCheackChange(false);
@@ -789,7 +782,7 @@ export default class TaskAssMobMDView9Base extends Vue {
 
     /**
      * 视图加载（排序|分类）
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     public onViewLoad() {
         let value = Object.assign(this.categoryValue,this.sortValue);
@@ -800,7 +793,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     public onCategory(value:any){
         this.categoryValue = value;
@@ -811,7 +804,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * 触底加载
      *
      * @param {*} value
-     * @memberof TaskAssMobMDView9Base
+     * @memberof BugAssMobMDView9Base
      */
     public async loadMore(event:any){
       let mdctrl:any = this.$refs.mdctrl;
@@ -838,5 +831,5 @@ export default class TaskAssMobMDView9Base extends Vue {
 </script>
 
 <style lang='less'>
-@import './task-ass-mob-mdview9.less';
+@import './bug-ass-mob-mdview9.less';
 </style>

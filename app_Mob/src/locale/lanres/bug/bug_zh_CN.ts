@@ -93,6 +93,9 @@ export default {
 		mobmdview: {
 			caption: 'Bug',
 		},
+		assmobmdview9: {
+			caption: 'Bug',
+		},
 		mobeditview: {
 			caption: 'Bug',
 		},

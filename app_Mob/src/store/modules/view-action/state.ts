@@ -513,6 +513,21 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '62bf2b41c1c5e5c96fcdcf923f53898d',
+            viewmodule: 'zentao',
+            viewname: 'BugAssMobMDView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9349ea1684c700138349df5c672a7c19',
+                '206584f40a0caade6c253a360fad96c1',
+                '3cada37cd0f6b5c0492af340b3aa0a65',
+                '185395a40f8fd1f3e93bf040beb60f4f',
+                '69a540ab88c1edd1da7f89cebe5f4588',
+                'eadccf64ed59f1b4f8a23dcc8d14ccf7',
+            ],
+        },
+        {
             viewtag: '6530030850ee815ed2c26f0be4f53bad',
             viewmodule: 'ibiz',
             viewname: 'StoryAsMobOptionView',
