@@ -1,6 +1,7 @@
 <template>
     <ion-row>
         <ion-list class='app-mob-portlet action-dashboard_sysportlet7 '>
+            <ion-list-header class='app-mob-portlet__header'>全部动态 </ion-list-header>
                 <action-allmob-mdview9 :_context="JSON.stringify(context)" :isChildView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></action-allmob-mdview9>
         </ion-list>
     </ion-row>
