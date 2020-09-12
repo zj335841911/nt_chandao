@@ -21,6 +21,9 @@ export class MobModel {
 				name: 'myfavorites',
 			},
 			{
+				name: 'eprojects',
+			},
+			{
 				name: 'mybugs',
 			},
 			{

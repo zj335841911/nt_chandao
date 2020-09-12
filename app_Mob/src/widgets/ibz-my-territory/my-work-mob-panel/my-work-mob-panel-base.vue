@@ -3,166 +3,134 @@
     <ion-row class="app-layoutpanel">
         <ion-col v-show="detailsModel.container1.visible"  :size="24" style="" class="app-layoutpanel-container mob_list_card">
             <ion-row style="height:100%;">
-                <ion-col v-show="detailsModel.container2.visible"  :size="12" style="" class="app-layoutpanel-container">
-                    <ion-row style="height:100%;">
-                        
-                        <ion-col v-show="detailsModel.realname.visible"  :size="12" style="font-size:20px;font-weight:bold" class="app-layoutpanel-field panelitem-20px">
-                            <div class="item-field ">
-                            
-                            <app-mob-span  v-if="data.realname" :context="context" :value="data.realname" :itemParam="{}"  ></app-mob-span>
-                        </div>
-                        
-                        
-                        </ion-col>
-                    </ion-row>
+                
+                <ion-col v-show="detailsModel.realname.visible"  :size="12" style="font-size:20px;font-weight:bold" class="app-layoutpanel-field panelitem-20px">
+                    <div class="item-field ">
+                    
+                    <app-mob-span  v-if="data.realname" :context="context" :value="data.realname" :itemParam="{}"  ></app-mob-span>
+                </div>
+                
+                
                 </ion-col>
-                <ion-col v-show="detailsModel.container3.visible"  :size="12" style="" class="app-layoutpanel-container">
-                    <ion-row style="height:100%;">
-                        <ion-col v-show="detailsModel.container10.visible"  :size="12" style="" class="app-layoutpanel-container container-left-border">
-                            <ion-row style="height:100%;">
-                                <ion-col v-show="detailsModel.container4.visible"  :size="12" style="" class="app-layoutpanel-container">
-                                    <ion-row style="height:100%;">
-                                        
-                                        <ion-col v-show="detailsModel.rawitem2.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                                            我的任务
-                                        
-                                        
-                                        </ion-col>
-                                        
-                                        <ion-col v-show="detailsModel.mytasks.visible"  :lg="6" :size="6" :offset="2" style="" class="app-layoutpanel-field">
-                                            <div class="item-field ">
-                                            
-                                            <app-mob-span  v-if="data.mytasks" :context="context" :value="data.mytasks" :itemParam="{}"  ></app-mob-span>
-                                        </div>
-                                        
-                                        
-                                        </ion-col>
-                                        
-                                        <ion-col v-show="detailsModel.rawitem1.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                                            已延期任务
-                                        
-                                        
-                                        </ion-col>
-                                        
-                                        <ion-col v-show="detailsModel.myetasks.visible"  :lg="6" :size="6" :offset="2" style="" class="app-layoutpanel-field">
-                                            <div class="item-field ">
-                                            
-                                            <app-mob-span  v-if="data.myetasks" :context="context" :value="data.myetasks" :itemParam="{}"  ></app-mob-span>
-                                        </div>
-                                        
-                                        
-                                        </ion-col>
-                                    </ion-row>
-                                </ion-col>
-                                <ion-col v-show="detailsModel.container5.visible"  :size="12" style="" class="app-layoutpanel-container">
-                                    <ion-row style="height:100%;">
-                                        
-                                        <ion-col v-show="detailsModel.rawitem3.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                                            我的bug
-                                        
-                                        
-                                        </ion-col>
-                                        
-                                        <ion-col v-show="detailsModel.mybugs.visible"  :lg="6" :size="6" :offset="2" style="" class="app-layoutpanel-field">
-                                            <div class="item-field ">
-                                            
-                                            <app-mob-span  v-if="data.mybugs" :context="context" :value="data.mybugs" :itemParam="{}"  ></app-mob-span>
-                                        </div>
-                                        
-                                        
-                                        </ion-col>
-                                        
-                                        <ion-col v-show="detailsModel.rawitem9.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                                            已延期的Bug
-                                        
-                                        
-                                        </ion-col>
-                                        
-                                        <ion-col v-show="detailsModel.myebugs.visible"  :lg="6" :size="6" :offset="2" style="" class="app-layoutpanel-field">
-                                            <div class="item-field ">
-                                            
-                                            <app-mob-span  v-if="data.myebugs" :context="context" :value="data.myebugs" :itemParam="{}"  ></app-mob-span>
-                                        </div>
-                                        
-                                        
-                                        </ion-col>
-                                    </ion-row>
-                                </ion-col>
-                                <ion-col v-show="detailsModel.container6.visible"  :size="12" style="" class="app-layoutpanel-container">
-                                    <ion-row style="height:100%;">
-                                        
-                                        <ion-col v-show="detailsModel.rawitem4.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                                            我的需求
-                                        
-                                        
-                                        </ion-col>
-                                        
-                                        <ion-col v-show="detailsModel.mystorys.visible"  :lg="6" :size="6" :offset="2" style="" class="app-layoutpanel-field">
-                                            <div class="item-field ">
-                                            
-                                            <app-mob-span  v-if="data.mystorys" :context="context" :value="data.mystorys" :itemParam="{}"  ></app-mob-span>
-                                        </div>
-                                        
-                                        
-                                        </ion-col>
-                                    </ion-row>
-                                </ion-col>
-                                <ion-col v-show="detailsModel.container7.visible"  :size="12" style="" class="app-layoutpanel-container">
-                                    <ion-row style="height:100%;">
-                                        
-                                        <ion-col v-show="detailsModel.rawitem5.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                                            未关闭的项目
-                                        
-                                        
-                                        </ion-col>
-                                        
-                                        <ion-col v-show="detailsModel.projects.visible"  :lg="6" :size="6" :offset="2" style="" class="app-layoutpanel-field">
-                                            <div class="item-field ">
-                                            
-                                            <app-mob-span  v-if="data.projects" :context="context" :value="data.projects" :itemParam="{}"  ></app-mob-span>
-                                        </div>
-                                        
-                                        
-                                        </ion-col>
-                                        
-                                        <ion-col v-show="detailsModel.rawitem7.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                                            已延期项目
-                                        
-                                        
-                                        </ion-col>
-                                        
-                                        <ion-col v-show="detailsModel.eprojects.visible"  :lg="6" :size="6" :offset="2" style="" class="app-layoutpanel-field">
-                                            <div class="item-field ">
-                                            
-                                            <app-mob-span  v-if="data.eprojects" :context="context" :value="data.eprojects" :itemParam="{}"  ></app-mob-span>
-                                        </div>
-                                        
-                                        
-                                        </ion-col>
-                                    </ion-row>
-                                </ion-col>
-                                <ion-col v-show="detailsModel.container8.visible"  :size="12" style="" class="app-layoutpanel-container">
-                                    <ion-row style="height:100%;">
-                                        
-                                        <ion-col v-show="detailsModel.rawitem6.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
-                                            未关闭的产品
-                                        
-                                        
-                                        </ion-col>
-                                        
-                                        <ion-col v-show="detailsModel.products.visible"  :lg="6" :size="6" :offset="2" style="" class="app-layoutpanel-field">
-                                            <div class="item-field ">
-                                            
-                                            <app-mob-span  v-if="data.products" :context="context" :value="data.products" :itemParam="{}"  ></app-mob-span>
-                                        </div>
-                                        
-                                        
-                                        </ion-col>
-                                    </ion-row>
-                                </ion-col>
-                            </ion-row>
-                        </ion-col>
-                    </ion-row>
+                
+                <ion-col v-show="detailsModel.rawitem2.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
+                    我的任务
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.mytasks.visible"  :lg="6" :size="6" :offset="2" style="" class="app-layoutpanel-field">
+                    <div class="item-field ">
+                    
+                    <app-mob-span  v-if="data.mytasks" :context="context" :value="data.mytasks" :itemParam="{}"  ></app-mob-span>
+                </div>
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.rawitem1.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
+                    已延期任务
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.myetasks.visible"  :lg="6" :size="6" :offset="2" style="" class="app-layoutpanel-field">
+                    <div class="item-field ">
+                    
+                    <app-mob-span  v-if="data.myetasks" :context="context" :value="data.myetasks" :itemParam="{}"  ></app-mob-span>
+                </div>
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.rawitem3.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
+                    我的bug
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.mybugs.visible"  :lg="6" :size="6" :offset="2" style="" class="app-layoutpanel-field">
+                    <div class="item-field ">
+                    
+                    <app-mob-span  v-if="data.mybugs" :context="context" :value="data.mybugs" :itemParam="{}"  ></app-mob-span>
+                </div>
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.rawitem9.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
+                    已延期的Bug
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.myebugs.visible"  :lg="6" :size="6" :offset="2" style="" class="app-layoutpanel-field">
+                    <div class="item-field ">
+                    
+                    <app-mob-span  v-if="data.myebugs" :context="context" :value="data.myebugs" :itemParam="{}"  ></app-mob-span>
+                </div>
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.rawitem4.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
+                    我的需求
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.mystorys.visible"  :lg="6" :size="6" :offset="2" style="" class="app-layoutpanel-field">
+                    <div class="item-field ">
+                    
+                    <app-mob-span  v-if="data.mystorys" :context="context" :value="data.mystorys" :itemParam="{}"  ></app-mob-span>
+                </div>
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.rawitem5.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
+                    未关闭的项目
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.projects.visible"  :lg="6" :size="6" :offset="2" style="" class="app-layoutpanel-field">
+                    <div class="item-field ">
+                    
+                    <app-mob-span  v-if="data.projects" :context="context" :value="data.projects" :itemParam="{}"  ></app-mob-span>
+                </div>
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.rawitem7.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
+                    已延期项目
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.eprojects.visible"  :lg="6" :size="6" :offset="2" style="" class="app-layoutpanel-field">
+                    <div class="item-field ">
+                    
+                    <app-mob-span  v-if="data.eprojects" :context="context" :value="data.eprojects" :itemParam="{}"  ></app-mob-span>
+                </div>
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.rawitem6.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
+                    未关闭的产品
+                
+                
+                </ion-col>
+                
+                <ion-col v-show="detailsModel.products.visible"  :lg="6" :size="6" :offset="2" style="" class="app-layoutpanel-field">
+                    <div class="item-field ">
+                    
+                    <app-mob-span  v-if="data.products" :context="context" :value="data.products" :itemParam="{}"  ></app-mob-span>
+                </div>
+                
+                
                 </ion-col>
             </ion-row>
         </ion-col>
@@ -444,14 +412,6 @@ export default class MyWorkMobBase extends Vue implements ControlInterface {
 
 
 
-
-
-
-
-
-
-
-
     }
 
    /**
@@ -463,8 +423,6 @@ export default class MyWorkMobBase extends Vue implements ControlInterface {
     protected detailsModel: any = {
         realname: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'realname', panel: this, visible: true  })
 , 
-        container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container2', panel: this, visible: true  })
-, 
         rawitem2: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem2', panel: this, visible: true  })
 , 
         mytasks: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'mytasks', panel: this, visible: true  })
@@ -472,8 +430,6 @@ export default class MyWorkMobBase extends Vue implements ControlInterface {
         rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem1', panel: this, visible: true  })
 , 
         myetasks: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'myetasks', panel: this, visible: true  })
-, 
-        container4: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container4', panel: this, visible: true  })
 , 
         rawitem3: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem3', panel: this, visible: true  })
 , 
@@ -483,13 +439,9 @@ export default class MyWorkMobBase extends Vue implements ControlInterface {
 , 
         myebugs: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'myebugs', panel: this, visible: true  })
 , 
-        container5: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container5', panel: this, visible: true  })
-, 
         rawitem4: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem4', panel: this, visible: true  })
 , 
         mystorys: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'mystorys', panel: this, visible: true  })
-, 
-        container6: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container6', panel: this, visible: true  })
 , 
         rawitem5: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem5', panel: this, visible: true  })
 , 
@@ -499,17 +451,9 @@ export default class MyWorkMobBase extends Vue implements ControlInterface {
 , 
         eprojects: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'eprojects', panel: this, visible: true  })
 , 
-        container7: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container7', panel: this, visible: true  })
-, 
         rawitem6: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem6', panel: this, visible: true  })
 , 
         products: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'products', panel: this, visible: true  })
-, 
-        container8: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container8', panel: this, visible: true  })
-, 
-        container10: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container10', panel: this, visible: true  })
-, 
-        container3: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container3', panel: this, visible: true  })
 , 
         container1: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container1', panel: this, visible: true  })
 , 
