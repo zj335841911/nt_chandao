@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import IbzMyTerritoryMobMDView9Base from './ibz-my-territory-mob-mdview9-base.vue';
 
-import view_mdctrl from '@widgets/ibz-my-territory/my-work-mobmdctrl/my-work-mobmdctrl.vue';
+import view_mdctrl from '@widgets/ibz-my-territory/mob-mobmdctrl/mob-mobmdctrl.vue';
 @Component({
     components: {
         view_mdctrl, 
