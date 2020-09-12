@@ -1,17 +1,8 @@
 <template>
     <div class='view-container'>
     <ion-row class="app-layoutpanel">
-        <ion-col v-show="detailsModel.container1.visible"  :size="24" style="" class="app-layoutpanel-container mob_list_card">
+        <ion-col v-show="detailsModel.container1.visible"  :size="12" style="" class="app-layoutpanel-container mob_list_card">
             <ion-row style="height:100%;">
-                
-                <ion-col v-show="detailsModel.realname.visible"  :size="12" style="font-size:20px;font-weight:bold" class="app-layoutpanel-field panelitem-20px">
-                    <div class="item-field ">
-                    
-                    <app-mob-span  v-if="data.realname" :context="context" :value="data.realname" :itemParam="{}"  ></app-mob-span>
-                </div>
-                
-                
-                </ion-col>
                 
                 <ion-col v-show="detailsModel.rawitem2.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-rowitem">
                     我的任务
@@ -411,7 +402,6 @@ export default class MyWorkMobBase extends Vue implements ControlInterface {
 
 
 
-
     }
 
    /**
@@ -421,8 +411,6 @@ export default class MyWorkMobBase extends Vue implements ControlInterface {
      * @memberof MyWorkMob
      */
     protected detailsModel: any = {
-        realname: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'realname', panel: this, visible: true  })
-, 
         rawitem2: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM', name: 'rawitem2', panel: this, visible: true  })
 , 
         mytasks: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'mytasks', panel: this, visible: true  })
