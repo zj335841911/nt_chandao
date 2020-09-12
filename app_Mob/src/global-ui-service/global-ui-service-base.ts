@@ -92,6 +92,23 @@ export default class GlobalUiServiceBase extends UIActionBase {
     }
 
     /**
+     * 导出
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName]
+     * @returns {Promise<any>}
+     * @memberof 
+     */
+    public async ExportExcel(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        this.notice.error('数据导出未支持');
+    }
+
+    /**
      * 刷新
      *
      * @param {any[]} args 数据

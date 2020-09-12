@@ -377,5 +377,9 @@ export default {
 		},
 	},
 	assmobmdviewrighttoolbar_toolbar: {
+		tbitem1_myassmore: {
+			caption: '更多',
+			tip: 'tbitem1_myassmore',
+		},
 	},
 };
