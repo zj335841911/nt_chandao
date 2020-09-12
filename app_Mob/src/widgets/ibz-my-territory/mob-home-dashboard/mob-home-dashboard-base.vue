@@ -56,6 +56,17 @@
     @closeview="closeView($event)">
 </view_dashboard_sysportlet4>
             </div>
+            <div class="dashboard-item" v-if="!isEnableCustomized">
+            <view_dashboard_sysportlet6
+    :viewState="viewState"
+    viewName="IbzMyTerritoryMobDashboardView"  
+    :viewparams="viewparams" 
+    :context="context" 
+    name="dashboard_sysportlet6"  
+    ref='dashboard_sysportlet6' 
+    @closeview="closeView($event)">
+</view_dashboard_sysportlet6>
+            </div>
             <template v-for="item in customizeModel">
                 <div class="dashboard-item" :class="item.componentName + 'dashboard'"  :key="item.id" v-if="isEnableCustomized">
                     <component :is="item.componentName" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams"></component>

@@ -135,6 +135,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '178e7f1dff030873132eca2bda9461a2',
+            viewmodule: 'ibiz',
+            viewname: 'IbzMyTerritoryMobMDView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '1820afe6869fbb5e9b01ce076933efca',
             viewmodule: 'ibiz',
             viewname: 'BugPlanMobMDView9',
@@ -615,6 +624,7 @@ export const viewstate: any = {
             refviews: [
                 '74324efc79a8f2da4cc5bccb10015ab5',
                 '8f9ac36ca6d8fab08991612000a92a82',
+                '178e7f1dff030873132eca2bda9461a2',
                 'dc64d438e2778b16e0996277b8feabce',
                 '49404878ffb7be86806c53121c642722',
                 '62bf2b41c1c5e5c96fcdcf923f53898d',

@@ -2004,76 +2004,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/story-rmob-option-view/story-rmob-option-view.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/bugs/:bug?/closemoboptionview',
-                    meta: {
-                        caption: 'bug.views.closemoboptionview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'),
-                },
-                {
-                    path: 'projects/:project?/bugs/:bug?/closemoboptionview',
-                    meta: {
-                        caption: 'bug.views.closemoboptionview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'),
-                },
-                {
-                    path: 'stories/:story?/bugs/:bug?/closemoboptionview',
-                    meta: {
-                        caption: 'bug.views.closemoboptionview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'),
-                },
-                {
-                    path: 'products/:product?/bugs/:bug?/closemoboptionview',
-                    meta: {
-                        caption: 'bug.views.closemoboptionview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'),
-                },
-                {
-                    path: 'bugs/:bug?/closemoboptionview',
-                    meta: {
-                        caption: 'bug.views.closemoboptionview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/taskestimates/:taskestimate?/moboptionview',
                     meta: {
                         caption: 'taskestimate.views.moboptionview.caption',
@@ -2145,6 +2075,76 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/task-estimate-mob-option-view/task-estimate-mob-option-view.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/bugs/:bug?/closemoboptionview',
+                    meta: {
+                        caption: 'bug.views.closemoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/closemoboptionview',
+                    meta: {
+                        caption: 'bug.views.closemoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/bugs/:bug?/closemoboptionview',
+                    meta: {
+                        caption: 'bug.views.closemoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/closemoboptionview',
+                    meta: {
+                        caption: 'bug.views.closemoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/closemoboptionview',
+                    meta: {
+                        caption: 'bug.views.closemoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'),
                 },
                 {
                     path: 'projects/:project?/projectmodules/:projectmodule?/mobpickupmdview',
@@ -2972,6 +2972,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/product-new-mob-edit-view/product-new-mob-edit-view.vue'),
+                },
+                {
+                    path: 'ibzmyterritories/:ibzmyterritory?/mobmdview9',
+                    meta: {
+                        caption: 'ibzmyterritory.views.mobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                            { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-my-territory-mob-mdview9/ibz-my-territory-mob-mdview9.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/mobmdview',
