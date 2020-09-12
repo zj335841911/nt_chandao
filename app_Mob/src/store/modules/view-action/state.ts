@@ -341,6 +341,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '49404878ffb7be86806c53121c642722',
+            viewmodule: 'zentao',
+            viewname: 'TaskFavoriteMobMDView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '61673d1a86a046c9ff672f16ab4b7ce7',
+                '16bfeba2aa5ae0287f8821660cf2dc78',
+            ],
+        },
+        {
             viewtag: '4a68a7fca37b1f7d3cf396c66fd2347a',
             viewmodule: 'ibiz',
             viewname: 'TaskCloseMobOptionView',
@@ -606,9 +617,9 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '74324efc79a8f2da4cc5bccb10015ab5',
-                '6e91454cb4217d3aa1260161a539c803',
                 '8f9ac36ca6d8fab08991612000a92a82',
                 'dc64d438e2778b16e0996277b8feabce',
+                '49404878ffb7be86806c53121c642722',
                 '62bf2b41c1c5e5c96fcdcf923f53898d',
             ],
         },

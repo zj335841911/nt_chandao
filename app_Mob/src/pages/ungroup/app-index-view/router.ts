@@ -1035,6 +1035,62 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-estimate-mob-medit-view9/task-estimate-mob-medit-view9.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/favoritemobmdview9',
+                    meta: {
+                        caption: 'task.views.favoritemobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'favoritemobmdview9', parameterName: 'favoritemobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-favorite-mob-mdview9/task-favorite-mob-mdview9.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/favoritemobmdview9',
+                    meta: {
+                        caption: 'task.views.favoritemobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'favoritemobmdview9', parameterName: 'favoritemobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-favorite-mob-mdview9/task-favorite-mob-mdview9.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/favoritemobmdview9',
+                    meta: {
+                        caption: 'task.views.favoritemobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'favoritemobmdview9', parameterName: 'favoritemobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-favorite-mob-mdview9/task-favorite-mob-mdview9.vue'),
+                },
+                {
+                    path: 'tasks/:task?/favoritemobmdview9',
+                    meta: {
+                        caption: 'task.views.favoritemobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'favoritemobmdview9', parameterName: 'favoritemobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-favorite-mob-mdview9/task-favorite-mob-mdview9.vue'),
+                },
+                {
                     path: 'projects/:project?/projectteams/:projectteam?/mobmdview',
                     meta: {
                         caption: 'projectteam.views.mobmdview.caption',
@@ -3274,62 +3330,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/product-prod-mob-tab-exp-view/product-prod-mob-tab-exp-view.vue'),
-                },
-                {
-                    path: 'products/:product?/stories/:story?/tasks/:task?/favoritemobmdview',
-                    meta: {
-                        caption: 'task.views.favoritemobmdview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'favoritemobmdview', parameterName: 'favoritemobmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/task-favorite-mob-mdview/task-favorite-mob-mdview.vue'),
-                },
-                {
-                    path: 'projects/:project?/tasks/:task?/favoritemobmdview',
-                    meta: {
-                        caption: 'task.views.favoritemobmdview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'favoritemobmdview', parameterName: 'favoritemobmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/task-favorite-mob-mdview/task-favorite-mob-mdview.vue'),
-                },
-                {
-                    path: 'stories/:story?/tasks/:task?/favoritemobmdview',
-                    meta: {
-                        caption: 'task.views.favoritemobmdview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'favoritemobmdview', parameterName: 'favoritemobmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/task-favorite-mob-mdview/task-favorite-mob-mdview.vue'),
-                },
-                {
-                    path: 'tasks/:task?/favoritemobmdview',
-                    meta: {
-                        caption: 'task.views.favoritemobmdview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'favoritemobmdview', parameterName: 'favoritemobmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/task-favorite-mob-mdview/task-favorite-mob-mdview.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/mobmdview',

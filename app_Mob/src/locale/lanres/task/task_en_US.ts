@@ -72,6 +72,9 @@ export default {
 		cancelmoboptionview: {
 			caption: '取消',
 		},
+		favoritemobmdview9: {
+			caption: '任务',
+		},
 		closemoboptionview: {
 			caption: '关闭',
 		},
@@ -348,6 +351,12 @@ export default {
 		},
 	},
 	assmobmdview9mdctrl_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: '更多',
+			tip: 'deuiaction1',
+		},
+	},
+	favoritemobmdview9mdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {
 			caption: '更多',
 			tip: 'deuiaction1',

@@ -2,7 +2,7 @@
     <ion-row>
         <ion-list class='app-mob-portlet ibzmyterritory-dashboard_sysportlet4 '>
             <ion-list-header class='app-mob-portlet__header'>我收藏的任务 </ion-list-header>
-                <task-favorite-mob-mdview :_context="JSON.stringify(context)" :isChildView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></task-favorite-mob-mdview>
+                <task-favorite-mob-mdview9 :_context="JSON.stringify(context)" :isChildView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></task-favorite-mob-mdview9>
         </ion-list>
     </ion-row>
 </template>
