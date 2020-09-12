@@ -4,7 +4,7 @@
         <ion-col v-show="detailsModel.container1.visible"  :size="12" style="" class="app-layoutpanel-container mob_list_card">
             <ion-row style="height:100%;">
                 
-                <ion-col v-show="detailsModel.date1.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.date1.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.date1" :context="context" :value="data.date1" :itemParam="{}"  ></app-mob-span>
@@ -31,7 +31,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.objecttype.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.objecttype.visible"  :lg="2" :size="2" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.objecttype" :context="context" :value="data.objecttype" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Action__object_type"></app-mob-span>
