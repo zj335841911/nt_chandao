@@ -101,9 +101,10 @@ export class Notice {
               buttons: [
                   {
                       text: '取消',
+                      role: 'cancel',
                       handler: () => {
                           if (store && store.commit) {
-                            store.commit('changeHasClose',true);
+                            store.commit('changeNoticeStatus',true);
                           }
                           resolve(false);
                       }
@@ -113,7 +114,7 @@ export class Notice {
                       cssClass: 'secondary',
                       handler: () => {
                           if (store && store.commit) {
-                            store.commit('changeHasClose',true);
+                            store.commit('changeNoticeStatus',true);
                           }
                           resolve(true);
                       }
@@ -122,12 +123,12 @@ export class Notice {
           });
           if (store && store.state && store.state.hasClose) {
             await alert.present();
-          }
-          if (store && store.commit) {
-            store.commit('changeHasClose',false);
+            if (store && store.commit) {
+              store.commit('changeNoticeStatus',false);
+            }
           }
       });
-  }
+    }
 
     /**
      * 创建对象

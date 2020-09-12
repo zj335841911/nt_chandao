@@ -250,6 +250,6 @@ export const updateZIndex = (state: any, zIndex: number) => {
  * 
  * @param state 
  */
-export const changeHasClose = (state: any, status: boolean) => {
-    state.hasClose = status;
+export const changeNoticeStatus = (state: any, status: boolean) => {
+    state.noticeStatus = status;
 }

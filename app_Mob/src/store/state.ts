@@ -13,5 +13,5 @@ export const rootstate: any = {
     thirdPartyName:'',
     localdata: {},
     zIndex: 300,
-    hasClose:true,
+    noticeStatus:true,
 }
