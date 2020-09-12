@@ -16,7 +16,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchDefault" 
+            fetchAction="FetchAssignedToMyTask" 
             :isMutli="!isSingleSelect"
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
