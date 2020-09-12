@@ -357,6 +357,14 @@ export default {
 		},
 	},
 	assmobmdview9righttoolbar_toolbar: {
+		deuiaction3_myassmore: {
+			caption: '更多',
+			tip: '更多',
+		},
+		deuiaction2: {
+			caption: '刷新',
+			tip: '刷新',
+		},
 	},
 	favoritemobmdview9mdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {

@@ -6,6 +6,16 @@
             <ion-buttons slot="end" class="ibiz-top-right-buttons ibiz-buttonGroup">
                                 <div class="app-toolbar-container ">
                     <div class="app-quick-toolbar toolbar-right-bottons">
+                            <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction3_myassmore.visabled" :disabled="righttoolbarModels.deuiaction3_myassmore.disabled" @click="righttoolbar_click({ tag: 'deuiaction3_myassmore' }, $event)" >
+                        <ion-icon class="ibiz-button-icon" name="more"> </ion-icon>
+                    {{$t('task.assmobmdview9righttoolbar_toolbar.deuiaction3_myassmore.caption')}}
+                    </ion-button>
+                
+                            <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction2.visabled" :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)" >
+                        <ion-icon class="ibiz-button-icon" name="refresh"> </ion-icon>
+                    {{$t('task.assmobmdview9righttoolbar_toolbar.deuiaction2.caption')}}
+                    </ion-button>
+                
                     </div>
                 </div>
             </ion-buttons>
@@ -288,6 +298,10 @@ export default class TaskAssMobMDView9Base extends Vue {
     * @memberof TaskAssMobMDView9
     */
     public righttoolbarModels: any = {
+            deuiaction3_myassmore: { name: 'deuiaction3_myassmore', caption: '更多', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyAssMore', target: 'NONE' } },
+
+            deuiaction2: { name: 'deuiaction2', caption: '刷新', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '' } },
+
     };
 
     
@@ -514,6 +528,115 @@ export default class TaskAssMobMDView9Base extends Vue {
         this.engine.onCtrlEvent('mdctrl', 'load', $event);
     }
 
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TaskAssMobMDView9Base
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction3_myassmore')) {
+            this.righttoolbar_deuiaction3_myassmore_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.righttoolbar_deuiaction2_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.righttoolbar_deuiaction1_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TaskAssMobMDView9Base
+     */
+    protected async righttoolbar_deuiaction3_myassmore_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.mdctrl;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        if (curUIService) {
+            curUIService.Task_MyAssMore(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TaskAssMobMDView9Base
+     */
+    protected async righttoolbar_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.mdctrl;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        this.globaluiservice.Refresh(datas, contextJO, paramJO, $event, xData, this);
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TaskAssMobMDView9Base
+     */
+    protected async righttoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.mdctrl;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        this.globaluiservice.ExportExcel(datas, contextJO, paramJO, $event, xData, this);
+    }
 
     /**
      * 打开新建数据视图
