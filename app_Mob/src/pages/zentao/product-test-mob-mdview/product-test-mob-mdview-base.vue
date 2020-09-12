@@ -534,13 +534,14 @@ export default class ProductTestMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'mobeditview', parameterName: 'mobeditview' },
-        ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
-        response = await this.globaluiservice.openService.openView(routeParam);
+        const view: any = { 
+            viewname: 'product-mob-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: '产品移动端编辑视图', 
+            placement: 'POPUPMODAL',
+        };
+        response = await this.globaluiservice.openService.openModal(view, _context, _params);
         if (response) {
             if (!response || !Object.is(response.ret, 'OK')) {
                 return;
