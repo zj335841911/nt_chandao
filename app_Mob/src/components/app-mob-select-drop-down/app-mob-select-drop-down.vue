@@ -2,7 +2,7 @@
      <div class="app-mobile-select-drop-down">
         <div class="cancel-icon" v-if="curvalue"><ion-icon name="close-circle-outline" @click="onClear"></ion-icon></div>
         <div v-if="curvalue== null || curvalue==''" class="ion-select-icon"></div>
-        <ion-input class="select_text" readonly="true" :value="curvalue" :ref="name+'input'" style="height: 43px;" @click="openSelect"/>
+        <ion-input class="select_text" readonly="true" :value="curvalue" :ref="name+'input'" style="height: 43px;" @ionFocus="openSelect"/>
         <ion-select :selected-text="selectValue" :ref="name+'select'" v-show="false" :disabled="disabled " @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
             <ion-select-option  v-for="option of items" :key="option.value" :value="option.value">{{option.text}}</ion-select-option>
         </ion-select>
