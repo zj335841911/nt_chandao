@@ -10,7 +10,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.mytasks.visible"  :lg="6" :size="6" :offset="2" style="text-align:center" class="app-layoutpanel-field text-center-marginupdown">
+                <ion-col v-show="detailsModel.mytasks.visible"  :lg="6" :size="6" :offset="2" style="text-align:right" class="app-layoutpanel-field text-center-marginupdown-mob">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.mytasks" :context="context" :value="data.mytasks" :itemParam="{}"  ></app-mob-span>
@@ -25,7 +25,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.myetasks.visible"  :lg="6" :size="6" :offset="2" style="color:rgba(255, 93, 93, 1);text-align:center" class="app-layoutpanel-field text-center-red">
+                <ion-col v-show="detailsModel.myetasks.visible"  :lg="6" :size="6" :offset="2" style="text-align:right" class="app-layoutpanel-field text-center-marginupdown-mob-red">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.myetasks" :context="context" :value="data.myetasks" :itemParam="{}"  ></app-mob-span>
@@ -40,7 +40,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.mybugs.visible"  :lg="6" :size="6" :offset="2" style="text-align:center" class="app-layoutpanel-field text-center-marginupdown">
+                <ion-col v-show="detailsModel.mybugs.visible"  :lg="6" :size="6" :offset="2" style="text-align:right" class="app-layoutpanel-field text-center-marginupdown-mob">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.mybugs" :context="context" :value="data.mybugs" :itemParam="{}"  ></app-mob-span>
@@ -55,7 +55,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.myebugs.visible"  :lg="6" :size="6" :offset="2" style="color:rgba(255, 93, 93, 1);text-align:center" class="app-layoutpanel-field text-center-red">
+                <ion-col v-show="detailsModel.myebugs.visible"  :lg="6" :size="6" :offset="2" style="text-align:right" class="app-layoutpanel-field text-center-marginupdown-mob-red">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.myebugs" :context="context" :value="data.myebugs" :itemParam="{}"  ></app-mob-span>
@@ -70,7 +70,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.mystorys.visible"  :lg="6" :size="6" :offset="2" style="text-align:center" class="app-layoutpanel-field text-center-marginupdown">
+                <ion-col v-show="detailsModel.mystorys.visible"  :lg="6" :size="6" :offset="2" style="text-align:right" class="app-layoutpanel-field text-center-marginupdown-mob">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.mystorys" :context="context" :value="data.mystorys" :itemParam="{}"  ></app-mob-span>
@@ -85,7 +85,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.projects.visible"  :lg="6" :size="6" :offset="2" style="text-align:center" class="app-layoutpanel-field text-center-marginupdown">
+                <ion-col v-show="detailsModel.projects.visible"  :lg="6" :size="6" :offset="2" style="text-align:right" class="app-layoutpanel-field text-center-marginupdown-mob">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.projects" :context="context" :value="data.projects" :itemParam="{}"  ></app-mob-span>
@@ -100,7 +100,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.eprojects.visible"  :lg="6" :size="6" :offset="2" style="color:rgba(255, 93, 93, 1);text-align:center" class="app-layoutpanel-field text-center-red">
+                <ion-col v-show="detailsModel.eprojects.visible"  :lg="6" :size="6" :offset="2" style="text-align:right" class="app-layoutpanel-field text-center-marginupdown-mob-red">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.eprojects" :context="context" :value="data.eprojects" :itemParam="{}"  ></app-mob-span>
@@ -115,7 +115,7 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.products.visible"  :lg="6" :size="6" :offset="2" style="text-align:center" class="app-layoutpanel-field text-center-marginupdown">
+                <ion-col v-show="detailsModel.products.visible"  :lg="6" :size="6" :offset="2" style="text-align:right" class="app-layoutpanel-field text-center-marginupdown-mob-red">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.products" :context="context" :value="data.products" :itemParam="{}"  ></app-mob-span>
