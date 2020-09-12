@@ -34,6 +34,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[MyWorkMob]-->
+	 <select id="searchMyWorkMob"  parameterType="cn.ibizlab.pms.core.ibiz.filter.IbzMyTerritorySearchContext"  resultMap="IbzMyTerritoryResultMap">
+         select t1.* from (
+                <include refid="MyWorkMob" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[Welcome]-->
 	 <select id="searchWelcome"  parameterType="cn.ibizlab.pms.core.ibiz.filter.IbzMyTerritorySearchContext"  resultMap="IbzMyTerritoryResultMap">
          select t1.* from (
@@ -51,6 +60,11 @@
     <!--数据查询[MyWork]-->
     <sql id="MyWork" databaseId="mysql">
 		<![CDATA[ SELECT 	t1.`ACCOUNT`, 	t1.`ADDRESS`, 	t1.`AVATAR`, 	t1.`BIRTHDAY`, 	t1.`CLIENTLANG`, 	t1.`CLIENTSTATUS`, 	t1.`COMMITER`, 	t1.`DELETED`, 	t1.`DEPT`, 	t1.`DINGDING`, 	t1.`EMAIL`, 	t1.`FAILS`, 	t1.`GENDER`, 	t1.`ID`, 	t1.`IP`, 	t1.`JOIN`, 	t1.`LAST`, 	t1.`LOCKED`, 	t1.`MOBILE`, 	t1.`NICKNAME`, 	t1.`PASSWORD`, 	t1.`PHONE`, 	t1.`QQ`, 	t1.`RANZHI`, 	t1.`REALNAME`, 	t1.`ROLE`, 	t1.`SCORE`, 	t1.`SCORELEVEL`, 	t1.`SKYPE`, 	t1.`SLACK`, 	t1.`VISITS`, 	t1.`WEIXIN`, 	t1.`WHATSAPP`, 	t1.`ZIPCODE`, 	t11.mytasks, 	CONCAT('已延期 ',t51.MYETASKS) as MYETASKS, 	t21.mybugs, 	CONCAT('已延期 ', t31.myEbugs) as myEbugs, 	t41.mystorys , 	(select count(1) as projects from zt_project tt where tt.deleted = '0' and (tt.`status` <> 'closed' )) as  projects, 	concat('已延期 ', (select count(1) as eprojects from zt_project tt where tt.deleted = '0' and (tt.`status` <> 'closed' ) and tt.`end` < DATE_FORMAT(now(),'%Y-%m-%d'))) as  eprojects, 	(select count(1) as products from zt_product tt where tt.`status` = 'normal' and tt.deleted = '0' and tt.acl = 'open') as  products FROM 	`zt_user` t1 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS mytasks FROM zt_task t GROUP BY t.assignedTo ) t11 ON t1.account = t11.account 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS mybugs FROM zt_bug t GROUP BY t.assignedTo ) t21 ON t1.account = t21.account 	LEFT JOIN ( SELECT 	t.assignedTo AS account, 	COUNT( 1 ) AS myEbugs  FROM 	zt_bug t  WHERE 	t.DEADLINE < DATE_FORMAT( now( ), '%Y-%m-%d' )  	AND t.`status` = 'active'  GROUP BY 	t.assignedTo  	) t31 ON t1.account = t31.account 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS mystorys FROM zt_story t GROUP BY t.assignedTo ) t41 ON t1.account = t41.account 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS MYETASKS FROM zt_task t where (t.`status` = 'wait' or t.`status` = 'doing') and (t.DEADLINE < DATE_FORMAT(now(),'%Y-%m-%d') and t.deadline <> '0000-00-00') GROUP BY t.assignedTo ) t51 ON t1.account = t51.account
+			]]>
+    </sql>
+    <!--数据查询[MyWorkMob]-->
+    <sql id="MyWorkMob" databaseId="mysql">
+		<![CDATA[ SELECT 	t1.`ACCOUNT`, 	t1.`ADDRESS`, 	t1.`AVATAR`, 	t1.`BIRTHDAY`, 	t1.`CLIENTLANG`, 	t1.`CLIENTSTATUS`, 	t1.`COMMITER`, 	t1.`DELETED`, 	t1.`DEPT`, 	t1.`DINGDING`, 	t1.`EMAIL`, 	t1.`FAILS`, 	t1.`GENDER`, 	t1.`ID`, 	t1.`IP`, 	t1.`JOIN`, 	t1.`LAST`, 	t1.`LOCKED`, 	t1.`MOBILE`, 	t1.`NICKNAME`, 	t1.`PASSWORD`, 	t1.`PHONE`, 	t1.`QQ`, 	t1.`RANZHI`, 	t1.`REALNAME`, 	t1.`ROLE`, 	t1.`SCORE`, 	t1.`SCORELEVEL`, 	t1.`SKYPE`, 	t1.`SLACK`, 	t1.`VISITS`, 	t1.`WEIXIN`, 	t1.`WHATSAPP`, 	t1.`ZIPCODE`, 	t11.mytasks, 	CONCAT(t51.MYETASKS) as MYETASKS, 	t21.mybugs, 	CONCAT( t31.myEbugs) as myEbugs, 	t41.mystorys , 	(select count(1) as projects from zt_project tt where tt.deleted = '0' and (tt.`status` <> 'closed' )) as  projects, 	concat((select count(1) as eprojects from zt_project tt where tt.deleted = '0' and (tt.`status` <> 'closed' ) and tt.`end` < DATE_FORMAT(now(),'%Y-%m-%d'))) as  eprojects, 	(select count(1) as products from zt_product tt where tt.`status` = 'normal' and tt.deleted = '0' and tt.acl = 'open') as  products FROM 	`zt_user` t1 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS mytasks FROM zt_task t GROUP BY t.assignedTo ) t11 ON t1.account = t11.account 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS mybugs FROM zt_bug t GROUP BY t.assignedTo ) t21 ON t1.account = t21.account 	LEFT JOIN ( SELECT 	t.assignedTo AS account, 	COUNT( 1 ) AS myEbugs  FROM 	zt_bug t  WHERE 	t.DEADLINE < DATE_FORMAT( now( ), '%Y-%m-%d' )  	AND t.`status` = 'active'  GROUP BY 	t.assignedTo  	) t31 ON t1.account = t31.account 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS mystorys FROM zt_story t GROUP BY t.assignedTo ) t41 ON t1.account = t41.account 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS MYETASKS FROM zt_task t where (t.`status` = 'wait' or t.`status` = 'doing') and (t.DEADLINE < DATE_FORMAT(now(),'%Y-%m-%d') and t.deadline <> '0000-00-00') GROUP BY t.assignedTo ) t51 ON t1.account = t51.account
 			]]>
     </sql>
     <!--数据查询[View]-->

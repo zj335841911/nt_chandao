@@ -250,6 +250,21 @@ export class IbzMyTerritoryServiceBase extends EntityService {
     }
 
     /**
+     * FetchMyWorkMob接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMyTerritoryServiceBase
+     */
+    public async FetchMyWorkMob(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzmyterritories/fetchmyworkmob`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchWelcome接口方法
      *
      * @param {*} [context={}]

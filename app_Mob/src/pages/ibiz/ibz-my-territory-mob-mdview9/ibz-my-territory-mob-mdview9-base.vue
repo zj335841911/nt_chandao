@@ -16,7 +16,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="FetchMyWork" 
+            fetchAction="FetchMyWorkMob" 
             :isMutli="!isSingleSelect"
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"

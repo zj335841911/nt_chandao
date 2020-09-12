@@ -206,6 +206,27 @@ public class IbzMyTerritoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzmyterritoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-searchMyWorkMob-all')")
+	@ApiOperation(value = "获取我的工作", tags = {"我的地盘" } ,notes = "获取我的工作")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzmyterritories/fetchmyworkmob")
+	public ResponseEntity<List<IbzMyTerritoryDTO>> fetchMyWorkMob(IbzMyTerritorySearchContext context) {
+        Page<IbzMyTerritory> domains = ibzmyterritoryService.searchMyWorkMob(context) ;
+        List<IbzMyTerritoryDTO> list = ibzmyterritoryMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-searchMyWorkMob-all')")
+	@ApiOperation(value = "查询我的工作", tags = {"我的地盘" } ,notes = "查询我的工作")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzmyterritories/searchmyworkmob")
+	public ResponseEntity<Page<IbzMyTerritoryDTO>> searchMyWorkMob(@RequestBody IbzMyTerritorySearchContext context) {
+        Page<IbzMyTerritory> domains = ibzmyterritoryService.searchMyWorkMob(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzmyterritoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-searchWelcome-all')")
 	@ApiOperation(value = "获取欢迎", tags = {"我的地盘" } ,notes = "获取欢迎")
     @RequestMapping(method= RequestMethod.GET , value="/ibzmyterritories/fetchwelcome")

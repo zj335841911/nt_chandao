@@ -41,6 +41,7 @@ public interface IIbzMyTerritoryService extends IService<IbzMyTerritory>{
     void saveBatch(List<IbzMyTerritory> list) ;
     Page<IbzMyTerritory> searchDefault(IbzMyTerritorySearchContext context) ;
     Page<IbzMyTerritory> searchMyWork(IbzMyTerritorySearchContext context) ;
+    Page<IbzMyTerritory> searchMyWorkMob(IbzMyTerritorySearchContext context) ;
     Page<IbzMyTerritory> searchWelcome(IbzMyTerritorySearchContext context) ;
     /**
      *自定义查询SQL
