@@ -30,6 +30,9 @@ export class AppEmbedView extends Vue {
             <div class="embed-view-header">
                 {this.$slots.header}
             </div>
+            {this.$slots.toolbar ?<div  class="embed-view-toolbar">
+                {this.$slots.toolbar}
+            </div> : ""}
             <div class="embed-view-content">
                 {this.$slots.content}
             </div>

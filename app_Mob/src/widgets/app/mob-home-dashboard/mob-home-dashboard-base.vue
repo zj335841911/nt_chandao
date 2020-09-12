@@ -79,9 +79,9 @@
 </view_dashboard_sysportlet7>
             </div>
             <template v-for="item in customizeModel">
-                <div class="dashboard-item" :class="item.componentName + 'dashboard'"  :key="item.id" v-if="isEnableCustomized">
+                <ion-card class="dashboard-item ios hydrated" :class="item.componentName + 'dashboard'"  :key="item.id" v-if="isEnableCustomized">
                     <component :is="item.componentName" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams"></component>
-                </div>
+                </ion-card>
             </template>
     </ion-grid>
 </template>

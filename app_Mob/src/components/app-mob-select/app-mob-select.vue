@@ -1,6 +1,6 @@
 <template>
     <div class="app-mobile-select" data-tap-disabled="true">
-        <div class="cancel-icon" v-if="curValue"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
+        <div class="cancel-icon" v-if="curValue === null || curValue === ''"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
         <div v-if="curValue== null || curValue==''" class="ion-select-icon"></div>
         <ion-select  :value="curValue" :disabled="disabled ? disabled : false" @ionChange="change" interface="action-sheet" @click="load" :cancel-text="$t('app.button.cancel')">
               <template v-if="codeListType == 'DYNAMIC'">
@@ -43,17 +43,13 @@ export default class AppSelect extends Vue {
      * @memberof AppSelect
      */
     get curValue() {
-        if (this.value && this.options.length > 0) {
+        if (this.options.length > 0 && this.value !== null && this.value !== "") {
             let isIncluded = this.options.some((option:any)=>{return option.value === this.value})
             if (isIncluded) {
                 return this.value;
             }
         }
         return "";
-    }
-    
-    set curValue(value:any){
-        this.$emit("change", value);
     }
 
     /**
@@ -63,19 +59,21 @@ export default class AppSelect extends Vue {
      */
     public change(value: any) {
         let devalue:any = value.detail.value;
-        for(let key in this.options){
-          if (this.options[key].isValueNumber) {
-            devalue = +devalue;
+        if (devalue !== '') {
+          for(let key in this.options){
+            if (this.options[key].isValueNumber) {
+              devalue = +devalue;
+            }
+          }
+          if (Object.is(this.codeListType, 'DYNAMIC')) {
+            for(let key in this.options){
+              if (typeof this.options[key].id == 'number') {
+                  devalue = +devalue;
+              }
+            }
           }
         }
-        if (Object.is(this.codeListType, 'DYNAMIC')) {
-         for(let key in this.options){
-           if (typeof this.options[key].id == 'number') {
-              devalue = +devalue;
-           }
-         }
-        }
-        this.curValue = devalue;
+        this.$emit("change", devalue);
     }
 
     /**
