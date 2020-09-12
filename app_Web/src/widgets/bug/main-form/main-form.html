@@ -302,14 +302,14 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ ZT_PRODUCT:"%product%", N_MODULE_EQ:"%module%" }' 
-  :localParam ='{ n_product_eq:"%product%", n_module_eq:"%module%" }' 
+  :localContext ='{ ZT_PRODUCT:"%product%", N_MODULE_EQ:"%module%", N_PROJECT_EQ:"%project%", N_PRODUCT_EQ:"%product%" }' 
+  :localParam ='{ n_product_eq:"%product%", n_project_eq:"%project%", n_module_eq:"%module%" }' 
   :disabled="detailsModel.storyname.disabled"
   name='storyname'
   deMajorField='title'
   deKeyField='story'
   :service="service"
-  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchBugStory'}"
   valueitem='story' 
   :value="data.storyname" 
   editortype="dropdown"
@@ -327,7 +327,7 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ ZT_PROJECT:"%project%" }' 
+  :localContext ='{ ZT_PROJECT:"%project%", N_PROJECT_EQ:"%project%" }' 
   :localParam ='{ n_project_eq:"%project%" }' 
   :disabled="detailsModel.taskname.disabled"
   name='taskname'

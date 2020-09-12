@@ -446,14 +446,14 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ ZT_PRODUCT:"%product%", N_MODULE_EQ:"%module%", PRODUCT:"%product%" }' 
-  :localParam ='{ product:"%product%", n_product_eq:"%product%", n_module_eq:"%module%" }' 
+  :localContext ='{ ZT_PRODUCT:"%product%", N_MODULE_EQ:"%module%", N_PROJECT_EQ:"%project%", PRODUCT:"%product%" }' 
+  :localParam ='{ product:"%product%", n_product_eq:"%product%", n_project_eq:"%project%", n_module_eq:"%module%" }' 
   :disabled="detailsModel.storyname.disabled"
   name='storyname'
   deMajorField='title'
   deKeyField='story'
   :service="service"
-  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchBugStory'}"
   valueitem='story' 
   :value="data.storyname" 
   editortype="dropdown"
