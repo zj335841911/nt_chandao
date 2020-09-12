@@ -100,34 +100,6 @@ export default {
 			caption: '项目',
 		},
 	},
-	mobnewform_form: {
-		details: {
-			grouppanel2: '分组面板', 
-			grouppanel1: '分组面板', 
-			group1: 'project基本信息', 
-			formpage1: '基本信息', 
-			srforikey: '', 
-			srfkey: '项目编号', 
-			srfmajortext: '项目名称', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			name: '项目名称', 
-			code: '项目代号', 
-			begin: '开始时间', 
-			period: '时间段', 
-			end: '结束日期', 
-			days: '可用工作日', 
-			team: '团队名称', 
-			type: '项目类型', 
-			desc: '项目描述', 
-			acl: '访问控制', 
-			id: '项目编号', 
-		},
-		uiactions: {
-		},
-	},
 	mobmain_form: {
 		details: {
 			druipart1: '', 
@@ -205,16 +177,32 @@ export default {
 		uiactions: {
 		},
 	},
-	newmobeditviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: '保存',
-			tip: '保存',
+	mobnewform_form: {
+		details: {
+			grouppanel2: '分组面板', 
+			grouppanel1: '分组面板', 
+			group1: 'project基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '项目编号', 
+			srfmajortext: '项目名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			name: '项目名称', 
+			code: '项目代号', 
+			begin: '开始时间', 
+			period: '时间段', 
+			end: '结束日期', 
+			days: '可用工作日', 
+			team: '团队名称', 
+			type: '项目类型', 
+			desc: '项目描述', 
+			acl: '访问控制', 
+			id: '项目编号', 
 		},
-	},
-	mobmdviewrighttoolbar_toolbar: {
-		deuiaction1: {
-			caption: '新建',
-			tip: '新建',
+		uiactions: {
 		},
 	},
 	activitemobeditviewrighttoolbar_toolbar: {
@@ -255,6 +243,18 @@ export default {
 		deuiaction4: {
 			caption: '删除',
 			tip: '删除',
+		},
+	},
+	newmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
+	},
+	mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
 		},
 	},
 };

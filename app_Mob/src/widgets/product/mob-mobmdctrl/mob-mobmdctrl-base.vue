@@ -10,6 +10,7 @@
                 <ion-list class="items">
                   <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.EditMob.visabled" :disabled="item.EditMob.disabled" color="primary" @click="mdctrl_click($event, 'u89c41af', item)"><ion-icon v-if="item.EditMob.icon && item.EditMob.isShowIcon" :name="item.EditMob.icon"></ion-icon><ion-label v-if="item.EditMob.isShowCaption">详情</ion-label></ion-item-option>
                             <ion-item-option v-show="item.ProductTop.visabled" :disabled="item.ProductTop.disabled" color="primary" @click="mdctrl_click($event, 'u1f01c30', item)"><ion-icon v-if="item.ProductTop.icon && item.ProductTop.isShowIcon" :name="item.ProductTop.icon"></ion-icon><ion-label v-if="item.ProductTop.isShowCaption">置顶</ion-label></ion-item-option>
                             <ion-item-option v-show="item.CancelProductTop.visabled" :disabled="item.CancelProductTop.disabled" color="primary" @click="mdctrl_click($event, 'u8d9e94f', item)"><ion-icon v-if="item.CancelProductTop.icon && item.CancelProductTop.isShowIcon" :name="item.CancelProductTop.icon"></ion-icon><ion-label v-if="item.CancelProductTop.isShowCaption">取消置顶</ion-label></ion-item-option>
                             <ion-item-option v-show="item.CloseProductMob.visabled" :disabled="item.CloseProductMob.disabled" color="primary" @click="mdctrl_click($event, 'ubbd2867', item)"><ion-icon v-if="item.CloseProductMob.icon && item.CloseProductMob.isShowIcon" :name="item.CloseProductMob.icon"></ion-icon><ion-label v-if="item.CloseProductMob.isShowCaption">关闭</ion-label></ion-item-option>
@@ -207,6 +208,37 @@ export default class MobBase extends Vue implements ControlInterface {
      */  
     public deUIService:ProductUIService = new ProductUIService(this.$store);
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u89c41af_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('product_ui_action');
+        if (curUIService) {
+            curUIService.Product_EditMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 逻辑事件
@@ -1112,6 +1144,9 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
+        if (Object.is(tag, 'u89c41af')) {
+            this.mdctrl_u89c41af_click();
+        }
         if (Object.is(tag, 'u1f01c30')) {
             this.mdctrl_u1f01c30_click();
         }
@@ -1221,6 +1256,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
+        EditMob: { name: 'EditMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'paper',isShowCaption:true,isShowIcon:true},
         ProductTop: { name: 'ProductTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', target: 'SINGLEKEY',icon:'hand-o-up',isShowCaption:true,isShowIcon:true},
         CancelProductTop: { name: 'CancelProductTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'TOP', target: 'SINGLEKEY',icon:'hand-o-down',isShowCaption:true,isShowIcon:true},
         CloseProductMob: { name: 'CloseProductMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_CLOSED_BUT', target: 'SINGLEKEY',icon:'power',isShowCaption:true,isShowIcon:true},

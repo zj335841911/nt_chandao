@@ -10,6 +10,7 @@
                 <ion-list class="items">
                   <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.EditMod.visabled" :disabled="item.EditMod.disabled" color="primary" @click="mdctrl_click($event, 'ueeac2b8', item)"><ion-icon v-if="item.EditMod.icon && item.EditMod.isShowIcon" :name="item.EditMod.icon"></ion-icon><ion-label v-if="item.EditMod.isShowCaption">详情</ion-label></ion-item-option>
                             <ion-item-option v-show="item.ProjectTop.visabled" :disabled="item.ProjectTop.disabled" color="primary" @click="mdctrl_click($event, 'u4186bd7', item)"><ion-icon v-if="item.ProjectTop.icon && item.ProjectTop.isShowIcon" :name="item.ProjectTop.icon"></ion-icon><ion-label v-if="item.ProjectTop.isShowCaption">置顶</ion-label></ion-item-option>
                             <ion-item-option v-show="item.CancelProjectTop.visabled" :disabled="item.CancelProjectTop.disabled" color="primary" @click="mdctrl_click($event, 'ua7fd566', item)"><ion-icon v-if="item.CancelProjectTop.icon && item.CancelProjectTop.isShowIcon" :name="item.CancelProjectTop.icon"></ion-icon><ion-label v-if="item.CancelProjectTop.isShowCaption">取消置顶</ion-label></ion-item-option>
                             <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u02bc474', item)"><ion-icon v-if="item.deleteMob.icon && item.deleteMob.isShowIcon" :name="item.deleteMob.icon"></ion-icon><ion-label v-if="item.deleteMob.isShowCaption">删除</ion-label></ion-item-option>
@@ -206,6 +207,37 @@ export default class MobBase extends Vue implements ControlInterface {
      */  
     public deUIService:ProjectUIService = new ProjectUIService(this.$store);
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_ueeac2b8_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('project_ui_action');
+        if (curUIService) {
+            curUIService.Project_EditMod(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 逻辑事件
@@ -1080,6 +1112,9 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
+        if (Object.is(tag, 'ueeac2b8')) {
+            this.mdctrl_ueeac2b8_click();
+        }
         if (Object.is(tag, 'u4186bd7')) {
             this.mdctrl_u4186bd7_click();
         }
@@ -1186,6 +1221,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
+        EditMod: { name: 'EditMod',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'paper',isShowCaption:true,isShowIcon:true},
         ProjectTop: { name: 'ProjectTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', target: 'SINGLEKEY',icon:'hand-o-up',isShowCaption:true,isShowIcon:true},
         CancelProjectTop: { name: 'CancelProjectTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'TOP', target: 'SINGLEKEY',icon:'hand-o-down',isShowCaption:true,isShowIcon:true},
         deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_DELETE_BUT', target: 'SINGLEKEY',icon:'close',isShowCaption:true,isShowIcon:true},

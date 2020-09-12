@@ -13,9 +13,6 @@
         </ion-toolbar>
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel">
-                            
-                            详情</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
                             <ion-badge color="danger">{{counter.counterData.taskcnt?counter.counterData.taskcnt:''}}</ion-badge>
                             任务</ion-segment-button>
@@ -277,7 +274,6 @@ export default class ProjectMobTabExpViewBase extends Vue {
 
 
 
-
     /**
      * 工具栏模型集合名
      *
@@ -336,7 +332,7 @@ export default class ProjectMobTabExpViewBase extends Vue {
      * @type {string}
      * @memberof  ProjectMobTabExpViewBase
      */
-    protected activiedTabViewPanel: string = 'tabviewpanel';
+    protected activiedTabViewPanel: string = 'tabviewpanel2';
 
     /**
      * 分页导航栏激活
@@ -395,7 +391,7 @@ export default class ProjectMobTabExpViewBase extends Vue {
         if (info.name && info.name == 'project' && info.id && info.id == this.context.project) {
           this.activiedTabViewPanel = info.value;
         } else { 
-          this.activiedTabViewPanel = 'tabviewpanel';
+          this.activiedTabViewPanel = 'tabviewpanel2';
         }
         }
     }

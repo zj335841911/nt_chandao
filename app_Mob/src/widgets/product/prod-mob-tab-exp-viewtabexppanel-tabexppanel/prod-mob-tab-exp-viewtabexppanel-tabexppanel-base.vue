@@ -1,16 +1,5 @@
 <template>
     <span>
-        <span v-show="activiedTabViewPanel == 'tabviewpanel'">
-                        <view_tabviewpanel
-                :viewState="viewState"
-                viewName="ProductProdMobTabExpView"  
-                :viewparams="viewparams" 
-                :context="context" 
-                name="tabviewpanel"  
-                ref='tabviewpanel' 
-                @closeview="closeView($event)">
-            </view_tabviewpanel>
-        </span>
         <span v-show="activiedTabViewPanel == 'tabviewpanel2'">
                         <view_tabviewpanel2
                 :viewState="viewState"
@@ -270,7 +259,7 @@ export default class ProdMobTabExpViewtabexppanelBase extends Vue implements Con
      * @type {string}
      * @memberof ProdMobTabExpViewtabexppanel
      */
-    @Prop({ default: 'tabviewpanel' }) protected activiedTabViewPanel?: string;     
+    @Prop({ default: 'tabviewpanel2' }) protected activiedTabViewPanel?: string;     
              
     /**
      * vue 生命周期
