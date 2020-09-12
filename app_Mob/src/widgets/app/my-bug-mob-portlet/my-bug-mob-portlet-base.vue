@@ -2,7 +2,7 @@
     <ion-row>
         <ion-list class='app-mob-portlet ibzmyterritory-dashboard_sysportlet3 '>
             <ion-list-header class='app-mob-portlet__header'>我的bug </ion-list-header>
-                <bug-ass-mob-mdview :_context="JSON.stringify(context)" :isChildView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></bug-ass-mob-mdview>
+                <bug-ass-mob-mdview9 :_context="JSON.stringify(context)" :isChildView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></bug-ass-mob-mdview9>
         </ion-list>
     </ion-row>
 </template>
