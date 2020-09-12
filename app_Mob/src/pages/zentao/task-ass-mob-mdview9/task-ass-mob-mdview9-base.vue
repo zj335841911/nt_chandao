@@ -1,9 +1,6 @@
 <template>
 <embed-view :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview9': true, 'task-ass-mob-mdview9': true }">
     <template slot="header">
-        <ion-toolbar>
-            <ion-title v-if="showTitle">{{$t(model.srfCaption)}}</ion-title>
-        </ion-toolbar>
     </template>
 
     <template slot="toolbar">
