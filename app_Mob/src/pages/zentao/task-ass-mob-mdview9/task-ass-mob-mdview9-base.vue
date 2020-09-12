@@ -168,7 +168,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * @type {*}
      * @memberof TaskAssMobMDView9Base
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'n_assignedto_eq': '%srfloginname%' };
 
     /**
      * 视图模型数据

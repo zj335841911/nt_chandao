@@ -166,7 +166,7 @@ export default class StoryAssMobMDView9Base extends Vue {
      * @type {*}
      * @memberof StoryAssMobMDView9Base
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'n_assignedto_eq': '%srfloginname%' };
 
     /**
      * 视图模型数据
