@@ -1,16 +1,5 @@
 <template>
 <embed-view :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview9': true, 'story-favorite-mob-mdview9': true }">
-    <template slot="header">
-        <ion-toolbar>
-            <ion-title v-if="showTitle">{{$t(model.srfCaption)}}</ion-title>
-            <ion-buttons slot="end" class="ibiz-top-right-buttons ibiz-buttonGroup">
-                                <div class="app-toolbar-container ">
-                    <div class="app-quick-toolbar toolbar-right-bottons">
-                    </div>
-                </div>
-            </ion-buttons>
-        </ion-toolbar>
-    </template>
     <template slot="content">
                 <view_mdctrl
             :viewState="viewState"
@@ -243,7 +232,6 @@ export default class StoryFavoriteMobMDView9Base extends Vue {
      */
     protected containerModel: any = {
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
-        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
 
     /**
@@ -264,25 +252,12 @@ export default class StoryFavoriteMobMDView9Base extends Vue {
     @Prop({default:true}) protected showTitle?: boolean;
 
 
-
-   /**
-    * 工具栏 StoryFavoriteMobMDView9 模型
-    *
-    * @type {*}
-    * @memberof StoryFavoriteMobMDView9
-    */
-    public righttoolbarModels: any = {
-    };
-
-    
-
-
     /**
      * 工具栏模型集合名
      *
      * @memberof StoryFavoriteMobMDView9Base
      */
-    public toolbarModelList:any = ['righttoolbarModels',]
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数

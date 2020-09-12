@@ -347,8 +347,6 @@ export default {
 			tip: '删除',
 		},
 	},
-	favoritemobmdview9righttoolbar_toolbar: {
-	},
 	mobmdviewcurprojectrighttoolbar_toolbar: {
 	},
 };

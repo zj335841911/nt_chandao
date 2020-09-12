@@ -347,8 +347,6 @@ export default {
 			tip: 'deuiaction1_deletemob',
 		},
 	},
-	favoritemobmdview9righttoolbar_toolbar: {
-	},
 	mobmdviewcurprojectrighttoolbar_toolbar: {
 	},
 };
