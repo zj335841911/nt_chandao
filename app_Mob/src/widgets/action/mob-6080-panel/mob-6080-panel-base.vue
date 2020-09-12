@@ -3,41 +3,49 @@
     <ion-row class="app-layoutpanel">
         <ion-col v-show="detailsModel.container1.visible"  :size="12" style="" class="app-layoutpanel-container mob_list_card">
             <ion-row style="height:100%;">
-                
-                <ion-col v-show="detailsModel.date1.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
-                    <div class="item-field ">
-                    
-                    <app-mob-span  v-if="data.date1" :context="context" :value="data.date1" :itemParam="{}"  ></app-mob-span>
-                </div>
-                
-                
+                <ion-col v-show="detailsModel.container2.visible"  :lg="7" :size="7" style="" class="app-layoutpanel-container">
+                    <ion-row style="height:100%;">
+                        
+                        <ion-col v-show="detailsModel.date1.visible"  :lg="8" :size="8" style="" class="app-layoutpanel-field">
+                            <div class="item-field ">
+                            
+                            <app-mob-span  v-if="data.date1" :context="context" :value="data.date1" :itemParam="{}"  ></app-mob-span>
+                        </div>
+                        
+                        
+                        </ion-col>
+                        
+                        <ion-col v-show="detailsModel.actor.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
+                            <div class="item-field ">
+                            
+                            <app-mob-span  v-if="data.actor" :context="context" :value="data.actor" :itemParam="{}"  ></app-mob-span>
+                        </div>
+                        
+                        
+                        </ion-col>
+                    </ion-row>
                 </ion-col>
-                
-                <ion-col v-show="detailsModel.actor.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
-                    <div class="item-field ">
-                    
-                    <app-mob-span  v-if="data.actor" :context="context" :value="data.actor" :itemParam="{}"  ></app-mob-span>
-                </div>
-                
-                
-                </ion-col>
-                
-                <ion-col v-show="detailsModel.actions.visible"  :lg="3" :size="3" style="" class="app-layoutpanel-field">
-                    <div class="item-field ">
-                    
-                    <app-mob-span  v-if="data.actions" :context="context" :value="data.actions" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Action__type"></app-mob-span>
-                </div>
-                
-                
-                </ion-col>
-                
-                <ion-col v-show="detailsModel.objecttype.visible"  :lg="2" :size="2" style="" class="app-layoutpanel-field">
-                    <div class="item-field ">
-                    
-                    <app-mob-span  v-if="data.objecttype" :context="context" :value="data.objecttype" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Action__object_type"></app-mob-span>
-                </div>
-                
-                
+                <ion-col v-show="detailsModel.container3.visible"  :lg="5" :size="5" style="" class="app-layoutpanel-container">
+                    <ion-row style="height:100%;">
+                        
+                        <ion-col v-show="detailsModel.actions.visible"  :lg="7" :size="7" style="" class="app-layoutpanel-field">
+                            <div class="item-field ">
+                            
+                            <app-mob-span  v-if="data.actions" :context="context" :value="data.actions" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Action__type"></app-mob-span>
+                        </div>
+                        
+                        
+                        </ion-col>
+                        
+                        <ion-col v-show="detailsModel.objecttype.visible"  :lg="5" :size="5" style="" class="app-layoutpanel-field">
+                            <div class="item-field ">
+                            
+                            <app-mob-span  v-if="data.objecttype" :context="context" :value="data.objecttype" :itemParam="{}"   :isCache="false" codeListType="STATIC" tag="Action__object_type"></app-mob-span>
+                        </div>
+                        
+                        
+                        </ion-col>
+                    </ion-row>
                 </ion-col>
             </ion-row>
         </ion-col>
@@ -306,6 +314,8 @@ export default class Mob_6080Base extends Vue implements ControlInterface {
 
 
 
+
+
     }
 
    /**
@@ -319,9 +329,13 @@ export default class Mob_6080Base extends Vue implements ControlInterface {
 , 
         actor: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'actor', panel: this, visible: true  })
 , 
+        container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container2', panel: this, visible: true  })
+, 
         actions: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'actions', panel: this, visible: true  })
 , 
         objecttype: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'objecttype', panel: this, visible: true  })
+, 
+        container3: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container3', panel: this, visible: true  })
 , 
         container1: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container1', panel: this, visible: true  })
 , 
