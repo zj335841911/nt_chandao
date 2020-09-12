@@ -15,7 +15,7 @@
                             </ion-item>
                         </div>
                     </ion-item-sliding>
-                    <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px);"  @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
+                    <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" class="loadmore_btn" @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                 </template>
             </ion-list>
             <ion-list class="items">
@@ -32,7 +32,7 @@
                             </ion-item>
                         </div>
                       </ion-item-sliding>
-                    <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px);"  @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
+                    <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" class="loadmore_btn" @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                 </template>
                 <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
                 </template>
