@@ -33,7 +33,9 @@ export class TrendsMobModel {
 				name: 'id',
 			},
 			{
-				name: 'action',
+				name: 'actions',
+				prop: 'action',
+				dataType: 'SSCODELIST',
 			},
 			{
 				name: 'date',
