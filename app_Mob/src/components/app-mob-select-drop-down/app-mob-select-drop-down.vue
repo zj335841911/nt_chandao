@@ -245,6 +245,14 @@ export default class AppSelectDropDown extends Vue {
      */
     @Watch('value')
     public onValueChange(newVal: any, oldVal: any) {
+        if (oldVal && !newVal) {
+            this.$nextTick(()=>{
+                let select :any = this.$refs[this.name+'select'];
+                if (select) {
+                    select.value = null;
+                }
+            })
+        }
         this.curvalue = newVal;
         if (Object.is(this.editortype, 'dropdown') && this.valueitem) {
             const value = this.data[this.valueitem];
