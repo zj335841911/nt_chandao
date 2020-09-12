@@ -34,7 +34,7 @@
     name='prodoctname' 
     deMajorField='name'
     deKeyField='id'
-    valueitem='' 
+    valueitem='product' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
@@ -105,7 +105,7 @@
     name='modulename' 
     deMajorField='name'
     deKeyField='id'
-    valueitem='' 
+    valueitem='module' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
@@ -1452,6 +1452,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         }
         if (Object.is(name, 'branch')) {
             this.onFormItemValueChange({ name: 'modulename', value: null });
+            this.onFormItemValueChange({ name: 'module', value: null });
         }
         if (Object.is(name, 'prodoctname')) {
             this.onFormItemValueChange({ name: 'plan', value: null });

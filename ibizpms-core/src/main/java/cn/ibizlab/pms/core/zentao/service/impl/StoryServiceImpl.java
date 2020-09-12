@@ -685,6 +685,15 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     }
 
     /**
+     * 查询集合 Bug相关需求
+     */
+    @Override
+    public Page<Story> searchBugStory(StorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchBugStory(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 版本关联已完成的需求（选择数据源）
      */
     @Override

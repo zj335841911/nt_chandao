@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 public interface StoryMapper extends BaseMapper<Story>{
 
     Page<Story> searchAssignedToMyStory(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
+    Page<Story> searchBugStory(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     Page<Story> searchBuildLinkCompletedStories(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     Page<Story> searchBuildLinkableStories(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     Page<Story> searchBuildStories(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;

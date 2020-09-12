@@ -75,6 +75,7 @@ public interface IStoryService extends IService<Story>{
     Story syncFromIBIZ(Story et) ;
     Story unlinkStory(Story et) ;
     Page<Story> searchAssignedToMyStory(StorySearchContext context) ;
+    Page<Story> searchBugStory(StorySearchContext context) ;
     Page<Story> searchBuildLinkCompletedStories(StorySearchContext context) ;
     Page<Story> searchBuildLinkableStories(StorySearchContext context) ;
     Page<Story> searchBuildStories(StorySearchContext context) ;

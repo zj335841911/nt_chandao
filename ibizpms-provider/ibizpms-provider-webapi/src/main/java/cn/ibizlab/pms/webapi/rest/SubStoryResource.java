@@ -573,6 +573,27 @@ public class SubStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBugStory-all')")
+	@ApiOperation(value = "获取Bug相关需求", tags = {"需求" } ,notes = "获取Bug相关需求")
+    @RequestMapping(method= RequestMethod.GET , value="/substories/fetchbugstory")
+	public ResponseEntity<List<SubStoryDTO>> fetchBugStory(StorySearchContext context) {
+        Page<Story> domains = storyService.searchBugStory(context) ;
+        List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBugStory-all')")
+	@ApiOperation(value = "查询Bug相关需求", tags = {"需求" } ,notes = "查询Bug相关需求")
+    @RequestMapping(method= RequestMethod.POST , value="/substories/searchbugstory")
+	public ResponseEntity<Page<SubStoryDTO>> searchBugStory(@RequestBody StorySearchContext context) {
+        Page<Story> domains = storyService.searchBugStory(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBuildLinkCompletedStories-all')")
 	@ApiOperation(value = "获取版本关联已完成的需求（选择数据源）", tags = {"需求" } ,notes = "获取版本关联已完成的需求（选择数据源）")
     @RequestMapping(method= RequestMethod.GET , value="/substories/fetchbuildlinkcompletedstories")
@@ -1474,6 +1495,29 @@ public class SubStoryResource {
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryAssignedToMyStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
         context.setN_parent_eq(story_id);
         Page<Story> domains = storyService.searchAssignedToMyStory(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBugStory-all')")
+	@ApiOperation(value = "根据需求获取Bug相关需求", tags = {"需求" } ,notes = "根据需求获取Bug相关需求")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/substories/fetchbugstory")
+	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryBugStoryByStory(@PathVariable("story_id") Long story_id,StorySearchContext context) {
+        context.setN_parent_eq(story_id);
+        Page<Story> domains = storyService.searchBugStory(context) ;
+        List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBugStory-all')")
+	@ApiOperation(value = "根据需求查询Bug相关需求", tags = {"需求" } ,notes = "根据需求查询Bug相关需求")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/substories/searchbugstory")
+	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryBugStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
+        context.setN_parent_eq(story_id);
+        Page<Story> domains = storyService.searchBugStory(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -2412,6 +2456,29 @@ public class SubStoryResource {
 	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryAssignedToMyStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
         context.setN_parent_eq(story_id);
         Page<Story> domains = storyService.searchAssignedToMyStory(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBugStory-all')")
+	@ApiOperation(value = "根据产品需求获取Bug相关需求", tags = {"需求" } ,notes = "根据产品需求获取Bug相关需求")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/substories/fetchbugstory")
+	public ResponseEntity<List<SubStoryDTO>> fetchSubStoryBugStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,StorySearchContext context) {
+        context.setN_parent_eq(story_id);
+        Page<Story> domains = storyService.searchBugStory(context) ;
+        List<SubStoryDTO> list = substoryMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchBugStory-all')")
+	@ApiOperation(value = "根据产品需求查询Bug相关需求", tags = {"需求" } ,notes = "根据产品需求查询Bug相关需求")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/substories/searchbugstory")
+	public ResponseEntity<Page<SubStoryDTO>> searchSubStoryBugStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySearchContext context) {
+        context.setN_parent_eq(story_id);
+        Page<Story> domains = storyService.searchBugStory(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(substoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

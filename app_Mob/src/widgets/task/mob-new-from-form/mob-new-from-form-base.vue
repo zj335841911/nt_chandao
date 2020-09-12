@@ -34,7 +34,7 @@
     name='projectname' 
     deMajorField='name'
     deKeyField='id'
-    valueitem='' 
+    valueitem='project' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
@@ -105,7 +105,7 @@
     name='modulename' 
     deMajorField='name'
     deKeyField='id'
-    valueitem='' 
+    valueitem='module' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
@@ -249,7 +249,7 @@
     name='storyname' 
     deMajorField='title'
     deKeyField='id'
-    valueitem='' 
+    valueitem='story' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
@@ -1448,11 +1448,16 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
      * @memberof MobNewFrom
      */
     private resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'projectname')) {
+            this.onFormItemValueChange({ name: 'modulename', value: null });
+            this.onFormItemValueChange({ name: 'module', value: null });
+        }
         if (Object.is(name, 'multiple')) {
             this.onFormItemValueChange({ name: 'assignedto', value: null });
         }
         if (Object.is(name, 'modulename')) {
             this.onFormItemValueChange({ name: 'storyname', value: null });
+            this.onFormItemValueChange({ name: 'story', value: null });
         }
     }
 
