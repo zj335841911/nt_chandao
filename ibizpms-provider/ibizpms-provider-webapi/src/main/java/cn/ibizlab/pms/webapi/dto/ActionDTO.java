@@ -137,6 +137,14 @@ public class ActionDTO extends DTOBase implements Serializable {
     @JsonProperty("isactorss")
     private Integer isactorss;
 
+    /**
+     * 属性 [DATE1]
+     *
+     */
+    @JSONField(name = "date1")
+    @JsonProperty("date1")
+    private String date1;
+
 
     /**
      * 设置 [EXTRA]

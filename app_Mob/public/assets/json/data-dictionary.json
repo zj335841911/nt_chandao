@@ -1115,6 +1115,29 @@
         ]
     }, 
     {
+        "srfkey": "Action__read",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "0",
+                "label": "0",
+                "text": "0",
+                "value": "0",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "1",
+                "label": "1",
+                "text": "1",
+                "value": "1",
+                "isValueNumber":false,
+                "disabled": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "Task__status",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -3218,6 +3241,197 @@
         "appdataentity":"CaseStep",
         "appdedataset":"FetchVersions",
         "items": []
+    }, 
+    {
+        "srfkey": "Action__object_type",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "product",
+                "label": "产品",
+                "text": "产品",
+                "value": "product",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "story",
+                "label": "需求",
+                "text": "需求",
+                "value": "story",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "productplan",
+                "label": "计划",
+                "text": "计划",
+                "value": "productplan",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "release",
+                "label": "发布",
+                "text": "发布",
+                "value": "release",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "project",
+                "label": "项目",
+                "text": "项目",
+                "value": "project",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "task",
+                "label": "任务",
+                "text": "任务",
+                "value": "task",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "build",
+                "label": "版本",
+                "text": "版本",
+                "value": "build",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "bug",
+                "label": "Bug",
+                "text": "Bug",
+                "value": "bug",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "case",
+                "label": "用例",
+                "text": "用例",
+                "value": "case",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "caseresult",
+                "label": "用例结果",
+                "text": "用例结果",
+                "value": "caseresult",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "stepresult",
+                "label": "用例步骤",
+                "text": "用例步骤",
+                "value": "stepresult",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "testtask",
+                "label": "测试单",
+                "text": "测试单",
+                "value": "testtask",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "user",
+                "label": "用户",
+                "text": "用户",
+                "value": "user",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "doc",
+                "label": "文档",
+                "text": "文档",
+                "value": "doc",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "doclib",
+                "label": "文档库",
+                "text": "文档库",
+                "value": "doclib",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "todo",
+                "label": "待办",
+                "text": "待办",
+                "value": "todo",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "branch",
+                "label": "分支",
+                "text": "分支",
+                "value": "branch",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "module",
+                "label": "模块",
+                "text": "模块",
+                "value": "module",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "testsuite",
+                "label": "套件",
+                "text": "套件",
+                "value": "testsuite",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "caselib",
+                "label": "用例库",
+                "text": "用例库",
+                "value": "caselib",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "testreport",
+                "label": "报告",
+                "text": "报告",
+                "value": "testreport",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "entry",
+                "label": "应用",
+                "text": "应用",
+                "value": "entry",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "webhook",
+                "label": "Webhook",
+                "text": "Webhook",
+                "value": "webhook",
+                "isValueNumber":false,
+                "disabled": false
+            }
+        ]
     }, 
     {
         "srfkey": "Task__pri",

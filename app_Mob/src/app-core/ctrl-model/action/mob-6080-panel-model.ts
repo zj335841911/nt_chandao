@@ -1,16 +1,16 @@
 /**
- * Mob 部件模型
+ * Mob_6080 部件模型
  *
  * @export
- * @class MobModel
+ * @class Mob_6080Model
  */
-export class MobModel {
+export class Mob_6080Model {
 
   /**
     * 获取数据项集合
     *
     * @returns {any[]}
-    * @memberof MobModel
+    * @memberof Mob_6080Model
     */
   public getDataItems(): any[] {
     return [
@@ -65,4 +65,4 @@ export class MobModel {
 
 }
 // 默认导出
-export default MobModel;
+export default Mob_6080Model;

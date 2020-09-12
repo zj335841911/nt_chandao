@@ -1256,6 +1256,19 @@ const router = new Router({
                     component: () => import('@pages/ibiz/module-mob-pickup-mdview/module-mob-pickup-mdview.vue'),
                 },
                 {
+                    path: 'actions/:action?/allmobmdview9',
+                    meta: {
+                        caption: 'action.views.allmobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'actions', parameterName: 'action' },
+                            { pathName: 'allmobmdview9', parameterName: 'allmobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/action-allmob-mdview9/action-allmob-mdview9.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/changemoboptionview',
                     meta: {
                         caption: 'story.views.changemoboptionview.caption',

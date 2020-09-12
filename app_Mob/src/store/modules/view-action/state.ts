@@ -623,6 +623,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '74324efc79a8f2da4cc5bccb10015ab5',
+                'cb96d02b067621654223b228ad3960ef',
                 '8f9ac36ca6d8fab08991612000a92a82',
                 '178e7f1dff030873132eca2bda9461a2',
                 'dc64d438e2778b16e0996277b8feabce',
@@ -1073,6 +1074,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
+            viewtag: 'cb96d02b067621654223b228ad3960ef',
+            viewmodule: 'ibiz',
+            viewname: 'ActionALLMobMDView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

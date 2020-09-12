@@ -1,5 +1,13 @@
 [
 {"type":"app",
+"appCodeName":"Action",
+"appName":"系统日志",
+"portletCodeName": "AllTrendsMob",
+"detailText":"系统全部用户的动作日志",
+"detailImage":"assets/images/mytask.jpg",
+"portletTYpe":"VIEW","componentName":"app-action-all-trends-mob-portlet",
+"portletName": "全部动态"},
+{"type":"app",
 "appCodeName":"Mob",
 "appName":"iBiz软件生产管理（Mob）",
 "portletCodeName": "MyFavoriteTask",
