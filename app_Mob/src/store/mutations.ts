@@ -244,3 +244,12 @@ export const setThirdPartyName = (state: any, name: any) => {
 export const updateZIndex = (state: any, zIndex: number) => {
     state.zIndex = zIndex;
 }
+
+/**
+ * 是否弹出过表单确认框
+ * 
+ * @param state 
+ */
+export const changeHasClose = (state: any, status: boolean) => {
+    state.hasClose = status;
+}

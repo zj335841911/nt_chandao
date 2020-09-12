@@ -1131,7 +1131,7 @@ export default class MOBPorjectBase extends Vue implements ControlInterface {
      * @memberof MOBPorjectBase
      */  
     public ActionModel:any ={
-        ProjectUnlinkStoryMob: { name: 'ProjectUnlinkStoryMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY',icon:'unlink (alias)',isShowCaption:false,isShowIcon:true}
+        ProjectUnlinkStoryMob: { name: 'ProjectUnlinkStoryMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY',icon:'close-circle',isShowCaption:false,isShowIcon:true}
     };
 
     

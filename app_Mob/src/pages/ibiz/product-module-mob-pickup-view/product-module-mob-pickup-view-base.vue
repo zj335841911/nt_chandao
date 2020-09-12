@@ -27,8 +27,8 @@
     <ion-footer class="view-footer" style="z-index:9;">
         <ion-toolbar style="text-align: center;">
     <div class="mobpickupview_button">
-      <ion-button @click="onClickCancel" color="light">{{$t('app.button.cancel')}}</ion-button>
-      <ion-button @click="onClickOk" :disabled="viewSelections.length === 0">{{$t('app.button.confirm')}}</ion-button>
+      <ion-button class="pick-btn" @click="onClickCancel" color="medium">{{$t('app.button.cancel')}}</ion-button>
+      <ion-button class="pick-btn" @click="onClickOk" :disabled="viewSelections.length === 0">{{$t('app.button.confirm')}}</ion-button>
     </div>
 </ion-toolbar>
 

@@ -1,5 +1,5 @@
 import { toastController, alertController } from '@ionic/core';
-
+import { Store } from 'vuex';
 /**
  * 消息提示
  *
@@ -7,6 +7,11 @@ import { toastController, alertController } from '@ionic/core';
  * @class Notice
  */
 export class Notice {
+
+    /**
+     * store
+     */
+    public store:any = null;
 
     /**
      * 唯一实例
@@ -23,6 +28,7 @@ export class Notice {
      * @memberof Notice
      */
     constructor() {
+        this.store = Store;
         if (Notice.instance) {
             return Notice.instance;
         }
@@ -87,30 +93,41 @@ export class Notice {
      * @returns {Promise<any>}
      * @memberof Notice
      */
-    public async confirm(title: string, message: string): Promise<boolean> {
-        return new Promise(async (resolve, reject) => {
-            const alert = await alertController.create({
-                header: title ? title : '标题',
-                message: message,
-                buttons: [
-                    {
-                        text: '取消',
-                        handler: () => {
-                            resolve(false);
-                        }
-                    },
-                    {
-                        text: '确认',
-                        cssClass: 'secondary',
-                        handler: () => {
-                            resolve(true);
-                        }
-                    },
-                ],
-            });
+    public async confirm(title: string, message: string, store?: Store<any>): Promise<boolean> {
+      return new Promise(async (resolve, reject) => {
+          const alert = await alertController.create({
+              header: title ? title : '标题',
+              message: message,
+              buttons: [
+                  {
+                      text: '取消',
+                      handler: () => {
+                          if (store && store.commit) {
+                            store.commit('changeHasClose',true);
+                          }
+                          resolve(false);
+                      }
+                  },
+                  {
+                      text: '确认',
+                      cssClass: 'secondary',
+                      handler: () => {
+                          if (store && store.commit) {
+                            store.commit('changeHasClose',true);
+                          }
+                          resolve(true);
+                      }
+                  },
+              ],
+          });
+          if (store && store.state && store.state.hasClose) {
             await alert.present();
-        });
-    }
+          }
+          if (store && store.commit) {
+            store.commit('changeHasClose',false);
+          }
+      });
+  }
 
     /**
      * 创建对象

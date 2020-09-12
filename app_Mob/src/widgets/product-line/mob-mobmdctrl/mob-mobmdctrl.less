@@ -58,11 +58,15 @@
             transform: translate(-50%);
         }
         .pickUpList {
-            width: 94%;
-            margin: auto;
-            ion-item {
-                border-bottom: 1px solid #d8d8d8;  
-                padding-left: 10px;
+            width: 100%;
+            ion-item { 
+                --padding-start:20px;
+                --inner-padding-end:10px;
+                --background-activated:#5c5c5c;
+                border-bottom: 1px solid #e8e8e86b; 
+            }
+            .app-mob-mdctrl-item{
+                margin-top:0;
             }
         }
     }
