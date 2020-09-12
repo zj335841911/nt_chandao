@@ -15,10 +15,19 @@ export class MobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'myfavoritebugs',
+				name: 'mytasks',
 			},
 			{
-				name: 'myfavorites',
+				name: 'myebugs',
+			},
+			{
+				name: 'realname',
+			},
+			{
+				name: 'myetasks',
+			},
+			{
+				name: 'projects',
 			},
 			{
 				name: 'eprojects',
@@ -27,28 +36,10 @@ export class MobModel {
 				name: 'mybugs',
 			},
 			{
-				name: 'myfavoritestorys',
-			},
-			{
 				name: 'mystorys',
 			},
 			{
-				name: 'myfavoritetasks',
-			},
-			{
-				name: 'account',
-			},
-			{
-				name: 'mytasks',
-			},
-			{
-				name: 'myetasks',
-			},
-			{
-				name: 'realname',
-			},
-			{
-				name: 'myebugs',
+				name: 'products',
 			},
 			{
 				name: 'srfkey',
