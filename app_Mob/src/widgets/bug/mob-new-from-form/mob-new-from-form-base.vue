@@ -497,27 +497,28 @@
     :disabled="detailsModel.storyname.disabled"
     :error="detailsModel.storyname.error" 
     :isEmptyCaption="false">
-        <app-mob-select-drop-down 
-    name='storyname' 
-    deMajorField='title'
-    deKeyField='id'
-    valueitem='' 
-    style="" 
-    editortype="dropdown" 
+        <app-mob-picker
+    name='storyname'
+    deMajorField='storyname'
+    deKeyField='storyid'
+    valueitem='story' 
+    editortype="" 
+    style=""  
     :formState="formState"
     :data="data"
     :context="context"
-    :navigateContext ='{ "n_module_eq": "%module%" } '
-    :navigateParam ='{ "n_module_eq": "%module%" } '
     :viewparams="viewparams"
-    :itemParam='{ }' 
+    :navigateContext ='{ "zt_product": "%product%", "n_module_eq": "%module%" } '
+    :navigateParam ='{ "n_product_eq": "%product%", "n_module_eq": "%module%" } '
+    :itemParam='{ context:{"ZT_PRODUCT":"%product%"},param:{"n_product_eq":"%product%"},}' 
     :disabled="detailsModel.storyname.disabled"
     :service="service"
     :acParams="{ serviceName: 'story', interfaceName: 'FetchDefault'}"
     :value="data.storyname" 
-    @formitemvaluechange="onFormItemValueChange"
-    @change="($event)=>this.data.storyname = $event">
-</app-mob-select-drop-down>
+    :pickupView="{ viewname: 'story-mob-pickup-view', title: '需求移动端数据选择视图', deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'stories', parameterName: 'story' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-picker>
+
 </app-form-item>
 
 
@@ -1758,6 +1759,7 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
         }
         if (Object.is(name, 'modulename')) {
             this.onFormItemValueChange({ name: 'storyname', value: null });
+            this.onFormItemValueChange({ name: 'story', value: null });
         }
         if (Object.is(name, 'product')) {
             this.onFormItemValueChange({ name: 'story', value: null });

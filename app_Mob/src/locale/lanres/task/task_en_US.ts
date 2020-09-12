@@ -102,6 +102,9 @@ export default {
 		gsmoboptionview: {
 			caption: '工时',
 		},
+		assmobmdview9: {
+			caption: '任务',
+		},
 		newmobeditview: {
 			caption: '任务',
 		},
@@ -344,6 +347,18 @@ export default {
 			tip: 'deuiaction1_deletemob',
 		},
 	},
+	assmobmdview9mdctrl_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: '更多',
+			tip: 'deuiaction1',
+		},
+	},
+	favoritemobmdviewmdctrl_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: '更多',
+			tip: 'deuiaction1',
+		},
+	},
 	assmobmdviewmdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {
 			caption: '更多',
@@ -351,11 +366,5 @@ export default {
 		},
 	},
 	assmobmdviewrighttoolbar_toolbar: {
-	},
-	favoritemobmdviewmdctrl_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: '更多',
-			tip: 'deuiaction1',
-		},
 	},
 };

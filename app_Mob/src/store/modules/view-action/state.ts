@@ -594,7 +594,7 @@ export const viewstate: any = {
                 '6e91454cb4217d3aa1260161a539c803',
                 'a4a6fd9906bc1ecaac85b44ffcc466fe',
                 'c55172fa3818041e87a38262949c0c96',
-                '8d13feb9b1401f28a033fec23ffd7e90',
+                'dc64d438e2778b16e0996277b8feabce',
             ],
         },
         {
@@ -1122,6 +1122,17 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '0e2762177f3bf384b00d863798bd744c',
+            ],
+        },
+        {
+            viewtag: 'dc64d438e2778b16e0996277b8feabce',
+            viewmodule: 'zentao',
+            viewname: 'TaskAssMobMDView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1a957197655fae1ce44ceccda6f65852',
+                '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },
         {
