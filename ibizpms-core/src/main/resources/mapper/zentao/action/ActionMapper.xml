@@ -76,7 +76,7 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-		<![CDATA[ SELECT t1.`ACTION`, (case when t1.objectType in ('bug','story','release') and t1.action in ('changestatus','resolved','closed', 'reviewed') and t1.extra <> '' then CONCAT_WS('_',t1.objectType,t1.action,t1.extra) else '' end) AS `ACTIONMANNER`, t1.`ACTOR`, t1.`COMMENT`, t1.`DATE`, t1.`ID`, 0 AS `ISACTORSS`, t1.`comment` AS `LASTCOMMENT`, t1.`OBJECTID`, t1.`OBJECTTYPE`, t1.`PRODUCT`, t1.`PROJECT`, t1.`READ` FROM `zt_action` t1  
+		<![CDATA[ SELECT t1.`ACTION`, (case when t1.objectType in ('bug','story','release') and t1.action in ('changestatus','resolved','closed', 'reviewed') and t1.extra <> '' then CONCAT_WS('_',t1.objectType,t1.action,t1.extra) else '' end) AS `ACTIONMANNER`, t2.realname AS `ACTOR`, t1.`COMMENT`, t1.`DATE`, t1.`ID`, 0 AS `ISACTORSS`, t1.`comment` AS `LASTCOMMENT`, t1.`OBJECTID`, t1.`OBJECTTYPE`, t1.`PRODUCT`, t1.`PROJECT`, t1.`READ` FROM `zt_action` t1 LEFT JOIN zt_user t2 on t1.actor = t2.account
 			]]>
     </sql>
     <!--数据查询[MobType]-->
