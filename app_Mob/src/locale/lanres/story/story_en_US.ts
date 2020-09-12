@@ -84,6 +84,9 @@ export default {
 		asmoboptionview: {
 			caption: '指派',
 		},
+		favoritemobmdview9: {
+			caption: '需求',
+		},
 		cmoboptionview: {
 			caption: '关闭',
 		},
@@ -343,6 +346,8 @@ export default {
 			caption: '删除',
 			tip: 'deuiaction1_deletemob',
 		},
+	},
+	favoritemobmdview9righttoolbar_toolbar: {
 	},
 	mobmdviewcurprojectrighttoolbar_toolbar: {
 	},

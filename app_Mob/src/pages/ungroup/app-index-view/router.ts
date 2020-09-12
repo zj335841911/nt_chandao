@@ -2656,6 +2656,33 @@ const router = new Router({
                     component: () => import('@pages/ibiz/ibz-my-territory-mob-tab-exp-view/ibz-my-territory-mob-tab-exp-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/favoritemobmdview9',
+                    meta: {
+                        caption: 'story.views.favoritemobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'favoritemobmdview9', parameterName: 'favoritemobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-favorite-mob-mdview9/story-favorite-mob-mdview9.vue'),
+                },
+                {
+                    path: 'stories/:story?/favoritemobmdview9',
+                    meta: {
+                        caption: 'story.views.favoritemobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'favoritemobmdview9', parameterName: 'favoritemobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-favorite-mob-mdview9/story-favorite-mob-mdview9.vue'),
+                },
+                {
                     path: 'projects/:project?/mobpickupview',
                     meta: {
                         caption: 'project.views.mobpickupview.caption',
@@ -3372,33 +3399,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/project-activite-mob-edit-view/project-activite-mob-edit-view.vue'),
-                },
-                {
-                    path: 'products/:product?/stories/:story?/favoritemobmdview',
-                    meta: {
-                        caption: 'story.views.favoritemobmdview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'favoritemobmdview', parameterName: 'favoritemobmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/story-favorite-mob-mdview/story-favorite-mob-mdview.vue'),
-                },
-                {
-                    path: 'stories/:story?/favoritemobmdview',
-                    meta: {
-                        caption: 'story.views.favoritemobmdview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'favoritemobmdview', parameterName: 'favoritemobmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/story-favorite-mob-mdview/story-favorite-mob-mdview.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobmeditview9',

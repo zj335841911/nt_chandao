@@ -593,7 +593,7 @@ export const viewstate: any = {
                 'a784b546d5d05850930cbaf23f8727a1',
                 '6e91454cb4217d3aa1260161a539c803',
                 'a4a6fd9906bc1ecaac85b44ffcc466fe',
-                'c55172fa3818041e87a38262949c0c96',
+                '8f9ac36ca6d8fab08991612000a92a82',
                 'dc64d438e2778b16e0996277b8feabce',
             ],
         },
@@ -739,6 +739,16 @@ export const viewstate: any = {
                 'b1c76392040ff2e9ed2e3ae2b0260602',
                 '0e2762177f3bf384b00d863798bd744c',
                 'f48661e4f3797c86502abe30dae2f89f',
+            ],
+        },
+        {
+            viewtag: '8f9ac36ca6d8fab08991612000a92a82',
+            viewmodule: 'zentao',
+            viewname: 'StoryFavoriteMobMDView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'd096e8789265e730da5eefa1423479dc',
             ],
         },
         {
