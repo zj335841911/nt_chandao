@@ -47,7 +47,7 @@
     name='productname' 
     deMajorField='name'
     deKeyField='id'
-    valueitem='' 
+    valueitem='product' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
@@ -542,7 +542,7 @@
     name='taskname' 
     deMajorField='name'
     deKeyField='id'
-    valueitem='' 
+    valueitem='task' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
@@ -1766,6 +1766,7 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
         }
         if (Object.is(name, 'projectname')) {
             this.onFormItemValueChange({ name: 'taskname', value: null });
+            this.onFormItemValueChange({ name: 'task', value: null });
         }
     }
 
