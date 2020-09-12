@@ -109,7 +109,7 @@
         <app-mob-select-drop-down 
     name='linename' 
     deMajorField='name'
-    deKeyField='module'
+    deKeyField='id'
     valueitem='' 
     style="" 
     editortype="dropdown" 
