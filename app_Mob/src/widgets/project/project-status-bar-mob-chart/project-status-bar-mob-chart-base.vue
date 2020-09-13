@@ -424,7 +424,7 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
         Object.assign(arg,{sort: 'id,desc'});
         this.service.search(this.fetchAction,JSON.parse(JSON.stringify(this.context)),arg,this.showBusyIndicator).then((res) => {
             if (res) {
-               this.transformToBasicChartSetData(res.data,(codelist:any) =>{_this.drawCharts(codelist)});
+               this.transformToBasicChartSetData(res.data.records,(codelist:any) =>{_this.drawCharts(codelist)});
             }
         }).catch((error) => {
             console.error(error);
