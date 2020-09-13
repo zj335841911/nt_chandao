@@ -57,6 +57,9 @@ export default class AllTrendsModel {
       {
         name: 'isactorss',
       },
+      {
+        name: 'date1',
+      },
     ]
   }
 

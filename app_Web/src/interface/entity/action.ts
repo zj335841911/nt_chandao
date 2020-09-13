@@ -117,4 +117,12 @@ export interface Action {
      * @memberof Action
      */
     isactorss?: any;
+
+    /**
+     * 显示日期
+     *
+     * @returns {*}
+     * @memberof Action
+     */
+    date1?: any;
 }

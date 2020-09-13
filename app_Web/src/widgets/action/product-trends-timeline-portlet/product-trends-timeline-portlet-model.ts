@@ -57,6 +57,9 @@ export default class ProductTrendsTimelineModel {
       {
         name: 'isactorss',
       },
+      {
+        name: 'date1',
+      },
     ]
   }
 

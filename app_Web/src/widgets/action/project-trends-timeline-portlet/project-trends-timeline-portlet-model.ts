@@ -57,6 +57,9 @@ export default class ProjectTrendsTimelineModel {
       {
         name: 'isactorss',
       },
+      {
+        name: 'date1',
+      },
     ]
   }
 
