@@ -358,17 +358,10 @@ export default class ProductStatusPieMobBase extends Vue implements ControlInter
         },
         dataset:[],
         series:[
-                     {
-            id:'productstatus',
-            name:'',
-            type:'pie',
-            datasetIndex:0,
-            
-            seriesLayoutBy:"column",
-            encode:{
-                itemName:"status",
-                value:"srfcount"
-            }}
+                     !!!!模版产生代码错误:----
+        FTL stack trace ("~" means nesting-related):
+        	- Failed at: #if item.getWidth()?? && item.getWidt...  [in template "TEMPLCODE_en_US" at line 14, column 5]
+        ----
         ]
     };
 
