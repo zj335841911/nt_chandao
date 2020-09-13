@@ -250,6 +250,6 @@ export const updateZIndex = (state: any, zIndex: number) => {
  * 
  * @param state 
  */
-export const changeNoticeStatus = (state: any, status: boolean) => {
+export const setNoticeStatus = (state: any, status: boolean) => {
     state.noticeStatus = status;
 }

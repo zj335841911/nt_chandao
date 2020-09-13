@@ -104,7 +104,7 @@ export class Notice {
                       role: 'cancel',
                       handler: () => {
                           if (store && store.commit) {
-                            store.commit('changeNoticeStatus',true);
+                            store.commit('setNoticeStatus',true);
                           }
                           resolve(false);
                       }
@@ -114,7 +114,7 @@ export class Notice {
                       cssClass: 'secondary',
                       handler: () => {
                           if (store && store.commit) {
-                            store.commit('changeNoticeStatus',true);
+                            store.commit('setNoticeStatus',true);
                           }
                           resolve(true);
                       }
@@ -124,7 +124,7 @@ export class Notice {
           if (store && store.state && store.state.noticeStatus) {
             await alert.present();
             if (store && store.commit) {
-              store.commit('changeNoticeStatus',false);
+              store.commit('setNoticeStatus',false);
             }
           }
       });
