@@ -8,7 +8,7 @@ import view_dashboard_sysportlet5 from '@widgets/story/my-story-portlet/my-story
 import view_dashboard_sysportlet2 from '@widgets/task/my-task-mob-portlet/my-task-mob-portlet.vue';
 import view_dashboard_sysportlet3 from '@widgets/bug/my-bug-mob-portlet/my-bug-mob-portlet.vue';
 import view_dashboard_sysportlet1 from '@widgets/story/mobmy-favorite-story-portlet/mobmy-favorite-story-portlet.vue';
-import view_dashboard_sysportlet8 from '@widgets/product/product-status-chart-mob-portlet/product-status-chart-mob-portlet.vue';
+import view_dashboard_sysportlet8 from '@widgets/product/product-status-chart-mob-b-portlet/product-status-chart-mob-b-portlet.vue';
 
  
 @Component({

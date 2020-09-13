@@ -48,6 +48,9 @@ export default {
 		mobpickupmdview: {
 			caption: '产品',
 		},
+		mobchartview9: {
+			caption: '产品',
+		},
 		mobtabexpview: {
 			caption: '测试详情',
 		},
@@ -150,6 +153,13 @@ export default {
 			desc: '产品描述	', 
 			acl: '访问控制', 
 			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
+	mobdef_searchform: {
+		details: {
+			formpage1: '常规条件', 
 		},
 		uiactions: {
 		},
