@@ -1,6 +1,6 @@
 <template>
     <div class="app-data-chart project-dashboard_sysportlet9_chart ">
-        <div class="app-charts" :id="chartId" style="width:400px;height: 300px;padding: 6px 0;"></div>
+        <div class="app-charts" :id="chartId" style="width:350px;height: 300px;padding: 6px 0;"></div>
   </div>
 </template>
 
