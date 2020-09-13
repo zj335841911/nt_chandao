@@ -3,7 +3,7 @@
         <ion-list class='app-mob-portlet product-dashboard_sysportlet8 '>
             <ion-list-header class='app-mob-portlet__header'><ion-input v-if="isEditTitle" value="产品总览"></ion-input>产品总览 <div class="portlet__header_right"><ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon></div></ion-list-header>
             <div class="edit_title_btn" v-if="isEditTitle"><ion-button>确认</ion-button><ion-button>取消</ion-button></div>
-                <product-mob-chart-view9 :_context="JSON.stringify(context)" :isChildView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></product-mob-chart-view9>
+                <product-mob-chart-view :_context="JSON.stringify(context)" :isChildView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></product-mob-chart-view>
         </ion-list>
         <ion-select ref="select" v-show="false"  @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
             <ion-select-option  v-for="option of items" :key="option.value"  :value="option.value">{{option.text}}</ion-select-option>

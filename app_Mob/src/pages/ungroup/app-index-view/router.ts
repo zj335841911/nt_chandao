@@ -1244,19 +1244,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-mob-option-view/task-mob-option-view.vue'),
                 },
                 {
-                    path: 'products/:product?/mobchartview9',
-                    meta: {
-                        caption: 'product.views.mobchartview9.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'mobchartview9', parameterName: 'mobchartview9' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-mob-chart-view9/product-mob-chart-view9.vue'),
-                },
-                {
                     path: 'projects/:project?/mobtabexpview',
                     meta: {
                         caption: 'project.views.mobtabexpview.caption',
@@ -1862,6 +1849,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/task-mob-pickup-view/task-mob-pickup-view.vue'),
+                },
+                {
+                    path: 'products/:product?/mobchartview',
+                    meta: {
+                        caption: 'product.views.mobchartview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'mobchartview', parameterName: 'mobchartview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/product-mob-chart-view/product-mob-chart-view.vue'),
                 },
                 {
                     path: 'modules/:module?/mobpickupview',
