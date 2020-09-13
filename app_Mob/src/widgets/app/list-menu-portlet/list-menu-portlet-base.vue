@@ -16,7 +16,7 @@
 </view_db_appmenu3_appmenu>
         </ion-list>
         <ion-select ref="select" v-show="false"  @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
-            <ion-select-option  v-for="option of items" :key="option.value"  :value="option.value">{{option.text}}</ion-select-option>
+            <ion-select-option  v-for="option of actionBarModelData" :key="option.viewlogicname"  :value="option.viewlogicname">{{option.actionName}}</ion-select-option>
         </ion-select>
     </ion-row>
 </template>
@@ -141,6 +141,14 @@ export default class ListMenuBase extends Vue implements ControlInterface {
 
 
     /**
+     * 是否为定制门户
+     *
+     * @type {string}
+     * @memberof MyTaskMob
+     */
+    @Prop({default:false}) protected isCustomize?: boolean;
+
+    /**
      * 操作栏模型数据
      *
      * @protected
@@ -236,11 +244,11 @@ export default class ListMenuBase extends Vue implements ControlInterface {
     public isEditTitle = false;
 
     /**
-     * 门户行为组
+     * 内置门户行为组
      *
-     * @memberof ListMenu
+     * @memberof MyTaskMob
      */
-    public items = [{text:'重命名',value:'rename'},{text:"删除",value:"delete",style:"color: red;"}]
+    public builtinItemS = [{actionName:'重命名',viewlogicname:'rename'},{actionName:"删除",viewlogicname:"delete"}]
 
     /**
      * 门户点击行为菜单
@@ -264,15 +272,26 @@ export default class ListMenuBase extends Vue implements ControlInterface {
     public change(value:any) {
         if(value.detail.value){
             if(value.detail.value == 'rename' ){
-                this.isEditTitle = true;
+                this.$notice.warning("暂不支持");
+            }else if(value.detail.value == 'delete' ){
+                this.$notice.warning("暂不支持");
+            }
+            else{
+                this.handleItemClick(value.detail.value);
             }
         }
         setTimeout(() => {
-                let select :any = this.$refs['select'];
+            let select :any = this.$refs['select'];
             if (select) {
                 select.value = null;
             }
         }, 1);
+    }
+
+    public mounted() {
+        if(this.isCustomize){
+            this.actionBarModelData.push(...this.builtinItemS);
+        }
     }
 
 }

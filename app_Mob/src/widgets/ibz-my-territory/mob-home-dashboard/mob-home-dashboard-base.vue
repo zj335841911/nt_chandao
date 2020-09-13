@@ -102,7 +102,7 @@
             </div>
             <template v-for="item in customizeModel">
                 <ion-card class="dashboard-item ios hydrated" :class="item.componentName + 'dashboard'"  :key="item.id" v-if="isEnableCustomized">
-                    <component :is="item.componentName" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams"></component>
+                    <component :is="item.componentName" :isCustomize="true" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams"></component>
                 </ion-card>
             </template>
     </ion-grid>
