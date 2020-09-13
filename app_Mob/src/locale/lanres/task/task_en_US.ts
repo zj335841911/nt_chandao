@@ -64,7 +64,7 @@ export default {
 			caption: '任务',
 		},
 		assmoremobmdview: {
-			caption: '任务',
+			caption: '指派给我的任务',
 		},
 		stopmoboptionview: {
 			caption: '暂停',
@@ -88,7 +88,7 @@ export default {
 			caption: '开始',
 		},
 		favoritemoremobmdview: {
-			caption: '任务',
+			caption: '我收藏的任务',
 		},
 		favoritemobmdview: {
 			caption: '任务',
@@ -367,6 +367,12 @@ export default {
 		},
 	},
 	favoritemobmdview9mdctrl_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: '更多',
+			tip: 'deuiaction1',
+		},
+	},
+	favoritemobmdview9righttoolbar_toolbar: {
 		deuiaction1: {
 			caption: '更多',
 			tip: 'deuiaction1',

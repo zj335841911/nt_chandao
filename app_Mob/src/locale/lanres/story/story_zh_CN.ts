@@ -79,7 +79,7 @@ export default {
 			caption: '管理需求',
 		},
 		favoritemoremobmdview: {
-			caption: '需求',
+			caption: '我收藏的需求',
 		},
 		asmoboptionview: {
 			caption: '指派',
@@ -103,7 +103,7 @@ export default {
 			caption: '需求',
 		},
 		assmoremobmdview: {
-			caption: '需求',
+			caption: '指派给我的需求',
 		},
 		favoritemobmdview: {
 			caption: '需求',
@@ -348,6 +348,18 @@ export default {
 		deuiaction1_deletemob: {
 			caption: '删除',
 			tip: '删除',
+		},
+	},
+	favoritemobmdview9righttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '更多',
+			tip: '更多',
+		},
+	},
+	assmobmdview9righttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '更多',
+			tip: '更多',
 		},
 	},
 	mobmdviewcurprojectrighttoolbar_toolbar: {

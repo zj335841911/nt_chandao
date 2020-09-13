@@ -124,7 +124,7 @@ export default {
 			caption: '关闭Bug',
 		},
 		assmoremobmdview: {
-			caption: 'Bug',
+			caption: '指派给我的Bug',
 		},
 	},
 	closemob_form: {
@@ -361,6 +361,12 @@ export default {
 		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
+	},
+	assmobmdview9righttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '更多',
+			tip: '更多',
+		},
 	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
