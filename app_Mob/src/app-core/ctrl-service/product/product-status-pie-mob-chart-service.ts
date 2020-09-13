@@ -48,7 +48,7 @@ export class ProductStatusPieMobService extends ChartServiceBase {
      */
     public handleResponse(action: string, response: any): any {
         const chartOption: any = {};
-        const catalogFields: any = ["productstatus",];
+        const catalogFields: any = ["status",];
         const valueFields: any = [[ "srfcount", "属性" ],];
         // 数据按分类属性分组处理
         const xFields:any = [];
