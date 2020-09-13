@@ -161,6 +161,26 @@ export default class MyWorkBase extends Vue implements ControlInterface {
 
 
     /**
+     * 操作栏模型数据
+     *
+     * @protected
+     * @type {any[]}
+     * @memberof MyWork
+     */
+    protected actionBarModelData: any[] = [
+    ];
+
+    /**
+     * 触发界面行为
+     *
+     * @protected
+     * @param {*} $event
+     * @memberof MyWork
+     */
+    protected handleItemClick($event: any) {
+    }
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

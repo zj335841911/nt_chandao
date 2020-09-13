@@ -192,6 +192,33 @@ export default class MyTaskMobBase extends Vue implements ControlInterface {
 
 
     /**
+     * 操作栏模型数据
+     *
+     * @protected
+     * @type {any[]}
+     * @memberof MyTaskMob
+     */
+    protected actionBarModelData: any[] = [
+        {
+            viewlogicname: "dashboard_sysportlet2_ue5ceff5_click",
+            actionName: "更多",
+        }
+    ];
+
+    /**
+     * 触发界面行为
+     *
+     * @protected
+     * @param {*} $event
+     * @memberof MyTaskMob
+     */
+    protected handleItemClick($event: any) {
+        if (Object.is($event, 'dashboard_sysportlet2_ue5ceff5_click')) {
+            this.dashboard_sysportlet2_ue5ceff5_click(null);
+        }
+    }
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

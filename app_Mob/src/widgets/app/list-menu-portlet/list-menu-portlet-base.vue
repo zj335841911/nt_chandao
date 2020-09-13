@@ -141,6 +141,26 @@ export default class ListMenuBase extends Vue implements ControlInterface {
 
 
     /**
+     * 操作栏模型数据
+     *
+     * @protected
+     * @type {any[]}
+     * @memberof ListMenu
+     */
+    protected actionBarModelData: any[] = [
+    ];
+
+    /**
+     * 触发界面行为
+     *
+     * @protected
+     * @param {*} $event
+     * @memberof ListMenu
+     */
+    protected handleItemClick($event: any) {
+    }
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

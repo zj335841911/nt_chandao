@@ -192,6 +192,33 @@ export default class MyBugMobBase extends Vue implements ControlInterface {
 
 
     /**
+     * 操作栏模型数据
+     *
+     * @protected
+     * @type {any[]}
+     * @memberof MyBugMob
+     */
+    protected actionBarModelData: any[] = [
+        {
+            viewlogicname: "dashboard_sysportlet3_ud7e32da_click",
+            actionName: "更多",
+        }
+    ];
+
+    /**
+     * 触发界面行为
+     *
+     * @protected
+     * @param {*} $event
+     * @memberof MyBugMob
+     */
+    protected handleItemClick($event: any) {
+        if (Object.is($event, 'dashboard_sysportlet3_ud7e32da_click')) {
+            this.dashboard_sysportlet3_ud7e32da_click(null);
+        }
+    }
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

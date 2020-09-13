@@ -161,6 +161,26 @@ export default class MobDashboardViewdashboard_container8Base extends Vue implem
 
 
     /**
+     * 操作栏模型数据
+     *
+     * @protected
+     * @type {any[]}
+     * @memberof MobDashboardViewdashboard_container8
+     */
+    protected actionBarModelData: any[] = [
+    ];
+
+    /**
+     * 触发界面行为
+     *
+     * @protected
+     * @param {*} $event
+     * @memberof MobDashboardViewdashboard_container8
+     */
+    protected handleItemClick($event: any) {
+    }
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

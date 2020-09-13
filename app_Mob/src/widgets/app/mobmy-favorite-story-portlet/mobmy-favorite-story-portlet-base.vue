@@ -192,6 +192,33 @@ export default class MOBMyFavoriteStoryBase extends Vue implements ControlInterf
 
 
     /**
+     * 操作栏模型数据
+     *
+     * @protected
+     * @type {any[]}
+     * @memberof MOBMyFavoriteStory
+     */
+    protected actionBarModelData: any[] = [
+        {
+            viewlogicname: "dashboard_sysportlet1_uc30733e_click",
+            actionName: "更多",
+        }
+    ];
+
+    /**
+     * 触发界面行为
+     *
+     * @protected
+     * @param {*} $event
+     * @memberof MOBMyFavoriteStory
+     */
+    protected handleItemClick($event: any) {
+        if (Object.is($event, 'dashboard_sysportlet1_uc30733e_click')) {
+            this.dashboard_sysportlet1_uc30733e_click(null);
+        }
+    }
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

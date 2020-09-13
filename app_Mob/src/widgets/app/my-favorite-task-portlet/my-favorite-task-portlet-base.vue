@@ -192,6 +192,33 @@ export default class MyFavoriteTaskBase extends Vue implements ControlInterface 
 
 
     /**
+     * 操作栏模型数据
+     *
+     * @protected
+     * @type {any[]}
+     * @memberof MyFavoriteTask
+     */
+    protected actionBarModelData: any[] = [
+        {
+            viewlogicname: "dashboard_sysportlet4_u02f0175_click",
+            actionName: "更多",
+        }
+    ];
+
+    /**
+     * 触发界面行为
+     *
+     * @protected
+     * @param {*} $event
+     * @memberof MyFavoriteTask
+     */
+    protected handleItemClick($event: any) {
+        if (Object.is($event, 'dashboard_sysportlet4_u02f0175_click')) {
+            this.dashboard_sysportlet4_u02f0175_click(null);
+        }
+    }
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}

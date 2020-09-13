@@ -141,6 +141,26 @@ export default class ImgswipeStyleMenuBase extends Vue implements ControlInterfa
 
 
     /**
+     * 操作栏模型数据
+     *
+     * @protected
+     * @type {any[]}
+     * @memberof ImgswipeStyleMenu
+     */
+    protected actionBarModelData: any[] = [
+    ];
+
+    /**
+     * 触发界面行为
+     *
+     * @protected
+     * @param {*} $event
+     * @memberof ImgswipeStyleMenu
+     */
+    protected handleItemClick($event: any) {
+    }
+
+    /**
      * 获取多项数据
      *
      * @returns {any[]}
