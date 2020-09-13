@@ -1,7 +1,7 @@
 <template>
     <ion-row>
         <ion-list class='app-mob-portlet task-dashboard_sysportlet4 '>
-            <ion-list-header class='app-mob-portlet__header'><ion-input v-if="isEditTitle" value="我收藏的任务">我收藏的任务 <div class="portlet__header_right"><ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon></div></ion-list-header>
+            <ion-list-header class='app-mob-portlet__header'><ion-input v-if="isEditTitle" value="我收藏的任务"></ion-input>我收藏的任务 <div class="portlet__header_right"><ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon></div></ion-list-header>
             <div class="edit_title_btn" v-if="isEditTitle"><ion-button>确认</ion-button><ion-button>取消</ion-button></div>
                 <task-favorite-mob-mdview9 :_context="JSON.stringify(context)" :isChildView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></task-favorite-mob-mdview9>
         </ion-list>

@@ -1,7 +1,7 @@
 <template>
     <ion-row>
         <ion-list class='app-mob-portlet  '>
-            <ion-list-header class='app-mob-portlet__header'><ion-input v-if="isEditTitle" value="列表">列表 <div class="portlet__header_right"><ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon></div></ion-list-header>
+            <ion-list-header class='app-mob-portlet__header'><ion-input v-if="isEditTitle" value="列表"></ion-input>列表 <div class="portlet__header_right"><ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon></div></ion-list-header>
             <div class="edit_title_btn" v-if="isEditTitle"><ion-button>确认</ion-button><ion-button>取消</ion-button></div>
                 <view_db_appmenu3_appmenu
     :viewState="viewState"

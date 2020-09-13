@@ -1,7 +1,7 @@
 <template>
     <ion-row>
         <ion-list class='app-mob-portlet ibzmyterritory-dashboard_container1 '>
-            <ion-list-header class='app-mob-portlet__header'><ion-input v-if="isEditTitle" value=""> <div class="portlet__header_right"><ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon></div></ion-list-header>
+            <ion-list-header class='app-mob-portlet__header'><ion-input v-if="isEditTitle" value=""></ion-input> <div class="portlet__header_right"><ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon></div></ion-list-header>
             <div class="edit_title_btn" v-if="isEditTitle"><ion-button>确认</ion-button><ion-button>取消</ion-button></div>
                 <div>dashboard_container1类型CONTAINER不提供内容输出</div>
         </ion-list>
