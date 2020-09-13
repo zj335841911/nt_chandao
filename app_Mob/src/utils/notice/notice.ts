@@ -95,6 +95,9 @@ export class Notice {
      */
     public async confirm(title: string, message: string, store?: Store<any>): Promise<boolean> {
       return new Promise(async (resolve, reject) => {
+        if (store && store.commit) {
+          store.commit('changeNoticeStatus',true);
+        }
           const alert = await alertController.create({
               header: title ? title : '标题',
               message: message,
@@ -121,7 +124,7 @@ export class Notice {
                   },
               ],
           });
-          if (store && store.state && store.state.hasClose) {
+          if (store && store.state && store.state.noticeStatus) {
             await alert.present();
             if (store && store.commit) {
               store.commit('changeNoticeStatus',false);

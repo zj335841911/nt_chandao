@@ -1,6 +1,6 @@
 <template>
     <div class="app-mobile-select" data-tap-disabled="true">
-        <div class="cancel-icon" v-if="curValue !== null || curValue !== '' || curValue === 0"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
+        <div class="cancel-icon" v-if="curValue || curValue === 0"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
         <div v-if="curValue== null || curValue==''" class="ion-select-icon"></div>
         <ion-select  :value="curValue" :disabled="disabled ? disabled : false" @ionChange="change" interface="action-sheet" @click="load" :cancel-text="$t('app.button.cancel')">
               <template v-if="codeListType == 'DYNAMIC'">
