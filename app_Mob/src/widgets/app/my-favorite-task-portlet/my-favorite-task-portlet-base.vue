@@ -1,6 +1,6 @@
 <template>
     <ion-row>
-        <ion-list class='app-mob-portlet ibzmyterritory-dashboard_sysportlet4 '>
+        <ion-list class='app-mob-portlet task-dashboard_sysportlet4 '>
             <ion-list-header class='app-mob-portlet__header'>我收藏的任务 </ion-list-header>
                 <task-favorite-mob-mdview9 :_context="JSON.stringify(context)" :isChildView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></task-favorite-mob-mdview9>
         </ion-list>
@@ -14,10 +14,10 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import IbzMyTerritoryService from '@/app-core/service/ibz-my-territory/ibz-my-territory-service';
-import MyFavoriteTaskService from '@/app-core/ctrl-service/ibz-my-territory/my-favorite-task-portlet-service';
+import TaskService from '@/app-core/service/task/task-service';
+import MyFavoriteTaskService from '@/app-core/ctrl-service/task/my-favorite-task-portlet-service';
 
-import IbzMyTerritoryUIService from '@/ui-service/ibz-my-territory/ibz-my-territory-ui-action';
+import TaskUIService from '@/ui-service/task/task-ui-action';
 
 
 
@@ -120,19 +120,50 @@ export default class MyFavoriteTaskBase extends Vue implements ControlInterface 
     /**
      * 实体服务对象
      *
-     * @type {IbzMyTerritoryService}
+     * @type {TaskService}
      * @memberof MyFavoriteTask
      */
-    protected appEntityService: IbzMyTerritoryService = new IbzMyTerritoryService();
+    protected appEntityService: TaskService = new TaskService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {IbzMyTerritoryUIService}
+     * @type {TaskUIService}
      * @memberof MyFavoriteTaskBase
      */  
-    public deUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+    public deUIService:TaskUIService = new TaskUIService(this.$store);
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof Dashboard_sysportlet4Base
+     */
+    protected async dashboard_sysportlet4_u02f0175_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        if (curUIService) {
+            curUIService.Task_MyFavMore(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 关闭视图

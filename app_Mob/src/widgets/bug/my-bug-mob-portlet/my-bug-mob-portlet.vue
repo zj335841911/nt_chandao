@@ -1,6 +1,6 @@
 <script lang='ts'>
 import { Component } from 'vue-property-decorator';
-import MyFavoriteTaskBase from './my-favorite-task-portlet-base.vue';
+import MyBugMobBase from './my-bug-mob-portlet-base.vue';
 
  
 @Component({
@@ -8,7 +8,7 @@ import MyFavoriteTaskBase from './my-favorite-task-portlet-base.vue';
          
     }
 })
-export default class MyFavoriteTask extends MyFavoriteTaskBase {
+export default class MyBugMob extends MyBugMobBase {
 
 }
 </script>

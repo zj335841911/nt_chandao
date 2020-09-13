@@ -1339,33 +1339,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/action-allmob-mdview9/action-allmob-mdview9.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/changemoboptionview',
-                    meta: {
-                        caption: 'story.views.changemoboptionview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'changemoboptionview', parameterName: 'changemoboptionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/story-change-mob-option-view/story-change-mob-option-view.vue'),
-                },
-                {
-                    path: 'stories/:story?/changemoboptionview',
-                    meta: {
-                        caption: 'story.views.changemoboptionview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'changemoboptionview', parameterName: 'changemoboptionview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/story-change-mob-option-view/story-change-mob-option-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/favoritemoremobmdview',
                     meta: {
                         caption: 'task.views.favoritemoremobmdview.caption',
@@ -1420,6 +1393,33 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/task-favorite-more-mob-mdview/task-favorite-more-mob-mdview.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/changemoboptionview',
+                    meta: {
+                        caption: 'story.views.changemoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'changemoboptionview', parameterName: 'changemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/story-change-mob-option-view/story-change-mob-option-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/changemoboptionview',
+                    meta: {
+                        caption: 'story.views.changemoboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'changemoboptionview', parameterName: 'changemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/story-change-mob-option-view/story-change-mob-option-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/newmobeditview',
@@ -1864,19 +1864,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/module-mob-pickup-view/module-mob-pickup-view.vue'),
                 },
                 {
-                    path: 'products/:product?/closemobeditview',
-                    meta: {
-                        caption: 'product.views.closemobeditview.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'closemobeditview', parameterName: 'closemobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-close-mob-edit-view/product-close-mob-edit-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/favoritemoremobmdview',
                     meta: {
                         caption: 'story.views.favoritemoremobmdview.caption',
@@ -1902,6 +1889,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/story-favorite-more-mob-mdview/story-favorite-more-mob-mdview.vue'),
+                },
+                {
+                    path: 'products/:product?/closemobeditview',
+                    meta: {
+                        caption: 'product.views.closemobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'closemobeditview', parameterName: 'closemobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-close-mob-edit-view/product-close-mob-edit-view.vue'),
                 },
                 {
                     path: 'todos/:todo?/mobeditview',

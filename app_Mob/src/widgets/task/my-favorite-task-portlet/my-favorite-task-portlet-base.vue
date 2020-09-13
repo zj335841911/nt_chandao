@@ -2,25 +2,7 @@
     <ion-row>
         <ion-list class='app-mob-portlet task-dashboard_sysportlet4 '>
             <ion-list-header class='app-mob-portlet__header'>我收藏的任务 </ion-list-header>
-                <view_dashboard_sysportlet4_list
-    :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
-    :viewparams="viewparams" 
-    :context="context" 
-        listMode="LIST"
-     updateAction="Update"
-     removeAction="Remove"
-     loaddraftAction=""
-     loadAction="Get"
-     createAction="Create"
-     :showBusyIndicator="true"  
-     fetchAction="FetchMyFavorites" 
-    controlStyle=""
-    name="dashboard_sysportlet4_list"  
-    ref='dashboard_sysportlet4_list' 
-    @closeview="closeView($event)">
-</view_dashboard_sysportlet4_list>
-
+                <task-favorite-mob-mdview9 :_context="JSON.stringify(context)" :isChildView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></task-favorite-mob-mdview9>
         </ion-list>
     </ion-row>
 </template>
@@ -151,6 +133,37 @@ export default class MyFavoriteTaskBase extends Vue implements ControlInterface 
      */  
     public deUIService:TaskUIService = new TaskUIService(this.$store);
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof Dashboard_sysportlet4Base
+     */
+    protected async dashboard_sysportlet4_u02f0175_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        if (curUIService) {
+            curUIService.Task_MyFavMore(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 关闭视图

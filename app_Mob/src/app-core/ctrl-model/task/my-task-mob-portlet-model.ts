@@ -1,16 +1,16 @@
 /**
- * MyFavoriteTask 部件模型
+ * MyTaskMob 部件模型
  *
  * @export
- * @class MyFavoriteTaskModel
+ * @class MyTaskMobModel
  */
-export class MyFavoriteTaskModel {
+export class MyTaskMobModel {
 
   /**
     * 获取数据项集合
     *
     * @returns {any[]}
-    * @memberof MyFavoriteTaskModel
+    * @memberof MyTaskMobModel
     */
   public getDataItems(): any[] {
     return [
@@ -185,4 +185,4 @@ export class MyFavoriteTaskModel {
 
 }
 // 默认导出
-export default MyFavoriteTaskModel;
+export default MyTaskMobModel;
