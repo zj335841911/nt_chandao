@@ -151,7 +151,7 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ProjectStatusBarMob
+     * @memberof ProjectStatusBarMobBase
      */
     public getDatas(): any[] {
         return [];
@@ -161,7 +161,7 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ProjectStatusBarMob
+     * @memberof ProjectStatusBarMobBase
      */
     public getData(): any {
         return null;
@@ -171,7 +171,7 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof ProjectStatusBarMob
+     * @memberof ProjectStatusBarMobBase
      */
     @Prop({ default: true }) public showBusyIndicator!: boolean;
 
@@ -179,14 +179,14 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof ProjectStatusBarMob
+     * @memberof ProjectStatusBarMobBase
      */
     @Prop() public fetchAction!: string;  
 
     /**
     * Vue声明周期(组件初始化完毕)
     *
-    * @memberof ProjectStatusBarMob
+    * @memberof ProjectStatusBarMobBase
     */
     public created() {
          this.afterCreated();     
@@ -195,7 +195,7 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
     /**
     * 执行created后的逻辑
     *
-    * @memberof ProjectStatusBarMob
+    * @memberof ProjectStatusBarMobBase
     */
     public afterCreated(){
         if (this.viewState) {
@@ -203,9 +203,7 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
                 if (!Object.is(tag, this.name)) {
                     return;
                 }
-                if (Object.is('load', action)) {
-                    this.load(data);
-                }
+                this.load(data);
             });
         }  
     }
@@ -213,7 +211,7 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
     /**
      * vue 生命周期
      *
-     * @memberof ProjectStatusBarMob
+     * @memberof ProjectStatusBarMobBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -222,13 +220,22 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ProjectStatusBarMob
+     * @memberof ProjectStatusBarMobBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
         }
     }
+
+    /**
+     * 是否无数据
+     *
+     * @public
+     * @type {boolean}
+     * @memberof Dashboard_sysportlet9_chartBase
+     */
+    public isNoData: boolean  = false;
 
     /**
      * 图表div绑定的id
@@ -252,7 +259,7 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
      * @type {CodeListService}
      * @memberof Dashboard_sysportlet9_chartBase
      */  
-    public codeListService:CodeListService = new CodeListService();
+    public codeListService:CodeListService = new CodeListService({ $store: this.$store });
 
     /**
      * 序列模型
@@ -413,10 +420,11 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
         const parentdata: any = {};
         this.$emit('beforeload', parentdata);
         Object.assign(arg, parentdata);
-        Object.assign(arg,{viewparams:this.viewparams});
+        Object.assign(arg,{viewparams:this.viewparams,page:0,size:1000});
+        Object.assign(arg,{sort: 'id,desc'});
         this.service.search(this.fetchAction,JSON.parse(JSON.stringify(this.context)),arg,this.showBusyIndicator).then((res) => {
             if (res) {
-               this.transformToBasicChartSetData(res.data.records,() =>{_this.drawCharts()});
+               this.transformToBasicChartSetData(res.data,(codelist:any) =>{_this.drawCharts(codelist)});
             }
         }).catch((error) => {
             console.error(error);
@@ -429,14 +437,14 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
      * @returns {*} 
      * @memberof Dashboard_sysportlet9_chartBase
      */
-    public drawCharts(){
+    public drawCharts(codelist:any){
         if(!this.myChart){
           let element:any =  document.getElementById(this.chartId);
           this.myChart = echarts.init(element);
         }
-        this.handleChartOPtion();
-        console.log(this.chartOption);
-        this.myChart.setOption(this.chartOption);
+        let _chartOption = this.handleChartOPtion(codelist);
+        console.log(_chartOption);
+        this.myChart.setOption(_chartOption);
         this.myChart.resize();
     }
 
@@ -445,7 +453,8 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
      * 
      * @memberof Dashboard_sysportlet9_chartBase
      */
-    public handleChartOPtion(){
+    public handleChartOPtion(allcodelist:any){
+        let _chartOption:any = JSON.parse(JSON.stringify(this.chartOption));
         if(Object.keys(this.seriesModel).length > 0){
             let tempDataSourceMap:Map<string,any> = new Map();
             for(let i=0;i<Object.keys(this.seriesModel).length;i++){
@@ -457,64 +466,81 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
             }
             if(tempDataSourceMap.size > 0){
                 tempDataSourceMap.forEach((item:any) =>{
-                    this.chartOption.dataset.push({'source':item});
+                    _chartOption.dataset.push({'source':item});
                 })
             }
             Object.keys(this.seriesModel).forEach((seriesName:string) =>{
-                if(this.chartOption && this.chartOption.series.length > 0){
-                    this.chartOption.series.forEach((item:any) =>{
-                        if(this.seriesModel[seriesName].ecxObject){
-                            item = this.$util.deepObjectMerge(item,this.seriesModel[seriesName].ecxObject);
+                if(_chartOption && _chartOption.series.length > 0){
+                    _chartOption.series.forEach((item:any) =>{
+                        if(this.seriesModel[seriesName].ecxObject && Object.is(seriesName,item.id)){
+                            item = Util.deepObjectMerge(item,this.seriesModel[seriesName].ecxObject);
                         }
-                        if(this.seriesModel[seriesName].baseOption && Object.keys(this.seriesModel[seriesName].baseOption).length > 0){
-                            item = this.$util.deepObjectMerge(item,this.seriesModel[seriesName].baseOption);
+                        if(this.seriesModel[seriesName].baseOption && Object.keys(this.seriesModel[seriesName].baseOption).length > 0  && Object.is(seriesName,item.id)){
+                            item = Util.deepObjectMerge(item,this.seriesModel[seriesName].baseOption);
                         }
-                        if(this.seriesModel[seriesName].ecObject){
-                            item = this.$util.deepObjectMerge(item,this.seriesModel[seriesName].ecObject);
+                        if(this.seriesModel[seriesName].ecObject && Object.is(seriesName,item.id)){
+                            item = Util.deepObjectMerge(item,this.seriesModel[seriesName].ecObject);
                         }
                     })
                 }
                 //设置多序列
                 let tempSeries:any = this.seriesModel[seriesName];
-                if(tempSeries && tempSeries.seriesIdField && tempSeries.seriesValues.length > 0){
-                    const returnIndex:number = this.chartOption.series.findIndex((item:any) =>{
+                // 非雷达图
+                if(tempSeries && tempSeries.seriesIdField && tempSeries.seriesValues.length > 0 && !Object.is(tempSeries.type,'radar')){
+                    const returnIndex:number = _chartOption.series.findIndex((item:any) =>{
                         return Object.is(item.id,seriesName);
                     })
-                    this.chartOption.series.splice(returnIndex,1);
+                    _chartOption.series.splice(returnIndex,1);
                     let tempSeriesArray:Array<any> = [];
                     tempSeries.seriesValues.forEach((seriesvalueItem:any) =>{
                         let tempSeriesTemp:any = JSON.parse(JSON.stringify(tempSeries.seriesTemp));
                         Object.assign(tempSeriesTemp,{name:tempSeries.seriesMap[seriesvalueItem],datasetIndex:tempSeries.seriesIndex,encode:{x:tempSeries.categorField,y:`${seriesvalueItem}`}});
-                        this.chartOption.series.push(tempSeriesTemp);
+                        _chartOption.series.push(tempSeriesTemp);
                     })
-                    
-
                 }
             })
         }
         if(Object.keys(this.chartBaseOPtion).length > 0){
-            Object.assign(this.chartOption,this.chartBaseOPtion);
+            Object.assign(_chartOption,this.chartBaseOPtion);
         }
         if(Object.keys(this.chartUserParams).length >0){
-            Object.assign(this.chartOption,this.chartUserParams);
+            Object.assign(_chartOption,this.chartUserParams);
         }
+        return _chartOption;
     }
 
     /**
      * 实体数据集转化为图表数据集
-     *    
+     * 
+     * 1.获取图表所有代码表值
+     * 2.查询集合映射图表数据集
+     * 3.补全图表数据集
+     * 4.图表数据集分组求和
+     * 5.排序图表数据集
+     * 
      * @param {*} data 实体数据集
      * @param {Function} callback 回调
      * @memberof Dashboard_sysportlet9_chartBase
      */
     public async transformToBasicChartSetData(data:any,callback:Function){
         if(!data || !Array.isArray(data) || data.length === 0){
+            this.isNoData = true;
             return;
         }
+        this.isNoData = false;
         //获取代码表值
         let allCodeList:any = await this.getChartAllCodeList();
         if(Object.values(this.seriesModel).length > 0){
             Object.values(this.seriesModel).forEach((singleSeries:any,index:number) =>{
+                // 值属性为srfcount设置{srfcount:1}到data
+                let valueField = singleSeries.dataSetFields.find((datasetField:any) =>{
+                    return datasetField.name === singleSeries.valueField;
+                }); 
+                if(valueField && valueField.name && Object.is(valueField.name,"srfcount")){
+                    data.forEach((singleData:any) =>{
+                        Object.assign(singleData,{srfcount:1});
+                    })
+                }
                 // 分组属性
                 let groupField = singleSeries.dataSetFields.find((datasetField:any) =>{
                     return datasetField.name === singleSeries.categorField;
@@ -533,9 +559,18 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
                         }
                     }else{
                         // 序列属性存在时
-                        let tempSeriesValueItem = tempSeriesValues.get(item[singleSeries.seriesIdField]);
-                        if(!tempSeriesValueItem){
-                            tempSeriesValues.set(item[singleSeries.seriesIdField],item[singleSeries.seriesNameField]);
+                        // 序列代码表存在时,翻译tempSeriesValues的键值对
+                        if(singleSeries.seriesCodeList){
+                            const seriesCodeList:Map<string,any> = allCodeList.get(singleSeries.seriesCodeList.tag);
+                            let tempSeriesValueItem = tempSeriesValues.get(seriesCodeList.get(item[singleSeries.seriesIdField]));
+                            if(!tempSeriesValueItem){
+                                tempSeriesValues.set(seriesCodeList.get(item[singleSeries.seriesIdField]),seriesCodeList.get(item[singleSeries.seriesIdField]));
+                            }
+                        }else{
+                            let tempSeriesValueItem = tempSeriesValues.get(item[singleSeries.seriesIdField]);
+                            if(!tempSeriesValueItem){
+                                tempSeriesValues.set(item[singleSeries.seriesIdField],item[singleSeries.seriesNameField]);
+                            }
                         }
                         Object.assign(tempChartSetDataItem,{name:item[singleSeries.seriesIdField]});
                         if(singleSeries.dataSetFields && singleSeries.dataSetFields.length >0){
@@ -548,6 +583,14 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
                 })
                 // 补全数据集合
                 this.completeDataSet(tempChartSetData,singleSeries,allCodeList);
+                // 序列代码表存在时,补全序列
+                if(singleSeries.seriesCodeList){
+                    const seriesCodeList:Map<string,any> = allCodeList.get(singleSeries.seriesCodeList.tag);
+                    tempSeriesValues = new Map();
+                    seriesCodeList.forEach((item:any) =>{
+                        tempSeriesValues.set(item,item);
+                    })
+                }
                 singleSeries.seriesValues = [...tempSeriesValues.keys()];
                 let tempSeriesMapObj:any = {};
                 tempSeriesValues.forEach((value:any,key:any) =>{
@@ -562,6 +605,9 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
 
     /**
      * 构建图表序列数据集合
+     * 
+     * 1.分组求和
+     * 2.排序求和数组
      * 
      * @param {Array<any>} data 传入数据
      * @param {Array<any>} item 单个序列
@@ -609,7 +655,7 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
             item.data = this.groupAndAdd(tempGroupField,[],tempValueField,data,item,groupField,allCodeList);
         }
         if(callback && callback instanceof Function){
-            callback();
+            callback(allCodeList);
         }
     }
 
@@ -714,7 +760,7 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
         }
         // 补全空白分类
         if(returnArray.length >0){
-            let emptyText = (groupFieldModel[0] && groupFieldModel[0].codeList)?groupFieldModel[0].codeList.emptytext:"未定义";
+            let emptyText = (groupFieldModel[0] && groupFieldModel[0].codeList)?groupFieldModel[0].codeList.emptytext:(this.$t('app.chart.undefined') as string);
             returnArray.forEach((item:any) =>{
                 if(!item[groupField[0]]){
                     item[groupField[0]] = emptyText;
@@ -722,6 +768,22 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
             })
         }
         returnArray = this.sortReturnArray(returnArray,groupFieldModel,allCodeList);
+        // 雷达图数据格式处理
+        if(Object.is(item.type,'radar') && returnArray.length >0){
+            let tempReturnArray:Array<any> = [];
+            let seriesValues:Array<any> = item.seriesValues;
+            if(seriesValues && seriesValues.length >0){
+                seriesValues.forEach((singleSeriesName:any) =>{
+                    let singleSeriesObj:any = {};
+                    returnArray.forEach((item:any) =>{
+                        Object.assign(singleSeriesObj,{[item[groupField[0]]]:item[singleSeriesName]});
+                    })
+                    Object.assign(singleSeriesObj,{type:singleSeriesName});
+                    tempReturnArray.push(singleSeriesObj);
+                })
+            }
+            returnArray = tempReturnArray;
+        }
         console.log(JSON.stringify(returnArray));
         return returnArray;
     }
@@ -754,6 +816,9 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
                     returnArray.push(item);
                 }
             })
+            returnArray.forEach((item:any) =>{
+                delete item.hasused;
+            })
         }else{
             // 分组为年份
             if(Object.is(groupField[0].groupMode,"YEAR")){
@@ -761,17 +826,30 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
                     return Number(a[groupField[0].name]) - Number(b[groupField[0].name]);
                 });
             }else if(Object.is(groupField[0].groupMode,"QUARTER")){
-                returnArray = this.handleSortGroupData(arr,groupField,"季度");
+                returnArray = this.handleSortGroupData(arr,groupField,(this.$t('app.chart.quarter') as string));
             }else if(Object.is(groupField[0].groupMode,"MONTH")){
-                returnArray = this.handleSortGroupData(arr,groupField,"月");
+                returnArray = this.handleSortGroupData(arr,groupField,(this.$t('app.calendar.month') as string));
             }else if(Object.is(groupField[0].groupMode,"YEARWEEK")){
-                returnArray = this.handleSortGroupData(arr,groupField,"周");
+                returnArray = this.handleSortGroupData(arr,groupField,(this.$t('app.calendar.week') as string));
             }else if(Object.is(groupField[0].groupMode,"DAY")){
                 returnArray = arr.sort((a:any, b:any) => {
                     return moment(a[groupField[0].name]).unix() - moment(b[groupField[0].name]).unix();
                 });
             }else{
-                returnArray = arr;
+                let groupFieldName:string = groupField[0].name;
+                let isConvert:boolean = true;
+                arr.forEach((item:any) =>{
+                    if(isNaN(item[groupFieldName])){
+                        isConvert = false;
+                    }
+                })
+                if(isConvert){
+                    returnArray = arr.sort((a:any, b:any) => {
+                        return a[groupFieldName] - b[groupFieldName];
+                    });
+                }else{
+                    returnArray = arr;
+                }
             }
         }
         return returnArray;
@@ -790,7 +868,17 @@ export default class ProjectStatusBarMobBase extends Vue implements ControlInter
         arr.forEach((item:any) =>{
             let sortFieldValue:Array<any> = item[groupField[0].name].split("-");
             Object.assign(item,{sortField:Number(sortFieldValue[0])*10000+Number(sortFieldValue[1])});
-            item[groupField[0].name] = sortFieldValue[0]+"年"+sortFieldValue[1]+label;
+            /**
+             *  @judgment 分组为月份时，月份+1  start
+             *  @author mos
+             *  @date   2020.07.20
+             */
+            if(Object.is(label, "月")) {
+                item[groupField[0].name] = sortFieldValue[0]+(this.$t('app.chart.year') as string)+(Number(sortFieldValue[1])+1)+label;
+            } else {
+                item[groupField[0].name] = sortFieldValue[0]+(this.$t('app.chart.year') as string)+sortFieldValue[1]+label;
+            }
+            //  @judgment 分组为月份时，月份+1  end
         })
         arr.sort((a:any, b:any) => {
             return Number(a.sortField) - Number(b.sortField);
