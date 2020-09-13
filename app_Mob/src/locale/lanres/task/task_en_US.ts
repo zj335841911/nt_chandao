@@ -356,23 +356,7 @@ export default {
 			tip: 'deuiaction1',
 		},
 	},
-	assmobmdview9righttoolbar_toolbar: {
-		deuiaction3_myassmore: {
-			caption: '更多',
-			tip: 'deuiaction3_myassmore',
-		},
-		deuiaction2: {
-			caption: '刷新',
-			tip: 'deuiaction2',
-		},
-	},
 	favoritemobmdview9mdctrl_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: '更多',
-			tip: 'deuiaction1',
-		},
-	},
-	favoritemobmdview9righttoolbar_toolbar: {
 		deuiaction1: {
 			caption: '更多',
 			tip: 'deuiaction1',

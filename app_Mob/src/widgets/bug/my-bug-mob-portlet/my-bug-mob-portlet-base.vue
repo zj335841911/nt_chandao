@@ -1,9 +1,13 @@
 <template>
     <ion-row>
         <ion-list class='app-mob-portlet bug-dashboard_sysportlet3 '>
-            <ion-list-header class='app-mob-portlet__header'>我的bug </ion-list-header>
+            <ion-list-header class='app-mob-portlet__header'><ion-input v-if="isEditTitle" value="我的bug">我的bug <div class="portlet__header_right"><ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon></div></ion-list-header>
+            <div class="edit_title_btn" v-if="isEditTitle"><ion-button>确认</ion-button><ion-button>取消</ion-button></div>
                 <bug-ass-mob-mdview9 :_context="JSON.stringify(context)" :isChildView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></bug-ass-mob-mdview9>
         </ion-list>
+        <ion-select ref="select" v-show="false"  @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
+            <ion-select-option  v-for="option of items" :key="option.value"  :value="option.value">{{option.text}}</ion-select-option>
+        </ion-select>
     </ion-row>
 </template>
 
@@ -253,6 +257,53 @@ export default class MyBugMobBase extends Vue implements ControlInterface {
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
         }
+    }
+
+    /**
+     * 门户名称编辑状态
+     *
+     * @memberof MyBugMob
+     */
+    public isEditTitle = false;
+
+    /**
+     * 门户行为组
+     *
+     * @memberof MyBugMob
+     */
+    public items = [{text:'重命名',value:'rename'},{text:"删除",value:"delete",style:"color: red;"}]
+
+    /**
+     * 门户点击行为菜单
+     *
+     * @memberof MyBugMob
+     */
+    public open() {
+        let select :any= this.$refs['select'];
+        if(select){
+            setTimeout(() => {
+                select.open();
+            }, 1);
+        }
+    }
+
+    /**
+     * 门户点击行为
+     *
+     * @memberof MyBugMob
+     */
+    public change(value:any) {
+        if(value.detail.value){
+            if(value.detail.value == 'rename' ){
+                this.isEditTitle = true;
+            }
+        }
+        setTimeout(() => {
+                let select :any = this.$refs['select'];
+            if (select) {
+                select.value = null;
+            }
+        }, 1);
     }
 
 }

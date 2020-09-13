@@ -350,18 +350,6 @@ export default {
 			tip: '删除',
 		},
 	},
-	favoritemobmdview9righttoolbar_toolbar: {
-		deuiaction1: {
-			caption: '更多',
-			tip: '更多',
-		},
-	},
-	assmobmdview9righttoolbar_toolbar: {
-		deuiaction1: {
-			caption: '更多',
-			tip: '更多',
-		},
-	},
 	mobmdviewcurprojectrighttoolbar_toolbar: {
 	},
 };

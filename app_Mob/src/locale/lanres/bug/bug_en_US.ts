@@ -362,12 +362,6 @@ export default {
 	},
 	mobmdviewrighttoolbar_toolbar: {
 	},
-	assmobmdview9righttoolbar_toolbar: {
-		deuiaction1: {
-			caption: '更多',
-			tip: 'deuiaction1',
-		},
-	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',

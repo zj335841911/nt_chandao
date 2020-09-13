@@ -1,5 +1,13 @@
 [
 {"type":"app",
+"appCodeName":"Product",
+"appName":"产品",
+"portletCodeName": "ProductStatusChartMob",
+"detailText":"根据产品状态统计所以产品",
+"detailImage":"",
+"portletTYpe":"CHART","componentName":"app-product-product-status-chart-mob-portlet",
+"portletName": "产品总览"},
+{"type":"app",
 "appCodeName":"Action",
 "appName":"系统日志",
 "portletCodeName": "AllTrendsMob",
