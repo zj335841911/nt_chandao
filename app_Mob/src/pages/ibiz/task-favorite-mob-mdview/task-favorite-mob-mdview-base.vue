@@ -265,7 +265,7 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
     * @memberof TaskFavoriteMobMDView
     */
     public mdctrl_quicktoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyFavMore', target: 'NONE' } },
+            deuiaction1: { name: 'deuiaction1', caption: '更多', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyFavMore', target: 'NONE' } },
 
     };
 

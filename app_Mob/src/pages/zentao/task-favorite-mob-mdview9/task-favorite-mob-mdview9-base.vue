@@ -9,7 +9,7 @@
                     <div class="app-quick-toolbar toolbar-right-bottons">
                             <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" >
                         <ion-icon class="ibiz-button-icon" name="more"> </ion-icon>
-                    
+                    {{$t('task.favoritemobmdview9righttoolbar_toolbar.deuiaction1.caption')}}
                     </ion-button>
                 
                     </div>
@@ -278,7 +278,7 @@ export default class TaskFavoriteMobMDView9Base extends Vue {
     * @memberof TaskFavoriteMobMDView9
     */
     public mdctrl_quicktoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyFavMore', target: 'NONE' } },
+            deuiaction1: { name: 'deuiaction1', caption: '更多', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyFavMore', target: 'NONE' } },
 
     };
 
@@ -293,7 +293,7 @@ export default class TaskFavoriteMobMDView9Base extends Vue {
     * @memberof TaskFavoriteMobMDView9
     */
     public righttoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyFavMore', target: 'NONE' } },
+            deuiaction1: { name: 'deuiaction1', caption: '更多', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyFavMore', target: 'NONE' } },
 
     };
 
