@@ -164,6 +164,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '19024f5f57e716e3a36b513ea2a64dab',
+            viewmodule: 'zentao',
+            viewname: 'ProjectMobChartView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '1a957197655fae1ce44ceccda6f65852',
             viewmodule: 'ibiz',
             viewname: 'TaskAssMoreMobMDView',
@@ -631,6 +640,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '19024f5f57e716e3a36b513ea2a64dab',
                 '74324efc79a8f2da4cc5bccb10015ab5',
                 '1a957197655fae1ce44ceccda6f65852',
                 '61673d1a86a046c9ff672f16ab4b7ce7',

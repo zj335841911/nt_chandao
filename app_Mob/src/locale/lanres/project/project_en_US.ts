@@ -72,6 +72,9 @@ export default {
     storychangecnt: "需求变更数",
   },
 	views: {
+		mobchartview: {
+			caption: '项目',
+		},
 		newmobeditview: {
 			caption: '项目',
 		},

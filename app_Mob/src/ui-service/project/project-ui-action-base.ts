@@ -89,6 +89,7 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
      * @memberof  ProjectUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'mobchartview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'projects'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'supmobeditview',srfappde:'projects'});

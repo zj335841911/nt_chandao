@@ -2380,6 +2380,19 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-mob-pickup-mdview/task-mob-pickup-mdview.vue'),
                 },
                 {
+                    path: 'projects/:project?/mobchartview',
+                    meta: {
+                        caption: 'project.views.mobchartview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'mobchartview', parameterName: 'mobchartview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-mob-chart-view/project-mob-chart-view.vue'),
+                },
+                {
                     path: 'todos/:todo?/mobmdview',
                     meta: {
                         caption: 'todo.views.mobmdview.caption',
