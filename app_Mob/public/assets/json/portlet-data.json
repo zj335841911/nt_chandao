@@ -4,7 +4,7 @@
 "appName":"产品",
 "portletCodeName": "ProductStatusChartMob",
 "detailText":"根据产品状态统计所以产品",
-"detailImage":"",
+"detailImage":"assets/images/add-bug-distribution-card.jpg",
 "portletTYpe":"CHART","componentName":"app-product-product-status-chart-mob-portlet",
 "portletName": "产品总览"},
 {"type":"app",
