@@ -1,19 +1,19 @@
 <template>
     <ion-row>
-        <ion-list class='app-mob-portlet product-dashboard_sysportlet8 '>
-            <ion-list-header class='app-mob-portlet__header'><ion-input v-if="isEditTitle" value="产品总览"></ion-input>产品总览 <div class="portlet__header_right"><ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon></div></ion-list-header>
+        <ion-list class='app-mob-portlet project-dashboard_sysportlet9 '>
+            <ion-list-header class='app-mob-portlet__header'><ion-input v-if="isEditTitle" value="项目统计"></ion-input>项目统计 <div class="portlet__header_right"><ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon></div></ion-list-header>
             <div class="edit_title_btn" v-if="isEditTitle"><ion-button>确认</ion-button><ion-button>取消</ion-button></div>
-                <view_dashboard_sysportlet8_chart
+                <view_dashboard_sysportlet9_chart
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
     :viewparams="viewparams" 
     :context="context" 
     fetchAction="FetchDefault"
     :showBusyIndicator="true" 
-    name="dashboard_sysportlet8_chart"  
-    ref='dashboard_sysportlet8_chart' 
+    name="dashboard_sysportlet9_chart"  
+    ref='dashboard_sysportlet9_chart' 
     @closeview="closeView($event)">
-</view_dashboard_sysportlet8_chart>
+</view_dashboard_sysportlet9_chart>
         </ion-list>
         <ion-select ref="select" v-show="false"  @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
             <ion-select-option  v-for="option of actionBarModelData" :key="option.viewlogicname"  :value="option.viewlogicname">{{option.actionName}}</ion-select-option>
@@ -28,10 +28,10 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import ProductService from '@/app-core/service/product/product-service';
-import ProductStatusChartMobService from '@/app-core/ctrl-service/product/product-status-chart-mob-portlet-service';
+import ProjectService from '@/app-core/service/project/project-service';
+import ProjectStatusBarMobBService from '@/app-core/ctrl-service/project/project-status-bar-mob-b-portlet-service';
 
-import ProductUIService from '@/ui-service/product/product-ui-action';
+import ProjectUIService from '@/ui-service/project/project-ui-action';
 
 
 
@@ -39,13 +39,13 @@ import ProductUIService from '@/ui-service/product/product-ui-action';
     components: {
     }
 })
-export default class ProductStatusChartMobBase extends Vue implements ControlInterface {
+export default class ProjectStatusBarMobBBase extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     @Prop() protected name?: string;
 
@@ -53,7 +53,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
      * 视图名称
      *
      * @type {string}
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     @Prop() protected viewName!: string;
 
@@ -62,7 +62,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     @Prop() protected viewState!: Subject<ViewState>;
 
@@ -70,7 +70,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
      * 应用上下文
      *
      * @type {*}
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     @Prop({ default: {} }) protected context?: any;
 
@@ -78,7 +78,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
      * 视图参数
      *
      * @type {*}
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     @Prop({ default: {} }) protected viewparams?: any;
 
@@ -87,7 +87,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
      *
      * @protected
      * @type {(Subscription | undefined)}
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     protected viewStateEvent: Subscription | undefined;
 
@@ -95,7 +95,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     protected getControlType(): string {
         return 'PORTLET'
@@ -105,7 +105,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -114,7 +114,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
      * 转化数据
      *
      * @param {any} args
-     * @memberof  ProductStatusChartMobBase
+     * @memberof  ProjectStatusBarMobBBase
      */
     public transformData(args: any) {
         let _this: any = this;
@@ -126,33 +126,33 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
     /**
      * 建构部件服务对象
      *
-     * @type {ProductStatusChartMobService}
-     * @memberof ProductStatusChartMob
+     * @type {ProjectStatusBarMobBService}
+     * @memberof ProjectStatusBarMobB
      */
-    protected service: ProductStatusChartMobService = new ProductStatusChartMobService({$store:this.$store});
+    protected service: ProjectStatusBarMobBService = new ProjectStatusBarMobBService({$store:this.$store});
 
     /**
      * 实体服务对象
      *
-     * @type {ProductService}
-     * @memberof ProductStatusChartMob
+     * @type {ProjectService}
+     * @memberof ProjectStatusBarMobB
      */
-    protected appEntityService: ProductService = new ProductService();
+    protected appEntityService: ProjectService = new ProjectService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {ProductUIService}
-     * @memberof ProductStatusChartMobBase
+     * @type {ProjectUIService}
+     * @memberof ProjectStatusBarMobBBase
      */  
-    public deUIService:ProductUIService = new ProductUIService(this.$store);
+    public deUIService:ProjectUIService = new ProjectUIService(this.$store);
     
 
     /**
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     protected closeView(args: any[]): void {
         let _this: any = this;
@@ -165,7 +165,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */    
     protected counterServiceArray:Array<any> = [];
 
@@ -183,7 +183,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
      *
      * @protected
      * @type {any[]}
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     protected actionBarModelData: any[] = [
     ];
@@ -193,7 +193,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
      *
      * @protected
      * @param {*} $event
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     protected handleItemClick($event: any) {
     }
@@ -202,7 +202,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     public getDatas(): any[] {
         return [];
@@ -212,7 +212,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     public getData(): any {
         return {};
@@ -221,7 +221,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
     /**
      * vue 生命周期
      *
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     protected created() {
         this.afterCreated();
@@ -230,7 +230,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
     /**
      * 执行created后的逻辑
      *
-     *  @memberof ProductStatusChartMob
+     *  @memberof ProjectStatusBarMobB
      */    
     protected afterCreated(){
         if (this.viewState) {
@@ -249,7 +249,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
     /**
      * vue 生命周期
      *
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     protected destroyed() {
         this.afterDestroy();
@@ -258,7 +258,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     protected afterDestroy() {
         if (this.viewStateEvent) {
@@ -269,7 +269,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
     /**
      * 门户名称编辑状态
      *
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     public isEditTitle = false;
 
@@ -283,7 +283,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
     /**
      * 门户点击行为菜单
      *
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     public open() {
         let select :any= this.$refs['select'];
@@ -297,7 +297,7 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
     /**
      * 门户点击行为
      *
-     * @memberof ProductStatusChartMob
+     * @memberof ProjectStatusBarMobB
      */
     public change(value:any) {
         if(value.detail.value){
@@ -328,5 +328,5 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
 </script>
 
 <style lang='less'>
-@import './product-status-chart-mob-portlet.less';
+@import './project-status-bar-mob-b-portlet.less';
 </style>

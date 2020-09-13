@@ -10,7 +10,7 @@ export class ProjectStatusBarMobModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof ProjectStatusBarMobChartMode
+	 * @memberof ProjectStatusBarMobDashboard_sysportlet9_chartMode
 	 */
 	public getDataItems(): any[] {
 		return [
