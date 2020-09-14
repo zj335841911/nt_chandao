@@ -618,6 +618,9 @@ export default {
         'blocked': '阻塞',
         empty: '未执行',
     },
+    UserRealNameTaskTeam: {
+        empty: '',
+    },
     Bug__pri: {
         '1': '1',
         '2': '2',

@@ -151,6 +151,7 @@ export default {
 			srfsourcekey: '', 
 			project: '所属项目', 
 			assignedto: '指派给', 
+			multiple: '多人任务', 
 			left: '预计剩余', 
 			comment: '备注', 
 			id: '编号', 
@@ -179,6 +180,7 @@ export default {
 			assignedto: '指派给', 
 			finisheddate: '实际完成', 
 			files: '附件', 
+			multiple: '多人任务', 
 			comment: '备注', 
 		},
 		uiactions: {

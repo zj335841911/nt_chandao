@@ -163,6 +163,7 @@ export default {
 			srfsourcekey: '', 
 			productname: '产品', 
 			branch: '平台/分支', 
+			product: '所属产品', 
 			branchname: '平台/分支', 
 			modulename1: '模块名称', 
 			projectname: '项目', 

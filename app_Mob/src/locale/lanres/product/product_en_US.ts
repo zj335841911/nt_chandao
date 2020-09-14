@@ -43,7 +43,7 @@ export default {
   },
 	views: {
 		prodmobtabexpview: {
-			caption: '产品详情',
+			caption: '产品',
 		},
 		mobpickupmdview: {
 			caption: '产品',
@@ -52,7 +52,7 @@ export default {
 			caption: '产品',
 		},
 		mobtabexpview: {
-			caption: '测试详情',
+			caption: '测试',
 		},
 		mobpickupview: {
 			caption: '产品',

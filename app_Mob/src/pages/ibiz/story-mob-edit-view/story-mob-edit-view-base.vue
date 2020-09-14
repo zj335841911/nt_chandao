@@ -51,15 +51,17 @@
                 <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
                 <ion-fab-list class="fab-list" side="top">
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_changestorydetailmob.visabled" :disabled="righttoolbarModels.deuiaction1_changestorydetailmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_changestorydetailmob' }, $event)">
-                <ion-icon name="swap"></ion-icon>
+                <ion-icon name="swap-vertical-outline"></ion-icon>
             {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_changestorydetailmob.caption')}}    
             </ion-fab-button>
         
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_assigntomob.visabled" :disabled="righttoolbarModels.deuiaction1_assigntomob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assigntomob' }, $event)">
+                <ion-icon name="hand-o-right"></ion-icon>
             {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntomob.caption')}}    
             </ion-fab-button>
         
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_reviewstorymob.visabled" :disabled="righttoolbarModels.deuiaction1_reviewstorymob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_reviewstorymob' }, $event)">
+                <ion-icon name="search"></ion-icon>
             {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_reviewstorymob.caption')}}    
             </ion-fab-button>
         

@@ -85,7 +85,7 @@ export default {
 			caption: '挂起',
 		},
 		mobtabexpview: {
-			caption: '项目详情',
+			caption: '项目',
 		},
 		mobpickupmdview: {
 			caption: '项目',

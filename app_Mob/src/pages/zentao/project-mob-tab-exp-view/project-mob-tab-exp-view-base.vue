@@ -191,7 +191,7 @@ export default class ProjectMobTabExpViewBase extends Vue {
      * @memberof ProjectMobTabExpViewBase
      */
     protected model: any = {
-        srfTitle: '项目分页导航视图',
+        srfTitle: '项目',
         srfCaption: 'project.views.mobtabexpview.caption',
         srfSubCaption: '',
         dataInfo: '',

@@ -837,6 +837,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfsourcekey: null,
         productname: null,
         branch: null,
+        product: null,
         branchname: null,
         modulename1: null,
         projectname: null,
@@ -948,6 +949,12 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { type: 'string', message: '平台/分支 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '平台/分支 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '平台/分支 值不能为空', trigger: 'blur' },
+        ],
+        product: [
+            { type: 'number', message: '所属产品 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '所属产品 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '所属产品 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '所属产品 值不能为空', trigger: 'blur' },
         ],
         branchname: [
             { type: 'string', message: '平台/分支 值必须为字符串类型', trigger: 'change' },
@@ -1169,6 +1176,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         branch: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         branchname: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branchname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         modulename1: new FormItemModel({ caption: '模块名称', detailType: 'FORMITEM', name: 'modulename1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -1325,6 +1334,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.branch')
     onBranchChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'branch', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 product 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.product')
+    onProductChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1579,6 +1600,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

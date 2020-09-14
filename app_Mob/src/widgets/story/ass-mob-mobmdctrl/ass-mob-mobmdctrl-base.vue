@@ -1323,10 +1323,10 @@ export default class AssMOBBase extends Vue implements ControlInterface {
      */  
     public ActionModel:any ={
         StoryFavoritesMob: { name: 'StoryFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_NFAVOR_BUT', target: 'SINGLEKEY',icon:'star-outline',isShowCaption:false,isShowIcon:true},
-        StoryNFavoritesMob: { name: 'StoryNFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', target: 'SINGLEKEY',icon:'star',isShowCaption:false,isShowIcon:true},
-        ChangeStoryDetailMob: { name: 'ChangeStoryDetailMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', target: 'SINGLEKEY',icon:'swap',isShowCaption:false,isShowIcon:true},
-        AssignToMob: { name: 'AssignToMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_ASS_BUT', target: 'SINGLEKEY',icon:'',isShowCaption:false,isShowIcon:true},
-        ReviewStoryMob: { name: 'ReviewStoryMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', target: 'SINGLEKEY',icon:'',isShowCaption:false,isShowIcon:true},
+        StoryNFavoritesMob: { name: 'StoryNFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', target: 'SINGLEKEY',icon:'star-half-outline',isShowCaption:false,isShowIcon:true},
+        ChangeStoryDetailMob: { name: 'ChangeStoryDetailMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', target: 'SINGLEKEY',icon:'swap-vertical-outline',isShowCaption:false,isShowIcon:true},
+        AssignToMob: { name: 'AssignToMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_ASS_BUT', target: 'SINGLEKEY',icon:'hand-o-right',isShowCaption:false,isShowIcon:true},
+        ReviewStoryMob: { name: 'ReviewStoryMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', target: 'SINGLEKEY',icon:'search',isShowCaption:false,isShowIcon:true},
         CloseStoryMob: { name: 'CloseStoryMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', target: 'SINGLEKEY',icon:'close',isShowCaption:false,isShowIcon:true}
     };
 

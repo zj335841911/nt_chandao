@@ -106,7 +106,7 @@
     :error="detailsModel.assignedto.error" 
     :isEmptyCaption="false">
         <app-mob-select 
-    tag="UserRealName"
+    tag="UserRealNameTaskTeam"
     codeListType="DYNAMIC" 
     :isCache="false" 
     :disabled="detailsModel.assignedto.disabled" 
@@ -114,8 +114,8 @@
     :context="context" 
     :viewparams="viewparams"
     :value="data.assignedto"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
+    :navigateContext ='{ "project": "%project%", "multiple": "%multiple%" } '
+    :navigateParam ='{ "project": "%project%", "multiple": "%multiple%" } '
     @change="($event)=>this.data.assignedto = $event" />
 </app-form-item>
 
@@ -568,6 +568,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
         assignedto: null,
         finisheddate: null,
         files: null,
+        multiple: null,
         comment: null,
         task: null,
     };
@@ -692,6 +693,12 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
             { type: 'string', message: '附件 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
+        ],
+        multiple: [
+            { type: 'string', message: '多人任务 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '多人任务 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'blur' },
         ],
         comment: [
             { type: 'string', message: '备注 值必须为字符串类型', trigger: 'change' },
@@ -820,6 +827,8 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
         finisheddate: new FormItemModel({ caption: '实际完成', detailType: 'FORMITEM', name: 'finisheddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1006,6 +1015,18 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
     }
 
     /**
+     * 监控表单属性 multiple 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof CompleteFormMob
+     */
+    @Watch('data.multiple')
+    onMultipleChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'multiple', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 comment 值
      *
      * @param {*} newVal
@@ -1053,6 +1074,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

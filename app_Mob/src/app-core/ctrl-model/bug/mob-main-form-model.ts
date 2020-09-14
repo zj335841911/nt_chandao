@@ -61,6 +61,11 @@ export class MobMainModel {
                 dataType: 'PICKUP',
             },
             {
+                name: 'product',
+                prop: 'product',
+                dataType: 'PICKUP',
+            },
+            {
                 name: 'branchname',
                 prop: 'branchname',
                 dataType: 'PICKUPTEXT',

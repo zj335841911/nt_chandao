@@ -1179,7 +1179,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      */  
     public ActionModel:any ={
         StoryFavoritesMob: { name: 'StoryFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_NFAVOR_BUT', target: 'SINGLEKEY',icon:'star-outline',isShowCaption:false,isShowIcon:true},
-        StoryNFavoritesMob: { name: 'StoryNFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', target: 'SINGLEKEY',icon:'star',isShowCaption:false,isShowIcon:true}
+        StoryNFavoritesMob: { name: 'StoryNFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', target: 'SINGLEKEY',icon:'star-half-outline',isShowCaption:false,isShowIcon:true}
     };
 
     
