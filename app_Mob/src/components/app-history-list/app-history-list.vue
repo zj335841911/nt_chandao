@@ -3,28 +3,53 @@
     <div class="onecontent" ref="onecontent">   
       <div v-for="item in items" :key="item.id" class="oneitem" ref="oneitem">
             <div class="header"><span>{{item.date}}</span> <span>{{item.method}}</span></div>
-            <div class="footer">
-              <span>{{$t('by')}} </span>
-              <strong>{{item.actor}}</strong> 
-              {{item.method}} 
-              <span v-if="item.actions !== 'closed'">
-                <span v-if="item.actions !=='suspended'">
-                  <span v-if="item.actions !=='delayed'">
-                  <strong>{{item.file}} </strong>
+            <div v-if="item.item.length > 0" class="footer">
+              <div v-for="(detail,index) in item.item" :key="index">
+                <span>{{$t('by')}} </span>
+                <strong>{{item.actor}}</strong> 
+                {{item.method}} 
+                <span v-if="item.actions !== 'closed'">
+                  <span v-if="item.actions !=='suspended'">
+                    <span v-if="item.actions !=='delayed'">
+                    <strong>{{detail.file}} </strong>
+                    </span>
+                  </span>
+                  <span v-if="item.actions == 'delayed'">
+                  </span>
+                  <span v-if="item.actions == 'commented' ">
+                    <strong v-html="item.comment" class="comment"></strong>
+                  </span>
+                  <span v-if="item.actions == 'edited' ">
+                    <span v-if="item.old">{{$t('oldvalue')}}</span> <span v-html="item.old"></span>,<span v-if="item.new">{{$t('newvalue')}}</span> <span v-html="item.new"></span>
+                  </span>
+                  <span v-if="item.actions == 'activated'">
+                    <span v-if="item.old">{{$t('oldvalue')}}</span> <span v-html="item.old"></span>,<span v-if="item.new">{{$t('newvalue')}}</span> <span v-html="item.new"></span> 
                   </span>
                 </span>
-                <span v-if="item.actions == 'delayed'">
+              </div>
+            </div>
+            <div v-else class="footer">
+              <span>{{$t('by')}} </span>
+                <strong>{{item.actor}}</strong> 
+                {{item.method}} 
+                <span v-if="item.actions !== 'closed'">
+                  <span v-if="item.actions !=='suspended'">
+                    <span v-if="item.actions !=='delayed'">
+                    <strong>{{item.file}} </strong>
+                    </span>
+                  </span>
+                  <span v-if="item.actions == 'delayed'">
+                  </span>
+                  <span v-if="item.actions == 'commented' ">
+                    <strong v-html="item.comment" class="comment"></strong>
+                  </span>
+                  <span v-if="item.actions == 'edited' ">
+                    <span v-if="detail.old">{{$t('oldvalue')}}</span> <span v-html="detail.old"></span>,<span v-if="detail.ibiznew">{{$t('newvalue')}}</span> <span v-html="detail.ibiznew"></span>
+                  </span>
+                  <span v-if="item.actions == 'activated'">
+                    <span v-if="detail.old">{{$t('oldvalue')}}</span> <span v-html="detail.old"></span>,<span v-if="detail.ibiznew">{{$t('newvalue')}}</span> <span v-html="detail.ibiznew"></span> 
+                  </span>
                 </span>
-                <span v-if="item.actions == 'commented' ">
-                  <strong v-html="item.comment" class="comment"></strong>
-                </span>
-                <span v-if="item.actions == 'edited' ">
-                  <span v-if="item.old">{{$t('oldvalue')}}</span> <span v-html="item.old"></span>,<span v-if="item.new">{{$t('newvalue')}}</span> <span v-html="item.new"></span>
-                </span>
-                <span v-if="item.actions == 'activated'">
-                  <span v-if="item.old">{{$t('oldvalue')}}</span> <span v-html="item.old"></span>,<span v-if="item.new">{{$t('newvalue')}}</span> <span v-html="item.new"></span> 
-                </span>
-              </span>
             </div>
       </div>
     </div>
@@ -137,22 +162,20 @@ export default class APPHistoryList extends Vue {
      * @returns {void}
      * @memberof APPHistoryList
      */
-    public handler(){
+    public handler() {
       if (this.items) {
-        this.items.forEach((v:any)=>{
+        console.log(this.items)
+        this.items.forEach((v:any) => {
           let file:string = "";
           let method:string = "";
-          if(v.objecttype){
-
-          }
-          if(v.actions){
-            let info:any = this.getCodeList(this.codeListAAA.actions.tag,'STATIC',v.actions);
+          if (v.actions) {
+            let info:any = this.getCodeList(this.codeListStandard.actions.tag,'STATIC',v.actions);
               v.method = info.text;
               method = info.text;
           }
-          if(v.item){
+          if (v.item.length > 0) {
             v.item.forEach((i:any) => {
-              v.file = (this.$t(v.objecttype+'.fields.'+i.field) as string);
+              i.file = (this.$t(v.objecttype+'.fields.'+i.field.toLowerCase()) as string);
               v.old = i.old;
               v.new = i.ibiznew;
             });
@@ -182,7 +205,7 @@ export default class APPHistoryList extends Vue {
      *
      * @memberof APPHistoryList
      */
-    public codeListAAA :any= {
+    public codeListStandard :any= {
       "actions":{
         type:"static",
         tag:"Action__type"
