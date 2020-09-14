@@ -2,14 +2,14 @@
     <ion-row>
         <ion-list class='app-mob-portlet bug-dashboard_sysportlet3 '>
             <ion-list-header class='app-mob-portlet__header'>
-                <ion-input v-if="isEditTitle" value="我的bug"></ion-input>
+                <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
                 <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>我的bug</span></span>
                 <div class="portlet__header_right">
                     <ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon>
                 </div>
             </ion-list-header>
             <div class="edit_title_btn" v-if="isEditTitle"><ion-button @click="onConfirmClick(false)">取消</ion-button><ion-button @click="onConfirmClick(true)">确认</ion-button></div>
-                <bug-ass-mob-mdview9 :_context="JSON.stringify(context)" :isChildView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></bug-ass-mob-mdview9>
+            <bug-ass-mob-mdview9 :_context="JSON.stringify(context)" :isChildView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></bug-ass-mob-mdview9>
         </ion-list>
         <ion-select ref="select" v-show="false"  @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
             <ion-select-option  v-for="option of actionBarModelData" :key="option.viewlogicname"  :value="option.viewlogicname">{{option.actionName}}</ion-select-option>
@@ -344,9 +344,8 @@ export default class MyBugMobBase extends Vue implements ControlInterface {
     public change(value:any) {
         if(value.detail.value){
             if(value.detail.value == 'rename' ){
-                this.$notice.warning("暂不支持");
+                this.isEditTitle = true;
             }else if(value.detail.value == 'delete' ){
-                this.$notice.warning("暂不支持");
             }
             else{
                 this.handleItemClick(value.detail.value);
