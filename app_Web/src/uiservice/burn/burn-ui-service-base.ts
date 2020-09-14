@@ -178,6 +178,10 @@ export default class BurnUIServiceBase extends UIService {
                     actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
                     return;
                 }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
+                    return;
+                }
                 if (response.status === 401) {
                     return;
                 }

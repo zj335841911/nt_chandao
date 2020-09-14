@@ -444,6 +444,10 @@ export default class TodoUIServiceBase extends UIService {
                     actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
                     return;
                 }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
+                    return;
+                }
                 if (response.status === 401) {
                     return;
                 }
@@ -580,6 +584,10 @@ export default class TodoUIServiceBase extends UIService {
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
                     actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
                     return;
                 }
                 if (response.status === 401) {
@@ -738,6 +746,10 @@ export default class TodoUIServiceBase extends UIService {
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
                     actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
                     return;
                 }
                 if (response.status === 401) {
@@ -936,6 +948,10 @@ export default class TodoUIServiceBase extends UIService {
                     actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
                     return;
                 }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
+                    return;
+                }
                 if (response.status === 401) {
                     return;
                 }
@@ -1071,6 +1087,10 @@ export default class TodoUIServiceBase extends UIService {
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {
                     actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
                     return;
                 }
                 if (response.status === 401) {
