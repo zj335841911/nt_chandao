@@ -272,22 +272,6 @@ export class MainEditEditFormBase extends EditFormControlBase {
     };
 
     /**
-     * 重置表单项值
-     *
-     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
-     * @memberof MainEditEditFormBase
-     */
-    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
-        if (Object.is(name, 'parentname')) {
-            this.onFormItemValueChange({ name: 'multiple', value: null });
-        }
-        if (Object.is(name, 'multiple')) {
-            this.onFormItemValueChange({ name: 'parentname', value: null });
-            this.onFormItemValueChange({ name: 'parent', value: null });
-        }
-    }
-
-    /**
      * 表单项逻辑
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
