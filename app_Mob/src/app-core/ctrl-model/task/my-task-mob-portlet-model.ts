@@ -180,6 +180,9 @@ export class MyTaskMobModel {
       {
         name: 'status1',
       },
+      {
+        name: 'tasktype',
+      },
     ]
   }
 

@@ -180,6 +180,9 @@ export class MobModel {
       {
         name: 'status1',
       },
+      {
+        name: 'tasktype',
+      },
     ]
   }
 

@@ -180,6 +180,9 @@ export class MyFavoriteTaskModel {
       {
         name: 'status1',
       },
+      {
+        name: 'tasktype',
+      },
     ]
   }
 

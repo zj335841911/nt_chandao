@@ -180,6 +180,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'status1',
       },
+      {
+        name: 'tasktype',
+      },
     ]
   }
 
