@@ -32,7 +32,9 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                      <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                      <div class="item-grouped" v-for="obj in group_data" :key="obj.index">
+                        <div class="text" v-if="obj.items && obj.items.length > 0">{{obj.text}}（<label v-if="obj.items && obj.items.length > 0">{{obj.items.length}}</label>）</div>
+                      <ion-item-sliding  :ref="item.srfkey" v-for="item in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.ConfirmBugMob.visabled" :disabled="item.ConfirmBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u1c99d88', item)"><ion-icon v-if="item.ConfirmBugMob.icon && item.ConfirmBugMob.isShowIcon" :name="item.ConfirmBugMob.icon"></ion-icon><ion-label v-if="item.ConfirmBugMob.isShowCaption">确认</ion-label></ion-item-option>
                             <ion-item-option v-show="item.AssingToBugMob.visabled" :disabled="item.AssingToBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u79d161d', item)"><ion-icon v-if="item.AssingToBugMob.icon && item.AssingToBugMob.isShowIcon" :name="item.AssingToBugMob.icon"></ion-icon><ion-label v-if="item.AssingToBugMob.isShowCaption">指派</ion-label></ion-item-option>
@@ -48,6 +50,8 @@
                             </ion-item>
                         </div>
                       </ion-item-sliding>
+                      </div>
+
                     <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn" @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                 </template>
                 <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
@@ -586,7 +590,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @type {boolean}
     * @memberof Mob
     */
-    public isEnableGroup:boolean =  false;
+    public isEnableGroup:boolean =  true;
 
     /**
     * 代码表分组细节
@@ -594,7 +598,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @type {Object}
     * @memberof Mob
     */
-    public group_detail:any = [];
+    public group_detail:any =   [ {"value":'active',"text":'激活'}, {"value":'resolved',"text":'已解决'}, {"value":'closed',"text":'已关闭'},];
 
     /**
     * 分组模式
@@ -602,7 +606,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @type {string}
     * @memberof Mob
     */
-    public group_mode = 'NONE';
+    public group_mode = 'CODELIST';
 
     /**
     * 分组数据
@@ -618,7 +622,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * @type {array}
     * @memberof Mob
     */
-    public group_field:string = '';
+    public group_field:string = 'status';
 
     /**
      * 分组方法
@@ -1006,6 +1010,33 @@ export default class MobBase extends Vue implements ControlInterface {
         return response;
     }
 
+    /**
+     * 代码表分组，获取分组数据
+     *
+     * @memberof Mob
+     */
+    public getGroupDataByCodeList(items:any){
+      let group:Array<any> = [];
+      this.group_detail.forEach((obj:any,index:number)=>{
+        let data:any = [];
+        items.forEach((item:any,i:number)=>{
+          if (item[this.group_field] === obj.value) {
+            data.push(item);
+          }
+        })
+        group.push(data);
+      })
+      group.forEach((arr:any,index:number)=>{
+        this.group_data[index] = {};
+        this.group_data[index].text = this.group_detail[index].text;
+        this.group_data[index].items = arr;
+      })
+      this.group_data.forEach((item:any,i:number)=>{
+        if (item.items.length == 0) {
+          this.group_data.splice(i,1);
+        }
+      })
+    }
 
 
     /**
