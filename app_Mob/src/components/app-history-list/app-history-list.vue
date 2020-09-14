@@ -164,7 +164,6 @@ export default class APPHistoryList extends Vue {
      */
     public handler() {
       if (this.items) {
-        console.log(this.items)
         this.items.forEach((v:any) => {
           let file:string = "";
           let method:string = "";
