@@ -877,7 +877,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
                 if (response && response.status === 200 && response.data.records) {
                     this.$notice.success((this.$t('app.message.deleteSccess') as string));
                     this.load();
-                    this.closeSliding();
+                    this.closeSlidings();
                     resolve(response);
                 } else {
                     this.$notice.error(response.message?response.message:"删除失败");
@@ -1185,12 +1185,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
      * @memberof AssMob
      */
     public activated() {
-        this.items.forEach((item:any)=>{
-            let curr:any = this.$refs[item.srfkey];
-            if (curr && curr[0]) {
-                curr[0].close();
-            }
-        })
+        this.closeSlidings()
     }
 
     /**
@@ -1223,9 +1218,19 @@ export default class AssMobBase extends Vue implements ControlInterface {
         if (Object.is(tag, 'u7e7b363')) {
             this.mdctrl_u7e7b363_click();
         }
-        let curr :any = this.$refs[item.srfkey];
-        if (curr && curr[0]) {
-            curr[0].closeOpened();
+        this.closeSlidings();
+    }
+
+    /**
+     * 关闭列表项左滑右滑
+     * @memberof Mdctrl
+     */
+    public closeSlidings () {
+        let slidings:any = this.$refs.sliding; 
+        if (slidings) {
+            slidings.forEach((sliding:any) => {
+                sliding.close()
+            })     
         }
     }
 
@@ -1297,22 +1302,6 @@ export default class AssMobBase extends Vue implements ControlInterface {
      * @memberof Mdctrl
      */
     public selectAllIschecked = false;
-
-
-    /**
-     * 关闭滑动项
-     *
-     * @memberof Mdctrl
-     */
-    public closeSliding(){
-        let sliding :any = this.$refs.sliding;
-        if(sliding){
-            sliding.forEach((item:any) => {
-                item.closeOpened();
-            });
-        }
-    }
-
     
 
     /**

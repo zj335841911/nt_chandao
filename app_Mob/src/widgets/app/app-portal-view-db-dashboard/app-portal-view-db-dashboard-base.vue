@@ -36,7 +36,7 @@
             </div>
             <template v-for="item in customizeModel">
                 <ion-card class="dashboard-item ios hydrated" :class="item.componentName + 'dashboard'"  :key="item.id" v-if="isEnableCustomized">
-                    <component :is="item.componentName" :isCustomize="true" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams"></component>
+                    <component :is="item.componentName" :item="item" :isCustomize="true" :customizeTitle="item.customizeTitle" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams" @customizeRename="customizeRename"></component>
                 </ion-card>
             </template>
     </ion-grid>
@@ -198,7 +198,7 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
     protected utilService: UtilService = new UtilService();
 
     /**
-     * 加载数据模型
+     * 加载定制数据模型
      *
      * @param {string} serviceName
      * @param {*} context
@@ -224,7 +224,36 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
         });
     }
 
+    /**
+     * 保存定制数据模型
+     *
+     * @param {string} serviceName
+     * @param {*} context
+     * @param {*} viewparams
+     * @memberof AppPortalView_db
+     */
+    public saveModel(serviceName: string, context: any, viewparams: any) {
+        return new Promise((resolve: any, reject: any) => {
+            this.utilService.getService(serviceName).then((service: any) => {
+                service.saveModelData(JSON.stringify(context), "", viewparams)
+                    .then((response: any) => {
+                        resolve(response);
+                    })
+                    .catch((response: any) => {
+                        reject(response);
+                    });
+                })
+                .catch((response: any) => {
+                    reject(response);
+                });
+            });
+    }
 
+    /**
+     * 定制数据模型
+     *
+     * @memberof AppPortalView_db
+     */
     public customizeModel :any = [];
 
     /**
@@ -309,6 +338,25 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
         if (result || Object.is(result.ret, 'OK')) {
             this.loadModel(this.utilServiceName,this.context,Object.assign({utilServiceName:this.utilServiceName,modelid:this.modelId},this.viewparams));
         }
+    }
+
+    /**
+     * 重命名
+     *
+     * @type {string}
+     * @memberof AppRichTextEditor
+     */
+    public customizeRename(customizeModelItem:any,title:string) {
+        let index = this.customizeModel.findIndex((item:any)=>{
+            return item.id === customizeModelItem.id;
+        })
+        this.customizeModel.splice(index,1,(customizeModelItem as never));
+        this.saveModel(this.utilServiceName,{},
+        {
+            utilServiceName: this.utilServiceName,
+            modelid: this.modelId,
+            model: this.customizeModel,
+        });
     }
 
 }

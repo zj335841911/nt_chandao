@@ -1,8 +1,14 @@
 <template>
     <ion-row>
         <ion-list class='app-mob-portlet  '>
-            <ion-list-header class='app-mob-portlet__header'><ion-input v-if="isEditTitle" value="图标"></ion-input>图标 <div class="portlet__header_right"><ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon></div></ion-list-header>
-            <div class="edit_title_btn" v-if="isEditTitle"><ion-button>确认</ion-button><ion-button>取消</ion-button></div>
+            <ion-list-header class='app-mob-portlet__header'>
+                <ion-input v-if="isEditTitle" value="图标"></ion-input>
+                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>图标</span></span>
+                <div class="portlet__header_right">
+                    <ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon>
+                </div>
+            </ion-list-header>
+            <div class="edit_title_btn" v-if="isEditTitle"><ion-button @click="onConfirmClick(false)">取消</ion-button><ion-button @click="onConfirmClick(true)">确认</ion-button></div>
                 <view_db_appmenu2_appmenu
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -149,6 +155,14 @@ export default class IconStyleMenuBase extends Vue implements ControlInterface {
     @Prop({default:false}) protected isCustomize?: boolean;
 
     /**
+     * 定制标题
+     *
+     * @type {string}
+     * @memberof MOBMyFavoriteStory
+     */
+    @Prop() protected customizeTitle?: string;
+
+    /**
      * 操作栏模型数据
      *
      * @protected
@@ -288,10 +302,68 @@ export default class IconStyleMenuBase extends Vue implements ControlInterface {
         }, 1);
     }
 
+    /**
+     * 生命周期
+     *
+     * @type {string}
+     * @memberof IconStyleMenu
+     */
     public mounted() {
         if(this.isCustomize){
             this.actionBarModelData.push(...this.builtinItemS);
         }
+    }
+
+    /**
+     * 定制项数据
+     *
+     * @type {string}
+     * @memberof IconStyleMenu
+     */
+    @Prop() protected item: any;
+
+    /**
+     * 定制标题
+     *
+     * @type {string}
+     * @memberof IconStyleMenu
+     */
+    get editTitle(){
+        if(this.customizeTitle){
+            return this.customizeTitle
+        }
+        return '图标'
+    }
+
+    /**
+     * 定制标题
+     *
+     * @type {string}
+     * @memberof IconStyleMenu
+     */
+    public reTitleValue = "";
+
+    /**
+     * 标题变更
+     *
+     * @type {string}
+     * @memberof IconStyleMenu
+     */
+    titleChange(value:any){
+        this.reTitleValue = value.detail.value;
+    }
+
+    /**
+     * 重命名确认按钮
+     *
+     * @type {string}
+     * @memberof IconStyleMenu
+     */
+    public onConfirmClick(val:boolean) {
+        if(val){
+            this.$emit("customizeRename",Object.assign(this.item,{customizeTitle:this.reTitleValue?this.reTitleValue:this.editTitle}),this.reTitleValue?this.reTitleValue:this.editTitle)
+        }
+        this.isEditTitle = false;
     }
 
 }

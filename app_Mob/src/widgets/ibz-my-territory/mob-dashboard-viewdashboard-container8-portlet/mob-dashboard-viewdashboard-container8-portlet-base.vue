@@ -1,8 +1,14 @@
 <template>
     <ion-row>
         <ion-list class='app-mob-portlet ibzmyterritory-dashboard_container8 '>
-            <ion-list-header class='app-mob-portlet__header'><ion-input v-if="isEditTitle" value=""></ion-input> <div class="portlet__header_right"><ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon></div></ion-list-header>
-            <div class="edit_title_btn" v-if="isEditTitle"><ion-button>确认</ion-button><ion-button>取消</ion-button></div>
+            <ion-list-header class='app-mob-portlet__header'>
+                <ion-input v-if="isEditTitle" value=""></ion-input>
+                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else></span></span>
+                <div class="portlet__header_right">
+                    <ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon>
+                </div>
+            </ion-list-header>
+            <div class="edit_title_btn" v-if="isEditTitle"><ion-button @click="onConfirmClick(false)">取消</ion-button><ion-button @click="onConfirmClick(true)">确认</ion-button></div>
                 <div>dashboard_container8类型CONTAINER不提供内容输出</div>
         </ion-list>
         <ion-select ref="select" v-show="false"  @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
@@ -169,6 +175,14 @@ export default class MobDashboardViewdashboard_container8Base extends Vue implem
     @Prop({default:false}) protected isCustomize?: boolean;
 
     /**
+     * 定制标题
+     *
+     * @type {string}
+     * @memberof MOBMyFavoriteStory
+     */
+    @Prop() protected customizeTitle?: string;
+
+    /**
      * 操作栏模型数据
      *
      * @protected
@@ -308,10 +322,68 @@ export default class MobDashboardViewdashboard_container8Base extends Vue implem
         }, 1);
     }
 
+    /**
+     * 生命周期
+     *
+     * @type {string}
+     * @memberof MobDashboardViewdashboard_container8
+     */
     public mounted() {
         if(this.isCustomize){
             this.actionBarModelData.push(...this.builtinItemS);
         }
+    }
+
+    /**
+     * 定制项数据
+     *
+     * @type {string}
+     * @memberof MobDashboardViewdashboard_container8
+     */
+    @Prop() protected item: any;
+
+    /**
+     * 定制标题
+     *
+     * @type {string}
+     * @memberof MobDashboardViewdashboard_container8
+     */
+    get editTitle(){
+        if(this.customizeTitle){
+            return this.customizeTitle
+        }
+        return ''
+    }
+
+    /**
+     * 定制标题
+     *
+     * @type {string}
+     * @memberof MobDashboardViewdashboard_container8
+     */
+    public reTitleValue = "";
+
+    /**
+     * 标题变更
+     *
+     * @type {string}
+     * @memberof MobDashboardViewdashboard_container8
+     */
+    titleChange(value:any){
+        this.reTitleValue = value.detail.value;
+    }
+
+    /**
+     * 重命名确认按钮
+     *
+     * @type {string}
+     * @memberof MobDashboardViewdashboard_container8
+     */
+    public onConfirmClick(val:boolean) {
+        if(val){
+            this.$emit("customizeRename",Object.assign(this.item,{customizeTitle:this.reTitleValue?this.reTitleValue:this.editTitle}),this.reTitleValue?this.reTitleValue:this.editTitle)
+        }
+        this.isEditTitle = false;
     }
 
 }
