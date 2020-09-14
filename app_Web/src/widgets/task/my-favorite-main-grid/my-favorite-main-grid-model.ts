@@ -32,6 +32,11 @@ export default class MyFavoriteMainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'tasktype',
+          prop: 'tasktype',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'finishedby',
           prop: 'finishedby',
           dataType: 'SSCODELIST',

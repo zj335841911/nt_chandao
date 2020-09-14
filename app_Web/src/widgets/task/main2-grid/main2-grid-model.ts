@@ -32,6 +32,11 @@ export default class Main2Model {
           dataType: 'PICKUP',
         },
         {
+          name: 'tasktype',
+          prop: 'tasktype',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'frombug',
           prop: 'frombug',
           dataType: 'PICKUP',

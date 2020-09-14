@@ -27,6 +27,11 @@ export default class SubTaskNewModel {
     }else{
 		  return [
         {
+          name: 'tasktype',
+          prop: 'tasktype',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
