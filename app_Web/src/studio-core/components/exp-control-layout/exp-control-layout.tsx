@@ -65,6 +65,9 @@ export class ExpControlLayout extends Vue {
         setTimeout(() => this.showAnimation = false, 500);
         if (val) {
             const s = this.split;
+            if (!this.oldSplit || this.oldSplit === this.defaultSplit) {
+                this.calcSplit();
+            }
             this.split = this.oldSplit;
             this.oldSplit = s;
         } else {
@@ -125,22 +128,18 @@ export class ExpControlLayout extends Vue {
     public ctrlHeight!: number;
 
     /**
-     * 组件挂载完毕
+     * 计算分割比例
      *
      * @memberof ExpControlLayout
      */
-    public mounted(): void {
+    public calcSplit(): void {
         const el: any = this.$el;
         if (this.ctrlWidth > 0 && this.mode === 'horizontal') {
-            this.defaultSplit = 1 - parseFloat(((el.offsetWidth - this.ctrlWidth) / el.offsetWidth).toFixed(2));
+            this.oldSplit = 1 - parseFloat(((el.offsetWidth - this.ctrlWidth) / el.offsetWidth).toFixed(2));
         } else if (this.ctrlHeight > 0 && this.mode === 'vertical') {
-            this.defaultSplit = 1 - parseFloat(((el.offsetHeight - this.ctrlHeight) / el.offsetHeight).toFixed(2));
+            this.oldSplit = 1 - parseFloat(((el.offsetHeight - this.ctrlHeight) / el.offsetHeight).toFixed(2));
         }
-        if (this.showView) {
-            this.split = this.defaultSplit;
-        } else {
-            this.oldSplit = this.defaultSplit;
-        }
+        this.oldSplit = this.defaultSplit;
     }
 
     /**
