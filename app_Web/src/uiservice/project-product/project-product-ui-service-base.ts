@@ -203,7 +203,7 @@ export default class ProjectProductUIServiceBase extends UIService {
             }
         })
         for (let i = 0; i <= 1; i++) {
-            let strTag:string = (curData[this.mainStateFields[0]])?(i == 0) ? curData[this.mainStateFields[0]] : "":"";
+            let strTag:string = (curData[this.mainStateFields[0]])?(i == 0) ? `${curData[this.mainStateFields[0]]}` : "":"";
             if (this.mainStateFields.length >= 2) {
                 for (let j = 0; j <= 1; j++) {
                     let strTag2:string = (curData[this.mainStateFields[1]])?`${strTag}__${(j == 0) ? curData[this.mainStateFields[1]] : ""}`:strTag;
