@@ -21,7 +21,7 @@
     @closeview="closeView($event)">
 </view_dashboard_sysportlet9_chart>
         </ion-list>
-        <ion-select ref="select" v-show="false"  @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
+        <ion-select ref="select" v-show="false"  @ionChange="actionBarClick" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
             <ion-select-option  v-for="option of actionBarModelData" :key="option.viewlogicname"  :value="option.viewlogicname">{{option.actionName}}</ion-select-option>
         </ion-select>
     </ion-row>
@@ -313,22 +313,21 @@ export default class ProjectStatusBarMobBBase extends Vue implements ControlInte
      *
      * @memberof ProjectStatusBarMobB
      */
-    public change(value:any) {
+    public actionBarClick(value:any) {
         if(value.detail.value){
             if(value.detail.value == 'rename' ){
                 this.isEditTitle = true;
             }else if(value.detail.value == 'delete' ){
+                this.$emit("enableCustomizedEvent",'delete',this.item)
             }
             else{
                 this.handleItemClick(value.detail.value);
             }
         }
-        setTimeout(() => {
-            let select :any = this.$refs['select'];
-            if (select) {
-                select.value = null;
-            }
-        }, 1);
+        let select :any = this.$refs['select'];
+        if (select) {
+            select.value = null;
+        }
     }
 
     /**
@@ -390,7 +389,7 @@ export default class ProjectStatusBarMobBBase extends Vue implements ControlInte
      */
     public onConfirmClick(val:boolean) {
         if(val){
-            this.$emit("customizeRename",Object.assign(this.item,{customizeTitle:this.reTitleValue?this.reTitleValue:this.editTitle}),this.reTitleValue?this.reTitleValue:this.editTitle)
+            this.$emit("enableCustomizedEvent",'rename',Object.assign(this.item,{customizeTitle:this.reTitleValue?this.reTitleValue:this.editTitle}),this.reTitleValue?this.reTitleValue:this.editTitle)
         }
         this.isEditTitle = false;
     }

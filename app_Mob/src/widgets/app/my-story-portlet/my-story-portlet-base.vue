@@ -11,7 +11,7 @@
             <div class="edit_title_btn" v-if="isEditTitle"><ion-button @click="onConfirmClick(false)">取消</ion-button><ion-button @click="onConfirmClick(true)">确认</ion-button></div>
             <story-ass-mob-mdview9 :_context="JSON.stringify(context)" :isChildView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></story-ass-mob-mdview9>
         </ion-list>
-        <ion-select ref="select" v-show="false"  @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
+        <ion-select ref="select" v-show="false"  @ionChange="actionBarClick" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
             <ion-select-option  v-for="option of actionBarModelData" :key="option.viewlogicname"  :value="option.viewlogicname">{{option.actionName}}</ion-select-option>
         </ion-select>
     </ion-row>
@@ -341,22 +341,21 @@ export default class MyStoryBase extends Vue implements ControlInterface {
      *
      * @memberof MyStory
      */
-    public change(value:any) {
+    public actionBarClick(value:any) {
         if(value.detail.value){
             if(value.detail.value == 'rename' ){
                 this.isEditTitle = true;
             }else if(value.detail.value == 'delete' ){
+                this.$emit("enableCustomizedEvent",'delete',this.item)
             }
             else{
                 this.handleItemClick(value.detail.value);
             }
         }
-        setTimeout(() => {
-            let select :any = this.$refs['select'];
-            if (select) {
-                select.value = null;
-            }
-        }, 1);
+        let select :any = this.$refs['select'];
+        if (select) {
+            select.value = null;
+        }
     }
 
     /**
@@ -418,7 +417,7 @@ export default class MyStoryBase extends Vue implements ControlInterface {
      */
     public onConfirmClick(val:boolean) {
         if(val){
-            this.$emit("customizeRename",Object.assign(this.item,{customizeTitle:this.reTitleValue?this.reTitleValue:this.editTitle}),this.reTitleValue?this.reTitleValue:this.editTitle)
+            this.$emit("enableCustomizedEvent",'rename',Object.assign(this.item,{customizeTitle:this.reTitleValue?this.reTitleValue:this.editTitle}),this.reTitleValue?this.reTitleValue:this.editTitle)
         }
         this.isEditTitle = false;
     }

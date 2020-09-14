@@ -36,7 +36,7 @@
             </div>
             <template v-for="item in customizeModel">
                 <ion-card class="dashboard-item ios hydrated" :class="item.componentName + 'dashboard'"  :key="item.id" v-if="isEnableCustomized">
-                    <component :is="item.componentName" :item="item" :isCustomize="true" :customizeTitle="item.customizeTitle" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams" @customizeRename="customizeRename"></component>
+                    <component :is="item.componentName" :item="item" :isCustomize="true" :customizeTitle="item.customizeTitle" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams" @enableCustomizedEvent="enableCustomizedEvent"></component>
                 </ion-card>
             </template>
     </ion-grid>
@@ -341,22 +341,31 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
     }
 
     /**
-     * 重命名
+     * 定制事件
      *
      * @type {string}
      * @memberof AppRichTextEditor
      */
-    public customizeRename(customizeModelItem:any,title:string) {
+    public async enableCustomizedEvent(tag:string,customizeModelItem:any,title:string) {
         let index = this.customizeModel.findIndex((item:any)=>{
-            return item.id === customizeModelItem.id;
+                return item.id === customizeModelItem.id;
         })
-        this.customizeModel.splice(index,1,(customizeModelItem as never));
-        this.saveModel(this.utilServiceName,{},
+        let meassage :string= '';
+        if(tag === 'rename'){
+            this.customizeModel.splice(index,1,(customizeModelItem as never));
+            meassage = '重命名';
+        }
+        if(tag === 'delete'){
+            this.customizeModel.splice(index,1); 
+            meassage = '删除';
+        }
+        let falg = await this.saveModel(this.utilServiceName,{},
         {
             utilServiceName: this.utilServiceName,
             modelid: this.modelId,
             model: this.customizeModel,
         });
+          falg? this.$notice.success(meassage+'成功'):this.$notice.error(meassage+'失败');
     }
 
 }
