@@ -180,6 +180,9 @@ export default class ToolbarModel {
       {
         name: 'status1',
       },
+      {
+        name: 'tasktype',
+      },
     ]
   }
 

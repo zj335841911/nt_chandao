@@ -122,6 +122,21 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
     @JSONField(name = "tpltype")
     @JsonProperty("tpltype")
     private String tpltype;
+    /**
+     * id
+     */
+    @TableField(value = "file")
+    @JSONField(name = "file")
+    @JsonProperty("file")
+    private Long file;
+
+    /**
+     * 
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.zentao.domain.File ztFile;
 
 
 
@@ -163,6 +178,14 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
     public void setTpltype(String tpltype){
         this.tpltype = tpltype ;
         this.modify("tpltype",tpltype);
+    }
+
+    /**
+     * 设置 [id]
+     */
+    public void setFile(Long file){
+        this.file = file ;
+        this.modify("file",file);
     }
 
 

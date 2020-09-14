@@ -46,6 +46,9 @@ import org.springframework.util.StringUtils;
 @Service("IBZProSysTplServiceImpl")
 public class IBZProSysTplServiceImpl extends ServiceImpl<IBZProSysTplMapper, IBZProSysTpl> implements IIBZProSysTplService {
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.IFileService fileService;
 
     protected int batchSize = 500;
 
@@ -140,6 +143,16 @@ public class IBZProSysTplServiceImpl extends ServiceImpl<IBZProSysTplMapper, IBZ
         saveOrUpdateBatch(list,batchSize);
     }
 
+
+	@Override
+    public List<IBZProSysTpl> selectByFile(Long id) {
+        return baseMapper.selectByFile(id);
+    }
+
+    @Override
+    public void removeByFile(Long id) {
+        this.remove(new QueryWrapper<IBZProSysTpl>().eq("file",id));
+    }
 
 
     /**

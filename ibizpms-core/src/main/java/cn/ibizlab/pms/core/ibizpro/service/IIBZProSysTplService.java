@@ -37,6 +37,8 @@ public interface IIBZProSysTplService extends IService<IBZProSysTpl>{
     boolean save(IBZProSysTpl et) ;
     void saveBatch(List<IBZProSysTpl> list) ;
     Page<IBZProSysTpl> searchDefault(IBZProSysTplSearchContext context) ;
+    List<IBZProSysTpl> selectByFile(Long id) ;
+    void removeByFile(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

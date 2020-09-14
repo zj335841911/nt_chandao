@@ -180,6 +180,9 @@ export default class AssignToMeModel {
       {
         name: 'status1',
       },
+      {
+        name: 'tasktype',
+      },
     ]
   }
 

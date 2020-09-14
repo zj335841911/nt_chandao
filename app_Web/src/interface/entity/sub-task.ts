@@ -445,4 +445,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     status1?: any;
+
+    /**
+     * 任务类型
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    tasktype?: any;
 }

@@ -180,6 +180,9 @@ export default class MainModel {
       {
         name: 'status1',
       },
+      {
+        name: 'tasktype',
+      },
     ]
   }
 

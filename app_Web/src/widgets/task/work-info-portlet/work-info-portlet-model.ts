@@ -180,6 +180,9 @@ export default class WorkInfoModel {
       {
         name: 'status1',
       },
+      {
+        name: 'tasktype',
+      },
     ]
   }
 

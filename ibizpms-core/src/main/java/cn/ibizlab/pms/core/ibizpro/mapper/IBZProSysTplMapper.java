@@ -62,4 +62,6 @@ public interface IBZProSysTplMapper extends BaseMapper<IBZProSysTpl>{
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
 
+    List<IBZProSysTpl> selectByFile(@Param("id") Serializable id) ;
+
 }

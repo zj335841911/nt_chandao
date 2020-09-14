@@ -445,4 +445,12 @@ export interface Task {
      * @memberof Task
      */
     status1?: any;
+
+    /**
+     * 任务类型
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    tasktype?: any;
 }

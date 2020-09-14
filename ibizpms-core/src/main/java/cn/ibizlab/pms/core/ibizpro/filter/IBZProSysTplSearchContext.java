@@ -55,6 +55,13 @@ public class IBZProSysTplSearchContext extends QueryWrapperContext<IBZProSysTpl>
             this.getSearchCond().eq("tpltype", n_tpltype_eq);
         }
     }
+	private Long n_file_eq;//[id]
+	public void setN_file_eq(Long n_file_eq) {
+        this.n_file_eq = n_file_eq;
+        if(!ObjectUtils.isEmpty(this.n_file_eq)){
+            this.getSearchCond().eq("file", n_file_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

@@ -46,6 +46,9 @@ import org.springframework.util.StringUtils;
 @Service("FileServiceImpl")
 public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IFileService {
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibizpro.service.IIBZProSysTplService ibzprosystplService;
 
     protected int batchSize = 500;
 
