@@ -24,7 +24,7 @@
               </div>
               <div class="drag-list-pic"><img v-if="item.detailImage" :src="item.detailImage" alt=""></div>
               <div class="drag-list-text">
-                <div>{{item.portletName}}</div>
+                <div><span v-if="item.customizeTitle">{{item.customizeTitle}}</span><span v-else>{{item.portletName}}</span></div>
                 <div v-if="item.detailText">{{item.detailText}}</div>
                 <div v-else>暂无描述</div>
               </div>
