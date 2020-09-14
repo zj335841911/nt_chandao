@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class SuiteCaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SuiteCase-Create-all')")
     @ApiOperation(value = "新建套件用例", tags = {"套件用例" },  notes = "新建套件用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/suitecases")
-    public ResponseEntity<SuiteCaseDTO> create(@RequestBody SuiteCaseDTO suitecasedto) {
+    public ResponseEntity<SuiteCaseDTO> create(@Validated @RequestBody SuiteCaseDTO suitecasedto) {
         SuiteCase domain = suitecaseMapping.toDomain(suitecasedto);
 		suitecaseService.create(domain);
         SuiteCaseDTO dto = suitecaseMapping.toDto(domain);

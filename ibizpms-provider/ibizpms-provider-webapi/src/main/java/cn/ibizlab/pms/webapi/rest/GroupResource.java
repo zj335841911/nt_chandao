@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class GroupResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Create-all')")
     @ApiOperation(value = "新建群组", tags = {"群组" },  notes = "新建群组")
 	@RequestMapping(method = RequestMethod.POST, value = "/groups")
-    public ResponseEntity<GroupDTO> create(@RequestBody GroupDTO groupdto) {
+    public ResponseEntity<GroupDTO> create(@Validated @RequestBody GroupDTO groupdto) {
         Group domain = groupMapping.toDomain(groupdto);
 		groupService.create(domain);
         GroupDTO dto = groupMapping.toDto(domain);

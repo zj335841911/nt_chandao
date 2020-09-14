@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -48,6 +51,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "color")
     @JsonProperty("color")
+    @Size(min = 0, max = 7, message = "内容长度必须小于等于[7]")
     private String color;
 
     /**
@@ -73,6 +77,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "lastrunresult")
     @JsonProperty("lastrunresult")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String lastrunresult;
 
     /**
@@ -81,6 +86,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "linkcase")
     @JsonProperty("linkcase")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String linkcase;
 
     /**
@@ -97,6 +103,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "howrun")
     @JsonProperty("howrun")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String howrun;
 
     /**
@@ -113,6 +120,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "scriptedby")
     @JsonProperty("scriptedby")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String scriptedby;
 
     /**
@@ -121,6 +129,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "openedby")
     @JsonProperty("openedby")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String openedby;
 
     /**
@@ -129,6 +138,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "type")
     @JsonProperty("type")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String type;
 
     /**
@@ -137,6 +147,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "status")
     @JsonProperty("status")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String status;
 
     /**
@@ -145,6 +156,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "auto")
     @JsonProperty("auto")
+    @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
     private String auto;
 
     /**
@@ -153,6 +165,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "frequency")
     @JsonProperty("frequency")
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
     private String frequency;
 
     /**
@@ -161,6 +174,8 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "title")
     @JsonProperty("title")
+    @NotBlank(message = "[用例标题]不允许为空!")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String title;
 
     /**
@@ -169,6 +184,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String lasteditedby;
 
     /**
@@ -177,6 +193,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "reviewedby")
     @JsonProperty("reviewedby")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String reviewedby;
 
     /**
@@ -185,6 +202,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
     private String deleted;
 
     /**
@@ -210,6 +228,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "stage")
     @JsonProperty("stage")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String stage;
 
     /**
@@ -218,6 +237,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "scriptlocation")
     @JsonProperty("scriptlocation")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String scriptlocation;
 
     /**
@@ -235,6 +255,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "keywords")
     @JsonProperty("keywords")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String keywords;
 
     /**
@@ -243,6 +264,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "scriptstatus")
     @JsonProperty("scriptstatus")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String scriptstatus;
 
     /**
@@ -251,6 +273,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "frame")
     @JsonProperty("frame")
+    @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
     private String frame;
 
     /**
@@ -259,6 +282,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "substatus")
     @JsonProperty("substatus")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String substatus;
 
     /**
@@ -275,6 +299,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "precondition")
     @JsonProperty("precondition")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String precondition;
 
     /**
@@ -283,6 +308,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "lastrunner")
     @JsonProperty("lastrunner")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String lastrunner;
 
     /**
@@ -363,6 +389,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "modulename")
     @JsonProperty("modulename")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String modulename;
 
     /**
@@ -371,6 +398,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "storyname")
     @JsonProperty("storyname")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String storyname;
 
     /**
@@ -379,6 +407,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "productname")
     @JsonProperty("productname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String productname;
 
     /**
@@ -411,6 +440,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "comment")
     @JsonProperty("comment")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
     private String comment;
 
     /**
@@ -427,6 +457,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "status1")
     @JsonProperty("status1")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String status1;
 
     /**
@@ -435,6 +466,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "assignedto")
     @JsonProperty("assignedto")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String assignedto;
 
     /**
@@ -443,6 +475,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "task")
     @JsonProperty("task")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String task;
 
     /**
@@ -451,6 +484,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "libname")
     @JsonProperty("libname")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String libname;
 
 
@@ -759,4 +793,5 @@ public class CaseDTO extends DTOBase implements Serializable {
 	private List<IBZCaseStepDTO> casestep ;
 
 }
+
 

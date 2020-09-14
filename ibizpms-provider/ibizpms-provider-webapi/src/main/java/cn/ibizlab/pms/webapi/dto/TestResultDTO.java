@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "lastrunner")
     @JsonProperty("lastrunner")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String lastrunner;
 
     /**
@@ -38,6 +42,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "stepresults")
     @JsonProperty("stepresults")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String stepresults;
 
     /**
@@ -46,6 +51,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "caseresult")
     @JsonProperty("caseresult")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String caseresult;
 
     /**
@@ -54,6 +60,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "xml")
     @JsonProperty("xml")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String xml;
 
     /**
@@ -127,6 +134,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "task")
     @JsonProperty("task")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String task;
 
     /**
@@ -135,6 +143,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "title")
     @JsonProperty("title")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String title;
 
     /**
@@ -167,6 +176,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "precondition")
     @JsonProperty("precondition")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String precondition;
 
 
@@ -260,4 +270,5 @@ public class TestResultDTO extends DTOBase implements Serializable {
 
 
 }
+
 

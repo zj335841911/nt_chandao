@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class ReleaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Create-all')")
     @ApiOperation(value = "新建发布", tags = {"发布" },  notes = "新建发布")
 	@RequestMapping(method = RequestMethod.POST, value = "/releases")
-    public ResponseEntity<ReleaseDTO> create(@RequestBody ReleaseDTO releasedto) {
+    public ResponseEntity<ReleaseDTO> create(@Validated @RequestBody ReleaseDTO releasedto) {
         Release domain = releaseMapping.toDomain(releasedto);
 		releaseService.create(domain);
         ReleaseDTO dto = releaseMapping.toDto(domain);

@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class IbzProjectMemberResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzProjectMember-Create-all')")
     @ApiOperation(value = "新建项目相关成员", tags = {"项目相关成员" },  notes = "新建项目相关成员")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzprojectmembers")
-    public ResponseEntity<IbzProjectMemberDTO> create(@RequestBody IbzProjectMemberDTO ibzprojectmemberdto) {
+    public ResponseEntity<IbzProjectMemberDTO> create(@Validated @RequestBody IbzProjectMemberDTO ibzprojectmemberdto) {
         IbzProjectMember domain = ibzprojectmemberMapping.toDomain(ibzprojectmemberdto);
 		ibzprojectmemberService.create(domain);
         IbzProjectMemberDTO dto = ibzprojectmemberMapping.toDto(domain);

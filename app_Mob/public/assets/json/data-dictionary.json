@@ -300,6 +300,109 @@
         "items": []
     }, 
     {
+        "srfkey": "Task_quickpacket",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "All",
+                "label": "所有",
+                "text": "所有",
+                "value": "All",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "UNCLOSED",
+                "label": "未关闭",
+                "text": "未关闭",
+                "value": "UNCLOSED",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "TOME",
+                "label": "指派给我",
+                "text": "指派给我",
+                "value": "TOME",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "storychange",
+                "label": "需求变更",
+                "text": "需求变更",
+                "value": "storychange",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "MORE",
+                "label": "更多",
+                "text": "更多",
+                "value": "MORE",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "NOTSTARTED",
+                "label": "未开始",
+                "text": "未开始",
+                "value": "NOTSTARTED",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "INPROGRESS",
+                "label": "进行中",
+                "text": "进行中",
+                "value": "INPROGRESS",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "UNACCOMPLISHED",
+                "label": "未完成",
+                "text": "未完成",
+                "value": "UNACCOMPLISHED",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "IFINISHED",
+                "label": "我完成",
+                "text": "我完成",
+                "value": "IFINISHED",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "COMPLETED",
+                "label": "已完成",
+                "text": "已完成",
+                "value": "COMPLETED",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "CLOSED",
+                "label": "已关闭",
+                "text": "已关闭",
+                "value": "CLOSED",
+                "isValueNumber":false,
+                "disabled": false
+            }
+            , {
+                "id": "CANCELLED",
+                "label": "已取消",
+                "text": "已取消",
+                "value": "CANCELLED",
+                "isValueNumber":false,
+                "disabled": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "ActionManner",
         "emptytext": "未定义",
         "codelisttype":"static",

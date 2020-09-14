@@ -55,6 +55,21 @@ export default {
     CurProductPlan: {
         empty: '',
     },
+    Task_quickpacket: {
+        'All': '所有',
+        'UNCLOSED': '未关闭',
+        'TOME': '指派给我',
+        'storychange': '需求变更',
+        'MORE': '更多',
+        'NOTSTARTED': '未开始',
+        'INPROGRESS': '进行中',
+        'UNACCOMPLISHED': '未完成',
+        'IFINISHED': '我完成',
+        'COMPLETED': '已完成',
+        'CLOSED': '已关闭',
+        'CANCELLED': '已取消',
+        empty: '',
+    },
     ActionManner: {
         'story_closed_willnotdo': '不做',
         'story_closed_cancel': '已取消',

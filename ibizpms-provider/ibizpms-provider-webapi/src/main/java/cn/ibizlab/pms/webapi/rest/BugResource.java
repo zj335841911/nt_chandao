@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class BugResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
     @ApiOperation(value = "新建Bug", tags = {"Bug" },  notes = "新建Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs")
-    public ResponseEntity<BugDTO> create(@RequestBody BugDTO bugdto) {
+    public ResponseEntity<BugDTO> create(@Validated @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
 		bugService.create(domain);
         BugDTO dto = bugMapping.toDto(domain);

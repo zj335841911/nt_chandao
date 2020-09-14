@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -55,7 +56,7 @@ public class IbzCaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzCase-Create-all')")
     @ApiOperation(value = "新建测试用例", tags = {"测试用例" },  notes = "新建测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzcases")
-    public ResponseEntity<IbzCaseDTO> create(@RequestBody IbzCaseDTO ibzcasedto) {
+    public ResponseEntity<IbzCaseDTO> create(@Validated @RequestBody IbzCaseDTO ibzcasedto) {
         IbzCase domain = ibzcaseMapping.toDomain(ibzcasedto);
 		ibzcaseService.create(domain);
         IbzCaseDTO dto = ibzcaseMapping.toDto(domain);

@@ -2,7 +2,7 @@
   <div class="app-mobile-check-list">
     <div class="cancel-icon" v-if="curValue"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
     <div v-if="curValue== null || curValue==''" class="ion-select-icon"></div>
-    <ion-select  ref="checkList" @ionChange="change" multiple="true" @click="load" :ok-text="$t('app.button.confirm')" :cancel-text="$t('app.button.cancel')">
+    <ion-select  ref="checkList" @ionChange="change" multiple="true" @click="load" :ok-text="$t('app.button.confirm')" :cancel-text="$t('app.button.cancel')" @ionCancel="cancel">
       <ion-select-option v-for="option of options" :key="option.value" :value="option.value">{{option.text}}
       </ion-select-option>
     </ion-select>
@@ -52,6 +52,7 @@
     valueChange(newValue: string, oldValue: string) {
       if (newValue) {
         this.load();
+        this.$store.commit('setSelectStatus',true);
       }
     }
 
@@ -143,6 +144,7 @@
      */
     public mounted() {
       this.load();
+      this.$store.commit('setSelectStatus',true);
     }
 
     /**
@@ -152,6 +154,7 @@
      * @memberof AppSelect
      */
     public async load(): Promise<any> {
+      this.$store.commit('setSelectStatus',false);
       if (this.tag && this.type) {
         if (Object.is(this.type, "static")) {
           return;
@@ -185,8 +188,19 @@
      * @memberof AppCheckList
      */
     public change(value: any) {
+      this.$store.commit('setSelectStatus',true);
       this.curValue = value.detail.value.toString();
       this.$emit('change', this.curValue);
+    }
+
+    /**
+     * 取消选择
+     *
+     * @type {*}
+     * @memberof AppCheckList
+     */
+    public cancel(){
+      this.$store.commit('setSelectStatus',true);
     }
 
     /**

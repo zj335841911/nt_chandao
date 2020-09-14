@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,7 @@ public class DocLibDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "type")
     @JsonProperty("type")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String type;
 
     /**
@@ -38,6 +42,7 @@ public class DocLibDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "collector")
     @JsonProperty("collector")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String collector;
 
     /**
@@ -46,6 +51,7 @@ public class DocLibDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "acl")
     @JsonProperty("acl")
+    @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
     private String acl;
 
     /**
@@ -54,6 +60,7 @@ public class DocLibDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
     private String deleted;
 
     /**
@@ -62,6 +69,7 @@ public class DocLibDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "groups")
     @JsonProperty("groups")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String groups;
 
     /**
@@ -78,6 +86,7 @@ public class DocLibDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "users")
     @JsonProperty("users")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String users;
 
     /**
@@ -94,6 +103,8 @@ public class DocLibDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "name")
     @JsonProperty("name")
+    @NotBlank(message = "[文档库名称]不允许为空!")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String name;
 
     /**
@@ -203,4 +214,5 @@ public class DocLibDTO extends DTOBase implements Serializable {
 
 
 }
+
 

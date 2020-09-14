@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class ProjectResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-Create-all')")
     @ApiOperation(value = "新建项目", tags = {"项目" },  notes = "新建项目")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects")
-    public ResponseEntity<ProjectDTO> create(@RequestBody ProjectDTO projectdto) {
+    public ResponseEntity<ProjectDTO> create(@Validated @RequestBody ProjectDTO projectdto) {
         Project domain = projectMapping.toDomain(projectdto);
 		projectService.create(domain);
         ProjectDTO dto = projectMapping.toDto(domain);

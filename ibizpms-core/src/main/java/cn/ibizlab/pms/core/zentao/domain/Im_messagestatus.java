@@ -66,7 +66,8 @@ public class Im_messagestatus extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @TableId(value= "id",type=IdType.ASSIGN_UUID)
+    @DEField(isKeyField=true)
+    @TableField(exist = false)
     @JSONField(name = "id")
     @JsonProperty("id")
     private String id;

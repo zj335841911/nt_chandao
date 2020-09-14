@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class IbzLibModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLibModule-Create-all')")
     @ApiOperation(value = "新建用例库模块", tags = {"用例库模块" },  notes = "新建用例库模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzlibmodules")
-    public ResponseEntity<IbzLibModuleDTO> create(@RequestBody IbzLibModuleDTO ibzlibmoduledto) {
+    public ResponseEntity<IbzLibModuleDTO> create(@Validated @RequestBody IbzLibModuleDTO ibzlibmoduledto) {
         IbzLibModule domain = ibzlibmoduleMapping.toDomain(ibzlibmoduledto);
 		ibzlibmoduleService.create(domain);
         IbzLibModuleDTO dto = ibzlibmoduleMapping.toDto(domain);

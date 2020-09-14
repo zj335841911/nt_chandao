@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -38,6 +41,8 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "title")
     @JsonProperty("title")
+    @NotBlank(message = "[需求名称]不允许为空!")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String title;
 
     /**
@@ -62,6 +67,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibizid")
     @JsonProperty("ibizid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String ibizid;
 
     /**
@@ -70,6 +76,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "source")
     @JsonProperty("source")
+    @Size(min = 0, max = 20, message = "内容长度必须小于等于[20]")
     private String source;
 
     /**
@@ -78,6 +85,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "sourcenote")
     @JsonProperty("sourcenote")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String sourcenote;
 
     /**
@@ -86,6 +94,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibiz_sourceobject")
     @JsonProperty("ibiz_sourceobject")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String ibizSourceobject;
 
     /**
@@ -94,6 +103,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibiz_sourcename")
     @JsonProperty("ibiz_sourcename")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String ibizSourcename;
 
     /**
@@ -102,6 +112,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibiz_sourceid")
     @JsonProperty("ibiz_sourceid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String ibizSourceid;
 
     /**
@@ -126,6 +137,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "keywords")
     @JsonProperty("keywords")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String keywords;
 
     /**
@@ -152,6 +164,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
     private String deleted;
 
     /**
@@ -160,6 +173,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "openedby")
     @JsonProperty("openedby")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String openedby;
 
     /**
@@ -168,6 +182,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "status")
     @JsonProperty("status")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String status;
 
     /**
@@ -176,6 +191,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "type")
     @JsonProperty("type")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String type;
 
     /**
@@ -184,6 +200,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "stage")
     @JsonProperty("stage")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String stage;
 
     /**
@@ -200,6 +217,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "color")
     @JsonProperty("color")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String color;
 
     /**
@@ -208,6 +226,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "project")
     @JsonProperty("project")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String project;
 
     /**
@@ -216,6 +235,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "stagedby")
     @JsonProperty("stagedby")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String stagedby;
 
     /**
@@ -224,6 +244,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "assignedto")
     @JsonProperty("assignedto")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String assignedto;
 
     /**
@@ -241,6 +262,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "reviewedby")
     @JsonProperty("reviewedby")
+    @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
     private String reviewedby;
 
     /**
@@ -266,6 +288,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "mailto")
     @JsonProperty("mailto")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String mailto;
 
     /**
@@ -274,6 +297,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String lasteditedby;
 
     /**
@@ -282,6 +306,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "childstories")
     @JsonProperty("childstories")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String childstories;
 
     /**
@@ -290,6 +315,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "linkstories")
     @JsonProperty("linkstories")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String linkstories;
 
     /**
@@ -298,6 +324,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "closedby")
     @JsonProperty("closedby")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String closedby;
 
     /**
@@ -306,6 +333,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "substatus")
     @JsonProperty("substatus")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String substatus;
 
     /**
@@ -323,6 +351,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "closedreason")
     @JsonProperty("closedreason")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String closedreason;
 
     /**
@@ -355,6 +384,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "spec")
     @JsonProperty("spec")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String spec;
 
     /**
@@ -363,6 +393,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "verify")
     @JsonProperty("verify")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String verify;
 
     /**
@@ -371,6 +402,7 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "comment")
     @JsonProperty("comment")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
     private String comment;
 
 
@@ -664,4 +696,5 @@ public class IBZProStoryDTO extends DTOBase implements Serializable {
 
 
 }
+
 

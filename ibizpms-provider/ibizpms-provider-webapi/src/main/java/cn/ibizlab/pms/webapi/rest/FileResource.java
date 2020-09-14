@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class FileResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-Create-all')")
     @ApiOperation(value = "新建附件", tags = {"附件" },  notes = "新建附件")
 	@RequestMapping(method = RequestMethod.POST, value = "/files")
-    public ResponseEntity<FileDTO> create(@RequestBody FileDTO filedto) {
+    public ResponseEntity<FileDTO> create(@Validated @RequestBody FileDTO filedto) {
         File domain = fileMapping.toDomain(filedto);
 		fileService.create(domain);
         FileDTO dto = fileMapping.toDto(domain);

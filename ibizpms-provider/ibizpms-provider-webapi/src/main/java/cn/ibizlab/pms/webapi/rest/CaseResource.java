@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -55,7 +56,7 @@ public class CaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Create-all')")
     @ApiOperation(value = "新建测试用例", tags = {"测试用例" },  notes = "新建测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases")
-    public ResponseEntity<CaseDTO> create(@RequestBody CaseDTO casedto) {
+    public ResponseEntity<CaseDTO> create(@Validated @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
 		caseService.create(domain);
         CaseDTO dto = caseMapping.toDto(domain);

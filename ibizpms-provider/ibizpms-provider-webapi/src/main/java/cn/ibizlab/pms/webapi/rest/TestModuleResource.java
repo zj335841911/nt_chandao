@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class TestModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Create-all')")
     @ApiOperation(value = "新建测试模块", tags = {"测试模块" },  notes = "新建测试模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/testmodules")
-    public ResponseEntity<TestModuleDTO> create(@RequestBody TestModuleDTO testmoduledto) {
+    public ResponseEntity<TestModuleDTO> create(@Validated @RequestBody TestModuleDTO testmoduledto) {
         TestModule domain = testmoduleMapping.toDomain(testmoduledto);
 		testmoduleService.create(domain);
         TestModuleDTO dto = testmoduleMapping.toDto(domain);

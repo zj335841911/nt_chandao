@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "account")
     @JsonProperty("account")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String account;
 
     /**
@@ -71,6 +75,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "work")
     @JsonProperty("work")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String work;
 
     /**
@@ -141,4 +146,5 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
 
 
 }
+
 

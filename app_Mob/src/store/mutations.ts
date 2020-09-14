@@ -253,3 +253,12 @@ export const updateZIndex = (state: any, zIndex: number) => {
 export const setNoticeStatus = (state: any, status: boolean) => {
     state.noticeStatus = status;
 }
+
+/**
+ * 是否能弹出选择框
+ * 
+ * @param state 
+ */
+export const setSelectStatus = (state: any, status: boolean) => {
+  state.selectStatus = status;
+}

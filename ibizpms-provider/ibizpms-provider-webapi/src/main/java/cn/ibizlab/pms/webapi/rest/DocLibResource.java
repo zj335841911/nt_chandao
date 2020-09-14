@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class DocLibResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-Create-all')")
     @ApiOperation(value = "新建文档库", tags = {"文档库" },  notes = "新建文档库")
 	@RequestMapping(method = RequestMethod.POST, value = "/doclibs")
-    public ResponseEntity<DocLibDTO> create(@RequestBody DocLibDTO doclibdto) {
+    public ResponseEntity<DocLibDTO> create(@Validated @RequestBody DocLibDTO doclibdto) {
         DocLib domain = doclibMapping.toDomain(doclibdto);
 		doclibService.create(domain);
         DocLibDTO dto = doclibMapping.toDto(domain);

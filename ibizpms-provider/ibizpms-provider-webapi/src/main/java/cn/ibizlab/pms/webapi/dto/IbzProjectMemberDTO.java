@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -38,6 +41,7 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "name")
     @JsonProperty("name")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String name;
 
     /**
@@ -46,6 +50,7 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "rd")
     @JsonProperty("rd")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String rd;
 
     /**
@@ -54,6 +59,7 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "po")
     @JsonProperty("po")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String po;
 
     /**
@@ -62,6 +68,7 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "pm")
     @JsonProperty("pm")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String pm;
 
     /**
@@ -70,6 +77,7 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "qd")
     @JsonProperty("qd")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String qd;
 
     /**
@@ -78,6 +86,7 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "fristmember")
     @JsonProperty("fristmember")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String fristmember;
 
     /**
@@ -86,6 +95,7 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "secondmember")
     @JsonProperty("secondmember")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String secondmember;
 
     /**
@@ -94,6 +104,7 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "thirdmember")
     @JsonProperty("thirdmember")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String thirdmember;
 
     /**
@@ -102,6 +113,7 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "fourthmember")
     @JsonProperty("fourthmember")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String fourthmember;
 
     /**
@@ -110,6 +122,7 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "fifthmember")
     @JsonProperty("fifthmember")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String fifthmember;
 
     /**
@@ -118,6 +131,7 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "sixthmember")
     @JsonProperty("sixthmember")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String sixthmember;
 
 
@@ -131,4 +145,5 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
 
 
 }
+
 

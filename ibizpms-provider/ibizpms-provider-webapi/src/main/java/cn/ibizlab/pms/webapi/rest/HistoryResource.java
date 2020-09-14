@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class HistoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Create-all')")
     @ApiOperation(value = "新建操作历史", tags = {"操作历史" },  notes = "新建操作历史")
 	@RequestMapping(method = RequestMethod.POST, value = "/histories")
-    public ResponseEntity<HistoryDTO> create(@RequestBody HistoryDTO historydto) {
+    public ResponseEntity<HistoryDTO> create(@Validated @RequestBody HistoryDTO historydto) {
         History domain = historyMapping.toDomain(historydto);
 		historyService.create(domain);
         HistoryDTO dto = historyMapping.toDto(domain);

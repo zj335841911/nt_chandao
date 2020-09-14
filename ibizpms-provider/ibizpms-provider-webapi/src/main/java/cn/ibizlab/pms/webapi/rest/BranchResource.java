@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class BranchResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Branch-Create-all')")
     @ApiOperation(value = "新建产品的分支和平台信息", tags = {"产品的分支和平台信息" },  notes = "新建产品的分支和平台信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/branches")
-    public ResponseEntity<BranchDTO> create(@RequestBody BranchDTO branchdto) {
+    public ResponseEntity<BranchDTO> create(@Validated @RequestBody BranchDTO branchdto) {
         Branch domain = branchMapping.toDomain(branchdto);
 		branchService.create(domain);
         BranchDTO dto = branchMapping.toDto(domain);

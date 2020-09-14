@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Create-all')")
     @ApiOperation(value = "新建版本", tags = {"版本" },  notes = "新建版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/builds")
-    public ResponseEntity<BuildDTO> create(@RequestBody BuildDTO builddto) {
+    public ResponseEntity<BuildDTO> create(@Validated @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
 		buildService.create(domain);
         BuildDTO dto = buildMapping.toDto(domain);

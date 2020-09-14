@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class BurnResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Create-all')")
     @ApiOperation(value = "新建burn", tags = {"burn" },  notes = "新建burn")
 	@RequestMapping(method = RequestMethod.POST, value = "/burns")
-    public ResponseEntity<BurnDTO> create(@RequestBody BurnDTO burndto) {
+    public ResponseEntity<BurnDTO> create(@Validated @RequestBody BurnDTO burndto) {
         Burn domain = burnMapping.toDomain(burndto);
 		burnService.create(domain);
         BurnDTO dto = burnMapping.toDto(domain);

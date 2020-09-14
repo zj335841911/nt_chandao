@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,8 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "name")
     @JsonProperty("name")
+    @NotBlank(message = "[名称编号]不允许为空!")
+    @Size(min = 0, max = 150, message = "内容长度必须小于等于[150]")
     private String name;
 
     /**
@@ -38,6 +43,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "builder")
     @JsonProperty("builder")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String builder;
 
     /**
@@ -46,6 +52,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "desc")
     @JsonProperty("desc")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String desc;
 
     /**
@@ -62,6 +69,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
     private String deleted;
 
     /**
@@ -70,6 +78,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "scmpath")
     @JsonProperty("scmpath")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String scmpath;
 
     /**
@@ -78,6 +87,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "filepath")
     @JsonProperty("filepath")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String filepath;
 
     /**
@@ -86,6 +96,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "stories")
     @JsonProperty("stories")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String stories;
 
     /**
@@ -94,6 +105,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "bugs")
     @JsonProperty("bugs")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String bugs;
 
     /**
@@ -135,6 +147,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "productname")
     @JsonProperty("productname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String productname;
 
     /**
@@ -143,6 +156,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ids")
     @JsonProperty("ids")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String ids;
 
     /**
@@ -151,6 +165,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "files")
     @JsonProperty("files")
+    @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
     private String files;
 
 
@@ -244,4 +259,5 @@ public class BuildDTO extends DTOBase implements Serializable {
 
 
 }
+
 

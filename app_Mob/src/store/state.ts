@@ -14,4 +14,5 @@ export const rootstate: any = {
     localdata: {},
     zIndex: 300,
     noticeStatus:true,
+    selectStatus:true,
 }

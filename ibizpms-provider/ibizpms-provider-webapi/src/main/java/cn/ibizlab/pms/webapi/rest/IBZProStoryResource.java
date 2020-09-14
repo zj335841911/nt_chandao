@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class IBZProStoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProStory-Create-all')")
     @ApiOperation(value = "新建需求", tags = {"需求" },  notes = "新建需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzprostories")
-    public ResponseEntity<IBZProStoryDTO> create(@RequestBody IBZProStoryDTO ibzprostorydto) {
+    public ResponseEntity<IBZProStoryDTO> create(@Validated @RequestBody IBZProStoryDTO ibzprostorydto) {
         IBZProStory domain = ibzprostoryMapping.toDomain(ibzprostorydto);
 		ibzprostoryService.create(domain);
         IBZProStoryDTO dto = ibzprostoryMapping.toDto(domain);

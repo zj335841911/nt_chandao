@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,7 @@ public class ActionDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "extra")
     @JsonProperty("extra")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String extra;
 
     /**
@@ -38,6 +42,7 @@ public class ActionDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "objecttype")
     @JsonProperty("objecttype")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String objecttype;
 
     /**
@@ -54,6 +59,7 @@ public class ActionDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "comment")
     @JsonProperty("comment")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String comment;
 
     /**
@@ -62,6 +68,7 @@ public class ActionDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "read")
     @JsonProperty("read")
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
     private String read;
 
     /**
@@ -70,6 +77,7 @@ public class ActionDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "action")
     @JsonProperty("action")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String action;
 
     /**
@@ -87,6 +95,7 @@ public class ActionDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String product;
 
     /**
@@ -103,6 +112,7 @@ public class ActionDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "actor")
     @JsonProperty("actor")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String actor;
 
     /**
@@ -119,6 +129,7 @@ public class ActionDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "lastcomment")
     @JsonProperty("lastcomment")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String lastcomment;
 
     /**
@@ -127,6 +138,7 @@ public class ActionDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "actionmanner")
     @JsonProperty("actionmanner")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String actionmanner;
 
     /**
@@ -143,6 +155,7 @@ public class ActionDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "date1")
     @JsonProperty("date1")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String date1;
 
 
@@ -220,4 +233,5 @@ public class ActionDTO extends DTOBase implements Serializable {
 
 
 }
+
 

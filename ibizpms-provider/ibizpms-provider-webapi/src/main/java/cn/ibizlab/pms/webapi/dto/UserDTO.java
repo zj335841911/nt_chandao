@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "password")
     @JsonProperty("password")
+    @Size(min = 0, max = 32, message = "内容长度必须小于等于[32]")
     private String password;
 
     /**
@@ -38,6 +42,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "address")
     @JsonProperty("address")
+    @Size(min = 0, max = 120, message = "内容长度必须小于等于[120]")
     private String address;
 
     /**
@@ -46,6 +51,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "weixin")
     @JsonProperty("weixin")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String weixin;
 
     /**
@@ -54,6 +60,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "dingding")
     @JsonProperty("dingding")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String dingding;
 
     /**
@@ -70,6 +77,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "slack")
     @JsonProperty("slack")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String slack;
 
     /**
@@ -78,6 +86,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ranzhi")
     @JsonProperty("ranzhi")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String ranzhi;
 
     /**
@@ -86,6 +95,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "account")
     @JsonProperty("account")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String account;
 
     /**
@@ -103,6 +113,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "avatar")
     @JsonProperty("avatar")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String avatar;
 
     /**
@@ -119,6 +130,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "realname")
     @JsonProperty("realname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String realname;
 
     /**
@@ -127,6 +139,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "zipcode")
     @JsonProperty("zipcode")
+    @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
     private String zipcode;
 
     /**
@@ -143,6 +156,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "commiter")
     @JsonProperty("commiter")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String commiter;
 
     /**
@@ -151,6 +165,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "role")
     @JsonProperty("role")
+    @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
     private String role;
 
     /**
@@ -159,6 +174,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
     private String deleted;
 
     /**
@@ -175,6 +191,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "clientstatus")
     @JsonProperty("clientstatus")
+    @Size(min = 0, max = 7, message = "内容长度必须小于等于[7]")
     private String clientstatus;
 
     /**
@@ -183,6 +200,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "skype")
     @JsonProperty("skype")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String skype;
 
     /**
@@ -191,6 +209,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "whatsapp")
     @JsonProperty("whatsapp")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String whatsapp;
 
     /**
@@ -207,6 +226,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "gender")
     @JsonProperty("gender")
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
     private String gender;
 
     /**
@@ -215,6 +235,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "mobile")
     @JsonProperty("mobile")
+    @Size(min = 0, max = 11, message = "内容长度必须小于等于[11]")
     private String mobile;
 
     /**
@@ -223,6 +244,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "clientlang")
     @JsonProperty("clientlang")
+    @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
     private String clientlang;
 
     /**
@@ -248,6 +270,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "email")
     @JsonProperty("email")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String email;
 
     /**
@@ -256,6 +279,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ip")
     @JsonProperty("ip")
+    @Size(min = 0, max = 15, message = "内容长度必须小于等于[15]")
     private String ip;
 
     /**
@@ -273,6 +297,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "nickname")
     @JsonProperty("nickname")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String nickname;
 
     /**
@@ -281,6 +306,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "phone")
     @JsonProperty("phone")
+    @Size(min = 0, max = 20, message = "内容长度必须小于等于[20]")
     private String phone;
 
     /**
@@ -297,6 +323,7 @@ public class UserDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "qq")
     @JsonProperty("qq")
+    @Size(min = 0, max = 20, message = "内容长度必须小于等于[20]")
     private String qq;
 
 
@@ -558,4 +585,5 @@ public class UserDTO extends DTOBase implements Serializable {
 
 
 }
+
 

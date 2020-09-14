@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class IbzMyTerritoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Create-all')")
     @ApiOperation(value = "新建我的地盘", tags = {"我的地盘" },  notes = "新建我的地盘")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzmyterritories")
-    public ResponseEntity<IbzMyTerritoryDTO> create(@RequestBody IbzMyTerritoryDTO ibzmyterritorydto) {
+    public ResponseEntity<IbzMyTerritoryDTO> create(@Validated @RequestBody IbzMyTerritoryDTO ibzmyterritorydto) {
         IbzMyTerritory domain = ibzmyterritoryMapping.toDomain(ibzmyterritorydto);
 		ibzmyterritoryService.create(domain);
         IbzMyTerritoryDTO dto = ibzmyterritoryMapping.toDto(domain);

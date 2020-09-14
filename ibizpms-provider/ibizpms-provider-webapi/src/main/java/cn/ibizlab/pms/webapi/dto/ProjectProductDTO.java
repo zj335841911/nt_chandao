@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String id;
 
     /**
@@ -38,6 +42,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "productname")
     @JsonProperty("productname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String productname;
 
     /**
@@ -46,6 +51,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "projectname")
     @JsonProperty("projectname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String projectname;
 
     /**
@@ -54,6 +60,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "planname")
     @JsonProperty("planname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String planname;
 
     /**
@@ -62,6 +69,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
+    @NotNull(message = "[产品]不允许为空!")
     private Long product;
 
     /**
@@ -86,6 +94,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "project")
     @JsonProperty("project")
+    @NotNull(message = "[项目]不允许为空!")
     private Long project;
 
 
@@ -123,4 +132,5 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
 
 
 }
+
 

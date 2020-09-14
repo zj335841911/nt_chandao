@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class StorySpecResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Create-all')")
     @ApiOperation(value = "新建需求描述", tags = {"需求描述" },  notes = "新建需求描述")
 	@RequestMapping(method = RequestMethod.POST, value = "/storyspecs")
-    public ResponseEntity<StorySpecDTO> create(@RequestBody StorySpecDTO storyspecdto) {
+    public ResponseEntity<StorySpecDTO> create(@Validated @RequestBody StorySpecDTO storyspecdto) {
         StorySpec domain = storyspecMapping.toDomain(storyspecdto);
 		storyspecService.create(domain);
         StorySpecDTO dto = storyspecMapping.toDto(domain);

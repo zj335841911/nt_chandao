@@ -3,7 +3,7 @@
         <div class="cancel-icon" v-if="curvalue"><ion-icon name="close-circle-outline" @click="onClear"></ion-icon></div>
         <div v-if="curvalue== null || curvalue==''" class="ion-select-icon"></div>
         <ion-input class="select_text" readonly="true" :value="curvalue" :ref="name+'input'" style="height: 43px;" @ionFocus="openSelect"/>
-        <ion-select :selected-text="selectValue" :ref="name+'select'" v-show="false" :disabled="disabled " @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
+        <ion-select :selected-text="selectValue" :ref="name+'select'" v-show="false" :disabled="disabled " @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')" @ionCancel="cancel">
             <ion-select-option  v-for="option of items" :key="option.value" :value="option.value">{{option.text}}</ion-select-option>
         </ion-select>
     </div>   
@@ -265,6 +265,7 @@ export default class AppSelectDropDown extends Vue {
                 this.items.push({ text: newVal, value: value });
             }
             this.onSearch(newVal, false);
+            this.$store.commit('setSelectStatus',true);
         }
     }
 
@@ -275,6 +276,7 @@ export default class AppSelectDropDown extends Vue {
      */
     public mounted() {
         this.onSearch(null, true);
+        this.$store.commit('setSelectStatus',true);
     }
 
     /**
@@ -285,6 +287,7 @@ export default class AppSelectDropDown extends Vue {
         this.open = flag;
         if (this.open) {
             this.onSearch(this.curvalue, true);
+            this.$store.commit('setSelectStatus',true);
         }
     }
     /**
@@ -318,6 +321,7 @@ export default class AppSelectDropDown extends Vue {
             const response = await entityService[this.acParams.interfaceName](_context, _param);
             if (response && response.status === 200) {
                 this.items = response.data;
+                this.$store.commit('setSelectStatus',false);
                 this.result(this.items);
             } else {
                 this.$notice.error(`${this.$t('error_request')}` );
@@ -761,7 +765,18 @@ export default class AppSelectDropDown extends Vue {
      * @memberof AppSelect
      */
     public change(value: any) {
+        this.$store.commit('setSelectStatus',true);
         this.curvalue = value.detail.value;        
+    }
+
+    /**
+     * 取消选择
+     *
+     * @type {*}
+     * @memberof AppSelect
+     */
+    public cancel(){
+      this.$store.commit('setSelectStatus',true);
     }
 
     /**
@@ -781,6 +796,7 @@ export default class AppSelectDropDown extends Vue {
      */
     public openSelect(){
         this.onSearch(null);
+        this.$store.commit('setSelectStatus',true);
         let select :any= this.$refs[this.name+'select'];
         if(select){
             setTimeout(() => {

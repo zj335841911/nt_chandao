@@ -2,7 +2,7 @@
     <div class="app-mobile-select" data-tap-disabled="true">
         <div class="cancel-icon" v-if="curValue || curValue === 0"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
         <div v-if="curValue== null || curValue==''" class="ion-select-icon"></div>
-        <ion-select  :value="curValue" :disabled="disabled ? disabled : false" @ionChange="change" interface="action-sheet" @click="load" :cancel-text="$t('app.button.cancel')">
+        <ion-select  :value="curValue" :disabled="disabled ? disabled : false" @ionChange="change" interface="action-sheet" @click="load" :cancel-text="$t('app.button.cancel')" @ionCancel="cancel">
               <template v-if="codeListType == 'DYNAMIC'">
                 <ion-select-option  v-for="option of options" :key="option.value" :value="option.value" class="mob-select-text">{{($t('userCustom.'+tag+'.'+option.value)!== ('userCustom.'+tag+'.'+option.value))?$t('userCustom.'+tag+'.'+option.value) : option.text}}</ion-select-option>
               </template>
@@ -58,6 +58,7 @@ export default class AppSelect extends Vue {
      * @memberof AppSelect
      */
     public change(value: any) {
+        this.$store.commit('setSelectStatus',true); 
         let devalue:any = value.detail.value;
         if (devalue !== '') {
           for(let key in this.options){
@@ -177,6 +178,7 @@ export default class AppSelect extends Vue {
     onDataChange(newVal: any, oldVal: any) {
         if (newVal) {
             this.load();
+            this.$store.commit('setSelectStatus',true);
         }
     }
 
@@ -189,8 +191,19 @@ export default class AppSelect extends Vue {
         } else {
             if (this.curValue) {
                 this.load();
+                this.$store.commit('setSelectStatus',true);
             }
         }
+    }
+
+    /**
+     * 取消选择
+     *
+     * @type {*}
+     * @memberof AppSelect
+     */
+    public cancel(){
+      this.$store.commit('setSelectStatus',true);
     }
 
     /**
@@ -200,6 +213,7 @@ export default class AppSelect extends Vue {
      * @memberof AppSelect
      */
     public async load(): Promise<any> {
+        this.$store.commit('setSelectStatus',false);
         if (Object.is(this.codeListType, "STATIC")) {
             return;
         }
