@@ -245,9 +245,12 @@ public class TaskExService extends TaskServiceImpl {
     public Page<Task> searchByModule(TaskSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchByModule(context.getPages(),context,context.getSelectCond());
         for(Task task : pages.getRecords()) {
-            TaskSearchContext taskSearchContext = new TaskSearchContext();
-            taskSearchContext.setN_parent_eq(task.getId());
-            task.set("items", this.searchDefault(taskSearchContext).getContent());
+            TaskSearchContext context1 = new TaskSearchContext();
+            context1.setSelectCond(context.getSelectCond().clone());
+            context1.setN_parent_eq(task.getId());
+            List<Task> taskList = this.searchDefault(context1).getContent();
+            task.set("items", taskList);
+            pages.setPages(pages.getTotal() + taskList.size());
         }
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
@@ -260,8 +263,12 @@ public class TaskExService extends TaskServiceImpl {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchProjectTASK(context.getPages(),context,context.getSelectCond());
         for(Task task : pages.getRecords()) {
             TaskSearchContext context1 = new TaskSearchContext();
+            context1.setSelectCond(context.getSelectCond().clone());
             context1.setN_parent_eq(task.getId());
-            task.set("items", this.searchDefault(context1).getContent());
+            List<Task> taskList = this.searchDefault(context1).getContent();
+            task.set("items", taskList);
+            pages.setPages(pages.getTotal() + taskList.size());
+
         }
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
