@@ -53,7 +53,7 @@
             </div>
       </div>
     </div>
-    <div class="button" v-if="items.length > 3">
+    <div class="button" v-if="items.length > 3" ref="loadMore">
       <div @click="loadMore"><span>{{text}}</span></div>
     </div>
     <div class="zero" v-if="items.length == 0">
@@ -253,14 +253,14 @@ export default class APPHistoryList extends Vue {
           let ite:any =  document.querySelectorAll('.oneitem');
           this.startHeig = 0;
           this.endHeig = 0;
-            for(let i = 0; i < this.num; i++){
+            for (let i = 0; i < this.num; i++) {
               if (ite[i] != undefined) {
-                this.startHeig += ite[i].offsetHeight + 15;
+                this.startHeig += ite[i].offsetHeight;
               }
             }
-            for(let i = 0; i <= ite.length; i++){
+            for (let i = 0; i <= ite.length; i++) {
               if (ite[i] != undefined) {              
-              this.endHeig += ite[i].offsetHeight + 15;
+                this.endHeig += ite[i].offsetHeight;
               }
             }  
           ele.style.height = this.isShow?this.endHeig+'px':  + this.startHeig+'px';
@@ -283,19 +283,26 @@ export default class APPHistoryList extends Vue {
      * @returns {void}
      * @memberof APPHistoryList
      */
-    public setHeight(){
-
+    public setHeight() {
       let ele:any =  document.querySelector('.onecontent');
       let ite:any =  this.$refs.oneitem;
       if (ite !== undefined) {
         for(let i:any = 0; i < this.num; i++){
           if (ite[i] !== undefined) {
-            this.startHeig += ite[i].offsetHeight + 15;
+            this.startHeig += ite[i].offsetHeight;
           }
         }
       }
-      if(ele && ele.style){
+      if (ele && ele.style) {
         ele.style.height = this.startHeig + 'px';
+      }
+      const userAgent:string = navigator.userAgent;
+      let isIOS = (userAgent: string) => /iphone/i.test(userAgent) || /ipod/i.test(userAgent) || /iPad/i.test(userAgent);
+      if (isIOS(userAgent)) {
+        let loadMore:any = this.$refs.loadMore;
+        if (loadMore) {
+          loadMore.style.marginBottom = "10px";
+        }
       }
     }
 
