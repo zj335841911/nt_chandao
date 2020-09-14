@@ -93,6 +93,7 @@ export class AssignFormEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         project: null,
         assignedto: null,
+        multiple: null,
         left: null,
         comment: null,
         id: null,
@@ -160,6 +161,8 @@ export class AssignFormEditFormBase extends EditFormControlBase {
         project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         left: new FormItemModel({ caption: '预计剩余', detailType: 'FORMITEM', name: 'left', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

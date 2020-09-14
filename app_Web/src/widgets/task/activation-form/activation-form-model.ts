@@ -71,6 +71,16 @@ export default class ActivationModel {
         dataType: 'HTMLTEXT',
       },
       {
+        name: 'project',
+        prop: 'project',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'multiple',
+        prop: 'multiple',
+        dataType: 'TEXT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

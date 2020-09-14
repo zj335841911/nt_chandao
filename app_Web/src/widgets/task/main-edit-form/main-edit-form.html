@@ -242,11 +242,11 @@
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{ PROJECT:"%project%" }' 
-    :localParam ='{ project:"%project%" }' 
+    :localContext ='{ PROJECT:"%project%", MULTIPLE:"%multiple%" }' 
+    :localParam ='{ project:"%project%", multiple:"%multiple%" }' 
     :disabled="detailsModel.assignedto.disabled"
     valueType="string"
-    tag='UserRealNameProject'
+    tag='UserRealNameTaskTeam'
     codelistType='DYNAMIC'
     placeholder='请选择...'
     
