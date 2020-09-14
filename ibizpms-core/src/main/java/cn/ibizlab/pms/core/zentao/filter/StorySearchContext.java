@@ -111,6 +111,13 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
             this.getSearchCond().eq("id", n_id_eq);
         }
     }
+	private Long n_id_noteq;//[编号]
+	public void setN_id_noteq(Long n_id_noteq) {
+        this.n_id_noteq = n_id_noteq;
+        if(!ObjectUtils.isEmpty(this.n_id_noteq)){
+            this.getSearchCond().ne("id", n_id_noteq);
+        }
+    }
 	private String n_source_eq;//[需求来源]
 	public void setN_source_eq(String n_source_eq) {
         this.n_source_eq = n_source_eq;
