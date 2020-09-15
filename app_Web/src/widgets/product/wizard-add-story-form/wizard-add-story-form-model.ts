@@ -51,6 +51,51 @@ export default class WizardAddStoryModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'formitem',
+      },
+      {
+        name: 'formitem1',
+      },
+      {
+        name: 'formitem2',
+      },
+      {
+        name: 'formitem3',
+      },
+      {
+        name: 'formitem4',
+      },
+      {
+        name: 'formitem5',
+      },
+      {
+        name: 'formitem6',
+      },
+      {
+        name: 'formitem7',
+      },
+      {
+        name: 'formitem8',
+      },
+      {
+        name: 'formitem9',
+      },
+      {
+        name: 'formitem10',
+      },
+      {
+        name: 'formitem11',
+      },
+      {
+        name: 'formitem12',
+      },
+      {
+        name: 'formitem13',
+      },
+      {
+        name: 'formitem14',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

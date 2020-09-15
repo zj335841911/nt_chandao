@@ -68,15 +68,6 @@ export class WizardAddStoryEditFormBase extends EditFormControlBase {
     public appUIService:ProductUIService = new ProductUIService(this.$store);
 
     /**
-     * 关系界面数量
-     *
-     * @protected
-     * @type {number}
-     * @memberof WizardAddStoryEditFormBase
-     */
-    protected drCount: number = 1;
-
-    /**
      * 表单数据对象
      *
      * @type {*}
@@ -90,6 +81,21 @@ export class WizardAddStoryEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        formitem: null,
+        formitem1: null,
+        formitem2: null,
+        formitem3: null,
+        formitem4: null,
+        formitem5: null,
+        formitem6: null,
+        formitem7: null,
+        formitem8: null,
+        formitem9: null,
+        formitem10: null,
+        formitem11: null,
+        formitem12: null,
+        formitem13: null,
+        formitem14: null,
         id: null,
         product:null,
     };
@@ -101,6 +107,10 @@ export class WizardAddStoryEditFormBase extends EditFormControlBase {
      * @memberof WizardAddStoryEditFormBase
      */
     public rules: any = {
+        formitem8: [
+            { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**
@@ -119,7 +129,7 @@ export class WizardAddStoryEditFormBase extends EditFormControlBase {
      * @memberof WizardAddStoryEditFormBase
      */
     public detailsModel: any = {
-        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.product.wizardaddstory_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '表单分页', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -137,7 +147,106 @@ export class WizardAddStoryEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        formitem: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'formitem', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem1: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem2: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'formitem2', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem3: new FormItemModel({ caption: '计划', detailType: 'FORMITEM', name: 'formitem3', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem4: new FormItemModel({ caption: '需求来源', detailType: 'FORMITEM', name: 'formitem4', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem5: new FormItemModel({ caption: '来源备注', detailType: 'FORMITEM', name: 'formitem5', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem6: new FormItemModel({ caption: '由谁评审', detailType: 'FORMITEM', name: 'formitem6', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem7: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'formitem7', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem8: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'formitem8', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem9: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'formitem9', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem10: new FormItemModel({ caption: '预计', detailType: 'FORMITEM', name: 'formitem10', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem11: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'formitem11', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem12: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'formitem12', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem13: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'formitem13', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        formitem14: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'formitem14', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof WizardAddStoryEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'formitem7')) {
+            this.onFormItemValueChange({ name: 'formitem6', value: null });
+        }
+    }
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof WizardAddStoryEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'formitem7')) {
+            let ret = false;
+            const _formitem7 = this.data.formitem7;
+            if (this.$verify.testCond(_formitem7, 'NOTEQ', '1')) {
+                ret = true;
+            }
+            this.detailsModel.formitem6.setDisabled(!ret);
+        }
+
+
+
+
+
+
+
+
+
+
+    }
+
+    /**
+     * 新建默认值
+     * @memberof WizardAddStoryEditFormBase
+     */
+    public createDefault(){                    
+        if (this.data.hasOwnProperty('formitem')) {
+            this.data['formitem'] = '1';
+        }
+        if (this.data.hasOwnProperty('formitem1')) {
+            this.data['formitem1'] = '0';
+        }
+    }
 }
