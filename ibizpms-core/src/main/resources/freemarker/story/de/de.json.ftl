@@ -3,8 +3,8 @@
     "dename": "${item.getLogicname()}",
     "createdate": "${item.getCreatedate()}",
     "updatedate": "${item.getUpdatedate()}",
-    "memo": "${item.getMemo()}",
+    "memo": <#if item.getMemo()??>"${item.getMemo()}"<#else>null</#if>,
     "validflag": ${item.getValidflag()},
-    "psmodulename": "${item.getPsmodulename()}",
-    "pssysreqitemname": "${item.getPssysreqitemname()}"
+    "psmodulename": <#if item.getPsmodulename()??>"${item.getPsmodulename()}"<#else>null</#if>,
+    "pssysreqitemname": <#if item.getPssysreqitemname()??>"${item.getPssysreqitemname()}"<#else>null</#if>
 }
