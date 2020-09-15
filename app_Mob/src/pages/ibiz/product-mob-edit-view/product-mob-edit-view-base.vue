@@ -1,10 +1,752 @@
-!!!!模版产生代码错误:----
-Tip: It's the step after the last dot that caused this error, not those before it.
-----
-Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-----
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: #if view.isEnableQuickGroup()  [in template "TEMPLCODE_en_US" at line 31, column 1]
-----
+<template>
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'product-mob-edit-view': true }">
+    
+    <ion-header>
+    </ion-header>
+
+
+    <ion-content>
+                <view_form
+            :viewState="viewState"
+            viewName="ProductMobEditView"  
+            :viewparams="viewparams" 
+            :context="context" 
+            :autosave="false" 
+            :viewtag="viewtag"
+            :showBusyIndicator="true"
+            updateAction="Update"
+            removeAction="Remove"
+            loaddraftAction="GetDraft"
+            loadAction="Get"
+            createAction="Create"
+            WFSubmitAction=""
+            WFStartAction=""
+            style='' 
+            name="form"  
+            ref='form' 
+            @save="form_save($event)"  
+            @beforeload="form_beforeload($event)"  
+            @remove="form_remove($event)"  
+            @beforesave="form_beforesave($event)"  
+            @load="form_load($event)"  
+            @closeview="closeView($event)">
+        </view_form>
+    </ion-content>
+    <ion-footer class="view-footer" style="z-index:9;">
+                <div  class = "fab_container">
+            <div class="bottom_menu">
+        
+        
+            <ion-fab v-show="getToolBarLimit">
+                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
+                <ion-fab-list class="fab-list" side="top">
+                
+        
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
+            {{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}    
+            </ion-fab-button>
+        
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction2.visabled" :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)">
+            {{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}    
+            </ion-fab-button>
+        
+        
+        
+                </ion-fab-list>
+            </ion-fab>
+            </div>
+        </div>
+    </ion-footer>
+</ion-page>
+</template>
+
+<script lang='ts'>
+import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
+import { Subject } from 'rxjs';
+import GlobalUiService from '@/global-ui-service/global-ui-service';
+import ProductService from '@/app-core/service/product/product-service';
+import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
+import ProductUIService from '@/ui-service/product/product-ui-action';
+
+@Component({
+    components: {
+    },
+})
+export default class ProductMobEditViewBase extends Vue {
+
+    /**
+     * 全局 ui 服务
+     *
+     * @type {GlobalUiService}
+     * @memberof ProductMobEditViewBase
+     */
+    protected globaluiservice: GlobalUiService = new GlobalUiService();
+
+    /**
+     * 实体服务对象
+     *
+     * @type {ProductService}
+     * @memberof ProductMobEditViewBase
+     */
+    protected appEntityService: ProductService = new ProductService();
+
+    /**
+     * 实体UI服务对象
+     *
+     * @type ProductUIService
+     * @memberof ProductMobEditViewBase
+     */
+    public appUIService: ProductUIService = new ProductUIService(this.$store);
+
+    /**
+     * 数据变化
+     *
+     * @param {*} val
+     * @returns {*}
+     * @memberof ProductMobEditViewBase
+     */
+    @Emit() 
+    protected viewDatasChange(val: any):any {
+        return val;
+    }
+
+    /**
+     * 视图上下文
+     *
+     * @type {string}
+     * @memberof ProductMobEditViewBase
+     */
+    @Prop() protected _context!: string;
+
+    /**
+     * 视图参数
+     *
+     * @type {string}
+     * @memberof ProductMobEditViewBase
+     */
+    @Prop() protected _viewparams!: string;
+
+    /**
+     * 视图默认使用
+     *
+     * @type {boolean}
+     * @memberof ProductMobEditViewBase
+     */
+    @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
+
+	/**
+	 * 视图标识
+	 *
+	 * @type {string}
+	 * @memberof ProductMobEditViewBase
+	 */
+	protected viewtag: string = '984a4d5ce6ca2ede5539d44590ef20a6';
+
+    /**
+     * 视图上下文
+     *
+     * @type {*}
+     * @memberof ProductMobEditViewBase
+     */
+    protected context: any = {};
+
+    /**
+     * 视图参数
+     *
+     * @type {*}
+     * @memberof ProductMobEditViewBase
+     */
+    protected viewparams: any = {};
+
+    /**
+     * 是否为子视图
+     *
+     * @type {boolean}
+     * @memberof ProductMobEditViewBase
+     */
+    @Prop({ default: false }) protected isChildView?: boolean;
+
+    /**
+     * 标题状态
+     *
+     * @memberof ProductMobEditViewBase
+     */
+    public titleStatus :boolean = true;
+
+    /**
+     * 视图导航上下文
+     *
+     * @protected
+     * @type {*}
+     * @memberof ProductMobEditViewBase
+     */
+    protected navContext: any = { 'objecttype': 'product', 'srfparentkey': '%product%' };
+
+    /**
+     * 视图导航参数
+     *
+     * @protected
+     * @type {*}
+     * @memberof ProductMobEditViewBase
+     */
+    protected navParam: any = { 'srfparentkey': '%product%', 'objecttype': 'product' };
+
+    /**
+     * 视图模型数据
+     *
+     * @type {*}
+     * @memberof ProductMobEditViewBase
+     */
+    protected model: any = {
+        srfTitle: '产品移动端编辑视图',
+        srfCaption: 'product.views.mobeditview.caption',
+        srfSubCaption: '',
+        dataInfo: '',
+        iconcls: '',
+        icon: ''
+    }
+
+    /**
+     * 视图上下文变化
+     *
+     * @param {string} newVal
+     * @param {string} oldVal
+     * @memberof  ProductMobEditViewBase
+     */
+    @Watch('_context')
+    on_context(newVal: string, oldVal: string) {
+        const _this: any = this;
+        this.parseViewParam();
+        if (!Object.is(newVal, oldVal) && _this.engine) {
+            this.$nextTick(()=>{_this.engine.load();})
+        }
+        
+    }
+
+    /**
+     * 视图参数变化
+     *
+     * @param {string} newVal
+     * @param {string} oldVal
+     * @returns
+     * @memberof IBizChart
+     */
+    @Watch('_viewparams')
+    on_viewparams(newVal: string, oldVal: string) {
+        this.parseViewParam();
+    }
+
+    /**
+     * 设置工具栏状态
+     *
+     * @memberof ProductMobEditViewBase
+     */
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
+    }
+
+    /**
+     * 容器模型
+     *
+     * @type {*}
+     * @memberof ProductMobEditViewBase
+     */
+    protected containerModel: any = {
+        view_form: { name: 'form', type: 'FORM' },
+        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
+    };
+
+    /**
+     * 视图状态订阅对象
+     *
+     * @type {Subject<{action: string, data: any}>}
+     * @memberof ProductMobEditViewBase
+     */
+    protected viewState: Subject<ViewState> = new Subject();
+
+
+    /**
+     * 是否显示标题
+     *
+     * @type {string}
+     * @memberof ProductMobEditViewBase
+     */
+    @Prop({default:true}) protected showTitle?: boolean;
+
+
+
+   /**
+    * 工具栏 ProductMobEditView 模型
+    *
+    * @type {*}
+    * @memberof ProductMobEditView
+    */
+    public righttoolbarModels: any = {
+        items1: { isshow:false, name: 'items1', caption: '更多', disabled: false, type: 'ITEMS', visabled: true, dataaccaction: '', uiaction: { } }, 
+          deuiaction1: { name: 'deuiaction1', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_CLOSED_BUT', uiaction: { tag: 'CloseProductMob', target: 'SINGLEKEY' } },
+          deuiaction2: { name: 'deuiaction2', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
+
+    };
+
+    /**
+     * 工具栏显示状态
+     *
+     * @type {boolean}
+     * @memberof ProductMobEditView 
+     */
+    public righttoolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof ProductMobEditView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean = false;
+        if(this.righttoolbarModels){
+            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
+                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+                    toolBarVisable = true;
+                    return;
+                }
+            })
+        }
+        return toolBarVisable;
+    }
+
+    
+
+
+    /**
+     * 工具栏模型集合名
+     *
+     * @memberof ProductMobEditViewBase
+     */
+    public toolbarModelList:any = ['righttoolbarModels',]
+
+    /**
+     * 解析视图参数
+     *
+     * @memberof ProductMobEditViewBase
+     */
+    protected parseViewParam(): void {
+        const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
+        this.context = { ...context };
+        this.viewparams = { ...param }
+    }
+
+    /**
+     * 是否显示返回按钮
+     *
+     * @readonly
+     * @type {boolean}
+     * @memberof ProductMobEditViewBase
+     */
+    get isShowBackButton(): boolean {
+        // 存在路由，非路由使用，嵌入
+        if (this.viewDefaultUsage === "indexView") {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * 视图引擎
+     *
+     * @type {Engine}
+     * @memberof ProductMobEditViewBase
+     */
+    protected engine: MobEditViewEngine = new MobEditViewEngine();
+
+    /**
+     * 引擎初始化
+     *
+     * @memberof ProductMobEditViewBase
+     */
+    protected engineInit(): void {
+        this.engine.init({
+            view: this,
+            form: this.$refs.form,
+            keyPSDEField: 'product',
+            majorPSDEField: 'name',
+            isLoadDefault: true,
+        });
+    }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof ProductMobEditViewBase
+     */
+    protected created() {
+        this.afterCreated();
+    }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof ProductMobEditViewBase
+     */
+    public activated() {
+        this.afterMounted();
+    }
+
+    /**
+     * 执行created后的逻辑
+     *
+     * @memberof ProductMobEditViewBase
+     */    
+    protected afterCreated(){
+        const secondtag = this.$util.createUUID();
+        this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
+        this.viewtag = secondtag;
+        this.parseViewParam();
+        this.setViewTitleStatus();
+        if(this.$route && this.$route.query && this.$route.query.bsinfo){
+            const bainfo:any = JSON.parse(this.$route.query.bsinfo as string);
+            Object.assign(this.viewparams,bainfo);
+        }
+
+    }
+
+    /**
+     * 销毁之前
+     *
+     * @memberof ProductMobEditViewBase
+     */
+    protected beforeDestroy() {
+        this.$store.commit('viewaction/removeView', this.viewtag);
+    }
+
+    /**
+     * Vue声明周期(组件初始化完毕)
+     *
+     * @memberof ProductMobEditViewBase
+     */
+    protected mounted() {
+        this.afterMounted();
+    }
+
+
+    /**
+     * 执行mounted后的逻辑
+     * 
+     * @memberof ProductMobEditViewBase
+     */
+    protected afterMounted(){
+        const _this: any = this;
+        _this.engineInit();
+        if (_this.loadModel && _this.loadModel instanceof Function) {
+            _this.loadModel();
+        }
+        this.thirdPartyInit();
+
+    }
+
+    /**
+     * 第三方容器初始化
+     * 
+     * @memberof ProductMobEditViewBase
+     */
+    protected  thirdPartyInit(){
+        if(!this.isChildView){
+            this.$viewTool.setViewTitleOfThirdParty(this.$t(this.model.srfCaption) as string);
+            this.$viewTool.setThirdPartyEvent(this.closeView);
+        }
+    }
+
+    /**
+     * 销毁视图回调
+     *
+     * @memberof ProductMobEditViewBase
+     */
+    protected destroyed(){
+        this.afterDestroyed();
+    }
+
+    /**
+     * 执行destroyed后的逻辑
+     * 
+     * @memberof ProductMobEditViewBase
+     */
+    protected afterDestroyed(){
+        if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
+            Object.keys(localStorage).forEach((item: string) => {
+                if (item.startsWith(this.context.srfsessionid)) {
+                    localStorage.removeItem(item);
+                }
+            });
+        }
+
+    }
+
+    /**
+     * form 部件 save 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductMobEditViewBase
+     */
+    protected form_save($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'save', $event);
+    }
+
+    /**
+     * form 部件 beforeload 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductMobEditViewBase
+     */
+    protected form_beforeload($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'beforeload', $event);
+    }
+
+    /**
+     * form 部件 remove 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductMobEditViewBase
+     */
+    protected form_remove($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'remove', $event);
+    }
+
+    /**
+     * form 部件 beforesave 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductMobEditViewBase
+     */
+    protected form_beforesave($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'beforesave', $event);
+    }
+
+    /**
+     * form 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductMobEditViewBase
+     */
+    protected form_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'load', $event);
+    }
+
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductMobEditViewBase
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.righttoolbar_deuiaction1_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.righttoolbar_deuiaction2_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof ProductMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('product_ui_action');
+        if (curUIService) {
+            curUIService.Product_CloseProductMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof ProductMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('product_ui_action');
+        if (curUIService) {
+            curUIService.Product_deleteMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 第三方关闭视图
+     *
+     * @param {any[]} args
+     * @memberof ProductMobEditViewBase
+     */
+    public quitFun() {
+        if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
+            // 缓存首次返回的时间
+            window.sessionStorage.setItem("firstQuit", new Date().getTime().toString());
+            // 提示再按一次退出
+            this.$toast("再按一次退出");
+            // 两秒后清除缓存（与提示的持续时间一致）
+            setTimeout(() => {window.sessionStorage.removeItem("firstQuit")}, 2000);
+        } else {
+            // 获取首次返回时间
+            let firstQuitTime: any = sessionStorage.getItem("firstQuit");
+            // 如果时间差小于两秒 直接关闭
+            if (new Date().getTime() - firstQuitTime < 2000) {
+                this.$viewTool.ThirdPartyClose();
+            }
+        }
+    }
+    
+    /**
+     * 关闭视图
+     *
+     * @param {any[]} args
+     * @memberof ProductMobEditViewBase
+     */
+    protected async closeView(args: any[]): Promise<any> {
+                let result = await this.cheackChange();
+        if(result){
+            if (this.viewDefaultUsage === "routerView") {
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+            } 
+            if (this.viewDefaultUsage === "actionView") {
+                this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
+            }
+        }
+
+        
+    }
+
+    /**
+     * 刷新数据
+     *
+     * @readonly
+     * @type {(number | null)}
+     * @memberof ProductMobEditViewBase
+     */
+    get refreshdata(): number | null {
+        return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
+    }
+
+    /**
+     * 监控数据变化
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @returns
+     * @memberof ProductMobEditViewBase
+     */
+    @Watch('refreshdata')
+    onRefreshData(newVal: any, oldVal: any) {
+        if (newVal === null || newVal === undefined) {
+            return;
+        }
+        if (newVal === 0) {
+            return;
+        }
+        const _this: any = this;
+        if (_this.onRefreshView && _this.onRefreshView instanceof Function) {
+            _this.onRefreshView();
+        }
+    }
+
+
+    /**
+     * 保存
+     *
+     * @protected
+     * @memberof ProductMobEditViewBase
+     */
+    protected defSave(): void {
+        const _this: any = this;
+        const xData: any = _this.$refs.form;
+        if (xData && xData.save instanceof Function) {
+            const _data = _this.viewparams;
+            xData.save(_data).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    return;
+                }
+                _this.$emit('viewdataschange', [{ ...response.data }]);
+            });
+        } else if (_this.save && _this.save instanceof Function) {
+            _this.save();
+        }
+    }
+
+    /**
+     * 检查表单是否修改
+     *
+     * @param {any[]} args
+     * @memberof PimEducationMobEditViewBase
+     */
+    public async cheackChange(): Promise<any>{
+        const view = this.$store.getters['viewaction/getAppView'](this.viewtag);
+        if (view && view.viewdatachange) {
+                const title: any = this.$t('app.tabpage.sureclosetip.title');
+                const contant: any = this.$t('app.tabpage.sureclosetip.content');
+                const result = await this.$notice.confirm(title, contant, this.$store);
+                if (result) {
+                    this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
+                    return true;
+                } else {
+                    return false;
+                }
+        }else{
+            return true;
+        }
+    }
+}
+</script>
+
+<style lang='less'>
+@import './product-mob-edit-view.less';
+</style>

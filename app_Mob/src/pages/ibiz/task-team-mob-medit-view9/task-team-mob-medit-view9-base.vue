@@ -36,6 +36,7 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import IbztaskteamService from '@/app-core/service/ibztaskteam/ibztaskteam-service';
+import { CodeListService } from "@/ibiz-core";
 import MobMEditView9Engine from '@engine/view/mob-medit-view9-engine';
 import IbztaskteamUIService from '@/ui-service/ibztaskteam/ibztaskteam-ui-action';
 
