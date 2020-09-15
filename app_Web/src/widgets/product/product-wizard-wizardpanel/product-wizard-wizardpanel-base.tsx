@@ -311,7 +311,7 @@ export class ProductWizardWizardPanelBase extends MainControlBase {
     public regFormActions() {
         this.regFormAction('wizardpanel_form_Product',{loadAction:"WizardCreate",saveAction:'WizardCreate',actions:['NEXT']},'Product');
         this.regFormAction('wizardpanel_form_AddProduct',{loadAction:"WizardCreate",saveAction:'WizardCreate',actions:['PREV','NEXT']},'AddProduct');
-        this.regFormAction('wizardpanel_form_CreateStory',{loadAction:"WizardCreate",saveAction:'WizardCreate',actions:['PREV','FINISH']},'CreateStory');
+        this.regFormAction('wizardpanel_form_CreateStory',{loadAction:"WizardCreate",saveAction:'WizardCreate',actions:['PREV','NEXT','FINISH']},'CreateStory');
         this.regFormAction('wizardpanel_form_AddStory',{loadAction:"WizardCreate",saveAction:'WizardCreate',actions:['PREV','FINISH']},'AddStory');
     }
 
