@@ -68,7 +68,6 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import CaseService from '@/app-core/service/case/case-service';
-
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
 import CaseUIService from '@/ui-service/case/case-ui-action';
 
@@ -754,6 +753,7 @@ export default class CaseMobMDViewBase extends Vue {
             }
         }
     }
+
    /**
      * 是否单选
      *
@@ -883,6 +883,7 @@ export default class CaseMobMDViewBase extends Vue {
         event.target.complete();
       }
     }
+
 
 
 

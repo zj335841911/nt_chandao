@@ -8,7 +8,7 @@
                     <ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon>
                 </div>
             </ion-list-header>
-            <div class="edit_title_btn" v-if="isEditTitle"><ion-button @click="onConfirmClick(false)">取消</ion-button><ion-button @click="onConfirmClick(true)">确认</ion-button></div>
+            <div class="edit_title_btn" style="edit_title_btn"><ion-button @click="onConfirmClick(false)">取消</ion-button><ion-button @click="onConfirmClick(true)">确认</ion-button></div>
                 <view_db_appmenu2_appmenu
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -278,6 +278,10 @@ export default class IconStyleMenuBase extends Vue implements ControlInterface {
         }
     }
 
+    get edit_title_btn(){
+        return this.isEditTitle?'padding-bottom: 30px':'padding:0'
+    }
+    
     /**
      * 门户点击行为
      *

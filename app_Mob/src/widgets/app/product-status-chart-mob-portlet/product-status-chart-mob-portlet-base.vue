@@ -8,7 +8,7 @@
                     <ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon>
                 </div>
             </ion-list-header>
-            <div class="edit_title_btn" v-if="isEditTitle"><ion-button @click="onConfirmClick(false)">取消</ion-button><ion-button @click="onConfirmClick(true)">确认</ion-button></div>
+            <div class="edit_title_btn" style="edit_title_btn"><ion-button @click="onConfirmClick(false)">取消</ion-button><ion-button @click="onConfirmClick(true)">确认</ion-button></div>
                 <view_dashboard_sysportlet8_chart
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
@@ -308,6 +308,10 @@ export default class ProductStatusChartMobBase extends Vue implements ControlInt
         }
     }
 
+    get edit_title_btn(){
+        return this.isEditTitle?'padding-bottom: 30px':'padding:0'
+    }
+    
     /**
      * 门户点击行为
      *

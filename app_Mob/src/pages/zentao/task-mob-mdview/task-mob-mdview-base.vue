@@ -81,7 +81,7 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskService from '@/app-core/service/task/task-service';
-
+import { CodeListService } from "@/ibiz-core";
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
 import TaskUIService from '@/ui-service/task/task-ui-action';
 
@@ -841,116 +841,7 @@ export default class TaskMobMDViewBase extends Vue {
             }
         }
     }
-    /**
-     * 快速分组代码表
-     *
-     * @type {Array<any>}
-     * @memberof TaskMobMDViewBase
-     */
-     public fastGroupCodeList: Array<any> = [
-        {
-            currIndex:0,
-            default:false,
-            text:'所有',
-            data:'{}',
-        },
-        {
-            currIndex:1,
-            default:true,
-            text:'未关闭',
-            data:'{"n_status_noteq":"closed"}',
-        },
-        {
-            currIndex:2,
-            default:false,
-            text:'指派给我',
-            data:'{"n_assignedto_eq":"%srfloginname%"}',
-        },
-        {
-            currIndex:3,
-            default:false,
-            text:'需求变更',
-            data:'{"n_status1_eq":"storychange"}',
-        },
-        {
-            currIndex:4,
-            default:false,
-            text:'更多',
-            data:'',
-            codeItems: [
-                {currIndex:4,
-                default:false,
-                text:'更多',
-                data:''}
-                {currIndex:4,
-                default:false,
-                text:'更多',
-                data:''}
-                {currIndex:4,
-                default:false,
-                text:'更多',
-                data:''}
-                {currIndex:4,
-                default:false,
-                text:'更多',
-                data:''}
-                {currIndex:4,
-                default:false,
-                text:'更多',
-                data:''}
-                {currIndex:4,
-                default:false,
-                text:'更多',
-                data:''}
-                {currIndex:4,
-                default:false,
-                text:'更多',
-                data:''}
-            ]
-        },
-        {
-            currIndex:5,
-            default:false,
-            text:'未开始',
-            data:'{"n_status_eq":"wait"}',
-        },
-        {
-            currIndex:6,
-            default:false,
-            text:'进行中',
-            data:'{"n_status_eq":"doing"}',
-        },
-        {
-            currIndex:7,
-            default:false,
-            text:'未完成',
-            data:'{"n_status_in":"wait;cancel;doing"}',
-        },
-        {
-            currIndex:8,
-            default:false,
-            text:'我完成',
-            data:'{"n_finishedby_eq":"%srfloginname%"}',
-        },
-        {
-            currIndex:9,
-            default:false,
-            text:'已完成',
-            data:'{"n_status_eq":"done"}',
-        },
-        {
-            currIndex:10,
-            default:false,
-            text:'已关闭',
-            data:'{"n_status_eq":"closed"}',
-        },
-        {
-            currIndex:11,
-            default:false,
-            text:'已取消',
-            data:'{"n_status_eq":"cancel"}',
-        },
-     ]
+
    /**
      * 是否单选
      *
@@ -1079,6 +970,100 @@ export default class TaskMobMDViewBase extends Vue {
       if(event.target && event.target.complete && event.target.complete instanceof Function){
         event.target.complete();
       }
+    }
+
+    /**
+     * 代码表服务对象
+     *
+     * @type {CodeListService}
+     * @memberof TaskMobMDViewBase
+     */  
+    public codeListService:CodeListService = new CodeListService();
+
+    /**
+     * 快速分组数据对象
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public quickGroupData:any;
+
+    /**
+     * 快速分组是否有抛值
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public isEmitQuickGroupValue:boolean = false;
+
+    /**
+     * 快速分组模型
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public quickGroupModel:Array<any> = [];
+
+    /**
+     * 加载快速分组模型
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public loadQuickGroupModel () {
+        let quickGroupCodeList:any = {tag:'Task_quickpacket',codelistType:'STATIC'};
+        if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType,"STATIC")) {
+            const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
+            if (codelist) {
+                this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
+            } else {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            }
+        }else if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType,"DYNAMIC")) {
+            this.codeListService.getItems(quickGroupCodeList.tag,{},{}).then((res:any) => {
+                this.quickGroupModel = res;
+            }).catch((error:any) => {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            });
+        }
+    }
+
+    /**
+     * 处理快速分组模型动态数据部分(%xxx%)
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public handleDynamicData (inputArray:Array<any>) {
+        if (inputArray.length > 0) {
+            inputArray.forEach((item:any) =>{
+               if (item.data && Object.keys(item.data).length > 0) {
+                   Object.keys(item.data).forEach((name:any) => {
+                        let value: any = item.data[name];
+                        if (value && typeof(value)=='string' && value.startsWith('%') && value.endsWith('%')) {
+                            const key = (value.substring(1, value.length - 1)).toLowerCase();
+                            if (this.context[key]) {
+                                value = this.context[key];
+                            } else if (this.viewparams[key]) {
+                                value = this.viewparams[key];
+                            }
+                        }
+                        item.data[name] = value;
+                   })
+               }
+            })
+        }
+        return inputArray;
+    }
+
+    /**
+     * 快速分组值变化
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public quickGroupValueChange ($event:any) {
+        if ($event) {
+            this.quickGroupData = $event;
+            if (this.isEmitQuickGroupValue) {
+                
+            }
+        }
+        this.isEmitQuickGroupValue = true;
     }
 
 

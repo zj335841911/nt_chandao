@@ -37,7 +37,6 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductService from '@/app-core/service/product/product-service';
-
 import MobChartViewEngine from '@engine/view/mob-chart-view-engine';
 import ProductUIService from '@/ui-service/product/product-ui-action';
 

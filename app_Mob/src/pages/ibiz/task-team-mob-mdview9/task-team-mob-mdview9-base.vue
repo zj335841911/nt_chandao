@@ -46,7 +46,6 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskTeamService from '@/app-core/service/task-team/task-team-service';
-
 import MobMDView9Engine from '@engine/view/mob-mdview9-engine';
 import TaskTeamUIService from '@/ui-service/task-team/task-team-ui-action';
 
@@ -631,6 +630,7 @@ export default class TaskTeamMobMDView9Base extends Vue {
             }
         }
     }
+
    /**
      * 是否单选
      *
@@ -759,6 +759,7 @@ export default class TaskTeamMobMDView9Base extends Vue {
         event.target.complete();
       }
     }
+
 
 
 

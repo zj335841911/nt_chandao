@@ -44,7 +44,6 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskService from '@/app-core/service/task/task-service';
-
 import MobMDView9Engine from '@engine/view/mob-mdview9-engine';
 import TaskUIService from '@/ui-service/task/task-ui-action';
 
@@ -704,6 +703,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      */
     @Prop() public formDruipart !: Subject<ViewState>;
 
+
    /**
      * 是否单选
      *
@@ -832,6 +832,7 @@ export default class TaskAssMobMDView9Base extends Vue {
         event.target.complete();
       }
     }
+
 
 
 

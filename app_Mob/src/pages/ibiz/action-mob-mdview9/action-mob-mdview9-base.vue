@@ -46,7 +46,6 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ActionService from '@/app-core/service/action/action-service';
-
 import MobMDView9Engine from '@engine/view/mob-mdview9-engine';
 import ActionUIService from '@/ui-service/action/action-ui-action';
 
@@ -638,6 +637,7 @@ export default class ActionMobMDView9Base extends Vue {
             }
         }
     }
+
    /**
      * 是否单选
      *
@@ -766,6 +766,7 @@ export default class ActionMobMDView9Base extends Vue {
         event.target.complete();
       }
     }
+
 
 
 

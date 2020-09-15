@@ -81,7 +81,6 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ReleaseService from '@/app-core/service/release/release-service';
-
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
 import ReleaseUIService from '@/ui-service/release/release-ui-action';
 
@@ -819,6 +818,7 @@ export default class ReleaseMobMDViewBase extends Vue {
             }
         }
     }
+
    /**
      * 是否单选
      *
@@ -948,6 +948,7 @@ export default class ReleaseMobMDViewBase extends Vue {
         event.target.complete();
       }
     }
+
 
 
 

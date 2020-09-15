@@ -34,7 +34,6 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TodoService from '@/app-core/service/todo/todo-service';
-
 import TodoUIService from '@/ui-service/todo/todo-ui-action';
 
 @Component({

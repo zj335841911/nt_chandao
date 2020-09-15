@@ -68,7 +68,6 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TestSuiteService from '@/app-core/service/test-suite/test-suite-service';
-
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
 import TestSuiteUIService from '@/ui-service/test-suite/test-suite-ui-action';
 
@@ -720,6 +719,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
             }
         }
     }
+
    /**
      * 是否单选
      *
@@ -849,6 +849,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
         event.target.complete();
       }
     }
+
 
 
 
