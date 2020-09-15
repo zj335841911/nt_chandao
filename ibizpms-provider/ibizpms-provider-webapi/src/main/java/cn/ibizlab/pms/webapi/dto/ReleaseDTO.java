@@ -176,6 +176,51 @@ public class ReleaseDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
     private String files;
 
+    /**
+     * 属性 [BACKGROUNDID]
+     *
+     */
+    @JSONField(name = "backgroundid")
+    @JsonProperty("backgroundid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String backgroundid;
+
+    /**
+     * 属性 [SQLID]
+     *
+     */
+    @JSONField(name = "sqlid")
+    @JsonProperty("sqlid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String sqlid;
+
+    /**
+     * 属性 [FRONTAPPLICATION]
+     *
+     */
+    @JSONField(name = "frontapplication")
+    @JsonProperty("frontapplication")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String frontapplication;
+
+    /**
+     * 属性 [REBUILD]
+     *
+     */
+    @JSONField(name = "rebuild")
+    @JsonProperty("rebuild")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String rebuild;
+
+    /**
+     * 属性 [RELEASETYPE]
+     *
+     */
+    @JSONField(name = "releasetype")
+    @JsonProperty("releasetype")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String releasetype;
+
 
     /**
      * 设置 [STORIES]

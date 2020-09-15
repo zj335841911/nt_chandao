@@ -63,6 +63,7 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskEstimateService from '@/app-core/service/task-estimate/task-estimate-service';
+
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
 import TaskEstimateUIService from '@/ui-service/task-estimate/task-estimate-ui-action';
 
@@ -784,7 +785,6 @@ export default class TaskEstimateMobMDViewBase extends Vue {
         event.target.complete();
       }
     }
-
 
 
 

@@ -349,6 +349,27 @@ export class ReleaseServiceBase extends EntityService {
     }
 
     /**
+     * OneClickRelease接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async OneClickRelease(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.release){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/releases/${context.release}/oneclickrelease`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/releases/${context.release}/oneclickrelease`,data,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]

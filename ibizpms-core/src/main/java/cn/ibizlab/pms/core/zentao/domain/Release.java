@@ -167,6 +167,41 @@ public class Release extends EntityMP implements Serializable {
     @JSONField(name = "files")
     @JsonProperty("files")
     private String files;
+    /**
+     * 后台服务标识
+     */
+    @TableField(exist = false)
+    @JSONField(name = "backgroundid")
+    @JsonProperty("backgroundid")
+    private String backgroundid;
+    /**
+     * 数据库标识
+     */
+    @TableField(exist = false)
+    @JSONField(name = "sqlid")
+    @JsonProperty("sqlid")
+    private String sqlid;
+    /**
+     * 前端应用标识
+     */
+    @TableField(exist = false)
+    @JSONField(name = "frontapplication")
+    @JsonProperty("frontapplication")
+    private String frontapplication;
+    /**
+     * 重新构建
+     */
+    @TableField(exist = false)
+    @JSONField(name = "rebuild")
+    @JsonProperty("rebuild")
+    private String rebuild;
+    /**
+     * 发布类型
+     */
+    @TableField(exist = false)
+    @JSONField(name = "releasetype")
+    @JsonProperty("releasetype")
+    private String releasetype;
 
     /**
      * 

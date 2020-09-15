@@ -41,6 +41,7 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductModuleService from '@/app-core/service/product-module/product-module-service';
+
 import MobPickupViewEngine from '@engine/view/mob-pickup-view-engine';
 import ProductModuleUIService from '@/ui-service/product-module/product-module-ui-action';
 

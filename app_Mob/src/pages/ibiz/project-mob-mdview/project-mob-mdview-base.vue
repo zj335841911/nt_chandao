@@ -90,6 +90,7 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProjectService from '@/app-core/service/project/project-service';
+
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
 import ProjectUIService from '@/ui-service/project/project-ui-action';
 
@@ -946,7 +947,6 @@ export default class ProjectMobMDViewBase extends Vue {
         event.target.complete();
       }
     }
-
 
 
 

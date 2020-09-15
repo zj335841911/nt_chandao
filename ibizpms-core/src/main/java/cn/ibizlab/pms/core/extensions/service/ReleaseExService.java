@@ -92,6 +92,16 @@ public class ReleaseExService extends ReleaseServiceImpl {
         return super.linkStory(et);
     }
     /**
+     * 自定义行为[OneClickRelease]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Release oneClickRelease(Release et) {
+        return super.oneClickRelease(et);
+    }
+    /**
      * 自定义行为[Terminate]用户扩展
      * @param et
      * @return

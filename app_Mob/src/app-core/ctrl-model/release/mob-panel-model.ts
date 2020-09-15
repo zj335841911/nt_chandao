@@ -66,6 +66,21 @@ export class MobModel {
       {
         name: 'files',
       },
+      {
+        name: 'backgroundid',
+      },
+      {
+        name: 'sqlid',
+      },
+      {
+        name: 'frontapplication',
+      },
+      {
+        name: 'rebuild',
+      },
+      {
+        name: 'releasetype',
+      },
     ]
   }
 

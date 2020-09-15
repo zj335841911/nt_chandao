@@ -46,6 +46,7 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import IbzMyTerritoryService from '@/app-core/service/ibz-my-territory/ibz-my-territory-service';
+
 import MobMDView9Engine from '@engine/view/mob-mdview9-engine';
 import IbzMyTerritoryUIService from '@/ui-service/ibz-my-territory/ibz-my-territory-ui-action';
 
@@ -766,7 +767,6 @@ export default class IbzMyTerritoryMobMDView9Base extends Vue {
         event.target.complete();
       }
     }
-
 
 
 

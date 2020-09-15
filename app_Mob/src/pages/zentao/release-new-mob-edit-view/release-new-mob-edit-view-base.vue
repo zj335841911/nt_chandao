@@ -65,6 +65,7 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ReleaseService from '@/app-core/service/release/release-service';
+
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
 import ReleaseUIService from '@/ui-service/release/release-ui-action';
 

@@ -235,6 +235,13 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
 
     @Override
     @Transactional
+    public Release oneClickRelease(Release et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(Release et) {
         if(!saveOrUpdate(et))
             return false;

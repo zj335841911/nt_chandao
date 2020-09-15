@@ -51,6 +51,7 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskService from '@/app-core/service/task/task-service';
+
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
 import TaskUIService from '@/ui-service/task/task-ui-action';
 
@@ -912,7 +913,6 @@ export default class TaskAssMobMDViewBase extends Vue {
         event.target.complete();
       }
     }
-
 
 
 

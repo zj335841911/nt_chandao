@@ -81,6 +81,7 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductPlanService from '@/app-core/service/product-plan/product-plan-service';
+
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
 import ProductPlanUIService from '@/ui-service/product-plan/product-plan-ui-action';
 
@@ -948,7 +949,6 @@ export default class ProductPlanMobMDViewBase extends Vue {
         event.target.complete();
       }
     }
-
 
 
 

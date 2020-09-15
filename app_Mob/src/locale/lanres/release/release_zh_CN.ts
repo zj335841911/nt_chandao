@@ -17,6 +17,11 @@ export default {
     branch: "平台/分支",
     productname: "产品名称",
     files: "附件",
+    backgroundid: "后台服务标识",
+    sqlid: "数据库标识",
+    frontapplication: "前端应用标识",
+    rebuild: "重新构建",
+    releasetype: "发布类型",
   },
 	views: {
 		mobeditview: {
