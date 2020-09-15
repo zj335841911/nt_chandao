@@ -944,6 +944,8 @@ export default class ProductMobMDViewBase extends Vue {
 
 
 
+
+
 }
 </script>
 

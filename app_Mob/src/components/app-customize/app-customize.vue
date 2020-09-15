@@ -22,7 +22,7 @@
               <div class="start" @click="delteItem(item.id)">
                 <ion-icon name="remove-circle-outline"></ion-icon>
               </div>
-              <div class="drag-list-pic"><img v-if="item.detailImage" :src="item.detailImage" alt=""></div>
+              <div class="drag-list-pic"><img  :src="item.detailImage?item.detailImage:'assets/images/add-task-list-card.jpg'" alt=""></div>
               <div class="drag-list-text">
                 <div><span v-if="item.customizeTitle">{{item.customizeTitle}}</span><span v-else>{{item.portletName}}</span></div>
                 <div v-if="item.detailText">{{item.detailText}}</div>

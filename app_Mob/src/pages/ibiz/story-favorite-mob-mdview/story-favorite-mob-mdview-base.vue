@@ -780,6 +780,8 @@ export default class StoryFavoriteMobMDViewBase extends Vue {
 
 
 
+
+
 }
 </script>
 
