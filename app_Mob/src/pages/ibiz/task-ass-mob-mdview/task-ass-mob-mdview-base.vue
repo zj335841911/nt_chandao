@@ -916,8 +916,6 @@ export default class TaskAssMobMDViewBase extends Vue {
 
 
 
-
-
 }
 </script>
 

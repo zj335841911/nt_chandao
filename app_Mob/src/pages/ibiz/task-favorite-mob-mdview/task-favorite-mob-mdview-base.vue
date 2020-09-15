@@ -823,8 +823,6 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
 
 
 
-
-
 }
 </script>
 

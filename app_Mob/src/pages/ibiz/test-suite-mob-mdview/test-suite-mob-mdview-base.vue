@@ -853,8 +853,6 @@ export default class TestSuiteMobMDViewBase extends Vue {
 
 
 
-
-
 }
 </script>
 

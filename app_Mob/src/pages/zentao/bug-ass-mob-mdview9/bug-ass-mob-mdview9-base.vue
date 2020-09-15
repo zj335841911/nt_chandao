@@ -831,8 +831,6 @@ export default class BugAssMobMDView9Base extends Vue {
 
 
 
-
-
 }
 </script>
 

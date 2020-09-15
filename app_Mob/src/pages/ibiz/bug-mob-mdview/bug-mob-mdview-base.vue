@@ -897,8 +897,6 @@ export default class BugMobMDViewBase extends Vue {
 
 
 
-
-
 }
 </script>
 

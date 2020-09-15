@@ -861,8 +861,6 @@ export default class ProductStatsTestMobMDViewBase extends Vue {
 
 
 
-
-
 }
 </script>
 

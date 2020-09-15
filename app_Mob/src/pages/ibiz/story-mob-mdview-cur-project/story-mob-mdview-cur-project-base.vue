@@ -898,8 +898,6 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
 
 
 
-
-
 }
 </script>
 

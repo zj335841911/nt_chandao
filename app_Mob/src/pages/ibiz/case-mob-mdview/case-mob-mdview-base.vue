@@ -887,8 +887,6 @@ export default class CaseMobMDViewBase extends Vue {
 
 
 
-
-
 }
 </script>
 

@@ -950,8 +950,6 @@ export default class ProjectMobMDViewBase extends Vue {
 
 
 
-
-
 }
 </script>
 

@@ -763,8 +763,6 @@ export default class TaskTeamMobMDView9Base extends Vue {
 
 
 
-
-
 }
 </script>
 

@@ -875,8 +875,6 @@ export default class TestTaskMobMDViewBase extends Vue {
 
 
 
-
-
 }
 </script>
 

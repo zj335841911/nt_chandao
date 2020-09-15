@@ -770,8 +770,6 @@ export default class ActionALLMobMDView9Base extends Vue {
 
 
 
-
-
 }
 </script>
 

@@ -984,8 +984,6 @@ export default class BugTestMobMDViewBase extends Vue {
 
 
 
-
-
 }
 </script>
 
