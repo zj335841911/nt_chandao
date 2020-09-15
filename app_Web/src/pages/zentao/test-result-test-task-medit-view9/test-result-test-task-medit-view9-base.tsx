@@ -178,5 +178,25 @@ export class TestResultTestTaskMEditView9Base extends EditView9Base {
         this.viewState.next({ tag: 'meditviewpanel', action: 'load', data: this.context });
     }
 
+    /**
+     * 关系数据变化
+     *
+     * @param {*} $event
+     * @memberof TestResultTestTaskMEditView9Base
+     */
+    public onViewDataDirty($event: any) {
+        this.$emit('drdatachange', $event);
+    }
+
+    /**
+     * 关系数据保存执行完成
+     *
+     * @param {*} $event
+     * @memberof TestResultTestTaskMEditView9Base
+     */
+    public onDRDataSaved($event: any) {
+        this.$emit('drdatasaved', $event);
+    }
+
 
 }
