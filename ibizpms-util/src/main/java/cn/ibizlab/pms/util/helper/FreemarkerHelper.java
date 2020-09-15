@@ -30,8 +30,13 @@ final public class FreemarkerHelper {
         try {
             conf = new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
             conf.setDefaultEncoding(IBizPMSConstants.ENCODING);
-            File dir = ResourceUtils.getFile(ResourceUtils.CLASSPATH_URL_PREFIX + dirPath);
-            if (!dir.exists() || !dir.isDirectory()) {
+            File dir;
+            if (!dirPath.startsWith("/") || !dirPath.startsWith("../") || !dirPath.startsWith("./") || !dirPath.contains(":")) {
+                dir = ResourceUtils.getFile(ResourceUtils.CLASSPATH_URL_PREFIX + dirPath);
+                if (!dir.exists() || !dir.isDirectory()) {
+                    dir = new File(dirPath);
+                }
+            } else {
                 dir = new File(dirPath);
             }
             if (!dir.exists() || !dir.isDirectory()) {

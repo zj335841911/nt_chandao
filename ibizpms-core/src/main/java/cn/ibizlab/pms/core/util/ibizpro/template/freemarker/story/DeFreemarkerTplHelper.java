@@ -20,7 +20,7 @@ import java.util.List;
 public class DeFreemarkerTplHelper {
     // 前期从配置文件读取，后期根据库里获得
 
-    @Value("${ibiz.template.freemarker.story.de.dir:/freemarker/story/de/}")
+    @Value("${ibiz.template.freemarker.story.de.dir:freemarker/story/de/}")
     private String tplDirPath;
 
     @Value("${ibiz.story.de.dir:/app/file/pms/story/de/}")
