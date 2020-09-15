@@ -333,6 +333,7 @@ export default class TaskTeamMobMEditView9Base extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
+        this.loadQuickGroupModel();
 
     }
 

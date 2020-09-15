@@ -362,6 +362,7 @@ export default class TaskAssMobMDView9Base extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
+        this.loadQuickGroupModel();
         if (this.formDruipart) {
             this.formDruipart.subscribe(($event: any) => {
                 if (Object.is($event.action, 'load')) {

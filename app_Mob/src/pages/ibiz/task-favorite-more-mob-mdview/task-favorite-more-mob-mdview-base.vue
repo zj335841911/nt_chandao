@@ -397,6 +397,7 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
+        this.loadQuickGroupModel();
 
     }
 

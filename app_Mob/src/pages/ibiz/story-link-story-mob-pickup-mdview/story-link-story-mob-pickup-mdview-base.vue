@@ -332,6 +332,7 @@ export default class StoryLinkStoryMobPickupMDViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
+        this.loadQuickGroupModel();
 
     }
 
