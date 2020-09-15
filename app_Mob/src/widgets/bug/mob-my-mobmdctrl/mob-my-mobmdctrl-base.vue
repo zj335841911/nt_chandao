@@ -793,6 +793,9 @@ export default class Mob_MyBase extends Vue implements ControlInterface {
      * @memberof Mob_My
      */
     public async loadBottom(): Promise<any> {
+        if (((this.pageNumber + 1) * this.pageSize) >= this.pageTotal) {
+          return;
+        }
         this.pageNumber++;
         let params = {};
         if (this.viewparams) {

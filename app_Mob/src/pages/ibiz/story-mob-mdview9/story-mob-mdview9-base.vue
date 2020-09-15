@@ -700,7 +700,6 @@ export default class StoryMobMDView9Base extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *
@@ -827,13 +826,6 @@ export default class StoryMobMDView9Base extends Vue {
       }
       if(event.target && event.target.complete && event.target.complete instanceof Function){
         event.target.complete();
-      }
-      if(mdctrl && mdctrl.pageNumber && mdctrl.pageSize && mdctrl.pageTotal){
-        if (((mdctrl.pageNumber + 1) * mdctrl.pageSize) >= mdctrl.pageTotal) {
-          if(event.target){
-           event.target.disabled = true;
-          }
-        }
       }
     }
 

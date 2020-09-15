@@ -661,6 +661,9 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
      * @memberof Mob_Plan
      */
     public async loadBottom(): Promise<any> {
+        if (((this.pageNumber + 1) * this.pageSize) >= this.pageTotal) {
+          return;
+        }
         this.pageNumber++;
         let params = {};
         if (this.viewparams) {
