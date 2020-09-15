@@ -1023,6 +1023,59 @@ export default class TaskMobMDViewBase extends Vue {
                 console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
             });
         }
+        this.parentCodeItem(this.quickGroupModel);
+        this.quickGroupModel.forEach((item:any) => {
+            if (item.default) {
+                this.quickGroupValueChange(item.id)
+            }
+        })
+    }
+
+    /**
+     * 快速分组代码表父代码项处理
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public parentCodeItem (inputArray:Array<any>) {
+        // 对代码项分类（父代码项，非父代码项）
+        let parentItems:Array<any> = [];    //父代码项
+        let tempList :Array<any> = [];     //非父代码项
+        inputArray.forEach((codeItem:any) => {
+            if (codeItem.subItem) {
+                parentItems.push(codeItem);
+            } else {
+                tempList.push(codeItem);
+            }
+        })
+
+        // 遍历父代码项的子项和非父代码项，补全子项的内容
+        let subItems:Array<any> = [];
+        parentItems.forEach((parent:any) => {
+            parent.subItem.forEach((item:any) => {
+                tempList.forEach((codeItem:any) => {
+                    if (codeItem.id.toLowerCase() === item.id.toLowerCase()) {
+                        item = Object.assign(item,codeItem);
+                        subItems.push(item)
+                    }
+                })
+            })
+        })
+
+        // 替换父代码项
+        this.quickGroupModel.forEach((codeItem:any) => {
+            parentItems.forEach((parentItem:any) => {
+                if (parentItem.id.toLowerCase() === codeItem.id.toLowerCase()) {
+                    codeItem = Object.assign(parentItem,codeItem);
+                }
+            })
+        })
+
+        // 删除子项
+        subItems.forEach((subItem:any) => {
+            this.quickGroupModel.splice(this.quickGroupModel.findIndex((item:any) => {
+                item.id === subItem.id;
+            }),1)
+        })
     }
 
     /**
@@ -1057,9 +1110,13 @@ export default class TaskMobMDViewBase extends Vue {
      *
      * @memberof TaskMobMDViewBase
      */
-    public quickGroupValueChange ($event:any) {
-        if ($event) {
-            this.quickGroupData = $event;
+    public quickGroupValueChange (groupId:any) {
+        if (groupId) {
+            this.quickGroupModel.forEach((group:any) => {
+                if (group.id === groupId) {
+                    this.quickGroupData = group;
+                }
+            })
             if (this.isEmitQuickGroupValue) {
                 
             }
