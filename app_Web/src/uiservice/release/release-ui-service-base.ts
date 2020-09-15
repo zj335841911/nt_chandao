@@ -382,14 +382,25 @@ export default class ReleaseUIServiceBase extends UIService {
         }
         const parameters: any[] = [
             { pathName: 'releases', parameterName: 'release' },
-            { pathName: 'optionview', parameterName: 'optionview' },
         ];
-        const openIndexViewTab = (data: any) => {
-            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
-            actionContext.$router.push(routePath);
-            return null;
-        }
-        openIndexViewTab(data);
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'release-option-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.release.views.optionview.title'),
+                placement: 'DRAWER_RIGHT',
+            };
+            openDrawer(view, data);
     }
 
     /**
