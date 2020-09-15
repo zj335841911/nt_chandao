@@ -260,7 +260,15 @@ export default class ProdMobTabExpViewtabexppanelBase extends Vue implements Con
      * @memberof ProdMobTabExpViewtabexppanel
      */
     @Prop({ default: 'tabviewpanel2' }) protected activiedTabViewPanel?: string;     
-             
+
+    /**
+     * 是否开启点击重新渲染
+     *
+     * @type {string}
+     * @memberof ProdMobTabExpViewtabexppanel
+     */
+    @Prop({ default: true }) public isEnableReRender?:boolean;    
+
     /**
      * vue 生命周期
      *
@@ -356,6 +364,16 @@ export default class ProdMobTabExpViewtabexppanelBase extends Vue implements Con
             let panel:any = this.activiedTabViewPanel
             if(panel){
               this.viewState.next({ tag: panel, action: this.action, data: {}});
+            }
+            if (this.isEnableReRender) {         
+              if (panel == 'tabviewpanel4') {
+                let tabviewpanel:any = this.$refs.tabviewpanel;
+                tabviewpanel.isActivied = false;
+              }
+              if (panel == 'tabviewpanel') {
+                let tabviewpanel4:any = this.$refs.tabviewpanel4;
+                tabviewpanel4.isActivied = false;
+              }
             }
         });
     }

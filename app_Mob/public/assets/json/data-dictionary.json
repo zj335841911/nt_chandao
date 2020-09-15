@@ -376,25 +376,25 @@
                 "data": "",
                 "subItem": [
                      {
-                        "id": "notstarted"
+                        "id": "NOTSTARTED"
                     }
                     , {
-                        "id": "inprogress"
+                        "id": "INPROGRESS"
                     }
                     , {
-                        "id": "unaccomplished"
+                        "id": "UNACCOMPLISHED"
                     }
                     , {
-                        "id": "ifinished"
+                        "id": "IFINISHED"
                     }
                     , {
-                        "id": "completed"
+                        "id": "COMPLETED"
                     }
                     , {
-                        "id": "closed"
+                        "id": "CLOSED"
                     }
                     , {
-                        "id": "cancelled"
+                        "id": "CANCELLED"
                     }
                 ],
                 "value": "MORE",
