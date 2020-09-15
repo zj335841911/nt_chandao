@@ -344,13 +344,15 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
               this.viewState.next({ tag: panel, action: this.action, data: {}});
             }
             if (this.isEnableReRender) {         
-              if (panel == 'tabviewpanel4') {
-                let tabviewpanel:any = this.$refs.tabviewpanel;
-                tabviewpanel.isActivied = false;
-              }
-              if (panel == 'tabviewpanel') {
-                let tabviewpanel4:any = this.$refs.tabviewpanel4;
-                tabviewpanel4.isActivied = false;
+              if (panel) {
+                let panelarr:any = Object.keys(this.$refs);
+                panelarr.splice(panelarr.findIndex((item:any) => item === panel), 1);
+                panelarr.forEach((item:any,index:number)=>{
+                  let tabviewpanel:any = this.$refs[item];
+                  if (tabviewpanel.isActivied) {
+                    tabviewpanel.isActivied = false;
+                  }
+                })
               }
             }
         });

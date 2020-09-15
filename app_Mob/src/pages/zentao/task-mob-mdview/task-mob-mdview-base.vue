@@ -2,6 +2,14 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'task-mob-mdview': true }">
     
     <ion-header>
+    <div class="view-quick-group">
+            <div class="view-quick-group-tab">
+		        <div v-for="(group,index) in quickGroupModel" :key="index" :class="{ 'group-tab': true,'activated': quickGroupData.id ? quickGroupData.id === group.id : false}" @click="quickGroupValueChange(group.id)">{{group.text}}</div>
+	        </div>
+            <div class="groupList" v-if="groupList.length > 0">
+                <div v-for="(groupItem,index) in groupList" :key="index" class="groupListItem" @click="quickGroupValueChange(groupItem.id)">{{groupItem.text}}</div>
+            </div>
+        </div>
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
         </ion-toolbar>
@@ -1023,6 +1031,59 @@ export default class TaskMobMDViewBase extends Vue {
                 console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
             });
         }
+        this.parentCodeItem(this.quickGroupModel);
+        this.quickGroupModel.forEach((item:any) => {
+            if (item.default) {
+                this.quickGroupValueChange(item.id)
+            }
+        })
+    }
+
+    /**
+     * 快速分组代码表父代码项处理
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public parentCodeItem (inputArray:Array<any>) {
+        // 对代码项分类（父代码项，非父代码项）
+        let parentItems:Array<any> = [];    //父代码项
+        let tempList :Array<any> = [];     //非父代码项
+        inputArray.forEach((codeItem:any) => {
+            if (codeItem.subItem) {
+                parentItems.push(codeItem);
+            } else {
+                tempList.push(codeItem);
+            }
+        })
+
+        // 遍历父代码项的子项和非父代码项，补全子项的内容
+        let subItems:Array<any> = [];
+        parentItems.forEach((parent:any) => {
+            parent.subItem.forEach((item:any) => {
+                tempList.forEach((codeItem:any) => {
+                    if (codeItem.id.toLowerCase() === item.id.toLowerCase()) {
+                        item = Object.assign(item,codeItem);
+                        subItems.push(item)
+                    }
+                })
+            })
+        })
+
+        // 替换父代码项
+        this.quickGroupModel.forEach((codeItem:any) => {
+            parentItems.forEach((parentItem:any) => {
+                if (parentItem.id.toLowerCase() === codeItem.id.toLowerCase()) {
+                    codeItem = Object.assign(parentItem,codeItem);
+                }
+            })
+        })
+
+        // 删除子项
+        subItems.forEach((subItem:any) => {
+            this.quickGroupModel.splice(this.quickGroupModel.findIndex((item:any) => {
+                item.id === subItem.id;
+            }),1)
+        })
     }
 
     /**
@@ -1057,14 +1118,15 @@ export default class TaskMobMDViewBase extends Vue {
      *
      * @memberof TaskMobMDViewBase
      */
-    public quickGroupValueChange ($event:any) {
-        if ($event) {
-            this.quickGroupData = $event;
-            if (this.isEmitQuickGroupValue) {
-                
+    public quickGroupValueChange (groupId:any) {
+        this.quickGroupModel.forEach((group:any) => {
+            if (group.id === groupId && group.data) {
+                this.quickGroupData = group;
+                this.engine.onViewEvent('mdctrl','viewload',{query:group.data});
+            } else {
+
             }
-        }
-        this.isEmitQuickGroupValue = true;
+        })
     }
 
 

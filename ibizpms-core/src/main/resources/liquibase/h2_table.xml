@@ -741,7 +741,7 @@
 
 
     <!--输出实体[ZT_FILE]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_file-47-21">
+    <changeSet author="zentao" id="tab-zt_file-50-21">
         <createTable tableName="zt_file">
                 <column name="PATHNAME" remarks="" type="VARCHAR(100)">
                 </column>
@@ -1489,6 +1489,8 @@
                 </column>
         </createTable>
     </changeSet>
+
+
 
 
 

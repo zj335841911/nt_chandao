@@ -81,7 +81,6 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ReleaseService from '@/app-core/service/release/release-service';
-import { CodeListService } from "@/ibiz-core";
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
 import ReleaseUIService from '@/ui-service/release/release-ui-action';
 
@@ -950,84 +949,6 @@ export default class ReleaseMobMDViewBase extends Vue {
       }
     }
 
-    /**
-     * 代码表服务对象
-     *
-     * @type {CodeListService}
-     * @memberof ReleaseMobMDViewBase
-     */  
-    public codeListService:CodeListService = new CodeListService();
-
-    /**
-     * 快速分组数据对象
-     *
-     * @memberof ReleaseMobMDViewBase
-     */
-    public quickGroupData:any;
-
-    /**
-     * 快速分组是否有抛值
-     *
-     * @memberof ReleaseMobMDViewBase
-     */
-    public isEmitQuickGroupValue:boolean = false;
-
-    /**
-     * 快速分组模型
-     *
-     * @memberof ReleaseMobMDViewBase
-     */
-    public quickGroupModel:Array<any> = [];
-
-    /**
-     * 加载快速分组模型
-     *
-     * @memberof ReleaseMobMDViewBase
-     */
-    public loadQuickGroupModel () {
-    }
-
-    /**
-     * 处理快速分组模型动态数据部分(%xxx%)
-     *
-     * @memberof ReleaseMobMDViewBase
-     */
-    public handleDynamicData (inputArray:Array<any>) {
-        if (inputArray.length > 0) {
-            inputArray.forEach((item:any) =>{
-               if (item.data && Object.keys(item.data).length > 0) {
-                   Object.keys(item.data).forEach((name:any) => {
-                        let value: any = item.data[name];
-                        if (value && typeof(value)=='string' && value.startsWith('%') && value.endsWith('%')) {
-                            const key = (value.substring(1, value.length - 1)).toLowerCase();
-                            if (this.context[key]) {
-                                value = this.context[key];
-                            } else if (this.viewparams[key]) {
-                                value = this.viewparams[key];
-                            }
-                        }
-                        item.data[name] = value;
-                   })
-               }
-            })
-        }
-        return inputArray;
-    }
-
-    /**
-     * 快速分组值变化
-     *
-     * @memberof ReleaseMobMDViewBase
-     */
-    public quickGroupValueChange ($event:any) {
-        if ($event) {
-            this.quickGroupData = $event;
-            if (this.isEmitQuickGroupValue) {
-                
-            }
-        }
-        this.isEmitQuickGroupValue = true;
-    }
 
 
 

@@ -112,6 +112,39 @@ ion-backdrop {
         display: flex;
         justify-content: center;
     }
+    .view-quick-group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      .view-quick-group-tab {
+        width: 100%;
+        height: 40px;
+        background-color: #e8e8e89a;
+        display: flex;
+        justify-content: space-between;
+        .group-tab {
+            text-align: center;
+            line-height: 40px;
+            min-width: 12.5%;
+        }
+      }
+      .groupList {
+        width: 100%;
+        position: absolute;
+        top: 40px;
+        display: flex;
+        flex-direction: column;
+        .groupListItem {
+          width: 100%;
+          height: 40px;
+          padding:10px 20px;
+          z-index: 9999;
+          background-color: white;
+          border-bottom: 1px solid #e8e8e8;
+        }
+      }
+    }
 }
 
 .task-favorite-mob-mdview{}
