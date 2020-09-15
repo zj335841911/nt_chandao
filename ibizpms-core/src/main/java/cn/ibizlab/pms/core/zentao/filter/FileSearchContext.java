@@ -27,11 +27,32 @@ import cn.ibizlab.pms.core.zentao.domain.File;
 @Data
 public class FileSearchContext extends QueryWrapperContext<File> {
 
+	private Integer n_objectid_eq;//[对象ID]
+	public void setN_objectid_eq(Integer n_objectid_eq) {
+        this.n_objectid_eq = n_objectid_eq;
+        if(!ObjectUtils.isEmpty(this.n_objectid_eq)){
+            this.getSearchCond().eq("objectid", n_objectid_eq);
+        }
+    }
+	private String n_objecttype_eq;//[对象类型]
+	public void setN_objecttype_eq(String n_objecttype_eq) {
+        this.n_objecttype_eq = n_objecttype_eq;
+        if(!ObjectUtils.isEmpty(this.n_objecttype_eq)){
+            this.getSearchCond().eq("objecttype", n_objecttype_eq);
+        }
+    }
 	private String n_title_like;//[标题]
 	public void setN_title_like(String n_title_like) {
         this.n_title_like = n_title_like;
         if(!ObjectUtils.isEmpty(this.n_title_like)){
             this.getSearchCond().like("title", n_title_like);
+        }
+    }
+	private String n_extra_eq;//[备注]
+	public void setN_extra_eq(String n_extra_eq) {
+        this.n_extra_eq = n_extra_eq;
+        if(!ObjectUtils.isEmpty(this.n_extra_eq)){
+            this.getSearchCond().eq("extra", n_extra_eq);
         }
     }
 

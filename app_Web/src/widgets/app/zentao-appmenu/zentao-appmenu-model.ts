@@ -671,7 +671,7 @@ export default class ZentaoModel {
         {
             appfunctag: '_8',
             appfuncyype: 'APPVIEW',
-            openmode: 'DRAWER_TOP',
+            openmode: 'DRAWER_RIGHT',
             codename: 'productwizardview',
             deResParameters: [],
             routepath: '/ibizpms/:ibizpms?/products/:product?/wizardview/:wizardview?',

@@ -316,7 +316,7 @@ export class ZentaoBase extends Vue {
             title: (this.$t('entities.product.views.wizardview.title') as any),
             height: 0,
             width: 0,
-            placement: 'DRAWER_TOP'
+            placement: 'DRAWER_RIGHT'
         };
         const appdrawer = this.$appdrawer.openDrawer(view, JSON.parse(JSON.stringify(this.context)), viewparam);
         appdrawer.subscribe((result: any) => {
