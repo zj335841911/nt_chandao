@@ -11,9 +11,6 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
-    <div class="view-quick-group-tab">
-		<div v-for="(group,index) in quickGroupModel" :key="index" :class="{ 'group-tab': true,'activated': quickGroupData.id === group.id}" @click="quickGroupValueChange(group.id)">{{group.text}}</div>
-	</div>
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
         </ion-toolbar>
@@ -66,7 +63,6 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskEstimateService from '@/app-core/service/task-estimate/task-estimate-service';
-import { CodeListService } from "@/ibiz-core";
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
 import TaskEstimateUIService from '@/ui-service/task-estimate/task-estimate-ui-action';
 
@@ -789,132 +785,6 @@ export default class TaskEstimateMobMDViewBase extends Vue {
       }
     }
 
-    /**
-     * 代码表服务对象
-     *
-     * @type {CodeListService}
-     * @memberof TaskEstimateMobMDViewBase
-     */  
-    public codeListService:CodeListService = new CodeListService();
-
-    /**
-     * 快速分组数据对象
-     *
-     * @memberof TaskEstimateMobMDViewBase
-     */
-    public quickGroupData:any;
-
-    /**
-     * 快速分组是否有抛值
-     *
-     * @memberof TaskEstimateMobMDViewBase
-     */
-    public isEmitQuickGroupValue:boolean = false;
-
-    /**
-     * 快速分组模型
-     *
-     * @memberof TaskEstimateMobMDViewBase
-     */
-    public quickGroupModel:Array<any> = [];
-
-    /**
-     * 加载快速分组模型
-     *
-     * @memberof TaskEstimateMobMDViewBase
-     */
-    public loadQuickGroupModel () {
-    }
-
-    /**
-     * 快速分组代码表父代码项处理
-     *
-     * @memberof TaskMobMDViewBase
-     */
-    public parentCodeItem (inputArray:Array<any>) {
-        // 对代码项分类（父代码项，非父代码项）
-        let parentItems:Array<any> = [];    //父代码项
-        let tempList :Array<any> = [];     //非父代码项
-        inputArray.forEach((codeItem:any) => {
-            if (codeItem.subItem) {
-                parentItems.push(codeItem);
-            } else {
-                tempList.push(codeItem);
-            }
-        })
-
-        // 遍历父代码项的子项和非父代码项，补全子项的内容
-        let subItems:Array<any> = [];
-        parentItems.forEach((parent:any) => {
-            parent.subItem.forEach((item:any) => {
-                tempList.forEach((codeItem:any) => {
-                    if (codeItem.id.toLowerCase() === item.id.toLowerCase()) {
-                        item = Object.assign(item,codeItem);
-                        subItems.push(item)
-                    }
-                })
-            })
-        })
-
-        // 替换父代码项
-        this.quickGroupModel.forEach((codeItem:any) => {
-            parentItems.forEach((parentItem:any) => {
-                if (parentItem.id.toLowerCase() === codeItem.id.toLowerCase()) {
-                    codeItem = Object.assign(parentItem,codeItem);
-                }
-            })
-        })
-
-        // 删除子项
-        subItems.forEach((subItem:any) => {
-            this.quickGroupModel.splice(this.quickGroupModel.findIndex((item:any) => {
-                item.id === subItem.id;
-            }),1)
-        })
-    }
-
-    /**
-     * 处理快速分组模型动态数据部分(%xxx%)
-     *
-     * @memberof TaskEstimateMobMDViewBase
-     */
-    public handleDynamicData (inputArray:Array<any>) {
-        if (inputArray.length > 0) {
-            inputArray.forEach((item:any) =>{
-               if (item.data && Object.keys(item.data).length > 0) {
-                   Object.keys(item.data).forEach((name:any) => {
-                        let value: any = item.data[name];
-                        if (value && typeof(value)=='string' && value.startsWith('%') && value.endsWith('%')) {
-                            const key = (value.substring(1, value.length - 1)).toLowerCase();
-                            if (this.context[key]) {
-                                value = this.context[key];
-                            } else if (this.viewparams[key]) {
-                                value = this.viewparams[key];
-                            }
-                        }
-                        item.data[name] = value;
-                   })
-               }
-            })
-        }
-        return inputArray;
-    }
-
-    /**
-     * 快速分组值变化
-     *
-     * @memberof TaskEstimateMobMDViewBase
-     */
-    public quickGroupValueChange (groupId:any) {
-        this.quickGroupModel.forEach((group:any) => {
-            if (group.id === groupId && group.data) {
-                this.quickGroupData = group;
-                this.engine.onViewEvent('mdctrl','viewload',{query:group.data});
-            } else {
-                
-            }
-        })
-    }
 
 
 

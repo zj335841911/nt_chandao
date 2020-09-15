@@ -11,9 +11,6 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
-    <div class="view-quick-group-tab">
-		<div v-for="(group,index) in quickGroupModel" :key="index" :class="{ 'group-tab': true,'activated': quickGroupData.id === group.id}" @click="quickGroupValueChange(group.id)">{{group.text}}</div>
-	</div>
     </ion-header>
 
 
@@ -40,7 +37,6 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductService from '@/app-core/service/product/product-service';
-import { CodeListService } from "@/ibiz-core";
 import MobChartViewEngine from '@engine/view/mob-chart-view-engine';
 import ProductUIService from '@/ui-service/product/product-ui-action';
 

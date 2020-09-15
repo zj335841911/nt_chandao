@@ -2,9 +2,6 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demoblistview': true, 'story-mob-list-view': true }">
     
     <ion-header>
-    <div class="view-quick-group-tab">
-		<div v-for="(group,index) in quickGroupModel" :key="index" :class="{ 'group-tab': true,'activated': quickGroupData.id === group.id}" @click="quickGroupValueChange(group.id)">{{group.text}}</div>
-	</div>
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
         </ion-toolbar>
@@ -22,7 +19,6 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import StoryService from '@/app-core/service/story/story-service';
-import { CodeListService } from "@/ibiz-core";
 import StoryUIService from '@/ui-service/story/story-ui-action';
 
 @Component({

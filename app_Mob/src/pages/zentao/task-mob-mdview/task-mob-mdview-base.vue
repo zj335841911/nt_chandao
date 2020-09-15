@@ -2,9 +2,14 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'task-mob-mdview': true }">
     
     <ion-header>
-    <div class="view-quick-group-tab">
-		<div v-for="(group,index) in quickGroupModel" :key="index" :class="{ 'group-tab': true,'activated': quickGroupData.id === group.id}" @click="quickGroupValueChange(group.id)">{{group.text}}</div>
-	</div>
+    <div class="view-quick-group">
+            <div class="view-quick-group-tab">
+		        <div v-for="(group,index) in quickGroupModel" :key="index" :class="{ 'group-tab': true,'activated': quickGroupData.id ? quickGroupData.id === group.id : false}" @click="quickGroupValueChange(group.id)">{{group.text}}</div>
+	        </div>
+            <div class="groupList" v-if="groupList.length > 0">
+                <div v-for="(groupItem,index) in groupList" :key="index" class="groupListItem" @click="quickGroupValueChange(groupItem.id)">{{groupItem.text}}</div>
+            </div>
+        </div>
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
         </ion-toolbar>
@@ -1119,7 +1124,7 @@ export default class TaskMobMDViewBase extends Vue {
                 this.quickGroupData = group;
                 this.engine.onViewEvent('mdctrl','viewload',{query:group.data});
             } else {
-                
+
             }
         })
     }

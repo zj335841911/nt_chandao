@@ -35,7 +35,6 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductLineService from '@/app-core/service/product-line/product-line-service';
-import { CodeListService } from "@/ibiz-core";
 import MobPickupMDViewEngine from '@engine/view/mob-pickup-mdview-engine';
 import ProductLineUIService from '@/ui-service/product-line/product-line-ui-action';
 
