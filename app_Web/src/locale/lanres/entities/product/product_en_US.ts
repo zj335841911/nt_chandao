@@ -330,6 +330,22 @@ export default {
 		uiactions: {
 		},
 	},
+	wizardaddstory_form: {
+		details: {
+			druipart1: "", 
+			formpage1: "表单分页", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "产品名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	mainproject_grid: {
 		columns: {
 			name: "产品名称",

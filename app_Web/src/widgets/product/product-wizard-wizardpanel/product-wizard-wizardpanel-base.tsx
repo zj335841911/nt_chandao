@@ -67,6 +67,28 @@ export class ProductWizardWizardPanelBase extends MainControlBase {
     public appUIService:ProductUIService = new ProductUIService(this.$store);
 
     /**
+     * wizardpanel_form_AddStory 部件 save 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductWizardWizardPanelBase
+     */
+    public wizardpanel_form_AddStory_save($event: any, $event2?: any) {
+        this.wizardpanel_formsave($event, 'wizardpanel_form_AddStory', $event2);
+    }
+
+    /**
+     * wizardpanel_form_AddStory 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductWizardWizardPanelBase
+     */
+    public wizardpanel_form_AddStory_load($event: any, $event2?: any) {
+        this.wizardpanel_formload($event, 'wizardpanel_form_AddStory', $event2);
+    }
+
+    /**
      * wizardpanel_form_AddProduct 部件 save 事件
      *
      * @param {*} [args={}]
@@ -290,6 +312,7 @@ export class ProductWizardWizardPanelBase extends MainControlBase {
         this.regFormAction('wizardpanel_form_Product',{loadAction:"WizardCreate",saveAction:'WizardCreate',actions:['NEXT']},'Product');
         this.regFormAction('wizardpanel_form_AddProduct',{loadAction:"WizardCreate",saveAction:'WizardCreate',actions:['PREV','NEXT']},'AddProduct');
         this.regFormAction('wizardpanel_form_CreateStory',{loadAction:"WizardCreate",saveAction:'WizardCreate',actions:['PREV','FINISH']},'CreateStory');
+        this.regFormAction('wizardpanel_form_AddStory',{loadAction:"WizardCreate",saveAction:'WizardCreate',actions:['PREV','FINISH']},'AddStory');
     }
 
     /**

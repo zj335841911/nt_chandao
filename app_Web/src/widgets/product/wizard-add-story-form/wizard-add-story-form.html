@@ -1,0 +1,34 @@
+<i-form :model="this.data" class='app-form' ref='wizardpanel_form_AddStory'  id='product_wizardaddstory' style="">
+    <input style="display:none;" />
+    <row >
+            
+<i-col class="form-layout-container" v-show="detailsModel.druipart1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='product' 
+    :parentdata='{"srfparentdefname":"PRODUCT","srfparentdename":"ZT_PRODUCT","SRFPARENTTYPE":"DER1N","srfparentmode":"DER1N_ZT_STORY_ZT_PRODUCT_PRODUCT","SRFDER1NID":"DER1N_ZT_STORY_ZT_PRODUCT_PRODUCT"}'
+    :parameters="[
+        { pathName: 'products', parameterName: 'product' },
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{}'
+    :localParam ='{}'
+    parameterName='product'
+    parentName="Product"  
+    refviewtype='DEEDITVIEW' 
+    refreshitems='' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='story-edit-view' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style="overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+
+
+    </row>
+</i-form>

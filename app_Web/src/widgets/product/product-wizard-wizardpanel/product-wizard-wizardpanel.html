@@ -2,7 +2,8 @@
 <el-steps class="wizard-steps"  :active="wizardForms.indexOf(activeForm)" finish-status="success">
     <el-step title="产品"></el-step>
     <el-step title="添加产品"></el-step>
-    <el-step title="创建需求"></el-step>
+    <el-step title="需求"></el-step>
+    <el-step title="添加需求"></el-step>
 </el-steps>
     <i-content class="app-wizard-content">
         <view_wizardpanel_form_Product 
@@ -47,6 +48,20 @@
             name='wizardpanel_form_CreateStory' 
             ref='wizardpanel_form_CreateStory'>
         </view_wizardpanel_form_CreateStory>
+        <view_wizardpanel_form_AddStory 
+            v-show="activeForm == 'wizardpanel_form_AddStory'" 
+            :key="'wizardpanel_form_AddStory'" 
+            :viewState='wizardState'
+            :context="context"
+            :viewparams="viewparams"
+            updateAction="WizardCreate"
+            removeAction=""
+            loadAction="WizardCreate"
+            @save="wizardpanel_form_AddStory_save.apply(_self, arguments)" 
+            @load="wizardpanel_form_AddStory_load.apply(_self, arguments)" 
+            name='wizardpanel_form_AddStory' 
+            ref='wizardpanel_form_AddStory'>
+        </view_wizardpanel_form_AddStory>
     </i-content>
     <footer class="app-wizard-footer">
         <i-button :disabled="isDisabled('PREV')" @click="onClickPrev()" type="primary">{{$t('app.wizardPanel.back')}}</i-button>
