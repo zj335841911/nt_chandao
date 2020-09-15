@@ -247,7 +247,7 @@ export default class ZentaoModel {
                         	textcls: '',
                         	appfunctag: '_8',
                         	appfuncyype: 'APPVIEW',
-                        	viewname: 'ibzpro-product-grid-view',
+                        	viewname: 'product-wizard-view',
                         	resourcetag: '',
                         	authtag:'Web-zentao-menuitem19',
                         }
@@ -672,12 +672,12 @@ export default class ZentaoModel {
             appfunctag: '_8',
             appfuncyype: 'APPVIEW',
             openmode: '',
-            codename: 'ibzproproductgridview',
+            codename: 'productwizardview',
             deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/ibzproproducts/:ibzproproduct?/gridview/:gridview?',
+            routepath: '/ibizpms/:ibizpms?/products/:product?/wizardview/:wizardview?',
             parameters: [
-                { pathName: 'ibzproproducts', parameterName: 'ibzproproduct' },
-                { pathName: 'gridview', parameterName: 'gridview' },
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'wizardview', parameterName: 'wizardview' },
             ],
         },
         {

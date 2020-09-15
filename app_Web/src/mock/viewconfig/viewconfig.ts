@@ -687,6 +687,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectPickupGridView",
             "viewtag": "3b346aee2b79b7b6b59bc870b4c67f72"
         },
+        "productwizardview": {
+            "title": "产品向导视图",
+            "caption": "产品",
+            "viewtype": "DEWIZARDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProductWizardView",
+            "viewtag": "3b4ab1882a49962f12900abeeddf60f0"
+        },
         "testreportmaininfoview": {
             "title": "测试报告编辑视图",
             "caption": "测试报告",
