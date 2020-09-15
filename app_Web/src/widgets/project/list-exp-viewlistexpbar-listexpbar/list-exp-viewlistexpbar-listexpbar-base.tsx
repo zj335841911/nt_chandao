@@ -123,7 +123,6 @@ export class ListExpViewlistexpbarListexpbarBase extends ListViewExpBarControlBa
      */
     public ctrlHeight: number = 0;
 
-
     /**
     * 执行mounted后的逻辑
     *
@@ -157,6 +156,7 @@ export class ListExpViewlistexpbarListexpbarBase extends ListViewExpBarControlBa
         let tempContext:any = {};
         let tempViewParam:any = {};
         if (args.length === 0) {
+            this.selection = {};
             return ;
         }
         const arg:any = args[0];

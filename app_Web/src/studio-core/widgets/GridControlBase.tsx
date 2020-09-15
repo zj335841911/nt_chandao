@@ -586,6 +586,7 @@ export class GridControlBase extends MDControlBase {
                     this.totalRecord -= arr.length;
                     this.$emit('remove', null);
                     this.selections = [];
+                    this.$emit('selectionchange', this.selections);
                     resolve(response);
                 }).catch((response: any) => {
                     if (response && response.status === 401) {

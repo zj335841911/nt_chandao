@@ -29,8 +29,8 @@
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext ='{ PRODUCT:"%formitem%" }' 
+    :localParam ='{ product:"%formitem%" }' 
     :disabled="detailsModel.formitem1.disabled"
     tag='ProductBranch_Cache'
     codelistType='DYNAMIC'
@@ -48,8 +48,8 @@
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext ='{ PRODUCT:"%formitem%" }' 
+    :localParam ='{ product:"%formitem%" }' 
     :disabled="detailsModel.formitem2.disabled"
     tag='BugModule'
     codelistType='DYNAMIC'
@@ -67,8 +67,8 @@
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext ='{ PRODUCT:"%formitem%" }' 
+    :localParam ='{ product:"%formitem%" }' 
     :disabled="detailsModel.formitem3.disabled"
     tag='ProductPlan'
     codelistType='DYNAMIC'
@@ -222,14 +222,14 @@
     :context="context"
     :uploadparams='{}' 
     :exportparams='{}' 
-    :templParams='{ }' 
+    :templParams='{ account:"%srfloginname%", public:"0", type:"story" }' 
     style=""/>
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitem12.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitem12' :itemRules="this.rules.formitem12" class='' :caption="$t('entities.product.wizardaddstory_form.details.formitem12')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem12.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.formitem12" @change="(val) =>{this.data.formitem12 =val}" :disabled="detailsModel.formitem12.disabled" :data="JSON.stringify(this.data)"  name="formitem12" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor :formState="formState" :value="data.formitem12" @change="(val) =>{this.data.formitem12 =val}" :disabled="detailsModel.formitem12.disabled" :data="JSON.stringify(this.data)"  name="formitem12" :context="context" :viewparams="viewparams" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
 
 </app-form-item>
 
