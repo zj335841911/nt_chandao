@@ -453,7 +453,6 @@ export default class ProductMobMDViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-        this.loadQuickGroupModel();
 
     }
 

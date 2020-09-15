@@ -402,7 +402,6 @@ export default class TestTaskMobMDViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-        this.loadQuickGroupModel();
 
     }
 

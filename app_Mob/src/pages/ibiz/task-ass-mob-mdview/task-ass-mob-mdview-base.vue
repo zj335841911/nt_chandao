@@ -385,7 +385,6 @@ export default class TaskAssMobMDViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-        this.loadQuickGroupModel();
 
     }
 

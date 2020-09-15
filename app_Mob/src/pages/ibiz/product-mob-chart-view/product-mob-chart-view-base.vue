@@ -334,7 +334,6 @@ export default class ProductMobChartViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-        this.loadQuickGroupModel();
 
     }
 

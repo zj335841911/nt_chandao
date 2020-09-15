@@ -9,7 +9,6 @@
                 "label": "激活",
                 "text": "激活",
                 "data": "",
-,
                 "value": "active",
                 "isValueNumber":false,
                 "color": "rgba(0, 157, 255, 1)",
@@ -20,7 +19,6 @@
                 "label": "已解决",
                 "text": "已解决",
                 "data": "",
-,
                 "value": "resolved",
                 "isValueNumber":false,
                 "color": "rgba(1, 217, 19, 1)",
@@ -31,7 +29,6 @@
                 "label": "已关闭",
                 "text": "已关闭",
                 "data": "",
-,
                 "value": "closed",
                 "isValueNumber":false,
                 "color": "rgba(151, 152, 141, 1)",
@@ -49,7 +46,6 @@
                 "label": "已完成",
                 "text": "已完成",
                 "data": "",
-,
                 "value": "done",
                 "isValueNumber":false,
                 "disabled": false
@@ -59,7 +55,6 @@
                 "label": "已细分",
                 "text": "已细分",
                 "data": "",
-,
                 "value": "subdivided",
                 "isValueNumber":false,
                 "disabled": false
@@ -69,7 +64,6 @@
                 "label": "重复",
                 "text": "重复",
                 "data": "",
-,
                 "value": "duplicate",
                 "isValueNumber":false,
                 "disabled": false
@@ -79,7 +73,6 @@
                 "label": "延期",
                 "text": "延期",
                 "data": "",
-,
                 "value": "postponed",
                 "isValueNumber":false,
                 "disabled": false
@@ -89,7 +82,6 @@
                 "label": "不做",
                 "text": "不做",
                 "data": "",
-,
                 "value": "willnotdo",
                 "isValueNumber":false,
                 "disabled": false
@@ -99,7 +91,6 @@
                 "label": "已取消",
                 "text": "已取消",
                 "data": "",
-,
                 "value": "cancel",
                 "isValueNumber":false,
                 "disabled": false
@@ -109,7 +100,6 @@
                 "label": "设计如此",
                 "text": "设计如此",
                 "data": "",
-,
                 "value": "bydesign",
                 "isValueNumber":false,
                 "disabled": false
@@ -126,7 +116,6 @@
                 "label": "用例库",
                 "text": "用例库",
                 "data": "",
-,
                 "value": "library",
                 "isValueNumber":false,
                 "disabled": false
@@ -136,7 +125,6 @@
                 "label": "私有",
                 "text": "私有",
                 "data": "",
-,
                 "value": "private",
                 "isValueNumber":false,
                 "disabled": false
@@ -146,7 +134,6 @@
                 "label": "公开",
                 "text": "公开",
                 "data": "",
-,
                 "value": "public",
                 "isValueNumber":false,
                 "disabled": false
@@ -171,7 +158,6 @@
                 "label": "单元测试阶段",
                 "text": "单元测试阶段",
                 "data": "",
-,
                 "value": "unittest",
                 "isValueNumber":false,
                 "disabled": false
@@ -181,7 +167,6 @@
                 "label": "功能测试阶段",
                 "text": "功能测试阶段",
                 "data": "",
-,
                 "value": "feature",
                 "isValueNumber":false,
                 "disabled": false
@@ -191,7 +176,6 @@
                 "label": "集成测试阶段",
                 "text": "集成测试阶段",
                 "data": "",
-,
                 "value": "intergrate",
                 "isValueNumber":false,
                 "disabled": false
@@ -201,7 +185,6 @@
                 "label": "系统测试阶段",
                 "text": "系统测试阶段",
                 "data": "",
-,
                 "value": "system",
                 "isValueNumber":false,
                 "disabled": false
@@ -211,7 +194,6 @@
                 "label": "冒烟测试阶段",
                 "text": "冒烟测试阶段",
                 "data": "",
-,
                 "value": "smoke",
                 "isValueNumber":false,
                 "disabled": false
@@ -221,7 +203,6 @@
                 "label": "版本验证阶段",
                 "text": "版本验证阶段",
                 "data": "",
-,
                 "value": "bvt",
                 "isValueNumber":false,
                 "disabled": false
@@ -238,7 +219,6 @@
                 "label": "步骤",
                 "text": "步骤",
                 "data": "",
-,
                 "value": "step",
                 "isValueNumber":false,
                 "disabled": false
@@ -248,7 +228,6 @@
                 "label": "分组",
                 "text": "分组",
                 "data": "",
-,
                 "value": "group",
                 "isValueNumber":false,
                 "disabled": false
@@ -258,7 +237,6 @@
                 "label": "分组步骤",
                 "text": "分组步骤",
                 "data": "",
-,
                 "value": "item",
                 "isValueNumber":false,
                 "disabled": false
@@ -275,7 +253,6 @@
                 "label": "默认设置(有产品视图权限，即可访问)",
                 "text": "默认设置(有产品视图权限，即可访问)",
                 "data": "",
-,
                 "value": "open",
                 "isValueNumber":false,
                 "disabled": false
@@ -285,7 +262,6 @@
                 "label": "私有产品(相关负责人和项目团队成员才能访问)",
                 "text": "私有产品(相关负责人和项目团队成员才能访问)",
                 "data": "",
-,
                 "value": "private",
                 "isValueNumber":false,
                 "disabled": false
@@ -295,7 +271,6 @@
                 "label": "自定义白名单(团队成员和白名单的成员可以访问)",
                 "text": "自定义白名单(团队成员和白名单的成员可以访问)",
                 "data": "",
-,
                 "value": "custom",
                 "isValueNumber":false,
                 "disabled": false
@@ -312,7 +287,6 @@
                 "label": "未开始",
                 "text": "未开始",
                 "data": "",
-,
                 "value": "wait",
                 "isValueNumber":false,
                 "disabled": false
@@ -322,7 +296,6 @@
                 "label": "进行中",
                 "text": "进行中",
                 "data": "",
-,
                 "value": "doing",
                 "isValueNumber":false,
                 "disabled": false
@@ -332,7 +305,6 @@
                 "label": "已挂起",
                 "text": "已挂起",
                 "data": "",
-,
                 "value": "suspended",
                 "isValueNumber":false,
                 "disabled": false
@@ -342,7 +314,6 @@
                 "label": "已关闭",
                 "text": "已关闭",
                 "data": "",
-,
                 "value": "closed",
                 "isValueNumber":false,
                 "disabled": false
@@ -367,7 +338,6 @@
                 "label": "所有",
                 "text": "所有",
                 "data": {},
-,
                 "value": "All",
                 "isValueNumber":false,
                 "disabled": false
@@ -377,7 +347,6 @@
                 "label": "未关闭",
                 "text": "未关闭",
                 "data": {"n_status_noteq":"closed"},
-,
                 "value": "UNCLOSED",
                 "isValueNumber":false,
                 "disabled": false
@@ -387,7 +356,6 @@
                 "label": "指派给我",
                 "text": "指派给我",
                 "data": {"n_assignedto_eq":"%srfloginname%"},
-,
                 "value": "TOME",
                 "isValueNumber":false,
                 "disabled": false
@@ -397,7 +365,6 @@
                 "label": "需求变更",
                 "text": "需求变更",
                 "data": {"n_status1_eq":"storychange"},
-,
                 "value": "storychange",
                 "isValueNumber":false,
                 "disabled": false
@@ -409,28 +376,27 @@
                 "data": "",
                 "subItem": [
                      {
-                        "id": "NOTSTARTED"
+                        "id": "notstarted"
                     }
                     , {
-                        "id": "INPROGRESS"
+                        "id": "inprogress"
                     }
                     , {
-                        "id": "UNACCOMPLISHED"
+                        "id": "unaccomplished"
                     }
                     , {
-                        "id": "IFINISHED"
+                        "id": "ifinished"
                     }
                     , {
-                        "id": "COMPLETED"
+                        "id": "completed"
                     }
                     , {
-                        "id": "CLOSED"
+                        "id": "closed"
                     }
                     , {
-                        "id": "CANCELLED"
+                        "id": "cancelled"
                     }
-                ]
-                ,
+                ],
                 "value": "MORE",
                 "isValueNumber":false,
                 "disabled": false
@@ -440,7 +406,6 @@
                 "label": "未开始",
                 "text": "未开始",
                 "data": {"n_status_eq":"wait"},
-,
                 "value": "NOTSTARTED",
                 "isValueNumber":false,
                 "disabled": false
@@ -450,7 +415,6 @@
                 "label": "进行中",
                 "text": "进行中",
                 "data": {"n_status_eq":"doing"},
-,
                 "value": "INPROGRESS",
                 "isValueNumber":false,
                 "disabled": false
@@ -460,7 +424,6 @@
                 "label": "未完成",
                 "text": "未完成",
                 "data": {"n_status_in":"wait;cancel;doing"},
-,
                 "value": "UNACCOMPLISHED",
                 "isValueNumber":false,
                 "disabled": false
@@ -470,7 +433,6 @@
                 "label": "我完成",
                 "text": "我完成",
                 "data": {"n_finishedby_eq":"%srfloginname%"},
-,
                 "value": "IFINISHED",
                 "isValueNumber":false,
                 "disabled": false
@@ -480,7 +442,6 @@
                 "label": "已完成",
                 "text": "已完成",
                 "data": {"n_status_eq":"done"},
-,
                 "value": "COMPLETED",
                 "isValueNumber":false,
                 "disabled": false
@@ -490,7 +451,6 @@
                 "label": "已关闭",
                 "text": "已关闭",
                 "data": {"n_status_eq":"closed"},
-,
                 "value": "CLOSED",
                 "isValueNumber":false,
                 "disabled": false
@@ -500,7 +460,6 @@
                 "label": "已取消",
                 "text": "已取消",
                 "data": {"n_status_eq":"cancel"},
-,
                 "value": "CANCELLED",
                 "isValueNumber":false,
                 "disabled": false
@@ -517,7 +476,6 @@
                 "label": "不做",
                 "text": "不做",
                 "data": "",
-,
                 "value": "story_closed_willnotdo",
                 "isValueNumber":false,
                 "disabled": false
@@ -527,7 +485,6 @@
                 "label": "已取消",
                 "text": "已取消",
                 "data": "",
-,
                 "value": "story_closed_cancel",
                 "isValueNumber":false,
                 "disabled": false
@@ -537,7 +494,6 @@
                 "label": "已完成",
                 "text": "已完成",
                 "data": "",
-,
                 "value": "story_closed_done",
                 "isValueNumber":false,
                 "disabled": false
@@ -547,7 +503,6 @@
                 "label": "已细分",
                 "text": "已细分",
                 "data": "",
-,
                 "value": "story_closed_subdivided",
                 "isValueNumber":false,
                 "disabled": false
@@ -557,7 +512,6 @@
                 "label": "延期",
                 "text": "延期",
                 "data": "",
-,
                 "value": "story_closed_postponed",
                 "isValueNumber":false,
                 "disabled": false
@@ -567,7 +521,6 @@
                 "label": "设计如此",
                 "text": "设计如此",
                 "data": "",
-,
                 "value": "story_closed_bydesign",
                 "isValueNumber":false,
                 "disabled": false
@@ -577,7 +530,6 @@
                 "label": "重复",
                 "text": "重复",
                 "data": "",
-,
                 "value": "story_closed_duplicate",
                 "isValueNumber":false,
                 "disabled": false
@@ -587,7 +539,6 @@
                 "label": "不予解决",
                 "text": "不予解决",
                 "data": "",
-,
                 "value": "bug_resolved_willnotfix",
                 "isValueNumber":false,
                 "disabled": false
@@ -597,7 +548,6 @@
                 "label": "外部原因",
                 "text": "外部原因",
                 "data": "",
-,
                 "value": "bug_resolved_external",
                 "isValueNumber":false,
                 "disabled": false
@@ -607,7 +557,6 @@
                 "label": "已解决",
                 "text": "已解决",
                 "data": "",
-,
                 "value": "bug_resolved_fixed",
                 "isValueNumber":false,
                 "disabled": false
@@ -617,7 +566,6 @@
                 "label": "延期处理",
                 "text": "延期处理",
                 "data": "",
-,
                 "value": "bug_resolved_postponed",
                 "isValueNumber":false,
                 "disabled": false
@@ -627,7 +575,6 @@
                 "label": "无法重现",
                 "text": "无法重现",
                 "data": "",
-,
                 "value": "bug_resolved_notrepro",
                 "isValueNumber":false,
                 "disabled": false
@@ -637,7 +584,6 @@
                 "label": "设计如此",
                 "text": "设计如此",
                 "data": "",
-,
                 "value": "bug_resolved_bydesign",
                 "isValueNumber":false,
                 "disabled": false
@@ -647,7 +593,6 @@
                 "label": "转为需求",
                 "text": "转为需求",
                 "data": "",
-,
                 "value": "bug_resolved_tostory",
                 "isValueNumber":false,
                 "disabled": false
@@ -657,7 +602,6 @@
                 "label": "重复Bug",
                 "text": "重复Bug",
                 "data": "",
-,
                 "value": "bug_resolved_duplicate",
                 "isValueNumber":false,
                 "disabled": false
@@ -667,7 +611,6 @@
                 "label": "拒绝",
                 "text": "拒绝",
                 "data": "",
-,
                 "value": "story_reviewed_reject",
                 "isValueNumber":false,
                 "disabled": false
@@ -677,7 +620,6 @@
                 "label": "撤销变更",
                 "text": "撤销变更",
                 "data": "",
-,
                 "value": "story_reviewed_revert",
                 "isValueNumber":false,
                 "disabled": false
@@ -687,7 +629,6 @@
                 "label": "有待明确",
                 "text": "有待明确",
                 "data": "",
-,
                 "value": "story_reviewed_clarify",
                 "isValueNumber":false,
                 "disabled": false
@@ -697,7 +638,6 @@
                 "label": "确认通过",
                 "text": "确认通过",
                 "data": "",
-,
                 "value": "story_reviewed_pass",
                 "isValueNumber":false,
                 "disabled": false
@@ -707,7 +647,6 @@
                 "label": "停止维护",
                 "text": "停止维护",
                 "data": "",
-,
                 "value": " release_changestatus_terminate",
                 "isValueNumber":false,
                 "disabled": false
@@ -717,7 +656,6 @@
                 "label": "正常",
                 "text": "正常",
                 "data": "",
-,
                 "value": " release_changestatus_normal",
                 "isValueNumber":false,
                 "disabled": false
@@ -734,7 +672,6 @@
                 "label": "一般",
                 "text": "一般",
                 "data": "",
-,
                 "value": 1,
                 "isValueNumber":true,
                 "className":"text-blue-border-color",
@@ -745,7 +682,6 @@
                 "label": "最高",
                 "text": "最高",
                 "data": "",
-,
                 "value": 2,
                 "isValueNumber":true,
                 "className":"text-red-border-color",
@@ -756,7 +692,6 @@
                 "label": "较高",
                 "text": "较高",
                 "data": "",
-,
                 "value": 3,
                 "isValueNumber":true,
                 "className":"text-pink-border-color",
@@ -767,7 +702,6 @@
                 "label": "最低",
                 "text": "最低",
                 "data": "",
-,
                 "value": 4,
                 "isValueNumber":true,
                 "className":"text-green-border-color",
@@ -785,7 +719,6 @@
                 "label": "是",
                 "text": "是",
                 "data": "",
-,
                 "value": "1",
                 "isValueNumber":false,
                 "disabled": false
@@ -795,7 +728,6 @@
                 "label": "否",
                 "text": "否",
                 "data": "",
-,
                 "value": "0",
                 "isValueNumber":false,
                 "disabled": false
@@ -812,7 +744,6 @@
                 "label": "全部",
                 "text": "全部",
                 "data": "",
-,
                 "value": "all",
                 "isValueNumber":false,
                 "disabled": false
@@ -822,7 +753,6 @@
                 "label": "Windows",
                 "text": "Windows",
                 "data": "",
-,
                 "value": "windows",
                 "isValueNumber":false,
                 "disabled": false
@@ -832,7 +762,6 @@
                 "label": "Windows 10",
                 "text": "Windows 10",
                 "data": "",
-,
                 "value": "win10",
                 "isValueNumber":false,
                 "disabled": false
@@ -842,7 +771,6 @@
                 "label": "Windows 8",
                 "text": "Windows 8",
                 "data": "",
-,
                 "value": "win8",
                 "isValueNumber":false,
                 "disabled": false
@@ -852,7 +780,6 @@
                 "label": "Windows 7",
                 "text": "Windows 7",
                 "data": "",
-,
                 "value": "win7",
                 "isValueNumber":false,
                 "disabled": false
@@ -862,7 +789,6 @@
                 "label": "Windows Vista",
                 "text": "Windows Vista",
                 "data": "",
-,
                 "value": "vista",
                 "isValueNumber":false,
                 "disabled": false
@@ -872,7 +798,6 @@
                 "label": "Windows XP",
                 "text": "Windows XP",
                 "data": "",
-,
                 "value": "winxp",
                 "isValueNumber":false,
                 "disabled": false
@@ -882,7 +807,6 @@
                 "label": "Windows 2012",
                 "text": "Windows 2012",
                 "data": "",
-,
                 "value": "win2012",
                 "isValueNumber":false,
                 "disabled": false
@@ -892,7 +816,6 @@
                 "label": "Windows 2008",
                 "text": "Windows 2008",
                 "data": "",
-,
                 "value": "win2008",
                 "isValueNumber":false,
                 "disabled": false
@@ -902,7 +825,6 @@
                 "label": "Windows 2003",
                 "text": "Windows 2003",
                 "data": "",
-,
                 "value": "win2003",
                 "isValueNumber":false,
                 "disabled": false
@@ -912,7 +834,6 @@
                 "label": "Windows 2000",
                 "text": "Windows 2000",
                 "data": "",
-,
                 "value": "win2000",
                 "isValueNumber":false,
                 "disabled": false
@@ -922,7 +843,6 @@
                 "label": "Android",
                 "text": "Android",
                 "data": "",
-,
                 "value": "android",
                 "isValueNumber":false,
                 "disabled": false
@@ -932,7 +852,6 @@
                 "label": "IOS",
                 "text": "IOS",
                 "data": "",
-,
                 "value": "ios",
                 "isValueNumber":false,
                 "disabled": false
@@ -942,7 +861,6 @@
                 "label": "WP8",
                 "text": "WP8",
                 "data": "",
-,
                 "value": "wp8",
                 "isValueNumber":false,
                 "disabled": false
@@ -952,7 +870,6 @@
                 "label": "WP7",
                 "text": "WP7",
                 "data": "",
-,
                 "value": "wp7",
                 "isValueNumber":false,
                 "disabled": false
@@ -962,7 +879,6 @@
                 "label": "Symbian",
                 "text": "Symbian",
                 "data": "",
-,
                 "value": "symbian",
                 "isValueNumber":false,
                 "disabled": false
@@ -972,7 +888,6 @@
                 "label": "Linux",
                 "text": "Linux",
                 "data": "",
-,
                 "value": "linux",
                 "isValueNumber":false,
                 "disabled": false
@@ -982,7 +897,6 @@
                 "label": "FreeBSD",
                 "text": "FreeBSD",
                 "data": "",
-,
                 "value": "freebsd",
                 "isValueNumber":false,
                 "disabled": false
@@ -992,7 +906,6 @@
                 "label": "OS X",
                 "text": "OS X",
                 "data": "",
-,
                 "value": "osx",
                 "isValueNumber":false,
                 "disabled": false
@@ -1002,7 +915,6 @@
                 "label": "Unix",
                 "text": "Unix",
                 "data": "",
-,
                 "value": "unix",
                 "isValueNumber":false,
                 "disabled": false
@@ -1012,7 +924,6 @@
                 "label": "其他",
                 "text": "其他",
                 "data": "",
-,
                 "value": "others",
                 "isValueNumber":false,
                 "disabled": false
@@ -1053,7 +964,6 @@
                 "label": "正常",
                 "text": "正常",
                 "data": "",
-,
                 "value": "normal",
                 "isValueNumber":false,
                 "color": "blue",
@@ -1064,7 +974,6 @@
                 "label": "多分支",
                 "text": "多分支",
                 "data": "",
-,
                 "value": "branch",
                 "isValueNumber":false,
                 "disabled": false
@@ -1074,7 +983,6 @@
                 "label": "多平台",
                 "text": "多平台",
                 "data": "",
-,
                 "value": "platform",
                 "isValueNumber":false,
                 "disabled": false
@@ -1091,7 +999,6 @@
                 "label": "不需要评审",
                 "text": "不需要评审",
                 "data": "",
-,
                 "value": "1",
                 "isValueNumber":false,
                 "disabled": false
@@ -1108,7 +1015,6 @@
                 "label": "1",
                 "text": "1",
                 "data": "",
-,
                 "value": 1,
                 "isValueNumber":true,
                 "disabled": false
@@ -1118,7 +1024,6 @@
                 "label": "2",
                 "text": "2",
                 "data": "",
-,
                 "value": 2,
                 "isValueNumber":true,
                 "disabled": false
@@ -1128,7 +1033,6 @@
                 "label": "3",
                 "text": "3",
                 "data": "",
-,
                 "value": 3,
                 "isValueNumber":true,
                 "disabled": false
@@ -1138,7 +1042,6 @@
                 "label": "4",
                 "text": "4",
                 "data": "",
-,
                 "value": 4,
                 "isValueNumber":true,
                 "disabled": false
@@ -1155,7 +1058,6 @@
                 "label": "全部",
                 "text": "全部",
                 "data": "",
-,
                 "value": "all",
                 "isValueNumber":false,
                 "disabled": false
@@ -1165,7 +1067,6 @@
                 "label": "IE系列",
                 "text": "IE系列",
                 "data": "",
-,
                 "value": "ie",
                 "isValueNumber":false,
                 "disabled": false
@@ -1175,7 +1076,6 @@
                 "label": "IE11",
                 "text": "IE11",
                 "data": "",
-,
                 "value": "ie11",
                 "isValueNumber":false,
                 "disabled": false
@@ -1185,7 +1085,6 @@
                 "label": "IE10",
                 "text": "IE10",
                 "data": "",
-,
                 "value": "ie10",
                 "isValueNumber":false,
                 "disabled": false
@@ -1195,7 +1094,6 @@
                 "label": "IE9",
                 "text": "IE9",
                 "data": "",
-,
                 "value": "ie9",
                 "isValueNumber":false,
                 "disabled": false
@@ -1205,7 +1103,6 @@
                 "label": "IE8",
                 "text": "IE8",
                 "data": "",
-,
                 "value": "ie8",
                 "isValueNumber":false,
                 "disabled": false
@@ -1215,7 +1112,6 @@
                 "label": "IE7",
                 "text": "IE7",
                 "data": "",
-,
                 "value": "ie7",
                 "isValueNumber":false,
                 "disabled": false
@@ -1225,7 +1121,6 @@
                 "label": "IE6",
                 "text": "IE6",
                 "data": "",
-,
                 "value": "ie6",
                 "isValueNumber":false,
                 "disabled": false
@@ -1235,7 +1130,6 @@
                 "label": "chrome",
                 "text": "chrome",
                 "data": "",
-,
                 "value": "chrome",
                 "isValueNumber":false,
                 "disabled": false
@@ -1245,7 +1139,6 @@
                 "label": "firefox系列",
                 "text": "firefox系列",
                 "data": "",
-,
                 "value": "firefox",
                 "isValueNumber":false,
                 "disabled": false
@@ -1255,7 +1148,6 @@
                 "label": "firefox4",
                 "text": "firefox4",
                 "data": "",
-,
                 "value": "firefox4",
                 "isValueNumber":false,
                 "disabled": false
@@ -1265,7 +1157,6 @@
                 "label": "firefox3",
                 "text": "firefox3",
                 "data": "",
-,
                 "value": "firefox3",
                 "isValueNumber":false,
                 "disabled": false
@@ -1275,7 +1166,6 @@
                 "label": "firefox2",
                 "text": "firefox2",
                 "data": "",
-,
                 "value": "firefox2",
                 "isValueNumber":false,
                 "disabled": false
@@ -1285,7 +1175,6 @@
                 "label": "opera系列",
                 "text": "opera系列",
                 "data": "",
-,
                 "value": "opera",
                 "isValueNumber":false,
                 "disabled": false
@@ -1295,7 +1184,6 @@
                 "label": "opera11",
                 "text": "opera11",
                 "data": "",
-,
                 "value": "opera11",
                 "isValueNumber":false,
                 "disabled": false
@@ -1305,7 +1193,6 @@
                 "label": "oprea10",
                 "text": "oprea10",
                 "data": "",
-,
                 "value": "oprea10",
                 "isValueNumber":false,
                 "disabled": false
@@ -1315,7 +1202,6 @@
                 "label": "opera9",
                 "text": "opera9",
                 "data": "",
-,
                 "value": "opera9",
                 "isValueNumber":false,
                 "disabled": false
@@ -1325,7 +1211,6 @@
                 "label": "safari",
                 "text": "safari",
                 "data": "",
-,
                 "value": "safari",
                 "isValueNumber":false,
                 "disabled": false
@@ -1335,7 +1220,6 @@
                 "label": "傲游",
                 "text": "傲游",
                 "data": "",
-,
                 "value": "maxthon",
                 "isValueNumber":false,
                 "disabled": false
@@ -1345,7 +1229,6 @@
                 "label": "UC",
                 "text": "UC",
                 "data": "",
-,
                 "value": "uc",
                 "isValueNumber":false,
                 "disabled": false
@@ -1355,7 +1238,6 @@
                 "label": "其他",
                 "text": "其他",
                 "data": "",
-,
                 "value": "others",
                 "isValueNumber":false,
                 "disabled": false
@@ -1372,7 +1254,6 @@
                 "label": "未开始",
                 "text": "未开始",
                 "data": "",
-,
                 "value": "wait",
                 "isValueNumber":false,
                 "disabled": false
@@ -1382,7 +1263,6 @@
                 "label": "进行中",
                 "text": "进行中",
                 "data": "",
-,
                 "value": "doing",
                 "isValueNumber":false,
                 "color": "rgba(245, 18, 18, 1)",
@@ -1393,7 +1273,6 @@
                 "label": "已完成",
                 "text": "已完成",
                 "data": "",
-,
                 "value": "done",
                 "isValueNumber":false,
                 "color": "rgba(4, 251, 17, 1)",
@@ -1404,7 +1283,6 @@
                 "label": "已关闭",
                 "text": "已关闭",
                 "data": "",
-,
                 "value": "closed",
                 "isValueNumber":false,
                 "disabled": false
@@ -1421,7 +1299,6 @@
                 "label": "短期项目",
                 "text": "短期项目",
                 "data": "",
-,
                 "value": "sprint",
                 "isValueNumber":false,
                 "disabled": false
@@ -1431,7 +1308,6 @@
                 "label": "长期项目",
                 "text": "长期项目",
                 "data": "",
-,
                 "value": "waterfall",
                 "isValueNumber":false,
                 "disabled": false
@@ -1441,7 +1317,6 @@
                 "label": "运维项目",
                 "text": "运维项目",
                 "data": "",
-,
                 "value": "ops",
                 "isValueNumber":false,
                 "disabled": false
@@ -1458,7 +1333,6 @@
                 "label": "草稿",
                 "text": "草稿",
                 "data": "",
-,
                 "value": "draft",
                 "isValueNumber":false,
                 "color": "rgba(185, 111, 241, 1)",
@@ -1469,7 +1343,6 @@
                 "label": "激活",
                 "text": "激活",
                 "data": "",
-,
                 "value": "active",
                 "isValueNumber":false,
                 "disabled": false
@@ -1479,7 +1352,6 @@
                 "label": "已关闭",
                 "text": "已关闭",
                 "data": "",
-,
                 "value": "closed",
                 "isValueNumber":false,
                 "color": "rgba(203, 198, 198, 0.84)",
@@ -1490,7 +1362,6 @@
                 "label": "已变更",
                 "text": "已变更",
                 "data": "",
-,
                 "value": "changed",
                 "isValueNumber":false,
                 "color": "rgba(217, 68, 68, 1)",
@@ -1508,7 +1379,6 @@
                 "label": "0",
                 "text": "0",
                 "data": "",
-,
                 "value": "0",
                 "isValueNumber":false,
                 "disabled": false
@@ -1518,7 +1388,6 @@
                 "label": "1",
                 "text": "1",
                 "data": "",
-,
                 "value": "1",
                 "isValueNumber":false,
                 "disabled": false
@@ -1535,7 +1404,6 @@
                 "label": "未开始",
                 "text": "未开始",
                 "data": "",
-,
                 "value": "wait",
                 "isValueNumber":false,
                 "color": "rgba(131, 138, 157, 1)",
@@ -1546,7 +1414,6 @@
                 "label": "进行中",
                 "text": "进行中",
                 "data": "",
-,
                 "value": "doing",
                 "isValueNumber":false,
                 "color": "rgba(255, 93, 93, 1)",
@@ -1557,7 +1424,6 @@
                 "label": "已完成",
                 "text": "已完成",
                 "data": "",
-,
                 "value": "done",
                 "isValueNumber":false,
                 "color": "rgba(67, 160, 71, 1)",
@@ -1568,7 +1434,6 @@
                 "label": "已暂停",
                 "text": "已暂停",
                 "data": "",
-,
                 "value": "pause",
                 "isValueNumber":false,
                 "color": "rgba(255, 152, 0, 1)",
@@ -1579,7 +1444,6 @@
                 "label": "已取消",
                 "text": "已取消",
                 "data": "",
-,
                 "value": "cancel",
                 "isValueNumber":false,
                 "color": "rgba(131, 138, 157, 1)",
@@ -1590,7 +1454,6 @@
                 "label": "已关闭",
                 "text": "已关闭",
                 "data": "",
-,
                 "value": "closed",
                 "isValueNumber":false,
                 "color": "rgba(131, 138, 157, 1)",
@@ -1608,7 +1471,6 @@
                 "label": "确认通过",
                 "text": "确认通过",
                 "data": "",
-,
                 "value": "pass",
                 "isValueNumber":false,
                 "disabled": false
@@ -1618,7 +1480,6 @@
                 "label": "撤销变更",
                 "text": "撤销变更",
                 "data": "",
-,
                 "value": "revert",
                 "isValueNumber":false,
                 "disabled": false
@@ -1628,7 +1489,6 @@
                 "label": "有待明确",
                 "text": "有待明确",
                 "data": "",
-,
                 "value": "clarify",
                 "isValueNumber":false,
                 "color": "rgba(49, 27, 146, 1)",
@@ -1639,7 +1499,6 @@
                 "label": "拒绝",
                 "text": "拒绝",
                 "data": "",
-,
                 "value": "reject",
                 "isValueNumber":false,
                 "disabled": false
@@ -1656,7 +1515,6 @@
                 "label": "是",
                 "text": "是",
                 "data": "",
-,
                 "value": 1,
                 "isValueNumber":true,
                 "disabled": false
@@ -1666,7 +1524,6 @@
                 "label": "否",
                 "text": "否",
                 "data": "",
-,
                 "value": 0,
                 "isValueNumber":true,
                 "disabled": false
@@ -1691,7 +1548,6 @@
                 "label": "待定",
                 "text": "待定",
                 "data": "",
-,
                 "value": "on",
                 "isValueNumber":false,
                 "disabled": false
@@ -1708,7 +1564,6 @@
                 "label": "正常",
                 "text": "正常",
                 "data": "",
-,
                 "value": "normal",
                 "isValueNumber":false,
                 "color": "rgba(13, 255, 0, 1)",
@@ -1719,7 +1574,6 @@
                 "label": "结束",
                 "text": "结束",
                 "data": "",
-,
                 "value": "closed",
                 "isValueNumber":false,
                 "disabled": false
@@ -1736,7 +1590,6 @@
                 "label": "设计",
                 "text": "设计",
                 "data": "",
-,
                 "value": "design",
                 "isValueNumber":false,
                 "disabled": false
@@ -1746,7 +1599,6 @@
                 "label": "开发",
                 "text": "开发",
                 "data": "",
-,
                 "value": "devel",
                 "isValueNumber":false,
                 "disabled": false
@@ -1756,7 +1608,6 @@
                 "label": "测试",
                 "text": "测试",
                 "data": "",
-,
                 "value": "test",
                 "isValueNumber":false,
                 "disabled": false
@@ -1766,7 +1617,6 @@
                 "label": "研究",
                 "text": "研究",
                 "data": "",
-,
                 "value": "study",
                 "isValueNumber":false,
                 "disabled": false
@@ -1776,7 +1626,6 @@
                 "label": "讨论",
                 "text": "讨论",
                 "data": "",
-,
                 "value": "discuss",
                 "isValueNumber":false,
                 "disabled": false
@@ -1786,7 +1635,6 @@
                 "label": "界面",
                 "text": "界面",
                 "data": "",
-,
                 "value": "ui",
                 "isValueNumber":false,
                 "disabled": false
@@ -1796,7 +1644,6 @@
                 "label": "事务",
                 "text": "事务",
                 "data": "",
-,
                 "value": "affair",
                 "isValueNumber":false,
                 "disabled": false
@@ -1806,7 +1653,6 @@
                 "label": "其他",
                 "text": "其他",
                 "data": "",
-,
                 "value": "misc",
                 "isValueNumber":false,
                 "disabled": false
@@ -1823,7 +1669,6 @@
                 "label": "1",
                 "text": "1",
                 "data": "",
-,
                 "value": 1,
                 "isValueNumber":true,
                 "iconcls":"fa fa-square-o",
@@ -1835,7 +1680,6 @@
                 "label": "2",
                 "text": "2",
                 "data": "",
-,
                 "value": 2,
                 "isValueNumber":true,
                 "className":"text-pink-border-color",
@@ -1846,7 +1690,6 @@
                 "label": "3",
                 "text": "3",
                 "data": "",
-,
                 "value": 3,
                 "isValueNumber":true,
                 "className":"text-blue-border-color",
@@ -1857,7 +1700,6 @@
                 "label": "4",
                 "text": "4",
                 "data": "",
-,
                 "value": 4,
                 "isValueNumber":true,
                 "className":"text-green-border-color",
@@ -1875,7 +1717,6 @@
                 "label": "1",
                 "text": "1",
                 "data": "",
-,
                 "value": 1,
                 "isValueNumber":true,
                 "color": "rgba(230, 43, 43, 1)",
@@ -1887,7 +1728,6 @@
                 "label": "2",
                 "text": "2",
                 "data": "",
-,
                 "value": 2,
                 "isValueNumber":true,
                 "color": "rgba(225, 228, 33, 1)",
@@ -1899,7 +1739,6 @@
                 "label": "3",
                 "text": "3",
                 "data": "",
-,
                 "value": 3,
                 "isValueNumber":true,
                 "color": "rgba(52, 8, 248, 1)",
@@ -1911,7 +1750,6 @@
                 "label": "4",
                 "text": "4",
                 "data": "",
-,
                 "value": 4,
                 "isValueNumber":true,
                 "color": "rgba(80, 133, 63, 1)",
@@ -1930,7 +1768,6 @@
                 "label": "不需要评审",
                 "text": "不需要评审",
                 "data": "",
-,
                 "value": "0",
                 "isValueNumber":false,
                 "disabled": false
@@ -1955,7 +1792,6 @@
                 "label": "默认设置(有项目视图权限，即可访问)",
                 "text": "默认设置(有项目视图权限，即可访问)",
                 "data": "",
-,
                 "value": "open",
                 "isValueNumber":false,
                 "disabled": false
@@ -1965,7 +1801,6 @@
                 "label": "私有项目(只有项目团队成员才能访问)",
                 "text": "私有项目(只有项目团队成员才能访问)",
                 "data": "",
-,
                 "value": "private",
                 "isValueNumber":false,
                 "disabled": false
@@ -1975,7 +1810,6 @@
                 "label": "自定义白名单(团队成员和白名单的成员可以访问)",
                 "text": "自定义白名单(团队成员和白名单的成员可以访问)",
                 "data": "",
-,
                 "value": "custom",
                 "isValueNumber":false,
                 "disabled": false
@@ -1992,7 +1826,6 @@
                 "label": "用户需求",
                 "text": "用户需求",
                 "data": "",
-,
                 "value": "requirement",
                 "isValueNumber":false,
                 "disabled": false
@@ -2002,7 +1835,6 @@
                 "label": "软件需求",
                 "text": "软件需求",
                 "data": "",
-,
                 "value": "story",
                 "isValueNumber":false,
                 "disabled": false
@@ -2019,7 +1851,6 @@
                 "label": "06:00",
                 "text": "06:00",
                 "data": "",
-,
                 "value": 600,
                 "isValueNumber":true,
                 "disabled": false
@@ -2029,7 +1860,6 @@
                 "label": "06:10",
                 "text": "06:10",
                 "data": "",
-,
                 "value": 610,
                 "isValueNumber":true,
                 "disabled": false
@@ -2039,7 +1869,6 @@
                 "label": "06:20",
                 "text": "06:20",
                 "data": "",
-,
                 "value": 620,
                 "isValueNumber":true,
                 "disabled": false
@@ -2049,7 +1878,6 @@
                 "label": "06:30",
                 "text": "06:30",
                 "data": "",
-,
                 "value": 630,
                 "isValueNumber":true,
                 "disabled": false
@@ -2059,7 +1887,6 @@
                 "label": "06:40",
                 "text": "06:40",
                 "data": "",
-,
                 "value": 640,
                 "isValueNumber":true,
                 "disabled": false
@@ -2069,7 +1896,6 @@
                 "label": "06:50",
                 "text": "06:50",
                 "data": "",
-,
                 "value": 650,
                 "isValueNumber":true,
                 "disabled": false
@@ -2079,7 +1905,6 @@
                 "label": "07:00",
                 "text": "07:00",
                 "data": "",
-,
                 "value": 700,
                 "isValueNumber":true,
                 "disabled": false
@@ -2089,7 +1914,6 @@
                 "label": "07:10",
                 "text": "07:10",
                 "data": "",
-,
                 "value": 710,
                 "isValueNumber":true,
                 "disabled": false
@@ -2099,7 +1923,6 @@
                 "label": "07:20",
                 "text": "07:20",
                 "data": "",
-,
                 "value": 720,
                 "isValueNumber":true,
                 "disabled": false
@@ -2109,7 +1932,6 @@
                 "label": "07:30",
                 "text": "07:30",
                 "data": "",
-,
                 "value": 730,
                 "isValueNumber":true,
                 "disabled": false
@@ -2119,7 +1941,6 @@
                 "label": "07:40",
                 "text": "07:40",
                 "data": "",
-,
                 "value": 740,
                 "isValueNumber":true,
                 "disabled": false
@@ -2129,7 +1950,6 @@
                 "label": "07:50",
                 "text": "07:50",
                 "data": "",
-,
                 "value": 750,
                 "isValueNumber":true,
                 "disabled": false
@@ -2139,7 +1959,6 @@
                 "label": "08:00",
                 "text": "08:00",
                 "data": "",
-,
                 "value": 800,
                 "isValueNumber":true,
                 "disabled": false
@@ -2149,7 +1968,6 @@
                 "label": "08:10",
                 "text": "08:10",
                 "data": "",
-,
                 "value": 810,
                 "isValueNumber":true,
                 "disabled": false
@@ -2159,7 +1977,6 @@
                 "label": "08:20",
                 "text": "08:20",
                 "data": "",
-,
                 "value": 820,
                 "isValueNumber":true,
                 "disabled": false
@@ -2169,7 +1986,6 @@
                 "label": "08:30",
                 "text": "08:30",
                 "data": "",
-,
                 "value": 830,
                 "isValueNumber":true,
                 "disabled": false
@@ -2179,7 +1995,6 @@
                 "label": "08:40",
                 "text": "08:40",
                 "data": "",
-,
                 "value": 840,
                 "isValueNumber":true,
                 "disabled": false
@@ -2189,7 +2004,6 @@
                 "label": "08:50",
                 "text": "08:50",
                 "data": "",
-,
                 "value": 850,
                 "isValueNumber":true,
                 "disabled": false
@@ -2199,7 +2013,6 @@
                 "label": "09:00",
                 "text": "09:00",
                 "data": "",
-,
                 "value": 900,
                 "isValueNumber":true,
                 "disabled": false
@@ -2209,7 +2022,6 @@
                 "label": "09:10",
                 "text": "09:10",
                 "data": "",
-,
                 "value": 910,
                 "isValueNumber":true,
                 "disabled": false
@@ -2219,7 +2031,6 @@
                 "label": "09:20",
                 "text": "09:20",
                 "data": "",
-,
                 "value": 920,
                 "isValueNumber":true,
                 "disabled": false
@@ -2229,7 +2040,6 @@
                 "label": "09:30",
                 "text": "09:30",
                 "data": "",
-,
                 "value": 930,
                 "isValueNumber":true,
                 "disabled": false
@@ -2239,7 +2049,6 @@
                 "label": "09:40",
                 "text": "09:40",
                 "data": "",
-,
                 "value": 940,
                 "isValueNumber":true,
                 "disabled": false
@@ -2249,7 +2058,6 @@
                 "label": "09:50",
                 "text": "09:50",
                 "data": "",
-,
                 "value": 950,
                 "isValueNumber":true,
                 "disabled": false
@@ -2259,7 +2067,6 @@
                 "label": "10:00",
                 "text": "10:00",
                 "data": "",
-,
                 "value": 1000,
                 "isValueNumber":true,
                 "disabled": false
@@ -2269,7 +2076,6 @@
                 "label": "10:10",
                 "text": "10:10",
                 "data": "",
-,
                 "value": 1010,
                 "isValueNumber":true,
                 "disabled": false
@@ -2279,7 +2085,6 @@
                 "label": "10:20",
                 "text": "10:20",
                 "data": "",
-,
                 "value": 1020,
                 "isValueNumber":true,
                 "disabled": false
@@ -2289,7 +2094,6 @@
                 "label": "10:30",
                 "text": "10:30",
                 "data": "",
-,
                 "value": 1030,
                 "isValueNumber":true,
                 "disabled": false
@@ -2299,7 +2103,6 @@
                 "label": "10:40",
                 "text": "10:40",
                 "data": "",
-,
                 "value": 1040,
                 "isValueNumber":true,
                 "disabled": false
@@ -2309,7 +2112,6 @@
                 "label": "10:50",
                 "text": "10:50",
                 "data": "",
-,
                 "value": 1050,
                 "isValueNumber":true,
                 "disabled": false
@@ -2319,7 +2121,6 @@
                 "label": "11:00",
                 "text": "11:00",
                 "data": "",
-,
                 "value": 1100,
                 "isValueNumber":true,
                 "disabled": false
@@ -2329,7 +2130,6 @@
                 "label": "11:10",
                 "text": "11:10",
                 "data": "",
-,
                 "value": 1110,
                 "isValueNumber":true,
                 "disabled": false
@@ -2339,7 +2139,6 @@
                 "label": "11:20",
                 "text": "11:20",
                 "data": "",
-,
                 "value": 1120,
                 "isValueNumber":true,
                 "disabled": false
@@ -2349,7 +2148,6 @@
                 "label": "11:30",
                 "text": "11:30",
                 "data": "",
-,
                 "value": 1130,
                 "isValueNumber":true,
                 "disabled": false
@@ -2359,7 +2157,6 @@
                 "label": "11:40",
                 "text": "11:40",
                 "data": "",
-,
                 "value": 1140,
                 "isValueNumber":true,
                 "disabled": false
@@ -2369,7 +2166,6 @@
                 "label": "11:50",
                 "text": "11:50",
                 "data": "",
-,
                 "value": 1150,
                 "isValueNumber":true,
                 "disabled": false
@@ -2379,7 +2175,6 @@
                 "label": "12:00",
                 "text": "12:00",
                 "data": "",
-,
                 "value": 1200,
                 "isValueNumber":true,
                 "disabled": false
@@ -2389,7 +2184,6 @@
                 "label": "12:10",
                 "text": "12:10",
                 "data": "",
-,
                 "value": 1210,
                 "isValueNumber":true,
                 "disabled": false
@@ -2399,7 +2193,6 @@
                 "label": "12:20",
                 "text": "12:20",
                 "data": "",
-,
                 "value": 1220,
                 "isValueNumber":true,
                 "disabled": false
@@ -2409,7 +2202,6 @@
                 "label": "12:30",
                 "text": "12:30",
                 "data": "",
-,
                 "value": 1230,
                 "isValueNumber":true,
                 "disabled": false
@@ -2419,7 +2211,6 @@
                 "label": "12:40",
                 "text": "12:40",
                 "data": "",
-,
                 "value": 1240,
                 "isValueNumber":true,
                 "disabled": false
@@ -2429,7 +2220,6 @@
                 "label": "12:50",
                 "text": "12:50",
                 "data": "",
-,
                 "value": 1250,
                 "isValueNumber":true,
                 "disabled": false
@@ -2439,7 +2229,6 @@
                 "label": "13:00",
                 "text": "13:00",
                 "data": "",
-,
                 "value": 1300,
                 "isValueNumber":true,
                 "disabled": false
@@ -2449,7 +2238,6 @@
                 "label": "13:10",
                 "text": "13:10",
                 "data": "",
-,
                 "value": 1310,
                 "isValueNumber":true,
                 "disabled": false
@@ -2459,7 +2247,6 @@
                 "label": "13:20",
                 "text": "13:20",
                 "data": "",
-,
                 "value": 1320,
                 "isValueNumber":true,
                 "disabled": false
@@ -2469,7 +2256,6 @@
                 "label": "13:30",
                 "text": "13:30",
                 "data": "",
-,
                 "value": 1330,
                 "isValueNumber":true,
                 "disabled": false
@@ -2479,7 +2265,6 @@
                 "label": "13:40",
                 "text": "13:40",
                 "data": "",
-,
                 "value": 1340,
                 "isValueNumber":true,
                 "disabled": false
@@ -2489,7 +2274,6 @@
                 "label": "13:50",
                 "text": "13:50",
                 "data": "",
-,
                 "value": 1350,
                 "isValueNumber":true,
                 "disabled": false
@@ -2499,7 +2283,6 @@
                 "label": "14:00",
                 "text": "14:00",
                 "data": "",
-,
                 "value": 1400,
                 "isValueNumber":true,
                 "disabled": false
@@ -2509,7 +2292,6 @@
                 "label": "14:10",
                 "text": "14:10",
                 "data": "",
-,
                 "value": 1410,
                 "isValueNumber":true,
                 "disabled": false
@@ -2519,7 +2301,6 @@
                 "label": "14:20",
                 "text": "14:20",
                 "data": "",
-,
                 "value": 1420,
                 "isValueNumber":true,
                 "disabled": false
@@ -2529,7 +2310,6 @@
                 "label": "14:30",
                 "text": "14:30",
                 "data": "",
-,
                 "value": 1430,
                 "isValueNumber":true,
                 "disabled": false
@@ -2539,7 +2319,6 @@
                 "label": "14:40",
                 "text": "14:40",
                 "data": "",
-,
                 "value": 1440,
                 "isValueNumber":true,
                 "disabled": false
@@ -2549,7 +2328,6 @@
                 "label": "14:50",
                 "text": "14:50",
                 "data": "",
-,
                 "value": 1450,
                 "isValueNumber":true,
                 "disabled": false
@@ -2559,7 +2337,6 @@
                 "label": "15:00",
                 "text": "15:00",
                 "data": "",
-,
                 "value": 1500,
                 "isValueNumber":true,
                 "disabled": false
@@ -2569,7 +2346,6 @@
                 "label": "15:10",
                 "text": "15:10",
                 "data": "",
-,
                 "value": 1510,
                 "isValueNumber":true,
                 "disabled": false
@@ -2579,7 +2355,6 @@
                 "label": "15:20",
                 "text": "15:20",
                 "data": "",
-,
                 "value": 1520,
                 "isValueNumber":true,
                 "disabled": false
@@ -2589,7 +2364,6 @@
                 "label": "15:30",
                 "text": "15:30",
                 "data": "",
-,
                 "value": 1530,
                 "isValueNumber":true,
                 "disabled": false
@@ -2599,7 +2373,6 @@
                 "label": "15:40",
                 "text": "15:40",
                 "data": "",
-,
                 "value": 1540,
                 "isValueNumber":true,
                 "disabled": false
@@ -2609,7 +2382,6 @@
                 "label": "15:50",
                 "text": "15:50",
                 "data": "",
-,
                 "value": 1550,
                 "isValueNumber":true,
                 "disabled": false
@@ -2619,7 +2391,6 @@
                 "label": "16:00",
                 "text": "16:00",
                 "data": "",
-,
                 "value": 1600,
                 "isValueNumber":true,
                 "disabled": false
@@ -2629,7 +2400,6 @@
                 "label": "16:10",
                 "text": "16:10",
                 "data": "",
-,
                 "value": 1610,
                 "isValueNumber":true,
                 "disabled": false
@@ -2639,7 +2409,6 @@
                 "label": "16:20",
                 "text": "16:20",
                 "data": "",
-,
                 "value": 1620,
                 "isValueNumber":true,
                 "disabled": false
@@ -2649,7 +2418,6 @@
                 "label": "16:30",
                 "text": "16:30",
                 "data": "",
-,
                 "value": 1630,
                 "isValueNumber":true,
                 "disabled": false
@@ -2659,7 +2427,6 @@
                 "label": "16:40",
                 "text": "16:40",
                 "data": "",
-,
                 "value": 1640,
                 "isValueNumber":true,
                 "disabled": false
@@ -2669,7 +2436,6 @@
                 "label": "16:50",
                 "text": "16:50",
                 "data": "",
-,
                 "value": 1650,
                 "isValueNumber":true,
                 "disabled": false
@@ -2679,7 +2445,6 @@
                 "label": "17:00",
                 "text": "17:00",
                 "data": "",
-,
                 "value": 1700,
                 "isValueNumber":true,
                 "disabled": false
@@ -2689,7 +2454,6 @@
                 "label": "17:10",
                 "text": "17:10",
                 "data": "",
-,
                 "value": 1710,
                 "isValueNumber":true,
                 "disabled": false
@@ -2699,7 +2463,6 @@
                 "label": "17:20",
                 "text": "17:20",
                 "data": "",
-,
                 "value": 1720,
                 "isValueNumber":true,
                 "disabled": false
@@ -2709,7 +2472,6 @@
                 "label": "17:30",
                 "text": "17:30",
                 "data": "",
-,
                 "value": 1730,
                 "isValueNumber":true,
                 "disabled": false
@@ -2719,7 +2481,6 @@
                 "label": "17:40",
                 "text": "17:40",
                 "data": "",
-,
                 "value": 1740,
                 "isValueNumber":true,
                 "disabled": false
@@ -2729,7 +2490,6 @@
                 "label": "17:50",
                 "text": "17:50",
                 "data": "",
-,
                 "value": 1750,
                 "isValueNumber":true,
                 "disabled": false
@@ -2739,7 +2499,6 @@
                 "label": "18:00",
                 "text": "18:00",
                 "data": "",
-,
                 "value": 1800,
                 "isValueNumber":true,
                 "disabled": false
@@ -2749,7 +2508,6 @@
                 "label": "18:10",
                 "text": "18:10",
                 "data": "",
-,
                 "value": 1810,
                 "isValueNumber":true,
                 "disabled": false
@@ -2759,7 +2517,6 @@
                 "label": "18:20",
                 "text": "18:20",
                 "data": "",
-,
                 "value": 1820,
                 "isValueNumber":true,
                 "disabled": false
@@ -2769,7 +2526,6 @@
                 "label": "18:30",
                 "text": "18:30",
                 "data": "",
-,
                 "value": 1830,
                 "isValueNumber":true,
                 "disabled": false
@@ -2779,7 +2535,6 @@
                 "label": "18:40",
                 "text": "18:40",
                 "data": "",
-,
                 "value": 1840,
                 "isValueNumber":true,
                 "disabled": false
@@ -2789,7 +2544,6 @@
                 "label": "18:50",
                 "text": "18:50",
                 "data": "",
-,
                 "value": 1850,
                 "isValueNumber":true,
                 "disabled": false
@@ -2799,7 +2553,6 @@
                 "label": "19:00",
                 "text": "19:00",
                 "data": "",
-,
                 "value": 1900,
                 "isValueNumber":true,
                 "disabled": false
@@ -2809,7 +2562,6 @@
                 "label": "19:10",
                 "text": "19:10",
                 "data": "",
-,
                 "value": 1910,
                 "isValueNumber":true,
                 "disabled": false
@@ -2819,7 +2571,6 @@
                 "label": "19:20",
                 "text": "19:20",
                 "data": "",
-,
                 "value": 1920,
                 "isValueNumber":true,
                 "disabled": false
@@ -2829,7 +2580,6 @@
                 "label": "19:30",
                 "text": "19:30",
                 "data": "",
-,
                 "value": 1930,
                 "isValueNumber":true,
                 "disabled": false
@@ -2839,7 +2589,6 @@
                 "label": "19:40",
                 "text": "19:40",
                 "data": "",
-,
                 "value": 1940,
                 "isValueNumber":true,
                 "disabled": false
@@ -2849,7 +2598,6 @@
                 "label": "19:50",
                 "text": "19:50",
                 "data": "",
-,
                 "value": 1950,
                 "isValueNumber":true,
                 "disabled": false
@@ -2859,7 +2607,6 @@
                 "label": "20:00",
                 "text": "20:00",
                 "data": "",
-,
                 "value": 2000,
                 "isValueNumber":true,
                 "disabled": false
@@ -2869,7 +2616,6 @@
                 "label": "20:10",
                 "text": "20:10",
                 "data": "",
-,
                 "value": 2010,
                 "isValueNumber":true,
                 "disabled": false
@@ -2879,7 +2625,6 @@
                 "label": "20:20",
                 "text": "20:20",
                 "data": "",
-,
                 "value": 2020,
                 "isValueNumber":true,
                 "disabled": false
@@ -2889,7 +2634,6 @@
                 "label": "20:30",
                 "text": "20:30",
                 "data": "",
-,
                 "value": 2030,
                 "isValueNumber":true,
                 "disabled": false
@@ -2899,7 +2643,6 @@
                 "label": "20:40",
                 "text": "20:40",
                 "data": "",
-,
                 "value": 2040,
                 "isValueNumber":true,
                 "disabled": false
@@ -2909,7 +2652,6 @@
                 "label": "20:50",
                 "text": "20:50",
                 "data": "",
-,
                 "value": 2050,
                 "isValueNumber":true,
                 "disabled": false
@@ -2919,7 +2661,6 @@
                 "label": "21:00",
                 "text": "21:00",
                 "data": "",
-,
                 "value": 2100,
                 "isValueNumber":true,
                 "disabled": false
@@ -2929,7 +2670,6 @@
                 "label": "21:10",
                 "text": "21:10",
                 "data": "",
-,
                 "value": 2110,
                 "isValueNumber":true,
                 "disabled": false
@@ -2939,7 +2679,6 @@
                 "label": "21:20",
                 "text": "21:20",
                 "data": "",
-,
                 "value": 2120,
                 "isValueNumber":true,
                 "disabled": false
@@ -2949,7 +2688,6 @@
                 "label": "21:30",
                 "text": "21:30",
                 "data": "",
-,
                 "value": 2130,
                 "isValueNumber":true,
                 "disabled": false
@@ -2959,7 +2697,6 @@
                 "label": "21:40",
                 "text": "21:40",
                 "data": "",
-,
                 "value": 2140,
                 "isValueNumber":true,
                 "disabled": false
@@ -2969,7 +2706,6 @@
                 "label": "21:50",
                 "text": "21:50",
                 "data": "",
-,
                 "value": 2150,
                 "isValueNumber":true,
                 "disabled": false
@@ -2979,7 +2715,6 @@
                 "label": "22:00",
                 "text": "22:00",
                 "data": "",
-,
                 "value": 2200,
                 "isValueNumber":true,
                 "disabled": false
@@ -2989,7 +2724,6 @@
                 "label": "22:10",
                 "text": "22:10",
                 "data": "",
-,
                 "value": 2210,
                 "isValueNumber":true,
                 "disabled": false
@@ -2999,7 +2733,6 @@
                 "label": "22:20",
                 "text": "22:20",
                 "data": "",
-,
                 "value": 2220,
                 "isValueNumber":true,
                 "disabled": false
@@ -3009,7 +2742,6 @@
                 "label": "22:30",
                 "text": "22:30",
                 "data": "",
-,
                 "value": 2230,
                 "isValueNumber":true,
                 "disabled": false
@@ -3019,7 +2751,6 @@
                 "label": "22:40",
                 "text": "22:40",
                 "data": "",
-,
                 "value": 2240,
                 "isValueNumber":true,
                 "disabled": false
@@ -3029,7 +2760,6 @@
                 "label": "22:50",
                 "text": "22:50",
                 "data": "",
-,
                 "value": 2250,
                 "isValueNumber":true,
                 "disabled": false
@@ -3039,7 +2769,6 @@
                 "label": "23:00",
                 "text": "23:00",
                 "data": "",
-,
                 "value": 2300,
                 "isValueNumber":true,
                 "disabled": false
@@ -3049,7 +2778,6 @@
                 "label": "23:10",
                 "text": "23:10",
                 "data": "",
-,
                 "value": 2310,
                 "isValueNumber":true,
                 "disabled": false
@@ -3059,7 +2787,6 @@
                 "label": "23:20",
                 "text": "23:20",
                 "data": "",
-,
                 "value": 2320,
                 "isValueNumber":true,
                 "disabled": false
@@ -3069,7 +2796,6 @@
                 "label": "23:30",
                 "text": "23:30",
                 "data": "",
-,
                 "value": 2330,
                 "isValueNumber":true,
                 "disabled": false
@@ -3079,7 +2805,6 @@
                 "label": "23:40",
                 "text": "23:40",
                 "data": "",
-,
                 "value": 2340,
                 "isValueNumber":true,
                 "disabled": false
@@ -3089,7 +2814,6 @@
                 "label": "23:50",
                 "text": "23:50",
                 "data": "",
-,
                 "value": 2350,
                 "isValueNumber":true,
                 "disabled": false
@@ -3106,7 +2830,6 @@
                 "label": "代码错误",
                 "text": "代码错误",
                 "data": "",
-,
                 "value": "codeerror",
                 "isValueNumber":false,
                 "disabled": false
@@ -3116,7 +2839,6 @@
                 "label": "配置相关",
                 "text": "配置相关",
                 "data": "",
-,
                 "value": "config",
                 "isValueNumber":false,
                 "disabled": false
@@ -3126,7 +2848,6 @@
                 "label": "安装部署",
                 "text": "安装部署",
                 "data": "",
-,
                 "value": "install",
                 "isValueNumber":false,
                 "disabled": false
@@ -3136,7 +2857,6 @@
                 "label": "安全相关",
                 "text": "安全相关",
                 "data": "",
-,
                 "value": "security",
                 "isValueNumber":false,
                 "disabled": false
@@ -3146,7 +2866,6 @@
                 "label": "性能问题",
                 "text": "性能问题",
                 "data": "",
-,
                 "value": "performance",
                 "isValueNumber":false,
                 "disabled": false
@@ -3156,7 +2875,6 @@
                 "label": "标准规范",
                 "text": "标准规范",
                 "data": "",
-,
                 "value": "standard",
                 "isValueNumber":false,
                 "disabled": false
@@ -3166,7 +2884,6 @@
                 "label": "测试脚本",
                 "text": "测试脚本",
                 "data": "",
-,
                 "value": "automation",
                 "isValueNumber":false,
                 "disabled": false
@@ -3176,7 +2893,6 @@
                 "label": "设计缺陷",
                 "text": "设计缺陷",
                 "data": "",
-,
                 "value": "designdefect",
                 "isValueNumber":false,
                 "disabled": false
@@ -3186,7 +2902,6 @@
                 "label": "其他",
                 "text": "其他",
                 "data": "",
-,
                 "value": "others",
                 "isValueNumber":false,
                 "disabled": false
@@ -3203,7 +2918,6 @@
                 "label": "项目团队",
                 "text": "项目团队",
                 "data": "",
-,
                 "value": "project",
                 "isValueNumber":false,
                 "disabled": false
@@ -3213,7 +2927,6 @@
                 "label": "任务团队",
                 "text": "任务团队",
                 "data": "",
-,
                 "value": "task",
                 "isValueNumber":false,
                 "disabled": false
@@ -3230,7 +2943,6 @@
                 "label": "一星期",
                 "text": "一星期",
                 "data": "",
-,
                 "value": "7",
                 "isValueNumber":false,
                 "disabled": false
@@ -3240,7 +2952,6 @@
                 "label": "两星期",
                 "text": "两星期",
                 "data": "",
-,
                 "value": "14",
                 "isValueNumber":false,
                 "disabled": false
@@ -3250,7 +2961,6 @@
                 "label": "一个月",
                 "text": "一个月",
                 "data": "",
-,
                 "value": "31",
                 "isValueNumber":false,
                 "disabled": false
@@ -3260,7 +2970,6 @@
                 "label": "两个月",
                 "text": "两个月",
                 "data": "",
-,
                 "value": "62",
                 "isValueNumber":false,
                 "disabled": false
@@ -3270,7 +2979,6 @@
                 "label": "三个月",
                 "text": "三个月",
                 "data": "",
-,
                 "value": "93",
                 "isValueNumber":false,
                 "disabled": false
@@ -3280,7 +2988,6 @@
                 "label": "半年",
                 "text": "半年",
                 "data": "",
-,
                 "value": "186",
                 "isValueNumber":false,
                 "disabled": false
@@ -3290,7 +2997,6 @@
                 "label": "一年",
                 "text": "一年",
                 "data": "",
-,
                 "value": "365",
                 "isValueNumber":false,
                 "disabled": false
@@ -3307,7 +3013,6 @@
                 "label": "未开始",
                 "text": "未开始",
                 "data": "",
-,
                 "value": "wait",
                 "isValueNumber":false,
                 "disabled": false
@@ -3317,7 +3022,6 @@
                 "label": "正常",
                 "text": "正常",
                 "data": "",
-,
                 "value": "normal",
                 "isValueNumber":false,
                 "color": "rgba(84, 238, 19, 1)",
@@ -3328,7 +3032,6 @@
                 "label": "被阻塞",
                 "text": "被阻塞",
                 "data": "",
-,
                 "value": "blocked",
                 "isValueNumber":false,
                 "color": "rgba(230, 242, 3, 0.97)",
@@ -3339,7 +3042,6 @@
                 "label": "研究中",
                 "text": "研究中",
                 "data": "",
-,
                 "value": "investigate",
                 "isValueNumber":false,
                 "color": "rgba(245, 12, 12, 1)",
@@ -3350,7 +3052,6 @@
                 "label": "已完成",
                 "text": "已完成",
                 "data": "",
-,
                 "value": "done",
                 "isValueNumber":false,
                 "disabled": false
@@ -3360,7 +3061,6 @@
                 "label": "需求变更",
                 "text": "需求变更",
                 "data": "",
-,
                 "value": "storychange",
                 "isValueNumber":false,
                 "color": "rgba(254, 8, 8, 1)",
@@ -3371,7 +3071,6 @@
                 "label": "原用例更新",
                 "text": "原用例更新",
                 "data": "",
-,
                 "value": "casechange",
                 "isValueNumber":false,
                 "color": "rgba(247, 31, 7, 1)",
@@ -3389,7 +3088,6 @@
                 "label": "创建",
                 "text": "创建",
                 "data": "",
-,
                 "value": "created",
                 "isValueNumber":false,
                 "disabled": false
@@ -3399,7 +3097,6 @@
                 "label": "创建",
                 "text": "创建",
                 "data": "",
-,
                 "value": "opened",
                 "isValueNumber":false,
                 "disabled": false
@@ -3409,7 +3106,6 @@
                 "label": "变更了",
                 "text": "变更了",
                 "data": "",
-,
                 "value": "changed",
                 "isValueNumber":false,
                 "disabled": false
@@ -3419,7 +3115,6 @@
                 "label": "编辑了",
                 "text": "编辑了",
                 "data": "",
-,
                 "value": "edited",
                 "isValueNumber":false,
                 "disabled": false
@@ -3429,7 +3124,6 @@
                 "label": "指派了",
                 "text": "指派了",
                 "data": "",
-,
                 "value": "assigned",
                 "isValueNumber":false,
                 "disabled": false
@@ -3439,7 +3133,6 @@
                 "label": "关闭了",
                 "text": "关闭了",
                 "data": "",
-,
                 "value": "closed",
                 "isValueNumber":false,
                 "disabled": false
@@ -3449,7 +3142,6 @@
                 "label": "删除了",
                 "text": "删除了",
                 "data": "",
-,
                 "value": "deleted",
                 "isValueNumber":false,
                 "disabled": false
@@ -3459,7 +3151,6 @@
                 "label": "删除附件",
                 "text": "删除附件",
                 "data": "",
-,
                 "value": "deletedfile",
                 "isValueNumber":false,
                 "disabled": false
@@ -3469,7 +3160,6 @@
                 "label": "编辑附件",
                 "text": "编辑附件",
                 "data": "",
-,
                 "value": "editfile",
                 "isValueNumber":false,
                 "disabled": false
@@ -3479,7 +3169,6 @@
                 "label": "删除了",
                 "text": "删除了",
                 "data": "",
-,
                 "value": "erased",
                 "isValueNumber":false,
                 "disabled": false
@@ -3489,7 +3178,6 @@
                 "label": "还原了",
                 "text": "还原了",
                 "data": "",
-,
                 "value": "undeleted",
                 "isValueNumber":false,
                 "disabled": false
@@ -3499,7 +3187,6 @@
                 "label": "隐藏了",
                 "text": "隐藏了",
                 "data": "",
-,
                 "value": "hidden",
                 "isValueNumber":false,
                 "disabled": false
@@ -3509,7 +3196,6 @@
                 "label": "评论了",
                 "text": "评论了",
                 "data": "",
-,
                 "value": "commented",
                 "isValueNumber":false,
                 "disabled": false
@@ -3519,7 +3205,6 @@
                 "label": "激活了",
                 "text": "激活了",
                 "data": "",
-,
                 "value": "activated",
                 "isValueNumber":false,
                 "disabled": false
@@ -3529,7 +3214,6 @@
                 "label": "阻塞了",
                 "text": "阻塞了",
                 "data": "",
-,
                 "value": "blocked",
                 "isValueNumber":false,
                 "disabled": false
@@ -3539,7 +3223,6 @@
                 "label": "解决了",
                 "text": "解决了",
                 "data": "",
-,
                 "value": "resolved",
                 "isValueNumber":false,
                 "disabled": false
@@ -3549,7 +3232,6 @@
                 "label": "评审了",
                 "text": "评审了",
                 "data": "",
-,
                 "value": "reviewed",
                 "isValueNumber":false,
                 "disabled": false
@@ -3559,7 +3241,6 @@
                 "label": "移动了",
                 "text": "移动了",
                 "data": "",
-,
                 "value": "moved",
                 "isValueNumber":false,
                 "disabled": false
@@ -3569,7 +3250,6 @@
                 "label": "确认了需求",
                 "text": "确认了需求",
                 "data": "",
-,
                 "value": "confirmed",
                 "isValueNumber":false,
                 "disabled": false
@@ -3579,7 +3259,6 @@
                 "label": "确认了",
                 "text": "确认了",
                 "data": "",
-,
                 "value": "bugconfirmed",
                 "isValueNumber":false,
                 "disabled": false
@@ -3589,7 +3268,6 @@
                 "label": "转需求",
                 "text": "转需求",
                 "data": "",
-,
                 "value": "tostory",
                 "isValueNumber":false,
                 "disabled": false
@@ -3599,7 +3277,6 @@
                 "label": "转需求",
                 "text": "转需求",
                 "data": "",
-,
                 "value": "frombug",
                 "isValueNumber":false,
                 "disabled": false
@@ -3609,7 +3286,6 @@
                 "label": "从用例库导入",
                 "text": "从用例库导入",
                 "data": "",
-,
                 "value": "fromlib",
                 "isValueNumber":false,
                 "disabled": false
@@ -3619,7 +3295,6 @@
                 "label": "转任务",
                 "text": "转任务",
                 "data": "",
-,
                 "value": "totask",
                 "isValueNumber":false,
                 "disabled": false
@@ -3629,7 +3304,6 @@
                 "label": "提交代码",
                 "text": "提交代码",
                 "data": "",
-,
                 "value": "svncommited",
                 "isValueNumber":false,
                 "disabled": false
@@ -3639,7 +3313,6 @@
                 "label": "提交代码",
                 "text": "提交代码",
                 "data": "",
-,
                 "value": "gitcommited",
                 "isValueNumber":false,
                 "disabled": false
@@ -3649,7 +3322,6 @@
                 "label": "关联计划",
                 "text": "关联计划",
                 "data": "",
-,
                 "value": "linked2plan",
                 "isValueNumber":false,
                 "disabled": false
@@ -3659,7 +3331,6 @@
                 "label": "移除计划",
                 "text": "移除计划",
                 "data": "",
-,
                 "value": "unlinkedfromplan",
                 "isValueNumber":false,
                 "disabled": false
@@ -3669,7 +3340,6 @@
                 "label": "修改状态",
                 "text": "修改状态",
                 "data": "",
-,
                 "value": "changestatus",
                 "isValueNumber":false,
                 "disabled": false
@@ -3679,7 +3349,6 @@
                 "label": "编辑了",
                 "text": "编辑了",
                 "data": "",
-,
                 "value": "marked",
                 "isValueNumber":false,
                 "disabled": false
@@ -3689,7 +3358,6 @@
                 "label": "关联项目",
                 "text": "关联项目",
                 "data": "",
-,
                 "value": "linked2project",
                 "isValueNumber":false,
                 "disabled": false
@@ -3699,7 +3367,6 @@
                 "label": "移除项目",
                 "text": "移除项目",
                 "data": "",
-,
                 "value": "unlinkedfromproject",
                 "isValueNumber":false,
                 "disabled": false
@@ -3709,7 +3376,6 @@
                 "label": "移除版本",
                 "text": "移除版本",
                 "data": "",
-,
                 "value": "unlinkedfrombuild",
                 "isValueNumber":false,
                 "disabled": false
@@ -3719,7 +3385,6 @@
                 "label": "关联发布",
                 "text": "关联发布",
                 "data": "",
-,
                 "value": "linked2release",
                 "isValueNumber":false,
                 "disabled": false
@@ -3729,7 +3394,6 @@
                 "label": "移除发布",
                 "text": "移除发布",
                 "data": "",
-,
                 "value": "unlinkedfromrelease",
                 "isValueNumber":false,
                 "disabled": false
@@ -3739,7 +3403,6 @@
                 "label": "关联了相关Bug",
                 "text": "关联了相关Bug",
                 "data": "",
-,
                 "value": "linkrelatedbug",
                 "isValueNumber":false,
                 "disabled": false
@@ -3749,7 +3412,6 @@
                 "label": "移除了相关Bug",
                 "text": "移除了相关Bug",
                 "data": "",
-,
                 "value": "unlinkrelatedbug",
                 "isValueNumber":false,
                 "disabled": false
@@ -3759,7 +3421,6 @@
                 "label": "关联了相关用例",
                 "text": "关联了相关用例",
                 "data": "",
-,
                 "value": "linkrelatedcase",
                 "isValueNumber":false,
                 "disabled": false
@@ -3769,7 +3430,6 @@
                 "label": "移除了相关用例",
                 "text": "移除了相关用例",
                 "data": "",
-,
                 "value": "unlinkrelatedcase",
                 "isValueNumber":false,
                 "disabled": false
@@ -3779,7 +3439,6 @@
                 "label": "关联了相关需求",
                 "text": "关联了相关需求",
                 "data": "",
-,
                 "value": "linkrelatedstory",
                 "isValueNumber":false,
                 "disabled": false
@@ -3789,7 +3448,6 @@
                 "label": "移除了相关需求",
                 "text": "移除了相关需求",
                 "data": "",
-,
                 "value": "unlinkrelatedstory",
                 "isValueNumber":false,
                 "disabled": false
@@ -3799,7 +3457,6 @@
                 "label": "细分了需求",
                 "text": "细分了需求",
                 "data": "",
-,
                 "value": "subdividestory",
                 "isValueNumber":false,
                 "disabled": false
@@ -3809,7 +3466,6 @@
                 "label": "移除了细分需求",
                 "text": "移除了细分需求",
                 "data": "",
-,
                 "value": "unlinkchildstory",
                 "isValueNumber":false,
                 "disabled": false
@@ -3819,7 +3475,6 @@
                 "label": "开始了",
                 "text": "开始了",
                 "data": "",
-,
                 "value": "started",
                 "isValueNumber":false,
                 "disabled": false
@@ -3829,7 +3484,6 @@
                 "label": "继续了",
                 "text": "继续了",
                 "data": "",
-,
                 "value": "restarted",
                 "isValueNumber":false,
                 "disabled": false
@@ -3839,7 +3493,6 @@
                 "label": "记录了工时",
                 "text": "记录了工时",
                 "data": "",
-,
                 "value": "recordestimate",
                 "isValueNumber":false,
                 "disabled": false
@@ -3849,7 +3502,6 @@
                 "label": "编辑了工时",
                 "text": "编辑了工时",
                 "data": "",
-,
                 "value": "editestimate",
                 "isValueNumber":false,
                 "disabled": false
@@ -3859,7 +3511,6 @@
                 "label": "取消了",
                 "text": "取消了",
                 "data": "",
-,
                 "value": "canceled",
                 "isValueNumber":false,
                 "disabled": false
@@ -3869,7 +3520,6 @@
                 "label": "完成了",
                 "text": "完成了",
                 "data": "",
-,
                 "value": "finished",
                 "isValueNumber":false,
                 "disabled": false
@@ -3879,7 +3529,6 @@
                 "label": "暂停了",
                 "text": "暂停了",
                 "data": "",
-,
                 "value": "paused",
                 "isValueNumber":false,
                 "disabled": false
@@ -3889,7 +3538,6 @@
                 "label": "验收了",
                 "text": "验收了",
                 "data": "",
-,
                 "value": "verified",
                 "isValueNumber":false,
                 "disabled": false
@@ -3899,7 +3547,6 @@
                 "label": "延期",
                 "text": "延期",
                 "data": "",
-,
                 "value": "delayed",
                 "isValueNumber":false,
                 "disabled": false
@@ -3909,7 +3556,6 @@
                 "label": "挂起",
                 "text": "挂起",
                 "data": "",
-,
                 "value": "suspended",
                 "isValueNumber":false,
                 "disabled": false
@@ -3919,7 +3565,6 @@
                 "label": "登录系统",
                 "text": "登录系统",
                 "data": "",
-,
                 "value": "login",
                 "isValueNumber":false,
                 "disabled": false
@@ -3929,7 +3574,6 @@
                 "label": "退出登录",
                 "text": "退出登录",
                 "data": "",
-,
                 "value": "logout",
                 "isValueNumber":false,
                 "disabled": false
@@ -3939,7 +3583,6 @@
                 "label": "删除了工时",
                 "text": "删除了工时",
                 "data": "",
-,
                 "value": "deleteestimate",
                 "isValueNumber":false,
                 "disabled": false
@@ -3949,7 +3592,6 @@
                 "label": "关联了",
                 "text": "关联了",
                 "data": "",
-,
                 "value": "linked2build",
                 "isValueNumber":false,
                 "disabled": false
@@ -3959,7 +3601,6 @@
                 "label": "关联了",
                 "text": "关联了",
                 "data": "",
-,
                 "value": "linked2bug",
                 "isValueNumber":false,
                 "disabled": false
@@ -3969,7 +3610,6 @@
                 "label": "关联子任务",
                 "text": "关联子任务",
                 "data": "",
-,
                 "value": "linkchildtask",
                 "isValueNumber":false,
                 "disabled": false
@@ -3979,7 +3619,6 @@
                 "label": "取消关联子任务",
                 "text": "取消关联子任务",
                 "data": "",
-,
                 "value": "unlinkchildrentask",
                 "isValueNumber":false,
                 "disabled": false
@@ -3989,7 +3628,6 @@
                 "label": "关联到父任务",
                 "text": "关联到父任务",
                 "data": "",
-,
                 "value": "linkparenttask",
                 "isValueNumber":false,
                 "disabled": false
@@ -3999,7 +3637,6 @@
                 "label": "从父任务取消关联",
                 "text": "从父任务取消关联",
                 "data": "",
-,
                 "value": "unlinkparenttask",
                 "isValueNumber":false,
                 "disabled": false
@@ -4009,7 +3646,6 @@
                 "label": "批量创建任务",
                 "text": "批量创建任务",
                 "data": "",
-,
                 "value": "batchcreate",
                 "isValueNumber":false,
                 "disabled": false
@@ -4019,7 +3655,6 @@
                 "label": "创建子任务",
                 "text": "创建子任务",
                 "data": "",
-,
                 "value": "createchildren",
                 "isValueNumber":false,
                 "disabled": false
@@ -4029,7 +3664,6 @@
                 "label": "维护",
                 "text": "维护",
                 "data": "",
-,
                 "value": "managed",
                 "isValueNumber":false,
                 "disabled": false
@@ -4039,7 +3673,6 @@
                 "label": "删除子任务",
                 "text": "删除子任务",
                 "data": "",
-,
                 "value": "deletechildrentask",
                 "isValueNumber":false,
                 "disabled": false
@@ -4049,7 +3682,6 @@
                 "label": "创建子需求",
                 "text": "创建子需求",
                 "data": "",
-,
                 "value": "createchildrenstory",
                 "isValueNumber":false,
                 "disabled": false
@@ -4059,7 +3691,6 @@
                 "label": "关联子需求",
                 "text": "关联子需求",
                 "data": "",
-,
                 "value": "linkchildstory",
                 "isValueNumber":false,
                 "disabled": false
@@ -4069,7 +3700,6 @@
                 "label": "取消关联子需求",
                 "text": "取消关联子需求",
                 "data": "",
-,
                 "value": "unlinkchildrenstory",
                 "isValueNumber":false,
                 "disabled": false
@@ -4079,7 +3709,6 @@
                 "label": "关联到父需求",
                 "text": "关联到父需求",
                 "data": "",
-,
                 "value": "linkparentstory",
                 "isValueNumber":false,
                 "disabled": false
@@ -4089,7 +3718,6 @@
                 "label": "从父需求取消关联",
                 "text": "从父需求取消关联",
                 "data": "",
-,
                 "value": "unlinkparentstory",
                 "isValueNumber":false,
                 "disabled": false
@@ -4099,7 +3727,6 @@
                 "label": "删除子需求",
                 "text": "删除子需求",
                 "data": "",
-,
                 "value": "deletechildrenstory",
                 "isValueNumber":false,
                 "disabled": false
@@ -4124,7 +3751,6 @@
                 "label": "产品",
                 "text": "产品",
                 "data": "",
-,
                 "value": "product",
                 "isValueNumber":false,
                 "disabled": false
@@ -4134,7 +3760,6 @@
                 "label": "需求",
                 "text": "需求",
                 "data": "",
-,
                 "value": "story",
                 "isValueNumber":false,
                 "disabled": false
@@ -4144,7 +3769,6 @@
                 "label": "计划",
                 "text": "计划",
                 "data": "",
-,
                 "value": "productplan",
                 "isValueNumber":false,
                 "disabled": false
@@ -4154,7 +3778,6 @@
                 "label": "发布",
                 "text": "发布",
                 "data": "",
-,
                 "value": "release",
                 "isValueNumber":false,
                 "disabled": false
@@ -4164,7 +3787,6 @@
                 "label": "项目",
                 "text": "项目",
                 "data": "",
-,
                 "value": "project",
                 "isValueNumber":false,
                 "disabled": false
@@ -4174,7 +3796,6 @@
                 "label": "任务",
                 "text": "任务",
                 "data": "",
-,
                 "value": "task",
                 "isValueNumber":false,
                 "disabled": false
@@ -4184,7 +3805,6 @@
                 "label": "版本",
                 "text": "版本",
                 "data": "",
-,
                 "value": "build",
                 "isValueNumber":false,
                 "disabled": false
@@ -4194,7 +3814,6 @@
                 "label": "Bug",
                 "text": "Bug",
                 "data": "",
-,
                 "value": "bug",
                 "isValueNumber":false,
                 "disabled": false
@@ -4204,7 +3823,6 @@
                 "label": "用例",
                 "text": "用例",
                 "data": "",
-,
                 "value": "case",
                 "isValueNumber":false,
                 "disabled": false
@@ -4214,7 +3832,6 @@
                 "label": "用例结果",
                 "text": "用例结果",
                 "data": "",
-,
                 "value": "caseresult",
                 "isValueNumber":false,
                 "disabled": false
@@ -4224,7 +3841,6 @@
                 "label": "用例步骤",
                 "text": "用例步骤",
                 "data": "",
-,
                 "value": "stepresult",
                 "isValueNumber":false,
                 "disabled": false
@@ -4234,7 +3850,6 @@
                 "label": "测试单",
                 "text": "测试单",
                 "data": "",
-,
                 "value": "testtask",
                 "isValueNumber":false,
                 "disabled": false
@@ -4244,7 +3859,6 @@
                 "label": "用户",
                 "text": "用户",
                 "data": "",
-,
                 "value": "user",
                 "isValueNumber":false,
                 "disabled": false
@@ -4254,7 +3868,6 @@
                 "label": "文档",
                 "text": "文档",
                 "data": "",
-,
                 "value": "doc",
                 "isValueNumber":false,
                 "disabled": false
@@ -4264,7 +3877,6 @@
                 "label": "文档库",
                 "text": "文档库",
                 "data": "",
-,
                 "value": "doclib",
                 "isValueNumber":false,
                 "disabled": false
@@ -4274,7 +3886,6 @@
                 "label": "待办",
                 "text": "待办",
                 "data": "",
-,
                 "value": "todo",
                 "isValueNumber":false,
                 "disabled": false
@@ -4284,7 +3895,6 @@
                 "label": "分支",
                 "text": "分支",
                 "data": "",
-,
                 "value": "branch",
                 "isValueNumber":false,
                 "disabled": false
@@ -4294,7 +3904,6 @@
                 "label": "模块",
                 "text": "模块",
                 "data": "",
-,
                 "value": "module",
                 "isValueNumber":false,
                 "disabled": false
@@ -4304,7 +3913,6 @@
                 "label": "套件",
                 "text": "套件",
                 "data": "",
-,
                 "value": "testsuite",
                 "isValueNumber":false,
                 "disabled": false
@@ -4314,7 +3922,6 @@
                 "label": "用例库",
                 "text": "用例库",
                 "data": "",
-,
                 "value": "caselib",
                 "isValueNumber":false,
                 "disabled": false
@@ -4324,7 +3931,6 @@
                 "label": "报告",
                 "text": "报告",
                 "data": "",
-,
                 "value": "testreport",
                 "isValueNumber":false,
                 "disabled": false
@@ -4334,7 +3940,6 @@
                 "label": "应用",
                 "text": "应用",
                 "data": "",
-,
                 "value": "entry",
                 "isValueNumber":false,
                 "disabled": false
@@ -4344,7 +3949,6 @@
                 "label": "Webhook",
                 "text": "Webhook",
                 "data": "",
-,
                 "value": "webhook",
                 "isValueNumber":false,
                 "disabled": false
@@ -4361,7 +3965,6 @@
                 "label": "1",
                 "text": "1",
                 "data": "",
-,
                 "value": 1,
                 "isValueNumber":true,
                 "iconcls":"fa fa-bomb",
@@ -4374,7 +3977,6 @@
                 "label": "2",
                 "text": "2",
                 "data": "",
-,
                 "value": 2,
                 "isValueNumber":true,
                 "color": "rgba(197, 26, 26, 1)",
@@ -4386,7 +3988,6 @@
                 "label": "3",
                 "text": "3",
                 "data": "",
-,
                 "value": 3,
                 "isValueNumber":true,
                 "iconcls":"fa fa-sort-amount-asc",
@@ -4399,7 +4000,6 @@
                 "label": "4",
                 "text": "4",
                 "data": "",
-,
                 "value": 4,
                 "isValueNumber":true,
                 "color": "rgba(94, 231, 3, 1)",
@@ -4418,7 +4018,6 @@
                 "label": "正常",
                 "text": "正常",
                 "data": "",
-,
                 "value": "normal",
                 "isValueNumber":false,
                 "color": "rgba(13, 255, 0, 1)",
@@ -4429,7 +4028,6 @@
                 "label": "停止维护",
                 "text": "停止维护",
                 "data": "",
-,
                 "value": "terminate",
                 "isValueNumber":false,
                 "disabled": false
@@ -4446,7 +4044,6 @@
                 "label": "自定义",
                 "text": "自定义",
                 "data": "",
-,
                 "value": "custom",
                 "isValueNumber":false,
                 "disabled": false
@@ -4456,7 +4053,6 @@
                 "label": "Bug",
                 "text": "Bug",
                 "data": "",
-,
                 "value": "bug",
                 "isValueNumber":false,
                 "disabled": false
@@ -4466,7 +4062,6 @@
                 "label": "项目任务",
                 "text": "项目任务",
                 "data": "",
-,
                 "value": "task",
                 "isValueNumber":false,
                 "disabled": false
@@ -4476,7 +4071,6 @@
                 "label": "项目需求",
                 "text": "项目需求",
                 "data": "",
-,
                 "value": "story",
                 "isValueNumber":false,
                 "disabled": false
@@ -4493,7 +4087,6 @@
                 "label": "已完成",
                 "text": "已完成",
                 "data": "",
-,
                 "value": "done",
                 "isValueNumber":false,
                 "disabled": false
@@ -4503,7 +4096,6 @@
                 "label": "已取消",
                 "text": "已取消",
                 "data": "",
-,
                 "value": "cancel",
                 "isValueNumber":false,
                 "disabled": false
@@ -4528,7 +4120,6 @@
                 "label": "1",
                 "text": "1",
                 "data": "",
-,
                 "value": 1,
                 "isValueNumber":true,
                 "iconcls":"radio-button-off",
@@ -4540,7 +4131,6 @@
                 "label": "2",
                 "text": "2",
                 "data": "",
-,
                 "value": 2,
                 "isValueNumber":true,
                 "iconcls":"radio-button-off",
@@ -4552,7 +4142,6 @@
                 "label": "3",
                 "text": "3",
                 "data": "",
-,
                 "value": 3,
                 "isValueNumber":true,
                 "iconcls":"radio-button-off",
@@ -4564,7 +4153,6 @@
                 "label": "4",
                 "text": "4",
                 "data": "",
-,
                 "value": 4,
                 "isValueNumber":true,
                 "iconcls":"radio-button-off",
@@ -4583,7 +4171,6 @@
                 "label": "功能测试",
                 "text": "功能测试",
                 "data": "",
-,
                 "value": "feature",
                 "isValueNumber":false,
                 "disabled": false
@@ -4593,7 +4180,6 @@
                 "label": "性能测试",
                 "text": "性能测试",
                 "data": "",
-,
                 "value": "performance",
                 "isValueNumber":false,
                 "disabled": false
@@ -4603,7 +4189,6 @@
                 "label": "配置相关",
                 "text": "配置相关",
                 "data": "",
-,
                 "value": "config",
                 "isValueNumber":false,
                 "disabled": false
@@ -4613,7 +4198,6 @@
                 "label": "安装部署",
                 "text": "安装部署",
                 "data": "",
-,
                 "value": "install",
                 "isValueNumber":false,
                 "disabled": false
@@ -4623,7 +4207,6 @@
                 "label": "安全相关",
                 "text": "安全相关",
                 "data": "",
-,
                 "value": "security",
                 "isValueNumber":false,
                 "disabled": false
@@ -4633,7 +4216,6 @@
                 "label": "接口测试",
                 "text": "接口测试",
                 "data": "",
-,
                 "value": "interface",
                 "isValueNumber":false,
                 "disabled": false
@@ -4643,7 +4225,6 @@
                 "label": "单元测试",
                 "text": "单元测试",
                 "data": "",
-,
                 "value": "unit",
                 "isValueNumber":false,
                 "disabled": false
@@ -4653,7 +4234,6 @@
                 "label": "其他",
                 "text": "其他",
                 "data": "",
-,
                 "value": "other",
                 "isValueNumber":false,
                 "disabled": false
@@ -4670,7 +4250,6 @@
                 "label": "未开始",
                 "text": "未开始",
                 "data": "",
-,
                 "value": "wait",
                 "isValueNumber":false,
                 "disabled": false
@@ -4680,7 +4259,6 @@
                 "label": "已计划",
                 "text": "已计划",
                 "data": "",
-,
                 "value": "planned",
                 "isValueNumber":false,
                 "disabled": false
@@ -4690,7 +4268,6 @@
                 "label": "已立项",
                 "text": "已立项",
                 "data": "",
-,
                 "value": "projected",
                 "isValueNumber":false,
                 "disabled": false
@@ -4700,7 +4277,6 @@
                 "label": "研发中",
                 "text": "研发中",
                 "data": "",
-,
                 "value": "developing",
                 "isValueNumber":false,
                 "disabled": false
@@ -4710,7 +4286,6 @@
                 "label": "研发完毕",
                 "text": "研发完毕",
                 "data": "",
-,
                 "value": "developed",
                 "isValueNumber":false,
                 "disabled": false
@@ -4720,7 +4295,6 @@
                 "label": "测试中",
                 "text": "测试中",
                 "data": "",
-,
                 "value": "testing",
                 "isValueNumber":false,
                 "disabled": false
@@ -4730,7 +4304,6 @@
                 "label": "测试完毕",
                 "text": "测试完毕",
                 "data": "",
-,
                 "value": "tested",
                 "isValueNumber":false,
                 "disabled": false
@@ -4740,7 +4313,6 @@
                 "label": "已验收",
                 "text": "已验收",
                 "data": "",
-,
                 "value": "verified",
                 "isValueNumber":false,
                 "disabled": false
@@ -4750,7 +4322,6 @@
                 "label": "已发布",
                 "text": "已发布",
                 "data": "",
-,
                 "value": "released",
                 "isValueNumber":false,
                 "disabled": false
@@ -4760,7 +4331,6 @@
                 "label": "已关闭",
                 "text": "已关闭",
                 "data": "",
-,
                 "value": "closed",
                 "isValueNumber":false,
                 "disabled": false
@@ -4785,7 +4355,6 @@
                 "label": "忽略",
                 "text": "忽略",
                 "data": "",
-,
                 "value": "n/a",
                 "isValueNumber":false,
                 "disabled": false
@@ -4795,7 +4364,6 @@
                 "label": "通过",
                 "text": "通过",
                 "data": "",
-,
                 "value": "pass",
                 "isValueNumber":false,
                 "color": "rgba(126, 222, 16, 1)",
@@ -4806,7 +4374,6 @@
                 "label": "失败",
                 "text": "失败",
                 "data": "",
-,
                 "value": "fail",
                 "isValueNumber":false,
                 "color": "rgba(238, 18, 18, 1)",
@@ -4817,7 +4384,6 @@
                 "label": "阻塞",
                 "text": "阻塞",
                 "data": "",
-,
                 "value": "blocked",
                 "isValueNumber":false,
                 "color": "rgba(220, 224, 12, 1)",
@@ -4835,7 +4401,6 @@
                 "label": "客户",
                 "text": "客户",
                 "data": "",
-,
                 "value": "customer",
                 "isValueNumber":false,
                 "disabled": false
@@ -4845,7 +4410,6 @@
                 "label": "用户",
                 "text": "用户",
                 "data": "",
-,
                 "value": "user",
                 "isValueNumber":false,
                 "disabled": false
@@ -4855,7 +4419,6 @@
                 "label": "产品经理",
                 "text": "产品经理",
                 "data": "",
-,
                 "value": "po",
                 "isValueNumber":false,
                 "disabled": false
@@ -4865,7 +4428,6 @@
                 "label": "市场",
                 "text": "市场",
                 "data": "",
-,
                 "value": "market",
                 "isValueNumber":false,
                 "disabled": false
@@ -4875,7 +4437,6 @@
                 "label": "客服",
                 "text": "客服",
                 "data": "",
-,
                 "value": "service",
                 "isValueNumber":false,
                 "disabled": false
@@ -4885,7 +4446,6 @@
                 "label": "运营",
                 "text": "运营",
                 "data": "",
-,
                 "value": "operation",
                 "isValueNumber":false,
                 "disabled": false
@@ -4895,7 +4455,6 @@
                 "label": "技术支持",
                 "text": "技术支持",
                 "data": "",
-,
                 "value": "support",
                 "isValueNumber":false,
                 "disabled": false
@@ -4905,7 +4464,6 @@
                 "label": "竞争对手",
                 "text": "竞争对手",
                 "data": "",
-,
                 "value": "competitor",
                 "isValueNumber":false,
                 "disabled": false
@@ -4915,7 +4473,6 @@
                 "label": "合作伙伴",
                 "text": "合作伙伴",
                 "data": "",
-,
                 "value": "partner",
                 "isValueNumber":false,
                 "disabled": false
@@ -4925,7 +4482,6 @@
                 "label": "开发人员",
                 "text": "开发人员",
                 "data": "",
-,
                 "value": "dev",
                 "isValueNumber":false,
                 "disabled": false
@@ -4935,7 +4491,6 @@
                 "label": "测试人员",
                 "text": "测试人员",
                 "data": "",
-,
                 "value": "tester",
                 "isValueNumber":false,
                 "disabled": false
@@ -4945,7 +4500,6 @@
                 "label": "Bug",
                 "text": "Bug",
                 "data": "",
-,
                 "value": "bug",
                 "isValueNumber":false,
                 "disabled": false
@@ -4955,7 +4509,6 @@
                 "label": "论坛",
                 "text": "论坛",
                 "data": "",
-,
                 "value": "forum",
                 "isValueNumber":false,
                 "disabled": false
@@ -4965,7 +4518,6 @@
                 "label": "其它",
                 "text": "其它",
                 "data": "",
-,
                 "value": "other",
                 "isValueNumber":false,
                 "disabled": false
@@ -4975,7 +4527,6 @@
                 "label": "iBiz",
                 "text": "iBiz",
                 "data": "",
-,
                 "value": "iBiz",
                 "isValueNumber":false,
                 "disabled": false
@@ -4992,7 +4543,6 @@
                 "label": "1",
                 "text": "1",
                 "data": "",
-,
                 "value": 1,
                 "isValueNumber":true,
                 "className":"text-red-border-color",
@@ -5003,7 +4553,6 @@
                 "label": "2",
                 "text": "2",
                 "data": "",
-,
                 "value": 2,
                 "isValueNumber":true,
                 "className":"text-pink-border-color",
@@ -5014,7 +4563,6 @@
                 "label": "3",
                 "text": "3",
                 "data": "",
-,
                 "value": 3,
                 "isValueNumber":true,
                 "className":"text-blue-border-color",
@@ -5025,7 +4573,6 @@
                 "label": "4",
                 "text": "4",
                 "data": "",
-,
                 "value": 4,
                 "isValueNumber":true,
                 "className":"text-green-border-color",
@@ -5043,7 +4590,6 @@
                 "label": "忽略",
                 "text": "忽略",
                 "data": "",
-,
                 "value": "n/a",
                 "isValueNumber":false,
                 "color": "rgba(190, 184, 184, 1)",
@@ -5054,7 +4600,6 @@
                 "label": "通过",
                 "text": "通过",
                 "data": "",
-,
                 "value": "pass",
                 "isValueNumber":false,
                 "color": "rgba(93, 238, 9, 1)",
@@ -5065,7 +4610,6 @@
                 "label": "失败",
                 "text": "失败",
                 "data": "",
-,
                 "value": "fail",
                 "isValueNumber":false,
                 "color": "rgba(251, 12, 12, 1)",
@@ -5076,7 +4620,6 @@
                 "label": "阻塞",
                 "text": "阻塞",
                 "data": "",
-,
                 "value": "blocked",
                 "isValueNumber":false,
                 "color": "rgba(228, 15, 15, 1)",
@@ -5102,7 +4645,6 @@
                 "label": "1",
                 "text": "1",
                 "data": "",
-,
                 "value": 1,
                 "isValueNumber":true,
                 "className":"text-red-border-color",
@@ -5113,7 +4655,6 @@
                 "label": "2",
                 "text": "2",
                 "data": "",
-,
                 "value": 2,
                 "isValueNumber":true,
                 "className":"text-pink-border-color",
@@ -5124,7 +4665,6 @@
                 "label": "3",
                 "text": "3",
                 "data": "",
-,
                 "value": 3,
                 "isValueNumber":true,
                 "className":"text-blue-border-color",
@@ -5135,7 +4675,6 @@
                 "label": "4",
                 "text": "4",
                 "data": "",
-,
                 "value": 4,
                 "isValueNumber":true,
                 "className":"text-green-border-color",
@@ -5153,7 +4692,6 @@
                 "label": "设计如此",
                 "text": "设计如此",
                 "data": "",
-,
                 "value": "bydesign",
                 "isValueNumber":false,
                 "disabled": false
@@ -5163,7 +4701,6 @@
                 "label": "重复Bug",
                 "text": "重复Bug",
                 "data": "",
-,
                 "value": "duplicate",
                 "isValueNumber":false,
                 "disabled": false
@@ -5173,7 +4710,6 @@
                 "label": "外部原因",
                 "text": "外部原因",
                 "data": "",
-,
                 "value": "external",
                 "isValueNumber":false,
                 "disabled": false
@@ -5183,7 +4719,6 @@
                 "label": "已解决",
                 "text": "已解决",
                 "data": "",
-,
                 "value": "fixed",
                 "isValueNumber":false,
                 "disabled": false
@@ -5193,7 +4728,6 @@
                 "label": "无法重现",
                 "text": "无法重现",
                 "data": "",
-,
                 "value": "notrepro",
                 "isValueNumber":false,
                 "disabled": false
@@ -5203,7 +4737,6 @@
                 "label": "延期处理",
                 "text": "延期处理",
                 "data": "",
-,
                 "value": "postponed",
                 "isValueNumber":false,
                 "disabled": false
@@ -5213,7 +4746,6 @@
                 "label": "不予解决",
                 "text": "不予解决",
                 "data": "",
-,
                 "value": "willnotfix",
                 "isValueNumber":false,
                 "disabled": false
@@ -5223,7 +4755,6 @@
                 "label": "转为需求",
                 "text": "转为需求",
                 "data": "",
-,
                 "value": "tostory",
                 "isValueNumber":false,
                 "disabled": false
@@ -5240,7 +4771,6 @@
                 "label": "未开始",
                 "text": "未开始",
                 "data": "",
-,
                 "value": "wait",
                 "isValueNumber":false,
                 "color": "rgba(220, 214, 214, 1)",
@@ -5251,7 +4781,6 @@
                 "label": "进行中",
                 "text": "进行中",
                 "data": "",
-,
                 "value": "doing",
                 "isValueNumber":false,
                 "color": "rgba(208, 20, 20, 1)",
@@ -5262,7 +4791,6 @@
                 "label": "已完成",
                 "text": "已完成",
                 "data": "",
-,
                 "value": "done",
                 "isValueNumber":false,
                 "color": "rgba(30, 234, 12, 1)",
@@ -5273,7 +4801,6 @@
                 "label": "被阻塞",
                 "text": "被阻塞",
                 "data": "",
-,
                 "value": "blocked",
                 "isValueNumber":false,
                 "color": "rgba(221, 217, 10, 1)",

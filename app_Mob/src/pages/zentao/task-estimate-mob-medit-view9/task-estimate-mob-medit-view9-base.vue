@@ -333,7 +333,6 @@ export default class TaskEstimateMobMEditView9Base extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-        this.loadQuickGroupModel();
 
     }
 

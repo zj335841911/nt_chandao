@@ -435,7 +435,6 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-        this.loadQuickGroupModel();
 
     }
 
