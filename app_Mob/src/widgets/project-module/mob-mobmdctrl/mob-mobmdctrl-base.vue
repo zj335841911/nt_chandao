@@ -16,7 +16,6 @@
                             <app-icon-list :item="item" v-if="controlStyle === 'ICONVIEW'"></app-icon-list>
                         </ion-item>
                     </ion-item-sliding>
-                    <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn" @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                 </template>
             </ion-list>
             <ion-list class="items">
@@ -34,7 +33,6 @@
                             <app-icon-list :item="item" v-if="controlStyle === 'ICONVIEW'"></app-icon-list>
                         </ion-item>                      
                       </ion-item-sliding>
-                    <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn" @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                 </template>
                 <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
                 </template>

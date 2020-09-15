@@ -640,6 +640,15 @@ export default class TaskEstimateMobMDView9Base extends Vue {
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
 
+   /**
+     * 能否上拉加载
+     *
+     * @type {boolean}
+     * @memberof TaskEstimateMobMDView9Base
+     */ 
+    @Prop({ default: true }) public isEnablePullUp?: boolean;
+
+
     /**
      * 分类值
      *

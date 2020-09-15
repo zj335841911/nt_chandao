@@ -761,6 +761,15 @@ export default class BugPlanMobMDView9Base extends Vue {
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
 
+   /**
+     * 能否上拉加载
+     *
+     * @type {boolean}
+     * @memberof BugPlanMobMDView9Base
+     */ 
+    @Prop({ default: true }) public isEnablePullUp?: boolean;
+
+
     /**
      * 分类值
      *

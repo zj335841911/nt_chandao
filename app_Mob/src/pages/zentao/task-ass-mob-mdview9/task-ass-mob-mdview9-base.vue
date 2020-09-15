@@ -713,6 +713,15 @@ export default class TaskAssMobMDView9Base extends Vue {
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
 
+   /**
+     * 能否上拉加载
+     *
+     * @type {boolean}
+     * @memberof TaskAssMobMDView9Base
+     */ 
+    @Prop({ default: true }) public isEnablePullUp?: boolean;
+
+
     /**
      * 分类值
      *
