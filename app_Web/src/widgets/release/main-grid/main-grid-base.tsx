@@ -236,6 +236,34 @@ export class MainGridBase extends GridControlBase {
     }
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_ubae305a_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ReleaseUIService  = new ReleaseUIService();
+        curUIService.Release_OneEdit(datas,contextJO, paramJO,  $event, xData,this,"Release");
+    }
+
+    /**
      * 刷新
      *
      * @param {any[]} args 当前数据
@@ -268,7 +296,8 @@ export class MainGridBase extends GridControlBase {
         active: { name: 'active',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_ACTIVE', actiontarget: 'SINGLEKEY'},
         terminal: { name: 'terminal',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_TERMINATE', actiontarget: 'SINGLEKEY'},
         quickEdit: { name: 'quickEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'},
-        remove: { name: 'remove',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'}
+        remove: { name: 'remove',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'},
+        OneEdit: { name: 'OneEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -455,6 +484,9 @@ export class MainGridBase extends GridControlBase {
         }
         if(Object.is('remove', tag)) {
             this.grid_uagridcolumn1_u04119fb_click(row, tag, $event);
+        }
+        if(Object.is('OneEdit', tag)) {
+            this.grid_uagridcolumn1_ubae305a_click(row, tag, $event);
         }
     }
 

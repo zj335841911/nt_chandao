@@ -18,8 +18,17 @@ export default {
     branch: "平台/分支",
     productname: "产品名称",
     files: "附件",
+    backgroundid: "后台服务标识",
+    sqlid: "数据库标识",
+    frontapplication: "前端应用标识",
+    rebuild: "重新构建",
+    releasetype: "发布类型",
   },
 	views: {
+		optionview: {
+			caption: "发布",
+      		title: "发布选项操作视图",
+		},
 		maininfoview: {
 			caption: "发布",
       		title: "发布编辑视图",
@@ -96,6 +105,26 @@ export default {
 		uiactions: {
 		},
 	},
+	onerelease_form: {
+		details: {
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "ID", 
+			srfmajortext: "发布名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			releasetype: "发布类型", 
+			backgroundid: "后台服务标识", 
+			frontapplication: "前端应用标识", 
+			sqlid: "数据库标识", 
+			rebuild: "重新构建", 
+			id: "ID", 
+		},
+		uiactions: {
+		},
+	},
 	quickcreate_form: {
 		details: {
 			grouppanel1: "分组面板", 
@@ -139,6 +168,7 @@ export default {
         release_terminal: "停止维护",
         release_quickedit: "编辑",
         release_remove: "删除",
+        release_oneedit: "发布",
 		},
 	},
 	editviewtoolbar_toolbar: {

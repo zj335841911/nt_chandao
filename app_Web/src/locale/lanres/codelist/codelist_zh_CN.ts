@@ -20,6 +20,13 @@ export default {
         "bydesign": "设计如此",
         "empty": "",
     },
+    RELEASE_rebuild: {
+        "None": "无操作",
+        "Quick": "快速（删除本地项目与代码仓库多余文件）",
+        "FixModel": "修复模型",
+        "Full": "完整（完全重建本地项目及代码仓库）",
+        "empty": "",
+    },
     Task__color: {
         "#3da7f5": "#3da7f5",
         "#75c941": "#75c941",
@@ -108,6 +115,10 @@ export default {
         "2": "2",
         "3": "3",
         "4": "4",
+        "empty": "",
+    },
+    RELEASE_Type: {
+        "PUBCODE": "代码发布",
         "empty": "",
     },
     Bug__browser: {

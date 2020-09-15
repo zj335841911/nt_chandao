@@ -221,6 +221,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0f44800c5178aa53932ef08d0fc88590',
+            viewmodule: 'zentao',
+            viewname: 'ReleaseOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '103bc77ad54de2476db1d4e9c788cd4e',
             viewmodule: 'zentao',
             viewname: 'ProjectTaskTreeExpView',
@@ -2249,6 +2258,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '0f44800c5178aa53932ef08d0fc88590',
                 'ed51615a22255e84a3b276815ef5c96e',
                 'ceb630b252aac50781a373e0bef90eb2',
                 '9ddace1c12afee8da3f0254a05ba141a',

@@ -269,6 +269,16 @@
         "viewtag": "0f3dff62ef8bcb1662cc82e57a34c56b",
         "memo": ""
     },
+    "releaseoptionview": {
+        "title": "发布选项操作视图",
+        "caption": "发布",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ReleaseOptionView",
+        "viewfilename": "release-option-view",
+        "viewtag": "0f44800c5178aa53932ef08d0fc88590",
+        "memo": ""
+    },
     "projecttasktreeexpview": {
         "title": "项目任务导航视图",
         "caption": "项目",

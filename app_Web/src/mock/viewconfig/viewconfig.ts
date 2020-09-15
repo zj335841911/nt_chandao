@@ -223,6 +223,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzMyTerritoryTabExpView",
             "viewtag": "0f3dff62ef8bcb1662cc82e57a34c56b"
         },
+        "releaseoptionview": {
+            "title": "发布选项操作视图",
+            "caption": "发布",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ReleaseOptionView",
+            "viewtag": "0f44800c5178aa53932ef08d0fc88590"
+        },
         "projecttasktreeexpview": {
             "title": "项目任务导航视图",
             "caption": "项目",

@@ -153,6 +153,53 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "RELEASE_rebuild",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "None",
+                label: "无操作",
+                text: "无操作",
+                "data":"",
+                "codename":"None",
+                value: "None",
+                
+                disabled: false,
+            },
+            {
+                id: "Quick",
+                label: "快速（删除本地项目与代码仓库多余文件）",
+                text: "快速（删除本地项目与代码仓库多余文件）",
+                "data":"",
+                "codename":"Quick",
+                value: "Quick",
+                
+                disabled: false,
+            },
+            {
+                id: "FixModel",
+                label: "修复模型",
+                text: "修复模型",
+                "data":"",
+                "codename":"Fixmodel",
+                value: "FixModel",
+                
+                disabled: false,
+            },
+            {
+                id: "Full",
+                label: "完整（完全重建本地项目及代码仓库）",
+                text: "完整（完全重建本地项目及代码仓库）",
+                "data":"",
+                "codename":"Full",
+                value: "Full",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Task__color",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -737,6 +784,23 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Item_4",
                 value: 4,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "RELEASE_Type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "PUBCODE",
+                label: "代码发布",
+                text: "代码发布",
+                "data":"",
+                "codename":"Pubcode",
+                value: "PUBCODE",
                 
                 disabled: false,
             },

@@ -10992,6 +10992,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-cur-project-wgrid-view/story-cur-project-wgrid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/releases/:release?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.release.views.optionview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'releases', parameterName: 'release' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/release-option-view/release-option-view.vue'),
+                },
+                {
+                    path: 'releases/:release?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.release.views.optionview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'releases', parameterName: 'release' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/release-option-view/release-option-view.vue'),
+                },
+                {
                     path: 'actions/:action?/myalltrendslistview/:myalltrendslistview?',
                     meta: {
                         caption: 'entities.action.views.myalltrendslistview.caption',

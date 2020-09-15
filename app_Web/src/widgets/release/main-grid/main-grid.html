@@ -140,6 +140,11 @@
                             <i class='fa fa-remove'></i>
                             
                           </a>
+                          <divider v-show="scope.row.OneEdit.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.OneEdit.visabled" :disabled="scope.row.OneEdit.disabled" @click="uiAction(scope.row, 'OneEdit', $event)" :title="$t('entities.release.main_grid.uiactions.release_oneedit')">
+                            <i class='fa fa-play-circle-o'></i>
+                            
+                          </a>
                         </div>
                     </template>
                 </el-table-column>
