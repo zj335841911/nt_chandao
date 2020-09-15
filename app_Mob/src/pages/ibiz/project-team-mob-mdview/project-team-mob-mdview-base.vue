@@ -591,7 +591,6 @@ export default class ProjectTeamMobMDViewBase extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *

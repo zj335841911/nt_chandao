@@ -736,7 +736,6 @@ export default class TestTaskMobMDViewBase extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *

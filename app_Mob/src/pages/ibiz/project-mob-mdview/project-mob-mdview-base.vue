@@ -811,7 +811,6 @@ export default class ProjectMobMDViewBase extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *

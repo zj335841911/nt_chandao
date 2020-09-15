@@ -753,7 +753,6 @@ export default class BugAssMoreMobMDViewBase extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *

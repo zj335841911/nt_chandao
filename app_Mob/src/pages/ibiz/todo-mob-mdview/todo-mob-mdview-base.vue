@@ -771,7 +771,6 @@ export default class TodoMobMDViewBase extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *

@@ -813,7 +813,6 @@ export default class ReleaseMobMDViewBase extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *

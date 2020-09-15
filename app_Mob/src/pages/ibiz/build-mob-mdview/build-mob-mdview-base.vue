@@ -736,7 +736,6 @@ export default class BuildMobMDViewBase extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *

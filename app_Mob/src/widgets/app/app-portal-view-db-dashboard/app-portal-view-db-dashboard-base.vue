@@ -1,7 +1,7 @@
 <template>
     <ion-grid class="app-mob-dashboard  ">
         <div v-show="isEnableCustomized" class="dashboard-enableCustomized" @click="openCustomized">定制仪表盘<ion-icon name="settings-outline"></ion-icon></div>
-            <div class="dashboard-item" v-if="!isEnableCustomized">
+            <ion-card class="dashboard-item" v-if="!isEnableCustomized">
             <view_db_appmenu1
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -11,8 +11,8 @@
     ref='db_appmenu1' 
     @closeview="closeView($event)">
 </view_db_appmenu1>
-            </div>
-            <div class="dashboard-item" v-if="!isEnableCustomized">
+            </ion-card>
+            <ion-card class="dashboard-item" v-if="!isEnableCustomized">
             <view_db_appmenu2
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -22,8 +22,8 @@
     ref='db_appmenu2' 
     @closeview="closeView($event)">
 </view_db_appmenu2>
-            </div>
-            <div class="dashboard-item" v-if="!isEnableCustomized">
+            </ion-card>
+            <ion-card class="dashboard-item" v-if="!isEnableCustomized">
             <view_db_appmenu3
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -33,7 +33,7 @@
     ref='db_appmenu3' 
     @closeview="closeView($event)">
 </view_db_appmenu3>
-            </div>
+            </ion-card>
             <template v-for="item in customizeModel">
                 <ion-card class="dashboard-item ios hydrated" :class="item.componentName + 'dashboard'"  :key="item.id" v-if="isEnableCustomized">
                     <component :is="item.componentName" :item="item" :isCustomize="true" :customizeTitle="item.customizeTitle" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams" @enableCustomizedEvent="enableCustomizedEvent"></component>

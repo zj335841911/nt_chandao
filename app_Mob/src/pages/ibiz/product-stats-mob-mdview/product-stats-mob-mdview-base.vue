@@ -722,7 +722,6 @@ export default class ProductStatsMobMDViewBase extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *

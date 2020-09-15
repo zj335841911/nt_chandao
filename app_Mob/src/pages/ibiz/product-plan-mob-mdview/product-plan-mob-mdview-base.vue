@@ -813,7 +813,6 @@ export default class ProductPlanMobMDViewBase extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *

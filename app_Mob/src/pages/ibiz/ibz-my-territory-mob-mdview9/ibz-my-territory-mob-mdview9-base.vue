@@ -638,7 +638,6 @@ export default class IbzMyTerritoryMobMDView9Base extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *

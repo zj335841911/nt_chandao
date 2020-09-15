@@ -758,7 +758,6 @@ export default class BugMobMDViewBase extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *

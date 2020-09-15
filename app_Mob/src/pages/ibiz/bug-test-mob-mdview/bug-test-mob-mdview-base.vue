@@ -845,7 +845,6 @@ export default class BugTestMobMDViewBase extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *

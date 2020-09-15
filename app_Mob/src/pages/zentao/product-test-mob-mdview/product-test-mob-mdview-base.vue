@@ -710,7 +710,6 @@ export default class ProductTestMobMDViewBase extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *

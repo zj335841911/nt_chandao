@@ -649,7 +649,6 @@ export default class TaskEstimateMobMDViewBase extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *

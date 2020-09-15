@@ -811,7 +811,6 @@ export default class ProductMobMDViewBase extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *

@@ -700,7 +700,6 @@ export default class StoryMobMDView9Base extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *

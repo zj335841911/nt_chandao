@@ -638,7 +638,6 @@ export default class ActionMobMDView9Base extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *

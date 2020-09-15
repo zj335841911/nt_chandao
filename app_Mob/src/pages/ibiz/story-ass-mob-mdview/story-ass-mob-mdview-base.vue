@@ -647,7 +647,6 @@ export default class StoryAssMobMDViewBase extends Vue {
         }
     }
 
-
    /**
      * 是否单选
      *

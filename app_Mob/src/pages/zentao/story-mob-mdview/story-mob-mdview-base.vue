@@ -813,7 +813,6 @@ export default class StoryMobMDViewBase extends Vue {
             }
         }
     }
-
    /**
      * 是否单选
      *

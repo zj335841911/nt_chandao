@@ -684,7 +684,6 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
         }
     }
 
-
    /**
      * 是否单选
      *

@@ -1,7 +1,7 @@
 <template>
     <ion-grid class="app-mob-dashboard ibzmyterritory-dashboard ">
         <div v-show="isEnableCustomized" class="dashboard-enableCustomized" @click="openCustomized">定制仪表盘<ion-icon name="settings-outline"></ion-icon></div>
-            <div class="dashboard-item" v-if="!isEnableCustomized">
+            <ion-card class="dashboard-item" v-if="!isEnableCustomized">
             <view_dashboard_sysportlet1
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
@@ -11,8 +11,8 @@
     ref='dashboard_sysportlet1' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet1>
-            </div>
-            <div class="dashboard-item" v-if="!isEnableCustomized">
+            </ion-card>
+            <ion-card class="dashboard-item" v-if="!isEnableCustomized">
             <view_dashboard_sysportlet2
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
@@ -22,8 +22,8 @@
     ref='dashboard_sysportlet2' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet2>
-            </div>
-            <div class="dashboard-item" v-if="!isEnableCustomized">
+            </ion-card>
+            <ion-card class="dashboard-item" v-if="!isEnableCustomized">
             <view_dashboard_sysportlet3
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
@@ -33,8 +33,8 @@
     ref='dashboard_sysportlet3' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet3>
-            </div>
-            <div class="dashboard-item" v-if="!isEnableCustomized">
+            </ion-card>
+            <ion-card class="dashboard-item" v-if="!isEnableCustomized">
             <view_dashboard_sysportlet5
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
@@ -44,8 +44,8 @@
     ref='dashboard_sysportlet5' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet5>
-            </div>
-            <div class="dashboard-item" v-if="!isEnableCustomized">
+            </ion-card>
+            <ion-card class="dashboard-item" v-if="!isEnableCustomized">
             <view_dashboard_sysportlet4
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
@@ -55,8 +55,8 @@
     ref='dashboard_sysportlet4' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet4>
-            </div>
-            <div class="dashboard-item" v-if="!isEnableCustomized">
+            </ion-card>
+            <ion-card class="dashboard-item" v-if="!isEnableCustomized">
             <view_dashboard_sysportlet6
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
@@ -66,8 +66,8 @@
     ref='dashboard_sysportlet6' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet6>
-            </div>
-            <div class="dashboard-item" v-if="!isEnableCustomized">
+            </ion-card>
+            <ion-card class="dashboard-item" v-if="!isEnableCustomized">
             <view_dashboard_sysportlet7
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
@@ -77,8 +77,8 @@
     ref='dashboard_sysportlet7' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet7>
-            </div>
-            <div class="dashboard-item" v-if="!isEnableCustomized">
+            </ion-card>
+            <ion-card class="dashboard-item" v-if="!isEnableCustomized">
             <view_dashboard_sysportlet8
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
@@ -88,8 +88,8 @@
     ref='dashboard_sysportlet8' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet8>
-            </div>
-            <div class="dashboard-item" v-if="!isEnableCustomized">
+            </ion-card>
+            <ion-card class="dashboard-item" v-if="!isEnableCustomized">
             <view_dashboard_sysportlet9
     :viewState="viewState"
     viewName="IbzMyTerritoryMobDashboardView"  
@@ -99,7 +99,7 @@
     ref='dashboard_sysportlet9' 
     @closeview="closeView($event)">
 </view_dashboard_sysportlet9>
-            </div>
+            </ion-card>
             <template v-for="item in customizeModel">
                 <ion-card class="dashboard-item ios hydrated" :class="item.componentName + 'dashboard'"  :key="item.id" v-if="isEnableCustomized">
                     <component :is="item.componentName" :item="item" :isCustomize="true" :customizeTitle="item.customizeTitle" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams" @enableCustomizedEvent="enableCustomizedEvent"></component>
