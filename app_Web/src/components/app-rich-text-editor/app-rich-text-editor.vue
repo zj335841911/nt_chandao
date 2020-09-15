@@ -1,6 +1,13 @@
 <template>
     <div :class="editorClass">
         <textarea :id="id"></textarea>
+        <div class="select-person" :style="[personPosi,{visibility: showSelect}]">
+            <ul class="person-wrap">
+                <li class="row" v-for="(item,index) in items" :key="index" @click="selectPerson(item)">
+                    {{item.text}}
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 <script lang = 'ts'>
@@ -23,6 +30,7 @@ import 'tinymce/plugins/fullscreen';
 import 'tinymce/plugins/preview';
 import 'tinymce/plugins/fullscreen';
 import 'tinymce/icons/default/icons.min.js';
+import CodeListService from '@/service/app/codelist-service';
 
 const tinymceCode:any = tinymce;
 
@@ -30,6 +38,54 @@ const tinymceCode:any = tinymce;
 
 @Component({})
 export default class AppRichTextEditor extends Vue {
+
+    /**
+     * 人员列表是否显示
+     * 
+     * @type {string}
+     * @memberof AppRichTextEditor
+     */
+    public showSelect: string = 'hidden';
+
+    /**
+     * 人员列表数据集
+     * 
+     * @type {Array<any>}
+     * @memberof AppRichTextEditor
+     */
+    public items: Array<any> = [];
+
+    /**
+     * 代码表服务对象
+     *
+     * @type {CodeListService}
+     * @memberof AppCheckBox
+     */  
+    public codeListService:CodeListService = new CodeListService({ $store: this.$store });
+
+    /**
+     * 人员列表显示位置
+     * 
+     * @type {*}
+     * @memberof AppRichTextEditor
+     */
+    public personPosi: any = {};
+
+    /**
+     * 富文本编辑区域光标信息
+     * 
+     * @type {*}
+     * @memberof AppRichTextEditor
+     */
+    public lastSelection: any = {};
+
+    /**
+     * "@"符号计数器
+     * 
+     * @type {*}
+     * @memberof AppRichTextEditor
+     */
+    public atNumber:number = 0;
 
     /**
      * 传入值
@@ -224,6 +280,8 @@ export default class AppRichTextEditor extends Vue {
                 }
             });
         }
+        //在富文本外部点击时关闭人员列表
+        window.addEventListener("click", this.onClick);
     }
     
     /**
@@ -255,6 +313,7 @@ export default class AppRichTextEditor extends Vue {
      */
     public mounted() {
         this.init();
+        this.readyUserItems()
         const ele: any = this.isDrawer(this.$el);
         if(ele) {
             let index: number = ele.style.transform.indexOf('translateX');
@@ -375,6 +434,43 @@ export default class AppRichTextEditor extends Vue {
                     }
                     richtexteditor.$emit('change', content);
                 });
+
+                //在富文本区域鼠标点击时关闭人员列表
+                editor.on('click',(e: any)=>{
+                    richtexteditor.showSelect = 'hidden';
+                })
+
+                //监听键盘输入@符号和删除键
+                editor.on('keydown',(event: any)=>{
+                    if(!richtexteditor.items || richtexteditor.items.length === 0) {
+                        return;
+                    }
+                    let selection: any = editor.selection;
+                    if(event.code == "Digit2" && event.shiftKey){
+                        //保存富文本编辑器光标信息
+                        richtexteditor.lastSelection = {
+                            range: selection.getRng(),
+                            selection: selection.getSel()
+                        }
+                        richtexteditor.showSelectList();
+                    }else if(event.keyCode === 8){
+                        //删除@时删除整个@xxxx
+                        let range:any = selection.getRng();
+                        let removeNode:any = null;
+                        if (range.startContainer.textContent.length === 1 && range.startContainer.textContent.trim() === '') {
+                            removeNode = range.startContainer.previousElementSibling;
+                        }
+                        if (range.startContainer.parentNode.className === 'at-text') {
+                            removeNode = range.startContainer.parentNode;
+                        }
+                        if (removeNode) {
+                            richtexteditor.editor.dom.remove(removeNode.id);
+                        }
+                        richtexteditor.showSelect = 'hidden';
+                    }else{
+                        richtexteditor.showSelect = 'hidden';
+                    }
+                })
             },
             images_upload_handler: (bolbinfo: any, success: any, failure: any) => {
                 const formData = new FormData();
@@ -426,6 +522,87 @@ export default class AppRichTextEditor extends Vue {
                 }
             }
         });
+    }
+
+    /**
+     * 监听"@"符号输入后，计算人员列表框出现位置
+     * 
+     * @memberof AppRichTextEditor
+     */
+    public showSelectList(){
+        this.showSelect = 'visible';
+        this.atNumber++;
+        let fakeNode: any = document.createElement('span');
+        fakeNode.className = 'fake-at';
+        fakeNode.innerHTML = '&nbsp';
+        fakeNode.id = 'fake-at'+this.atNumber;
+        this.lastSelection.range.insertNode(fakeNode);
+        this.lastSelection.selection.collapse(fakeNode,1);
+        //获取光标位置，编辑区域宽高，列表宽高
+        const elePos: any = this.editor.dom.getPos('fake-at'+this.atNumber);
+        const parent: any = this.$el.getElementsByClassName('tox-edit-area__iframe')[0];
+        const parentW = parent.offsetWidth;
+        const parentH = parent.offsetHeight;
+        const child: any = this.$el.getElementsByClassName('select-person')[0];
+        const childW = child.offsetWidth;
+        const childH = child.offsetHeight;
+        //默认位置
+        let left:number = 30;
+        let top:number = 120;
+        left = elePos.x-8+left;
+        top = elePos.y-16+top;
+        //计算偏移位置超出编辑区域时的位置
+        if(elePos.x+childW > parentW){
+            left = left - childW;
+        }else if(elePos.y+childH > parentH){
+            top = top - childH;
+        }
+        this.personPosi = {
+            left: left+'px',
+            top: top+'px'
+        };
+    }
+
+    /**
+     * 点击"@"的人员时，&nbsp必须单独放入一个span中，用于区分输入区域
+     * 
+     * @param $event 选中人员数据
+     * @memberof AppRichTextEditor
+     */
+    public selectPerson($event: any){
+        this.showSelect = 'hidden';
+        let selection = this.lastSelection.selection;
+        let range = this.lastSelection.range;
+        let spanNode1: any= document.createElement('span');
+        let spanNode2: any = document.createElement('span');
+        spanNode1.className = 'at-text';
+        spanNode1.innerHTML = '@' + $event.text;
+        spanNode1.id = 'at-text'+this.atNumber;
+        spanNode1.userId = $event.value;
+        spanNode1.style = 'color: #108cee;';
+        spanNode2.innerHTML = '&nbsp';
+        // 将生成内容打包放在 Fragment 中，并获取生成内容的最后一个节点，也就是空格。
+        let frag = document.createDocumentFragment(),
+            node, lastNode
+        frag.appendChild(spanNode1)
+        while ((node = spanNode2.firstChild)) {
+            lastNode = frag.appendChild(node)
+        }
+        // 将 Fragment 中的内容放入 range 中，并将光标放在空格之后。
+        range.insertNode(frag)
+        selection.collapse(lastNode, 1)
+        //删除输入@时创建的节点
+        this.editor.dom.remove('fake-at'+this.atNumber);
+        selection.collapseToEnd()
+    }
+
+    /**
+     * 点击富文本外部区域时关闭列表
+     * 
+     * @memberof AppRichTextEditor
+     */
+    public onClick(){
+         this.showSelect = 'hidden';
     }
 
     /**
@@ -492,6 +669,19 @@ export default class AppRichTextEditor extends Vue {
             })
         }
     }
+
+    /**
+     *获取上传，导出参数
+     *
+     *@memberof AppRichTextEditor
+     */
+    public readyUserItems() {
+        this.codeListService.getItems('UserRealName', JSON.parse(JSON.stringify(this.context))).then((res:any) => {
+            this.items = res;
+        }).catch((error:any) => {
+            
+        })
+    }
 }
 </script>
 <style lang="less">
@@ -518,5 +708,27 @@ export default class AppRichTextEditor extends Vue {
 }
 .tox-menu {
     min-width: 300px !important;
+}
+.select-person{
+    max-width: 120px;
+    max-height: 150px;
+    position: absolute;
+    padding: 10px;
+    border: 1px solid #c1c6cc;
+    background-color: #fff;
+    z-index: 10000;
+    overflow: auto;
+    border-radius: 4px;
+    .person-wrap{
+        padding: 0;
+        margin: 0;
+        .row{
+            line-height: 24px;
+            list-style: none;
+        }
+        .row:hover{
+            background: #C9DBF2;
+        }
+    }
 }
 </style>
