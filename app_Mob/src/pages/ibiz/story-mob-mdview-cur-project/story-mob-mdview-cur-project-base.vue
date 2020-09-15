@@ -759,6 +759,7 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
             }
         }
     }
+
    /**
      * 是否单选
      *
@@ -886,8 +887,6 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
         }
       }
     }
-
-
 
 
 

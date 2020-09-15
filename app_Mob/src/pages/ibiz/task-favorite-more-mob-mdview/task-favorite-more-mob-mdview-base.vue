@@ -743,6 +743,7 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
             }
         }
     }
+
    /**
      * 是否单选
      *
@@ -870,8 +871,6 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
         }
       }
     }
-
-
 
 
 

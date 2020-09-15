@@ -631,6 +631,7 @@ export default class TaskTeamMobMDView9Base extends Vue {
             }
         }
     }
+
    /**
      * 是否单选
      *
@@ -757,8 +758,6 @@ export default class TaskTeamMobMDView9Base extends Vue {
         }
       }
     }
-
-
 
 
 

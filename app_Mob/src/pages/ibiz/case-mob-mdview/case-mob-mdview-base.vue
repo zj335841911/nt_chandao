@@ -748,6 +748,7 @@ export default class CaseMobMDViewBase extends Vue {
             }
         }
     }
+
    /**
      * 是否单选
      *
@@ -875,8 +876,6 @@ export default class CaseMobMDViewBase extends Vue {
         }
       }
     }
-
-
 
 
 

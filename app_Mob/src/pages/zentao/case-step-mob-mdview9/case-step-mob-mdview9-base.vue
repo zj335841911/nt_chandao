@@ -634,6 +634,7 @@ export default class CaseStepMobMDView9Base extends Vue {
             }
         }
     }
+
    /**
      * 是否单选
      *
@@ -760,8 +761,6 @@ export default class CaseStepMobMDView9Base extends Vue {
         }
       }
     }
-
-
 
 
 

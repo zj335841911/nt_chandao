@@ -699,6 +699,7 @@ export default class BugAssMobMDView9Base extends Vue {
      */
     @Prop() public formDruipart !: Subject<ViewState>;
 
+
    /**
      * 是否单选
      *
@@ -825,8 +826,6 @@ export default class BugAssMobMDView9Base extends Vue {
         }
       }
     }
-
-
 
 
 

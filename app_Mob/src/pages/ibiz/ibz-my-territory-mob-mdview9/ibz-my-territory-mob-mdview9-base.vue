@@ -638,6 +638,7 @@ export default class IbzMyTerritoryMobMDView9Base extends Vue {
             }
         }
     }
+
    /**
      * 是否单选
      *
@@ -764,8 +765,6 @@ export default class IbzMyTerritoryMobMDView9Base extends Vue {
         }
       }
     }
-
-
 
 
 

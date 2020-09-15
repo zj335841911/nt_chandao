@@ -813,6 +813,7 @@ export default class ReleaseMobMDViewBase extends Vue {
             }
         }
     }
+
    /**
      * 是否单选
      *
@@ -940,8 +941,6 @@ export default class ReleaseMobMDViewBase extends Vue {
         }
       }
     }
-
-
 
 
 

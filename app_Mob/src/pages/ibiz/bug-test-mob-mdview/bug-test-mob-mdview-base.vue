@@ -845,6 +845,7 @@ export default class BugTestMobMDViewBase extends Vue {
             }
         }
     }
+
    /**
      * 是否单选
      *
@@ -972,8 +973,6 @@ export default class BugTestMobMDViewBase extends Vue {
         }
       }
     }
-
-
 
 
 
