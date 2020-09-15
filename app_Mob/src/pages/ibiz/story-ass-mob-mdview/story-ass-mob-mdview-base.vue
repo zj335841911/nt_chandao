@@ -2,6 +2,9 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'story-ass-mob-mdview': true }">
     
     <ion-header>
+    <div class="view-quick-group-tab">
+		<div v-for="(group,index) in quickGroupModel" :key="index" :class="{ 'group-tab': true,'activated': quickGroupData.id === group.id}" @click="quickGroupValueChange(group.id)">{{group.text}}</div>
+	</div>
     </ion-header>
 
 
@@ -901,17 +904,14 @@ export default class StoryAssMobMDViewBase extends Vue {
      * @memberof StoryAssMobMDViewBase
      */
     public quickGroupValueChange (groupId:any) {
-        if (groupId) {
-            this.quickGroupModel.forEach((group:any) => {
-                if (group.id === groupId) {
-                    this.quickGroupData = group;
-                }
-            })
-            if (this.isEmitQuickGroupValue) {
+        this.quickGroupModel.forEach((group:any) => {
+            if (group.id === groupId && group.data) {
+                this.quickGroupData = group;
+                this.engine.onViewEvent('mdctrl','viewload',{query:group.data});
+            } else {
                 
             }
-        }
-        this.isEmitQuickGroupValue = true;
+        })
     }
 
 

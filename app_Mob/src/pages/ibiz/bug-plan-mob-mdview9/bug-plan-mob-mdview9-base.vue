@@ -999,17 +999,14 @@ export default class BugPlanMobMDView9Base extends Vue {
      * @memberof BugPlanMobMDView9Base
      */
     public quickGroupValueChange (groupId:any) {
-        if (groupId) {
-            this.quickGroupModel.forEach((group:any) => {
-                if (group.id === groupId) {
-                    this.quickGroupData = group;
-                }
-            })
-            if (this.isEmitQuickGroupValue) {
+        this.quickGroupModel.forEach((group:any) => {
+            if (group.id === groupId && group.data) {
+                this.quickGroupData = group;
+                this.engine.onViewEvent('mdctrl','viewload',{query:group.data});
+            } else {
                 
             }
-        }
-        this.isEmitQuickGroupValue = true;
+        })
     }
 
 

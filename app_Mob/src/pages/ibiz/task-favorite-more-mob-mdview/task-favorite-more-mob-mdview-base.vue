@@ -11,6 +11,9 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
+    <div class="view-quick-group-tab">
+		<div v-for="(group,index) in quickGroupModel" :key="index" :class="{ 'group-tab': true,'activated': quickGroupData.id === group.id}" @click="quickGroupValueChange(group.id)">{{group.text}}</div>
+	</div>
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
         </ion-toolbar>
@@ -997,17 +1000,14 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
      * @memberof TaskFavoriteMoreMobMDViewBase
      */
     public quickGroupValueChange (groupId:any) {
-        if (groupId) {
-            this.quickGroupModel.forEach((group:any) => {
-                if (group.id === groupId) {
-                    this.quickGroupData = group;
-                }
-            })
-            if (this.isEmitQuickGroupValue) {
+        this.quickGroupModel.forEach((group:any) => {
+            if (group.id === groupId && group.data) {
+                this.quickGroupData = group;
+                this.engine.onViewEvent('mdctrl','viewload',{query:group.data});
+            } else {
                 
             }
-        }
-        this.isEmitQuickGroupValue = true;
+        })
     }
 
 
