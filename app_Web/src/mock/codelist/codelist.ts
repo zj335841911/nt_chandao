@@ -158,42 +158,42 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "codelisttype":"static",
         items: [
             {
-                id: "None",
+                id: "0",
                 label: "无操作",
                 text: "无操作",
                 "data":"",
                 "codename":"None",
-                value: "None",
+                value: 0,
                 
                 disabled: false,
             },
             {
-                id: "Quick",
+                id: "1",
                 label: "快速（删除本地项目与代码仓库多余文件）",
                 text: "快速（删除本地项目与代码仓库多余文件）",
                 "data":"",
                 "codename":"Quick",
-                value: "Quick",
+                value: 1,
                 
                 disabled: false,
             },
             {
-                id: "FixModel",
+                id: "4",
                 label: "修复模型",
                 text: "修复模型",
                 "data":"",
-                "codename":"Fixmodel",
-                value: "FixModel",
+                "codename":"FixModel",
+                value: 4,
                 
                 disabled: false,
             },
             {
-                id: "Full",
+                id: "2",
                 label: "完整（完全重建本地项目及代码仓库）",
                 text: "完整（完全重建本地项目及代码仓库）",
                 "data":"",
                 "codename":"Full",
-                value: "Full",
+                value: 2,
                 
                 disabled: false,
             },

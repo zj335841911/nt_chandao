@@ -97,8 +97,8 @@ public class ReleaseSearchContext extends QueryWrapperContext<Release> {
             this.getSearchCond().like("productname", n_productname_like);
         }
     }
-	private String n_rebuild_eq;//[重新构建]
-	public void setN_rebuild_eq(String n_rebuild_eq) {
+	private Integer n_rebuild_eq;//[重新构建]
+	public void setN_rebuild_eq(Integer n_rebuild_eq) {
         this.n_rebuild_eq = n_rebuild_eq;
         if(!ObjectUtils.isEmpty(this.n_rebuild_eq)){
             this.getSearchCond().eq("rebuild", n_rebuild_eq);

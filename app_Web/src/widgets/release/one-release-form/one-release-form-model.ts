@@ -73,7 +73,7 @@ export default class OneReleaseModel {
       {
         name: 'rebuild',
         prop: 'rebuild',
-        dataType: 'SSCODELIST',
+        dataType: 'NSCODELIST',
       },
       {
         name: 'id',

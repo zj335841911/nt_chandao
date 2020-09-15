@@ -194,7 +194,7 @@ public class Release extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "rebuild")
     @JsonProperty("rebuild")
-    private String rebuild;
+    private Integer rebuild;
     /**
      * 发布类型
      */
