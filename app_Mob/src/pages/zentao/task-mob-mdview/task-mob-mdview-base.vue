@@ -445,6 +445,7 @@ export default class TaskMobMDViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
+        this.loadQuickGroupModel();
 
     }
 
@@ -1063,7 +1064,7 @@ export default class TaskMobMDViewBase extends Vue {
         if($event){
             this.quickGroupData = $event.data;
             if(this.isEmitQuickGroupValue){
-                this.onSearch($event);
+                
             }
         }
         this.isEmitQuickGroupValue = true;
