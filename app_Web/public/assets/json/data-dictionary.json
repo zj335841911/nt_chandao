@@ -349,8 +349,8 @@
         "srfkey": "Backendservicesystem",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"",
-        "appdedataset":"",
+        "appdataentity":"PSSysSFPub",
+        "appdedataset":"FetchDefault",
         "items": []
     }, 
     {
@@ -798,8 +798,8 @@
         "srfkey": "RunSQL",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"",
-        "appdedataset":"",
+        "appdataentity":"PSSystemDBCfg",
+        "appdedataset":"FetchDefault",
         "items": []
     }, 
     {
@@ -1474,8 +1474,8 @@
         "srfkey": "SystemAPP",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"",
-        "appdedataset":"",
+        "appdataentity":"PSSysApp",
+        "appdedataset":"FetchDefault",
         "items": []
     }, 
     {

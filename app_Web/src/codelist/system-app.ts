@@ -1,3 +1,4 @@
+import PSSysAppService from '@service/pssys-app/pssys-app-service';
 /**
  * 代码表--系统应用
  *
@@ -86,18 +87,62 @@ export default class SystemAPP {
     public queryParamNames:any ={
     }
 
+    /**
+     * 系统应用应用实体服务对象
+     *
+     * @type {PSSysAppService}
+     * @memberof SystemAPP
+     */
+    public pssysappService: PSSysAppService = new PSSysAppService();
 
+
+    /**
+     * 处理数据
+     *
+     * @public
+     * @param {any[]} items
+     * @returns {any[]}
+     * @memberof SystemAPP
+     */
+    public doItems(items: any[]): any[] {
+        let _items: any[] = [];
+        items.forEach((item: any) => {
+            let itemdata:any = {};
+            Object.assign(itemdata,{id:item.pssysappid});
+            Object.assign(itemdata,{value:item.pssysappid});
+            Object.assign(itemdata,{text:item.pssysappname});
+            Object.assign(itemdata,{label:item.pssysappname});
+            
+            _items.push(itemdata);
+        });
+        return _items;
+    }
 
     /**
      * 获取数据项
      *
+     * @param {*} context
      * @param {*} data
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
      * @memberof SystemAPP
      */
-    public getItems(data: any={}, isloading?: boolean): Promise<any> {
-        return Promise.reject([]);
+    public getItems(context: any={}, data: any={}, isloading?: boolean): Promise<any> {
+        return new Promise((resolve, reject) => {
+            data = this.handleQueryParam(data);
+            const promise: Promise<any> = this.pssysappService.FetchDefault(context, data, isloading);
+            promise.then((response: any) => {
+                if (response && response.status === 200) {
+                    const data =  response.data;
+                    resolve(this.doItems(data));
+                } else {
+                    resolve([]);
+                }
+            }).catch((response: any) => {
+                console.error(response);
+                reject(response);
+            });
+        });
     }
 
     /**

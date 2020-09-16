@@ -1,3 +1,4 @@
+import PSSysSFPubService from '@service/pssys-sfpub/pssys-sfpub-service';
 /**
  * 代码表--后台服务体系
  *
@@ -86,18 +87,62 @@ export default class Backendservicesystem {
     public queryParamNames:any ={
     }
 
+    /**
+     * 后台服务架构应用实体服务对象
+     *
+     * @type {PSSysSFPubService}
+     * @memberof Backendservicesystem
+     */
+    public pssyssfpubService: PSSysSFPubService = new PSSysSFPubService();
 
+
+    /**
+     * 处理数据
+     *
+     * @public
+     * @param {any[]} items
+     * @returns {any[]}
+     * @memberof Backendservicesystem
+     */
+    public doItems(items: any[]): any[] {
+        let _items: any[] = [];
+        items.forEach((item: any) => {
+            let itemdata:any = {};
+            Object.assign(itemdata,{id:item.pssyssfpubid});
+            Object.assign(itemdata,{value:item.pssyssfpubid});
+            Object.assign(itemdata,{text:item.pssyssfpubname});
+            Object.assign(itemdata,{label:item.pssyssfpubname});
+            
+            _items.push(itemdata);
+        });
+        return _items;
+    }
 
     /**
      * 获取数据项
      *
+     * @param {*} context
      * @param {*} data
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
      * @memberof Backendservicesystem
      */
-    public getItems(data: any={}, isloading?: boolean): Promise<any> {
-        return Promise.reject([]);
+    public getItems(context: any={}, data: any={}, isloading?: boolean): Promise<any> {
+        return new Promise((resolve, reject) => {
+            data = this.handleQueryParam(data);
+            const promise: Promise<any> = this.pssyssfpubService.FetchDefault(context, data, isloading);
+            promise.then((response: any) => {
+                if (response && response.status === 200) {
+                    const data =  response.data;
+                    resolve(this.doItems(data));
+                } else {
+                    resolve([]);
+                }
+            }).catch((response: any) => {
+                console.error(response);
+                reject(response);
+            });
+        });
     }
 
     /**

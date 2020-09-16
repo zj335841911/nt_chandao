@@ -1,3 +1,4 @@
+import PSSystemDBCfgService from '@service/pssystem-dbcfg/pssystem-dbcfg-service';
 /**
  * 代码表--运行数据库
  *
@@ -86,18 +87,62 @@ export default class RunSQL {
     public queryParamNames:any ={
     }
 
+    /**
+     * 系统数据库应用实体服务对象
+     *
+     * @type {PSSystemDBCfgService}
+     * @memberof RunSQL
+     */
+    public pssystemdbcfgService: PSSystemDBCfgService = new PSSystemDBCfgService();
 
+
+    /**
+     * 处理数据
+     *
+     * @public
+     * @param {any[]} items
+     * @returns {any[]}
+     * @memberof RunSQL
+     */
+    public doItems(items: any[]): any[] {
+        let _items: any[] = [];
+        items.forEach((item: any) => {
+            let itemdata:any = {};
+            Object.assign(itemdata,{id:item.pssystemdbcfgid});
+            Object.assign(itemdata,{value:item.pssystemdbcfgid});
+            Object.assign(itemdata,{text:item.pssystemdbcfgname});
+            Object.assign(itemdata,{label:item.pssystemdbcfgname});
+            
+            _items.push(itemdata);
+        });
+        return _items;
+    }
 
     /**
      * 获取数据项
      *
+     * @param {*} context
      * @param {*} data
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
      * @memberof RunSQL
      */
-    public getItems(data: any={}, isloading?: boolean): Promise<any> {
-        return Promise.reject([]);
+    public getItems(context: any={}, data: any={}, isloading?: boolean): Promise<any> {
+        return new Promise((resolve, reject) => {
+            data = this.handleQueryParam(data);
+            const promise: Promise<any> = this.pssystemdbcfgService.FetchDefault(context, data, isloading);
+            promise.then((response: any) => {
+                if (response && response.status === 200) {
+                    const data =  response.data;
+                    resolve(this.doItems(data));
+                } else {
+                    resolve([]);
+                }
+            }).catch((response: any) => {
+                console.error(response);
+                reject(response);
+            });
+        });
     }
 
     /**

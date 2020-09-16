@@ -48,6 +48,7 @@ import projectteam_en_US from '@locale/lanres/entities/project-team/project-team
 import testtask_en_US from '@locale/lanres/entities/test-task/test-task_en_US';
 import ibztaskestimate_en_US from '@locale/lanres/entities/ibztask-estimate/ibztask-estimate_en_US';
 import productline_en_US from '@locale/lanres/entities/product-line/product-line_en_US';
+import pssyssfpub_en_US from '@locale/lanres/entities/pssys-sfpub/pssys-sfpub_en_US';
 import testreport_en_US from '@locale/lanres/entities/test-report/test-report_en_US';
 import projectstats_en_US from '@locale/lanres/entities/project-stats/project-stats_en_US';
 import testrun_en_US from '@locale/lanres/entities/test-run/test-run_en_US';
@@ -55,7 +56,9 @@ import ibzmyterritory_en_US from '@locale/lanres/entities/ibz-my-territory/ibz-m
 import bug_en_US from '@locale/lanres/entities/bug/bug_en_US';
 import projectmodule_en_US from '@locale/lanres/entities/project-module/project-module_en_US';
 import ibzdoc_en_US from '@locale/lanres/entities/ibz-doc/ibz-doc_en_US';
+import pssysapp_en_US from '@locale/lanres/entities/pssys-app/pssys-app_en_US';
 import ibzcase_en_US from '@locale/lanres/entities/ibz-case/ibz-case_en_US';
+import pssystemdbcfg_en_US from '@locale/lanres/entities/pssystem-dbcfg/pssystem-dbcfg_en_US';
 import release_en_US from '@locale/lanres/entities/release/release_en_US';
 import dynadashboard_en_US from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_en_US';
 import components_en_US from '@locale/lanres/components/components_en_US';
@@ -366,6 +369,7 @@ export default {
         testtask: testtask_en_US,
         ibztaskestimate: ibztaskestimate_en_US,
         productline: productline_en_US,
+        pssyssfpub: pssyssfpub_en_US,
         testreport: testreport_en_US,
         projectstats: projectstats_en_US,
         testrun: testrun_en_US,
@@ -373,7 +377,9 @@ export default {
         bug: bug_en_US,
         projectmodule: projectmodule_en_US,
         ibzdoc: ibzdoc_en_US,
+        pssysapp: pssysapp_en_US,
         ibzcase: ibzcase_en_US,
+        pssystemdbcfg: pssystemdbcfg_en_US,
         release: release_en_US,
         dynadashboard: dynadashboard_en_US,
     },

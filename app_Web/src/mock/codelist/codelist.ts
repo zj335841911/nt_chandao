@@ -331,8 +331,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "srfkey": "Backendservicesystem",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"",
-        "appdedataset":"",
+        "appdataentity":"PSSysSFPub",
+        "appdedataset":"FetchDefault",
         "items": []
     },
     {
@@ -746,8 +746,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "srfkey": "RunSQL",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"",
-        "appdedataset":"",
+        "appdataentity":"PSSystemDBCfg",
+        "appdedataset":"FetchDefault",
         "items": []
     },
     {
@@ -1369,8 +1369,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "srfkey": "SystemAPP",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"",
-        "appdedataset":"",
+        "appdataentity":"PSSysApp",
+        "appdedataset":"FetchDefault",
         "items": []
     },
     {
