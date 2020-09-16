@@ -51,7 +51,7 @@ export class MyWorkService extends CalendarServiceBase {
             itemName : 'Bug',
             itemType : 'bug',
             color : '',
-            textColor : '',
+            textColor : 'rgba(17, 34, 132, 1)',
         },
         'task': {
             itemName : '任务',
