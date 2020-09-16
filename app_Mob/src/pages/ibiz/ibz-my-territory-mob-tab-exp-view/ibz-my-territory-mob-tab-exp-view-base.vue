@@ -244,7 +244,6 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
      * @memberof IbzMyTerritoryMobTabExpViewBase
      */
     protected containerModel: any = {
-        view_calendar: { name: 'calendar', type: 'CALENDAR' },
         view_tabexppanel: { name: 'tabexppanel', type: 'TABEXPPANEL' },
     };
 
@@ -264,7 +263,6 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
      * @memberof IbzMyTerritoryMobTabExpViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
-
 
 
 

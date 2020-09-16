@@ -53,6 +53,12 @@ export class MyWorkService extends CalendarServiceBase {
             color : '',
             textColor : '',
         },
+        'task': {
+            itemName : '任务',
+            itemType : 'task',
+            color : '',
+            textColor : 'rgba(247, 219, 15, 1)',
+        },
     };
 
     /**
@@ -74,6 +80,12 @@ export class MyWorkService extends CalendarServiceBase {
             await this.onBeforeAction('', context, _bug_data, isLoading);
             const _bug = await this.loadDEDataSet('FetchAssignedToMyBug', context, _bug_data, 'bug', 'bug');
             Object.assign(item, { bug: _bug });
+
+            this.model.itemType = 'task';
+            const _task_data = this.handleRequestData('', context, data);
+            await this.onBeforeAction('', context, _task_data, isLoading);
+            const _task = await this.loadDEDataSet('FetchAssignedToMyTask', context, _task_data, 'task', 'task');
+            Object.assign(item, { task: _task });
         } catch (response) {
             return new HttpResponse(response.status);
         }

@@ -63,6 +63,28 @@ export class MyWorkModel {
                         },
                     ];
                 break;
+            case "task":
+                dataItems = 
+                    [
+                        ...dataItems,
+                        {
+                            name: 'task',
+                            prop: 'id'
+                        },
+                        {
+                            name: 'title',
+                            prop: 'name'
+                        },
+                        {
+                            name:'start',
+                            prop:'n_assigneddate_gtandeq'
+                        },
+                        {
+                            name:'end',
+                            prop:'n_finisheddate_ltandeq'
+                        },
+                    ];
+                break;
         }
         return dataItems;
 	}

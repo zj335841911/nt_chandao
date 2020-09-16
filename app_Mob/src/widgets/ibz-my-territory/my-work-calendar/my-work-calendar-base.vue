@@ -16,6 +16,14 @@
                 :sign="sign"
                 :events="eventsDate"
                 :tileContent="tileContent"></app-calendar>
+            <ion-segment :value="activeItem" @ionChange="ionChange">
+                <ion-segment-button value="bug">
+                    <ion-label>Bug</ion-label>
+                </ion-segment-button>
+                <ion-segment-button value="task">
+                    <ion-label>任务</ion-label>
+                </ion-segment-button>
+            </ion-segment>
             <div class="calendar-events">
                 <ion-list>
                     <ion-item v-for="item in calendarItems[activeItem]"  :key="item.id" @click="onEventClick(item)">
@@ -272,6 +280,13 @@ export default class MyWorkBase extends Vue implements ControlInterface {
                 majorPSAppDEField: 'realname',
             }
         ],
+        [
+            'task', {
+                appde: 'ibzmyterritory',
+                keyPSAppDEField: 'id',
+                majorPSAppDEField: 'realname',
+            }
+        ],
     ]);
 
     /**
@@ -367,14 +382,14 @@ export default class MyWorkBase extends Vue implements ControlInterface {
      *
      * @memberof MyWork
      */
-    public evendata :any = {bug:[],}
+    public evendata :any = {bug:[],task:[],}
 
     /**
      * 图标信息
      *
      * @memberof MyWork
      */
-    public illustration = [{color:"",text:"Bug"},]
+    public illustration = [{color:"",text:"Bug"},{color:"",text:"任务"},]
     /**
      * 激活项
      *
@@ -574,9 +589,10 @@ export default class MyWorkBase extends Vue implements ControlInterface {
      * @memberof MyWork
      */
     protected setTileContent(){
-        this.evendata = {bug:[],}
+        this.evendata = {bug:[],task:[],}
         let bugItem :Array<any> = this.parsingData('bug','assigneddate');
-        this.setSign(bugItem,);
+        let taskItem :Array<any> = this.parsingData('task','assigneddate');
+        this.setSign(bugItem,taskItem,);
     }
 
     /**
@@ -585,8 +601,8 @@ export default class MyWorkBase extends Vue implements ControlInterface {
      * @param any 
      * @memberof MyWork
      */
-    public setSign(bugItem: any,){
-      let signData: any[] = [...bugItem,];
+    public setSign(bugItem: any,taskItem: any,){
+      let signData: any[] = [...bugItem,...taskItem,];
       let obj: any = {}
       this.sign.length = 0;
       // 格式化数据
@@ -689,37 +705,15 @@ export default class MyWorkBase extends Vue implements ControlInterface {
     protected getEditView(deName: string) {
         let view: any = {};
         switch(deName){
-            case "todo": 
+            case "bug": 
                 view = {
-                    viewname: 'todo-mob-mdview', 
+                    viewname: 'bug-mob-edit-view', 
                     height: 0, 
                     width: 0,  
-                    title: '待办事宜表移动端多数据视图', 
+                    title: 'Bug移动端编辑视图', 
                     placement: '',
-                    deResParameters: [],
-                    parameters: [{ pathName: 'todos', parameterName: 'todo' }, { pathName: 'mobmdview', parameterName: 'mobmdview' } ],
-                };
-                break;
-            case "ibzmyterritory": 
-                view = {
-                    viewname: 'ibz-my-territory-mob-dashboard-view', 
-                    height: 0, 
-                    width: 0,  
-                    title: '我的地盘移动端数据看板视图', 
-                    placement: '',
-                    deResParameters: [],
-                    parameters: [{ pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' }, { pathName: 'mobdashboardview', parameterName: 'mobdashboardview' } ],
-                };
-                break;
-            case "ibzmyterritory": 
-                view = {
-                    viewname: 'ibz-my-territory-mob-calendar-view', 
-                    height: 0, 
-                    width: 0,  
-                    title: '我的地盘移动端日历视图', 
-                    placement: '',
-                    deResParameters: [],
-                    parameters: [{ pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' }, { pathName: 'mobcalendarview', parameterName: 'mobcalendarview' } ],
+                    deResParameters: [{ pathName: 'products', parameterName: 'product' }, ],
+                    parameters: [{ pathName: 'bugs', parameterName: 'bug' }, { pathName: 'mobeditview', parameterName: 'mobeditview' } ],
                 };
                 break;
         }
@@ -740,6 +734,10 @@ export default class MyWorkBase extends Vue implements ControlInterface {
             case "bug":
                 _context.bug = $event.bug;
                 view = this.getEditView("bug");
+                break;
+            case "task":
+                _context.task = $event.task;
+                view = this.getEditView("task");
                 break;
         }
         if (Object.is(view.placement, 'INDEXVIEWTAB') || Object.is(view.placement, '')) {

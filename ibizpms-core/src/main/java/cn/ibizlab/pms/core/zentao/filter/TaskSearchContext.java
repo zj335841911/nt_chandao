@@ -69,6 +69,15 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
             this.getSearchCond().eq("closedreason", n_closedreason_eq);
         }
     }
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+	private Timestamp n_assigneddate_gtandeq;//[指派日期]
+	public void setN_assigneddate_gtandeq(Timestamp n_assigneddate_gtandeq) {
+        this.n_assigneddate_gtandeq = n_assigneddate_gtandeq;
+        if(!ObjectUtils.isEmpty(this.n_assigneddate_gtandeq)){
+            this.getSearchCond().ge("assigneddate", n_assigneddate_gtandeq);
+        }
+    }
 	private Integer n_pri_eq;//[优先级]
 	public void setN_pri_eq(Integer n_pri_eq) {
         this.n_pri_eq = n_pri_eq;
@@ -130,6 +139,15 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
         this.n_openedby_eq = n_openedby_eq;
         if(!ObjectUtils.isEmpty(this.n_openedby_eq)){
             this.getSearchCond().eq("openedby", n_openedby_eq);
+        }
+    }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_finisheddate_ltandeq;//[实际完成]
+	public void setN_finisheddate_ltandeq(Timestamp n_finisheddate_ltandeq) {
+        this.n_finisheddate_ltandeq = n_finisheddate_ltandeq;
+        if(!ObjectUtils.isEmpty(this.n_finisheddate_ltandeq)){
+            this.getSearchCond().le("finisheddate", n_finisheddate_ltandeq);
         }
     }
 	private String n_modulename_eq;//[所属模块]
