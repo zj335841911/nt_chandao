@@ -23,7 +23,7 @@ import lombok.Data;
  * 服务DTO对象[PSSysAppDTO]
  */
 @Data
-public class PSSysAppDTO extends DTOBase implements Serializable {
+public class PSSysAppDTO extends DTOClient implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

@@ -209,7 +209,7 @@ zuul:
       stripPrefix: false
     pssyssfpub:
       path: /pssyssfpubs/**
-      serviceId: ${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi:ibizpssysmodelapi-sysmodelapi}
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_testreport:
       path: /testreports/**
@@ -241,7 +241,7 @@ zuul:
       stripPrefix: false
     pssysapp:
       path: /pssysapps/**
-      serviceId: ${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi:ibizpssysmodelapi-sysmodelapi}
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_case:
       path: /ibzcases/**
@@ -249,7 +249,7 @@ zuul:
       stripPrefix: false
     pssystemdbcfg:
       path: /pssystemdbcfgs/**
-      serviceId: ${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi:ibizpssysmodelapi-sysmodelapi}
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_release:
       path: /releases/**
