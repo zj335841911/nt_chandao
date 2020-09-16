@@ -452,6 +452,20 @@ public class PSSysApp extends EntityClient implements Serializable {
     @JsonProperty("validflag")
     private Integer validflag;
 
+    /**
+     * 系统
+     */
+    @JSONField(name = "pssystemid")
+    @JsonProperty("pssystemid")
+    private String pssystemid;
+
+    /**
+     * 系统
+     */
+    @JSONField(name = "pssystemname")
+    @JsonProperty("pssystemname")
+    private String pssystemname;
+
 
     /**
      * 
@@ -885,6 +899,22 @@ public class PSSysApp extends EntityClient implements Serializable {
     public void setValidflag(Integer validflag){
         this.validflag = validflag ;
         this.modify("validflag",validflag);
+    }
+
+    /**
+     * 设置 [系统]
+     */
+    public void setPssystemid(String pssystemid){
+        this.pssystemid = pssystemid ;
+        this.modify("pssystemid",pssystemid);
+    }
+
+    /**
+     * 设置 [系统]
+     */
+    public void setPssystemname(String pssystemname){
+        this.pssystemname = pssystemname ;
+        this.modify("pssystemname",pssystemname);
     }
 
 
