@@ -7,7 +7,9 @@
                     </ion-tab>
                 </template>
         </template>
-
+        <ion-tab v-if="useDefaultMenu" key="setting" tab="setting" >
+            <component   :is="'app-setting'" ></component>
+        </ion-tab>
         <ion-tab-bar slot="bottom">
             <template v-for="item in items">
                 <template v-if="!item.hidden">
@@ -19,6 +21,10 @@
                     </ion-tab-button>
                 </template>
             </template>
+            <ion-tab-button v-if="useDefaultMenu" tab="setting" >
+                <ion-icon name="settings"></ion-icon>
+                    <ion-label>设置</ion-label>
+            </ion-tab-button>
         </ion-tab-bar>
 
     </ion-tabs>
@@ -26,11 +32,21 @@
 
 <script lang="ts">
 import { Vue, Component, Prop, Emit, Model } from 'vue-property-decorator';
+import { Environment } from '@/environments/environment';
 @Component({
     components: {
     }
 })
 export default class AppMobMenuDefaultView extends Vue {
+
+
+    /**
+     * 使用默认菜单
+     *
+     * @type {*}
+     * @memberof AppMobMenuDefaultView
+     */
+    public useDefaultMenu:boolean = Environment.useDefaultMenu;
 
     /**
      * 双向值绑定

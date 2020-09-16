@@ -75,7 +75,9 @@ export default class AppQuickGroupTab extends Vue {
     if (this.items) {
       this.items.every((item: any) => {
         if (item.default) {
-          this.handleClick(item, true);
+          this.$nextTick(() => {
+            this.handleClick(item, true);
+          })
         }
         return !item.default;
       });
@@ -162,7 +164,6 @@ export default class AppQuickGroupTab extends Vue {
     if (isswitch) {
       this.selectedUiItem = $event;
     }
-    console.log($event);
     this.$emit("valuechange", $event);
     this.$forceUpdate();
   }
