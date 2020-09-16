@@ -24,43 +24,61 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.backgroundid.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='backgroundid' :itemRules="this.rules.backgroundid" class='' :caption="$t('entities.release.onerelease_form.details.backgroundid')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.backgroundid.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box 
-    v-model="data.backgroundid"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.backgroundid.disabled" 
-    type='text' 
-    style="">
-</input-box>
-
+    
+<dropdown-list 
+    v-model="data.backgroundid"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.backgroundid.disabled"
+    valueType="string"
+    tag='Backendservicesystem'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.frontapplication.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='frontapplication' :itemRules="this.rules.frontapplication" class='' :caption="$t('entities.release.onerelease_form.details.frontapplication')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.frontapplication.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box 
-    v-model="data.frontapplication"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.frontapplication.disabled" 
-    type='text' 
-    style="">
-</input-box>
-
+    
+<dropdown-list 
+    v-model="data.frontapplication"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.frontapplication.disabled"
+    valueType="string"
+    tag='SystemAPP'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.sqlid.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='sqlid' :itemRules="this.rules.sqlid" class='' :caption="$t('entities.release.onerelease_form.details.sqlid')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.sqlid.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box 
-    v-model="data.sqlid"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.sqlid.disabled" 
-    type='text' 
-    style="">
-</input-box>
-
+    
+<dropdown-list 
+    v-model="data.sqlid"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.sqlid.disabled"
+    valueType="string"
+    tag='RunSQL'
+    codelistType='DYNAMIC'
+    placeholder='请选择...'
+    
+/>
 </app-form-item>
 
 </i-col>

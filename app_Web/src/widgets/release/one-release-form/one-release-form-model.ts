@@ -58,17 +58,17 @@ export default class OneReleaseModel {
       {
         name: 'backgroundid',
         prop: 'backgroundid',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'frontapplication',
         prop: 'frontapplication',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'sqlid',
         prop: 'sqlid',
-        dataType: 'TEXT',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'rebuild',

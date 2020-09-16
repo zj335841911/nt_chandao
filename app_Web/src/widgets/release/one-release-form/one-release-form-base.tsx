@@ -133,11 +133,11 @@ export class OneReleaseEditFormBase extends EditFormControlBase {
 
         releasetype: new FormItemModel({ caption: '运行模式', detailType: 'FORMITEM', name: 'releasetype', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        backgroundid: new FormItemModel({ caption: '后台服务标识', detailType: 'FORMITEM', name: 'backgroundid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        backgroundid: new FormItemModel({ caption: '后台体系', detailType: 'FORMITEM', name: 'backgroundid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        frontapplication: new FormItemModel({ caption: '前端应用标识', detailType: 'FORMITEM', name: 'frontapplication', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        frontapplication: new FormItemModel({ caption: '系统应用', detailType: 'FORMITEM', name: 'frontapplication', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        sqlid: new FormItemModel({ caption: '数据库标识', detailType: 'FORMITEM', name: 'sqlid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        sqlid: new FormItemModel({ caption: '运行数据库', detailType: 'FORMITEM', name: 'sqlid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         rebuild: new FormItemModel({ caption: '重新构建', detailType: 'FORMITEM', name: 'rebuild', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

@@ -143,7 +143,7 @@ export interface Release {
     files?: any;
 
     /**
-     * 后台服务标识
+     * 后台体系
      *
      * @returns {*}
      * @memberof Release
@@ -151,7 +151,7 @@ export interface Release {
     backgroundid?: any;
 
     /**
-     * 数据库标识
+     * 运行数据库
      *
      * @returns {*}
      * @memberof Release
@@ -159,7 +159,7 @@ export interface Release {
     sqlid?: any;
 
     /**
-     * 前端应用标识
+     * 系统应用
      *
      * @returns {*}
      * @memberof Release

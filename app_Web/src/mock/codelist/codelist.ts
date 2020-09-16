@@ -328,6 +328,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "Backendservicesystem",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
+        "items": []
+    },
+    {
         srfkey: "StoryQuickpacketMy",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -732,6 +740,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "codelisttype":"dynamic",
         "appdataentity":"Branch",
         "appdedataset":"FetchCurProduct",
+        "items": []
+    },
+    {
+        "srfkey": "RunSQL",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
         "items": []
     },
     {
@@ -1348,6 +1364,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "SystemAPP",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
+        "items": []
     },
     {
         "srfkey": "Role",

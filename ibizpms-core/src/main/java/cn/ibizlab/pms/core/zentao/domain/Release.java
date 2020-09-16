@@ -168,21 +168,21 @@ public class Release extends EntityMP implements Serializable {
     @JsonProperty("files")
     private String files;
     /**
-     * 后台服务标识
+     * 后台体系
      */
     @TableField(exist = false)
     @JSONField(name = "backgroundid")
     @JsonProperty("backgroundid")
     private String backgroundid;
     /**
-     * 数据库标识
+     * 运行数据库
      */
     @TableField(exist = false)
     @JSONField(name = "sqlid")
     @JsonProperty("sqlid")
     private String sqlid;
     /**
-     * 前端应用标识
+     * 系统应用
      */
     @TableField(exist = false)
     @JSONField(name = "frontapplication")

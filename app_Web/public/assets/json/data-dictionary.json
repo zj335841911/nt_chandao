@@ -346,6 +346,14 @@
         ]
     }, 
     {
+        "srfkey": "Backendservicesystem",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
+        "items": []
+    }, 
+    {
         "srfkey": "StoryQuickpacketMy",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -784,6 +792,14 @@
         "codelisttype":"dynamic",
         "appdataentity":"Branch",
         "appdedataset":"FetchCurProduct",
+        "items": []
+    }, 
+    {
+        "srfkey": "RunSQL",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
         "items": []
     }, 
     {
@@ -1453,6 +1469,14 @@
                 "default": false
             }
         ]
+    }, 
+    {
+        "srfkey": "SystemAPP",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
+        "items": []
     }, 
     {
         "srfkey": "Role",

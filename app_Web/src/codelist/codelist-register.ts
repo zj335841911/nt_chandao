@@ -40,12 +40,15 @@ export class CodeListRegister {
      */
     protected init(): void {
             this.allCodeList.set('ProductBranch_Cache', () => import('@/codelist/product-branch-cache'));
+        this.allCodeList.set('Backendservicesystem', () => import('@/codelist/backendservicesystem'));
         this.allCodeList.set('RealNameProjectM', () => import('@/codelist/real-name-project-m'));
         this.allCodeList.set('UserRealNameW', () => import('@/codelist/user-real-name-w'));
         this.allCodeList.set('UserRealName', () => import('@/codelist/user-real-name'));
         this.allCodeList.set('ProductBranch', () => import('@/codelist/product-branch'));
+        this.allCodeList.set('RunSQL', () => import('@/codelist/run-sql'));
         this.allCodeList.set('CurProductBuild', () => import('@/codelist/cur-product-build'));
         this.allCodeList.set('BugModule', () => import('@/codelist/bug-module'));
+        this.allCodeList.set('SystemAPP', () => import('@/codelist/system-app'));
         this.allCodeList.set('Role', () => import('@/codelist/role'));
         this.allCodeList.set('BugUserRealName', () => import('@/codelist/bug-user-real-name'));
         this.allCodeList.set('CurCaseVersion', () => import('@/codelist/cur-case-version'));

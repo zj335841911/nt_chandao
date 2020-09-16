@@ -182,7 +182,7 @@ public class ReleaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "backgroundid")
     @JsonProperty("backgroundid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String backgroundid;
 
     /**
@@ -191,7 +191,7 @@ public class ReleaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "sqlid")
     @JsonProperty("sqlid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String sqlid;
 
     /**
@@ -200,7 +200,7 @@ public class ReleaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "frontapplication")
     @JsonProperty("frontapplication")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String frontapplication;
 
     /**
