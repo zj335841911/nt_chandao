@@ -689,6 +689,39 @@ export default class MyWorkBase extends Vue implements ControlInterface {
     protected getEditView(deName: string) {
         let view: any = {};
         switch(deName){
+            case "todo": 
+                view = {
+                    viewname: 'todo-mob-mdview', 
+                    height: 0, 
+                    width: 0,  
+                    title: '待办事宜表移动端多数据视图', 
+                    placement: '',
+                    deResParameters: [],
+                    parameters: [{ pathName: 'todos', parameterName: 'todo' }, { pathName: 'mobmdview', parameterName: 'mobmdview' } ],
+                };
+                break;
+            case "ibzmyterritory": 
+                view = {
+                    viewname: 'ibz-my-territory-mob-dashboard-view', 
+                    height: 0, 
+                    width: 0,  
+                    title: '我的地盘移动端数据看板视图', 
+                    placement: '',
+                    deResParameters: [],
+                    parameters: [{ pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' }, { pathName: 'mobdashboardview', parameterName: 'mobdashboardview' } ],
+                };
+                break;
+            case "ibzmyterritory": 
+                view = {
+                    viewname: 'ibz-my-territory-mob-calendar-view', 
+                    height: 0, 
+                    width: 0,  
+                    title: '我的地盘移动端日历视图', 
+                    placement: '',
+                    deResParameters: [],
+                    parameters: [{ pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' }, { pathName: 'mobcalendarview', parameterName: 'mobcalendarview' } ],
+                };
+                break;
         }
         return view;
     }

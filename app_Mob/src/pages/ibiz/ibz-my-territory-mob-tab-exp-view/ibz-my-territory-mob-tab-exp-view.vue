@@ -2,9 +2,11 @@
 import { Component } from 'vue-property-decorator';
 import IbzMyTerritoryMobTabExpViewBase from './ibz-my-territory-mob-tab-exp-view-base.vue';
 
+import view_calendar from '@widgets/ibz-my-territory/my-work-calendar/my-work-calendar.vue';
 import view_tabexppanel from '@widgets/ibz-my-territory/mob-tab-exp-viewtabexppanel-tabexppanel/mob-tab-exp-viewtabexppanel-tabexppanel.vue';
 @Component({
     components: {
+        view_calendar, 
         view_tabexppanel, 
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {

@@ -59,7 +59,7 @@ export class MyWorkModel {
                         },
                         {
                             name:'end',
-                            prop:'n_assigneddate_ltandeq'
+                            prop:'n_resolveddate_ltandeq'
                         },
                     ];
                 break;
