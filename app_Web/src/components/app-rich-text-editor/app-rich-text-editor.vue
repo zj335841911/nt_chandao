@@ -3,7 +3,7 @@
         <textarea :id="id"></textarea>
         <div class="select-person" :style="[personPosi,{visibility: showSelect}]">
             <ul class="person-wrap">
-                <li class="row" v-for="(item,index) in items" :key="index" @click="selectPerson(item)">
+                <li :class="['row',item.selectState ? 'selectRow': '']" v-for="(item,index) in items" :key="index" @click="selectPerson(item)" @mouseover="onMousevoer(index)">
                     {{item.text}}
                 </li>
             </ul>
@@ -85,7 +85,15 @@ export default class AppRichTextEditor extends Vue {
      * @type {*}
      * @memberof AppRichTextEditor
      */
-    public atNumber:number = 0;
+    public atNumber: number = 0;
+
+    /**
+     * 上下键选择计数器
+     * 
+     * @type {*}
+     * @memberof AppRichTextEditor
+     */
+    public personNumber: number = -1;
 
     /**
      * 传入值
@@ -313,7 +321,7 @@ export default class AppRichTextEditor extends Vue {
      */
     public mounted() {
         this.init();
-        this.readyUserItems()
+        this.readyUserItems();
         const ele: any = this.isDrawer(this.$el);
         if(ele) {
             let index: number = ele.style.transform.indexOf('translateX');
@@ -447,11 +455,12 @@ export default class AppRichTextEditor extends Vue {
                     }
                     let selection: any = editor.selection;
                     if(event.code == "Digit2" && event.shiftKey){
-                        //保存富文本编辑器光标信息
+                        //键入@符号时，保存富文本编辑器光标信息
                         richtexteditor.lastSelection = {
                             range: selection.getRng(),
                             selection: selection.getSel()
                         }
+                        //计算人员列表框位置
                         richtexteditor.showSelectList();
                     }else if(event.keyCode === 8){
                         //删除@时删除整个@xxxx
@@ -467,6 +476,20 @@ export default class AppRichTextEditor extends Vue {
                             richtexteditor.editor.dom.remove(removeNode.id);
                         }
                         richtexteditor.showSelect = 'hidden';
+                    }else if(event.keyCode === 37 || event.keyCode === 38 || event.keyCode === 39 || event.keyCode === 40){
+                        if(Object.is(richtexteditor.showSelect,'visible')){
+                            //取消默认动作
+                            event.preventDefault ? event.preventDefault() : event.returnValue = false;
+                            //上下键进行选择
+                            richtexteditor.keyboardSelect(event.keyCode);
+                        }
+                    }else if(event.keyCode === 13){
+                        if(Object.is(richtexteditor.showSelect,'visible')){
+                            //取消默认动作
+                            event.preventDefault ? event.preventDefault() : event.returnValue = false;
+                            //回车确认上下键所选数据
+                            richtexteditor.enterSelect();
+                        }
                     }else{
                         richtexteditor.showSelect = 'hidden';
                     }
@@ -554,13 +577,15 @@ export default class AppRichTextEditor extends Vue {
         //计算偏移位置超出编辑区域时的位置
         if(elePos.x+childW > parentW){
             left = left - childW;
-        }else if(elePos.y+childH > parentH){
+        }
+        if(elePos.y+childH > parentH){
             top = top - childH;
         }
         this.personPosi = {
             left: left+'px',
             top: top+'px'
         };
+        this.stateEmpty();
     }
 
     /**
@@ -578,7 +603,7 @@ export default class AppRichTextEditor extends Vue {
         spanNode1.className = 'at-text';
         spanNode1.innerHTML = '@' + $event.text;
         spanNode1.id = 'at-text'+this.atNumber;
-        spanNode1.userId = $event.value;
+        spanNode1.setAttribute('userid',$event.value);
         spanNode1.style = 'color: #108cee;';
         spanNode2.innerHTML = '&nbsp';
         // 将生成内容打包放在 Fragment 中，并获取生成内容的最后一个节点，也就是空格。
@@ -593,7 +618,91 @@ export default class AppRichTextEditor extends Vue {
         selection.collapse(lastNode, 1)
         //删除输入@时创建的节点
         this.editor.dom.remove('fake-at'+this.atNumber);
-        selection.collapseToEnd()
+        selection.collapseToEnd();
+        this.editor.focus();
+    }
+
+    /**
+     * 上下键进行人员选择
+     * 
+     * @memberof AppRichTextEditor
+     */
+    public keyboardSelect(keyCode: number){
+        //上键
+        if(keyCode === 38){
+            this.personNumber--;
+            this.changeState(this.personNumber);
+            if(this.personNumber < 0){
+                this.personNumber = -1;
+            }
+        }
+        //下键
+        if(keyCode === 40){
+            this.personNumber++;
+            this.changeState(this.personNumber);
+            if(this.personNumber > this.items.length){
+                this.personNumber = this.items.length;
+            }
+        }
+        //手动触发滚动事件
+        const ele: any = this.$el.getElementsByClassName('select-person')[0];
+        ele.scrollTo(0,this.personNumber*24);
+    }
+
+    /**
+     * 鼠标移动选择
+     * 
+     * @memberof AppRichTextEditor
+     */
+    public onMousevoer(index: number){
+        this.changeState(index);
+        this.personNumber = index;
+    }
+
+    /**
+     * 更改选中状态
+     * 
+     * @memberof AppRichTextEditor
+     */
+    public changeState(index: number){
+        let items: Array<any> = [];
+        this.items.forEach((item: any,i: number)=>{
+            if(index === i){
+                item.selectState = true;
+            }else{
+                item.selectState = false;
+            }
+            items.push(item);
+        })
+        this.items = items;
+    }
+
+    /**
+     * 初始化选中状态
+     * 
+     * @memberof AppRichTextEditor
+     */
+    public stateEmpty(){
+        let items: Array<any> = [];
+        this.items.forEach((item: any,i: number)=>{
+            item.selectState = false;
+            items.push(item);
+        })
+        this.items = items;
+        this.personNumber = -1;
+    }
+
+    /**
+     * 回车确认所选数据
+     * 
+     * @memberof AppRichTextEditor
+     */
+    public enterSelect(){
+        this.items.forEach((item:any)=>{
+            if(item.selectState == true){
+                this.selectPerson(item);
+            }
+        })
     }
 
     /**
@@ -604,6 +713,7 @@ export default class AppRichTextEditor extends Vue {
     public onClick(){
          this.showSelect = 'hidden';
     }
+
 
     /**
      * 上传文件
@@ -727,6 +837,9 @@ export default class AppRichTextEditor extends Vue {
             list-style: none;
         }
         .row:hover{
+            background: #eee;
+        }
+        .row.selectRow{
             background: #C9DBF2;
         }
     }
