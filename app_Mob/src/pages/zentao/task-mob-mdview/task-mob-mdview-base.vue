@@ -2,6 +2,12 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'task-mob-mdview': true }">
     
     <ion-header>
+
+    <app-quick-group-tab
+        :items="quickGroupModel"
+        @valuechange="quickGroupValueChange($event)"
+    ></app-quick-group-tab>
+
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
         </ion-toolbar>
@@ -1060,14 +1066,11 @@ export default class TaskMobMDViewBase extends Vue {
      *
      * @memberof TaskMobMDViewBase
      */
-    public quickGroupValueChange($event:any){
+    public quickGroupValueChange($event:any) {
         if($event){
             this.quickGroupData = $event.data;
-            if(this.isEmitQuickGroupValue){
-                
-            }
+            this.engine.onViewEvent('mdctrl','viewload',$event.data);
         }
-        this.isEmitQuickGroupValue = true;
     }
 
 }

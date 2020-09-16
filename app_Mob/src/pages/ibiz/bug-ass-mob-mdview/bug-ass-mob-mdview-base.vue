@@ -2,6 +2,8 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'bug-ass-mob-mdview': true }">
     
     <ion-header>
+
+
     </ion-header>
 
 
