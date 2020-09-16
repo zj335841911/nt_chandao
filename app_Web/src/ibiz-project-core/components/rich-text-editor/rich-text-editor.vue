@@ -84,7 +84,7 @@ export default class RichTextEditor extends Vue {
      * 人员列表是否显示
      * 
      * @type {string}
-     * @memberof AppRichTextEditor
+     * @memberof RichTextEditor
      */
     public showSelect: string = 'hidden';
 
@@ -92,7 +92,7 @@ export default class RichTextEditor extends Vue {
      * 人员列表数据集
      * 
      * @type {Array<any>}
-     * @memberof AppRichTextEditor
+     * @memberof RichTextEditor
      */
     public items: Array<any> = [];
 
@@ -108,7 +108,7 @@ export default class RichTextEditor extends Vue {
      * 人员列表显示位置
      * 
      * @type {*}
-     * @memberof AppRichTextEditor
+     * @memberof RichTextEditor
      */
     public personPosi: any = {};
 
@@ -116,7 +116,7 @@ export default class RichTextEditor extends Vue {
      * 富文本编辑区域光标信息
      * 
      * @type {*}
-     * @memberof AppRichTextEditor
+     * @memberof RichTextEditor
      */
     public lastSelection: any = {};
 
@@ -124,7 +124,7 @@ export default class RichTextEditor extends Vue {
      * "@"符号计数器
      * 
      * @type {*}
-     * @memberof AppRichTextEditor
+     * @memberof RichTextEditor
      */
     public atNumber: number = 0;
 
@@ -132,7 +132,7 @@ export default class RichTextEditor extends Vue {
      * 上下键选择计数器
      * 
      * @type {*}
-     * @memberof AppRichTextEditor
+     * @memberof RichTextEditor
      */
     public personNumber: number = -1;
 
@@ -396,7 +396,7 @@ export default class RichTextEditor extends Vue {
     /**
      * 生命周期：初始化富文本
      * 
-     * @memberof AppRichTextEditor
+     * @memberof RichTextEditor
      */
     public mounted() {
         this.init();
@@ -414,7 +414,7 @@ export default class RichTextEditor extends Vue {
     /**
      * 是否抽屉打开
      * 
-     * @memberof AppRichTextEditor
+     * @memberof RichTextEditor
      */
     public isDrawer(ele: any): any {
         let pele: any = ele.parentNode;
@@ -641,7 +641,7 @@ export default class RichTextEditor extends Vue {
     /**
      * 监听"@"符号输入后，计算人员列表框出现位置
      * 
-     * @memberof AppRichTextEditor
+     * @memberof RichTextEditor
      */
     public showSelectList(){
         this.showSelect = 'visible';
@@ -683,7 +683,7 @@ export default class RichTextEditor extends Vue {
      * 点击"@"的人员时，&nbsp必须单独放入一个span中，用于区分输入区域
      * 
      * @param $event 选中人员数据
-     * @memberof AppRichTextEditor
+     * @memberof RichTextEditor
      */
     public selectPerson($event: any){
         this.showSelect = 'hidden';
@@ -716,7 +716,7 @@ export default class RichTextEditor extends Vue {
     /**
      * 上下键进行人员选择
      * 
-     * @memberof AppRichTextEditor
+     * @memberof RichTextEditor
      */
     public keyboardSelect(keyCode: number){
         //上键
@@ -743,7 +743,7 @@ export default class RichTextEditor extends Vue {
     /**
      * 鼠标移动选择
      * 
-     * @memberof AppRichTextEditor
+     * @memberof RichTextEditor
      */
     public onMousevoer(index: number){
         this.changeState(index);
@@ -753,7 +753,7 @@ export default class RichTextEditor extends Vue {
     /**
      * 更改选中状态
      * 
-     * @memberof AppRichTextEditor
+     * @memberof RichTextEditor
      */
     public changeState(index: number){
         let items: Array<any> = [];
@@ -771,7 +771,7 @@ export default class RichTextEditor extends Vue {
     /**
      * 初始化选中状态
      * 
-     * @memberof AppRichTextEditor
+     * @memberof RichTextEditor
      */
     public stateEmpty(){
         let items: Array<any> = [];
@@ -786,7 +786,7 @@ export default class RichTextEditor extends Vue {
     /**
      * 回车确认所选数据
      * 
-     * @memberof AppRichTextEditor
+     * @memberof RichTextEditor
      */
     public enterSelect(){
         this.items.forEach((item:any)=>{
@@ -799,7 +799,7 @@ export default class RichTextEditor extends Vue {
     /**
      * 点击富文本外部区域时关闭列表
      * 
-     * @memberof AppRichTextEditor
+     * @memberof RichTextEditor
      */
     public onClick(){
          this.showSelect = 'hidden';
@@ -827,14 +827,16 @@ export default class RichTextEditor extends Vue {
      */
     public async appTemplateData() {
         const templParams = this.getTemplParams();
+        let appTemplate: Array<any> = []
         const response: any = await this.userTplService.FetchDefault({},templParams,false);
         if(response && response.status === 200){
             const { data: _data } = response;
             _data.forEach((item:any)=>{
                 if(Object.is(item.account,templParams.account) || Object.is(item.ibizpublic,'1')){
-                    this.appTemplate.push(item);
+                    appTemplate.push(item);
                 }
             });
+            this.appTemplate = appTemplate;
         }
     }
 
@@ -857,7 +859,7 @@ export default class RichTextEditor extends Vue {
         let templParams = this.getTemplParams();
         const templateTitle = this.templateTitle;
         const templateContent = this.editor.getContent();
-        templParams.public = this.single == true? 1 : 0;
+        templParams.ibizpublic = this.single == true? '1' : '0';
         if(!templateContent || Object.is(templateContent,'')){
             this.$Notice.error({
                     title: '请填充模板内容!!!',
@@ -994,7 +996,7 @@ export default class RichTextEditor extends Vue {
     /**
      *获取上传，导出参数
      *
-     *@memberof AppRichTextEditor
+     *@memberof RichTextEditor
      */
     public readyUserItems() {
         this.codeListService.getItems('UserRealName', JSON.parse(JSON.stringify(this.context))).then((res:any) => {
