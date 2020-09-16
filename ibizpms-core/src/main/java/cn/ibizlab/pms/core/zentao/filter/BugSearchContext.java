@@ -76,6 +76,15 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
             this.getSearchCond().eq("openedby", n_openedby_eq);
         }
     }
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+	private Timestamp n_assigneddate_gtandeq;//[指派日期]
+	public void setN_assigneddate_gtandeq(Timestamp n_assigneddate_gtandeq) {
+        this.n_assigneddate_gtandeq = n_assigneddate_gtandeq;
+        if(!ObjectUtils.isEmpty(this.n_assigneddate_gtandeq)){
+            this.getSearchCond().ge("assigneddate", n_assigneddate_gtandeq);
+        }
+    }
     @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
     @JSONField(format="yyyy-MM-dd")
 	private Timestamp n_deadline_lt;//[截止日期]
@@ -90,6 +99,15 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
         this.n_color_eq = n_color_eq;
         if(!ObjectUtils.isEmpty(this.n_color_eq)){
             this.getSearchCond().eq("color", n_color_eq);
+        }
+    }
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+	private Timestamp n_resolveddate_ltandeq;//[解决日期]
+	public void setN_resolveddate_ltandeq(Timestamp n_resolveddate_ltandeq) {
+        this.n_resolveddate_ltandeq = n_resolveddate_ltandeq;
+        if(!ObjectUtils.isEmpty(this.n_resolveddate_ltandeq)){
+            this.getSearchCond().le("resolveddate", n_resolveddate_ltandeq);
         }
     }
 	private String n_type_eq;//[Bug类型]
