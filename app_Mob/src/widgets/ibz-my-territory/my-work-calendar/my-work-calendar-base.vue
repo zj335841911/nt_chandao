@@ -383,7 +383,7 @@ export default class MyWorkBase extends Vue implements ControlInterface {
      *
      * @memberof MyWork
      */
-    public illustration = [{color:"",text:"Bug"},{color:"",text:"任务"},]
+    public illustration = [{color:"rgba(49, 27, 146, 1)",text:"Bug"},{color:"rgba(247, 219, 15, 1)",text:"任务"},]
     /**
      * 激活项
      *
