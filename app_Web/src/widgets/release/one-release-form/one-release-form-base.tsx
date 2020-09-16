@@ -86,6 +86,7 @@ export class OneReleaseEditFormBase extends EditFormControlBase {
         frontapplication: null,
         sqlid: null,
         rebuild: null,
+        product: null,
         id: null,
         release:null,
     };
@@ -97,6 +98,14 @@ export class OneReleaseEditFormBase extends EditFormControlBase {
      * @memberof OneReleaseEditFormBase
      */
     public rules: any = {
+        releasetype: [
+            { required: true, type: 'string', message: '运行模式 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '运行模式 值不能为空', trigger: 'blur' },
+        ],
+        backgroundid: [
+            { required: true, type: 'string', message: '后台体系 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '后台体系 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**
@@ -140,6 +149,8 @@ export class OneReleaseEditFormBase extends EditFormControlBase {
         sqlid: new FormItemModel({ caption: '运行数据库', detailType: 'FORMITEM', name: 'sqlid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         rebuild: new FormItemModel({ caption: '重新构建', detailType: 'FORMITEM', name: 'rebuild', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        product: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: 'ID', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 

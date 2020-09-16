@@ -120,6 +120,7 @@ export default {
 			frontapplication: "系统应用", 
 			sqlid: "运行数据库", 
 			rebuild: "重新构建", 
+			product: "产品", 
 			id: "ID", 
 		},
 		uiactions: {
