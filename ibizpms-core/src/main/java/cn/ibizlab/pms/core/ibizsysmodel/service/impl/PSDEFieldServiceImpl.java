@@ -47,10 +47,10 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
 //    @Autowired
     PSDEFieldFeignClient pSDEFieldFeignClient;
     
-    @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceid:ibizpssysmodelapi-sysmodelapi}")
+    @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceid:}")
     private String serviceName;
 
-    @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceurl:ibizpssysmodelapi-sysmodelapi}")
+    @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.serviceurl:}")
     private String serviceUrl;
 
     @Value("${ibiz.ref.service.ibizpssysmodelapi-sysmodelapi.loginname:loginname}")

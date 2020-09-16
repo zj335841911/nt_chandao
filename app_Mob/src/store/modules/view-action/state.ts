@@ -15,6 +15,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '053879e9b47bc845598b68abbdbb2e0a',
+            viewmodule: 'ibiz',
+            viewname: 'IbzMyTerritoryMobCalendarView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '0656049eb79b4207ae62933aa96c2f07',
             viewmodule: 'ibiz',
             viewname: 'BugColseMobEditView',
