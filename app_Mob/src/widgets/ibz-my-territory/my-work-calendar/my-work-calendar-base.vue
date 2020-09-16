@@ -26,14 +26,8 @@
             </ion-segment>
             <div class="calendar-events">
                 <ion-list>
-                    <ion-item v-for="item in calendarItems[activeItem]"  :key="item.id" @click="onEventClick(item)">
-                    <ion-label>{{item.title}}</ion-label>
-                    <div slot="end">
-                        <div >
-                            <span class="events-label">执行人 </span>
-                            <span class="events-content">{{ item.createman }}</span>
-                        </div>
-                    </div>
+                    <ion-item class="calendar_text_item" v-for="item in calendarItems[activeItem]"  :key="item.id" @click="onEventClick(item)">
+                    <ion-label class="calendar_text">{{item.title}}</ion-label>
                     </ion-item>
                 </ion-list>
             </div>

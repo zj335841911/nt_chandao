@@ -143,7 +143,9 @@
      * @memberof AppCheckList
      */
     public mounted() {
-      this.load();
+      setTimeout(() => {    
+        this.load();
+      }, 1000);
       this.$store.commit('setSelectStatus',true);
     }
 
