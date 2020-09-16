@@ -561,20 +561,18 @@ export default class MyWorkBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MyWork
      */
-    protected async load(opt: any = {}): Promise<any> {
+    protected async load(opt: any = {},isSetTileContent:boolean=true): Promise<any> {
         const arg: any = { ...opt };
         const isloading: boolean = this.showBusyIndicator === true ? true : false;
         const response: any = await this.service.search(this.activeItem, { ...this.context }, { ...arg }, this.showBusyIndicator);
         if (response && response.status === 200) {
             this.calendarItems = response.data;
-            this.setTileContent();
+            isSetTileContent?this.setTileContent():"";
         } else {
             this.$notice.error('系统异常，请重试!');
         }
         this.show = true;
     }
-
-    
 
     /**
      * 设置事件数组
@@ -686,7 +684,7 @@ export default class MyWorkBase extends Vue implements ControlInterface {
         this.day = temptime.getDate();
         this.start = (moment as any)(temptime).startOf('day').format('YYYY-MM-DD HH:mm:ss');
         this.end = (moment as any)(temptime).endOf('day').format('YYYY-MM-DD HH:mm:ss');
-        this.load(Object.assign(this.viewparams, { "start": this.start, "end": this.end }));
+        this.load(Object.assign(this.viewparams, { "start": this.start, "end": this.end }),false);
       }
     }
 
@@ -746,7 +744,7 @@ export default class MyWorkBase extends Vue implements ControlInterface {
             }
             if (response && Object.is(response.ret, 'OK')) {
                 // 刷新日历
-                this.load(Object.assign(this.viewparams, { "start": this.start, "end": this.end }));
+                this.load(Object.assign(this.viewparams, { "start": this.start, "end": this.end }),false);
             }
         }
     }

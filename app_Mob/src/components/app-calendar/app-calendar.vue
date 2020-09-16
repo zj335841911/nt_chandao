@@ -55,7 +55,7 @@
             <!-- user -->
             <template v-for="(usersign,us) in sign">
             <div  class="sign" v-if="usersign.time==child.date" :key="us">
-                <div class="sign-item" v-for="(sigin,si) in usersign.evens" :key="si" :style="{color: sigin.fontcolor}">—</div>
+                <div class="sign-item" v-for="(sigin,si) in usersign.evens" :key="si" :style="{color: sigin.color}">—</div>
             </div>
             </template>
             <div

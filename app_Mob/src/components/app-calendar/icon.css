@@ -14,17 +14,15 @@
 
 .icon-arrow-left:before { content: "\e501"; }
 .sign {
-    top: 88%;
     overflow: hidden;
-    position: absolute;
-    right: calc( 50% - 8px);
     height: 28px;
+    width: 100%;
 }
 .sign-item{
     line-height: 1;
     height: 4px;
     color: #ccc;
-  }
+}
 .changeStyle_bottom{
     border-color: rgb(135, 135, 135);
     border-width: 0 0 2px 2px;
