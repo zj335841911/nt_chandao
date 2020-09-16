@@ -1,36 +1,29 @@
 <template>
+<div>
   <div class="app-quick-group">
     <div :class="{'quick-group-tab':true,'app-seleted-item':isSelectedItem(item)}" v-for="(item,index) in showItems" :key="index">
       <div
-        v-if="!item.children"
         :style="{color:item.color}"
         @click="handleClick(item)"
       >
         <ion-icon v-if=" item.iconcls && !Object.is(item.iconcls, '')" :name="item.iconcls"></ion-icon>
         <img v-else-if="item.icon && !Object.is(item.icon, '')" :src="item.icon" />
         <span class="app-quick-item-label">{{item.label}}</span>
-      </div>
-
-      <div class="parentGroup" v-if="item.children">
-        <span>{{item.label}}</span>
-        <ion-select
-          class="app-quick-item-dropdown"
-          interface="popover"
-          selected-text=" "
-          @ionChange="handleCommand($event,item)"
-        >
-          <ion-select-option v-for="(childitem,index) in item.children" :key="index">
-            <ion-icon
-              v-if=" childitem.iconcls && !Object.is(childitem.iconcls, '')"
-              :name="childitem.iconcls"
-            ></ion-icon>
-            <img v-else-if="childitem.icon && !Object.is(childitem.icon, '')" :src="childitem.icon" />
-            <span class="app-quick-item-label">{{childitem.label}}</span>
-          </ion-select-option>
-        </ion-select>
+        <ion-icon v-if="item.children" name="caret-down-outline"></ion-icon>
       </div>
     </div>
   </div>
+  <div v-if="subItems.length > 0" class="child-list">
+    <div class="child" v-for="(item,index) in subItems" :key="index" @click="handleClick(item)">
+      <span>
+        <ion-icon v-if=" item.iconcls && !Object.is(item.iconcls, '')" :name="item.iconcls"></ion-icon>
+        <img v-else-if="item.icon && !Object.is(item.icon, '')" :src="item.icon" />
+        <span>{{item.label}}</span>
+      </span>
+      <ion-icon v-if="item.selected" name="checkbox-outline"></ion-icon>
+    </div>
+  </div>
+</div>
 </template>
 
 <script lang="ts">
@@ -63,6 +56,14 @@ export default class AppQuickGroupTab extends Vue {
    * @memberof AppQuickGroup
    */
   public showItems: any[] = [];
+
+  /**
+   * 子项列表
+   *
+   * @type {any[]}
+   * @memberof AppQuickGroup
+   */
+  public subItems: any[] = [];
 
   /**
    * 监控代码表变化
@@ -163,23 +164,17 @@ export default class AppQuickGroupTab extends Vue {
     if (isswitch) {
       this.selectedUiItem = $event;
     }
-    this.$emit("valuechange", $event);
-    this.$forceUpdate();
-  }
-
-  /**
-   * 处理子项点击事件
-   *
-   * @param $event 值
-   * @param item 父值
-   * @memberof AppQuickGroup
-   */
-  public handleCommand($event: any, item: any): void {
-    item.children.forEach((child: any) => {
-      if (child.text === $event.detail.value) {
-        this.handleClick(child, true);
+    if ($event.children) {
+      if (this.subItems.length > 0) {
+        this.subItems.length = 0;
+      } else {
+        this.subItems.push(...$event.children);
       }
-    });
+    } else {
+      this.subItems.length = 0;
+      this.$emit("valuechange", $event);
+    }
+    this.$forceUpdate();
   }
 }
 </script>
