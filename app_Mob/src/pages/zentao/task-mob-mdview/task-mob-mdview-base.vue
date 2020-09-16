@@ -8,9 +8,6 @@
         @valuechange="quickGroupValueChange($event)"
     ></app-quick-group-tab>
 
-        <ion-toolbar>
-            <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
-        </ion-toolbar>
     </ion-header>
 
 
@@ -818,37 +815,6 @@ export default class TaskMobMDViewBase extends Vue {
         }
     }
 
-
-    /**
-     * 搜索值
-     *
-     * @type {string}
-     * @memberof TaskMobMDViewBase
-     */
-    public query: string = '';
-
-    /**
-     * 快速搜索值变化
-     *
-     * @param {*} event
-     * @returns
-     * @memberof TaskMobMDViewBase
-     */
-    public async quickValueChange(event: any) {
-        let { detail } = event;
-        if (!detail) {
-            return;
-        }
-        let { value } = detail;
-        this.query = value;
-
-        const mdctrl: any = this.$refs.mdctrl;
-        if (mdctrl) {
-            let response = await mdctrl.quickSearch(this.query);
-            if (response) {
-            }
-        }
-    }
 
    /**
      * 是否单选
