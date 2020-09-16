@@ -111,5 +111,7 @@ export const AppComponents = {
         v.component('app-rich-text',() => import('@/components/app-rich-text/app-rich-text.vue'));
         // 定制组件
         v.component('app-customize',() => import('@/components/app-customize/app-customize.vue'));
+        // 多数据快速分组组件
+        v.component('app-quick-group-tab',() => import('@/components/app-quick-group-tab/app-quick-group-tab.vue'));
     },
 };

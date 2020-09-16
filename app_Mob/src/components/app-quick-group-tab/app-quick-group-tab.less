@@ -1,0 +1,35 @@
+.app-quick-group {
+	width: 100%;
+	height: 40px;
+	display: flex;
+    justify-content: space-around;
+    background-color: #e8e8e896;
+	.quick-group-tab {
+		span {
+			text-align: center;
+			line-height: 40px;
+		}
+		.app-quick-item-label {
+			text-align: center;
+		}
+		.parentGroup {
+			display: flex;
+			justify-content: center;
+			.app-quick-item-dropdown {
+				--padding-start: 0;
+				--padding-end: 0;
+			}
+			ion-select::part(icon) {
+				position: unset;
+				margin-right: 2px;
+			}
+			ion-select::part(text) {
+				min-width: 0;
+			}
+        }
+        .app-seleted-item {
+            height: 40px;
+            height: 40px;
+        }
+	}
+}

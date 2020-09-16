@@ -394,6 +394,11 @@ export default class MDViewEngineBase extends ViewEngine {
         if (this.view && !this.view.isExpandSearchForm) {
             Object.assign(arg, { query: this.view.query });
         }
+        let otherQueryParam:any = {};
+        if (this.view && this.view.quickGroupData) {
+            Object.assign(otherQueryParam,this.view.quickGroupData);
+        }
+        Object.assign(arg,{viewparams:otherQueryParam});
     }
 
     /**
