@@ -63,7 +63,7 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
         if(StringUtils.isNotBlank(serviceName)){
             return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSDEFieldFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
         }else if(StringUtils.isNotBlank(serviceUrl)){
-            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSDEFieldFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password,devSlnSysId);
+            return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSDEFieldFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password,devSlnSysId);
         }else{
             throw new RuntimeException("缺少平台服务配置信息。");
         }

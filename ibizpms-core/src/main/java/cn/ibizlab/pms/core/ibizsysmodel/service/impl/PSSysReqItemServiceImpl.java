@@ -63,7 +63,7 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
         if(StringUtils.isNotBlank(serviceName)){
             return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysReqItemFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
         }else if(StringUtils.isNotBlank(serviceUrl)){
-            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysReqItemFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password,devSlnSysId);
+            return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSSysReqItemFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password,devSlnSysId);
         }else{
             throw new RuntimeException("缺少平台服务配置信息。");
         }

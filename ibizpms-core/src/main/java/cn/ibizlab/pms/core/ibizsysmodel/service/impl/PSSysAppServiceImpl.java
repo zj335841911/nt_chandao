@@ -63,7 +63,7 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
         if(StringUtils.isNotBlank(serviceName)){
             return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysAppFeignClient.class, serviceName, false, serviceName, false, loginname, password,devSlnSysId);
         }else if(StringUtils.isNotBlank(serviceUrl)){
-            return OutsideAccessorUtils.buildAccessor(SpringContextHolder.getApplicationContext(), PSSysAppFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password,devSlnSysId);
+            return OutsideAccessorUtils.buildAccessorByUrl(SpringContextHolder.getApplicationContext(), PSSysAppFeignClient.class, serviceUrl, false, serviceUrl, false, loginname, password,devSlnSysId);
         }else{
             throw new RuntimeException("缺少平台服务配置信息。");
         }
