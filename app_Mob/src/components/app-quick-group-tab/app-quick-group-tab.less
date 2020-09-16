@@ -1,35 +1,38 @@
 .app-quick-group {
-	width: 100%;
-	height: 40px;
+	width: 90%;
+	height: 30px;
+	margin: 5px auto;
 	display: flex;
-    justify-content: space-around;
-    background-color: #e8e8e896;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 13px;
 	.quick-group-tab {
-		span {
-			text-align: center;
-			line-height: 40px;
-		}
-		.app-quick-item-label {
-			text-align: center;
-		}
+		flex: 1;
+		height: 30px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 1px solid #a8a8a8;
+		margin: 0 0 -1px -1px;
 		.parentGroup {
 			display: flex;
 			justify-content: center;
+			align-items: center;
 			.app-quick-item-dropdown {
 				--padding-start: 0;
 				--padding-end: 0;
+			}
+			ion-select::part(text) {
+				min-width: 0;
 			}
 			ion-select::part(icon) {
 				position: unset;
 				margin-right: 2px;
 			}
-			ion-select::part(text) {
-				min-width: 0;
-			}
-        }
-        .app-seleted-item {
-            height: 40px;
-            height: 40px;
-        }
+		}
+	}
+	.app-seleted-item {
+		background-color: #a8a8a8;
+		color: white;
 	}
 }

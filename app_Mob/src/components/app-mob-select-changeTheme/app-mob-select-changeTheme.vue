@@ -1,5 +1,5 @@
 <template>
-    <div  class="app-mobile-select"   @click="open">
+    <div  class="app-mobile-select">
         <div class="activeoption" v-if="activeoption" :style="{'background':activeoption.background,'color':activeoption.color}">{{activeoption.text}}</div>
         <ion-select v-show="false"  ref="themeselect" :value="curValue"  @ionChange="change" interface="action-sheet"  :cancel-text="$t('app.button.cancel')">
                 <ion-select-option  v-for="option of options" :key="option.value" :value="option.value" class="mob-select-text">{{option.text}}</ion-select-option>

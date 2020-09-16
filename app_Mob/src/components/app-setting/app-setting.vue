@@ -1,6 +1,6 @@
 <template>
   <ion-page :className="{ 'view-container': true,'app-setting': true}">
-    <ion-header>
+    <ion-header v-if="titleStatus">
       <ion-toolbar class="ionoc-view-header">
         <ion-title class="view-title">
           <label class="title-label">设置</label>
@@ -21,10 +21,10 @@
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </div>
         </ion-item>
-        <ion-item>
+        <ion-item @click="changeTheme">
           <div class="content-list-item-content">
-            <div class="content-list-item-content-text">主题</div>
-            <app-mob-select-changeTheme></app-mob-select-changeTheme>
+            <ion-label class="content-list-item-content-text">主题</ion-label>
+            <app-mob-select-changeTheme ref="changeTheme"></app-mob-select-changeTheme>
           </div>
         </ion-item>
         <ion-item>
@@ -69,7 +69,8 @@
       <ion-list class="content-list">
         <ion-item @click="logout">
           <div class="content-list-item-content">
-            <div class="content-list-item-content-text">退出当前账号</div>
+            <div v-if="!thirdPartyName" class="content-list-item-content-text">退出当前账号</div>
+            <div v-if="thirdPartyName" class="content-list-item-content-text">退出应用</div>
           </div>
         </ion-item>
         <ion-item @click="clear">
@@ -95,16 +96,10 @@ import {
   components: {},
 })
 export default class AppRoundList extends Vue {
-    /**
-     * 传入item
-     * @type {any}
-     * @memberof AppRoundList
-     */
-    //   @Prop() public item?:any;
-
-    public items = [];
 
     public srfloginname = "";
+
+    public thirdPartyName = this.$viewTool.getThirdPartyName();
 
     /**
      * created
@@ -112,6 +107,26 @@ export default class AppRoundList extends Vue {
     public created() {
       let appdata =  this.$store.state.appdata;
       this.srfloginname = appdata.context.srfloginname;
+      this.$viewTool.setViewTitleOfThirdParty("设置");
+      this.setViewTitleStatus();
+    }
+
+    activated(){
+      this.$viewTool.setViewTitleOfThirdParty("设置");
+    }
+
+    /**
+     * 标题状态
+     *
+     * @memberof ProductCloseMobEditViewBase
+     */
+    public titleStatus :boolean = true;
+
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
     }
 
     /**
@@ -124,10 +139,13 @@ export default class AppRoundList extends Vue {
         const contant: any = this.$t('app.tabpage.sureclosetip.content');
         const result = await this.$notice.confirm(title, '确认退出当前账号？',this.$store);
         if(result){
+            if(this.thirdPartyName){
+              this.$viewTool.ThirdPartyClose();
+              return
+            }
             const get: Promise<any> = this.$http.get('v7/logout');
             get.then((response:any) =>{
                 if (response && response.status === 200) {
-                    // this.$appService.logout();
                     this.doLogin();
                 }
             }).catch((error: any) =>{
@@ -158,6 +176,16 @@ export default class AppRoundList extends Vue {
      */
     public clear() {
       
+    }
+
+    /**
+     * changeTheme
+     */
+    public changeTheme() {
+      let changeTheme:any = this.$refs.changeTheme;
+      if(changeTheme){
+        changeTheme.open();
+      }
     }
 
 }

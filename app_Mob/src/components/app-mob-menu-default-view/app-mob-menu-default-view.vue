@@ -7,26 +7,21 @@
                     </ion-tab>
                 </template>
         </template>
-        <ion-tab v-if="useDefaultMenu" key="setting" tab="setting" >
-            <component   :is="'app-setting'" ></component>
-        </ion-tab>
+        <template>
+        </template>
         <ion-tab-bar slot="bottom">
             <template v-for="item in items">
                 <template v-if="!item.hidden">
                     <ion-tab-button :tab="item.name" :key="item.id" :selected="item.id == activeId" @click="active(item)">
                         <ion-icon :name=" item.iconcls ? item.iconcls : 'home' ">
                         </ion-icon>
-                        <ion-label>{{$t(`app.menus.${menuName}.${item.name}`)}}</ion-label>
+                        <ion-label v-if="item.appfunctag != 'settings'">{{$t(`app.menus.${menuName}.${item.name}`)}}</ion-label>
+                        <ion-label v-else>{{item.text}}</ion-label>
                         <ion-badge color="danger" v-if="counterServide && counterServide.counterData && counterServide.counterData[item.counterid]"><ion-label>{{counterServide.counterData[item.counterid]}}</ion-label></ion-badge>
                     </ion-tab-button>
                 </template>
             </template>
-            <ion-tab-button v-if="useDefaultMenu" tab="setting" >
-                <ion-icon name="settings"></ion-icon>
-                    <ion-label>设置</ion-label>
-            </ion-tab-button>
         </ion-tab-bar>
-
     </ion-tabs>
 </template>
 
@@ -123,12 +118,33 @@ export default class AppMobMenuDefaultView extends Vue {
      */
     public activeId = "";
 
+    public defaultMenu =  {
+        appfunctag: "settings",
+        componentname: "app-setting",
+        expanded: false,
+        hidden: false,
+        hidesidebar: false,
+        icon: "",
+        iconcls: "settings",
+        id: "setting",
+        name: "setting",
+        opendefault: false,
+        resourcetag: "",
+        separator: false,
+        text: "设置",
+        textcls: "",
+        tooltip: "设置",
+        type: "MENUITEM",
+    };
     /**
      * 生命周期
      *
      * @memberof AppMobMenuDefaultView
      */
     public created() {
+        if(this.useDefaultMenu){
+            this.items.push(this.defaultMenu);
+        }
         let count = 0;
         this.items.forEach((item:any,index:number) => {
             if(item.hidden == false){
