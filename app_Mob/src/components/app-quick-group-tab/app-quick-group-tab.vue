@@ -13,14 +13,14 @@
       </div>
     </div>
   </div>
-  <div v-if="subItems.length > 0" class="child-list">
-    <div class="child" v-for="(item,index) in subItems" :key="index" @click="handleClick(item)">
+  <div ref="child-list" v-if="subItems.length > 0" class="child-list">
+    <div :class="{'child':true,'selected':item.selected}" v-for="(item,index) in subItems" :key="index" @click="handleClick(item)">
       <span>
         <ion-icon v-if=" item.iconcls && !Object.is(item.iconcls, '')" :name="item.iconcls"></ion-icon>
         <img v-else-if="item.icon && !Object.is(item.icon, '')" :src="item.icon" />
         <span>{{item.label}}</span>
       </span>
-      <ion-icon v-if="item.selected" name="checkbox-outline"></ion-icon>
+      <ion-icon v-if="item.selected" style="margin-left:auto" name="checkbox-outline"></ion-icon>
     </div>
   </div>
 </div>
@@ -172,6 +172,10 @@ export default class AppQuickGroupTab extends Vue {
       }
     } else {
       this.subItems.length = 0;
+      this.items.forEach((item:any) => {
+        item.selected = false;
+      })
+      $event.selected = true;
       this.$emit("valuechange", $event);
     }
     this.$forceUpdate();
