@@ -175,7 +175,7 @@ export interface Release {
     rebuild?: any;
 
     /**
-     * 发布类型
+     * 运行模式
      *
      * @returns {*}
      * @memberof Release

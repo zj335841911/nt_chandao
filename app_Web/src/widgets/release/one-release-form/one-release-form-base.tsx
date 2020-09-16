@@ -131,7 +131,7 @@ export class OneReleaseEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        releasetype: new FormItemModel({ caption: '发布类型', detailType: 'FORMITEM', name: 'releasetype', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        releasetype: new FormItemModel({ caption: '运行模式', detailType: 'FORMITEM', name: 'releasetype', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         backgroundid: new FormItemModel({ caption: '后台服务标识', detailType: 'FORMITEM', name: 'backgroundid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

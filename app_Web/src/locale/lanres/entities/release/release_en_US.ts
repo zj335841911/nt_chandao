@@ -22,7 +22,7 @@ export default {
     sqlid: "数据库标识",
     frontapplication: "前端应用标识",
     rebuild: "重新构建",
-    releasetype: "发布类型",
+    releasetype: "运行模式",
   },
 	views: {
 		optionview: {
@@ -115,7 +115,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			releasetype: "发布类型", 
+			releasetype: "运行模式", 
 			backgroundid: "后台服务标识", 
 			frontapplication: "前端应用标识", 
 			sqlid: "数据库标识", 

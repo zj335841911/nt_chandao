@@ -104,7 +104,7 @@ public class ReleaseSearchContext extends QueryWrapperContext<Release> {
             this.getSearchCond().eq("rebuild", n_rebuild_eq);
         }
     }
-	private String n_releasetype_eq;//[发布类型]
+	private String n_releasetype_eq;//[运行模式]
 	public void setN_releasetype_eq(String n_releasetype_eq) {
         this.n_releasetype_eq = n_releasetype_eq;
         if(!ObjectUtils.isEmpty(this.n_releasetype_eq)){
