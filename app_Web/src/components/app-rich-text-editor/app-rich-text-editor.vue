@@ -423,6 +423,7 @@ export default class AppRichTextEditor extends Vue {
                 { text: 'C++', value: 'cpp' }
             ],
             paste_data_images: true,
+            extended_valid_elements: 'span[class|id|style|userid]', 
             codesample_content_css: 'assets/tinymce/prism.css',
             skin_url: './assets/tinymce/skins/lightgray/ui/oxide',
             language_url: './assets/tinymce/langs/' + richtexteditor.languMap[richtexteditor.langu] + '.js',
