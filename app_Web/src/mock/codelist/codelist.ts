@@ -795,12 +795,92 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "codelisttype":"static",
         items: [
             {
+                id: "DEPLOYPKG",
+                label: "部署系统组件到仓库",
+                text: "部署系统组件到仓库",
+                "data":"",
+                "codename":"Deploypkg",
+                value: "DEPLOYPKG",
+                
+                disabled: false,
+            },
+            {
+                id: "PACKMOBAPP",
+                label: "打包移动应用",
+                text: "打包移动应用",
+                "data":"",
+                "codename":"Packmobapp",
+                value: "PACKMOBAPP",
+                
+                disabled: false,
+            },
+            {
+                id: "PACKVER",
+                label: "打包版本",
+                text: "打包版本",
+                "data":"",
+                "codename":"Packver",
+                value: "PACKVER",
+                
+                disabled: false,
+            },
+            {
                 id: "PUBCODE",
                 label: "代码发布",
                 text: "代码发布",
                 "data":"",
                 "codename":"Pubcode",
                 value: "PUBCODE",
+                
+                disabled: false,
+            },
+            {
+                id: "PUBCODE2",
+                label: "代码发布（模板开发）",
+                text: "代码发布（模板开发）",
+                "data":"",
+                "codename":"Pubcode2",
+                value: "PUBCODE2",
+                
+                disabled: false,
+            },
+            {
+                id: "STARTMSAPI",
+                label: "启动微服务",
+                text: "启动微服务",
+                "data":"",
+                "codename":"Startmsapi",
+                value: "STARTMSAPI",
+                
+                disabled: false,
+            },
+            {
+                id: "STARTMSAPP",
+                label: "启动微服务应用",
+                text: "启动微服务应用",
+                "data":"",
+                "codename":"Startmsapp",
+                value: "STARTMSAPP",
+                
+                disabled: false,
+            },
+            {
+                id: "STARTMSFUNC",
+                label: "启动微服务功能",
+                text: "启动微服务功能",
+                "data":"",
+                "codename":"Startmsfunc",
+                value: "STARTMSFUNC",
+                
+                disabled: false,
+            },
+            {
+                id: "STARTX",
+                label: "启动系统",
+                text: "启动系统",
+                "data":"",
+                "codename":"Startx",
+                value: "STARTX",
                 
                 disabled: false,
             },

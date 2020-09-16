@@ -118,7 +118,15 @@ export default {
         "empty": ""
     },
     RELEASE_Type: {
+        "DEPLOYPKG": "部署系统组件到仓库",
+        "PACKMOBAPP": "打包移动应用",
+        "PACKVER": "打包版本",
         "PUBCODE": "代码发布",
+        "PUBCODE2": "代码发布（模板开发）",
+        "STARTMSAPI": "启动微服务",
+        "STARTMSAPP": "启动微服务应用",
+        "STARTMSFUNC": "启动微服务功能",
+        "STARTX": "启动系统",
         "empty": ""
     },
     Bug__browser: {
