@@ -14,6 +14,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  // background: #f4f3f8;
   position: relative;
   .view-header {
     position: absolute;
@@ -113,6 +114,9 @@ ion-item{
 ion-segment{
   width: 100%;
 }
+.header-ios ion-toolbar:last-of-type {
+  --border-width: 0;
+}
 // 确认操作按钮颜色调整
 button.alert-button.ion-focusable.ion-activatable.secondary.sc-ion-alert-ios {
   color: #ef6b6b;
@@ -128,3 +132,42 @@ button.alert-button.ion-focusable.ion-activatable.secondary.sc-ion-alert-ios {
 .layout(@default-form-text-align);
 
 @import "./user.less";
+// ion-content{
+//   --background: inherit;
+// }
+
+// ion-list.items.ios.list-ios.hydrated {
+//   --background: inherit;
+// }
+
+//分页tab样式 
+ion-segment{
+  height: 40px;
+  width: 100%;
+  --background: #f4f3f8;
+  border-radius: 0;    
+  ion-segment-button{
+    box-sizing: border-box;
+    line-height: 40px;
+    position:relative;
+    --border-radius: 0;  
+    --indicator-box-shadow:#7eb4e6;
+    --color-checked:#7eb4e6;
+    --indicator-color: #f4f3f8;
+    --border-style:none;
+    margin-top: 0;
+    margin-bottom: 2px;
+    --transition:none;
+  }
+  .segment-button-checked{
+    border-bottom: 2px solid #7eb4e6;
+    margin: 0;
+  }
+}
+
+ion-toolbar{
+  --padding-bottom: 0;
+  --padding-end: 0;
+  --padding-start: 0;
+  --padding-top: 0;
+}
