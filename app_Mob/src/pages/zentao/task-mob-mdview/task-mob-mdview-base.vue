@@ -44,6 +44,7 @@
             :isMutli="!isSingleSelect"
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
+            @pageTotalChange="pageTotalChange($event)"
             :isTempMode="false"
             :isEnableChoose="false"
             name="mdctrl"  
