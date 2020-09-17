@@ -27,10 +27,10 @@
             <app-mob-select-changeTheme ref="changeTheme"></app-mob-select-changeTheme>
           </div>
         </ion-item>
-        <ion-item v-if="settingConfig.layoutStyle">
+        <ion-item v-if="settingConfig.layoutStyle" @click="openModal">
           <div class="content-list-item-content">
             <div class="content-list-item-content-text">风格</div>
-            <ion-button color="primary" class="active-text-align-style" @click="openModal">风格调整</ion-button>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
           </div>
         </ion-item>
       </ion-list>

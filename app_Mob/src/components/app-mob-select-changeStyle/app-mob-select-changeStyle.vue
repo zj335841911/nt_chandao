@@ -1,14 +1,32 @@
-<template>
-    <div  class="app-mob-select-changeStyle" >
+<template>  
+<ion-page :className="{ 'view-container': true,'app-mob-select-changeStyle': true}">
+      <ion-header v-if="titleStatus">
+        <ion-toolbar class="ionoc-view-header">
+          <ion-buttons slot="start">
+          <ion-button @click="closeView">
+            <ion-icon name="chevron-back"></ion-icon>
+            {{$t('app.button.back')}}
+          </ion-button>
+        </ion-buttons>
+          <ion-title class="view-title">
+            <label class="title-label">风格设置</label>
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+    <div class="content">
       <ion-list>
-        <ion-radio-group :value="activeAlign">
+        <ion-radio-group >
           <ion-list-header>
             <ion-label>文本对齐方式</ion-label>
           </ion-list-header>
-          <ion-item v-for="item in alignItems" :key="item.index" @click="changeTextAlign">
-            <ion-label>{{item.text}}</ion-label>
-            <ion-radio slot="start" :value="item.value"></ion-radio>
-          </ion-item>
+          <div class="align-boxs">
+            <div :class="{alignbox:true,active:activeAlign == item.value}" v-for="item in alignItems" :key="item.index" @click="changeTextAlign(item)">
+              <ion-label>{{item.text}}</ion-label>
+              <div class="info">{{item.info}}</div>
+              <ion-icon name="checkmark-circle-outline"></ion-icon>
+            </div>
+          </div>
         </ion-radio-group>
       </ion-list>
 
@@ -19,15 +37,13 @@
           </ion-list-header>
           <ion-item  v-for="item in naviItems" :key="item.index" @click="changeNaviStyle">
             <ion-label>{{item.text}}</ion-label>
-            <ion-radio slot="start" :value="item.value"></ion-radio>
+            <ion-radio slot="end" :value="item.value"></ion-radio>
           </ion-item>
         </ion-radio-group>
       </ion-list>
 
-      <div class="change-style-btnbox">
-        <ion-button class="change-style-btn success" @click="save" expand="full">确定</ion-button> 
-      </div>
     </div>
+</ion-page>
    
 </template>
 
@@ -56,8 +72,8 @@ export default class AppSelect extends Vue {
      * @memberof AppMobSelectChangeStyle
      */
     public alignItems:Array<any> = [
-        {text:'左对齐',value:'app-text-align-left'},
-        {text:'右对齐',value:'app-text-align-right'},
+        {text:'左对齐',value:'app-text-align-left',info:'设置对齐方式为左对齐'},
+        {text:'右对齐',value:'app-text-align-right',info:'设置对齐方式为右对齐'},
       ]
 
     /**
@@ -66,8 +82,35 @@ export default class AppSelect extends Vue {
      */
     public naviItems:Array<any> = [
         {text:'经典',value:'app-navi-class'},
-        {text:'创新',value:'app-navi-new'}
+        {text:'新颖',value:'app-navi-new'}
       ]
+
+    /**
+     * 生命周期
+     */
+    public created() {
+      this.thirdPartyInit();
+      this.setViewTitleStatus();
+    }
+
+    /**
+     * 标题状态
+     *
+     * @memberof ProductCloseMobEditViewBase
+     */
+    public titleStatus :boolean = true;
+
+    /**
+     * 设置标题状态
+     *
+     * @memberof ProductCloseMobEditViewBase
+     */
+    public setViewTitleStatus(){
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
+    }
 
     /**
      * 生命周期mounted
@@ -110,8 +153,9 @@ export default class AppSelect extends Vue {
      * 点击改变文本对齐方式
      * @memberof AppMobSelectChangeStyle
      */
-    public changeTextAlign($event:any){
-      this.textAlignChange($event.target.value);
+    public changeTextAlign(item:any){
+      this.textAlignChange(item.value);
+      this.activeAlign = item.value;
     }
 
     /**
@@ -154,6 +198,29 @@ export default class AppSelect extends Vue {
       this.$emit('close');
     }
 
+     /**
+     * 关闭视图
+     * 
+     * @memberof AppMobSelectChangeStyle
+     */
+    public closeView() {
+        this.$emit("close");
+    }
+
+  /**
+   *  第三方容器初始化
+   *
+   * @type {function}
+   * @memberof AppMobSelectChangeStyle
+   */
+  protected  thirdPartyInit(){
+        this.$viewTool.setViewTitleOfThirdParty("风格设置");
+        this.$viewTool.setThirdPartyEvent(this.closeView);
+        const thirdPartyName = this.$store.getters.getThirdPartyName();
+        if(thirdPartyName){
+            this.titleStatus = false;
+        }
+  }
 }
 </script>
 
