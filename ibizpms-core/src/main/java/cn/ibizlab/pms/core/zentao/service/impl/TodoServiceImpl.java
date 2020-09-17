@@ -260,6 +260,15 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     }
 
     /**
+     * 查询集合 我的待办
+     */
+    @Override
+    public Page<Todo> searchMyTodo(TodoSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyTodo(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Todo>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 MyUpcoming
      */
     @Override

@@ -43,6 +43,7 @@ public interface ITodoService extends IService<Todo>{
     Todo sendMessage(Todo et) ;
     Todo sendMsgPreProcess(Todo et) ;
     Page<Todo> searchDefault(TodoSearchContext context) ;
+    Page<Todo> searchMyTodo(TodoSearchContext context) ;
     Page<Todo> searchMyUpcoming(TodoSearchContext context) ;
     /**
      *自定义查询SQL

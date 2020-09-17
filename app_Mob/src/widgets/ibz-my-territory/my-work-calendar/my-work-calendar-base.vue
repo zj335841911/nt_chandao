@@ -23,6 +23,9 @@
                 <ion-segment-button value="task">
                     <ion-label>任务</ion-label>
                 </ion-segment-button>
+                <ion-segment-button value="todo">
+                    <ion-label>待办</ion-label>
+                </ion-segment-button>
             </ion-segment>
             <div class="calendar-events">
                 <ion-list>
@@ -281,6 +284,13 @@ export default class MyWorkBase extends Vue implements ControlInterface {
                 majorPSAppDEField: 'realname',
             }
         ],
+        [
+            'todo', {
+                appde: 'ibzmyterritory',
+                keyPSAppDEField: 'id',
+                majorPSAppDEField: 'realname',
+            }
+        ],
     ]);
 
     /**
@@ -376,14 +386,14 @@ export default class MyWorkBase extends Vue implements ControlInterface {
      *
      * @memberof MyWork
      */
-    public evendata :any = {bug:[],task:[],}
+    public evendata :any = {bug:[],task:[],todo:[],}
 
     /**
      * 图标信息
      *
      * @memberof MyWork
      */
-    public illustration = [{color:"rgba(49, 27, 146, 1)",text:"Bug"},{color:"rgba(247, 219, 15, 1)",text:"任务"},]
+    public illustration = [{color:"rgba(49, 27, 146, 1)",text:"Bug"},{color:"rgba(247, 219, 15, 1)",text:"任务"},{color:"rgba(255, 234, 0, 1)",text:"待办"},]
     /**
      * 激活项
      *
@@ -581,10 +591,11 @@ export default class MyWorkBase extends Vue implements ControlInterface {
      * @memberof MyWork
      */
     protected setTileContent(){
-        this.evendata = {bug:[],task:[],}
+        this.evendata = {bug:[],task:[],todo:[],}
         let bugItem :Array<any> = this.parsingData('bug','assigneddate');
         let taskItem :Array<any> = this.parsingData('task','assigneddate');
-        this.setSign(bugItem,taskItem,);
+        let todoItem :Array<any> = this.parsingData('todo','date');
+        this.setSign(bugItem,taskItem,todoItem,);
     }
 
     /**
@@ -593,8 +604,8 @@ export default class MyWorkBase extends Vue implements ControlInterface {
      * @param any 
      * @memberof MyWork
      */
-    public setSign(bugItem: any,taskItem: any,){
-      let signData: any[] = [...bugItem,...taskItem,];
+    public setSign(bugItem: any,taskItem: any,todoItem: any,){
+      let signData: any[] = [...bugItem,...taskItem,...todoItem,];
       let obj: any = {}
       this.sign.length = 0;
       // 格式化数据
@@ -697,6 +708,17 @@ export default class MyWorkBase extends Vue implements ControlInterface {
     protected getEditView(deName: string) {
         let view: any = {};
         switch(deName){
+            case "task": 
+                view = {
+                    viewname: 'task-mob-edit-view', 
+                    height: 0, 
+                    width: 0,  
+                    title: '任务移动端编辑视图', 
+                    placement: '',
+                    deResParameters: [{ pathName: 'stories', parameterName: 'story' }, ],
+                    parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'mobeditview', parameterName: 'mobeditview' } ],
+                };
+                break;
             case "bug": 
                 view = {
                     viewname: 'bug-mob-edit-view', 
@@ -706,6 +728,17 @@ export default class MyWorkBase extends Vue implements ControlInterface {
                     placement: '',
                     deResParameters: [{ pathName: 'products', parameterName: 'product' }, ],
                     parameters: [{ pathName: 'bugs', parameterName: 'bug' }, { pathName: 'mobeditview', parameterName: 'mobeditview' } ],
+                };
+                break;
+            case "todo": 
+                view = {
+                    viewname: 'todo-mob-edit-view', 
+                    height: 0, 
+                    width: 0,  
+                    title: '待办事宜表移动端编辑视图', 
+                    placement: '',
+                    deResParameters: [],
+                    parameters: [{ pathName: 'todos', parameterName: 'todo' }, { pathName: 'mobeditview', parameterName: 'mobeditview' } ],
                 };
                 break;
         }
@@ -730,6 +763,10 @@ export default class MyWorkBase extends Vue implements ControlInterface {
             case "task":
                 _context.task = $event.task;
                 view = this.getEditView("task");
+                break;
+            case "todo":
+                _context.todo = $event.todo;
+                view = this.getEditView("todo");
                 break;
         }
         if (Object.is(view.placement, 'INDEXVIEWTAB') || Object.is(view.placement, '')) {

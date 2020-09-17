@@ -85,6 +85,28 @@ export class MyWorkModel {
                         },
                     ];
                 break;
+            case "todo":
+                dataItems = 
+                    [
+                        ...dataItems,
+                        {
+                            name: 'todo',
+                            prop: 'id'
+                        },
+                        {
+                            name: 'title',
+                            prop: 'name'
+                        },
+                        {
+                            name:'start',
+                            prop:'n_date_gtandeq'
+                        },
+                        {
+                            name:'end',
+                            prop:'n_date_ltandeq'
+                        },
+                    ];
+                break;
         }
         return dataItems;
 	}

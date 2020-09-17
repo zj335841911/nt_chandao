@@ -59,6 +59,12 @@ export class MyWorkService extends CalendarServiceBase {
             color : 'rgba(247, 219, 15, 1)',
             textColor : 'rgba(247, 219, 15, 1)',
         },
+        'todo': {
+            itemName : '待办',
+            itemType : 'todo',
+            color : 'rgba(255, 234, 0, 1)',
+            textColor : '',
+        },
     };
 
     /**
@@ -86,6 +92,12 @@ export class MyWorkService extends CalendarServiceBase {
             await this.onBeforeAction('', context, _task_data, isLoading);
             const _task = await this.loadDEDataSet('FetchAssignedToMyTask', context, _task_data, 'task', 'task');
             Object.assign(item, { task: _task });
+
+            this.model.itemType = 'todo';
+            const _todo_data = this.handleRequestData('', context, data);
+            await this.onBeforeAction('', context, _todo_data, isLoading);
+            const _todo = await this.loadDEDataSet('FetchMyTodo', context, _todo_data, 'todo', 'todo');
+            Object.assign(item, { todo: _todo });
         } catch (response) {
             return new HttpResponse(response.status);
         }
