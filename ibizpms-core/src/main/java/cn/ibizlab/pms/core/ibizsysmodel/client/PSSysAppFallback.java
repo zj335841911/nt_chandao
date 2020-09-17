@@ -73,6 +73,11 @@ public class PSSysAppFallback implements PSSysAppFeignClient{
             return false;
      }
 
+    public Page<PSSysApp> searchBuild(PSSysAppSearchContext context){
+            return null;
+     }
+
+
     public Page<PSSysApp> searchDefault(PSSysAppSearchContext context){
             return null;
      }

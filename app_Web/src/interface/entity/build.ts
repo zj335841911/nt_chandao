@@ -133,4 +133,44 @@ export interface Build {
      * @memberof Build
      */
     files?: any;
+
+    /**
+     * 重新构建
+     *
+     * @returns {*}
+     * @memberof Build
+     */
+    rebuild?: any;
+
+    /**
+     * 运行模式
+     *
+     * @returns {*}
+     * @memberof Build
+     */
+    releasetype?: any;
+
+    /**
+     * 系统应用
+     *
+     * @returns {*}
+     * @memberof Build
+     */
+    frontapplication?: any;
+
+    /**
+     * 后台体系
+     *
+     * @returns {*}
+     * @memberof Build
+     */
+    backgroundid?: any;
+
+    /**
+     * 运行数据库
+     *
+     * @returns {*}
+     * @memberof Build
+     */
+    sqlid?: any;
 }

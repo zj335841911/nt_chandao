@@ -228,6 +228,21 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
 
 
     /**
+     * 查询集合 版本
+     */
+    @Override
+    public Page<PSSystemDBCfg> searchBuild(PSSystemDBCfgSearchContext context) {
+        Page<PSSystemDBCfg> pSSystemDBCfgs=pSSystemDBCfgFeignClient.searchBuild(context);
+        return pSSystemDBCfgs;
+    }
+
+    @Override
+    public Page<PSSystemDBCfg> searchBuild(String devSlnSysId,PSSystemDBCfgSearchContext context) {
+        Page<PSSystemDBCfg> pSSystemDBCfgs=getPSSystemDBCfgFeignClient(devSlnSysId).searchBuild(context);
+        return pSSystemDBCfgs;
+    }
+
+    /**
      * 查询集合 数据集
      */
     @Override

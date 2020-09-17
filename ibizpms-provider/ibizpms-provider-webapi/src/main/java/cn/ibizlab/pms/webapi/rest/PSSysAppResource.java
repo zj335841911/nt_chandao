@@ -127,6 +127,25 @@ public class PSSysAppResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+	@ApiOperation(value = "获取版本", tags = {"系统应用" } ,notes = "获取版本")
+    @RequestMapping(method= RequestMethod.GET , value="/pssysapps/fetchbuild")
+	public ResponseEntity<List<PSSysAppDTO>> fetchBuild(PSSysAppSearchContext context) {
+        Page<PSSysApp> domains = pssysappService.searchBuild(context) ;
+        List<PSSysAppDTO> list = pssysappMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+	@ApiOperation(value = "查询版本", tags = {"系统应用" } ,notes = "查询版本")
+    @RequestMapping(method= RequestMethod.POST , value="/pssysapps/searchbuild")
+	public ResponseEntity<Page<PSSysAppDTO>> searchBuild(@RequestBody PSSysAppSearchContext context) {
+        Page<PSSysApp> domains = pssysappService.searchBuild(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(pssysappMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 	@ApiOperation(value = "获取数据集", tags = {"系统应用" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/pssysapps/fetchdefault")
 	public ResponseEntity<List<PSSysAppDTO>> fetchDefault(PSSysAppSearchContext context) {

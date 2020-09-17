@@ -73,6 +73,11 @@ public class PSSysSFPubFallback implements PSSysSFPubFeignClient{
             return false;
      }
 
+    public Page<PSSysSFPub> searchBuild(PSSysSFPubSearchContext context){
+            return null;
+     }
+
+
     public Page<PSSysSFPub> searchDefault(PSSysSFPubSearchContext context){
             return null;
      }

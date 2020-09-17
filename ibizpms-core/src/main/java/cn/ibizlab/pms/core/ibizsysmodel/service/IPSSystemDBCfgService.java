@@ -34,6 +34,7 @@ public interface IPSSystemDBCfgService{
     boolean checkKey(PSSystemDBCfg et) ;
     boolean save(PSSystemDBCfg et) ;
     void saveBatch(List<PSSystemDBCfg> list) ;
+    Page<PSSystemDBCfg> searchBuild(PSSystemDBCfgSearchContext context) ;
     Page<PSSystemDBCfg> searchDefault(PSSystemDBCfgSearchContext context) ;
 
     boolean create(String devSlnSysId , PSSystemDBCfg et) ;
@@ -48,6 +49,7 @@ public interface IPSSystemDBCfgService{
     boolean checkKey(String devSlnSysId , PSSystemDBCfg et) ;
     boolean save(String devSlnSysId , PSSystemDBCfg et) ;
     void saveBatch(String devSlnSysId , List<PSSystemDBCfg> list) ;
+    Page<PSSystemDBCfg> searchBuild(String devSlnSysId , PSSystemDBCfgSearchContext context) ;
     Page<PSSystemDBCfg> searchDefault(String devSlnSysId , PSSystemDBCfgSearchContext context) ;
 
 }

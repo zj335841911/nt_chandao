@@ -73,6 +73,11 @@ public class PSSystemDBCfgFallback implements PSSystemDBCfgFeignClient{
             return false;
      }
 
+    public Page<PSSystemDBCfg> searchBuild(PSSystemDBCfgSearchContext context){
+            return null;
+     }
+
+
     public Page<PSSystemDBCfg> searchDefault(PSSystemDBCfgSearchContext context){
             return null;
      }

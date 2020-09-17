@@ -160,6 +160,41 @@ public class Build extends EntityMP implements Serializable {
     @JSONField(name = "files")
     @JsonProperty("files")
     private String files;
+    /**
+     * 重新构建
+     */
+    @TableField(exist = false)
+    @JSONField(name = "rebuild")
+    @JsonProperty("rebuild")
+    private Integer rebuild;
+    /**
+     * 运行模式
+     */
+    @TableField(exist = false)
+    @JSONField(name = "releasetype")
+    @JsonProperty("releasetype")
+    private String releasetype;
+    /**
+     * 系统应用
+     */
+    @TableField(exist = false)
+    @JSONField(name = "frontapplication")
+    @JsonProperty("frontapplication")
+    private String frontapplication;
+    /**
+     * 后台体系
+     */
+    @TableField(exist = false)
+    @JSONField(name = "backgroundid")
+    @JsonProperty("backgroundid")
+    private String backgroundid;
+    /**
+     * 运行数据库
+     */
+    @TableField(exist = false)
+    @JSONField(name = "sqlid")
+    @JsonProperty("sqlid")
+    private String sqlid;
 
     /**
      * 

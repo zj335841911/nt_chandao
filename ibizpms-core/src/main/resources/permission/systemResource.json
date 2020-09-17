@@ -1024,7 +1024,7 @@
     "dename":"PSSysSFPub",
     "delogicname":"后台服务架构",
     "sysmoudle":{"id":"IBIZSYSMODEL","name":"iBiz系统模型"},
-    "dedataset":[{"id":"Default" , "name":"数据集"}],
+    "dedataset":[{"id":"Build" , "name":"版本"},{"id":"Default" , "name":"数据集"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
      }
@@ -1056,7 +1056,7 @@
     "dename":"PSSysApp",
     "delogicname":"系统应用",
     "sysmoudle":{"id":"IBIZSYSMODEL","name":"iBiz系统模型"},
-    "dedataset":[{"id":"Default" , "name":"数据集"}],
+    "dedataset":[{"id":"Build" , "name":"版本"},{"id":"Default" , "name":"数据集"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
      }
@@ -1072,7 +1072,7 @@
     "dename":"PSSystemDBCfg",
     "delogicname":"系统数据库",
     "sysmoudle":{"id":"IBIZSYSMODEL","name":"iBiz系统模型"},
-    "dedataset":[{"id":"Default" , "name":"数据集"}],
+    "dedataset":[{"id":"Build" , "name":"版本"},{"id":"Default" , "name":"数据集"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
      }

@@ -264,6 +264,21 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
 
 
     /**
+     * 查询集合 版本
+     */
+    @Override
+    public Page<PSSysApp> searchBuild(PSSysAppSearchContext context) {
+        Page<PSSysApp> pSSysApps=pSSysAppFeignClient.searchBuild(context);
+        return pSSysApps;
+    }
+
+    @Override
+    public Page<PSSysApp> searchBuild(String devSlnSysId,PSSysAppSearchContext context) {
+        Page<PSSysApp> pSSysApps=getPSSysAppFeignClient(devSlnSysId).searchBuild(context);
+        return pSSysApps;
+    }
+
+    /**
      * 查询集合 数据集
      */
     @Override

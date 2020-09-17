@@ -34,6 +34,7 @@ public interface IPSSysSFPubService{
     boolean checkKey(PSSysSFPub et) ;
     boolean save(PSSysSFPub et) ;
     void saveBatch(List<PSSysSFPub> list) ;
+    Page<PSSysSFPub> searchBuild(PSSysSFPubSearchContext context) ;
     Page<PSSysSFPub> searchDefault(PSSysSFPubSearchContext context) ;
     List<PSSysSFPub> selectByPpssyssfpubid(String pssyssfpubid) ;
     void removeByPpssyssfpubid(String pssyssfpubid) ;
@@ -50,6 +51,7 @@ public interface IPSSysSFPubService{
     boolean checkKey(String devSlnSysId , PSSysSFPub et) ;
     boolean save(String devSlnSysId , PSSysSFPub et) ;
     void saveBatch(String devSlnSysId , List<PSSysSFPub> list) ;
+    Page<PSSysSFPub> searchBuild(String devSlnSysId , PSSysSFPubSearchContext context) ;
     Page<PSSysSFPub> searchDefault(String devSlnSysId , PSSysSFPubSearchContext context) ;
     List<PSSysSFPub> selectByPpssyssfpubid(String devSlnSysId , String pssyssfpubid) ;
     void removeByPpssyssfpubid(String devSlnSysId , String pssyssfpubid) ;

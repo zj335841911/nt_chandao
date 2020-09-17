@@ -69,6 +69,41 @@ public class BuildSearchContext extends QueryWrapperContext<Build> {
             this.getSearchCond().like("productname", n_productname_like);
         }
     }
+	private Integer n_rebuild_eq;//[重新构建]
+	public void setN_rebuild_eq(Integer n_rebuild_eq) {
+        this.n_rebuild_eq = n_rebuild_eq;
+        if(!ObjectUtils.isEmpty(this.n_rebuild_eq)){
+            this.getSearchCond().eq("rebuild", n_rebuild_eq);
+        }
+    }
+	private String n_releasetype_eq;//[运行模式]
+	public void setN_releasetype_eq(String n_releasetype_eq) {
+        this.n_releasetype_eq = n_releasetype_eq;
+        if(!ObjectUtils.isEmpty(this.n_releasetype_eq)){
+            this.getSearchCond().eq("releasetype", n_releasetype_eq);
+        }
+    }
+	private String n_frontapplication_eq;//[系统应用]
+	public void setN_frontapplication_eq(String n_frontapplication_eq) {
+        this.n_frontapplication_eq = n_frontapplication_eq;
+        if(!ObjectUtils.isEmpty(this.n_frontapplication_eq)){
+            this.getSearchCond().eq("frontapplication", n_frontapplication_eq);
+        }
+    }
+	private String n_backgroundid_eq;//[后台体系]
+	public void setN_backgroundid_eq(String n_backgroundid_eq) {
+        this.n_backgroundid_eq = n_backgroundid_eq;
+        if(!ObjectUtils.isEmpty(this.n_backgroundid_eq)){
+            this.getSearchCond().eq("backgroundid", n_backgroundid_eq);
+        }
+    }
+	private String n_sqlid_eq;//[运行数据库]
+	public void setN_sqlid_eq(String n_sqlid_eq) {
+        this.n_sqlid_eq = n_sqlid_eq;
+        if(!ObjectUtils.isEmpty(this.n_sqlid_eq)){
+            this.getSearchCond().eq("sqlid", n_sqlid_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

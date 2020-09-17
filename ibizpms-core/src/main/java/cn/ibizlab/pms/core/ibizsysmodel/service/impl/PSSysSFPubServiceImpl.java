@@ -264,6 +264,21 @@ public class PSSysSFPubServiceImpl implements IPSSysSFPubService {
 
 
     /**
+     * 查询集合 版本
+     */
+    @Override
+    public Page<PSSysSFPub> searchBuild(PSSysSFPubSearchContext context) {
+        Page<PSSysSFPub> pSSysSFPubs=pSSysSFPubFeignClient.searchBuild(context);
+        return pSSysSFPubs;
+    }
+
+    @Override
+    public Page<PSSysSFPub> searchBuild(String devSlnSysId,PSSysSFPubSearchContext context) {
+        Page<PSSysSFPub> pSSysSFPubs=getPSSysSFPubFeignClient(devSlnSysId).searchBuild(context);
+        return pSSysSFPubs;
+    }
+
+    /**
      * 查询集合 数据集
      */
     @Override

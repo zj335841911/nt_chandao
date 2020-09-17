@@ -34,6 +34,7 @@ public interface IPSSysAppService{
     boolean checkKey(PSSysApp et) ;
     boolean save(PSSysApp et) ;
     void saveBatch(List<PSSysApp> list) ;
+    Page<PSSysApp> searchBuild(PSSysAppSearchContext context) ;
     Page<PSSysApp> searchDefault(PSSysAppSearchContext context) ;
     List<PSSysApp> selectByPssysserviceapiid(String pssysserviceapiid) ;
     void removeByPssysserviceapiid(String pssysserviceapiid) ;
@@ -50,6 +51,7 @@ public interface IPSSysAppService{
     boolean checkKey(String devSlnSysId , PSSysApp et) ;
     boolean save(String devSlnSysId , PSSysApp et) ;
     void saveBatch(String devSlnSysId , List<PSSysApp> list) ;
+    Page<PSSysApp> searchBuild(String devSlnSysId , PSSysAppSearchContext context) ;
     Page<PSSysApp> searchDefault(String devSlnSysId , PSSysAppSearchContext context) ;
     List<PSSysApp> selectByPssysserviceapiid(String devSlnSysId , String pssysserviceapiid) ;
     void removeByPssysserviceapiid(String devSlnSysId , String pssysserviceapiid) ;
