@@ -85,6 +85,7 @@ export default {
                 menuitem2: '项目',
                 menuitem3: '测试',
                 menuitem4: '我的',
+                menuitem6: '个人中心',
             },
             listmenu: {
                 menuitem1: '电脑',

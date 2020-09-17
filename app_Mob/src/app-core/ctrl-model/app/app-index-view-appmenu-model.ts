@@ -86,6 +86,24 @@ export class AppIndexViewModel {
 	appfunctag: 'Auto22',
 	resourcetag: '',
 },
+        {
+	id: 'B46864D2-69CB-4432-A520-12632D097F30',
+	name: 'menuitem6',
+	text: '个人中心',
+	type: 'MENUITEM',
+	counterid: '',
+	tooltip: '个人中心',
+	expanded: false,
+	separator: false,
+	hidden: true,
+	hidesidebar: false,
+	opendefault: false,
+	iconcls: '',
+	icon: '',
+	textcls: '',
+	appfunctag: 'AppFunc',
+	resourcetag: '',
+},
     ];
 
 	/**
@@ -120,6 +138,19 @@ export class AppIndexViewModel {
             parameters: [
                 { pathName: 'products', parameterName: 'product' },
                 { pathName: 'mobmdview', parameterName: 'mobmdview' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc',
+            appfuncyype: 'APPVIEW',
+            openmode: '', 
+            componentname: 'user-user-center-mob-edit-view', 
+            codename: 'userusercentermobeditview',
+            deResParameters: [],
+            routepath: '/appindexview/:appindexview?/users/:user?/usercentermobeditview/:usercentermobeditview?',
+            parameters: [
+                { pathName: 'users', parameterName: 'user' },
+                { pathName: 'usercentermobeditview', parameterName: 'usercentermobeditview' },
             ],
         },
         {

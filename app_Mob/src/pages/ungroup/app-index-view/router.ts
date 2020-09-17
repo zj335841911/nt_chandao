@@ -1313,19 +1313,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-gsmob-option-view/task-gsmob-option-view.vue'),
                 },
                 {
-                    path: 'actions/:action?/allmobmdview9',
-                    meta: {
-                        caption: 'action.views.allmobmdview9.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'actions', parameterName: 'action' },
-                            { pathName: 'allmobmdview9', parameterName: 'allmobmdview9' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/action-allmob-mdview9/action-allmob-mdview9.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/favoritemoremobmdview',
                     meta: {
                         caption: 'task.views.favoritemoremobmdview.caption',
@@ -1380,6 +1367,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/task-favorite-more-mob-mdview/task-favorite-more-mob-mdview.vue'),
+                },
+                {
+                    path: 'actions/:action?/allmobmdview9',
+                    meta: {
+                        caption: 'action.views.allmobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'actions', parameterName: 'action' },
+                            { pathName: 'allmobmdview9', parameterName: 'allmobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/action-allmob-mdview9/action-allmob-mdview9.vue'),
                 },
                 {
                     path: 'modules/:module?/mobpickupmdview',
@@ -2656,6 +2656,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/product-plan-new-mob-edit-view/product-plan-new-mob-edit-view.vue'),
+                },
+                {
+                    path: 'users/:user?/usercentermobeditview',
+                    meta: {
+                        caption: 'user.views.usercentermobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'users', parameterName: 'user' },
+                            { pathName: 'usercentermobeditview', parameterName: 'usercentermobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/user-user-center-mob-edit-view/user-user-center-mob-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/cmoboptionview',
