@@ -23,6 +23,7 @@
     height: 4px;
     color: #ccc;
     font-size: 16px;
+    font-weight: 600;
 }
 .changeStyle_bottom{
     border-color: rgb(135, 135, 135);
