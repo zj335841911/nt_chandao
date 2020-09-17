@@ -278,6 +278,34 @@ export default class BuildServiceBase extends EntityService {
     }
 
     /**
+     * OneClickRelease接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BuildServiceBase
+     */
+    public async OneClickRelease(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.build){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/builds/${context.build}/oneclickrelease`,data,isloading);
+            
+            return res;
+        }
+        if(context.product && context.build){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/builds/${context.build}/oneclickrelease`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/builds/${context.build}/oneclickrelease`,data,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]

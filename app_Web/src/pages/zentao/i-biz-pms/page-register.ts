@@ -274,6 +274,7 @@ export const PageComponents = {
         Vue.component('test-task-edit-view9-detail', () => import('@pages/zentao/test-task-edit-view9-detail/test-task-edit-view9-detail.vue'));
         Vue.component('task-sub-task-new-view', () => import('@pages/zentao/task-sub-task-new-view/task-sub-task-new-view.vue'));
         Vue.component('task-close-task-view', () => import('@pages/zentao/task-close-task-view/task-close-task-view.vue'));
+        Vue.component('build-option-view', () => import('@pages/zentao/build-option-view/build-option-view.vue'));
         Vue.component('story-release-sub-grid-view', () => import('@pages/zentao/story-release-sub-grid-view/story-release-sub-grid-view.vue'));
         Vue.component('story-cur-project-wgrid-view', () => import('@pages/zentao/story-cur-project-wgrid-view/story-cur-project-wgrid-view.vue'));
         Vue.component('release-option-view', () => import('@pages/zentao/release-option-view/release-option-view.vue'));

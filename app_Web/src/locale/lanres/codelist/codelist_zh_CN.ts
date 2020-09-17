@@ -59,6 +59,9 @@ export default {
     RealNameProjectM: {
         "empty": "",
     },
+    SQLBuild: {
+        "empty": "",
+    },
     Project__status: {
         "wait": "未开始",
         "doing": "进行中",
@@ -182,6 +185,9 @@ export default {
     Action__read: {
         "0": "0",
         "1": "1",
+        "empty": "",
+    },
+    APPBuild: {
         "empty": "",
     },
     Story__review_result: {
@@ -492,6 +498,9 @@ export default {
         "all": "所有",
         "normal": "正常",
         "terminate": "停止维护",
+        "empty": "",
+    },
+    BackendBuild: {
         "empty": "",
     },
     Testcase__stage: {

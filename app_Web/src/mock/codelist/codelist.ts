@@ -391,6 +391,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        "srfkey": "SQLBuild",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"PSSystemDBCfg",
+        "appdedataset":"FetchBuild",
+        "items": []
+    },
+    {
         srfkey: "Project__status",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -1281,6 +1289,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "APPBuild",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"PSSysApp",
+        "appdedataset":"FetchBuild",
+        "items": []
     },
     {
         srfkey: "Story__review_result",
@@ -3691,6 +3707,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "BackendBuild",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"PSSysSFPub",
+        "appdedataset":"FetchBuild",
+        "items": []
     },
     {
         srfkey: "Testcase__stage",

@@ -413,6 +413,14 @@
         "items": []
     }, 
     {
+        "srfkey": "SQLBuild",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"PSSystemDBCfg",
+        "appdedataset":"FetchBuild",
+        "items": []
+    }, 
+    {
         "srfkey": "Project__status",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -1380,6 +1388,14 @@
                 "default": false
             }
         ]
+    }, 
+    {
+        "srfkey": "APPBuild",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"PSSysApp",
+        "appdedataset":"FetchBuild",
+        "items": []
     }, 
     {
         "srfkey": "Story__review_result",
@@ -4004,6 +4020,14 @@
                 "default": false
             }
         ]
+    }, 
+    {
+        "srfkey": "BackendBuild",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"PSSysSFPub",
+        "appdedataset":"FetchBuild",
+        "items": []
     }, 
     {
         "srfkey": "Testcase__stage",

@@ -1446,6 +1446,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '64dda8bee495e9713c61310a3fea2df9',
+            viewmodule: 'zentao',
+            viewname: 'BuildOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '65129e5f76f96cbb1d2d1c9e9bb2afed',
             viewmodule: 'ibiz',
             viewname: 'TestModuleGridViewBranch',
@@ -1830,6 +1839,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '64dda8bee495e9713c61310a3fea2df9',
                 'e9d61d4506a28dec9a6f1d7b9e1fff6a',
                 '43c2d1a2b73b0363036aee72dc9312c5',
                 '4d32793fc57ec1ae930a18608526d00e',

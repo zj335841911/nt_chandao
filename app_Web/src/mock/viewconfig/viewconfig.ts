@@ -1263,6 +1263,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryProjectMPickupView3",
             "viewtag": "645efdb73a5b13723410903dff447667"
         },
+        "buildoptionview": {
+            "title": "版本选项操作视图",
+            "caption": "版本",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BuildOptionView",
+            "viewtag": "64dda8bee495e9713c61310a3fea2df9"
+        },
         "testmodulegridviewbranch": {
             "title": "产品模块表格视图",
             "caption": "测试模块",

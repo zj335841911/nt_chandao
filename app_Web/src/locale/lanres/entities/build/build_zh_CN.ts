@@ -23,6 +23,10 @@ export default {
     sqlid: "运行数据库",
   },
 	views: {
+		optionview: {
+			caption: "版本",
+      		title: "版本选项操作视图",
+		},
 		editformeditview: {
 			caption: "版本",
       		title: "版本编辑视图",
@@ -99,6 +103,26 @@ export default {
 		uiactions: {
 		},
 	},
+	testbuildrelease_form: {
+		details: {
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "id", 
+			srfmajortext: "名称编号", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			releasetype: "运行模式", 
+			backgroundid: "后台体系", 
+			sqlid: "运行数据库", 
+			frontapplication: "系统应用", 
+			rebuild: "重新构建", 
+			id: "id", 
+		},
+		uiactions: {
+		},
+	},
 	quickcreate_form: {
 		details: {
 			grouppanel2: "分组面板", 
@@ -142,6 +166,7 @@ export default {
 			build_viewbugs: "查看Bug",
 			build_editbuild: "编辑版本",
 			build_delete: "删除",
+			build_oneedit: "发布",
 		},
 	},
 	default_searchform: {

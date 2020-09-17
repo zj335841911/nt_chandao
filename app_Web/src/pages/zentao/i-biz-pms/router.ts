@@ -10934,6 +10934,50 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-close-task-view/task-close-task-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/builds/:build?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.build.views.optionview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'builds', parameterName: 'build' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/build-option-view/build-option-view.vue'),
+                },
+                {
+                    path: 'products/:product?/builds/:build?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.build.views.optionview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'builds', parameterName: 'build' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/build-option-view/build-option-view.vue'),
+                },
+                {
+                    path: 'builds/:build?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.build.views.optionview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'builds', parameterName: 'build' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/build-option-view/build-option-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/releasesubgridview/:releasesubgridview?',
                     meta: {
                         caption: 'entities.story.views.releasesubgridview.caption',
