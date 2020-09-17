@@ -283,7 +283,9 @@ export class ViewBase extends Vue {
             for (let key in this.viewparams) {
                 delete this.viewparams[key];
             }
-            Object.assign(this.viewparams, JSON.parse(this.viewparam));
+            if (typeof this.viewparam == 'string') {
+                Object.assign(this.viewparams, JSON.parse(this.viewparam));
+            }
         }
     }
 
@@ -501,7 +503,9 @@ export class ViewBase extends Vue {
             if (this.$store.getters.getAppData() && this.$store.getters.getAppData().context) {
                 Object.assign(this.context, this.$store.getters.getAppData().context);
             }
-            Object.assign(this.context, JSON.parse(this.viewdata));
+            if (typeof this.viewdata == 'string') {
+                Object.assign(this.context, JSON.parse(this.viewdata));
+            }
             if (this.context && this.context.srfparentdename) {
                 Object.assign(this.viewparams, { srfparentdename: this.context.srfparentdename });
             }
