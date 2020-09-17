@@ -95,7 +95,7 @@ export class AppIndexViewModel {
 	tooltip: '个人中心',
 	expanded: false,
 	separator: false,
-	hidden: false,
+	hidden: true,
 	hidesidebar: false,
 	opendefault: false,
 	iconcls: '',
