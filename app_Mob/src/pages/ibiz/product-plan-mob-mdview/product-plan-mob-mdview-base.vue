@@ -2,11 +2,11 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'product-plan-mob-mdview': true }">
     
     <ion-header>
-
-
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
         </ion-toolbar>
+
+    
     </ion-header>
 
 
@@ -61,13 +61,32 @@
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
                 <div v-show="!showCheack" class = "fab_container">
-                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
-                    <ion-icon name="add"></ion-icon>
-                </ion-button>
-                
-            </div>
-        
+            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
+        Encountered "item", but was expecting one of:
+            ".."
+            <DOT_DOT_LESS>
+            "..*"
+            ">"
+            "."
+            "["
+            "("
+            "?"
+            "!"
+            <TERMINATING_EXCLAM>
+            "??"
+            "+"
+            "-"
+            "*"
+            "/"
+            "%"
+            ">="
+            <ESCAPED_GTE>
+            ">"
+            <ESCAPED_GT>
+            <LESS_THAN_EQUALS>
+            <LESS_THAN>
+            <AND>
+            <OR>
         </div>
         
     </ion-footer>

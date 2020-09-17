@@ -13,20 +13,41 @@
             <ion-buttons slot="end">
                                 <div class="app-toolbar-container ">
                     <div class="app-quick-toolbar toolbar-right-bottons">
-                            <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" >
-                        <ion-icon class="ibiz-button-icon" name="add"> </ion-icon>
-                    
-                    </ion-button>
-                
+                        !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
+                Encountered "item", but was expecting one of:
+                    ".."
+                    <DOT_DOT_LESS>
+                    "..*"
+                    ">"
+                    "."
+                    "["
+                    "("
+                    "?"
+                    "!"
+                    <TERMINATING_EXCLAM>
+                    "??"
+                    "+"
+                    "-"
+                    "*"
+                    "/"
+                    "%"
+                    ">="
+                    <ESCAPED_GTE>
+                    ">"
+                    <ESCAPED_GT>
+                    <LESS_THAN_EQUALS>
+                    <LESS_THAN>
+                    <AND>
+                    <OR>
                     </div>
                 </div>
             </ion-buttons>
         </ion-toolbar>
-
-
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
         </ion-toolbar>
+
+    
     </ion-header>
 
 

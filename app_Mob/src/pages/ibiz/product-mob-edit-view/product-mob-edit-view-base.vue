@@ -4,7 +4,7 @@
     
     <ion-header>
 
-
+    
     </ion-header>
 
 
@@ -42,18 +42,58 @@
                 <div class="container">
                 
         
-                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
-                </ion-button>
-                <span>{{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}</span>
-            </div>
-        
-                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)" size="large">
-                </ion-button>
-                <span>{{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}</span>
-            </div>
-        
+            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
+        Encountered "item", but was expecting one of:
+            ".."
+            <DOT_DOT_LESS>
+            "..*"
+            ">"
+            "."
+            "["
+            "("
+            "?"
+            "!"
+            <TERMINATING_EXCLAM>
+            "??"
+            "+"
+            "-"
+            "*"
+            "/"
+            "%"
+            ">="
+            <ESCAPED_GTE>
+            ">"
+            <ESCAPED_GT>
+            <LESS_THAN_EQUALS>
+            <LESS_THAN>
+            <AND>
+            <OR>
+            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
+        Encountered "item", but was expecting one of:
+            ".."
+            <DOT_DOT_LESS>
+            "..*"
+            ">"
+            "."
+            "["
+            "("
+            "?"
+            "!"
+            <TERMINATING_EXCLAM>
+            "??"
+            "+"
+            "-"
+            "*"
+            "/"
+            "%"
+            ">="
+            <ESCAPED_GTE>
+            ">"
+            <ESCAPED_GT>
+            <LESS_THAN_EQUALS>
+            <LESS_THAN>
+            <AND>
+            <OR>
         
         
                 </div>

@@ -3,7 +3,7 @@
     
     <ion-header>
 
-
+    
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel">

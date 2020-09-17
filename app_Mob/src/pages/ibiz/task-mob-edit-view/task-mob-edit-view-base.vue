@@ -13,7 +13,7 @@
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
 
-
+    
     </ion-header>
 
 
@@ -49,68 +49,240 @@
             <ion-button @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
             <van-popup class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
-                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_confirmstorychangecz.disabled}" v-show="righttoolbarModels.deuiaction1_confirmstorychangecz.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_confirmstorychangecz.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_confirmstorychangecz' }, $event)" size="large">
-                    <ion-icon name="search"></ion-icon>
-                </ion-button>
-                <span>{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmstorychangecz.caption')}}</span>
-            </div>
-        
-                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_starttaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_starttaskmob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_starttaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_starttaskmob' }, $event)" size="large">
-                    <ion-icon name="play"></ion-icon>
-                </ion-button>
-                <span>{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_starttaskmob.caption')}}</span>
-            </div>
-        
-                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_assigntaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_assigntaskmob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_assigntaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assigntaskmob' }, $event)" size="large">
-                    <ion-icon name="people"></ion-icon>
-                </ion-button>
-                <span>{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntaskmob.caption')}}</span>
-            </div>
-        
-                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_workhoursmob.disabled}" v-show="righttoolbarModels.deuiaction1_workhoursmob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_workhoursmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_workhoursmob' }, $event)" size="large">
-                </ion-button>
-                <span>{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_workhoursmob.caption')}}</span>
-            </div>
-        
-                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_donetaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_donetaskmob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_donetaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_donetaskmob' }, $event)" size="large">
-                    <ion-icon name="checkmark-circle-outline"></ion-icon>
-                </ion-button>
-                <span>{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_donetaskmob.caption')}}</span>
-            </div>
-        
-                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_pausetaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_pausetaskmob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_pausetaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_pausetaskmob' }, $event)" size="large">
-                    <ion-icon name="pause"></ion-icon>
-                </ion-button>
-                <span>{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_pausetaskmob.caption')}}</span>
-            </div>
-        
-                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_canceltaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_canceltaskmob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_canceltaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_canceltaskmob' }, $event)" size="large">
-                    <ion-icon name="power"></ion-icon>
-                </ion-button>
-                <span>{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_canceltaskmob.caption')}}</span>
-            </div>
-        
-                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_closetaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_closetaskmob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_closetaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closetaskmob' }, $event)" size="large">
-                    <ion-icon name="backspace"></ion-icon>
-                </ion-button>
-                <span>{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_closetaskmob.caption')}}</span>
-            </div>
-        
-                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_deletemob.disabled}" v-show="righttoolbarModels.deuiaction1_deletemob.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_deletemob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event)" size="large">
-                    <ion-icon name="remove"></ion-icon>
-                </ion-button>
-                <span>{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}</span>
-            </div>
-        
+                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
+        Encountered "item", but was expecting one of:
+            ".."
+            <DOT_DOT_LESS>
+            "..*"
+            ">"
+            "."
+            "["
+            "("
+            "?"
+            "!"
+            <TERMINATING_EXCLAM>
+            "??"
+            "+"
+            "-"
+            "*"
+            "/"
+            "%"
+            ">="
+            <ESCAPED_GTE>
+            ">"
+            <ESCAPED_GT>
+            <LESS_THAN_EQUALS>
+            <LESS_THAN>
+            <AND>
+            <OR>
+                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
+        Encountered "item", but was expecting one of:
+            ".."
+            <DOT_DOT_LESS>
+            "..*"
+            ">"
+            "."
+            "["
+            "("
+            "?"
+            "!"
+            <TERMINATING_EXCLAM>
+            "??"
+            "+"
+            "-"
+            "*"
+            "/"
+            "%"
+            ">="
+            <ESCAPED_GTE>
+            ">"
+            <ESCAPED_GT>
+            <LESS_THAN_EQUALS>
+            <LESS_THAN>
+            <AND>
+            <OR>
+                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
+        Encountered "item", but was expecting one of:
+            ".."
+            <DOT_DOT_LESS>
+            "..*"
+            ">"
+            "."
+            "["
+            "("
+            "?"
+            "!"
+            <TERMINATING_EXCLAM>
+            "??"
+            "+"
+            "-"
+            "*"
+            "/"
+            "%"
+            ">="
+            <ESCAPED_GTE>
+            ">"
+            <ESCAPED_GT>
+            <LESS_THAN_EQUALS>
+            <LESS_THAN>
+            <AND>
+            <OR>
+                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
+        Encountered "item", but was expecting one of:
+            ".."
+            <DOT_DOT_LESS>
+            "..*"
+            ">"
+            "."
+            "["
+            "("
+            "?"
+            "!"
+            <TERMINATING_EXCLAM>
+            "??"
+            "+"
+            "-"
+            "*"
+            "/"
+            "%"
+            ">="
+            <ESCAPED_GTE>
+            ">"
+            <ESCAPED_GT>
+            <LESS_THAN_EQUALS>
+            <LESS_THAN>
+            <AND>
+            <OR>
+                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
+        Encountered "item", but was expecting one of:
+            ".."
+            <DOT_DOT_LESS>
+            "..*"
+            ">"
+            "."
+            "["
+            "("
+            "?"
+            "!"
+            <TERMINATING_EXCLAM>
+            "??"
+            "+"
+            "-"
+            "*"
+            "/"
+            "%"
+            ">="
+            <ESCAPED_GTE>
+            ">"
+            <ESCAPED_GT>
+            <LESS_THAN_EQUALS>
+            <LESS_THAN>
+            <AND>
+            <OR>
+                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
+        Encountered "item", but was expecting one of:
+            ".."
+            <DOT_DOT_LESS>
+            "..*"
+            ">"
+            "."
+            "["
+            "("
+            "?"
+            "!"
+            <TERMINATING_EXCLAM>
+            "??"
+            "+"
+            "-"
+            "*"
+            "/"
+            "%"
+            ">="
+            <ESCAPED_GTE>
+            ">"
+            <ESCAPED_GT>
+            <LESS_THAN_EQUALS>
+            <LESS_THAN>
+            <AND>
+            <OR>
+                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
+        Encountered "item", but was expecting one of:
+            ".."
+            <DOT_DOT_LESS>
+            "..*"
+            ">"
+            "."
+            "["
+            "("
+            "?"
+            "!"
+            <TERMINATING_EXCLAM>
+            "??"
+            "+"
+            "-"
+            "*"
+            "/"
+            "%"
+            ">="
+            <ESCAPED_GTE>
+            ">"
+            <ESCAPED_GT>
+            <LESS_THAN_EQUALS>
+            <LESS_THAN>
+            <AND>
+            <OR>
+                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
+        Encountered "item", but was expecting one of:
+            ".."
+            <DOT_DOT_LESS>
+            "..*"
+            ">"
+            "."
+            "["
+            "("
+            "?"
+            "!"
+            <TERMINATING_EXCLAM>
+            "??"
+            "+"
+            "-"
+            "*"
+            "/"
+            "%"
+            ">="
+            <ESCAPED_GTE>
+            ">"
+            <ESCAPED_GT>
+            <LESS_THAN_EQUALS>
+            <LESS_THAN>
+            <AND>
+            <OR>
+                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
+        Encountered "item", but was expecting one of:
+            ".."
+            <DOT_DOT_LESS>
+            "..*"
+            ">"
+            "."
+            "["
+            "("
+            "?"
+            "!"
+            <TERMINATING_EXCLAM>
+            "??"
+            "+"
+            "-"
+            "*"
+            "/"
+            "%"
+            ">="
+            <ESCAPED_GTE>
+            ">"
+            <ESCAPED_GT>
+            <LESS_THAN_EQUALS>
+            <LESS_THAN>
+            <AND>
+            <OR>
                 </div>
             </van-popup>
         </div>

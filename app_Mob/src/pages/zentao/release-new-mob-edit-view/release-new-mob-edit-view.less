@@ -79,8 +79,8 @@
     --padding-top:0;
   }
   .popup {
-    height: 40%;
     padding-top: 20px;
+    padding-bottom: 20px;
     .container {
       width: 100%;
       height: 100%;
@@ -97,6 +97,15 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        ion-button {
+          color: white !important;
+        }
+        .btn-inner-text {
+          display:none;
+        }
+        .btn-out-text {
+          color: #e8e8e8;
+        }
       }
       .disabled {
         color: #a8a8a8;
