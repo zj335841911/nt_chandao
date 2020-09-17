@@ -200,8 +200,8 @@ export default class AppSetting extends Vue {
       if(context && context.srfuserid){
         user[this.settingConfig.userEntityName] = context.srfuserid;
       }
-      if(this.settingConfig.userCenterName){
-        this.$appmodal.openModal({viewname:this.settingConfig.userCenterName,title:""},user);
+      if(this.settingConfig.userCenterViewName){
+        this.$appmodal.openModal({viewname:this.settingConfig.userCenterViewName,title:""},user);
       }else{
         this.$notice.warning("用户自定义视图未配置")
       }
