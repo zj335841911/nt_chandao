@@ -1,15 +1,20 @@
 @import "../../node_modules/font-awesome/less/font-awesome.less";
-@import "../theme/blue.theme.less";
-@import "../theme/dark-blue.theme.less";
-@import "../theme/class-black.less";
-@import "../theme/light-green.less";
-@import "../theme/peach-pink.less";
-@import "../theme/star-purple.less";
-@import "../theme/summer-yellow.less";
-@import "../theme/vital-red.less";
+@import "./theme/blue.theme.less";
+@import "./theme/dark-blue.theme.less";
+@import "./theme/class-black.less";
+@import "./theme/light-green.less";
+@import "./theme/peach-pink.less";
+@import "./theme/star-purple.less";
+@import "./theme/summer-yellow.less";
+@import "./theme/vital-red.less";
 @import "./theme.less";
-@import "./layout.less";
 @import "./sysStyles.less";
+@import "./layout/layout.less";
+@import "./layout/align/align-left.less";
+@import "./layout/align/align-right.less";
+@import "./layout/navigation/navi-class.less";
+@import "./layout/navigation/navi-new.less";
+
 .ion-page.view-container {
   height: 100%;
   display: flex;
@@ -141,29 +146,29 @@ button.alert-button.ion-focusable.ion-activatable.secondary.sc-ion-alert-ios {
 // }
 
 //分页tab样式 
-ion-segment{
-  height: 40px;
-  width: 100%;
-  --background: #f4f3f8;
-  border-radius: 0;    
-  ion-segment-button{
-    box-sizing: border-box;
-    line-height: 40px;
-    position:relative;
-    --border-radius: 0;  
-    --indicator-box-shadow:#7eb4e6;
-    --color-checked:#7eb4e6;
-    --indicator-color: #f4f3f8;
-    --border-style:none;
-    margin-top: 0;
-    margin-bottom: 2px;
-    --transition:none;
-  }
-  .segment-button-checked{
-    border-bottom: 2px solid #7eb4e6;
-    margin: 0;
-  }
-}
+// ion-segment{
+//   height: 40px;
+//   width: 100%;
+//   --background: #f4f3f8;
+//   border-radius: 0;    
+//   ion-segment-button{
+//     box-sizing: border-box;
+//     line-height: 40px;
+//     position:relative;
+//     --border-radius: 0;  
+//     --indicator-box-shadow:#7eb4e6;
+//     --color-checked:#7eb4e6;
+//     --indicator-color: #f4f3f8;
+//     --border-style:none;
+//     margin-top: 0;
+//     margin-bottom: 2px;
+//     --transition:none;
+//   }
+//   .segment-button-checked{
+//     border-bottom: 2px solid #7eb4e6;
+//     margin: 0;
+//   }
+// }
 
 ion-toolbar{
   --padding-bottom: 0;

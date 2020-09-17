@@ -262,3 +262,23 @@ export const setNoticeStatus = (state: any, status: boolean) => {
 export const setSelectStatus = (state: any, status: boolean) => {
   state.selectStatus = status;
 }
+
+/**
+ * 修改文本对齐方式
+ * 
+ * @param state 
+ * @param val 
+ */
+export const setTextAlignStyle = (state: any, val: any) => {
+  state.selectTextAlign = val;
+}
+
+/**
+ * 修改导航栏风格
+ * 
+ * @param state 
+ * @param val 
+ */
+export const setNavigationStyle = (state: any, val: any) => {
+  state.selectNaviStyle = val;
+}

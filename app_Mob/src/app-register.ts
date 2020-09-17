@@ -115,5 +115,7 @@ export const AppComponents = {
         v.component('app-quick-group-tab',() => import('@/components/app-quick-group-tab/app-quick-group-tab.vue'));
         // setting组件
         v.component('app-setting',() => import('@/components/app-setting/app-setting.vue'));
+        // 风格切换组件
+        v.component('app-mob-select-changeStyle',() => import('@/components/app-mob-select-changeStyle/app-mob-select-changeStyle.vue'));
     },
 };

@@ -30,7 +30,7 @@
         <ion-item v-if="settingConfig.layoutStyle">
           <div class="content-list-item-content">
             <div class="content-list-item-content-text">风格</div>
-            <ion-icon name="chevron-forward-outline"></ion-icon>
+            <ion-button color="primary" class="active-text-align-style" @click="openModal">风格调整</ion-button>
           </div>
         </ion-item>
       </ion-list>
@@ -205,6 +205,29 @@ export default class AppSetting extends Vue {
       }else{
         this.$notice.warning("用户自定义视图未配置")
       }
+    }
+
+    /**
+     * 打开模态框
+     *
+     * @type {string}
+     * @memberof AppRichTextEditor
+     */
+    public openModal(){
+      this.openPopupModal({ viewname: 'app-mob-select-changeStyle', title: 'app-mob-select-changeStyle'},{},{});
+    }
+
+    /**
+     * 模态打开
+     *
+     * @type {string}
+     * @memberof AppRichTextEditor
+     */
+    private async openPopupModal(view: any, context: any, param: any): Promise<any> {
+        const result: any = await this.$appmodal.openModal(view, context, param);
+        if (result || Object.is(result.ret, 'OK')) {
+            this.$emit("change", result.datas[0].backEnd);
+        }
     }
 
 }

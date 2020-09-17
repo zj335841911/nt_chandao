@@ -15,4 +15,6 @@ export const rootstate: any = {
     zIndex: 300,
     noticeStatus:true,
     selectStatus:true,
+    selectTextAlign:'',
+    selectNaviStyle:'',
 }
