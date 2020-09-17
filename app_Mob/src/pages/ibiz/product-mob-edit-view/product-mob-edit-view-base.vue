@@ -37,10 +37,7 @@
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
                 <div  class = "fab_container">
-            <div class="bottom_menu">
-            <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
-            </ion-fab>
+            <ion-button @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
             <van-popup class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                 
@@ -61,7 +58,6 @@
         
                 </div>
             </van-popup>
-            </div>
         </div>
     </ion-footer>
 </ion-page>

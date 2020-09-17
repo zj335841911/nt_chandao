@@ -61,8 +61,6 @@
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
                 <div v-show="!showCheack" class = "fab_container">
-            <div class="bottom_menu">
-            </div>
         </div>
         
     </ion-footer>

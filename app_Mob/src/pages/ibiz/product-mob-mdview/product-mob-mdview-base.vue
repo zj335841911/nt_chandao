@@ -70,8 +70,6 @@
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
                 <div v-show="!showCheack" class = "fab_container">
-            <div class="bottom_menu">
-            <ion-fab v-show="getToolBarLimit">
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
                     <ion-icon name="add"></ion-icon>
@@ -79,8 +77,6 @@
                 <span></span>
             </div>
         
-            </ion-fab>
-            </div>
         </div>
         
     </ion-footer>
