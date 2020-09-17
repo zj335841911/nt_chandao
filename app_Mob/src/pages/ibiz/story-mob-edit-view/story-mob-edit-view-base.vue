@@ -52,35 +52,47 @@
             </ion-fab>
             <van-popup class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_changestorydetailmob.visabled" :disabled="righttoolbarModels.deuiaction1_changestorydetailmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_changestorydetailmob' }, $event)">
-                <ion-icon name="swap-vertical-outline"></ion-icon>
-            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_changestorydetailmob.caption')}}    
-            </ion-fab-button>
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_changestorydetailmob.disabled}" v-show="righttoolbarModels.deuiaction1_changestorydetailmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_changestorydetailmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_changestorydetailmob' }, $event)" size="large">
+                    <ion-icon name="swap-vertical-outline"></ion-icon>
+                </ion-button>
+                <span>{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_changestorydetailmob.caption')}}</span>
+            </div>
         
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_assigntomob.visabled" :disabled="righttoolbarModels.deuiaction1_assigntomob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assigntomob' }, $event)">
-                <ion-icon name="hand-o-right"></ion-icon>
-            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntomob.caption')}}    
-            </ion-fab-button>
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_assigntomob.disabled}" v-show="righttoolbarModels.deuiaction1_assigntomob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_assigntomob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assigntomob' }, $event)" size="large">
+                    <ion-icon name="hand-o-right"></ion-icon>
+                </ion-button>
+                <span>{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntomob.caption')}}</span>
+            </div>
         
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_reviewstorymob.visabled" :disabled="righttoolbarModels.deuiaction1_reviewstorymob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_reviewstorymob' }, $event)">
-                <ion-icon name="search"></ion-icon>
-            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_reviewstorymob.caption')}}    
-            </ion-fab-button>
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_reviewstorymob.disabled}" v-show="righttoolbarModels.deuiaction1_reviewstorymob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_reviewstorymob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_reviewstorymob' }, $event)" size="large">
+                    <ion-icon name="search"></ion-icon>
+                </ion-button>
+                <span>{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_reviewstorymob.caption')}}</span>
+            </div>
         
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_closestorymob.visabled" :disabled="righttoolbarModels.deuiaction1_closestorymob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closestorymob' }, $event)">
-                <ion-icon name="close"></ion-icon>
-            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_closestorymob.caption')}}    
-            </ion-fab-button>
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_closestorymob.disabled}" v-show="righttoolbarModels.deuiaction1_closestorymob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_closestorymob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closestorymob' }, $event)" size="large">
+                    <ion-icon name="close"></ion-icon>
+                </ion-button>
+                <span>{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_closestorymob.caption')}}</span>
+            </div>
         
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.visabled" :disabled="righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_openbaseinfoeditviewmob' }, $event)">
-                <ion-icon name="edit (alias)"></ion-icon>
-            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_openbaseinfoeditviewmob.caption')}}    
-            </ion-fab-button>
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.disabled}" v-show="righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_openbaseinfoeditviewmob' }, $event)" size="large">
+                    <ion-icon name="edit (alias)"></ion-icon>
+                </ion-button>
+                <span>{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_openbaseinfoeditviewmob.caption')}}</span>
+            </div>
         
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_deletemob.visabled" :disabled="righttoolbarModels.deuiaction1_deletemob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event)">
-                <ion-icon name="remove"></ion-icon>
-            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}    
-            </ion-fab-button>
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_deletemob.disabled}" v-show="righttoolbarModels.deuiaction1_deletemob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_deletemob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event)" size="large">
+                    <ion-icon name="remove"></ion-icon>
+                </ion-button>
+                <span>{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}</span>
+            </div>
         
                 </div>
             </van-popup>
