@@ -49,136 +49,46 @@
             <ion-button @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
             <van-popup class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
-                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
-        Encountered "item", but was expecting one of:
-            ".."
-            <DOT_DOT_LESS>
-            "..*"
-            ">"
-            "."
-            "["
-            "("
-            "?"
-            "!"
-            <TERMINATING_EXCLAM>
-            "??"
-            "+"
-            "-"
-            "*"
-            "/"
-            "%"
-            ">="
-            <ESCAPED_GTE>
-            ">"
-            <ESCAPED_GT>
-            <LESS_THAN_EQUALS>
-            <LESS_THAN>
-            <AND>
-            <OR>
-                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
-        Encountered "item", but was expecting one of:
-            ".."
-            <DOT_DOT_LESS>
-            "..*"
-            ">"
-            "."
-            "["
-            "("
-            "?"
-            "!"
-            <TERMINATING_EXCLAM>
-            "??"
-            "+"
-            "-"
-            "*"
-            "/"
-            "%"
-            ">="
-            <ESCAPED_GTE>
-            ">"
-            <ESCAPED_GT>
-            <LESS_THAN_EQUALS>
-            <LESS_THAN>
-            <AND>
-            <OR>
-                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
-        Encountered "item", but was expecting one of:
-            ".."
-            <DOT_DOT_LESS>
-            "..*"
-            ">"
-            "."
-            "["
-            "("
-            "?"
-            "!"
-            <TERMINATING_EXCLAM>
-            "??"
-            "+"
-            "-"
-            "*"
-            "/"
-            "%"
-            ">="
-            <ESCAPED_GTE>
-            ">"
-            <ESCAPED_GT>
-            <LESS_THAN_EQUALS>
-            <LESS_THAN>
-            <AND>
-            <OR>
-                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
-        Encountered "item", but was expecting one of:
-            ".."
-            <DOT_DOT_LESS>
-            "..*"
-            ">"
-            "."
-            "["
-            "("
-            "?"
-            "!"
-            <TERMINATING_EXCLAM>
-            "??"
-            "+"
-            "-"
-            "*"
-            "/"
-            "%"
-            ">="
-            <ESCAPED_GTE>
-            ">"
-            <ESCAPED_GT>
-            <LESS_THAN_EQUALS>
-            <LESS_THAN>
-            <AND>
-            <OR>
-                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
-        Encountered "item", but was expecting one of:
-            ".."
-            <DOT_DOT_LESS>
-            "..*"
-            ">"
-            "."
-            "["
-            "("
-            "?"
-            "!"
-            <TERMINATING_EXCLAM>
-            "??"
-            "+"
-            "-"
-            "*"
-            "/"
-            "%"
-            ">="
-            <ESCAPED_GTE>
-            ">"
-            <ESCAPED_GT>
-            <LESS_THAN_EQUALS>
-            <LESS_THAN>
-            <AND>
-            <OR>
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_assingtobugmob.disabled}" v-show="righttoolbarModels.deuiaction1_assingtobugmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_assingtobugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assingtobugmob' }, $event)" size="large">
+                    <ion-icon name="hand-o-right"></ion-icon>
+                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_assingtobugmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_assingtobugmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_confirmbugmob.disabled}" v-show="righttoolbarModels.deuiaction1_confirmbugmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_confirmbugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_confirmbugmob' }, $event)" size="large">
+                    <ion-icon name="eye"></ion-icon>
+                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmbugmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmbugmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_activationmob.disabled}" v-show="righttoolbarModels.deuiaction1_activationmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_activationmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_activationmob' }, $event)" size="large">
+                    <ion-icon name="color-wand"></ion-icon>
+                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_activationmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_activationmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_resolvebugmob.disabled}" v-show="righttoolbarModels.deuiaction1_resolvebugmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_resolvebugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_resolvebugmob' }, $event)" size="large">
+                    <ion-icon name="check-square-o"></ion-icon>
+                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_resolvebugmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_resolvebugmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_closebugmob.disabled}" v-show="righttoolbarModels.deuiaction1_closebugmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_closebugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closebugmob' }, $event)" size="large">
+                    <ion-icon name="close"></ion-icon>
+                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_closebugmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_closebugmob.caption')}}</span>
+            </div>
+        
                 </div>
             </van-popup>
         </div>

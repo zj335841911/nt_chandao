@@ -49,162 +49,54 @@
             <ion-button @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
             <van-popup class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
-                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
-        Encountered "item", but was expecting one of:
-            ".."
-            <DOT_DOT_LESS>
-            "..*"
-            ">"
-            "."
-            "["
-            "("
-            "?"
-            "!"
-            <TERMINATING_EXCLAM>
-            "??"
-            "+"
-            "-"
-            "*"
-            "/"
-            "%"
-            ">="
-            <ESCAPED_GTE>
-            ">"
-            <ESCAPED_GT>
-            <LESS_THAN_EQUALS>
-            <LESS_THAN>
-            <AND>
-            <OR>
-                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
-        Encountered "item", but was expecting one of:
-            ".."
-            <DOT_DOT_LESS>
-            "..*"
-            ">"
-            "."
-            "["
-            "("
-            "?"
-            "!"
-            <TERMINATING_EXCLAM>
-            "??"
-            "+"
-            "-"
-            "*"
-            "/"
-            "%"
-            ">="
-            <ESCAPED_GTE>
-            ">"
-            <ESCAPED_GT>
-            <LESS_THAN_EQUALS>
-            <LESS_THAN>
-            <AND>
-            <OR>
-                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
-        Encountered "item", but was expecting one of:
-            ".."
-            <DOT_DOT_LESS>
-            "..*"
-            ">"
-            "."
-            "["
-            "("
-            "?"
-            "!"
-            <TERMINATING_EXCLAM>
-            "??"
-            "+"
-            "-"
-            "*"
-            "/"
-            "%"
-            ">="
-            <ESCAPED_GTE>
-            ">"
-            <ESCAPED_GT>
-            <LESS_THAN_EQUALS>
-            <LESS_THAN>
-            <AND>
-            <OR>
-                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
-        Encountered "item", but was expecting one of:
-            ".."
-            <DOT_DOT_LESS>
-            "..*"
-            ">"
-            "."
-            "["
-            "("
-            "?"
-            "!"
-            <TERMINATING_EXCLAM>
-            "??"
-            "+"
-            "-"
-            "*"
-            "/"
-            "%"
-            ">="
-            <ESCAPED_GTE>
-            ">"
-            <ESCAPED_GT>
-            <LESS_THAN_EQUALS>
-            <LESS_THAN>
-            <AND>
-            <OR>
-                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
-        Encountered "item", but was expecting one of:
-            ".."
-            <DOT_DOT_LESS>
-            "..*"
-            ">"
-            "."
-            "["
-            "("
-            "?"
-            "!"
-            <TERMINATING_EXCLAM>
-            "??"
-            "+"
-            "-"
-            "*"
-            "/"
-            "%"
-            ">="
-            <ESCAPED_GTE>
-            ">"
-            <ESCAPED_GT>
-            <LESS_THAN_EQUALS>
-            <LESS_THAN>
-            <AND>
-            <OR>
-                !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
-        Encountered "item", but was expecting one of:
-            ".."
-            <DOT_DOT_LESS>
-            "..*"
-            ">"
-            "."
-            "["
-            "("
-            "?"
-            "!"
-            <TERMINATING_EXCLAM>
-            "??"
-            "+"
-            "-"
-            "*"
-            "/"
-            "%"
-            ">="
-            <ESCAPED_GTE>
-            ">"
-            <ESCAPED_GT>
-            <LESS_THAN_EQUALS>
-            <LESS_THAN>
-            <AND>
-            <OR>
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_changestorydetailmob.disabled}" v-show="righttoolbarModels.deuiaction1_changestorydetailmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_changestorydetailmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_changestorydetailmob' }, $event)" size="large">
+                    <ion-icon name="swap-vertical-outline"></ion-icon>
+                <span class="btn-inner-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_changestorydetailmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_changestorydetailmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_assigntomob.disabled}" v-show="righttoolbarModels.deuiaction1_assigntomob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_assigntomob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assigntomob' }, $event)" size="large">
+                    <ion-icon name="hand-o-right"></ion-icon>
+                <span class="btn-inner-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntomob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntomob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_reviewstorymob.disabled}" v-show="righttoolbarModels.deuiaction1_reviewstorymob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_reviewstorymob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_reviewstorymob' }, $event)" size="large">
+                    <ion-icon name="search"></ion-icon>
+                <span class="btn-inner-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_reviewstorymob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_reviewstorymob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_closestorymob.disabled}" v-show="righttoolbarModels.deuiaction1_closestorymob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_closestorymob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closestorymob' }, $event)" size="large">
+                    <ion-icon name="close"></ion-icon>
+                <span class="btn-inner-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_closestorymob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_closestorymob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.disabled}" v-show="righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_openbaseinfoeditviewmob' }, $event)" size="large">
+                    <ion-icon name="edit (alias)"></ion-icon>
+                <span class="btn-inner-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_openbaseinfoeditviewmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_openbaseinfoeditviewmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_deletemob.disabled}" v-show="righttoolbarModels.deuiaction1_deletemob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_deletemob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event)" size="large">
+                    <ion-icon name="remove"></ion-icon>
+                <span class="btn-inner-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}</span>
+            </div>
+        
                 </div>
             </van-popup>
         </div>

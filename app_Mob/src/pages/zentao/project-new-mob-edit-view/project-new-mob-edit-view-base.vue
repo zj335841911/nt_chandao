@@ -46,32 +46,14 @@
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
                 <div  class = "fab_container">
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
-        Encountered "item", but was expecting one of:
-            ".."
-            <DOT_DOT_LESS>
-            "..*"
-            ">"
-            "."
-            "["
-            "("
-            "?"
-            "!"
-            <TERMINATING_EXCLAM>
-            "??"
-            "+"
-            "-"
-            "*"
-            "/"
-            "%"
-            ">="
-            <ESCAPED_GTE>
-            ">"
-            <ESCAPED_GT>
-            <LESS_THAN_EQUALS>
-            <LESS_THAN>
-            <AND>
-            <OR>
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.tbitem1.disabled}" v-show="righttoolbarModels.tbitem1.visabled">
+                <ion-button :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" size="large">
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                
+                </ion-button>
+                
+            </div>
+        
         </div>
     </ion-footer>
 </ion-page>

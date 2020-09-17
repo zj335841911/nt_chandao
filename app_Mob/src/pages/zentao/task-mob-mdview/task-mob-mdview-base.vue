@@ -67,32 +67,14 @@
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
                 <div v-show="!showCheack" class = "fab_container">
-            !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 94, column 37:
-        Encountered "item", but was expecting one of:
-            ".."
-            <DOT_DOT_LESS>
-            "..*"
-            ">"
-            "."
-            "["
-            "("
-            "?"
-            "!"
-            <TERMINATING_EXCLAM>
-            "??"
-            "+"
-            "-"
-            "*"
-            "/"
-            "%"
-            ">="
-            <ESCAPED_GTE>
-            ">"
-            <ESCAPED_GT>
-            <LESS_THAN_EQUALS>
-            <LESS_THAN>
-            <AND>
-            <OR>
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
+                    <ion-icon name="add"></ion-icon>
+                
+                </ion-button>
+                
+            </div>
+        
         </div>
         
     </ion-footer>
