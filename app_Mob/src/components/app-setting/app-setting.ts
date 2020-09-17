@@ -4,7 +4,7 @@ export const settingConfig = {
     // 用户实体参数名称
     userEntityName:"user",
     // 个人中心视图（需用户手动配置）
-    userCenterViewName:"",
+    userCenterViewName:"user-user-center-mob-edit-view",
     // 手机号码
     mobilePhoneNumber:true,
     // 主题
