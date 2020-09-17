@@ -177,7 +177,7 @@ export default class UserUserCenterMobEditViewBase extends Vue {
      * @type {*}
      * @memberof UserUserCenterMobEditViewBase
      */
-    protected navParam: any = { 'user': '%userid%' };
+    protected navParam: any = { 'user': '%srfuserid%' };
 
     /**
      * 视图模型数据
