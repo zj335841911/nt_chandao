@@ -20,7 +20,7 @@ export default class ListView9Engine extends ListViewEngine {
             super.load(opts);
         }else{
             if(isnotify){
-                super.load(opts);
+                super.load(opts, isnotify);
             }
         }
         

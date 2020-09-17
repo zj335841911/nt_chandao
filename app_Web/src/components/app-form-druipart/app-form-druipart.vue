@@ -260,7 +260,7 @@ export default class AppFormDRUIPart extends Vue {
      * @type {*}
      * @memberof AppFormDRUIPart
      */
-    public viewdata: any = {};
+    public viewdata: any = '';
 
     /**
      * 父视图参数
@@ -268,7 +268,7 @@ export default class AppFormDRUIPart extends Vue {
      * @type {*}
      * @memberof AppFormDRUIPart
      */
-    public viewparam: any = {};
+    public viewparam: any = '';
 
     /**
      * 刷新关系页面
@@ -399,7 +399,7 @@ export default class AppFormDRUIPart extends Vue {
                 }
             }
         });
-        this.refreshDRUIPart();
+        // this.refreshDRUIPart();
     }
 
     /**
