@@ -171,6 +171,9 @@ export default class APPHistoryList extends Vue {
             let info:any = this.getCodeList(this.codeListStandard.actions.tag,'STATIC',v.actions);
               v.method = info.text;
               method = info.text;
+              if (v.actions === 'closed') {
+                v.item.length = 1;
+              }
           }
           if (v.item.length > 0) {
             v.item.forEach((i:any) => {
