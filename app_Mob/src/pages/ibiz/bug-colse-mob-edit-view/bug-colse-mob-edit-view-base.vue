@@ -47,8 +47,6 @@
     <ion-footer class="view-footer" style="z-index:9;">
                 <div  class = "fab_container">
             <div class="bottom_menu">
-        
-        
             <ion-fab v-show="getToolBarLimit">
                 <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)">
                 <ion-icon name="checkmark-outline"></ion-icon>
@@ -317,6 +315,24 @@ export default class BugColseMobEditViewBase extends Vue {
             })
         }
         return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof BugColseMobEditView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof BugColseMobEditView 
+     */
+    public popUpGroup () {
+        this.showGrop = !this.showGrop;
     }
 
     

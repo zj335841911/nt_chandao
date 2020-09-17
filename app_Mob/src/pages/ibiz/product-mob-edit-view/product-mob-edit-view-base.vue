@@ -38,25 +38,29 @@
     <ion-footer class="view-footer" style="z-index:9;">
                 <div  class = "fab_container">
             <div class="bottom_menu">
-        
-        
             <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
-                <ion-fab-list class="fab-list" side="top">
+                <ion-fab-button @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
+            </ion-fab>
+            <van-popup class="popup" v-model="showGrop" round position="bottom">
+                <div class="container">
                 
         
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
-            {{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}    
-            </ion-fab-button>
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
+                </ion-button>
+                <span>{{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}</span>
+            </div>
         
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction2.visabled" :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)">
-            {{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}    
-            </ion-fab-button>
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)" size="large">
+                </ion-button>
+                <span>{{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}</span>
+            </div>
         
         
         
-                </ion-fab-list>
-            </ion-fab>
+                </div>
+            </van-popup>
             </div>
         </div>
     </ion-footer>
@@ -320,6 +324,24 @@ export default class ProductMobEditViewBase extends Vue {
             })
         }
         return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof ProductMobEditView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof ProductMobEditView 
+     */
+    public popUpGroup () {
+        this.showGrop = !this.showGrop;
     }
 
     

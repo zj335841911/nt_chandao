@@ -47,11 +47,11 @@
     <ion-footer class="view-footer" style="z-index:9;">
                 <div  class = "fab_container">
             <div class="bottom_menu">
-        
-        
             <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
-                <ion-fab-list class="fab-list" side="top">
+                <ion-fab-button @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
+            </ion-fab>
+            <van-popup class="popup" v-model="showGrop" round position="bottom">
+                <div class="container">
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_confirmstorychangecz.visabled" :disabled="righttoolbarModels.deuiaction1_confirmstorychangecz.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_confirmstorychangecz' }, $event)">
                 <ion-icon name="search"></ion-icon>
             {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmstorychangecz.caption')}}    
@@ -96,8 +96,8 @@
             {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}    
             </ion-fab-button>
         
-                </ion-fab-list>
-            </ion-fab>
+                </div>
+            </van-popup>
             </div>
         </div>
     </ion-footer>
@@ -375,6 +375,24 @@ export default class TaskMobEditViewBase extends Vue {
             })
         }
         return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof TaskMobEditView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof TaskMobEditView 
+     */
+    public popUpGroup () {
+        this.showGrop = !this.showGrop;
     }
 
     

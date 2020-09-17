@@ -47,11 +47,11 @@
     <ion-footer class="view-footer" style="z-index:9;">
                 <div  class = "fab_container">
             <div class="bottom_menu">
-        
-        
             <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
-                <ion-fab-list class="fab-list" side="top">
+                <ion-fab-button @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
+            </ion-fab>
+            <van-popup class="popup" v-model="showGrop" round position="bottom">
+                <div class="container">
                     <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_assingtobugmob.visabled" :disabled="righttoolbarModels.deuiaction1_assingtobugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assingtobugmob' }, $event)">
                 <ion-icon name="hand-o-right"></ion-icon>
             {{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_assingtobugmob.caption')}}    
@@ -77,8 +77,8 @@
             {{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_closebugmob.caption')}}    
             </ion-fab-button>
         
-                </ion-fab-list>
-            </ion-fab>
+                </div>
+            </van-popup>
             </div>
         </div>
     </ion-footer>
@@ -348,6 +348,24 @@ export default class BugMobEditViewBase extends Vue {
             })
         }
         return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof BugMobEditView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof BugMobEditView 
+     */
+    public popUpGroup () {
+        this.showGrop = !this.showGrop;
     }
 
     

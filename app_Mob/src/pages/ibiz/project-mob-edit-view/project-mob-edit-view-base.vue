@@ -38,37 +38,45 @@
     <ion-footer class="view-footer" style="z-index:9;">
                 <div  class = "fab_container">
             <div class="bottom_menu">
-        
-        
             <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
-                <ion-fab-list class="fab-list" side="top">
+                <ion-fab-button @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
+            </ion-fab>
+            <van-popup class="popup" v-model="showGrop" round position="bottom">
+                <div class="container">
                 
         
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
-                <ion-icon name="color-wand"></ion-icon>
-            {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}    
-            </ion-fab-button>
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
+                    <ion-icon name="color-wand"></ion-icon>
+                </ion-button>
+                <span>{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}</span>
+            </div>
         
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction2.visabled" :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)">
-                <ion-icon name="pause"></ion-icon>
-            {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}    
-            </ion-fab-button>
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)" size="large">
+                    <ion-icon name="pause"></ion-icon>
+                </ion-button>
+                <span>{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}</span>
+            </div>
         
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction3.visabled" :disabled="righttoolbarModels.deuiaction3.disabled" @click="righttoolbar_click({ tag: 'deuiaction3' }, $event)">
-                <ion-icon name="power"></ion-icon>
-            {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction3.caption')}}    
-            </ion-fab-button>
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction3.disabled}" v-show="righttoolbarModels.deuiaction3.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction3.disabled" @click="righttoolbar_click({ tag: 'deuiaction3' }, $event)" size="large">
+                    <ion-icon name="power"></ion-icon>
+                </ion-button>
+                <span>{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction3.caption')}}</span>
+            </div>
         
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction4.visabled" :disabled="righttoolbarModels.deuiaction4.disabled" @click="righttoolbar_click({ tag: 'deuiaction4' }, $event)">
-                <ion-icon name="close"></ion-icon>
-            {{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction4.caption')}}    
-            </ion-fab-button>
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction4.disabled}" v-show="righttoolbarModels.deuiaction4.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction4.disabled" @click="righttoolbar_click({ tag: 'deuiaction4' }, $event)" size="large">
+                    <ion-icon name="close"></ion-icon>
+                </ion-button>
+                <span>{{$t('project.mobeditviewrighttoolbar_toolbar.deuiaction4.caption')}}</span>
+            </div>
         
         
         
-                </ion-fab-list>
-            </ion-fab>
+                </div>
+            </van-popup>
             </div>
         </div>
     </ion-footer>
@@ -334,6 +342,24 @@ export default class ProjectMobEditViewBase extends Vue {
             })
         }
         return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof ProjectMobEditView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof ProjectMobEditView 
+     */
+    public popUpGroup () {
+        this.showGrop = !this.showGrop;
     }
 
     
