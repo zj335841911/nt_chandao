@@ -131,6 +131,17 @@ public class BuildResource {
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-OneClickRelease-all')")
+    @ApiOperation(value = "一键发布", tags = {"版本" },  notes = "一键发布")
+	@RequestMapping(method = RequestMethod.POST, value = "/builds/{build_id}/oneclickrelease")
+    public ResponseEntity<BuildDTO> oneClickRelease(@PathVariable("build_id") Long build_id, @RequestBody BuildDTO builddto) {
+        Build domain = buildMapping.toDomain(builddto);
+        domain.setId(build_id);
+        domain = buildService.oneClickRelease(domain);
+        builddto = buildMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(builddto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Save-all')")
     @ApiOperation(value = "保存版本", tags = {"版本" },  notes = "保存版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/builds/save")
@@ -322,6 +333,17 @@ public class BuildResource {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProduct(product_id);
         domain = buildService.linkStory(domain) ;
+        builddto = buildMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(builddto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-OneClickRelease-all')")
+    @ApiOperation(value = "根据产品版本", tags = {"版本" },  notes = "根据产品版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/{build_id}/oneclickrelease")
+    public ResponseEntity<BuildDTO> oneClickReleaseByProduct(@PathVariable("product_id") Long product_id, @PathVariable("build_id") Long build_id, @RequestBody BuildDTO builddto) {
+        Build domain = buildMapping.toDomain(builddto);
+        domain.setProduct(product_id);
+        domain = buildService.oneClickRelease(domain) ;
         builddto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
@@ -531,6 +553,17 @@ public class BuildResource {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProject(project_id);
         domain = buildService.linkStory(domain) ;
+        builddto = buildMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(builddto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-OneClickRelease-all')")
+    @ApiOperation(value = "根据项目版本", tags = {"版本" },  notes = "根据项目版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/{build_id}/oneclickrelease")
+    public ResponseEntity<BuildDTO> oneClickReleaseByProject(@PathVariable("project_id") Long project_id, @PathVariable("build_id") Long build_id, @RequestBody BuildDTO builddto) {
+        Build domain = buildMapping.toDomain(builddto);
+        domain.setProject(project_id);
+        domain = buildService.oneClickRelease(domain) ;
         builddto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
