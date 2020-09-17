@@ -592,8 +592,8 @@ export default class MyWorkBase extends Vue implements ControlInterface {
      */
     protected setTileContent(){
         this.evendata = {bug:[],task:[],todo:[],}
-        let bugItem :Array<any> = this.parsingData('bug','assigneddate');
-        let taskItem :Array<any> = this.parsingData('task','assigneddate');
+        let bugItem :Array<any> = this.parsingData('bug','deadline');
+        let taskItem :Array<any> = this.parsingData('task','eststarted');
         let todoItem :Array<any> = this.parsingData('todo','date');
         this.setSign(bugItem,taskItem,todoItem,);
     }

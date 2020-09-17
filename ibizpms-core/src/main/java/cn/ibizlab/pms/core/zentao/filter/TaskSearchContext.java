@@ -134,6 +134,24 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
             this.getSearchCond().eq("assignedto", n_assignedto_eq);
         }
     }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_eststarted_gtandeq;//[预计开始]
+	public void setN_eststarted_gtandeq(Timestamp n_eststarted_gtandeq) {
+        this.n_eststarted_gtandeq = n_eststarted_gtandeq;
+        if(!ObjectUtils.isEmpty(this.n_eststarted_gtandeq)){
+            this.getSearchCond().ge("eststarted", n_eststarted_gtandeq);
+        }
+    }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_eststarted_ltandeq;//[预计开始]
+	public void setN_eststarted_ltandeq(Timestamp n_eststarted_ltandeq) {
+        this.n_eststarted_ltandeq = n_eststarted_ltandeq;
+        if(!ObjectUtils.isEmpty(this.n_eststarted_ltandeq)){
+            this.getSearchCond().le("eststarted", n_eststarted_ltandeq);
+        }
+    }
 	private String n_openedby_eq;//[由谁创建]
 	public void setN_openedby_eq(String n_openedby_eq) {
         this.n_openedby_eq = n_openedby_eq;

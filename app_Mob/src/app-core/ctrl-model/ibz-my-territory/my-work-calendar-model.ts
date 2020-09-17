@@ -55,11 +55,11 @@ export class MyWorkModel {
                         },
                         {
                             name:'start',
-                            prop:'n_assigneddate_gtandeq'
+                            prop:'n_deadline_gtandeq'
                         },
                         {
                             name:'end',
-                            prop:'n_resolveddate_ltandeq'
+                            prop:'n_deadline_ltandeq'
                         },
                     ];
                 break;
@@ -77,7 +77,7 @@ export class MyWorkModel {
                         },
                         {
                             name:'start',
-                            prop:'n_assigneddate_gtandeq'
+                            prop:'n_eststarted_gtandeq'
                         },
                         {
                             name:'end',

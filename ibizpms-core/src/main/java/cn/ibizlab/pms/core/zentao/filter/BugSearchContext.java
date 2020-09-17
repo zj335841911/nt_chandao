@@ -87,11 +87,29 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
     }
     @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
     @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_deadline_gtandeq;//[截止日期]
+	public void setN_deadline_gtandeq(Timestamp n_deadline_gtandeq) {
+        this.n_deadline_gtandeq = n_deadline_gtandeq;
+        if(!ObjectUtils.isEmpty(this.n_deadline_gtandeq)){
+            this.getSearchCond().ge("deadline", n_deadline_gtandeq);
+        }
+    }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
 	private Timestamp n_deadline_lt;//[截止日期]
 	public void setN_deadline_lt(Timestamp n_deadline_lt) {
         this.n_deadline_lt = n_deadline_lt;
         if(!ObjectUtils.isEmpty(this.n_deadline_lt)){
             this.getSearchCond().lt("deadline", n_deadline_lt);
+        }
+    }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_deadline_ltandeq;//[截止日期]
+	public void setN_deadline_ltandeq(Timestamp n_deadline_ltandeq) {
+        this.n_deadline_ltandeq = n_deadline_ltandeq;
+        if(!ObjectUtils.isEmpty(this.n_deadline_ltandeq)){
+            this.getSearchCond().le("deadline", n_deadline_ltandeq);
         }
     }
 	private String n_color_eq;//[标题颜色]
