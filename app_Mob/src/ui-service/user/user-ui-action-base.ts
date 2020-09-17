@@ -89,6 +89,7 @@ export default class UserUIActionBase extends EntityUIActionBase {
      * @memberof  UserUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'usercentermobeditview',srfappde:'users'});
     }
 
     /**

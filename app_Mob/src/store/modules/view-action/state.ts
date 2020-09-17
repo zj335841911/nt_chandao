@@ -1405,6 +1405,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'fc2f8f2e45b4fb4f22e7e77d4e57a16c',
+            viewmodule: 'zentao',
+            viewname: 'UserUserCenterMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'fd484663c277cb177eecbeb36b7c3e6c',
             viewmodule: 'ibiz',
             viewname: 'ModuleMobPickupMDView',
