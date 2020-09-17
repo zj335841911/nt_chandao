@@ -88,6 +88,7 @@ export default {
             },
             listmenu: {
                 menuitem1: '电脑',
+                menuitem8: '个人信息',
                 menuitem2: '手机',
                 menuitem3: '杯子',
                 menuitem4: '用户',
