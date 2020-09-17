@@ -343,7 +343,7 @@
 
 
     <!--输出实体[ZT_CASESTEP]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_casestep-188-8">
+    <changeSet author="zentao" id="tab-zt_casestep-190-8">
         <createTable tableName="zt_casestep">
                 <column name="TYPE" remarks="" type="VARCHAR(10)">
                 </column>
@@ -2457,10 +2457,10 @@
        <addForeignKeyConstraint baseColumnNames="LIB" baseTableName="zt_case" constraintName="DER1N_ZT_CASE_ZT_TESTSUITE_LIB" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_testsuite" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_CASESTEP]外键关系 -->
-    <changeSet author="zentao" id="fk-zt_casestep-188-123">
+    <changeSet author="zentao" id="fk-zt_casestep-190-123">
        <addForeignKeyConstraint baseColumnNames="CASE" baseTableName="zt_casestep" constraintName="DER1N_ZT_CASESTEP_ZT_CASE_CASE" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_case" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_casestep-188-124">
+    <changeSet author="zentao" id="fk-zt_casestep-190-124">
        <addForeignKeyConstraint baseColumnNames="PARENT" baseTableName="zt_casestep" constraintName="DER1N__ZT_CASESTEP__ZT_CASESTE" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_casestep" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_COMPANY]外键关系 -->
