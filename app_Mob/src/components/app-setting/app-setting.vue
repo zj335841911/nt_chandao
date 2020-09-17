@@ -177,10 +177,13 @@ export default class AppSetting extends Vue {
     /**
      * 清除缓存
      */
-    public clear() {
-      
+    public async clear() {
+        const result = await this.$notice.confirm("清除缓存", '清除缓存可能会导致当前登录信息失效！！！',this.$store);
+        if(result){
+            localStorage.clear();
+        }
     }
-
+    
     /**
      * 主题切换
      */
