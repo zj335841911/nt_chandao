@@ -9,25 +9,25 @@
     </ion-header>
     <div class="content">
       <ion-list class="content-list">
-        <ion-item>
+        <ion-item v-if="settingConfig.accountInformation">
           <div class="content-list-item-content">
             <div class="content-list-item-content-text">账号信息</div>
             <div class="content-list-item-content-text">{{srfloginname}}</div>
           </div>
         </ion-item>
-        <ion-item>
+        <ion-item v-if="settingConfig.mobilePhoneNumber">
           <div class="content-list-item-content">
             <div class="content-list-item-content-text">手机号码</div>
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </div>
         </ion-item>
-        <ion-item @click="changeTheme">
+        <ion-item @click="changeTheme" v-if="settingConfig.theme">
           <div class="content-list-item-content">
             <ion-label class="content-list-item-content-text">主题</ion-label>
             <app-mob-select-changeTheme ref="changeTheme"></app-mob-select-changeTheme>
           </div>
         </ion-item>
-        <ion-item>
+        <ion-item v-if="settingConfig.layoutStyle">
           <div class="content-list-item-content">
             <div class="content-list-item-content-text">风格</div>
             <ion-icon name="chevron-forward-outline"></ion-icon>
@@ -35,45 +35,45 @@
         </ion-item>
       </ion-list>
       <ion-list class="content-list">
-        <ion-item>
+        <ion-item v-if="settingConfig.notification">
           <div class="content-list-item-content">
             <div class="content-list-item-content-text">消息通知</div>
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </div>
         </ion-item>
-        <ion-item>
+        <ion-item v-if="settingConfig.privacy">
           <div class="content-list-item-content">
             <div class="content-list-item-content-text">隐私</div>
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </div>
         </ion-item>
-        <ion-item>
+        <ion-item v-if="settingConfig.Universal">
           <div class="content-list-item-content">
             <div class="content-list-item-content-text">通用</div>
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </div>
         </ion-item>
-        <ion-item>
+        <ion-item v-if="settingConfig.accessibility">
           <div class="content-list-item-content">
             <div class="content-list-item-content-text">辅助功能</div>
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </div>
         </ion-item>
-        <ion-item>
+        <ion-item v-if="settingConfig.about">
           <div class="content-list-item-content">
             <div class="content-list-item-content-text">关于ibiz</div>
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </div>
         </ion-item>
       </ion-list>
-      <ion-list class="content-list">
-        <ion-item @click="logout">
+      <ion-list class="content-list" >
+        <ion-item @click="logout" v-if="settingConfig.logout">
           <div class="content-list-item-content">
             <div v-if="!thirdPartyName" class="content-list-item-content-text">退出当前账号</div>
             <div v-if="thirdPartyName" class="content-list-item-content-text">退出应用</div>
           </div>
         </ion-item>
-        <ion-item @click="clear">
+        <ion-item @click="clear" v-if="settingConfig.clear">
           <div class="content-list-item-content">
             <div class="content-list-item-content-text">清除缓存</div>
           </div>
@@ -91,11 +91,13 @@ import {
   Emit,
   Watch,
 } from "vue-property-decorator";
-
+import { settingConfig } from './app-setting'
 @Component({
   components: {},
 })
 export default class AppRoundList extends Vue {
+
+    public settingConfig = settingConfig;
 
     public srfloginname = "";
 

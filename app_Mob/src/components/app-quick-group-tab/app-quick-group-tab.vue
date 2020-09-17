@@ -14,7 +14,7 @@
       <ion-badge class="badge" v-if="isSelectedItem(item) && pageTotal !== 0 && !item.children">{{pageTotal}}</ion-badge>
     </div>
   </div>
-  <div ref="child-list" v-if="subItems.length > 0" class="child-list">
+  <div ref="child-list" :class="{'child-list':true,'open':subItems.length > 0}">
     <div :class="{'child':true,'selected':item.selected}" v-for="(item,index) in subItems" :key="index" @click="handleClick(item)">
       <span>
         <ion-icon v-if=" item.iconcls && !Object.is(item.iconcls, '')" :name="item.iconcls"></ion-icon>
@@ -22,10 +22,10 @@
         <span>{{item.label}}</span>
       </span>
       <ion-badge class="badge" v-if="pageTotal !== 0 && item.selected">{{pageTotal}}</ion-badge>
-      <ion-icon v-if="item.selected" style="margin-left:auto" name="checkbox-outline"></ion-icon>
+      <ion-icon size="small" v-if="item.selected" style="margin-left:auto;color" name="checkmark-outline"></ion-icon>
     </div>
   </div>
-  <ion-backdrop style="height:100vh;z-index:99" v-show="subItems.length > 0" visible="true" tappable="true" @ionBackdropTap="closeBackdrop"></ion-backdrop>
+  <ion-backdrop style="height:100vh;z-index:-1" v-show="subItems.length > 0" visible="true" tappable="true" @ionBackdropTap="closeBackdrop"></ion-backdrop>
 </div>
 </template>
 

@@ -15,7 +15,6 @@
 		align-items: center;
 		border: 1px solid #a8a8a8;
 		margin: 0 0 -1px -1px;
-		z-index: 9999;
 		background-color: white;
 		position: relative;
 		.badge {
@@ -26,7 +25,7 @@
 			position: absolute;
 			top: -5px;
 			left: 49px;
-			z-index: 99;
+			z-index: 9999;
 			min-width: 15px;
 			height: 15px;
 			text-align: center;
@@ -44,7 +43,8 @@
 	left: 0;
 	right: 0;
 	width: 90%;
-	max-height: 400px;
+	max-height: 0;
+	transition: max-height 0.75s;
 	margin: auto;
 	background-color: white;
 	display: flex;
@@ -79,6 +79,9 @@
 		color: black;
 		background-color: #b6b6b63d;
 	}
+}
+.open {
+	max-height: 300px;
 }
 .app-quick-group > .quick-group-tab:first-child {
 	border-top-left-radius: 5px;

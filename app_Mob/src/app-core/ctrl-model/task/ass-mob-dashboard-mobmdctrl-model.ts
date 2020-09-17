@@ -30,6 +30,9 @@ export class AssMobDASHBOARDModel {
 				name: 'assignedto',
 			},
 			{
+				name: 'projectname',
+			},
+			{
 				name: 'srfkey',
 				prop: 'id',
 				dataType: 'ACID',

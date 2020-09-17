@@ -31,7 +31,9 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                      <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                      <div class="item-grouped" v-for="obj in group_data" :key="obj.index">
+                        <div class="text" v-if="obj.items && obj.items.length > 0">{{obj.text}}（<label v-if="obj.items && obj.items.length > 0">{{obj.items.length}}</label>）</div>
+                      <ion-item-sliding  :ref="item.srfkey" v-for="item in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.StartTaskMob.visabled" :disabled="item.StartTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uf95e8d0', item)"><ion-icon v-if="item.StartTaskMob.icon && item.StartTaskMob.isShowIcon" :name="item.StartTaskMob.icon"></ion-icon><ion-label v-if="item.StartTaskMob.isShowCaption">开始</ion-label></ion-item-option>
                             <ion-item-option v-show="item.AssignTaskMob.visabled" :disabled="item.AssignTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ucb39267', item)"><ion-icon v-if="item.AssignTaskMob.icon && item.AssignTaskMob.isShowIcon" :name="item.AssignTaskMob.icon"></ion-icon><ion-label v-if="item.AssignTaskMob.isShowCaption">指派</ion-label></ion-item-option>
@@ -47,6 +49,8 @@
                             </ion-item>
                         </div>
                       </ion-item-sliding>
+                      </div>
+
                 </template>
                 <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
                 </template>
@@ -629,7 +633,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     * @type {boolean}
     * @memberof AssMobDASHBOARD
     */
-    public isEnableGroup:boolean =  false;
+    public isEnableGroup:boolean =  true;
 
     /**
     * 代码表分组细节
@@ -645,7 +649,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     * @type {string}
     * @memberof AssMobDASHBOARD
     */
-    public group_mode = 'NONE';
+    public group_mode = 'AUTO';
 
     /**
     * 分组数据
@@ -661,7 +665,7 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     * @type {array}
     * @memberof AssMobDASHBOARD
     */
-    public group_field:string = '';
+    public group_field:string = 'projectname';
 
     /**
      * 分组方法
@@ -1053,6 +1057,31 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
     }
 
 
+    /**
+     * 
+     * 自动分组，获取分组数据
+     *
+     * @memberof AssMobDASHBOARD
+     */
+    public getGroupDataAuto(items:any){
+      let groups:Array<any> = [];
+      items.forEach((item:any)=>{
+        if(item.hasOwnProperty(this.group_field)){
+          groups.push(item[this.group_field]);
+        }
+      })
+      groups = [...new Set(groups)];
+      groups.forEach((group:any,index:number)=>{
+        this.group_data[index] = {};
+        this.group_data[index].items = [];
+        items.forEach((item:any,i:number)=>{
+          if (group == item[this.group_field]) {
+            this.group_data[index].text = group;
+            this.group_data[index].items.push(item);
+          }
+        })
+      })
+    }
 
     /**
     * 全选

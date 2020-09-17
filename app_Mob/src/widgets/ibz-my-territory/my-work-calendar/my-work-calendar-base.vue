@@ -689,7 +689,8 @@ export default class MyWorkBase extends Vue implements ControlInterface {
      */
     protected clickDay(data: any) {
       if (data) {
-        let temptime = new Date(data);
+        let reTime = data.join('/');
+        let temptime = new Date(reTime);
         this.year = temptime.getFullYear();
         this.month = temptime.getMonth();
         this.day = temptime.getDate();
@@ -770,7 +771,7 @@ export default class MyWorkBase extends Vue implements ControlInterface {
                 break;
         }
         if (Object.is(view.placement, 'INDEXVIEWTAB') || Object.is(view.placement, '')) {
-            const routePath = this.globaluiservice.openService.formatRouteParam(this.context, view.deResParameters, view.parameters, [_context], this.viewparams);
+            const routePath = this.globaluiservice.openService.formatRouteParam(_context, view.deResParameters, view.parameters, [this.context], this.viewparams);
             this.$router.push(routePath);
         } else {
             let response: any;
