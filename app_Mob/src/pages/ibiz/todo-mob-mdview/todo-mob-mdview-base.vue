@@ -51,7 +51,7 @@
                 <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
                     <ion-icon name="add"></ion-icon>
                 </ion-button>
-                <span></span>
+                
             </div>
         
         </div>

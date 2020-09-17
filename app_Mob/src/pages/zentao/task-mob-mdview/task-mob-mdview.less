@@ -69,10 +69,15 @@
   position: absolute;
   bottom: 4px;
   right: 16px;
-  .app-view-toolbar-button {
-    width: 60px;
+  ion-button {
+    width: 60px !important;
     height: 60px;
-    --border-radius: 50%;
+    padding: 0 !important;
+    --border-radius:50% !important;
+    --padding-bottom:0;
+    --padding-end:0;
+    --padding-start:0;
+    --padding-top:0;
   }
   .popup {
     height: 40%;
@@ -93,19 +98,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        ion-button {
-          width: 60px !important;
-          height: 60px;
-          padding: 0 !important;
-          --border-radius:50% !important;
-          --padding-bottom:0;
-          --padding-end:0;
-          --padding-start:0;
-          --padding-top:0;
-          .button-inner {
-            --border-radius:40px !important;
-          }
-        }
       }
       .disabled {
         color: #a8a8a8;
@@ -194,6 +186,10 @@ ion-backdrop {
             align-items: center;
         }
     }
+}
+.filter-btn{
+  position: relative;
+    top: 5px;
 }
 
     .batch_btn{

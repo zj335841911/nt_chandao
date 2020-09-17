@@ -50,7 +50,7 @@
                 <ion-button :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" size="large">
                     <ion-icon name="checkmark-outline"></ion-icon>
                 </ion-button>
-                <span></span>
+                
             </div>
         
         </div>
