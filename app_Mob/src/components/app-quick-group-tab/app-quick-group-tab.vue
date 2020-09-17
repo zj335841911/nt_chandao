@@ -1,7 +1,7 @@
 <template>
 <div>
   <div class="app-quick-group">
-    <div :class="{'quick-group-tab':true,'app-seleted-item':isSelectedItem(item)}" v-for="(item,index) in showItems" :key="index">
+    <div :class="{'quick-group-tab':true,'app-seleted-item':isSelectedItem(item) || item.childSelected}" v-for="(item,index) in showItems" :key="index">
       <div
         :style="{color:item.color}"
         @click="handleClick(item)"
@@ -184,8 +184,16 @@ export default class AppQuickGroupTab extends Vue {
       this.subItems.length = 0;
       this.items.forEach((item:any) => {
         item.selected = false;
+        item.childSelected = false;
       })
       $event.selected = true;
+      if ($event.pvalue) {
+        this.items.forEach((item:any) => {
+          if (item.value === $event.pvalue) {
+            item.childSelected = true;
+          }
+      })
+      }
       this.$emit("valuechange", $event);
     }
     this.$forceUpdate();
