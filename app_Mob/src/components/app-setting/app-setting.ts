@@ -1,6 +1,10 @@
 export const settingConfig = {
     // 账号信息
     accountInformation:true,
+    // 用户实体参数名称
+    userEntityName:"user",
+    // 个人中心视图（需用户手动配置）
+    userCenterName:"",
     // 手机号码
     mobilePhoneNumber:true,
     // 主题
