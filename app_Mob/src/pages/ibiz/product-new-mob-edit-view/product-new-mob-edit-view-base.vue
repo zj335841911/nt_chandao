@@ -48,10 +48,12 @@
                 <div  class = "fab_container">
             <div class="bottom_menu">
             <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)">
-                <ion-icon name="checkmark-outline"></ion-icon>
-                
-            </ion-fab-button>
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.tbitem1.disabled}" v-show="righttoolbarModels.tbitem1.visabled">
+                <ion-button :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" size="large">
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                </ion-button>
+                <span></span>
+            </div>
         
             </ion-fab>
             </div>
