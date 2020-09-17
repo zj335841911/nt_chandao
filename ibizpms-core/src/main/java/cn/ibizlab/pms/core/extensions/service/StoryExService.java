@@ -15,23 +15,32 @@ import cn.ibizlab.pms.core.ibizsysmodel.service.IPSDEFieldService;
 import cn.ibizlab.pms.core.ibizsysmodel.service.IPSDataEntityService;
 import cn.ibizlab.pms.core.ibizsysmodel.service.IPSSysReqItemService;
 import cn.ibizlab.pms.core.ibizsysmodel.service.IPSSysReqModuleService;
+import cn.ibizlab.pms.core.util.ibizpro.template.freemarker.story.DeFreemarkerTplHelper;
 import cn.ibizlab.pms.core.util.message.SendMessage;
+import cn.ibizlab.pms.core.util.zentao.bean.ZTFileItem;
+import cn.ibizlab.pms.core.util.zentao.service.IIBZZTFileService;
 import cn.ibizlab.pms.core.zentao.domain.StorySpec;
+import cn.ibizlab.pms.core.zentao.filter.FileSearchContext;
 import cn.ibizlab.pms.core.zentao.filter.StorySearchContext;
 import cn.ibizlab.pms.core.zentao.filter.StorySpecSearchContext;
+import cn.ibizlab.pms.core.zentao.service.IFileService;
 import cn.ibizlab.pms.core.zentao.service.impl.StoryServiceImpl;
 import cn.ibizlab.pms.core.zentao.service.impl.StorySpecServiceImpl;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import liquibase.pro.packaged.A;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Story;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.*;
 import java.util.*;
 
 /**
@@ -47,6 +56,9 @@ public class StoryExService extends StoryServiceImpl {
 
     @Autowired
     IIBZProProductService iibzProProductService;
+
+    @Value("${ibiz.story.de.dir:/app/file/pms/story/de/}")
+    private String targetDirPath;
 
     @Autowired
     IIBZProStoryModuleService iIBZProStoryModuleService;
@@ -68,6 +80,17 @@ public class StoryExService extends StoryServiceImpl {
 
     @Autowired
     StorySpecServiceImpl storySpecService;
+
+    @Autowired
+    DeFreemarkerTplHelper deFreemarkerTplHelper;
+
+    @Autowired
+    IIBZZTFileService iibzztFileService;
+
+    @Autowired
+    private IFileService fileService;
+
+    final private static String[] EXTS = {"md", "html", "json"};
 
     @Override
     protected Class currentModelClass() {
@@ -164,28 +187,38 @@ public class StoryExService extends StoryServiceImpl {
             List<PSDataEntity> psDataEntityList = ipsDataEntityService.selectByPssysreqitemid(ibzProProduct.getIbizid(), storyid);
             List<IBZProStory> ibzProStoryList = new ArrayList<IBZProStory>();
             for (PSDataEntity psDataEntity : psDataEntityList) {
+                psDataEntity.set("preqnum", et.getId());
+                psDataEntity.set("preqlink", "#/ibizpms/products/"+ et.getProduct() +"/stories/"+ et.getId() +"/mainview_link");
+                JSONObject dataModel = new JSONObject();
+                dataModel.put("item", psDataEntity);
+                dataModel.put("itemname", psDataEntity.getCodename());
+                dataModel.put("title", psDataEntity.getLogicname());
+                dataModel.put("de", psDataEntity);
+                long updatedateLong = psDataEntity.getUpdatedate().getTime();
+                boolean flag = deFreemarkerTplHelper.generate(dataModel, psDataEntity.getUpdatedate().getTime());
+
                 IBZProStory ibzProStory = new IBZProStory();
                 ibzProStory.setProduct(et.getProduct());
                 ibzProStory.setIbizSourceobject("sourcenote__dataentity");
                 ibzProStory.setSource("iBiz");
                 ibzProStory.setPri(1);
                 ibzProStory.setSourcenote(psDataEntity.getCodename());
-                List<PSDEField> psdeFields = ipsdeFieldService.selectByPsdeid(ibzProProduct.getIbizid(), psDataEntity.getPsdataentityid());
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append("<table style=\"border-collapse:collapse;width:100%;\" border=\"1\"><tbody>");
-                stringBuilder.append("<tr><td style=\"width:9.72222%;\">中文名称</td><td style=\"width:9.72222%;\">实体属性名称</td><td style=\"width:9.72222%;\">代码名称</td><td style=\"width:9.72222%;\">属性类型</td><td style=\"width:9.72222%;\">长度</td></tr>");
-                for (PSDEField psdeField : psdeFields) {
-                    stringBuilder.append("<tr>");
-                    stringBuilder.append("<td>" + psdeField.getLogicname() + "</td>");
-                    stringBuilder.append("<td>" + psdeField.getPsdefieldname() + "</td>");
-                    stringBuilder.append("<td>" + psdeField.getCodename() + "</td>");
-                    stringBuilder.append("<td>" + psdeField.getDeftype() + "</td>");
-                    stringBuilder.append("<td>" + psdeField.getLength() + "</td>");
-                    stringBuilder.append("</tr>");
-                }
-                stringBuilder.append("</tbody></table>");
+//                List<PSDEField> psdeFields = ipsdeFieldService.selectByPsdeid(ibzProProduct.getIbizid(), psDataEntity.getPsdataentityid());
+//                StringBuilder stringBuilder = new StringBuilder();
+//                stringBuilder.append("<table style=\"border-collapse:collapse;width:100%;\" border=\"1\"><tbody>");
+//                stringBuilder.append("<tr><td style=\"width:9.72222%;\">中文名称</td><td style=\"width:9.72222%;\">实体属性名称</td><td style=\"width:9.72222%;\">代码名称</td><td style=\"width:9.72222%;\">属性类型</td><td style=\"width:9.72222%;\">长度</td></tr>");
+//                for (PSDEField psdeField : psdeFields) {
+//                    stringBuilder.append("<tr>");
+//                    stringBuilder.append("<td>" + psdeField.getLogicname() + "</td>");
+//                    stringBuilder.append("<td>" + psdeField.getPsdefieldname() + "</td>");
+//                    stringBuilder.append("<td>" + psdeField.getCodename() + "</td>");
+//                    stringBuilder.append("<td>" + psdeField.getDeftype() + "</td>");
+//                    stringBuilder.append("<td>" + psdeField.getLength() + "</td>");
+//                    stringBuilder.append("</tr>");
+//                }
+//                stringBuilder.append("</tbody></table>");
                 ibzProStory.setSpec(psDataEntity.getMemo());
-                ibzProStory.set("Spec11", stringBuilder.toString());
+//                ibzProStory.set("Spec11", stringBuilder.toString());
                 ibzProStory.setComment(psDataEntity.getMemo());
                 ibzProStory.setTitle(psDataEntity.getLogicname() + "_" + psDataEntity.getCodename());
                 ibzProStory.setIbizSourceid(psDataEntity.getCodename());
@@ -195,8 +228,81 @@ public class StoryExService extends StoryServiceImpl {
                 ibzProStorySearchContext.setN_sourcenote_eq(psDataEntity.getCodename());
                 List<IBZProStory> ibzProStories = iibzProStoryService.searchDefault(ibzProStorySearchContext).getContent();
                 if (ibzProStories.size() > 0) {
-                    ibzProStory.setSpec(stringBuilder.toString());
                     ibzProStory.setId(ibzProStories.get(0).getId());
+                    Integer version = ibzProStories.get(0).getVersion();
+//                    ibzProStory.setSpec(stringBuilder.toString());
+                    String targetFilePath = targetDirPath.replaceAll("\\\\", "/");
+                    if (!targetFilePath.isEmpty() && !targetFilePath.endsWith("/")) {
+                        targetFilePath += "/";
+                    }
+                    FileSearchContext fileSearchContext = new FileSearchContext();
+                    fileSearchContext.setN_objectid_eq(Integer.parseInt(String.valueOf(ibzProStory.getId())));
+                    fileSearchContext.setN_extra_eq(String.valueOf(version));
+                    fileSearchContext.setN_title_like(dataModel.getString("itemname") + "_" + updatedateLong);
+                    if(fileService.searchDefault(fileSearchContext).getContent().size() == 0) {
+                        for (String str : EXTS) {
+                            String tmpTargetFilePath = targetFilePath + dataModel.getString("itemname") + File.separator + dataModel.getString("itemname") + "_" + updatedateLong + "." + str;
+                            File file = new File(tmpTargetFilePath);
+                            if (file.exists()) {
+                                JSONObject params = new JSONObject();
+                                params.put("objecttype", "story");
+                                params.put("objectid", ibzProStory.getId());
+                                params.put("version", version + 1);
+                                ZTFileItem ztFileItem = iibzztFileService.saveFile(file, params);
+                                if ("html".equals(str)) {
+                                    BufferedReader reader = null;
+                                    StringBuffer sbf = new StringBuffer();
+                                    try {
+                                        reader = new BufferedReader(new FileReader(file));
+                                        String tempStr;
+                                        while ((tempStr = reader.readLine()) != null) {
+                                            sbf.append(tempStr);
+                                        }
+                                        reader.close();
+
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    } finally {
+                                        if (reader != null) {
+                                            try {
+                                                reader.close();
+                                            } catch (IOException e1) {
+                                                e1.printStackTrace();
+                                            }
+                                        }
+                                    }
+                                    ibzProStory.setSpec(sbf.toString());
+                                }
+                            }
+
+                        }
+                    }else {
+                        String tmpTargetFilePath = targetFilePath + dataModel.getString("itemname") + "_" + updatedateLong + "." + "html";
+                        File file = new File(tmpTargetFilePath);
+                        BufferedReader reader = null;
+                        StringBuffer sbf = new StringBuffer();
+                        try {
+                            reader = new BufferedReader(new FileReader(file));
+                            String tempStr;
+                            while ((tempStr = reader.readLine()) != null) {
+                                sbf.append(tempStr);
+                            }
+                            reader.close();
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } finally {
+                            if (reader != null) {
+                                try {
+                                    reader.close();
+                                } catch (IOException e1) {
+                                    e1.printStackTrace();
+                                }
+                            }
+                        }
+                        ibzProStory.setSpec(sbf.toString());
+                    }
+
                     String zentaoSid1 = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
                     cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst1 = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
                     JSONObject jsonObject = cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(ibzProStory, "change");
@@ -256,6 +362,8 @@ public class StoryExService extends StoryServiceImpl {
         }
         return et;
     }
+
+
 
     /**
      * 自定义行为[AssignTo]用户扩展
