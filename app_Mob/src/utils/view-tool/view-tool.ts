@@ -319,7 +319,7 @@ export class ViewTool {
             const curReg = view.$pathToRegExp.pathToRegexp(path, keys);
             const matchArray = curReg.exec(view.$route.path);
             keys.forEach((item: any, index: number) => {
-                Object.assign(_context, { [item.name]: matchArray[index + 1] });
+                Object.assign(_context, { [item.name]: matchArray[index + 1]=='null'?null:matchArray[index + 1] });
             });
             if (_context.hasOwnProperty('viewshell')) {
                 let viewshell: string = _context['viewshell'];
