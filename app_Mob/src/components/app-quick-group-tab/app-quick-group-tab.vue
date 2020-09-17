@@ -11,6 +11,7 @@
         <span class="app-quick-item-label">{{item.label}}</span>
         <ion-icon v-if="item.children" name="caret-down-outline"></ion-icon>
       </div>
+      <ion-badge class="badge" v-if="isSelectedItem(item) && pageTotal !== 0 && !item.children">{{pageTotal}}</ion-badge>
     </div>
   </div>
   <div ref="child-list" v-if="subItems.length > 0" class="child-list">
@@ -20,9 +21,11 @@
         <img v-else-if="item.icon && !Object.is(item.icon, '')" :src="item.icon" />
         <span>{{item.label}}</span>
       </span>
+      <ion-badge class="badge" v-if="pageTotal !== 0 && item.selected">{{pageTotal}}</ion-badge>
       <ion-icon v-if="item.selected" style="margin-left:auto" name="checkbox-outline"></ion-icon>
     </div>
   </div>
+  <ion-backdrop style="height:100vh;z-index:99" v-show="subItems.length > 0" visible="true" tappable="true" @ionBackdropTap="closeBackdrop"></ion-backdrop>
 </div>
 </template>
 
@@ -39,7 +42,6 @@ import {
   components: {},
 })
 export default class AppQuickGroupTab extends Vue {
-  public test($event: any) {}
 
   /**
    * 快速分组代码表
@@ -48,6 +50,14 @@ export default class AppQuickGroupTab extends Vue {
    * @memberof ViewQuickGroupTab
    */
   @Prop({ default: () => [] }) public items!: Array<any>;
+
+    /**
+   * 快速分组代码表
+   *
+   * @type {any[]}
+   * @memberof ViewQuickGroupTab
+   */
+  @Prop({ default:0 }) public pageTotal!: number;
 
   /**
    * 渲染列表
@@ -178,6 +188,17 @@ export default class AppQuickGroupTab extends Vue {
       $event.selected = true;
       this.$emit("valuechange", $event);
     }
+    this.$forceUpdate();
+  }
+
+  /**
+   * 关闭遮罩层
+   *
+   * @type {any[]}
+   * @memberof AppQuickGroup
+   */
+  public closeBackdrop () {
+    this.subItems.length = 0;
     this.$forceUpdate();
   }
 }

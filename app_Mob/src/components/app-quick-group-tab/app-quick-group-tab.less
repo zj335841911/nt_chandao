@@ -15,6 +15,24 @@
 		align-items: center;
 		border: 1px solid #a8a8a8;
 		margin: 0 0 -1px -1px;
+		z-index: 9999;
+		background-color: white;
+		position: relative;
+		.badge {
+			--padding-bottom:0;
+			--padding-end:3px;
+			--padding-start:3px;
+			--padding-top:1px;
+			position: absolute;
+			top: -5px;
+			left: 49px;
+			z-index: 99;
+			min-width: 15px;
+			height: 15px;
+			text-align: center;
+			line-height: 15px;
+			background-color: red;
+		}
 	}
 	.app-seleted-item {
 		background-color: #a8a8a8;
@@ -48,6 +66,14 @@
 		font-size: 13px;
 		color: #a8a8a8;
 		align-items: center;
+		.badge {
+			--padding-bottom:0;
+			--padding-end:5px;
+			--padding-start:5px;
+			--padding-top:0;
+			margin-left: 10px;
+			background-color: red;
+		}
 	}
 	.selected {
 		color: black;

@@ -339,6 +339,7 @@ export default class ProductMobChartViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

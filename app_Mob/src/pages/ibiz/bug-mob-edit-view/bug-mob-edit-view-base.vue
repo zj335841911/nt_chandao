@@ -445,6 +445,7 @@ export default class BugMobEditViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

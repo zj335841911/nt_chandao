@@ -414,6 +414,7 @@ export default class ReleaseNewMobEditViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

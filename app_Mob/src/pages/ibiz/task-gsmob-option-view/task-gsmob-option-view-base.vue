@@ -358,6 +358,7 @@ export default class TaskGSMobOptionViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

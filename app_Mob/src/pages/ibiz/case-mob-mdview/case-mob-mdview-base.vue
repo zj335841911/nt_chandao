@@ -407,6 +407,7 @@ export default class CaseMobMDViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

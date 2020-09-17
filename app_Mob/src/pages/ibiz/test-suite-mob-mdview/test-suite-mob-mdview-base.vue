@@ -407,6 +407,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

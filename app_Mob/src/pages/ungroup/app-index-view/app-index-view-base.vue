@@ -291,6 +291,7 @@ export default class AppIndexViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

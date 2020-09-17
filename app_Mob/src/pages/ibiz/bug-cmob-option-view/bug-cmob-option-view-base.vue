@@ -358,6 +358,7 @@ export default class BugCMobOptionViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

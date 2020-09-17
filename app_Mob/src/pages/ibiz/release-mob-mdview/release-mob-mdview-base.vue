@@ -449,6 +449,7 @@ export default class ReleaseMobMDViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

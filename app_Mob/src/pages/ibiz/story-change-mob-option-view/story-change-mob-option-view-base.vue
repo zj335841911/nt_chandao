@@ -358,6 +358,7 @@ export default class StoryChangeMobOptionViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

@@ -452,6 +452,7 @@ export default class StoryMobEditViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

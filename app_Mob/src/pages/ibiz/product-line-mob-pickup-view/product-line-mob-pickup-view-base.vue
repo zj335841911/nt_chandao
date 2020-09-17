@@ -349,6 +349,7 @@ export default class ProductLineMobPickupViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

@@ -449,6 +449,7 @@ export default class BugTestMobMDViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

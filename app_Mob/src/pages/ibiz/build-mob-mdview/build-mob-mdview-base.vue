@@ -407,6 +407,7 @@ export default class BuildMobMDViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

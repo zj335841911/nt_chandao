@@ -339,6 +339,7 @@ export default class ProjectMobChartViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

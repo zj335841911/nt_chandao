@@ -407,6 +407,7 @@ export default class BugMobMDViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

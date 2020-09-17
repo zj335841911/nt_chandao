@@ -336,6 +336,7 @@ export default class AppPortalViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

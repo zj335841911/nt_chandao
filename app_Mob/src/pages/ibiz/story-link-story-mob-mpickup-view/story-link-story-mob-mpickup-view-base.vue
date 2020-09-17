@@ -349,6 +349,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

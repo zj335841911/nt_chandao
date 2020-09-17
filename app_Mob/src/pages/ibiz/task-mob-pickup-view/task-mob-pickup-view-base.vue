@@ -349,6 +349,7 @@ export default class TaskMobPickupViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

@@ -458,6 +458,7 @@ export default class ProductMobMDViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

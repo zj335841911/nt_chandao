@@ -402,6 +402,7 @@ export default class BugAssMoreMobMDViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

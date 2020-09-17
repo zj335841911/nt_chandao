@@ -376,6 +376,7 @@ export default class BuildMobEditViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

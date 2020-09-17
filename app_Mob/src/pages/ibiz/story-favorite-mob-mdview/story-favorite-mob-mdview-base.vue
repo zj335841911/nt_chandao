@@ -359,6 +359,7 @@ export default class StoryFavoriteMobMDViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *

@@ -6,6 +6,7 @@
     <app-quick-group-tab
         :items="quickGroupModel"
         @valuechange="quickGroupValueChange($event)"
+        :pageTotal="pageTotal"
     ></app-quick-group-tab>
 
     </ion-header>
@@ -451,6 +452,22 @@ export default class TaskMobMDViewBase extends Vue {
         this.loadQuickGroupModel();
 
     }
+
+       /**
+        * 部件计数
+        *
+        * @memberof TaskMobMDViewBase
+        */
+        public pageTotal:number = 0;
+
+       /**
+        * 获取部件计数
+        *
+        * @memberof TaskMobMDViewBase
+        */
+        public pageTotalChange($event:any) {
+            this.pageTotal = $event;
+        }
 
     /**
      * 销毁之前
