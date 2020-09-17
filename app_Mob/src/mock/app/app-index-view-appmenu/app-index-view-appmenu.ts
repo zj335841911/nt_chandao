@@ -91,7 +91,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	tooltip: '个人中心',
 	expanded: false,
 	separator: false,
-	hidden: true,
+	hidden: false,
 	hidesidebar: false,
 	opendefault: false,
 	iconcls: '',
