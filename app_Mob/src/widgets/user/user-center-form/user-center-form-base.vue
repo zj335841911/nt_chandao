@@ -12,7 +12,7 @@
     :caption="$t('user.usercenter_form.details.group1')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
-    :isInfoGroupMode="false" 
+    :isInfoGroupMode="true" 
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
@@ -30,12 +30,11 @@
     :disabled="detailsModel.realname.disabled"
     :error="detailsModel.realname.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+        <app-mob-span  
+        v-if="data.realname" 
+    :context="context" 
     :value="data.realname" 
-    :disabled="detailsModel.realname.disabled" 
-    @change="($event)=>this.data.realname = $event" />
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -55,18 +54,14 @@
     :disabled="detailsModel.gender.disabled"
     :error="detailsModel.gender.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-span  
+        codeListType="STATIC" 
     tag="User__gender"
-    codeListType="STATIC" 
     :isCache="false" 
-    :disabled="detailsModel.gender.disabled" 
-    :data="data" 
+    v-if="data.gender" 
     :context="context" 
-    :viewparams="viewparams"
-    :value="data.gender"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.gender = $event" />
+    :value="data.gender" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -86,12 +81,11 @@
     :disabled="detailsModel.account.disabled"
     :error="detailsModel.account.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+        <app-mob-span  
+        v-if="data.account" 
+    :context="context" 
     :value="data.account" 
-    :disabled="detailsModel.account.disabled" 
-    @change="($event)=>this.data.account = $event" />
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -111,12 +105,11 @@
     :disabled="detailsModel.address.disabled"
     :error="detailsModel.address.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+        <app-mob-span  
+        v-if="data.address" 
+    :context="context" 
     :value="data.address" 
-    :disabled="detailsModel.address.disabled" 
-    @change="($event)=>this.data.address = $event" />
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -136,12 +129,11 @@
     :disabled="detailsModel.dingding.disabled"
     :error="detailsModel.dingding.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+        <app-mob-span  
+        v-if="data.dingding" 
+    :context="context" 
     :value="data.dingding" 
-    :disabled="detailsModel.dingding.disabled" 
-    @change="($event)=>this.data.dingding = $event" />
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -161,12 +153,11 @@
     :disabled="detailsModel.phone.disabled"
     :error="detailsModel.phone.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+        <app-mob-span  
+        v-if="data.phone" 
+    :context="context" 
     :value="data.phone" 
-    :disabled="detailsModel.phone.disabled" 
-    @change="($event)=>this.data.phone = $event" />
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -186,12 +177,11 @@
     :disabled="detailsModel.mobile.disabled"
     :error="detailsModel.mobile.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+        <app-mob-span  
+        v-if="data.mobile" 
+    :context="context" 
     :value="data.mobile" 
-    :disabled="detailsModel.mobile.disabled" 
-    @change="($event)=>this.data.mobile = $event" />
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -211,18 +201,14 @@
     :disabled="detailsModel.role.disabled"
     :error="detailsModel.role.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-span  
+        codeListType="DYNAMIC" 
     tag="Role"
-    codeListType="DYNAMIC" 
     :isCache="false" 
-    :disabled="detailsModel.role.disabled" 
-    :data="data" 
+    v-if="data.role" 
     :context="context" 
-    :viewparams="viewparams"
-    :value="data.role"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.role = $event" />
+    :value="data.role" 
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -242,12 +228,11 @@
     :disabled="detailsModel.qq.disabled"
     :error="detailsModel.qq.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+        <app-mob-span  
+        v-if="data.qq" 
+    :context="context" 
     :value="data.qq" 
-    :disabled="detailsModel.qq.disabled" 
-    @change="($event)=>this.data.qq = $event" />
+    :itemParam="{}"/>
 </app-form-item>
 
 
@@ -267,12 +252,11 @@
     :disabled="detailsModel.weixin.disabled"
     :error="detailsModel.weixin.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+        <app-mob-span  
+        v-if="data.weixin" 
+    :context="context" 
     :value="data.weixin" 
-    :disabled="detailsModel.weixin.disabled" 
-    @change="($event)=>this.data.weixin = $event" />
+    :itemParam="{}"/>
 </app-form-item>
 
 
