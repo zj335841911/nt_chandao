@@ -229,6 +229,9 @@ export default {
     BugModule: {
         empty: '',
     },
+    Role: {
+        empty: '',
+    },
     Date_disable: {
         'on': '待定',
         empty: '',
@@ -505,6 +508,11 @@ export default {
         empty: '',
     },
     CurCaseVersion: {
+        empty: '',
+    },
+    User__gender: {
+        'f': '女',
+        'm': '男',
         empty: '',
     },
     Action__object_type: {

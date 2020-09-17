@@ -9,7 +9,7 @@
     </ion-header>
     <div class="content">
       <ion-list class="content-list">
-        <ion-item v-if="settingConfig.accountInformation">
+        <ion-item v-if="settingConfig.accountInformation" @click="userCenter">
           <div class="content-list-item-content">
             <div class="content-list-item-content-text">账号信息</div>
             <div class="content-list-item-content-text">{{srfloginname}}</div>
@@ -95,7 +95,7 @@ import { settingConfig } from './app-setting'
 @Component({
   components: {},
 })
-export default class AppRoundList extends Vue {
+export default class AppSetting extends Vue {
 
     public settingConfig = settingConfig;
 
@@ -104,17 +104,13 @@ export default class AppRoundList extends Vue {
     public thirdPartyName = this.$viewTool.getThirdPartyName();
 
     /**
-     * created
+     * 生命周期
      */
     public created() {
       let appdata =  this.$store.state.appdata;
       this.srfloginname = appdata.context.srfloginname;
       this.$viewTool.setViewTitleOfThirdParty("设置");
       this.setViewTitleStatus();
-    }
-
-    activated(){
-      this.$viewTool.setViewTitleOfThirdParty("设置");
     }
 
     /**
@@ -124,6 +120,11 @@ export default class AppRoundList extends Vue {
      */
     public titleStatus :boolean = true;
 
+    /**
+     * 设置标题状态
+     *
+     * @memberof ProductCloseMobEditViewBase
+     */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
         if(thirdPartyName){
@@ -174,19 +175,35 @@ export default class AppRoundList extends Vue {
     }
 
     /**
-     * clear
+     * 清除缓存
      */
     public clear() {
       
     }
 
     /**
-     * changeTheme
+     * 主题切换
      */
     public changeTheme() {
       let changeTheme:any = this.$refs.changeTheme;
       if(changeTheme){
         changeTheme.open();
+      }
+    }
+
+    /**
+     * 个人中心
+     */
+    public userCenter(){
+      const { context, param } = this.$store.getters.getAppData();
+      let user :any = {}
+      if(context && context.srfuserid){
+        user[this.settingConfig.userEntityName] = context.srfuserid;
+      }
+      if(this.settingConfig.userCenterName){
+        this.$appmodal.openModal({viewname:this.settingConfig.userCenterName,title:""},user);
+      }else{
+        this.$notice.warning("用户自定义视图未配置")
       }
     }
 

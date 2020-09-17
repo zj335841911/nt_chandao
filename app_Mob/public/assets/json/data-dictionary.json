@@ -1802,6 +1802,14 @@
         "items": []
     }, 
     {
+        "srfkey": "Role",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
+        "items": []
+    }, 
+    {
         "srfkey": "Date_disable",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -4463,6 +4471,35 @@
         "appdataentity":"CaseStep",
         "appdedataset":"FetchVersions",
         "items": []
+    }, 
+    {
+        "srfkey": "User__gender",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "f",
+                "label": "女",
+                "text": "女",
+                "default": false,
+                "data": "",
+                "value": "f",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+            , {
+                "id": "m",
+                "label": "男",
+                "text": "男",
+                "default": false,
+                "data": "",
+                "value": "m",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+        ]
     }, 
     {
         "srfkey": "Action__object_type",

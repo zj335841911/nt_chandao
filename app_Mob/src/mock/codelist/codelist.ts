@@ -1215,6 +1215,14 @@ const datas: Array<any> = [
         "items": []
     },
     {
+        "srfkey": "Role",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
+        "items": []
+    },
+    {
         srfkey: 'Date_disable',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -2937,6 +2945,27 @@ const datas: Array<any> = [
         "appdataentity":"CaseStep",
         "appdedataset":"FetchVersions",
         "items": []
+    },
+    {
+        srfkey: 'User__gender',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'f',
+                label: '女',
+                text: '女',
+                value: 'f',
+                disabled: false,
+            },
+            {
+                id: 'm',
+                label: '男',
+                text: '男',
+                value: 'm',
+                disabled: false,
+            },
+        ]
     },
     {
         srfkey: 'Action__object_type',

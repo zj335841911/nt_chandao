@@ -10,7 +10,7 @@
     v-show="detailsModel.group1.visible" 
     :uiActionGroup="detailsModel.group1.uiActionGroup" 
     :caption="$t('user.usercenter_form.details.group1')" 
-    :isShowCaption="true" 
+    :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
     @groupuiactionclick="groupUIActionClick($event)">
@@ -36,6 +36,37 @@
     :value="data.realname" 
     :disabled="detailsModel.realname.disabled" 
     @change="($event)=>this.data.realname = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
+    name='gender' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="gender_item"  
+    :itemValue="this.data.gender" 
+    v-show="detailsModel.gender.visible" 
+    :itemRules="this.rules.gender" 
+    :caption="$t('user.usercenter_form.details.gender')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.gender.disabled"
+    :error="detailsModel.gender.error" 
+    :isEmptyCaption="false">
+        <app-mob-select 
+    tag="User__gender"
+    codeListType="STATIC" 
+    :isCache="false" 
+    :disabled="detailsModel.gender.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.gender"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.gender = $event" />
 </app-form-item>
 
 
@@ -86,31 +117,6 @@
     :value="data.address" 
     :disabled="detailsModel.address.disabled" 
     @change="($event)=>this.data.address = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='dept' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="dept_item"  
-    :itemValue="this.data.dept" 
-    v-show="detailsModel.dept.visible" 
-    :itemRules="this.rules.dept" 
-    :caption="$t('user.usercenter_form.details.dept')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.dept.disabled"
-    :error="detailsModel.dept.error" 
-    :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.dept" 
-    :disabled="detailsModel.dept.disabled" 
-    @change="($event)=>this.data.dept = $event" />
 </app-form-item>
 
 
@@ -186,6 +192,87 @@
     :value="data.mobile" 
     :disabled="detailsModel.mobile.disabled" 
     @change="($event)=>this.data.mobile = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
+    name='role' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="role_item"  
+    :itemValue="this.data.role" 
+    v-show="detailsModel.role.visible" 
+    :itemRules="this.rules.role" 
+    :caption="$t('user.usercenter_form.details.role')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.role.disabled"
+    :error="detailsModel.role.error" 
+    :isEmptyCaption="false">
+        <app-mob-select 
+    tag="Role"
+    codeListType="DYNAMIC" 
+    :isCache="false" 
+    :disabled="detailsModel.role.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.role"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.role = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
+    name='qq' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="qq_item"  
+    :itemValue="this.data.qq" 
+    v-show="detailsModel.qq.visible" 
+    :itemRules="this.rules.qq" 
+    :caption="$t('user.usercenter_form.details.qq')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.qq.disabled"
+    :error="detailsModel.qq.error" 
+    :isEmptyCaption="false">
+        <app-mob-input 
+    class="app-form-item-input"  
+        type="text"  
+    :value="data.qq" 
+    :disabled="detailsModel.qq.disabled" 
+    @change="($event)=>this.data.qq = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
+    name='weixin' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="weixin_item"  
+    :itemValue="this.data.weixin" 
+    v-show="detailsModel.weixin.visible" 
+    :itemRules="this.rules.weixin" 
+    :caption="$t('user.usercenter_form.details.weixin')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.weixin.disabled"
+    :error="detailsModel.weixin.error" 
+    :isEmptyCaption="false">
+        <app-mob-input 
+    class="app-form-item-input"  
+        type="text"  
+    :value="data.weixin" 
+    :disabled="detailsModel.weixin.disabled" 
+    @change="($event)=>this.data.weixin = $event" />
 </app-form-item>
 
 
@@ -511,12 +598,15 @@ export default class UserCenterBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         realname: null,
+        gender: null,
         account: null,
         address: null,
-        dept: null,
         dingding: null,
         phone: null,
         mobile: null,
+        role: null,
+        qq: null,
+        weixin: null,
         id: null,
         user: null,
     };
@@ -600,6 +690,12 @@ export default class UserCenterBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '真实姓名 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '真实姓名 值不能为空', trigger: 'blur' },
         ],
+        gender: [
+            { type: 'string', message: '性别 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '性别 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '性别 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '性别 值不能为空', trigger: 'blur' },
+        ],
         account: [
             { type: 'string', message: '账户 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '账户 值必须为字符串类型', trigger: 'blur' },
@@ -611,12 +707,6 @@ export default class UserCenterBase extends Vue implements ControlInterface {
             { type: 'string', message: '通讯地址 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '通讯地址 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '通讯地址 值不能为空', trigger: 'blur' },
-        ],
-        dept: [
-            { type: 'number', message: '所属部门 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '所属部门 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '所属部门 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '所属部门 值不能为空', trigger: 'blur' },
         ],
         dingding: [
             { type: 'string', message: '钉钉 值必须为字符串类型', trigger: 'change' },
@@ -635,6 +725,24 @@ export default class UserCenterBase extends Vue implements ControlInterface {
             { type: 'string', message: '手机 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '手机 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '手机 值不能为空', trigger: 'blur' },
+        ],
+        role: [
+            { type: 'string', message: '职位 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '职位 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '职位 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '职位 值不能为空', trigger: 'blur' },
+        ],
+        qq: [
+            { type: 'string', message: 'QQ 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: 'QQ 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: 'QQ 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: 'QQ 值不能为空', trigger: 'blur' },
+        ],
+        weixin: [
+            { type: 'string', message: '微信 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '微信 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '微信 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '微信 值不能为空', trigger: 'blur' },
         ],
         id: [
             { type: 'number', message: 'ID 值必须为数值类型', trigger: 'change' },
@@ -726,7 +834,7 @@ export default class UserCenterBase extends Vue implements ControlInterface {
      * @memberof UserCenter
      */
     protected detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: '用户基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'user.usercenter_form', extractMode: 'ITEM', details: [] } })
+        group1: new FormGroupPanelModel({ caption: '用户基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'user.usercenter_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
@@ -746,17 +854,23 @@ export default class UserCenterBase extends Vue implements ControlInterface {
 , 
         realname: new FormItemModel({ caption: '真实姓名', detailType: 'FORMITEM', name: 'realname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        gender: new FormItemModel({ caption: '性别', detailType: 'FORMITEM', name: 'gender', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         account: new FormItemModel({ caption: '账户', detailType: 'FORMITEM', name: 'account', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         address: new FormItemModel({ caption: '通讯地址', detailType: 'FORMITEM', name: 'address', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        dept: new FormItemModel({ caption: '所属部门', detailType: 'FORMITEM', name: 'dept', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         dingding: new FormItemModel({ caption: '钉钉', detailType: 'FORMITEM', name: 'dingding', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         phone: new FormItemModel({ caption: '电话', detailType: 'FORMITEM', name: 'phone', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         mobile: new FormItemModel({ caption: '手机', detailType: 'FORMITEM', name: 'mobile', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        role: new FormItemModel({ caption: '职位', detailType: 'FORMITEM', name: 'role', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        qq: new FormItemModel({ caption: 'QQ', detailType: 'FORMITEM', name: 'qq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        weixin: new FormItemModel({ caption: '微信', detailType: 'FORMITEM', name: 'weixin', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: 'ID', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -859,6 +973,18 @@ export default class UserCenterBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 gender 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof UserCenter
+     */
+    @Watch('data.gender')
+    onGenderChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'gender', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 account 值
      *
      * @param {*} newVal
@@ -880,18 +1006,6 @@ export default class UserCenterBase extends Vue implements ControlInterface {
     @Watch('data.address')
     onAddressChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'address', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 dept 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof UserCenter
-     */
-    @Watch('data.dept')
-    onDeptChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'dept', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -928,6 +1042,42 @@ export default class UserCenterBase extends Vue implements ControlInterface {
     @Watch('data.mobile')
     onMobileChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'mobile', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 role 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof UserCenter
+     */
+    @Watch('data.role')
+    onRoleChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'role', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 qq 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof UserCenter
+     */
+    @Watch('data.qq')
+    onQqChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'qq', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 weixin 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof UserCenter
+     */
+    @Watch('data.weixin')
+    onWeixinChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'weixin', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -978,6 +1128,9 @@ export default class UserCenterBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
+
 
 
 
@@ -1170,7 +1323,7 @@ export default class UserCenterBase extends Vue implements ControlInterface {
      * @memberof UserCenter
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['realname_item', 'account_item', 'address_item', 'dept_item', 'dingding_item', 'phone_item', 'mobile_item', ];
+        const refArr: Array<string> = ['realname_item', 'gender_item', 'account_item', 'address_item', 'dingding_item', 'phone_item', 'mobile_item', 'role_item', 'qq_item', 'weixin_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];

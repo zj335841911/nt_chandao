@@ -51,6 +51,11 @@ export class UserCenterModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'gender',
+                prop: 'gender',
+                dataType: 'SSCODELIST',
+            },
+            {
                 name: 'account',
                 prop: 'account',
                 dataType: 'TEXT',
@@ -59,11 +64,6 @@ export class UserCenterModel {
                 name: 'address',
                 prop: 'address',
                 dataType: 'TEXT',
-            },
-            {
-                name: 'dept',
-                prop: 'dept',
-                dataType: 'INT',
             },
             {
                 name: 'dingding',
@@ -78,6 +78,21 @@ export class UserCenterModel {
             {
                 name: 'mobile',
                 prop: 'mobile',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'role',
+                prop: 'role',
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'qq',
+                prop: 'qq',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'weixin',
+                prop: 'weixin',
                 dataType: 'TEXT',
             },
             {

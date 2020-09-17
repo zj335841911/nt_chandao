@@ -45,14 +45,17 @@
         </view_form>
     </ion-content>
     <ion-footer class="view-footer" style="z-index:9;">
-                !!!!模版产生代码错误:----
-        Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
-        ----
+                <div  class = "fab_container">
+            <div class="bottom_menu">
+            <ion-fab v-show="getToolBarLimit">
+                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)">
+                <ion-icon name="checkmark-outline"></ion-icon>
+                
+            </ion-fab-button>
         
-        ----
-        FTL stack trace ("~" means nesting-related):
-        	- Failed at: @setIcon item  [in template "TEMPLCODE_en_US" at line 29, column 25]
-        ----
+            </ion-fab>
+            </div>
+        </div>
     </ion-footer>
 </ion-page>
 </template>
