@@ -27,10 +27,10 @@
             <app-mob-select-changeTheme ref="changeTheme"></app-mob-select-changeTheme>
           </div>
         </ion-item>
-        <ion-item v-if="settingConfig.layoutStyle">
+        <ion-item v-if="settingConfig.layoutStyle" @click="openModal">
           <div class="content-list-item-content">
             <div class="content-list-item-content-text">风格</div>
-            <ion-button color="primary" class="active-text-align-style" @click="openModal">风格调整</ion-button>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
           </div>
         </ion-item>
       </ion-list>
@@ -177,10 +177,13 @@ export default class AppSetting extends Vue {
     /**
      * 清除缓存
      */
-    public clear() {
-      
+    public async clear() {
+        const result = await this.$notice.confirm("清除缓存", '清除缓存可能会导致当前登录信息失效！！！',this.$store);
+        if(result){
+            localStorage.clear();
+        }
     }
-
+    
     /**
      * 主题切换
      */
