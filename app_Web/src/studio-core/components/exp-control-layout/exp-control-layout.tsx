@@ -37,14 +37,6 @@ export class ExpControlLayout extends Vue {
     public split: number = 1;
 
     /**
-     * 旧分割比例
-     *
-     * @type {number}
-     * @memberof ExpControlLayout
-     */
-    public oldSplit: number = this.defaultSplit;
-
-    /**
      * 视图是否显示
      *
      * @type {boolean}
@@ -64,12 +56,8 @@ export class ExpControlLayout extends Vue {
         this.showAnimation = true;
         setTimeout(() => this.showAnimation = false, 500);
         if (val) {
-            const s = this.split;
-            if (!this.oldSplit || this.oldSplit === this.defaultSplit) {
-                this.calcSplit();
-            }
-            this.split = this.oldSplit;
-            this.oldSplit = s;
+            this.calcSplit();
+            this.split = this.defaultSplit;
         } else {
             this.split = 1;
         }
@@ -135,11 +123,10 @@ export class ExpControlLayout extends Vue {
     public calcSplit(): void {
         const el: any = this.$el;
         if (this.ctrlWidth > 0 && this.mode === 'horizontal') {
-            this.oldSplit = 1 - parseFloat(((el.offsetWidth - this.ctrlWidth) / el.offsetWidth).toFixed(2));
+            this.defaultSplit = 1 - parseFloat(((el.offsetWidth - this.ctrlWidth) / el.offsetWidth).toFixed(2));
         } else if (this.ctrlHeight > 0 && this.mode === 'vertical') {
-            this.oldSplit = 1 - parseFloat(((el.offsetHeight - this.ctrlHeight) / el.offsetHeight).toFixed(2));
+            this.defaultSplit = 1 - parseFloat(((el.offsetHeight - this.ctrlHeight) / el.offsetHeight).toFixed(2));
         }
-        this.oldSplit = this.defaultSplit;
     }
 
     /**

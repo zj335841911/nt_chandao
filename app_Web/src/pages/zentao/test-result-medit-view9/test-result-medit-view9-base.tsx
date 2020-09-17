@@ -1,6 +1,6 @@
 import { Subject } from 'rxjs';
 import { ViewTool } from '@/utils';
-import { EditView9Base } from '@/studio-core';
+import { MEditView9Base } from '@/studio-core';
 import TestResultService from '@/service/test-result/test-result-service';
 import TestResultAuthService from '@/authservice/test-result/test-result-auth-service';
 import TestResultUIService from '@/uiservice/test-result/test-result-ui-service';
@@ -10,9 +10,9 @@ import TestResultUIService from '@/uiservice/test-result/test-result-ui-service'
  *
  * @export
  * @class TestResultMEditView9Base
- * @extends {EditView9Base}
+ * @extends {MEditView9Base}
  */
-export class TestResultMEditView9Base extends EditView9Base {
+export class TestResultMEditView9Base extends MEditView9Base {
     /**
      * 视图对应应用实体名称
      *
@@ -143,18 +143,6 @@ export class TestResultMEditView9Base extends EditView9Base {
 
 
 
-
-    /**
-     * 视图上下文变化
-     *
-     * @protected
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof TestResultMEditView9Base
-     */
-    protected viewDataChange(newVal: any, oldVal: any): void {
-        this.viewState.next({ tag: 'meditviewpanel', action: 'load', data: this.context });
-    }
 
     /**
      * 关系数据变化
