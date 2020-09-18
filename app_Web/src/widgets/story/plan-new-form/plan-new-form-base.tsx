@@ -191,6 +191,25 @@ export class PlanNewEditFormBase extends EditFormControlBase {
     };
 
     /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof PlanNewEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'prodoctname')) {
+            this.onFormItemValueChange({ name: 'branch', value: null });
+        }
+        if (Object.is(name, 'branch')) {
+            this.onFormItemValueChange({ name: 'modulename', value: null });
+            this.onFormItemValueChange({ name: 'module', value: null });
+        }
+        if (Object.is(name, 'prodoctname')) {
+            this.onFormItemValueChange({ name: 'plan', value: null });
+        }
+    }
+
+    /**
      * 新建默认值
      * @memberof PlanNewEditFormBase
      */
