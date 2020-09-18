@@ -77,8 +77,10 @@ export default {
 	maindata_form: {
 		details: {
 			druipart2: "", 
+			grouppanel4: "分组面板", 
 			formpage2: "需求", 
 			druipart3: "", 
+			grouppanel3: "分组面板", 
 			formpage3: "Bug", 
 			grouppanel1: "分组面板", 
 			druipart1: "", 

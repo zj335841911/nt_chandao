@@ -225,8 +225,8 @@ export default class ProductPlanUIServiceBase extends UIService {
         const parameters: any[] = [
             { pathName: 'subproductplans', parameterName: 'subproductplan' },
         ];
-            const openPopupModal = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
                 container.subscribe((result: any) => {
                     if (!result || !Object.is(result.ret, 'OK')) {
                         return;
@@ -237,11 +237,12 @@ export default class ProductPlanUIServiceBase extends UIService {
             }
             const view: any = {
                 viewname: 'product-plan-sub-plan-create-view', 
-                height: 500, 
-                width: 800,  
+                height: 0, 
+                width: 0,  
                 title: actionContext.$t('entities.subproductplan.views.subplancreateview.title'),
+                placement: 'DRAWER_RIGHT',
             };
-            openPopupModal(view, data);
+            openDrawer(view, data);
     }
 
     /**
