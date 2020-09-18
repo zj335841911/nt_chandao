@@ -182,7 +182,7 @@ export default class TaskMobPickupViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-tasks'
     }
 
     /**

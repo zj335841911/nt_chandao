@@ -62,6 +62,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/tasks/:task?/cancelmoboptionview',
                     meta: {
                         caption: 'task.views.cancelmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -77,6 +79,8 @@ const router = new Router({
                     path: 'projects/:project?/tasks/:task?/cancelmoboptionview',
                     meta: {
                         caption: 'task.views.cancelmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -91,6 +95,8 @@ const router = new Router({
                     path: 'stories/:story?/tasks/:task?/cancelmoboptionview',
                     meta: {
                         caption: 'task.views.cancelmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -105,6 +111,8 @@ const router = new Router({
                     path: 'tasks/:task?/cancelmoboptionview',
                     meta: {
                         caption: 'task.views.cancelmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -118,6 +126,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/tasks/:task?/stopmoboptionview',
                     meta: {
                         caption: 'task.views.stopmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -133,6 +143,8 @@ const router = new Router({
                     path: 'projects/:project?/tasks/:task?/stopmoboptionview',
                     meta: {
                         caption: 'task.views.stopmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -147,6 +159,8 @@ const router = new Router({
                     path: 'stories/:story?/tasks/:task?/stopmoboptionview',
                     meta: {
                         caption: 'task.views.stopmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -161,6 +175,8 @@ const router = new Router({
                     path: 'tasks/:task?/stopmoboptionview',
                     meta: {
                         caption: 'task.views.stopmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -187,6 +203,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/tasks/:task?/closemoboptionview',
                     meta: {
                         caption: 'task.views.closemoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -202,6 +220,8 @@ const router = new Router({
                     path: 'projects/:project?/tasks/:task?/closemoboptionview',
                     meta: {
                         caption: 'task.views.closemoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -216,6 +236,8 @@ const router = new Router({
                     path: 'stories/:story?/tasks/:task?/closemoboptionview',
                     meta: {
                         caption: 'task.views.closemoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -230,6 +252,8 @@ const router = new Router({
                     path: 'tasks/:task?/closemoboptionview',
                     meta: {
                         caption: 'task.views.closemoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -243,6 +267,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/bugs/:bug?/mobmdview',
                     meta: {
                         caption: 'bug.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -258,6 +284,8 @@ const router = new Router({
                     path: 'projects/:project?/bugs/:bug?/mobmdview',
                     meta: {
                         caption: 'bug.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -272,6 +300,8 @@ const router = new Router({
                     path: 'stories/:story?/bugs/:bug?/mobmdview',
                     meta: {
                         caption: 'bug.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -286,6 +316,8 @@ const router = new Router({
                     path: 'products/:product?/bugs/:bug?/mobmdview',
                     meta: {
                         caption: 'bug.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -300,6 +332,8 @@ const router = new Router({
                     path: 'bugs/:bug?/mobmdview',
                     meta: {
                         caption: 'bug.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -378,6 +412,8 @@ const router = new Router({
                     path: 'projects/:project?/builds/:build?/mobeditview',
                     meta: {
                         caption: 'build.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -392,6 +428,8 @@ const router = new Router({
                     path: 'products/:product?/builds/:build?/mobeditview',
                     meta: {
                         caption: 'build.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -406,6 +444,8 @@ const router = new Router({
                     path: 'builds/:build?/mobeditview',
                     meta: {
                         caption: 'build.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'builds', parameterName: 'build' },
@@ -475,6 +515,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/tasks/:task?/commoboptionview',
                     meta: {
                         caption: 'task.views.commoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -490,6 +532,8 @@ const router = new Router({
                     path: 'projects/:project?/tasks/:task?/commoboptionview',
                     meta: {
                         caption: 'task.views.commoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -504,6 +548,8 @@ const router = new Router({
                     path: 'stories/:story?/tasks/:task?/commoboptionview',
                     meta: {
                         caption: 'task.views.commoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -518,6 +564,8 @@ const router = new Router({
                     path: 'tasks/:task?/commoboptionview',
                     meta: {
                         caption: 'task.views.commoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -531,6 +579,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/tasks/:task?/mobeditview',
                     meta: {
                         caption: 'task.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -546,6 +596,8 @@ const router = new Router({
                     path: 'projects/:project?/tasks/:task?/mobeditview',
                     meta: {
                         caption: 'task.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -560,6 +612,8 @@ const router = new Router({
                     path: 'stories/:story?/tasks/:task?/mobeditview',
                     meta: {
                         caption: 'task.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -574,6 +628,8 @@ const router = new Router({
                     path: 'tasks/:task?/mobeditview',
                     meta: {
                         caption: 'task.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -587,6 +643,8 @@ const router = new Router({
                     path: 'projects/:project?/testtasks/:testtask?/mobmdview',
                     meta: {
                         caption: 'testtask.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -601,6 +659,8 @@ const router = new Router({
                     path: 'products/:product?/testtasks/:testtask?/mobmdview',
                     meta: {
                         caption: 'testtask.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -615,6 +675,8 @@ const router = new Router({
                     path: 'testtasks/:testtask?/mobmdview',
                     meta: {
                         caption: 'testtask.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -628,6 +690,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/bugs/:bug?/assmoremobmdview',
                     meta: {
                         caption: 'bug.views.assmoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -643,6 +707,8 @@ const router = new Router({
                     path: 'projects/:project?/bugs/:bug?/assmoremobmdview',
                     meta: {
                         caption: 'bug.views.assmoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -657,6 +723,8 @@ const router = new Router({
                     path: 'stories/:story?/bugs/:bug?/assmoremobmdview',
                     meta: {
                         caption: 'bug.views.assmoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -671,6 +739,8 @@ const router = new Router({
                     path: 'products/:product?/bugs/:bug?/assmoremobmdview',
                     meta: {
                         caption: 'bug.views.assmoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -685,6 +755,8 @@ const router = new Router({
                     path: 'bugs/:bug?/assmoremobmdview',
                     meta: {
                         caption: 'bug.views.assmoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -698,6 +770,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/bugs/:bug?/testmobmdview',
                     meta: {
                         caption: 'bug.views.testmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -713,6 +787,8 @@ const router = new Router({
                     path: 'projects/:project?/bugs/:bug?/testmobmdview',
                     meta: {
                         caption: 'bug.views.testmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -727,6 +803,8 @@ const router = new Router({
                     path: 'stories/:story?/bugs/:bug?/testmobmdview',
                     meta: {
                         caption: 'bug.views.testmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -741,6 +819,8 @@ const router = new Router({
                     path: 'products/:product?/bugs/:bug?/testmobmdview',
                     meta: {
                         caption: 'bug.views.testmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -755,6 +835,8 @@ const router = new Router({
                     path: 'bugs/:bug?/testmobmdview',
                     meta: {
                         caption: 'bug.views.testmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -908,6 +990,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/bugs/:bug?/rmoboptionview',
                     meta: {
                         caption: 'bug.views.rmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -923,6 +1007,8 @@ const router = new Router({
                     path: 'projects/:project?/bugs/:bug?/rmoboptionview',
                     meta: {
                         caption: 'bug.views.rmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -937,6 +1023,8 @@ const router = new Router({
                     path: 'stories/:story?/bugs/:bug?/rmoboptionview',
                     meta: {
                         caption: 'bug.views.rmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -951,6 +1039,8 @@ const router = new Router({
                     path: 'products/:product?/bugs/:bug?/rmoboptionview',
                     meta: {
                         caption: 'bug.views.rmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -965,6 +1055,8 @@ const router = new Router({
                     path: 'bugs/:bug?/rmoboptionview',
                     meta: {
                         caption: 'bug.views.rmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -978,6 +1070,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/bugs/:bug?/acmoboptionview',
                     meta: {
                         caption: 'bug.views.acmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -993,6 +1087,8 @@ const router = new Router({
                     path: 'projects/:project?/bugs/:bug?/acmoboptionview',
                     meta: {
                         caption: 'bug.views.acmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1007,6 +1103,8 @@ const router = new Router({
                     path: 'stories/:story?/bugs/:bug?/acmoboptionview',
                     meta: {
                         caption: 'bug.views.acmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1021,6 +1119,8 @@ const router = new Router({
                     path: 'products/:product?/bugs/:bug?/acmoboptionview',
                     meta: {
                         caption: 'bug.views.acmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1035,6 +1135,8 @@ const router = new Router({
                     path: 'bugs/:bug?/acmoboptionview',
                     meta: {
                         caption: 'bug.views.acmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -1121,6 +1223,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/tasks/:task?/favoritemobmdview9',
                     meta: {
                         caption: 'task.views.favoritemobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1136,6 +1240,8 @@ const router = new Router({
                     path: 'projects/:project?/tasks/:task?/favoritemobmdview9',
                     meta: {
                         caption: 'task.views.favoritemobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1150,6 +1256,8 @@ const router = new Router({
                     path: 'stories/:story?/tasks/:task?/favoritemobmdview9',
                     meta: {
                         caption: 'task.views.favoritemobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1164,6 +1272,8 @@ const router = new Router({
                     path: 'tasks/:task?/favoritemobmdview9',
                     meta: {
                         caption: 'task.views.favoritemobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -1177,6 +1287,8 @@ const router = new Router({
                     path: 'projects/:project?/projectteams/:projectteam?/mobmdview',
                     meta: {
                         caption: 'projectteam.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-users',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1191,6 +1303,8 @@ const router = new Router({
                     path: 'projectteams/:projectteam?/mobmdview',
                     meta: {
                         caption: 'projectteam.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-users',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projectteams', parameterName: 'projectteam' },
@@ -1204,6 +1318,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/tasks/:task?/moboptionview',
                     meta: {
                         caption: 'task.views.moboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1219,6 +1335,8 @@ const router = new Router({
                     path: 'projects/:project?/tasks/:task?/moboptionview',
                     meta: {
                         caption: 'task.views.moboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1233,6 +1351,8 @@ const router = new Router({
                     path: 'stories/:story?/tasks/:task?/moboptionview',
                     meta: {
                         caption: 'task.views.moboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1247,6 +1367,8 @@ const router = new Router({
                     path: 'tasks/:task?/moboptionview',
                     meta: {
                         caption: 'task.views.moboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -1273,6 +1395,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/tasks/:task?/gsmoboptionview',
                     meta: {
                         caption: 'task.views.gsmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1288,6 +1412,8 @@ const router = new Router({
                     path: 'projects/:project?/tasks/:task?/gsmoboptionview',
                     meta: {
                         caption: 'task.views.gsmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1302,6 +1428,8 @@ const router = new Router({
                     path: 'stories/:story?/tasks/:task?/gsmoboptionview',
                     meta: {
                         caption: 'task.views.gsmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1316,6 +1444,8 @@ const router = new Router({
                     path: 'tasks/:task?/gsmoboptionview',
                     meta: {
                         caption: 'task.views.gsmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -1329,6 +1459,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/tasks/:task?/favoritemoremobmdview',
                     meta: {
                         caption: 'task.views.favoritemoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1344,6 +1476,8 @@ const router = new Router({
                     path: 'projects/:project?/tasks/:task?/favoritemoremobmdview',
                     meta: {
                         caption: 'task.views.favoritemoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1358,6 +1492,8 @@ const router = new Router({
                     path: 'stories/:story?/tasks/:task?/favoritemoremobmdview',
                     meta: {
                         caption: 'task.views.favoritemoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1372,6 +1508,8 @@ const router = new Router({
                     path: 'tasks/:task?/favoritemoremobmdview',
                     meta: {
                         caption: 'task.views.favoritemoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -1411,6 +1549,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/changemoboptionview',
                     meta: {
                         caption: 'story.views.changemoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1425,6 +1565,8 @@ const router = new Router({
                     path: 'stories/:story?/changemoboptionview',
                     meta: {
                         caption: 'story.views.changemoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1451,6 +1593,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/newmobeditview',
                     meta: {
                         caption: 'story.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1465,6 +1609,8 @@ const router = new Router({
                     path: 'stories/:story?/newmobeditview',
                     meta: {
                         caption: 'story.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1578,6 +1724,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/tasks/:task?/startmoboptionview',
                     meta: {
                         caption: 'task.views.startmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1593,6 +1741,8 @@ const router = new Router({
                     path: 'projects/:project?/tasks/:task?/startmoboptionview',
                     meta: {
                         caption: 'task.views.startmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1607,6 +1757,8 @@ const router = new Router({
                     path: 'stories/:story?/tasks/:task?/startmoboptionview',
                     meta: {
                         caption: 'task.views.startmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1621,6 +1773,8 @@ const router = new Router({
                     path: 'tasks/:task?/startmoboptionview',
                     meta: {
                         caption: 'task.views.startmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -1647,6 +1801,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/mobmdviewcurproject',
                     meta: {
                         caption: 'story.views.mobmdviewcurproject.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1661,6 +1817,8 @@ const router = new Router({
                     path: 'stories/:story?/mobmdviewcurproject',
                     meta: {
                         caption: 'story.views.mobmdviewcurproject.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1687,6 +1845,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/assmoremobmdview',
                     meta: {
                         caption: 'story.views.assmoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1701,6 +1861,8 @@ const router = new Router({
                     path: 'stories/:story?/assmoremobmdview',
                     meta: {
                         caption: 'story.views.assmoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1714,6 +1876,8 @@ const router = new Router({
                     path: 'products/:product?/releases/:release?/newmobeditview',
                     meta: {
                         caption: 'release.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1728,6 +1892,8 @@ const router = new Router({
                     path: 'releases/:release?/newmobeditview',
                     meta: {
                         caption: 'release.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'releases', parameterName: 'release' },
@@ -1741,6 +1907,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/bugs/:bug?/assmobmdview9',
                     meta: {
                         caption: 'bug.views.assmobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1756,6 +1924,8 @@ const router = new Router({
                     path: 'projects/:project?/bugs/:bug?/assmobmdview9',
                     meta: {
                         caption: 'bug.views.assmobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1770,6 +1940,8 @@ const router = new Router({
                     path: 'stories/:story?/bugs/:bug?/assmobmdview9',
                     meta: {
                         caption: 'bug.views.assmobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1784,6 +1956,8 @@ const router = new Router({
                     path: 'products/:product?/bugs/:bug?/assmobmdview9',
                     meta: {
                         caption: 'bug.views.assmobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1798,6 +1972,8 @@ const router = new Router({
                     path: 'bugs/:bug?/assmobmdview9',
                     meta: {
                         caption: 'bug.views.assmobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -1824,6 +2000,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/tasks/:task?/mobpickupview',
                     meta: {
                         caption: 'task.views.mobpickupview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1839,6 +2017,8 @@ const router = new Router({
                     path: 'projects/:project?/tasks/:task?/mobpickupview',
                     meta: {
                         caption: 'task.views.mobpickupview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1853,6 +2033,8 @@ const router = new Router({
                     path: 'stories/:story?/tasks/:task?/mobpickupview',
                     meta: {
                         caption: 'task.views.mobpickupview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1867,6 +2049,8 @@ const router = new Router({
                     path: 'tasks/:task?/mobpickupview',
                     meta: {
                         caption: 'task.views.mobpickupview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -1893,6 +2077,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/favoritemoremobmdview',
                     meta: {
                         caption: 'story.views.favoritemoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1907,6 +2093,8 @@ const router = new Router({
                     path: 'stories/:story?/favoritemoremobmdview',
                     meta: {
                         caption: 'story.views.favoritemoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2019,6 +2207,8 @@ const router = new Router({
                     path: 'projects/:project?/testtasks/:testtask?/mobeditview',
                     meta: {
                         caption: 'testtask.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -2033,6 +2223,8 @@ const router = new Router({
                     path: 'products/:product?/testtasks/:testtask?/mobeditview',
                     meta: {
                         caption: 'testtask.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2047,6 +2239,8 @@ const router = new Router({
                     path: 'testtasks/:testtask?/mobeditview',
                     meta: {
                         caption: 'testtask.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -2060,6 +2254,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/cmoboptionview',
                     meta: {
                         caption: 'story.views.cmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2074,6 +2270,8 @@ const router = new Router({
                     path: 'stories/:story?/cmoboptionview',
                     meta: {
                         caption: 'story.views.cmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2087,6 +2285,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/tasks/:task?/newmobeditview',
                     meta: {
                         caption: 'task.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2102,6 +2302,8 @@ const router = new Router({
                     path: 'projects/:project?/tasks/:task?/newmobeditview',
                     meta: {
                         caption: 'task.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -2116,6 +2318,8 @@ const router = new Router({
                     path: 'stories/:story?/tasks/:task?/newmobeditview',
                     meta: {
                         caption: 'task.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2130,6 +2334,8 @@ const router = new Router({
                     path: 'tasks/:task?/newmobeditview',
                     meta: {
                         caption: 'task.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -2143,6 +2349,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/rmoboptionview',
                     meta: {
                         caption: 'story.views.rmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2157,6 +2365,8 @@ const router = new Router({
                     path: 'stories/:story?/rmoboptionview',
                     meta: {
                         caption: 'story.views.rmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2243,6 +2453,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/bugs/:bug?/closemoboptionview',
                     meta: {
                         caption: 'bug.views.closemoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2258,6 +2470,8 @@ const router = new Router({
                     path: 'projects/:project?/bugs/:bug?/closemoboptionview',
                     meta: {
                         caption: 'bug.views.closemoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -2272,6 +2486,8 @@ const router = new Router({
                     path: 'stories/:story?/bugs/:bug?/closemoboptionview',
                     meta: {
                         caption: 'bug.views.closemoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2286,6 +2502,8 @@ const router = new Router({
                     path: 'products/:product?/bugs/:bug?/closemoboptionview',
                     meta: {
                         caption: 'bug.views.closemoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2300,6 +2518,8 @@ const router = new Router({
                     path: 'bugs/:bug?/closemoboptionview',
                     meta: {
                         caption: 'bug.views.closemoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -2340,6 +2560,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/tasks/:task?/mobpickupmdview',
                     meta: {
                         caption: 'task.views.mobpickupmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2355,6 +2577,8 @@ const router = new Router({
                     path: 'projects/:project?/tasks/:task?/mobpickupmdview',
                     meta: {
                         caption: 'task.views.mobpickupmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -2369,6 +2593,8 @@ const router = new Router({
                     path: 'stories/:story?/tasks/:task?/mobpickupmdview',
                     meta: {
                         caption: 'task.views.mobpickupmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2383,6 +2609,8 @@ const router = new Router({
                     path: 'tasks/:task?/mobpickupmdview',
                     meta: {
                         caption: 'task.views.mobpickupmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -2409,6 +2637,8 @@ const router = new Router({
                     path: 'products/:product?/releases/:release?/mobmdview',
                     meta: {
                         caption: 'release.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2423,6 +2653,8 @@ const router = new Router({
                     path: 'releases/:release?/mobmdview',
                     meta: {
                         caption: 'release.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'releases', parameterName: 'release' },
@@ -2436,6 +2668,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/asmoboptionview',
                     meta: {
                         caption: 'story.views.asmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2450,6 +2684,8 @@ const router = new Router({
                     path: 'stories/:story?/asmoboptionview',
                     meta: {
                         caption: 'story.views.asmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2463,6 +2699,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/mobeditview',
                     meta: {
                         caption: 'story.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2477,6 +2715,8 @@ const router = new Router({
                     path: 'stories/:story?/mobeditview',
                     meta: {
                         caption: 'story.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2563,6 +2803,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/bugs/:bug?/planmobmdview9',
                     meta: {
                         caption: 'bug.views.planmobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2578,6 +2820,8 @@ const router = new Router({
                     path: 'projects/:project?/bugs/:bug?/planmobmdview9',
                     meta: {
                         caption: 'bug.views.planmobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -2592,6 +2836,8 @@ const router = new Router({
                     path: 'stories/:story?/bugs/:bug?/planmobmdview9',
                     meta: {
                         caption: 'bug.views.planmobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2606,6 +2852,8 @@ const router = new Router({
                     path: 'products/:product?/bugs/:bug?/planmobmdview9',
                     meta: {
                         caption: 'bug.views.planmobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2620,6 +2868,8 @@ const router = new Router({
                     path: 'bugs/:bug?/planmobmdview9',
                     meta: {
                         caption: 'bug.views.planmobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -2633,6 +2883,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/mobpickupmdview',
                     meta: {
                         caption: 'story.views.mobpickupmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2647,6 +2899,8 @@ const router = new Router({
                     path: 'stories/:story?/mobpickupmdview',
                     meta: {
                         caption: 'story.views.mobpickupmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2700,6 +2954,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/bugs/:bug?/cmoboptionview',
                     meta: {
                         caption: 'bug.views.cmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2715,6 +2971,8 @@ const router = new Router({
                     path: 'projects/:project?/bugs/:bug?/cmoboptionview',
                     meta: {
                         caption: 'bug.views.cmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -2729,6 +2987,8 @@ const router = new Router({
                     path: 'stories/:story?/bugs/:bug?/cmoboptionview',
                     meta: {
                         caption: 'bug.views.cmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2743,6 +3003,8 @@ const router = new Router({
                     path: 'products/:product?/bugs/:bug?/cmoboptionview',
                     meta: {
                         caption: 'bug.views.cmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2757,6 +3019,8 @@ const router = new Router({
                     path: 'bugs/:bug?/cmoboptionview',
                     meta: {
                         caption: 'bug.views.cmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -2797,6 +3061,8 @@ const router = new Router({
                     path: 'projects/:project?/builds/:build?/mobpickupmdview',
                     meta: {
                         caption: 'build.views.mobpickupmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -2811,6 +3077,8 @@ const router = new Router({
                     path: 'products/:product?/builds/:build?/mobpickupmdview',
                     meta: {
                         caption: 'build.views.mobpickupmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2825,6 +3093,8 @@ const router = new Router({
                     path: 'builds/:build?/mobpickupmdview',
                     meta: {
                         caption: 'build.views.mobpickupmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'builds', parameterName: 'build' },
@@ -2864,6 +3134,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/favoritemobmdview9',
                     meta: {
                         caption: 'story.views.favoritemobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2878,6 +3150,8 @@ const router = new Router({
                     path: 'stories/:story?/favoritemobmdview9',
                     meta: {
                         caption: 'story.views.favoritemobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2904,6 +3178,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/bugs/:bug?/assmoboptionview',
                     meta: {
                         caption: 'bug.views.assmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2919,6 +3195,8 @@ const router = new Router({
                     path: 'projects/:project?/bugs/:bug?/assmoboptionview',
                     meta: {
                         caption: 'bug.views.assmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -2933,6 +3211,8 @@ const router = new Router({
                     path: 'stories/:story?/bugs/:bug?/assmoboptionview',
                     meta: {
                         caption: 'bug.views.assmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2947,6 +3227,8 @@ const router = new Router({
                     path: 'products/:product?/bugs/:bug?/assmoboptionview',
                     meta: {
                         caption: 'bug.views.assmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2961,6 +3243,8 @@ const router = new Router({
                     path: 'bugs/:bug?/assmoboptionview',
                     meta: {
                         caption: 'bug.views.assmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -2974,6 +3258,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/mobpickupview',
                     meta: {
                         caption: 'story.views.mobpickupview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2988,6 +3274,8 @@ const router = new Router({
                     path: 'stories/:story?/mobpickupview',
                     meta: {
                         caption: 'story.views.mobpickupview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -3001,6 +3289,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/bugs/:bug?/mobeditview',
                     meta: {
                         caption: 'bug.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3016,6 +3306,8 @@ const router = new Router({
                     path: 'projects/:project?/bugs/:bug?/mobeditview',
                     meta: {
                         caption: 'bug.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -3030,6 +3322,8 @@ const router = new Router({
                     path: 'stories/:story?/bugs/:bug?/mobeditview',
                     meta: {
                         caption: 'bug.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -3044,6 +3338,8 @@ const router = new Router({
                     path: 'products/:product?/bugs/:bug?/mobeditview',
                     meta: {
                         caption: 'bug.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3058,6 +3354,8 @@ const router = new Router({
                     path: 'bugs/:bug?/mobeditview',
                     meta: {
                         caption: 'bug.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -3071,6 +3369,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/tasks/:task?/assmoremobmdview',
                     meta: {
                         caption: 'task.views.assmoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3086,6 +3386,8 @@ const router = new Router({
                     path: 'projects/:project?/tasks/:task?/assmoremobmdview',
                     meta: {
                         caption: 'task.views.assmoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -3100,6 +3402,8 @@ const router = new Router({
                     path: 'stories/:story?/tasks/:task?/assmoremobmdview',
                     meta: {
                         caption: 'task.views.assmoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -3114,6 +3418,8 @@ const router = new Router({
                     path: 'tasks/:task?/assmoremobmdview',
                     meta: {
                         caption: 'task.views.assmoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -3127,6 +3433,8 @@ const router = new Router({
                     path: 'testsuites/:testsuite?/mobmdview',
                     meta: {
                         caption: 'testsuite.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-suitcase',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'testsuites', parameterName: 'testsuite' },
@@ -3153,6 +3461,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/mobmdview',
                     meta: {
                         caption: 'story.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3167,6 +3477,8 @@ const router = new Router({
                     path: 'stories/:story?/mobmdview',
                     meta: {
                         caption: 'story.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -3193,6 +3505,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/tasks/:task?/assmobmdview9',
                     meta: {
                         caption: 'task.views.assmobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3208,6 +3522,8 @@ const router = new Router({
                     path: 'projects/:project?/tasks/:task?/assmobmdview9',
                     meta: {
                         caption: 'task.views.assmobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -3222,6 +3538,8 @@ const router = new Router({
                     path: 'stories/:story?/tasks/:task?/assmobmdview9',
                     meta: {
                         caption: 'task.views.assmobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -3236,6 +3554,8 @@ const router = new Router({
                     path: 'tasks/:task?/assmobmdview9',
                     meta: {
                         caption: 'task.views.assmobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -3322,6 +3642,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/bugs/:bug?/newmobeditview',
                     meta: {
                         caption: 'bug.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3337,6 +3659,8 @@ const router = new Router({
                     path: 'projects/:project?/bugs/:bug?/newmobeditview',
                     meta: {
                         caption: 'bug.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -3351,6 +3675,8 @@ const router = new Router({
                     path: 'stories/:story?/bugs/:bug?/newmobeditview',
                     meta: {
                         caption: 'bug.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -3365,6 +3691,8 @@ const router = new Router({
                     path: 'products/:product?/bugs/:bug?/newmobeditview',
                     meta: {
                         caption: 'bug.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3379,6 +3707,8 @@ const router = new Router({
                     path: 'bugs/:bug?/newmobeditview',
                     meta: {
                         caption: 'bug.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -3405,6 +3735,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/assmobmdview9',
                     meta: {
                         caption: 'story.views.assmobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3419,6 +3751,8 @@ const router = new Router({
                     path: 'stories/:story?/assmobmdview9',
                     meta: {
                         caption: 'story.views.assmobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -3524,6 +3858,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/tasks/:task?/mobmdview',
                     meta: {
                         caption: 'task.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3539,6 +3875,8 @@ const router = new Router({
                     path: 'projects/:project?/tasks/:task?/mobmdview',
                     meta: {
                         caption: 'task.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -3553,6 +3891,8 @@ const router = new Router({
                     path: 'stories/:story?/tasks/:task?/mobmdview',
                     meta: {
                         caption: 'task.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -3567,6 +3907,8 @@ const router = new Router({
                     path: 'tasks/:task?/mobmdview',
                     meta: {
                         caption: 'task.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -3692,6 +4034,8 @@ const router = new Router({
                     path: 'products/:product?/stories/:story?/mobmdview9',
                     meta: {
                         caption: 'story.views.mobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3706,6 +4050,8 @@ const router = new Router({
                     path: 'stories/:story?/mobmdview9',
                     meta: {
                         caption: 'story.views.mobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -3719,6 +4065,8 @@ const router = new Router({
                     path: 'projects/:project?/builds/:build?/mobmdview',
                     meta: {
                         caption: 'build.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -3733,6 +4081,8 @@ const router = new Router({
                     path: 'products/:product?/builds/:build?/mobmdview',
                     meta: {
                         caption: 'build.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3747,6 +4097,8 @@ const router = new Router({
                     path: 'builds/:build?/mobmdview',
                     meta: {
                         caption: 'build.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'builds', parameterName: 'build' },
@@ -3816,6 +4168,8 @@ const router = new Router({
                     path: 'products/:product?/releases/:release?/mobeditview',
                     meta: {
                         caption: 'release.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3830,6 +4184,8 @@ const router = new Router({
                     path: 'releases/:release?/mobeditview',
                     meta: {
                         caption: 'release.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'releases', parameterName: 'release' },
@@ -3843,6 +4199,8 @@ const router = new Router({
                     path: 'testsuites/:testsuite?/mobeditview',
                     meta: {
                         caption: 'testsuite.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-suitcase',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'testsuites', parameterName: 'testsuite' },
@@ -3856,6 +4214,8 @@ const router = new Router({
                     path: 'projects/:project?/builds/:build?/mobpickupview',
                     meta: {
                         caption: 'build.views.mobpickupview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -3870,6 +4230,8 @@ const router = new Router({
                     path: 'products/:product?/builds/:build?/mobpickupview',
                     meta: {
                         caption: 'build.views.mobpickupview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3884,6 +4246,8 @@ const router = new Router({
                     path: 'builds/:build?/mobpickupview',
                     meta: {
                         caption: 'build.views.mobpickupview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'builds', parameterName: 'build' },

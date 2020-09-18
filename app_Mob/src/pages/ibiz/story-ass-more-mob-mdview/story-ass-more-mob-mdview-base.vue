@@ -61,7 +61,7 @@
             @load="mdctrl_load($event)"  
             @closeview="closeView($event)">
         </view_mdctrl>
-        <ion-infinite-scroll  @ionInfinite="loadMore" distance="2%" v-if="this.isEnablePullUp">
+        <ion-infinite-scroll  @ionInfinite="loadMore" threshold="1px" v-if="this.isEnablePullUp">
           <ion-infinite-scroll-content
           loadingSpinner="bubbles"
           loadingText="Loading more data...">
@@ -218,7 +218,7 @@ export default class StoryAssMoreMobMDViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-star-o'
     }
 
     /**

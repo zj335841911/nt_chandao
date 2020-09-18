@@ -196,7 +196,7 @@ export default class TaskCloseMobOptionViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-tasks'
     }
 
     /**

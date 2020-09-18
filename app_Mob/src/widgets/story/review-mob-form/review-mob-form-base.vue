@@ -169,7 +169,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.estimate" 
+    :value="data.estimate"
+    unit=""
     :disabled="detailsModel.estimate.disabled" 
     @change="($event)=>this.data.estimate = $event" />
 </app-form-item>

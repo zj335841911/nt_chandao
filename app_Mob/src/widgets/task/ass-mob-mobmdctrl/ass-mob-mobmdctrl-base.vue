@@ -662,7 +662,6 @@ export default class AssMobBase extends Vue implements ControlInterface {
      * @memberof AssMob
      */
     public changeCollapse($event:any){
-      console.log($event);
       this.activeName = $event;
     }
 

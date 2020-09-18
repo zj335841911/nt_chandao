@@ -707,7 +707,6 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
      * @memberof AssMobDASHBOARD
      */
     public changeCollapse($event:any){
-      console.log($event);
       this.activeName = $event;
     }
 

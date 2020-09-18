@@ -203,7 +203,7 @@ export default class TaskNewMobEditViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-tasks'
     }
 
     /**

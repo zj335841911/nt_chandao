@@ -203,7 +203,7 @@ export default class BugNewMobEditViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-bug'
     }
 
     /**

@@ -662,7 +662,6 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     public changeCollapse($event:any){
-      console.log($event);
       this.activeName = $event;
     }
 

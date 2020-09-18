@@ -159,7 +159,7 @@ export default class StoryMobListViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-star-o'
     }
 
     /**

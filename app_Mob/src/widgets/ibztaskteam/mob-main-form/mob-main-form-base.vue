@@ -64,7 +64,8 @@
         <app-mob-input 
     class="app-form-item-number" 
         type="number"  
-    :value="data.estimate" 
+    :value="data.estimate"
+    unit="小时"
     :disabled="detailsModel.estimate.disabled" 
     @change="($event)=>this.data.estimate = $event"/>
 </app-form-item>

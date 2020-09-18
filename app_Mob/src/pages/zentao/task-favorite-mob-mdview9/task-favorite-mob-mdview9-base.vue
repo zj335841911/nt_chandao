@@ -183,7 +183,7 @@ export default class TaskFavoriteMobMDView9Base extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-tasks'
     }
 
     /**

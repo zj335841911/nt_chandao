@@ -174,7 +174,7 @@ export default class StoryLinkStoryMobPickupMDViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-star-o'
     }
 
     /**

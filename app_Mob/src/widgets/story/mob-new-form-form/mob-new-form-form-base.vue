@@ -206,7 +206,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.sourcenote" 
+    :value="data.sourcenote"
+    unit=""
     :disabled="detailsModel.sourcenote.disabled" 
     @change="($event)=>this.data.sourcenote = $event" />
 </app-form-item>
@@ -293,7 +294,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.title" 
+    :value="data.title"
+    unit=""
     :disabled="detailsModel.title.disabled" 
     @change="($event)=>this.data.title = $event" />
 </app-form-item>
@@ -350,7 +352,8 @@
     class="app-form-item-input"  
         placeholder="工时"
     type="text"  
-    :value="data.estimate" 
+    :value="data.estimate"
+    unit=""
     :disabled="detailsModel.estimate.disabled" 
     @change="($event)=>this.data.estimate = $event" />
 </app-form-item>
@@ -448,7 +451,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.keywords" 
+    :value="data.keywords"
+    unit=""
     :disabled="detailsModel.keywords.disabled" 
     @change="($event)=>this.data.keywords = $event" />
 </app-form-item>

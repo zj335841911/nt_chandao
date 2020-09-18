@@ -33,7 +33,8 @@
         <app-mob-input 
     class="app-form-item-number" 
         type="number"  
-    :value="data.consumed" 
+    :value="data.consumed"
+    unit="小时"
     :disabled="detailsModel.consumed.disabled" 
     @change="($event)=>this.data.consumed = $event"/>
 </app-form-item>
@@ -58,7 +59,8 @@
         <app-mob-input 
     class="app-form-item-number" 
         type="number"  
-    :value="data.currentconsumed" 
+    :value="data.currentconsumed"
+    unit=""
     :disabled="detailsModel.currentconsumed.disabled" 
     @change="($event)=>this.data.currentconsumed = $event"/>
 </app-form-item>
@@ -83,7 +85,8 @@
         <app-mob-input 
     class="app-form-item-number" 
         type="number"  
-    :value="data.totaltime" 
+    :value="data.totaltime"
+    unit=""
     :disabled="detailsModel.totaltime.disabled" 
     @change="($event)=>this.data.totaltime = $event"/>
 </app-form-item>

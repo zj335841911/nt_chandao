@@ -46,7 +46,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.name" 
+    :value="data.name"
+    unit=""
     :disabled="detailsModel.name.disabled" 
     @change="($event)=>this.data.name = $event" />
 </app-form-item>
@@ -71,7 +72,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.code" 
+    :value="data.code"
+    unit=""
     :disabled="detailsModel.code.disabled" 
     @change="($event)=>this.data.code = $event" />
 </app-form-item>

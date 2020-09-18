@@ -112,7 +112,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.title" 
+    :value="data.title"
+    unit=""
     :disabled="detailsModel.title.disabled" 
     @change="($event)=>this.data.title = $event" />
 </app-form-item>

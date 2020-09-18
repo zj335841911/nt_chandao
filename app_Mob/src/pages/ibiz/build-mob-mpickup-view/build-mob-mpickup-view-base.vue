@@ -182,7 +182,7 @@ export default class BuildMobMPickupViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-code-fork'
     }
 
     /**
@@ -584,6 +584,7 @@ export default class BuildMobMPickupViewBase extends Vue {
     public async quickValueChange(event: any) {
         const pickupviewpanel: any = this.$refs.pickupviewpanel;
         if (pickupviewpanel) {
+            this.quickValue = event.detail.value;
             let response = await pickupviewpanel.quickSearch(this.quickValue);
             if (response) {
                 

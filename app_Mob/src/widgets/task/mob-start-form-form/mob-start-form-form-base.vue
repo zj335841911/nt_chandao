@@ -58,7 +58,8 @@
         <app-mob-input 
     class="app-form-item-number" 
         type="number"  
-    :value="data.consumed" 
+    :value="data.consumed"
+    unit="小时"
     :disabled="detailsModel.consumed.disabled" 
     @change="($event)=>this.data.consumed = $event"/>
 </app-form-item>
@@ -83,7 +84,8 @@
         <app-mob-input 
     class="app-form-item-number" 
         type="number"  
-    :value="data.left" 
+    :value="data.left"
+    unit="小时"
     :disabled="detailsModel.left.disabled" 
     @change="($event)=>this.data.left = $event"/>
 </app-form-item>

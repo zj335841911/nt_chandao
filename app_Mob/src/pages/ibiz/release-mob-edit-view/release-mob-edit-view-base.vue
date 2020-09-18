@@ -197,7 +197,7 @@ export default class ReleaseMobEditViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-flag-o'
     }
 
     /**

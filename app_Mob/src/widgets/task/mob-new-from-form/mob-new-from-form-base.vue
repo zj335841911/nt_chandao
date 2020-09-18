@@ -288,7 +288,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.name" 
+    :value="data.name"
+    unit=""
     :disabled="detailsModel.name.disabled" 
     @change="($event)=>this.data.name = $event" />
 </app-form-item>
@@ -344,7 +345,8 @@
         <app-mob-input 
     class="app-form-item-number" 
         type="number"  
-    :value="data.estimate" 
+    :value="data.estimate"
+    unit="小时"
     :disabled="detailsModel.estimate.disabled" 
     @change="($event)=>this.data.estimate = $event"/>
 </app-form-item>
