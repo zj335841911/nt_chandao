@@ -18,7 +18,7 @@ export class CalendarViewBase extends MDViewBase {
     protected onSearch(): void {
         const calendar: any = this.$refs.calendar;
         if (calendar) {
-            calendar.load(this.context, true);
+            calendar.refresh();
         }
     }
 
