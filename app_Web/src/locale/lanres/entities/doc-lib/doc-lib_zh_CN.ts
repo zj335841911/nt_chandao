@@ -13,25 +13,4 @@ export default {
     project: "项目库",
     product: "产品库",
   },
-	main_form: {
-		details: {
-			group1: "doclib基本信息", 
-			formpage1: "基本信息", 
-			group2: "操作信息", 
-			formpage2: "其它", 
-			srforikey: "", 
-			srfkey: "编号", 
-			srfmajortext: "文档库名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			name: "文档库名称", 
-			collector: "收藏者", 
-			project: "项目库", 
-			id: "编号", 
-		},
-		uiactions: {
-		},
-	},
 };

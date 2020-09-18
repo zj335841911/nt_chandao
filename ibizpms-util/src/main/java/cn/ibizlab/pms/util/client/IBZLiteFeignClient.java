@@ -12,6 +12,6 @@ public interface IBZLiteFeignClient
 	 * @param system 系统模型信息
 	 * @return
 	 */
-	@PostMapping("/dstsystems/save")
+	@PostMapping("/lite/syncsysmodel")
 	Boolean syncSysModel(@RequestBody JSONObject system);
 }
