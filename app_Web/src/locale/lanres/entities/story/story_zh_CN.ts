@@ -149,6 +149,10 @@ export default {
 			caption: "需求",
       		title: "story表格视图",
 		},
+		planeditview: {
+			caption: "需求",
+      		title: "需求",
+		},
 		assigntoview: {
 			caption: "指派",
       		title: "指派",
@@ -599,6 +603,40 @@ export default {
 		uiactions: {
 		},
 	},
+	plannew_form: {
+		details: {
+			group1: "需求基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			product: "所属产品", 
+			module: "所属模块", 
+			prodoctname: "所属产品", 
+			branch: "", 
+			modulename: "所属模块", 
+			plan: "计划", 
+			source: "需求来源", 
+			sourcenote: "来源备注", 
+			reviewedby: "由谁评审", 
+			assignedto: "由谁评审", 
+			project: "项目", 
+			title: "需求名称", 
+			pri: "优先级", 
+			estimate: "预计", 
+			spec: "需求描述", 
+			verify: "验收标准", 
+			mailto: "抄送给", 
+			keywords: "关键词", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	mainprojectnew_form: {
 		details: {
 			group1: "需求基本信息", 
@@ -934,8 +972,14 @@ export default {
 	},
 	editview9toolbar_toolbar: {
 	},
+	planeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
 	plansubgridviewtoolbar_toolbar: {
-		deuiaction3_create: {
+		deuiaction3_createplan: {
 			caption: "新建需求",
 			tip: "新建需求",
 		},

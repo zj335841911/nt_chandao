@@ -2057,6 +2057,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '901398a79547094cd0e9791cbe6e90ef',
+            viewmodule: 'zentao',
+            viewname: 'StoryPlanEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '908a34af4784424622d2f7905335d023',
             viewmodule: 'zentao',
             viewname: 'ProductPlanProjectGridView9',
@@ -2648,8 +2657,8 @@ export const viewstate: any = {
             refviews: [
                 '54a5f5fa5f8def88d2aec9c7ee6d85fe',
                 'b9bdfc0e33d333ade00934745d9dc0ad',
+                '901398a79547094cd0e9791cbe6e90ef',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
-                '4863a523ac490ebce771717756f0c6a8',
             ],
         },
         {

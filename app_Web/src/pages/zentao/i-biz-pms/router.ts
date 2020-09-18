@@ -4088,6 +4088,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-task-my-dgrid-view/test-task-my-dgrid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/planeditview/:planeditview?',
+                    meta: {
+                        caption: 'entities.story.views.planeditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'planeditview', parameterName: 'planeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-plan-edit-view/story-plan-edit-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/planeditview/:planeditview?',
+                    meta: {
+                        caption: 'entities.story.views.planeditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'planeditview', parameterName: 'planeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-plan-edit-view/story-plan-edit-view.vue'),
+                },
+                {
                     path: 'projects/:project?/editview_close/:editview_close?',
                     meta: {
                         caption: 'entities.project.views.editview_close.caption',

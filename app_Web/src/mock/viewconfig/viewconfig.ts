@@ -1783,6 +1783,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ModuleLineGridView",
             "viewtag": "8eb13e4fe49406265e2ed5fb1e0a6b53"
         },
+        "storyplaneditview": {
+            "title": "需求",
+            "caption": "需求",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "StoryPlanEditView",
+            "viewtag": "901398a79547094cd0e9791cbe6e90ef"
+        },
         "productplanprojectgridview9": {
             "title": "产品计划表格视图（项目）",
             "caption": "项目",
