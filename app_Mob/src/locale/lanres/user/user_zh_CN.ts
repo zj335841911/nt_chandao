@@ -36,6 +36,12 @@ export default {
     qq: "QQ",
   },
 	views: {
+		mobmpickupview: {
+			caption: '用户',
+		},
+		mobpickupmdview: {
+			caption: '用户',
+		},
 		usercentermobeditview: {
 			caption: '个人中心',
 		},
