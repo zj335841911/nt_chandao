@@ -411,10 +411,10 @@ export class ProductPlanGridViewBase extends GridViewBase {
             });
         }
         const view: any = {
-            viewname: 'product-plan-main-tab-exp', 
+            viewname: 'product-plan-main-data-edit-view', 
             height: 0, 
             width: 0,  
-            title: this.$t('entities.productplan.views.maintabexp.title'),
+            title: this.$t('entities.productplan.views.maindataeditview.title'),
             placement: 'DRAWER_TOP',
         };
         openDrawer(view, data);
