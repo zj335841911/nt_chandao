@@ -32,7 +32,11 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                       <div class="item-grouped" v-for="obj in group_data" :key="obj.index">
-                        <div class="text" v-if="obj.items && obj.items.length > 0">{{obj.text}}（<label v-if="obj.items && obj.items.length > 0">{{obj.items.length}}</label>）</div>
+                      <van-collapse v-model="activeName" @change="changeCollapse">
+                        <van-collapse-item v-if="obj.items && obj.items.length > 0" :name="obj.text">
+                          <template #title>
+                            <div>{{obj.text}}（<label v-if="obj.items && obj.items.length > 0">{{obj.items.length}}</label>）</div>
+                          </template>
                       <ion-item-sliding  :ref="item.srfkey" v-for="item in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.StartTaskMob.visabled" :disabled="item.StartTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uf95e8d0', item)"><ion-icon v-if="item.StartTaskMob.icon && item.StartTaskMob.isShowIcon" :name="item.StartTaskMob.icon"></ion-icon><ion-label v-if="item.StartTaskMob.isShowCaption">开始</ion-label></ion-item-option>
@@ -49,6 +53,8 @@
                             </ion-item>
                         </div>
                       </ion-item-sliding>
+                        </van-collapse-item>
+                      </van-collapse>
                       </div>
 
                 </template>
@@ -679,6 +685,30 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
       }else if(_this.getGroupDataAuto && _this.getGroupDataAuto instanceof Function && Object.is(_this.group_mode,"AUTO") ){
         _this.getGroupDataAuto(_this.items);
       }
+    }
+
+    /**
+     * vant折叠面板数据
+     *
+     * @memberof AssMobDASHBOARD
+     */
+    public activeName:Array<any> = [];
+
+    /**
+     * 只需第一次赋值面板
+     *
+     * @memberof AssMobDASHBOARD
+     */
+    public valve:number = 0;
+
+    /**
+     * 折叠面板改变时
+     *
+     * @memberof AssMobDASHBOARD
+     */
+    public changeCollapse($event:any){
+      console.log($event);
+      this.activeName = $event;
     }
 
     /**

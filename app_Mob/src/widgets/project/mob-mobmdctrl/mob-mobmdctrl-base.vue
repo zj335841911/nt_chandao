@@ -544,6 +544,30 @@ export default class MobBase extends Vue implements ControlInterface {
     }
 
     /**
+     * vant折叠面板数据
+     *
+     * @memberof Mob
+     */
+    public activeName:Array<any> = [];
+
+    /**
+     * 只需第一次赋值面板
+     *
+     * @memberof Mob
+     */
+    public valve:number = 0;
+
+    /**
+     * 折叠面板改变时
+     *
+     * @memberof Mob
+     */
+    public changeCollapse($event:any){
+      console.log($event);
+      this.activeName = $event;
+    }
+
+    /**
     * 存放数据选择数组(单选)
     *
     * @type {object}

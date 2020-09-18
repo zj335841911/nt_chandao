@@ -32,7 +32,11 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                       <div class="item-grouped" v-for="obj in group_data" :key="obj.index">
-                        <div class="text" v-if="obj.items && obj.items.length > 0">{{obj.text}}（<label v-if="obj.items && obj.items.length > 0">{{obj.items.length}}</label>）</div>
+                      <van-collapse v-model="activeName" @change="changeCollapse">
+                        <van-collapse-item v-if="obj.items && obj.items.length > 0" :name="obj.text">
+                          <template #title>
+                            <div>{{obj.text}}（<label v-if="obj.items && obj.items.length > 0">{{obj.items.length}}</label>）</div>
+                          </template>
                       <ion-item-sliding  :ref="item.srfkey" v-for="item in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.assignToMob.visabled" :disabled="item.assignToMob.disabled" color="primary" @click="mdctrl_click($event, 'u5a26748', item)"><ion-icon v-if="item.assignToMob.icon && item.assignToMob.isShowIcon" :name="item.assignToMob.icon"></ion-icon><ion-label v-if="item.assignToMob.isShowCaption">指派</ion-label></ion-item-option>
@@ -49,6 +53,8 @@
                             </ion-item>
                         </div>
                       </ion-item-sliding>
+                        </van-collapse-item>
+                      </van-collapse>
                       </div>
 
                 </template>
@@ -637,6 +643,30 @@ export default class MobBase extends Vue implements ControlInterface {
     }
 
     /**
+     * vant折叠面板数据
+     *
+     * @memberof Mob
+     */
+    public activeName:Array<any> = [];
+
+    /**
+     * 只需第一次赋值面板
+     *
+     * @memberof Mob
+     */
+    public valve:number = 0;
+
+    /**
+     * 折叠面板改变时
+     *
+     * @memberof Mob
+     */
+    public changeCollapse($event:any){
+      console.log($event);
+      this.activeName = $event;
+    }
+
+    /**
     * 存放数据选择数组(单选)
     *
     * @type {object}
@@ -1037,6 +1067,11 @@ export default class MobBase extends Vue implements ControlInterface {
           this.group_data.splice(i,1);
         }
       })
+      // vant 折叠面板
+      if (this.valve == 0) {
+        this.activeName[0] = this.group_data[0].text;
+        this.valve++;
+      }
     }
 
 

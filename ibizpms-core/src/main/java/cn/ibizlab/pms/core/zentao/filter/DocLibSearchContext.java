@@ -27,6 +27,20 @@ import cn.ibizlab.pms.core.zentao.domain.DocLib;
 @Data
 public class DocLibSearchContext extends QueryWrapperContext<DocLib> {
 
+	private String n_type_eq;//[文档类型]
+	public void setN_type_eq(String n_type_eq) {
+        this.n_type_eq = n_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_type_eq)){
+            this.getSearchCond().eq("type", n_type_eq);
+        }
+    }
+	private String n_acl_eq;//[权限]
+	public void setN_acl_eq(String n_acl_eq) {
+        this.n_acl_eq = n_acl_eq;
+        if(!ObjectUtils.isEmpty(this.n_acl_eq)){
+            this.getSearchCond().eq("acl", n_acl_eq);
+        }
+    }
 	private Integer n_main_eq;//[是否是主库]
 	public void setN_main_eq(Integer n_main_eq) {
         this.n_main_eq = n_main_eq;
