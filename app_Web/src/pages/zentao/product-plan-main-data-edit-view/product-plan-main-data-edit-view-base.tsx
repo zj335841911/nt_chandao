@@ -101,7 +101,7 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
 
         deuiaction1_mainedit: { name: 'deuiaction1_mainedit', caption: '编辑', 'isShowCaption': true, 'isShowIcon': true, tooltip: '编辑', iconcls: 'fa fa-edit', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_EDIT_BUT', uiaction: { tag: 'MainEdit', target: 'SINGLEKEY', class: '' } },
 
-        deuiaction1_delete: { name: 'deuiaction1_delete', caption: '删除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_DELETE_BUT', uiaction: { tag: 'Delete', target: 'SINGLEKEY', class: '' } },
+        deuiaction1_deletecz: { name: 'deuiaction1_deletecz', caption: '删除', 'isShowCaption': true, 'isShowIcon': true, tooltip: '删除', iconcls: 'fa fa-remove', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_DELETE_BUT', uiaction: { tag: 'DeleteCz', target: 'SINGLEKEY', class: '' } },
 
     };
 
@@ -166,8 +166,8 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
         if (Object.is($event.tag, 'deuiaction1_mainedit')) {
             this.toolbar_deuiaction1_mainedit_click(null, '', $event2);
         }
-        if (Object.is($event.tag, 'deuiaction1_delete')) {
-            this.toolbar_deuiaction1_delete_click(null, '', $event2);
+        if (Object.is($event.tag, 'deuiaction1_deletecz')) {
+            this.toolbar_deuiaction1_deletecz_click(null, '', $event2);
         }
     }
 
@@ -270,7 +270,7 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_deuiaction1_delete_click(params: any = {}, tag?: any, $event?: any) {
+    public toolbar_deuiaction1_deletecz_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -288,7 +288,7 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
         }
         // 界面行为
         const curUIService:ProductPlanUIService  = new ProductPlanUIService();
-        curUIService.ProductPlan_Delete(datas,contextJO, paramJO,  $event, xData,this,"ProductPlan");
+        curUIService.ProductPlan_DeleteCz(datas,contextJO, paramJO,  $event, xData,this,"ProductPlan");
     }
 
 

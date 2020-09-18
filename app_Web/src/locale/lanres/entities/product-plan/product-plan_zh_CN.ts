@@ -168,7 +168,7 @@ export default {
 			caption: "编辑",
 			tip: "编辑",
 		},
-		deuiaction1_delete: {
+		deuiaction1_deletecz: {
 			caption: "删除",
 			tip: "删除",
 		},
