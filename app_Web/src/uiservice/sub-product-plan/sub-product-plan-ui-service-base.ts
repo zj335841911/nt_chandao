@@ -117,7 +117,7 @@ export default class SubProductPlanUIServiceBase extends UIService {
     }
 
     /**
-     * 创建计划
+     * 子计划
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -128,14 +128,17 @@ export default class SubProductPlanUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async ProductPlan_Create(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async ProductPlan_NewSubPlan(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
     
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { subproductplan: '%subproductplan%' });
+        Object.assign(params, { id: '%subproductplan%' });
+        Object.assign(params, { title: '%title%' });
         if(_this.context){
             parentContext = _this.context;
         }
@@ -149,13 +152,11 @@ export default class SubProductPlanUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
+        deResParameters = [
             { pathName: 'productplans', parameterName: 'productplan' },
+        ];
+        const parameters: any[] = [
+            { pathName: 'subproductplans', parameterName: 'subproductplan' },
         ];
             const openDrawer = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
@@ -164,17 +165,14 @@ export default class SubProductPlanUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
                     return result.datas;
                 });
             }
             const view: any = {
-                viewname: 'product-plan-edit-view', 
+                viewname: 'product-plan-sub-plan-edit-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.productplan.views.editview.title'),
+                title: actionContext.$t('entities.subproductplan.views.subplaneditview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);

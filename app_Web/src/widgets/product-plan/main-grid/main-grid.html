@@ -9,7 +9,9 @@
         :cell-class-name="getCellClassName.bind(_self)"
         size="mini"
         stripe
+        rowKey="id"
         :height="tableHeight"
+        :treeProps="{children: 'items', hasChildren: 'hasChildren'}"
         @row-click="rowClick($event)"  
         @select-all="selectAll($event)"  
         @select="select($event)"  
@@ -135,6 +137,11 @@
                           <divider v-show="scope.row.NewSubPlan.visabled" type='vertical'></divider>
                           <a v-show="scope.row.NewSubPlan.visabled" :disabled="scope.row.NewSubPlan.disabled" @click="uiAction(scope.row, 'NewSubPlan', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_newsubplan')">
                             <i class='fa fa-sitemap'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.Delete.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.Delete.visabled" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_delete')">
+                            <i class='fa fa-remove'></i>
                             
                           </a>
                         </div>

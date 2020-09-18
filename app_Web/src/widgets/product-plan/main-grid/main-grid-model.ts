@@ -40,6 +40,11 @@ export default class MainModel {
           dataType: 'INT',
         },
         {
+          name: 'srfmajortext',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
@@ -49,11 +54,6 @@ export default class MainModel {
           name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
         },
         {
           name: 'begin',
@@ -73,6 +73,11 @@ export default class MainModel {
         {
           name: 'title',
           prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'statuss',
+          prop: 'statuss',
           dataType: 'TEXT',
         },
         {
@@ -113,6 +118,10 @@ export default class MainModel {
         {
           name:'sort',
           prop:'sort'
+        },
+        {
+          name:'items',
+          prop:'items'
         },
         {
           name:'srfparentdata',

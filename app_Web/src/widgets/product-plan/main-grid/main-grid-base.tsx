@@ -208,17 +208,46 @@ export class MainGridBase extends GridControlBase {
     }
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_actions_u0f98794_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ProductPlanUIService  = new ProductPlanUIService();
+        curUIService.ProductPlan_Delete(datas,contextJO, paramJO,  $event, xData,this,"ProductPlan");
+    }
+
+    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof MainBase
      */  
     public ActionModel: any = {
-        AddProject: { name: 'AddProject',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROJ_CREATE_BUT', actiontarget: 'SINGLEKEY'},
-        RelationStory: { name: 'RelationStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_LSTORY_BUT', actiontarget: 'SINGLEKEY'},
-        RelationBug: { name: 'RelationBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_LBUG_BUT', actiontarget: 'SINGLEKEY'},
-        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_EDIT_BUT', actiontarget: 'SINGLEKEY'},
-        NewSubPlan: { name: 'NewSubPlan',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_CHILD_BUT', actiontarget: 'SINGLEKEY'}
+        AddProject: { name: 'AddProject',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROJ_CREATE_BUT', target: 'SINGLEKEY'},
+        RelationStory: { name: 'RelationStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_LSTORY_BUT', target: 'SINGLEKEY'},
+        RelationBug: { name: 'RelationBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_LBUG_BUT', target: 'SINGLEKEY'},
+        MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_EDIT_BUT', target: 'SINGLEKEY'},
+        NewSubPlan: { name: 'NewSubPlan',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_CHILD_BUT', target: 'SINGLEKEY'},
+        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_DELETE_BUT', target: 'SINGLEKEY'}
     };
 
     /**
@@ -404,7 +433,109 @@ export class MainGridBase extends GridControlBase {
         if(Object.is('NewSubPlan', tag)) {
             this.grid_actions_u663d352_click(row, tag, $event);
         }
+        if(Object.is('Delete', tag)) {
+            this.grid_actions_u0f98794_click(row, tag, $event);
+        }
     }
 
+    /**
+     * 表格数据加载
+     *
+     * @param {*} [opt={}]
+     * @param {boolean} [pageReset=false]
+     * @returns {void}
+     * @memberof MainGridBase
+     */
+    public load(opt: any = {}, pageReset: boolean = false): void {
+        if (!this.fetchAction) {
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.gridpage.notConfig.fetchAction') as string) });
+            return;
+        }
+        if (pageReset) {
+            this.curPage = 1;
+        }
+        const arg: any = { ...opt };
+        const page: any = {};
+        if (this.isEnablePagingBar) {
+            Object.assign(page, { page: this.curPage - 1, size: this.limit });
+        }
+        // 设置排序
+        if (!this.isNoSort && !Object.is(this.minorSortDir, '') && !Object.is(this.minorSortPSDEF, '')) {
+            const sort: string = this.minorSortPSDEF + "," + this.minorSortDir;
+            Object.assign(page, { sort: sort });
+        }
+        Object.assign(arg, page);
+        const parentdata: any = {};
+        this.$emit('beforeload', parentdata);
+        Object.assign(arg, parentdata);
+        let tempViewParams: any = parentdata.viewparams ? parentdata.viewparams : {};
+        Object.assign(tempViewParams, JSON.parse(JSON.stringify(this.viewparams)));
+        Object.assign(arg, { viewparams: tempViewParams });
+        const post: Promise<any> = this.service.search(this.fetchAction, JSON.parse(JSON.stringify(this.context)), arg, this.showBusyIndicator);
+        post.then((response: any) => {
+            if (!response.status || response.status !== 200) {
+                if (response.errorMessage) {
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
+                }
+                return;
+            }
+            const data: any = response.data;
+            this.totalRecord = response.total;
+            this.items = JSON.parse(JSON.stringify(data));
+            // 清空selections,gridItemsModel
+            this.selections = [];
+            this.gridItemsModel = [];
+            this.items.forEach(() => { this.gridItemsModel.push(this.getGridRowModel()) });
+            this.items.forEach((item: any) => {
+                this.setActionState(item);
+            });
+            this.$emit('load', this.items);
+            // 向上下文中填充当前数据
+            this.$appService.contextStore.setContextData(this.context, this.appDeName, { items: this.items });
+            // 设置默认选中
+            setTimeout(() => {
+                if (this.isSelectFirstDefault) {
+                    this.rowClick(this.items[0]);
+                }
+                if (this.selectedData) {
+                    const refs: any = this.$refs;
+                    if (refs.multipleTable) {
+                        refs.multipleTable.clearSelection();
+                        JSON.parse(this.selectedData).forEach((selection: any) => {
+                            let selectedItem = this.items.find((item: any) => {
+                                return Object.is(item.srfkey, selection.srfkey);
+                            });
+                            if (selectedItem) {
+                                this.rowClick(selectedItem);
+                            }
+                        });
+                    }
+                }
+            }, 300);
+            // 
+        }).catch((response: any) => {
+            if (response && response.status === 401) {
+                return;
+            }
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
+        });
+    }
 
+    /**
+     * 表格数据加载
+     *
+     * @param {*} item
+     * @returns {void}
+     * @memberof MainGridBase
+     */
+    public setActionState(item: any) {
+        Object.assign(item, this.getActionState(item));
+        if(item.items && item.items.length > 0) {
+            item.items.forEach((data: any) => {
+                let _data: any = this.service.handleResponseData('', data);
+                Object.assign(data, _data);
+                this.setActionState(data);
+            })
+        }
+    }
 }

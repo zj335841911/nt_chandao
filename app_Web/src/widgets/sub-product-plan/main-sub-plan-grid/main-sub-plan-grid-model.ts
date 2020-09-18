@@ -37,6 +37,11 @@ export default class MainSubPlanModel {
           dataType: 'ACID',
         },
         {
+          name: 'statuss',
+          prop: 'statuss',
+          dataType: 'TEXT',
+        },
+        {
           name: 'title',
           prop: 'title',
           dataType: 'TEXT',

@@ -104,7 +104,7 @@ export class ProductPlanSubPlanGridViewBase extends GridViewBase {
      * @memberof ProductPlanSubPlanGridView
      */
     public toolBarModels: any = {
-        deuiaction3_create: { name: 'deuiaction3_create', caption: '创建计划', 'isShowCaption': true, 'isShowIcon': true, tooltip: '创建计划', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
+        deuiaction3_newsubplan: { name: 'deuiaction3_newsubplan', caption: '子计划', 'isShowCaption': true, 'isShowIcon': true, tooltip: '子计划', iconcls: 'fa fa-sitemap', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_CHILD_BUT', uiaction: { tag: 'NewSubPlan', target: 'SINGLEKEY', class: '' } },
 
         deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
@@ -184,8 +184,8 @@ export class ProductPlanSubPlanGridViewBase extends GridViewBase {
      * @memberof ProductPlanSubPlanGridViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'deuiaction3_create')) {
-            this.toolbar_deuiaction3_create_click(null, '', $event2);
+        if (Object.is($event.tag, 'deuiaction3_newsubplan')) {
+            this.toolbar_deuiaction3_newsubplan_click(null, '', $event2);
         }
         if (Object.is($event.tag, 'deuiaction2')) {
             this.toolbar_deuiaction2_click(null, '', $event2);
@@ -258,7 +258,7 @@ export class ProductPlanSubPlanGridViewBase extends GridViewBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_deuiaction3_create_click(params: any = {}, tag?: any, $event?: any) {
+    public toolbar_deuiaction3_newsubplan_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -276,7 +276,7 @@ export class ProductPlanSubPlanGridViewBase extends GridViewBase {
         }
         // 界面行为
         const curUIService:SubProductPlanUIService  = new SubProductPlanUIService();
-        curUIService.ProductPlan_Create(datas,contextJO, paramJO,  $event, xData,this,"SubProductPlan");
+        curUIService.ProductPlan_NewSubPlan(datas,contextJO, paramJO,  $event, xData,this,"SubProductPlan");
     }
 
     /**
