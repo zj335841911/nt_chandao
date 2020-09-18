@@ -8,10 +8,12 @@
       >
         <ion-icon v-if=" item.iconcls && !Object.is(item.iconcls, '')" :name="item.iconcls"></ion-icon>
         <img v-else-if="item.icon && !Object.is(item.icon, '')" :src="item.icon" />
-        <span class="app-quick-item-label">{{item.label}}</span>
-        <ion-icon v-if="item.children" name="caret-down-outline"></ion-icon>
+        <span v-if="item.selectChildLabel" class="app-quick-item-label">{{item.selectChildLabel}}</span>
+        <span v-else class="app-quick-item-label">{{item.label}}</span>
+        <ion-icon v-if="item.children" name="caret-down-outline" style="margin-left:4px"></ion-icon>
       </div>
       <ion-badge class="badge" v-if="isSelectedItem(item) && pageTotal !== 0 && !item.children">{{pageTotal}}</ion-badge>
+      <ion-badge class="badge" v-if="item.childSelected && pageTotal">{{pageTotal}}</ion-badge>
     </div>
   </div>
   <div ref="child-list" :class="{'child-list':true,'open':subItems.length > 0}">
@@ -22,7 +24,7 @@
         <span>{{item.label}}</span>
       </span>
       <ion-badge class="badge" v-if="pageTotal !== 0 && item.selected">{{pageTotal}}</ion-badge>
-      <ion-icon size="small" v-if="item.selected" style="margin-left:auto;color" name="checkmark-outline"></ion-icon>
+      <ion-icon size="small" v-if="item.selected" style="margin-left:auto;color:green" name="checkmark-outline"></ion-icon>
     </div>
   </div>
   <ion-backdrop style="height:100vh;z-index:-1" v-show="subItems.length > 0" visible="true" tappable="true" @ionBackdropTap="closeBackdrop"></ion-backdrop>
@@ -42,7 +44,6 @@ import {
   components: {},
 })
 export default class AppQuickGroupTab extends Vue {
-
   /**
    * 快速分组代码表
    *
@@ -185,14 +186,16 @@ export default class AppQuickGroupTab extends Vue {
       this.items.forEach((item:any) => {
         item.selected = false;
         item.childSelected = false;
+        item.selectChildLabel = "";
       })
       $event.selected = true;
       if ($event.pvalue) {
         this.items.forEach((item:any) => {
           if (item.value === $event.pvalue) {
             item.childSelected = true;
+            item.selectChildLabel = $event.label;
           }
-      })
+        })
       }
       this.$emit("valuechange", $event);
     }
