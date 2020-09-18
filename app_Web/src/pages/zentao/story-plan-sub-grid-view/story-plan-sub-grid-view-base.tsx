@@ -79,7 +79,8 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
 	 * @memberof StoryPlanSubGridViewBase
 	 */
     protected customViewParams: any = {
-        'n_plan_eq': { isRawValue: false, value: 'srfparentkey' }
+        'n_plan_eq': { isRawValue: false, value: 'srfparentkey' },
+        'plan': { isRawValue: false, value: 'srfparentkey' }
     };
 
     /**

@@ -57,6 +57,28 @@ export class StoryPlanEditViewBase extends EditViewBase {
      */
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof StoryPlanEditViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'PLAN': { isRawValue: false, value: 'plan' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof StoryPlanEditViewBase
+	 */
+    protected customViewParams: any = {
+        'plan': { isRawValue: false, value: 'plan' }
+    };
+
     /**
      * 是否显示信息栏
      *

@@ -196,7 +196,7 @@ export class PlanNewEditFormBase extends EditFormControlBase {
      */
     public createDefault(){                    
         if (this.data.hasOwnProperty('plan')) {
-            this.data['plan'] = this.viewparams['productplan'];
+            this.data['plan'] = this.viewparams['plan'];
         }
     }
 }
