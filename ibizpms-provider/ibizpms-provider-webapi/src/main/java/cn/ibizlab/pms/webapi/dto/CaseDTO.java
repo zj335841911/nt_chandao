@@ -487,6 +487,15 @@ public class CaseDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String libname;
 
+    /**
+     * 属性 [LASTRUNRESULT1]
+     *
+     */
+    @JSONField(name = "lastrunresult1")
+    @JsonProperty("lastrunresult1")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String lastrunresult1;
+
 
     /**
      * 设置 [LASTEDITEDDATE]

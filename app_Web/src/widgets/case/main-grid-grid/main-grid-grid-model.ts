@@ -116,6 +116,11 @@ export default class MainGridModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'lastrunresult1',
+          prop: 'lastrunresult1',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'branch',
           prop: 'branch',
           dataType: 'PICKUP',

@@ -177,6 +177,9 @@ export default class MainInfoModel {
       {
         name: 'libname',
       },
+      {
+        name: 'lastrunresult1',
+      },
     ]
   }
 

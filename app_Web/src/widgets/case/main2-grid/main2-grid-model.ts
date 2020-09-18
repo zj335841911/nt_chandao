@@ -91,6 +91,11 @@ export default class Main2Model {
           dataType: 'PICKUP',
         },
         {
+          name: 'lastrunresult1',
+          prop: 'lastrunresult1',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'fromcaseid',
           prop: 'fromcaseid',
           dataType: 'PICKUP',

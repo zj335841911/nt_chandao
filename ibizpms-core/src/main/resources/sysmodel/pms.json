@@ -4077,6 +4077,26 @@
     "key_field":0,
     "major_field":0,
     "union_key":""
+    },
+    {
+    "fieldname":"LASTRUNRESULT1" ,
+    "codename":"Lastrunresult1",
+    "field_logic_name":"测试用例结果",
+    "entity_name":"Case",
+    "ref_field_name":"",
+    "relation_name":"",
+    "field_type":"String",
+    "dict":"Testcase__result",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "data_preci":0,
+    "expression":"",
+    "predefined":"",
+    "key_field":0,
+    "major_field":0,
+    "union_key":""
     }
     ],
     "parentEntitys":[

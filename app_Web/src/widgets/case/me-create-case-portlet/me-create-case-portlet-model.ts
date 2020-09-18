@@ -177,6 +177,9 @@ export default class MeCreateCaseModel {
       {
         name: 'libname',
       },
+      {
+        name: 'lastrunresult1',
+      },
     ]
   }
 

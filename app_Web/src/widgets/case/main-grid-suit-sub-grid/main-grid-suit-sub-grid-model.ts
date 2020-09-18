@@ -65,15 +65,15 @@ export default class MainGrid_SuitSubModel {
           dataType: 'TEXT',
         },
         {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
         },
         {
           name: 'product',
@@ -104,6 +104,11 @@ export default class MainGrid_SuitSubModel {
           name: 'lib',
           prop: 'lib',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'lastrunresult1',
+          prop: 'lastrunresult1',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'branch',

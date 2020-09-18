@@ -216,6 +216,13 @@ public class CaseSearchContext extends QueryWrapperContext<Case> {
             this.getSearchCond().like("libname", n_libname_like);
         }
     }
+	private String n_lastrunresult1_eq;//[测试用例结果]
+	public void setN_lastrunresult1_eq(String n_lastrunresult1_eq) {
+        this.n_lastrunresult1_eq = n_lastrunresult1_eq;
+        if(!ObjectUtils.isEmpty(this.n_lastrunresult1_eq)){
+            this.getSearchCond().eq("lastrunresult1", n_lastrunresult1_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

@@ -177,6 +177,9 @@ export default class TestDashboardQuickActionModel {
       {
         name: 'libname',
       },
+      {
+        name: 'lastrunresult1',
+      },
     ]
   }
 
