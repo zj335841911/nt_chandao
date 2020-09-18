@@ -336,6 +336,19 @@ const router = new Router({
                     component: () => import('@pages/ibiz/todo-new-mob-edit-view/todo-new-mob-edit-view.vue'),
                 },
                 {
+                    path: 'users/:user?/mobpickupmdview',
+                    meta: {
+                        caption: 'user.views.mobpickupmdview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'users', parameterName: 'user' },
+                            { pathName: 'mobpickupmdview', parameterName: 'mobpickupmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/user-mob-pickup-mdview/user-mob-pickup-mdview.vue'),
+                },
+                {
                     path: 'products/:product?/mobpickupview',
                     meta: {
                         caption: 'product.views.mobpickupview.caption',
@@ -1420,6 +1433,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/story-change-mob-option-view/story-change-mob-option-view.vue'),
+                },
+                {
+                    path: 'users/:user?/mobpickupview',
+                    meta: {
+                        caption: 'user.views.mobpickupview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'users', parameterName: 'user' },
+                            { pathName: 'mobpickupview', parameterName: 'mobpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/user-mob-pickup-view/user-mob-pickup-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/newmobeditview',
@@ -3124,19 +3150,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-new-mob-edit-view/product-new-mob-edit-view.vue'),
                 },
                 {
-                    path: 'ibzmyterritories/:ibzmyterritory?/mobmdview9',
-                    meta: {
-                        caption: 'ibzmyterritory.views.mobmdview9.caption',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
-                            { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/ibz-my-territory-mob-mdview9/ibz-my-territory-mob-mdview9.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/mobmdview',
                     meta: {
                         caption: 'story.views.mobmdview.caption',
@@ -3162,6 +3175,19 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-mob-mdview/story-mob-mdview.vue'),
+                },
+                {
+                    path: 'ibzmyterritories/:ibzmyterritory?/mobmdview9',
+                    meta: {
+                        caption: 'ibzmyterritory.views.mobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                            { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-my-territory-mob-mdview9/ibz-my-territory-mob-mdview9.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/assmobmdview9',

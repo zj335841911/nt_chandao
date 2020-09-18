@@ -136,6 +136,7 @@ export const viewstate: any = {
                 'e643a925b1d0dab04ef917b973354baa',
                 'af40519acfe1bc985738eb3f0ff91a24',
                 '1afb3df498f4daa660709cca53ece0b2',
+                'c4c92d03808b0d9d6cbe4e1f943e6033',
                 'fc2f8f2e45b4fb4f22e7e77d4e57a16c',
             ],
         },
@@ -1067,6 +1068,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '7fe7a6fba30b701351c3ed7b2acbd738',
+            ],
+        },
+        {
+            viewtag: 'c4c92d03808b0d9d6cbe4e1f943e6033',
+            viewmodule: 'zentao',
+            viewname: 'UserMobPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '8ca2ced94768f27ac028aaea323e33b5',
             ],
         },
         {

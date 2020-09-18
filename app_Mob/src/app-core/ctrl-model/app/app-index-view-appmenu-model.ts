@@ -104,6 +104,24 @@ export class AppIndexViewModel {
 	appfunctag: 'AppFunc',
 	resourcetag: '',
 },
+        {
+	id: 'FA0E885A-486D-47C0-8459-4AC00BF64922',
+	name: 'menuitem7',
+	text: '用户选择',
+	type: 'MENUITEM',
+	counterid: '',
+	tooltip: '用户选择',
+	expanded: false,
+	separator: false,
+	hidden: true,
+	hidesidebar: false,
+	opendefault: false,
+	iconcls: '',
+	icon: '',
+	textcls: '',
+	appfunctag: 'AppFunc2',
+	resourcetag: '',
+},
     ];
 
 	/**
@@ -151,6 +169,19 @@ export class AppIndexViewModel {
             parameters: [
                 { pathName: 'users', parameterName: 'user' },
                 { pathName: 'usercentermobeditview', parameterName: 'usercentermobeditview' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc2',
+            appfuncyype: 'APPVIEW',
+            openmode: '', 
+            componentname: 'user-mob-pickup-view', 
+            codename: 'usermobpickupview',
+            deResParameters: [],
+            routepath: '/appindexview/:appindexview?/users/:user?/mobpickupview/:mobpickupview?',
+            parameters: [
+                { pathName: 'users', parameterName: 'user' },
+                { pathName: 'mobpickupview', parameterName: 'mobpickupview' },
             ],
         },
         {

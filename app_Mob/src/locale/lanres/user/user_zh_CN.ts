@@ -42,6 +42,9 @@ export default {
 		mobpickupmdview: {
 			caption: '用户',
 		},
+		mobpickupview: {
+			caption: '用户',
+		},
 		usercentermobeditview: {
 			caption: '个人中心',
 		},

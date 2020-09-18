@@ -430,6 +430,9 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
                 case 'AppFunc': 
                     this.clickAppFunc(item);
                     return;
+                case 'AppFunc2': 
+                    this.clickAppFunc2(item);
+                    return;
                 case 'Auto18': 
                     this.clickAuto18(item);
                     return;
@@ -501,6 +504,27 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
         const parameters: any[] = [
             { pathName: 'users', parameterName: 'user' },
             { pathName: 'usercentermobeditview', parameterName: 'usercentermobeditview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
+     * 用户选择
+     *
+     * @param {*} [item={}]
+     * @memberof AppIndexView
+     */
+    protected clickAppFunc2(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'users', parameterName: 'user' },
+            { pathName: 'mobpickupview', parameterName: 'mobpickupview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);
