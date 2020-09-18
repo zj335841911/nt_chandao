@@ -246,7 +246,7 @@ export class MainGridBase extends GridControlBase {
         RelationStory: { name: 'RelationStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_LSTORY_BUT', target: 'SINGLEKEY'},
         RelationBug: { name: 'RelationBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_LBUG_BUT', target: 'SINGLEKEY'},
         MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_EDIT_BUT', target: 'SINGLEKEY'},
-        NewSubPlan: { name: 'NewSubPlan',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_CHILD_BUT', target: 'SINGLEKEY'},
+        NewSubPlan: { name: 'NewSubPlan',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_CHILD_BUT', target: 'SINGLEKEY'},
         Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_DELETE_BUT', target: 'SINGLEKEY'}
     };
 

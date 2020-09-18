@@ -68,7 +68,7 @@ export default {
 		uiactions: {
 		},
 	},
-	subplaneditviewtoolbar_toolbar: {
+	subplancreateviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
@@ -88,7 +88,7 @@ export default {
 			tip: "导出",
 		},
 	},
-	subplancreateviewtoolbar_toolbar: {
+	subplaneditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",

@@ -2255,6 +2255,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMyFavoritesGridView",
             "viewtag": "b7e6268db4bdeb10211fc15383de685d"
         },
+        "productplanmaindataeditview": {
+            "title": "产品计划编辑视图",
+            "caption": "产品计划",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProductPlanMainDataEditView",
+            "viewtag": "b9a10eb0b5a55e40c69c61387de5894a"
+        },
         "storympickupview": {
             "title": "关联需求",
             "caption": "关联需求",

@@ -110,7 +110,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '07004de8a7d23e97b76460f888c8b290',
-                '500950593bf64e5516bdb9b7db29b747',
                 'b9e94e3713c82ebab002631bda872b94',
                 '17831eefddbb65ba3bda7534b8ef8d09',
             ],
@@ -1102,17 +1101,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '500950593bf64e5516bdb9b7db29b747',
-            viewmodule: 'zentao',
-            viewname: 'ProductPlanSubPlanGridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '54c7ba4afb6222c4c0af04a78a0592df',
-                '170c1d558f26cf37236390b28f8aca82',
-            ],
-        },
-        {
             viewtag: '500a15957867996d6e20e7a37db8b004',
             viewmodule: 'ibizpro',
             viewname: 'IBZProStoryModuleEditView',
@@ -1226,15 +1214,6 @@ export const viewstate: any = {
             viewtag: '54a5f5fa5f8def88d2aec9c7ee6d85fe',
             viewmodule: 'zentao',
             viewname: 'StoryPlanSubEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
-            viewtag: '54c7ba4afb6222c4c0af04a78a0592df',
-            viewmodule: 'zentao',
-            viewname: 'ProductPlanSubPlanEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -1865,10 +1844,10 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '54c7ba4afb6222c4c0af04a78a0592df',
                 'b9bdfc0e33d333ade00934745d9dc0ad',
                 'aad9a5713d6828d3119b811b26915215',
                 '08ca1b1e6234a0d038e1fbf52478ea7f',
+                '170c1d558f26cf37236390b28f8aca82',
                 '396ab8c5ef500f859d6591e77f094ecd',
                 '21d716ac12c793af54b112a5a3599674',
             ],

@@ -69,7 +69,7 @@ export default {
 		uiactions: {
 		},
 	},
-	subplaneditviewtoolbar_toolbar: {
+	subplancreateviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
@@ -89,7 +89,7 @@ export default {
 			tip: "Export {0} Data To Excel",
 		},
 	},
-	subplancreateviewtoolbar_toolbar: {
+	subplaneditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",

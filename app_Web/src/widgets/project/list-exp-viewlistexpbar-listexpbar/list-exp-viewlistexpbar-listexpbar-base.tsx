@@ -108,44 +108,12 @@ export class ListExpViewlistexpbarListexpbarBase extends ListViewExpBarControlBa
     public showMode:string ="horizontal";
 
     /**
-     * 控件宽度
-     *
-     * @type {number}
-     * @memberof ListExpViewlistexpbarBase
-     */
-    public ctrlWidth:number = 0;
-
-    /**
      * 控件高度
      *
      * @type {number}
      * @memberof ListExpViewlistexpbarBase
      */
     public ctrlHeight: number = 0;
-
-    /**
-    * 执行mounted后的逻辑
-    *
-    * @memberof ListExpViewlistexpbarBase
-    */
-    public ctrlMounted(){ 
-        if(this.$store.getters.getViewSplit(this.viewUID)){
-            this.split = this.$store.getters.getViewSplit(this.viewUID);
-        }else{
-            let containerWidth:number = (document.getElementById("listexpviewlistexpbar") as any).offsetWidth;
-            let containerHeight:number = (document.getElementById("listexpviewlistexpbar") as any).offsetHeight;
-            if(Object.is(this.showMode,'horizontal')){
-                if(this.ctrlWidth){
-                    this.split = this.ctrlWidth/containerWidth;
-                }
-            }else{
-                if(this.ctrlHeight){
-                    this.split = this.ctrlHeight/containerHeight;
-                }
-            }
-            this.$store.commit("setViewSplit",{viewUID:this.viewUID,viewSplit:this.split}); 
-        }  
-    }
     
     /**
      * listexpbar的选中数据事件
