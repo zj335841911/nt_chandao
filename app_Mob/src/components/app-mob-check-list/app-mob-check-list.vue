@@ -145,8 +145,8 @@
     public mounted() {
       setTimeout(() => {    
         this.load();
+        this.$store.commit('setSelectStatus',true);
       }, 1000);
-      this.$store.commit('setSelectStatus',true);
     }
 
     /**

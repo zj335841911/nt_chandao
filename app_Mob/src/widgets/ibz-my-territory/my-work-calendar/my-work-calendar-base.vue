@@ -655,27 +655,6 @@ export default class MyWorkBase extends Vue implements ControlInterface {
                         dataItem.push({ time: item[mark].substring(0, 10), evens: [item] });
                     }
                 }
-                if (item[mark]) {
-                    if (this.evendata[tag].length > 0) {
-                        this.evendata[tag].forEach((i: any) => {
-                            if (i.time === item[mark].substring(0, 10)) {
-                                if (i.evens) {
-                                    i.evens.push(item);
-                                }
-                            } else {
-                                this.evendata[tag].push({
-                                    time: item[mark].substring(0, 10),
-                                    evens: [item]
-                                });
-                            }
-                        });
-                    } else {
-                        this.evendata[tag].push({
-                            time: item[mark].substring(0, 10),
-                            evens: [item]
-                        });
-                    }
-                }
             });
         }
         return dataItem;

@@ -321,7 +321,6 @@ export default class AppSelectDropDown extends Vue {
             const response = await entityService[this.acParams.interfaceName](_context, _param);
             if (response && response.status === 200) {
                 this.items = response.data;
-                this.$store.commit('setSelectStatus',false);
                 this.result(this.items);
             } else {
                 this.$notice.error(`${this.$t('error_request')}` );
@@ -801,6 +800,7 @@ export default class AppSelectDropDown extends Vue {
         if(select){
             setTimeout(() => {
                 select.open();
+                this.$store.commit('setSelectStatus',false);
             }, 1);
         }
     }
