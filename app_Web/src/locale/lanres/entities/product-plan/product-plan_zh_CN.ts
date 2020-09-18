@@ -98,6 +98,7 @@ export default {
 			begin: "开始日期", 
 			end: "结束日期", 
 			desc: "描述", 
+			statuss: "状态", 
 			id: "编号", 
 		},
 		uiactions: {

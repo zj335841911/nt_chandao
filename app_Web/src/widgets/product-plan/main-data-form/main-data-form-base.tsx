@@ -95,6 +95,7 @@ export class MainDataEditFormBase extends EditFormControlBase {
         begin: null,
         end: null,
         desc: null,
+        statuss: null,
         id: null,
         productplan:null,
     };
@@ -169,6 +170,8 @@ export class MainDataEditFormBase extends EditFormControlBase {
         end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        statuss: new FormItemModel({ caption: '状态', detailType: 'FORMITEM', name: 'statuss', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 

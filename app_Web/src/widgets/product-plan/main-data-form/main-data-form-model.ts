@@ -76,6 +76,11 @@ export default class MainDataModel {
         dataType: 'LONGTEXT',
       },
       {
+        name: 'statuss',
+        prop: 'statuss',
+        dataType: 'TEXT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
