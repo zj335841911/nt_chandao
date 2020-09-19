@@ -27,7 +27,7 @@ ruleflow-group "productplangetbedinandendrawsqlcall1"
     param.put("param1",productplangetbedinandenddefault.get("begin"));
     param.put("param2",productplangetbedinandenddefault.get("end"));
     param.put("param3",productplangetbedinandenddefault.get("end"));
-    String strSql="select case when#{et.param0} = '2030-01-01' then null else #{et.param1} end as `BEGIN`, case when #{et.param2} = '2030-01-01' then null else #{et.param3} end as `END` from dual";
+    String strSql="select case when#{et.param0} = '2030-01-01' then ‘’ else #{et.param1} end as `BEGIN`, case when #{et.param2} = '2030-01-01' then '' else #{et.param3} end as `END` from dual";
     java.util.List<JSONObject> entities=iBzSysProductplanDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
