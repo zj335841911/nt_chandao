@@ -28,7 +28,7 @@ export default {
       		title: "计划",
 		},
 		subplangridview: {
-			caption: "产品计划",
+			caption: "子计划",
       		title: "子计划",
 		},
 		subplaneditview: {

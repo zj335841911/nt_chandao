@@ -969,7 +969,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "productplansubplangridview": {
             "title": "子计划",
-            "caption": "产品计划",
+            "caption": "子计划",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
             "viewname": "ProductPlanSubPlanGridView",

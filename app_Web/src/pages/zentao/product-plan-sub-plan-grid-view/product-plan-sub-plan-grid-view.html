@@ -1,4 +1,7 @@
 <studio-view viewName="productplansubplangridview" viewTitle="子计划" class='degridview product-plan-sub-plan-grid-view'>
+    <template slot='title'>
+    <span class='caption-info'>{{viewCaption}}</span>
+    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 
