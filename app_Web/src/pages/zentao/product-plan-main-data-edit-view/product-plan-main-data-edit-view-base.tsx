@@ -57,6 +57,18 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      */
     public appUIService: ProductPlanUIService = new ProductPlanUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof ProductPlanMainDataEditViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'OBJECTTYPE': { isRawValue: true, value: 'productplan' },
+        'SRFPARENTKEY': { isRawValue: false, value: 'productplan' }
+    };
+
     /**
      * 是否显示信息栏
      *
