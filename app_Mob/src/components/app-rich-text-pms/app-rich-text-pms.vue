@@ -1,7 +1,7 @@
 <template>
-  <div class="richtext" >
+  <div class="richtext">
     <quill-editor
-    v-if="parmRead"
+      v-if="parmRead"
       class="ql-editor quill-editor"
       v-model="resloutValue"
       ref="myQuillEditor"
@@ -10,8 +10,8 @@
     <ion-toolbar class="quill-editor-button">
       <van-uploader v-show="false" :after-read="afterRead" ref="upload" />
       <div class="rich-text-pms-btn">
-      <ion-button class="pms-btn" @click="onClickCancel" color="medium">{{$t('app.button.cancel')}}</ion-button>
-      <ion-button class="pms-btn" @click="onClickOk">{{$t('app.button.confirm')}}</ion-button>
+        <ion-button class="pms-btn" @click="onClickCancel" color="medium">{{$t('app.button.cancel')}}</ion-button>
+        <ion-button class="pms-btn" @click="onClickOk">{{$t('app.button.confirm')}}</ion-button>
       </div>
     </ion-toolbar>
   </div>
@@ -29,8 +29,17 @@ import { Subject } from "rxjs";
 import { Environment } from "@/environments/environment";
 import axios from "axios";
 import qs from "qs";
+import { Quill } from "vue-quill-editor";
+const BlockEmbed = Quill.import("blots/block/embed");
 @Component({})
 export default class AppRichTextEditor extends Vue {
+
+  /**
+   * 工具栏参数
+   *
+   * @type {string}
+   * @memberof AppRichTextEditor
+   */
   public editorOption = {
     modules: {
       toolbar: {
@@ -44,10 +53,14 @@ export default class AppRichTextEditor extends Vue {
           { list: "bullet" },
           { color: [] },
           { background: [] },
+          "sourceEditor",
         ],
         handlers: {
           image: () => {
             this.uploadFile(this.uploadUrl, {});
+          },
+          sourceEditor: () => {
+            this.open();
           },
         },
       },
@@ -76,7 +89,7 @@ export default class AppRichTextEditor extends Vue {
    * @type {string}
    * @memberof AppRichTextEditor
    */
-  protected uploadUrl :string = "";
+  protected uploadUrl: string = "";
 
   /**
    * 下载路径
@@ -92,7 +105,7 @@ export default class AppRichTextEditor extends Vue {
    * @type {string}
    * @memberof AppRichTextEditor
    */
-  public export_params:any = {};
+  public export_params: any = {};
 
   /**
    * 双向绑定值
@@ -117,7 +130,7 @@ export default class AppRichTextEditor extends Vue {
    * @type {Object}
    * @memberof AppRichTextEditor
    */
-  public resFile:any;
+  public resFile: any;
 
   /**
    * 生命周期
@@ -128,17 +141,73 @@ export default class AppRichTextEditor extends Vue {
   public mounted() {
     this.getParms();
     this.thirdPartyInit();
+    let myquil: any = this.$refs.myQuillEditor;
+    if (myquil) {
+      myquil.quill.enable(false);
+      this.$nextTick(() => {
+        myquil.quill.enable(true);
+        myquil.quill.blur();
+      });
+    }
+    this.inintBlotName();
   }
 
+  /**
+   * 初始化富文本 BlotName
+   *
+   * @type {string}
+   * @memberof AppRichTextEditor
+   */
+  public inintBlotName() {
+    // 引入源码中的BlockEmbed
+    const BlockEmbed = Quill.import("blots/block/embed");
+    // 定义新的blot类型
+    class AppPanelEmbed extends BlockEmbed {
+      static create(value1: any) {
+        // console.log(value);
+        let value = value1.split("***")[0];
+        let value2 = value1.split("***")[1];
+        const node = super.create(value);
+        // node.setAttribute("contenteditable", "false");
+        node.setAttribute("style", "color: rgb(16, 140, 238);");
+        
+        // node.setAttribute('width', '100%');
+        //   设置自定义html
+        node.innerHTML = this.transformValue(value);
+        node.setAttribute("title", value2);
+        return node;
+      }
+
+      static transformValue(value: any) {
+        let handleArr = value.split("\n");
+        handleArr = handleArr.map((e: any) =>
+          e.replace(/^[\s]+/, "").replace(/[\s]+$/, "")
+        );
+        return handleArr.join("");
+      }
+
+      // 返回节点自身的value值 用于撤销操作
+      static value(node: any) {
+        return node.innerHTML;
+      }
+    }
+    // blotName
+    AppPanelEmbed.blotName = "AppPanelEmbed";
+    // class名将用于匹配blot名称
+    // AppPanelEmbed.className = "user-html";
+    // 标签类型自定义
+    AppPanelEmbed.tagName = "user";
+    Quill.register(AppPanelEmbed, true);
+  }
   /**
    *  第三方容器初始化
    *
    * @type {function}
    * @memberof AppRichTextEditor
    */
-  protected  thirdPartyInit(){
-        this.$viewTool.setViewTitleOfThirdParty("编辑");
-        this.$viewTool.setThirdPartyEvent(this.onClickCancel);
+  protected thirdPartyInit() {
+    this.$viewTool.setViewTitleOfThirdParty("编辑");
+    this.$viewTool.setThirdPartyEvent(this.onClickCancel);
   }
 
   /**
@@ -147,12 +216,19 @@ export default class AppRichTextEditor extends Vue {
    * @type {string}
    * @memberof AppRichTextEditor
    */
-  public getParms(){
-    let parm :any= JSON.parse(this._viewparams);
-    if(parm){
-      setTimeout(()=>{this.resloutValue = parm.value?parm.value:""},200)
-      this.uploadUrl = parm.uploadUrl?parm.uploadUrl:"";
-      this.export_params =  parm.export_params?parm.export_params:{};
+  public getParms() {
+    let parm: any = JSON.parse(this._viewparams);
+    if (parm) {
+      setTimeout(() => {
+        this.resloutValue = parm.value ? parm.value : "";
+        const sourceEditorButton: any = document.querySelector(
+          ".ql-sourceEditor"
+        );
+        sourceEditorButton.style.cssText = "";
+        sourceEditorButton.innerText = "@";
+      }, 200);
+      this.uploadUrl = parm.uploadUrl ? parm.uploadUrl : "";
+      this.export_params = parm.export_params ? parm.export_params : {};
     }
     this.parmRead = true;
   }
@@ -163,11 +239,18 @@ export default class AppRichTextEditor extends Vue {
    * @memberof AppRichTextEditor
    */
   public onClickOk(): void {
-    if(this.resFile){
-      this.backEndValue = this.resFile.imgsrc.replace(this.resFile.url,"{"+this.resFile.id+this.resFile.ext+"}");
-      this.$emit("close", [{frontEnd:this.resloutValue,backEnd:this.backEndValue}]);
+    if (this.resFile) {
+      this.backEndValue = this.resFile.imgsrc.replace(
+        this.resFile.url,
+        "{" + this.resFile.id + this.resFile.ext + "}"
+      );
+      this.$emit("close", [
+        { frontEnd: this.resloutValue, backEnd: this.backEndValue },
+      ]);
     } else {
-      this.$emit("close", [{frontEnd:this.resloutValue,backEnd:this.resloutValue}]);
+      this.$emit("close", [
+        { frontEnd: this.resloutValue, backEnd: this.resloutValue },
+      ]);
     }
   }
 
@@ -226,7 +309,9 @@ export default class AppRichTextEditor extends Vue {
           // let data: any = response.data;
           this.resFile = response.data;
           // if (process.env.NODE_ENV === "development") {
-            this.dataProcess(Object.assign({}, this.resFile, { url: file.content }));
+          this.dataProcess(
+            Object.assign({}, this.resFile, { url: file.content })
+          );
           // }
         } else {
         }
@@ -252,9 +337,44 @@ export default class AppRichTextEditor extends Vue {
     this.resFile.url = _downloadUrl;
     this.resloutValue = this.resloutValue + '<img src="' + file.url + '"alt="'+file.filename+'">';
     this.resFile.imgsrc = this.resloutValue;
+    // this.putContent('image',file.url);
+  }
+
+  /**
+   * 光标处添加值
+   *
+   * @private
+   * @memberof AppRichTextEditor
+   */
+  public putContent(type: string, content: string) {
+    let myquil: any = this.$refs.myQuillEditor;
+    if (myquil) {
+      myquil.quill.insertEmbed(
+        myquil.quill.selection.savedRange.index,
+        type,
+        content
+      );
+    }
+  }
+
+  /**
+   * @功能
+   *
+   * @private
+   * @memberof AppRichTextEditor
+   */
+  public async open() {
+    const result: any = await this.$appmodal.openModal(
+      { viewname: "user-mob-pickup-view", title: "" },
+      {},
+      {}
+    );
+    if (result || Object.is(result.ret, "OK")) {
+      this.putContent("AppPanelEmbed",`@${result.datas[0].srfmajortext}***${result.datas[0].account}`);
+    }
   }
 }
 </script>
 <style lang="less">
-@import './app-rich-text-pms.less';
+@import "./app-rich-text-pms.less";
 </style>
