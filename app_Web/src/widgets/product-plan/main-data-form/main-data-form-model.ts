@@ -66,9 +66,19 @@ export default class MainDataModel {
         dataType: 'DATE',
       },
       {
+        name: 'beginstr',
+        prop: 'beginstr',
+        dataType: 'TEXT',
+      },
+      {
         name: 'end',
         prop: 'end',
         dataType: 'DATE',
+      },
+      {
+        name: 'endstr',
+        prop: 'endstr',
+        dataType: 'TEXT',
       },
       {
         name: 'desc',

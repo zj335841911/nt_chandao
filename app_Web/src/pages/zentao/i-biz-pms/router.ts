@@ -1034,6 +1034,51 @@ const router = new Router({
                     component: () => import('@pages/zentao/module-pickup-grid-view/module-pickup-grid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/subproductplans/:subproductplan?/subplangridview/:subplangridview?',
+                    meta: {
+                        caption: 'entities.subproductplan.views.subplangridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'subproductplans', parameterName: 'subproductplan' },
+                            { pathName: 'subplangridview', parameterName: 'subplangridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-plan-sub-plan-grid-view/product-plan-sub-plan-grid-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/subproductplans/:subproductplan?/subplangridview/:subplangridview?',
+                    meta: {
+                        caption: 'entities.subproductplan.views.subplangridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'subproductplans', parameterName: 'subproductplan' },
+                            { pathName: 'subplangridview', parameterName: 'subplangridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-plan-sub-plan-grid-view/product-plan-sub-plan-grid-view.vue'),
+                },
+                {
+                    path: 'subproductplans/:subproductplan?/subplangridview/:subplangridview?',
+                    meta: {
+                        caption: 'entities.subproductplan.views.subplangridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'subproductplans', parameterName: 'subproductplan' },
+                            { pathName: 'subplangridview', parameterName: 'subplangridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-plan-sub-plan-grid-view/product-plan-sub-plan-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/assigntaskview/:assigntaskview?',
                     meta: {
                         caption: 'entities.task.views.assigntaskview.caption',
@@ -2431,6 +2476,51 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/bug-grid-view/bug-grid-view.vue'),
+                },
+                {
+                    path: 'products/:product?/productplans/:productplan?/subproductplans/:subproductplan?/subplaneditview/:subplaneditview?',
+                    meta: {
+                        caption: 'entities.subproductplan.views.subplaneditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'subproductplans', parameterName: 'subproductplan' },
+                            { pathName: 'subplaneditview', parameterName: 'subplaneditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-plan-sub-plan-edit-view/product-plan-sub-plan-edit-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/subproductplans/:subproductplan?/subplaneditview/:subplaneditview?',
+                    meta: {
+                        caption: 'entities.subproductplan.views.subplaneditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'subproductplans', parameterName: 'subproductplan' },
+                            { pathName: 'subplaneditview', parameterName: 'subplaneditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-plan-sub-plan-edit-view/product-plan-sub-plan-edit-view.vue'),
+                },
+                {
+                    path: 'subproductplans/:subproductplan?/subplaneditview/:subplaneditview?',
+                    meta: {
+                        caption: 'entities.subproductplan.views.subplaneditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'subproductplans', parameterName: 'subproductplan' },
+                            { pathName: 'subplaneditview', parameterName: 'subplaneditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-plan-sub-plan-edit-view/product-plan-sub-plan-edit-view.vue'),
                 },
                 {
                     path: 'projectstats/:projectstats?/gridview9/:gridview9?',

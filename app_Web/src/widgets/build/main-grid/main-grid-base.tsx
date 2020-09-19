@@ -247,7 +247,7 @@ export class MainGridBase extends GridControlBase {
         viewBugs: { name: 'viewBugs',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
         editBuild: { name: 'editBuild',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUILD_EDIT_BUT', actiontarget: 'SINGLEKEY'},
         Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUILD_DELETE_BUT', actiontarget: 'SINGLEKEY'},
-        OneEdit: { name: 'OneEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
+        OneEdit: { name: 'OneEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__ADMIN', actiontarget: 'SINGLEKEY'}
     };
 
     /**

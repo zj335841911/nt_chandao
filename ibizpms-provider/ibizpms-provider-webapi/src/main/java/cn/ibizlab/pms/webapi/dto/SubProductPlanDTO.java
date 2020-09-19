@@ -192,6 +192,24 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
     @JsonProperty("estimatecnt")
     private Integer estimatecnt;
 
+    /**
+     * 属性 [BEGINSTR]
+     *
+     */
+    @JSONField(name = "beginstr")
+    @JsonProperty("beginstr")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String beginstr;
+
+    /**
+     * 属性 [ENDSTR]
+     *
+     */
+    @JSONField(name = "endstr")
+    @JsonProperty("endstr")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String endstr;
+
 
     /**
      * 设置 [TITLE]

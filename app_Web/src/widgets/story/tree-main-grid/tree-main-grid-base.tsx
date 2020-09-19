@@ -334,7 +334,7 @@ export class TreeMainGridBase extends GridControlBase {
         SubStory: { name: 'SubStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_XQXF_BUT', target: 'SINGLEKEY'},
         StoryFavorites: { name: 'StoryFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_NFAVOR_BUT', target: 'SINGLEKEY'},
         StoryNFavorites: { name: 'StoryNFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', target: 'SINGLEKEY'},
-        Push: { name: 'Push',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY'}
+        Push: { name: 'Push',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__ADMIN', target: 'SINGLEKEY'}
     };
 
     /**

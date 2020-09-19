@@ -74,7 +74,7 @@ export class MainDataEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof MainDataEditFormBase
      */
-    protected drCount: number = 3;
+    protected drCount: number = 4;
 
     /**
      * 表单数据对象
@@ -93,7 +93,9 @@ export class MainDataEditFormBase extends EditFormControlBase {
         product: null,
         title: null,
         begin: null,
+        beginstr: null,
         end: null,
+        endstr: null,
         desc: null,
         statuss: null,
         id: null,
@@ -137,6 +139,8 @@ export class MainDataEditFormBase extends EditFormControlBase {
 
         formpage3: new FormPageModel({ caption: 'Bug', detailType: 'FORMPAGE', name: 'formpage3', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
+        druipart4: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart4', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productplan.maindata_form', extractMode: 'ITEM', details: [] } }),
 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
@@ -167,7 +171,11 @@ export class MainDataEditFormBase extends EditFormControlBase {
 
         begin: new FormItemModel({ caption: '开始日期', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        beginstr: new FormItemModel({ caption: '开始日期', detailType: 'FORMITEM', name: 'beginstr', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        endstr: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'endstr', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

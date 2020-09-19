@@ -180,6 +180,20 @@ public class ProductPlan extends EntityMP implements Serializable {
     @JSONField(name = "estimatecnt")
     @JsonProperty("estimatecnt")
     private Integer estimatecnt;
+    /**
+     * 开始日期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "beginstr")
+    @JsonProperty("beginstr")
+    private String beginstr;
+    /**
+     * 结束日期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "endstr")
+    @JsonProperty("endstr")
+    private String endstr;
 
     /**
      * 

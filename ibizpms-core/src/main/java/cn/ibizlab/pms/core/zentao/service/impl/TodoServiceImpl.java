@@ -51,6 +51,10 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITodoGetTODOTitleLogic gettodotitleLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITodoResetBeginEndLogic resetbeginendLogic;
+
     protected int batchSize = 500;
 
         @Override
@@ -119,6 +123,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         else{
         }
         gettodotitleLogic.execute(et);
+        resetbeginendLogic.execute(et);
         return et;
     }
 

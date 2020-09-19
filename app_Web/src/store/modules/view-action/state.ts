@@ -1079,6 +1079,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '500950593bf64e5516bdb9b7db29b747',
+            viewmodule: 'zentao',
+            viewname: 'ProductPlanSubPlanGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '54c7ba4afb6222c4c0af04a78a0592df',
+                '170c1d558f26cf37236390b28f8aca82',
+            ],
+        },
+        {
             viewtag: '500a15957867996d6e20e7a37db8b004',
             viewmodule: 'ibizpro',
             viewname: 'IBZProStoryModuleEditView',
@@ -1192,6 +1203,15 @@ export const viewstate: any = {
             viewtag: '54a5f5fa5f8def88d2aec9c7ee6d85fe',
             viewmodule: 'zentao',
             viewname: 'StoryPlanSubEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '54c7ba4afb6222c4c0af04a78a0592df',
+            viewmodule: 'zentao',
+            viewname: 'ProductPlanSubPlanEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -2631,6 +2651,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '500950593bf64e5516bdb9b7db29b747',
                 '07004de8a7d23e97b76460f888c8b290',
                 'b9e94e3713c82ebab002631bda872b94',
                 'aad9a5713d6828d3119b811b26915215',

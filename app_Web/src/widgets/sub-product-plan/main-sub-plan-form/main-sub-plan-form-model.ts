@@ -76,9 +76,19 @@ export default class MainSubPlanModel {
         dataType: 'DATE',
       },
       {
+        name: 'future',
+        prop: 'future',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'end',
         prop: 'end',
         dataType: 'DATE',
+      },
+      {
+        name: 'delta',
+        prop: 'delta',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'desc',

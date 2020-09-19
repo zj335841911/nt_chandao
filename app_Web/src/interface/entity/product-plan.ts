@@ -157,4 +157,20 @@ export interface ProductPlan {
      * @memberof ProductPlan
      */
     estimatecnt?: any;
+
+    /**
+     * 开始日期
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    beginstr?: any;
+
+    /**
+     * 结束日期
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    endstr?: any;
 }

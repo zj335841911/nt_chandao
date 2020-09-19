@@ -20275,6 +20275,32 @@
     "data_type":"INT",
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"BEGINSTR" ,
+    "codename":"Beginstr",
+    "field_logic_name":"开始日期",
+    "entity_name":"ProductPlan",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"ENDSTR" ,
+    "codename":"Endstr",
+    "field_logic_name":"结束日期",
+    "entity_name":"ProductPlan",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[

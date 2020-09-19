@@ -1087,10 +1087,6 @@ export default {
 			caption: "同步",
 			tip: "同步",
 		},
-		deuiaction1_allpush: {
-			caption: "推送",
-			tip: "推送",
-		},
 		deuiaction1_create: {
 			caption: "新建需求",
 			tip: "新建需求",
