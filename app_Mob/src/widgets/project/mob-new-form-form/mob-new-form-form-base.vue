@@ -752,6 +752,8 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             { type: 'string', message: '结束日期 值必须为字符串类型', trigger: 'blur' },
             { required: true, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("end").isPast},message: this.verifyDeRules("end").infoMessage, trigger: 'change' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("end").isPast},message: this.verifyDeRules("end").infoMessage, trigger: 'blur' },
         ],
         days: [
             { type: 'number', message: '可用工作日 值必须为数值类型', trigger: 'change' },
