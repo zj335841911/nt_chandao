@@ -144,8 +144,8 @@ export default {
 		columns: {
 			id: "编号",
 			title: "名称",
-			begin: "开始日期",
-			end: "结束日期",
+			beginstr: "开始日期",
+			endstr: "结束日期",
 			storycnt: "需求数",
 			bugcnt: "bug数",
 			actions: "操作",

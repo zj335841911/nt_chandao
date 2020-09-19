@@ -58,27 +58,27 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('begin')">
-                <el-table-column show-overflow-tooltip :prop="'begin'" :label="$t('entities.productplan.main_grid.columns.begin')" :width="120"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('beginstr')">
+                <el-table-column show-overflow-tooltip :prop="'beginstr'" :label="$t('entities.productplan.main_grid.columns.beginstr')" :width="120"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.productplan.main_grid.columns.begin')}}
+                        {{$t('entities.productplan.main_grid.columns.beginstr')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD" :data="row.begin"></app-format-data>
+                        <span>{{row.beginstr}}</span>
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('end')">
-                <el-table-column show-overflow-tooltip :prop="'end'" :label="$t('entities.productplan.main_grid.columns.end')" :width="120"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('endstr')">
+                <el-table-column show-overflow-tooltip :prop="'endstr'" :label="$t('entities.productplan.main_grid.columns.endstr')" :width="120"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.productplan.main_grid.columns.end')}}
+                        {{$t('entities.productplan.main_grid.columns.endstr')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD" :data="row.end"></app-format-data>
+                        <span>{{row.endstr}}</span>
                     </template>
                 </el-table-column>
             </template>

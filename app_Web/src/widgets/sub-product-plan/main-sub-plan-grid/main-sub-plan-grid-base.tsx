@@ -124,22 +124,6 @@ export class MainSubPlanGridBase extends GridControlBase {
             unit: 'STAR',
             isEnableRowEdit: false,
         },
-        {
-            name: 'begin',
-            label: '开始日期',
-            langtag: 'entities.subproductplan.mainsubplan_grid.columns.begin',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
-            name: 'end',
-            label: '结束日期',
-            langtag: 'entities.subproductplan.mainsubplan_grid.columns.end',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
     ]
 
     /**
@@ -176,8 +160,6 @@ export class MainSubPlanGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'id':false,
         'title':false,
-        'begin':false,
-        'end':false,
     };
 
     /**

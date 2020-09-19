@@ -27,6 +27,16 @@ export default class MainModel {
     }else{
 		  return [
         {
+          name: 'endstr',
+          prop: 'endstr',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'beginstr',
+          prop: 'beginstr',
+          dataType: 'TEXT',
+        },
+        {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
@@ -61,14 +71,14 @@ export default class MainModel {
           dataType: 'DATE',
         },
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
         },
         {
           name: 'title',

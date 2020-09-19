@@ -67,8 +67,6 @@ export default {
 		columns: {
 			id: "编号",
 			title: "名称",
-			begin: "开始日期",
-			end: "结束日期",
 		},
 		uiactions: {
 		},
