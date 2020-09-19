@@ -141,7 +141,7 @@ export class MainDataEditFormBase extends EditFormControlBase {
 
         druipart4: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart4', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        grouppanel5: new FormGroupPanelModel({ caption: '子计划', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productplan.maindata_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel5: new FormGroupPanelModel({ caption: '子计划', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: false, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productplan.maindata_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.productplan.maindata_form', extractMode: 'ITEM', details: [] } }),
 
@@ -187,4 +187,52 @@ export class MainDataEditFormBase extends EditFormControlBase {
 
         form: new FormTabPanelModel({ caption: 'form', detailType: 'TABPANEL', name: 'form', visible: true, isShowCaption: true, form: this, tabPages: [{ name: 'formpage2', index: 0, visible: true }, { name: 'formpage3', index: 1, visible: true }, { name: 'formpage1', index: 2, visible: true }] }),
     };
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof MainDataEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'statuss')) {
+            let ret = false;
+            const _statuss = this.data.statuss;
+            if (this.$verify.testCond(_statuss, 'EQ', 'parent')) {
+                ret = true;
+            }
+            this.detailsModel.grouppanel5.setVisible(ret);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
 }
