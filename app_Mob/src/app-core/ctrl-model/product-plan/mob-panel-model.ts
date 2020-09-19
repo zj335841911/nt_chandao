@@ -72,6 +72,12 @@ export class MobModel {
       {
         name: 'estimatecnt',
       },
+      {
+        name: 'beginstr',
+      },
+      {
+        name: 'endstr',
+      },
     ]
   }
 

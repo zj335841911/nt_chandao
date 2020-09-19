@@ -675,6 +675,17 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @memberof MobNewFormBase
      */
     public deRules:any = {
+                date:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"LTANDEQ",
+                      ruleInfo:"发布日期不能大于当前日期", 
+                      isKeyCond:false,
+                      paramType:"CURTIME",
+                      isNotMode:false,
+                      deName:"date",
+                  },
+                ],
     };
 
     /**

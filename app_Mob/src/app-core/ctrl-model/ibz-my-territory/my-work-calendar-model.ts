@@ -81,7 +81,7 @@ export class MyWorkModel {
                         },
                         {
                             name:'end',
-                            prop:'n_finisheddate_ltandeq'
+                            prop:'n_eststarted_ltandeq'
                         },
                     ];
                 break;
