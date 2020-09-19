@@ -116,12 +116,11 @@ public class ZenTaoHttpHelper {
         if (HttpStatus.FOUND.equals(responseEntity.getStatusCode()) && (body == null || body.isEmpty())) {
             body = responseEntity.toString();
         }
-
         log.debug(ZenTaoMessage.MSG_INFO_0002, body);
         if (body == null || body.isEmpty()) {
             return null;
         }
-        if (body.startsWith("<html>") || body.startsWith("<302")) {
+        if (body.startsWith("<html>") || body.startsWith("<302") || (responseEntity.getStatusCodeValue() == 200 && body.startsWith("<br />"))) {
             jo.put("html", body);
         } else {
             jo = JSONObject.parseObject(body);
