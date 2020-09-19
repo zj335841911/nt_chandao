@@ -289,11 +289,13 @@ export class ProductPlanSubPlanGridViewBase extends GridViewBase {
             Object.assign(tempContext,args[0]);
         }
         let deResParameters: any[] = [];
-        deResParameters = [
-            { pathName: 'productplans', parameterName: 'productplan' },
-        ];
+        if(tempContext.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
         const parameters: any[] = [
-            { pathName: 'subproductplans', parameterName: 'subproductplan' },
+            { pathName: 'productplans', parameterName: 'productplan' },
         ];
         const _this: any = this;
         const openDrawer = (view: any, data: any) => {
@@ -309,14 +311,23 @@ export class ProductPlanSubPlanGridViewBase extends GridViewBase {
             });
         }
         const view: any = {
-            viewname: 'product-plan-sub-plan-edit-view', 
+            viewname: 'product-plan-main-data-edit-view', 
             height: 0, 
             width: 0,  
-            title: this.$t('entities.subproductplan.views.subplaneditview.title'),
-            placement: 'DRAWER_RIGHT',
+            title: this.$t('entities.productplan.views.maindataeditview.title'),
+            placement: 'DRAWER_TOP',
         };
         openDrawer(view, data);
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof ProductPlanSubPlanGridViewBase
+     */
+    protected isGridSingleSelect: boolean = true;
 }

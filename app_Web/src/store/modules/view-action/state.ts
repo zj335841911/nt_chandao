@@ -1085,7 +1085,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '54c7ba4afb6222c4c0af04a78a0592df',
+                'b9a10eb0b5a55e40c69c61387de5894a',
                 '170c1d558f26cf37236390b28f8aca82',
             ],
         },
@@ -1203,15 +1203,6 @@ export const viewstate: any = {
             viewtag: '54a5f5fa5f8def88d2aec9c7ee6d85fe',
             viewmodule: 'zentao',
             viewname: 'StoryPlanSubEditView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
-            viewtag: '54c7ba4afb6222c4c0af04a78a0592df',
-            viewmodule: 'zentao',
-            viewname: 'ProductPlanSubPlanEditView',
             viewaction: '',
             viewdatachange: false,
             refviews: [
