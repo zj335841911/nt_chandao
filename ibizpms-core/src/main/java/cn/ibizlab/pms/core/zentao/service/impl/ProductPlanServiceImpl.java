@@ -63,6 +63,10 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProductPlanGetBedinANDEndLogic getbedinandendLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProductPlanGetOldPlanNameLogic getoldplannameLogic;
 
     protected int batchSize = 500;
@@ -123,6 +127,8 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Override
     @Transactional
     public ProductPlan get(Long key) {
+        ProductPlan tempET=new ProductPlan();
+        tempET.set("id",key);
         ProductPlan et = getById(key);
         if(et==null){
             et=new ProductPlan();
@@ -130,6 +136,7 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
         }
         else{
         }
+        getbedinandendLogic.execute(et);
         return et;
     }
 

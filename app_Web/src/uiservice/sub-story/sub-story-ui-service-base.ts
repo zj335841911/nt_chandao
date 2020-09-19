@@ -100,20 +100,28 @@ export default class SubStoryUIServiceBase extends UIService {
     public initDeMainStateMap(){
         this.allDeMainStateMap.set('active__0__0','active__0__0');
         this.allDeMainStateMap.set('active__0__1','active__0__1');
+        this.allDeMainStateMap.set('active__0__2','active__0__2');
         this.allDeMainStateMap.set('active__1__0','active__1__0');
         this.allDeMainStateMap.set('active__1__1','active__1__1');
+        this.allDeMainStateMap.set('active__1__2','active__1__2');
         this.allDeMainStateMap.set('changed__0__0','changed__0__0');
         this.allDeMainStateMap.set('changed__0__1','changed__0__1');
+        this.allDeMainStateMap.set('changed__0__2','changed__0__2');
         this.allDeMainStateMap.set('changed__1__0','changed__1__0');
         this.allDeMainStateMap.set('changed__1__1','changed__1__1');
+        this.allDeMainStateMap.set('changed__1__2','changed__1__2');
         this.allDeMainStateMap.set('closed__0__0','closed__0__0');
         this.allDeMainStateMap.set('closed__0__1','closed__0__1');
+        this.allDeMainStateMap.set('closed__0__2','closed__0__2');
         this.allDeMainStateMap.set('closed__1__0','closed__1__0');
         this.allDeMainStateMap.set('closed__1__1','closed__1__1');
+        this.allDeMainStateMap.set('closed__1__2','closed__1__2');
         this.allDeMainStateMap.set('draft__0__0','draft__0__0');
         this.allDeMainStateMap.set('draft__0__1','draft__0__1');
+        this.allDeMainStateMap.set('draft__0__2','draft__0__2');
         this.allDeMainStateMap.set('draft__1__0','draft__1__0');
         this.allDeMainStateMap.set('draft__1__1','draft__1__1');
+        this.allDeMainStateMap.set('draft__1__2','draft__1__2');
     }
 
     /**
@@ -123,21 +131,29 @@ export default class SubStoryUIServiceBase extends UIService {
      */  
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('active__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('active__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_DELETE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__0__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('active__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('active__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__1__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('changed__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('changed__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('changed__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('changed__0__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('changed__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('changed__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('changed__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('changed__1__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('closed__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__0__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('closed__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_DELETE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('draft__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('draft__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('draft__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('draft__0__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('draft__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('draft__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('draft__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('draft__1__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
     }
 
 
