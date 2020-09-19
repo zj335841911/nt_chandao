@@ -169,6 +169,7 @@ export const AppComponents = {
         v.component('app-update-password',UpdatePwd);
         v.component('app-department-select', () => import('./components/app-department-select/app-department-select.vue'));
         v.component('app-org-select', () => import('./components/app-org-select/app-org-select.vue'));
+        v.component('comb-form-item', () => import('./ibiz-project-core/components/comb-form-item/comb-form-item.vue'));
         v.component('action-timeline', ActionTimeline);
     },
 };

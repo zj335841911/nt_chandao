@@ -127,7 +127,10 @@ export default class ProjectService extends ProjectServiceBase {
         }
         if(context.planid) {
             let srfarray: any = [{plans: context.planid,branchs: context.branch,products:context.product}];
-            res.data.srfarray = srfarray;
+            res.data.plans = context.planid;
+            res.branchs = context.branch;
+            res.products = context.product;
+            res.data.srfarray = JSON.stringify(srfarray);
         }
         res.data.project = data.project;
         this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
