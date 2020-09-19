@@ -60,6 +60,7 @@
     <!--数据查询[MyTodo]-->
     <sql id="MyTodo" databaseId="mysql">
 		<![CDATA[ SELECT t1.`ACCOUNT`, t1.`ASSIGNEDBY`, t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`BEGIN`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CONFIG`, t1.`CYCLE`, t1.`DATE`, (case when t1.`DATE` = '2030-01-01' then '待定' else t1.`DATE` end) AS `DATE1`, t1.`END`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`ID`, t1.`IDVALUE`, t1.`NAME`, t1.`PRI`, t1.`PRIVATE`, t1.`STATUS`, t1.`TYPE` FROM `zt_todo` t1  
+					 WHERE 	( t1.`ACCOUNT` =  #{srf.sessioncontext.srfloginname}  AND  t1.`CYCLE` = 0 )
 			]]>
     </sql>
     <!--数据查询[MyUpcoming]-->
