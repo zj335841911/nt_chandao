@@ -57,6 +57,25 @@ export default class Main3Model {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'srfmstag',
+        },
+        {
+          name: 'srfmajortext',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'story',
           prop: 'id',
         },

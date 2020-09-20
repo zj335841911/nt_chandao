@@ -87,6 +87,25 @@ export default class MainGridModel {
           dataType: 'ONE2MANYDATA',
         },
         {
+          name: 'srfmstag',
+        },
+        {
+          name: 'srfmajortext',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
+        },
+        {
           name: 'case',
           prop: 'id',
         },

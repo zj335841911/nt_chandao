@@ -92,6 +92,25 @@ export default class TestMainGridModel {
           dataType: 'ONE2MANYDATA',
         },
         {
+          name: 'srfmstag',
+        },
+        {
+          name: 'srfmajortext',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'case',
           prop: 'id',
         },

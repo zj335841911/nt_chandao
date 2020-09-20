@@ -62,6 +62,22 @@ export default class MainModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'srfmajortext',
+          prop: 'account',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
+        },
+        {
           name: 'projectteam',
           prop: 'id',
         },

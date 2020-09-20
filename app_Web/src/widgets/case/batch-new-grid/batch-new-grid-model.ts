@@ -51,6 +51,25 @@ export default class BatchNewModel {
           isEditable:true
         },
         {
+          name: 'srfmstag',
+        },
+        {
+          name: 'srfmajortext',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'case',
           prop: 'id',
         },

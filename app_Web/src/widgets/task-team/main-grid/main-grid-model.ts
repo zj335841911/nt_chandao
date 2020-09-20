@@ -47,6 +47,22 @@ export default class MainModel {
           dataType: 'DECIMAL',
         },
         {
+          name: 'srfmajortext',
+          prop: 'account',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
+        },
+        {
           name: 'task',
           prop: 'root',
           dataType: 'FONTKEY',

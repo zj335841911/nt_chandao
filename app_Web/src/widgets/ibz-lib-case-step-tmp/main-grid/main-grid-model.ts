@@ -45,6 +45,22 @@ export default class MainModel {
           isEditable:true
         },
         {
+          name: 'srfmajortext',
+          prop: 'expect',
+          dataType: 'LONGTEXT',
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
+        },
+        {
           name: 'ibzcase',
           prop: 'ibizcase',
           dataType: 'FONTKEY',

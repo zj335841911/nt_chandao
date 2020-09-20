@@ -52,6 +52,22 @@ export default class MainModel {
           dataType: 'DATETIME',
         },
         {
+          name: 'srfmajortext',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
+        },
+        {
           name: 'testsuite',
           prop: 'id',
         },

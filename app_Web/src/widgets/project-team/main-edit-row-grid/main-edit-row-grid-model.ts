@@ -57,6 +57,22 @@ export default class Main_EditRowModel {
           isEditable:true
         },
         {
+          name: 'srfmajortext',
+          prop: 'account',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
+        },
+        {
           name: 'projectteam',
           prop: 'id',
         },

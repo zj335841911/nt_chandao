@@ -49,6 +49,22 @@ export default class Main_RowEdit_CarryOutModel {
           isEditable:true
         },
         {
+          name: 'srfmajortext',
+          prop: 'expect',
+          dataType: 'LONGTEXT',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'case',
           prop: 'ibizcase',
           dataType: 'FONTKEY',
