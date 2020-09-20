@@ -84,6 +84,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '077af636991c5ae68e1bc260baffc10f',
+            viewmodule: 'ibizpro',
+            viewname: 'IBZProStoryGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '75ddfe042245299b90c10c572b3d9436',
+            ],
+        },
+        {
             viewtag: '0846a45e5ffdd4d8f857575cfa955dce',
             viewmodule: 'zentao',
             viewname: 'ProductHtmlView',
@@ -397,8 +407,10 @@ export const viewstate: any = {
                 '0bd16cd21ee2e8951fb8a86599ac1510',
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
                 '0f3dff62ef8bcb1662cc82e57a34c56b',
+                'f9dd61cc8713a81451f3cb410cf11bbb',
                 '0846a45e5ffdd4d8f857575cfa955dce',
                 '8c8adbf0a7db27078e01a8b32716fa71',
+                '3b4ab1882a49962f12900abeeddf60f0',
                 'CC49500F-030F-458F-82DF-F88F6973DF64',
                 'D1283E46-401A-4CFD-A7A1-BF5B90197463',
                 '4fcd2a15ff88a97425e1ab1cadc5eb9f',
@@ -406,6 +418,7 @@ export const viewstate: any = {
                 'e698418f007d36b627d6af23c1042f31',
                 'e2f8bc0ff75f204383d2a5c15117b476',
                 '8ca39819b87c5e3e8669fcd7409cf9a2',
+                '077af636991c5ae68e1bc260baffc10f',
             ],
         },
         {
@@ -751,6 +764,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '3b4ab1882a49962f12900abeeddf60f0',
+            viewmodule: 'zentao',
+            viewname: 'ProductWizardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '8eb13e4fe49406265e2ed5fb1e0a6b53',
+            ],
+        },
+        {
             viewtag: '3d56b0e37a56b9be1a28589c04f573fa',
             viewmodule: 'zentao',
             viewname: 'TestReportMainInfoView',
@@ -1056,6 +1079,15 @@ export const viewstate: any = {
             refviews: [
                 'b9a10eb0b5a55e40c69c61387de5894a',
                 '170c1d558f26cf37236390b28f8aca82',
+            ],
+        },
+        {
+            viewtag: '500a15957867996d6e20e7a37db8b004',
+            viewmodule: 'ibizpro',
+            viewname: 'IBZProStoryModuleEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1568,6 +1600,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '75ddfe042245299b90c10c572b3d9436',
+            viewmodule: 'ibizpro',
+            viewname: 'IBZProStoryEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '76bd64e6d21e10838e42517992e58c65',
             viewmodule: 'zentao',
             viewname: 'StoryTabExpView',
@@ -1879,6 +1920,15 @@ export const viewstate: any = {
                 '928e6614bcfbd67af3b596cf5dc5a46b',
                 '3f2ca3e560d9082bb56fbf7667a57a66',
                 '0bfc1d5ae45c2a74d3b58739784ec7f7',
+            ],
+        },
+        {
+            viewtag: '87ca9109af86ed2745dcf7aa21294541',
+            viewmodule: 'ibizpro',
+            viewname: 'IBZProStoryModuleOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -3471,6 +3521,17 @@ export const viewstate: any = {
                 '1540523a668e920d831510cfbec2c5e2',
                 '46517a803b2470cd0bef27aeda0dbcaf',
                 '8af65044ab1633eb5b68d99478e9350f',
+            ],
+        },
+        {
+            viewtag: 'f9dd61cc8713a81451f3cb410cf11bbb',
+            viewmodule: 'ibizpro',
+            viewname: 'IBZProStoryModuleGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '87ca9109af86ed2745dcf7aa21294541',
+                '500a15957867996d6e20e7a37db8b004',
             ],
         },
         {
