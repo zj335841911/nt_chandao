@@ -1,4 +1,4 @@
-<exp-control-layout :selectView="selection.view">
+<exp-control-layout :ctrlWidth="200" :selectView="selection.view">
     <template slot='quickSearch'>
         <i-input :search="true" @on-change="e => searchText = $event.target.value" @on-search="onSearch.apply(_self, arguments)"/>
     </template>
