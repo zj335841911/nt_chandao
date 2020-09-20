@@ -51,6 +51,16 @@ export default class MainModel {
           isEditable:true
         },
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'task',
+          prop: 'task',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmajortext',
           prop: 'id',
           dataType: 'ACID',

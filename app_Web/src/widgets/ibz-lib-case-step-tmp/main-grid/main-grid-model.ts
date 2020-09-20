@@ -45,6 +45,17 @@ export default class MainModel {
           isEditable:true
         },
         {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'case',
+          prop: 'ibizcase',
+          dataType: 'PICKUP',
+          isEditable:true
+        },
+        {
           name: 'srfmajortext',
           prop: 'expect',
           dataType: 'LONGTEXT',

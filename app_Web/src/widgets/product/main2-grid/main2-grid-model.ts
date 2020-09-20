@@ -52,6 +52,11 @@ export default class Main2Model {
           dataType: 'PICKUPTEXT',
         },
         {
+          name: 'line',
+          prop: 'line',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmstag',
         },
         {

@@ -45,6 +45,33 @@ export default class MainRowModel {
           isEditable:true
         },
         {
+          name: 'root',
+          prop: 'root',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'branch_text',
+          prop: 'branch',
+          dataType: 'INT',
+        },
+        {
+          name: 'owner',
+          prop: 'owner',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+          isEditable:true
+        },
+        {
+          name: 'type',
+          prop: 'type',
+          dataType: 'TEXT',
+          isEditable:true
+        },
+        {
           name: 'srfmajortext',
           prop: 'name',
           dataType: 'TEXT',

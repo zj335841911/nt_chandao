@@ -42,6 +42,11 @@ export default class PlatformManagementModel {
           dataType: 'INT',
         },
         {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmajortext',
           prop: 'name',
           dataType: 'TEXT',

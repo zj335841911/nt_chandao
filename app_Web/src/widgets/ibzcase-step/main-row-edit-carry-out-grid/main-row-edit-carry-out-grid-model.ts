@@ -49,6 +49,23 @@ export default class Main_RowEdit_CarryOutModel {
           isEditable:true
         },
         {
+          name: 'files',
+          prop: 'files',
+          dataType: 'TEXT',
+          isEditable:true
+        },
+        {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
+          isEditable:true
+        },
+        {
           name: 'srfmajortext',
           prop: 'expect',
           dataType: 'LONGTEXT',
@@ -63,6 +80,27 @@ export default class Main_RowEdit_CarryOutModel {
           name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',
+        },
+        {
+          name: 'runid',
+          prop: 'runid',
+          dataType: 'INT',
+        },
+        {
+          name: 'version',
+          prop: 'version',
+          dataType: 'PICKUPDATA',
+        },
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'case',
+          prop: 'ibizcase',
+          dataType: 'PICKUP',
+          isEditable:true
         },
         {
           name: 'case',

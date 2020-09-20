@@ -47,6 +47,11 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmajortext',
           prop: 'name',
           dataType: 'TEXT',

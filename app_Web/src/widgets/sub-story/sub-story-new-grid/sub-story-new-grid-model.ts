@@ -81,12 +81,28 @@ export default class SubStoryNewModel {
           isEditable:true
         },
         {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+          isEditable:true
+        },
+        {
+          name: 'frombug',
+          prop: 'frombug',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmstag',
         },
         {
           name: 'srfmajortext',
           prop: 'title',
           dataType: 'TEXT',
+        },
+        {
+          name: 'tobug',
+          prop: 'tobug',
+          dataType: 'PICKUP',
         },
         {
           name: 'srfkey',
@@ -98,6 +114,21 @@ export default class SubStoryNewModel {
           name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',
+        },
+        {
+          name: 'branch',
+          prop: 'branch',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'duplicatestory',
+          prop: 'duplicatestory',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'plan_text',
+          prop: 'plan',
+          dataType: 'LONGTEXT',
         },
         {
           name: 'substory',

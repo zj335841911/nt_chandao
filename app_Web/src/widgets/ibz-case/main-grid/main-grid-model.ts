@@ -57,6 +57,11 @@ export default class MainModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmajortext',
           prop: 'title',
           dataType: 'TEXT',

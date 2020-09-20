@@ -32,6 +32,21 @@ export default class MainProjectModel {
           dataType: 'TEXT',
         },
         {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'branch',
+          prop: 'branch',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmstag',
         },
         {

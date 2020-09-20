@@ -87,6 +87,31 @@ export default class MyFavoriteMainModel {
           dataType: 'DATE',
         },
         {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'tasktype',
+          prop: 'tasktype',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'frombug',
+          prop: 'frombug',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmstag',
         },
         {
@@ -104,6 +129,21 @@ export default class MyFavoriteMainModel {
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
+        },
+        {
+          name: 'story',
+          prop: 'story',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'project',
+          prop: 'project',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
         },
         {
           name: 'task',

@@ -77,6 +77,11 @@ export default class Main_BuildSubModel {
           dataType: 'TEXT',
         },
         {
+          name: 'tostory',
+          prop: 'tostory',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmstag',
         },
         {
@@ -94,6 +99,71 @@ export default class Main_BuildSubModel {
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
+        },
+        {
+          name: 'duplicatebug',
+          prop: 'duplicatebug',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'story',
+          prop: 'story',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'repo',
+          prop: 'repo',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'totask',
+          prop: 'totask',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'task',
+          prop: 'task',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'testtask',
+          prop: 'testtask',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'project',
+          prop: 'project',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'plan',
+          prop: 'plan',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'entry',
+          prop: 'entry',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'branch',
+          prop: 'branch',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'case',
+          prop: 'ibizcase',
+          dataType: 'PICKUP',
         },
         {
           name: 'bug',

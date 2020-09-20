@@ -47,6 +47,21 @@ export default class MyUpcomingModel {
           dataType: 'TEXT',
         },
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'type',
+          prop: 'type',
+          dataType: 'TEXT',
+        },
+        {
           name: 'srfmstag',
         },
         {
@@ -64,6 +79,11 @@ export default class MyUpcomingModel {
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
+        },
+        {
+          name: 'end',
+          prop: 'end',
+          dataType: 'NSCODELIST',
         },
         {
           name: 'todo',

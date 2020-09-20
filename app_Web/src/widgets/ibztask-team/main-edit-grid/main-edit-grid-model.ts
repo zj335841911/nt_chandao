@@ -51,6 +51,23 @@ export default class MainEditModel {
           isEditable:true
         },
         {
+          name: 'root',
+          prop: 'root',
+          dataType: 'PICKUP',
+          isEditable:true
+        },
+        {
+          name: 'account_text',
+          prop: 'account',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
+          isEditable:true
+        },
+        {
           name: 'srfmajortext',
           prop: 'account',
           dataType: 'TEXT',

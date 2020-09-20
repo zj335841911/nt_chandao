@@ -97,6 +97,26 @@ export default class PivotTableModel {
           dataType: 'PICKUPTEXT',
         },
         {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'tasktype',
+          prop: 'tasktype',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'frombug',
+          prop: 'frombug',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmstag',
         },
         {
@@ -114,6 +134,16 @@ export default class PivotTableModel {
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
+        },
+        {
+          name: 'story',
+          prop: 'story',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'project',
+          prop: 'project',
+          dataType: 'PICKUP',
         },
         {
           name: 'task',

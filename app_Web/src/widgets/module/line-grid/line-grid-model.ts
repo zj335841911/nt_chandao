@@ -39,6 +39,22 @@ export default class LineModel {
           isEditable:true
         },
         {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'branch',
+          prop: 'branch',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
+          isEditable:true
+        },
+        {
           name: 'srfmajortext',
           prop: 'name',
           dataType: 'TEXT',

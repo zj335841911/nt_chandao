@@ -37,6 +37,26 @@ export default class MainSubPlanModel {
           dataType: 'TEXT',
         },
         {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'statuss',
+          prop: 'statuss',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'branch',
+          prop: 'branch',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmstag',
         },
         {
@@ -54,6 +74,16 @@ export default class MainSubPlanModel {
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
+        },
+        {
+          name: 'end',
+          prop: 'end',
+          dataType: 'DATE',
+        },
+        {
+          name: 'begin',
+          prop: 'begin',
+          dataType: 'DATE',
         },
         {
           name: 'productplan',

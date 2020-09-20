@@ -57,12 +57,32 @@ export default class Main3Model {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'frombug',
+          prop: 'frombug',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmstag',
         },
         {
           name: 'srfmajortext',
           prop: 'title',
           dataType: 'TEXT',
+        },
+        {
+          name: 'tobug',
+          prop: 'tobug',
+          dataType: 'PICKUP',
         },
         {
           name: 'srfkey',
@@ -74,6 +94,31 @@ export default class Main3Model {
           name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'branch',
+          prop: 'branch',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'duplicatestory',
+          prop: 'duplicatestory',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'ischild',
+          prop: 'ischild',
+          dataType: 'TEXT',
         },
         {
           name: 'story',

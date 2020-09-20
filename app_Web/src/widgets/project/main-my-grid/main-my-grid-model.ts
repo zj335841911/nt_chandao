@@ -72,6 +72,11 @@ export default class MainMyModel {
           dataType: 'DECIMAL',
         },
         {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmstag',
         },
         {

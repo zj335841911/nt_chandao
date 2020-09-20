@@ -52,6 +52,11 @@ export default class MainModel {
           dataType: 'DATE',
         },
         {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmstag',
         },
         {

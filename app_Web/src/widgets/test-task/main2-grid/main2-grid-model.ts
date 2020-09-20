@@ -62,6 +62,16 @@ export default class Main2Model {
           dataType: 'DATE',
         },
         {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'project',
+          prop: 'project',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmstag',
         },
         {

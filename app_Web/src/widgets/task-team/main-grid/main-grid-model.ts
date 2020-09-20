@@ -47,6 +47,11 @@ export default class MainModel {
           dataType: 'DECIMAL',
         },
         {
+          name: 'root',
+          prop: 'root',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmajortext',
           prop: 'account',
           dataType: 'TEXT',

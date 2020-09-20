@@ -57,6 +57,16 @@ export default class MainRModel {
           dataType: 'TEXT',
         },
         {
+          name: 'files',
+          prop: 'files',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmajortext',
           prop: 'expect',
           dataType: 'LONGTEXT',
@@ -71,6 +81,16 @@ export default class MainRModel {
           name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',
+        },
+        {
+          name: 'version',
+          prop: 'version',
+          dataType: 'PICKUPDATA',
+        },
+        {
+          name: 'case',
+          prop: 'ibizcase',
+          dataType: 'PICKUP',
         },
         {
           name: 'case',

@@ -87,6 +87,33 @@ export default class SubTaskNewModel {
           isEditable:true
         },
         {
+          name: 'tasktype',
+          prop: 'tasktype',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+          isEditable:true
+        },
+        {
+          name: 'frombug',
+          prop: 'frombug',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'isleaf',
+          prop: 'isleaf',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+          isEditable:true
+        },
+        {
           name: 'srfmstag',
         },
         {
@@ -103,6 +130,35 @@ export default class SubTaskNewModel {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
+          isEditable:true
+        },
+        {
+          name: 'assignedto_text',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'project',
+          prop: 'project',
+          dataType: 'PICKUP',
+          isEditable:true
+        },
+        {
+          name: 'story',
+          prop: 'story',
+          dataType: 'PICKUP',
+          isEditable:true
+        },
+        {
+          name: 'allmodules',
+          prop: 'allmodules',
+          dataType: 'TEXT',
+          isEditable:true
+        },
+        {
+          name: 'left',
+          prop: 'left',
+          dataType: 'FLOAT',
           isEditable:true
         },
         {

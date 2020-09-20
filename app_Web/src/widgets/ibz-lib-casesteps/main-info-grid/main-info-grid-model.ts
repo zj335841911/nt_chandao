@@ -47,6 +47,11 @@ export default class MainInfoModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmajortext',
           prop: 'expect',
           dataType: 'LONGTEXT',

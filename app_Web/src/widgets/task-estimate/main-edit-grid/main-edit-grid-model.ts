@@ -52,6 +52,11 @@ export default class MainEditModel {
           dataType: 'LONGTEXT',
         },
         {
+          name: 'task',
+          prop: 'task',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmajortext',
           prop: 'id',
           dataType: 'ACID',

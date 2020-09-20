@@ -37,6 +37,26 @@ export default class MainProjectModel {
           dataType: 'TEXT',
         },
         {
+          name: 'linename',
+          prop: 'linename',
+          dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'line',
+          prop: 'line',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'srfmstag',
         },
         {

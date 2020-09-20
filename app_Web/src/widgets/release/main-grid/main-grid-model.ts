@@ -52,6 +52,21 @@ export default class MainModel {
           dataType: 'DATE',
         },
         {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'branch',
+          prop: 'branch',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'build',
+          prop: 'build',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmstag',
         },
         {

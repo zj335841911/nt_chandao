@@ -57,6 +57,21 @@ export default class Main_EditRowModel {
           isEditable:true
         },
         {
+          name: 'username',
+          prop: 'username',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'root',
+          prop: 'root',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'account_text',
+          prop: 'account',
+          dataType: 'TEXT',
+        },
+        {
           name: 'srfmajortext',
           prop: 'account',
           dataType: 'TEXT',

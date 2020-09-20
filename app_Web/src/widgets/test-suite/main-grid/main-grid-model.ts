@@ -52,6 +52,11 @@ export default class MainModel {
           dataType: 'DATETIME',
         },
         {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmajortext',
           prop: 'name',
           dataType: 'TEXT',

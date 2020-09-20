@@ -52,6 +52,11 @@ export default class TestModel {
           dataType: 'PICKUPTEXT',
         },
         {
+          name: 'line',
+          prop: 'line',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmstag',
         },
         {

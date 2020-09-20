@@ -91,6 +91,16 @@ export default class MainModel {
           isEditable:true
         },
         {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'project',
+          prop: 'project',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'testtask',
           prop: 'id',
         },

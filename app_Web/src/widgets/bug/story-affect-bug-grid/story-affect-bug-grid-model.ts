@@ -62,6 +62,31 @@ export default class StoryAffectBugModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'totask',
+          prop: 'totask',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'task',
+          prop: 'task',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'testtask',
+          prop: 'testtask',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'tostory',
+          prop: 'tostory',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'srfmstag',
         },
         {
@@ -79,6 +104,51 @@ export default class StoryAffectBugModel {
           name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',
+        },
+        {
+          name: 'duplicatebug',
+          prop: 'duplicatebug',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'project',
+          prop: 'project',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'story',
+          prop: 'story',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'plan',
+          prop: 'plan',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'repo',
+          prop: 'repo',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'entry',
+          prop: 'entry',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'branch',
+          prop: 'branch',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'case',
+          prop: 'ibizcase',
+          dataType: 'PICKUP',
         },
         {
           name: 'bug',
