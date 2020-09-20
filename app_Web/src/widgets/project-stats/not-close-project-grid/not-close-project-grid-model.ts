@@ -27,9 +27,14 @@ export default class NotCloseProjectModel {
     }else{
 		  return [
         {
-          name: 'totalleft',
-          prop: 'totalleft',
-          dataType: 'FLOAT',
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'end',
+          prop: 'end',
+          dataType: 'DATE',
         },
         {
           name: 'status',
@@ -37,19 +42,29 @@ export default class NotCloseProjectModel {
           dataType: 'TEXT',
         },
         {
-          name: 'totalconsumed',
-          prop: 'totalconsumed',
-          dataType: 'FLOAT',
-        },
-        {
           name: 'totalestimate',
           prop: 'totalestimate',
           dataType: 'FLOAT',
         },
         {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
+          name: 'totalconsumed',
+          prop: 'totalconsumed',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'totalleft',
+          prop: 'totalleft',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'totalwh',
+          prop: 'totalwh',
+          dataType: 'INT',
+        },
+        {
+          name: 'progress',
+          prop: 'totalconsumed',
+          dataType: 'FLOAT',
         },
         {
           name: 'srfmajortext',
@@ -66,16 +81,6 @@ export default class NotCloseProjectModel {
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
-        },
-        {
-          name: 'end',
-          prop: 'end',
-          dataType: 'DATE',
-        },
-        {
-          name: 'totalwh',
-          prop: 'totalwh',
-          dataType: 'INT',
         },
         {
           name: 'projectstats',

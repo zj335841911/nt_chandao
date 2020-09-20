@@ -57,15 +57,12 @@ export class ProjectTaskTreeExpViewBase extends TreeExpViewBase {
      */
     public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
-
     /**
-     * 计数器服务对象集合
+     * 是否显示信息栏
      *
-     * @protected
-     * @type {Array<*>}
      * @memberof ProjectTaskTreeExpViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -111,6 +108,15 @@ export class ProjectTaskTreeExpViewBase extends TreeExpViewBase {
      * @memberof ProjectTaskTreeExpViewBase
      */
     public engine: TreeExpViewEngine = new TreeExpViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProjectTaskTreeExpViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

@@ -11,5 +11,6 @@ public interface IIBZZTFileService
 {
     ZTFileItem saveFile(MultipartFile multipartFile);
     ZTFileItem saveFile(MultipartFile multipartFile, JSONObject params);
+    ZTFileItem saveFile(File file, JSONObject params);
     ZTDownloadFile getFile(String fileId);
 }

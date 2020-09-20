@@ -27,6 +27,30 @@ export default class BatchNewModel {
     }else{
 		  return [
         {
+          name: 'modulename',
+          prop: 'modulename',
+          dataType: 'PICKUPTEXT',
+          isEditable:true
+        },
+        {
+          name: 'storyname',
+          prop: 'storyname',
+          dataType: 'PICKUPTEXT',
+          isEditable:true
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+          isEditable:true
+        },
+        {
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
+          isEditable:true
+        },
+        {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
@@ -36,18 +60,6 @@ export default class BatchNewModel {
           name: 'frombug',
           prop: 'frombug',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'storyname',
-          prop: 'storyname',
-          dataType: 'PICKUPTEXT',
-          isEditable:true
-        },
-        {
-          name: 'type',
-          prop: 'type',
-          dataType: 'SSCODELIST',
-          isEditable:true
         },
         {
           name: 'srfmstag',
@@ -75,21 +87,9 @@ export default class BatchNewModel {
           isEditable:true
         },
         {
-          name: 'modulename',
-          prop: 'modulename',
-          dataType: 'PICKUPTEXT',
-          isEditable:true
-        },
-        {
           name: 'story',
           prop: 'story',
           dataType: 'PICKUP',
-          isEditable:true
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
           isEditable:true
         },
         {

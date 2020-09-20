@@ -20,6 +20,13 @@ export default {
         "bydesign": "设计如此",
         "empty": "",
     },
+    RELEASE_rebuild: {
+        "0": "无操作",
+        "1": "快速（删除本地项目与代码仓库多余文件）",
+        "4": "修复模型",
+        "2": "完整（完全重建本地项目及代码仓库）",
+        "empty": "",
+    },
     Task__color: {
         "#3da7f5": "#3da7f5",
         "#75c941": "#75c941",
@@ -39,6 +46,9 @@ export default {
         "WAITCLOSED": "由我关闭",
         "empty": "",
     },
+    Backendservicesystem: {
+        "empty": "",
+    },
     StoryQuickpacketMy: {
         "TOME": "指给我",
         "ICREATE": "由我创建",
@@ -47,6 +57,9 @@ export default {
         "empty": "",
     },
     RealNameProjectM: {
+        "empty": "",
+    },
+    SQLBuild: {
         "empty": "",
     },
     Project__status: {
@@ -100,6 +113,9 @@ export default {
     ProductBranch: {
         "empty": "",
     },
+    RunSQL: {
+        "empty": "",
+    },
     CurProductBuild: {
         "empty": "",
     },
@@ -108,6 +124,18 @@ export default {
         "2": "2",
         "3": "3",
         "4": "4",
+        "empty": "",
+    },
+    RELEASE_Type: {
+        "DEPLOYPKG": "部署系统组件到仓库",
+        "PACKMOBAPP": "打包移动应用",
+        "PACKVER": "打包版本",
+        "PUBCODE": "代码发布",
+        "PUBCODE2": "代码发布（模板开发）",
+        "STARTMSAPI": "启动微服务",
+        "STARTMSAPP": "启动微服务应用",
+        "STARTMSFUNC": "启动微服务功能",
+        "STARTX": "启动系统",
         "empty": "",
     },
     Bug__browser: {
@@ -159,6 +187,9 @@ export default {
         "1": "1",
         "empty": "",
     },
+    APPBuild: {
+        "empty": "",
+    },
     Story__review_result: {
         "pass": "确认通过",
         "revert": "撤销变更",
@@ -174,11 +205,24 @@ export default {
         "TOME": "需求变动",
         "empty": "",
     },
+    SystemAPP: {
+        "empty": "",
+    },
     Role: {
         "empty": "",
     },
     Date_disable: {
         "on": "待定",
+        "empty": "",
+    },
+    TaskStatusCK: {
+        "wait": "未开始",
+        "doing": "进行中",
+        "done": "已完成",
+        "pause": "已暂停",
+        "cancel": "已取消",
+        "closed": "已关闭",
+        "storychange": "需求变更",
         "empty": "",
     },
     Testtask__pri: {
@@ -418,6 +462,9 @@ export default {
         "released": "已发布",
         "empty": "",
     },
+    ProjectTeam: {
+        "empty": "",
+    },
     UserRealNameTaskTeam: {
         "empty": "",
     },
@@ -453,6 +500,9 @@ export default {
         "terminate": "停止维护",
         "empty": "",
     },
+    BackendBuild: {
+        "empty": "",
+    },
     Testcase__stage: {
         "unittest": "单元测试阶段",
         "feature": "功能测试阶段",
@@ -486,6 +536,7 @@ export default {
         "All": "所有",
         "UNCLOSED": "未关闭",
         "TOME": "指派给我",
+        "storychange": "需求变更",
         "MORE": "更多",
         "NOTSTARTED": "未开始",
         "INPROGRESS": "进行中",
@@ -893,6 +944,7 @@ export default {
         "bug": "Bug",
         "forum": "论坛",
         "other": "其它",
+        "iBiz": "iBiz",
         "empty": "",
     },
     Testcase__pri: {

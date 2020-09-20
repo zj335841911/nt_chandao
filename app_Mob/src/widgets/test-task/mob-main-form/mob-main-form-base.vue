@@ -1,5 +1,5 @@
 <template>
-    <div ref='form' class="app-form ">
+    <div ref='form' class="app-form testtask-form ">
                 
 
 <app-form-group 
@@ -199,7 +199,6 @@
 
     </div>
 </template>
-
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';

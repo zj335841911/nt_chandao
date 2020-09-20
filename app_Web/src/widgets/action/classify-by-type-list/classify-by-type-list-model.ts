@@ -23,6 +23,9 @@ export default class ClassifyByTypeModel {
 				dataType: 'SSCODELIST',
 			},
 			{
+				name: 'isactorss',
+			},
+			{
 				name: 'actor',
         codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
 			},

@@ -13,11 +13,66 @@
         </ion-toolbar>
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
+            <ion-button class="filter-btn" size="small" slot="end"  @click="openSearchform"><ion-icon  slot="end" name="filter-outline"></ion-icon>过滤</ion-button>  
         </ion-toolbar>
+
+    
     </ion-header>
 
+    <ion-menu side="start" content-id="searchformproductmobmdview" ref='searchformproductmobmdview'>
+        <ion-header>
+            <ion-toolbar translucent>
+            <ion-title>条件搜索</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <view_searchform
+    :viewState="viewState"
+    viewName="ProductMobMDView"  
+    :viewparams="viewparams" 
+    :context="context" 
+     
+    :viewtag="viewtag"
+    :showBusyIndicator="true"
+    updateAction=""
+    removeAction=""
+    loaddraftAction="FilterGetDraft"
+    loadAction="FilterGet"
+    createAction=""
+    WFSubmitAction=""
+    WFStartAction=""
+    style='' 
+    name="searchform"  
+    ref='searchform' 
+    @search="searchform_search($event)"  
+    @load="searchform_load($event)"  
+    @closeview="closeView($event)">
+</view_searchform>
+        </ion-content>
+        <ion-footer>
+        <div class="search-btn">
+            <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
+            <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
+        </div>
+        </ion-footer>
+    </ion-menu>
+    <div id="searchformproductmobmdview"></div>
 
     <ion-content>
+        <ion-refresher 
+            slot="fixed" 
+            ref="loadmore" 
+            pull-factor="0.5" 
+            pull-min="50" 
+            pull-max="100" 
+            @ionRefresh="pullDownToRefresh($event)">
+            <ion-refresher-content
+                pulling-icon="arrow-down-outline"
+                :pulling-text="$t('app.pulling_text')"
+                refreshing-spinner="circles"
+                refreshing-text="">
+            </ion-refresher-content>
+        </ion-refresher>
                 <view_mdctrl
             :viewState="viewState"
             viewName="ProductMobMDView"  
@@ -37,7 +92,6 @@
             @showCheackChange="showCheackChange"
             :isTempMode="false"
             :isEnableChoose="false"
-            :isEnableRefresh="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -46,20 +100,23 @@
             @load="mdctrl_load($event)"  
             @closeview="closeView($event)">
         </view_mdctrl>
+        <ion-infinite-scroll  @ionInfinite="loadMore" threshold="1px" v-if="this.isEnablePullUp">
+          <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
+    <ion-footer class="view-footer" style="z-index:9999;">
                 <div v-show="!showCheack" class = "fab_container">
-            <div class="bottom_menu">
-        
-        
-            <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
-                <ion-icon name="add"></ion-icon>
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
+                    <ion-icon name="add"></ion-icon>
                 
-            </ion-fab-button>
-        
-            </ion-fab>
+                </ion-button>
+                
             </div>
+        
         </div>
         
     </ion-footer>
@@ -262,6 +319,7 @@ export default class ProductMobMDViewBase extends Vue {
      * @memberof ProductMobMDViewBase
      */
     protected containerModel: any = {
+        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
         view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
@@ -282,6 +340,7 @@ export default class ProductMobMDViewBase extends Vue {
      * @memberof ProductMobMDViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
 
@@ -323,6 +382,24 @@ export default class ProductMobMDViewBase extends Vue {
         return toolBarVisable;
     }
 
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof ProductMobMDView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof ProductMobMDView 
+     */
+    public popUpGroup () {
+        this.showGrop = !this.showGrop;
+    }
+
     
 
 
@@ -360,6 +437,23 @@ export default class ProductMobMDViewBase extends Vue {
     }
 
     /**
+     * 下拉刷新
+     *
+     * @param {*} $event
+     * @returns {Promise<any>}
+     * @memberof ProductMobMDViewBase
+     */
+    public async pullDownToRefresh($event: any): Promise<any> {
+        let mdctrl: any = this.$refs.mdctrl;
+        if (mdctrl && mdctrl.pullDownToRefresh instanceof Function) {
+            const response: any = await mdctrl.pullDownToRefresh();
+            if (response) {
+                $event.srcElement.complete();
+            }
+        }
+    }
+
+    /**
      * 视图引擎
      *
      * @type {Engine}
@@ -382,6 +476,7 @@ export default class ProductMobMDViewBase extends Vue {
             newdata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
                 this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
             },
+            searchform: this.$refs.searchform,
             keyPSDEField: 'product',
             majorPSDEField: 'name',
             isLoadDefault: true,
@@ -419,6 +514,7 @@ export default class ProductMobMDViewBase extends Vue {
         this.setViewTitleStatus();
 
     }
+
 
     /**
      * 销毁之前
@@ -489,6 +585,28 @@ export default class ProductMobMDViewBase extends Vue {
             });
         }
 
+    }
+
+    /**
+     * searchform 部件 search 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductMobMDViewBase
+     */
+    protected searchform_search($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('searchform', 'search', $event);
+    }
+
+    /**
+     * searchform 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductMobMDViewBase
+     */
+    protected searchform_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('searchform', 'load', $event);
     }
 
     /**
@@ -605,13 +723,14 @@ export default class ProductMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'mobeditview', parameterName: 'mobeditview' },
-        ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
-        response = await this.globaluiservice.openService.openView(routeParam);
+        const view: any = { 
+            viewname: 'product-mob-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: '产品移动端编辑视图', 
+            placement: 'POPUPMODAL',
+        };
+        response = await this.globaluiservice.openService.openModal(view, _context, _params);
         if (response) {
             if (!response || !Object.is(response.ret, 'OK')) {
                 return;
@@ -703,9 +822,14 @@ export default class ProductMobMDViewBase extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
-        }else{
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
+        }
+        if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
         
@@ -746,6 +870,52 @@ export default class ProductMobMDViewBase extends Vue {
 
 
     /**
+     * 搜索表单状态
+     *
+     * @type {boolean}
+     * @memberof ProductMobMDViewBase
+     */
+    public searchformState: boolean = false;
+
+    /**
+     * 是否展开搜索表单
+     *
+     * @type {boolean}
+     * @memberof ProductMobMDViewBase
+     */
+    public isExpandSearchForm: boolean = false;
+
+    /**
+     * 执行搜索表单
+     *
+     * @memberof ProductMobMDViewBase
+     */
+    public onSearch(): void {
+        this.searchformState = false;
+        this.isExpandSearchForm = true;
+        const form: any = this.$refs.searchform;
+        if (form) {
+            form.onSearch();
+        }
+        this.closeSearchform();
+    }
+
+    /**
+     * 重置搜索表单
+     *
+     * @memberof ProductMobMDViewBase
+     */
+    public onReset(): void {
+        this.searchformState = false;
+        this.isExpandSearchForm = false;
+        const form: any = this.$refs.searchform;
+        if (form) {
+            form.onReset();
+        }
+        this.closeSearchform();
+    }
+
+    /**
      * 搜索值
      *
      * @type {string}
@@ -783,6 +953,15 @@ export default class ProductMobMDViewBase extends Vue {
      * @memberof ProductMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+
+   /**
+     * 能否上拉加载
+     *
+     * @type {boolean}
+     * @memberof ProductMobMDViewBase
+     */ 
+    @Prop({ default: true }) public isEnablePullUp?: boolean;
+
 
 
     /**
@@ -874,14 +1053,28 @@ export default class ProductMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof ProductMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;
         this.onViewLoad();
     }
 
-
+    /**
+     * 触底加载
+     *
+     * @param {*} value
+     * @memberof ProductMobMDViewBase
+     */
+    public async loadMore(event:any){
+      let mdctrl:any = this.$refs.mdctrl;
+      if(mdctrl && mdctrl.loadBottom && mdctrl.loadBottom instanceof Function){
+        mdctrl.loadBottom();
+      }
+      if(event.target && event.target.complete && event.target.complete instanceof Function){
+        event.target.complete();
+      }
+    }
 
 
 

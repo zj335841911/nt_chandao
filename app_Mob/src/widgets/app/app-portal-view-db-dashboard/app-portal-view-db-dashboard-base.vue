@@ -1,6 +1,7 @@
 <template>
-    <ion-grid class="app-mob-dashboard ">
-            <ion-card>
+    <ion-grid class="app-mob-dashboard  ">
+        <div v-show="isEnableCustomized" class="dashboard-enableCustomized" @click="openCustomized">定制仪表盘<ion-icon name="settings-outline"></ion-icon></div>
+            <ion-card class="dashboard-item" v-if="!isEnableCustomized">
             <view_db_appmenu1
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -11,7 +12,7 @@
     @closeview="closeView($event)">
 </view_db_appmenu1>
             </ion-card>
-            <ion-card>
+            <ion-card class="dashboard-item" v-if="!isEnableCustomized">
             <view_db_appmenu2
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -22,7 +23,7 @@
     @closeview="closeView($event)">
 </view_db_appmenu2>
             </ion-card>
-            <ion-card>
+            <ion-card class="dashboard-item" v-if="!isEnableCustomized">
             <view_db_appmenu3
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -33,6 +34,11 @@
     @closeview="closeView($event)">
 </view_db_appmenu3>
             </ion-card>
+            <template v-for="item in customizeModel">
+                <ion-card class="dashboard-item ios hydrated" :class="item.componentName + 'dashboard'"  :key="item.id" v-if="isEnableCustomized">
+                    <component :is="item.componentName" :item="item" :isCustomize="true" :customizeTitle="item.customizeTitle" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams" @enableCustomizedEvent="enableCustomizedEvent"></component>
+                </ion-card>
+            </template>
     </ion-grid>
 </template>
 
@@ -45,6 +51,7 @@ import GlobalUiService from '@/global-ui-service/global-ui-service';
 import AppPortalView_dbService from '@/app-core/ctrl-service/app/app-portal-view-db-dashboard-service';
 
 
+import UtilService from '@/utilservice/util-service';
 
 
 @Component({
@@ -145,6 +152,15 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
 
 
 
+    
+    /**
+     * 支持定制
+     *
+     * @type {boolean}
+     * @memberof AppPortalView_db
+     */
+    protected isEnableCustomized: boolean = false;
+
     /**
      * 获取多项数据
      *
@@ -154,6 +170,91 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
     public getDatas(): any[] {
         return [];
     }
+
+    /**
+     * modleId
+     *
+     * @type {string}
+     * @memberof AppPortalView_dbBase
+     */
+    public modelId:string = "dashboard_app_appportalview_db";
+
+
+    /**
+     * 功能服务名称
+     *
+     * @type {string}
+     * @memberof AppPortalView_dbBase
+     */
+    public utilServiceName:string = "dynadashboard";
+
+    /**
+     * 工具服务对象
+     *
+     * @protected
+     * @type {UtilService}
+     * @memberof AppPortalView_dbBase
+     */
+    protected utilService: UtilService = new UtilService();
+
+    /**
+     * 加载定制数据模型
+     *
+     * @param {string} serviceName
+     * @param {*} context
+     * @param {*} viewparams
+     * @memberof AppPortalView_dbBase
+     */
+    public loadModel(serviceName: string, context: any, viewparams: any) {
+        return new Promise((resolve: any, reject: any) => {
+            this.utilService.getService(serviceName).then((service: any) => {
+                service.loadModelData(JSON.stringify(context), viewparams).then((response: any) => {
+                    this.customizeModel = response.data;
+                    setTimeout(() => {
+                        this.customizeModel.forEach((item: any) => {
+                        this.viewState.next({ tag: item.portletCodeName, action: "", data: {} });});
+                    }, 1);
+                    resolve(response);
+                }).catch((response: any) => {
+                    reject(response);
+                });
+            }).catch((response: any) => {
+                reject(response);
+            });
+        });
+    }
+
+    /**
+     * 保存定制数据模型
+     *
+     * @param {string} serviceName
+     * @param {*} context
+     * @param {*} viewparams
+     * @memberof AppPortalView_db
+     */
+    public saveModel(serviceName: string, context: any, viewparams: any) {
+        return new Promise((resolve: any, reject: any) => {
+            this.utilService.getService(serviceName).then((service: any) => {
+                service.saveModelData(JSON.stringify(context), "", viewparams)
+                    .then((response: any) => {
+                        resolve(response);
+                    })
+                    .catch((response: any) => {
+                        reject(response);
+                    });
+                })
+                .catch((response: any) => {
+                    reject(response);
+                });
+            });
+    }
+
+    /**
+     * 定制数据模型
+     *
+     * @memberof AppPortalView_db
+     */
+    public customizeModel :any = [];
 
     /**
      * 获取单项树
@@ -185,6 +286,10 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
                 if (!Object.is(tag, this.name)) {
                     return;
                 }
+                if(this.isEnableCustomized){
+                    this.loadModel(this.utilServiceName,this.context,Object.assign({utilServiceName:this.utilServiceName,modelid:this.modelId},this.viewparams));
+                    return;
+                }
                 const refs: any = this.$refs;
                 Object.keys(refs).forEach((name: string) => {
                     this.viewState.next({ tag: name, action: action, data: data });
@@ -211,6 +316,56 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
         }
+    }
+
+    /**
+     * 打开定制仪表盘界面
+     *
+     * @memberof AppPortalView_db
+     */
+    public openCustomized() {
+        this.openPopupModal({ viewname: 'app-customize', title: 'app-customize'},{},{modelId:this.modelId,utilServiceName:this.utilServiceName,selectMode:this.customizeModel});
+    }
+
+    /**
+     * 打开定制仪表盘界面
+     *
+     * @type {string}
+     * @memberof AppRichTextEditor
+     */
+    private async openPopupModal(view: any, context: any, param: any): Promise<any> {
+        const result: any = await this.$appmodal.openModal(view, context, param);
+        if (result || Object.is(result.ret, 'OK')) {
+            this.loadModel(this.utilServiceName,this.context,Object.assign({utilServiceName:this.utilServiceName,modelid:this.modelId},this.viewparams));
+        }
+    }
+
+    /**
+     * 定制事件
+     *
+     * @type {string}
+     * @memberof AppRichTextEditor
+     */
+    public async enableCustomizedEvent(tag:string,customizeModelItem:any,title:string) {
+        let index = this.customizeModel.findIndex((item:any)=>{
+                return item.id === customizeModelItem.id;
+        })
+        let meassage :string= '';
+        if(tag === 'rename'){
+            this.customizeModel.splice(index,1,(customizeModelItem as never));
+            meassage = '重命名';
+        }
+        if(tag === 'delete'){
+            this.customizeModel.splice(index,1); 
+            meassage = '删除';
+        }
+        let falg = await this.saveModel(this.utilServiceName,{},
+        {
+            utilServiceName: this.utilServiceName,
+            modelid: this.modelId,
+            model: this.customizeModel,
+        });
+          falg? this.$notice.success(meassage+'成功'):this.$notice.error(meassage+'失败');
     }
 
 }

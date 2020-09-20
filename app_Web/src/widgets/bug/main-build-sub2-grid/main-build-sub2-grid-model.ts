@@ -27,6 +27,46 @@ export default class Main_BuildSub2Model {
     }else{
 		  return [
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'openeddate',
+          prop: 'openeddate',
+          dataType: 'DATETIME',
+        },
+        {
+          name: 'resolvedby',
+          prop: 'resolvedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
           name: 'tostory',
           prop: 'tostory',
           dataType: 'PICKUP',
@@ -51,29 +91,14 @@ export default class Main_BuildSub2Model {
           isEditable:true
         },
         {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'duplicatebug',
           prop: 'duplicatebug',
           dataType: 'PICKUP',
         },
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'story',
           prop: 'story',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
         },
         {
           name: 'confirmed',
@@ -86,11 +111,6 @@ export default class Main_BuildSub2Model {
           dataType: 'PICKUP',
         },
         {
-          name: 'isfavorites',
-          prop: 'isfavorites',
-          dataType: 'TEXT',
-        },
-        {
           name: 'totask',
           prop: 'totask',
           dataType: 'PICKUP',
@@ -99,16 +119,6 @@ export default class Main_BuildSub2Model {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'openeddate',
-          prop: 'openeddate',
-          dataType: 'DATETIME',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'task',
@@ -131,19 +141,9 @@ export default class Main_BuildSub2Model {
           dataType: 'PICKUP',
         },
         {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
           name: 'plan',
           prop: 'plan',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'resolvedby',
-          prop: 'resolvedby',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'entry',

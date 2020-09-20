@@ -57,15 +57,27 @@ export class StoryEditView9Base extends EditView9Base {
      */
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
+	/**
+	 * 自定义视图导航上下文集合
+	 *
      * @protected
-     * @type {Array<*>}
-     * @memberof StoryEditView9Base
-     */    
-    protected counterServiceArray: Array<any> = [];
+	 * @type {*}
+	 * @memberof StoryEditView9Base
+	 */
+    protected customViewNavContexts: any = {
+        'OBJECTTYPE': { isRawValue: true, value: 'story' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof StoryEditView9Base
+	 */
+    protected customViewParams: any = {
+        'objecttype': { isRawValue: true, value: 'story' }
+    };
 
     /**
      * 视图模型数据
@@ -122,6 +134,15 @@ export class StoryEditView9Base extends EditView9Base {
      * @memberof StoryEditView9Base
      */
     public engine: EditView9Engine = new EditView9Engine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof StoryEditView9Base
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

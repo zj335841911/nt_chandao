@@ -1,7 +1,7 @@
 <studio-view viewName="productplansubplangridview" viewTitle="子计划" class='degridview product-plan-sub-plan-grid-view'>
-    <i-input slot="quickSearch" v-model="query" placeholder="名称" search @on-search="onSearch($event)"/>
-    <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
+    <template slot='title'>
+    <span class='caption-info'>{{viewCaption}}</span>
+    </template>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 

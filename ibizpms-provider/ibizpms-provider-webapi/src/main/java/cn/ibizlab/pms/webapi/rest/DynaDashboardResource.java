@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class DynaDashboardResource {
     @PreAuthorize("hasPermission(this.dynadashboardMapping.toDomain(#dynadashboarddto),'pms-DynaDashboard-Create')")
     @ApiOperation(value = "新建动态数据看板", tags = {"动态数据看板" },  notes = "新建动态数据看板")
 	@RequestMapping(method = RequestMethod.POST, value = "/dynadashboards")
-    public ResponseEntity<DynaDashboardDTO> create(@RequestBody DynaDashboardDTO dynadashboarddto) {
+    public ResponseEntity<DynaDashboardDTO> create(@Validated @RequestBody DynaDashboardDTO dynadashboarddto) {
         DynaDashboard domain = dynadashboardMapping.toDomain(dynadashboarddto);
 		dynadashboardService.create(domain);
         DynaDashboardDTO dto = dynadashboardMapping.toDto(domain);

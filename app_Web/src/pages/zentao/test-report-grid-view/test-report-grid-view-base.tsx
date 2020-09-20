@@ -60,16 +60,6 @@ export class TestReportGridViewBase extends GridViewBase {
      */
     public appUIService: TestReportUIService = new TestReportUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof TestReportGridViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -129,6 +119,15 @@ export class TestReportGridViewBase extends GridViewBase {
      * @memberof TestReportGridViewBase
      */
     public engine: GridViewEngine = new GridViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof TestReportGridViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

@@ -11,6 +11,8 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
+
+    
     </ion-header>
 
 
@@ -20,7 +22,7 @@
             viewName="ProductMobChartView"  
             :viewparams="viewparams" 
             :context="context" 
-            fetchAction="FetchProductPM"
+            fetchAction="FetchDefault"
             :showBusyIndicator="true" 
             name="chart"  
             ref='chart' 
@@ -337,6 +339,7 @@ export default class ProductMobChartViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *
@@ -467,9 +470,14 @@ export default class ProductMobChartViewBase extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
-        }else{
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
+        }
+        if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
         

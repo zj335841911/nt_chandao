@@ -17,8 +17,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import cn.ibizlab.pms.util.web.SearchContextHandlerMethodArgumentResolver;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -48,11 +46,7 @@ public class pmsWebApiApplication extends WebMvcConfigurerAdapter{
     SearchContextHandlerMethodArgumentResolver resolver;
 
     public static void main(String[] args) {
-        Long start = new Date().getTime();
         SpringApplication.run(pmsWebApiApplication.class, args);
-        Long end = new Date().getTime();
-        log.info("PMS API启动耗时：{}ms",end-start);
-
     }
 
     @Override

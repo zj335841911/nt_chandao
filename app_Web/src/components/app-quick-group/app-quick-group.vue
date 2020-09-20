@@ -10,14 +10,14 @@
         <img v-else-if="item.icon && !Object.is(item.icon, '')" :src="item.icon" />
         <span class="app-quick-item-label">{{item.label}}</span>
         <span
-          v-show="isSelectedItem(item) && counterService && counterService.counterData && counterService.counterData[item.codename]"
+          v-show="isSelectedItem(item) && counterService && counterService.counterData && counterService.counterData[item.codename.toLowerCase()]"
           class="app-quick-item-counter"
         >{{itemTag(item)}}</span>
       </span>
       <el-dropdown
         v-if="item.children"
         class="app-quick-item-dropdown"
-        trigger="click"
+        trigger="hover"
         @command="handleCommand($event,item)"
       >
         <span :style="{color:item.color}" :class="{'app-seleted-item':isSelectedItem(item)}">
@@ -25,7 +25,7 @@
           <img v-else-if="item.icon && !Object.is(item.icon, '')" :src="item.icon" />
           <span class="app-quick-item-label">{{item.label}}</span>
           <span
-            v-show="isSelectedItem(item) && counterService && counterService.counterData && counterService.counterData[item.codename]"
+            v-show="isSelectedItem(item) && counterService && counterService.counterData && counterService.counterData[item.codename.toLowerCase()]"
             class="app-quick-item-counter"
           >{{itemTag(item)}}</span>
         </span>
@@ -132,7 +132,7 @@ export default class AppQuickGroup extends Vue {
       this.counterService.counterData &&
       item.codename
     ) {
-      return this.counterService.counterData[item.codename];
+      return this.counterService.counterData[item.codename.toLowerCase()];
     } else {
       return "";
     }

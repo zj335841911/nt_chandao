@@ -27,8 +27,8 @@ import cn.ibizlab.pms.core.zentao.domain.History;
 @Data
 public class HistorySearchContext extends QueryWrapperContext<History> {
 
-	private BigInteger n_action_eq;//[关联日志]
-	public void setN_action_eq(BigInteger n_action_eq) {
+	private Long n_action_eq;//[关联日志]
+	public void setN_action_eq(Long n_action_eq) {
         this.n_action_eq = n_action_eq;
         if(!ObjectUtils.isEmpty(this.n_action_eq)){
             this.getSearchCond().eq("action", n_action_eq);

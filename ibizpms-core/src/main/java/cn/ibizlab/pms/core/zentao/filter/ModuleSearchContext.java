@@ -62,15 +62,15 @@ public class ModuleSearchContext extends QueryWrapperContext<Module> {
             this.getSearchCond().like("parentname", n_parentname_like);
         }
     }
-	private BigInteger n_branch_eq;//[平台/分支]
-	public void setN_branch_eq(BigInteger n_branch_eq) {
+	private Long n_branch_eq;//[平台/分支]
+	public void setN_branch_eq(Long n_branch_eq) {
         this.n_branch_eq = n_branch_eq;
         if(!ObjectUtils.isEmpty(this.n_branch_eq)){
             this.getSearchCond().eq("branch", n_branch_eq);
         }
     }
-	private BigInteger n_parent_eq;//[上级模块]
-	public void setN_parent_eq(BigInteger n_parent_eq) {
+	private Long n_parent_eq;//[上级模块]
+	public void setN_parent_eq(Long n_parent_eq) {
         this.n_parent_eq = n_parent_eq;
         if(!ObjectUtils.isEmpty(this.n_parent_eq)){
             this.getSearchCond().eq("parent", n_parent_eq);

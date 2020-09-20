@@ -27,15 +27,21 @@ export default class MainModel {
     }else{
 		  return [
         {
+          name: 'desc',
+          prop: 'desc',
+          dataType: 'LONGTEXT',
+          isEditable:true
+        },
+        {
           name: 'expect',
           prop: 'expect',
           dataType: 'LONGTEXT',
           isEditable:true
         },
         {
-          name: 'desc',
-          prop: 'desc',
-          dataType: 'LONGTEXT',
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
           isEditable:true
         },
         {
@@ -47,12 +53,6 @@ export default class MainModel {
           name: 'case',
           prop: 'ibizcase',
           dataType: 'PICKUP',
-          isEditable:true
-        },
-        {
-          name: 'type',
-          prop: 'type',
-          dataType: 'SSCODELIST',
           isEditable:true
         },
         {

@@ -57,15 +57,12 @@ export class ProductMainView_EditBase extends EditViewBase {
      */
     public appUIService: ProductUIService = new ProductUIService(this.$store);
 
-
     /**
-     * 计数器服务对象集合
+     * 是否显示信息栏
      *
-     * @protected
-     * @type {Array<*>}
      * @memberof ProductMainView_EditBase
-     */    
-    protected counterServiceArray: Array<any> = [];
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -124,6 +121,15 @@ export class ProductMainView_EditBase extends EditViewBase {
      * @memberof ProductMainView_EditBase
      */
     public engine: EditViewEngine = new EditViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProductMainView_EditBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

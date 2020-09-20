@@ -27,6 +27,16 @@ export default class StoryRelatedModel {
     }else{
 		  return [
         {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
@@ -40,16 +50,6 @@ export default class StoryRelatedModel {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
         },
         {
           name: 'lib',

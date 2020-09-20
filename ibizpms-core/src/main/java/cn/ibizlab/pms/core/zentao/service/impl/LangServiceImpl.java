@@ -79,19 +79,19 @@ public class LangServiceImpl extends ServiceImpl<LangMapper, Lang> implements IL
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public Lang get(BigInteger key) {
+    public Lang get(Long key) {
         Lang et = getById(key);
         if(et==null){
             et=new Lang();

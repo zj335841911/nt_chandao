@@ -18,6 +18,8 @@
                 </div>
             </ion-buttons>
         </ion-toolbar>
+
+    
     </ion-header>
 
 
@@ -374,6 +376,7 @@ export default class CaseMobEditViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *
@@ -537,7 +540,8 @@ export default class CaseMobEditViewBase extends Vue {
             if (this.viewDefaultUsage === "routerView") {
                 this.$store.commit("deletePage", this.$route.fullPath);
                 this.$router.go(-1);
-            } else {
+            } 
+            if (this.viewDefaultUsage === "actionView") {
                 this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
             }
         }
@@ -612,7 +616,7 @@ export default class CaseMobEditViewBase extends Vue {
         if (view && view.viewdatachange) {
                 const title: any = this.$t('app.tabpage.sureclosetip.title');
                 const contant: any = this.$t('app.tabpage.sureclosetip.content');
-                const result = await this.$notice.confirm(title, contant);
+                const result = await this.$notice.confirm(title, contant, this.$store);
                 if (result) {
                     this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
                     return true;

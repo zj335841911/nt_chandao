@@ -1,5 +1,5 @@
 <template>
-    <div class="app-mob-span">
+    <div class="app-mob-span" oncontextmenu="return false;">
         <ion-icon v-if="currentItem && currentItem.iconcls" :name="currentItem.iconcls"></ion-icon>
         <ion-input v-if="!codeListType" readonly :value="text" ></ion-input>
         <ion-input v-if="codeListType == 'DYNAMIC'" readonly :value="($t('userCustom.'+tag+'.'+value)!== ('userCustom.'+tag+'.'+value))?$t('userCustom.'+tag+'.'+value) : text" ></ion-input>
@@ -155,7 +155,7 @@ export default class AppSpan extends Vue {
         if (!this.isCached) {
             // Loading.show(this.$t('app.loadding'));
         }
-        let response: any = await  this.codeListService.getItems(this.tag, this.isCache, { ...this.context }, this.queryParam);
+        let response: any = await  this.codeListService.getItems(this.tag,  { ...this.context }, this.queryParam);
         if (!this.isCached) {
             // Loading.hidden();
         }

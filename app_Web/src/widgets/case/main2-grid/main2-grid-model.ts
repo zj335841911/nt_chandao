@@ -27,6 +27,21 @@ export default class Main2Model {
     }else{
 		  return [
         {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'status1',
+          prop: 'status1',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
@@ -39,11 +54,6 @@ export default class Main2Model {
         {
           name: 'status',
           prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'status1',
-          prop: 'status1',
           dataType: 'SSCODELIST',
         },
         {
@@ -76,19 +86,14 @@ export default class Main2Model {
           dataType: 'PICKUP',
         },
         {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
           name: 'lib',
           prop: 'lib',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'lastrunresult1',
+          prop: 'lastrunresult1',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'fromcaseid',

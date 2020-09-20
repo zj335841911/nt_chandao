@@ -103,13 +103,19 @@ export const AppComponents = {
         // 主题切换组件
         v.component('app-mob-select-changeTheme',() => import('@/components/app-mob-select-changeTheme/app-mob-select-changeTheme.vue'));
         v.component('app-list-index',() => import('@/components/app-list-index/app-list-index.vue'));
-        // 下拉列表组件
-        v.component('app-history-list',() => import('@/components/app-history-list/app-history-list.vue'));
         // 富文本项
         v.component('app-mob-rich-text-editor',() => import('@/components/app-mob-rich-text-editor/app-mob-rich-text-editor.vue'));
         // 列表项插件
         v.component('app-list-index-text',() => import('@/components/app-list-index-text/app-list-index-text.vue'));
         // 富文本（模态）
         v.component('app-rich-text',() => import('@/components/app-rich-text/app-rich-text.vue'));
+        // 定制组件
+        v.component('app-customize',() => import('@/components/app-customize/app-customize.vue'));
+        // 多数据快速分组组件
+        v.component('app-quick-group-tab',() => import('@/components/app-quick-group-tab/app-quick-group-tab.vue'));
+        // setting组件
+        v.component('app-setting',() => import('@/components/app-setting/app-setting.vue'));
+        // 风格切换组件
+        v.component('app-mob-select-changeStyle',() => import('@/components/app-mob-select-changeStyle/app-mob-select-changeStyle.vue'));
     },
 };

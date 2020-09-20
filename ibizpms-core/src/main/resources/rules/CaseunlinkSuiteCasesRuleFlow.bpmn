@@ -7,14 +7,14 @@
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="caseunlinksuitecasesdefault" type="cn.ibizlab.pms.core.zentao.domain.Case" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseunlinksuitecasesprepareparam1" id="FA8AD8F6-E65F-4C4B-8368-A89A4EECE9D3" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseunlinksuitecasesdeaction1" id="BB6E6E35-C4D8-4FCE-9128-379CF5B32857" implementation="http://www.jboss.org/drools/rule" name="移除用例"/>
-     <endEvent id="BB6E6E35-C4D8-4FCE-9128-379CF5B32857_End" name="End"/>
-     <sequenceFlow id="BB6E6E35-C4D8-4FCE-9128-379CF5B32857_End_Line" sourceRef="BB6E6E35-C4D8-4FCE-9128-379CF5B32857" targetRef="BB6E6E35-C4D8-4FCE-9128-379CF5B32857_End"/>
-     <startEvent id="750348F7-256B-4A96-8975-83D0AEAB08C2" isInterrupting="true"/>
-     <sequenceFlow id="A6BF84C5-0492-4A28-9C8F-06C5889ACA48" sourceRef="750348F7-256B-4A96-8975-83D0AEAB08C2" targetRef="FA8AD8F6-E65F-4C4B-8368-A89A4EECE9D3">
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseunlinksuitecasesprepareparam1" id="prepareparam1" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseunlinksuitecasesdeaction1" id="deaction1" implementation="http://www.jboss.org/drools/rule" name="移除用例"/>
+     <endEvent id="deaction1_end" name="end"/>
+     <sequenceFlow id="deaction1_end_line" sourceRef="deaction1" targetRef="deaction1_end"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <sequenceFlow id="begin_prepareparam1" sourceRef="begin" targetRef="prepareparam1">
      </sequenceFlow>
-     <sequenceFlow id="67A900F2-B47F-4856-BE57-450DE14E68F9" sourceRef="FA8AD8F6-E65F-4C4B-8368-A89A4EECE9D3" targetRef="BB6E6E35-C4D8-4FCE-9128-379CF5B32857">
+     <sequenceFlow id="prepareparam1_deaction1" sourceRef="prepareparam1" targetRef="deaction1">
      </sequenceFlow>
     </process>
 </definitions>

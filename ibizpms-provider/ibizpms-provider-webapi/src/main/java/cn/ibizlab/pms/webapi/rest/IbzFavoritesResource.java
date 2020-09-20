@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class IbzFavoritesResource {
     @PreAuthorize("hasPermission(this.ibzfavoritesMapping.toDomain(#ibzfavoritesdto),'pms-IbzFavorites-Create')")
     @ApiOperation(value = "新建收藏", tags = {"收藏" },  notes = "新建收藏")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzfavorites")
-    public ResponseEntity<IbzFavoritesDTO> create(@RequestBody IbzFavoritesDTO ibzfavoritesdto) {
+    public ResponseEntity<IbzFavoritesDTO> create(@Validated @RequestBody IbzFavoritesDTO ibzfavoritesdto) {
         IbzFavorites domain = ibzfavoritesMapping.toDomain(ibzfavoritesdto);
 		ibzfavoritesService.create(domain);
         IbzFavoritesDTO dto = ibzfavoritesMapping.toDto(domain);

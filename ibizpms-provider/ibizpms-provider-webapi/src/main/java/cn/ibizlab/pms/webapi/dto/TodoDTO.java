@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,7 +33,7 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [ACCOUNT]
@@ -38,6 +41,7 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "account")
     @JsonProperty("account")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String account;
 
     /**
@@ -55,6 +59,7 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "closedby")
     @JsonProperty("closedby")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String closedby;
 
     /**
@@ -63,6 +68,7 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "type")
     @JsonProperty("type")
+    @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
     private String type;
 
     /**
@@ -79,6 +85,7 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "desc")
     @JsonProperty("desc")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String desc;
 
     /**
@@ -87,6 +94,7 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "finishedby")
     @JsonProperty("finishedby")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String finishedby;
 
     /**
@@ -111,6 +119,7 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "assignedby")
     @JsonProperty("assignedby")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String assignedby;
 
     /**
@@ -136,6 +145,7 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "assignedto")
     @JsonProperty("assignedto")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String assignedto;
 
     /**
@@ -144,6 +154,7 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "status")
     @JsonProperty("status")
+    @Size(min = 0, max = 6, message = "内容长度必须小于等于[6]")
     private String status;
 
     /**
@@ -152,6 +163,8 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "name")
     @JsonProperty("name")
+    @NotBlank(message = "[待办名称]不允许为空!")
+    @Size(min = 0, max = 150, message = "内容长度必须小于等于[150]")
     private String name;
 
     /**
@@ -194,6 +207,7 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "config")
     @JsonProperty("config")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String config;
 
     /**
@@ -218,6 +232,7 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "config_week")
     @JsonProperty("config_week")
+    @Size(min = 0, max = 4000, message = "内容长度必须小于等于[4000]")
     private String configWeek;
 
     /**
@@ -226,6 +241,7 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "config_month")
     @JsonProperty("config_month")
+    @Size(min = 0, max = 4000, message = "内容长度必须小于等于[4000]")
     private String configMonth;
 
     /**
@@ -234,6 +250,7 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "config_type")
     @JsonProperty("config_type")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String configType;
 
     /**
@@ -251,6 +268,7 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "bug")
     @JsonProperty("bug")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String bug;
 
     /**
@@ -259,6 +277,7 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "task")
     @JsonProperty("task")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String task;
 
     /**
@@ -267,6 +286,7 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "story")
     @JsonProperty("story")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String story;
 
     /**
@@ -275,6 +295,7 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "date1")
     @JsonProperty("date1")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String date1;
 
     /**
@@ -283,6 +304,7 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "date_disable")
     @JsonProperty("date_disable")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String dateDisable;
 
 
@@ -448,4 +470,5 @@ public class TodoDTO extends DTOBase implements Serializable {
 
 
 }
+
 

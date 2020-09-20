@@ -222,6 +222,9 @@ export default class DashboardBugMainModel {
       {
         name: 'createbuild',
       },
+      {
+        name: 'overduebugs',
+      },
     ]
   }
 

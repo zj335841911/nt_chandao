@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,15 +29,19 @@ public interface IIbzMyTerritoryService extends IService<IbzMyTerritory>{
     void createBatch(List<IbzMyTerritory> list) ;
     boolean update(IbzMyTerritory et) ;
     void updateBatch(List<IbzMyTerritory> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    IbzMyTerritory get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    IbzMyTerritory get(Long key) ;
     IbzMyTerritory getDraft(IbzMyTerritory et) ;
     boolean checkKey(IbzMyTerritory et) ;
+    IbzMyTerritory mobMenuCount(IbzMyTerritory et) ;
+    IbzMyTerritory myFavoriteCount(IbzMyTerritory et) ;
+    IbzMyTerritory myTerritoryCount(IbzMyTerritory et) ;
     boolean save(IbzMyTerritory et) ;
     void saveBatch(List<IbzMyTerritory> list) ;
     Page<IbzMyTerritory> searchDefault(IbzMyTerritorySearchContext context) ;
     Page<IbzMyTerritory> searchMyWork(IbzMyTerritorySearchContext context) ;
+    Page<IbzMyTerritory> searchMyWorkMob(IbzMyTerritorySearchContext context) ;
     Page<IbzMyTerritory> searchWelcome(IbzMyTerritorySearchContext context) ;
     /**
      *自定义查询SQL

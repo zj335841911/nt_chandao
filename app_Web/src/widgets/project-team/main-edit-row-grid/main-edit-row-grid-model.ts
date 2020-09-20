@@ -27,6 +27,30 @@ export default class Main_EditRowModel {
     }else{
 		  return [
         {
+          name: 'account',
+          prop: 'account',
+          dataType: 'TEXT',
+          isEditable:true
+        },
+        {
+          name: 'role',
+          prop: 'role',
+          dataType: 'TEXT',
+          isEditable:true
+        },
+        {
+          name: 'days',
+          prop: 'days',
+          dataType: 'INT',
+          isEditable:true
+        },
+        {
+          name: 'hours',
+          prop: 'hours',
+          dataType: 'FLOAT',
+          isEditable:true
+        },
+        {
           name: 'limited',
           prop: 'limited',
           dataType: 'SSCODELIST',
@@ -38,38 +62,14 @@ export default class Main_EditRowModel {
           dataType: 'TEXT',
         },
         {
-          name: 'days',
-          prop: 'days',
-          dataType: 'INT',
-          isEditable:true
-        },
-        {
           name: 'root',
           prop: 'root',
           dataType: 'PICKUP',
         },
         {
-          name: 'hours',
-          prop: 'hours',
-          dataType: 'FLOAT',
-          isEditable:true
-        },
-        {
           name: 'account_text',
           prop: 'account',
           dataType: 'TEXT',
-        },
-        {
-          name: 'role',
-          prop: 'role',
-          dataType: 'TEXT',
-          isEditable:true
-        },
-        {
-          name: 'account',
-          prop: 'account',
-          dataType: 'TEXT',
-          isEditable:true
         },
         {
           name: 'srfmajortext',
@@ -91,6 +91,15 @@ export default class Main_EditRowModel {
           name: 'projectteam',
           prop: 'id',
         },
+      {
+        name: 'dept',
+        prop: 'dept',
+      },
+      {
+        name: 'teams',
+        prop: 'teams',
+      },
+
         {
           name:'size',
           prop:'size'

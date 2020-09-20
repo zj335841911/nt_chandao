@@ -27,6 +27,31 @@ export default class StoryaffectCaseModel {
     }else{
 		  return [
         {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'lasteditedby',
+          prop: 'lasteditedby',
+          dataType: 'TEXT',
+        },
+        {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
@@ -35,11 +60,6 @@ export default class StoryaffectCaseModel {
           name: 'frombug',
           prop: 'frombug',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'srfmstag',
@@ -61,11 +81,6 @@ export default class StoryaffectCaseModel {
           dataType: 'ACID',
         },
         {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'TEXT',
-        },
-        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
@@ -74,16 +89,6 @@ export default class StoryaffectCaseModel {
           name: 'story',
           prop: 'story',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
         },
         {
           name: 'lib',
@@ -99,11 +104,6 @@ export default class StoryaffectCaseModel {
           name: 'branch',
           prop: 'branch',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'lasteditedby',
-          prop: 'lasteditedby',
-          dataType: 'TEXT',
         },
         {
           name: 'case',

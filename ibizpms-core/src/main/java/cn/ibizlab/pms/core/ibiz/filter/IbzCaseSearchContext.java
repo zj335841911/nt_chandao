@@ -69,15 +69,15 @@ public class IbzCaseSearchContext extends QueryWrapperContext<IbzCase> {
             this.getSearchCond().eq("lasteditedby", n_lasteditedby_eq);
         }
     }
-	private BigInteger n_lib_eq;//[编号]
-	public void setN_lib_eq(BigInteger n_lib_eq) {
+	private Long n_lib_eq;//[编号]
+	public void setN_lib_eq(Long n_lib_eq) {
         this.n_lib_eq = n_lib_eq;
         if(!ObjectUtils.isEmpty(this.n_lib_eq)){
             this.getSearchCond().eq("lib", n_lib_eq);
         }
     }
-	private BigInteger n_module_eq;//[id]
-	public void setN_module_eq(BigInteger n_module_eq) {
+	private Long n_module_eq;//[id]
+	public void setN_module_eq(Long n_module_eq) {
         this.n_module_eq = n_module_eq;
         if(!ObjectUtils.isEmpty(this.n_module_eq)){
             this.getSearchCond().eq("module", n_module_eq);

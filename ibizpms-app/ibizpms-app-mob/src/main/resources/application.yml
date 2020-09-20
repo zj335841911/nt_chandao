@@ -1,5 +1,5 @@
 spring:
   profiles:
-    include: sys, mob-zentao, nacos, mob-prod
+    include: sys, nacos, mob-prod, mob-zentao
   application:
     name: pms-mob

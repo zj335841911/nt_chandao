@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -39,6 +42,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "account")
     @JsonProperty("account")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String account;
 
     /**
@@ -55,7 +59,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "left")
     @JsonProperty("left")
-    private Double left;
+    private BigDecimal left;
 
     /**
      * 属性 [DAYS]
@@ -71,7 +75,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [CONSUMED]
@@ -79,7 +83,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
-    private Double consumed;
+    private BigDecimal consumed;
 
     /**
      * 属性 [ORDER]
@@ -95,7 +99,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "estimate")
     @JsonProperty("estimate")
-    private Double estimate;
+    private BigDecimal estimate;
 
     /**
      * 属性 [LIMITED]
@@ -103,6 +107,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "limited")
     @JsonProperty("limited")
+    @Size(min = 0, max = 8, message = "内容长度必须小于等于[8]")
     private String limited;
 
     /**
@@ -111,6 +116,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "role")
     @JsonProperty("role")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String role;
 
     /**
@@ -119,6 +125,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "type")
     @JsonProperty("type")
+    @Size(min = 0, max = 7, message = "内容长度必须小于等于[7]")
     private String type;
 
     /**
@@ -135,7 +142,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "root")
     @JsonProperty("root")
-    private BigInteger root;
+    private Long root;
 
     /**
      * 属性 [USERNAME]
@@ -143,6 +150,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "username")
     @JsonProperty("username")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String username;
 
 
@@ -173,7 +181,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
     /**
      * 设置 [LEFT]
      */
-    public void setLeft(Double  left){
+    public void setLeft(BigDecimal  left){
         this.left = left ;
         this.modify("left",left);
     }
@@ -189,7 +197,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
     /**
      * 设置 [CONSUMED]
      */
-    public void setConsumed(Double  consumed){
+    public void setConsumed(BigDecimal  consumed){
         this.consumed = consumed ;
         this.modify("consumed",consumed);
     }
@@ -205,7 +213,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
     /**
      * 设置 [ESTIMATE]
      */
-    public void setEstimate(Double  estimate){
+    public void setEstimate(BigDecimal  estimate){
         this.estimate = estimate ;
         this.modify("estimate",estimate);
     }
@@ -237,11 +245,12 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
     /**
      * 设置 [ROOT]
      */
-    public void setRoot(BigInteger  root){
+    public void setRoot(Long  root){
         this.root = root ;
         this.modify("root",root);
     }
 
 
 }
+
 

@@ -57,15 +57,12 @@ export class TestReportMainTabExpViewBase extends TabExpViewBase {
      */
     public appUIService: TestReportUIService = new TestReportUIService(this.$store);
 
-
     /**
-     * 计数器服务对象集合
+     * 是否显示信息栏
      *
-     * @protected
-     * @type {Array<*>}
      * @memberof TestReportMainTabExpViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -111,6 +108,15 @@ export class TestReportMainTabExpViewBase extends TabExpViewBase {
      * @memberof TestReportMainTabExpViewBase
      */
     public engine: TabExpViewEngine = new TabExpViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof TestReportMainTabExpViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

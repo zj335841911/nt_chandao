@@ -22,8 +22,10 @@ export class AppEntityServiceConstructor extends ServiceConstructorBase {
         this.allService.set('projectteam', () => import('@/app-core/service/project-team/project-team-service'));
         this.allService.set('build', () => import('@/app-core/service/build/build-service'));
         this.allService.set('task', () => import('@/app-core/service/task/task-service'));
+        this.allService.set('taskestimate', () => import('@/app-core/service/task-estimate/task-estimate-service'));
         this.allService.set('module', () => import('@/app-core/service/module/module-service'));
         this.allService.set('product', () => import('@/app-core/service/product/product-service'));
+        this.allService.set('dynadashboard', () => import('@/app-core/service/dyna-dashboard/dyna-dashboard-service'));
         this.allService.set('action', () => import('@/app-core/service/action/action-service'));
         this.allService.set('casestep', () => import('@/app-core/service/case-step/case-step-service'));
         this.allService.set('productline', () => import('@/app-core/service/product-line/product-line-service'));
@@ -37,7 +39,9 @@ export class AppEntityServiceConstructor extends ServiceConstructorBase {
         this.allService.set('case', () => import('@/app-core/service/case/case-service'));
         this.allService.set('testmodule', () => import('@/app-core/service/test-module/test-module-service'));
         this.allService.set('productplan', () => import('@/app-core/service/product-plan/product-plan-service'));
+        this.allService.set('ibztaskestimate', () => import('@/app-core/service/ibz-taskestimate/ibz-taskestimate-service'));
         this.allService.set('projectstats', () => import('@/app-core/service/project-stats/project-stats-service'));
+        this.allService.set('ibztaskteam', () => import('@/app-core/service/ibztaskteam/ibztaskteam-service'));
         this.allService.set('bug', () => import('@/app-core/service/bug/bug-service'));
         this.allService.set('projectmodule', () => import('@/app-core/service/project-module/project-module-service'));
         this.allService.set('productstats', () => import('@/app-core/service/product-stats/product-stats-service'));

@@ -27,19 +27,19 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'consumed',
-          prop: 'consumed',
-          dataType: 'DECIMAL',
-        },
-        {
-          name: 'root',
-          prop: 'root',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'account',
           prop: 'account',
           dataType: 'TEXT',
+        },
+        {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'DECIMAL',
+        },
+        {
+          name: 'consumed',
+          prop: 'consumed',
+          dataType: 'DECIMAL',
         },
         {
           name: 'left',
@@ -47,9 +47,9 @@ export default class MainModel {
           dataType: 'DECIMAL',
         },
         {
-          name: 'estimate',
-          prop: 'estimate',
-          dataType: 'DECIMAL',
+          name: 'root',
+          prop: 'root',
+          dataType: 'PICKUP',
         },
         {
           name: 'srfmajortext',

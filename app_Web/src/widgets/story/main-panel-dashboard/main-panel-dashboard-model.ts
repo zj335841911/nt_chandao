@@ -177,6 +177,9 @@ export default class MainPanelModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'ischild',
+      },
     ]
   }
 

@@ -193,7 +193,7 @@ export default class ViewEngine {
                     return;
                 }
                 const _item = _this.view[tool][key];
-                if(_item && _item['dataaccaction'] && _this.view.appUIService && data && Object.keys(data).length >0){
+                if(_item && _item['dataaccaction'] && _this.view.appUIService){
                     let dataActionResult:any;
                     if (_item.uiaction && (Object.is(_item.uiaction.target, 'NONE'))){
                         dataActionResult = _this.view.appUIService.getResourceOPPrivs(_item['dataaccaction']);

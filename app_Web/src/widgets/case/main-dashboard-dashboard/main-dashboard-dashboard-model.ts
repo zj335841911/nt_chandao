@@ -177,6 +177,9 @@ export default class MainDashboardModel {
       {
         name: 'libname',
       },
+      {
+        name: 'lastrunresult1',
+      },
     ]
   }
 

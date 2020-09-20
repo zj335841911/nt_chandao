@@ -9,6 +9,7 @@
         :cell-class-name="getCellClassName.bind(_self)"
         size="mini"
         stripe
+        :height="tableHeight"
         @row-click="rowClick($event)"  
         @select-all="selectAll($event)"  
         @select="select($event)"  
@@ -69,16 +70,16 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('status')">
-                <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.task.main2_grid.columns.status')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('status1')">
+                <el-table-column show-overflow-tooltip :prop="'status1'" :label="$t('entities.task.main2_grid.columns.status1')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.task.main2_grid.columns.status')}}
+                        {{$t('entities.task.main2_grid.columns.status1')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.status" tag='Task__status' codelistType='STATIC' ></codelist>
+            <codelist :value="row.status1" tag='TaskStatusCK' codelistType='STATIC' ></codelist>
                         </template>
                     </template>
                 </el-table-column>

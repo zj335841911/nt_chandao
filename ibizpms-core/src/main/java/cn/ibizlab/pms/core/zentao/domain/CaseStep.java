@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[用例步骤]
@@ -55,7 +56,7 @@ public class CaseStep extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 步骤
      */
@@ -85,7 +86,7 @@ public class CaseStep extends EntityMP implements Serializable {
     @TableField(value = "case")
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
-    private BigInteger ibizcase;
+    private Long ibizcase;
     /**
      * 分组用例步骤的组编号
      */
@@ -93,7 +94,7 @@ public class CaseStep extends EntityMP implements Serializable {
     @TableField(value = "parent")
     @JSONField(name = "parent")
     @JsonProperty("parent")
-    private BigInteger parent;
+    private Long parent;
     /**
      * 实际情况
      */
@@ -184,7 +185,7 @@ public class CaseStep extends EntityMP implements Serializable {
     /**
      * 设置 [用例]
      */
-    public void setIbizcase(BigInteger ibizcase){
+    public void setIbizcase(Long ibizcase){
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
@@ -192,12 +193,28 @@ public class CaseStep extends EntityMP implements Serializable {
     /**
      * 设置 [分组用例步骤的组编号]
      */
-    public void setParent(BigInteger parent){
+    public void setParent(Long parent){
         this.parent = parent ;
         this.modify("parent",parent);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
+    /**
+     * 复制当前对象数据到目标对象(粘贴重置)
+     * @param targetEntity 目标数据对象
+     * @param bIncEmpty  是否包括空值
+     * @param <T>
+     * @return
+     */
+    @Override
+    public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
+        this.reset("id");
+        return super.copyTo(targetEntity,bIncEmpty);
+    }
 }
 
 

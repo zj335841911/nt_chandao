@@ -5,10 +5,12 @@ import ibztaskteam_zh_CN from '@locale/lanres/entities/ibztask-team/ibztask-team
 import product_zh_CN from '@locale/lanres/entities/product/product_zh_CN';
 import taskteam_zh_CN from '@locale/lanres/entities/task-team/task-team_zh_CN';
 import file_zh_CN from '@locale/lanres/entities/file/file_zh_CN';
+import ibzprostorymodule_zh_CN from '@locale/lanres/entities/ibzpro-story-module/ibzpro-story-module_zh_CN';
 import ibzlibcasesteps_zh_CN from '@locale/lanres/entities/ibz-lib-casesteps/ibz-lib-casesteps_zh_CN';
 import ibzlib_zh_CN from '@locale/lanres/entities/ibz-lib/ibz-lib_zh_CN';
 import suitecase_zh_CN from '@locale/lanres/entities/suite-case/suite-case_zh_CN';
 import burn_zh_CN from '@locale/lanres/entities/burn/burn_zh_CN';
+import substory_zh_CN from '@locale/lanres/entities/sub-story/sub-story_zh_CN';
 import subproductplan_zh_CN from '@locale/lanres/entities/sub-product-plan/sub-product-plan_zh_CN';
 import storyspec_zh_CN from '@locale/lanres/entities/story-spec/story-spec_zh_CN';
 import usertpl_zh_CN from '@locale/lanres/entities/user-tpl/user-tpl_zh_CN';
@@ -18,6 +20,7 @@ import productstats_zh_CN from '@locale/lanres/entities/product-stats/product-st
 import ibzprojectmember_zh_CN from '@locale/lanres/entities/ibz-project-member/ibz-project-member_zh_CN';
 import action_zh_CN from '@locale/lanres/entities/action/action_zh_CN';
 import group_zh_CN from '@locale/lanres/entities/group/group_zh_CN';
+import ibzproproduct_zh_CN from '@locale/lanres/entities/ibzpro-product/ibzpro-product_zh_CN';
 import casestep_zh_CN from '@locale/lanres/entities/case-step/case-step_zh_CN';
 import dept_zh_CN from '@locale/lanres/entities/dept/dept_zh_CN';
 import company_zh_CN from '@locale/lanres/entities/company/company_zh_CN';
@@ -40,10 +43,12 @@ import task_zh_CN from '@locale/lanres/entities/task/task_zh_CN';
 import build_zh_CN from '@locale/lanres/entities/build/build_zh_CN';
 import testresult_zh_CN from '@locale/lanres/entities/test-result/test-result_zh_CN';
 import testsuite_zh_CN from '@locale/lanres/entities/test-suite/test-suite_zh_CN';
+import ibzprostory_zh_CN from '@locale/lanres/entities/ibzpro-story/ibzpro-story_zh_CN';
 import projectteam_zh_CN from '@locale/lanres/entities/project-team/project-team_zh_CN';
 import testtask_zh_CN from '@locale/lanres/entities/test-task/test-task_zh_CN';
 import ibztaskestimate_zh_CN from '@locale/lanres/entities/ibztask-estimate/ibztask-estimate_zh_CN';
 import productline_zh_CN from '@locale/lanres/entities/product-line/product-line_zh_CN';
+import pssyssfpub_zh_CN from '@locale/lanres/entities/pssys-sfpub/pssys-sfpub_zh_CN';
 import testreport_zh_CN from '@locale/lanres/entities/test-report/test-report_zh_CN';
 import projectstats_zh_CN from '@locale/lanres/entities/project-stats/project-stats_zh_CN';
 import testrun_zh_CN from '@locale/lanres/entities/test-run/test-run_zh_CN';
@@ -51,7 +56,9 @@ import ibzmyterritory_zh_CN from '@locale/lanres/entities/ibz-my-territory/ibz-m
 import bug_zh_CN from '@locale/lanres/entities/bug/bug_zh_CN';
 import projectmodule_zh_CN from '@locale/lanres/entities/project-module/project-module_zh_CN';
 import ibzdoc_zh_CN from '@locale/lanres/entities/ibz-doc/ibz-doc_zh_CN';
+import pssysapp_zh_CN from '@locale/lanres/entities/pssys-app/pssys-app_zh_CN';
 import ibzcase_zh_CN from '@locale/lanres/entities/ibz-case/ibz-case_zh_CN';
+import pssystemdbcfg_zh_CN from '@locale/lanres/entities/pssystem-dbcfg/pssystem-dbcfg_zh_CN';
 import release_zh_CN from '@locale/lanres/entities/release/release_zh_CN';
 import dynadashboard_zh_CN from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_zh_CN';
 import components_zh_CN from '@locale/lanres/components/components_zh_CN';
@@ -196,13 +203,23 @@ export default {
                 menuitem10: "用例库",
                 menuitem11: "用户",
                 menuitem7: "iBiz软件生产管理",
+                menuitem16: "plus",
+                menuitem19: "产品",
+                menuitem21: "模块",
+                menuitem17: "需求",
                 left_exp: "左侧分页导航",
                 menuitem4: "产品",
                 menuitem5: "项目",
                 menuitem6: "测试",
                 bottom_exp: "底部导航区",
                 footer_center: "底部中间菜单",
-                menuitem13: "隐藏菜单项",
+                menuitem13: "bug菜单项",
+                menuitem14: "菜单项",
+                menuitem15: "菜单项",
+                menuitem18: "菜单项",
+                menuitem20: "菜单项",
+            },
+            main: {
             },
         },
         formpage:{
@@ -308,10 +325,12 @@ export default {
         product: product_zh_CN,
         taskteam: taskteam_zh_CN,
         file: file_zh_CN,
+        ibzprostorymodule: ibzprostorymodule_zh_CN,
         ibzlibcasesteps: ibzlibcasesteps_zh_CN,
         ibzlib: ibzlib_zh_CN,
         suitecase: suitecase_zh_CN,
         burn: burn_zh_CN,
+        substory: substory_zh_CN,
         subproductplan: subproductplan_zh_CN,
         storyspec: storyspec_zh_CN,
         usertpl: usertpl_zh_CN,
@@ -321,6 +340,7 @@ export default {
         ibzprojectmember: ibzprojectmember_zh_CN,
         action: action_zh_CN,
         group: group_zh_CN,
+        ibzproproduct: ibzproproduct_zh_CN,
         casestep: casestep_zh_CN,
         dept: dept_zh_CN,
         company: company_zh_CN,
@@ -343,10 +363,12 @@ export default {
         build: build_zh_CN,
         testresult: testresult_zh_CN,
         testsuite: testsuite_zh_CN,
+        ibzprostory: ibzprostory_zh_CN,
         projectteam: projectteam_zh_CN,
         testtask: testtask_zh_CN,
         ibztaskestimate: ibztaskestimate_zh_CN,
         productline: productline_zh_CN,
+        pssyssfpub: pssyssfpub_zh_CN,
         testreport: testreport_zh_CN,
         projectstats: projectstats_zh_CN,
         testrun: testrun_zh_CN,
@@ -354,7 +376,9 @@ export default {
         bug: bug_zh_CN,
         projectmodule: projectmodule_zh_CN,
         ibzdoc: ibzdoc_zh_CN,
+        pssysapp: pssysapp_zh_CN,
         ibzcase: ibzcase_zh_CN,
+        pssystemdbcfg: pssystemdbcfg_zh_CN,
         release: release_zh_CN,
         dynadashboard: dynadashboard_zh_CN,
     },

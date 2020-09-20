@@ -57,16 +57,6 @@ export class BugEditViewBase extends EditViewBase {
      */
     public appUIService: BugUIService = new BugUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof BugEditViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航上下文集合
 	 *
@@ -90,6 +80,13 @@ export class BugEditViewBase extends EditViewBase {
         'productmodule': { isRawValue: false, value: 'productmodule' },
         'branch': { isRawValue: false, value: 'branch' }
     };
+
+    /**
+     * 是否显示信息栏
+     *
+     * @memberof BugEditViewBase
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -148,6 +145,15 @@ export class BugEditViewBase extends EditViewBase {
      * @memberof BugEditViewBase
      */
     public engine: EditViewEngine = new EditViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof BugEditViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

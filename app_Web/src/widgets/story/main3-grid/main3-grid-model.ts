@@ -27,6 +27,36 @@ export default class Main3Model {
     }else{
 		  return [
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
@@ -37,22 +67,12 @@ export default class Main3Model {
           dataType: 'PICKUP',
         },
         {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
         },
         {
           name: 'srfmstag',
-        },
-        {
-          name: 'estimate',
-          prop: 'estimate',
-          dataType: 'FLOAT',
         },
         {
           name: 'srfmajortext',
@@ -81,26 +101,6 @@ export default class Main3Model {
           dataType: 'PICKUP',
         },
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
           name: 'branch',
           prop: 'branch',
           dataType: 'PICKUP',
@@ -113,6 +113,11 @@ export default class Main3Model {
         {
           name: 'isfavorites',
           prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'ischild',
+          prop: 'ischild',
           dataType: 'TEXT',
         },
         {

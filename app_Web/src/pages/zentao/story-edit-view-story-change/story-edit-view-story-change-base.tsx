@@ -57,15 +57,12 @@ export class StoryEditView_StoryChangeBase extends EditViewBase {
      */
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
-
     /**
-     * 计数器服务对象集合
+     * 是否显示信息栏
      *
-     * @protected
-     * @type {Array<*>}
      * @memberof StoryEditView_StoryChangeBase
-     */    
-    protected counterServiceArray: Array<any> = [];
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -124,6 +121,15 @@ export class StoryEditView_StoryChangeBase extends EditViewBase {
      * @memberof StoryEditView_StoryChangeBase
      */
     public engine: EditViewEngine = new EditViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof StoryEditView_StoryChangeBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

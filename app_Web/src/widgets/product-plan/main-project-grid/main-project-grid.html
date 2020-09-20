@@ -7,6 +7,7 @@
         :cell-class-name="getCellClassName.bind(_self)"
         size="mini"
         stripe
+        :height="tableHeight"
         @row-click="rowClick($event)"  
         @select-all="selectAll($event)"  
         @select="select($event)"  
@@ -29,12 +30,12 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='productplan' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-plan-main-tab-exp', height: 0,width: 0,title: $t('entities.productplan.views.maintabexp.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link deKeyField='productplan' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-plan-main-data-edit-view', height: 0,width: 0,title: $t('entities.productplan.views.maindataeditview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
             ,parameters: [
             { pathName: 'productplans', parameterName: 'productplan' },
-            { pathName: 'maintabexp', parameterName: 'maintabexp' }
+            { pathName: 'maindataeditview', parameterName: 'maindataeditview' }
             ]}" valueitem="srfkey">
                             <span>{{row.title}}</span>
                         </app-column-link >

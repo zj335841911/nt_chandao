@@ -2,24 +2,24 @@ export default {
   fields: {
     id: "编号",
     account: "所有者",
-    closeddate: "关闭时间",
-    closedby: "由谁关闭",
+    closedDate: "关闭时间",
+    closedBy: "由谁关闭",
     type: "类型",
     end: "结束",
     desc: "描述",
-    finishedby: "由谁完成",
+    finishedBy: "由谁完成",
     begin: "开始",
     idvalue: "关联编号",
-    assignedby: "由谁指派",
-    finisheddate: "完成时间",
+    assignedBy: "由谁指派",
+    finishedDate: "完成时间",
     cycle: "周期",
-    assignedto: "指派给",
+    assignedTo: "指派给",
     status: "状态",
     name: "待办名称",
-    assigneddate: "指派日期",
+    assignedDate: "指派日期",
     pri: "优先级",
     date: "日期",
-    ibizprivate: "私人事务",
+    iBizPrivate: "私人事务",
     config: "config",
     config_day: "间隔天数",
     config_beforedays: "提前",
@@ -36,6 +36,9 @@ export default {
 	views: {
 		newmobeditview: {
 			caption: '快速新建',
+		},
+		moblistview: {
+			caption: '待办事宜表',
 		},
 		mobmdview: {
 			caption: '待办事宜表',
@@ -133,5 +136,7 @@ export default {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
+	},
+	moblistviewrighttoolbar_toolbar: {
 	},
 };

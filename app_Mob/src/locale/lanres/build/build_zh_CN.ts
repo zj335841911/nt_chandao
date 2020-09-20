@@ -16,6 +16,11 @@ export default {
     productname: "产品名称",
     ids: "Bug版本健值",
     files: "附件",
+    rebuild: "重新构建",
+    releasetype: "运行模式",
+    frontapplication: "系统应用",
+    backgroundid: "后台体系",
+    sqlid: "运行数据库",
   },
 	views: {
 		mobpickupmdview: {

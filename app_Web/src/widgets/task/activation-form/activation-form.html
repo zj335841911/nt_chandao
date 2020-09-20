@@ -14,11 +14,11 @@
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{ }' 
-    :localParam ='{ }' 
+    :localContext ='{ PROJECT:"%project%", MULTIPLE:"%multiple%" }' 
+    :localParam ='{ project:"%project%", multiple:"%multiple%" }' 
     :disabled="detailsModel.assignedto.disabled"
     valueType="string"
-    tag='UserRealName'
+    tag='UserRealNameTaskTeam'
     codelistType='DYNAMIC'
     placeholder='请选择...'
     
@@ -43,7 +43,7 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.task.activation_form.details.comment')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :context="context" :viewparams="viewparams" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
 
 </app-form-item>
 

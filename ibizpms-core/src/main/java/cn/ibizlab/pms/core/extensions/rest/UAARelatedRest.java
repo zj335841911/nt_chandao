@@ -32,12 +32,10 @@ public class UAARelatedRest {
     String ztpassword = "ibiz@123";
 
     @PostMapping(value="/ztlogin")
-    public JSONObject doZTLogin(String uaaloginname, String  token){
-        User user = getZTUserInfo(uaaloginname);
-        JSONObject userJO = doZTLogin(user.getAccount(), ztpassword, token);
+    public JSONObject doZTLogin(String account, String  token){
+        JSONObject userJO = doZTLogin(account, ztpassword, token);
         return userJO;
     }
-
     @Deprecated
     @GetMapping(value="/ztusers/uaaloginname")
     public JSONObject getUser(String uaaloginname){

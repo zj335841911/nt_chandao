@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[项目产品]
@@ -43,7 +44,8 @@ public class ProjectProduct extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @TableId(value= "id",type=IdType.ASSIGN_UUID)
+    @DEField(isKeyField=true)
+    @TableField(exist = false)
     @JSONField(name = "id")
     @JsonProperty("id")
     private String id;
@@ -74,28 +76,28 @@ public class ProjectProduct extends EntityMP implements Serializable {
     @TableField(value = "product")
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
     /**
      * 产品计划
      */
     @TableField(value = "plan")
     @JSONField(name = "plan")
     @JsonProperty("plan")
-    private BigInteger plan;
+    private Long plan;
     /**
      * 平台/分支
      */
     @TableField(value = "branch")
     @JSONField(name = "branch")
     @JsonProperty("branch")
-    private BigInteger branch;
+    private Long branch;
     /**
      * 项目
      */
     @TableField(value = "project")
     @JSONField(name = "project")
     @JsonProperty("project")
-    private BigInteger project;
+    private Long project;
 
     /**
      * 
@@ -134,7 +136,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
     /**
      * 设置 [产品]
      */
-    public void setProduct(BigInteger product){
+    public void setProduct(Long product){
         this.product = product ;
         this.modify("product",product);
     }
@@ -142,7 +144,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
     /**
      * 设置 [产品计划]
      */
-    public void setPlan(BigInteger plan){
+    public void setPlan(Long plan){
         this.plan = plan ;
         this.modify("plan",plan);
     }
@@ -150,7 +152,7 @@ public class ProjectProduct extends EntityMP implements Serializable {
     /**
      * 设置 [平台/分支]
      */
-    public void setBranch(BigInteger branch){
+    public void setBranch(Long branch){
         this.branch = branch ;
         this.modify("branch",branch);
     }
@@ -158,12 +160,24 @@ public class ProjectProduct extends EntityMP implements Serializable {
     /**
      * 设置 [项目]
      */
-    public void setProject(BigInteger project){
+    public void setProject(Long project){
         this.project = project ;
         this.modify("project",project);
     }
 
 
+    /**
+     * 复制当前对象数据到目标对象(粘贴重置)
+     * @param targetEntity 目标数据对象
+     * @param bIncEmpty  是否包括空值
+     * @param <T>
+     * @return
+     */
+    @Override
+    public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
+        this.reset("id");
+        return super.copyTo(targetEntity,bIncEmpty);
+    }
 }
 
 

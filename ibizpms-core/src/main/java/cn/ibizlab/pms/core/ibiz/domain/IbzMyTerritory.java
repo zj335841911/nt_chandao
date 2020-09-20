@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[我的地盘]
@@ -264,7 +265,7 @@ public class IbzMyTerritory extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * QQ
      */
@@ -349,6 +350,48 @@ public class IbzMyTerritory extends EntityMP implements Serializable {
     @JSONField(name = "myetasks")
     @JsonProperty("myetasks")
     private String myetasks;
+    /**
+     * 我的待办数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mytodocnt")
+    @JsonProperty("mytodocnt")
+    private Integer mytodocnt;
+    /**
+     * 我收藏的需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "myfavoritestorys")
+    @JsonProperty("myfavoritestorys")
+    private Integer myfavoritestorys;
+    /**
+     * 我收藏的bugs
+     */
+    @TableField(exist = false)
+    @JSONField(name = "myfavoritebugs")
+    @JsonProperty("myfavoritebugs")
+    private Integer myfavoritebugs;
+    /**
+     * 我收藏的任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "myfavoritetasks")
+    @JsonProperty("myfavoritetasks")
+    private Integer myfavoritetasks;
+    /**
+     * 我的收藏
+     */
+    @TableField(exist = false)
+    @JSONField(name = "myfavorites")
+    @JsonProperty("myfavorites")
+    private Integer myfavorites;
+    /**
+     * 我的地盘
+     */
+    @TableField(exist = false)
+    @JSONField(name = "myterritorycnt")
+    @JsonProperty("myterritorycnt")
+    private Integer myterritorycnt;
 
 
 
@@ -639,6 +682,22 @@ public class IbzMyTerritory extends EntityMP implements Serializable {
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
+    /**
+     * 复制当前对象数据到目标对象(粘贴重置)
+     * @param targetEntity 目标数据对象
+     * @param bIncEmpty  是否包括空值
+     * @param <T>
+     * @return
+     */
+    @Override
+    public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
+        this.reset("id");
+        return super.copyTo(targetEntity,bIncEmpty);
+    }
 }
 
 

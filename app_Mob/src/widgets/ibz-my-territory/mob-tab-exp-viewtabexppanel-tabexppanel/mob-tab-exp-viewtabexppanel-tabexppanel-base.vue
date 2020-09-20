@@ -1,38 +1,5 @@
 <template>
     <span>
-        <span v-show="activiedTabViewPanel == 'tabviewpanel'">
-                        <view_tabviewpanel
-                :viewState="viewState"
-                viewName="IbzMyTerritoryMobTabExpView"  
-                :viewparams="viewparams" 
-                :context="context" 
-                name="tabviewpanel"  
-                ref='tabviewpanel' 
-                @closeview="closeView($event)">
-            </view_tabviewpanel>
-        </span>
-        <span v-show="activiedTabViewPanel == 'tabviewpanel2'">
-                        <view_tabviewpanel2
-                :viewState="viewState"
-                viewName="IbzMyTerritoryMobTabExpView"  
-                :viewparams="viewparams" 
-                :context="context" 
-                name="tabviewpanel2"  
-                ref='tabviewpanel2' 
-                @closeview="closeView($event)">
-            </view_tabviewpanel2>
-        </span>
-        <span v-show="activiedTabViewPanel == 'tabviewpanel3'">
-                        <view_tabviewpanel3
-                :viewState="viewState"
-                viewName="IbzMyTerritoryMobTabExpView"  
-                :viewparams="viewparams" 
-                :context="context" 
-                name="tabviewpanel3"  
-                ref='tabviewpanel3' 
-                @closeview="closeView($event)">
-            </view_tabviewpanel3>
-        </span>
         <span v-show="activiedTabViewPanel == 'tabviewpanel4'">
                         <view_tabviewpanel4
                 :viewState="viewState"
@@ -44,8 +11,31 @@
                 @closeview="closeView($event)">
             </view_tabviewpanel4>
         </span>
+        <span v-show="activiedTabViewPanel == 'tabviewpanel'">
+                        <view_tabviewpanel
+                :viewState="viewState"
+                viewName="IbzMyTerritoryMobTabExpView"  
+                :viewparams="viewparams" 
+                :context="context" 
+                name="tabviewpanel"  
+                ref='tabviewpanel' 
+                @closeview="closeView($event)">
+            </view_tabviewpanel>
+        </span>
+        <span v-show="activiedTabViewPanel == 'tabviewpanel5'">
+                        <view_tabviewpanel5
+                :viewState="viewState"
+                viewName="IbzMyTerritoryMobTabExpView"  
+                :viewparams="viewparams" 
+                :context="context" 
+                name="tabviewpanel5"  
+                ref='tabviewpanel5' 
+                @closeview="closeView($event)">
+            </view_tabviewpanel5>
+        </span>
     </span>
 </template>
+
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
@@ -58,6 +48,7 @@ import MobTabExpViewtabexppanelService from '@/app-core/ctrl-service/ibz-my-terr
 
 import IbzMyTerritoryUIService from '@/ui-service/ibz-my-territory/ibz-my-territory-ui-action';
 
+import  MyMobCounterCounterService  from '@/app-core/counter/my-mob-counter/my-mob-counter-counter';
 
 
 @Component({
@@ -184,6 +175,43 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
         _this.$emit('closeview', args);
     }
 
+    
+    /**
+     * MyMobCounterCounterService计数器服务对象
+     *
+     * @type {MyMobCounterCounterService}
+     * @memberof MobTabExpViewtabexppanel
+     */
+    protected MyMobCountercounterservice: MyMobCounterCounterService = new MyMobCounterCounterService({$store: this.$store,context:this.context,viewparams:this.viewparams});
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof MobTabExpViewtabexppanel
+     */    
+    protected counterServiceArray:Array<any> = [this.MyMobCountercounterservice];
+
+    /**
+     * 加载计数器数据
+     *
+     * @param {any[]} args
+     * @memberof ProdMobTabExpViewtabexppanel
+     */
+    public async loadCounterData() {
+       this.$emit("counterInit",this.counterServiceArray[0]);
+    }
+
+    /**
+     * 销毁计数器服务
+     *
+     * @memberof IbzMyTerritoryMobTabExpView
+     */   
+    public counterserviceDestroy(){
+        this.counterServiceArray.forEach((item:any)=>{
+            item.destroyCounter();
+        });
+    }
 
     /**
      * 获取多项数据
@@ -220,8 +248,16 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @type {string}
      * @memberof MobTabExpViewtabexppanel
      */
-    @Prop({ default: 'tabviewpanel' }) protected activiedTabViewPanel?: string;     
-             
+    @Prop({ default: 'tabviewpanel4' }) protected activiedTabViewPanel?: string;     
+
+    /**
+     * 是否开启点击重新渲染
+     *
+     * @type {string}
+     * @memberof MobTabExpViewtabexppanel
+     */
+    @Prop({ default: true }) public isEnableReRender?:boolean;    
+
     /**
      * vue 生命周期
      *
@@ -261,6 +297,25 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
     /**
      * vue 生命周期
      *
+     * @returns
+     * @memberof MobTabExpViewtabexppanel
+     */
+    public mounted() {
+        this.afterMounted();
+    }
+    
+    /**
+     * 执行mounted后的逻辑
+     *
+     * @memberof MobTabExpViewtabexppanel
+     */
+    public afterMounted(){
+        this.loadCounterData();
+    }
+
+    /**
+     * vue 生命周期
+     *
      * @memberof MobTabExpViewtabexppanel
      */
     protected destroyed() {
@@ -273,6 +328,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @memberof MobTabExpViewtabexppanel
      */
     protected afterDestroy() {
+        this.counterserviceDestroy();
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
         }
@@ -297,6 +353,18 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
             let panel:any = this.activiedTabViewPanel
             if(panel){
               this.viewState.next({ tag: panel, action: this.action, data: {}});
+            }
+            if (this.isEnableReRender) {         
+              if (panel) {
+                let panelarr:any = Object.keys(this.$refs);
+                panelarr.splice(panelarr.findIndex((item:any) => item === panel), 1);
+                panelarr.forEach((item:any,index:number)=>{
+                  let tabviewpanel:any = this.$refs[item];
+                  if (tabviewpanel.isActivied) {
+                    tabviewpanel.isActivied = false;
+                  }
+                })
+              }
             }
         });
     }

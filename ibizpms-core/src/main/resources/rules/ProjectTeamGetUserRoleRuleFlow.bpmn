@@ -7,11 +7,11 @@
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="projectteamgetuserroledefault" type="cn.ibizlab.pms.core.ibiz.domain.ProjectTeam" />
         </extensionElements>
-     <startEvent id="AD340CC5-120C-45A9-87D6-C172B35ADB6A" isInterrupting="true"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectteamgetuserrolerawsqlcall1" id="EAF49177-5D92-4D92-9D94-E237786C5144" implementation="http://www.jboss.org/drools/rule" name="获取角色成员"/>
-     <endEvent id="EAF49177-5D92-4D92-9D94-E237786C5144_End" name="End"/>
-     <sequenceFlow id="EAF49177-5D92-4D92-9D94-E237786C5144_End_Line" sourceRef="EAF49177-5D92-4D92-9D94-E237786C5144" targetRef="EAF49177-5D92-4D92-9D94-E237786C5144_End"/>
-     <sequenceFlow id="2307C403-31F1-4F20-9544-5178B9E85DF4" sourceRef="AD340CC5-120C-45A9-87D6-C172B35ADB6A" targetRef="EAF49177-5D92-4D92-9D94-E237786C5144">
+     <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectteamgetuserrolerawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取角色成员"/>
+     <endEvent id="rawsqlcall1_end" name="end"/>
+     <sequenceFlow id="rawsqlcall1_end_line" sourceRef="rawsqlcall1" targetRef="rawsqlcall1_end"/>
+     <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
      </sequenceFlow>
     </process>
 </definitions>

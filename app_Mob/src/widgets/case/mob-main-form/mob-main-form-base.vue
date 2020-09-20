@@ -1,5 +1,5 @@
 <template>
-    <div ref='form' class="app-form ">
+    <div ref='form' class="app-form case-form ">
                 
 
 <app-form-group 
@@ -150,6 +150,7 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='version' 
     viewname='case-step-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
     paramItem='case' 
     style="" 
     :formState="formState" 
@@ -157,6 +158,7 @@
     :parameters="[
         { pathName: 'cases', parameterName: 'case' },
     ]" 
+    tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ "n_version_eq": "%version%" } ' 
@@ -198,7 +200,6 @@
 
     </div>
 </template>
-
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';

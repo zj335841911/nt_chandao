@@ -57,16 +57,6 @@ export class TodoDashboardViewBase extends DashboardViewBase {
      */
     public appUIService: TodoUIService = new TodoUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof TodoDashboardViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航上下文集合
 	 *
@@ -94,6 +84,13 @@ export class TodoDashboardViewBase extends DashboardViewBase {
         'desc': { isRawValue: false, value: 'desc' },
         'name': { isRawValue: false, value: 'name' }
     };
+
+    /**
+     * 是否显示信息栏
+     *
+     * @memberof TodoDashboardViewBase
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -139,6 +136,15 @@ export class TodoDashboardViewBase extends DashboardViewBase {
      * @memberof TodoDashboardViewBase
      */
     public engine: PortalViewEngine = new PortalViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof TodoDashboardViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

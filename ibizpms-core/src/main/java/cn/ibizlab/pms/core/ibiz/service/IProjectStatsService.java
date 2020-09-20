@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface IProjectStatsService extends IService<ProjectStats>{
     void createBatch(List<ProjectStats> list) ;
     boolean update(ProjectStats et) ;
     void updateBatch(List<ProjectStats> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    ProjectStats get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    ProjectStats get(Long key) ;
     ProjectStats getDraft(ProjectStats et) ;
     boolean checkKey(ProjectStats et) ;
     boolean save(ProjectStats et) ;

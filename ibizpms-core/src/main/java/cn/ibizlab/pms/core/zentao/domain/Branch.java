@@ -21,11 +21,13 @@ import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
+import cn.ibizlab.pms.util.annotation.Audit;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[产品的分支和平台信息]
@@ -62,7 +64,7 @@ public class Branch extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 排序
      */
@@ -77,7 +79,7 @@ public class Branch extends EntityMP implements Serializable {
     @TableField(value = "product")
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
 
     /**
      * 
@@ -108,12 +110,16 @@ public class Branch extends EntityMP implements Serializable {
     /**
      * 设置 [所属产品]
      */
-    public void setProduct(BigInteger product){
+    public void setProduct(Long product){
         this.product = product ;
         this.modify("product",product);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
 }
 
 

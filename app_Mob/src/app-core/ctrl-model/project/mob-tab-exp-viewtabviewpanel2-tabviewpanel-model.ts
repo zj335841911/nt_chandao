@@ -177,6 +177,54 @@ export class MobTabExpViewtabviewpanel2Model {
       {
         name: 'istop',
       },
+      {
+        name: 'dept',
+      },
+      {
+        name: 'managemembers',
+      },
+      {
+        name: 'buildcnt',
+      },
+      {
+        name: 'teamcnt',
+      },
+      {
+        name: 'alltaskcnt',
+      },
+      {
+        name: 'unclosetaskcnt',
+      },
+      {
+        name: 'asstomytaskcnt',
+      },
+      {
+        name: 'unstarttaskcnt',
+      },
+      {
+        name: 'moretaskcnt',
+      },
+      {
+        name: 'ystarttaskcnt',
+      },
+      {
+        name: 'uncompletetaskcnt',
+      },
+      {
+        name: 'ycompletetaskcnt',
+      },
+      {
+        name: 'mycompletetaskcnt',
+      },
+      {
+        name: 'closetaskcnt',
+      },
+      {
+        name: 'canceltaskcnt',
+      },
+      {
+        name: 'storychangecnt',
+      },
     ]
   }
 

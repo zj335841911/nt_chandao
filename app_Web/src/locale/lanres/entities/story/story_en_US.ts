@@ -55,6 +55,7 @@ export default {
     preversion: "之前的版本",
     neednotreview: "不需要评审",
     isfavorites: "是否收藏",
+    ischild: "是否可以细分",
   },
 	views: {
 		pickupgridview4: {
@@ -148,6 +149,10 @@ export default {
 		releasesubgridview: {
 			caption: "需求",
       		title: "story表格视图",
+		},
+		planeditview: {
+			caption: "需求",
+      		title: "需求",
 		},
 		assigntoview: {
 			caption: "指派",
@@ -394,7 +399,6 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			parent: "父需求", 
 			id: "", 
 			title: "", 
 			spec: "需求描述", 
@@ -402,6 +406,8 @@ export default {
 			prodoctname: "所属产品", 
 			branch: "", 
 			modulename: "所属模块", 
+			parent: "父需求", 
+			parentname: "父需求", 
 			plan: "所属计划", 
 			source: "需求来源", 
 			sourcenote: "来源备注", 
@@ -426,6 +432,7 @@ export default {
 	},
 	main_newmode_form: {
 		details: {
+			grouppanel1: "分组面板", 
 			group1: "需求基本信息", 
 			formpage1: "基本信息", 
 			srforikey: "", 
@@ -597,6 +604,40 @@ export default {
 		uiactions: {
 		},
 	},
+	plannew_form: {
+		details: {
+			group1: "需求基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "需求名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			product: "所属产品", 
+			module: "所属模块", 
+			prodoctname: "所属产品", 
+			branch: "", 
+			modulename: "所属模块", 
+			plan: "计划", 
+			source: "需求来源", 
+			sourcenote: "来源备注", 
+			reviewedby: "由谁评审", 
+			assignedto: "由谁评审", 
+			project: "项目", 
+			title: "需求名称", 
+			pri: "优先级", 
+			estimate: "预计", 
+			spec: "需求描述", 
+			verify: "验收标准", 
+			mailto: "抄送给", 
+			keywords: "关键词", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	mainprojectnew_form: {
 		details: {
 			group1: "需求基本信息", 
@@ -692,6 +733,7 @@ export default {
         story_closestory: "关闭",
         story_openbaseinfoeditview: "编辑",
         story_opencasecreateview: "建用例",
+        story_substory: "需求细分",
         story_storyfavorites: "收藏",
         story_storynfavorites: "取消收藏",
 		},
@@ -771,7 +813,7 @@ export default {
 		uiactions: {
 		},
 	},
-	main_grid: {
+	treemain_grid: {
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -791,6 +833,7 @@ export default {
         story_closestory: "关闭",
         story_openbaseinfoeditview: "编辑",
         story_opencasecreateview: "建用例",
+        story_substory: "需求细分",
         story_storyfavorites: "收藏",
         story_storynfavorites: "取消收藏",
 		},
@@ -842,6 +885,7 @@ export default {
         story_closestory: "关闭",
         story_openbaseinfoeditview: "编辑",
         story_opencasecreateview: "建用例",
+        story_substory: "需求细分",
         story_storyfavorites: "收藏",
         story_storynfavorites: "取消收藏",
 		},
@@ -853,6 +897,31 @@ export default {
 			status: "状态",
 		},
 		uiactions: {
+		},
+	},
+	main_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			plan: "计划",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			modulename: "所属模块名称",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+        story_changestorydetail: "变更",
+        story_reviewstory: "评审",
+        story_closestory: "关闭",
+        story_openbaseinfoeditview: "编辑",
+        story_opencasecreateview: "建用例",
+        story_substory: "需求细分",
+        story_storyfavorites: "收藏",
+        story_storynfavorites: "取消收藏",
 		},
 	},
 	main2_grid: {
@@ -868,6 +937,7 @@ export default {
         story_closestory: "关闭",
         story_openbaseinfoeditview: "编辑",
         story_opencasecreateview: "建用例",
+        story_substory: "需求细分",
         story_storyfavorites: "收藏",
         story_storynfavorites: "取消收藏",
 		},
@@ -899,8 +969,14 @@ export default {
 	},
 	editview9toolbar_toolbar: {
 	},
+	planeditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
 	plansubgridviewtoolbar_toolbar: {
-		deuiaction3_create: {
+		deuiaction3_createplan: {
 			caption: "新建需求",
 			tip: "新建需求",
 		},

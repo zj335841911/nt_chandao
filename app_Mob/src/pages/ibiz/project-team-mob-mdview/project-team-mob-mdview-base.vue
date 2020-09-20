@@ -5,6 +5,8 @@
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
         </ion-toolbar>
+
+    
     </ion-header>
 
 
@@ -28,7 +30,6 @@
             @showCheackChange="showCheackChange"
             :isTempMode="false"
             :isEnableChoose="false"
-            :isEnableRefresh="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -37,8 +38,14 @@
             @load="mdctrl_load($event)"  
             @closeview="closeView($event)">
         </view_mdctrl>
+        <ion-infinite-scroll  @ionInfinite="loadMore" threshold="1px" v-if="this.isEnablePullUp">
+          <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
+    <ion-footer class="view-footer" style="z-index:9999;">
         
     </ion-footer>
 </ion-page>
@@ -188,7 +195,7 @@ export default class ProjectTeamMobMDViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-users'
     }
 
     /**
@@ -363,6 +370,7 @@ export default class ProjectTeamMobMDViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *
@@ -515,9 +523,14 @@ export default class ProjectTeamMobMDViewBase extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
-        }else{
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
+        }
+        if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
         
@@ -595,6 +608,15 @@ export default class ProjectTeamMobMDViewBase extends Vue {
      * @memberof ProjectTeamMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+
+   /**
+     * 能否上拉加载
+     *
+     * @type {boolean}
+     * @memberof ProjectTeamMobMDViewBase
+     */ 
+    @Prop({ default: true }) public isEnablePullUp?: boolean;
+
 
 
     /**
@@ -686,14 +708,28 @@ export default class ProjectTeamMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof ProjectTeamMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;
         this.onViewLoad();
     }
 
-
+    /**
+     * 触底加载
+     *
+     * @param {*} value
+     * @memberof ProjectTeamMobMDViewBase
+     */
+    public async loadMore(event:any){
+      let mdctrl:any = this.$refs.mdctrl;
+      if(mdctrl && mdctrl.loadBottom && mdctrl.loadBottom instanceof Function){
+        mdctrl.loadBottom();
+      }
+      if(event.target && event.target.complete && event.target.complete instanceof Function){
+        event.target.complete();
+      }
+    }
 
 
 

@@ -57,16 +57,6 @@ export class BurnChartViewBase extends ChartViewBase {
      */
     public appUIService: BurnUIService = new BurnUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof BurnChartViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -124,6 +114,15 @@ export class BurnChartViewBase extends ChartViewBase {
      * @memberof BurnChartViewBase
      */
     public engine: ChartViewEngine = new ChartViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof BurnChartViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

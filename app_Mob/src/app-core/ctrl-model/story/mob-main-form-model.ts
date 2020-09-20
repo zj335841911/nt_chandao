@@ -46,6 +46,21 @@ export class MobMainModel {
                 name: 'srfsourcekey',
             },
             {
+                name: 'prodoctname',
+                prop: 'productname',
+                dataType: 'PICKUPTEXT',
+            },
+            {
+                name: 'branchname',
+                prop: 'branchname',
+                dataType: 'PICKUPTEXT',
+            },
+            {
+                name: 'modulename1',
+                prop: 'modulename1',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'title',
                 prop: 'title',
                 dataType: 'TEXT',
@@ -76,6 +91,21 @@ export class MobMainModel {
                 dataType: 'DATETIME',
             },
             {
+                name: 'source',
+                prop: 'source',
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'sourcenote',
+                prop: 'sourcenote',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'stage',
+                prop: 'stage',
+                dataType: 'SSCODELIST',
+            },
+            {
                 name: 'closedby',
                 prop: 'closedby',
                 dataType: 'SSCODELIST',
@@ -89,6 +119,26 @@ export class MobMainModel {
                 name: 'closedreason',
                 prop: 'closedreason',
                 dataType: 'SSCODELIST',
+            },
+            {
+                name: 'spec',
+                prop: 'spec',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'verify',
+                prop: 'verify',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'mailto',
+                prop: 'mailto',
+                dataType: 'SMCODELIST',
+            },
+            {
+                name: 'keywords',
+                prop: 'keywords',
+                dataType: 'TEXT',
             },
             {
                 name: 'id',

@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[系统日志]
@@ -61,7 +62,7 @@ public class Action extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 备注
      */
@@ -121,7 +122,7 @@ public class Action extends EntityMP implements Serializable {
     @TableField(value = "project")
     @JSONField(name = "project")
     @JsonProperty("project")
-    private BigInteger project;
+    private Long project;
     /**
      * 备注
      */
@@ -136,6 +137,20 @@ public class Action extends EntityMP implements Serializable {
     @JSONField(name = "actionmanner")
     @JsonProperty("actionmanner")
     private String actionmanner;
+    /**
+     * 当前用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isactorss")
+    @JsonProperty("isactorss")
+    private Integer isactorss;
+    /**
+     * 显示日期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "date1")
+    @JsonProperty("date1")
+    private String date1;
 
     /**
      * 项目
@@ -214,12 +229,16 @@ public class Action extends EntityMP implements Serializable {
     /**
      * 设置 [项目]
      */
-    public void setProject(BigInteger project){
+    public void setProject(Long project){
         this.project = project ;
         this.modify("project",project);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
 }
 
 

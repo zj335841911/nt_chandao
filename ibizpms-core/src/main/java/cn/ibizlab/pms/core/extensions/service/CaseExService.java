@@ -38,7 +38,7 @@ public class CaseExService extends CaseServiceImpl {
      */
     @Override
     @Transactional
-    public Case get(BigInteger key) {
+    public Case get(Long key) {
         Case et = getById(key);
         if(et==null){
             et=new Case();

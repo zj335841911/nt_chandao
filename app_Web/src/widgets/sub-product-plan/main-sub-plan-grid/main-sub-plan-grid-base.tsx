@@ -86,6 +86,14 @@ export class MainSubPlanGridBase extends GridControlBase {
     protected localStorageTag: string = 'ibz_subproductplan_mainsubplan_grid';
 
     /**
+     * 是否支持分页
+     *
+     * @type {boolean}
+     * @memberof MainSubPlanGridBase
+     */
+    public isEnablePagingBar: boolean = false;
+
+    /**
      * 排序方向
      *
      * @type {string}
@@ -100,6 +108,14 @@ export class MainSubPlanGridBase extends GridControlBase {
      * @memberof MainSubPlanGridBase
      */
     public minorSortPSDEF: string = 'id';
+
+    /**
+     * 分页条数
+     *
+     * @type {number}
+     * @memberof MainSubPlanGridBase
+     */
+    public limit: number = 50;
 
     /**
      * 所有列成员
@@ -122,22 +138,6 @@ export class MainSubPlanGridBase extends GridControlBase {
             langtag: 'entities.subproductplan.mainsubplan_grid.columns.title',
             show: true,
             unit: 'STAR',
-            isEnableRowEdit: false,
-        },
-        {
-            name: 'begin',
-            label: '开始日期',
-            langtag: 'entities.subproductplan.mainsubplan_grid.columns.begin',
-            show: true,
-            unit: 'PX',
-            isEnableRowEdit: false,
-        },
-        {
-            name: 'end',
-            label: '结束日期',
-            langtag: 'entities.subproductplan.mainsubplan_grid.columns.end',
-            show: true,
-            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]
@@ -176,8 +176,6 @@ export class MainSubPlanGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'id':false,
         'title':false,
-        'begin':false,
-        'end':false,
     };
 
     /**
@@ -205,5 +203,7 @@ export class MainSubPlanGridBase extends GridControlBase {
         return super.formatExcelData(filterVal, jsonData, [
         ]);
     }
+
+
 
 }

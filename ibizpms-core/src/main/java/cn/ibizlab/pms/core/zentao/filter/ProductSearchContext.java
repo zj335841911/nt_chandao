@@ -41,8 +41,8 @@ public class ProductSearchContext extends QueryWrapperContext<Product> {
             this.getSearchCond().like("name", n_name_like);
         }
     }
-	private BigInteger n_id_eq;//[编号]
-	public void setN_id_eq(BigInteger n_id_eq) {
+	private Long n_id_eq;//[编号]
+	public void setN_id_eq(Long n_id_eq) {
         this.n_id_eq = n_id_eq;
         if(!ObjectUtils.isEmpty(this.n_id_eq)){
             this.getSearchCond().eq("id", n_id_eq);
@@ -85,8 +85,8 @@ public class ProductSearchContext extends QueryWrapperContext<Product> {
             this.getSearchCond().like("linename", n_linename_like);
         }
     }
-	private BigInteger n_line_eq;//[产品线]
-	public void setN_line_eq(BigInteger n_line_eq) {
+	private Long n_line_eq;//[产品线]
+	public void setN_line_eq(Long n_line_eq) {
         this.n_line_eq = n_line_eq;
         if(!ObjectUtils.isEmpty(this.n_line_eq)){
             this.getSearchCond().eq("line", n_line_eq);

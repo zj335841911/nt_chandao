@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as dd from 'dingtalk-jsapi';
 import {  Util } from '@/ibiz-core/utils';
+import store from '@/store';
 /**
  * 钉钉服务
  *
@@ -15,7 +16,7 @@ export class DingTalkService {
      * @static
      * @memberof DingTalkService
      */
-    private static readonly instance = new DingTalkService();
+    private static readonly instance = new DingTalkService(store);
     /**
      * 用户信息缓存key
      *
@@ -57,10 +58,20 @@ export class DingTalkService {
     }
 
     /**
+     * Vue 状态管理器
+     *
+     * @public
+     * @type {(any | null)}
+     * @memberof DingTalkService
+     */
+    public $store:any;
+
+    /**
      * Creates an instance of DingTalkService.
      * @memberof DingTalkService
      */
-    private constructor() {
+    private constructor(store:any) {
+        this.$store = store;
         if (DingTalkService.instance) {
             return DingTalkService.instance;
         }
@@ -84,8 +95,8 @@ export class DingTalkService {
      */
     public async login(): Promise<any> {
             const access_token :any= await this.get(`/uaa/open/dingtalk/access_token`);
-            if(access_token.status == 200 && access_token.data && access_token.data.regionid){
-                const res: any= await dd.runtime.permission.requestAuthCode({ corpId: access_token.data.regionid });
+            if(access_token.status == 200 && access_token.data && access_token.data.corp_id){
+                const res: any= await dd.runtime.permission.requestAuthCode({ corpId: access_token.data.corp_id });
                 if (res && res.code) {
                     const userInfo:any = await this.get(`/uaa/open/dingtalk/auth/${res.code}`);
                     if(userInfo.status == 200 && userInfo.data.token && userInfo.data.user){
@@ -189,14 +200,14 @@ export class DingTalkService {
         if(Util.isAndroid()){
             document.addEventListener('backbutton', (e:any)=> {
                 e.preventDefault();
-                this.backEvent();
+                this.controlBackEvent();
             },false)
         }else{
             dd.biz.navigation.setLeft({
                  control : true,//是否控制点击事件，true 控制，false 不控制， 默认false
                  text : '返回', //控制显示文本，空字符串表示显示默认文本
-                 onSuccess : ()=>{
-                    this.backEvent();
+                 onSuccess : ()=>{      
+                  this.controlBackEvent();  
                  }
              });
         }
@@ -218,7 +229,17 @@ export class DingTalkService {
      * @returns {DingTalkService}
      * @memberof DingTalkService
      */
-    public setBackEvent(event:Function){
-        this.backEvent = event;
+    public setBackEvent(event:Array<Function>){
+        this.backEvent = event[event.length -1];
+    }
+
+    /**
+     * 是否调用导航栏返回事件
+     * @memberof DingTalkService
+     */
+    public controlBackEvent(){
+      if (this.$store.state.selectStatus) {  
+        this.backEvent();
+      }
     }
 }

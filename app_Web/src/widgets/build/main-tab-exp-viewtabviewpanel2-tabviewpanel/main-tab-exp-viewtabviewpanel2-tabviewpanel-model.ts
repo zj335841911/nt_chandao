@@ -63,6 +63,21 @@ export default class MainTabExpViewtabviewpanel2Model {
       {
         name: 'files',
       },
+      {
+        name: 'rebuild',
+      },
+      {
+        name: 'releasetype',
+      },
+      {
+        name: 'frontapplication',
+      },
+      {
+        name: 'backgroundid',
+      },
+      {
+        name: 'sqlid',
+      },
     ]
   }
 

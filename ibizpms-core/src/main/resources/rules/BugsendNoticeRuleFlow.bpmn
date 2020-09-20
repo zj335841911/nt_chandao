@@ -7,9 +7,9 @@
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="bugsendnoticedefault" type="cn.ibizlab.pms.core.zentao.domain.Bug" />
         </extensionElements>
-     <startEvent id="93BB7D08-6EE3-45E1-8159-36A552748A42" isInterrupting="true"/>
-     <endEvent id="93BB7D08-6EE3-45E1-8159-36A552748A42_End" name="End"/>
-     <sequenceFlow id="93BB7D08-6EE3-45E1-8159-36A552748A42_End_Line" sourceRef="93BB7D08-6EE3-45E1-8159-36A552748A42" targetRef="93BB7D08-6EE3-45E1-8159-36A552748A42_End"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <endEvent id="begin_end" name="end"/>
+     <sequenceFlow id="begin_end_line" sourceRef="begin" targetRef="begin_end"/>
     </process>
 </definitions>
 

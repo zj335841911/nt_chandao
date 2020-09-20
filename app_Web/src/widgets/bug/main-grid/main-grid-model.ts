@@ -27,19 +27,69 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'activateddate',
-          prop: 'activateddate',
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'confirmed',
+          prop: 'confirmed',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'openeddate',
+          prop: 'openeddate',
           dataType: 'DATETIME',
         },
         {
-          name: 'tostory',
-          prop: 'tostory',
-          dataType: 'PICKUP',
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
         },
         {
           name: 'resolution',
           prop: 'resolution',
           dataType: 'SSCODELIST',
+        },
+        {
+          name: 'lastediteddate',
+          prop: 'lastediteddate',
+          dataType: 'DATETIME',
+        },
+        {
+          name: 'activateddate',
+          prop: 'activateddate',
+          dataType: 'DATE',
+        },
+        {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'tostory',
+          prop: 'tostory',
+          dataType: 'PICKUP',
         },
         {
           name: 'srfmstag',
@@ -61,24 +111,9 @@ export default class MainModel {
           dataType: 'ACID',
         },
         {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'duplicatebug',
           prop: 'duplicatebug',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
         },
         {
           name: 'story',
@@ -86,24 +121,9 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'confirmed',
-          prop: 'confirmed',
-          dataType: 'NSCODELIST',
-        },
-        {
           name: 'repo',
           prop: 'repo',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'isfavorites',
-          prop: 'isfavorites',
-          dataType: 'TEXT',
         },
         {
           name: 'totask',
@@ -114,16 +134,6 @@ export default class MainModel {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'openeddate',
-          prop: 'openeddate',
-          dataType: 'DATETIME',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'task',
@@ -144,16 +154,6 @@ export default class MainModel {
           name: 'project',
           prop: 'project',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'lastediteddate',
-          prop: 'lastediteddate',
-          dataType: 'DATETIME',
         },
         {
           name: 'plan',

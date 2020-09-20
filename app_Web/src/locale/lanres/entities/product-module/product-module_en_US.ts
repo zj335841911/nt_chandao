@@ -97,6 +97,10 @@ export default {
 		},
 	},
 	gridviewtoolbar_toolbar: {
+		deuiaction1_syncfromibiz: {
+			caption: "同步",
+			tip: "同步",
+		},
 		deuiaction2: {
 			caption: "新建行",
 			tip: "新建行",

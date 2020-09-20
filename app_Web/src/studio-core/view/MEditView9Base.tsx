@@ -58,9 +58,11 @@ export class MEditView9Base extends ViewBase {
                     Object.assign(opt,this.context);
                     this.viewState.next({ tag:'meditviewpanel', action: 'remove', data: opt });
                 }
+                if(Object.is(res.action,'load')){
+                    this.viewState.next({ tag: 'meditviewpanel', action: 'load', data: this.context });
+                }
             });
         }
-        this.viewState.next({ tag: 'meditviewpanel', action: 'load', data: this.context });   
     }
 
 }

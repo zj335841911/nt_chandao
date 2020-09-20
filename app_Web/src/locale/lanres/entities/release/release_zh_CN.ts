@@ -17,8 +17,17 @@ export default {
     branch: "平台/分支",
     productname: "产品名称",
     files: "附件",
+    backgroundid: "后台体系",
+    sqlid: "运行数据库",
+    frontapplication: "系统应用",
+    rebuild: "重新构建",
+    releasetype: "运行模式",
   },
 	views: {
+		optionview: {
+			caption: "发布",
+      		title: "发布选项操作视图",
+		},
 		maininfoview: {
 			caption: "发布",
       		title: "发布编辑视图",
@@ -117,6 +126,27 @@ export default {
 			desc: "描述", 
 			id: "ID", 
 			build: "版本", 
+		},
+		uiactions: {
+		},
+	},
+	onerelease_form: {
+		details: {
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "ID", 
+			srfmajortext: "发布名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			releasetype: "运行模式", 
+			backgroundid: "后台体系", 
+			frontapplication: "系统应用", 
+			sqlid: "运行数据库", 
+			rebuild: "重新构建", 
+			product: "产品", 
+			id: "ID", 
 		},
 		uiactions: {
 		},

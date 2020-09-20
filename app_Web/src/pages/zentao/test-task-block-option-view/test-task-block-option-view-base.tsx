@@ -57,16 +57,6 @@ export class TestTaskBlockOptionViewBase extends OptionViewBase {
      */
     public appUIService: TestTaskUIService = new TestTaskUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof TestTaskBlockOptionViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航上下文集合
 	 *
@@ -77,6 +67,13 @@ export class TestTaskBlockOptionViewBase extends OptionViewBase {
     protected customViewNavContexts: any = {
         'OBJECTTYPE': { isRawValue: true, value: 'testtask' }
     };
+
+    /**
+     * 是否显示信息栏
+     *
+     * @memberof TestTaskBlockOptionViewBase
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -128,6 +125,15 @@ export class TestTaskBlockOptionViewBase extends OptionViewBase {
      * @memberof TestTaskBlockOptionViewBase
      */
     public engine: OptionViewEngine = new OptionViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof TestTaskBlockOptionViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

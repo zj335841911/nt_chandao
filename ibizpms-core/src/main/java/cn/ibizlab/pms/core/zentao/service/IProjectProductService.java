@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -39,14 +38,14 @@ public interface IProjectProductService extends IService<ProjectProduct>{
     void saveBatch(List<ProjectProduct> list) ;
     Page<ProjectProduct> searchDefault(ProjectProductSearchContext context) ;
     Page<ProjectProduct> searchRelationPlan(ProjectProductSearchContext context) ;
-    List<ProjectProduct> selectByBranch(BigInteger id) ;
-    void removeByBranch(BigInteger id) ;
-    List<ProjectProduct> selectByPlan(BigInteger id) ;
-    void removeByPlan(BigInteger id) ;
-    List<ProjectProduct> selectByProduct(BigInteger id) ;
-    void removeByProduct(BigInteger id) ;
-    List<ProjectProduct> selectByProject(BigInteger id) ;
-    void removeByProject(BigInteger id) ;
+    List<ProjectProduct> selectByBranch(Long id) ;
+    void removeByBranch(Long id) ;
+    List<ProjectProduct> selectByPlan(Long id) ;
+    void removeByPlan(Long id) ;
+    List<ProjectProduct> selectByProduct(Long id) ;
+    void removeByProduct(Long id) ;
+    List<ProjectProduct> selectByProject(Long id) ;
+    void removeByProject(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

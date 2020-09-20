@@ -86,6 +86,11 @@ export default class CompleteFormModel {
         dataType: 'DATE',
       },
       {
+        name: 'multiple',
+        prop: 'multiple',
+        dataType: 'TEXT',
+      },
+      {
         name: 'files',
       },
       {

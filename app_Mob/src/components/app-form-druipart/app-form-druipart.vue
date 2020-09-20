@@ -79,6 +79,15 @@ export default class AppFormDRUIPart extends Vue {
    */
   @Prop() public refviewtype?: string;
 
+
+  /**
+   * 临时数据模式：从数据模式:"2"、主数据模式:"1"、无临时数据模式:"0"
+   *
+   * @type {string}
+   * @memberof AppFormDRUIPart
+   */    
+  @Prop({default:"0"}) public tempMode?:string;
+
   /**
    * 父数据
    *
@@ -288,12 +297,16 @@ export default class AppFormDRUIPart extends Vue {
     Object.assign(this.tempViewParams, param);
 
     if (this.isRelationalData) {
-      if (!_paramitem || _paramitem == null || Object.is(_paramitem, "")) {
-        this.blockUIStart();
-        return;
-      } else {
-        this.blockUIStop();
-      }
+        if(this.tempMode && Object.is(this.tempMode,"2")){
+            this.blockUIStop();
+        }else{
+            if (!_paramitem || _paramitem == null || Object.is(_paramitem, '')) {
+                this.blockUIStart();
+                return;
+            } else {
+                this.blockUIStop();
+            }
+        }
     }
     setTimeout(()=>{this.formDruipart.next({ action: "load", data: {}})},500)
   }

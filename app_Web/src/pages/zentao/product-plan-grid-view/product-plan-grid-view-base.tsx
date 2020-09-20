@@ -60,16 +60,6 @@ export class ProductPlanGridViewBase extends GridViewBase {
      */
     public appUIService: ProductPlanUIService = new ProductPlanUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ProductPlanGridViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -131,6 +121,15 @@ export class ProductPlanGridViewBase extends GridViewBase {
      * @memberof ProductPlanGridViewBase
      */
     public engine: GridViewEngine = new GridViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProductPlanGridViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化
@@ -412,10 +411,10 @@ export class ProductPlanGridViewBase extends GridViewBase {
             });
         }
         const view: any = {
-            viewname: 'product-plan-main-tab-exp', 
+            viewname: 'product-plan-main-data-edit-view', 
             height: 0, 
             width: 0,  
-            title: this.$t('entities.productplan.views.maintabexp.title'),
+            title: this.$t('entities.productplan.views.maindataeditview.title'),
             placement: 'DRAWER_TOP',
         };
         openDrawer(view, data);

@@ -272,7 +272,7 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.steps.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='steps' :itemRules="this.rules.steps" class='' :caption="$t('entities.bug.casetobug_form.details.steps')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.steps.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.steps" @change="(val) =>{this.data.steps =val}" :disabled="detailsModel.steps.disabled" :data="JSON.stringify(this.data)"  name="steps" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor :formState="formState" :value="data.steps" @change="(val) =>{this.data.steps =val}" :disabled="detailsModel.steps.disabled" :data="JSON.stringify(this.data)"  name="steps" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""></app-rich-text-editor>
 
 </app-form-item>
 
@@ -296,7 +296,7 @@
   deMajorField='title'
   deKeyField='story'
   :service="service"
-  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchBugStory'}"
   valueitem='story' 
   :value="data.storyname" 
   editortype="dropdown"

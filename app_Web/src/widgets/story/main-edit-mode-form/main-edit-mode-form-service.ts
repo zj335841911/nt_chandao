@@ -106,6 +106,9 @@ export default class Main_EditModeService extends ControlService {
         if (Object.is(serviceName, 'ProductModuleService') && Object.is(interfaceName, 'FetchStoryModule')) {
             return this.doItems(this.productmoduleService.FetchStoryModule(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'productmodule');
         }
+        if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchParentDefault')) {
+            return this.doItems(this.appEntityService.FetchParentDefault(JSON.parse(JSON.stringify(context)), data, isloading), 'id', 'story');
+        }
 
         return Promise.reject([])
     }

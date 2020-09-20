@@ -57,16 +57,6 @@ export class IbzLibOpenLibViewBase extends DashboardViewBase {
      */
     public appUIService: IbzLibUIService = new IbzLibUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof IbzLibOpenLibViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航上下文集合
 	 *
@@ -78,6 +68,13 @@ export class IbzLibOpenLibViewBase extends DashboardViewBase {
         'OBJECTTYPE': { isRawValue: true, value: 'caselib' },
         'SRFPARENTKEY': { isRawValue: false, value: 'ibzlib' }
     };
+
+    /**
+     * 是否显示信息栏
+     *
+     * @memberof IbzLibOpenLibViewBase
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -123,6 +120,15 @@ export class IbzLibOpenLibViewBase extends DashboardViewBase {
      * @memberof IbzLibOpenLibViewBase
      */
     public engine: PortalViewEngine = new PortalViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof IbzLibOpenLibViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

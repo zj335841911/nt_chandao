@@ -62,22 +62,22 @@ public class TestTaskSearchContext extends QueryWrapperContext<TestTask> {
             this.getSearchCond().like("name", n_name_like);
         }
     }
-	private BigInteger n_product_eq;//[所属产品]
-	public void setN_product_eq(BigInteger n_product_eq) {
+	private Long n_product_eq;//[所属产品]
+	public void setN_product_eq(Long n_product_eq) {
         this.n_product_eq = n_product_eq;
         if(!ObjectUtils.isEmpty(this.n_product_eq)){
             this.getSearchCond().eq("product", n_product_eq);
         }
     }
-	private BigInteger n_build_eq;//[版本]
-	public void setN_build_eq(BigInteger n_build_eq) {
+	private Long n_build_eq;//[版本]
+	public void setN_build_eq(Long n_build_eq) {
         this.n_build_eq = n_build_eq;
         if(!ObjectUtils.isEmpty(this.n_build_eq)){
             this.getSearchCond().eq("build", n_build_eq);
         }
     }
-	private BigInteger n_project_eq;//[所属项目]
-	public void setN_project_eq(BigInteger n_project_eq) {
+	private Long n_project_eq;//[所属项目]
+	public void setN_project_eq(Long n_project_eq) {
         this.n_project_eq = n_project_eq;
         if(!ObjectUtils.isEmpty(this.n_project_eq)){
             this.getSearchCond().eq("project", n_project_eq);

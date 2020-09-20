@@ -27,9 +27,9 @@ export default class MainRModel {
     }else{
 		  return [
         {
-          name: 'files',
-          prop: 'files',
-          dataType: 'TEXT',
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
         },
         {
           name: 'desc',
@@ -37,9 +37,14 @@ export default class MainRModel {
           dataType: 'LONGTEXT',
         },
         {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'expect',
+          prop: 'expect',
+          dataType: 'LONGTEXT',
         },
         {
           name: 'steps',
@@ -47,19 +52,24 @@ export default class MainRModel {
           dataType: 'SSCODELIST',
         },
         {
-          name: 'type',
-          prop: 'type',
-          dataType: 'SSCODELIST',
+          name: 'reals',
+          prop: 'reals',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'files',
+          prop: 'files',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
         },
         {
           name: 'srfmajortext',
           prop: 'expect',
           dataType: 'LONGTEXT',
-        },
-        {
-          name: 'reals',
-          prop: 'reals',
-          dataType: 'TEXT',
         },
         {
           name: 'srfkey',
@@ -76,16 +86,6 @@ export default class MainRModel {
           name: 'version',
           prop: 'version',
           dataType: 'PICKUPDATA',
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'expect',
-          prop: 'expect',
-          dataType: 'LONGTEXT',
         },
         {
           name: 'case',

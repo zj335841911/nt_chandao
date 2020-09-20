@@ -86,11 +86,6 @@ export class ActivationMobModel {
                 dataType: 'HTMLTEXT',
             },
             {
-                name: 'mobimage',
-                prop: 'mobimage',
-                dataType: 'TEXT',
-            },
-            {
                 name: 'bug',
                 prop: 'id',
                 dataType: 'FONTKEY',

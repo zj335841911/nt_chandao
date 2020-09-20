@@ -57,6 +57,7 @@ public class TodoExService extends TodoServiceImpl {
      */
     @Override
     @Transactional
+    @SendMessage
     public Todo close(Todo et) {
         return super.close(et);
     }
@@ -141,7 +142,7 @@ public class TodoExService extends TodoServiceImpl {
 
     @Override
     @Transactional
-    public Todo get(BigInteger key) {
+    public Todo get(Long key) {
         Todo et = getById(key);
         if(et==null){
             et=new Todo();

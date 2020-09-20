@@ -321,7 +321,7 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
             this.data['assignedto'] = this.viewparams['assignedto'];
         }
         if (this.data.hasOwnProperty('multiple')) {
-            this.data['multiple'] = 0;
+            this.data['multiple'] = '0';
         }
         if (this.data.hasOwnProperty('name')) {
             this.data['name'] = this.viewparams['name'];

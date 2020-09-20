@@ -1,55 +1,432 @@
 package cn.ibizlab.pms.zentao.logic.tasklogic.removetempmajor__msdeny;
-
 import java.util.Map;
 import java.util.HashMap;
 import com.alibaba.fastjson.JSONObject;
+import org.springframework.util.StringUtils;
 global cn.ibizlab.pms.core.zentao.domain.Task taskremovetempmajor__msdenytemp;
 global cn.ibizlab.pms.core.zentao.domain.Task taskremovetempmajor__msdenydefault;
 global cn.ibizlab.pms.core.zentao.service.ITaskService taskservice;
 global cn.ibizlab.pms.core.zentao.service.ITaskService iBzSysTaskDefaultService;
 global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
 
+
 no-loop
 
-//逻辑处理节点[状态[未进行_未收藏]拒绝[removetempmajor]操作]
-rule "denybywait_0"
-ruleflow-group "taskremovetempmajor__msdenydenybywait_0"
+//逻辑处理节点[状态[未进行_未收藏_多人任务]拒绝[removetempmajor]操作]
+rule "denybywait_0_10"
+ruleflow-group "taskremovetempmajor__msdenydenybywait_0_10"
     when
     then
     update(taskremovetempmajor__msdenytemp);//更新fact中变量值
     update(taskremovetempmajor__msdenydefault);//更新fact中变量值
     end
 
-//逻辑处理节点[状态[已完成_已收藏]拒绝[removetempmajor]操作]
-rule "denybydone_1"
-ruleflow-group "taskremovetempmajor__msdenydenybydone_1"
+//逻辑处理节点[状态[已取消_未收藏_多人任务]拒绝[removetempmajor]操作]
+rule "denybycancel_0_10"
+ruleflow-group "taskremovetempmajor__msdenydenybycancel_0_10"
     when
     then
     update(taskremovetempmajor__msdenytemp);//更新fact中变量值
     update(taskremovetempmajor__msdenydefault);//更新fact中变量值
     end
 
-//逻辑处理节点[状态[未进行_已收藏]拒绝[removetempmajor]操作]
-rule "denybywait_1"
-ruleflow-group "taskremovetempmajor__msdenydenybywait_1"
+//逻辑处理节点[状态[已取消_已收藏_子任务]拒绝[removetempmajor]操作]
+rule "denybycancel_1_40"
+ruleflow-group "taskremovetempmajor__msdenydenybycancel_1_40"
     when
     then
     update(taskremovetempmajor__msdenytemp);//更新fact中变量值
     update(taskremovetempmajor__msdenydefault);//更新fact中变量值
     end
 
-//逻辑处理节点[状态[已关闭_已收藏]拒绝[removetempmajor]操作]
-rule "denybyclosed_1"
-ruleflow-group "taskremovetempmajor__msdenydenybyclosed_1"
+//逻辑处理节点[状态[需求变更_未收藏_常规任务]拒绝[removetempmajor]操作]
+rule "denybystorychange_0_30"
+ruleflow-group "taskremovetempmajor__msdenydenybystorychange_0_30"
     when
     then
     update(taskremovetempmajor__msdenytemp);//更新fact中变量值
     update(taskremovetempmajor__msdenydefault);//更新fact中变量值
     end
 
-//逻辑处理节点[状态[已关闭_未收藏]拒绝[removetempmajor]操作]
-rule "denybyclosed_0"
-ruleflow-group "taskremovetempmajor__msdenydenybyclosed_0"
+//逻辑处理节点[状态[未进行_已收藏_常规任务]拒绝[removetempmajor]操作]
+rule "denybywait_1_30"
+ruleflow-group "taskremovetempmajor__msdenydenybywait_1_30"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[需求变更_已收藏_多人任务]拒绝[removetempmajor]操作]
+rule "denybystorychange_1_10"
+ruleflow-group "taskremovetempmajor__msdenydenybystorychange_1_10"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已完成_未收藏_父任务]拒绝[removetempmajor]操作]
+rule "denybydone_0_20"
+ruleflow-group "taskremovetempmajor__msdenydenybydone_0_20"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[进行中_未收藏_子任务]拒绝[removetempmajor]操作]
+rule "denybydoing_0_40"
+ruleflow-group "taskremovetempmajor__msdenydenybydoing_0_40"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已取消_已收藏_常规任务]拒绝[removetempmajor]操作]
+rule "denybycancel_1_30"
+ruleflow-group "taskremovetempmajor__msdenydenybycancel_1_30"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已完成_已收藏_多人任务]拒绝[removetempmajor]操作]
+rule "denybydone_1_10"
+ruleflow-group "taskremovetempmajor__msdenydenybydone_1_10"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[开始]
+rule "begin"
+ruleflow-group "taskremovetempmajor__msdenybegin"
+    when
+    then
+    end
+
+//逻辑处理节点[状态[进行中_已收藏_子任务]拒绝[removetempmajor]操作]
+rule "denybydoing_1_40"
+ruleflow-group "taskremovetempmajor__msdenydenybydoing_1_40"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已关闭_已收藏_常规任务]拒绝[removetempmajor]操作]
+rule "denybyclosed_1_30"
+ruleflow-group "taskremovetempmajor__msdenydenybyclosed_1_30"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已关闭_未收藏_父任务]拒绝[removetempmajor]操作]
+rule "denybyclosed_0_20"
+ruleflow-group "taskremovetempmajor__msdenydenybyclosed_0_20"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已暂停_未收藏_父任务]拒绝[removetempmajor]操作]
+rule "denybypause_0_20"
+ruleflow-group "taskremovetempmajor__msdenydenybypause_0_20"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[未进行_未收藏_父任务]拒绝[removetempmajor]操作]
+rule "denybywait_0_20"
+ruleflow-group "taskremovetempmajor__msdenydenybywait_0_20"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[需求变更_未收藏_父任务]拒绝[removetempmajor]操作]
+rule "denybystorychange_0_20"
+ruleflow-group "taskremovetempmajor__msdenydenybystorychange_0_20"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已取消_未收藏_父任务]拒绝[removetempmajor]操作]
+rule "denybycancel_0_20"
+ruleflow-group "taskremovetempmajor__msdenydenybycancel_0_20"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已取消_已收藏_父任务]拒绝[removetempmajor]操作]
+rule "denybycancel_1_20"
+ruleflow-group "taskremovetempmajor__msdenydenybycancel_1_20"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已完成_已收藏_子任务]拒绝[removetempmajor]操作]
+rule "denybydone_1_40"
+ruleflow-group "taskremovetempmajor__msdenydenybydone_1_40"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[未进行_已收藏_父任务]拒绝[removetempmajor]操作]
+rule "denybywait_1_20"
+ruleflow-group "taskremovetempmajor__msdenydenybywait_1_20"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已完成_未收藏_多人任务]拒绝[removetempmajor]操作]
+rule "denybydone_0_10"
+ruleflow-group "taskremovetempmajor__msdenydenybydone_0_10"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[需求变更_已收藏_父任务]拒绝[removetempmajor]操作]
+rule "denybystorychange_1_20"
+ruleflow-group "taskremovetempmajor__msdenydenybystorychange_1_20"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已暂停_已收藏_子任务]拒绝[removetempmajor]操作]
+rule "denybypause_1_40"
+ruleflow-group "taskremovetempmajor__msdenydenybypause_1_40"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[进行中_未收藏_多人任务]拒绝[removetempmajor]操作]
+rule "denybydoing_0_10"
+ruleflow-group "taskremovetempmajor__msdenydenybydoing_0_10"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已关闭_未收藏_子任务]拒绝[removetempmajor]操作]
+rule "denybyclosed_0_40"
+ruleflow-group "taskremovetempmajor__msdenydenybyclosed_0_40"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已关闭_未收藏_常规任务]拒绝[removetempmajor]操作]
+rule "denybyclosed_0_30"
+ruleflow-group "taskremovetempmajor__msdenydenybyclosed_0_30"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[进行中_已收藏_常规任务]拒绝[removetempmajor]操作]
+rule "denybydoing_1_30"
+ruleflow-group "taskremovetempmajor__msdenydenybydoing_1_30"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已暂停_未收藏_多人任务]拒绝[removetempmajor]操作]
+rule "denybypause_0_10"
+ruleflow-group "taskremovetempmajor__msdenydenybypause_0_10"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已关闭_已收藏_子任务]拒绝[removetempmajor]操作]
+rule "denybyclosed_1_40"
+ruleflow-group "taskremovetempmajor__msdenydenybyclosed_1_40"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已完成_未收藏_子任务]拒绝[removetempmajor]操作]
+rule "denybydone_0_40"
+ruleflow-group "taskremovetempmajor__msdenydenybydone_0_40"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[需求变更_已收藏_常规任务]拒绝[removetempmajor]操作]
+rule "denybystorychange_1_30"
+ruleflow-group "taskremovetempmajor__msdenydenybystorychange_1_30"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已取消_未收藏_常规任务]拒绝[removetempmajor]操作]
+rule "denybycancel_0_30"
+ruleflow-group "taskremovetempmajor__msdenydenybycancel_0_30"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已取消_已收藏_多人任务]拒绝[removetempmajor]操作]
+rule "denybycancel_1_10"
+ruleflow-group "taskremovetempmajor__msdenydenybycancel_1_10"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[未进行_已收藏_多人任务]拒绝[removetempmajor]操作]
+rule "denybywait_1_10"
+ruleflow-group "taskremovetempmajor__msdenydenybywait_1_10"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[未进行_未收藏_常规任务]拒绝[removetempmajor]操作]
+rule "denybywait_0_30"
+ruleflow-group "taskremovetempmajor__msdenydenybywait_0_30"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[进行中_已收藏_父任务]拒绝[removetempmajor]操作]
+rule "denybydoing_1_20"
+ruleflow-group "taskremovetempmajor__msdenydenybydoing_1_20"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[需求变更_未收藏_多人任务]拒绝[removetempmajor]操作]
+rule "denybystorychange_0_10"
+ruleflow-group "taskremovetempmajor__msdenydenybystorychange_0_10"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已完成_已收藏_常规任务]拒绝[removetempmajor]操作]
+rule "denybydone_1_30"
+ruleflow-group "taskremovetempmajor__msdenydenybydone_1_30"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已暂停_未收藏_子任务]拒绝[removetempmajor]操作]
+rule "denybypause_0_40"
+ruleflow-group "taskremovetempmajor__msdenydenybypause_0_40"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已暂停_已收藏_常规任务]拒绝[removetempmajor]操作]
+rule "denybypause_1_30"
+ruleflow-group "taskremovetempmajor__msdenydenybypause_1_30"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已关闭_已收藏_多人任务]拒绝[removetempmajor]操作]
+rule "denybyclosed_1_10"
+ruleflow-group "taskremovetempmajor__msdenydenybyclosed_1_10"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[进行中_未收藏_父任务]拒绝[removetempmajor]操作]
+rule "denybydoing_0_20"
+ruleflow-group "taskremovetempmajor__msdenydenybydoing_0_20"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[需求变更_已收藏_子任务]拒绝[removetempmajor]操作]
+rule "denybystorychange_1_40"
+ruleflow-group "taskremovetempmajor__msdenydenybystorychange_1_40"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已完成_未收藏_常规任务]拒绝[removetempmajor]操作]
+rule "denybydone_0_30"
+ruleflow-group "taskremovetempmajor__msdenydenybydone_0_30"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已取消_未收藏_子任务]拒绝[removetempmajor]操作]
+rule "denybycancel_0_40"
+ruleflow-group "taskremovetempmajor__msdenydenybycancel_0_40"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[未进行_未收藏_子任务]拒绝[removetempmajor]操作]
+rule "denybywait_0_40"
+ruleflow-group "taskremovetempmajor__msdenydenybywait_0_40"
     when
     then
     update(taskremovetempmajor__msdenytemp);//更新fact中变量值
@@ -66,74 +443,49 @@ ruleflow-group "taskremovetempmajor__msdenypreparetemp"
     update(taskremovetempmajor__msdenydefault);//更新fact中变量值
     end
 
-//逻辑处理节点[状态[已完成_未收藏]拒绝[removetempmajor]操作]
-rule "denybydone_0"
-ruleflow-group "taskremovetempmajor__msdenydenybydone_0"
+//逻辑处理节点[状态[需求变更_未收藏_子任务]拒绝[removetempmajor]操作]
+rule "denybystorychange_0_40"
+ruleflow-group "taskremovetempmajor__msdenydenybystorychange_0_40"
     when
     then
     update(taskremovetempmajor__msdenytemp);//更新fact中变量值
     update(taskremovetempmajor__msdenydefault);//更新fact中变量值
     end
 
-//逻辑处理节点[状态[已暂停_已收藏]拒绝[removetempmajor]操作]
-rule "denybypause_1"
-ruleflow-group "taskremovetempmajor__msdenydenybypause_1"
+//逻辑处理节点[状态[未进行_已收藏_子任务]拒绝[removetempmajor]操作]
+rule "denybywait_1_40"
+ruleflow-group "taskremovetempmajor__msdenydenybywait_1_40"
     when
     then
     update(taskremovetempmajor__msdenytemp);//更新fact中变量值
     update(taskremovetempmajor__msdenydefault);//更新fact中变量值
     end
 
-//逻辑处理节点[状态[已取消_已收藏]拒绝[removetempmajor]操作]
-rule "denybycancel_1"
-ruleflow-group "taskremovetempmajor__msdenydenybycancel_1"
+//逻辑处理节点[状态[进行中_已收藏_多人任务]拒绝[removetempmajor]操作]
+rule "denybydoing_1_10"
+ruleflow-group "taskremovetempmajor__msdenydenybydoing_1_10"
     when
     then
     update(taskremovetempmajor__msdenytemp);//更新fact中变量值
     update(taskremovetempmajor__msdenydefault);//更新fact中变量值
     end
 
-//逻辑处理节点[状态[已取消_未收藏]拒绝[removetempmajor]操作]
-rule "denybycancel_0"
-ruleflow-group "taskremovetempmajor__msdenydenybycancel_0"
+//逻辑处理节点[状态[已完成_已收藏_父任务]拒绝[removetempmajor]操作]
+rule "denybydone_1_20"
+ruleflow-group "taskremovetempmajor__msdenydenybydone_1_20"
     when
     then
     update(taskremovetempmajor__msdenytemp);//更新fact中变量值
     update(taskremovetempmajor__msdenydefault);//更新fact中变量值
     end
 
-//逻辑处理节点[状态[进行中_未收藏]拒绝[removetempmajor]操作]
-rule "denybydoing_0"
-ruleflow-group "taskremovetempmajor__msdenydenybydoing_0"
+//逻辑处理节点[状态[已关闭_已收藏_父任务]拒绝[removetempmajor]操作]
+rule "denybyclosed_1_20"
+ruleflow-group "taskremovetempmajor__msdenydenybyclosed_1_20"
     when
     then
     update(taskremovetempmajor__msdenytemp);//更新fact中变量值
     update(taskremovetempmajor__msdenydefault);//更新fact中变量值
-    end
-
-//逻辑处理节点[状态[进行中_已收藏]拒绝[removetempmajor]操作]
-rule "denybydoing_1"
-ruleflow-group "taskremovetempmajor__msdenydenybydoing_1"
-    when
-    then
-    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
-    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
-    end
-
-//逻辑处理节点[状态[已暂停_未收藏]拒绝[removetempmajor]操作]
-rule "denybypause_0"
-ruleflow-group "taskremovetempmajor__msdenydenybypause_0"
-    when
-    then
-    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
-    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
-    end
-
-//逻辑处理节点[开始]
-rule "begin"
-ruleflow-group "taskremovetempmajor__msdenybegin"
-    when
-    then
     end
 
 //逻辑处理节点[获取数据]
@@ -142,6 +494,51 @@ ruleflow-group "taskremovetempmajor__msdenyget"
     when
     then
     cn.ibizlab.pms.util.helper.CachedBeanCopier.copy(taskservice.get(taskremovetempmajor__msdenytemp.getId()),taskremovetempmajor__msdenytemp);
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已关闭_未收藏_多人任务]拒绝[removetempmajor]操作]
+rule "denybyclosed_0_10"
+ruleflow-group "taskremovetempmajor__msdenydenybyclosed_0_10"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已暂停_已收藏_多人任务]拒绝[removetempmajor]操作]
+rule "denybypause_1_10"
+ruleflow-group "taskremovetempmajor__msdenydenybypause_1_10"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已暂停_未收藏_常规任务]拒绝[removetempmajor]操作]
+rule "denybypause_0_30"
+ruleflow-group "taskremovetempmajor__msdenydenybypause_0_30"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[已暂停_已收藏_父任务]拒绝[removetempmajor]操作]
+rule "denybypause_1_20"
+ruleflow-group "taskremovetempmajor__msdenydenybypause_1_20"
+    when
+    then
+    update(taskremovetempmajor__msdenytemp);//更新fact中变量值
+    update(taskremovetempmajor__msdenydefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[状态[进行中_未收藏_常规任务]拒绝[removetempmajor]操作]
+rule "denybydoing_0_30"
+ruleflow-group "taskremovetempmajor__msdenydenybydoing_0_30"
+    when
+    then
     update(taskremovetempmajor__msdenytemp);//更新fact中变量值
     update(taskremovetempmajor__msdenydefault);//更新fact中变量值
     end

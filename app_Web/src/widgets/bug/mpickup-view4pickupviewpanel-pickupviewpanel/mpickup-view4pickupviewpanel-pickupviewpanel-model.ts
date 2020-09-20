@@ -222,6 +222,9 @@ export default class MPickupView4pickupviewpanelModel {
       {
         name: 'createbuild',
       },
+      {
+        name: 'overduebugs',
+      },
     ]
   }
 

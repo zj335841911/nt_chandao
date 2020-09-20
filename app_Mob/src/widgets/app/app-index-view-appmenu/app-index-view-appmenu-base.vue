@@ -3,7 +3,7 @@
     <app-mob-menu-ionic-view 
         class="" 
         menuName="appindexview"  
-        counterName=""  
+        counterName="mobmenucounter"  
         :items="menus" 
         :menuModels="menuMode.getAppFuncs()" 
         @select="select($event)"  
@@ -14,7 +14,7 @@
     <app-mob-menu-list-view 
         class="" 
         menuName="appindexview" 
-        counterName="" 
+        counterName="mobmenucounter" 
         :items="menus" 
         :menuModels="menuMode.getAppFuncs()" 
         @select="select($event)" 
@@ -25,7 +25,7 @@
     <app-mob-menu-swiper-view 
         class="" 
         menuName="appindexview" 
-        counterName="" 
+        counterName="mobmenucounter" 
         :items="menus" 
         :menuModels="menuMode.getAppFuncs()" 
         @select="select($event)" 
@@ -36,7 +36,7 @@
     <app-mob-menu-default-view 
         class="" 
         menuName="appindexview" 
-        counterName="" 
+        counterName="mobmenucounter" 
         :items="menus" 
         :menuModels="menuMode.getAppFuncs()" 
         v-model="defaultActive"
@@ -427,14 +427,17 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
                 case 'Auto13': 
                     this.clickAuto13(item);
                     return;
+                case 'AppFunc': 
+                    this.clickAppFunc(item);
+                    return;
+                case 'AppFunc2': 
+                    this.clickAppFunc2(item);
+                    return;
                 case 'Auto18': 
                     this.clickAuto18(item);
                     return;
                 case 'Auto20': 
                     this.clickAuto20(item);
-                    return;
-                case '_2': 
-                    this.click_2(item);
                     return;
                 default:
                     console.warn('未指定应用功能');
@@ -486,6 +489,48 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
     }
     
     /**
+     * 个人中心
+     *
+     * @param {*} [item={}]
+     * @memberof AppIndexView
+     */
+    protected clickAppFunc(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'users', parameterName: 'user' },
+            { pathName: 'usercentermobeditview', parameterName: 'usercentermobeditview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
+     * 用户选择
+     *
+     * @param {*} [item={}]
+     * @memberof AppIndexView
+     */
+    protected clickAppFunc2(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'users', parameterName: 'user' },
+            { pathName: 'mobpickupview', parameterName: 'mobpickupview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
      * 项目
      *
      * @param {*} [item={}]
@@ -522,27 +567,6 @@ export default class AppIndexViewBase extends Vue implements ControlInterface {
         const parameters: any[] = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'testmobmdview', parameterName: 'testmobmdview' },
-        ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
-        this.globaluiservice.openService.openView(routeParam);
-    }
-    
-    /**
-     * 我的收藏
-     *
-     * @param {*} [item={}]
-     * @memberof AppIndexView
-     */
-    protected click_2(item: any = {}) {
-        let navigateParam: any = { } ;
-        let navigateContext: any = { } ;
-        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
-        let context = { ..._context };
-        let param = { ..._param };
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'ibzfavorites', parameterName: 'ibzfavorites' },
-            { pathName: 'mobtabexpview', parameterName: 'mobtabexpview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);

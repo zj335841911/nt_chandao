@@ -177,6 +177,9 @@ export default class StoryRelatedModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'ischild',
+      },
     ]
   }
 

@@ -298,6 +298,14 @@ export class Main_BuildSubGridBase extends GridControlBase {
             isEnableRowEdit: false,
         },
         {
+            name: 'confirmed',
+            label: '是否确认',
+            langtag: 'entities.bug.main_buildsub_grid.columns.confirmed',
+            show: false,
+            unit: 'PX',
+            isEnableRowEdit: false,
+        },
+        {
             name: 'title',
             label: 'Bug标题',
             langtag: 'entities.bug.main_buildsub_grid.columns.title',
@@ -353,6 +361,14 @@ export class Main_BuildSubGridBase extends GridControlBase {
             unit: 'PX',
             isEnableRowEdit: false,
         },
+        {
+            name: 'isfavorites',
+            label: '是否收藏',
+            langtag: 'entities.bug.main_buildsub_grid.columns.isfavorites',
+            show: false,
+            unit: 'PX',
+            isEnableRowEdit: false,
+        },
     ]
 
     /**
@@ -389,6 +405,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'id':false,
         'pri':false,
+        'confirmed':false,
         'title':false,
         'status':false,
         'openedby':false,
@@ -396,6 +413,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
         'resolvedby':false,
         'resolution':false,
         'uagridcolumn1':false,
+        'isfavorites':false,
     };
 
     /**
@@ -499,4 +517,6 @@ export class Main_BuildSubGridBase extends GridControlBase {
             this.grid_uagridcolumn1_uea0faba_click(row, tag, $event);
         }
     }
+
+
 }

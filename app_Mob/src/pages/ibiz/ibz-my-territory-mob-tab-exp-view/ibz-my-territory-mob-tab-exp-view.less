@@ -23,6 +23,10 @@
 
 
 
+//去除滚动条高度
+ion-infinite-scroll-content{
+  min-height: 1px;
+}
 
 .demobtabexpview{
   ion-header{
@@ -33,7 +37,15 @@
         ion-badge{
           position: absolute;
           top: -5px;
-          right: -32px;
+          right: -20px !important;
+          min-width: 15px;
+          height: 15px;
+          font-size:10px;
+          text-align: center;
+          line-height: 15px;
+          --padding-end:0px;
+          --padding-start:0px;
+          --padding-top:1px;
         }
         ion-icon{
           font-size: 20px;

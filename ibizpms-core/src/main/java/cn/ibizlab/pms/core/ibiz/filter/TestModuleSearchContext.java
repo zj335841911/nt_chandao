@@ -41,8 +41,8 @@ public class TestModuleSearchContext extends QueryWrapperContext<TestModule> {
             this.getSearchCond().eq("branch", n_branch_eq);
         }
     }
-	private BigInteger n_parent_eq;//[id]
-	public void setN_parent_eq(BigInteger n_parent_eq) {
+	private Long n_parent_eq;//[id]
+	public void setN_parent_eq(Long n_parent_eq) {
         this.n_parent_eq = n_parent_eq;
         if(!ObjectUtils.isEmpty(this.n_parent_eq)){
             this.getSearchCond().eq("parent", n_parent_eq);
@@ -62,8 +62,8 @@ public class TestModuleSearchContext extends QueryWrapperContext<TestModule> {
             this.getSearchCond().like("parentname", n_parentname_like);
         }
     }
-	private BigInteger n_root_eq;//[编号]
-	public void setN_root_eq(BigInteger n_root_eq) {
+	private Long n_root_eq;//[编号]
+	public void setN_root_eq(Long n_root_eq) {
         this.n_root_eq = n_root_eq;
         if(!ObjectUtils.isEmpty(this.n_root_eq)){
             this.getSearchCond().eq("root", n_root_eq);

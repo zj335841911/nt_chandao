@@ -10,7 +10,7 @@
             :placeholder="$t('components.dropDownListDynamic.placeholder')">
             <i-option v-for="(item, index) in items" :key="index" :value="item.value">{{($t('userCustom.'+tag+'.'+item.value)!== ('userCustom.'+tag+'.'+item.value))?$t('userCustom.'+tag+'.'+item.value) : item.text}}</i-option>
         </i-select>
-    <i v-if="currentVal || currentVal == 0" @click="clear" type="md-close" class="el-icon-circle-close" />
+    <i v-if="(currentVal || currentVal == 0) && !disabled" @click="clear" type="md-close" class="el-icon-circle-close" />
     </div>
 </template>
 

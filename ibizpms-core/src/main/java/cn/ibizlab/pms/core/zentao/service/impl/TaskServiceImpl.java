@@ -144,7 +144,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     }
         @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         Task et = this.get(key);
@@ -154,16 +154,16 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList){
+    public void removeBatch(Collection<Long> idList){
         if (idList != null && !idList.isEmpty()) {
-            for (BigInteger id : idList) {
+            for (Long id : idList) {
                 this.remove(id);
             }
         }
     }
     @Override
     @Transactional
-    public Task get(BigInteger key) {
+    public Task get(Long key) {
         Task tempET=new Task();
         tempET.set("id",key);
         Task et = getById(key);
@@ -234,6 +234,19 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.close(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "close"), rst);
+        if (bRst && rst.getEtId() != null) {
+            et = this.get(rst.getEtId());
+        }
+        et.set("ztrst", rst);
+        return et;
+    }
+
+        @Override
+    @Transactional
+    public Task confirmStoryChange(Task et) {
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.confirmStoryChange(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "confirmStoryChange"), rst);
         if (bRst && rst.getEtId() != null) {
             et = this.get(rst.getEtId());
         }
@@ -350,6 +363,42 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         saveOrUpdateBatch(list,batchSize);
     }
 
+      /**
+   * 发送消息通知。
+   */
+	@Override
+	public Task sendMessage(Task et) {
+ 		String pcLinkView = "maindashboardview_link";
+  		String mobLinkView = "mobeditview";
+  	
+  		cn.ibizlab.pms.core.util.message.IMsgService dingTalkMsgService = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.message.IMsgService.class);
+  		if(dingTalkMsgService!=null){
+        	dingTalkMsgService.send(et, "任务", pcLinkView, mobLinkView);
+		}
+	  	return et;
+	}
+      /**
+   * 发送消息前置处理逻辑。
+   */
+	@Override
+	public Task sendMsgPreProcess(Task et) {
+	  	Task dbet = this.get(et.getId());
+        Map<String,Object> params = et.getExtensionparams();
+
+  		//assignedto has changed
+  		if(!cn.ibizlab.pms.core.util.message.MsgDestParser.equalsInValue(dbet.get("assignedto"),et.get("assignedto"))) {
+            params.put("assignedToChanged", true);
+        }
+  		params.put("preassignedto",dbet.get("assignedto"));
+
+        if(!cn.ibizlab.pms.core.util.message.MsgDestParser.equalsInValue(dbet.get("status"),et.get("status"))){
+            params.put("prestatus",dbet.get("status"));
+        }
+
+	  	//mailto filter duplicated
+	  	
+	  	return et;
+	}
         @Override
     @Transactional
     public Task start(Task et) {
@@ -379,55 +428,64 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
 
 	@Override
-    public List<Task> selectByModule(BigInteger id) {
+    public List<Task> selectByModule(Long id) {
         return baseMapper.selectByModule(id);
     }
 
     @Override
-    public void removeByModule(BigInteger id) {
+    public void removeByModule(Long id) {
         this.remove(new QueryWrapper<Task>().eq("module",id));
     }
 
 	@Override
-    public List<Task> selectByFrombug(BigInteger id) {
+    public List<Task> selectByFrombug(Long id) {
         return baseMapper.selectByFrombug(id);
     }
 
     @Override
-    public void removeByFrombug(BigInteger id) {
+    public void removeByFrombug(Long id) {
         this.remove(new QueryWrapper<Task>().eq("frombug",id));
     }
 
 	@Override
-    public List<Task> selectByProject(BigInteger id) {
+    public List<Task> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
 
     @Override
-    public void removeByProject(BigInteger id) {
+    public void removeByProject(Long id) {
         this.remove(new QueryWrapper<Task>().eq("project",id));
     }
 
 	@Override
-    public List<Task> selectByStory(BigInteger id) {
+    public List<Task> selectByStory(Long id) {
         return baseMapper.selectByStory(id);
     }
 
     @Override
-    public void removeByStory(BigInteger id) {
+    public void removeByStory(Long id) {
         this.remove(new QueryWrapper<Task>().eq("story",id));
     }
 
 	@Override
-    public List<Task> selectByParent(BigInteger id) {
+    public List<Task> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
 
     @Override
-    public void removeByParent(BigInteger id) {
+    public void removeByParent(Long id) {
         this.remove(new QueryWrapper<Task>().eq("parent",id));
     }
 
+
+    /**
+     * 查询集合 指派给我任务
+     */
+    @Override
+    public Page<Task> searchAssignedToMyTask(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchAssignedToMyTask(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
 
     /**
      * 查询集合 通过模块查询

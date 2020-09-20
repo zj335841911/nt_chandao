@@ -132,6 +132,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/" + previewpath + "/**").permitAll()
                 .antMatchers("/uaa/open/dingtalk/auth/**").permitAll()
                 .antMatchers("/uaa/open/dingtalk/access_token").permitAll()
+                .antMatchers("/error").permitAll()
                 // 所有请求都需要认证
                 .anyRequest().authenticated()
                 // 防止iframe 造成跨域

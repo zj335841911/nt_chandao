@@ -81,6 +81,19 @@ export default class DashBoardInfoModel {
         dataType: 'SSCODELIST',
       },
       {
+        name: 'formitem6',
+        prop: 'totalwh',
+        dataType: 'INT',
+      },
+      {
+        name: 'formitem7',
+        prop: 'totalconsumed',
+        dataType: 'FLOAT',
+      },
+      {
+        name: 'formitemex1',
+      },
+      {
         name: 'begin',
         prop: 'begin',
         dataType: 'DATE',

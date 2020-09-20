@@ -41,11 +41,18 @@ public class ProjectSearchContext extends QueryWrapperContext<Project> {
             this.getSearchCond().eq("pm", n_pm_eq);
         }
     }
-	private BigInteger n_id_eq;//[项目编号]
-	public void setN_id_eq(BigInteger n_id_eq) {
+	private Long n_id_eq;//[项目编号]
+	public void setN_id_eq(Long n_id_eq) {
         this.n_id_eq = n_id_eq;
         if(!ObjectUtils.isEmpty(this.n_id_eq)){
             this.getSearchCond().eq("id", n_id_eq);
+        }
+    }
+	private Long n_id_noteq;//[项目编号]
+	public void setN_id_noteq(Long n_id_noteq) {
+        this.n_id_noteq = n_id_noteq;
+        if(!ObjectUtils.isEmpty(this.n_id_noteq)){
+            this.getSearchCond().ne("id", n_id_noteq);
         }
     }
 	private String n_name_like;//[项目名称]
@@ -132,8 +139,8 @@ public class ProjectSearchContext extends QueryWrapperContext<Project> {
             this.getSearchCond().like("parentname", n_parentname_like);
         }
     }
-	private BigInteger n_parent_eq;//[父项目]
-	public void setN_parent_eq(BigInteger n_parent_eq) {
+	private Long n_parent_eq;//[父项目]
+	public void setN_parent_eq(Long n_parent_eq) {
         this.n_parent_eq = n_parent_eq;
         if(!ObjectUtils.isEmpty(this.n_parent_eq)){
             this.getSearchCond().eq("parent", n_parent_eq);
@@ -151,6 +158,20 @@ public class ProjectSearchContext extends QueryWrapperContext<Project> {
         this.n_account_eq = n_account_eq;
         if(!ObjectUtils.isEmpty(this.n_account_eq)){
             this.getSearchCond().eq("account", n_account_eq);
+        }
+    }
+	private String n_dept_eq;//[选择部门]
+	public void setN_dept_eq(String n_dept_eq) {
+        this.n_dept_eq = n_dept_eq;
+        if(!ObjectUtils.isEmpty(this.n_dept_eq)){
+            this.getSearchCond().eq("dept", n_dept_eq);
+        }
+    }
+	private String n_managemembers_eq;//[复制团队]
+	public void setN_managemembers_eq(String n_managemembers_eq) {
+        this.n_managemembers_eq = n_managemembers_eq;
+        if(!ObjectUtils.isEmpty(this.n_managemembers_eq)){
+            this.getSearchCond().eq("managemembers", n_managemembers_eq);
         }
     }
 

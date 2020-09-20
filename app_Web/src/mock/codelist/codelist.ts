@@ -153,6 +153,53 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "RELEASE_rebuild",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "0",
+                label: "无操作",
+                text: "无操作",
+                "data":"",
+                "codename":"None",
+                value: 0,
+                
+                disabled: false,
+            },
+            {
+                id: "1",
+                label: "快速（删除本地项目与代码仓库多余文件）",
+                text: "快速（删除本地项目与代码仓库多余文件）",
+                "data":"",
+                "codename":"Quick",
+                value: 1,
+                
+                disabled: false,
+            },
+            {
+                id: "4",
+                label: "修复模型",
+                text: "修复模型",
+                "data":"",
+                "codename":"FixModel",
+                value: 4,
+                
+                disabled: false,
+            },
+            {
+                id: "2",
+                label: "完整（完全重建本地项目及代码仓库）",
+                text: "完整（完全重建本地项目及代码仓库）",
+                "data":"",
+                "codename":"Full",
+                value: 2,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Task__color",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -281,6 +328,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "Backendservicesystem",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"PSSysSFPub",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         srfkey: "StoryQuickpacketMy",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -333,6 +388,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "codelisttype":"dynamic",
         "appdataentity":"User",
         "appdedataset":"FetchProjectTeamM",
+        "items": []
+    },
+    {
+        "srfkey": "SQLBuild",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"PSSystemDBCfg",
+        "appdedataset":"FetchBuild",
         "items": []
     },
     {
@@ -688,6 +751,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        "srfkey": "RunSQL",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"PSSystemDBCfg",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         "srfkey": "CurProductBuild",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -737,6 +808,103 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Item_4",
                 value: 4,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "RELEASE_Type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "DEPLOYPKG",
+                label: "部署系统组件到仓库",
+                text: "部署系统组件到仓库",
+                "data":"",
+                "codename":"Deploypkg",
+                value: "DEPLOYPKG",
+                
+                disabled: false,
+            },
+            {
+                id: "PACKMOBAPP",
+                label: "打包移动应用",
+                text: "打包移动应用",
+                "data":"",
+                "codename":"Packmobapp",
+                value: "PACKMOBAPP",
+                
+                disabled: false,
+            },
+            {
+                id: "PACKVER",
+                label: "打包版本",
+                text: "打包版本",
+                "data":"",
+                "codename":"Packver",
+                value: "PACKVER",
+                
+                disabled: false,
+            },
+            {
+                id: "PUBCODE",
+                label: "代码发布",
+                text: "代码发布",
+                "data":"",
+                "codename":"Pubcode",
+                value: "PUBCODE",
+                
+                disabled: false,
+            },
+            {
+                id: "PUBCODE2",
+                label: "代码发布（模板开发）",
+                text: "代码发布（模板开发）",
+                "data":"",
+                "codename":"Pubcode2",
+                value: "PUBCODE2",
+                
+                disabled: false,
+            },
+            {
+                id: "STARTMSAPI",
+                label: "启动微服务",
+                text: "启动微服务",
+                "data":"",
+                "codename":"Startmsapi",
+                value: "STARTMSAPI",
+                
+                disabled: false,
+            },
+            {
+                id: "STARTMSAPP",
+                label: "启动微服务应用",
+                text: "启动微服务应用",
+                "data":"",
+                "codename":"Startmsapp",
+                value: "STARTMSAPP",
+                
+                disabled: false,
+            },
+            {
+                id: "STARTMSFUNC",
+                label: "启动微服务功能",
+                text: "启动微服务功能",
+                "data":"",
+                "codename":"Startmsfunc",
+                value: "STARTMSFUNC",
+                
+                disabled: false,
+            },
+            {
+                id: "STARTX",
+                label: "启动系统",
+                text: "启动系统",
+                "data":"",
+                "codename":"Startx",
+                value: "STARTX",
                 
                 disabled: false,
             },
@@ -1123,6 +1291,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "APPBuild",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"PSSysApp",
+        "appdedataset":"FetchBuild",
+        "items": []
+    },
+    {
         srfkey: "Story__review_result",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -1206,6 +1382,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "SystemAPP",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"PSSysApp",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         "srfkey": "Role",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -1225,6 +1409,90 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"On",
                 value: "on",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "TaskStatusCK",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "wait",
+                label: "未开始",
+                text: "未开始",
+                "data":"",
+                "codename":"Wait",
+                "color": "rgba(131, 138, 157, 1)",
+                value: "wait",
+                
+                disabled: false,
+            },
+            {
+                id: "doing",
+                label: "进行中",
+                text: "进行中",
+                "data":"",
+                "codename":"Doing",
+                "color": "rgba(255, 93, 93, 1)",
+                value: "doing",
+                
+                disabled: false,
+            },
+            {
+                id: "done",
+                label: "已完成",
+                text: "已完成",
+                "data":"",
+                "codename":"Done",
+                "color": "rgba(67, 160, 71, 1)",
+                value: "done",
+                
+                disabled: false,
+            },
+            {
+                id: "pause",
+                label: "已暂停",
+                text: "已暂停",
+                "data":"",
+                "codename":"Pause",
+                "color": "rgba(255, 152, 0, 1)",
+                value: "pause",
+                
+                disabled: false,
+            },
+            {
+                id: "cancel",
+                label: "已取消",
+                text: "已取消",
+                "data":"",
+                "codename":"Cancel",
+                "color": "rgba(131, 138, 157, 1)",
+                value: "cancel",
+                
+                disabled: false,
+            },
+            {
+                id: "closed",
+                label: "已关闭",
+                text: "已关闭",
+                "data":"",
+                "codename":"Closed",
+                "color": "rgba(131, 138, 157, 1)",
+                value: "closed",
+                
+                disabled: false,
+            },
+            {
+                id: "storychange",
+                label: "需求变更",
+                text: "需求变更",
+                "data":"",
+                "codename":"Storychange",
+                "color": "rgba(245, 8, 8, 1)",
+                value: "storychange",
                 
                 disabled: false,
             },
@@ -3238,6 +3506,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "ProjectTeam",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Project",
+        "appdedataset":"FetchProjectTeam",
+        "items": []
+    },
+    {
         "srfkey": "UserRealNameTaskTeam",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -3433,6 +3709,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "BackendBuild",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"PSSysSFPub",
+        "appdedataset":"FetchBuild",
+        "items": []
+    },
+    {
         srfkey: "Testcase__stage",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -3618,7 +3902,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 label: "所有",
                 text: "所有",
                 "data":{},
-                "codename":"All",
+                "codename":"ALLTASKCNT",
                 value: "All",
                 
                 disabled: false,
@@ -3628,7 +3912,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 label: "未关闭",
                 text: "未关闭",
                 "data":{"n_status_noteq":"closed"},
-                "codename":"Unclosed",
+                "codename":"UNCLOSETASKCNT",
                 value: "UNCLOSED",
                 
                 disabled: false,
@@ -3638,8 +3922,18 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 label: "指派给我",
                 text: "指派给我",
                 "data":{"n_assignedto_eq":"%srfloginname%"},
-                "codename":"Tome",
+                "codename":"ASSTOMYTASKCNT",
                 value: "TOME",
+                
+                disabled: false,
+            },
+            {
+                id: "storychange",
+                label: "需求变更",
+                text: "需求变更",
+                "data":{"n_status1_eq":"storychange"},
+                "codename":"STORYCHANGECNT",
+                value: "storychange",
                 
                 disabled: false,
             },
@@ -3648,7 +3942,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 label: "更多",
                 text: "更多",
                 "data":"",
-                "codename":"More",
+                "codename":"MORETASKCNT",
                 value: "MORE",
                 
                 disabled: false,
@@ -3658,7 +3952,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 label: "未开始",
                 text: "未开始",
                 "data":{"n_status_eq":"wait"},
-                "codename":"Notstarted",
+                "codename":"UNSTARTTASKCNT",
                 value: "NOTSTARTED",
                 "pvalue": "MORE",
                 disabled: false,
@@ -3668,7 +3962,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 label: "进行中",
                 text: "进行中",
                 "data":{"n_status_eq":"doing"},
-                "codename":"Inprogress",
+                "codename":"YSTARTASKCNT",
                 value: "INPROGRESS",
                 "pvalue": "MORE",
                 disabled: false,
@@ -3677,8 +3971,8 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "UNACCOMPLISHED",
                 label: "未完成",
                 text: "未完成",
-                "data":{"n_status_noteq":"done"},
-                "codename":"Unaccomplished",
+                "data":{"n_status_in":"wait;cancel;doing"},
+                "codename":"UNCOMPLETETASKCNT",
                 value: "UNACCOMPLISHED",
                 "pvalue": "MORE",
                 disabled: false,
@@ -3688,7 +3982,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 label: "我完成",
                 text: "我完成",
                 "data":{"n_finishedby_eq":"%srfloginname%"},
-                "codename":"Ifinished",
+                "codename":"MYCOMPLETETASKCNT",
                 value: "IFINISHED",
                 "pvalue": "MORE",
                 disabled: false,
@@ -3698,7 +3992,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 label: "已完成",
                 text: "已完成",
                 "data":{"n_status_eq":"done"},
-                "codename":"Completed",
+                "codename":"YCOMPLETETASKCNT",
                 value: "COMPLETED",
                 "pvalue": "MORE",
                 disabled: false,
@@ -3708,7 +4002,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 label: "已关闭",
                 text: "已关闭",
                 "data":{"n_status_eq":"closed"},
-                "codename":"Closed",
+                "codename":"CLOSETASKCNT",
                 value: "CLOSED",
                 "pvalue": "MORE",
                 disabled: false,
@@ -3718,7 +4012,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 label: "已取消",
                 text: "已取消",
                 "data":{"n_status_eq":"cancel"},
-                "codename":"Cancelled",
+                "codename":"CANCELTASKCNT",
                 value: "CANCELLED",
                 "pvalue": "MORE",
                 disabled: false,
@@ -6078,7 +6372,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "UNASSIGNED",
                 label: "未指派",
                 text: "未指派",
-                "data":{"n_assignedto_eq":""},
+                "data":{"n_assignedto_eq":" "},
                 "codename":"Unassigned",
                 value: "UNASSIGNED",
                 "pvalue": "MORE",
@@ -6088,7 +6382,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 id: "EXPIREDBUG",
                 label: "过期Bug",
                 text: "过期Bug",
-                "data":{"n_deadline_lt": "%srfcurdate%"},
+                "data":{"n_overduebugs_lt":  0},
                 "codename":"Expiredbug",
                 value: "EXPIREDBUG",
                 "pvalue": "MORE",
@@ -6742,6 +7036,16 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Other",
                 value: "other",
+                
+                disabled: false,
+            },
+            {
+                id: "iBiz",
+                label: "iBiz",
+                text: "iBiz",
+                "data":"",
+                "codename":"Ibiz",
+                value: "iBiz",
                 
                 disabled: false,
             },

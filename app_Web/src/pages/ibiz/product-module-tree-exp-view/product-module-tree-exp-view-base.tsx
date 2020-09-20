@@ -57,16 +57,6 @@ export class ProductModuleTreeExpViewBase extends TreeExpViewBase {
      */
     public appUIService: ProductModuleUIService = new ProductModuleUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ProductModuleTreeExpViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航上下文集合
 	 *
@@ -77,6 +67,13 @@ export class ProductModuleTreeExpViewBase extends TreeExpViewBase {
     protected customViewNavContexts: any = {
         'MODULETYPE': { isRawValue: true, value: 'story' }
     };
+
+    /**
+     * 是否显示信息栏
+     *
+     * @memberof ProductModuleTreeExpViewBase
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -136,6 +133,15 @@ export class ProductModuleTreeExpViewBase extends TreeExpViewBase {
      * @memberof ProductModuleTreeExpViewBase
      */
     public engine: TreeExpViewEngine = new TreeExpViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProductModuleTreeExpViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

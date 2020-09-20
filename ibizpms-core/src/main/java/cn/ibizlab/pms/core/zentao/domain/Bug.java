@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[Bug]
@@ -66,8 +67,8 @@ public class Bug extends EntityMP implements Serializable {
      * 激活日期
      */
     @TableField(value = "activateddate")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "activateddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "activateddate" , format="yyyy-MM-dd")
     @JsonProperty("activateddate")
     private Timestamp activateddate;
     /**
@@ -271,7 +272,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * found
      */
@@ -370,14 +371,14 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "tostory")
     @JSONField(name = "tostory")
     @JsonProperty("tostory")
-    private BigInteger tostory;
+    private Long tostory;
     /**
      * 应用
      */
     @TableField(value = "entry")
     @JSONField(name = "entry")
     @JsonProperty("entry")
-    private BigInteger entry;
+    private Long entry;
     /**
      * 所属产品
      */
@@ -385,21 +386,21 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "product")
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
     /**
      * 转任务
      */
     @TableField(value = "totask")
     @JSONField(name = "totask")
     @JsonProperty("totask")
-    private BigInteger totask;
+    private Long totask;
     /**
      * 所属计划
      */
     @TableField(value = "plan")
     @JSONField(name = "plan")
     @JsonProperty("plan")
-    private BigInteger plan;
+    private Long plan;
     /**
      * 所属模块
      */
@@ -407,28 +408,28 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "module")
     @JSONField(name = "module")
     @JsonProperty("module")
-    private BigInteger module;
+    private Long module;
     /**
      * 平台/分支
      */
     @TableField(value = "branch")
     @JSONField(name = "branch")
     @JsonProperty("branch")
-    private BigInteger branch;
+    private Long branch;
     /**
      * 重复ID
      */
     @TableField(value = "duplicatebug")
     @JSONField(name = "duplicatebug")
     @JsonProperty("duplicatebug")
-    private BigInteger duplicatebug;
+    private Long duplicatebug;
     /**
      * 代码
      */
     @TableField(value = "repo")
     @JSONField(name = "repo")
     @JsonProperty("repo")
-    private BigInteger repo;
+    private Long repo;
     /**
      * 相关需求
      */
@@ -436,7 +437,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "story")
     @JSONField(name = "story")
     @JsonProperty("story")
-    private BigInteger story;
+    private Long story;
     /**
      * 相关用例
      */
@@ -444,7 +445,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "case")
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
-    private BigInteger ibizcase;
+    private Long ibizcase;
     /**
      * 所属项目
      */
@@ -452,21 +453,21 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "project")
     @JSONField(name = "project")
     @JsonProperty("project")
-    private BigInteger project;
+    private Long project;
     /**
      * 相关任务
      */
     @TableField(value = "task")
     @JSONField(name = "task")
     @JsonProperty("task")
-    private BigInteger task;
+    private Long task;
     /**
      * 测试单
      */
     @TableField(value = "testtask")
     @JSONField(name = "testtask")
     @JsonProperty("testtask")
-    private BigInteger testtask;
+    private Long testtask;
     /**
      * 备注
      */
@@ -544,6 +545,13 @@ public class Bug extends EntityMP implements Serializable {
     @JSONField(name = "createbuild")
     @JsonProperty("createbuild")
     private Integer createbuild;
+    /**
+     * 过期天数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "overduebugs")
+    @JsonProperty("overduebugs")
+    private Integer overduebugs;
 
     /**
      * 
@@ -698,7 +706,7 @@ public class Bug extends EntityMP implements Serializable {
         if (this.activateddate == null) {
             return null;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(activateddate);
     }
     /**
@@ -1008,7 +1016,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [转需求]
      */
-    public void setTostory(BigInteger tostory){
+    public void setTostory(Long tostory){
         this.tostory = tostory ;
         this.modify("tostory",tostory);
     }
@@ -1016,7 +1024,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [应用]
      */
-    public void setEntry(BigInteger entry){
+    public void setEntry(Long entry){
         this.entry = entry ;
         this.modify("entry",entry);
     }
@@ -1024,7 +1032,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [所属产品]
      */
-    public void setProduct(BigInteger product){
+    public void setProduct(Long product){
         this.product = product ;
         this.modify("product",product);
     }
@@ -1032,7 +1040,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [转任务]
      */
-    public void setTotask(BigInteger totask){
+    public void setTotask(Long totask){
         this.totask = totask ;
         this.modify("totask",totask);
     }
@@ -1040,7 +1048,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [所属计划]
      */
-    public void setPlan(BigInteger plan){
+    public void setPlan(Long plan){
         this.plan = plan ;
         this.modify("plan",plan);
     }
@@ -1048,7 +1056,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [所属模块]
      */
-    public void setModule(BigInteger module){
+    public void setModule(Long module){
         this.module = module ;
         this.modify("module",module);
     }
@@ -1056,7 +1064,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [平台/分支]
      */
-    public void setBranch(BigInteger branch){
+    public void setBranch(Long branch){
         this.branch = branch ;
         this.modify("branch",branch);
     }
@@ -1064,7 +1072,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [重复ID]
      */
-    public void setDuplicatebug(BigInteger duplicatebug){
+    public void setDuplicatebug(Long duplicatebug){
         this.duplicatebug = duplicatebug ;
         this.modify("duplicatebug",duplicatebug);
     }
@@ -1072,7 +1080,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [代码]
      */
-    public void setRepo(BigInteger repo){
+    public void setRepo(Long repo){
         this.repo = repo ;
         this.modify("repo",repo);
     }
@@ -1080,7 +1088,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [相关需求]
      */
-    public void setStory(BigInteger story){
+    public void setStory(Long story){
         this.story = story ;
         this.modify("story",story);
     }
@@ -1088,7 +1096,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [相关用例]
      */
-    public void setIbizcase(BigInteger ibizcase){
+    public void setIbizcase(Long ibizcase){
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
@@ -1096,7 +1104,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [所属项目]
      */
-    public void setProject(BigInteger project){
+    public void setProject(Long project){
         this.project = project ;
         this.modify("project",project);
     }
@@ -1104,7 +1112,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [相关任务]
      */
-    public void setTask(BigInteger task){
+    public void setTask(Long task){
         this.task = task ;
         this.modify("task",task);
     }
@@ -1112,12 +1120,28 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 设置 [测试单]
      */
-    public void setTesttask(BigInteger testtask){
+    public void setTesttask(Long testtask){
         this.testtask = testtask ;
         this.modify("testtask",testtask);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
+    /**
+     * 复制当前对象数据到目标对象(粘贴重置)
+     * @param targetEntity 目标数据对象
+     * @param bIncEmpty  是否包括空值
+     * @param <T>
+     * @return
+     */
+    @Override
+    public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
+        this.reset("id");
+        return super.copyTo(targetEntity,bIncEmpty);
+    }
 }
 
 

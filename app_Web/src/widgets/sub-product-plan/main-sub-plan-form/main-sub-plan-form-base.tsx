@@ -86,7 +86,9 @@ export class MainSubPlanEditFormBase extends EditFormControlBase {
         parentname: null,
         title: null,
         begin: null,
+        future: null,
         end: null,
+        delta: null,
         desc: null,
         id: null,
         subproductplan:null,
@@ -151,13 +153,32 @@ export class MainSubPlanEditFormBase extends EditFormControlBase {
 
         begin: new FormItemModel({ caption: '开始日期', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        future: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'future', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        delta: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'delta', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 重置表单项值
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @memberof MainSubPlanEditFormBase
+     */
+    public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
+        if (Object.is(name, 'future')) {
+            this.onFormItemValueChange({ name: 'begin', value: null });
+        }
+        if (Object.is(name, 'future')) {
+            this.onFormItemValueChange({ name: 'delta', value: null });
+        }
+    }
 
     /**
      * 表单项逻辑
@@ -190,9 +211,43 @@ export class MainSubPlanEditFormBase extends EditFormControlBase {
         }
 
 
+        if (Object.is(name, '') || Object.is(name, 'future')) {
+            let ret = false;
+            const _future = this.data.future;
+            if (this.$verify.testCond(_future, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.begin.setDisabled(!ret);
+        }
+
+
+        if (Object.is(name, '') || Object.is(name, 'future')) {
+            let ret = false;
+            const _future = this.data.future;
+            if (this.$verify.testCond(_future, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.end.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'future')) {
+            let ret = false;
+            const _future = this.data.future;
+            if (this.$verify.testCond(_future, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.delta.setVisible(ret);
+        }
 
 
 
-
+        if (Object.is(name, 'begin')) {
+            const details: string[] = ['end'];
+            this.updateFormItems('GetPlanEnd', this.data, details, true);
+        }
+        if (Object.is(name, 'delta')) {
+            const details: string[] = ['end'];
+            this.updateFormItems('GetPlanEnd', this.data, details, true);
+        }
     }
 }

@@ -2,23 +2,23 @@
 .studio-view.view-container {
 
     // 表格显示分页栏样式
-    .grid.show-paging-bar {
+    // .grid.show-paging-bar {
 
-        >.ivu-form {
+    //     >.ivu-form {
 
-            >.el-table {
-                height: calc(100% - 35px);
-            }
-        }
-    }
+    //         >.el-table {
+    //             height: calc(100% - 35px);
+    //         }
+    //     }
+    // }
 
     .el-table.el-table--mini.el-table--fit {
 
-        >.el-table__header-wrapper {
+        >.el-table__header-wrapper, .el-table__fixed-header-wrapper {
 
             >.el-table__header {
 
-                >.has-gutter {
+                >thead {
 
                     >tr {
 
@@ -45,7 +45,7 @@
             }
         }
 
-        >.el-table__body-wrapper {
+        >.el-table__body-wrapper, .el-table__fixed-body-wrapper {
 
             >.el-table__body {
 

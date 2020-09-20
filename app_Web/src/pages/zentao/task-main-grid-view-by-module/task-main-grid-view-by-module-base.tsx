@@ -60,16 +60,6 @@ export class TaskMainGridView_ByModuleBase extends GridViewBase {
      */
     public appUIService: TaskUIService = new TaskUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof TaskMainGridView_ByModuleBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -135,6 +125,15 @@ export class TaskMainGridView_ByModuleBase extends GridViewBase {
      * @memberof TaskMainGridView_ByModuleBase
      */
     public engine: GridViewEngine = new GridViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof TaskMainGridView_ByModuleBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

@@ -57,15 +57,12 @@ export class ProjectModuleQuickCfgViewBase extends OptionViewBase {
      */
     public appUIService: ProjectModuleUIService = new ProjectModuleUIService(this.$store);
 
-
     /**
-     * 计数器服务对象集合
+     * 是否显示信息栏
      *
-     * @protected
-     * @type {Array<*>}
      * @memberof ProjectModuleQuickCfgViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -117,6 +114,15 @@ export class ProjectModuleQuickCfgViewBase extends OptionViewBase {
      * @memberof ProjectModuleQuickCfgViewBase
      */
     public engine: OptionViewEngine = new OptionViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProjectModuleQuickCfgViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

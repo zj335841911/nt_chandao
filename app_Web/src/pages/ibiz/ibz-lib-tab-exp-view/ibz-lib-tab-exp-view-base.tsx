@@ -57,15 +57,12 @@ export class IbzLibTabExpViewBase extends TabExpViewBase {
      */
     public appUIService: IbzLibUIService = new IbzLibUIService(this.$store);
 
-
     /**
-     * 计数器服务对象集合
+     * 是否显示信息栏
      *
-     * @protected
-     * @type {Array<*>}
      * @memberof IbzLibTabExpViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -111,6 +108,15 @@ export class IbzLibTabExpViewBase extends TabExpViewBase {
      * @memberof IbzLibTabExpViewBase
      */
     public engine: TabExpViewEngine = new TabExpViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof IbzLibTabExpViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

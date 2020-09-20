@@ -1,8 +1,8 @@
 <template>
   <div class="app-mobile-check-list">
-    <ion-icon v-if="curValue"  name="close-outline" @click="clear"></ion-icon>
+    <div class="cancel-icon" v-if="curValue"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
     <div v-if="curValue== null || curValue==''" class="ion-select-icon"></div>
-    <ion-select  ref="checkList" @ionChange="change" multiple="true"   :ok-text="$t('app.button.confirm')" :cancel-text="$t('app.button.cancel')">
+    <ion-select  ref="checkList" @ionChange="change" multiple="true" @click="load" :ok-text="$t('app.button.confirm')" :cancel-text="$t('app.button.cancel')" @ionCancel="cancel">
       <ion-select-option v-for="option of options" :key="option.value" :value="option.value">{{option.text}}
       </ion-select-option>
     </ion-select>
@@ -43,22 +43,18 @@
     @Prop() public value ? : string;
 
     /**
-     * 回填值
-     * @memberof AppCheckList
-     */
-    @Watch('value')
-    valueChange(newValue: string, oldValue: string) {
-      this.value = newValue
-      const select:any = this.$refs.checkList;
-      let arr = this.value.split(',')
-      select.value = arr;
-    }
-
-    /**
      * 当前选中值
      * @memberof AppCheckList
      */
     public curValue:any = this.value;
+
+    @Watch('value')
+    valueChange(newValue: string, oldValue: string) {
+      if (newValue) {
+        this.load();
+        this.$store.commit('setSelectStatus',true);
+      }
+    }
 
     /**
      * 下拉数据数组
@@ -116,6 +112,13 @@
      */
     @Prop({ default: true }) protected isCache?: boolean;
 
+    /**
+     * 是否被缓存
+     *
+     * @type {*}
+     * @memberof AppSelect
+     */
+    public isCached: boolean = false;
 
     /**
      * 传入表单数据
@@ -139,22 +142,44 @@
      * @type {*}
      * @memberof AppCheckList
      */
-    public created() {
+    public mounted() {
+      setTimeout(() => {    
+        this.load();
+        this.$store.commit('setSelectStatus',true);
+      }, 1000);
+    }
+
+    /**
+     * 加载
+     *
+     * @returns {Promise<any>}
+     * @memberof AppSelect
+     */
+    public async load(): Promise<any> {
+      this.$store.commit('setSelectStatus',false);
       if (this.tag && this.type) {
-        if (Object.is(this.type, "dynamic")) {
-          this.codeListService
-            .getItems(this.tag)
-            .then((res: any) => {
-              this.options = res;
-            })
-            .catch((error: any) => {
-              this.options = [];
-            });
-        } else {
+        if (Object.is(this.type, "static")) {
+          return;
+        }
         // 处理导航参数、上下文参数
-        let param: any= {};
-          this.handleOtherParam(param);
-          this.options = this.$store.getters.getCodeListItems(this.tag ,this.isCache, param.context, param.param);
+        let param: any = {};
+        const bcancel: boolean =this.handleOtherParam(param);
+        if (!bcancel) {
+            return
+        }
+        let response: any = await this.codeListService.getItems(this.tag,  param.context, param.param);
+        if (response) {
+            this.options = response
+            if (this.isCache) {
+                this.isCached = true;
+            }
+            if (this.value) {
+              const select:any = this.$refs.checkList;
+              let arr = this.value.split(',')
+              select.value = arr;
+            }
+        } else {
+            this.options = [];
         }
       }
     }
@@ -165,8 +190,19 @@
      * @memberof AppCheckList
      */
     public change(value: any) {
+      this.$store.commit('setSelectStatus',true);
       this.curValue = value.detail.value.toString();
       this.$emit('change', this.curValue);
+    }
+
+    /**
+     * 取消选择
+     *
+     * @type {*}
+     * @memberof AppCheckList
+     */
+    public cancel(){
+      this.$store.commit('setSelectStatus',true);
     }
 
     /**

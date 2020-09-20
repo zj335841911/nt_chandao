@@ -103,6 +103,34 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public grid_uagridcolumn1_u94afee5_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_confirmStoryChange(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public grid_uagridcolumn1_u7f3dc22_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -299,6 +327,7 @@ export class MainGridBase extends GridControlBase {
      */  
     public ActionModel: any = {
         AssignTask: { name: 'AssignTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', target: 'SINGLEKEY'},
+        confirmStoryChange: { name: 'confirmStoryChange',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', target: 'SINGLEKEY'},
         StartTask: { name: 'StartTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_START_BUT', target: 'SINGLEKEY'},
         CloseTask: { name: 'CloseTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_CLOSE_BUT', target: 'SINGLEKEY'},
         DoneTask: { name: 'DoneTask',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', target: 'SINGLEKEY'},
@@ -345,7 +374,7 @@ export class MainGridBase extends GridControlBase {
             label: 'ID',
             langtag: 'entities.task.main_grid.columns.id',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -353,7 +382,7 @@ export class MainGridBase extends GridControlBase {
             label: 'P',
             langtag: 'entities.task.main_grid.columns.pri',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -361,15 +390,15 @@ export class MainGridBase extends GridControlBase {
             label: '任务名称',
             langtag: 'entities.task.main_grid.columns.name',
             show: true,
-            util: 'STAR',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
-            name: 'status',
+            name: 'status1',
             label: '任务状态',
-            langtag: 'entities.task.main_grid.columns.status',
+            langtag: 'entities.task.main_grid.columns.status1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -377,7 +406,7 @@ export class MainGridBase extends GridControlBase {
             label: '指派给',
             langtag: 'entities.task.main_grid.columns.assignedto',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -385,7 +414,7 @@ export class MainGridBase extends GridControlBase {
             label: '完成者',
             langtag: 'entities.task.main_grid.columns.finishedby',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -393,7 +422,7 @@ export class MainGridBase extends GridControlBase {
             label: '预计',
             langtag: 'entities.task.main_grid.columns.estimate',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -401,7 +430,7 @@ export class MainGridBase extends GridControlBase {
             label: '消耗',
             langtag: 'entities.task.main_grid.columns.consumed',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -409,7 +438,7 @@ export class MainGridBase extends GridControlBase {
             label: '剩余',
             langtag: 'entities.task.main_grid.columns.left',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -417,7 +446,7 @@ export class MainGridBase extends GridControlBase {
             label: '截止日期',
             langtag: 'entities.task.main_grid.columns.deadline',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
@@ -425,7 +454,7 @@ export class MainGridBase extends GridControlBase {
             label: '操作',
             langtag: 'entities.task.main_grid.columns.uagridcolumn1',
             show: true,
-            util: 'PX',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
     ]
@@ -465,7 +494,7 @@ export class MainGridBase extends GridControlBase {
         'id':false,
         'pri':false,
         'name':false,
-        'status':false,
+        'status1':false,
         'assignedto':false,
         'finishedby':false,
         'estimate':false,
@@ -507,8 +536,8 @@ export class MainGridBase extends GridControlBase {
                 valueSeparator: ',',
             },
             {
-                name: 'status',
-                srfkey: 'Task__status',
+                name: 'status1',
+                srfkey: 'TaskStatusCK',
                 codelistType : 'STATIC',
                 renderMode: 'other',
                 textSeparator: '、',
@@ -516,7 +545,7 @@ export class MainGridBase extends GridControlBase {
             },
             {
                 name: 'assignedto',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealNameW',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',
@@ -546,6 +575,9 @@ export class MainGridBase extends GridControlBase {
         $event.stopPropagation();
         if(Object.is('AssignTask', tag)) {
             this.grid_assignedto_click(row, tag, $event);
+        }
+        if(Object.is('confirmStoryChange', tag)) {
+            this.grid_uagridcolumn1_u94afee5_click(row, tag, $event);
         }
         if(Object.is('StartTask', tag)) {
             this.grid_uagridcolumn1_u7f3dc22_click(row, tag, $event);

@@ -34,8 +34,8 @@ public class DocContentSearchContext extends QueryWrapperContext<DocContent> {
             this.getSearchCond().like("title", n_title_like);
         }
     }
-	private BigInteger n_doc_eq;//[文档]
-	public void setN_doc_eq(BigInteger n_doc_eq) {
+	private Long n_doc_eq;//[文档]
+	public void setN_doc_eq(Long n_doc_eq) {
         this.n_doc_eq = n_doc_eq;
         if(!ObjectUtils.isEmpty(this.n_doc_eq)){
             this.getSearchCond().eq("doc", n_doc_eq);

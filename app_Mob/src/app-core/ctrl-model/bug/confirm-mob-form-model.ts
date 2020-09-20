@@ -76,11 +76,6 @@ export class ConfirmMobModel {
                 dataType: 'HTMLTEXT',
             },
             {
-                name: 'mobimage',
-                prop: 'mobimage',
-                dataType: 'TEXT',
-            },
-            {
                 name: 'project',
                 prop: 'project',
                 dataType: 'PICKUP',

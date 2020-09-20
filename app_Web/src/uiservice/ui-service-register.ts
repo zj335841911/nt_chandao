@@ -46,10 +46,12 @@ export class UIServiceRegister {
         this.allUIService.set('product', () => import('@/uiservice/product/product-ui-service'));
         this.allUIService.set('taskteam', () => import('@/uiservice/task-team/task-team-ui-service'));
         this.allUIService.set('file', () => import('@/uiservice/file/file-ui-service'));
+        this.allUIService.set('ibzprostorymodule', () => import('@/uiservice/ibzpro-story-module/ibzpro-story-module-ui-service'));
         this.allUIService.set('ibzlibcasesteps', () => import('@/uiservice/ibz-lib-casesteps/ibz-lib-casesteps-ui-service'));
         this.allUIService.set('ibzlib', () => import('@/uiservice/ibz-lib/ibz-lib-ui-service'));
         this.allUIService.set('suitecase', () => import('@/uiservice/suite-case/suite-case-ui-service'));
         this.allUIService.set('burn', () => import('@/uiservice/burn/burn-ui-service'));
+        this.allUIService.set('substory', () => import('@/uiservice/sub-story/sub-story-ui-service'));
         this.allUIService.set('subproductplan', () => import('@/uiservice/sub-product-plan/sub-product-plan-ui-service'));
         this.allUIService.set('storyspec', () => import('@/uiservice/story-spec/story-spec-ui-service'));
         this.allUIService.set('usertpl', () => import('@/uiservice/user-tpl/user-tpl-ui-service'));
@@ -59,6 +61,7 @@ export class UIServiceRegister {
         this.allUIService.set('ibzprojectmember', () => import('@/uiservice/ibz-project-member/ibz-project-member-ui-service'));
         this.allUIService.set('action', () => import('@/uiservice/action/action-ui-service'));
         this.allUIService.set('group', () => import('@/uiservice/group/group-ui-service'));
+        this.allUIService.set('ibzproproduct', () => import('@/uiservice/ibzpro-product/ibzpro-product-ui-service'));
         this.allUIService.set('casestep', () => import('@/uiservice/case-step/case-step-ui-service'));
         this.allUIService.set('dept', () => import('@/uiservice/dept/dept-ui-service'));
         this.allUIService.set('company', () => import('@/uiservice/company/company-ui-service'));
@@ -81,10 +84,12 @@ export class UIServiceRegister {
         this.allUIService.set('build', () => import('@/uiservice/build/build-ui-service'));
         this.allUIService.set('testresult', () => import('@/uiservice/test-result/test-result-ui-service'));
         this.allUIService.set('testsuite', () => import('@/uiservice/test-suite/test-suite-ui-service'));
+        this.allUIService.set('ibzprostory', () => import('@/uiservice/ibzpro-story/ibzpro-story-ui-service'));
         this.allUIService.set('projectteam', () => import('@/uiservice/project-team/project-team-ui-service'));
         this.allUIService.set('testtask', () => import('@/uiservice/test-task/test-task-ui-service'));
         this.allUIService.set('ibztaskestimate', () => import('@/uiservice/ibztask-estimate/ibztask-estimate-ui-service'));
         this.allUIService.set('productline', () => import('@/uiservice/product-line/product-line-ui-service'));
+        this.allUIService.set('pssyssfpub', () => import('@/uiservice/pssys-sfpub/pssys-sfpub-ui-service'));
         this.allUIService.set('testreport', () => import('@/uiservice/test-report/test-report-ui-service'));
         this.allUIService.set('projectstats', () => import('@/uiservice/project-stats/project-stats-ui-service'));
         this.allUIService.set('testrun', () => import('@/uiservice/test-run/test-run-ui-service'));
@@ -92,7 +97,9 @@ export class UIServiceRegister {
         this.allUIService.set('bug', () => import('@/uiservice/bug/bug-ui-service'));
         this.allUIService.set('projectmodule', () => import('@/uiservice/project-module/project-module-ui-service'));
         this.allUIService.set('ibzdoc', () => import('@/uiservice/ibz-doc/ibz-doc-ui-service'));
+        this.allUIService.set('pssysapp', () => import('@/uiservice/pssys-app/pssys-app-ui-service'));
         this.allUIService.set('ibzcase', () => import('@/uiservice/ibz-case/ibz-case-ui-service'));
+        this.allUIService.set('pssystemdbcfg', () => import('@/uiservice/pssystem-dbcfg/pssystem-dbcfg-ui-service'));
         this.allUIService.set('release', () => import('@/uiservice/release/release-ui-service'));
         this.allUIService.set('dynadashboard', () => import('@/uiservice/dyna-dashboard/dyna-dashboard-ui-service'));
     }

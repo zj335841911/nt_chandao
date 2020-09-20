@@ -27,13 +27,73 @@ export default class MyFavoriteMainModel {
     }else{
 		  return [
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'productname',
+          prop: 'productname',
+          dataType: 'PICKUPDATA',
+        },
+        {
+          name: 'projectname',
+          prop: 'projectname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'status1',
+          prop: 'status1',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'finishedby',
+          prop: 'finishedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'consumed',
+          prop: 'consumed',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'left',
+          prop: 'left',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'deadline',
+          prop: 'deadline',
+          dataType: 'DATE',
+        },
+        {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
         },
         {
-          name: 'finishedby',
-          prop: 'finishedby',
+          name: 'tasktype',
+          prop: 'tasktype',
           dataType: 'SSCODELIST',
         },
         {
@@ -52,17 +112,7 @@ export default class MyFavoriteMainModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'projectname',
-          prop: 'projectname',
-          dataType: 'PICKUPTEXT',
-        },
-        {
           name: 'srfmstag',
-        },
-        {
-          name: 'estimate',
-          prop: 'estimate',
-          dataType: 'FLOAT',
         },
         {
           name: 'srfmajortext',
@@ -81,11 +131,6 @@ export default class MyFavoriteMainModel {
           isEditable:true
         },
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'story',
           prop: 'story',
           dataType: 'PICKUP',
@@ -96,44 +141,9 @@ export default class MyFavoriteMainModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'consumed',
-          prop: 'consumed',
-          dataType: 'FLOAT',
-        },
-        {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'left',
-          prop: 'left',
-          dataType: 'FLOAT',
-        },
-        {
           name: 'isfavorites',
           prop: 'isfavorites',
           dataType: 'TEXT',
-        },
-        {
-          name: 'deadline',
-          prop: 'deadline',
-          dataType: 'DATE',
-        },
-        {
-          name: 'productname',
-          prop: 'productname',
-          dataType: 'PICKUPDATA',
         },
         {
           name: 'task',

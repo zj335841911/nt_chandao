@@ -89,6 +89,8 @@ export default class ProjectModuleUIActionBase extends EntityUIActionBase {
      * @memberof  ProjectModuleUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'mobpickupmdview',srfappde:'projectmodules'});
+        this.allViewMap.set('MOBPICKUPVIEW:',{viewname:'mobpickupview',srfappde:'projectmodules'});
     }
 
     /**

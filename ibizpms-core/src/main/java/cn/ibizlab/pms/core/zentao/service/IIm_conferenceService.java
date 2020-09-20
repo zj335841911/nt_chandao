@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface IIm_conferenceService extends IService<Im_conference>{
     void createBatch(List<Im_conference> list) ;
     boolean update(Im_conference et) ;
     void updateBatch(List<Im_conference> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Im_conference get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Im_conference get(Long key) ;
     Im_conference getDraft(Im_conference et) ;
     boolean checkKey(Im_conference et) ;
     boolean save(Im_conference et) ;

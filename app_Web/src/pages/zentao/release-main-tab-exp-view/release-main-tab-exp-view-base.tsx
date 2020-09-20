@@ -57,15 +57,12 @@ export class ReleaseMainTabExpViewBase extends TabExpViewBase {
      */
     public appUIService: ReleaseUIService = new ReleaseUIService(this.$store);
 
-
     /**
-     * 计数器服务对象集合
+     * 是否显示信息栏
      *
-     * @protected
-     * @type {Array<*>}
      * @memberof ReleaseMainTabExpViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -111,6 +108,15 @@ export class ReleaseMainTabExpViewBase extends TabExpViewBase {
      * @memberof ReleaseMainTabExpViewBase
      */
     public engine: TabExpViewEngine = new TabExpViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ReleaseMainTabExpViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

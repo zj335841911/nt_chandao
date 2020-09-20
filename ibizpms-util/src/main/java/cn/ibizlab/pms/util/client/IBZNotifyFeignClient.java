@@ -23,13 +23,14 @@ public interface IBZNotifyFeignClient
 	 * @param msg
 	 * @return
 	 */
-	@RequestMapping(method = RequestMethod.POST,value = "/dingtalk/createworkrecord")
+//	@RequestMapping(method = RequestMethod.POST,value = "/dingtalk/createworkrecord")
+	@RequestMapping(method = RequestMethod.POST,value = "/notify/dingtalk/createworkrecord")
 	String createDingTalkWorkRecord(@RequestBody JSONObject msg);
 	/**
 	 * 完成钉钉待办
-	 * @param msg
+	 * @param msgId
 	 * @return
 	 */
-	@RequestMapping(method = RequestMethod.POST,value = "/dingtalk/finishworkrecord")
-	Boolean finishDingTalkWorkRecord(@RequestBody JSONObject msg);
+	@RequestMapping(method = RequestMethod.POST,value = "/notify/dingtalk/finishworkrecord/{msgid}")
+	Boolean finishDingTalkWorkRecord(@PathVariable("msgid") String msgId);
 }

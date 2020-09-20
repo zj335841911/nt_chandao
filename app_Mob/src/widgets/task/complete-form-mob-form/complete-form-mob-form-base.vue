@@ -1,5 +1,5 @@
 <template>
-    <div ref='form' class="app-form ">
+    <div ref='form' class="app-form task-form ">
                 
 
 <app-form-group 
@@ -31,11 +31,12 @@
     :error="detailsModel.consumed.error" 
     :isEmptyCaption="false">
         <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.consumed" 
+    class="app-form-item-number" 
+        type="number"  
+    :value="data.consumed"
+    unit="小时"
     :disabled="detailsModel.consumed.disabled" 
-    @change="($event)=>this.data.consumed = $event" />
+    @change="($event)=>this.data.consumed = $event"/>
 </app-form-item>
 
 
@@ -56,11 +57,12 @@
     :error="detailsModel.currentconsumed.error" 
     :isEmptyCaption="false">
         <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.currentconsumed" 
+    class="app-form-item-number" 
+        type="number"  
+    :value="data.currentconsumed"
+    unit=""
     :disabled="detailsModel.currentconsumed.disabled" 
-    @change="($event)=>this.data.currentconsumed = $event" />
+    @change="($event)=>this.data.currentconsumed = $event"/>
 </app-form-item>
 
 
@@ -81,11 +83,12 @@
     :error="detailsModel.totaltime.error" 
     :isEmptyCaption="false">
         <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.totaltime" 
+    class="app-form-item-number" 
+        type="number"  
+    :value="data.totaltime"
+    unit=""
     :disabled="detailsModel.totaltime.disabled" 
-    @change="($event)=>this.data.totaltime = $event" />
+    @change="($event)=>this.data.totaltime = $event"/>
 </app-form-item>
 
 
@@ -106,7 +109,7 @@
     :error="detailsModel.assignedto.error" 
     :isEmptyCaption="false">
         <app-mob-select 
-    tag="UserRealName"
+    tag="UserRealNameTaskTeam"
     codeListType="DYNAMIC" 
     :isCache="false" 
     :disabled="detailsModel.assignedto.disabled" 
@@ -114,8 +117,8 @@
     :context="context" 
     :viewparams="viewparams"
     :value="data.assignedto"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
+    :navigateContext ='{ "project": "%project%", "multiple": "%multiple%" } '
+    :navigateParam ='{ "project": "%project%", "multiple": "%multiple%" } '
     @change="($event)=>this.data.assignedto = $event" />
 </app-form-item>
 
@@ -137,6 +140,7 @@
     :error="detailsModel.finisheddate.error" 
     :isEmptyCaption="false">
         <app-mob-datetime-picker 
+    displayFormat="YYYY-MM-DD"
     class="app-form-item-datetime" 
     :value="data.finisheddate" 
     :disabled="detailsModel.finisheddate.disabled"
@@ -190,15 +194,10 @@
     :caption="$t('task.completeformmob_form.details.comment')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.comment.disabled"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.comment" 
-    :disabled="detailsModel.comment.disabled" 
-    @change="($event)=>this.data.comment = $event" />
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"task",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"task",objectid: "%id%",version:"editor"}'  style=""/>
+
 </app-form-item>
 
 
@@ -222,12 +221,14 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
     paramItem='task' 
     style="" 
     :formState="formState" 
     :parentdata='{"srfparentdename":"ZT_TASK","SRFPARENTTYPE":"CUSTOM"}' 
     :parameters="[
     ]" 
+    tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
@@ -249,7 +250,6 @@
 
     </div>
 </template>
-
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
@@ -571,6 +571,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
         assignedto: null,
         finisheddate: null,
         files: null,
+        multiple: null,
         comment: null,
         task: null,
     };
@@ -696,6 +697,12 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
             { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
         ],
+        multiple: [
+            { type: 'string', message: '多人任务 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '多人任务 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'blur' },
+        ],
         comment: [
             { type: 'string', message: '备注 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '备注 值必须为字符串类型', trigger: 'blur' },
@@ -812,17 +819,19 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
-        consumed: new FormItemModel({ caption: '之前消耗', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        consumed: new FormItemModel({ caption: '之前消耗', detailType: 'FORMITEM', name: 'consumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         currentconsumed: new FormItemModel({ caption: '本次消耗', detailType: 'FORMITEM', name: 'currentconsumed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        totaltime: new FormItemModel({ caption: '总计耗时', detailType: 'FORMITEM', name: 'totaltime', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        totaltime: new FormItemModel({ caption: '总计耗时', detailType: 'FORMITEM', name: 'totaltime', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         finisheddate: new FormItemModel({ caption: '实际完成', detailType: 'FORMITEM', name: 'finisheddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1009,6 +1018,18 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
     }
 
     /**
+     * 监控表单属性 multiple 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof CompleteFormMob
+     */
+    @Watch('data.multiple')
+    onMultipleChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'multiple', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 comment 值
      *
      * @param {*} newVal
@@ -1076,6 +1097,14 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
 
 
 
+
+
+        if (Object.is(name, 'currentconsumed')) {
+            const details: string[] = ['totaltime'];
+            if(await this.validItem('currentconsumed', this.data['currentconsumed'])){
+                this.updateFormItems('CalcTime', this.data, details, true);
+            }
+        }
     }
 
 

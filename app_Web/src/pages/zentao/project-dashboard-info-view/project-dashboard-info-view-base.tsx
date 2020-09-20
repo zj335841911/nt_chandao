@@ -57,16 +57,6 @@ export class ProjectDashboardInfoViewBase extends EditView9Base {
      */
     public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ProjectDashboardInfoViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -111,6 +101,15 @@ export class ProjectDashboardInfoViewBase extends EditView9Base {
      * @memberof ProjectDashboardInfoViewBase
      */
     public engine: EditView9Engine = new EditView9Engine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProjectDashboardInfoViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

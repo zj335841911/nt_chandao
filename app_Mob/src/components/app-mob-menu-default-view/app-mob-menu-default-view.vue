@@ -7,32 +7,41 @@
                     </ion-tab>
                 </template>
         </template>
-
+        <template>
+        </template>
         <ion-tab-bar slot="bottom">
             <template v-for="item in items">
                 <template v-if="!item.hidden">
                     <ion-tab-button :tab="item.name" :key="item.id" :selected="item.id == activeId" @click="active(item)">
                         <ion-icon :name=" item.iconcls ? item.iconcls : 'home' ">
                         </ion-icon>
-                        <ion-label>{{$t(`app.menus.${menuName}.${item.name}`)}}</ion-label>
-                        <template v-if="counterdata[item.counterid]">
-                            <ion-badge color="danger">{{counterdata[item.counterid]}}</ion-badge>
-                        </template>
+                        <ion-label v-if="item.appfunctag != 'settings'">{{$t(`app.menus.${menuName}.${item.name}`)}}</ion-label>
+                        <ion-label v-else>{{item.text}}</ion-label>
+                        <ion-badge color="danger" v-if="counterServide && counterServide.counterData && counterServide.counterData[item.counterid]"><ion-label>{{counterServide.counterData[item.counterid]}}</ion-label></ion-badge>
                     </ion-tab-button>
                 </template>
             </template>
         </ion-tab-bar>
-
     </ion-tabs>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop, Emit, Model } from 'vue-property-decorator';
+import { Environment } from '@/environments/environment';
 @Component({
     components: {
     }
 })
 export default class AppMobMenuDefaultView extends Vue {
+
+
+    /**
+     * 使用默认菜单
+     *
+     * @type {*}
+     * @memberof AppMobMenuDefaultView
+     */
+    public useDefaultMenu:boolean = Environment.useDefaultMenu;
 
     /**
      * 双向值绑定
@@ -109,12 +118,33 @@ export default class AppMobMenuDefaultView extends Vue {
      */
     public activeId = "";
 
+    public defaultMenu =  {
+        appfunctag: "settings",
+        componentname: "app-setting",
+        expanded: false,
+        hidden: false,
+        hidesidebar: false,
+        icon: "",
+        iconcls: "settings",
+        id: "setting",
+        name: "setting",
+        opendefault: false,
+        resourcetag: "",
+        separator: false,
+        text: "设置",
+        textcls: "",
+        tooltip: "设置",
+        type: "MENUITEM",
+    };
     /**
      * 生命周期
      *
      * @memberof AppMobMenuDefaultView
      */
     public created() {
+        if(this.useDefaultMenu){
+            this.items.push(this.defaultMenu);
+        }
         let count = 0;
         this.items.forEach((item:any,index:number) => {
             if(item.hidden == false){
@@ -174,8 +204,15 @@ export default class AppMobMenuDefaultView extends Vue {
      * @memberof AppMobMenuDefaultView
      */
     public destroyed() {
-        this.counterdata = null;
+        this.counterServide.destroyCounter();
     }
+
+    /**
+     * 计数器
+     *
+     * @memberof AppMobMenuDefaultView
+     */
+    public counterServide:any = null;
 
     /**
      * 加载计数器数据
@@ -185,10 +222,7 @@ export default class AppMobMenuDefaultView extends Vue {
      */
     public async loadCounterData(): Promise<any> {
         const counterServiceConstructor = window.counterServiceConstructor;
-        const counterServide = await counterServiceConstructor.getService(this.counterName);
-        if (counterServide) {
-            this.counterdata = counterServide.counterData;
-        }
+        this.counterServide = await counterServiceConstructor.getService(this.counterName);
     }
 
     /**

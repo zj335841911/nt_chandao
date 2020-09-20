@@ -57,15 +57,12 @@ export class IbzLibModuleEditViewBase extends EditViewBase {
      */
     public appUIService: IbzLibModuleUIService = new IbzLibModuleUIService(this.$store);
 
-
     /**
-     * 计数器服务对象集合
+     * 是否显示信息栏
      *
-     * @protected
-     * @type {Array<*>}
      * @memberof IbzLibModuleEditViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -124,6 +121,15 @@ export class IbzLibModuleEditViewBase extends EditViewBase {
      * @memberof IbzLibModuleEditViewBase
      */
     public engine: EditViewEngine = new EditViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof IbzLibModuleEditViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

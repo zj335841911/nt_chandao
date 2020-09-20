@@ -2,9 +2,8 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'task-favorite-mob-mdview': true }">
     
     <ion-header>
-        <ion-toolbar>
-            <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
-        </ion-toolbar>
+
+    
     </ion-header>
 
 
@@ -28,7 +27,6 @@
             @showCheackChange="showCheackChange"
             :isTempMode="false"
             :isEnableChoose="false"
-            :isEnableRefresh="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -37,8 +35,14 @@
             @load="mdctrl_load($event)"  
             @closeview="closeView($event)">
         </view_mdctrl>
+        <ion-infinite-scroll  @ionInfinite="loadMore" threshold="1px" v-if="this.isEnablePullUp">
+          <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
+    <ion-footer class="view-footer" style="z-index:9999;">
         
     </ion-footer>
 </ion-page>
@@ -188,7 +192,7 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-tasks'
     }
 
     /**
@@ -241,7 +245,6 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
      */
     protected containerModel: any = {
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
-        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
 
     /**
@@ -269,7 +272,9 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
     * @type {*}
     * @memberof TaskFavoriteMobMDView
     */
-    public righttoolbarModels: any = {
+    public mdctrl_quicktoolbarModels: any = {
+            deuiaction1: { name: 'deuiaction1', caption: '更多', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyFavMore', target: 'NONE' } },
+
     };
 
     
@@ -280,7 +285,7 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
      *
      * @memberof TaskFavoriteMobMDViewBase
      */
-    public toolbarModelList:any = ['righttoolbarModels',]
+    public toolbarModelList:any = ['mdctrl_quicktoolbarModels',]
 
     /**
      * 解析视图参数
@@ -368,6 +373,7 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
         this.setViewTitleStatus();
 
     }
+
 
     /**
      * 销毁之前
@@ -510,11 +516,23 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
         if (context.story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'tasks', parameterName: 'task' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
@@ -558,11 +576,23 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
         if (context.story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'tasks', parameterName: 'task' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
@@ -617,9 +647,14 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
-        }else{
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
+        }
+        if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
         
@@ -659,37 +694,6 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
     }
 
 
-    /**
-     * 搜索值
-     *
-     * @type {string}
-     * @memberof TaskFavoriteMobMDViewBase
-     */
-    public query: string = '';
-
-    /**
-     * 快速搜索值变化
-     *
-     * @param {*} event
-     * @returns
-     * @memberof TaskFavoriteMobMDViewBase
-     */
-    public async quickValueChange(event: any) {
-        let { detail } = event;
-        if (!detail) {
-            return;
-        }
-        let { value } = detail;
-        this.query = value;
-
-        const mdctrl: any = this.$refs.mdctrl;
-        if (mdctrl) {
-            let response = await mdctrl.quickSearch(this.query);
-            if (response) {
-            }
-        }
-    }
-
    /**
      * 是否单选
      *
@@ -697,6 +701,15 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
      * @memberof TaskFavoriteMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+
+   /**
+     * 能否上拉加载
+     *
+     * @type {boolean}
+     * @memberof TaskFavoriteMobMDViewBase
+     */ 
+    @Prop({ default: true }) public isEnablePullUp?: boolean;
+
 
 
     /**
@@ -788,14 +801,28 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof TaskFavoriteMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;
         this.onViewLoad();
     }
 
-
+    /**
+     * 触底加载
+     *
+     * @param {*} value
+     * @memberof TaskFavoriteMobMDViewBase
+     */
+    public async loadMore(event:any){
+      let mdctrl:any = this.$refs.mdctrl;
+      if(mdctrl && mdctrl.loadBottom && mdctrl.loadBottom instanceof Function){
+        mdctrl.loadBottom();
+      }
+      if(event.target && event.target.complete && event.target.complete instanceof Function){
+        event.target.complete();
+      }
+    }
 
 
 

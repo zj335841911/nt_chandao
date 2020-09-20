@@ -27,15 +27,15 @@ import cn.ibizlab.pms.core.zentao.domain.Burn;
 @Data
 public class BurnSearchContext extends QueryWrapperContext<Burn> {
 
-	private BigInteger n_project_eq;//[所属项目]
-	public void setN_project_eq(BigInteger n_project_eq) {
+	private Long n_project_eq;//[所属项目]
+	public void setN_project_eq(Long n_project_eq) {
         this.n_project_eq = n_project_eq;
         if(!ObjectUtils.isEmpty(this.n_project_eq)){
             this.getSearchCond().eq("project", n_project_eq);
         }
     }
-	private BigInteger n_task_eq;//[任务]
-	public void setN_task_eq(BigInteger n_task_eq) {
+	private Long n_task_eq;//[任务]
+	public void setN_task_eq(Long n_task_eq) {
         this.n_task_eq = n_task_eq;
         if(!ObjectUtils.isEmpty(this.n_task_eq)){
             this.getSearchCond().eq("task", n_task_eq);

@@ -2,11 +2,11 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobpickupview': true, 'product-mob-pickup-view': true }">
     
     <ion-header>
-                <van-search
-    v-model="quickValue"
-    :placeholder="$t('app.fastsearch')"
-    @input="quickValueChange($event)"
-  />
+
+    
+              <ion-toolbar>
+    <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
+  </ion-toolbar>
 
     </ion-header>
 
@@ -26,10 +26,12 @@
             @closeview="closeView($event)">
         </view_pickupviewpanel>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
-        <ion-toolbar style="text-align: center;" class="mobpickupview_button">
-    <ion-button @click="onClickCancel" color="light">{{$t('app.button.cancel')}}</ion-button>
-    <ion-button @click="onClickOk" :disabled="viewSelections.length === 0">{{$t('app.button.confirm')}}</ion-button>
+    <ion-footer class="view-footer" style="z-index:9999;">
+        <ion-toolbar style="text-align: center;">
+    <div class="mobpickupview_button">
+      <ion-button class="pick-btn" @click="onClickCancel" color="medium">{{$t('app.button.cancel')}}</ion-button>
+      <ion-button class="pick-btn" @click="onClickOk" :disabled="viewSelections.length === 0">{{$t('app.button.confirm')}}</ion-button>
+    </div>
 </ion-toolbar>
 
     </ion-footer>
@@ -347,6 +349,7 @@ export default class ProductMobPickupViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *
@@ -477,9 +480,14 @@ export default class ProductMobPickupViewBase extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
-        }else{
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
+        }
+        if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
         

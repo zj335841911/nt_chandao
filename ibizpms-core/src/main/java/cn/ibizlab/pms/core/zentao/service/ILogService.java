@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface ILogService extends IService<Log>{
     void createBatch(List<Log> list) ;
     boolean update(Log et) ;
     void updateBatch(List<Log> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Log get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Log get(Long key) ;
     Log getDraft(Log et) ;
     boolean checkKey(Log et) ;
     boolean save(Log et) ;

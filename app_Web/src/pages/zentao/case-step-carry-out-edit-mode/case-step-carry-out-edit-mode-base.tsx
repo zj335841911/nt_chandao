@@ -60,16 +60,6 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      */
     public appUIService: IBZCaseStepUIService = new IBZCaseStepUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof CaseStepCarryOutEditModeBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -114,6 +104,15 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      * @memberof CaseStepCarryOutEditModeBase
      */
     public engine: GridView9Engine = new GridView9Engine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof CaseStepCarryOutEditModeBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

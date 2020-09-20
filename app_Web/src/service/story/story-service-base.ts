@@ -114,6 +114,7 @@ export default class StoryServiceBase extends EntityService {
             this.tempStorage.setItem(tempContext.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs?res.data.bugs:[]));
             this.tempStorage.setItem(tempContext.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
             this.tempStorage.setItem(tempContext.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs?res.data.storyspecs:[]));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_substories',JSON.stringify(res.data.substories?res.data.substories:[]));
             this.tempStorage.setItem(tempContext.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
             
             return res;
@@ -163,6 +164,7 @@ export default class StoryServiceBase extends EntityService {
         this.tempStorage.setItem(tempContext.srfsessionkey+'_bugs',JSON.stringify(res.data.bugs?res.data.bugs:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_storyspecs',JSON.stringify(res.data.storyspecs?res.data.storyspecs:[]));
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_substories',JSON.stringify(res.data.substories?res.data.substories:[]));
         this.tempStorage.setItem(tempContext.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
         
         return res;
@@ -380,6 +382,61 @@ export default class StoryServiceBase extends EntityService {
             return res;
         }
             let res:any = Http.getInstance().post(`/stories/${context.story}/activate`,data,isloading);
+            return res;
+    }
+
+    /**
+     * AllPush接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async AllPush(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story){
+            let masterData:any = {};
+        let casesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
+            casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
+            if(casesData && casesData.length && casesData.length > 0){
+                casesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.cases = casesData;
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/allpush`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/stories/${context.story}/allpush`,data,isloading);
             return res;
     }
 
@@ -1728,6 +1785,61 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * Push接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async Push(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story){
+            let masterData:any = {};
+        let casesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
+            casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
+            if(casesData && casesData.length && casesData.length > 0){
+                casesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.cases = casesData;
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/push`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/stories/${context.story}/push`,data,isloading);
+            return res;
+    }
+
+    /**
      * ReleaseBatchUnlinkStory接口方法
      *
      * @param {*} [context={}]
@@ -2095,6 +2207,116 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * SendMessage接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async SendMessage(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story){
+            let masterData:any = {};
+        let casesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
+            casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
+            if(casesData && casesData.length && casesData.length > 0){
+                casesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.cases = casesData;
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/sendmessage`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/stories/${context.story}/sendmessage`,data,isloading);
+            return res;
+    }
+
+    /**
+     * SendMsgPreProcess接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async SendMsgPreProcess(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story){
+            let masterData:any = {};
+        let casesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
+            casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
+            if(casesData && casesData.length && casesData.length > 0){
+                casesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.cases = casesData;
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/sendmsgpreprocess`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/stories/${context.story}/sendmsgpreprocess`,data,isloading);
+            return res;
+    }
+
+    /**
      * StoryFavorites接口方法
      *
      * @param {*} [context={}]
@@ -2205,6 +2427,61 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * SyncFromIBIZ接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async SyncFromIBIZ(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story){
+            let masterData:any = {};
+        let casesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
+            casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
+            if(casesData && casesData.length && casesData.length > 0){
+                casesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.cases = casesData;
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/syncfromibiz`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/stories/${context.story}/syncfromibiz`,data,isloading);
+            return res;
+    }
+
+    /**
      * UnlinkStory接口方法
      *
      * @param {*} [context={}]
@@ -2257,6 +2534,46 @@ export default class StoryServiceBase extends EntityService {
         }
             let res:any = Http.getInstance().post(`/stories/${context.story}/unlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * FetchAssignedToMyStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async FetchAssignedToMyStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchassignedtomystory`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/stories/fetchassignedtomystory`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchBugStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async FetchBugStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchbugstory`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/stories/fetchbugstory`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -2400,6 +2717,26 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * FetchParentDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async FetchParentDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchparentdefault`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/stories/fetchparentdefault`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchProjectLinkStory接口方法
      *
      * @param {*} [context={}]
@@ -2536,6 +2873,26 @@ export default class StoryServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/stories/fetchstoryrelated`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchSubStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async FetchSubStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchsubstory`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/stories/fetchsubstory`,tempData,isloading);
         return res;
     }
 

@@ -1,5 +1,6 @@
 <studio-view viewName="bugusr2gridview" viewTitle="Bug表格视图" class='degridview bug-usr2-grid-view'>
     <template slot='title'>
+    <span class='caption-image'><i class='    fa fa-bug    '></i></span>
     <span class='caption-info'>{{viewCaption}}</span>
     </template>
     <i-input slot="quickSearch" v-model="query" placeholder="Bug标题" search @on-search="onSearch($event)"/>

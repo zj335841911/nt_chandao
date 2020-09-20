@@ -557,4 +557,12 @@ export interface Bug {
      * @memberof Bug
      */
     createbuild?: any;
+
+    /**
+     * 过期天数
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    overduebugs?: any;
 }

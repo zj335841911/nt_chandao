@@ -136,6 +136,11 @@ export default class ProjectStoryModel {
           dataType: 'TEXT',
         },
         {
+          name: 'ischild',
+          prop: 'ischild',
+          dataType: 'TEXT',
+        },
+        {
           name: 'story',
           prop: 'id',
         },
@@ -158,6 +163,10 @@ export default class ProjectStoryModel {
         {
           name:'sort',
           prop:'sort'
+        },
+        {
+          name:'items',
+          prop:'items'
         },
         {
           name:'srfparentdata',

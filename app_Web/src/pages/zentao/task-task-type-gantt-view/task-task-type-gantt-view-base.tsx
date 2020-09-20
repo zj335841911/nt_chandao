@@ -56,16 +56,6 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
      */
     public appUIService: TaskUIService = new TaskUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof TaskTaskTypeGanttViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -101,6 +91,15 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
      */
 	protected viewtag: string = '5ef23f01b2cffa48351b3272dfeeaf14';
 
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof TaskTaskTypeGanttViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

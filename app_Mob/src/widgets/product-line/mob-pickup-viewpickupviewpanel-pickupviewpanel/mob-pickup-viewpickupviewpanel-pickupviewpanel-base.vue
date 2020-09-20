@@ -1,11 +1,11 @@
 <template>
-    <div class='pickupviewpanel'>
+    <div class='pickupviewpanel productline-pickupviewpanel'>
         <component 
             v-if="inited && view.viewname && !Object.is(view.viewname, '')" 
             :is="view.viewname" 
             :_context="JSON.stringify(_context)"
             :_viewparams="JSON.stringify(_viewparams)"
-            :viewDefaultUsage="false"
+            viewDefaultUsage="includedView"
             :isSingleSelect="isSingleSelect"
             :isShowButtons="isShowButtons"
             @viewdataschange="onViewDatasChange"

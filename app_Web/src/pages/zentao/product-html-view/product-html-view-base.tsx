@@ -57,16 +57,6 @@ export class ProductHtmlViewBase extends ViewBase {
      */
     public appUIService: ProductUIService = new ProductUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ProductHtmlViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -110,6 +100,15 @@ export class ProductHtmlViewBase extends ViewBase {
      * @memberof ProductHtmlViewBase
      */
     public engine: HtmlViewEngine = new HtmlViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProductHtmlViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

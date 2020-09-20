@@ -20,20 +20,22 @@ const router = new Router({
                     params[routerParamsName] = to.params[routerParamsName];
                 }
                 const url: string = '/appdata';
-                await AuthGuard.getInstance().authGuard(url, params, router);
-                appService.navHistory.indexMeta = {
-                    caption: 'app.views.ibizpms.title',
-                    info:'',
-                    viewType: 'APPINDEX',
-                    parameters: [
-                        { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                    ],
-                    requireAuth: true,
-                };
-                next();
+                const bol = await AuthGuard.getInstance().authGuard(url, params, router);
+                if (bol) {
+                    appService.navHistory.indexMeta = {
+                        caption: 'app.views.ibizpms.caption',
+                        info:'',
+                        viewType: 'APPINDEX',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                        ],
+                        requireAuth: true,
+                    };
+                    next();
+                }
             },
             meta: {  
-                caption: 'app.views.ibizpms.title',
+                caption: 'app.views.ibizpms.caption',
                 info:'',
                 viewType: 'APPINDEX',
                 parameters: [
@@ -46,8 +48,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.story.views.maingridview.title',
+                        caption: 'entities.story.views.maingridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -61,8 +65,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.story.views.maingridview.title',
+                        caption: 'entities.story.views.maingridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -75,7 +81,7 @@ const router = new Router({
                 {
                     path: 'todos/:todo?/editview/:editview?',
                     meta: {
-                        caption: 'entities.todo.views.editview.title',
+                        caption: 'entities.todo.views.editview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -89,7 +95,7 @@ const router = new Router({
                 {
                     path: 'ibzlibs/:ibzlib?/tabexpview/:tabexpview?',
                     meta: {
-                        caption: 'entities.ibzlib.views.tabexpview.title',
+                        caption: 'entities.ibzlib.views.tabexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -103,7 +109,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/maineditview/:maineditview?',
                     meta: {
-                        caption: 'entities.case.views.maineditview.title',
+                        caption: 'entities.case.views.maineditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -119,7 +125,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/maineditview/:maineditview?',
                     meta: {
-                        caption: 'entities.case.views.maineditview.title',
+                        caption: 'entities.case.views.maineditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -134,7 +140,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/maineditview/:maineditview?',
                     meta: {
-                        caption: 'entities.case.views.maineditview.title',
+                        caption: 'entities.case.views.maineditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -149,7 +155,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/maineditview/:maineditview?',
                     meta: {
-                        caption: 'entities.case.views.maineditview.title',
+                        caption: 'entities.case.views.maineditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -163,7 +169,7 @@ const router = new Router({
                 {
                     path: 'todos/:todo?/baseeditview9/:baseeditview9?',
                     meta: {
-                        caption: 'entities.todo.views.baseeditview9.title',
+                        caption: 'entities.todo.views.baseeditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -177,7 +183,7 @@ const router = new Router({
                 {
                     path: 'depts/:dept?/pickupgridview/:pickupgridview?',
                     meta: {
-                        caption: 'entities.dept.views.pickupgridview.title',
+                        caption: 'entities.dept.views.pickupgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -191,7 +197,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/mytesttabexpview/:mytesttabexpview?',
                     meta: {
-                        caption: 'entities.product.views.mytesttabexpview.title',
+                        caption: 'entities.product.views.mytesttabexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -205,8 +211,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/mainview9/:mainview9?',
                     meta: {
-                        caption: 'entities.story.views.mainview9.title',
+                        caption: 'entities.story.views.mainview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -220,8 +228,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/mainview9/:mainview9?',
                     meta: {
-                        caption: 'entities.story.views.mainview9.title',
+                        caption: 'entities.story.views.mainview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -234,7 +244,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/dashboardinfomainview9/:dashboardinfomainview9?',
                     meta: {
-                        caption: 'entities.product.views.dashboardinfomainview9.title',
+                        caption: 'entities.product.views.dashboardinfomainview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -248,7 +258,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/pickupgridview/:pickupgridview?',
                     meta: {
-                        caption: 'entities.product.views.pickupgridview.title',
+                        caption: 'entities.product.views.pickupgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -262,8 +272,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/pickupgridview4/:pickupgridview4?',
                     meta: {
-                        caption: 'entities.bug.views.pickupgridview4.title',
+                        caption: 'entities.bug.views.pickupgridview4.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -278,8 +290,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/pickupgridview4/:pickupgridview4?',
                     meta: {
-                        caption: 'entities.bug.views.pickupgridview4.title',
+                        caption: 'entities.bug.views.pickupgridview4.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -293,8 +307,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/pickupgridview4/:pickupgridview4?',
                     meta: {
-                        caption: 'entities.bug.views.pickupgridview4.title',
+                        caption: 'entities.bug.views.pickupgridview4.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -308,8 +324,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/pickupgridview4/:pickupgridview4?',
                     meta: {
-                        caption: 'entities.bug.views.pickupgridview4.title',
+                        caption: 'entities.bug.views.pickupgridview4.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -323,8 +341,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/pickupgridview4/:pickupgridview4?',
                     meta: {
-                        caption: 'entities.bug.views.pickupgridview4.title',
+                        caption: 'entities.bug.views.pickupgridview4.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -337,8 +357,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/gridview9_storyrelated/:gridview9_storyrelated?',
                     meta: {
-                        caption: 'entities.bug.views.gridview9_storyrelated.title',
+                        caption: 'entities.bug.views.gridview9_storyrelated.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -353,8 +375,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/gridview9_storyrelated/:gridview9_storyrelated?',
                     meta: {
-                        caption: 'entities.bug.views.gridview9_storyrelated.title',
+                        caption: 'entities.bug.views.gridview9_storyrelated.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -368,8 +392,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/gridview9_storyrelated/:gridview9_storyrelated?',
                     meta: {
-                        caption: 'entities.bug.views.gridview9_storyrelated.title',
+                        caption: 'entities.bug.views.gridview9_storyrelated.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -383,8 +409,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/gridview9_storyrelated/:gridview9_storyrelated?',
                     meta: {
-                        caption: 'entities.bug.views.gridview9_storyrelated.title',
+                        caption: 'entities.bug.views.gridview9_storyrelated.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -398,8 +426,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/gridview9_storyrelated/:gridview9_storyrelated?',
                     meta: {
-                        caption: 'entities.bug.views.gridview9_storyrelated.title',
+                        caption: 'entities.bug.views.gridview9_storyrelated.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -412,7 +442,7 @@ const router = new Router({
                 {
                     path: 'todos/:todo?/activiteview/:activiteview?',
                     meta: {
-                        caption: 'entities.todo.views.activiteview.title',
+                        caption: 'entities.todo.views.activiteview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -426,7 +456,7 @@ const router = new Router({
                 {
                     path: 'actions/:action?/projecttrendslistview/:projecttrendslistview?',
                     meta: {
-                        caption: 'entities.action.views.projecttrendslistview.title',
+                        caption: 'entities.action.views.projecttrendslistview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -440,7 +470,7 @@ const router = new Router({
                 {
                     path: 'ibzlibs/:ibzlib?/ibzlibmodules/:ibzlibmodule?/editview/:editview?',
                     meta: {
-                        caption: 'entities.ibzlibmodule.views.editview.title',
+                        caption: 'entities.ibzlibmodule.views.editview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -455,7 +485,7 @@ const router = new Router({
                 {
                     path: 'ibzlibmodules/:ibzlibmodule?/editview/:editview?',
                     meta: {
-                        caption: 'entities.ibzlibmodule.views.editview.title',
+                        caption: 'entities.ibzlibmodule.views.editview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -469,8 +499,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/myfavoritegridview/:myfavoritegridview?',
                     meta: {
-                        caption: 'entities.bug.views.myfavoritegridview.title',
+                        caption: 'entities.bug.views.myfavoritegridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -485,8 +517,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/myfavoritegridview/:myfavoritegridview?',
                     meta: {
-                        caption: 'entities.bug.views.myfavoritegridview.title',
+                        caption: 'entities.bug.views.myfavoritegridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -500,8 +534,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/myfavoritegridview/:myfavoritegridview?',
                     meta: {
-                        caption: 'entities.bug.views.myfavoritegridview.title',
+                        caption: 'entities.bug.views.myfavoritegridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -515,8 +551,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/myfavoritegridview/:myfavoritegridview?',
                     meta: {
-                        caption: 'entities.bug.views.myfavoritegridview.title',
+                        caption: 'entities.bug.views.myfavoritegridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -530,8 +568,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/myfavoritegridview/:myfavoritegridview?',
                     meta: {
-                        caption: 'entities.bug.views.myfavoritegridview.title',
+                        caption: 'entities.bug.views.myfavoritegridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -544,8 +584,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/pickupgridview/:pickupgridview?',
                     meta: {
-                        caption: 'entities.bug.views.pickupgridview.title',
+                        caption: 'entities.bug.views.pickupgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -560,8 +602,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/pickupgridview/:pickupgridview?',
                     meta: {
-                        caption: 'entities.bug.views.pickupgridview.title',
+                        caption: 'entities.bug.views.pickupgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -575,8 +619,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/pickupgridview/:pickupgridview?',
                     meta: {
-                        caption: 'entities.bug.views.pickupgridview.title',
+                        caption: 'entities.bug.views.pickupgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -590,8 +636,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/pickupgridview/:pickupgridview?',
                     meta: {
-                        caption: 'entities.bug.views.pickupgridview.title',
+                        caption: 'entities.bug.views.pickupgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -605,8 +653,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/pickupgridview/:pickupgridview?',
                     meta: {
-                        caption: 'entities.bug.views.pickupgridview.title',
+                        caption: 'entities.bug.views.pickupgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -619,7 +669,7 @@ const router = new Router({
                 {
                     path: 'productstats/:productstats?/testeditview9/:testeditview9?',
                     meta: {
-                        caption: 'entities.productstats.views.testeditview9.title',
+                        caption: 'entities.productstats.views.testeditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -633,7 +683,7 @@ const router = new Router({
                 {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/infoeditview9/:infoeditview9?',
                     meta: {
-                        caption: 'entities.ibzcase.views.infoeditview9.title',
+                        caption: 'entities.ibzcase.views.infoeditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -648,7 +698,7 @@ const router = new Router({
                 {
                     path: 'ibzcases/:ibzcase?/infoeditview9/:infoeditview9?',
                     meta: {
-                        caption: 'entities.ibzcase.views.infoeditview9.title',
+                        caption: 'entities.ibzcase.views.infoeditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -662,7 +712,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/leftsidebarlistview/:leftsidebarlistview?',
                     meta: {
-                        caption: 'entities.product.views.leftsidebarlistview.title',
+                        caption: 'entities.product.views.leftsidebarlistview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -676,7 +726,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/testoptionview/:testoptionview?',
                     meta: {
-                        caption: 'entities.case.views.testoptionview.title',
+                        caption: 'entities.case.views.testoptionview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -692,7 +742,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/testoptionview/:testoptionview?',
                     meta: {
-                        caption: 'entities.case.views.testoptionview.title',
+                        caption: 'entities.case.views.testoptionview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -707,7 +757,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/testoptionview/:testoptionview?',
                     meta: {
-                        caption: 'entities.case.views.testoptionview.title',
+                        caption: 'entities.case.views.testoptionview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -722,7 +772,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/testoptionview/:testoptionview?',
                     meta: {
-                        caption: 'entities.case.views.testoptionview.title',
+                        caption: 'entities.case.views.testoptionview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -736,8 +786,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/opentaskview/:opentaskview?',
                     meta: {
-                        caption: 'entities.task.views.opentaskview.title',
+                        caption: 'entities.task.views.opentaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -752,8 +804,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/opentaskview/:opentaskview?',
                     meta: {
-                        caption: 'entities.task.views.opentaskview.title',
+                        caption: 'entities.task.views.opentaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -767,8 +821,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/opentaskview/:opentaskview?',
                     meta: {
-                        caption: 'entities.task.views.opentaskview.title',
+                        caption: 'entities.task.views.opentaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -782,8 +838,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/opentaskview/:opentaskview?',
                     meta: {
-                        caption: 'entities.task.views.opentaskview.title',
+                        caption: 'entities.task.views.opentaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -796,8 +854,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/kanbanview/:kanbanview?',
                     meta: {
-                        caption: 'entities.story.views.kanbanview.title',
+                        caption: 'entities.story.views.kanbanview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -811,8 +871,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/kanbanview/:kanbanview?',
                     meta: {
-                        caption: 'entities.story.views.kanbanview.title',
+                        caption: 'entities.story.views.kanbanview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -825,7 +887,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/productplans/:productplan?/projectgridview9/:projectgridview9?',
                     meta: {
-                        caption: 'entities.productplan.views.projectgridview9.title',
+                        caption: 'entities.productplan.views.projectgridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -840,7 +902,7 @@ const router = new Router({
                 {
                     path: 'productplans/:productplan?/projectgridview9/:projectgridview9?',
                     meta: {
-                        caption: 'entities.productplan.views.projectgridview9.title',
+                        caption: 'entities.productplan.views.projectgridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -854,8 +916,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/testtasks/:testtask?/maindashboardview/:maindashboardview?',
                     meta: {
-                        caption: 'entities.testtask.views.maindashboardview.title',
+                        caption: 'entities.testtask.views.maindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -869,8 +933,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testtasks/:testtask?/maindashboardview/:maindashboardview?',
                     meta: {
-                        caption: 'entities.testtask.views.maindashboardview.title',
+                        caption: 'entities.testtask.views.maindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -884,8 +950,10 @@ const router = new Router({
                 {
                     path: 'testtasks/:testtask?/maindashboardview/:maindashboardview?',
                     meta: {
-                        caption: 'entities.testtask.views.maindashboardview.title',
+                        caption: 'entities.testtask.views.maindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -898,7 +966,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/storytreeexpview/:storytreeexpview?',
                     meta: {
-                        caption: 'entities.product.views.storytreeexpview.title',
+                        caption: 'entities.product.views.storytreeexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -912,7 +980,7 @@ const router = new Router({
                 {
                     path: 'users/:user?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.user.views.maingridview.title',
+                        caption: 'entities.user.views.maingridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -926,7 +994,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/maintabexpview/:maintabexpview?',
                     meta: {
-                        caption: 'entities.project.views.maintabexpview.title',
+                        caption: 'entities.project.views.maintabexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -940,7 +1008,7 @@ const router = new Router({
                 {
                     path: 'depts/:dept?/infoeditview/:infoeditview?',
                     meta: {
-                        caption: 'entities.dept.views.infoeditview.title',
+                        caption: 'entities.dept.views.infoeditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -954,7 +1022,7 @@ const router = new Router({
                 {
                     path: 'modules/:module?/pickupgridview/:pickupgridview?',
                     meta: {
-                        caption: 'entities.module.views.pickupgridview.title',
+                        caption: 'entities.module.views.pickupgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -968,7 +1036,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/productplans/:productplan?/subproductplans/:subproductplan?/subplangridview/:subplangridview?',
                     meta: {
-                        caption: 'entities.subproductplan.views.subplangridview.title',
+                        caption: 'entities.subproductplan.views.subplangridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -984,7 +1052,7 @@ const router = new Router({
                 {
                     path: 'productplans/:productplan?/subproductplans/:subproductplan?/subplangridview/:subplangridview?',
                     meta: {
-                        caption: 'entities.subproductplan.views.subplangridview.title',
+                        caption: 'entities.subproductplan.views.subplangridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -999,7 +1067,7 @@ const router = new Router({
                 {
                     path: 'subproductplans/:subproductplan?/subplangridview/:subplangridview?',
                     meta: {
-                        caption: 'entities.subproductplan.views.subplangridview.title',
+                        caption: 'entities.subproductplan.views.subplangridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1013,8 +1081,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/assigntaskview/:assigntaskview?',
                     meta: {
-                        caption: 'entities.task.views.assigntaskview.title',
+                        caption: 'entities.task.views.assigntaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1029,8 +1099,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/assigntaskview/:assigntaskview?',
                     meta: {
-                        caption: 'entities.task.views.assigntaskview.title',
+                        caption: 'entities.task.views.assigntaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1044,8 +1116,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/assigntaskview/:assigntaskview?',
                     meta: {
-                        caption: 'entities.task.views.assigntaskview.title',
+                        caption: 'entities.task.views.assigntaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1059,8 +1133,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/assigntaskview/:assigntaskview?',
                     meta: {
-                        caption: 'entities.task.views.assigntaskview.title',
+                        caption: 'entities.task.views.assigntaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -1073,8 +1149,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/gridview9_child/:gridview9_child?',
                     meta: {
-                        caption: 'entities.story.views.gridview9_child.title',
+                        caption: 'entities.story.views.gridview9_child.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1088,8 +1166,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/gridview9_child/:gridview9_child?',
                     meta: {
-                        caption: 'entities.story.views.gridview9_child.title',
+                        caption: 'entities.story.views.gridview9_child.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1102,8 +1182,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/testtasks/:testtask?/projectgridview/:projectgridview?',
                     meta: {
-                        caption: 'entities.testtask.views.projectgridview.title',
+                        caption: 'entities.testtask.views.projectgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1117,8 +1199,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testtasks/:testtask?/projectgridview/:projectgridview?',
                     meta: {
-                        caption: 'entities.testtask.views.projectgridview.title',
+                        caption: 'entities.testtask.views.projectgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1132,8 +1216,10 @@ const router = new Router({
                 {
                     path: 'testtasks/:testtask?/projectgridview/:projectgridview?',
                     meta: {
-                        caption: 'entities.testtask.views.projectgridview.title',
+                        caption: 'entities.testtask.views.projectgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -1146,7 +1232,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.ibztaskteam.views.gridview9.title',
+                        caption: 'entities.ibztaskteam.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1163,7 +1249,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/ibztaskteams/:ibztaskteam?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.ibztaskteam.views.gridview9.title',
+                        caption: 'entities.ibztaskteam.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1179,7 +1265,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.ibztaskteam.views.gridview9.title',
+                        caption: 'entities.ibztaskteam.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1195,7 +1281,7 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/ibztaskteams/:ibztaskteam?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.ibztaskteam.views.gridview9.title',
+                        caption: 'entities.ibztaskteam.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1210,7 +1296,7 @@ const router = new Router({
                 {
                     path: 'ibztaskteams/:ibztaskteam?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.ibztaskteam.views.gridview9.title',
+                        caption: 'entities.ibztaskteam.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1222,9 +1308,42 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-team-grid-view9/task-team-grid-view9.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/mainview_link/:mainview_link?',
+                    meta: {
+                        caption: 'entities.story.views.mainview_link.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'mainview_link', parameterName: 'mainview_link' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-main-view-link/story-main-view-link.vue'),
+                },
+                {
+                    path: 'stories/:story?/mainview_link/:mainview_link?',
+                    meta: {
+                        caption: 'entities.story.views.mainview_link.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'mainview_link', parameterName: 'mainview_link' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-main-view-link/story-main-view-link.vue'),
+                },
+                {
                     path: 'users/:user?/editview/:editview?',
                     meta: {
-                        caption: 'entities.user.views.editview.title',
+                        caption: 'entities.user.views.editview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1238,7 +1357,7 @@ const router = new Router({
                 {
                     path: 'productportalview/:productportalview?',
                     meta: {
-                        caption: 'app.views.productportalview.title',
+                        caption: 'app.views.productportalview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1251,8 +1370,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/projectteams/:projectteam?/maingridview_editrow/:maingridview_editrow?',
                     meta: {
-                        caption: 'entities.projectteam.views.maingridview_editrow.title',
+                        caption: 'entities.projectteam.views.maingridview_editrow.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-users',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1266,8 +1387,10 @@ const router = new Router({
                 {
                     path: 'projectteams/:projectteam?/maingridview_editrow/:maingridview_editrow?',
                     meta: {
-                        caption: 'entities.projectteam.views.maingridview_editrow.title',
+                        caption: 'entities.projectteam.views.maingridview_editrow.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-users',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projectteams', parameterName: 'projectteam' },
@@ -1280,7 +1403,7 @@ const router = new Router({
                 {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/maineditview9/:maineditview9?',
                     meta: {
-                        caption: 'entities.ibzcase.views.maineditview9.title',
+                        caption: 'entities.ibzcase.views.maineditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1295,7 +1418,7 @@ const router = new Router({
                 {
                     path: 'ibzcases/:ibzcase?/maineditview9/:maineditview9?',
                     meta: {
-                        caption: 'entities.ibzcase.views.maineditview9.title',
+                        caption: 'entities.ibzcase.views.maineditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1307,9 +1430,94 @@ const router = new Router({
                     component: () => import('@pages/ibiz/ibz-case-main-edit-view9/ibz-case-main-edit-view9.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/bugs/:bug?/maindashboardview_link/:maindashboardview_link?',
+                    meta: {
+                        caption: 'entities.bug.views.maindashboardview_link.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-dashboard-view-link/bug-main-dashboard-view-link.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/maindashboardview_link/:maindashboardview_link?',
+                    meta: {
+                        caption: 'entities.bug.views.maindashboardview_link.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-dashboard-view-link/bug-main-dashboard-view-link.vue'),
+                },
+                {
+                    path: 'stories/:story?/bugs/:bug?/maindashboardview_link/:maindashboardview_link?',
+                    meta: {
+                        caption: 'entities.bug.views.maindashboardview_link.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-dashboard-view-link/bug-main-dashboard-view-link.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/maindashboardview_link/:maindashboardview_link?',
+                    meta: {
+                        caption: 'entities.bug.views.maindashboardview_link.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-dashboard-view-link/bug-main-dashboard-view-link.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/maindashboardview_link/:maindashboardview_link?',
+                    meta: {
+                        caption: 'entities.bug.views.maindashboardview_link.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-dashboard-view-link/bug-main-dashboard-view-link.vue'),
+                },
+                {
                     path: 'actions/:action?/producttrendslistview/:producttrendslistview?',
                     meta: {
-                        caption: 'entities.action.views.producttrendslistview.title',
+                        caption: 'entities.action.views.producttrendslistview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1323,8 +1531,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/pickupgridview3/:pickupgridview3?',
                     meta: {
-                        caption: 'entities.story.views.pickupgridview3.title',
+                        caption: 'entities.story.views.pickupgridview3.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1338,8 +1548,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/pickupgridview3/:pickupgridview3?',
                     meta: {
-                        caption: 'entities.story.views.pickupgridview3.title',
+                        caption: 'entities.story.views.pickupgridview3.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1350,23 +1562,9 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-pickup-grid-view3/story-pickup-grid-view3.vue'),
                 },
                 {
-                    path: 'productstats/:productstats?/editview9/:editview9?',
-                    meta: {
-                        caption: 'entities.productstats.views.editview9.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'productstats', parameterName: 'productstats' },
-                            { pathName: 'editview9', parameterName: 'editview9' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/product-stats-edit-view9/product-stats-edit-view9.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/cases/:case?/mainnewview/:mainnewview?',
                     meta: {
-                        caption: 'entities.case.views.mainnewview.title',
+                        caption: 'entities.case.views.mainnewview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1382,7 +1580,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/mainnewview/:mainnewview?',
                     meta: {
-                        caption: 'entities.case.views.mainnewview.title',
+                        caption: 'entities.case.views.mainnewview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1397,7 +1595,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/mainnewview/:mainnewview?',
                     meta: {
-                        caption: 'entities.case.views.mainnewview.title',
+                        caption: 'entities.case.views.mainnewview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1412,7 +1610,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/mainnewview/:mainnewview?',
                     meta: {
-                        caption: 'entities.case.views.mainnewview.title',
+                        caption: 'entities.case.views.mainnewview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1424,9 +1622,23 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-main-new-view/case-main-new-view.vue'),
                 },
                 {
+                    path: 'productstats/:productstats?/editview9/:editview9?',
+                    meta: {
+                        caption: 'entities.productstats.views.editview9.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productstats', parameterName: 'productstats' },
+                            { pathName: 'editview9', parameterName: 'editview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/product-stats-edit-view9/product-stats-edit-view9.vue'),
+                },
+                {
                     path: 'projects/:project?/editview_suspend/:editview_suspend?',
                     meta: {
-                        caption: 'entities.project.views.editview_suspend.title',
+                        caption: 'entities.project.views.editview_suspend.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1440,7 +1652,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/gridview9_edit/:gridview9_edit?',
                     meta: {
-                        caption: 'entities.ibztaskteam.views.gridview9_edit.title',
+                        caption: 'entities.ibztaskteam.views.gridview9_edit.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1457,7 +1669,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/ibztaskteams/:ibztaskteam?/gridview9_edit/:gridview9_edit?',
                     meta: {
-                        caption: 'entities.ibztaskteam.views.gridview9_edit.title',
+                        caption: 'entities.ibztaskteam.views.gridview9_edit.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1473,7 +1685,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/gridview9_edit/:gridview9_edit?',
                     meta: {
-                        caption: 'entities.ibztaskteam.views.gridview9_edit.title',
+                        caption: 'entities.ibztaskteam.views.gridview9_edit.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1489,7 +1701,7 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/ibztaskteams/:ibztaskteam?/gridview9_edit/:gridview9_edit?',
                     meta: {
-                        caption: 'entities.ibztaskteam.views.gridview9_edit.title',
+                        caption: 'entities.ibztaskteam.views.gridview9_edit.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1504,7 +1716,7 @@ const router = new Router({
                 {
                     path: 'ibztaskteams/:ibztaskteam?/gridview9_edit/:gridview9_edit?',
                     meta: {
-                        caption: 'entities.ibztaskteam.views.gridview9_edit.title',
+                        caption: 'entities.ibztaskteam.views.gridview9_edit.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1518,8 +1730,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/builds/:build?/maintabexpview/:maintabexpview?',
                     meta: {
-                        caption: 'entities.build.views.maintabexpview.title',
+                        caption: 'entities.build.views.maintabexpview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1533,8 +1747,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/builds/:build?/maintabexpview/:maintabexpview?',
                     meta: {
-                        caption: 'entities.build.views.maintabexpview.title',
+                        caption: 'entities.build.views.maintabexpview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1548,8 +1764,10 @@ const router = new Router({
                 {
                     path: 'builds/:build?/maintabexpview/:maintabexpview?',
                     meta: {
-                        caption: 'entities.build.views.maintabexpview.title',
+                        caption: 'entities.build.views.maintabexpview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'builds', parameterName: 'build' },
@@ -1562,8 +1780,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/testtasks/:testtask?/editview/:editview?',
                     meta: {
-                        caption: 'entities.testtask.views.editview.title',
+                        caption: 'entities.testtask.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1577,8 +1797,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testtasks/:testtask?/editview/:editview?',
                     meta: {
-                        caption: 'entities.testtask.views.editview.title',
+                        caption: 'entities.testtask.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1592,8 +1814,10 @@ const router = new Router({
                 {
                     path: 'testtasks/:testtask?/editview/:editview?',
                     meta: {
-                        caption: 'entities.testtask.views.editview.title',
+                        caption: 'entities.testtask.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -1606,8 +1830,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/mpickupview3/:mpickupview3?',
                     meta: {
-                        caption: 'entities.story.views.mpickupview3.title',
+                        caption: 'entities.story.views.mpickupview3.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1621,8 +1847,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/mpickupview3/:mpickupview3?',
                     meta: {
-                        caption: 'entities.story.views.mpickupview3.title',
+                        caption: 'entities.story.views.mpickupview3.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1635,7 +1863,7 @@ const router = new Router({
                 {
                     path: 'todos/:todo?/assigntoview/:assigntoview?',
                     meta: {
-                        caption: 'entities.todo.views.assigntoview.title',
+                        caption: 'entities.todo.views.assigntoview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1649,8 +1877,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/workinfoeditview9/:workinfoeditview9?',
                     meta: {
-                        caption: 'entities.task.views.workinfoeditview9.title',
+                        caption: 'entities.task.views.workinfoeditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1665,8 +1895,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/workinfoeditview9/:workinfoeditview9?',
                     meta: {
-                        caption: 'entities.task.views.workinfoeditview9.title',
+                        caption: 'entities.task.views.workinfoeditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1680,8 +1912,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/workinfoeditview9/:workinfoeditview9?',
                     meta: {
-                        caption: 'entities.task.views.workinfoeditview9.title',
+                        caption: 'entities.task.views.workinfoeditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1695,8 +1929,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/workinfoeditview9/:workinfoeditview9?',
                     meta: {
-                        caption: 'entities.task.views.workinfoeditview9.title',
+                        caption: 'entities.task.views.workinfoeditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -1709,8 +1945,10 @@ const router = new Router({
                 {
                     path: 'testsuites/:testsuite?/editview9/:editview9?',
                     meta: {
-                        caption: 'entities.testsuite.views.editview9.title',
+                        caption: 'entities.testsuite.views.editview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-suitcase',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testsuites', parameterName: 'testsuite' },
@@ -1723,8 +1961,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/builds/:build?/editview/:editview?',
                     meta: {
-                        caption: 'entities.build.views.editview.title',
+                        caption: 'entities.build.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1738,8 +1978,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/builds/:build?/editview/:editview?',
                     meta: {
-                        caption: 'entities.build.views.editview.title',
+                        caption: 'entities.build.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1753,8 +1995,10 @@ const router = new Router({
                 {
                     path: 'builds/:build?/editview/:editview?',
                     meta: {
-                        caption: 'entities.build.views.editview.title',
+                        caption: 'entities.build.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'builds', parameterName: 'build' },
@@ -1767,7 +2011,7 @@ const router = new Router({
                 {
                     path: 'files/:file?/listview9/:listview9?',
                     meta: {
-                        caption: 'entities.file.views.listview9.title',
+                        caption: 'entities.file.views.listview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1781,8 +2025,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/maindashboardview/:maindashboardview?',
                     meta: {
-                        caption: 'entities.bug.views.maindashboardview.title',
+                        caption: 'entities.bug.views.maindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1797,8 +2043,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/maindashboardview/:maindashboardview?',
                     meta: {
-                        caption: 'entities.bug.views.maindashboardview.title',
+                        caption: 'entities.bug.views.maindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1812,8 +2060,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/maindashboardview/:maindashboardview?',
                     meta: {
-                        caption: 'entities.bug.views.maindashboardview.title',
+                        caption: 'entities.bug.views.maindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1827,8 +2077,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/maindashboardview/:maindashboardview?',
                     meta: {
-                        caption: 'entities.bug.views.maindashboardview.title',
+                        caption: 'entities.bug.views.maindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1842,8 +2094,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/maindashboardview/:maindashboardview?',
                     meta: {
-                        caption: 'entities.bug.views.maindashboardview.title',
+                        caption: 'entities.bug.views.maindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -1856,8 +2110,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/buildsubgridview/:buildsubgridview?',
                     meta: {
-                        caption: 'entities.story.views.buildsubgridview.title',
+                        caption: 'entities.story.views.buildsubgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1871,8 +2127,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/buildsubgridview/:buildsubgridview?',
                     meta: {
-                        caption: 'entities.story.views.buildsubgridview.title',
+                        caption: 'entities.story.views.buildsubgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1885,7 +2143,7 @@ const router = new Router({
                 {
                     path: 'ibzmyterritories/:ibzmyterritory?/listview9/:listview9?',
                     meta: {
-                        caption: 'entities.ibzmyterritory.views.listview9.title',
+                        caption: 'entities.ibzmyterritory.views.listview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -1899,8 +2157,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/pausetaskview/:pausetaskview?',
                     meta: {
-                        caption: 'entities.task.views.pausetaskview.title',
+                        caption: 'entities.task.views.pausetaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1915,8 +2175,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/pausetaskview/:pausetaskview?',
                     meta: {
-                        caption: 'entities.task.views.pausetaskview.title',
+                        caption: 'entities.task.views.pausetaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1930,8 +2192,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/pausetaskview/:pausetaskview?',
                     meta: {
-                        caption: 'entities.task.views.pausetaskview.title',
+                        caption: 'entities.task.views.pausetaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1945,8 +2209,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/pausetaskview/:pausetaskview?',
                     meta: {
-                        caption: 'entities.task.views.pausetaskview.title',
+                        caption: 'entities.task.views.pausetaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -1959,8 +2225,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/activationview/:activationview?',
                     meta: {
-                        caption: 'entities.bug.views.activationview.title',
+                        caption: 'entities.bug.views.activationview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1975,8 +2243,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/activationview/:activationview?',
                     meta: {
-                        caption: 'entities.bug.views.activationview.title',
+                        caption: 'entities.bug.views.activationview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -1990,8 +2260,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/activationview/:activationview?',
                     meta: {
-                        caption: 'entities.bug.views.activationview.title',
+                        caption: 'entities.bug.views.activationview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2005,8 +2277,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/activationview/:activationview?',
                     meta: {
-                        caption: 'entities.bug.views.activationview.title',
+                        caption: 'entities.bug.views.activationview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2020,8 +2294,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/activationview/:activationview?',
                     meta: {
-                        caption: 'entities.bug.views.activationview.title',
+                        caption: 'entities.bug.views.activationview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -2034,8 +2310,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/mpickupview/:mpickupview?',
                     meta: {
-                        caption: 'entities.bug.views.mpickupview.title',
+                        caption: 'entities.bug.views.mpickupview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2050,8 +2328,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/mpickupview/:mpickupview?',
                     meta: {
-                        caption: 'entities.bug.views.mpickupview.title',
+                        caption: 'entities.bug.views.mpickupview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -2065,8 +2345,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/mpickupview/:mpickupview?',
                     meta: {
-                        caption: 'entities.bug.views.mpickupview.title',
+                        caption: 'entities.bug.views.mpickupview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2080,8 +2362,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/mpickupview/:mpickupview?',
                     meta: {
-                        caption: 'entities.bug.views.mpickupview.title',
+                        caption: 'entities.bug.views.mpickupview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2095,8 +2379,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/mpickupview/:mpickupview?',
                     meta: {
-                        caption: 'entities.bug.views.mpickupview.title',
+                        caption: 'entities.bug.views.mpickupview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -2109,8 +2395,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.bug.views.gridview.title',
+                        caption: 'entities.bug.views.gridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2125,8 +2413,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.bug.views.gridview.title',
+                        caption: 'entities.bug.views.gridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -2140,8 +2430,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.bug.views.gridview.title',
+                        caption: 'entities.bug.views.gridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2155,8 +2447,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.bug.views.gridview.title',
+                        caption: 'entities.bug.views.gridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2170,8 +2464,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.bug.views.gridview.title',
+                        caption: 'entities.bug.views.gridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -2184,7 +2480,7 @@ const router = new Router({
                 {
                     path: 'projectstats/:projectstats?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.projectstats.views.gridview9.title',
+                        caption: 'entities.projectstats.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2196,55 +2492,12 @@ const router = new Router({
                     component: () => import('@pages/ibiz/project-stats-grid-view9/project-stats-grid-view9.vue'),
                 },
                 {
-                    path: 'products/:product?/productplans/:productplan?/subproductplans/:subproductplan?/subplaneditview/:subplaneditview?',
-                    meta: {
-                        caption: 'entities.subproductplan.views.subplaneditview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'productplans', parameterName: 'productplan' },
-                            { pathName: 'subproductplans', parameterName: 'subproductplan' },
-                            { pathName: 'subplaneditview', parameterName: 'subplaneditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-plan-sub-plan-edit-view/product-plan-sub-plan-edit-view.vue'),
-                },
-                {
-                    path: 'productplans/:productplan?/subproductplans/:subproductplan?/subplaneditview/:subplaneditview?',
-                    meta: {
-                        caption: 'entities.subproductplan.views.subplaneditview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'productplans', parameterName: 'productplan' },
-                            { pathName: 'subproductplans', parameterName: 'subproductplan' },
-                            { pathName: 'subplaneditview', parameterName: 'subplaneditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-plan-sub-plan-edit-view/product-plan-sub-plan-edit-view.vue'),
-                },
-                {
-                    path: 'subproductplans/:subproductplan?/subplaneditview/:subplaneditview?',
-                    meta: {
-                        caption: 'entities.subproductplan.views.subplaneditview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'subproductplans', parameterName: 'subproductplan' },
-                            { pathName: 'subplaneditview', parameterName: 'subplaneditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-plan-sub-plan-edit-view/product-plan-sub-plan-edit-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/mainview/:mainview?',
                     meta: {
-                        caption: 'entities.story.views.mainview.title',
+                        caption: 'entities.story.views.mainview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2258,8 +2511,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/mainview/:mainview?',
                     meta: {
-                        caption: 'entities.story.views.mainview.title',
+                        caption: 'entities.story.views.mainview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2272,7 +2527,7 @@ const router = new Router({
                 {
                     path: 'productlives/:productlife?/roadmapslistview9/:roadmapslistview9?',
                     meta: {
-                        caption: 'entities.productlife.views.roadmapslistview9.title',
+                        caption: 'entities.productlife.views.roadmapslistview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2286,7 +2541,7 @@ const router = new Router({
                 {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/ibzlibcasesteptmps/:ibzlibcasesteptmp?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.ibzlibcasesteptmp.views.gridview9.title',
+                        caption: 'entities.ibzlibcasesteptmp.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2302,7 +2557,7 @@ const router = new Router({
                 {
                     path: 'ibzcases/:ibzcase?/ibzlibcasesteptmps/:ibzlibcasesteptmp?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.ibzlibcasesteptmp.views.gridview9.title',
+                        caption: 'entities.ibzlibcasesteptmp.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2317,7 +2572,7 @@ const router = new Router({
                 {
                     path: 'ibzlibcasesteptmps/:ibzlibcasesteptmp?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.ibzlibcasesteptmp.views.gridview9.title',
+                        caption: 'entities.ibzlibcasesteptmp.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2331,8 +2586,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testreports/:testreport?/editview/:editview?',
                     meta: {
-                        caption: 'entities.testreport.views.editview.title',
+                        caption: 'entities.testreport.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2346,8 +2603,10 @@ const router = new Router({
                 {
                     path: 'testreports/:testreport?/editview/:editview?',
                     meta: {
-                        caption: 'entities.testreport.views.editview.title',
+                        caption: 'entities.testreport.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testreports', parameterName: 'testreport' },
@@ -2360,7 +2619,7 @@ const router = new Router({
                 {
                     path: 'actions/:action?/addcommenthistorylistview/:addcommenthistorylistview?',
                     meta: {
-                        caption: 'entities.action.views.addcommenthistorylistview.title',
+                        caption: 'entities.action.views.addcommenthistorylistview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2374,7 +2633,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/casesteps/:casestep?/maingridview9/:maingridview9?',
                     meta: {
-                        caption: 'entities.casestep.views.maingridview9.title',
+                        caption: 'entities.casestep.views.maingridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2391,7 +2650,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/casesteps/:casestep?/maingridview9/:maingridview9?',
                     meta: {
-                        caption: 'entities.casestep.views.maingridview9.title',
+                        caption: 'entities.casestep.views.maingridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2407,7 +2666,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/casesteps/:casestep?/maingridview9/:maingridview9?',
                     meta: {
-                        caption: 'entities.casestep.views.maingridview9.title',
+                        caption: 'entities.casestep.views.maingridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2423,7 +2682,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/casesteps/:casestep?/maingridview9/:maingridview9?',
                     meta: {
-                        caption: 'entities.casestep.views.maingridview9.title',
+                        caption: 'entities.casestep.views.maingridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2438,7 +2697,7 @@ const router = new Router({
                 {
                     path: 'casesteps/:casestep?/maingridview9/:maingridview9?',
                     meta: {
-                        caption: 'entities.casestep.views.maingridview9.title',
+                        caption: 'entities.casestep.views.maingridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2452,8 +2711,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/releases/:release?/quickcreateview/:quickcreateview?',
                     meta: {
-                        caption: 'entities.release.views.quickcreateview.title',
+                        caption: 'entities.release.views.quickcreateview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2467,8 +2728,10 @@ const router = new Router({
                 {
                     path: 'releases/:release?/quickcreateview/:quickcreateview?',
                     meta: {
-                        caption: 'entities.release.views.quickcreateview.title',
+                        caption: 'entities.release.views.quickcreateview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'releases', parameterName: 'release' },
@@ -2481,7 +2744,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/gridview9_storyaffect/:gridview9_storyaffect?',
                     meta: {
-                        caption: 'entities.case.views.gridview9_storyaffect.title',
+                        caption: 'entities.case.views.gridview9_storyaffect.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2497,7 +2760,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/gridview9_storyaffect/:gridview9_storyaffect?',
                     meta: {
-                        caption: 'entities.case.views.gridview9_storyaffect.title',
+                        caption: 'entities.case.views.gridview9_storyaffect.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2512,7 +2775,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/gridview9_storyaffect/:gridview9_storyaffect?',
                     meta: {
-                        caption: 'entities.case.views.gridview9_storyaffect.title',
+                        caption: 'entities.case.views.gridview9_storyaffect.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2527,7 +2790,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/gridview9_storyaffect/:gridview9_storyaffect?',
                     meta: {
-                        caption: 'entities.case.views.gridview9_storyaffect.title',
+                        caption: 'entities.case.views.gridview9_storyaffect.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2541,7 +2804,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/listexpview/:listexpview?',
                     meta: {
-                        caption: 'entities.project.views.listexpview.title',
+                        caption: 'entities.project.views.listexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2555,7 +2818,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/projectgridview9/:projectgridview9?',
                     meta: {
-                        caption: 'entities.product.views.projectgridview9.title',
+                        caption: 'entities.product.views.projectgridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2569,7 +2832,7 @@ const router = new Router({
                 {
                     path: 'users/:user?/infoeditview/:infoeditview?',
                     meta: {
-                        caption: 'entities.user.views.infoeditview.title',
+                        caption: 'entities.user.views.infoeditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2583,8 +2846,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/mpickupview4/:mpickupview4?',
                     meta: {
-                        caption: 'entities.bug.views.mpickupview4.title',
+                        caption: 'entities.bug.views.mpickupview4.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2599,8 +2864,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/mpickupview4/:mpickupview4?',
                     meta: {
-                        caption: 'entities.bug.views.mpickupview4.title',
+                        caption: 'entities.bug.views.mpickupview4.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -2614,8 +2881,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/mpickupview4/:mpickupview4?',
                     meta: {
-                        caption: 'entities.bug.views.mpickupview4.title',
+                        caption: 'entities.bug.views.mpickupview4.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2629,8 +2898,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/mpickupview4/:mpickupview4?',
                     meta: {
-                        caption: 'entities.bug.views.mpickupview4.title',
+                        caption: 'entities.bug.views.mpickupview4.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2644,8 +2915,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/mpickupview4/:mpickupview4?',
                     meta: {
-                        caption: 'entities.bug.views.mpickupview4.title',
+                        caption: 'entities.bug.views.mpickupview4.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -2658,7 +2931,7 @@ const router = new Router({
                 {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/newediteditview9/:newediteditview9?',
                     meta: {
-                        caption: 'entities.ibzcase.views.newediteditview9.title',
+                        caption: 'entities.ibzcase.views.newediteditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2673,7 +2946,7 @@ const router = new Router({
                 {
                     path: 'ibzcases/:ibzcase?/newediteditview9/:newediteditview9?',
                     meta: {
-                        caption: 'entities.ibzcase.views.newediteditview9.title',
+                        caption: 'entities.ibzcase.views.newediteditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2687,7 +2960,7 @@ const router = new Router({
                 {
                     path: 'ibzlibs/:ibzlib?/editview9/:editview9?',
                     meta: {
-                        caption: 'entities.ibzlib.views.editview9.title',
+                        caption: 'entities.ibzlib.views.editview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2701,7 +2974,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/taskestimates/:taskestimate?/optionview/:optionview?',
                     meta: {
-                        caption: 'entities.taskestimate.views.optionview.title',
+                        caption: 'entities.taskestimate.views.optionview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2718,7 +2991,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/taskestimates/:taskestimate?/optionview/:optionview?',
                     meta: {
-                        caption: 'entities.taskestimate.views.optionview.title',
+                        caption: 'entities.taskestimate.views.optionview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2734,7 +3007,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/taskestimates/:taskestimate?/optionview/:optionview?',
                     meta: {
-                        caption: 'entities.taskestimate.views.optionview.title',
+                        caption: 'entities.taskestimate.views.optionview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2750,7 +3023,7 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/taskestimates/:taskestimate?/optionview/:optionview?',
                     meta: {
-                        caption: 'entities.taskestimate.views.optionview.title',
+                        caption: 'entities.taskestimate.views.optionview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2765,7 +3038,7 @@ const router = new Router({
                 {
                     path: 'taskestimates/:taskestimate?/optionview/:optionview?',
                     meta: {
-                        caption: 'entities.taskestimate.views.optionview.title',
+                        caption: 'entities.taskestimate.views.optionview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2779,7 +3052,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/testmodules/:testmodule?/quickcfgview/:quickcfgview?',
                     meta: {
-                        caption: 'entities.testmodule.views.quickcfgview.title',
+                        caption: 'entities.testmodule.views.quickcfgview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2794,7 +3067,7 @@ const router = new Router({
                 {
                     path: 'testmodules/:testmodule?/quickcfgview/:quickcfgview?',
                     meta: {
-                        caption: 'entities.testmodule.views.quickcfgview.title',
+                        caption: 'entities.testmodule.views.quickcfgview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2806,9 +3079,110 @@ const router = new Router({
                     component: () => import('@pages/ibiz/test-module-quick-cfg-view/test-module-quick-cfg-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/mpickupview/:mpickupview?',
+                    meta: {
+                        caption: 'entities.story.views.mpickupview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'mpickupview', parameterName: 'mpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-mpickup-view/story-mpickup-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/mpickupview/:mpickupview?',
+                    meta: {
+                        caption: 'entities.story.views.mpickupview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'mpickupview', parameterName: 'mpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-mpickup-view/story-mpickup-view.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/maindashboardview_link/:maindashboardview_link?',
+                    meta: {
+                        caption: 'entities.task.views.maindashboardview_link.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-main-dashboard-view-link/task-main-dashboard-view-link.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/maindashboardview_link/:maindashboardview_link?',
+                    meta: {
+                        caption: 'entities.task.views.maindashboardview_link.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-main-dashboard-view-link/task-main-dashboard-view-link.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/maindashboardview_link/:maindashboardview_link?',
+                    meta: {
+                        caption: 'entities.task.views.maindashboardview_link.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-main-dashboard-view-link/task-main-dashboard-view-link.vue'),
+                },
+                {
+                    path: 'tasks/:task?/maindashboardview_link/:maindashboardview_link?',
+                    meta: {
+                        caption: 'entities.task.views.maindashboardview_link.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-main-dashboard-view-link/task-main-dashboard-view-link.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/linkcasegridview/:linkcasegridview?',
                     meta: {
-                        caption: 'entities.case.views.linkcasegridview.title',
+                        caption: 'entities.case.views.linkcasegridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2824,7 +3198,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/linkcasegridview/:linkcasegridview?',
                     meta: {
-                        caption: 'entities.case.views.linkcasegridview.title',
+                        caption: 'entities.case.views.linkcasegridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2839,7 +3213,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/linkcasegridview/:linkcasegridview?',
                     meta: {
-                        caption: 'entities.case.views.linkcasegridview.title',
+                        caption: 'entities.case.views.linkcasegridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2854,7 +3228,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/linkcasegridview/:linkcasegridview?',
                     meta: {
-                        caption: 'entities.case.views.linkcasegridview.title',
+                        caption: 'entities.case.views.linkcasegridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -2866,39 +3240,12 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-link-case-grid-view/case-link-case-grid-view.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/mpickupview/:mpickupview?',
-                    meta: {
-                        caption: 'entities.story.views.mpickupview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'mpickupview', parameterName: 'mpickupview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/story-mpickup-view/story-mpickup-view.vue'),
-                },
-                {
-                    path: 'stories/:story?/mpickupview/:mpickupview?',
-                    meta: {
-                        caption: 'entities.story.views.mpickupview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'mpickupview', parameterName: 'mpickupview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/story-mpickup-view/story-mpickup-view.vue'),
-                },
-                {
                     path: 'projects/:project?/builds/:build?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.build.views.maingridview.title',
+                        caption: 'entities.build.views.maingridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -2912,8 +3259,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/builds/:build?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.build.views.maingridview.title',
+                        caption: 'entities.build.views.maingridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2927,8 +3276,10 @@ const router = new Router({
                 {
                     path: 'builds/:build?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.build.views.maingridview.title',
+                        caption: 'entities.build.views.maingridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'builds', parameterName: 'build' },
@@ -2941,8 +3292,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/usr2gridview/:usr2gridview?',
                     meta: {
-                        caption: 'entities.bug.views.usr2gridview.title',
+                        caption: 'entities.bug.views.usr2gridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2957,8 +3310,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/usr2gridview/:usr2gridview?',
                     meta: {
-                        caption: 'entities.bug.views.usr2gridview.title',
+                        caption: 'entities.bug.views.usr2gridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -2972,8 +3327,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/usr2gridview/:usr2gridview?',
                     meta: {
-                        caption: 'entities.bug.views.usr2gridview.title',
+                        caption: 'entities.bug.views.usr2gridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2987,8 +3344,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/usr2gridview/:usr2gridview?',
                     meta: {
-                        caption: 'entities.bug.views.usr2gridview.title',
+                        caption: 'entities.bug.views.usr2gridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3002,8 +3361,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/usr2gridview/:usr2gridview?',
                     meta: {
-                        caption: 'entities.bug.views.usr2gridview.title',
+                        caption: 'entities.bug.views.usr2gridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -3016,8 +3377,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/releasesubgridview_undone/:releasesubgridview_undone?',
                     meta: {
-                        caption: 'entities.bug.views.releasesubgridview_undone.title',
+                        caption: 'entities.bug.views.releasesubgridview_undone.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3032,8 +3395,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/releasesubgridview_undone/:releasesubgridview_undone?',
                     meta: {
-                        caption: 'entities.bug.views.releasesubgridview_undone.title',
+                        caption: 'entities.bug.views.releasesubgridview_undone.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -3047,8 +3412,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/releasesubgridview_undone/:releasesubgridview_undone?',
                     meta: {
-                        caption: 'entities.bug.views.releasesubgridview_undone.title',
+                        caption: 'entities.bug.views.releasesubgridview_undone.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -3062,8 +3429,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/releasesubgridview_undone/:releasesubgridview_undone?',
                     meta: {
-                        caption: 'entities.bug.views.releasesubgridview_undone.title',
+                        caption: 'entities.bug.views.releasesubgridview_undone.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3077,8 +3446,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/releasesubgridview_undone/:releasesubgridview_undone?',
                     meta: {
-                        caption: 'entities.bug.views.releasesubgridview_undone.title',
+                        caption: 'entities.bug.views.releasesubgridview_undone.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -3091,7 +3462,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/editview/:editview?',
                     meta: {
-                        caption: 'entities.product.views.editview.title',
+                        caption: 'entities.product.views.editview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -3105,7 +3476,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/mainmygridview/:mainmygridview?',
                     meta: {
-                        caption: 'entities.project.views.mainmygridview.title',
+                        caption: 'entities.project.views.mainmygridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -3119,7 +3490,7 @@ const router = new Router({
                 {
                     path: 'productlives/:productlife?/roadmaplistview/:roadmaplistview?',
                     meta: {
-                        caption: 'entities.productlife.views.roadmaplistview.title',
+                        caption: 'entities.productlife.views.roadmaplistview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -3133,8 +3504,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/maineditview/:maineditview?',
                     meta: {
-                        caption: 'entities.task.views.maineditview.title',
+                        caption: 'entities.task.views.maineditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3149,8 +3522,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/maineditview/:maineditview?',
                     meta: {
-                        caption: 'entities.task.views.maineditview.title',
+                        caption: 'entities.task.views.maineditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -3164,8 +3539,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/maineditview/:maineditview?',
                     meta: {
-                        caption: 'entities.task.views.maineditview.title',
+                        caption: 'entities.task.views.maineditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -3179,8 +3556,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/maineditview/:maineditview?',
                     meta: {
-                        caption: 'entities.task.views.maineditview.title',
+                        caption: 'entities.task.views.maineditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -3193,7 +3572,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/testresults/:testresult?/testtaskmeditview9/:testtaskmeditview9?',
                     meta: {
-                        caption: 'entities.testresult.views.testtaskmeditview9.title',
+                        caption: 'entities.testresult.views.testtaskmeditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -3210,7 +3589,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/testresults/:testresult?/testtaskmeditview9/:testtaskmeditview9?',
                     meta: {
-                        caption: 'entities.testresult.views.testtaskmeditview9.title',
+                        caption: 'entities.testresult.views.testtaskmeditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -3226,7 +3605,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/testresults/:testresult?/testtaskmeditview9/:testtaskmeditview9?',
                     meta: {
-                        caption: 'entities.testresult.views.testtaskmeditview9.title',
+                        caption: 'entities.testresult.views.testtaskmeditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -3242,7 +3621,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/testresults/:testresult?/testtaskmeditview9/:testtaskmeditview9?',
                     meta: {
-                        caption: 'entities.testresult.views.testtaskmeditview9.title',
+                        caption: 'entities.testresult.views.testtaskmeditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -3257,7 +3636,7 @@ const router = new Router({
                 {
                     path: 'testresults/:testresult?/testtaskmeditview9/:testtaskmeditview9?',
                     meta: {
-                        caption: 'entities.testresult.views.testtaskmeditview9.title',
+                        caption: 'entities.testresult.views.testtaskmeditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -3271,8 +3650,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/resolveview/:resolveview?',
                     meta: {
-                        caption: 'entities.bug.views.resolveview.title',
+                        caption: 'entities.bug.views.resolveview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3287,8 +3668,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/resolveview/:resolveview?',
                     meta: {
-                        caption: 'entities.bug.views.resolveview.title',
+                        caption: 'entities.bug.views.resolveview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -3302,8 +3685,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/resolveview/:resolveview?',
                     meta: {
-                        caption: 'entities.bug.views.resolveview.title',
+                        caption: 'entities.bug.views.resolveview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -3317,8 +3702,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/resolveview/:resolveview?',
                     meta: {
-                        caption: 'entities.bug.views.resolveview.title',
+                        caption: 'entities.bug.views.resolveview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3332,8 +3719,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/resolveview/:resolveview?',
                     meta: {
-                        caption: 'entities.bug.views.resolveview.title',
+                        caption: 'entities.bug.views.resolveview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -3346,7 +3735,7 @@ const router = new Router({
                 {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/editeditview/:editeditview?',
                     meta: {
-                        caption: 'entities.ibzcase.views.editeditview.title',
+                        caption: 'entities.ibzcase.views.editeditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -3361,7 +3750,7 @@ const router = new Router({
                 {
                     path: 'ibzcases/:ibzcase?/editeditview/:editeditview?',
                     meta: {
-                        caption: 'entities.ibzcase.views.editeditview.title',
+                        caption: 'entities.ibzcase.views.editeditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -3375,7 +3764,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.case.views.maingridview.title',
+                        caption: 'entities.case.views.maingridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -3391,7 +3780,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.case.views.maingridview.title',
+                        caption: 'entities.case.views.maingridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -3406,7 +3795,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.case.views.maingridview.title',
+                        caption: 'entities.case.views.maingridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -3421,7 +3810,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.case.views.maingridview.title',
+                        caption: 'entities.case.views.maingridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -3435,8 +3824,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/branches/:branch?/pmgridview/:pmgridview?',
                     meta: {
-                        caption: 'entities.branch.views.pmgridview.title',
+                        caption: 'entities.branch.views.pmgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3450,8 +3841,10 @@ const router = new Router({
                 {
                     path: 'branches/:branch?/pmgridview/:pmgridview?',
                     meta: {
-                        caption: 'entities.branch.views.pmgridview.title',
+                        caption: 'entities.branch.views.pmgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'branches', parameterName: 'branch' },
@@ -3464,7 +3857,7 @@ const router = new Router({
                 {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.ibzcase.views.gridview.title',
+                        caption: 'entities.ibzcase.views.gridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -3479,7 +3872,7 @@ const router = new Router({
                 {
                     path: 'ibzcases/:ibzcase?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.ibzcase.views.gridview.title',
+                        caption: 'entities.ibzcase.views.gridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -3493,8 +3886,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testreports/:testreport?/maintabexpview/:maintabexpview?',
                     meta: {
-                        caption: 'entities.testreport.views.maintabexpview.title',
+                        caption: 'entities.testreport.views.maintabexpview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3508,8 +3903,10 @@ const router = new Router({
                 {
                     path: 'testreports/:testreport?/maintabexpview/:maintabexpview?',
                     meta: {
-                        caption: 'entities.testreport.views.maintabexpview.title',
+                        caption: 'entities.testreport.views.maintabexpview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testreports', parameterName: 'testreport' },
@@ -3522,7 +3919,7 @@ const router = new Router({
                 {
                     path: 'ibzlibs/:ibzlib?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.ibzlib.views.gridview.title',
+                        caption: 'entities.ibzlib.views.gridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -3536,8 +3933,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/testreportsubgridview/:testreportsubgridview?',
                     meta: {
-                        caption: 'entities.bug.views.testreportsubgridview.title',
+                        caption: 'entities.bug.views.testreportsubgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3552,8 +3951,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/testreportsubgridview/:testreportsubgridview?',
                     meta: {
-                        caption: 'entities.bug.views.testreportsubgridview.title',
+                        caption: 'entities.bug.views.testreportsubgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -3567,8 +3968,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/testreportsubgridview/:testreportsubgridview?',
                     meta: {
-                        caption: 'entities.bug.views.testreportsubgridview.title',
+                        caption: 'entities.bug.views.testreportsubgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -3582,8 +3985,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/testreportsubgridview/:testreportsubgridview?',
                     meta: {
-                        caption: 'entities.bug.views.testreportsubgridview.title',
+                        caption: 'entities.bug.views.testreportsubgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3597,8 +4002,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/testreportsubgridview/:testreportsubgridview?',
                     meta: {
-                        caption: 'entities.bug.views.testreportsubgridview.title',
+                        caption: 'entities.bug.views.testreportsubgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -3609,70 +4016,12 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-test-report-sub-grid-view/bug-test-report-sub-grid-view.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/tasks/:task?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.task.views.editview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/task-edit-view/task-edit-view.vue'),
-                },
-                {
-                    path: 'projects/:project?/tasks/:task?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.task.views.editview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/task-edit-view/task-edit-view.vue'),
-                },
-                {
-                    path: 'stories/:story?/tasks/:task?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.task.views.editview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/task-edit-view/task-edit-view.vue'),
-                },
-                {
-                    path: 'tasks/:task?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.task.views.editview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'tasks', parameterName: 'task' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/task-edit-view/task-edit-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/dashboardmaineditview9/:dashboardmaineditview9?',
                     meta: {
-                        caption: 'entities.bug.views.dashboardmaineditview9.title',
+                        caption: 'entities.bug.views.dashboardmaineditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3687,8 +4036,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/dashboardmaineditview9/:dashboardmaineditview9?',
                     meta: {
-                        caption: 'entities.bug.views.dashboardmaineditview9.title',
+                        caption: 'entities.bug.views.dashboardmaineditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -3702,8 +4053,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/dashboardmaineditview9/:dashboardmaineditview9?',
                     meta: {
-                        caption: 'entities.bug.views.dashboardmaineditview9.title',
+                        caption: 'entities.bug.views.dashboardmaineditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -3717,8 +4070,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/dashboardmaineditview9/:dashboardmaineditview9?',
                     meta: {
-                        caption: 'entities.bug.views.dashboardmaineditview9.title',
+                        caption: 'entities.bug.views.dashboardmaineditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3732,8 +4087,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/dashboardmaineditview9/:dashboardmaineditview9?',
                     meta: {
-                        caption: 'entities.bug.views.dashboardmaineditview9.title',
+                        caption: 'entities.bug.views.dashboardmaineditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -3744,10 +4101,80 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-dashboard-main-edit-view9/bug-dashboard-main-edit-view9.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.task.views.editview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-edit-view/task-edit-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.task.views.editview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-edit-view/task-edit-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.task.views.editview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-edit-view/task-edit-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.task.views.editview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-edit-view/task-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/mpickupview5/:mpickupview5?',
                     meta: {
-                        caption: 'entities.bug.views.mpickupview5.title',
+                        caption: 'entities.bug.views.mpickupview5.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3762,8 +4189,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/mpickupview5/:mpickupview5?',
                     meta: {
-                        caption: 'entities.bug.views.mpickupview5.title',
+                        caption: 'entities.bug.views.mpickupview5.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -3777,8 +4206,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/mpickupview5/:mpickupview5?',
                     meta: {
-                        caption: 'entities.bug.views.mpickupview5.title',
+                        caption: 'entities.bug.views.mpickupview5.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -3792,8 +4223,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/mpickupview5/:mpickupview5?',
                     meta: {
-                        caption: 'entities.bug.views.mpickupview5.title',
+                        caption: 'entities.bug.views.mpickupview5.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3807,8 +4240,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/mpickupview5/:mpickupview5?',
                     meta: {
-                        caption: 'entities.bug.views.mpickupview5.title',
+                        caption: 'entities.bug.views.mpickupview5.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -3821,8 +4256,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/testtasks/:testtask?/startoptionview/:startoptionview?',
                     meta: {
-                        caption: 'entities.testtask.views.startoptionview.title',
+                        caption: 'entities.testtask.views.startoptionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -3836,8 +4273,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testtasks/:testtask?/startoptionview/:startoptionview?',
                     meta: {
-                        caption: 'entities.testtask.views.startoptionview.title',
+                        caption: 'entities.testtask.views.startoptionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3851,8 +4290,10 @@ const router = new Router({
                 {
                     path: 'testtasks/:testtask?/startoptionview/:startoptionview?',
                     meta: {
-                        caption: 'entities.testtask.views.startoptionview.title',
+                        caption: 'entities.testtask.views.startoptionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -3863,10 +4304,63 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-task-start-option-view/test-task-start-option-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/substories/:substory?/subgridview/:subgridview?',
+                    meta: {
+                        caption: 'entities.substory.views.subgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'substories', parameterName: 'substory' },
+                            { pathName: 'subgridview', parameterName: 'subgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-sub-grid-view/story-sub-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/substories/:substory?/subgridview/:subgridview?',
+                    meta: {
+                        caption: 'entities.substory.views.subgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'substories', parameterName: 'substory' },
+                            { pathName: 'subgridview', parameterName: 'subgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-sub-grid-view/story-sub-grid-view.vue'),
+                },
+                {
+                    path: 'substories/:substory?/subgridview/:subgridview?',
+                    meta: {
+                        caption: 'entities.substory.views.subgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'substories', parameterName: 'substory' },
+                            { pathName: 'subgridview', parameterName: 'subgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-sub-grid-view/story-sub-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/pivottableview/:pivottableview?',
                     meta: {
-                        caption: 'entities.task.views.pivottableview.title',
+                        caption: 'entities.task.views.pivottableview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3881,8 +4375,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/pivottableview/:pivottableview?',
                     meta: {
-                        caption: 'entities.task.views.pivottableview.title',
+                        caption: 'entities.task.views.pivottableview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -3896,8 +4392,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/pivottableview/:pivottableview?',
                     meta: {
-                        caption: 'entities.task.views.pivottableview.title',
+                        caption: 'entities.task.views.pivottableview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -3911,8 +4409,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/pivottableview/:pivottableview?',
                     meta: {
-                        caption: 'entities.task.views.pivottableview.title',
+                        caption: 'entities.task.views.pivottableview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -3925,8 +4425,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/testtasks/:testtask?/mydgridview/:mydgridview?',
                     meta: {
-                        caption: 'entities.testtask.views.mydgridview.title',
+                        caption: 'entities.testtask.views.mydgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -3940,8 +4442,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testtasks/:testtask?/mydgridview/:mydgridview?',
                     meta: {
-                        caption: 'entities.testtask.views.mydgridview.title',
+                        caption: 'entities.testtask.views.mydgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3955,8 +4459,10 @@ const router = new Router({
                 {
                     path: 'testtasks/:testtask?/mydgridview/:mydgridview?',
                     meta: {
-                        caption: 'entities.testtask.views.mydgridview.title',
+                        caption: 'entities.testtask.views.mydgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -3967,9 +4473,42 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-task-my-dgrid-view/test-task-my-dgrid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/planeditview/:planeditview?',
+                    meta: {
+                        caption: 'entities.story.views.planeditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'planeditview', parameterName: 'planeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-plan-edit-view/story-plan-edit-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/planeditview/:planeditview?',
+                    meta: {
+                        caption: 'entities.story.views.planeditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'planeditview', parameterName: 'planeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-plan-edit-view/story-plan-edit-view.vue'),
+                },
+                {
                     path: 'projects/:project?/editview_close/:editview_close?',
                     meta: {
-                        caption: 'entities.project.views.editview_close.title',
+                        caption: 'entities.project.views.editview_close.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -3983,7 +4522,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/taskteams/:taskteam?/gridview9_look/:gridview9_look?',
                     meta: {
-                        caption: 'entities.taskteam.views.gridview9_look.title',
+                        caption: 'entities.taskteam.views.gridview9_look.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4000,7 +4539,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/taskteams/:taskteam?/gridview9_look/:gridview9_look?',
                     meta: {
-                        caption: 'entities.taskteam.views.gridview9_look.title',
+                        caption: 'entities.taskteam.views.gridview9_look.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4016,7 +4555,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/taskteams/:taskteam?/gridview9_look/:gridview9_look?',
                     meta: {
-                        caption: 'entities.taskteam.views.gridview9_look.title',
+                        caption: 'entities.taskteam.views.gridview9_look.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4032,7 +4571,7 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/taskteams/:taskteam?/gridview9_look/:gridview9_look?',
                     meta: {
-                        caption: 'entities.taskteam.views.gridview9_look.title',
+                        caption: 'entities.taskteam.views.gridview9_look.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4047,7 +4586,7 @@ const router = new Router({
                 {
                     path: 'taskteams/:taskteam?/gridview9_look/:gridview9_look?',
                     meta: {
-                        caption: 'entities.taskteam.views.gridview9_look.title',
+                        caption: 'entities.taskteam.views.gridview9_look.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4061,8 +4600,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/releases/:release?/editview/:editview?',
                     meta: {
-                        caption: 'entities.release.views.editview.title',
+                        caption: 'entities.release.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -4076,8 +4617,10 @@ const router = new Router({
                 {
                     path: 'releases/:release?/editview/:editview?',
                     meta: {
-                        caption: 'entities.release.views.editview.title',
+                        caption: 'entities.release.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'releases', parameterName: 'release' },
@@ -4090,7 +4633,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/productplans/:productplan?/subproductplans/:subproductplan?/subplancreateview/:subplancreateview?',
                     meta: {
-                        caption: 'entities.subproductplan.views.subplancreateview.title',
+                        caption: 'entities.subproductplan.views.subplancreateview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4106,7 +4649,7 @@ const router = new Router({
                 {
                     path: 'productplans/:productplan?/subproductplans/:subproductplan?/subplancreateview/:subplancreateview?',
                     meta: {
-                        caption: 'entities.subproductplan.views.subplancreateview.title',
+                        caption: 'entities.subproductplan.views.subplancreateview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4121,7 +4664,7 @@ const router = new Router({
                 {
                     path: 'subproductplans/:subproductplan?/subplancreateview/:subplancreateview?',
                     meta: {
-                        caption: 'entities.subproductplan.views.subplancreateview.title',
+                        caption: 'entities.subproductplan.views.subplancreateview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4135,8 +4678,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/buildsubgridview_done/:buildsubgridview_done?',
                     meta: {
-                        caption: 'entities.bug.views.buildsubgridview_done.title',
+                        caption: 'entities.bug.views.buildsubgridview_done.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -4151,8 +4696,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/buildsubgridview_done/:buildsubgridview_done?',
                     meta: {
-                        caption: 'entities.bug.views.buildsubgridview_done.title',
+                        caption: 'entities.bug.views.buildsubgridview_done.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -4166,8 +4713,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/buildsubgridview_done/:buildsubgridview_done?',
                     meta: {
-                        caption: 'entities.bug.views.buildsubgridview_done.title',
+                        caption: 'entities.bug.views.buildsubgridview_done.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -4181,8 +4730,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/buildsubgridview_done/:buildsubgridview_done?',
                     meta: {
-                        caption: 'entities.bug.views.buildsubgridview_done.title',
+                        caption: 'entities.bug.views.buildsubgridview_done.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -4196,8 +4747,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/buildsubgridview_done/:buildsubgridview_done?',
                     meta: {
-                        caption: 'entities.bug.views.buildsubgridview_done.title',
+                        caption: 'entities.bug.views.buildsubgridview_done.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -4210,8 +4763,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/testtasks/:testtask?/closeoptionview/:closeoptionview?',
                     meta: {
-                        caption: 'entities.testtask.views.closeoptionview.title',
+                        caption: 'entities.testtask.views.closeoptionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -4225,8 +4780,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testtasks/:testtask?/closeoptionview/:closeoptionview?',
                     meta: {
-                        caption: 'entities.testtask.views.closeoptionview.title',
+                        caption: 'entities.testtask.views.closeoptionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -4240,8 +4797,10 @@ const router = new Router({
                 {
                     path: 'testtasks/:testtask?/closeoptionview/:closeoptionview?',
                     meta: {
-                        caption: 'entities.testtask.views.closeoptionview.title',
+                        caption: 'entities.testtask.views.closeoptionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -4254,8 +4813,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/builds/:build?/editformeditview/:editformeditview?',
                     meta: {
-                        caption: 'entities.build.views.editformeditview.title',
+                        caption: 'entities.build.views.editformeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -4269,8 +4830,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/builds/:build?/editformeditview/:editformeditview?',
                     meta: {
-                        caption: 'entities.build.views.editformeditview.title',
+                        caption: 'entities.build.views.editformeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -4284,8 +4847,10 @@ const router = new Router({
                 {
                     path: 'builds/:build?/editformeditview/:editformeditview?',
                     meta: {
-                        caption: 'entities.build.views.editformeditview.title',
+                        caption: 'entities.build.views.editformeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'builds', parameterName: 'build' },
@@ -4298,7 +4863,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/maintabexpview/:maintabexpview?',
                     meta: {
-                        caption: 'entities.product.views.maintabexpview.title',
+                        caption: 'entities.product.views.maintabexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4312,7 +4877,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/testresults/:testresult?/meditview9/:meditview9?',
                     meta: {
-                        caption: 'entities.testresult.views.meditview9.title',
+                        caption: 'entities.testresult.views.meditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4329,7 +4894,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/testresults/:testresult?/meditview9/:meditview9?',
                     meta: {
-                        caption: 'entities.testresult.views.meditview9.title',
+                        caption: 'entities.testresult.views.meditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4345,7 +4910,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/testresults/:testresult?/meditview9/:meditview9?',
                     meta: {
-                        caption: 'entities.testresult.views.meditview9.title',
+                        caption: 'entities.testresult.views.meditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4361,7 +4926,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/testresults/:testresult?/meditview9/:meditview9?',
                     meta: {
-                        caption: 'entities.testresult.views.meditview9.title',
+                        caption: 'entities.testresult.views.meditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4376,7 +4941,7 @@ const router = new Router({
                 {
                     path: 'testresults/:testresult?/meditview9/:meditview9?',
                     meta: {
-                        caption: 'entities.testresult.views.meditview9.title',
+                        caption: 'entities.testresult.views.meditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4390,8 +4955,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/workhoursview/:workhoursview?',
                     meta: {
-                        caption: 'entities.task.views.workhoursview.title',
+                        caption: 'entities.task.views.workhoursview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -4406,8 +4973,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/workhoursview/:workhoursview?',
                     meta: {
-                        caption: 'entities.task.views.workhoursview.title',
+                        caption: 'entities.task.views.workhoursview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -4421,8 +4990,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/workhoursview/:workhoursview?',
                     meta: {
-                        caption: 'entities.task.views.workhoursview.title',
+                        caption: 'entities.task.views.workhoursview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -4436,8 +5007,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/workhoursview/:workhoursview?',
                     meta: {
-                        caption: 'entities.task.views.workhoursview.title',
+                        caption: 'entities.task.views.workhoursview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -4450,7 +5023,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.project.views.gridview.title',
+                        caption: 'entities.project.views.gridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4462,24 +5035,41 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-grid-view/project-grid-view.vue'),
                 },
                 {
-                    path: 'depts/:dept?/editview/:editview?',
+                    path: 'products/:product?/productplans/:productplan?/maindataeditview/:maindataeditview?',
                     meta: {
-                        caption: 'entities.dept.views.editview.title',
+                        caption: 'entities.productplan.views.maindataeditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'depts', parameterName: 'dept' },
-                            { pathName: 'editview', parameterName: 'editview' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'maindataeditview', parameterName: 'maindataeditview' },
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/zentao/dept-edit-view/dept-edit-view.vue'),
+                    component: () => import('@pages/zentao/product-plan-main-data-edit-view/product-plan-main-data-edit-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/maindataeditview/:maindataeditview?',
+                    meta: {
+                        caption: 'entities.productplan.views.maindataeditview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'maindataeditview', parameterName: 'maindataeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-plan-main-data-edit-view/product-plan-main-data-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/mainview9_editmode/:mainview9_editmode?',
                     meta: {
-                        caption: 'entities.story.views.mainview9_editmode.title',
+                        caption: 'entities.story.views.mainview9_editmode.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -4493,8 +5083,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/mainview9_editmode/:mainview9_editmode?',
                     meta: {
-                        caption: 'entities.story.views.mainview9_editmode.title',
+                        caption: 'entities.story.views.mainview9_editmode.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -4505,9 +5097,23 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-main-view9-edit-mode/story-main-view9-edit-mode.vue'),
                 },
                 {
+                    path: 'depts/:dept?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.dept.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'depts', parameterName: 'dept' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/dept-edit-view/dept-edit-view.vue'),
+                },
+                {
                     path: 'projects/:project?/projectmodules/:projectmodule?/treeexpview/:treeexpview?',
                     meta: {
-                        caption: 'entities.projectmodule.views.treeexpview.title',
+                        caption: 'entities.projectmodule.views.treeexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4522,7 +5128,7 @@ const router = new Router({
                 {
                     path: 'projectmodules/:projectmodule?/treeexpview/:treeexpview?',
                     meta: {
-                        caption: 'entities.projectmodule.views.treeexpview.title',
+                        caption: 'entities.projectmodule.views.treeexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4536,8 +5142,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/gridview9_storyaffect/:gridview9_storyaffect?',
                     meta: {
-                        caption: 'entities.bug.views.gridview9_storyaffect.title',
+                        caption: 'entities.bug.views.gridview9_storyaffect.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -4552,8 +5160,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/gridview9_storyaffect/:gridview9_storyaffect?',
                     meta: {
-                        caption: 'entities.bug.views.gridview9_storyaffect.title',
+                        caption: 'entities.bug.views.gridview9_storyaffect.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -4567,8 +5177,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/gridview9_storyaffect/:gridview9_storyaffect?',
                     meta: {
-                        caption: 'entities.bug.views.gridview9_storyaffect.title',
+                        caption: 'entities.bug.views.gridview9_storyaffect.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -4582,8 +5194,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/gridview9_storyaffect/:gridview9_storyaffect?',
                     meta: {
-                        caption: 'entities.bug.views.gridview9_storyaffect.title',
+                        caption: 'entities.bug.views.gridview9_storyaffect.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -4597,8 +5211,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/gridview9_storyaffect/:gridview9_storyaffect?',
                     meta: {
-                        caption: 'entities.bug.views.gridview9_storyaffect.title',
+                        caption: 'entities.bug.views.gridview9_storyaffect.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -4611,8 +5227,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/editview_4791/:editview_4791?',
                     meta: {
-                        caption: 'entities.bug.views.editview_4791.title',
+                        caption: 'entities.bug.views.editview_4791.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -4627,8 +5245,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/editview_4791/:editview_4791?',
                     meta: {
-                        caption: 'entities.bug.views.editview_4791.title',
+                        caption: 'entities.bug.views.editview_4791.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -4642,8 +5262,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/editview_4791/:editview_4791?',
                     meta: {
-                        caption: 'entities.bug.views.editview_4791.title',
+                        caption: 'entities.bug.views.editview_4791.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -4657,8 +5279,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/editview_4791/:editview_4791?',
                     meta: {
-                        caption: 'entities.bug.views.editview_4791.title',
+                        caption: 'entities.bug.views.editview_4791.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -4672,8 +5296,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/editview_4791/:editview_4791?',
                     meta: {
-                        caption: 'entities.bug.views.editview_4791.title',
+                        caption: 'entities.bug.views.editview_4791.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -4684,39 +5310,12 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-edit-view-4791/bug-edit-view-4791.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/gridview9_related/:gridview9_related?',
-                    meta: {
-                        caption: 'entities.story.views.gridview9_related.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'gridview9_related', parameterName: 'gridview9_related' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/story-grid-view9-related/story-grid-view9-related.vue'),
-                },
-                {
-                    path: 'stories/:story?/gridview9_related/:gridview9_related?',
-                    meta: {
-                        caption: 'entities.story.views.gridview9_related.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'gridview9_related', parameterName: 'gridview9_related' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/story-grid-view9-related/story-grid-view9-related.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/myfavoritesgridview/:myfavoritesgridview?',
                     meta: {
-                        caption: 'entities.story.views.myfavoritesgridview.title',
+                        caption: 'entities.story.views.myfavoritesgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -4730,8 +5329,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/myfavoritesgridview/:myfavoritesgridview?',
                     meta: {
-                        caption: 'entities.story.views.myfavoritesgridview.title',
+                        caption: 'entities.story.views.myfavoritesgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -4742,10 +5343,45 @@ const router = new Router({
                     component: () => import('@pages/ungroup/story-my-favorites-grid-view/story-my-favorites-grid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/gridview9_related/:gridview9_related?',
+                    meta: {
+                        caption: 'entities.story.views.gridview9_related.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'gridview9_related', parameterName: 'gridview9_related' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-grid-view9-related/story-grid-view9-related.vue'),
+                },
+                {
+                    path: 'stories/:story?/gridview9_related/:gridview9_related?',
+                    meta: {
+                        caption: 'entities.story.views.gridview9_related.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'gridview9_related', parameterName: 'gridview9_related' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/story-grid-view9-related/story-grid-view9-related.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/editview_storychange/:editview_storychange?',
                     meta: {
-                        caption: 'entities.story.views.editview_storychange.title',
+                        caption: 'entities.story.views.editview_storychange.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -4759,8 +5395,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/editview_storychange/:editview_storychange?',
                     meta: {
-                        caption: 'entities.story.views.editview_storychange.title',
+                        caption: 'entities.story.views.editview_storychange.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -4773,7 +5411,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/maininfoeditview9/:maininfoeditview9?',
                     meta: {
-                        caption: 'entities.case.views.maininfoeditview9.title',
+                        caption: 'entities.case.views.maininfoeditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4789,7 +5427,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/maininfoeditview9/:maininfoeditview9?',
                     meta: {
-                        caption: 'entities.case.views.maininfoeditview9.title',
+                        caption: 'entities.case.views.maininfoeditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4804,7 +5442,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/maininfoeditview9/:maininfoeditview9?',
                     meta: {
-                        caption: 'entities.case.views.maininfoeditview9.title',
+                        caption: 'entities.case.views.maininfoeditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4819,7 +5457,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/maininfoeditview9/:maininfoeditview9?',
                     meta: {
-                        caption: 'entities.case.views.maininfoeditview9.title',
+                        caption: 'entities.case.views.maininfoeditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4831,10 +5469,45 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-main-info-edit-view9/case-main-info-edit-view9.vue'),
                 },
                 {
+                    path: 'products/:product?/branches/:branch?/pmeditview/:pmeditview?',
+                    meta: {
+                        caption: 'entities.branch.views.pmeditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'branches', parameterName: 'branch' },
+                            { pathName: 'pmeditview', parameterName: 'pmeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/branch-pmedit-view/branch-pmedit-view.vue'),
+                },
+                {
+                    path: 'branches/:branch?/pmeditview/:pmeditview?',
+                    meta: {
+                        caption: 'entities.branch.views.pmeditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'branches', parameterName: 'branch' },
+                            { pathName: 'pmeditview', parameterName: 'pmeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/branch-pmedit-view/branch-pmedit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/todoeditview/:todoeditview?',
                     meta: {
-                        caption: 'entities.task.views.todoeditview.title',
+                        caption: 'entities.task.views.todoeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -4849,8 +5522,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/todoeditview/:todoeditview?',
                     meta: {
-                        caption: 'entities.task.views.todoeditview.title',
+                        caption: 'entities.task.views.todoeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -4864,8 +5539,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/todoeditview/:todoeditview?',
                     meta: {
-                        caption: 'entities.task.views.todoeditview.title',
+                        caption: 'entities.task.views.todoeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -4879,8 +5556,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/todoeditview/:todoeditview?',
                     meta: {
-                        caption: 'entities.task.views.todoeditview.title',
+                        caption: 'entities.task.views.todoeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -4891,38 +5570,9 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-todo-edit-view/task-todo-edit-view.vue'),
                 },
                 {
-                    path: 'products/:product?/branches/:branch?/pmeditview/:pmeditview?',
-                    meta: {
-                        caption: 'entities.branch.views.pmeditview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'branches', parameterName: 'branch' },
-                            { pathName: 'pmeditview', parameterName: 'pmeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/branch-pmedit-view/branch-pmedit-view.vue'),
-                },
-                {
-                    path: 'branches/:branch?/pmeditview/:pmeditview?',
-                    meta: {
-                        caption: 'entities.branch.views.pmeditview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'branches', parameterName: 'branch' },
-                            { pathName: 'pmeditview', parameterName: 'pmeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/branch-pmedit-view/branch-pmedit-view.vue'),
-                },
-                {
                     path: 'ibzlibs/:ibzlib?/openlibview/:openlibview?',
                     meta: {
-                        caption: 'entities.ibzlib.views.openlibview.title',
+                        caption: 'entities.ibzlib.views.openlibview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4936,8 +5586,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/testtasks/:testtask?/editview_edit/:editview_edit?',
                     meta: {
-                        caption: 'entities.testtask.views.editview_edit.title',
+                        caption: 'entities.testtask.views.editview_edit.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -4951,8 +5603,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testtasks/:testtask?/editview_edit/:editview_edit?',
                     meta: {
-                        caption: 'entities.testtask.views.editview_edit.title',
+                        caption: 'entities.testtask.views.editview_edit.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -4966,8 +5620,10 @@ const router = new Router({
                 {
                     path: 'testtasks/:testtask?/editview_edit/:editview_edit?',
                     meta: {
-                        caption: 'entities.testtask.views.editview_edit.title',
+                        caption: 'entities.testtask.views.editview_edit.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -4980,7 +5636,7 @@ const router = new Router({
                 {
                     path: 'actions/:action?/optionview/:optionview?',
                     meta: {
-                        caption: 'entities.action.views.optionview.title',
+                        caption: 'entities.action.views.optionview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -4994,7 +5650,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/testmodules/:testmodule?/gridviewbranch/:gridviewbranch?',
                     meta: {
-                        caption: 'entities.testmodule.views.gridviewbranch.title',
+                        caption: 'entities.testmodule.views.gridviewbranch.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5009,7 +5665,7 @@ const router = new Router({
                 {
                     path: 'testmodules/:testmodule?/gridviewbranch/:gridviewbranch?',
                     meta: {
-                        caption: 'entities.testmodule.views.gridviewbranch.title',
+                        caption: 'entities.testmodule.views.gridviewbranch.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5023,8 +5679,10 @@ const router = new Router({
                 {
                     path: 'testsuites/:testsuite?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.testsuite.views.gridview.title',
+                        caption: 'entities.testsuite.views.gridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-suitcase',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testsuites', parameterName: 'testsuite' },
@@ -5035,39 +5693,12 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-suite-grid-view/test-suite-grid-view.vue'),
                 },
                 {
-                    path: 'products/:product?/productplans/:productplan?/maintabexp/:maintabexp?',
-                    meta: {
-                        caption: 'entities.productplan.views.maintabexp.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'productplans', parameterName: 'productplan' },
-                            { pathName: 'maintabexp', parameterName: 'maintabexp' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-plan-main-tab-exp/product-plan-main-tab-exp.vue'),
-                },
-                {
-                    path: 'productplans/:productplan?/maintabexp/:maintabexp?',
-                    meta: {
-                        caption: 'entities.productplan.views.maintabexp.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'productplans', parameterName: 'productplan' },
-                            { pathName: 'maintabexp', parameterName: 'maintabexp' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-plan-main-tab-exp/product-plan-main-tab-exp.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/maingridview9_child/:maingridview9_child?',
                     meta: {
-                        caption: 'entities.task.views.maingridview9_child.title',
+                        caption: 'entities.task.views.maingridview9_child.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5082,8 +5713,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/maingridview9_child/:maingridview9_child?',
                     meta: {
-                        caption: 'entities.task.views.maingridview9_child.title',
+                        caption: 'entities.task.views.maingridview9_child.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -5097,8 +5730,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/maingridview9_child/:maingridview9_child?',
                     meta: {
-                        caption: 'entities.task.views.maingridview9_child.title',
+                        caption: 'entities.task.views.maingridview9_child.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -5112,8 +5747,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/maingridview9_child/:maingridview9_child?',
                     meta: {
-                        caption: 'entities.task.views.maingridview9_child.title',
+                        caption: 'entities.task.views.maingridview9_child.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -5126,7 +5763,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/editview/:editview?',
                     meta: {
-                        caption: 'entities.case.views.editview.title',
+                        caption: 'entities.case.views.editview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5142,7 +5779,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/editview/:editview?',
                     meta: {
-                        caption: 'entities.case.views.editview.title',
+                        caption: 'entities.case.views.editview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5157,7 +5794,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/editview/:editview?',
                     meta: {
-                        caption: 'entities.case.views.editview.title',
+                        caption: 'entities.case.views.editview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5172,7 +5809,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/editview/:editview?',
                     meta: {
-                        caption: 'entities.case.views.editview.title',
+                        caption: 'entities.case.views.editview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5186,7 +5823,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/testtabexpview/:testtabexpview?',
                     meta: {
-                        caption: 'entities.product.views.testtabexpview.title',
+                        caption: 'entities.product.views.testtabexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5200,8 +5837,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testreports/:testreport?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.testreport.views.gridview.title',
+                        caption: 'entities.testreport.views.gridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5215,8 +5854,10 @@ const router = new Router({
                 {
                     path: 'testreports/:testreport?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.testreport.views.gridview.title',
+                        caption: 'entities.testreport.views.gridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testreports', parameterName: 'testreport' },
@@ -5229,7 +5870,7 @@ const router = new Router({
                 {
                     path: 'todos/:todo?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.todo.views.gridview.title',
+                        caption: 'entities.todo.views.gridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5243,7 +5884,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/mainview_edit/:mainview_edit?',
                     meta: {
-                        caption: 'entities.project.views.mainview_edit.title',
+                        caption: 'entities.project.views.mainview_edit.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5257,8 +5898,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/stepsinfoeditview/:stepsinfoeditview?',
                     meta: {
-                        caption: 'entities.bug.views.stepsinfoeditview.title',
+                        caption: 'entities.bug.views.stepsinfoeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5273,8 +5916,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/stepsinfoeditview/:stepsinfoeditview?',
                     meta: {
-                        caption: 'entities.bug.views.stepsinfoeditview.title',
+                        caption: 'entities.bug.views.stepsinfoeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -5288,8 +5933,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/stepsinfoeditview/:stepsinfoeditview?',
                     meta: {
-                        caption: 'entities.bug.views.stepsinfoeditview.title',
+                        caption: 'entities.bug.views.stepsinfoeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -5303,8 +5950,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/stepsinfoeditview/:stepsinfoeditview?',
                     meta: {
-                        caption: 'entities.bug.views.stepsinfoeditview.title',
+                        caption: 'entities.bug.views.stepsinfoeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5318,8 +5967,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/stepsinfoeditview/:stepsinfoeditview?',
                     meta: {
-                        caption: 'entities.bug.views.stepsinfoeditview.title',
+                        caption: 'entities.bug.views.stepsinfoeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -5332,8 +5983,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/pickupgridview/:pickupgridview?',
                     meta: {
-                        caption: 'entities.story.views.pickupgridview.title',
+                        caption: 'entities.story.views.pickupgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5347,8 +6000,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/pickupgridview/:pickupgridview?',
                     meta: {
-                        caption: 'entities.story.views.pickupgridview.title',
+                        caption: 'entities.story.views.pickupgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -5361,8 +6016,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/testtasks/:testtask?/gridview9_untested/:gridview9_untested?',
                     meta: {
-                        caption: 'entities.testtask.views.gridview9_untested.title',
+                        caption: 'entities.testtask.views.gridview9_untested.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -5376,8 +6033,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testtasks/:testtask?/gridview9_untested/:gridview9_untested?',
                     meta: {
-                        caption: 'entities.testtask.views.gridview9_untested.title',
+                        caption: 'entities.testtask.views.gridview9_untested.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5391,8 +6050,10 @@ const router = new Router({
                 {
                     path: 'testtasks/:testtask?/gridview9_untested/:gridview9_untested?',
                     meta: {
-                        caption: 'entities.testtask.views.gridview9_untested.title',
+                        caption: 'entities.testtask.views.gridview9_untested.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -5405,8 +6066,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/releases/:release?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.release.views.gridview.title',
+                        caption: 'entities.release.views.gridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5420,8 +6083,10 @@ const router = new Router({
                 {
                     path: 'releases/:release?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.release.views.gridview.title',
+                        caption: 'entities.release.views.gridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'releases', parameterName: 'release' },
@@ -5434,8 +6099,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/editview9/:editview9?',
                     meta: {
-                        caption: 'entities.story.views.editview9.title',
+                        caption: 'entities.story.views.editview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5449,8 +6116,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/editview9/:editview9?',
                     meta: {
-                        caption: 'entities.story.views.editview9.title',
+                        caption: 'entities.story.views.editview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -5463,7 +6132,7 @@ const router = new Router({
                 {
                     path: 'todos/:todo?/finishview/:finishview?',
                     meta: {
-                        caption: 'entities.todo.views.finishview.title',
+                        caption: 'entities.todo.views.finishview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5475,38 +6144,9 @@ const router = new Router({
                     component: () => import('@pages/zentao/todo-finish-view/todo-finish-view.vue'),
                 },
                 {
-                    path: 'products/:product?/productplans/:productplan?/maineditview/:maineditview?',
-                    meta: {
-                        caption: 'entities.productplan.views.maineditview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'productplans', parameterName: 'productplan' },
-                            { pathName: 'maineditview', parameterName: 'maineditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-plan-main-edit-view/product-plan-main-edit-view.vue'),
-                },
-                {
-                    path: 'productplans/:productplan?/maineditview/:maineditview?',
-                    meta: {
-                        caption: 'entities.productplan.views.maineditview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'productplans', parameterName: 'productplan' },
-                            { pathName: 'maineditview', parameterName: 'maineditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-plan-main-edit-view/product-plan-main-edit-view.vue'),
-                },
-                {
                     path: 'products/:product?/productmodules/:productmodule?/treeexpview/:treeexpview?',
                     meta: {
-                        caption: 'entities.productmodule.views.treeexpview.title',
+                        caption: 'entities.productmodule.views.treeexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5521,7 +6161,7 @@ const router = new Router({
                 {
                     path: 'productmodules/:productmodule?/treeexpview/:treeexpview?',
                     meta: {
-                        caption: 'entities.productmodule.views.treeexpview.title',
+                        caption: 'entities.productmodule.views.treeexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5535,7 +6175,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/testtaskexceditview/:testtaskexceditview?',
                     meta: {
-                        caption: 'entities.case.views.testtaskexceditview.title',
+                        caption: 'entities.case.views.testtaskexceditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5551,7 +6191,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/testtaskexceditview/:testtaskexceditview?',
                     meta: {
-                        caption: 'entities.case.views.testtaskexceditview.title',
+                        caption: 'entities.case.views.testtaskexceditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5566,7 +6206,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/testtaskexceditview/:testtaskexceditview?',
                     meta: {
-                        caption: 'entities.case.views.testtaskexceditview.title',
+                        caption: 'entities.case.views.testtaskexceditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5581,7 +6221,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/testtaskexceditview/:testtaskexceditview?',
                     meta: {
-                        caption: 'entities.case.views.testtaskexceditview.title',
+                        caption: 'entities.case.views.testtaskexceditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5595,7 +6235,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/productmodules/:productmodule?/quickcfgview/:quickcfgview?',
                     meta: {
-                        caption: 'entities.productmodule.views.quickcfgview.title',
+                        caption: 'entities.productmodule.views.quickcfgview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5610,7 +6250,7 @@ const router = new Router({
                 {
                     path: 'productmodules/:productmodule?/quickcfgview/:quickcfgview?',
                     meta: {
-                        caption: 'entities.productmodule.views.quickcfgview.title',
+                        caption: 'entities.productmodule.views.quickcfgview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5624,7 +6264,7 @@ const router = new Router({
                 {
                     path: 'testportalview/:testportalview?',
                     meta: {
-                        caption: 'app.views.testportalview.title',
+                        caption: 'app.views.testportalview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5637,7 +6277,7 @@ const router = new Router({
                 {
                     path: 'todos/:todo?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.todo.views.gridview9.title',
+                        caption: 'entities.todo.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5649,24 +6289,12 @@ const router = new Router({
                     component: () => import('@pages/zentao/todo-grid-view9/todo-grid-view9.vue'),
                 },
                 {
-                    path: 'projects/:project?/maindashboardview/:maindashboardview?',
-                    meta: {
-                        caption: 'entities.project.views.maindashboardview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/project-main-dashboard-view/project-main-dashboard-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/gridview9_assignedtome/:gridview9_assignedtome?',
                     meta: {
-                        caption: 'entities.bug.views.gridview9_assignedtome.title',
+                        caption: 'entities.bug.views.gridview9_assignedtome.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5681,8 +6309,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/gridview9_assignedtome/:gridview9_assignedtome?',
                     meta: {
-                        caption: 'entities.bug.views.gridview9_assignedtome.title',
+                        caption: 'entities.bug.views.gridview9_assignedtome.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -5696,8 +6326,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/gridview9_assignedtome/:gridview9_assignedtome?',
                     meta: {
-                        caption: 'entities.bug.views.gridview9_assignedtome.title',
+                        caption: 'entities.bug.views.gridview9_assignedtome.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -5711,8 +6343,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/gridview9_assignedtome/:gridview9_assignedtome?',
                     meta: {
-                        caption: 'entities.bug.views.gridview9_assignedtome.title',
+                        caption: 'entities.bug.views.gridview9_assignedtome.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5726,8 +6360,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/gridview9_assignedtome/:gridview9_assignedtome?',
                     meta: {
-                        caption: 'entities.bug.views.gridview9_assignedtome.title',
+                        caption: 'entities.bug.views.gridview9_assignedtome.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -5738,10 +6374,26 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-grid-view9-assigned-to-me/bug-grid-view9-assigned-to-me.vue'),
                 },
                 {
+                    path: 'projects/:project?/maindashboardview/:maindashboardview?',
+                    meta: {
+                        caption: 'entities.project.views.maindashboardview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-main-dashboard-view/project-main-dashboard-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/assigntoview/:assigntoview?',
                     meta: {
-                        caption: 'entities.story.views.assigntoview.title',
+                        caption: 'entities.story.views.assigntoview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5755,8 +6407,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/assigntoview/:assigntoview?',
                     meta: {
-                        caption: 'entities.story.views.assigntoview.title',
+                        caption: 'entities.story.views.assigntoview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -5769,8 +6423,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/editview/:editview?',
                     meta: {
-                        caption: 'entities.story.views.editview.title',
+                        caption: 'entities.story.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5784,8 +6440,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/editview/:editview?',
                     meta: {
-                        caption: 'entities.story.views.editview.title',
+                        caption: 'entities.story.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -5798,8 +6456,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/branches/:branch?/pminfoeditview/:pminfoeditview?',
                     meta: {
-                        caption: 'entities.branch.views.pminfoeditview.title',
+                        caption: 'entities.branch.views.pminfoeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5813,8 +6473,10 @@ const router = new Router({
                 {
                     path: 'branches/:branch?/pminfoeditview/:pminfoeditview?',
                     meta: {
-                        caption: 'entities.branch.views.pminfoeditview.title',
+                        caption: 'entities.branch.views.pminfoeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'branches', parameterName: 'branch' },
@@ -5827,8 +6489,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/testtasks/:testtask?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.testtask.views.gridview.title',
+                        caption: 'entities.testtask.views.gridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -5842,8 +6506,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testtasks/:testtask?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.testtask.views.gridview.title',
+                        caption: 'entities.testtask.views.gridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5857,8 +6523,10 @@ const router = new Router({
                 {
                     path: 'testtasks/:testtask?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.testtask.views.gridview.title',
+                        caption: 'entities.testtask.views.gridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -5871,7 +6539,7 @@ const router = new Router({
                 {
                     path: 'todos/:todo?/closeview/:closeview?',
                     meta: {
-                        caption: 'entities.todo.views.closeview.title',
+                        caption: 'entities.todo.views.closeview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -5883,39 +6551,12 @@ const router = new Router({
                     component: () => import('@pages/zentao/todo-close-view/todo-close-view.vue'),
                 },
                 {
-                    path: 'projects/:project?/burns/:burn?/chartview/:chartview?',
-                    meta: {
-                        caption: 'entities.burn.views.chartview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'burns', parameterName: 'burn' },
-                            { pathName: 'chartview', parameterName: 'chartview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/burn-chart-view/burn-chart-view.vue'),
-                },
-                {
-                    path: 'burns/:burn?/chartview/:chartview?',
-                    meta: {
-                        caption: 'entities.burn.views.chartview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'burns', parameterName: 'burn' },
-                            { pathName: 'chartview', parameterName: 'chartview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/burn-chart-view/burn-chart-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/maindetailview9/:maindetailview9?',
                     meta: {
-                        caption: 'entities.task.views.maindetailview9.title',
+                        caption: 'entities.task.views.maindetailview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5930,8 +6571,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/maindetailview9/:maindetailview9?',
                     meta: {
-                        caption: 'entities.task.views.maindetailview9.title',
+                        caption: 'entities.task.views.maindetailview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -5945,8 +6588,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/maindetailview9/:maindetailview9?',
                     meta: {
-                        caption: 'entities.task.views.maindetailview9.title',
+                        caption: 'entities.task.views.maindetailview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -5960,8 +6605,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/maindetailview9/:maindetailview9?',
                     meta: {
-                        caption: 'entities.task.views.maindetailview9.title',
+                        caption: 'entities.task.views.maindetailview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -5972,10 +6619,41 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-main-detail-view9/task-main-detail-view9.vue'),
                 },
                 {
+                    path: 'projects/:project?/burns/:burn?/chartview/:chartview?',
+                    meta: {
+                        caption: 'entities.burn.views.chartview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'burns', parameterName: 'burn' },
+                            { pathName: 'chartview', parameterName: 'chartview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/burn-chart-view/burn-chart-view.vue'),
+                },
+                {
+                    path: 'burns/:burn?/chartview/:chartview?',
+                    meta: {
+                        caption: 'entities.burn.views.chartview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'burns', parameterName: 'burn' },
+                            { pathName: 'chartview', parameterName: 'chartview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/burn-chart-view/burn-chart-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/pickupgridview2/:pickupgridview2?',
                     meta: {
-                        caption: 'entities.story.views.pickupgridview2.title',
+                        caption: 'entities.story.views.pickupgridview2.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5989,8 +6667,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/pickupgridview2/:pickupgridview2?',
                     meta: {
-                        caption: 'entities.story.views.pickupgridview2.title',
+                        caption: 'entities.story.views.pickupgridview2.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -6003,7 +6683,7 @@ const router = new Router({
                 {
                     path: 'depts/:dept?/pickupview/:pickupview?',
                     meta: {
-                        caption: 'entities.dept.views.pickupview.title',
+                        caption: 'entities.dept.views.pickupview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6017,8 +6697,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/projectplanview/:projectplanview?',
                     meta: {
-                        caption: 'entities.story.views.projectplanview.title',
+                        caption: 'entities.story.views.projectplanview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -6032,8 +6714,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/projectplanview/:projectplanview?',
                     meta: {
-                        caption: 'entities.story.views.projectplanview.title',
+                        caption: 'entities.story.views.projectplanview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -6046,7 +6730,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/curproductgridview/:curproductgridview?',
                     meta: {
-                        caption: 'entities.project.views.curproductgridview.title',
+                        caption: 'entities.project.views.curproductgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6060,8 +6744,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/pickupgridview4/:pickupgridview4?',
                     meta: {
-                        caption: 'entities.story.views.pickupgridview4.title',
+                        caption: 'entities.story.views.pickupgridview4.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -6075,8 +6761,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/pickupgridview4/:pickupgridview4?',
                     meta: {
-                        caption: 'entities.story.views.pickupgridview4.title',
+                        caption: 'entities.story.views.pickupgridview4.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -6087,23 +6775,37 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-pickup-grid-view4/story-pickup-grid-view4.vue'),
                 },
                 {
-                    path: 'projectstats/:projectstats?/allgridview/:allgridview?',
+                    path: 'ibzprostories/:ibzprostory?/editview/:editview?',
                     meta: {
-                        caption: 'entities.projectstats.views.allgridview.title',
+                        caption: 'entities.ibzprostory.views.editview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projectstats', parameterName: 'projectstats' },
-                            { pathName: 'allgridview', parameterName: 'allgridview' },
+                            { pathName: 'ibzprostories', parameterName: 'ibzprostory' },
+                            { pathName: 'editview', parameterName: 'editview' },
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibiz/project-stats-allgrid-view/project-stats-allgrid-view.vue'),
+                    component: () => import('@pages/ibizpro/ibzpro-story-edit-view/ibzpro-story-edit-view.vue'),
+                },
+                {
+                    path: 'ibzprostorymodules/:ibzprostorymodule?/gridview/:gridview?',
+                    meta: {
+                        caption: 'entities.ibzprostorymodule.views.gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzprostorymodules', parameterName: 'ibzprostorymodule' },
+                            { pathName: 'gridview', parameterName: 'gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibzpro-story-module-grid-view/ibzpro-story-module-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/suitelinkcasegridview/:suitelinkcasegridview?',
                     meta: {
-                        caption: 'entities.case.views.suitelinkcasegridview.title',
+                        caption: 'entities.case.views.suitelinkcasegridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6119,7 +6821,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/suitelinkcasegridview/:suitelinkcasegridview?',
                     meta: {
-                        caption: 'entities.case.views.suitelinkcasegridview.title',
+                        caption: 'entities.case.views.suitelinkcasegridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6134,7 +6836,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/suitelinkcasegridview/:suitelinkcasegridview?',
                     meta: {
-                        caption: 'entities.case.views.suitelinkcasegridview.title',
+                        caption: 'entities.case.views.suitelinkcasegridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6149,7 +6851,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/suitelinkcasegridview/:suitelinkcasegridview?',
                     meta: {
-                        caption: 'entities.case.views.suitelinkcasegridview.title',
+                        caption: 'entities.case.views.suitelinkcasegridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6161,26 +6863,12 @@ const router = new Router({
                     component: () => import('@pages/zentao/casesuite-link-case-grid-view/casesuite-link-case-grid-view.vue'),
                 },
                 {
-                    path: 'users/:user?/treeexpview/:treeexpview?',
-                    meta: {
-                        caption: 'entities.user.views.treeexpview.title',
-                        info:'',
-                        imgPath: '',
-                        iconCls: 'fa fa-users',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'users', parameterName: 'user' },
-                            { pathName: 'treeexpview', parameterName: 'treeexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/user-tree-exp-view/user-tree-exp-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/assingtoview/:assingtoview?',
                     meta: {
-                        caption: 'entities.bug.views.assingtoview.title',
+                        caption: 'entities.bug.views.assingtoview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -6195,8 +6883,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/assingtoview/:assingtoview?',
                     meta: {
-                        caption: 'entities.bug.views.assingtoview.title',
+                        caption: 'entities.bug.views.assingtoview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -6210,8 +6900,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/assingtoview/:assingtoview?',
                     meta: {
-                        caption: 'entities.bug.views.assingtoview.title',
+                        caption: 'entities.bug.views.assingtoview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -6225,8 +6917,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/assingtoview/:assingtoview?',
                     meta: {
-                        caption: 'entities.bug.views.assingtoview.title',
+                        caption: 'entities.bug.views.assingtoview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -6240,8 +6934,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/assingtoview/:assingtoview?',
                     meta: {
-                        caption: 'entities.bug.views.assingtoview.title',
+                        caption: 'entities.bug.views.assingtoview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -6252,9 +6948,25 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-assing-to-view/bug-assing-to-view.vue'),
                 },
                 {
+                    path: 'users/:user?/treeexpview/:treeexpview?',
+                    meta: {
+                        caption: 'entities.user.views.treeexpview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-users',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'users', parameterName: 'user' },
+                            { pathName: 'treeexpview', parameterName: 'treeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/user-tree-exp-view/user-tree-exp-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/mainmynewgridview/:mainmynewgridview?',
                     meta: {
-                        caption: 'entities.case.views.mainmynewgridview.title',
+                        caption: 'entities.case.views.mainmynewgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6270,7 +6982,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/mainmynewgridview/:mainmynewgridview?',
                     meta: {
-                        caption: 'entities.case.views.mainmynewgridview.title',
+                        caption: 'entities.case.views.mainmynewgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6285,7 +6997,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/mainmynewgridview/:mainmynewgridview?',
                     meta: {
-                        caption: 'entities.case.views.mainmynewgridview.title',
+                        caption: 'entities.case.views.mainmynewgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6300,7 +7012,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/mainmynewgridview/:mainmynewgridview?',
                     meta: {
-                        caption: 'entities.case.views.mainmynewgridview.title',
+                        caption: 'entities.case.views.mainmynewgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6314,8 +7026,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/activiteview/:activiteview?',
                     meta: {
-                        caption: 'entities.story.views.activiteview.title',
+                        caption: 'entities.story.views.activiteview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -6329,8 +7043,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/activiteview/:activiteview?',
                     meta: {
-                        caption: 'entities.story.views.activiteview.title',
+                        caption: 'entities.story.views.activiteview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -6341,10 +7057,26 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-activite-view/story-activite-view.vue'),
                 },
                 {
+                    path: 'todos/:todo?/dashboardview_link/:dashboardview_link?',
+                    meta: {
+                        caption: 'entities.todo.views.dashboardview_link.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'todos', parameterName: 'todo' },
+                            { pathName: 'dashboardview_link', parameterName: 'dashboardview_link' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/todo-dashboard-view-link/todo-dashboard-view-link.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/releasesubeditview/:releasesubeditview?',
                     meta: {
-                        caption: 'entities.story.views.releasesubeditview.title',
+                        caption: 'entities.story.views.releasesubeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -6358,8 +7090,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/releasesubeditview/:releasesubeditview?',
                     meta: {
-                        caption: 'entities.story.views.releasesubeditview.title',
+                        caption: 'entities.story.views.releasesubeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -6372,8 +7106,10 @@ const router = new Router({
                 {
                     path: 'testsuites/:testsuite?/editview/:editview?',
                     meta: {
-                        caption: 'entities.testsuite.views.editview.title',
+                        caption: 'entities.testsuite.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-suitcase',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testsuites', parameterName: 'testsuite' },
@@ -6386,8 +7122,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/maindashboardview/:maindashboardview?',
                     meta: {
-                        caption: 'entities.task.views.maindashboardview.title',
+                        caption: 'entities.task.views.maindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -6402,8 +7140,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/maindashboardview/:maindashboardview?',
                     meta: {
-                        caption: 'entities.task.views.maindashboardview.title',
+                        caption: 'entities.task.views.maindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -6417,8 +7157,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/maindashboardview/:maindashboardview?',
                     meta: {
-                        caption: 'entities.task.views.maindashboardview.title',
+                        caption: 'entities.task.views.maindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -6432,8 +7174,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/maindashboardview/:maindashboardview?',
                     meta: {
-                        caption: 'entities.task.views.maindashboardview.title',
+                        caption: 'entities.task.views.maindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -6446,7 +7190,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/casesteps/:casestep?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.casestep.views.gridview9.title',
+                        caption: 'entities.casestep.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6463,7 +7207,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/casesteps/:casestep?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.casestep.views.gridview9.title',
+                        caption: 'entities.casestep.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6479,7 +7223,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/casesteps/:casestep?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.casestep.views.gridview9.title',
+                        caption: 'entities.casestep.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6495,7 +7239,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/casesteps/:casestep?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.casestep.views.gridview9.title',
+                        caption: 'entities.casestep.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6510,7 +7254,7 @@ const router = new Router({
                 {
                     path: 'casesteps/:casestep?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.casestep.views.gridview9.title',
+                        caption: 'entities.casestep.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6522,10 +7266,59 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-step-grid-view9/case-step-grid-view9.vue'),
                 },
                 {
+                    path: 'products/:product?/releases/:release?/maintabexpview/:maintabexpview?',
+                    meta: {
+                        caption: 'entities.release.views.maintabexpview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'releases', parameterName: 'release' },
+                            { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/release-main-tab-exp-view/release-main-tab-exp-view.vue'),
+                },
+                {
+                    path: 'releases/:release?/maintabexpview/:maintabexpview?',
+                    meta: {
+                        caption: 'entities.release.views.maintabexpview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'releases', parameterName: 'release' },
+                            { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/release-main-tab-exp-view/release-main-tab-exp-view.vue'),
+                },
+                {
+                    path: 'todos/:todo?/desceditview9/:desceditview9?',
+                    meta: {
+                        caption: 'entities.todo.views.desceditview9.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'todos', parameterName: 'todo' },
+                            { pathName: 'desceditview9', parameterName: 'desceditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/todo-desc-edit-view9/todo-desc-edit-view9.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/canceltaskview/:canceltaskview?',
                     meta: {
-                        caption: 'entities.task.views.canceltaskview.title',
+                        caption: 'entities.task.views.canceltaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -6540,8 +7333,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/canceltaskview/:canceltaskview?',
                     meta: {
-                        caption: 'entities.task.views.canceltaskview.title',
+                        caption: 'entities.task.views.canceltaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -6555,8 +7350,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/canceltaskview/:canceltaskview?',
                     meta: {
-                        caption: 'entities.task.views.canceltaskview.title',
+                        caption: 'entities.task.views.canceltaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -6570,8 +7367,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/canceltaskview/:canceltaskview?',
                     meta: {
-                        caption: 'entities.task.views.canceltaskview.title',
+                        caption: 'entities.task.views.canceltaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -6582,52 +7381,9 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-cancel-task-view/task-cancel-task-view.vue'),
                 },
                 {
-                    path: 'todos/:todo?/desceditview9/:desceditview9?',
-                    meta: {
-                        caption: 'entities.todo.views.desceditview9.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'todos', parameterName: 'todo' },
-                            { pathName: 'desceditview9', parameterName: 'desceditview9' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/todo-desc-edit-view9/todo-desc-edit-view9.vue'),
-                },
-                {
-                    path: 'products/:product?/releases/:release?/maintabexpview/:maintabexpview?',
-                    meta: {
-                        caption: 'entities.release.views.maintabexpview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'releases', parameterName: 'release' },
-                            { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/release-main-tab-exp-view/release-main-tab-exp-view.vue'),
-                },
-                {
-                    path: 'releases/:release?/maintabexpview/:maintabexpview?',
-                    meta: {
-                        caption: 'entities.release.views.maintabexpview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'releases', parameterName: 'release' },
-                            { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/release-main-tab-exp-view/release-main-tab-exp-view.vue'),
-                },
-                {
                     path: 'products/:product?/pickupview/:pickupview?',
                     meta: {
-                        caption: 'entities.product.views.pickupview.title',
+                        caption: 'entities.product.views.pickupview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6641,7 +7397,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/planaddeditview/:planaddeditview?',
                     meta: {
-                        caption: 'entities.project.views.planaddeditview.title',
+                        caption: 'entities.project.views.planaddeditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6655,7 +7411,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/testmaindashboardview/:testmaindashboardview?',
                     meta: {
-                        caption: 'entities.case.views.testmaindashboardview.title',
+                        caption: 'entities.case.views.testmaindashboardview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6671,7 +7427,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/testmaindashboardview/:testmaindashboardview?',
                     meta: {
-                        caption: 'entities.case.views.testmaindashboardview.title',
+                        caption: 'entities.case.views.testmaindashboardview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6686,7 +7442,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/testmaindashboardview/:testmaindashboardview?',
                     meta: {
-                        caption: 'entities.case.views.testmaindashboardview.title',
+                        caption: 'entities.case.views.testmaindashboardview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6701,7 +7457,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/testmaindashboardview/:testmaindashboardview?',
                     meta: {
-                        caption: 'entities.case.views.testmaindashboardview.title',
+                        caption: 'entities.case.views.testmaindashboardview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6715,7 +7471,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/taskestimates/:taskestimate?/editgridview9/:editgridview9?',
                     meta: {
-                        caption: 'entities.taskestimate.views.editgridview9.title',
+                        caption: 'entities.taskestimate.views.editgridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6732,7 +7488,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/taskestimates/:taskestimate?/editgridview9/:editgridview9?',
                     meta: {
-                        caption: 'entities.taskestimate.views.editgridview9.title',
+                        caption: 'entities.taskestimate.views.editgridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6748,7 +7504,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/taskestimates/:taskestimate?/editgridview9/:editgridview9?',
                     meta: {
-                        caption: 'entities.taskestimate.views.editgridview9.title',
+                        caption: 'entities.taskestimate.views.editgridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6764,7 +7520,7 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/taskestimates/:taskestimate?/editgridview9/:editgridview9?',
                     meta: {
-                        caption: 'entities.taskestimate.views.editgridview9.title',
+                        caption: 'entities.taskestimate.views.editgridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6779,7 +7535,7 @@ const router = new Router({
                 {
                     path: 'taskestimates/:taskestimate?/editgridview9/:editgridview9?',
                     meta: {
-                        caption: 'entities.taskestimate.views.editgridview9.title',
+                        caption: 'entities.taskestimate.views.editgridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6791,24 +7547,12 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-estimate-edit-grid-view9/task-estimate-edit-grid-view9.vue'),
                 },
                 {
-                    path: 'products/:product?/testgridview/:testgridview?',
-                    meta: {
-                        caption: 'entities.product.views.testgridview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'testgridview', parameterName: 'testgridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-test-grid-view/product-test-grid-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tostoryeditview/:tostoryeditview?',
                     meta: {
-                        caption: 'entities.story.views.tostoryeditview.title',
+                        caption: 'entities.story.views.tostoryeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -6822,8 +7566,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tostoryeditview/:tostoryeditview?',
                     meta: {
-                        caption: 'entities.story.views.tostoryeditview.title',
+                        caption: 'entities.story.views.tostoryeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -6834,9 +7580,23 @@ const router = new Router({
                     component: () => import('@pages/zentao/storyto-story-edit-view/storyto-story-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/testgridview/:testgridview?',
+                    meta: {
+                        caption: 'entities.product.views.testgridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testgridview', parameterName: 'testgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-test-grid-view/product-test-grid-view.vue'),
+                },
+                {
                     path: 'projectportalview/:projectportalview?',
                     meta: {
-                        caption: 'app.views.projectportalview.title',
+                        caption: 'app.views.projectportalview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6849,8 +7609,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/maingridview_bymodule/:maingridview_bymodule?',
                     meta: {
-                        caption: 'entities.story.views.maingridview_bymodule.title',
+                        caption: 'entities.story.views.maingridview_bymodule.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -6864,8 +7626,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/maingridview_bymodule/:maingridview_bymodule?',
                     meta: {
-                        caption: 'entities.story.views.maingridview_bymodule.title',
+                        caption: 'entities.story.views.maingridview_bymodule.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -6878,7 +7642,7 @@ const router = new Router({
                 {
                     path: 'ibzprojectmembers/:ibzprojectmember?/editview9/:editview9?',
                     meta: {
-                        caption: 'entities.ibzprojectmember.views.editview9.title',
+                        caption: 'entities.ibzprojectmember.views.editview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6892,7 +7656,7 @@ const router = new Router({
                 {
                     path: 'actions/:action?/editview/:editview?',
                     meta: {
-                        caption: 'entities.action.views.editview.title',
+                        caption: 'entities.action.views.editview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -6906,8 +7670,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/mainmygridview/:mainmygridview?',
                     meta: {
-                        caption: 'entities.story.views.mainmygridview.title',
+                        caption: 'entities.story.views.mainmygridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -6921,8 +7687,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/mainmygridview/:mainmygridview?',
                     meta: {
-                        caption: 'entities.story.views.mainmygridview.title',
+                        caption: 'entities.story.views.mainmygridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -6935,8 +7703,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/buildsubgridview_new/:buildsubgridview_new?',
                     meta: {
-                        caption: 'entities.bug.views.buildsubgridview_new.title',
+                        caption: 'entities.bug.views.buildsubgridview_new.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -6951,8 +7721,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/buildsubgridview_new/:buildsubgridview_new?',
                     meta: {
-                        caption: 'entities.bug.views.buildsubgridview_new.title',
+                        caption: 'entities.bug.views.buildsubgridview_new.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -6966,8 +7738,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/buildsubgridview_new/:buildsubgridview_new?',
                     meta: {
-                        caption: 'entities.bug.views.buildsubgridview_new.title',
+                        caption: 'entities.bug.views.buildsubgridview_new.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -6981,8 +7755,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/buildsubgridview_new/:buildsubgridview_new?',
                     meta: {
-                        caption: 'entities.bug.views.buildsubgridview_new.title',
+                        caption: 'entities.bug.views.buildsubgridview_new.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -6996,8 +7772,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/buildsubgridview_new/:buildsubgridview_new?',
                     meta: {
-                        caption: 'entities.bug.views.buildsubgridview_new.title',
+                        caption: 'entities.bug.views.buildsubgridview_new.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -7010,8 +7788,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/curprojectgridview/:curprojectgridview?',
                     meta: {
-                        caption: 'entities.story.views.curprojectgridview.title',
+                        caption: 'entities.story.views.curprojectgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -7025,8 +7805,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/curprojectgridview/:curprojectgridview?',
                     meta: {
-                        caption: 'entities.story.views.curprojectgridview.title',
+                        caption: 'entities.story.views.curprojectgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -7039,8 +7821,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/mainview9_storyspec/:mainview9_storyspec?',
                     meta: {
-                        caption: 'entities.story.views.mainview9_storyspec.title',
+                        caption: 'entities.story.views.mainview9_storyspec.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -7054,8 +7838,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/mainview9_storyspec/:mainview9_storyspec?',
                     meta: {
-                        caption: 'entities.story.views.mainview9_storyspec.title',
+                        caption: 'entities.story.views.mainview9_storyspec.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -7068,7 +7854,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugtreeexpview/:bugtreeexpview?',
                     meta: {
-                        caption: 'entities.product.views.bugtreeexpview.title',
+                        caption: 'entities.product.views.bugtreeexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7082,8 +7868,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/mainmygridview/:mainmygridview?',
                     meta: {
-                        caption: 'entities.task.views.mainmygridview.title',
+                        caption: 'entities.task.views.mainmygridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -7098,8 +7886,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/mainmygridview/:mainmygridview?',
                     meta: {
-                        caption: 'entities.task.views.mainmygridview.title',
+                        caption: 'entities.task.views.mainmygridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -7113,8 +7903,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/mainmygridview/:mainmygridview?',
                     meta: {
-                        caption: 'entities.task.views.mainmygridview.title',
+                        caption: 'entities.task.views.mainmygridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -7128,8 +7920,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/mainmygridview/:mainmygridview?',
                     meta: {
-                        caption: 'entities.task.views.mainmygridview.title',
+                        caption: 'entities.task.views.mainmygridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -7142,8 +7936,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/activationtaskview/:activationtaskview?',
                     meta: {
-                        caption: 'entities.task.views.activationtaskview.title',
+                        caption: 'entities.task.views.activationtaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -7158,8 +7954,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/activationtaskview/:activationtaskview?',
                     meta: {
-                        caption: 'entities.task.views.activationtaskview.title',
+                        caption: 'entities.task.views.activationtaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -7173,8 +7971,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/activationtaskview/:activationtaskview?',
                     meta: {
-                        caption: 'entities.task.views.activationtaskview.title',
+                        caption: 'entities.task.views.activationtaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -7188,8 +7988,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/activationtaskview/:activationtaskview?',
                     meta: {
-                        caption: 'entities.task.views.activationtaskview.title',
+                        caption: 'entities.task.views.activationtaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -7200,39 +8002,12 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-activation-task-view/task-activation-task-view.vue'),
                 },
                 {
-                    path: 'ibzlibs/:ibzlib?/ibzlibmodules/:ibzlibmodule?/treeexpview/:treeexpview?',
-                    meta: {
-                        caption: 'entities.ibzlibmodule.views.treeexpview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzlibs', parameterName: 'ibzlib' },
-                            { pathName: 'ibzlibmodules', parameterName: 'ibzlibmodule' },
-                            { pathName: 'treeexpview', parameterName: 'treeexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/ibz-lib-module-tree-exp-view/ibz-lib-module-tree-exp-view.vue'),
-                },
-                {
-                    path: 'ibzlibmodules/:ibzlibmodule?/treeexpview/:treeexpview?',
-                    meta: {
-                        caption: 'entities.ibzlibmodule.views.treeexpview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzlibmodules', parameterName: 'ibzlibmodule' },
-                            { pathName: 'treeexpview', parameterName: 'treeexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/ibz-lib-module-tree-exp-view/ibz-lib-module-tree-exp-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/donetaskview/:donetaskview?',
                     meta: {
-                        caption: 'entities.task.views.donetaskview.title',
+                        caption: 'entities.task.views.donetaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -7247,8 +8022,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/donetaskview/:donetaskview?',
                     meta: {
-                        caption: 'entities.task.views.donetaskview.title',
+                        caption: 'entities.task.views.donetaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -7262,8 +8039,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/donetaskview/:donetaskview?',
                     meta: {
-                        caption: 'entities.task.views.donetaskview.title',
+                        caption: 'entities.task.views.donetaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -7277,8 +8056,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/donetaskview/:donetaskview?',
                     meta: {
-                        caption: 'entities.task.views.donetaskview.title',
+                        caption: 'entities.task.views.donetaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -7289,9 +8070,38 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-done-task-view/task-done-task-view.vue'),
                 },
                 {
+                    path: 'ibzlibs/:ibzlib?/ibzlibmodules/:ibzlibmodule?/treeexpview/:treeexpview?',
+                    meta: {
+                        caption: 'entities.ibzlibmodule.views.treeexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzlibs', parameterName: 'ibzlib' },
+                            { pathName: 'ibzlibmodules', parameterName: 'ibzlibmodule' },
+                            { pathName: 'treeexpview', parameterName: 'treeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-lib-module-tree-exp-view/ibz-lib-module-tree-exp-view.vue'),
+                },
+                {
+                    path: 'ibzlibmodules/:ibzlibmodule?/treeexpview/:treeexpview?',
+                    meta: {
+                        caption: 'entities.ibzlibmodule.views.treeexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzlibmodules', parameterName: 'ibzlibmodule' },
+                            { pathName: 'treeexpview', parameterName: 'treeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-lib-module-tree-exp-view/ibz-lib-module-tree-exp-view.vue'),
+                },
+                {
                     path: 'productstats/:productstats?/allgridview/:allgridview?',
                     meta: {
-                        caption: 'entities.productstats.views.allgridview.title',
+                        caption: 'entities.productstats.views.allgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7305,8 +8115,10 @@ const router = new Router({
                 {
                     path: 'testsuites/:testsuite?/maindashboardview/:maindashboardview?',
                     meta: {
-                        caption: 'entities.testsuite.views.maindashboardview.title',
+                        caption: 'entities.testsuite.views.maindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-suitcase',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testsuites', parameterName: 'testsuite' },
@@ -7319,8 +8131,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/maingridview_bymodule/:maingridview_bymodule?',
                     meta: {
-                        caption: 'entities.task.views.maingridview_bymodule.title',
+                        caption: 'entities.task.views.maingridview_bymodule.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -7335,8 +8149,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/maingridview_bymodule/:maingridview_bymodule?',
                     meta: {
-                        caption: 'entities.task.views.maingridview_bymodule.title',
+                        caption: 'entities.task.views.maingridview_bymodule.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -7350,8 +8166,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/maingridview_bymodule/:maingridview_bymodule?',
                     meta: {
-                        caption: 'entities.task.views.maingridview_bymodule.title',
+                        caption: 'entities.task.views.maingridview_bymodule.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -7365,8 +8183,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/maingridview_bymodule/:maingridview_bymodule?',
                     meta: {
-                        caption: 'entities.task.views.maingridview_bymodule.title',
+                        caption: 'entities.task.views.maingridview_bymodule.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -7379,7 +8199,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/batchnewgridview/:batchnewgridview?',
                     meta: {
-                        caption: 'entities.case.views.batchnewgridview.title',
+                        caption: 'entities.case.views.batchnewgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7395,7 +8215,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/batchnewgridview/:batchnewgridview?',
                     meta: {
-                        caption: 'entities.case.views.batchnewgridview.title',
+                        caption: 'entities.case.views.batchnewgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7410,7 +8230,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/batchnewgridview/:batchnewgridview?',
                     meta: {
-                        caption: 'entities.case.views.batchnewgridview.title',
+                        caption: 'entities.case.views.batchnewgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7425,7 +8245,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/batchnewgridview/:batchnewgridview?',
                     meta: {
-                        caption: 'entities.case.views.batchnewgridview.title',
+                        caption: 'entities.case.views.batchnewgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7439,7 +8259,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/maindashboardview/:maindashboardview?',
                     meta: {
-                        caption: 'entities.product.views.maindashboardview.title',
+                        caption: 'entities.product.views.maindashboardview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7453,8 +8273,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/mpickupview2/:mpickupview2?',
                     meta: {
-                        caption: 'entities.story.views.mpickupview2.title',
+                        caption: 'entities.story.views.mpickupview2.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -7468,8 +8290,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/mpickupview2/:mpickupview2?',
                     meta: {
-                        caption: 'entities.story.views.mpickupview2.title',
+                        caption: 'entities.story.views.mpickupview2.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -7482,8 +8306,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/testtasks/:testtask?/blockoptionview/:blockoptionview?',
                     meta: {
-                        caption: 'entities.testtask.views.blockoptionview.title',
+                        caption: 'entities.testtask.views.blockoptionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -7497,8 +8323,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testtasks/:testtask?/blockoptionview/:blockoptionview?',
                     meta: {
-                        caption: 'entities.testtask.views.blockoptionview.title',
+                        caption: 'entities.testtask.views.blockoptionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -7512,8 +8340,10 @@ const router = new Router({
                 {
                     path: 'testtasks/:testtask?/blockoptionview/:blockoptionview?',
                     meta: {
-                        caption: 'entities.testtask.views.blockoptionview.title',
+                        caption: 'entities.testtask.views.blockoptionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -7526,7 +8356,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/cursuitgridview/:cursuitgridview?',
                     meta: {
-                        caption: 'entities.case.views.cursuitgridview.title',
+                        caption: 'entities.case.views.cursuitgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7542,7 +8372,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/cursuitgridview/:cursuitgridview?',
                     meta: {
-                        caption: 'entities.case.views.cursuitgridview.title',
+                        caption: 'entities.case.views.cursuitgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7557,7 +8387,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/cursuitgridview/:cursuitgridview?',
                     meta: {
-                        caption: 'entities.case.views.cursuitgridview.title',
+                        caption: 'entities.case.views.cursuitgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7572,7 +8402,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/cursuitgridview/:cursuitgridview?',
                     meta: {
-                        caption: 'entities.case.views.cursuitgridview.title',
+                        caption: 'entities.case.views.cursuitgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7586,7 +8416,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/testmodules/:testmodule?/treeexpview/:treeexpview?',
                     meta: {
-                        caption: 'entities.testmodule.views.treeexpview.title',
+                        caption: 'entities.testmodule.views.treeexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7601,7 +8431,7 @@ const router = new Router({
                 {
                     path: 'testmodules/:testmodule?/treeexpview/:treeexpview?',
                     meta: {
-                        caption: 'entities.testmodule.views.treeexpview.title',
+                        caption: 'entities.testmodule.views.treeexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7615,7 +8445,7 @@ const router = new Router({
                 {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/ibzlibcasesteps/:ibzlibcasesteps?/infogridview9/:infogridview9?',
                     meta: {
-                        caption: 'entities.ibzlibcasesteps.views.infogridview9.title',
+                        caption: 'entities.ibzlibcasesteps.views.infogridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7631,7 +8461,7 @@ const router = new Router({
                 {
                     path: 'ibzcases/:ibzcase?/ibzlibcasesteps/:ibzlibcasesteps?/infogridview9/:infogridview9?',
                     meta: {
-                        caption: 'entities.ibzlibcasesteps.views.infogridview9.title',
+                        caption: 'entities.ibzlibcasesteps.views.infogridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7646,7 +8476,7 @@ const router = new Router({
                 {
                     path: 'ibzlibcasesteps/:ibzlibcasesteps?/infogridview9/:infogridview9?',
                     meta: {
-                        caption: 'entities.ibzlibcasesteps.views.infogridview9.title',
+                        caption: 'entities.ibzlibcasesteps.views.infogridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7660,7 +8490,7 @@ const router = new Router({
                 {
                     path: 'modules/:module?/pickupview/:pickupview?',
                     meta: {
-                        caption: 'entities.module.views.pickupview.title',
+                        caption: 'entities.module.views.pickupview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7674,7 +8504,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/productplans/:productplan?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.productplan.views.gridview.title',
+                        caption: 'entities.productplan.views.gridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7689,7 +8519,7 @@ const router = new Router({
                 {
                     path: 'productplans/:productplan?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.productplan.views.gridview.title',
+                        caption: 'entities.productplan.views.gridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7703,8 +8533,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/testtasks/:testtask?/projectneweditview/:projectneweditview?',
                     meta: {
-                        caption: 'entities.testtask.views.projectneweditview.title',
+                        caption: 'entities.testtask.views.projectneweditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -7718,8 +8550,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testtasks/:testtask?/projectneweditview/:projectneweditview?',
                     meta: {
-                        caption: 'entities.testtask.views.projectneweditview.title',
+                        caption: 'entities.testtask.views.projectneweditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -7733,8 +8567,10 @@ const router = new Router({
                 {
                     path: 'testtasks/:testtask?/projectneweditview/:projectneweditview?',
                     meta: {
-                        caption: 'entities.testtask.views.projectneweditview.title',
+                        caption: 'entities.testtask.views.projectneweditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -7747,8 +8583,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/maineditview/:maineditview?',
                     meta: {
-                        caption: 'entities.bug.views.maineditview.title',
+                        caption: 'entities.bug.views.maineditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -7763,8 +8601,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/maineditview/:maineditview?',
                     meta: {
-                        caption: 'entities.bug.views.maineditview.title',
+                        caption: 'entities.bug.views.maineditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -7778,8 +8618,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/maineditview/:maineditview?',
                     meta: {
-                        caption: 'entities.bug.views.maineditview.title',
+                        caption: 'entities.bug.views.maineditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -7793,8 +8635,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/maineditview/:maineditview?',
                     meta: {
-                        caption: 'entities.bug.views.maineditview.title',
+                        caption: 'entities.bug.views.maineditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -7808,8 +8652,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/maineditview/:maineditview?',
                     meta: {
-                        caption: 'entities.bug.views.maineditview.title',
+                        caption: 'entities.bug.views.maineditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -7822,7 +8668,7 @@ const router = new Router({
                 {
                     path: 'ibzlibs/:ibzlib?/ibzlibmodules/:ibzlibmodule?/casetreeexpview/:casetreeexpview?',
                     meta: {
-                        caption: 'entities.ibzlibmodule.views.casetreeexpview.title',
+                        caption: 'entities.ibzlibmodule.views.casetreeexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7837,7 +8683,7 @@ const router = new Router({
                 {
                     path: 'ibzlibmodules/:ibzlibmodule?/casetreeexpview/:casetreeexpview?',
                     meta: {
-                        caption: 'entities.ibzlibmodule.views.casetreeexpview.title',
+                        caption: 'entities.ibzlibmodule.views.casetreeexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7851,8 +8697,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/projectteams/:projectteam?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.projectteam.views.maingridview.title',
+                        caption: 'entities.projectteam.views.maingridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-users',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -7866,8 +8714,10 @@ const router = new Router({
                 {
                     path: 'projectteams/:projectteam?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.projectteam.views.maingridview.title',
+                        caption: 'entities.projectteam.views.maingridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-users',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projectteams', parameterName: 'projectteam' },
@@ -7878,23 +8728,9 @@ const router = new Router({
                     component: () => import('@pages/ibiz/project-team-main-grid-view/project-team-main-grid-view.vue'),
                 },
                 {
-                    path: 'todos/:todo?/todocreateview/:todocreateview?',
-                    meta: {
-                        caption: 'entities.todo.views.todocreateview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'todos', parameterName: 'todo' },
-                            { pathName: 'todocreateview', parameterName: 'todocreateview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/todo-todo-create-view/todo-todo-create-view.vue'),
-                },
-                {
                     path: 'products/:product?/testlistexpview/:testlistexpview?',
                     meta: {
-                        caption: 'entities.product.views.testlistexpview.title',
+                        caption: 'entities.product.views.testlistexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -7906,10 +8742,26 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-test-list-exp-view/product-test-list-exp-view.vue'),
                 },
                 {
+                    path: 'todos/:todo?/todocreateview/:todocreateview?',
+                    meta: {
+                        caption: 'entities.todo.views.todocreateview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'todos', parameterName: 'todo' },
+                            { pathName: 'todocreateview', parameterName: 'todocreateview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/todo-todo-create-view/todo-todo-create-view.vue'),
+                },
+                {
                     path: 'projects/:project?/testtasks/:testtask?/activiteoptionview/:activiteoptionview?',
                     meta: {
-                        caption: 'entities.testtask.views.activiteoptionview.title',
+                        caption: 'entities.testtask.views.activiteoptionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -7923,8 +8775,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testtasks/:testtask?/activiteoptionview/:activiteoptionview?',
                     meta: {
-                        caption: 'entities.testtask.views.activiteoptionview.title',
+                        caption: 'entities.testtask.views.activiteoptionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -7938,8 +8792,10 @@ const router = new Router({
                 {
                     path: 'testtasks/:testtask?/activiteoptionview/:activiteoptionview?',
                     meta: {
-                        caption: 'entities.testtask.views.activiteoptionview.title',
+                        caption: 'entities.testtask.views.activiteoptionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -7952,8 +8808,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/projectgridview/:projectgridview?',
                     meta: {
-                        caption: 'entities.bug.views.projectgridview.title',
+                        caption: 'entities.bug.views.projectgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -7968,8 +8826,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/projectgridview/:projectgridview?',
                     meta: {
-                        caption: 'entities.bug.views.projectgridview.title',
+                        caption: 'entities.bug.views.projectgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -7983,8 +8843,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/projectgridview/:projectgridview?',
                     meta: {
-                        caption: 'entities.bug.views.projectgridview.title',
+                        caption: 'entities.bug.views.projectgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -7998,8 +8860,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/projectgridview/:projectgridview?',
                     meta: {
-                        caption: 'entities.bug.views.projectgridview.title',
+                        caption: 'entities.bug.views.projectgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8013,8 +8877,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/projectgridview/:projectgridview?',
                     meta: {
-                        caption: 'entities.bug.views.projectgridview.title',
+                        caption: 'entities.bug.views.projectgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -8027,8 +8893,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/maininfoview9/:maininfoview9?',
                     meta: {
-                        caption: 'entities.task.views.maininfoview9.title',
+                        caption: 'entities.task.views.maininfoview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8043,8 +8911,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/maininfoview9/:maininfoview9?',
                     meta: {
-                        caption: 'entities.task.views.maininfoview9.title',
+                        caption: 'entities.task.views.maininfoview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -8058,8 +8928,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/maininfoview9/:maininfoview9?',
                     meta: {
-                        caption: 'entities.task.views.maininfoview9.title',
+                        caption: 'entities.task.views.maininfoview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -8073,8 +8945,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/maininfoview9/:maininfoview9?',
                     meta: {
-                        caption: 'entities.task.views.maininfoview9.title',
+                        caption: 'entities.task.views.maininfoview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -8087,8 +8961,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/projectmpickupview3/:projectmpickupview3?',
                     meta: {
-                        caption: 'entities.story.views.projectmpickupview3.title',
+                        caption: 'entities.story.views.projectmpickupview3.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8102,8 +8978,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/projectmpickupview3/:projectmpickupview3?',
                     meta: {
-                        caption: 'entities.story.views.projectmpickupview3.title',
+                        caption: 'entities.story.views.projectmpickupview3.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -8116,8 +8994,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/plansubgridview/:plansubgridview?',
                     meta: {
-                        caption: 'entities.bug.views.plansubgridview.title',
+                        caption: 'entities.bug.views.plansubgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8132,8 +9012,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/plansubgridview/:plansubgridview?',
                     meta: {
-                        caption: 'entities.bug.views.plansubgridview.title',
+                        caption: 'entities.bug.views.plansubgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -8147,8 +9029,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/plansubgridview/:plansubgridview?',
                     meta: {
-                        caption: 'entities.bug.views.plansubgridview.title',
+                        caption: 'entities.bug.views.plansubgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -8162,8 +9046,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/plansubgridview/:plansubgridview?',
                     meta: {
-                        caption: 'entities.bug.views.plansubgridview.title',
+                        caption: 'entities.bug.views.plansubgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8177,8 +9063,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/plansubgridview/:plansubgridview?',
                     meta: {
-                        caption: 'entities.bug.views.plansubgridview.title',
+                        caption: 'entities.bug.views.plansubgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -8191,8 +9079,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/testtasks/:testtask?/myygridview/:myygridview?',
                     meta: {
-                        caption: 'entities.testtask.views.myygridview.title',
+                        caption: 'entities.testtask.views.myygridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -8206,8 +9096,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testtasks/:testtask?/myygridview/:myygridview?',
                     meta: {
-                        caption: 'entities.testtask.views.myygridview.title',
+                        caption: 'entities.testtask.views.myygridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8221,8 +9113,10 @@ const router = new Router({
                 {
                     path: 'testtasks/:testtask?/myygridview/:myygridview?',
                     meta: {
-                        caption: 'entities.testtask.views.myygridview.title',
+                        caption: 'entities.testtask.views.myygridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -8235,7 +9129,7 @@ const router = new Router({
                 {
                     path: 'modules/:module?/editview/:editview?',
                     meta: {
-                        caption: 'entities.module.views.editview.title',
+                        caption: 'entities.module.views.editview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8249,7 +9143,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/projectmodules/:projectmodule?/quickcfgview/:quickcfgview?',
                     meta: {
-                        caption: 'entities.projectmodule.views.quickcfgview.title',
+                        caption: 'entities.projectmodule.views.quickcfgview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8264,7 +9158,7 @@ const router = new Router({
                 {
                     path: 'projectmodules/:projectmodule?/quickcfgview/:quickcfgview?',
                     meta: {
-                        caption: 'entities.projectmodule.views.quickcfgview.title',
+                        caption: 'entities.projectmodule.views.quickcfgview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8278,7 +9172,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/testmodules/:testmodule?/gridviewmain/:gridviewmain?',
                     meta: {
-                        caption: 'entities.testmodule.views.gridviewmain.title',
+                        caption: 'entities.testmodule.views.gridviewmain.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8293,7 +9187,7 @@ const router = new Router({
                 {
                     path: 'testmodules/:testmodule?/gridviewmain/:gridviewmain?',
                     meta: {
-                        caption: 'entities.testmodule.views.gridviewmain.title',
+                        caption: 'entities.testmodule.views.gridviewmain.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8307,7 +9201,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/casetreeexpview/:casetreeexpview?',
                     meta: {
-                        caption: 'entities.product.views.casetreeexpview.title',
+                        caption: 'entities.product.views.casetreeexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8321,8 +9215,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/releasesubgridview_done/:releasesubgridview_done?',
                     meta: {
-                        caption: 'entities.bug.views.releasesubgridview_done.title',
+                        caption: 'entities.bug.views.releasesubgridview_done.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8337,8 +9233,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/releasesubgridview_done/:releasesubgridview_done?',
                     meta: {
-                        caption: 'entities.bug.views.releasesubgridview_done.title',
+                        caption: 'entities.bug.views.releasesubgridview_done.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -8352,8 +9250,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/releasesubgridview_done/:releasesubgridview_done?',
                     meta: {
-                        caption: 'entities.bug.views.releasesubgridview_done.title',
+                        caption: 'entities.bug.views.releasesubgridview_done.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -8367,8 +9267,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/releasesubgridview_done/:releasesubgridview_done?',
                     meta: {
-                        caption: 'entities.bug.views.releasesubgridview_done.title',
+                        caption: 'entities.bug.views.releasesubgridview_done.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8382,8 +9284,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/releasesubgridview_done/:releasesubgridview_done?',
                     meta: {
-                        caption: 'entities.bug.views.releasesubgridview_done.title',
+                        caption: 'entities.bug.views.releasesubgridview_done.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -8396,7 +9300,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/optionview/:optionview?',
                     meta: {
-                        caption: 'entities.case.views.optionview.title',
+                        caption: 'entities.case.views.optionview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8412,7 +9316,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/optionview/:optionview?',
                     meta: {
-                        caption: 'entities.case.views.optionview.title',
+                        caption: 'entities.case.views.optionview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8427,7 +9331,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/optionview/:optionview?',
                     meta: {
-                        caption: 'entities.case.views.optionview.title',
+                        caption: 'entities.case.views.optionview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8442,7 +9346,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/optionview/:optionview?',
                     meta: {
-                        caption: 'entities.case.views.optionview.title',
+                        caption: 'entities.case.views.optionview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8456,8 +9360,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/casetobugeditview/:casetobugeditview?',
                     meta: {
-                        caption: 'entities.bug.views.casetobugeditview.title',
+                        caption: 'entities.bug.views.casetobugeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8472,8 +9378,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/casetobugeditview/:casetobugeditview?',
                     meta: {
-                        caption: 'entities.bug.views.casetobugeditview.title',
+                        caption: 'entities.bug.views.casetobugeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -8487,8 +9395,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/casetobugeditview/:casetobugeditview?',
                     meta: {
-                        caption: 'entities.bug.views.casetobugeditview.title',
+                        caption: 'entities.bug.views.casetobugeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -8502,8 +9412,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/casetobugeditview/:casetobugeditview?',
                     meta: {
-                        caption: 'entities.bug.views.casetobugeditview.title',
+                        caption: 'entities.bug.views.casetobugeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8517,8 +9429,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/casetobugeditview/:casetobugeditview?',
                     meta: {
-                        caption: 'entities.bug.views.casetobugeditview.title',
+                        caption: 'entities.bug.views.casetobugeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -8531,7 +9445,7 @@ const router = new Router({
                 {
                     path: 'ibzmyterritories/:ibzmyterritory?/tabexpview/:tabexpview?',
                     meta: {
-                        caption: 'entities.ibzmyterritory.views.tabexpview.title',
+                        caption: 'entities.ibzmyterritory.views.tabexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8545,7 +9459,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/htmlview/:htmlview?',
                     meta: {
-                        caption: 'entities.product.views.htmlview.title',
+                        caption: 'entities.product.views.htmlview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8557,23 +9471,9 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-html-view/product-html-view.vue'),
                 },
                 {
-                    path: 'projectstats/:projectstats?/editview9/:editview9?',
-                    meta: {
-                        caption: 'entities.projectstats.views.editview9.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projectstats', parameterName: 'projectstats' },
-                            { pathName: 'editview9', parameterName: 'editview9' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/project-stats-edit-view9/project-stats-edit-view9.vue'),
-                },
-                {
                     path: 'ibzmyterritories/:ibzmyterritory?/dashboardview/:dashboardview?',
                     meta: {
-                        caption: 'entities.ibzmyterritory.views.dashboardview.title',
+                        caption: 'entities.ibzmyterritory.views.dashboardview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8585,10 +9485,26 @@ const router = new Router({
                     component: () => import('@pages/ibiz/ibz-my-territory-dashboard-view/ibz-my-territory-dashboard-view.vue'),
                 },
                 {
+                    path: 'projectstats/:projectstats?/editview9/:editview9?',
+                    meta: {
+                        caption: 'entities.projectstats.views.editview9.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projectstats', parameterName: 'projectstats' },
+                            { pathName: 'editview9', parameterName: 'editview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/project-stats-edit-view9/project-stats-edit-view9.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/gridview9_substory/:gridview9_substory?',
                     meta: {
-                        caption: 'entities.story.views.gridview9_substory.title',
+                        caption: 'entities.story.views.gridview9_substory.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8602,8 +9518,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/gridview9_substory/:gridview9_substory?',
                     meta: {
-                        caption: 'entities.story.views.gridview9_substory.title',
+                        caption: 'entities.story.views.gridview9_substory.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -8616,7 +9534,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/testmaindetaileditview9/:testmaindetaileditview9?',
                     meta: {
-                        caption: 'entities.case.views.testmaindetaileditview9.title',
+                        caption: 'entities.case.views.testmaindetaileditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8632,7 +9550,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/testmaindetaileditview9/:testmaindetaileditview9?',
                     meta: {
-                        caption: 'entities.case.views.testmaindetaileditview9.title',
+                        caption: 'entities.case.views.testmaindetaileditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8647,7 +9565,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/testmaindetaileditview9/:testmaindetaileditview9?',
                     meta: {
-                        caption: 'entities.case.views.testmaindetaileditview9.title',
+                        caption: 'entities.case.views.testmaindetaileditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8662,7 +9580,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/testmaindetaileditview9/:testmaindetaileditview9?',
                     meta: {
-                        caption: 'entities.case.views.testmaindetaileditview9.title',
+                        caption: 'entities.case.views.testmaindetaileditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8676,8 +9594,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/buildsubgridview_new_9212/:buildsubgridview_new_9212?',
                     meta: {
-                        caption: 'entities.bug.views.buildsubgridview_new_9212.title',
+                        caption: 'entities.bug.views.buildsubgridview_new_9212.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8692,8 +9612,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/buildsubgridview_new_9212/:buildsubgridview_new_9212?',
                     meta: {
-                        caption: 'entities.bug.views.buildsubgridview_new_9212.title',
+                        caption: 'entities.bug.views.buildsubgridview_new_9212.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -8707,8 +9629,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/buildsubgridview_new_9212/:buildsubgridview_new_9212?',
                     meta: {
-                        caption: 'entities.bug.views.buildsubgridview_new_9212.title',
+                        caption: 'entities.bug.views.buildsubgridview_new_9212.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -8722,8 +9646,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/buildsubgridview_new_9212/:buildsubgridview_new_9212?',
                     meta: {
-                        caption: 'entities.bug.views.buildsubgridview_new_9212.title',
+                        caption: 'entities.bug.views.buildsubgridview_new_9212.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8737,8 +9663,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/buildsubgridview_new_9212/:buildsubgridview_new_9212?',
                     meta: {
-                        caption: 'entities.bug.views.buildsubgridview_new_9212.title',
+                        caption: 'entities.bug.views.buildsubgridview_new_9212.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -8751,8 +9679,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/projecteditview/:projecteditview?',
                     meta: {
-                        caption: 'entities.story.views.projecteditview.title',
+                        caption: 'entities.story.views.projecteditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8766,8 +9696,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/projecteditview/:projecteditview?',
                     meta: {
-                        caption: 'entities.story.views.projecteditview.title',
+                        caption: 'entities.story.views.projecteditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -8780,7 +9712,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/productmodules/:productmodule?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.productmodule.views.gridview.title',
+                        caption: 'entities.productmodule.views.gridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8795,7 +9727,7 @@ const router = new Router({
                 {
                     path: 'productmodules/:productmodule?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.productmodule.views.gridview.title',
+                        caption: 'entities.productmodule.views.gridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -8807,10 +9739,26 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-module-grid-view/product-module-grid-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/leftsidebarlistview/:leftsidebarlistview?',
+                    meta: {
+                        caption: 'entities.project.views.leftsidebarlistview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-left-sidebar-list-view/project-left-sidebar-list-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/editview/:editview?',
                     meta: {
-                        caption: 'entities.bug.views.editview.title',
+                        caption: 'entities.bug.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8825,8 +9773,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/editview/:editview?',
                     meta: {
-                        caption: 'entities.bug.views.editview.title',
+                        caption: 'entities.bug.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -8840,8 +9790,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/editview/:editview?',
                     meta: {
-                        caption: 'entities.bug.views.editview.title',
+                        caption: 'entities.bug.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -8855,8 +9807,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/editview/:editview?',
                     meta: {
-                        caption: 'entities.bug.views.editview.title',
+                        caption: 'entities.bug.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8870,8 +9824,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/editview/:editview?',
                     meta: {
-                        caption: 'entities.bug.views.editview.title',
+                        caption: 'entities.bug.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -8882,24 +9838,12 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-edit-view/bug-edit-view.vue'),
                 },
                 {
-                    path: 'projects/:project?/leftsidebarlistview/:leftsidebarlistview?',
-                    meta: {
-                        caption: 'entities.project.views.leftsidebarlistview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/project-left-sidebar-list-view/project-left-sidebar-list-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/kanbanview/:kanbanview?',
                     meta: {
-                        caption: 'entities.task.views.kanbanview.title',
+                        caption: 'entities.task.views.kanbanview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8914,8 +9858,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/kanbanview/:kanbanview?',
                     meta: {
-                        caption: 'entities.task.views.kanbanview.title',
+                        caption: 'entities.task.views.kanbanview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -8929,8 +9875,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/kanbanview/:kanbanview?',
                     meta: {
-                        caption: 'entities.task.views.kanbanview.title',
+                        caption: 'entities.task.views.kanbanview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -8944,8 +9892,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/kanbanview/:kanbanview?',
                     meta: {
-                        caption: 'entities.task.views.kanbanview.title',
+                        caption: 'entities.task.views.kanbanview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -8956,10 +9906,26 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-kanban-view/task-kanban-view.vue'),
                 },
                 {
+                    path: 'ibzprostories/:ibzprostory?/gridview/:gridview?',
+                    meta: {
+                        caption: 'entities.ibzprostory.views.gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzprostories', parameterName: 'ibzprostory' },
+                            { pathName: 'gridview', parameterName: 'gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibzpro-story-grid-view/ibzpro-story-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/testreports/:testreport?/maininfoview/:maininfoview?',
                     meta: {
-                        caption: 'entities.testreport.views.maininfoview.title',
+                        caption: 'entities.testreport.views.maininfoview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8973,8 +9939,10 @@ const router = new Router({
                 {
                     path: 'testreports/:testreport?/maininfoview/:maininfoview?',
                     meta: {
-                        caption: 'entities.testreport.views.maininfoview.title',
+                        caption: 'entities.testreport.views.maininfoview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testreports', parameterName: 'testreport' },
@@ -8987,8 +9955,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/releases/:release?/maininfoview/:maininfoview?',
                     meta: {
-                        caption: 'entities.release.views.maininfoview.title',
+                        caption: 'entities.release.views.maininfoview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -9002,8 +9972,10 @@ const router = new Router({
                 {
                     path: 'releases/:release?/maininfoview/:maininfoview?',
                     meta: {
-                        caption: 'entities.release.views.maininfoview.title',
+                        caption: 'entities.release.views.maininfoview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'releases', parameterName: 'release' },
@@ -9016,7 +9988,7 @@ const router = new Router({
                 {
                     path: 'productstats/:productstats?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.productstats.views.gridview9.title',
+                        caption: 'entities.productstats.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9030,8 +10002,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/gridview9_assignedtome/:gridview9_assignedtome?',
                     meta: {
-                        caption: 'entities.task.views.gridview9_assignedtome.title',
+                        caption: 'entities.task.views.gridview9_assignedtome.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -9046,8 +10020,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/gridview9_assignedtome/:gridview9_assignedtome?',
                     meta: {
-                        caption: 'entities.task.views.gridview9_assignedtome.title',
+                        caption: 'entities.task.views.gridview9_assignedtome.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -9061,8 +10037,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/gridview9_assignedtome/:gridview9_assignedtome?',
                     meta: {
-                        caption: 'entities.task.views.gridview9_assignedtome.title',
+                        caption: 'entities.task.views.gridview9_assignedtome.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -9076,8 +10054,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/gridview9_assignedtome/:gridview9_assignedtome?',
                     meta: {
-                        caption: 'entities.task.views.gridview9_assignedtome.title',
+                        caption: 'entities.task.views.gridview9_assignedtome.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -9090,7 +10070,7 @@ const router = new Router({
                 {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/neweditview/:neweditview?',
                     meta: {
-                        caption: 'entities.ibzcase.views.neweditview.title',
+                        caption: 'entities.ibzcase.views.neweditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9105,7 +10085,7 @@ const router = new Router({
                 {
                     path: 'ibzcases/:ibzcase?/neweditview/:neweditview?',
                     meta: {
-                        caption: 'entities.ibzcase.views.neweditview.title',
+                        caption: 'entities.ibzcase.views.neweditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9119,7 +10099,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/projectmodules/:projectmodule?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.projectmodule.views.maingridview.title',
+                        caption: 'entities.projectmodule.views.maingridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9134,7 +10114,7 @@ const router = new Router({
                 {
                     path: 'projectmodules/:projectmodule?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.projectmodule.views.maingridview.title',
+                        caption: 'entities.projectmodule.views.maingridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9148,7 +10128,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/tobugeditview/:tobugeditview?',
                     meta: {
-                        caption: 'entities.case.views.tobugeditview.title',
+                        caption: 'entities.case.views.tobugeditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9164,7 +10144,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/tobugeditview/:tobugeditview?',
                     meta: {
-                        caption: 'entities.case.views.tobugeditview.title',
+                        caption: 'entities.case.views.tobugeditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9179,7 +10159,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/tobugeditview/:tobugeditview?',
                     meta: {
-                        caption: 'entities.case.views.tobugeditview.title',
+                        caption: 'entities.case.views.tobugeditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9194,7 +10174,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/tobugeditview/:tobugeditview?',
                     meta: {
-                        caption: 'entities.case.views.tobugeditview.title',
+                        caption: 'entities.case.views.tobugeditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9208,7 +10188,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/ibzcasesteps/:ibzcasestep?/carryouteditmode/:carryouteditmode?',
                     meta: {
-                        caption: 'entities.ibzcasestep.views.carryouteditmode.title',
+                        caption: 'entities.ibzcasestep.views.carryouteditmode.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9225,7 +10205,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/ibzcasesteps/:ibzcasestep?/carryouteditmode/:carryouteditmode?',
                     meta: {
-                        caption: 'entities.ibzcasestep.views.carryouteditmode.title',
+                        caption: 'entities.ibzcasestep.views.carryouteditmode.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9241,7 +10221,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/ibzcasesteps/:ibzcasestep?/carryouteditmode/:carryouteditmode?',
                     meta: {
-                        caption: 'entities.ibzcasestep.views.carryouteditmode.title',
+                        caption: 'entities.ibzcasestep.views.carryouteditmode.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9257,7 +10237,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/ibzcasesteps/:ibzcasestep?/carryouteditmode/:carryouteditmode?',
                     meta: {
-                        caption: 'entities.ibzcasestep.views.carryouteditmode.title',
+                        caption: 'entities.ibzcasestep.views.carryouteditmode.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9272,7 +10252,7 @@ const router = new Router({
                 {
                     path: 'ibzcasesteps/:ibzcasestep?/carryouteditmode/:carryouteditmode?',
                     meta: {
-                        caption: 'entities.ibzcasestep.views.carryouteditmode.title',
+                        caption: 'entities.ibzcasestep.views.carryouteditmode.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9286,7 +10266,7 @@ const router = new Router({
                 {
                     path: 'modules/:module?/linegridview/:linegridview?',
                     meta: {
-                        caption: 'entities.module.views.linegridview.title',
+                        caption: 'entities.module.views.linegridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9300,7 +10280,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/mainmygridview/:mainmygridview?',
                     meta: {
-                        caption: 'entities.case.views.mainmygridview.title',
+                        caption: 'entities.case.views.mainmygridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9316,7 +10296,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/mainmygridview/:mainmygridview?',
                     meta: {
-                        caption: 'entities.case.views.mainmygridview.title',
+                        caption: 'entities.case.views.mainmygridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9331,7 +10311,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/mainmygridview/:mainmygridview?',
                     meta: {
-                        caption: 'entities.case.views.mainmygridview.title',
+                        caption: 'entities.case.views.mainmygridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9346,7 +10326,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/mainmygridview/:mainmygridview?',
                     meta: {
-                        caption: 'entities.case.views.mainmygridview.title',
+                        caption: 'entities.case.views.mainmygridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9360,7 +10340,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/editview_activate/:editview_activate?',
                     meta: {
-                        caption: 'entities.project.views.editview_activate.title',
+                        caption: 'entities.project.views.editview_activate.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9374,8 +10354,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/confirmview/:confirmview?',
                     meta: {
-                        caption: 'entities.bug.views.confirmview.title',
+                        caption: 'entities.bug.views.confirmview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -9390,8 +10372,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/confirmview/:confirmview?',
                     meta: {
-                        caption: 'entities.bug.views.confirmview.title',
+                        caption: 'entities.bug.views.confirmview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -9405,8 +10389,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/confirmview/:confirmview?',
                     meta: {
-                        caption: 'entities.bug.views.confirmview.title',
+                        caption: 'entities.bug.views.confirmview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -9420,8 +10406,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/confirmview/:confirmview?',
                     meta: {
-                        caption: 'entities.bug.views.confirmview.title',
+                        caption: 'entities.bug.views.confirmview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -9435,8 +10423,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/confirmview/:confirmview?',
                     meta: {
-                        caption: 'entities.bug.views.confirmview.title',
+                        caption: 'entities.bug.views.confirmview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -9449,8 +10439,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/pickupgridview5/:pickupgridview5?',
                     meta: {
-                        caption: 'entities.bug.views.pickupgridview5.title',
+                        caption: 'entities.bug.views.pickupgridview5.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -9465,8 +10457,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/pickupgridview5/:pickupgridview5?',
                     meta: {
-                        caption: 'entities.bug.views.pickupgridview5.title',
+                        caption: 'entities.bug.views.pickupgridview5.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -9480,8 +10474,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/pickupgridview5/:pickupgridview5?',
                     meta: {
-                        caption: 'entities.bug.views.pickupgridview5.title',
+                        caption: 'entities.bug.views.pickupgridview5.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -9495,8 +10491,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/pickupgridview5/:pickupgridview5?',
                     meta: {
-                        caption: 'entities.bug.views.pickupgridview5.title',
+                        caption: 'entities.bug.views.pickupgridview5.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -9510,8 +10508,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/pickupgridview5/:pickupgridview5?',
                     meta: {
-                        caption: 'entities.bug.views.pickupgridview5.title',
+                        caption: 'entities.bug.views.pickupgridview5.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -9524,7 +10524,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/maindashboardview/:maindashboardview?',
                     meta: {
-                        caption: 'entities.case.views.maindashboardview.title',
+                        caption: 'entities.case.views.maindashboardview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9540,7 +10540,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/maindashboardview/:maindashboardview?',
                     meta: {
-                        caption: 'entities.case.views.maindashboardview.title',
+                        caption: 'entities.case.views.maindashboardview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9555,7 +10555,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/maindashboardview/:maindashboardview?',
                     meta: {
-                        caption: 'entities.case.views.maindashboardview.title',
+                        caption: 'entities.case.views.maindashboardview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9570,7 +10570,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/maindashboardview/:maindashboardview?',
                     meta: {
-                        caption: 'entities.case.views.maindashboardview.title',
+                        caption: 'entities.case.views.maindashboardview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9584,7 +10584,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/mainview_edit/:mainview_edit?',
                     meta: {
-                        caption: 'entities.product.views.mainview_edit.title',
+                        caption: 'entities.product.views.mainview_edit.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9598,8 +10598,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/reviewview/:reviewview?',
                     meta: {
-                        caption: 'entities.story.views.reviewview.title',
+                        caption: 'entities.story.views.reviewview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -9613,8 +10615,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/reviewview/:reviewview?',
                     meta: {
-                        caption: 'entities.story.views.reviewview.title',
+                        caption: 'entities.story.views.reviewview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -9625,23 +10629,9 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-rev-iew-view/story-rev-iew-view.vue'),
                 },
                 {
-                    path: 'ibzlibs/:ibzlib?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.ibzlib.views.editview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzlibs', parameterName: 'ibzlib' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/ibz-lib-edit-view/ibz-lib-edit-view.vue'),
-                },
-                {
                     path: 'ibzlibs/:ibzlib?/ibzlibmodules/:ibzlibmodule?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.ibzlibmodule.views.gridview.title',
+                        caption: 'entities.ibzlibmodule.views.gridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9656,7 +10646,7 @@ const router = new Router({
                 {
                     path: 'ibzlibmodules/:ibzlibmodule?/gridview/:gridview?',
                     meta: {
-                        caption: 'entities.ibzlibmodule.views.gridview.title',
+                        caption: 'entities.ibzlibmodule.views.gridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9668,10 +10658,26 @@ const router = new Router({
                     component: () => import('@pages/ibiz/ibz-lib-module-grid-view/ibz-lib-module-grid-view.vue'),
                 },
                 {
+                    path: 'ibzlibs/:ibzlib?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.ibzlib.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzlibs', parameterName: 'ibzlib' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-lib-edit-view/ibz-lib-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/projectpickupgridview/:projectpickupgridview?',
                     meta: {
-                        caption: 'entities.story.views.projectpickupgridview.title',
+                        caption: 'entities.story.views.projectpickupgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -9685,8 +10691,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/projectpickupgridview/:projectpickupgridview?',
                     meta: {
-                        caption: 'entities.story.views.projectpickupgridview.title',
+                        caption: 'entities.story.views.projectpickupgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -9699,7 +10707,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/maindetaileditview9/:maindetaileditview9?',
                     meta: {
-                        caption: 'entities.case.views.maindetaileditview9.title',
+                        caption: 'entities.case.views.maindetaileditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9715,7 +10723,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/maindetaileditview9/:maindetaileditview9?',
                     meta: {
-                        caption: 'entities.case.views.maindetaileditview9.title',
+                        caption: 'entities.case.views.maindetaileditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9730,7 +10738,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/maindetaileditview9/:maindetaileditview9?',
                     meta: {
-                        caption: 'entities.case.views.maindetaileditview9.title',
+                        caption: 'entities.case.views.maindetaileditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9745,7 +10753,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/maindetaileditview9/:maindetaileditview9?',
                     meta: {
-                        caption: 'entities.case.views.maindetaileditview9.title',
+                        caption: 'entities.case.views.maindetaileditview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9757,24 +10765,12 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-main-detail-edit-view9/case-main-detail-edit-view9.vue'),
                 },
                 {
-                    path: 'products/:product?/listexpview/:listexpview?',
-                    meta: {
-                        caption: 'entities.product.views.listexpview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'listexpview', parameterName: 'listexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/product-list-exp-view/product-list-exp-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/buglifeeditview9/:buglifeeditview9?',
                     meta: {
-                        caption: 'entities.bug.views.buglifeeditview9.title',
+                        caption: 'entities.bug.views.buglifeeditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -9789,8 +10785,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/buglifeeditview9/:buglifeeditview9?',
                     meta: {
-                        caption: 'entities.bug.views.buglifeeditview9.title',
+                        caption: 'entities.bug.views.buglifeeditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -9804,8 +10802,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/buglifeeditview9/:buglifeeditview9?',
                     meta: {
-                        caption: 'entities.bug.views.buglifeeditview9.title',
+                        caption: 'entities.bug.views.buglifeeditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -9819,8 +10819,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/buglifeeditview9/:buglifeeditview9?',
                     meta: {
-                        caption: 'entities.bug.views.buglifeeditview9.title',
+                        caption: 'entities.bug.views.buglifeeditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -9834,8 +10836,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/buglifeeditview9/:buglifeeditview9?',
                     meta: {
-                        caption: 'entities.bug.views.buglifeeditview9.title',
+                        caption: 'entities.bug.views.buglifeeditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -9846,10 +10850,26 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-bug-life-edit-view9/bug-bug-life-edit-view9.vue'),
                 },
                 {
+                    path: 'products/:product?/listexpview/:listexpview?',
+                    meta: {
+                        caption: 'entities.product.views.listexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'listexpview', parameterName: 'listexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-list-exp-view/product-list-exp-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/myfavoritegridview/:myfavoritegridview?',
                     meta: {
-                        caption: 'entities.task.views.myfavoritegridview.title',
+                        caption: 'entities.task.views.myfavoritegridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -9864,8 +10884,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/myfavoritegridview/:myfavoritegridview?',
                     meta: {
-                        caption: 'entities.task.views.myfavoritegridview.title',
+                        caption: 'entities.task.views.myfavoritegridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -9879,8 +10901,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/myfavoritegridview/:myfavoritegridview?',
                     meta: {
-                        caption: 'entities.task.views.myfavoritegridview.title',
+                        caption: 'entities.task.views.myfavoritegridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -9894,8 +10918,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/myfavoritegridview/:myfavoritegridview?',
                     meta: {
-                        caption: 'entities.task.views.myfavoritegridview.title',
+                        caption: 'entities.task.views.myfavoritegridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -9908,7 +10934,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/gridview9_mecretae/:gridview9_mecretae?',
                     meta: {
-                        caption: 'entities.case.views.gridview9_mecretae.title',
+                        caption: 'entities.case.views.gridview9_mecretae.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9924,7 +10950,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/gridview9_mecretae/:gridview9_mecretae?',
                     meta: {
-                        caption: 'entities.case.views.gridview9_mecretae.title',
+                        caption: 'entities.case.views.gridview9_mecretae.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9939,7 +10965,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/gridview9_mecretae/:gridview9_mecretae?',
                     meta: {
-                        caption: 'entities.case.views.gridview9_mecretae.title',
+                        caption: 'entities.case.views.gridview9_mecretae.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9954,7 +10980,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/gridview9_mecretae/:gridview9_mecretae?',
                     meta: {
-                        caption: 'entities.case.views.gridview9_mecretae.title',
+                        caption: 'entities.case.views.gridview9_mecretae.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9968,7 +10994,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasktreeexpview/:tasktreeexpview?',
                     meta: {
-                        caption: 'entities.project.views.tasktreeexpview.title',
+                        caption: 'entities.project.views.tasktreeexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -9980,85 +11006,12 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-task-tree-exp-view/project-task-tree-exp-view.vue'),
                 },
                 {
-                    path: 'products/:product?/stories/:story?/bugs/:bug?/mainmygridview/:mainmygridview?',
-                    meta: {
-                        caption: 'entities.bug.views.mainmygridview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'mainmygridview', parameterName: 'mainmygridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/bug-main-my-grid-view/bug-main-my-grid-view.vue'),
-                },
-                {
-                    path: 'projects/:project?/bugs/:bug?/mainmygridview/:mainmygridview?',
-                    meta: {
-                        caption: 'entities.bug.views.mainmygridview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'mainmygridview', parameterName: 'mainmygridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/bug-main-my-grid-view/bug-main-my-grid-view.vue'),
-                },
-                {
-                    path: 'stories/:story?/bugs/:bug?/mainmygridview/:mainmygridview?',
-                    meta: {
-                        caption: 'entities.bug.views.mainmygridview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'stories', parameterName: 'story' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'mainmygridview', parameterName: 'mainmygridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/bug-main-my-grid-view/bug-main-my-grid-view.vue'),
-                },
-                {
-                    path: 'products/:product?/bugs/:bug?/mainmygridview/:mainmygridview?',
-                    meta: {
-                        caption: 'entities.bug.views.mainmygridview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'mainmygridview', parameterName: 'mainmygridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/bug-main-my-grid-view/bug-main-my-grid-view.vue'),
-                },
-                {
-                    path: 'bugs/:bug?/mainmygridview/:mainmygridview?',
-                    meta: {
-                        caption: 'entities.bug.views.mainmygridview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'bugs', parameterName: 'bug' },
-                            { pathName: 'mainmygridview', parameterName: 'mainmygridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/bug-main-my-grid-view/bug-main-my-grid-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/forwardview/:forwardview?',
                     meta: {
-                        caption: 'entities.task.views.forwardview.title',
+                        caption: 'entities.task.views.forwardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10073,8 +11026,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/forwardview/:forwardview?',
                     meta: {
-                        caption: 'entities.task.views.forwardview.title',
+                        caption: 'entities.task.views.forwardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -10088,8 +11043,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/forwardview/:forwardview?',
                     meta: {
-                        caption: 'entities.task.views.forwardview.title',
+                        caption: 'entities.task.views.forwardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -10103,8 +11060,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/forwardview/:forwardview?',
                     meta: {
-                        caption: 'entities.task.views.forwardview.title',
+                        caption: 'entities.task.views.forwardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -10115,9 +11074,94 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-forward-view/task-forward-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/bugs/:bug?/mainmygridview/:mainmygridview?',
+                    meta: {
+                        caption: 'entities.bug.views.mainmygridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'mainmygridview', parameterName: 'mainmygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-my-grid-view/bug-main-my-grid-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/mainmygridview/:mainmygridview?',
+                    meta: {
+                        caption: 'entities.bug.views.mainmygridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'mainmygridview', parameterName: 'mainmygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-my-grid-view/bug-main-my-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/bugs/:bug?/mainmygridview/:mainmygridview?',
+                    meta: {
+                        caption: 'entities.bug.views.mainmygridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'mainmygridview', parameterName: 'mainmygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-my-grid-view/bug-main-my-grid-view.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/mainmygridview/:mainmygridview?',
+                    meta: {
+                        caption: 'entities.bug.views.mainmygridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'mainmygridview', parameterName: 'mainmygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-my-grid-view/bug-main-my-grid-view.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/mainmygridview/:mainmygridview?',
+                    meta: {
+                        caption: 'entities.bug.views.mainmygridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'mainmygridview', parameterName: 'mainmygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-main-my-grid-view/bug-main-my-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/exceditview/:exceditview?',
                     meta: {
-                        caption: 'entities.case.views.exceditview.title',
+                        caption: 'entities.case.views.exceditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -10133,7 +11177,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/exceditview/:exceditview?',
                     meta: {
-                        caption: 'entities.case.views.exceditview.title',
+                        caption: 'entities.case.views.exceditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -10148,7 +11192,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/exceditview/:exceditview?',
                     meta: {
-                        caption: 'entities.case.views.exceditview.title',
+                        caption: 'entities.case.views.exceditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -10163,7 +11207,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/exceditview/:exceditview?',
                     meta: {
-                        caption: 'entities.case.views.exceditview.title',
+                        caption: 'entities.case.views.exceditview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -10177,7 +11221,7 @@ const router = new Router({
                 {
                     path: 'ibzfavorites/:ibzfavorites?/tabexpview/:tabexpview?',
                     meta: {
-                        caption: 'entities.ibzfavorites.views.tabexpview.title',
+                        caption: 'entities.ibzfavorites.views.tabexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -10191,8 +11235,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/tasktypeganttview/:tasktypeganttview?',
                     meta: {
-                        caption: 'entities.task.views.tasktypeganttview.title',
+                        caption: 'entities.task.views.tasktypeganttview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10207,8 +11253,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/tasktypeganttview/:tasktypeganttview?',
                     meta: {
-                        caption: 'entities.task.views.tasktypeganttview.title',
+                        caption: 'entities.task.views.tasktypeganttview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -10222,8 +11270,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/tasktypeganttview/:tasktypeganttview?',
                     meta: {
-                        caption: 'entities.task.views.tasktypeganttview.title',
+                        caption: 'entities.task.views.tasktypeganttview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -10237,8 +11287,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/tasktypeganttview/:tasktypeganttview?',
                     meta: {
-                        caption: 'entities.task.views.tasktypeganttview.title',
+                        caption: 'entities.task.views.tasktypeganttview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -10251,7 +11303,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/dashboardinfoview/:dashboardinfoview?',
                     meta: {
-                        caption: 'entities.project.views.dashboardinfoview.title',
+                        caption: 'entities.project.views.dashboardinfoview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -10265,8 +11317,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/todoeditview/:todoeditview?',
                     meta: {
-                        caption: 'entities.bug.views.todoeditview.title',
+                        caption: 'entities.bug.views.todoeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10281,8 +11335,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/todoeditview/:todoeditview?',
                     meta: {
-                        caption: 'entities.bug.views.todoeditview.title',
+                        caption: 'entities.bug.views.todoeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -10296,8 +11352,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/todoeditview/:todoeditview?',
                     meta: {
-                        caption: 'entities.bug.views.todoeditview.title',
+                        caption: 'entities.bug.views.todoeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -10311,8 +11369,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/todoeditview/:todoeditview?',
                     meta: {
-                        caption: 'entities.bug.views.todoeditview.title',
+                        caption: 'entities.bug.views.todoeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10326,8 +11386,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/todoeditview/:todoeditview?',
                     meta: {
-                        caption: 'entities.bug.views.todoeditview.title',
+                        caption: 'entities.bug.views.todoeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -10340,8 +11402,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tabexpview/:tabexpview?',
                     meta: {
-                        caption: 'entities.story.views.tabexpview.title',
+                        caption: 'entities.story.views.tabexpview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10355,8 +11419,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tabexpview/:tabexpview?',
                     meta: {
-                        caption: 'entities.story.views.tabexpview.title',
+                        caption: 'entities.story.views.tabexpview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -10369,8 +11435,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.task.views.maingridview.title',
+                        caption: 'entities.task.views.maingridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10385,8 +11453,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.task.views.maingridview.title',
+                        caption: 'entities.task.views.maingridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -10400,8 +11470,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.task.views.maingridview.title',
+                        caption: 'entities.task.views.maingridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -10415,8 +11487,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.task.views.maingridview.title',
+                        caption: 'entities.task.views.maingridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -10429,8 +11503,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/reportsubgridview/:reportsubgridview?',
                     meta: {
-                        caption: 'entities.story.views.reportsubgridview.title',
+                        caption: 'entities.story.views.reportsubgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10444,8 +11520,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/reportsubgridview/:reportsubgridview?',
                     meta: {
-                        caption: 'entities.story.views.reportsubgridview.title',
+                        caption: 'entities.story.views.reportsubgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -10458,7 +11536,7 @@ const router = new Router({
                 {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/dashboardview/:dashboardview?',
                     meta: {
-                        caption: 'entities.ibzcase.views.dashboardview.title',
+                        caption: 'entities.ibzcase.views.dashboardview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -10473,7 +11551,7 @@ const router = new Router({
                 {
                     path: 'ibzcases/:ibzcase?/dashboardview/:dashboardview?',
                     meta: {
-                        caption: 'entities.ibzcase.views.dashboardview.title',
+                        caption: 'entities.ibzcase.views.dashboardview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -10487,7 +11565,7 @@ const router = new Router({
                 {
                     path: 'actions/:action?/producttrendslistview9/:producttrendslistview9?',
                     meta: {
-                        caption: 'entities.action.views.producttrendslistview9.title',
+                        caption: 'entities.action.views.producttrendslistview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -10501,8 +11579,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/testtasks/:testtask?/editview9_detail/:editview9_detail?',
                     meta: {
-                        caption: 'entities.testtask.views.editview9_detail.title',
+                        caption: 'entities.testtask.views.editview9_detail.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -10516,8 +11596,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testtasks/:testtask?/editview9_detail/:editview9_detail?',
                     meta: {
-                        caption: 'entities.testtask.views.editview9_detail.title',
+                        caption: 'entities.testtask.views.editview9_detail.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10531,8 +11613,10 @@ const router = new Router({
                 {
                     path: 'testtasks/:testtask?/editview9_detail/:editview9_detail?',
                     meta: {
-                        caption: 'entities.testtask.views.editview9_detail.title',
+                        caption: 'entities.testtask.views.editview9_detail.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -10545,8 +11629,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/subtasks/:subtask?/subtasknewview/:subtasknewview?',
                     meta: {
-                        caption: 'entities.subtask.views.subtasknewview.title',
+                        caption: 'entities.subtask.views.subtasknewview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10562,8 +11648,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/subtasks/:subtask?/subtasknewview/:subtasknewview?',
                     meta: {
-                        caption: 'entities.subtask.views.subtasknewview.title',
+                        caption: 'entities.subtask.views.subtasknewview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -10578,8 +11666,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/subtasks/:subtask?/subtasknewview/:subtasknewview?',
                     meta: {
-                        caption: 'entities.subtask.views.subtasknewview.title',
+                        caption: 'entities.subtask.views.subtasknewview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -10594,8 +11684,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/subtasks/:subtask?/subtasknewview/:subtasknewview?',
                     meta: {
-                        caption: 'entities.subtask.views.subtasknewview.title',
+                        caption: 'entities.subtask.views.subtasknewview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -10609,8 +11701,10 @@ const router = new Router({
                 {
                     path: 'subtasks/:subtask?/subtasknewview/:subtasknewview?',
                     meta: {
-                        caption: 'entities.subtask.views.subtasknewview.title',
+                        caption: 'entities.subtask.views.subtasknewview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'subtasks', parameterName: 'subtask' },
@@ -10623,8 +11717,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/closetaskview/:closetaskview?',
                     meta: {
-                        caption: 'entities.task.views.closetaskview.title',
+                        caption: 'entities.task.views.closetaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10639,8 +11735,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/closetaskview/:closetaskview?',
                     meta: {
-                        caption: 'entities.task.views.closetaskview.title',
+                        caption: 'entities.task.views.closetaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -10654,8 +11752,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/closetaskview/:closetaskview?',
                     meta: {
-                        caption: 'entities.task.views.closetaskview.title',
+                        caption: 'entities.task.views.closetaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -10669,8 +11769,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/closetaskview/:closetaskview?',
                     meta: {
-                        caption: 'entities.task.views.closetaskview.title',
+                        caption: 'entities.task.views.closetaskview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -10683,8 +11785,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/releasesubgridview/:releasesubgridview?',
                     meta: {
-                        caption: 'entities.story.views.releasesubgridview.title',
+                        caption: 'entities.story.views.releasesubgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10698,8 +11802,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/releasesubgridview/:releasesubgridview?',
                     meta: {
-                        caption: 'entities.story.views.releasesubgridview.title',
+                        caption: 'entities.story.views.releasesubgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -10712,8 +11818,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/curprojectwgridview/:curprojectwgridview?',
                     meta: {
-                        caption: 'entities.story.views.curprojectwgridview.title',
+                        caption: 'entities.story.views.curprojectwgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10727,8 +11835,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/curprojectwgridview/:curprojectwgridview?',
                     meta: {
-                        caption: 'entities.story.views.curprojectwgridview.title',
+                        caption: 'entities.story.views.curprojectwgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -10741,7 +11851,7 @@ const router = new Router({
                 {
                     path: 'actions/:action?/myalltrendslistview/:myalltrendslistview?',
                     meta: {
-                        caption: 'entities.action.views.myalltrendslistview.title',
+                        caption: 'entities.action.views.myalltrendslistview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -10755,8 +11865,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/builds/:build?/mainview/:mainview?',
                     meta: {
-                        caption: 'entities.build.views.mainview.title',
+                        caption: 'entities.build.views.mainview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -10770,8 +11882,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/builds/:build?/mainview/:mainview?',
                     meta: {
-                        caption: 'entities.build.views.mainview.title',
+                        caption: 'entities.build.views.mainview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10785,8 +11899,10 @@ const router = new Router({
                 {
                     path: 'builds/:build?/mainview/:mainview?',
                     meta: {
-                        caption: 'entities.build.views.mainview.title',
+                        caption: 'entities.build.views.mainview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'builds', parameterName: 'build' },
@@ -10799,7 +11915,7 @@ const router = new Router({
                 {
                     path: 'actions/:action?/projecttrendslistview9/:projecttrendslistview9?',
                     meta: {
-                        caption: 'entities.action.views.projecttrendslistview9.title',
+                        caption: 'entities.action.views.projecttrendslistview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -10813,8 +11929,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/testtasks/:testtask?/editview_committest/:editview_committest?',
                     meta: {
-                        caption: 'entities.testtask.views.editview_committest.title',
+                        caption: 'entities.testtask.views.editview_committest.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -10828,8 +11946,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testtasks/:testtask?/editview_committest/:editview_committest?',
                     meta: {
-                        caption: 'entities.testtask.views.editview_committest.title',
+                        caption: 'entities.testtask.views.editview_committest.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10843,8 +11963,10 @@ const router = new Router({
                 {
                     path: 'testtasks/:testtask?/editview_committest/:editview_committest?',
                     meta: {
-                        caption: 'entities.testtask.views.editview_committest.title',
+                        caption: 'entities.testtask.views.editview_committest.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -10857,7 +11979,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/productmodules/:productmodule?/gridviewbranch/:gridviewbranch?',
                     meta: {
-                        caption: 'entities.productmodule.views.gridviewbranch.title',
+                        caption: 'entities.productmodule.views.gridviewbranch.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -10872,7 +11994,7 @@ const router = new Router({
                 {
                     path: 'productmodules/:productmodule?/gridviewbranch/:gridviewbranch?',
                     meta: {
-                        caption: 'entities.productmodule.views.gridviewbranch.title',
+                        caption: 'entities.productmodule.views.gridviewbranch.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -10886,8 +12008,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testreports/:testreport?/editview_testrange/:editview_testrange?',
                     meta: {
-                        caption: 'entities.testreport.views.editview_testrange.title',
+                        caption: 'entities.testreport.views.editview_testrange.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10901,8 +12025,10 @@ const router = new Router({
                 {
                     path: 'testreports/:testreport?/editview_testrange/:editview_testrange?',
                     meta: {
-                        caption: 'entities.testreport.views.editview_testrange.title',
+                        caption: 'entities.testreport.views.editview_testrange.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testreports', parameterName: 'testreport' },
@@ -10915,8 +12041,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/testtasks/:testtask?/maintabexpview/:maintabexpview?',
                     meta: {
-                        caption: 'entities.testtask.views.maintabexpview.title',
+                        caption: 'entities.testtask.views.maintabexpview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -10930,8 +12058,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testtasks/:testtask?/maintabexpview/:maintabexpview?',
                     meta: {
-                        caption: 'entities.testtask.views.maintabexpview.title',
+                        caption: 'entities.testtask.views.maintabexpview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10945,8 +12075,10 @@ const router = new Router({
                 {
                     path: 'testtasks/:testtask?/maintabexpview/:maintabexpview?',
                     meta: {
-                        caption: 'entities.testtask.views.maintabexpview.title',
+                        caption: 'entities.testtask.views.maintabexpview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -10959,8 +12091,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/closeview/:closeview?',
                     meta: {
-                        caption: 'entities.story.views.closeview.title',
+                        caption: 'entities.story.views.closeview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10974,8 +12108,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/closeview/:closeview?',
                     meta: {
-                        caption: 'entities.story.views.closeview.title',
+                        caption: 'entities.story.views.closeview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -10988,8 +12124,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/closeview/:closeview?',
                     meta: {
-                        caption: 'entities.bug.views.closeview.title',
+                        caption: 'entities.bug.views.closeview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -11004,8 +12142,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/bugs/:bug?/closeview/:closeview?',
                     meta: {
-                        caption: 'entities.bug.views.closeview.title',
+                        caption: 'entities.bug.views.closeview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -11019,8 +12159,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/bugs/:bug?/closeview/:closeview?',
                     meta: {
-                        caption: 'entities.bug.views.closeview.title',
+                        caption: 'entities.bug.views.closeview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -11034,8 +12176,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/bugs/:bug?/closeview/:closeview?',
                     meta: {
-                        caption: 'entities.bug.views.closeview.title',
+                        caption: 'entities.bug.views.closeview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -11049,8 +12193,10 @@ const router = new Router({
                 {
                     path: 'bugs/:bug?/closeview/:closeview?',
                     meta: {
-                        caption: 'entities.bug.views.closeview.title',
+                        caption: 'entities.bug.views.closeview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'bugs', parameterName: 'bug' },
@@ -11063,7 +12209,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/testleftsidebarlistview/:testleftsidebarlistview?',
                     meta: {
-                        caption: 'entities.product.views.testleftsidebarlistview.title',
+                        caption: 'entities.product.views.testleftsidebarlistview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11075,10 +12221,26 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-test-left-sidebar-list-view/product-test-left-sidebar-list-view.vue'),
                 },
                 {
+                    path: 'ibzprostorymodules/:ibzprostorymodule?/optionview/:optionview?',
+                    meta: {
+                        caption: 'entities.ibzprostorymodule.views.optionview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzprostorymodules', parameterName: 'ibzprostorymodule' },
+                            { pathName: 'optionview', parameterName: 'optionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibzpro-story-module-option-view/ibzpro-story-module-option-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/plansubeditview/:plansubeditview?',
                     meta: {
-                        caption: 'entities.story.views.plansubeditview.title',
+                        caption: 'entities.story.views.plansubeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -11092,8 +12254,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/plansubeditview/:plansubeditview?',
                     meta: {
-                        caption: 'entities.story.views.plansubeditview.title',
+                        caption: 'entities.story.views.plansubeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -11106,7 +12270,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/testresults/:testresult?/editview9/:editview9?',
                     meta: {
-                        caption: 'entities.testresult.views.editview9.title',
+                        caption: 'entities.testresult.views.editview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11123,7 +12287,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/testresults/:testresult?/editview9/:editview9?',
                     meta: {
-                        caption: 'entities.testresult.views.editview9.title',
+                        caption: 'entities.testresult.views.editview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11139,7 +12303,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/testresults/:testresult?/editview9/:editview9?',
                     meta: {
-                        caption: 'entities.testresult.views.editview9.title',
+                        caption: 'entities.testresult.views.editview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11155,7 +12319,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/testresults/:testresult?/editview9/:editview9?',
                     meta: {
-                        caption: 'entities.testresult.views.editview9.title',
+                        caption: 'entities.testresult.views.editview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11170,7 +12334,7 @@ const router = new Router({
                 {
                     path: 'testresults/:testresult?/editview9/:editview9?',
                     meta: {
-                        caption: 'entities.testresult.views.editview9.title',
+                        caption: 'entities.testresult.views.editview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11182,23 +12346,9 @@ const router = new Router({
                     component: () => import('@pages/zentao/test-result-edit-view9/test-result-edit-view9.vue'),
                 },
                 {
-                    path: 'projects/:project?/testtabexpview/:testtabexpview?',
-                    meta: {
-                        caption: 'entities.project.views.testtabexpview.title',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'testtabexpview', parameterName: 'testtabexpview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/project-test-tab-exp-view/project-test-tab-exp-view.vue'),
-                },
-                {
                     path: 'projects/:project?/editview_putoff/:editview_putoff?',
                     meta: {
-                        caption: 'entities.project.views.editview_putoff.title',
+                        caption: 'entities.project.views.editview_putoff.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11210,9 +12360,23 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-edit-view-putoff/project-edit-view-putoff.vue'),
                 },
                 {
+                    path: 'projects/:project?/testtabexpview/:testtabexpview?',
+                    meta: {
+                        caption: 'entities.project.views.testtabexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'testtabexpview', parameterName: 'testtabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-test-tab-exp-view/project-test-tab-exp-view.vue'),
+                },
+                {
                     path: 'todos/:todo?/dashboardview/:dashboardview?',
                     meta: {
-                        caption: 'entities.todo.views.dashboardview.title',
+                        caption: 'entities.todo.views.dashboardview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11226,7 +12390,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/editview/:editview?',
                     meta: {
-                        caption: 'entities.project.views.editview.title',
+                        caption: 'entities.project.views.editview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11240,7 +12404,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/productplans/:productplan?/editview/:editview?',
                     meta: {
-                        caption: 'entities.productplan.views.editview.title',
+                        caption: 'entities.productplan.views.editview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11255,7 +12419,7 @@ const router = new Router({
                 {
                     path: 'productplans/:productplan?/editview/:editview?',
                     meta: {
-                        caption: 'entities.productplan.views.editview.title',
+                        caption: 'entities.productplan.views.editview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11269,7 +12433,7 @@ const router = new Router({
                 {
                     path: 'depts/:dept?/maingridview/:maingridview?',
                     meta: {
-                        caption: 'entities.dept.views.maingridview.title',
+                        caption: 'entities.dept.views.maingridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11281,10 +12445,26 @@ const router = new Router({
                     component: () => import('@pages/zentao/dept-main-grid-view/dept-main-grid-view.vue'),
                 },
                 {
+                    path: 'ibzprostorymodules/:ibzprostorymodule?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.ibzprostorymodule.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzprostorymodules', parameterName: 'ibzprostorymodule' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibizpro/ibzpro-story-module-edit-view/ibzpro-story-module-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/usr2mpickupview/:usr2mpickupview?',
                     meta: {
-                        caption: 'entities.story.views.usr2mpickupview.title',
+                        caption: 'entities.story.views.usr2mpickupview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -11298,8 +12478,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/usr2mpickupview/:usr2mpickupview?',
                     meta: {
-                        caption: 'entities.story.views.usr2mpickupview.title',
+                        caption: 'entities.story.views.usr2mpickupview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -11312,7 +12494,7 @@ const router = new Router({
                 {
                     path: 'actions/:action?/historylistview/:historylistview?',
                     meta: {
-                        caption: 'entities.action.views.historylistview.title',
+                        caption: 'entities.action.views.historylistview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11326,8 +12508,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/gridview9_assignedtome/:gridview9_assignedtome?',
                     meta: {
-                        caption: 'entities.story.views.gridview9_assignedtome.title',
+                        caption: 'entities.story.views.gridview9_assignedtome.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -11341,8 +12525,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/gridview9_assignedtome/:gridview9_assignedtome?',
                     meta: {
-                        caption: 'entities.story.views.gridview9_assignedtome.title',
+                        caption: 'entities.story.views.gridview9_assignedtome.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -11353,9 +12539,23 @@ const router = new Router({
                     component: () => import('@pages/zentao/story-grid-view9-assigned-to-me/story-grid-view9-assigned-to-me.vue'),
                 },
                 {
+                    path: 'products/:product?/wizardview/:wizardview?',
+                    meta: {
+                        caption: 'entities.product.views.wizardview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'wizardview', parameterName: 'wizardview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/product-wizard-view/product-wizard-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.ibztaskestimate.views.gridview9.title',
+                        caption: 'entities.ibztaskestimate.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11372,7 +12572,7 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.ibztaskestimate.views.gridview9.title',
+                        caption: 'entities.ibztaskestimate.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11388,7 +12588,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.ibztaskestimate.views.gridview9.title',
+                        caption: 'entities.ibztaskestimate.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11404,7 +12604,7 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/ibztaskestimates/:ibztaskestimate?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.ibztaskestimate.views.gridview9.title',
+                        caption: 'entities.ibztaskestimate.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11419,7 +12619,7 @@ const router = new Router({
                 {
                     path: 'ibztaskestimates/:ibztaskestimate?/gridview9/:gridview9?',
                     meta: {
-                        caption: 'entities.ibztaskestimate.views.gridview9.title',
+                        caption: 'entities.ibztaskestimate.views.gridview9.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11433,7 +12633,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/editview_close/:editview_close?',
                     meta: {
-                        caption: 'entities.product.views.editview_close.title',
+                        caption: 'entities.product.views.editview_close.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11447,8 +12647,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/plansubgridview/:plansubgridview?',
                     meta: {
-                        caption: 'entities.story.views.plansubgridview.title',
+                        caption: 'entities.story.views.plansubgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -11462,8 +12664,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/plansubgridview/:plansubgridview?',
                     meta: {
-                        caption: 'entities.story.views.plansubgridview.title',
+                        caption: 'entities.story.views.plansubgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -11476,7 +12680,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/gridview9_storyrelated/:gridview9_storyrelated?',
                     meta: {
-                        caption: 'entities.case.views.gridview9_storyrelated.title',
+                        caption: 'entities.case.views.gridview9_storyrelated.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11492,7 +12696,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/gridview9_storyrelated/:gridview9_storyrelated?',
                     meta: {
-                        caption: 'entities.case.views.gridview9_storyrelated.title',
+                        caption: 'entities.case.views.gridview9_storyrelated.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11507,7 +12711,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/gridview9_storyrelated/:gridview9_storyrelated?',
                     meta: {
-                        caption: 'entities.case.views.gridview9_storyrelated.title',
+                        caption: 'entities.case.views.gridview9_storyrelated.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11522,7 +12726,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/gridview9_storyrelated/:gridview9_storyrelated?',
                     meta: {
-                        caption: 'entities.case.views.gridview9_storyrelated.title',
+                        caption: 'entities.case.views.gridview9_storyrelated.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11536,8 +12740,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/testtasks/:testtask?/editview9_info/:editview9_info?',
                     meta: {
-                        caption: 'entities.testtask.views.editview9_info.title',
+                        caption: 'entities.testtask.views.editview9_info.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -11551,8 +12757,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/testtasks/:testtask?/editview9_info/:editview9_info?',
                     meta: {
-                        caption: 'entities.testtask.views.editview9_info.title',
+                        caption: 'entities.testtask.views.editview9_info.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -11566,8 +12774,10 @@ const router = new Router({
                 {
                     path: 'testtasks/:testtask?/editview9_info/:editview9_info?',
                     meta: {
-                        caption: 'entities.testtask.views.editview9_info.title',
+                        caption: 'entities.testtask.views.editview9_info.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'testtasks', parameterName: 'testtask' },
@@ -11580,8 +12790,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/mainview9_related/:mainview9_related?',
                     meta: {
-                        caption: 'entities.story.views.mainview9_related.title',
+                        caption: 'entities.story.views.mainview9_related.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -11595,8 +12807,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/mainview9_related/:mainview9_related?',
                     meta: {
-                        caption: 'entities.story.views.mainview9_related.title',
+                        caption: 'entities.story.views.mainview9_related.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -11609,8 +12823,10 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/gridview9_storyrelated/:gridview9_storyrelated?',
                     meta: {
-                        caption: 'entities.task.views.gridview9_storyrelated.title',
+                        caption: 'entities.task.views.gridview9_storyrelated.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -11625,8 +12841,10 @@ const router = new Router({
                 {
                     path: 'projects/:project?/tasks/:task?/gridview9_storyrelated/:gridview9_storyrelated?',
                     meta: {
-                        caption: 'entities.task.views.gridview9_storyrelated.title',
+                        caption: 'entities.task.views.gridview9_storyrelated.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'projects', parameterName: 'project' },
@@ -11640,8 +12858,10 @@ const router = new Router({
                 {
                     path: 'stories/:story?/tasks/:task?/gridview9_storyrelated/:gridview9_storyrelated?',
                     meta: {
-                        caption: 'entities.task.views.gridview9_storyrelated.title',
+                        caption: 'entities.task.views.gridview9_storyrelated.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -11655,8 +12875,10 @@ const router = new Router({
                 {
                     path: 'tasks/:task?/gridview9_storyrelated/:gridview9_storyrelated?',
                     meta: {
-                        caption: 'entities.task.views.gridview9_storyrelated.title',
+                        caption: 'entities.task.views.gridview9_storyrelated.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'tasks', parameterName: 'task' },
@@ -11669,7 +12891,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/curtesttaskgridview/:curtesttaskgridview?',
                     meta: {
-                        caption: 'entities.case.views.curtesttaskgridview.title',
+                        caption: 'entities.case.views.curtesttaskgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11685,7 +12907,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/curtesttaskgridview/:curtesttaskgridview?',
                     meta: {
-                        caption: 'entities.case.views.curtesttaskgridview.title',
+                        caption: 'entities.case.views.curtesttaskgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11700,7 +12922,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/curtesttaskgridview/:curtesttaskgridview?',
                     meta: {
-                        caption: 'entities.case.views.curtesttaskgridview.title',
+                        caption: 'entities.case.views.curtesttaskgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11715,7 +12937,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/curtesttaskgridview/:curtesttaskgridview?',
                     meta: {
-                        caption: 'entities.case.views.curtesttaskgridview.title',
+                        caption: 'entities.case.views.curtesttaskgridview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11729,7 +12951,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/ibzcasesteps/:ibzcasestep?/maingridview9_editmode/:maingridview9_editmode?',
                     meta: {
-                        caption: 'entities.ibzcasestep.views.maingridview9_editmode.title',
+                        caption: 'entities.ibzcasestep.views.maingridview9_editmode.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11746,7 +12968,7 @@ const router = new Router({
                 {
                     path: 'stories/:story?/cases/:case?/ibzcasesteps/:ibzcasestep?/maingridview9_editmode/:maingridview9_editmode?',
                     meta: {
-                        caption: 'entities.ibzcasestep.views.maingridview9_editmode.title',
+                        caption: 'entities.ibzcasestep.views.maingridview9_editmode.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11762,7 +12984,7 @@ const router = new Router({
                 {
                     path: 'products/:product?/cases/:case?/ibzcasesteps/:ibzcasestep?/maingridview9_editmode/:maingridview9_editmode?',
                     meta: {
-                        caption: 'entities.ibzcasestep.views.maingridview9_editmode.title',
+                        caption: 'entities.ibzcasestep.views.maingridview9_editmode.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11778,7 +13000,7 @@ const router = new Router({
                 {
                     path: 'cases/:case?/ibzcasesteps/:ibzcasestep?/maingridview9_editmode/:maingridview9_editmode?',
                     meta: {
-                        caption: 'entities.ibzcasestep.views.maingridview9_editmode.title',
+                        caption: 'entities.ibzcasestep.views.maingridview9_editmode.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
@@ -11793,7 +13015,7 @@ const router = new Router({
                 {
                     path: 'ibzcasesteps/:ibzcasestep?/maingridview9_editmode/:maingridview9_editmode?',
                     meta: {
-                        caption: 'entities.ibzcasestep.views.maingridview9_editmode.title',
+                        caption: 'entities.ibzcasestep.views.maingridview9_editmode.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },

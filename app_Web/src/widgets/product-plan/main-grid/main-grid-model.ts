@@ -27,6 +27,16 @@ export default class MainModel {
     }else{
 		  return [
         {
+          name: 'endstr',
+          prop: 'endstr',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'beginstr',
+          prop: 'beginstr',
+          dataType: 'TEXT',
+        },
+        {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
@@ -40,6 +50,11 @@ export default class MainModel {
           dataType: 'INT',
         },
         {
+          name: 'srfmajortext',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
@@ -51,19 +66,9 @@ export default class MainModel {
           dataType: 'ACID',
         },
         {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
           name: 'begin',
           prop: 'begin',
           dataType: 'DATE',
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
         },
         {
           name: 'product',
@@ -71,8 +76,18 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'title',
           prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'statuss',
+          prop: 'statuss',
           dataType: 'TEXT',
         },
         {
@@ -113,6 +128,10 @@ export default class MainModel {
         {
           name:'sort',
           prop:'sort'
+        },
+        {
+          name:'items',
+          prop:'items'
         },
         {
           name:'srfparentdata',

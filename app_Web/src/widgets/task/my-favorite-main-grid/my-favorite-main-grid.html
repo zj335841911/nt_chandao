@@ -9,6 +9,7 @@
         :cell-class-name="getCellClassName.bind(_self)"
         size="mini"
         stripe
+        :height="tableHeight"
         @row-click="rowClick($event)"  
         @select-all="selectAll($event)"  
         @select="select($event)"  
@@ -100,16 +101,16 @@
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('status')">
-                <el-table-column show-overflow-tooltip :prop="'status'" :label="$t('entities.task.myfavoritemain_grid.columns.status')" :width="100"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('status1')">
+                <el-table-column show-overflow-tooltip :prop="'status1'" :label="$t('entities.task.myfavoritemain_grid.columns.status1')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.task.myfavoritemain_grid.columns.status')}}
+                        {{$t('entities.task.myfavoritemain_grid.columns.status1')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.status" tag='Task__status' codelistType='STATIC' ></codelist>
+            <codelist :value="row.status1" tag='TaskStatusCK' codelistType='STATIC' ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -194,7 +195,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.task.myfavoritemain_grid.columns.uagridcolumn1')" :width="200"  :align="'center'">
+                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.task.myfavoritemain_grid.columns.uagridcolumn1')" :width="200"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.task.myfavoritemain_grid.columns.uagridcolumn1')}}
@@ -202,6 +203,11 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
+                          <a v-show="scope.row.confirmStoryChange.visabled" :disabled="scope.row.confirmStoryChange.disabled" @click="uiAction(scope.row, 'confirmStoryChange', $event)" :title="$t('entities.task.myfavoritemain_grid.uiactions.task_confirmstorychange')">
+                            <i class='fa fa-search'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.StartTask.visabled" type='vertical'></divider>
                           <a v-show="scope.row.StartTask.visabled" :disabled="scope.row.StartTask.disabled" @click="uiAction(scope.row, 'StartTask', $event)" :title="$t('entities.task.myfavoritemain_grid.uiactions.task_starttask')">
                             <i class='fa fa-play-circle-o'></i>
                             

@@ -57,16 +57,6 @@ export class TaskEditViewBase extends EditViewBase {
      */
     public appUIService: TaskUIService = new TaskUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof TaskEditViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航上下文集合
 	 *
@@ -92,6 +82,13 @@ export class TaskEditViewBase extends EditViewBase {
         'story': { isRawValue: false, value: 'story' },
         'module': { isRawValue: false, value: 'module' }
     };
+
+    /**
+     * 是否显示信息栏
+     *
+     * @memberof TaskEditViewBase
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -150,6 +147,15 @@ export class TaskEditViewBase extends EditViewBase {
      * @memberof TaskEditViewBase
      */
     public engine: EditViewEngine = new EditViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof TaskEditViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

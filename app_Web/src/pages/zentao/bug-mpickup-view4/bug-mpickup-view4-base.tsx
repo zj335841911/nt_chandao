@@ -57,16 +57,6 @@ export class BugMPickupView4Base extends MPickupViewBase {
      */
     public appUIService: BugUIService = new BugUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof BugMPickupView4Base
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -117,6 +107,15 @@ export class BugMPickupView4Base extends MPickupViewBase {
      * @memberof BugMPickupView4Base
      */
     public engine: MPickupViewEngine = new MPickupViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof BugMPickupView4Base
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

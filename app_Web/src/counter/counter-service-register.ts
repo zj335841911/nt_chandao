@@ -39,7 +39,8 @@ export class CounterServiceRegister {
      * @memberof CounterServiceRegister
      */
     protected init(): void {
-            }
+                this.allCounterService.set('projecttaskqcounter', () => import('@/counter/project-task-qcounter/project-task-qcounter-counter'));
+    }
 
     /**
      * 加载计数器服务

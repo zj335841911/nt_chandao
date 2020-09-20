@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class DeptResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Create-all')")
     @ApiOperation(value = "新建部门", tags = {"部门" },  notes = "新建部门")
 	@RequestMapping(method = RequestMethod.POST, value = "/depts")
-    public ResponseEntity<DeptDTO> create(@RequestBody DeptDTO deptdto) {
+    public ResponseEntity<DeptDTO> create(@Validated @RequestBody DeptDTO deptdto) {
         Dept domain = deptMapping.toDomain(deptdto);
 		deptService.create(domain);
         DeptDTO dto = deptMapping.toDto(domain);
@@ -67,7 +68,7 @@ public class DeptResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Update-all')")
     @ApiOperation(value = "更新部门", tags = {"部门" },  notes = "更新部门")
 	@RequestMapping(method = RequestMethod.PUT, value = "/depts/{dept_id}")
-    public ResponseEntity<DeptDTO> update(@PathVariable("dept_id") BigInteger dept_id, @RequestBody DeptDTO deptdto) {
+    public ResponseEntity<DeptDTO> update(@PathVariable("dept_id") Long dept_id, @RequestBody DeptDTO deptdto) {
 		Dept domain  = deptMapping.toDomain(deptdto);
         domain .setId(dept_id);
 		deptService.update(domain );
@@ -86,14 +87,14 @@ public class DeptResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Remove-all')")
     @ApiOperation(value = "删除部门", tags = {"部门" },  notes = "删除部门")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/depts/{dept_id}")
-    public ResponseEntity<Boolean> remove(@PathVariable("dept_id") BigInteger dept_id) {
+    public ResponseEntity<Boolean> remove(@PathVariable("dept_id") Long dept_id) {
          return ResponseEntity.status(HttpStatus.OK).body(deptService.remove(dept_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Remove-all')")
     @ApiOperation(value = "批量删除部门", tags = {"部门" },  notes = "批量删除部门")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/depts/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         deptService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -101,7 +102,7 @@ public class DeptResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Get-all')")
     @ApiOperation(value = "获取部门", tags = {"部门" },  notes = "获取部门")
 	@RequestMapping(method = RequestMethod.GET, value = "/depts/{dept_id}")
-    public ResponseEntity<DeptDTO> get(@PathVariable("dept_id") BigInteger dept_id) {
+    public ResponseEntity<DeptDTO> get(@PathVariable("dept_id") Long dept_id) {
         Dept domain = deptService.get(dept_id);
         DeptDTO dto = deptMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);

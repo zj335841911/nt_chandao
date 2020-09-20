@@ -165,6 +165,8 @@ export class MyTestTabExpViewtabviewpanel4TabviewpanelBase extends MainControlBa
                 if (!Object.is(tag, this.name)) {
                     return;
                 }
+                this.context.clearAll();
+                Object.assign(this.context, data);
                 this.$forceUpdate();
                 this.initNavParam();
             });

@@ -60,16 +60,6 @@ export class CaseLinkCaseGridViewBase extends GridViewBase {
      */
     public appUIService: CaseUIService = new CaseUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof CaseLinkCaseGridViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航上下文集合
 	 *
@@ -150,6 +140,15 @@ export class CaseLinkCaseGridViewBase extends GridViewBase {
      * @memberof CaseLinkCaseGridViewBase
      */
     public engine: GridViewEngine = new GridViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof CaseLinkCaseGridViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

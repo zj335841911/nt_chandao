@@ -22,10 +22,25 @@ ibiz:
       util: UAATokenUtil
   ref:
     service:
-      uaa: ibzuaa-apipms
-      ou: ibzou-apipms
+      uaa: ibzuaa-api
+      ou: ibzou-api
       notify: ibznotify-api
   cacheLevel: L2
+
+  #消息推送相关
+  message:
+    # 开启消息推送
+    enabled: true
+    # 消息类型，根据Notify系统提供的参数
+    # 2（aliyun-email）,4(aliyun-sms),32(wechat-msg),64(dingtalk-msg)
+    appname: iBiz软件生产管理
+    type: 64
+    # 域名首页, 用于发送消息链接
+    # 比如:http://ibizpmsh5.ibizlab.cn
+    homepage:
+      mob: http://ibizpmsh5.ibizlab.cn
+      pc: http://ibizpmspc.ibizlab.cn
+
 spring:
   servlet:
     multipart:
@@ -42,15 +57,10 @@ pms:
     #同步权限资源。
     uaa: true
 
-  #消息推送相关
-  message:
-    # 开启消息推送
-    enabled: true
-    # 消息类型，根据Notify系统提供的参数
-    # 2（aliyun-email）,4(aliyun-sms),32(wechat-msg),64(dingtalk-msg)
-    type: 64
-    # 域名首页, 用于发送消息链接
-    # 比如:http://ibizpmsh5.ibizlab.cn
-    homepage:
-      mob: http://ibizpmsh5.ibizlab.cn
-      pc: http://ibizpmspc.ibizlab.cn
+  #是否跟踪数据流
+  trace: true
+
+#Log配置
+logging:
+  level:
+    cn.ibizlab.pms: debug

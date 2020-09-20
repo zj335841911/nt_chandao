@@ -18,7 +18,7 @@ export class AppHeader extends Vue {
      * @returns {VNode}
      * @memberof AppHeader
      */
-    public render(): VNode {
+    public render(h: any): VNode {
         return <div class="app-header">
             <div class="app-header-left">
                 {this.$slots.header_left}

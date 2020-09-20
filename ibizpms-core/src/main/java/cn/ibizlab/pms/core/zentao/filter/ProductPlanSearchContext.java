@@ -48,22 +48,22 @@ public class ProductPlanSearchContext extends QueryWrapperContext<ProductPlan> {
             this.getSearchCond().like("parentname", n_parentname_like);
         }
     }
-	private BigInteger n_branch_eq;//[平台/分支]
-	public void setN_branch_eq(BigInteger n_branch_eq) {
+	private Long n_branch_eq;//[平台/分支]
+	public void setN_branch_eq(Long n_branch_eq) {
         this.n_branch_eq = n_branch_eq;
         if(!ObjectUtils.isEmpty(this.n_branch_eq)){
             this.getSearchCond().eq("branch", n_branch_eq);
         }
     }
-	private BigInteger n_parent_eq;//[父计划]
-	public void setN_parent_eq(BigInteger n_parent_eq) {
+	private Long n_parent_eq;//[父计划]
+	public void setN_parent_eq(Long n_parent_eq) {
         this.n_parent_eq = n_parent_eq;
         if(!ObjectUtils.isEmpty(this.n_parent_eq)){
             this.getSearchCond().eq("parent", n_parent_eq);
         }
     }
-	private BigInteger n_product_eq;//[产品]
-	public void setN_product_eq(BigInteger n_product_eq) {
+	private Long n_product_eq;//[产品]
+	public void setN_product_eq(Long n_product_eq) {
         this.n_product_eq = n_product_eq;
         if(!ObjectUtils.isEmpty(this.n_product_eq)){
             this.getSearchCond().eq("product", n_product_eq);
@@ -81,6 +81,13 @@ public class ProductPlanSearchContext extends QueryWrapperContext<ProductPlan> {
         this.n_delta_eq = n_delta_eq;
         if(!ObjectUtils.isEmpty(this.n_delta_eq)){
             this.getSearchCond().eq("delta", n_delta_eq);
+        }
+    }
+	private String n_isexpired_eq;//[是否过期]
+	public void setN_isexpired_eq(String n_isexpired_eq) {
+        this.n_isexpired_eq = n_isexpired_eq;
+        if(!ObjectUtils.isEmpty(this.n_isexpired_eq)){
+            this.getSearchCond().eq("isexpired", n_isexpired_eq);
         }
     }
 

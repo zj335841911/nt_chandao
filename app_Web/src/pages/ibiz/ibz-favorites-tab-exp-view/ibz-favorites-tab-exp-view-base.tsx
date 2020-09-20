@@ -57,15 +57,12 @@ export class IbzFavoritesTabExpViewBase extends TabExpViewBase {
      */
     public appUIService: IbzFavoritesUIService = new IbzFavoritesUIService(this.$store);
 
-
     /**
-     * 计数器服务对象集合
+     * 是否显示信息栏
      *
-     * @protected
-     * @type {Array<*>}
      * @memberof IbzFavoritesTabExpViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -111,6 +108,15 @@ export class IbzFavoritesTabExpViewBase extends TabExpViewBase {
      * @memberof IbzFavoritesTabExpViewBase
      */
     public engine: TabExpViewEngine = new TabExpViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof IbzFavoritesTabExpViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

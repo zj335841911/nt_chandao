@@ -51,6 +51,11 @@ export class MobMainModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'code',
+                prop: 'code',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'pm',
                 prop: 'pm',
                 dataType: 'SSCODELIST',
@@ -81,9 +86,49 @@ export class MobMainModel {
                 dataType: 'DATE',
             },
             {
+                name: 'days',
+                prop: 'days',
+                dataType: 'INT',
+            },
+            {
+                name: 'team',
+                prop: 'team',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'status',
                 prop: 'status',
                 dataType: 'SSCODELIST',
+            },
+            {
+                name: 'storycnt',
+                prop: 'storycnt',
+                dataType: 'INT',
+            },
+            {
+                name: 'bugcnt',
+                prop: 'bugcnt',
+                dataType: 'INT',
+            },
+            {
+                name: 'taskcnt',
+                prop: 'taskcnt',
+                dataType: 'INT',
+            },
+            {
+                name: 'totalestimate',
+                prop: 'totalestimate',
+                dataType: 'FLOAT',
+            },
+            {
+                name: 'totalconsumed',
+                prop: 'totalconsumed',
+                dataType: 'FLOAT',
+            },
+            {
+                name: 'desc',
+                prop: 'desc',
+                dataType: 'LONGTEXT',
             },
             {
                 name: 'id',

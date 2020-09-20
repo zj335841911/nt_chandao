@@ -79,19 +79,19 @@ public class ExtensionServiceImpl extends ServiceImpl<ExtensionMapper, Extension
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public Extension get(BigInteger key) {
+    public Extension get(Long key) {
         Extension et = getById(key);
         if(et==null){
             et=new Extension();

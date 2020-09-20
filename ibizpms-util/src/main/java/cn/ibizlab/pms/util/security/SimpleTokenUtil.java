@@ -167,5 +167,9 @@ public class SimpleTokenUtil implements AuthTokenUtil,Serializable {
                         .anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals(authority)))
                 .orElse(false);
     }
+
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
 }
 

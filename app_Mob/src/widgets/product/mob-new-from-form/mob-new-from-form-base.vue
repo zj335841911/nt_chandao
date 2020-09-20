@@ -1,5 +1,5 @@
 <template>
-    <div ref='form' class="app-form ">
+    <div ref='form' class="app-form product-form ">
                 
 
 <app-form-group 
@@ -46,7 +46,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.name" 
+    :value="data.name"
+    unit=""
     :disabled="detailsModel.name.disabled" 
     @change="($event)=>this.data.name = $event" />
 </app-form-item>
@@ -71,7 +72,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.code" 
+    :value="data.code"
+    unit=""
     :disabled="detailsModel.code.disabled" 
     @change="($event)=>this.data.code = $event" />
 </app-form-item>
@@ -109,7 +111,7 @@
         <app-mob-select-drop-down 
     name='linename' 
     deMajorField='name'
-    deKeyField='moduleid'
+    deKeyField='id'
     valueitem='' 
     style="" 
     editortype="dropdown" 
@@ -124,7 +126,8 @@
     :service="service"
     :acParams="{ serviceName: 'module', interfaceName: 'FetchLine'}"
     :value="data.linename" 
-    @formitemvaluechange="onFormItemValueChange">
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.linename = $event">
 </app-mob-select-drop-down>
 </app-form-item>
 
@@ -274,10 +277,9 @@
     :caption="$t('product.mobnewfrom_form.details.desc')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.desc.disabled"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"product",version:"editor"}' :exportparams='{objecttype:"product",version:"editor"}'  style=""></app-mob-rich-text-editor>
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"product",version:"editor"}' :exportparams='{objecttype:"product",version:"editor"}'  style=""/>
 
 </app-form-item>
 
@@ -321,7 +323,6 @@
 
     </div>
 </template>
-
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';

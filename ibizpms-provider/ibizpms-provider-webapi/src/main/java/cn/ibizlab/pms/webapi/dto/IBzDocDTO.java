@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibzdocid")
     @JsonProperty("ibzdocid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String ibzdocid;
 
     /**
@@ -38,6 +42,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "addedby")
     @JsonProperty("addedby")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String addedby;
 
     /**
@@ -46,6 +51,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "editedby")
     @JsonProperty("editedby")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String editedby;
 
     /**
@@ -54,6 +60,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "addeddate")
     @JsonProperty("addeddate")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String addeddate;
 
     /**
@@ -62,6 +69,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "size")
     @JsonProperty("size")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String size;
 
     /**
@@ -70,6 +78,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "lib")
     @JsonProperty("lib")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String lib;
 
     /**
@@ -87,6 +96,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibzdocname")
     @JsonProperty("ibzdocname")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String ibzdocname;
 
     /**
@@ -95,6 +105,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "order")
     @JsonProperty("order")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String order;
 
     /**
@@ -111,6 +122,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "createman")
     @JsonProperty("createman")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String createman;
 
     /**
@@ -128,6 +140,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "editeddate")
     @JsonProperty("editeddate")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String editeddate;
 
     /**
@@ -136,6 +149,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "objecttype")
     @JsonProperty("objecttype")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String objecttype;
 
     /**
@@ -144,6 +158,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String updateman;
 
 
@@ -229,4 +244,5 @@ public class IBzDocDTO extends DTOBase implements Serializable {
 
 
 }
+
 

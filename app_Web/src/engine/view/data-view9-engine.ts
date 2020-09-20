@@ -20,7 +20,7 @@ export default class DataView9Engine extends DataViewEngine {
             super.load(opts);
         }else{
             if(isnotify){
-                super.load(opts);
+                super.load(opts, isnotify);
             }
         }
     }

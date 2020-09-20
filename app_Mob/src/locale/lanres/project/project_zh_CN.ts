@@ -54,8 +54,30 @@ export default {
     accounts: "项目团队相关成员",
     order1: "项目排序",
     istop: "是否置顶",
+    dept: "选择部门",
+    managemembers: "复制团队",
+    buildcnt: "版本总数",
+    teamcnt: "团队成员总数",
+    alltaskcnt: "所有任务数",
+    unclosetaskcnt: "未关闭任务数",
+    asstomytaskcnt: "指派给我任务数",
+    unstarttaskcnt: "未开始任务数",
+    moretaskcnt: "更多任务数",
+    ystarttaskcnt: "进行中任务数",
+    uncompletetaskcnt: "未完成任务数",
+    ycompletetaskcnt: "已完成任务数",
+    mycompletetaskcnt: "我完成任务数",
+    closetaskcnt: "关闭任务数",
+    canceltaskcnt: "取消任务数",
+    storychangecnt: "需求变更数",
   },
 	views: {
+		mobchartview: {
+			caption: '项目',
+		},
+		newmobeditview: {
+			caption: '项目',
+		},
 		mobeditview: {
 			caption: '项目',
 		},
@@ -63,10 +85,16 @@ export default {
 			caption: '挂起',
 		},
 		mobtabexpview: {
-			caption: '项目详情',
+			caption: '项目',
+		},
+		mobpickupmdview: {
+			caption: '项目',
 		},
 		activitemobeditview: {
 			caption: '激活',
+		},
+		mobpickupview: {
+			caption: '项目',
 		},
 		closemobeditview: {
 			caption: '关闭',
@@ -89,13 +117,22 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			name: '项目名称', 
+			code: '项目代号', 
 			pm: '项目负责人', 
 			po: '产品负责人', 
 			qd: '测试负责人', 
 			rd: '发布负责人', 
 			begin: '开始时间', 
 			end: '结束日期', 
+			days: '可用工作日', 
+			team: '团队名称', 
 			status: '项目状态', 
+			storycnt: '需求总数', 
+			bugcnt: 'Bug总数', 
+			taskcnt: '任务总数', 
+			totalestimate: '任务最初预计总工时', 
+			totalconsumed: '任务消耗总工时', 
+			desc: '项目描述', 
 			id: '项目编号', 
 		},
 		uiactions: {
@@ -143,7 +180,33 @@ export default {
 		uiactions: {
 		},
 	},
-	mobmdviewrighttoolbar_toolbar: {
+	mobnewform_form: {
+		details: {
+			grouppanel2: '分组面板', 
+			grouppanel1: '分组面板', 
+			group1: 'project基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '项目编号', 
+			srfmajortext: '项目名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			name: '项目名称', 
+			code: '项目代号', 
+			begin: '开始时间', 
+			period: '时间段', 
+			end: '结束日期', 
+			days: '可用工作日', 
+			team: '团队名称', 
+			type: '项目类型', 
+			desc: '项目描述', 
+			acl: '访问控制', 
+			id: '项目编号', 
+		},
+		uiactions: {
+		},
 	},
 	activitemobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
@@ -183,6 +246,18 @@ export default {
 		deuiaction4: {
 			caption: '删除',
 			tip: '删除',
+		},
+	},
+	newmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
+	},
+	mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
 		},
 	},
 };

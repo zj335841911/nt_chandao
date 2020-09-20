@@ -31,15 +31,5 @@ public class ProductExService extends ProductServiceImpl {
     public Product close(Product et) {
         return super.close(et);
     }
-    /**
-     * 自定义行为[MobProductCounter]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public Product mobProductCounter(Product et) {
-        return super.mobProductCounter(et);
-    }
 }
 

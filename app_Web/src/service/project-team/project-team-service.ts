@@ -46,5 +46,43 @@ export default class ProjectTeamService extends ProjectTeamServiceBase {
         return res;
     }
 
+    /**
+     * FetchRowEditDefault接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectTeamServiceBase
+     */
+    public async FetchRowEditDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:Promise<any> = Http.getInstance().get(`/projects/${context.project}/projectteams/fetchroweditdefault`,tempData,isloading);
+            res.then((response) => {
+                if (response.data instanceof Array) {
+                    response.data.forEach((item:any) =>{
+                        item.srfuf = '0';
+                    });
+                }
+            }).catch(response => {
+
+            });
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:Promise<any> = Http.getInstance().get(`/projectteams/fetchroweditdefault`,tempData,isloading);
+        res.then((response) => {
+            if (response.data instanceof Array) {
+                response.data.forEach((item:any) =>{
+                    item.srfuf = '0';
+                });
+            }
+        }).catch(response => {
+
+        });
+        return res;
+    }
+
 
 }

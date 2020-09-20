@@ -11,26 +11,28 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
+
+    
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel">
                               <ion-icon name="briefcase"></ion-icon>
-                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            
                             详情</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
                               <ion-icon name="text"></ion-icon>
-                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            
                             需求</ion-segment-button>
                             <ion-segment-button value="tabviewpanel4">
                               <ion-icon name="reorder"></ion-icon>
-                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            
                             计划</ion-segment-button>
                             <ion-segment-button value="tabviewpanel5">
-                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            
                             发布</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">
                               <ion-icon name="bug"></ion-icon>
-                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            
                             BUG</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
@@ -43,8 +45,9 @@
             viewName="ProductStatsMobTabExpView"  
             :viewparams="viewparams" 
             :context="context" 
-        :activiedTabViewPanel="activiedTabViewPanel"     
-        @changepanel="changePanel"
+            :activiedTabViewPanel="activiedTabViewPanel"     
+            @changepanel="changePanel"
+            @counterInit="counterInit"
             name="tabexppanel"  
             ref='tabexppanel' 
             @closeview="closeView($event)">
@@ -52,6 +55,8 @@
     </ion-content>
 </ion-page>
 </template>
+
+
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
@@ -307,6 +312,26 @@ export default class ProductStatsMobTabExpViewBase extends Vue {
         }
         return true;
     }
+
+    /**
+     * 计数器数据
+     *
+     * @type {string}
+     * @memberof  ProductStatsMobTabExpViewBase
+     */
+    public counter:any = {counterData:{}} ;
+
+
+    /**
+     * 计数器初始化
+     *
+     * @type {string}
+     * @memberof  ProductStatsMobTabExpViewBase
+     */
+    private counterInit(value:any) {
+        this.counter = value;
+    }
+
     /**
      * 被激活的分页面板
      *
@@ -429,9 +454,10 @@ export default class ProductStatsMobTabExpViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-this.getLocalStorage();
+        this.getLocalStorage();
 
     }
+
 
     /**
      * 销毁之前
@@ -541,9 +567,14 @@ this.getLocalStorage();
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
-        }else{
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
+        }
+        if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
         

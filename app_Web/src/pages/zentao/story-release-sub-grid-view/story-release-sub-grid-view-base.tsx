@@ -60,16 +60,6 @@ export class StoryReleaseSubGridViewBase extends GridViewBase {
      */
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof StoryReleaseSubGridViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -129,6 +119,15 @@ export class StoryReleaseSubGridViewBase extends GridViewBase {
      * @memberof StoryReleaseSubGridViewBase
      */
     public engine: GridViewEngine = new GridViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof StoryReleaseSubGridViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

@@ -2,13 +2,15 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobtabexpview': true, 'ibz-favorites-mob-tab-exp-view': true }">
     
     <ion-header>
+
+    
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel">
-                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            <ion-badge color="danger">{{counter.counterData.myfavoritestorys?counter.counterData.myfavoritestorys:''}}</ion-badge>
                             需求</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
-                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            <ion-badge color="danger">{{counter.counterData.myfavoritetasks?counter.counterData.myfavoritetasks:''}}</ion-badge>
                             任务</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
@@ -21,8 +23,9 @@
             viewName="IbzFavoritesMobTabExpView"  
             :viewparams="viewparams" 
             :context="context" 
-        :activiedTabViewPanel="activiedTabViewPanel"     
-        @changepanel="changePanel"
+            :activiedTabViewPanel="activiedTabViewPanel"     
+            @changepanel="changePanel"
+            @counterInit="counterInit"
             name="tabexppanel"  
             ref='tabexppanel' 
             @closeview="closeView($event)">
@@ -30,6 +33,8 @@
     </ion-content>
 </ion-page>
 </template>
+
+
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
@@ -282,6 +287,26 @@ export default class IbzFavoritesMobTabExpViewBase extends Vue {
         }
         return true;
     }
+
+    /**
+     * 计数器数据
+     *
+     * @type {string}
+     * @memberof  IbzFavoritesMobTabExpViewBase
+     */
+    public counter:any = {counterData:{}} ;
+
+
+    /**
+     * 计数器初始化
+     *
+     * @type {string}
+     * @memberof  IbzFavoritesMobTabExpViewBase
+     */
+    private counterInit(value:any) {
+        this.counter = value;
+    }
+
     /**
      * 被激活的分页面板
      *
@@ -404,9 +429,10 @@ export default class IbzFavoritesMobTabExpViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-this.getLocalStorage();
+        this.getLocalStorage();
 
     }
+
 
     /**
      * 销毁之前
@@ -516,9 +542,14 @@ this.getLocalStorage();
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
-        }else{
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
+        }
+        if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
         

@@ -57,16 +57,6 @@ export class ModulePickupViewBase extends PickupViewBase {
      */
     public appUIService: ModuleUIService = new ModuleUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ModulePickupViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -117,6 +107,15 @@ export class ModulePickupViewBase extends PickupViewBase {
      * @memberof ModulePickupViewBase
      */
     public engine: PickupViewEngine = new PickupViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ModulePickupViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

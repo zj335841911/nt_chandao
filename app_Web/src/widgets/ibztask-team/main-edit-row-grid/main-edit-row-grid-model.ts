@@ -27,6 +27,18 @@ export default class MainEditRowModel {
     }else{
 		  return [
         {
+          name: 'account',
+          prop: 'account',
+          dataType: 'TEXT',
+          isEditable:true
+        },
+        {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'DECIMAL',
+          isEditable:true
+        },
+        {
           name: 'root',
           prop: 'root',
           dataType: 'PICKUP',
@@ -37,21 +49,9 @@ export default class MainEditRowModel {
           dataType: 'TEXT',
         },
         {
-          name: 'account',
-          prop: 'account',
-          dataType: 'TEXT',
-          isEditable:true
-        },
-        {
           name: 'type',
           prop: 'type',
           dataType: 'SSCODELIST',
-          isEditable:true
-        },
-        {
-          name: 'estimate',
-          prop: 'estimate',
-          dataType: 'DECIMAL',
           isEditable:true
         },
         {

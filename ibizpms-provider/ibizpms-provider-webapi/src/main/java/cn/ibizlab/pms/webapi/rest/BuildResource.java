@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Create-all')")
     @ApiOperation(value = "新建版本", tags = {"版本" },  notes = "新建版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/builds")
-    public ResponseEntity<BuildDTO> create(@RequestBody BuildDTO builddto) {
+    public ResponseEntity<BuildDTO> create(@Validated @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
 		buildService.create(domain);
         BuildDTO dto = buildMapping.toDto(domain);
@@ -67,7 +68,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Update-all')")
     @ApiOperation(value = "更新版本", tags = {"版本" },  notes = "更新版本")
 	@RequestMapping(method = RequestMethod.PUT, value = "/builds/{build_id}")
-    public ResponseEntity<BuildDTO> update(@PathVariable("build_id") BigInteger build_id, @RequestBody BuildDTO builddto) {
+    public ResponseEntity<BuildDTO> update(@PathVariable("build_id") Long build_id, @RequestBody BuildDTO builddto) {
 		Build domain  = buildMapping.toDomain(builddto);
         domain .setId(build_id);
 		buildService.update(domain );
@@ -86,14 +87,14 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Remove-all')")
     @ApiOperation(value = "删除版本", tags = {"版本" },  notes = "删除版本")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/builds/{build_id}")
-    public ResponseEntity<Boolean> remove(@PathVariable("build_id") BigInteger build_id) {
+    public ResponseEntity<Boolean> remove(@PathVariable("build_id") Long build_id) {
          return ResponseEntity.status(HttpStatus.OK).body(buildService.remove(build_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Remove-all')")
     @ApiOperation(value = "批量删除版本", tags = {"版本" },  notes = "批量删除版本")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/builds/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         buildService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -101,7 +102,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Get-all')")
     @ApiOperation(value = "获取版本", tags = {"版本" },  notes = "获取版本")
 	@RequestMapping(method = RequestMethod.GET, value = "/builds/{build_id}")
-    public ResponseEntity<BuildDTO> get(@PathVariable("build_id") BigInteger build_id) {
+    public ResponseEntity<BuildDTO> get(@PathVariable("build_id") Long build_id) {
         Build domain = buildService.get(build_id);
         BuildDTO dto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
@@ -122,10 +123,21 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-LinkStory-all')")
     @ApiOperation(value = "关联需求", tags = {"版本" },  notes = "关联需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/builds/{build_id}/linkstory")
-    public ResponseEntity<BuildDTO> linkStory(@PathVariable("build_id") BigInteger build_id, @RequestBody BuildDTO builddto) {
+    public ResponseEntity<BuildDTO> linkStory(@PathVariable("build_id") Long build_id, @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
         domain.setId(build_id);
         domain = buildService.linkStory(domain);
+        builddto = buildMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(builddto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-OneClickRelease-all')")
+    @ApiOperation(value = "一键发布", tags = {"版本" },  notes = "一键发布")
+	@RequestMapping(method = RequestMethod.POST, value = "/builds/{build_id}/oneclickrelease")
+    public ResponseEntity<BuildDTO> oneClickRelease(@PathVariable("build_id") Long build_id, @RequestBody BuildDTO builddto) {
+        Build domain = buildMapping.toDomain(builddto);
+        domain.setId(build_id);
+        domain = buildService.oneClickRelease(domain);
         builddto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
@@ -232,7 +244,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Create-all')")
     @ApiOperation(value = "根据产品建立版本", tags = {"版本" },  notes = "根据产品建立版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds")
-    public ResponseEntity<BuildDTO> createByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BuildDTO builddto) {
+    public ResponseEntity<BuildDTO> createByProduct(@PathVariable("product_id") Long product_id, @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProduct(product_id);
 		buildService.create(domain);
@@ -243,7 +255,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Create-all')")
     @ApiOperation(value = "根据产品批量建立版本", tags = {"版本" },  notes = "根据产品批量建立版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/batch")
-    public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BuildDTO> builddtos) {
+    public ResponseEntity<Boolean> createBatchByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BuildDTO> builddtos) {
         List<Build> domainlist=buildMapping.toDomain(builddtos);
         for(Build domain:domainlist){
             domain.setProduct(product_id);
@@ -255,7 +267,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Update-all')")
     @ApiOperation(value = "根据产品更新版本", tags = {"版本" },  notes = "根据产品更新版本")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/builds/{build_id}")
-    public ResponseEntity<BuildDTO> updateByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("build_id") BigInteger build_id, @RequestBody BuildDTO builddto) {
+    public ResponseEntity<BuildDTO> updateByProduct(@PathVariable("product_id") Long product_id, @PathVariable("build_id") Long build_id, @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProduct(product_id);
         domain.setId(build_id);
@@ -267,7 +279,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Update-all')")
     @ApiOperation(value = "根据产品批量更新版本", tags = {"版本" },  notes = "根据产品批量更新版本")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/builds/batch")
-    public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BuildDTO> builddtos) {
+    public ResponseEntity<Boolean> updateBatchByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BuildDTO> builddtos) {
         List<Build> domainlist=buildMapping.toDomain(builddtos);
         for(Build domain:domainlist){
             domain.setProduct(product_id);
@@ -279,14 +291,14 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Remove-all')")
     @ApiOperation(value = "根据产品删除版本", tags = {"版本" },  notes = "根据产品删除版本")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/builds/{build_id}")
-    public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("build_id") BigInteger build_id) {
+    public ResponseEntity<Boolean> removeByProduct(@PathVariable("product_id") Long product_id, @PathVariable("build_id") Long build_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(buildService.remove(build_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Remove-all')")
     @ApiOperation(value = "根据产品批量删除版本", tags = {"版本" },  notes = "根据产品批量删除版本")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/builds/batch")
-    public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatchByProduct(@RequestBody List<Long> ids) {
         buildService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -294,7 +306,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Get-all')")
     @ApiOperation(value = "根据产品获取版本", tags = {"版本" },  notes = "根据产品获取版本")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/builds/{build_id}")
-    public ResponseEntity<BuildDTO> getByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("build_id") BigInteger build_id) {
+    public ResponseEntity<BuildDTO> getByProduct(@PathVariable("product_id") Long product_id, @PathVariable("build_id") Long build_id) {
         Build domain = buildService.get(build_id);
         BuildDTO dto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
@@ -302,7 +314,7 @@ public class BuildResource {
 
     @ApiOperation(value = "根据产品获取版本草稿", tags = {"版本" },  notes = "根据产品获取版本草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/builds/getdraft")
-    public ResponseEntity<BuildDTO> getDraftByProduct(@PathVariable("product_id") BigInteger product_id) {
+    public ResponseEntity<BuildDTO> getDraftByProduct(@PathVariable("product_id") Long product_id) {
         Build domain = new Build();
         domain.setProduct(product_id);
         return ResponseEntity.status(HttpStatus.OK).body(buildMapping.toDto(buildService.getDraft(domain)));
@@ -310,14 +322,14 @@ public class BuildResource {
 
     @ApiOperation(value = "根据产品检查版本", tags = {"版本" },  notes = "根据产品检查版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/checkkey")
-    public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BuildDTO builddto) {
+    public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") Long product_id, @RequestBody BuildDTO builddto) {
         return  ResponseEntity.status(HttpStatus.OK).body(buildService.checkKey(buildMapping.toDomain(builddto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-LinkStory-all')")
     @ApiOperation(value = "根据产品版本", tags = {"版本" },  notes = "根据产品版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/{build_id}/linkstory")
-    public ResponseEntity<BuildDTO> linkStoryByProduct(@PathVariable("product_id") BigInteger product_id, @PathVariable("build_id") BigInteger build_id, @RequestBody BuildDTO builddto) {
+    public ResponseEntity<BuildDTO> linkStoryByProduct(@PathVariable("product_id") Long product_id, @PathVariable("build_id") Long build_id, @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProduct(product_id);
         domain = buildService.linkStory(domain) ;
@@ -325,10 +337,21 @@ public class BuildResource {
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-OneClickRelease-all')")
+    @ApiOperation(value = "根据产品版本", tags = {"版本" },  notes = "根据产品版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/{build_id}/oneclickrelease")
+    public ResponseEntity<BuildDTO> oneClickReleaseByProduct(@PathVariable("product_id") Long product_id, @PathVariable("build_id") Long build_id, @RequestBody BuildDTO builddto) {
+        Build domain = buildMapping.toDomain(builddto);
+        domain.setProduct(product_id);
+        domain = buildService.oneClickRelease(domain) ;
+        builddto = buildMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(builddto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Save-all')")
     @ApiOperation(value = "根据产品保存版本", tags = {"版本" },  notes = "根据产品保存版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/save")
-    public ResponseEntity<Boolean> saveByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BuildDTO builddto) {
+    public ResponseEntity<Boolean> saveByProduct(@PathVariable("product_id") Long product_id, @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProduct(product_id);
         return ResponseEntity.status(HttpStatus.OK).body(buildService.save(domain));
@@ -337,7 +360,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Save-all')")
     @ApiOperation(value = "根据产品批量保存版本", tags = {"版本" },  notes = "根据产品批量保存版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/builds/savebatch")
-    public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody List<BuildDTO> builddtos) {
+    public ResponseEntity<Boolean> saveBatchByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BuildDTO> builddtos) {
         List<Build> domainlist=buildMapping.toDomain(builddtos);
         for(Build domain:domainlist){
              domain.setProduct(product_id);
@@ -349,7 +372,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchBugProductBuild-all')")
 	@ApiOperation(value = "根据产品获取Bug产品版本", tags = {"版本" } ,notes = "根据产品获取Bug产品版本")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/builds/fetchbugproductbuild")
-	public ResponseEntity<List<BuildDTO>> fetchBuildBugProductBuildByProduct(@PathVariable("product_id") BigInteger product_id,BuildSearchContext context) {
+	public ResponseEntity<List<BuildDTO>> fetchBuildBugProductBuildByProduct(@PathVariable("product_id") Long product_id,BuildSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Build> domains = buildService.searchBugProductBuild(context) ;
         List<BuildDTO> list = buildMapping.toDto(domains.getContent());
@@ -363,7 +386,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchBugProductBuild-all')")
 	@ApiOperation(value = "根据产品查询Bug产品版本", tags = {"版本" } ,notes = "根据产品查询Bug产品版本")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/builds/searchbugproductbuild")
-	public ResponseEntity<Page<BuildDTO>> searchBuildBugProductBuildByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BuildSearchContext context) {
+	public ResponseEntity<Page<BuildDTO>> searchBuildBugProductBuildByProduct(@PathVariable("product_id") Long product_id, @RequestBody BuildSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Build> domains = buildService.searchBugProductBuild(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -372,7 +395,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchCurProduct-all')")
 	@ApiOperation(value = "根据产品获取产品版本", tags = {"版本" } ,notes = "根据产品获取产品版本")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/builds/fetchcurproduct")
-	public ResponseEntity<List<BuildDTO>> fetchBuildCurProductByProduct(@PathVariable("product_id") BigInteger product_id,BuildSearchContext context) {
+	public ResponseEntity<List<BuildDTO>> fetchBuildCurProductByProduct(@PathVariable("product_id") Long product_id,BuildSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Build> domains = buildService.searchCurProduct(context) ;
         List<BuildDTO> list = buildMapping.toDto(domains.getContent());
@@ -386,7 +409,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchCurProduct-all')")
 	@ApiOperation(value = "根据产品查询产品版本", tags = {"版本" } ,notes = "根据产品查询产品版本")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/builds/searchcurproduct")
-	public ResponseEntity<Page<BuildDTO>> searchBuildCurProductByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BuildSearchContext context) {
+	public ResponseEntity<Page<BuildDTO>> searchBuildCurProductByProduct(@PathVariable("product_id") Long product_id, @RequestBody BuildSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Build> domains = buildService.searchCurProduct(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -395,7 +418,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchDefault-all')")
 	@ApiOperation(value = "根据产品获取DEFAULT", tags = {"版本" } ,notes = "根据产品获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/builds/fetchdefault")
-	public ResponseEntity<List<BuildDTO>> fetchBuildDefaultByProduct(@PathVariable("product_id") BigInteger product_id,BuildSearchContext context) {
+	public ResponseEntity<List<BuildDTO>> fetchBuildDefaultByProduct(@PathVariable("product_id") Long product_id,BuildSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Build> domains = buildService.searchDefault(context) ;
         List<BuildDTO> list = buildMapping.toDto(domains.getContent());
@@ -409,7 +432,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchDefault-all')")
 	@ApiOperation(value = "根据产品查询DEFAULT", tags = {"版本" } ,notes = "根据产品查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/builds/searchdefault")
-	public ResponseEntity<Page<BuildDTO>> searchBuildDefaultByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BuildSearchContext context) {
+	public ResponseEntity<Page<BuildDTO>> searchBuildDefaultByProduct(@PathVariable("product_id") Long product_id, @RequestBody BuildSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Build> domains = buildService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -418,7 +441,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchTestBuild-all')")
 	@ApiOperation(value = "根据产品获取测试版本", tags = {"版本" } ,notes = "根据产品获取测试版本")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/builds/fetchtestbuild")
-	public ResponseEntity<List<BuildDTO>> fetchBuildTestBuildByProduct(@PathVariable("product_id") BigInteger product_id,BuildSearchContext context) {
+	public ResponseEntity<List<BuildDTO>> fetchBuildTestBuildByProduct(@PathVariable("product_id") Long product_id,BuildSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Build> domains = buildService.searchTestBuild(context) ;
         List<BuildDTO> list = buildMapping.toDto(domains.getContent());
@@ -432,7 +455,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchTestBuild-all')")
 	@ApiOperation(value = "根据产品查询测试版本", tags = {"版本" } ,notes = "根据产品查询测试版本")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/builds/searchtestbuild")
-	public ResponseEntity<Page<BuildDTO>> searchBuildTestBuildByProduct(@PathVariable("product_id") BigInteger product_id, @RequestBody BuildSearchContext context) {
+	public ResponseEntity<Page<BuildDTO>> searchBuildTestBuildByProduct(@PathVariable("product_id") Long product_id, @RequestBody BuildSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Build> domains = buildService.searchTestBuild(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -441,7 +464,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Create-all')")
     @ApiOperation(value = "根据项目建立版本", tags = {"版本" },  notes = "根据项目建立版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds")
-    public ResponseEntity<BuildDTO> createByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BuildDTO builddto) {
+    public ResponseEntity<BuildDTO> createByProject(@PathVariable("project_id") Long project_id, @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProject(project_id);
 		buildService.create(domain);
@@ -452,7 +475,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Create-all')")
     @ApiOperation(value = "根据项目批量建立版本", tags = {"版本" },  notes = "根据项目批量建立版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/batch")
-    public ResponseEntity<Boolean> createBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<BuildDTO> builddtos) {
+    public ResponseEntity<Boolean> createBatchByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BuildDTO> builddtos) {
         List<Build> domainlist=buildMapping.toDomain(builddtos);
         for(Build domain:domainlist){
             domain.setProject(project_id);
@@ -464,7 +487,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Update-all')")
     @ApiOperation(value = "根据项目更新版本", tags = {"版本" },  notes = "根据项目更新版本")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/builds/{build_id}")
-    public ResponseEntity<BuildDTO> updateByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("build_id") BigInteger build_id, @RequestBody BuildDTO builddto) {
+    public ResponseEntity<BuildDTO> updateByProject(@PathVariable("project_id") Long project_id, @PathVariable("build_id") Long build_id, @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProject(project_id);
         domain.setId(build_id);
@@ -476,7 +499,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Update-all')")
     @ApiOperation(value = "根据项目批量更新版本", tags = {"版本" },  notes = "根据项目批量更新版本")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/builds/batch")
-    public ResponseEntity<Boolean> updateBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<BuildDTO> builddtos) {
+    public ResponseEntity<Boolean> updateBatchByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BuildDTO> builddtos) {
         List<Build> domainlist=buildMapping.toDomain(builddtos);
         for(Build domain:domainlist){
             domain.setProject(project_id);
@@ -488,14 +511,14 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Remove-all')")
     @ApiOperation(value = "根据项目删除版本", tags = {"版本" },  notes = "根据项目删除版本")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/builds/{build_id}")
-    public ResponseEntity<Boolean> removeByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("build_id") BigInteger build_id) {
+    public ResponseEntity<Boolean> removeByProject(@PathVariable("project_id") Long project_id, @PathVariable("build_id") Long build_id) {
 		return ResponseEntity.status(HttpStatus.OK).body(buildService.remove(build_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Remove-all')")
     @ApiOperation(value = "根据项目批量删除版本", tags = {"版本" },  notes = "根据项目批量删除版本")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projects/{project_id}/builds/batch")
-    public ResponseEntity<Boolean> removeBatchByProject(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatchByProject(@RequestBody List<Long> ids) {
         buildService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -503,7 +526,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Get-all')")
     @ApiOperation(value = "根据项目获取版本", tags = {"版本" },  notes = "根据项目获取版本")
 	@RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/builds/{build_id}")
-    public ResponseEntity<BuildDTO> getByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("build_id") BigInteger build_id) {
+    public ResponseEntity<BuildDTO> getByProject(@PathVariable("project_id") Long project_id, @PathVariable("build_id") Long build_id) {
         Build domain = buildService.get(build_id);
         BuildDTO dto = buildMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
@@ -511,7 +534,7 @@ public class BuildResource {
 
     @ApiOperation(value = "根据项目获取版本草稿", tags = {"版本" },  notes = "根据项目获取版本草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/builds/getdraft")
-    public ResponseEntity<BuildDTO> getDraftByProject(@PathVariable("project_id") BigInteger project_id) {
+    public ResponseEntity<BuildDTO> getDraftByProject(@PathVariable("project_id") Long project_id) {
         Build domain = new Build();
         domain.setProject(project_id);
         return ResponseEntity.status(HttpStatus.OK).body(buildMapping.toDto(buildService.getDraft(domain)));
@@ -519,14 +542,14 @@ public class BuildResource {
 
     @ApiOperation(value = "根据项目检查版本", tags = {"版本" },  notes = "根据项目检查版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/checkkey")
-    public ResponseEntity<Boolean> checkKeyByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BuildDTO builddto) {
+    public ResponseEntity<Boolean> checkKeyByProject(@PathVariable("project_id") Long project_id, @RequestBody BuildDTO builddto) {
         return  ResponseEntity.status(HttpStatus.OK).body(buildService.checkKey(buildMapping.toDomain(builddto)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-LinkStory-all')")
     @ApiOperation(value = "根据项目版本", tags = {"版本" },  notes = "根据项目版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/{build_id}/linkstory")
-    public ResponseEntity<BuildDTO> linkStoryByProject(@PathVariable("project_id") BigInteger project_id, @PathVariable("build_id") BigInteger build_id, @RequestBody BuildDTO builddto) {
+    public ResponseEntity<BuildDTO> linkStoryByProject(@PathVariable("project_id") Long project_id, @PathVariable("build_id") Long build_id, @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProject(project_id);
         domain = buildService.linkStory(domain) ;
@@ -534,10 +557,21 @@ public class BuildResource {
         return ResponseEntity.status(HttpStatus.OK).body(builddto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-OneClickRelease-all')")
+    @ApiOperation(value = "根据项目版本", tags = {"版本" },  notes = "根据项目版本")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/{build_id}/oneclickrelease")
+    public ResponseEntity<BuildDTO> oneClickReleaseByProject(@PathVariable("project_id") Long project_id, @PathVariable("build_id") Long build_id, @RequestBody BuildDTO builddto) {
+        Build domain = buildMapping.toDomain(builddto);
+        domain.setProject(project_id);
+        domain = buildService.oneClickRelease(domain) ;
+        builddto = buildMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(builddto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Save-all')")
     @ApiOperation(value = "根据项目保存版本", tags = {"版本" },  notes = "根据项目保存版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/save")
-    public ResponseEntity<Boolean> saveByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BuildDTO builddto) {
+    public ResponseEntity<Boolean> saveByProject(@PathVariable("project_id") Long project_id, @RequestBody BuildDTO builddto) {
         Build domain = buildMapping.toDomain(builddto);
         domain.setProject(project_id);
         return ResponseEntity.status(HttpStatus.OK).body(buildService.save(domain));
@@ -546,7 +580,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-Save-all')")
     @ApiOperation(value = "根据项目批量保存版本", tags = {"版本" },  notes = "根据项目批量保存版本")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/builds/savebatch")
-    public ResponseEntity<Boolean> saveBatchByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody List<BuildDTO> builddtos) {
+    public ResponseEntity<Boolean> saveBatchByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BuildDTO> builddtos) {
         List<Build> domainlist=buildMapping.toDomain(builddtos);
         for(Build domain:domainlist){
              domain.setProject(project_id);
@@ -558,7 +592,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchBugProductBuild-all')")
 	@ApiOperation(value = "根据项目获取Bug产品版本", tags = {"版本" } ,notes = "根据项目获取Bug产品版本")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/builds/fetchbugproductbuild")
-	public ResponseEntity<List<BuildDTO>> fetchBuildBugProductBuildByProject(@PathVariable("project_id") BigInteger project_id,BuildSearchContext context) {
+	public ResponseEntity<List<BuildDTO>> fetchBuildBugProductBuildByProject(@PathVariable("project_id") Long project_id,BuildSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Build> domains = buildService.searchBugProductBuild(context) ;
         List<BuildDTO> list = buildMapping.toDto(domains.getContent());
@@ -572,7 +606,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchBugProductBuild-all')")
 	@ApiOperation(value = "根据项目查询Bug产品版本", tags = {"版本" } ,notes = "根据项目查询Bug产品版本")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/builds/searchbugproductbuild")
-	public ResponseEntity<Page<BuildDTO>> searchBuildBugProductBuildByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BuildSearchContext context) {
+	public ResponseEntity<Page<BuildDTO>> searchBuildBugProductBuildByProject(@PathVariable("project_id") Long project_id, @RequestBody BuildSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Build> domains = buildService.searchBugProductBuild(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -581,7 +615,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchCurProduct-all')")
 	@ApiOperation(value = "根据项目获取产品版本", tags = {"版本" } ,notes = "根据项目获取产品版本")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/builds/fetchcurproduct")
-	public ResponseEntity<List<BuildDTO>> fetchBuildCurProductByProject(@PathVariable("project_id") BigInteger project_id,BuildSearchContext context) {
+	public ResponseEntity<List<BuildDTO>> fetchBuildCurProductByProject(@PathVariable("project_id") Long project_id,BuildSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Build> domains = buildService.searchCurProduct(context) ;
         List<BuildDTO> list = buildMapping.toDto(domains.getContent());
@@ -595,7 +629,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchCurProduct-all')")
 	@ApiOperation(value = "根据项目查询产品版本", tags = {"版本" } ,notes = "根据项目查询产品版本")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/builds/searchcurproduct")
-	public ResponseEntity<Page<BuildDTO>> searchBuildCurProductByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BuildSearchContext context) {
+	public ResponseEntity<Page<BuildDTO>> searchBuildCurProductByProject(@PathVariable("project_id") Long project_id, @RequestBody BuildSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Build> domains = buildService.searchCurProduct(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -604,7 +638,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchDefault-all')")
 	@ApiOperation(value = "根据项目获取DEFAULT", tags = {"版本" } ,notes = "根据项目获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/builds/fetchdefault")
-	public ResponseEntity<List<BuildDTO>> fetchBuildDefaultByProject(@PathVariable("project_id") BigInteger project_id,BuildSearchContext context) {
+	public ResponseEntity<List<BuildDTO>> fetchBuildDefaultByProject(@PathVariable("project_id") Long project_id,BuildSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Build> domains = buildService.searchDefault(context) ;
         List<BuildDTO> list = buildMapping.toDto(domains.getContent());
@@ -618,7 +652,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchDefault-all')")
 	@ApiOperation(value = "根据项目查询DEFAULT", tags = {"版本" } ,notes = "根据项目查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/builds/searchdefault")
-	public ResponseEntity<Page<BuildDTO>> searchBuildDefaultByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BuildSearchContext context) {
+	public ResponseEntity<Page<BuildDTO>> searchBuildDefaultByProject(@PathVariable("project_id") Long project_id, @RequestBody BuildSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Build> domains = buildService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
@@ -627,7 +661,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchTestBuild-all')")
 	@ApiOperation(value = "根据项目获取测试版本", tags = {"版本" } ,notes = "根据项目获取测试版本")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/builds/fetchtestbuild")
-	public ResponseEntity<List<BuildDTO>> fetchBuildTestBuildByProject(@PathVariable("project_id") BigInteger project_id,BuildSearchContext context) {
+	public ResponseEntity<List<BuildDTO>> fetchBuildTestBuildByProject(@PathVariable("project_id") Long project_id,BuildSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Build> domains = buildService.searchTestBuild(context) ;
         List<BuildDTO> list = buildMapping.toDto(domains.getContent());
@@ -641,7 +675,7 @@ public class BuildResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Build-searchTestBuild-all')")
 	@ApiOperation(value = "根据项目查询测试版本", tags = {"版本" } ,notes = "根据项目查询测试版本")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/builds/searchtestbuild")
-	public ResponseEntity<Page<BuildDTO>> searchBuildTestBuildByProject(@PathVariable("project_id") BigInteger project_id, @RequestBody BuildSearchContext context) {
+	public ResponseEntity<Page<BuildDTO>> searchBuildTestBuildByProject(@PathVariable("project_id") Long project_id, @RequestBody BuildSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Build> domains = buildService.searchTestBuild(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)

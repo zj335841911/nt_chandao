@@ -60,16 +60,6 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
      */
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof StoryPlanSubGridViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航上下文集合
 	 *
@@ -89,7 +79,8 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
 	 * @memberof StoryPlanSubGridViewBase
 	 */
     protected customViewParams: any = {
-        'n_plan_eq': { isRawValue: false, value: 'srfparentkey' }
+        'n_plan_eq': { isRawValue: false, value: 'srfparentkey' },
+        'plan': { isRawValue: false, value: 'srfparentkey' }
     };
 
     /**
@@ -125,7 +116,7 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
      * @memberof StoryPlanSubGridView
      */
     public toolBarModels: any = {
-        deuiaction3_create: { name: 'deuiaction3_create', caption: '新建需求', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建需求', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CREATE_BUT', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
+        deuiaction3_createplan: { name: 'deuiaction3_createplan', caption: '新建需求', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建需求', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CREATE_BUT', uiaction: { tag: 'CreatePlan', target: 'NONE', class: '' } },
 
         deuiaction3_planrelationstory: { name: 'deuiaction3_planrelationstory', caption: '关联需求', 'isShowCaption': true, 'isShowIcon': true, tooltip: '关联需求', iconcls: 'fa fa-chain', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_LSTORY_BUT', uiaction: { tag: 'PlanRelationStory', target: 'NONE', class: '' } },
 
@@ -155,6 +146,15 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
      * @memberof StoryPlanSubGridViewBase
      */
     public engine: GridViewEngine = new GridViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof StoryPlanSubGridViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化
@@ -186,8 +186,8 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
      * @memberof StoryPlanSubGridViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'deuiaction3_create')) {
-            this.toolbar_deuiaction3_create_click(null, '', $event2);
+        if (Object.is($event.tag, 'deuiaction3_createplan')) {
+            this.toolbar_deuiaction3_createplan_click(null, '', $event2);
         }
         if (Object.is($event.tag, 'deuiaction3_planrelationstory')) {
             this.toolbar_deuiaction3_planrelationstory_click(null, '', $event2);
@@ -263,7 +263,7 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_deuiaction3_create_click(params: any = {}, tag?: any, $event?: any) {
+    public toolbar_deuiaction3_createplan_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -281,7 +281,7 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
         }
         // 界面行为
         const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_Create(datas,contextJO, paramJO,  $event, xData,this,"Story");
+        curUIService.Story_CreatePlan(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
     /**

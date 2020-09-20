@@ -79,19 +79,19 @@ public class Im_clientServiceImpl extends ServiceImpl<Im_clientMapper, Im_client
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public Im_client get(BigInteger key) {
+    public Im_client get(Long key) {
         Im_client et = getById(key);
         if(et==null){
             et=new Im_client();

@@ -18,7 +18,6 @@
     :isMutli="!isSingleSelect"
     :isTempMode="false"
     :isEnableChoose="false"
-    :isEnableRefresh="false"
     name="mdctrl"  
     ref='mdctrl' 
     @selectionchange="mdctrl_selectionchange($event)"  
@@ -336,6 +335,7 @@ export default class ProductModuleMobPickupMDViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *
@@ -488,9 +488,14 @@ export default class ProductModuleMobPickupMDViewBase extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
-        }else{
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
+        }
+        if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
         

@@ -2,9 +2,8 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'story-ass-mob-mdview': true }">
     
     <ion-header>
-        <ion-toolbar>
-            <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
-        </ion-toolbar>
+
+    
     </ion-header>
 
 
@@ -28,7 +27,6 @@
             @showCheackChange="showCheackChange"
             :isTempMode="false"
             :isEnableChoose="false"
-            :isEnableRefresh="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -37,8 +35,14 @@
             @load="mdctrl_load($event)"  
             @closeview="closeView($event)">
         </view_mdctrl>
+        <ion-infinite-scroll  @ionInfinite="loadMore" threshold="1px" v-if="this.isEnablePullUp">
+          <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
+    <ion-footer class="view-footer" style="z-index:9999;">
         
     </ion-footer>
 </ion-page>
@@ -188,7 +192,7 @@ export default class StoryAssMobMDViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-star-o'
     }
 
     /**
@@ -241,7 +245,6 @@ export default class StoryAssMobMDViewBase extends Vue {
      */
     protected containerModel: any = {
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
-        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
 
     /**
@@ -262,25 +265,12 @@ export default class StoryAssMobMDViewBase extends Vue {
     @Prop({default:true}) protected showTitle?: boolean;
 
 
-
-   /**
-    * 工具栏 StoryAssMobMDView 模型
-    *
-    * @type {*}
-    * @memberof StoryAssMobMDView
-    */
-    public righttoolbarModels: any = {
-    };
-
-    
-
-
     /**
      * 工具栏模型集合名
      *
      * @memberof StoryAssMobMDViewBase
      */
-    public toolbarModelList:any = ['righttoolbarModels',]
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数
@@ -368,6 +358,7 @@ export default class StoryAssMobMDViewBase extends Vue {
         this.setViewTitleStatus();
 
     }
+
 
     /**
      * 销毁之前
@@ -515,6 +506,7 @@ export default class StoryAssMobMDViewBase extends Vue {
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
@@ -563,6 +555,7 @@ export default class StoryAssMobMDViewBase extends Vue {
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'stories', parameterName: 'story' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
@@ -617,9 +610,14 @@ export default class StoryAssMobMDViewBase extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
-        }else{
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
+        }
+        if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
         
@@ -659,37 +657,6 @@ export default class StoryAssMobMDViewBase extends Vue {
     }
 
 
-    /**
-     * 搜索值
-     *
-     * @type {string}
-     * @memberof StoryAssMobMDViewBase
-     */
-    public query: string = '';
-
-    /**
-     * 快速搜索值变化
-     *
-     * @param {*} event
-     * @returns
-     * @memberof StoryAssMobMDViewBase
-     */
-    public async quickValueChange(event: any) {
-        let { detail } = event;
-        if (!detail) {
-            return;
-        }
-        let { value } = detail;
-        this.query = value;
-
-        const mdctrl: any = this.$refs.mdctrl;
-        if (mdctrl) {
-            let response = await mdctrl.quickSearch(this.query);
-            if (response) {
-            }
-        }
-    }
-
    /**
      * 是否单选
      *
@@ -697,6 +664,15 @@ export default class StoryAssMobMDViewBase extends Vue {
      * @memberof StoryAssMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+
+   /**
+     * 能否上拉加载
+     *
+     * @type {boolean}
+     * @memberof StoryAssMobMDViewBase
+     */ 
+    @Prop({ default: true }) public isEnablePullUp?: boolean;
+
 
 
     /**
@@ -788,14 +764,28 @@ export default class StoryAssMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof StoryAssMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;
         this.onViewLoad();
     }
 
-
+    /**
+     * 触底加载
+     *
+     * @param {*} value
+     * @memberof StoryAssMobMDViewBase
+     */
+    public async loadMore(event:any){
+      let mdctrl:any = this.$refs.mdctrl;
+      if(mdctrl && mdctrl.loadBottom && mdctrl.loadBottom instanceof Function){
+        mdctrl.loadBottom();
+      }
+      if(event.target && event.target.complete && event.target.complete instanceof Function){
+        event.target.complete();
+      }
+    }
 
 
 

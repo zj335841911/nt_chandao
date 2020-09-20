@@ -97,7 +97,7 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.source.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+<i-col class="form-layout-container" v-show="detailsModel.source.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='source' :itemRules="this.rules.source" class='' :caption="$t('entities.story.main_newmode_form.details.source')" uiStyle="DEFAULT" :labelWidth="75" :isShowCaption="true" :error="detailsModel.source.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
@@ -117,8 +117,8 @@
 </app-form-item>
 
 </i-col>
-<i-col class="form-layout-container" v-show="detailsModel.sourcenote.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <app-form-item name='sourcenote' :itemRules="this.rules.sourcenote" class='' :caption="$t('entities.story.main_newmode_form.details.sourcenote')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.sourcenote.error" :isEmptyCaption="false" labelPos="LEFT">
+<i-col class="form-layout-container" v-show="detailsModel.sourcenote.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+    <app-form-item name='sourcenote' :itemRules="this.rules.sourcenote" class='' :caption="$t('entities.story.main_newmode_form.details.sourcenote')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.sourcenote.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
     v-model="data.sourcenote"  
     @enter="onEnter($event)"  
@@ -129,6 +129,15 @@
 </input-box>
 
 </app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.main_newmode_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+            
+    </row>
+</app-form-group>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 0 }">
@@ -243,7 +252,7 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.verify.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='verify' :itemRules="this.rules.verify" class='' :caption="$t('entities.story.main_newmode_form.details.verify')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.verify.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.verify" @change="(val) =>{this.data.verify =val}" :disabled="detailsModel.verify.disabled" :data="JSON.stringify(this.data)"  name="verify" :uploadparams='{objecttype:"story",version:"editor"}' :exportparams='{objecttype:"story",version:"editor"}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor :formState="formState" :value="data.verify" @change="(val) =>{this.data.verify =val}" :disabled="detailsModel.verify.disabled" :data="JSON.stringify(this.data)"  name="verify" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"story",version:"editor"}' :exportparams='{objecttype:"story",version:"editor"}'  style=""></app-rich-text-editor>
 
 </app-form-item>
 

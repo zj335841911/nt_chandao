@@ -18,7 +18,7 @@
           :drag="isdrag"
           :show-file-list="!rowPreview"
           >
-            <el-button v-if="!isdrag" size='small' icon='el-icon-upload' :disabled="disabled">{{this.$t('app.fileUpload.caption')}}</el-button>
+            <el-button v-if="!isdrag" size='small' icon='el-icon-upload' :disabled="disabled || isUploading">{{this.$t('app.fileUpload.caption')}}</el-button>
           <i v-if="isdrag" class="el-icon-upload"></i>
           <div v-if="isdrag" class="el-upload__text" v-html="$t('components.appFileUpload.uploadText')"></div>
         </el-upload>
@@ -123,6 +123,14 @@ export default class AppFileUpload extends Vue {
      * @memberof AppFileUpload
      */
     @Prop() public value?: any;
+
+    /**
+     * 是否正在上传中
+     *
+     * @type {*}
+     * @memberof AppFileUpload
+     */
+    public isUploading: boolean = false;
 
     /**
      * 数据值变化
@@ -374,6 +382,7 @@ export default class AppFileUpload extends Vue {
             }
             return isImage;
         }
+        this.isUploading = true;
     }
 
     /**
@@ -396,6 +405,7 @@ export default class AppFileUpload extends Vue {
         arr.push(data);
 
         let value: any = arr.length > 0 ? JSON.stringify(arr) : null;
+        this.isUploading = false;
         this.$emit('formitemvaluechange', { name: this.name, value: value });
     }
 

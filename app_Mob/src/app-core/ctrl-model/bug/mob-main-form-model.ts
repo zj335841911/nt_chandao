@@ -51,6 +51,41 @@ export class MobMainModel {
                 name: 'srfsourcekey',
             },
             {
+                name: 'productname',
+                prop: 'productname',
+                dataType: 'PICKUPTEXT',
+            },
+            {
+                name: 'branch',
+                prop: 'branch',
+                dataType: 'PICKUP',
+            },
+            {
+                name: 'product',
+                prop: 'product',
+                dataType: 'PICKUP',
+            },
+            {
+                name: 'branchname',
+                prop: 'branchname',
+                dataType: 'PICKUPTEXT',
+            },
+            {
+                name: 'modulename1',
+                prop: 'modulename1',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'projectname',
+                prop: 'projectname',
+                dataType: 'PICKUPTEXT',
+            },
+            {
+                name: 'openedbuild',
+                prop: 'openedbuild',
+                dataType: 'SMCODELIST',
+            },
+            {
                 name: 'title',
                 prop: 'title',
                 dataType: 'TEXT',
@@ -101,9 +136,19 @@ export class MobMainModel {
                 dataType: 'SSCODELIST',
             },
             {
+                name: 'resolveddate',
+                prop: 'resolveddate',
+                dataType: 'DATETIME',
+            },
+            {
                 name: 'resolvedby',
                 prop: 'resolvedby',
                 dataType: 'SSCODELIST',
+            },
+            {
+                name: 'steps',
+                prop: 'steps',
+                dataType: 'LONGTEXT',
             },
             {
                 name: 'id',

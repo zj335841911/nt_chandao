@@ -5,10 +5,12 @@ import ibztaskteam_en_US from '@locale/lanres/entities/ibztask-team/ibztask-team
 import product_en_US from '@locale/lanres/entities/product/product_en_US';
 import taskteam_en_US from '@locale/lanres/entities/task-team/task-team_en_US';
 import file_en_US from '@locale/lanres/entities/file/file_en_US';
+import ibzprostorymodule_en_US from '@locale/lanres/entities/ibzpro-story-module/ibzpro-story-module_en_US';
 import ibzlibcasesteps_en_US from '@locale/lanres/entities/ibz-lib-casesteps/ibz-lib-casesteps_en_US';
 import ibzlib_en_US from '@locale/lanres/entities/ibz-lib/ibz-lib_en_US';
 import suitecase_en_US from '@locale/lanres/entities/suite-case/suite-case_en_US';
 import burn_en_US from '@locale/lanres/entities/burn/burn_en_US';
+import substory_en_US from '@locale/lanres/entities/sub-story/sub-story_en_US';
 import subproductplan_en_US from '@locale/lanres/entities/sub-product-plan/sub-product-plan_en_US';
 import storyspec_en_US from '@locale/lanres/entities/story-spec/story-spec_en_US';
 import usertpl_en_US from '@locale/lanres/entities/user-tpl/user-tpl_en_US';
@@ -18,6 +20,7 @@ import productstats_en_US from '@locale/lanres/entities/product-stats/product-st
 import ibzprojectmember_en_US from '@locale/lanres/entities/ibz-project-member/ibz-project-member_en_US';
 import action_en_US from '@locale/lanres/entities/action/action_en_US';
 import group_en_US from '@locale/lanres/entities/group/group_en_US';
+import ibzproproduct_en_US from '@locale/lanres/entities/ibzpro-product/ibzpro-product_en_US';
 import casestep_en_US from '@locale/lanres/entities/case-step/case-step_en_US';
 import dept_en_US from '@locale/lanres/entities/dept/dept_en_US';
 import company_en_US from '@locale/lanres/entities/company/company_en_US';
@@ -40,10 +43,12 @@ import task_en_US from '@locale/lanres/entities/task/task_en_US';
 import build_en_US from '@locale/lanres/entities/build/build_en_US';
 import testresult_en_US from '@locale/lanres/entities/test-result/test-result_en_US';
 import testsuite_en_US from '@locale/lanres/entities/test-suite/test-suite_en_US';
+import ibzprostory_en_US from '@locale/lanres/entities/ibzpro-story/ibzpro-story_en_US';
 import projectteam_en_US from '@locale/lanres/entities/project-team/project-team_en_US';
 import testtask_en_US from '@locale/lanres/entities/test-task/test-task_en_US';
 import ibztaskestimate_en_US from '@locale/lanres/entities/ibztask-estimate/ibztask-estimate_en_US';
 import productline_en_US from '@locale/lanres/entities/product-line/product-line_en_US';
+import pssyssfpub_en_US from '@locale/lanres/entities/pssys-sfpub/pssys-sfpub_en_US';
 import testreport_en_US from '@locale/lanres/entities/test-report/test-report_en_US';
 import projectstats_en_US from '@locale/lanres/entities/project-stats/project-stats_en_US';
 import testrun_en_US from '@locale/lanres/entities/test-run/test-run_en_US';
@@ -51,7 +56,9 @@ import ibzmyterritory_en_US from '@locale/lanres/entities/ibz-my-territory/ibz-m
 import bug_en_US from '@locale/lanres/entities/bug/bug_en_US';
 import projectmodule_en_US from '@locale/lanres/entities/project-module/project-module_en_US';
 import ibzdoc_en_US from '@locale/lanres/entities/ibz-doc/ibz-doc_en_US';
+import pssysapp_en_US from '@locale/lanres/entities/pssys-app/pssys-app_en_US';
 import ibzcase_en_US from '@locale/lanres/entities/ibz-case/ibz-case_en_US';
+import pssystemdbcfg_en_US from '@locale/lanres/entities/pssystem-dbcfg/pssystem-dbcfg_en_US';
 import release_en_US from '@locale/lanres/entities/release/release_en_US';
 import dynadashboard_en_US from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_en_US';
 import components_en_US from '@locale/lanres/components/components_en_US';
@@ -196,13 +203,23 @@ export default {
                 menuitem10: "用例库",
                 menuitem11: "用户",
                 menuitem7: "iBiz软件生产管理",
+                menuitem16: "plus",
+                menuitem19: "产品",
+                menuitem21: "模块",
+                menuitem17: "需求",
                 left_exp: "左侧分页导航",
                 menuitem4: "产品",
                 menuitem5: "项目",
                 menuitem6: "测试",
                 bottom_exp: "底部导航区",
                 footer_center: "底部中间菜单",
-                menuitem13: "隐藏菜单项",
+                menuitem13: "bug菜单项",
+                menuitem14: "菜单项",
+                menuitem15: "菜单项",
+                menuitem18: "菜单项",
+                menuitem20: "菜单项",
+            },
+            main: {
             },
         },
         formpage:{
@@ -309,10 +326,12 @@ export default {
         product: product_en_US,
         taskteam: taskteam_en_US,
         file: file_en_US,
+        ibzprostorymodule: ibzprostorymodule_en_US,
         ibzlibcasesteps: ibzlibcasesteps_en_US,
         ibzlib: ibzlib_en_US,
         suitecase: suitecase_en_US,
         burn: burn_en_US,
+        substory: substory_en_US,
         subproductplan: subproductplan_en_US,
         storyspec: storyspec_en_US,
         usertpl: usertpl_en_US,
@@ -322,6 +341,7 @@ export default {
         ibzprojectmember: ibzprojectmember_en_US,
         action: action_en_US,
         group: group_en_US,
+        ibzproproduct: ibzproproduct_en_US,
         casestep: casestep_en_US,
         dept: dept_en_US,
         company: company_en_US,
@@ -344,10 +364,12 @@ export default {
         build: build_en_US,
         testresult: testresult_en_US,
         testsuite: testsuite_en_US,
+        ibzprostory: ibzprostory_en_US,
         projectteam: projectteam_en_US,
         testtask: testtask_en_US,
         ibztaskestimate: ibztaskestimate_en_US,
         productline: productline_en_US,
+        pssyssfpub: pssyssfpub_en_US,
         testreport: testreport_en_US,
         projectstats: projectstats_en_US,
         testrun: testrun_en_US,
@@ -355,7 +377,9 @@ export default {
         bug: bug_en_US,
         projectmodule: projectmodule_en_US,
         ibzdoc: ibzdoc_en_US,
+        pssysapp: pssysapp_en_US,
         ibzcase: ibzcase_en_US,
+        pssystemdbcfg: pssystemdbcfg_en_US,
         release: release_en_US,
         dynadashboard: dynadashboard_en_US,
     },

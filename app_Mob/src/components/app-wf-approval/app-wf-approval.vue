@@ -4,7 +4,7 @@
       <van-step>
         <div class="step-item">
           <div class="step-start-user">
-            <div class="step-text">发起申请</div>
+            <div class="step-text">{{$t('start')}}</div>
             <div class="step-start-user-name">{{data.startUserName}}</div>
           </div>
           <div class="step-start-time">{{data.startTime}}</div>
@@ -13,7 +13,7 @@
       <template v-for="(usertask,index) in data.usertasks" >
       <van-step v-if="usertask.identitylinks.length >0"  :key="index+'identitylinks'">
         <div class="step-start-user" >
-            <div class="step-text">等待处理</div>
+            <div class="step-text">{{$t('wait')}}</div>
             <div  class="step-start-user-name">
               <span v-for="(identitylink,inx) in usertask.identitylinks" :key="inx">{{identitylink.displayname}}<span v-if="inx >0">、</span></span>
             </div>
@@ -41,7 +41,21 @@
 <script lang = 'ts'>
 import { Vue, Component, Prop, Model } from "vue-property-decorator";
 
-@Component({})
+@Component({
+    components: {},
+    i18n: {
+        messages: {
+            'ZH-CN': {
+                start: '发起申请',
+                wait: '等待处理',
+            },
+            'EN-US': {
+                start: 'Initiate an application',
+                wait: 'Waiting to be processed',
+            }
+        }
+    }
+})
 export default class AppWFApproval extends Vue {
 
       /**

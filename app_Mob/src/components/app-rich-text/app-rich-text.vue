@@ -108,6 +108,18 @@ export default class AppRichTextEditor extends Vue {
    */
   public mounted() {
     this.getParms();
+    this.thirdPartyInit();
+  }
+
+  /**
+   *  第三方容器初始化
+   *
+   * @type {function}
+   * @memberof AppRichTextEditor
+   */
+  protected  thirdPartyInit(){
+        this.$viewTool.setViewTitleOfThirdParty("编辑");
+        this.$viewTool.setThirdPartyEvent(this.onClickCancel);
   }
 
   /**
@@ -119,7 +131,7 @@ export default class AppRichTextEditor extends Vue {
   public getParms(){
     let parm :any= JSON.parse(this._viewparams);
     if(parm){
-      this.resloutValue = parm.value?parm.value:"";
+      setTimeout(()=>{this.resloutValue = parm.value?parm.value:""},200)
       this.uploadUrl = parm.uploadUrl?parm.uploadUrl:"";
       this.export_params =  parm.export_params?parm.export_params:{};
     }

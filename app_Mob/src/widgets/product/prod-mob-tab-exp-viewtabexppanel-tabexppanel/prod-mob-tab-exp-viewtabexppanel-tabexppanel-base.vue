@@ -1,16 +1,5 @@
 <template>
     <span>
-        <span v-show="activiedTabViewPanel == 'tabviewpanel'">
-                        <view_tabviewpanel
-                :viewState="viewState"
-                viewName="ProductProdMobTabExpView"  
-                :viewparams="viewparams" 
-                :context="context" 
-                name="tabviewpanel"  
-                ref='tabviewpanel' 
-                @closeview="closeView($event)">
-            </view_tabviewpanel>
-        </span>
         <span v-show="activiedTabViewPanel == 'tabviewpanel2'">
                         <view_tabviewpanel2
                 :viewState="viewState"
@@ -58,6 +47,7 @@
     </span>
 </template>
 
+
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
@@ -69,6 +59,7 @@ import ProdMobTabExpViewtabexppanelService from '@/app-core/ctrl-service/product
 
 import ProductUIService from '@/ui-service/product/product-ui-action';
 
+import  ProductMobCounterCounterService  from '@/app-core/counter/product-mob-counter/product-mob-counter-counter';
 
 
 @Component({
@@ -195,6 +186,43 @@ export default class ProdMobTabExpViewtabexppanelBase extends Vue implements Con
         _this.$emit('closeview', args);
     }
 
+    
+    /**
+     * ProductMobCounterCounterService计数器服务对象
+     *
+     * @type {ProductMobCounterCounterService}
+     * @memberof ProdMobTabExpViewtabexppanel
+     */
+    protected ProductMobCountercounterservice: ProductMobCounterCounterService = new ProductMobCounterCounterService({$store: this.$store,context:this.context,viewparams:this.viewparams});
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProdMobTabExpViewtabexppanel
+     */    
+    protected counterServiceArray:Array<any> = [this.ProductMobCountercounterservice];
+
+    /**
+     * 加载计数器数据
+     *
+     * @param {any[]} args
+     * @memberof ProdMobTabExpViewtabexppanel
+     */
+    public async loadCounterData() {
+       this.$emit("counterInit",this.counterServiceArray[0]);
+    }
+
+    /**
+     * 销毁计数器服务
+     *
+     * @memberof ProductProdMobTabExpView
+     */   
+    public counterserviceDestroy(){
+        this.counterServiceArray.forEach((item:any)=>{
+            item.destroyCounter();
+        });
+    }
 
     /**
      * 获取多项数据
@@ -231,8 +259,16 @@ export default class ProdMobTabExpViewtabexppanelBase extends Vue implements Con
      * @type {string}
      * @memberof ProdMobTabExpViewtabexppanel
      */
-    @Prop({ default: 'tabviewpanel' }) protected activiedTabViewPanel?: string;     
-             
+    @Prop({ default: 'tabviewpanel2' }) protected activiedTabViewPanel?: string;     
+
+    /**
+     * 是否开启点击重新渲染
+     *
+     * @type {string}
+     * @memberof ProdMobTabExpViewtabexppanel
+     */
+    @Prop({ default: true }) public isEnableReRender?:boolean;    
+
     /**
      * vue 生命周期
      *
@@ -272,6 +308,25 @@ export default class ProdMobTabExpViewtabexppanelBase extends Vue implements Con
     /**
      * vue 生命周期
      *
+     * @returns
+     * @memberof ProdMobTabExpViewtabexppanel
+     */
+    public mounted() {
+        this.afterMounted();
+    }
+    
+    /**
+     * 执行mounted后的逻辑
+     *
+     * @memberof ProdMobTabExpViewtabexppanel
+     */
+    public afterMounted(){
+        this.loadCounterData();
+    }
+
+    /**
+     * vue 生命周期
+     *
      * @memberof ProdMobTabExpViewtabexppanel
      */
     protected destroyed() {
@@ -284,6 +339,7 @@ export default class ProdMobTabExpViewtabexppanelBase extends Vue implements Con
      * @memberof ProdMobTabExpViewtabexppanel
      */
     protected afterDestroy() {
+        this.counterserviceDestroy();
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
         }
@@ -308,6 +364,18 @@ export default class ProdMobTabExpViewtabexppanelBase extends Vue implements Con
             let panel:any = this.activiedTabViewPanel
             if(panel){
               this.viewState.next({ tag: panel, action: this.action, data: {}});
+            }
+            if (this.isEnableReRender) {         
+              if (panel) {
+                let panelarr:any = Object.keys(this.$refs);
+                panelarr.splice(panelarr.findIndex((item:any) => item === panel), 1);
+                panelarr.forEach((item:any,index:number)=>{
+                  let tabviewpanel:any = this.$refs[item];
+                  if (tabviewpanel.isActivied) {
+                    tabviewpanel.isActivied = false;
+                  }
+                })
+              }
             }
         });
     }

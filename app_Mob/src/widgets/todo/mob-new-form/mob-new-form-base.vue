@@ -1,5 +1,5 @@
 <template>
-    <div ref='form' class="app-form ">
+    <div ref='form' class="app-form todo-form ">
                 
 
 <app-form-group 
@@ -33,7 +33,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.name" 
+    :value="data.name"
+    unit=""
     :disabled="detailsModel.name.disabled" 
     @change="($event)=>this.data.name = $event" />
 </app-form-item>
@@ -87,6 +88,7 @@
     :error="detailsModel.date.error" 
     :isEmptyCaption="false">
         <app-mob-datetime-picker 
+    displayFormat="YYYY-MM-DD"
     class="app-form-item-datetime" 
     :value="data.date" 
     :disabled="detailsModel.date.disabled"
@@ -195,10 +197,9 @@
     :caption="$t('todo.mobnew_form.details.desc')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.desc.disabled"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"todo",version:"editor"}' :exportparams='{objecttype:"todo",version:"editor"}'  style=""></app-mob-rich-text-editor>
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"todo",version:"editor"}' :exportparams='{objecttype:"todo",version:"editor"}'  style=""/>
 
 </app-form-item>
 
@@ -211,7 +212,6 @@
 
     </div>
 </template>
-
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';

@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,8 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "title")
     @JsonProperty("title")
+    @NotBlank(message = "[名称]不允许为空!")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String title;
 
     /**
@@ -38,7 +43,7 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [BEGIN]
@@ -55,6 +60,7 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "desc")
     @JsonProperty("desc")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String desc;
 
     /**
@@ -72,6 +78,7 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
     private String deleted;
 
     /**
@@ -80,6 +87,7 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "order")
     @JsonProperty("order")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String order;
 
     /**
@@ -88,6 +96,7 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "parentname")
     @JsonProperty("parentname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String parentname;
 
     /**
@@ -96,7 +105,7 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "branch")
     @JsonProperty("branch")
-    private BigInteger branch;
+    private Long branch;
 
     /**
      * 属性 [PARENT]
@@ -104,7 +113,7 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "parent")
     @JsonProperty("parent")
-    private BigInteger parent;
+    private Long parent;
 
     /**
      * 属性 [PRODUCT]
@@ -112,7 +121,7 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
 
     /**
      * 属性 [STATUSS]
@@ -120,6 +129,7 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "statuss")
     @JsonProperty("statuss")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String statuss;
 
     /**
@@ -128,6 +138,7 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "future")
     @JsonProperty("future")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String future;
 
     /**
@@ -136,6 +147,7 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "delta")
     @JsonProperty("delta")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String delta;
 
     /**
@@ -144,6 +156,7 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "oldtitle")
     @JsonProperty("oldtitle")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String oldtitle;
 
     /**
@@ -168,6 +181,7 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "isexpired")
     @JsonProperty("isexpired")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String isexpired;
 
     /**
@@ -177,6 +191,24 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
     @JSONField(name = "estimatecnt")
     @JsonProperty("estimatecnt")
     private Integer estimatecnt;
+
+    /**
+     * 属性 [BEGINSTR]
+     *
+     */
+    @JSONField(name = "beginstr")
+    @JsonProperty("beginstr")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String beginstr;
+
+    /**
+     * 属性 [ENDSTR]
+     *
+     */
+    @JSONField(name = "endstr")
+    @JsonProperty("endstr")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String endstr;
 
 
     /**
@@ -222,7 +254,7 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
     /**
      * 设置 [BRANCH]
      */
-    public void setBranch(BigInteger  branch){
+    public void setBranch(Long  branch){
         this.branch = branch ;
         this.modify("branch",branch);
     }
@@ -230,7 +262,7 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PARENT]
      */
-    public void setParent(BigInteger  parent){
+    public void setParent(Long  parent){
         this.parent = parent ;
         this.modify("parent",parent);
     }
@@ -238,11 +270,12 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PRODUCT]
      */
-    public void setProduct(BigInteger  product){
+    public void setProduct(Long  product){
         this.product = product ;
         this.modify("product",product);
     }
 
 
 }
+
 

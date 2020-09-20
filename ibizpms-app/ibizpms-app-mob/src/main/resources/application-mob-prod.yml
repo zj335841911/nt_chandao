@@ -1,5 +1,5 @@
 server:
-  port: 10130
+  port: 22130
 #Log配置
 logging:
   level:
@@ -31,12 +31,20 @@ zuul:
       path: /tasks/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    zt_taskestimate:
+      path: /taskestimates/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_module:
       path: /modules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_product:
       path: /products/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    dynadashboard:
+      path: /dynadashboards/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_action:
@@ -55,7 +63,7 @@ zuul:
       path: /releases/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
-    ibz_taskteam:
+    zt_taskteam:
       path: /taskteams/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
@@ -91,8 +99,16 @@ zuul:
       path: /productplans/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_taskestimate:
+      path: /ibztaskestimates/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_projectstats:
       path: /projectstats/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_taskteam:
+      path: /ibztaskteams/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_bug:
@@ -139,6 +155,10 @@ zuul:
       path: /dictionarys/**/Ibzou**
       serviceId: ${ibiz.ref.service.ou:ibzou-api}
       stripPrefix: false
+    ou:
+      path: /ibzdepartments/**
+      serviceId: ${ibiz.ref.service.ou:ibzou-api}
+      stripPrefix: false
     uaadict:
       path: /dictionarys/**/SysOperator
       serviceId: ${ibiz.ref.service.uaa:ibzuaa-api}
@@ -150,6 +170,18 @@ zuul:
     disk:
       path: /net-disk/**
       serviceId: ${ibiz.ref.service.disk:ibzdisk-api}
+      stripPrefix: false
+    ou_sys_org:
+      path: /sysorganizations/**
+      serviceId: ${ibiz.ref.service.ou:ibzou-api}
+      stripPrefix: false
+    ou_sys_dept:
+      path: /sysdepartments/**
+      serviceId: ${ibiz.ref.service.ou:ibzou-api}
+      stripPrefix: false
+    lite-core:
+      path: /lite/**
+      serviceId: ${ibiz.ref.service.lite:ibzlite-api}
       stripPrefix: false
   sensitive-headers:
     - Cookie,Set-Cookie,Authorization

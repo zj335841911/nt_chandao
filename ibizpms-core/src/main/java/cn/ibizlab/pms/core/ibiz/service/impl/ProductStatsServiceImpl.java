@@ -83,19 +83,19 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public ProductStats get(BigInteger key) {
+    public ProductStats get(Long key) {
         ProductStats tempET=new ProductStats();
         tempET.set("id",key);
         ProductStats et = getById(key);

@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,11 +29,12 @@ public interface IStoryService extends IService<Story>{
     void createBatch(List<Story> list) ;
     boolean update(Story et) ;
     void updateBatch(List<Story> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Story get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Story get(Long key) ;
     Story getDraft(Story et) ;
     Story activate(Story et) ;
+    Story allPush(Story et) ;
     Story assignTo(Story et) ;
     Story batchAssignTo(Story et) ;
     Story batchChangeBranch(Story et) ;
@@ -60,6 +60,7 @@ public interface IStoryService extends IService<Story>{
     Story projectLinkStory(Story et) ;
     Story projectUnlinkStory(Story et) ;
     Story projectUnlinkStorys(Story et) ;
+    Story push(Story et) ;
     Story releaseBatchUnlinkStory(Story et) ;
     Story releaseLinkStory(Story et) ;
     Story releaseUnlinkStory(Story et) ;
@@ -67,9 +68,14 @@ public interface IStoryService extends IService<Story>{
     Story review(Story et) ;
     boolean save(Story et) ;
     void saveBatch(List<Story> list) ;
+    Story sendMessage(Story et) ;
+    Story sendMsgPreProcess(Story et) ;
     Story storyFavorites(Story et) ;
     Story storyNFavorites(Story et) ;
+    Story syncFromIBIZ(Story et) ;
     Story unlinkStory(Story et) ;
+    Page<Story> searchAssignedToMyStory(StorySearchContext context) ;
+    Page<Story> searchBugStory(StorySearchContext context) ;
     Page<Story> searchBuildLinkCompletedStories(StorySearchContext context) ;
     Page<Story> searchBuildLinkableStories(StorySearchContext context) ;
     Page<Story> searchBuildStories(StorySearchContext context) ;
@@ -77,6 +83,7 @@ public interface IStoryService extends IService<Story>{
     Page<Story> searchDefault(StorySearchContext context) ;
     Page<Story> searchGetProductStories(StorySearchContext context) ;
     Page<Story> searchMyFavorites(StorySearchContext context) ;
+    Page<Story> searchParentDefault(StorySearchContext context) ;
     Page<Story> searchProjectLinkStory(StorySearchContext context) ;
     Page<Story> searchProjectStories(StorySearchContext context) ;
     Page<Story> searchReleaseLinkableStories(StorySearchContext context) ;
@@ -84,21 +91,22 @@ public interface IStoryService extends IService<Story>{
     Page<Story> searchReportStories(StorySearchContext context) ;
     Page<Story> searchStoryChild(StorySearchContext context) ;
     Page<Story> searchStoryRelated(StorySearchContext context) ;
+    Page<Story> searchSubStory(StorySearchContext context) ;
     Page<Story> searchTaskRelatedStory(StorySearchContext context) ;
-    List<Story> selectByModule(BigInteger id) ;
-    void removeByModule(BigInteger id) ;
-    List<Story> selectByBranch(BigInteger id) ;
-    void removeByBranch(BigInteger id) ;
-    List<Story> selectByFrombug(BigInteger id) ;
-    void removeByFrombug(BigInteger id) ;
-    List<Story> selectByTobug(BigInteger id) ;
-    void removeByTobug(BigInteger id) ;
-    List<Story> selectByProduct(BigInteger id) ;
-    void removeByProduct(BigInteger id) ;
-    List<Story> selectByDuplicatestory(BigInteger id) ;
-    void removeByDuplicatestory(BigInteger id) ;
-    List<Story> selectByParent(BigInteger id) ;
-    void removeByParent(BigInteger id) ;
+    List<Story> selectByModule(Long id) ;
+    void removeByModule(Long id) ;
+    List<Story> selectByBranch(Long id) ;
+    void removeByBranch(Long id) ;
+    List<Story> selectByFrombug(Long id) ;
+    void removeByFrombug(Long id) ;
+    List<Story> selectByTobug(Long id) ;
+    void removeByTobug(Long id) ;
+    List<Story> selectByProduct(Long id) ;
+    void removeByProduct(Long id) ;
+    List<Story> selectByDuplicatestory(Long id) ;
+    void removeByDuplicatestory(Long id) ;
+    List<Story> selectByParent(Long id) ;
+    void removeByParent(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

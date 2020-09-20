@@ -106,6 +106,14 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProjectMobProjectCountLogic mobprojectcountLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProjectProjectTaskQCntLogic projecttaskqcntLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProjectProjectTopLogic projecttopLogic;
 
     @Autowired
@@ -158,7 +166,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     }
         @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         Project et = this.get(key);
@@ -168,16 +176,16 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList){
+    public void removeBatch(Collection<Long> idList){
         if (idList != null && !idList.isEmpty()) {
-            for (BigInteger id : idList) {
+            for (Long id : idList) {
                 this.remove(id);
             }
         }
     }
     @Override
     @Transactional
-    public Project get(BigInteger key) {
+    public Project get(Long key) {
         Project tempET=new Project();
         tempET.set("id",key);
         Project et = getById(key);
@@ -186,6 +194,7 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
             et.setId(key);
         }
         else{
+            et.setProjectteam(projectteamService.selectByRoot(key));
         }
         getprojectproductplanLogic.execute(et);
         return et;
@@ -271,6 +280,20 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         }
         et.set("ztrst", rst);
         return et;
+    }
+
+    @Override
+    @Transactional
+    public Project mobProjectCount(Project et) {
+        mobprojectcountLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public Project projectTaskQCnt(Project et) {
+        projecttaskqcntLogic.execute(et);
+         return et ;
     }
 
     @Override
@@ -391,12 +414,12 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
 
 
 	@Override
-    public List<Project> selectByParent(BigInteger id) {
+    public List<Project> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
 
     @Override
-    public void removeByParent(BigInteger id) {
+    public void removeByParent(Long id) {
         this.remove(new QueryWrapper<Project>().eq("parent",id));
     }
 
@@ -443,6 +466,15 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     @Override
     public Page<Project> searchMyProject(ProjectSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Project> pages=baseMapper.searchMyProject(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Project>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目团队
+     */
+    @Override
+    public Page<Project> searchProjectTeam(ProjectSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Project> pages=baseMapper.searchProjectTeam(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Project>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

@@ -361,6 +361,7 @@ export default class MDViewEngineBase extends ViewEngine {
         }
         const state = args.length > 0 && !Object.is(args[0].srfkey, '') ? false : true;
         this.calcToolbarItemState(state);
+        this.calcToolbarItemAuthState(null);
     }
 
     /**
@@ -374,6 +375,7 @@ export default class MDViewEngineBase extends ViewEngine {
             this.view.$emit('viewload', args);
         }
         this.calcToolbarItemState(true);
+        this.calcToolbarItemAuthState(null);
     }
 
     /**
@@ -392,6 +394,11 @@ export default class MDViewEngineBase extends ViewEngine {
         if (this.view && !this.view.isExpandSearchForm) {
             Object.assign(arg, { query: this.view.query });
         }
+        let otherQueryParam:any = {};
+        if (this.view && this.view.quickGroupData) {
+            Object.assign(otherQueryParam,this.view.quickGroupData);
+        }
+        Object.assign(arg,{viewparams:otherQueryParam});
     }
 
     /**

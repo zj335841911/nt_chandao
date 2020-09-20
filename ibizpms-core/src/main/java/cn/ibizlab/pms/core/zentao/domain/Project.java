@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[项目]
@@ -92,7 +93,7 @@ public class Project extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 项目名称
      */
@@ -277,7 +278,7 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "parent")
     @JSONField(name = "parent")
     @JsonProperty("parent")
-    private BigInteger parent;
+    private Long parent;
     /**
      * 任务总数
      */
@@ -362,7 +363,7 @@ public class Project extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "hours")
     @JsonProperty("hours")
-    private Double hours;
+    private BigDecimal hours;
     /**
      * 角色
      */
@@ -404,7 +405,7 @@ public class Project extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "totalhours")
     @JsonProperty("totalhours")
-    private Double totalhours;
+    private BigDecimal totalhours;
     /**
      * 移动端图片
      */
@@ -433,6 +434,118 @@ public class Project extends EntityMP implements Serializable {
     @JSONField(name = "istop")
     @JsonProperty("istop")
     private Integer istop;
+    /**
+     * 选择部门
+     */
+    @TableField(exist = false)
+    @JSONField(name = "dept")
+    @JsonProperty("dept")
+    private String dept;
+    /**
+     * 复制团队
+     */
+    @TableField(exist = false)
+    @JSONField(name = "managemembers")
+    @JsonProperty("managemembers")
+    private String managemembers;
+    /**
+     * 版本总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "buildcnt")
+    @JsonProperty("buildcnt")
+    private Integer buildcnt;
+    /**
+     * 团队成员总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "teamcnt")
+    @JsonProperty("teamcnt")
+    private Integer teamcnt;
+    /**
+     * 所有任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "alltaskcnt")
+    @JsonProperty("alltaskcnt")
+    private Integer alltaskcnt;
+    /**
+     * 未关闭任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "unclosetaskcnt")
+    @JsonProperty("unclosetaskcnt")
+    private Integer unclosetaskcnt;
+    /**
+     * 指派给我任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "asstomytaskcnt")
+    @JsonProperty("asstomytaskcnt")
+    private Integer asstomytaskcnt;
+    /**
+     * 未开始任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "unstarttaskcnt")
+    @JsonProperty("unstarttaskcnt")
+    private Integer unstarttaskcnt;
+    /**
+     * 更多任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "moretaskcnt")
+    @JsonProperty("moretaskcnt")
+    private Integer moretaskcnt;
+    /**
+     * 进行中任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "ystarttaskcnt")
+    @JsonProperty("ystarttaskcnt")
+    private Integer ystarttaskcnt;
+    /**
+     * 未完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "uncompletetaskcnt")
+    @JsonProperty("uncompletetaskcnt")
+    private Integer uncompletetaskcnt;
+    /**
+     * 已完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "ycompletetaskcnt")
+    @JsonProperty("ycompletetaskcnt")
+    private Integer ycompletetaskcnt;
+    /**
+     * 我完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mycompletetaskcnt")
+    @JsonProperty("mycompletetaskcnt")
+    private Integer mycompletetaskcnt;
+    /**
+     * 关闭任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closetaskcnt")
+    @JsonProperty("closetaskcnt")
+    private Integer closetaskcnt;
+    /**
+     * 取消任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "canceltaskcnt")
+    @JsonProperty("canceltaskcnt")
+    private Integer canceltaskcnt;
+    /**
+     * 需求变更数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "storychangecnt")
+    @JsonProperty("storychangecnt")
+    private Integer storychangecnt;
 
     /**
      * 
@@ -442,6 +555,14 @@ public class Project extends EntityMP implements Serializable {
     @TableField(exist = false)
     private cn.ibizlab.pms.core.zentao.domain.Project ibizparent;
 
+
+    /**
+     * 项目团队
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private List<cn.ibizlab.pms.core.ibiz.domain.ProjectTeam> projectteam;
 
 
     /**
@@ -695,12 +816,28 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [父项目]
      */
-    public void setParent(BigInteger parent){
+    public void setParent(Long parent){
         this.parent = parent ;
         this.modify("parent",parent);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
+    /**
+     * 复制当前对象数据到目标对象(粘贴重置)
+     * @param targetEntity 目标数据对象
+     * @param bIncEmpty  是否包括空值
+     * @param <T>
+     * @return
+     */
+    @Override
+    public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
+        this.reset("id");
+        return super.copyTo(targetEntity,bIncEmpty);
+    }
 }
 
 

@@ -27,6 +27,56 @@ export default class MainModel {
     }else{
 		  return [
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'plan',
+          prop: 'plan',
+          dataType: 'LONGTEXT',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'stage',
+          prop: 'stage',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'modulename',
+          prop: 'modulename',
+          dataType: 'PICKUPTEXT',
+        },
+        {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
@@ -37,27 +87,12 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
         },
         {
           name: 'srfmstag',
-        },
-        {
-          name: 'estimate',
-          prop: 'estimate',
-          dataType: 'FLOAT',
-        },
-        {
-          name: 'stage',
-          prop: 'stage',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'srfmajortext',
@@ -81,44 +116,9 @@ export default class MainModel {
           isEditable:true
         },
         {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'modulename',
-          prop: 'modulename',
-          dataType: 'PICKUPTEXT',
-        },
-        {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'plan',
-          prop: 'plan',
-          dataType: 'LONGTEXT',
         },
         {
           name: 'branch',
@@ -133,6 +133,11 @@ export default class MainModel {
         {
           name: 'isfavorites',
           prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'ischild',
+          prop: 'ischild',
           dataType: 'TEXT',
         },
         {

@@ -16,8 +16,17 @@ export default {
     productname: "产品名称",
     ids: "Bug版本健值",
     files: "附件",
+    rebuild: "重新构建",
+    releasetype: "运行模式",
+    frontapplication: "系统应用",
+    backgroundid: "后台体系",
+    sqlid: "运行数据库",
   },
 	views: {
+		optionview: {
+			caption: "版本",
+      		title: "版本选项操作视图",
+		},
 		editformeditview: {
 			caption: "版本",
       		title: "版本编辑视图",
@@ -116,6 +125,26 @@ export default {
 			desc: "描述", 
 			id: "id", 
 			product: "产品", 
+		},
+		uiactions: {
+		},
+	},
+	testbuildrelease_form: {
+		details: {
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "id", 
+			srfmajortext: "名称编号", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			releasetype: "运行模式", 
+			backgroundid: "后台体系", 
+			sqlid: "运行数据库", 
+			frontapplication: "系统应用", 
+			rebuild: "重新构建", 
+			id: "id", 
 		},
 		uiactions: {
 		},

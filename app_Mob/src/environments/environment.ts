@@ -40,4 +40,14 @@ export const Environment = {
     ibizlabtUrl: 'https://www.ibizlab.cn',
     // ibiz论坛地址
     ibizbbstUrl: 'https://bbs.ibizlab.cn',
+    // 是否开启访客模式
+    VisitorsMode:false,
+    // 访客模式地址
+    VisitorsUrl: '',
+    // 默认菜单
+    useDefaultMenu:true
 };
+// 挂载外部配置文件
+if ((window as any).Environment) {
+    Object.assign(Environment, (window as any).Environment);
+}

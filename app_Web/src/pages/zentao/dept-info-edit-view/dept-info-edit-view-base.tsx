@@ -57,15 +57,12 @@ export class DeptInfoEditViewBase extends EditViewBase {
      */
     public appUIService: DeptUIService = new DeptUIService(this.$store);
 
-
     /**
-     * 计数器服务对象集合
+     * 是否显示信息栏
      *
-     * @protected
-     * @type {Array<*>}
      * @memberof DeptInfoEditViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -122,6 +119,15 @@ export class DeptInfoEditViewBase extends EditViewBase {
      * @memberof DeptInfoEditViewBase
      */
     public engine: EditViewEngine = new EditViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof DeptInfoEditViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

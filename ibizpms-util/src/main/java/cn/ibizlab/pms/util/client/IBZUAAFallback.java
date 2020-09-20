@@ -3,6 +3,7 @@ package cn.ibizlab.pms.util.client;
 import cn.ibizlab.pms.util.security.AuthenticationInfo;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import cn.ibizlab.pms.util.security.AuthorizationLogin;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import com.alibaba.fastjson.JSONObject;
 
@@ -31,6 +32,16 @@ public class IBZUAAFallback implements IBZUAAFeignClient {
 
     @Override
     public String getPublicKey() {
+        return null;
+    }
+
+    @Override
+    public JSONObject getDingtalkAppId(String id) {
+        return null;
+    }
+
+    @Override
+    public AuthenticationInfo getUserByToken(String code, String id) {
         return null;
     }
 }

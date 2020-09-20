@@ -100,7 +100,7 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     }
         @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         Build et = this.get(key);
@@ -110,16 +110,16 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList){
+    public void removeBatch(Collection<Long> idList){
         if (idList != null && !idList.isEmpty()) {
-            for (BigInteger id : idList) {
+            for (Long id : idList) {
                 this.remove(id);
             }
         }
     }
     @Override
     @Transactional
-    public Build get(BigInteger key) {
+    public Build get(Long key) {
         Build et = getById(key);
         if(et==null){
             et=new Build();
@@ -150,6 +150,13 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
             et = this.get(rst.getEtId());
         }
         et.set("ztrst", rst);
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public Build oneClickRelease(Build et) {
+        //自定义代码
         return et;
     }
 
@@ -186,32 +193,32 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
 
 
 	@Override
-    public List<Build> selectByBranch(BigInteger id) {
+    public List<Build> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
 
     @Override
-    public void removeByBranch(BigInteger id) {
+    public void removeByBranch(Long id) {
         this.remove(new QueryWrapper<Build>().eq("branch",id));
     }
 
 	@Override
-    public List<Build> selectByProduct(BigInteger id) {
+    public List<Build> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(BigInteger id) {
+    public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<Build>().eq("product",id));
     }
 
 	@Override
-    public List<Build> selectByProject(BigInteger id) {
+    public List<Build> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
 
     @Override
-    public void removeByProject(BigInteger id) {
+    public void removeByProject(Long id) {
         this.remove(new QueryWrapper<Build>().eq("project",id));
     }
 

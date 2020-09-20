@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface IProductStatsService extends IService<ProductStats>{
     void createBatch(List<ProductStats> list) ;
     boolean update(ProductStats et) ;
     void updateBatch(List<ProductStats> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    ProductStats get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    ProductStats get(Long key) ;
     ProductStats getDraft(ProductStats et) ;
     boolean checkKey(ProductStats et) ;
     ProductStats getTestStats(ProductStats et) ;

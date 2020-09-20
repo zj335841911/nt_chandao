@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface IExtensionService extends IService<Extension>{
     void createBatch(List<Extension> list) ;
     boolean update(Extension et) ;
     void updateBatch(List<Extension> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Extension get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Extension get(Long key) ;
     Extension getDraft(Extension et) ;
     boolean checkKey(Extension et) ;
     boolean save(Extension et) ;

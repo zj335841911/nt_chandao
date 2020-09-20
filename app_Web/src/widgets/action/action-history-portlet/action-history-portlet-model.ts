@@ -54,6 +54,12 @@ export default class ActionHistoryModel {
       {
         name: 'actionmanner',
       },
+      {
+        name: 'isactorss',
+      },
+      {
+        name: 'date1',
+      },
     ]
   }
 

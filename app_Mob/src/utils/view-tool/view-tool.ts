@@ -319,7 +319,7 @@ export class ViewTool {
             const curReg = view.$pathToRegExp.pathToRegexp(path, keys);
             const matchArray = curReg.exec(view.$route.path);
             keys.forEach((item: any, index: number) => {
-                Object.assign(_context, { [item.name]: matchArray[index + 1] });
+                Object.assign(_context, { [item.name]: matchArray[index + 1]=='null'?null:matchArray[index + 1] });
             });
             if (_context.hasOwnProperty('viewshell')) {
                 let viewshell: string = _context['viewshell'];
@@ -336,10 +336,9 @@ export class ViewTool {
 
         let data = this.formatNavigateParam(view.navContext, view.navParam, _context, _param, {});
 
-        if (isPSDEView) {
+        if (isPSDEView && !data.context.hasOwnProperty('srfsessionid')) {
             Object.assign(data.context, { srfsessionid: Util.createUUID() });
         }
-
         return data;
     }
 
@@ -417,5 +416,12 @@ export class ViewTool {
      */
     public ThirdPartyClose() {
         this.thirdPartyService.close();
+    }
+
+    /**
+     * 销毁第三方导航返回事件
+     */
+    public destroyBackEvent() {
+        this.thirdPartyService.destroyBackEvent();
     }
 }

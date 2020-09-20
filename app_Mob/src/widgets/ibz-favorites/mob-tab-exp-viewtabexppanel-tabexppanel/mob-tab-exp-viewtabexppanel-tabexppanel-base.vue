@@ -25,6 +25,7 @@
     </span>
 </template>
 
+
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
@@ -36,6 +37,7 @@ import MobTabExpViewtabexppanelService from '@/app-core/ctrl-service/ibz-favorit
 
 import IbzFavoritesUIService from '@/ui-service/ibz-favorites/ibz-favorites-ui-action';
 
+import  MyFavoriteMobCounterCounterService  from '@/app-core/counter/my-favorite-mob-counter/my-favorite-mob-counter-counter';
 
 
 @Component({
@@ -162,6 +164,43 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
         _this.$emit('closeview', args);
     }
 
+    
+    /**
+     * MyFavoriteMobCounterCounterService计数器服务对象
+     *
+     * @type {MyFavoriteMobCounterCounterService}
+     * @memberof MobTabExpViewtabexppanel
+     */
+    protected MyFavoriteMobCountercounterservice: MyFavoriteMobCounterCounterService = new MyFavoriteMobCounterCounterService({$store: this.$store,context:this.context,viewparams:this.viewparams});
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof MobTabExpViewtabexppanel
+     */    
+    protected counterServiceArray:Array<any> = [this.MyFavoriteMobCountercounterservice];
+
+    /**
+     * 加载计数器数据
+     *
+     * @param {any[]} args
+     * @memberof ProdMobTabExpViewtabexppanel
+     */
+    public async loadCounterData() {
+       this.$emit("counterInit",this.counterServiceArray[0]);
+    }
+
+    /**
+     * 销毁计数器服务
+     *
+     * @memberof IbzFavoritesMobTabExpView
+     */   
+    public counterserviceDestroy(){
+        this.counterServiceArray.forEach((item:any)=>{
+            item.destroyCounter();
+        });
+    }
 
     /**
      * 获取多项数据
@@ -199,7 +238,15 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @memberof MobTabExpViewtabexppanel
      */
     @Prop({ default: 'tabviewpanel' }) protected activiedTabViewPanel?: string;     
-             
+
+    /**
+     * 是否开启点击重新渲染
+     *
+     * @type {string}
+     * @memberof MobTabExpViewtabexppanel
+     */
+    @Prop({ default: true }) public isEnableReRender?:boolean;    
+
     /**
      * vue 生命周期
      *
@@ -239,6 +286,25 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
     /**
      * vue 生命周期
      *
+     * @returns
+     * @memberof MobTabExpViewtabexppanel
+     */
+    public mounted() {
+        this.afterMounted();
+    }
+    
+    /**
+     * 执行mounted后的逻辑
+     *
+     * @memberof MobTabExpViewtabexppanel
+     */
+    public afterMounted(){
+        this.loadCounterData();
+    }
+
+    /**
+     * vue 生命周期
+     *
      * @memberof MobTabExpViewtabexppanel
      */
     protected destroyed() {
@@ -251,6 +317,7 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @memberof MobTabExpViewtabexppanel
      */
     protected afterDestroy() {
+        this.counterserviceDestroy();
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
         }
@@ -275,6 +342,18 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
             let panel:any = this.activiedTabViewPanel
             if(panel){
               this.viewState.next({ tag: panel, action: this.action, data: {}});
+            }
+            if (this.isEnableReRender) {         
+              if (panel) {
+                let panelarr:any = Object.keys(this.$refs);
+                panelarr.splice(panelarr.findIndex((item:any) => item === panel), 1);
+                panelarr.forEach((item:any,index:number)=>{
+                  let tabviewpanel:any = this.$refs[item];
+                  if (tabviewpanel.isActivied) {
+                    tabviewpanel.isActivied = false;
+                  }
+                })
+              }
             }
         });
     }

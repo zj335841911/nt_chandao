@@ -104,7 +104,7 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     }
         @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         TestTask et = this.get(key);
@@ -114,16 +114,16 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList){
+    public void removeBatch(Collection<Long> idList){
         if (idList != null && !idList.isEmpty()) {
-            for (BigInteger id : idList) {
+            for (Long id : idList) {
                 this.remove(id);
             }
         }
     }
     @Override
     @Transactional
-    public TestTask get(BigInteger key) {
+    public TestTask get(Long key) {
         TestTask et = getById(key);
         if(et==null){
             et=new TestTask();
@@ -256,32 +256,32 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
 
 
 	@Override
-    public List<TestTask> selectByBuild(BigInteger id) {
+    public List<TestTask> selectByBuild(Long id) {
         return baseMapper.selectByBuild(id);
     }
 
     @Override
-    public void removeByBuild(BigInteger id) {
+    public void removeByBuild(Long id) {
         this.remove(new QueryWrapper<TestTask>().eq("build",id));
     }
 
 	@Override
-    public List<TestTask> selectByProduct(BigInteger id) {
+    public List<TestTask> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(BigInteger id) {
+    public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<TestTask>().eq("product",id));
     }
 
 	@Override
-    public List<TestTask> selectByProject(BigInteger id) {
+    public List<TestTask> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
 
     @Override
-    public void removeByProject(BigInteger id) {
+    public void removeByProject(Long id) {
         this.remove(new QueryWrapper<TestTask>().eq("project",id));
     }
 

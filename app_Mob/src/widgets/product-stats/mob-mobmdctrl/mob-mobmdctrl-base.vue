@@ -1,13 +1,13 @@
 <template>
-    <div  class="app-mob-mdctrl ">
+    <div  class="app-mob-mdctrl productstats-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl">
-          <van-pull-refresh class="app-mob-mdctrl-refresh" v-model="isLoading" success-text="刷新成功"  @refresh="refresh" :disabled="!isEnableRefresh">
                     <app-list-index :items="items" @clickItem="item_click"></app-list-index>
 
-          </van-pull-refresh>
+            <div class="no-data" v-if="items.length == 0">暂无数据</div>
         </div>
     </div>
 </template>
+
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
@@ -226,6 +226,13 @@ export default class MobBase extends Vue implements ControlInterface {
     */
      @Prop() public selectedData?:Array<any>;
 
+    /**
+     * 部件行为--update
+     *
+     * @type {string}
+     * @memberof Mob
+     */
+    @Prop({default: true}) protected needLoadMore?: boolean;
 
     /**
     * 新建打开视图
@@ -243,14 +250,6 @@ export default class MobBase extends Vue implements ControlInterface {
     * @memberof Mob
     */
     @Prop() public opendata?: Function; 
-
-    /**
-    * 是否能下拉刷新
-    *
-    * @type {Function}
-    * @memberof Mob
-    */
-    @Prop({ default: true }) public isEnableRefresh?: Boolean;
 
     /**
     * 是否能长按
@@ -286,20 +285,67 @@ export default class MobBase extends Vue implements ControlInterface {
     @Prop({ default: false}) public isTempMode?:boolean;
 
     /**
-    * 是否正在加载
-    *
-    * @type {boolean}
-    * @memberof Mob
-    */
-    public isLoading:boolean = true;
-
-    /**
     * 存放多数据选择数组（多选）
     *
     * @type {array}
     * @memberof Mob
     */
     public checkboxList:Array<string> = [];
+
+    /**
+    * 是否为分组模式
+    *
+    * @type {boolean}
+    * @memberof Mob
+    */
+    public isEnableGroup:boolean =  false;
+
+    /**
+    * 代码表分组细节
+    *
+    * @type {Object}
+    * @memberof Mob
+    */
+    public group_detail:any = [];
+
+    /**
+    * 分组模式
+    *
+    * @type {string}
+    * @memberof Mob
+    */
+    public group_mode = 'NONE';
+
+    /**
+    * 分组数据
+    *
+    * @type {array}
+    * @memberof Mob
+    */
+    public group_data?:any = [];
+
+    /**
+    * 分组标识
+    *
+    * @type {array}
+    * @memberof Mob
+    */
+    public group_field:string = '';
+
+    /**
+     * 分组方法
+     *
+     * @memberof Mob
+     */
+    public group(){
+      let _this:any = this;
+      if(_this.getGroupDataByCodeList && _this.getGroupDataByCodeList instanceof Function && Object.is(_this.group_mode,"CODELIST") ){
+        _this.getGroupDataByCodeList(_this.items);
+      }else if(_this.getGroupDataAuto && _this.getGroupDataAuto instanceof Function && Object.is(_this.group_mode,"AUTO") ){
+        _this.getGroupDataAuto(_this.items);
+      }
+    }
+
 
     /**
     * 存放数据选择数组(单选)
@@ -495,6 +541,9 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     public async loadBottom(): Promise<any> {
+        if (((this.pageNumber + 1) * this.pageSize) >= this.pageTotal) {
+          return;
+        }
         this.pageNumber++;
         let params = {};
         if (this.viewparams) {
@@ -544,7 +593,7 @@ export default class MobBase extends Vue implements ControlInterface {
                 if (response && response.status === 200 && response.data.records) {
                     this.$notice.success((this.$t('app.message.deleteSccess') as string));
                     this.load();
-                    this.closeSliding();
+                    this.closeSlidings();
                     resolve(response);
                 } else {
                     this.$notice.error(response.message?response.message:"删除失败");
@@ -569,13 +618,10 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mdctrl
      */
     public refresh(): Promise<any> {
-        this.isLoading = true;
         return new Promise((resolve: any, reject: any) => {
             this.load().then((res) => {
-                this.isLoading = false;
                 resolve(res);
             }).catch((error: any) => {
-                this.isLoading = false;
                 reject(error);
             })
         })
@@ -670,8 +716,13 @@ export default class MobBase extends Vue implements ControlInterface {
             Object.assign(item,this.getActionState(item));    
             this.setSlidingDisabled(item);
         });
+        if(this.isEnableGroup){
+          this.group();
+        }
         return response;
     }
+
+
 
     /**
     * 全选
@@ -845,6 +896,15 @@ export default class MobBase extends Vue implements ControlInterface {
     }
 
     /**
+     * vue 生命周期 activated
+     *
+     * @memberof Mob
+     */
+    public activated() {
+        this.closeSlidings()
+    }
+
+    /**
      * 列表项左滑右滑触发行为
      *
      * @param {*} $event 点击鼠标事件
@@ -856,8 +916,20 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        let curr :any = this.$refs[item.srfkey];
-        curr[0].closeOpened();
+        this.closeSlidings();
+    }
+
+    /**
+     * 关闭列表项左滑右滑
+     * @memberof Mdctrl
+     */
+    public closeSlidings () {
+        let slidings:any = this.$refs.sliding; 
+        if (slidings) {
+            slidings.forEach((sliding:any) => {
+                sliding.close()
+            })     
+        }
     }
 
     /**
@@ -928,21 +1000,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mdctrl
      */
     public selectAllIschecked = false;
-
-
-    /**
-     * 关闭滑动项
-     *
-     * @memberof Mdctrl
-     */
-    public closeSliding(){
-        let sliding :any = this.$refs.sliding;
-        if(sliding){
-            sliding.forEach((item:any) => {
-                item.closeOpened();
-            });
-        }
-    }
+    
 
     /**
      * 界面行为模型
@@ -952,6 +1010,8 @@ export default class MobBase extends Vue implements ControlInterface {
      */  
     public ActionModel:any ={
     };
+
+    
 
     /**
      * 获取界面行为权限状态

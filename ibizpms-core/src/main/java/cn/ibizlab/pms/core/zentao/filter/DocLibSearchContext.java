@@ -27,6 +27,20 @@ import cn.ibizlab.pms.core.zentao.domain.DocLib;
 @Data
 public class DocLibSearchContext extends QueryWrapperContext<DocLib> {
 
+	private String n_type_eq;//[文档类型]
+	public void setN_type_eq(String n_type_eq) {
+        this.n_type_eq = n_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_type_eq)){
+            this.getSearchCond().eq("type", n_type_eq);
+        }
+    }
+	private String n_acl_eq;//[权限]
+	public void setN_acl_eq(String n_acl_eq) {
+        this.n_acl_eq = n_acl_eq;
+        if(!ObjectUtils.isEmpty(this.n_acl_eq)){
+            this.getSearchCond().eq("acl", n_acl_eq);
+        }
+    }
 	private Integer n_main_eq;//[是否是主库]
 	public void setN_main_eq(Integer n_main_eq) {
         this.n_main_eq = n_main_eq;
@@ -41,15 +55,15 @@ public class DocLibSearchContext extends QueryWrapperContext<DocLib> {
             this.getSearchCond().like("name", n_name_like);
         }
     }
-	private BigInteger n_project_eq;//[项目库]
-	public void setN_project_eq(BigInteger n_project_eq) {
+	private Long n_project_eq;//[项目库]
+	public void setN_project_eq(Long n_project_eq) {
         this.n_project_eq = n_project_eq;
         if(!ObjectUtils.isEmpty(this.n_project_eq)){
             this.getSearchCond().eq("project", n_project_eq);
         }
     }
-	private BigInteger n_product_eq;//[产品库]
-	public void setN_product_eq(BigInteger n_product_eq) {
+	private Long n_product_eq;//[产品库]
+	public void setN_product_eq(Long n_product_eq) {
         this.n_product_eq = n_product_eq;
         if(!ObjectUtils.isEmpty(this.n_product_eq)){
             this.getSearchCond().eq("product", n_product_eq);

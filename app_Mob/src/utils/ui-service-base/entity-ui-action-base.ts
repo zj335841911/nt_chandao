@@ -31,4 +31,14 @@ export default class EntityUIActionBase extends UIActionBase {
      */
     public dataService:any;
 
+    /**
+    * 获取资源标识是否有权限(无数据目标)
+    * 
+    * @param tag 资源标识
+    * @memberof  EntityUIActionBase
+    */
+    public getResourceOPPrivs(tag:any){
+        return this.authService.getResourcePermission(this.authService.sysOPPrivsMap.get(tag))?1:0;
+    }
+
 }

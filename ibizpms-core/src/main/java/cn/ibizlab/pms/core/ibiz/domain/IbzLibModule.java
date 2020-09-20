@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[用例库模块]
@@ -95,7 +96,7 @@ public class IbzLibModule extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 叶子模块
      */
@@ -140,7 +141,7 @@ public class IbzLibModule extends EntityMP implements Serializable {
     @TableField(value = "parent")
     @JSONField(name = "parent")
     @JsonProperty("parent")
-    private BigInteger parent;
+    private Long parent;
     /**
      * 上级模块
      */
@@ -154,7 +155,7 @@ public class IbzLibModule extends EntityMP implements Serializable {
     @TableField(value = "root")
     @JSONField(name = "root")
     @JsonProperty("root")
-    private BigInteger root;
+    private Long root;
 
     /**
      * 父节点
@@ -249,7 +250,7 @@ public class IbzLibModule extends EntityMP implements Serializable {
     /**
      * 设置 [id]
      */
-    public void setParent(BigInteger parent){
+    public void setParent(Long parent){
         this.parent = parent ;
         this.modify("parent",parent);
     }
@@ -257,12 +258,28 @@ public class IbzLibModule extends EntityMP implements Serializable {
     /**
      * 设置 [编号]
      */
-    public void setRoot(BigInteger root){
+    public void setRoot(Long root){
         this.root = root ;
         this.modify("root",root);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
+    /**
+     * 复制当前对象数据到目标对象(粘贴重置)
+     * @param targetEntity 目标数据对象
+     * @param bIncEmpty  是否包括空值
+     * @param <T>
+     * @return
+     */
+    @Override
+    public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
+        this.reset("id");
+        return super.copyTo(targetEntity,bIncEmpty);
+    }
 }
 
 

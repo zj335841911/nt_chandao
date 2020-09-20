@@ -96,7 +96,7 @@ public class BugExService extends BugServiceImpl {
      */
     @Override
     @Transactional
-
+    @SendMessage
     public Bug close(Bug et) {
         return super.close(et);
     }

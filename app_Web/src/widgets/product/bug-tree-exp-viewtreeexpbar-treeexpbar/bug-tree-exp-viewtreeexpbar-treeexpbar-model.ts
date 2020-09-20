@@ -129,6 +129,12 @@ export default class BugTreeExpViewtreeexpbarModel {
       {
         name: 'istop',
       },
+      {
+        name: 'testtaskcnt',
+      },
+      {
+        name: 'testsuitecnt',
+      },
     ]
   }
 

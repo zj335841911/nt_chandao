@@ -60,16 +60,6 @@ export class IbzLibCaseStepsGridView9Base extends GridView9Base {
      */
     public appUIService: IbzLibCaseStepTmpUIService = new IbzLibCaseStepTmpUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof IbzLibCaseStepsGridView9Base
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -127,6 +117,15 @@ export class IbzLibCaseStepsGridView9Base extends GridView9Base {
      * @memberof IbzLibCaseStepsGridView9Base
      */
     public engine: GridView9Engine = new GridView9Engine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof IbzLibCaseStepsGridView9Base
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

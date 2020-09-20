@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class ProjectStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-Create-all')")
     @ApiOperation(value = "新建项目统计", tags = {"项目统计" },  notes = "新建项目统计")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectstats")
-    public ResponseEntity<ProjectStatsDTO> create(@RequestBody ProjectStatsDTO projectstatsdto) {
+    public ResponseEntity<ProjectStatsDTO> create(@Validated @RequestBody ProjectStatsDTO projectstatsdto) {
         ProjectStats domain = projectstatsMapping.toDomain(projectstatsdto);
 		projectstatsService.create(domain);
         ProjectStatsDTO dto = projectstatsMapping.toDto(domain);
@@ -67,7 +68,7 @@ public class ProjectStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-Update-all')")
     @ApiOperation(value = "更新项目统计", tags = {"项目统计" },  notes = "更新项目统计")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projectstats/{projectstats_id}")
-    public ResponseEntity<ProjectStatsDTO> update(@PathVariable("projectstats_id") BigInteger projectstats_id, @RequestBody ProjectStatsDTO projectstatsdto) {
+    public ResponseEntity<ProjectStatsDTO> update(@PathVariable("projectstats_id") Long projectstats_id, @RequestBody ProjectStatsDTO projectstatsdto) {
 		ProjectStats domain  = projectstatsMapping.toDomain(projectstatsdto);
         domain .setId(projectstats_id);
 		projectstatsService.update(domain );
@@ -86,14 +87,14 @@ public class ProjectStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-Remove-all')")
     @ApiOperation(value = "删除项目统计", tags = {"项目统计" },  notes = "删除项目统计")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projectstats/{projectstats_id}")
-    public ResponseEntity<Boolean> remove(@PathVariable("projectstats_id") BigInteger projectstats_id) {
+    public ResponseEntity<Boolean> remove(@PathVariable("projectstats_id") Long projectstats_id) {
          return ResponseEntity.status(HttpStatus.OK).body(projectstatsService.remove(projectstats_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-Remove-all')")
     @ApiOperation(value = "批量删除项目统计", tags = {"项目统计" },  notes = "批量删除项目统计")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/projectstats/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         projectstatsService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -101,7 +102,7 @@ public class ProjectStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-Get-all')")
     @ApiOperation(value = "获取项目统计", tags = {"项目统计" },  notes = "获取项目统计")
 	@RequestMapping(method = RequestMethod.GET, value = "/projectstats/{projectstats_id}")
-    public ResponseEntity<ProjectStatsDTO> get(@PathVariable("projectstats_id") BigInteger projectstats_id) {
+    public ResponseEntity<ProjectStatsDTO> get(@PathVariable("projectstats_id") Long projectstats_id) {
         ProjectStats domain = projectstatsService.get(projectstats_id);
         ProjectStatsDTO dto = projectstatsMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);

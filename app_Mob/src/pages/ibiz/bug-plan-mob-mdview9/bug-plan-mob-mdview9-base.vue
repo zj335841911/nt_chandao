@@ -2,6 +2,15 @@
 <embed-view :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview9': true, 'bug-plan-mob-mdview9': true }">
     <template slot="header">
     </template>
+
+    <template slot="toolbar">
+            <ion-buttons slot="end" class="ibiz-top-right-buttons ibiz-buttonGroup">
+                                <div class="app-toolbar-container ">
+                    <div class="app-quick-toolbar toolbar-right-bottons">
+                    </div>
+                </div>
+            </ion-buttons>
+    </template>
     <template slot="content">
                 <view_mdctrl
             :viewState="viewState"
@@ -22,7 +31,7 @@
             @showCheackChange="showCheackChange"
             :isTempMode="false"
             :isEnableChoose="false"
-            :isEnableRefresh="false"
+            :needLoadMore="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -182,7 +191,7 @@ export default class BugPlanMobMDView9Base extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-bug'
     }
 
     /**
@@ -372,6 +381,7 @@ export default class BugPlanMobMDView9Base extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *
@@ -516,11 +526,28 @@ export default class BugPlanMobMDView9Base extends Vue {
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
         if (context.product && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
@@ -564,11 +591,28 @@ export default class BugPlanMobMDView9Base extends Vue {
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
         if (context.product && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'bugs', parameterName: 'bug' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
@@ -623,9 +667,14 @@ export default class BugPlanMobMDView9Base extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
-        }else{
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
+        }
+        if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
         
@@ -712,6 +761,15 @@ export default class BugPlanMobMDView9Base extends Vue {
      * @memberof BugPlanMobMDView9Base
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+
+   /**
+     * 能否上拉加载
+     *
+     * @type {boolean}
+     * @memberof BugPlanMobMDView9Base
+     */ 
+    @Prop({ default: true }) public isEnablePullUp?: boolean;
+
 
     /**
      * 分类值
@@ -802,14 +860,28 @@ export default class BugPlanMobMDView9Base extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof BugPlanMobMDView9Base
      */
     public onCategory(value:any){
         this.categoryValue = value;
         this.onViewLoad();
     }
 
-
+    /**
+     * 触底加载
+     *
+     * @param {*} value
+     * @memberof BugPlanMobMDView9Base
+     */
+    public async loadMore(event:any){
+      let mdctrl:any = this.$refs.mdctrl;
+      if(mdctrl && mdctrl.loadBottom && mdctrl.loadBottom instanceof Function){
+        mdctrl.loadBottom();
+      }
+      if(event.target && event.target.complete && event.target.complete instanceof Function){
+        event.target.complete();
+      }
+    }
 
 
 

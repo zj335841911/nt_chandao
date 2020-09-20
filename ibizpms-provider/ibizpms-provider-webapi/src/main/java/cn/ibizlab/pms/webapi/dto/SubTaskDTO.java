@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "canceledby")
     @JsonProperty("canceledby")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String canceledby;
 
     /**
@@ -55,6 +59,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "color")
     @JsonProperty("color")
+    @Size(min = 0, max = 7, message = "内容长度必须小于等于[7]")
     private String color;
 
     /**
@@ -63,7 +68,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [FINISHEDBY]
@@ -71,6 +76,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "finishedby")
     @JsonProperty("finishedby")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String finishedby;
 
     /**
@@ -79,6 +85,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "finishedlist")
     @JsonProperty("finishedlist")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String finishedlist;
 
     /**
@@ -96,6 +103,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "closedby")
     @JsonProperty("closedby")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String closedby;
 
     /**
@@ -104,6 +112,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "substatus")
     @JsonProperty("substatus")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String substatus;
 
     /**
@@ -112,6 +121,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "closedreason")
     @JsonProperty("closedreason")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String closedreason;
 
     /**
@@ -146,6 +156,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String lasteditedby;
 
     /**
@@ -154,6 +165,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "status")
     @JsonProperty("status")
+    @Size(min = 0, max = 6, message = "内容长度必须小于等于[6]")
     private String status;
 
     /**
@@ -162,6 +174,8 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "name")
     @JsonProperty("name")
+    @NotBlank(message = "[任务名称]不允许为空!")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String name;
 
     /**
@@ -179,6 +193,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "type")
     @JsonProperty("type")
+    @Size(min = 0, max = 20, message = "内容长度必须小于等于[20]")
     private String type;
 
     /**
@@ -187,6 +202,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "assignedto")
     @JsonProperty("assignedto")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String assignedto;
 
     /**
@@ -195,6 +211,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "desc")
     @JsonProperty("desc")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String desc;
 
     /**
@@ -221,6 +238,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
     private String deleted;
 
     /**
@@ -229,6 +247,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "mailto")
     @JsonProperty("mailto")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String mailto;
 
     /**
@@ -253,6 +272,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "openedby")
     @JsonProperty("openedby")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String openedby;
 
     /**
@@ -279,6 +299,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "modulename")
     @JsonProperty("modulename")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String modulename;
 
     /**
@@ -287,6 +308,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "storyname")
     @JsonProperty("storyname")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String storyname;
 
     /**
@@ -295,6 +317,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "projectname")
     @JsonProperty("projectname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String projectname;
 
     /**
@@ -303,7 +326,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
 
     /**
      * 属性 [STORYVERSION]
@@ -319,6 +342,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "productname")
     @JsonProperty("productname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String productname;
 
     /**
@@ -327,6 +351,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "parentname")
     @JsonProperty("parentname")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String parentname;
 
     /**
@@ -335,7 +360,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "project")
     @JsonProperty("project")
-    private BigInteger project;
+    private Long project;
 
     /**
      * 属性 [STORY]
@@ -343,7 +368,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "story")
     @JsonProperty("story")
-    private BigInteger story;
+    private Long story;
 
     /**
      * 属性 [PARENT]
@@ -351,7 +376,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "parent")
     @JsonProperty("parent")
-    private BigInteger parent;
+    private Long parent;
 
     /**
      * 属性 [FROMBUG]
@@ -359,7 +384,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "frombug")
     @JsonProperty("frombug")
-    private BigInteger frombug;
+    private Long frombug;
 
     /**
      * 属性 [DURATION]
@@ -367,6 +392,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "duration")
     @JsonProperty("duration")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String duration;
 
     /**
@@ -375,7 +401,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "module")
     @JsonProperty("module")
-    private BigInteger module;
+    private Long module;
 
     /**
      * 属性 [PATH]
@@ -383,6 +409,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "path")
     @JsonProperty("path")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String path;
 
     /**
@@ -391,6 +418,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "comment")
     @JsonProperty("comment")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
     private String comment;
 
     /**
@@ -415,6 +443,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "isleaf")
     @JsonProperty("isleaf")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String isleaf;
 
     /**
@@ -423,6 +452,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "allmodules")
     @JsonProperty("allmodules")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String allmodules;
 
     /**
@@ -431,7 +461,8 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "multiple")
     @JsonProperty("multiple")
-    private Integer multiple;
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String multiple;
 
     /**
      * 属性 [MODULENAME1]
@@ -439,6 +470,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "modulename1")
     @JsonProperty("modulename1")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String modulename1;
 
     /**
@@ -447,7 +479,26 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "isfavorites")
     @JsonProperty("isfavorites")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String isfavorites;
+
+    /**
+     * 属性 [STATUS1]
+     *
+     */
+    @JSONField(name = "status1")
+    @JsonProperty("status1")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String status1;
+
+    /**
+     * 属性 [TASKTYPE]
+     *
+     */
+    @JSONField(name = "tasktype")
+    @JsonProperty("tasktype")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String tasktype;
 
 
     /**
@@ -661,7 +712,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PROJECT]
      */
-    public void setProject(BigInteger  project){
+    public void setProject(Long  project){
         this.project = project ;
         this.modify("project",project);
     }
@@ -669,7 +720,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     /**
      * 设置 [STORY]
      */
-    public void setStory(BigInteger  story){
+    public void setStory(Long  story){
         this.story = story ;
         this.modify("story",story);
     }
@@ -677,7 +728,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PARENT]
      */
-    public void setParent(BigInteger  parent){
+    public void setParent(Long  parent){
         this.parent = parent ;
         this.modify("parent",parent);
     }
@@ -685,7 +736,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     /**
      * 设置 [FROMBUG]
      */
-    public void setFrombug(BigInteger  frombug){
+    public void setFrombug(Long  frombug){
         this.frombug = frombug ;
         this.modify("frombug",frombug);
     }
@@ -693,11 +744,12 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     /**
      * 设置 [MODULE]
      */
-    public void setModule(BigInteger  module){
+    public void setModule(Long  module){
         this.module = module ;
         this.modify("module",module);
     }
 
 
 }
+
 

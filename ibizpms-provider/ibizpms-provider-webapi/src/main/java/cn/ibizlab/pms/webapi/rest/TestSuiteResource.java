@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class TestSuiteResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Create-all')")
     @ApiOperation(value = "新建测试套件", tags = {"测试套件" },  notes = "新建测试套件")
 	@RequestMapping(method = RequestMethod.POST, value = "/testsuites")
-    public ResponseEntity<TestSuiteDTO> create(@RequestBody TestSuiteDTO testsuitedto) {
+    public ResponseEntity<TestSuiteDTO> create(@Validated @RequestBody TestSuiteDTO testsuitedto) {
         TestSuite domain = testsuiteMapping.toDomain(testsuitedto);
 		testsuiteService.create(domain);
         TestSuiteDTO dto = testsuiteMapping.toDto(domain);
@@ -67,7 +68,7 @@ public class TestSuiteResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Update-all')")
     @ApiOperation(value = "更新测试套件", tags = {"测试套件" },  notes = "更新测试套件")
 	@RequestMapping(method = RequestMethod.PUT, value = "/testsuites/{testsuite_id}")
-    public ResponseEntity<TestSuiteDTO> update(@PathVariable("testsuite_id") BigInteger testsuite_id, @RequestBody TestSuiteDTO testsuitedto) {
+    public ResponseEntity<TestSuiteDTO> update(@PathVariable("testsuite_id") Long testsuite_id, @RequestBody TestSuiteDTO testsuitedto) {
 		TestSuite domain  = testsuiteMapping.toDomain(testsuitedto);
         domain .setId(testsuite_id);
 		testsuiteService.update(domain );
@@ -86,14 +87,14 @@ public class TestSuiteResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Remove-all')")
     @ApiOperation(value = "删除测试套件", tags = {"测试套件" },  notes = "删除测试套件")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/testsuites/{testsuite_id}")
-    public ResponseEntity<Boolean> remove(@PathVariable("testsuite_id") BigInteger testsuite_id) {
+    public ResponseEntity<Boolean> remove(@PathVariable("testsuite_id") Long testsuite_id) {
          return ResponseEntity.status(HttpStatus.OK).body(testsuiteService.remove(testsuite_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Remove-all')")
     @ApiOperation(value = "批量删除测试套件", tags = {"测试套件" },  notes = "批量删除测试套件")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/testsuites/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         testsuiteService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -101,7 +102,7 @@ public class TestSuiteResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Get-all')")
     @ApiOperation(value = "获取测试套件", tags = {"测试套件" },  notes = "获取测试套件")
 	@RequestMapping(method = RequestMethod.GET, value = "/testsuites/{testsuite_id}")
-    public ResponseEntity<TestSuiteDTO> get(@PathVariable("testsuite_id") BigInteger testsuite_id) {
+    public ResponseEntity<TestSuiteDTO> get(@PathVariable("testsuite_id") Long testsuite_id) {
         TestSuite domain = testsuiteService.get(testsuite_id);
         TestSuiteDTO dto = testsuiteMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);

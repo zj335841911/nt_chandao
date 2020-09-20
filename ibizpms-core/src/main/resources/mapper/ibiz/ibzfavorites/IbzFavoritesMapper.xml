@@ -10,7 +10,7 @@
 
     <!--通过mybatis将查询结果注入到entity中,通过配置autoMapping="true"由mybatis自动处理映射关系 -->
     <resultMap id="IbzFavoritesResultMap" type="cn.ibizlab.pms.core.ibiz.domain.IbzFavorites" autoMapping="true">
-        <id property="ibzfavoritesid" column="ibz_favoritesid" /><!--主键字段映射-->
+		<id property="ibzfavoritesid" column="ibz_favoritesid" /><!--主键字段映射-->
 		<result property="ibzfavoritesname" column="ibz_favoritesname" />
             
 		

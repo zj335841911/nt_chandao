@@ -222,6 +222,9 @@ export default class BugDashboardActionsModel {
       {
         name: 'createbuild',
       },
+      {
+        name: 'overduebugs',
+      },
     ]
   }
 

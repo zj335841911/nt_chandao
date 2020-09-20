@@ -60,16 +60,6 @@ export class ProductLifeRoadMapSListView9Base extends ListView9Base {
      */
     public appUIService: ProductLifeUIService = new ProductLifeUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ProductLifeRoadMapSListView9Base
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航参数集合
 	 *
@@ -126,6 +116,15 @@ export class ProductLifeRoadMapSListView9Base extends ListView9Base {
      * @memberof ProductLifeRoadMapSListView9Base
      */
     public engine: ListView9Engine = new ListView9Engine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProductLifeRoadMapSListView9Base
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

@@ -177,6 +177,9 @@ export default class MainToolbarModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'ischild',
+      },
     ]
   }
 

@@ -27,83 +27,9 @@ export default class TestMainGridModel {
     }else{
 		  return [
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'lastrundate',
-          prop: 'lastrundate',
-          dataType: 'DATETIME',
-        },
-        {
-          name: 'resultcnt',
-          prop: 'resultcnt',
-          dataType: 'INT',
-        },
-        {
-          name: 'frombug',
-          prop: 'frombug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'status1',
-          prop: 'status1',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'type',
-          prop: 'type',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'story',
-          prop: 'story',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'pri',
@@ -116,28 +42,18 @@ export default class TestMainGridModel {
           dataType: 'TEXT',
         },
         {
-          name: 'lib',
-          prop: 'lib',
-          dataType: 'PICKUP',
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
         },
         {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'TEXT',
         },
         {
-          name: 'fromcaseid',
-          prop: 'fromcaseid',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'casesteps',
-          prop: 'casesteps',
-          dataType: 'ONE2MANYDATA',
-        },
-        {
-          name: 'lastrunresult',
-          prop: 'lastrunresult',
+          name: 'assignedto',
+          prop: 'assignedto',
           dataType: 'SSCODELIST',
         },
         {
@@ -146,9 +62,98 @@ export default class TestMainGridModel {
           dataType: 'TEXT',
         },
         {
+          name: 'lastrundate',
+          prop: 'lastrundate',
+          dataType: 'DATETIME',
+        },
+        {
+          name: 'lastrunresult',
+          prop: 'lastrunresult',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'status1',
+          prop: 'status1',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'tobugcnt',
           prop: 'tobugcnt',
           dataType: 'INT',
+        },
+        {
+          name: 'resultcnt',
+          prop: 'resultcnt',
+          dataType: 'INT',
+        },
+        {
+          name: 'casesteps',
+          prop: 'casesteps',
+          dataType: 'ONE2MANYDATA',
+        },
+        {
+          name: 'frombug',
+          prop: 'frombug',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'srfmstag',
+        },
+        {
+          name: 'srfmajortext',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
+        },
+        {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'story',
+          prop: 'story',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'fromcaseid',
+          prop: 'fromcaseid',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'lastrunresult1',
+          prop: 'lastrunresult1',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'lib',
+          prop: 'lib',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'branch',
+          prop: 'branch',
+          dataType: 'PICKUP',
         },
         {
           name: 'case',

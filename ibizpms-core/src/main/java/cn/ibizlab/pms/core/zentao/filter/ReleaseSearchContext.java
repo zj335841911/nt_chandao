@@ -62,22 +62,22 @@ public class ReleaseSearchContext extends QueryWrapperContext<Release> {
             this.getSearchCond().like("buildname", n_buildname_like);
         }
     }
-	private BigInteger n_product_eq;//[产品]
-	public void setN_product_eq(BigInteger n_product_eq) {
+	private Long n_product_eq;//[产品]
+	public void setN_product_eq(Long n_product_eq) {
         this.n_product_eq = n_product_eq;
         if(!ObjectUtils.isEmpty(this.n_product_eq)){
             this.getSearchCond().eq("product", n_product_eq);
         }
     }
-	private BigInteger n_build_eq;//[版本]
-	public void setN_build_eq(BigInteger n_build_eq) {
+	private Long n_build_eq;//[版本]
+	public void setN_build_eq(Long n_build_eq) {
         this.n_build_eq = n_build_eq;
         if(!ObjectUtils.isEmpty(this.n_build_eq)){
             this.getSearchCond().eq("build", n_build_eq);
         }
     }
-	private BigInteger n_branch_eq;//[平台/分支]
-	public void setN_branch_eq(BigInteger n_branch_eq) {
+	private Long n_branch_eq;//[平台/分支]
+	public void setN_branch_eq(Long n_branch_eq) {
         this.n_branch_eq = n_branch_eq;
         if(!ObjectUtils.isEmpty(this.n_branch_eq)){
             this.getSearchCond().eq("branch", n_branch_eq);
@@ -95,6 +95,20 @@ public class ReleaseSearchContext extends QueryWrapperContext<Release> {
         this.n_productname_like = n_productname_like;
         if(!ObjectUtils.isEmpty(this.n_productname_like)){
             this.getSearchCond().like("productname", n_productname_like);
+        }
+    }
+	private Integer n_rebuild_eq;//[重新构建]
+	public void setN_rebuild_eq(Integer n_rebuild_eq) {
+        this.n_rebuild_eq = n_rebuild_eq;
+        if(!ObjectUtils.isEmpty(this.n_rebuild_eq)){
+            this.getSearchCond().eq("rebuild", n_rebuild_eq);
+        }
+    }
+	private String n_releasetype_eq;//[运行模式]
+	public void setN_releasetype_eq(String n_releasetype_eq) {
+        this.n_releasetype_eq = n_releasetype_eq;
+        if(!ObjectUtils.isEmpty(this.n_releasetype_eq)){
+            this.getSearchCond().eq("releasetype", n_releasetype_eq);
         }
     }
 

@@ -19,6 +19,8 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface StoryMapper extends BaseMapper<Story>{
 
+    Page<Story> searchAssignedToMyStory(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
+    Page<Story> searchBugStory(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     Page<Story> searchBuildLinkCompletedStories(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     Page<Story> searchBuildLinkableStories(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     Page<Story> searchBuildStories(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
@@ -26,6 +28,7 @@ public interface StoryMapper extends BaseMapper<Story>{
     Page<Story> searchDefault(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     Page<Story> searchGetProductStories(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     Page<Story> searchMyFavorites(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
+    Page<Story> searchParentDefault(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     Page<Story> searchProjectLinkStory(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     Page<Story> searchProjectStories(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     Page<Story> searchReleaseLinkableStories(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
@@ -33,6 +36,7 @@ public interface StoryMapper extends BaseMapper<Story>{
     Page<Story> searchReportStories(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     Page<Story> searchStoryChild(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     Page<Story> searchStoryRelated(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
+    Page<Story> searchSubStory(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     Page<Story> searchTaskRelatedStory(IPage page, @Param("srf") StorySearchContext context, @Param("ew") Wrapper<Story> wrapper) ;
     @Override
     Story selectById(Serializable id);

@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface ICronService extends IService<Cron>{
     void createBatch(List<Cron> list) ;
     boolean update(Cron et) ;
     void updateBatch(List<Cron> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Cron get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Cron get(Long key) ;
     Cron getDraft(Cron et) ;
     boolean checkKey(Cron et) ;
     boolean save(Cron et) ;

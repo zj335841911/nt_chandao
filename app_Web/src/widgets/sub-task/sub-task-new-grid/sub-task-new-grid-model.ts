@@ -27,15 +27,74 @@ export default class SubTaskNewModel {
     }else{
 		  return [
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
+          name: 'modulename',
+          prop: 'modulename',
+          dataType: 'PICKUPTEXT',
+          isEditable:true
+        },
+        {
+          name: 'storyname',
+          prop: 'storyname',
+          dataType: 'PICKUPTEXT',
+          isEditable:true
+        },
+        {
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
+          isEditable:true
+        },
+        {
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
+          isEditable:true
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+          isEditable:true
+        },
+        {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+          isEditable:true
+        },
+        {
+          name: 'eststarted',
+          prop: 'eststarted',
+          dataType: 'DATE',
+          isEditable:true
+        },
+        {
+          name: 'deadline',
+          prop: 'deadline',
+          dataType: 'DATE',
           isEditable:true
         },
         {
           name: 'desc',
           prop: 'desc',
           dataType: 'LONGTEXT',
+          isEditable:true
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+          isEditable:true
+        },
+        {
+          name: 'tasktype',
+          prop: 'tasktype',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
           isEditable:true
         },
         {
@@ -55,25 +114,7 @@ export default class SubTaskNewModel {
           isEditable:true
         },
         {
-          name: 'storyname',
-          prop: 'storyname',
-          dataType: 'PICKUPTEXT',
-          isEditable:true
-        },
-        {
-          name: 'type',
-          prop: 'type',
-          dataType: 'SSCODELIST',
-          isEditable:true
-        },
-        {
           name: 'srfmstag',
-        },
-        {
-          name: 'estimate',
-          prop: 'estimate',
-          dataType: 'FLOAT',
-          isEditable:true
         },
         {
           name: 'srfmajortext',
@@ -103,33 +144,9 @@ export default class SubTaskNewModel {
           isEditable:true
         },
         {
-          name: 'modulename',
-          prop: 'modulename',
-          dataType: 'PICKUPTEXT',
-          isEditable:true
-        },
-        {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
-          isEditable:true
-        },
-        {
           name: 'story',
           prop: 'story',
           dataType: 'PICKUP',
-          isEditable:true
-        },
-        {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-          isEditable:true
-        },
-        {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
           isEditable:true
         },
         {
@@ -142,18 +159,6 @@ export default class SubTaskNewModel {
           name: 'left',
           prop: 'left',
           dataType: 'FLOAT',
-          isEditable:true
-        },
-        {
-          name: 'eststarted',
-          prop: 'eststarted',
-          dataType: 'DATE',
-          isEditable:true
-        },
-        {
-          name: 'deadline',
-          prop: 'deadline',
-          dataType: 'DATE',
           isEditable:true
         },
         {

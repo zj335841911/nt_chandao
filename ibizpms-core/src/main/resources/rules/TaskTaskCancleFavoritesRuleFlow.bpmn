@@ -7,11 +7,11 @@
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="tasktaskcanclefavoritesdefault" type="cn.ibizlab.pms.core.zentao.domain.Task" />
         </extensionElements>
-     <startEvent id="7387a2846ec4c0e3c951232411a80bf4" isInterrupting="true"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="tasktaskcanclefavoritesrawsqlcall1" id="59bf7529ae06c6cdde63b7f8b1fe09d0" implementation="http://www.jboss.org/drools/rule" name="取消收藏"/>
-     <endEvent id="59bf7529ae06c6cdde63b7f8b1fe09d0_End" name="End"/>
-     <sequenceFlow id="59bf7529ae06c6cdde63b7f8b1fe09d0_End_Line" sourceRef="59bf7529ae06c6cdde63b7f8b1fe09d0" targetRef="59bf7529ae06c6cdde63b7f8b1fe09d0_End"/>
-     <sequenceFlow id="16b07b6d70c10fb2a211890a3f889ec5" sourceRef="7387a2846ec4c0e3c951232411a80bf4" targetRef="59bf7529ae06c6cdde63b7f8b1fe09d0">
+     <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="tasktaskcanclefavoritesrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="取消收藏"/>
+     <endEvent id="rawsqlcall1_end" name="end"/>
+     <sequenceFlow id="rawsqlcall1_end_line" sourceRef="rawsqlcall1" targetRef="rawsqlcall1_end"/>
+     <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
      </sequenceFlow>
     </process>
 </definitions>

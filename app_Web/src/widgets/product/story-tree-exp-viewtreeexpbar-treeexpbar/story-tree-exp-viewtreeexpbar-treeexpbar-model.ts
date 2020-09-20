@@ -129,6 +129,12 @@ export default class StoryTreeExpViewtreeexpbarModel {
       {
         name: 'istop',
       },
+      {
+        name: 'testtaskcnt',
+      },
+      {
+        name: 'testsuitecnt',
+      },
     ]
   }
 

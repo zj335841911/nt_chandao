@@ -1,5 +1,5 @@
 <template>
-    <div ref='form' class="app-form ">
+    <div ref='form' class="app-form story-form ">
                 
 
 <app-form-group 
@@ -33,8 +33,8 @@
         <app-mob-select-drop-down 
     name='prodoctname' 
     deMajorField='name'
-    deKeyField='productid'
-    valueitem='' 
+    deKeyField='id'
+    valueitem='product' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
@@ -48,7 +48,8 @@
     :service="service"
     :acParams="{ serviceName: 'product', interfaceName: 'FetchDefault'}"
     :value="data.prodoctname" 
-    @formitemvaluechange="onFormItemValueChange">
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.prodoctname = $event">
 </app-mob-select-drop-down>
 </app-form-item>
 
@@ -103,8 +104,8 @@
         <app-mob-select-drop-down 
     name='modulename' 
     deMajorField='name'
-    deKeyField='productmoduleid'
-    valueitem='' 
+    deKeyField='id'
+    valueitem='module' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
@@ -116,9 +117,10 @@
     :itemParam='{ }' 
     :disabled="detailsModel.modulename.disabled"
     :service="service"
-    :acParams="{ serviceName: 'productmodule', interfaceName: 'FetchDefault'}"
+    :acParams="{ serviceName: 'productmodule', interfaceName: 'FetchStoryModule'}"
     :value="data.modulename" 
-    @formitemvaluechange="onFormItemValueChange">
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.modulename = $event">
 </app-mob-select-drop-down>
 </app-form-item>
 
@@ -148,8 +150,8 @@
     :context="context" 
     :viewparams="viewparams"
     :value="data.plan"  
-    :navigateContext ='{ "product": "%product%" } '
-    :navigateParam ='{ "product": "%product%" } '
+    :navigateContext ='{ "n_product_eq": "%product%" } '
+    :navigateParam ='{ "n_product_eq": "%product%" } '
     @change="($event)=>this.data.plan = $event" />
 </app-form-item>
 
@@ -204,7 +206,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.sourcenote" 
+    :value="data.sourcenote"
+    unit=""
     :disabled="detailsModel.sourcenote.disabled" 
     @change="($event)=>this.data.sourcenote = $event" />
 </app-form-item>
@@ -291,7 +294,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.title" 
+    :value="data.title"
+    unit=""
     :disabled="detailsModel.title.disabled" 
     @change="($event)=>this.data.title = $event" />
 </app-form-item>
@@ -348,7 +352,8 @@
     class="app-form-item-input"  
         placeholder="工时"
     type="text"  
-    :value="data.estimate" 
+    :value="data.estimate"
+    unit=""
     :disabled="detailsModel.estimate.disabled" 
     @change="($event)=>this.data.estimate = $event" />
 </app-form-item>
@@ -367,10 +372,9 @@
     :caption="$t('story.mobnewform_form.details.spec')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.spec.disabled"
     :error="detailsModel.spec.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor :formState="formState" :value="data.spec" @change="(val) =>{this.data.spec =val}" :disabled="detailsModel.spec.disabled" :data="JSON.stringify(this.data)"  name="spec" :uploadparams='{objecttype:"story",version:"editor"}' :exportparams='{objecttype:"story",version:"editor"}'  style=""></app-mob-rich-text-editor>
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.spec" @change="(val) =>{this.data.spec =val}" :disabled="detailsModel.spec.disabled" :data="JSON.stringify(this.data)"  name="spec" :uploadparams='{objecttype:"story",version:"editor"}' :exportparams='{objecttype:"story",version:"editor"}'  style=""/>
 
 </app-form-item>
 
@@ -388,10 +392,9 @@
     :caption="$t('story.mobnewform_form.details.verify')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.verify.disabled"
     :error="detailsModel.verify.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor :formState="formState" :value="data.verify" @change="(val) =>{this.data.verify =val}" :disabled="detailsModel.verify.disabled" :data="JSON.stringify(this.data)"  name="verify" :uploadparams='{objecttype:"story",version:"editor"}' :exportparams='{objecttype:"story",version:"editor"}'  style=""></app-mob-rich-text-editor>
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.verify" @change="(val) =>{this.data.verify =val}" :disabled="detailsModel.verify.disabled" :data="JSON.stringify(this.data)"  name="verify" :uploadparams='{objecttype:"story",version:"editor"}' :exportparams='{objecttype:"story",version:"editor"}'  style=""/>
 
 </app-form-item>
 
@@ -448,7 +451,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.keywords" 
+    :value="data.keywords"
+    unit=""
     :disabled="detailsModel.keywords.disabled" 
     @change="($event)=>this.data.keywords = $event" />
 </app-form-item>
@@ -462,7 +466,6 @@
 
     </div>
 </template>
-
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
@@ -1453,6 +1456,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         }
         if (Object.is(name, 'branch')) {
             this.onFormItemValueChange({ name: 'modulename', value: null });
+            this.onFormItemValueChange({ name: 'module', value: null });
         }
         if (Object.is(name, 'prodoctname')) {
             this.onFormItemValueChange({ name: 'plan', value: null });

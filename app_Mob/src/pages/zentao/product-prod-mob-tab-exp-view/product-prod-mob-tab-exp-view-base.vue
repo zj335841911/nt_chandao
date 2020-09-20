@@ -11,22 +11,21 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
+
+    
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel">
-                            <ion-badge v-if="false" color="danger">2</ion-badge>
-                            详情</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
-                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            <ion-badge color="danger">{{counter.counterData.draftstorycnt?counter.counterData.draftstorycnt:''}}</ion-badge>
                             需求</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">
-                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            <ion-badge color="danger">{{counter.counterData.productplancnt?counter.counterData.productplancnt:''}}</ion-badge>
                             计划</ion-segment-button>
                             <ion-segment-button value="tabviewpanel4">
-                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            <ion-badge color="danger">{{counter.counterData.releasecnt?counter.counterData.releasecnt:''}}</ion-badge>
                             发布</ion-segment-button>
                             <ion-segment-button value="tabviewpanel5">
-                            <ion-badge v-if="false" color="danger">2</ion-badge>
+                            <ion-badge color="danger">{{counter.counterData.relatedbugcnt?counter.counterData.relatedbugcnt:''}}</ion-badge>
                             Bug</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
@@ -39,8 +38,9 @@
             viewName="ProductProdMobTabExpView"  
             :viewparams="viewparams" 
             :context="context" 
-        :activiedTabViewPanel="activiedTabViewPanel"     
-        @changepanel="changePanel"
+            :activiedTabViewPanel="activiedTabViewPanel"     
+            @changepanel="changePanel"
+            @counterInit="counterInit"
             name="tabexppanel"  
             ref='tabexppanel' 
             @closeview="closeView($event)">
@@ -48,6 +48,8 @@
     </ion-content>
 </ion-page>
 </template>
+
+
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
@@ -188,7 +190,7 @@ export default class ProductProdMobTabExpViewBase extends Vue {
      * @memberof ProductProdMobTabExpViewBase
      */
     protected model: any = {
-        srfTitle: '产品详情',
+        srfTitle: '产品',
         srfCaption: 'product.views.prodmobtabexpview.caption',
         srfSubCaption: '',
         dataInfo: '',
@@ -270,7 +272,6 @@ export default class ProductProdMobTabExpViewBase extends Vue {
 
 
 
-
     /**
      * 工具栏模型集合名
      *
@@ -303,13 +304,33 @@ export default class ProductProdMobTabExpViewBase extends Vue {
         }
         return true;
     }
+
+    /**
+     * 计数器数据
+     *
+     * @type {string}
+     * @memberof  ProductProdMobTabExpViewBase
+     */
+    public counter:any = {counterData:{}} ;
+
+
+    /**
+     * 计数器初始化
+     *
+     * @type {string}
+     * @memberof  ProductProdMobTabExpViewBase
+     */
+    private counterInit(value:any) {
+        this.counter = value;
+    }
+
     /**
      * 被激活的分页面板
      *
      * @type {string}
      * @memberof  ProductProdMobTabExpViewBase
      */
-    protected activiedTabViewPanel: string = 'tabviewpanel';
+    protected activiedTabViewPanel: string = 'tabviewpanel2';
 
     /**
      * 分页导航栏激活
@@ -368,7 +389,7 @@ export default class ProductProdMobTabExpViewBase extends Vue {
         if (info.name && info.name == 'product' && info.id && info.id == this.context.product) {
           this.activiedTabViewPanel = info.value;
         } else { 
-          this.activiedTabViewPanel = 'tabviewpanel';
+          this.activiedTabViewPanel = 'tabviewpanel2';
         }
         }
     }
@@ -425,9 +446,10 @@ export default class ProductProdMobTabExpViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
-this.getLocalStorage();
+        this.getLocalStorage();
 
     }
+
 
     /**
      * 销毁之前
@@ -537,9 +559,14 @@ this.getLocalStorage();
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
-        }else{
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
+        }
+        if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
         

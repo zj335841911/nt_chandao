@@ -32,6 +32,11 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'tasktype',
+          prop: 'tasktype',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'finishedby',
           prop: 'finishedby',
           dataType: 'SSCODELIST',
@@ -44,6 +49,11 @@ export default class MainModel {
         {
           name: 'status',
           prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'status1',
+          prop: 'status1',
           dataType: 'SSCODELIST',
         },
         {

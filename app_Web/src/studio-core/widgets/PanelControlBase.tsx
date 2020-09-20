@@ -2,6 +2,7 @@ import { Prop } from 'vue-property-decorator';
 import { Watch } from '../decorators/VueLifeCycleProcessing';
 import { ControlBase } from './ControlBase';
 import CodeListService from '@/service/app/codelist-service';
+import { ViewTool } from '@/utils';
 
 /**
  * 面板部件基类
@@ -53,6 +54,14 @@ export class PanelControlBase extends ControlBase {
     public dataModel: any = null;
 
     /**
+     * 界面服务
+     *
+     * @type {*}
+     * @memberof PanelControlBase
+     */
+    public appUIService: any;
+
+    /**
      * 
      *
      * @returns {any[]}
@@ -72,7 +81,7 @@ export class PanelControlBase extends ControlBase {
      * @memberof PanelControlBase
      */
     public getData() {
-        return this.data;
+        return this.panelData;
     }
 
     /**
@@ -104,6 +113,8 @@ export class PanelControlBase extends ControlBase {
     async onInputDataChange(newVal: any, oldVal: any) {
         if (newVal) {
             await this.computedUIData(newVal);
+            this.panelData = this.$util.deepCopy(newVal);
+            this.computeButtonState(newVal);
             this.panelLogic({ name: '', newVal: null, oldVal: null });
             this.$forceUpdate();
         }
@@ -331,6 +342,31 @@ export class PanelControlBase extends ControlBase {
             })
             if (modelitem) {
                 this.$emit('panelDataChange', { [modelitem.prop]: value });
+            }
+        }
+    }
+
+    /**
+     * 计算面板按钮权限状态
+     *
+     * @param {*} [data] 传入数据
+     * @memberof ${srfclassname('${ctrl.codeName}')}
+     */
+    public computeButtonState(data:any){
+        // 若为项布局面板，存在parentRef
+        if(this.parentRef){
+            let targetData:any = this.parentRef.transformData(data);
+            if(this.detailsModel && Object.keys(this.detailsModel).length >0){
+                Object.keys(this.detailsModel).forEach((name:any) =>{
+                    if(this.detailsModel[name] && this.detailsModel[name].uiaction && this.detailsModel[name].uiaction.dataaccaction && Object.is(this.detailsModel[name].itemType,"BUTTON")){
+                        this.detailsModel[name].isPower = true;
+                        let tempUIAction:any = JSON.parse(JSON.stringify(this.detailsModel[name].uiaction));
+                        let result: any[] = ViewTool.calcActionItemAuthState(targetData,[tempUIAction],this.appUIService?this.appUIService:null);
+                        this.detailsModel[name].visible = tempUIAction.visabled;
+                        this.detailsModel[name].disabled = tempUIAction.disabled;
+                        this.detailsModel[name].isPower = result[0] === 1 ? true : false;
+                    }
+                })
             }
         }
     }

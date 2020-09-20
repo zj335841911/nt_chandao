@@ -25,6 +25,7 @@ export class GridExpBarControlBase extends ExpControlBase {
      * @memberof GridExpBarControlBase
      */
     public ctrlCreated(): void {
+        this.loadQuickGroupModel();
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -57,5 +58,6 @@ export class GridExpBarControlBase extends ExpControlBase {
      */
     public gridexpbar_load(args: any, e?: any, data?: any) {
         this.$emit('load', args);
+        this.calcToolbarItemState(true);
     }
 }

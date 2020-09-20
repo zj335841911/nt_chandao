@@ -5,10 +5,31 @@
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
         </ion-toolbar>
+
+    <app-quick-group-tab
+        :items="quickGroupModel"
+        @valuechange="quickGroupValueChange($event)"
+        :pageTotal="pageTotal"
+    ></app-quick-group-tab>
+    
     </ion-header>
 
 
     <ion-content>
+        <ion-refresher 
+            slot="fixed" 
+            ref="loadmore" 
+            pull-factor="0.5" 
+            pull-min="50" 
+            pull-max="100" 
+            @ionRefresh="pullDownToRefresh($event)">
+            <ion-refresher-content
+                pulling-icon="arrow-down-outline"
+                :pulling-text="$t('app.pulling_text')"
+                refreshing-spinner="circles"
+                refreshing-text="">
+            </ion-refresher-content>
+        </ion-refresher>
                 <view_mdctrl
             :viewState="viewState"
             viewName="TaskMobMDView"  
@@ -26,9 +47,9 @@
             :isMutli="!isSingleSelect"
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
+            @pageTotalChange="pageTotalChange($event)"
             :isTempMode="false"
             :isEnableChoose="false"
-            :isEnableRefresh="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -37,8 +58,24 @@
             @load="mdctrl_load($event)"  
             @closeview="closeView($event)">
         </view_mdctrl>
+        <ion-infinite-scroll  @ionInfinite="loadMore" threshold="1px" v-if="this.isEnablePullUp">
+          <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
+    <ion-footer class="view-footer" style="z-index:9999;">
+                <div v-show="!showCheack" class = "fab_container">
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
+                    <ion-icon name="add"></ion-icon>
+                
+                </ion-button>
+                
+            </div>
+        
+        </div>
         
     </ion-footer>
 </ion-page>
@@ -48,6 +85,7 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
+import { CodeListService } from "@/ibiz-core";
 import TaskService from '@/app-core/service/task/task-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
@@ -188,7 +226,7 @@ export default class TaskMobMDViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-tasks'
     }
 
     /**
@@ -270,7 +308,54 @@ export default class TaskMobMDViewBase extends Vue {
     * @memberof TaskMobMDView
     */
     public righttoolbarModels: any = {
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CREATE_BUT', uiaction: { tag: 'CreateMob', target: 'NONE' } },
+
     };
+
+    /**
+     * 工具栏显示状态
+     *
+     * @type {boolean}
+     * @memberof TaskMobMDView 
+     */
+    public righttoolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof TaskMobMDView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean = false;
+        if(this.righttoolbarModels){
+            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
+                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+                    toolBarVisable = true;
+                    return;
+                }
+            })
+        }
+        return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof TaskMobMDView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof TaskMobMDView 
+     */
+    public popUpGroup () {
+        this.showGrop = !this.showGrop;
+    }
 
     
 
@@ -306,6 +391,23 @@ export default class TaskMobMDViewBase extends Vue {
             return false;
         }
         return true;
+    }
+
+    /**
+     * 下拉刷新
+     *
+     * @param {*} $event
+     * @returns {Promise<any>}
+     * @memberof TaskMobMDViewBase
+     */
+    public async pullDownToRefresh($event: any): Promise<any> {
+        let mdctrl: any = this.$refs.mdctrl;
+        if (mdctrl && mdctrl.pullDownToRefresh instanceof Function) {
+            const response: any = await mdctrl.pullDownToRefresh();
+            if (response) {
+                $event.srcElement.complete();
+            }
+        }
     }
 
     /**
@@ -366,8 +468,25 @@ export default class TaskMobMDViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
+        this.loadQuickGroupModel();
 
     }
+
+       /**
+        * 部件计数
+        *
+        * @memberof TaskMobMDViewBase
+        */
+        public pageTotal:number = 0;
+
+       /**
+        * 获取部件计数
+        *
+        * @memberof TaskMobMDViewBase
+        */
+        public pageTotalChange($event:any) {
+            this.pageTotal = $event;
+        }
 
     /**
      * 销毁之前
@@ -484,6 +603,51 @@ export default class TaskMobMDViewBase extends Vue {
         this.engine.onCtrlEvent('mdctrl', 'load', $event);
     }
 
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TaskMobMDViewBase
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.righttoolbar_deuiaction1_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TaskMobMDViewBase
+     */
+    protected async righttoolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.mdctrl;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        if (curUIService) {
+            curUIService.Task_CreateMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 打开新建数据视图
@@ -510,11 +674,23 @@ export default class TaskMobMDViewBase extends Vue {
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
         if (context.story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'tasks', parameterName: 'task' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
@@ -558,11 +734,23 @@ export default class TaskMobMDViewBase extends Vue {
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
         if (context.story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+
         const parameters: any[] = [
             { pathName: 'tasks', parameterName: 'task' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
@@ -617,9 +805,14 @@ export default class TaskMobMDViewBase extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
-        }else{
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
+        }
+        if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
         
@@ -697,6 +890,15 @@ export default class TaskMobMDViewBase extends Vue {
      * @memberof TaskMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+
+   /**
+     * 能否上拉加载
+     *
+     * @type {boolean}
+     * @memberof TaskMobMDViewBase
+     */ 
+    @Prop({ default: true }) public isEnablePullUp?: boolean;
+
 
 
     /**
@@ -788,16 +990,121 @@ export default class TaskMobMDViewBase extends Vue {
      * 分类搜索
      *
      * @param {*} value
-     * @memberof MOBENTITYHDLBBase
+     * @memberof TaskMobMDViewBase
      */
     public onCategory(value:any){
         this.categoryValue = value;
         this.onViewLoad();
     }
 
+    /**
+     * 触底加载
+     *
+     * @param {*} value
+     * @memberof TaskMobMDViewBase
+     */
+    public async loadMore(event:any){
+      let mdctrl:any = this.$refs.mdctrl;
+      if(mdctrl && mdctrl.loadBottom && mdctrl.loadBottom instanceof Function){
+        mdctrl.loadBottom();
+      }
+      if(event.target && event.target.complete && event.target.complete instanceof Function){
+        event.target.complete();
+      }
+    }
 
 
 
+    /**
+     * 代码表服务对象
+     *
+     * @type {CodeListService}
+     * @memberof TaskMobMDViewBase
+     */  
+    public codeListService:CodeListService = new CodeListService();
+
+    /**
+     * 快速分组数据对象
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public quickGroupData:any;
+
+    /**
+     * 快速分组是否有抛值
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public isEmitQuickGroupValue:boolean = false;
+
+    /**
+     * 快速分组模型
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public quickGroupModel:Array<any> = [];
+
+    /**
+     * 加载快速分组模型
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public loadQuickGroupModel(){
+        let quickGroupCodeList:any = {tag:'Task_quickpacket',codelistType:'STATIC'};
+        if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType,"STATIC")){
+            const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
+            if (codelist) {
+                this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
+            } else {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            }
+        }else if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType,"DYNAMIC")){
+            this.codeListService.getItems(quickGroupCodeList.tag,{},{}).then((res:any) => {
+                this.quickGroupModel = res;
+            }).catch((error:any) => {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            });
+        }
+    }
+
+    /**
+     * 处理快速分组模型动态数据部分(%xxx%)
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public handleDynamicData(inputArray:Array<any>){
+        if(inputArray.length >0){
+            inputArray.forEach((item:any) =>{
+               if(item.data && Object.keys(item.data).length >0){
+                   Object.keys(item.data).forEach((name:any) =>{
+                        let value: any = item.data[name];
+                        if (value && typeof(value)=='string' && value.startsWith('%') && value.endsWith('%')) {
+                            const key = (value.substring(1, value.length - 1)).toLowerCase();
+                            if (this.context[key]) {
+                                value = this.context[key];
+                            } else if(this.viewparams[key]){
+                                value = this.viewparams[key];
+                            }
+                        }
+                        item.data[name] = value;
+                   })
+               }
+            })
+        }
+        return inputArray;
+    }
+
+    /**
+     * 快速分组值变化
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public quickGroupValueChange($event:any) {
+        if($event){
+            this.quickGroupData = $event.data;
+            this.engine.onViewEvent('mdctrl','viewload',$event.data);
+        }
+    }
 
 }
 </script>

@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -38,12 +37,12 @@ public interface ISuiteCaseService extends IService<SuiteCase>{
     boolean save(SuiteCase et) ;
     void saveBatch(List<SuiteCase> list) ;
     Page<SuiteCase> searchDefault(SuiteCaseSearchContext context) ;
-    List<SuiteCase> selectByIbizcase(BigInteger id) ;
-    void removeByIbizcase(BigInteger id) ;
-    List<SuiteCase> selectByProduct(BigInteger id) ;
-    void removeByProduct(BigInteger id) ;
-    List<SuiteCase> selectBySuite(BigInteger id) ;
-    void removeBySuite(BigInteger id) ;
+    List<SuiteCase> selectByIbizcase(Long id) ;
+    void removeByIbizcase(Long id) ;
+    List<SuiteCase> selectByProduct(Long id) ;
+    void removeByProduct(Long id) ;
+    List<SuiteCase> selectBySuite(Long id) ;
+    void removeBySuite(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

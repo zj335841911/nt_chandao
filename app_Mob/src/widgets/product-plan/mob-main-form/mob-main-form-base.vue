@@ -1,5 +1,5 @@
 <template>
-    <div ref='form' class="app-form ">
+    <div ref='form' class="app-form productplan-form ">
                 
 
 <app-form-group 
@@ -130,6 +130,7 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='story-mob-mdview9' 
+    v-show="detailsModel.druipart2.visible" 
     paramItem='productplan' 
     style="" 
     :formState="formState" 
@@ -137,6 +138,7 @@
     :parameters="[
         { pathName: 'products', parameterName: 'product' },
     ]" 
+    tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
@@ -194,6 +196,7 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='bug-plan-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
     paramItem='productplan' 
     style="" 
     :formState="formState" 
@@ -201,6 +204,7 @@
     :parameters="[
         { pathName: 'products', parameterName: 'product' },
     ]" 
+    tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
@@ -222,7 +226,6 @@
 
     </div>
 </template>
-
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';

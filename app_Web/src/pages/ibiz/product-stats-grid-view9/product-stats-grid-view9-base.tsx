@@ -60,16 +60,6 @@ export class ProductStatsGridView9Base extends GridView9Base {
      */
     public appUIService: ProductStatsUIService = new ProductStatsUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ProductStatsGridView9Base
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -114,6 +104,15 @@ export class ProductStatsGridView9Base extends GridView9Base {
      * @memberof ProductStatsGridView9Base
      */
     public engine: GridView9Engine = new GridView9Engine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProductStatsGridView9Base
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

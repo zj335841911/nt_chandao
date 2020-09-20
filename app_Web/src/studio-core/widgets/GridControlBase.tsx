@@ -149,7 +149,7 @@ export class GridControlBase extends MDControlBase {
      * @type {number}
      * @memberof GridControlBase
      */
-    public checkboxColWidth: number = 35;
+    public checkboxColWidth: number = 40;
 
     /**
      * 是否允许拖动列宽
@@ -209,6 +209,16 @@ export class GridControlBase extends MDControlBase {
     public allExportColumns: any[] = [];
 
     /**
+     * 表格高度
+     *
+     * @readonly
+     * @memberof GridControlBase
+     */
+    get tableHeight() {
+        return this.isEnablePagingBar ? 'calc(100% - 36px)': '100%';
+    }
+
+    /**
      * 获取表格行模型
      *
      * @returns {*}
@@ -259,6 +269,11 @@ export class GridControlBase extends MDControlBase {
         super.ctrlCreated();
         this.setColState();
         this.accLocalTags.push(this.$acc.commandLocal(() => {
+            if (this.isActive) {
+                this.load();
+            }
+        }, 'all', this.appDeName.toUpperCase()));
+        this.accLocalTags.push(this.$acc.command(() => {
             if (this.isActive) {
                 this.load();
             }
@@ -571,6 +586,7 @@ export class GridControlBase extends MDControlBase {
                     this.totalRecord -= arr.length;
                     this.$emit('remove', null);
                     this.selections = [];
+                    this.$emit('selectionchange', this.selections);
                     resolve(response);
                 }).catch((response: any) => {
                     if (response && response.status === 401) {

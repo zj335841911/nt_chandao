@@ -1,5 +1,5 @@
 <template>
-    <div ref='form' class="app-form ">
+    <div ref='form' class="app-form task-form ">
                 
 
 <app-form-group 
@@ -31,7 +31,7 @@
     :error="detailsModel.assignedto.error" 
     :isEmptyCaption="false">
         <app-mob-select 
-    tag="UserRealNameProject"
+    tag="UserRealNameTaskTeam"
     codeListType="DYNAMIC" 
     :isCache="false" 
     :disabled="detailsModel.assignedto.disabled" 
@@ -39,8 +39,8 @@
     :context="context" 
     :viewparams="viewparams"
     :value="data.assignedto"  
-    :navigateContext ='{ "project": "%project%" } '
-    :navigateParam ='{ "project": "%project%" } '
+    :navigateContext ='{ "project": "%project%", "multiple": "%multiple%" } '
+    :navigateParam ='{ "project": "%project%", "multiple": "%multiple%" } '
     @change="($event)=>this.data.assignedto = $event" />
 </app-form-item>
 
@@ -62,11 +62,12 @@
     :error="detailsModel.left.error" 
     :isEmptyCaption="false">
         <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.left" 
+    class="app-form-item-number" 
+        type="number"  
+    :value="data.left"
+    unit="小时"
     :disabled="detailsModel.left.disabled" 
-    @change="($event)=>this.data.left = $event" />
+    @change="($event)=>this.data.left = $event"/>
 </app-form-item>
 
 
@@ -83,14 +84,10 @@
     :caption="$t('task.assignformmob_form.details.comment')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.comment.disabled"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
-        <app-mob-textarea  
-    class="app-form-item-textarea" 
-        :value="data.comment" 
-    :disabled="detailsModel.comment.disabled" 
-    @change="($event)=>this.data.comment = $event" />
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{}' :exportparams='{}'  style=""/>
+
 </app-form-item>
 
 
@@ -114,12 +111,14 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
     paramItem='task' 
     style="" 
     :formState="formState" 
     :parentdata='{"srfparentdename":"ZT_TASK","SRFPARENTTYPE":"CUSTOM"}' 
     :parameters="[
     ]" 
+    tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
@@ -141,7 +140,6 @@
 
     </div>
 </template>
-
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
@@ -458,6 +456,7 @@ export default class AssignFormMobBase extends Vue implements ControlInterface {
         srfsourcekey: null,
         project: null,
         assignedto: null,
+        multiple: null,
         left: null,
         comment: null,
         id: null,
@@ -554,6 +553,12 @@ export default class AssignFormMobBase extends Vue implements ControlInterface {
             { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'blur' },
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
+        ],
+        multiple: [
+            { type: 'string', message: '多人任务 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '多人任务 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'blur' },
         ],
         left: [
             { type: 'number', message: '预计剩余 值必须为数值类型', trigger: 'change' },
@@ -686,6 +691,8 @@ export default class AssignFormMobBase extends Vue implements ControlInterface {
 , 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         left: new FormItemModel({ caption: '预计剩余', detailType: 'FORMITEM', name: 'left', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -815,6 +822,18 @@ export default class AssignFormMobBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 multiple 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof AssignFormMob
+     */
+    @Watch('data.multiple')
+    onMultipleChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'multiple', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 left 值
      *
      * @param {*} newVal
@@ -886,6 +905,7 @@ export default class AssignFormMobBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

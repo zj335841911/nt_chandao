@@ -96,11 +96,6 @@ export class ResolveMobModel {
                 dataType: 'HTMLTEXT',
             },
             {
-                name: 'mobimage',
-                prop: 'mobimage',
-                dataType: 'TEXT',
-            },
-            {
                 name: 'bug',
                 prop: 'id',
                 dataType: 'FONTKEY',

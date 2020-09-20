@@ -60,16 +60,6 @@ export class TaskEstimateEditGridView9Base extends GridView9Base {
      */
     public appUIService: TaskEstimateUIService = new TaskEstimateUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof TaskEstimateEditGridView9Base
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -114,6 +104,15 @@ export class TaskEstimateEditGridView9Base extends GridView9Base {
      * @memberof TaskEstimateEditGridView9Base
      */
     public engine: GridView9Engine = new GridView9Engine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof TaskEstimateEditGridView9Base
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

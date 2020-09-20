@@ -57,16 +57,6 @@ export class CaseMainDashboardViewBase extends DashboardViewBase {
      */
     public appUIService: CaseUIService = new CaseUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof CaseMainDashboardViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航上下文集合
 	 *
@@ -78,6 +68,13 @@ export class CaseMainDashboardViewBase extends DashboardViewBase {
         'OBJECTTYPE': { isRawValue: true, value: 'case' },
         'SRFPARENTKEY': { isRawValue: false, value: 'case' }
     };
+
+    /**
+     * 是否显示信息栏
+     *
+     * @memberof CaseMainDashboardViewBase
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -123,6 +120,15 @@ export class CaseMainDashboardViewBase extends DashboardViewBase {
      * @memberof CaseMainDashboardViewBase
      */
     public engine: PortalViewEngine = new PortalViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof CaseMainDashboardViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

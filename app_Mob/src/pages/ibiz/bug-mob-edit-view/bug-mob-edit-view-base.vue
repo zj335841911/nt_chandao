@@ -11,13 +11,9 @@
                 </ion-button>
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-            <ion-buttons slot="end">
-                                <div class="app-toolbar-container ">
-                    <div class="app-quick-toolbar toolbar-right-bottons">
-                    </div>
-                </div>
-            </ion-buttons>
         </ion-toolbar>
+
+    
     </ion-header>
 
 
@@ -48,6 +44,55 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
+    <ion-footer class="view-footer" style="z-index:9999;">
+                <div  class = "fab_container">
+            <ion-button @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <van-popup class="popup" v-model="showGrop" round position="bottom">
+                <div class="container">
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_assingtobugmob.disabled}" v-show="righttoolbarModels.deuiaction1_assingtobugmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_assingtobugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assingtobugmob' }, $event)" size="large">
+                    <ion-icon name="hand-o-right"></ion-icon>
+                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_assingtobugmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_assingtobugmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_confirmbugmob.disabled}" v-show="righttoolbarModels.deuiaction1_confirmbugmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_confirmbugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_confirmbugmob' }, $event)" size="large">
+                    <ion-icon name="eye"></ion-icon>
+                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmbugmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmbugmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_activationmob.disabled}" v-show="righttoolbarModels.deuiaction1_activationmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_activationmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_activationmob' }, $event)" size="large">
+                    <ion-icon name="color-wand"></ion-icon>
+                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_activationmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_activationmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_resolvebugmob.disabled}" v-show="righttoolbarModels.deuiaction1_resolvebugmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_resolvebugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_resolvebugmob' }, $event)" size="large">
+                    <ion-icon name="check-square-o"></ion-icon>
+                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_resolvebugmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_resolvebugmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_closebugmob.disabled}" v-show="righttoolbarModels.deuiaction1_closebugmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_closebugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closebugmob' }, $event)" size="large">
+                    <ion-icon name="close"></ion-icon>
+                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_closebugmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_closebugmob.caption')}}</span>
+            </div>
+        
+                </div>
+            </van-popup>
+        </div>
+    </ion-footer>
 </ion-page>
 </template>
 
@@ -172,7 +217,7 @@ export default class BugMobEditViewBase extends Vue {
      * @type {*}
      * @memberof BugMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'bug', 'srfparentkey': '%bug%' };
 
     /**
      * 视图导航参数
@@ -181,7 +226,7 @@ export default class BugMobEditViewBase extends Vue {
      * @type {*}
      * @memberof BugMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%bug%', 'objecttype': 'bug' };
 
     /**
      * 视图模型数据
@@ -195,7 +240,7 @@ export default class BugMobEditViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-bug'
     }
 
     /**
@@ -277,7 +322,62 @@ export default class BugMobEditViewBase extends Vue {
     * @memberof BugMobEditView
     */
     public righttoolbarModels: any = {
+            deuiaction1_assingtobugmob: { name: 'deuiaction1_assingtobugmob', caption: '指派', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_ASSIGNTO_BUT', uiaction: { tag: 'AssingToBugMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_confirmbugmob: { name: 'deuiaction1_confirmbugmob', caption: '确认', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CONFIRM_BUT', uiaction: { tag: 'ConfirmBugMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_activationmob: { name: 'deuiaction1_activationmob', caption: '激活', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_ACTIVATE_BUT', uiaction: { tag: 'ActivationMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_resolvebugmob: { name: 'deuiaction1_resolvebugmob', caption: '解决', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', uiaction: { tag: 'ResolveBugMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_closebugmob: { name: 'deuiaction1_closebugmob', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CLOSE_BUT', uiaction: { tag: 'CloseBugMob', target: 'SINGLEKEY' } },
+
     };
+
+    /**
+     * 工具栏显示状态
+     *
+     * @type {boolean}
+     * @memberof BugMobEditView 
+     */
+    public righttoolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof BugMobEditView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean = false;
+        if(this.righttoolbarModels){
+            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
+                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+                    toolBarVisable = true;
+                    return;
+                }
+            })
+        }
+        return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof BugMobEditView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof BugMobEditView 
+     */
+    public popUpGroup () {
+        this.showGrop = !this.showGrop;
+    }
 
     
 
@@ -373,6 +473,7 @@ export default class BugMobEditViewBase extends Vue {
         }
 
     }
+
 
     /**
      * 销毁之前
@@ -500,6 +601,191 @@ export default class BugMobEditViewBase extends Vue {
         this.engine.onCtrlEvent('form', 'load', $event);
     }
 
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof BugMobEditViewBase
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1_assingtobugmob')) {
+            this.righttoolbar_deuiaction1_assingtobugmob_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_confirmbugmob')) {
+            this.righttoolbar_deuiaction1_confirmbugmob_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_activationmob')) {
+            this.righttoolbar_deuiaction1_activationmob_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_resolvebugmob')) {
+            this.righttoolbar_deuiaction1_resolvebugmob_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_closebugmob')) {
+            this.righttoolbar_deuiaction1_closebugmob_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof BugMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_assingtobugmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_AssingToBugMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof BugMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_confirmbugmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_ConfirmBugMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof BugMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_activationmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_ActivationMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof BugMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_resolvebugmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_ResolveBugMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof BugMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_closebugmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_CloseBugMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 第三方关闭视图
@@ -537,7 +823,8 @@ export default class BugMobEditViewBase extends Vue {
             if (this.viewDefaultUsage === "routerView") {
                 this.$store.commit("deletePage", this.$route.fullPath);
                 this.$router.go(-1);
-            } else {
+            } 
+            if (this.viewDefaultUsage === "actionView") {
                 this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
             }
         }
@@ -612,7 +899,7 @@ export default class BugMobEditViewBase extends Vue {
         if (view && view.viewdatachange) {
                 const title: any = this.$t('app.tabpage.sureclosetip.title');
                 const contant: any = this.$t('app.tabpage.sureclosetip.content');
-                const result = await this.$notice.confirm(title, contant);
+                const result = await this.$notice.confirm(title, contant, this.$store);
                 if (result) {
                     this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
                     return true;

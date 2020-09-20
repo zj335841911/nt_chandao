@@ -7,9 +7,9 @@
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="storysendtodotaskdefault" type="cn.ibizlab.pms.core.zentao.domain.Story" />
         </extensionElements>
-     <startEvent id="a23c331b521ea5c762427ad18b54dcf2" isInterrupting="true"/>
-     <endEvent id="a23c331b521ea5c762427ad18b54dcf2_End" name="End"/>
-     <sequenceFlow id="a23c331b521ea5c762427ad18b54dcf2_End_Line" sourceRef="a23c331b521ea5c762427ad18b54dcf2" targetRef="a23c331b521ea5c762427ad18b54dcf2_End"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <endEvent id="begin_end" name="end"/>
+     <sequenceFlow id="begin_end_line" sourceRef="begin" targetRef="begin_end"/>
     </process>
 </definitions>
 

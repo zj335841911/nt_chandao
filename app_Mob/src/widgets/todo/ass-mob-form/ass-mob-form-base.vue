@@ -1,5 +1,5 @@
 <template>
-    <div ref='form' class="app-form ">
+    <div ref='form' class="app-form todo-form ">
                 
 
 <app-form-group 
@@ -62,6 +62,7 @@
     :error="detailsModel.date.error" 
     :isEmptyCaption="false">
         <app-mob-datetime-picker 
+    displayFormat="YYYY-MM-DD"
     class="app-form-item-datetime" 
     :value="data.date" 
     :disabled="detailsModel.date.disabled"
@@ -139,7 +140,6 @@
 
     </div>
 </template>
-
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';

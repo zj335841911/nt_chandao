@@ -60,16 +60,6 @@ export class ProjectModuleMainGridViewBase extends GridViewBase {
      */
     public appUIService: ProjectModuleUIService = new ProjectModuleUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof ProjectModuleMainGridViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航参数集合
 	 *
@@ -141,6 +131,15 @@ export class ProjectModuleMainGridViewBase extends GridViewBase {
      * @memberof ProjectModuleMainGridViewBase
      */
     public engine: GridViewEngine = new GridViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof ProjectModuleMainGridViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

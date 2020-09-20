@@ -27,6 +27,31 @@ export default class MainModel {
     }else{
 		  return [
         {
+          name: 'account',
+          prop: 'account',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'role',
+          prop: 'role',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'join',
+          prop: 'join',
+          dataType: 'DATE',
+        },
+        {
+          name: 'days',
+          prop: 'days',
+          dataType: 'INT',
+        },
+        {
+          name: 'hours',
+          prop: 'hours',
+          dataType: 'FLOAT',
+        },
+        {
           name: 'total',
           prop: 'total',
           dataType: 'INT',
@@ -37,34 +62,9 @@ export default class MainModel {
           dataType: 'SSCODELIST',
         },
         {
-          name: 'days',
-          prop: 'days',
-          dataType: 'INT',
-        },
-        {
           name: 'root',
           prop: 'root',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'hours',
-          prop: 'hours',
-          dataType: 'FLOAT',
-        },
-        {
-          name: 'role',
-          prop: 'role',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'account',
-          prop: 'account',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'join',
-          prop: 'join',
-          dataType: 'DATE',
         },
         {
           name: 'srfmajortext',

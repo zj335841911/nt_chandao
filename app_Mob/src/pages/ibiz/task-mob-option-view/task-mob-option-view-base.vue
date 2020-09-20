@@ -1,3 +1,4 @@
+
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demoboptview': true, 'task-mob-option-view': true }">
     
@@ -11,6 +12,8 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
+
+    
     </ion-header>
 
 
@@ -33,10 +36,13 @@
             style='' 
             name="form"  
             ref='form' 
+            @save="form_save($event)"  
+            @remove="form_remove($event)"  
+            @load="form_load($event)"  
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
+    <ion-footer class="view-footer" style="z-index:9999;">
         <div class="option-view-btnbox">
   <ion-button class="option-btn medium" color="medium" @click="back">返回</ion-button>
   <ion-button class="option-btn success" @click="save">保存</ion-button> 
@@ -52,6 +58,7 @@ import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskService from '@/app-core/service/task/task-service';
 
+import MobOptionViewEngine from '@engine/view/mob-option-view-engine';
 import TaskUIService from '@/ui-service/task/task-ui-action';
 
 @Component({
@@ -166,7 +173,7 @@ export default class TaskMobOptionViewBase extends Vue {
      * @type {*}
      * @memberof TaskMobOptionViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'task', 'srfparentkey': '%task%' };
 
     /**
      * 视图导航参数
@@ -175,7 +182,7 @@ export default class TaskMobOptionViewBase extends Vue {
      * @type {*}
      * @memberof TaskMobOptionViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%task%', 'objecttype': 'task' };
 
     /**
      * 视图模型数据
@@ -189,7 +196,7 @@ export default class TaskMobOptionViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-tasks'
     }
 
     /**
@@ -295,6 +302,13 @@ export default class TaskMobOptionViewBase extends Vue {
         return true;
     }
 
+    /**
+     * 视图引擎
+     *
+     * @type {Engine}
+     * @memberof TaskMobOptionViewBase
+     */
+    protected engine: MobOptionViewEngine = new MobOptionViewEngine();
 
     /**
      * 引擎初始化
@@ -302,6 +316,14 @@ export default class TaskMobOptionViewBase extends Vue {
      * @memberof TaskMobOptionViewBase
      */
     protected engineInit(): void {
+        this.engine.init({
+            view: this,
+            form: this.$refs.form,
+            p2k: '0',
+            keyPSDEField: 'task',
+            majorPSDEField: 'name',
+            isLoadDefault: true,
+        });
     }
 
     /**
@@ -335,6 +357,7 @@ export default class TaskMobOptionViewBase extends Vue {
         this.setViewTitleStatus();
 
     }
+
 
     /**
      * 销毁之前
@@ -407,6 +430,39 @@ export default class TaskMobOptionViewBase extends Vue {
 
     }
 
+    /**
+     * form 部件 save 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TaskMobOptionViewBase
+     */
+    protected form_save($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'save', $event);
+    }
+
+    /**
+     * form 部件 remove 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TaskMobOptionViewBase
+     */
+    protected form_remove($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'remove', $event);
+    }
+
+    /**
+     * form 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TaskMobOptionViewBase
+     */
+    protected form_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('form', 'load', $event);
+    }
+
 
     /**
      * 第三方关闭视图
@@ -439,16 +495,25 @@ export default class TaskMobOptionViewBase extends Vue {
      * @memberof TaskMobOptionViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+              let result = await this.cheackChange();
+      if(result){
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
-        }else{
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
+        }
+        if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
+      }
+
         
     }
 
@@ -520,6 +585,28 @@ export default class TaskMobOptionViewBase extends Vue {
         }
     }
 
+    /**
+     * 检查表单是否修改
+     *
+     * @param {any[]} args
+     * @memberof PimEducationMobEditViewBase
+     */
+    public async cheackChange(): Promise<any>{
+        const view = this.$store.getters['viewaction/getAppView'](this.viewtag);
+        if (view && view.viewdatachange) {
+                const title: any = this.$t('app.tabpage.sureclosetip.title');
+                const contant: any = this.$t('app.tabpage.sureclosetip.content');
+                const result = await this.$notice.confirm(title, contant, this.$store);
+                if (result) {
+                    this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
+                    return true;
+                } else {
+                    return false;
+                }
+        }else{
+            return true;
+        }
+    }
 }
 </script>
 

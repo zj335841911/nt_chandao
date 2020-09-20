@@ -57,16 +57,6 @@ export class DeptPickupGridViewBase extends PickupGridViewBase {
      */
     public appUIService: DeptUIService = new DeptUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof DeptPickupGridViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -112,6 +102,15 @@ export class DeptPickupGridViewBase extends PickupGridViewBase {
      * @memberof DeptPickupGridViewBase
      */
     public engine: PickupGridViewEngine = new PickupGridViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof DeptPickupGridViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

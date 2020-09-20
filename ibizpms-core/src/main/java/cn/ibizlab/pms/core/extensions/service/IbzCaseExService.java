@@ -24,7 +24,7 @@ public class IbzCaseExService extends IbzCaseServiceImpl {
      */
     @Override
     @Transactional
-    public IbzCase get(BigInteger key) {
+    public IbzCase get(Long key) {
         IbzCase et = getById(key);
         if(et==null){
             et=new IbzCase();

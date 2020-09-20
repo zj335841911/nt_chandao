@@ -27,6 +27,41 @@ export default class StoryAffectBugModel {
     }else{
 		  return [
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'resolvedby',
+          prop: 'resolvedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'resolution',
+          prop: 'resolution',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'lasteditedby',
+          prop: 'lasteditedby',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'totask',
           prop: 'totask',
           dataType: 'PICKUP',
@@ -35,11 +70,6 @@ export default class StoryAffectBugModel {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'task',
@@ -55,11 +85,6 @@ export default class StoryAffectBugModel {
           name: 'tostory',
           prop: 'tostory',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'resolution',
-          prop: 'resolution',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'srfmstag',
@@ -86,16 +111,6 @@ export default class StoryAffectBugModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
@@ -111,11 +126,6 @@ export default class StoryAffectBugModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
           name: 'plan',
           prop: 'plan',
           dataType: 'PICKUP',
@@ -124,11 +134,6 @@ export default class StoryAffectBugModel {
           name: 'repo',
           prop: 'repo',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'resolvedby',
-          prop: 'resolvedby',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'entry',
@@ -144,11 +149,6 @@ export default class StoryAffectBugModel {
           name: 'case',
           prop: 'ibizcase',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'lasteditedby',
-          prop: 'lasteditedby',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'bug',

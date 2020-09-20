@@ -38,16 +38,21 @@ export default {
     mobimage: "移动端图片",
     order1: "排序",
     istop: "是否置顶",
+    testtaskcnt: "测试单数",
+    testsuitecnt: "套件数",
   },
 	views: {
 		prodmobtabexpview: {
-			caption: '产品详情',
+			caption: '产品',
 		},
 		mobpickupmdview: {
 			caption: '产品',
 		},
+		mobchartview9: {
+			caption: '产品',
+		},
 		mobtabexpview: {
-			caption: '测试详情',
+			caption: '测试',
 		},
 		mobpickupview: {
 			caption: '产品',
@@ -98,6 +103,7 @@ export default {
 			activebugcnt: '未解决Bug数', 
 			notclosedbugcnt: '未关闭Bug数', 
 			casecnt: '用例数', 
+			desc: '产品描述	', 
 			id: '编号', 
 		},
 		uiactions: {
@@ -147,6 +153,17 @@ export default {
 			desc: '产品描述	', 
 			acl: '访问控制', 
 			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
+	mobdef_searchform: {
+		details: {
+			formpage1: '常规条件', 
+			n_name_like: '产品名称', 
+			n_status_eq: '状态', 
+			n_type_eq: '产品类型', 
+			n_linename_like: '产品线', 
 		},
 		uiactions: {
 		},

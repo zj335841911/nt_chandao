@@ -8,6 +8,9 @@ import { RoadMap } from './components/road-map/road-map';
 import CodeListIcon from './components/codelist-icon/codelist-icon.vue'; 
 import OverProgress from './components/over-progress/over-progress.vue';
 import CircleProgress from './components/circle-progress/circle-progress.vue';
+import GroupStepTable from './components/group-step-table/group-step-table.vue'
+import RichTextEditor from './components/rich-text-editor/rich-text-editor.vue'
+import DropDownListExtend from './components/dropdown-list-extend/dropdown-list-extend.vue'
 
 // 注册Vue插件
 export const iBizProjectCore = {
@@ -22,5 +25,8 @@ export const iBizProjectCore = {
         v.component('codelist-icon', CodeListIcon);
         v.component('over-progress', OverProgress);
         v.component('circle-progress', CircleProgress);
+        v.component('group-step-table',GroupStepTable);
+        v.component('rich-text-editor',RichTextEditor);
+        v.component('dropdown-list-extend',DropDownListExtend);
     }
 };

@@ -16,6 +16,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import rx.internal.operators.SingleTakeUntilCompletable;
 
+import javax.swing.text.html.parser.Entity;
 import java.math.BigInteger;
 import java.util.*;
 
@@ -39,23 +40,26 @@ public class MsgDestParser {
      * @return 发送者id集合，多个用分号（,）隔开
      */
     public String getTaskUserIds(EntityBase et) {
-        Set<String> accounts = null;
+        Object action = et.get("action");
+
+        //更新操作，指派人未改变
+        if ("update".equals(action) && (!"true".equals(et.getExtensionparams().get("assignedToChanged")))) {
+            //指派人未发生
+            log.info("更新操作，指派人[{}]未发生改变", et.get("assignedto"));
+            return null;
+        }
+
+        //关闭状态不发送待办
+        if ("closed".equals(et.get("status"))) {
+            return null;
+        }
+        String assignedto = et.get("assignedto") == null ? null : String.valueOf(et.get("assignedto"));
+
         if (et instanceof Story) {
-            Story story = (Story) et;
-            String assignedto = story.getAssignedto();
-            String reviewedby = story.getReviewedby();
-            accounts = getAccountSet(assignedto, reviewedby);
-
-        } else if (et instanceof Bug) {
-            Bug bug = (Bug) et;
-            String assignedto = bug.getAssignedto();
-            accounts = getAccountSet(assignedto);
-        } else if (et instanceof Task){
-            Task task = (Task)et;
-            String assignedto = task.getAssignedto();
-            accounts = getAccountSet(assignedto);
-
-            //TODO 多人任务。
+            //TODO multi resolvedBy
+//            String reviewedby = ((Story)et).getReviewedby();
+        } else if (et instanceof Task) {
+            //TODO multi-user task
 //            List<TaskTeam> team = task.getTaskteam();
 //            Set<String> teamAccounts = new HashSet<>();
 //            for(TaskTeam member: team){
@@ -64,17 +68,38 @@ public class MsgDestParser {
 //            if(!CollectionUtils.isEmpty(teamAccounts)){
 //                accounts = teamAccounts;
 //            }
-
-        }else if (et instanceof Todo){
-            Todo todo = (Todo)et;
-            String assignedto = todo.getAssignedto();
-            accounts = getAccountSet(assignedto);
         }
 
-        String ids = queryIds(accounts);
+        String ids = queryIds(getAccountSet(assignedto));
         log.info("发送待办IDs：[{}]", ids);
-        return String.join(",", ids);
+        return ids;
     }
+
+
+    /**
+     * 获取已办人员列表。
+     *
+     * @param et 业务实体
+     * @return 已办人员发送者id集合，多个用分号（,）隔开
+     */
+    public String getCompleteTaskUserIds(EntityBase et) {
+        Object action = et.get("action");
+
+        if ("update".equals(action)) {
+            if (!"true".equals(et.getExtensionparams().get("assignedToChanged"))
+                    && !MsgDestParser.equalsInValue(et.get("status"), et.get("prestatus"))) {
+                log.info("更新操作，未修改指派人、状态信息，数据[{}]", et);
+                return null;
+            }
+        }
+
+        Object preAssignedTo = et.getExtensionparams().get("preassignedto");
+        String ids = queryIds(getAccountSet(StringUtils.isEmpty(preAssignedTo) ? null : String.valueOf(preAssignedTo)));
+
+        log.info("[{}]操作，已办人员列表：[{}]", action, ids);
+        return ids;
+    }
+
 
     /**
      * 获取消息发送人员列表
@@ -84,7 +109,7 @@ public class MsgDestParser {
      */
     public String getNoticeUserIds(EntityBase et) {
 
-        String mailto = et.get("mailto")==null?null:String.valueOf(et.get("mailto"));
+        String mailto = et.get("mailto") == null ? null : String.valueOf(et.get("mailto"));
 
         String ids = queryIds(getAccountSet(mailto));
         log.info("发送通知IDs:[{}]", ids);
@@ -125,5 +150,18 @@ public class MsgDestParser {
         }
         return set;
     }
+
+    public static boolean equalsInValue(Object db, Object page) {
+        if (StringUtils.isEmpty(db)) {
+            if (StringUtils.isEmpty(page)) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return db.equals(page);
+        }
+    }
+
 }
 

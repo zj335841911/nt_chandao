@@ -9,6 +9,7 @@
         :cell-class-name="getCellClassName.bind(_self)"
         size="mini"
         stripe
+        :height="tableHeight"
         @row-click="rowClick($event)"  
         @select-all="selectAll($event)"  
         @select="select($event)"  
@@ -117,7 +118,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.testmodule.mainrow_grid.columns.uagridcolumn1')" :width="50"  :align="'center'">
+                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.testmodule.mainrow_grid.columns.uagridcolumn1')" :width="50"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.testmodule.mainrow_grid.columns.uagridcolumn1')}}

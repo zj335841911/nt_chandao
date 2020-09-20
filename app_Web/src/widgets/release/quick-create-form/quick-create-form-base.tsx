@@ -107,6 +107,8 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
         date: [
             { required: true, type: 'string', message: '发布日期 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '发布日期 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("date").isPast},message: this.verifyDeRules("date").infoMessage, trigger: 'change' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("date").isPast},message: this.verifyDeRules("date").infoMessage, trigger: 'blur' },
         ],
     }
 
@@ -117,6 +119,17 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
      * @memberof QuickCreateBase
      */
     public deRules:any = {
+                date:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"LTANDEQ",
+                      ruleInfo:"发布日期不能大于当前日期", 
+                      isKeyCond:false,
+                      paramType:"CURTIME",
+                      isNotMode:false,
+                      deName:"date",
+                  },
+                ],
     };
 
     /**

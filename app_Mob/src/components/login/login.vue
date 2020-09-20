@@ -13,7 +13,10 @@
                         <ion-input clear-input required type="password" debounce="100" :value="password" @ionChange="($event) => password = $event.detail.value"></ion-input>
                     </ion-item>
                     <div class="ion-padding button">
-                        <ion-button expand="block" :disabled="isLoadding" class="ion-no-margin" @click="login">{{$t('submit')}}</ion-button>
+                        <ion-button expand="block" :disabled="isLoadding" class="ion-no-margin" @click="login('login')">{{$t('submit')}}</ion-button>
+                    </div>
+                    <div class="visitor" v-if="isVisitorsMode">
+                        <ion-button expand="block" color="medium" size="small" fill="clear" class="ion-visitor" @click="login('visitors')">以访客身份登录</ion-button>
                     </div>
                 </form>
                 <!-- <div class="thirdParty">
@@ -30,7 +33,6 @@
         </ion-content>
     </ion-page>
 </template>
-
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import { Loading } from '@/ibiz-core/utils';
@@ -47,6 +49,8 @@ import { DingTalkService } from '../../ibiz-core/third-party-service/DingTalkSer
                 submit: '提交',
                 usernametipinfo: '用户名为空',
                 passwordtipinfo: '密码为空',
+                dingdingfailed: '钉钉认证失败，请联系管理员',
+                badlogin: '登录异常',
             },
             'EN-US': {
                 username: 'User name',
@@ -54,6 +58,8 @@ import { DingTalkService } from '../../ibiz-core/third-party-service/DingTalkSer
                 submit: 'Submit',
                 usernametipinfo: 'User name is empty.',
                 passwordtipinfo: 'Password id empty.',
+                dingdingfailed: 'Dingding authentication failed, please contact the administrator',
+                badlogin: 'Login exception',
             }
         }
     }
@@ -79,6 +85,13 @@ export default class Login extends Vue {
      */
     public username: string = "";
 
+    /**
+     * 是否是访客模式
+     *
+     * @type {string}
+     * @memberof Login
+     */
+    public isVisitorsMode:boolean = Environment.VisitorsMode;
 
     /**
      * 生命周期
@@ -101,7 +114,7 @@ export default class Login extends Vue {
     public async thirdLogin(){
         let loginStatus :any = await this.thirdPartyService.login();
         if(!loginStatus.issuccess){
-            this.$notice.error(loginStatus.message?loginStatus.message:"钉钉认证失败，请联系管理员");
+            this.$notice.error(loginStatus.message?loginStatus.message:`${this.$t('dingdingfailed')}` );
             setTimeout(()=>{
                 this.thirdPartyService.close();
             },1500);
@@ -128,12 +141,13 @@ export default class Login extends Vue {
      */
     public isLoadding:boolean = false;
 
-    /**
+     /**
      * 登录
      *
      * @memberof Login
      */
-    public login() {
+    public login(tag:any) {
+        let url = "";
         let token = localStorage.getItem('token');
         let user = localStorage.getItem('user');
         if(token){
@@ -142,15 +156,20 @@ export default class Login extends Vue {
         if(user){
             localStorage.removeItem("user");
         }
-        if (Object.is(this.username, '')) {
-            this.$notice.error(`${this.$t('usernametipinfo')}`);
-            return;
+        if(tag === 'login'){
+            if (Object.is(this.username, '')) {
+                this.$notice.error(`${this.$t('usernametipinfo')}`);
+                return;
+            }
+            if (Object.is(this.password, '')) {
+                this.$notice.error(`${this.$t('passwordtipinfo')}`);
+                return;
+            }
+            url = Environment.RemoteLogin;
+        }else{
+            url = Environment.VisitorsUrl;
         }
-        if (Object.is(this.password, '')) {
-            this.$notice.error(`${this.$t('passwordtipinfo')}`);
-            return;
-        }
-        const post: Promise<any> = this.$http.post(Environment.RemoteLogin, { loginname: this.username, password: this.password });
+        const post: Promise<any> = this.$http.post(url, { loginname: this.username, password: this.password });
         this.isLoadding = true;
         post.then((response: any) => {
             if (response && response.status === 200) {
@@ -166,9 +185,10 @@ export default class Login extends Vue {
             }
         }).catch((error: any) => {
             this.isLoadding = false;
-            this.$notice.error(error?error.error.message:"登录异常");
+            this.$notice.error(error?error.error.message:`${this.$t('badlogin')}`);
         });
     }
+
 }
 </script>
 

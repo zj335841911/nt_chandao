@@ -1,5 +1,5 @@
 <template>
-    <div ref='form' class="app-form ">
+    <div ref='form' class="app-form product-form ">
                 
 
 <app-form-group 
@@ -366,6 +366,26 @@
 
 
 
+<app-form-item 
+    name='desc' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="desc_item"  
+    :itemValue="this.data.desc" 
+    v-show="detailsModel.desc.visible" 
+    :itemRules="this.rules.desc" 
+    :caption="$t('product.mobmain_form.details.desc')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :error="detailsModel.desc.error" 
+    :isEmptyCaption="false">
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""/>
+
+</app-form-item>
+
+
+
 <app-form-group 
     class='' 
     layoutType='TABLE_24COL' 
@@ -385,12 +405,14 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
     paramItem='product' 
     style="" 
     :formState="formState" 
     :parentdata='{"srfparentdename":"ZT_PRODUCT","SRFPARENTTYPE":"CUSTOM"}' 
     :parameters="[
     ]" 
+    tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
@@ -412,7 +434,6 @@
 
     </div>
 </template>
-
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
@@ -740,6 +761,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         activebugcnt: null,
         notclosedbugcnt: null,
         casecnt: null,
+        desc: null,
         id: null,
         product: null,
     };
@@ -901,6 +923,12 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { required: false, type: 'number', message: '用例数 值不能为空', trigger: 'change' },
             { required: false, type: 'number', message: '用例数 值不能为空', trigger: 'blur' },
         ],
+        desc: [
+            { type: 'string', message: '产品描述	 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '产品描述	 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '产品描述	 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '产品描述	 值不能为空', trigger: 'blur' },
+        ],
         id: [
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
@@ -1040,6 +1068,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         notclosedbugcnt: new FormItemModel({ caption: '未关闭Bug数', detailType: 'FORMITEM', name: 'notclosedbugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         casecnt: new FormItemModel({ caption: '用例数', detailType: 'FORMITEM', name: 'casecnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        desc: new FormItemModel({ caption: '产品描述	', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -1298,6 +1328,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 desc 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.desc')
+    onDescChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 id 值
      *
      * @param {*} newVal
@@ -1345,6 +1387,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 
@@ -1546,7 +1589,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['name_item', 'status_item', 'type_item', 'po_item', 'qd_item', 'rd_item', 'productplancnt_item', 'activestorycnt_item', 'buildcnt_item', 'relatedbugcnt_item', 'unconfirmbugcnt_item', 'activebugcnt_item', 'notclosedbugcnt_item', 'casecnt_item', ];
+        const refArr: Array<string> = ['name_item', 'status_item', 'type_item', 'po_item', 'qd_item', 'rd_item', 'productplancnt_item', 'activestorycnt_item', 'buildcnt_item', 'relatedbugcnt_item', 'unconfirmbugcnt_item', 'activebugcnt_item', 'notclosedbugcnt_item', 'casecnt_item', 'desc_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];

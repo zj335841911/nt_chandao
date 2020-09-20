@@ -316,4 +316,6 @@ export class MainRowGridBase extends GridControlBase {
             row['type'] = this.viewparams['moduletype'];
         }
     }
+
+
 }

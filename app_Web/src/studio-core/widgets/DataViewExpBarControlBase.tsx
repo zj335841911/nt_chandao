@@ -23,6 +23,7 @@ export class DataViewExpBarControlBase extends ExpControlBase {
      * @memberof GridExpBarControlBase
      */
     public ctrlCreated(): void {
+        this.loadQuickGroupModel();
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {
@@ -38,7 +39,7 @@ export class DataViewExpBarControlBase extends ExpControlBase {
      *
      * @memberof DataViewExpBarControlBase
      */
-    public onSearch(): void {
+    public onSearch(args: any): void {
         this.viewState.next({ tag: 'dataviewexpbar_dataview', action: 'filter', data: { query: this.searchText } });
     }
 
@@ -54,5 +55,4 @@ export class DataViewExpBarControlBase extends ExpControlBase {
     public dataviewexpbar_load(args: any[], tag?: string, $event2?: any): void {
         this.$emit('load', args);
     }
-
 }

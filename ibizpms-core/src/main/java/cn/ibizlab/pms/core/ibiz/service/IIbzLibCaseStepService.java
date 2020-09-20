@@ -11,7 +11,6 @@ import java.math.BigInteger;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.scheduling.annotation.Async;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.cache.annotation.CacheEvict;
 
@@ -30,9 +29,9 @@ public interface IIbzLibCaseStepService extends IService<IbzLibCaseStep>{
     void createBatch(List<IbzLibCaseStep> list) ;
     boolean update(IbzLibCaseStep et) ;
     void updateBatch(List<IbzLibCaseStep> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    IbzLibCaseStep get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    IbzLibCaseStep get(Long key) ;
     IbzLibCaseStep getDraft(IbzLibCaseStep et) ;
     boolean checkKey(IbzLibCaseStep et) ;
     boolean save(IbzLibCaseStep et) ;

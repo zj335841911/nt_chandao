@@ -47,6 +47,18 @@ import org.springframework.util.StringUtils;
 public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper, IbzMyTerritory> implements IIbzMyTerritoryService {
 
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IIbzMyTerritoryMobMenuCountLogic mobmenucountLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IIbzMyTerritoryMyFavoriteCountLogic myfavoritecountLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IIbzMyTerritoryMyTerritoryCountLogic myterritorycountLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -79,19 +91,19 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public IbzMyTerritory get(BigInteger key) {
+    public IbzMyTerritory get(Long key) {
         IbzMyTerritory et = getById(key);
         if(et==null){
             et=new IbzMyTerritory();
@@ -111,6 +123,27 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
     public boolean checkKey(IbzMyTerritory et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
+    @Override
+    @Transactional
+    public IbzMyTerritory mobMenuCount(IbzMyTerritory et) {
+        mobmenucountLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public IbzMyTerritory myFavoriteCount(IbzMyTerritory et) {
+        myfavoritecountLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public IbzMyTerritory myTerritoryCount(IbzMyTerritory et) {
+        myterritorycountLogic.execute(et);
+         return et ;
+    }
+
     @Override
     @Transactional
     public boolean save(IbzMyTerritory et) {
@@ -157,6 +190,15 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
     @Override
     public Page<IbzMyTerritory> searchMyWork(IbzMyTerritorySearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchMyWork(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<IbzMyTerritory>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我的工作
+     */
+    @Override
+    public Page<IbzMyTerritory> searchMyWorkMob(IbzMyTerritorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchMyWorkMob(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbzMyTerritory>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

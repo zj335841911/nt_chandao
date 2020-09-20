@@ -27,14 +27,60 @@ export default class MainLinkTestModel {
     }else{
 		  return [
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'version',
+          prop: 'version',
+          dataType: 'INT',
+          isEditable:true
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'lastrunner',
+          prop: 'lastrunner',
+          dataType: 'TEXT',
         },
         {
           name: 'lastrundate',
           prop: 'lastrundate',
           dataType: 'DATETIME',
+        },
+        {
+          name: 'lastrunresult',
+          prop: 'lastrunresult',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'status1',
+          prop: 'status1',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
         },
         {
           name: 'frombug',
@@ -49,16 +95,6 @@ export default class MainLinkTestModel {
         {
           name: 'status',
           prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'status1',
-          prop: 'status1',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'type',
-          prop: 'type',
           dataType: 'SSCODELIST',
         },
         {
@@ -81,26 +117,10 @@ export default class MainLinkTestModel {
           isEditable:true
         },
         {
-          name: 'version',
-          prop: 'version',
-          dataType: 'INT',
-          isEditable:true
-        },
-        {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'TEXT',
-        },
-        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
           isEditable:true
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
         },
         {
           name: 'story',
@@ -108,19 +128,14 @@ export default class MainLinkTestModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
           name: 'lib',
           prop: 'lib',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'lastrunresult1',
+          prop: 'lastrunresult1',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'branch',
@@ -131,16 +146,6 @@ export default class MainLinkTestModel {
           name: 'fromcaseid',
           prop: 'fromcaseid',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'lastrunresult',
-          prop: 'lastrunresult',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'lastrunner',
-          prop: 'lastrunner',
-          dataType: 'TEXT',
         },
         {
           name: 'case',

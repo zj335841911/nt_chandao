@@ -57,16 +57,6 @@ export class UserEditViewBase extends EditViewBase {
      */
     public appUIService: UserUIService = new UserUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof UserEditViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航上下文集合
 	 *
@@ -88,6 +78,13 @@ export class UserEditViewBase extends EditViewBase {
     protected customViewParams: any = {
         'dept': { isRawValue: false, value: 'dept' }
     };
+
+    /**
+     * 是否显示信息栏
+     *
+     * @memberof UserEditViewBase
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -146,6 +143,15 @@ export class UserEditViewBase extends EditViewBase {
      * @memberof UserEditViewBase
      */
     public engine: EditViewEngine = new EditViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof UserEditViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

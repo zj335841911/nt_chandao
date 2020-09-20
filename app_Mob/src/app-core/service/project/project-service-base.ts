@@ -1,5 +1,6 @@
-import { Http,Util } from '@/ibiz-core/utils';
+import { Http,Util,HttpResponse } from '@/ibiz-core/utils';
 import  { EntityService }  from '@/ibiz-core';
+import { ProjectTaskQCntLogic } from './project-task-qcnt-logic';
 
 
 
@@ -279,6 +280,34 @@ export class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * MobProjectCount接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async MobProjectCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/projects/${context.project}/mobprojectcount`,data,isloading);
+            return res;
+    }
+
+    /**
+     * ProjectTaskQCnt接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async ProjectTaskQCnt(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/projects/${context.project}/projecttaskqcnt`,data,isloading);
+            return res;
+    }
+
+    /**
      * ProjectTop接口方法
      *
      * @param {*} [context={}]
@@ -482,6 +511,21 @@ export class ProjectServiceBase extends EntityService {
     public async FetchMyProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/projects/fetchmyproject`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchProjectTeam接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async FetchProjectTeam(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/projects/fetchprojectteam`,tempData,isloading);
         return res;
     }
 

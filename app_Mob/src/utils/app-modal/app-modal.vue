@@ -256,6 +256,7 @@ export default class AppModalCompponent extends Vue {
      * @memberof AppModalCompponent
      */
     public handleShowState($event: any) {
+        this.$viewTool.destroyBackEvent();
         if (!$event) {
             return;
         }

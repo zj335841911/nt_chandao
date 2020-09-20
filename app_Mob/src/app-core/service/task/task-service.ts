@@ -1,4 +1,4 @@
-import { Http,Util } from '@/ibiz-core/utils';
+import { Http,Util,HttpResponse } from '@/ibiz-core/utils';
 import {TaskServiceBase} from './task-service-base';
 
 
@@ -19,6 +19,19 @@ export class TaskService extends TaskServiceBase {
      */
     constructor(opts: any = {}) {
         super(opts);
+    }
+
+    /**
+     * CalcTime接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskServiceBase
+     */
+    public async CalcTime(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return new HttpResponse  (200, {totaltime:(data.consumed + data.currentconsumed)},null,null) ;
     }
 
 }

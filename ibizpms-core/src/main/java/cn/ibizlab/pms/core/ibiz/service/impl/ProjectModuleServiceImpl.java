@@ -97,19 +97,19 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public ProjectModule get(BigInteger key) {
+    public ProjectModule get(Long key) {
         ProjectModule et = getById(key);
         if(et==null){
             et=new ProjectModule();
@@ -170,22 +170,22 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
 
 
 	@Override
-    public List<ProjectModule> selectByParent(BigInteger id) {
+    public List<ProjectModule> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
 
     @Override
-    public void removeByParent(BigInteger id) {
+    public void removeByParent(Long id) {
         this.remove(new QueryWrapper<ProjectModule>().eq("parent",id));
     }
 
 	@Override
-    public List<ProjectModule> selectByRoot(BigInteger id) {
+    public List<ProjectModule> selectByRoot(Long id) {
         return baseMapper.selectByRoot(id);
     }
 
     @Override
-    public void removeByRoot(BigInteger id) {
+    public void removeByRoot(Long id) {
         this.remove(new QueryWrapper<ProjectModule>().eq("root",id));
     }
 

@@ -1,19 +1,21 @@
+
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
-import { Watch, MainControlBase } from '@/studio-core';
+import { Watch, ListViewExpBarControlBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ListExpViewlistexpbarService from './list-exp-viewlistexpbar-listexpbar-service';
 import ProjectUIService from '@/uiservice/project/project-ui-service';
+import CodeListService from "@service/app/codelist-service";
 
 
 /**
  * listexpbar部件基类
  *
  * @export
- * @class MainControlBase
+ * @class ListViewExpBarControlBase
  * @extends {ListExpViewlistexpbarListexpbarBase}
  */
-export class ListExpViewlistexpbarListexpbarBase extends MainControlBase {
+export class ListExpViewlistexpbarListexpbarBase extends ListViewExpBarControlBase {
 
     /**
      * 获取部件类型
@@ -89,36 +91,12 @@ export class ListExpViewlistexpbarListexpbarBase extends MainControlBase {
     }
 
     /**
-     * 打开新建数据视图
+     * 导航视图名称
      *
-     * @type {any}
+     * @type {string}
      * @memberof ListExpViewlistexpbarBase
      */
-    @Prop() public newdata: any;
-    /**
-     * 打开编辑数据视图
-     *
-     * @type {any}
-     * @memberof ListExpViewlistexpbarBase
-     */
-    @Prop() public opendata: any;
-
-    /**
-     * 视图唯一标识
-     *
-     * @type {boolean}
-     * @memberof ListExpViewlistexpbarBase
-     */
-    @Prop() public viewUID!:string;
-
-    /**
-     * 是否单选
-     * 
-     * @public
-     * @type {(boolean)}
-     * @memberof ListExpViewlistexpbarBase
-     */
-    public isSingleSelect:boolean = true;
+    public navViewName: string = 'project-stats-edit-view9';
 
     /**
      * 呈现模式，可选值：horizontal或者vertical
@@ -130,212 +108,12 @@ export class ListExpViewlistexpbarListexpbarBase extends MainControlBase {
     public showMode:string ="horizontal";
 
     /**
-     * 控件宽度
-     *
-     * @type {number}
-     * @memberof ListExpViewlistexpbarBase
-     */
-    public ctrlWidth:number = 0;
-
-    /**
      * 控件高度
      *
      * @type {number}
      * @memberof ListExpViewlistexpbarBase
      */
     public ctrlHeight: number = 0;
-
-    /**
-     * 搜素值
-     * 
-     * @public
-     * @type {(string)}
-     * @memberof ListExpViewlistexpbarBase
-     */
-    public searchText:string = "";
-
-    /**
-     * 分割宽度
-     *
-     * @type {number}
-     * @memberof ListExpViewlistexpbarBase
-     */
-    public split: number = 0.2;
-
-
-    /**
-     * 导航视图名称
-     *
-     * @type {string}
-     * @memberof ListExpViewlistexpbarBase
-     */
-    public navViewName: string = "project-stats-edit-view9";
-
-    /**
-     * 导航视图参数
-     *
-     * @type {string}
-     * @memberof ListExpViewlistexpbarBase
-     */
-    public navViewParam: string = '{}';
-
-    /**
-     * 导航过滤项
-     *
-     * @type {string}
-     * @memberof ListExpViewlistexpbarBase
-     */
-    public navFilter: string = "";
-
-    /**
-     * 导航关系
-     *
-     * @type {string}
-     * @memberof ListExpViewlistexpbarBase
-     */
-    public navPSDer: string = "";
-    
-    /**
-     * 导航上下文参数
-     *
-     * @type {*}
-     * @memberof ListExpViewlistexpbarBase
-     */
-    public navigateContext:any = null;
-
-    /**
-     * 导航视图参数
-     *
-     * @type {*}
-     * @memberof ListExpViewlistexpbarBase
-     */
-    public navigateParams:any = null;     
-
-    /**
-     * 显示处理提示
-     *
-     * @type {boolean}
-     * @memberof ListExpViewlistexpbarBase
-     */
-    @Prop({ default: true }) public showBusyIndicator!: boolean;
-
-
-    /**
-     * 获取多项数据
-     *
-     * @returns {any[]}
-     * @memberof ListExpViewlistexpbarBase
-     */
-    public getDatas(): any[] {
-        return [];
-    }
-
-    /**
-     * 获取单项树
-     *
-     * @returns {*}
-     * @memberof ListExpViewlistexpbarBase
-     */
-    public getData(): any {
-        return null;
-    }
-
-    /**
-     * 选中数据
-     *
-     * @type {*}
-     * @memberof ListExpViewlistexpbarBase
-     */
-    public selection: any = {};
-
-    /**
-     * split值变化事件
-     *
-     * @memberof ListExpViewlistexpbarBase
-     */
-    public onSplitChange() {
-        if(this.split){
-          this.$store.commit("setViewSplit",{viewUID:this.viewUID,viewSplit:this.split});
-        }
-    }
-
-    /**
-    * Vue声明周期(组件初始化完毕)
-    *
-    * @memberof ListExpViewlistexpbarBase
-    */
-    public created() {
-         this.afterCreated();     
-    }
-
-    /**
-    * 执行created后的逻辑
-    *
-    * @memberof ListExpViewlistexpbarBase
-    */
-    public afterCreated(){
-        if (this.viewState) {
-            this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
-                if (!Object.is(tag, this.name)) {
-                    return;
-                }
-                this.viewState.next({ tag: 'listexpbar_list', action: action, data: data });
-            });
-        }
-    }
-
-    /**
-    * 执行mounted后的逻辑
-    *
-    * @memberof ListExpViewlistexpbarBase
-    */
-    public afterMounted(){ 
-        if(this.$store.getters.getViewSplit(this.viewUID)){
-            this.split = this.$store.getters.getViewSplit(this.viewUID);
-        }else{
-            let containerWidth:number = (document.getElementById("listexpviewlistexpbar") as any).offsetWidth;
-            let containerHeight:number = (document.getElementById("listexpviewlistexpbar") as any).offsetHeight;
-            if(Object.is(this.showMode,'horizontal')){
-                if(this.ctrlWidth){
-                    this.split = this.ctrlWidth/containerWidth;
-                }
-            }else{
-                if(this.ctrlHeight){
-                    this.split = this.ctrlHeight/containerHeight;
-                }
-            }
-            this.$store.commit("setViewSplit",{viewUID:this.viewUID,viewSplit:this.split}); 
-        }  
-    }
-
-    /**
-    * Vue声明周期(组件渲染完毕)
-    *
-    * @memberof ListExpViewlistexpbarBase
-    */
-    public mounted() {
-        this.afterMounted();     
-    }
-
-    /**
-     * vue 生命周期
-     *
-     * @memberof ListExpViewlistexpbarBase
-     */
-    public destroyed() {
-        this.afterDestroy();
-    }
-
-    /**
-     * 执行destroyed后的逻辑
-     *
-     * @memberof ListExpViewlistexpbarBase
-     */
-    public afterDestroy() {
-        if (this.viewStateEvent) {
-            this.viewStateEvent.unsubscribe();
-        }
-    }
     
     /**
      * listexpbar的选中数据事件
@@ -346,6 +124,7 @@ export class ListExpViewlistexpbarListexpbarBase extends MainControlBase {
         let tempContext:any = {};
         let tempViewParam:any = {};
         if (args.length === 0) {
+            this.selection = {};
             return ;
         }
         const arg:any = args[0];

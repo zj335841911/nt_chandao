@@ -60,16 +60,6 @@ export class CaseGridView9_MeCretaeBase extends GridView9Base {
      */
     public appUIService: CaseUIService = new CaseUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof CaseGridView9_MeCretaeBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航参数集合
 	 *
@@ -125,6 +115,15 @@ export class CaseGridView9_MeCretaeBase extends GridView9Base {
      * @memberof CaseGridView9_MeCretaeBase
      */
     public engine: GridView9Engine = new GridView9Engine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof CaseGridView9_MeCretaeBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

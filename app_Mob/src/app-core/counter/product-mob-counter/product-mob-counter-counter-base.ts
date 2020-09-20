@@ -24,9 +24,9 @@ export default class ProductMobCounterCounterServiceBase extends CounterService 
     constructor(opts: any = {}) {
         super(opts);
         this.initCounterData();
-        setInterval(() => {
-            this.fetchCounterData();
-        }, 60000);
+        this.timer = setInterval(() => {
+            this.fetchCounterData(this.context,this.viewparams);
+        }, 5000);
     }
 
     /**
@@ -36,7 +36,7 @@ export default class ProductMobCounterCounterServiceBase extends CounterService 
      * @memberof  ProductMobCounterCounterServiceBase
      */
     public initCounterData(){
-        this.fetchCounterData();
+        this.fetchCounterData(this.context,this.viewparams);
     }
 
     /**
@@ -45,18 +45,11 @@ export default class ProductMobCounterCounterServiceBase extends CounterService 
      * @param {*} [opts={}]
      * @memberof  ProductMobCounterCounterServiceBase
      */
-    public async fetchCounterData(){
-        this.counterData = {
-            item1:parseInt((Math.random()*10)+''),
-            item2:parseInt((Math.random()*100)+''),
-            item3:parseInt((Math.random()*100)+''),
-            item4:parseInt((Math.random()*100)+''),
-            item5:parseInt((Math.random()*100)+''),
-            item6:parseInt((Math.random()*100)+''),
-            item7:parseInt((Math.random()*100)+''),
-            item8:parseInt((Math.random()*100)+''),
-            item9:parseInt((Math.random()*100)+''),
-            item10:parseInt((Math.random()*100)+'')
+    public async fetchCounterData(context:any,data:any){
+        let _appEntityService:any = await this.appEntityService.getService('product');
+        if (_appEntityService['MobProductCounter'] && _appEntityService['MobProductCounter'] instanceof Function) {
+            let result = await _appEntityService['MobProductCounter'](context,data, false);
+            this.counterData = result.data;
         }
     }
 
@@ -66,7 +59,7 @@ export default class ProductMobCounterCounterServiceBase extends CounterService 
      * @memberof ProductMobCounterCounterServiceBase
      */
     public async refreshData(){
-        const res = await this.fetchCounterData();
+        const res = await this.fetchCounterData(this.context,this.viewparams);
         return res;
     }
 

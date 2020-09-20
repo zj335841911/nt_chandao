@@ -222,6 +222,9 @@ export default class StepsInfoModel {
       {
         name: 'createbuild',
       },
+      {
+        name: 'overduebugs',
+      },
     ]
   }
 

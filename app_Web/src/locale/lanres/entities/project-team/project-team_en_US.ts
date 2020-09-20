@@ -34,8 +34,11 @@ export default {
 			days: "可用工日",
 			hours: "可用工时/天",
 			limited: "受限用户",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        newrow: "新建行",
+        remove: "Remove",
 		},
 	},
 	main_grid: {
@@ -51,6 +54,15 @@ export default {
 		},
 		uiactions: {
         projectteam_removemember: "移除成员",
+		},
+	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
+			dept: "选择部门", 
+			teams: "复制团队", 
+		},
+		uiactions: {
 		},
 	},
 	maingridview_editrowtoolbar_toolbar: {

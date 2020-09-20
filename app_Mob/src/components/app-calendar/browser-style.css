@@ -8,12 +8,10 @@
 }
 .calendar-tools{
     height:40px;
-    font-size: 20px;
+    font-size: 15px;
     line-height: 40px;
     color:#5e7a88;
-    box-shadow: 0px 4px 8px rgba(25, 47, 89, 0.1);
-    margin-bottom: 20px;
-    border-top: 1px solid rgba(200, 200, 200, .1);
+    border-bottom: 0.3px solid #efefef;
 }
 .calendar-tools span{
     cursor: pointer;
@@ -174,7 +172,7 @@
 .mc-head-box div {
     flex:1;
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
 }
 .mc-head-box {
     display: flex;
@@ -183,7 +181,7 @@
     align-content: space-between
 }
 .mc-body {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 .mc-body tr {
     display: flex;

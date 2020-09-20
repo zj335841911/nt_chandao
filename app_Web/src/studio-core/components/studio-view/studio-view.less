@@ -6,6 +6,17 @@
 
     .app-search-form {
         padding: 4px 7px;
+        display: flex;
+        flex-direction: row-reverse;
+        >.search-button {
+            flex-shrink: 0;
+            >.ivu-btn {
+                margin-left: 4px;
+            }
+         }
+        >.form-content {
+            flex-grow: 1;
+        }
     }
 
     .quick-search {
@@ -107,6 +118,27 @@
             flex-grow: 1;
             overflow-y: auto;
             overflow-x: hidden;
+        }
+    }
+    >.view-content {
+        >.search-bar-wrapper {
+            .search-bar-action {
+                margin-bottom: 4px;
+                text-align: right;
+                .ivu-btn {
+                    margin-left: 4px;
+                }
+            }
+        }
+    }
+}
+
+.ivu-poptip-popper {
+    .save-action {
+        margin-top: 4px;
+        text-align: right;
+        .ivu-btn {
+            margin-left: 4px;
         }
     }
 }

@@ -1,5 +1,6 @@
-import { Http,Util } from '@/ibiz-core/utils';
+import { Http,Util,HttpResponse } from '@/ibiz-core/utils';
 import  { EntityService }  from '@/ibiz-core';
+import { MyTerritoryCountLogic } from './my-territory-count-logic';
 
 
 
@@ -154,6 +155,54 @@ export class IbzMyTerritoryServiceBase extends EntityService {
     }
 
     /**
+     * MobMenuCount接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMyTerritoryServiceBase
+     */
+    public async MobMenuCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let res:any = await  Http.getInstance().post(`/ibzmyterritories/mobmenucount`,isloading);
+        res.data.ibzmyterritory = data.ibzmyterritory;
+        
+        return res;
+    }
+
+    /**
+     * MyFavoriteCount接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMyTerritoryServiceBase
+     */
+    public async MyFavoriteCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let res:any = await  Http.getInstance().post(`/ibzmyterritories/myfavoritecount`,isloading);
+        res.data.ibzmyterritory = data.ibzmyterritory;
+        
+        return res;
+    }
+
+    /**
+     * MyTerritoryCount接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMyTerritoryServiceBase
+     */
+    public async MyTerritoryCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let res:any = await  Http.getInstance().post(`/ibzmyterritories/myterritorycount`,isloading);
+        res.data.ibzmyterritory = data.ibzmyterritory;
+        
+        return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]
@@ -197,6 +246,21 @@ export class IbzMyTerritoryServiceBase extends EntityService {
     public async FetchMyWork(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/ibzmyterritories/fetchmywork`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchMyWorkMob接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMyTerritoryServiceBase
+     */
+    public async FetchMyWorkMob(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzmyterritories/fetchmyworkmob`,tempData,isloading);
         return res;
     }
 

@@ -27,6 +27,41 @@ export default class Main_ReportSubModel {
     }else{
 		  return [
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'resolvedby',
+          prop: 'resolvedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'resolveddate',
+          prop: 'resolveddate',
+          dataType: 'DATETIME',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'tostory',
           prop: 'tostory',
           dataType: 'PICKUP',
@@ -51,29 +86,14 @@ export default class Main_ReportSubModel {
           isEditable:true
         },
         {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'duplicatebug',
           prop: 'duplicatebug',
           dataType: 'PICKUP',
         },
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'story',
           prop: 'story',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
         },
         {
           name: 'confirmed',
@@ -96,11 +116,6 @@ export default class Main_ReportSubModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'task',
           prop: 'task',
           dataType: 'PICKUP',
@@ -121,24 +136,9 @@ export default class Main_ReportSubModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
           name: 'plan',
           prop: 'plan',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'resolveddate',
-          prop: 'resolveddate',
-          dataType: 'DATETIME',
-        },
-        {
-          name: 'resolvedby',
-          prop: 'resolvedby',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'entry',

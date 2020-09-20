@@ -5,14 +5,15 @@ import cn.ibizlab.pms.util.security.AuthenticationUser;
 import cn.ibizlab.pms.util.security.AuthorizationLogin;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.alibaba.fastjson.JSONObject;
 
 @FeignClient(value = "${ibiz.ref.service.uaa:ibzuaa-api}",fallback = IBZUAAFallback.class)
-public interface IBZUAAFeignClient
-{
+public interface IBZUAAFeignClient {
 	/**
 	 * 同步系统资源到uaa
+	 *
 	 * @param system 系统资源信息
 	 * @return
 	 */
@@ -21,6 +22,7 @@ public interface IBZUAAFeignClient
 
 	/**
 	 * 用户登录
+	 *
 	 * @param authorizationLogin 登录信息
 	 * @return
 	 */
@@ -33,7 +35,14 @@ public interface IBZUAAFeignClient
 	@PostMapping(value = "/uaa/loginbyusername")
 	AuthenticationUser loginByUsername(@RequestBody String username);
 
-    @Cacheable(value="ibzuaa_publickey")
+	@Cacheable(value = "ibzuaa_publickey")
 	@GetMapping(value = "/uaa/publickey")
 	String getPublicKey();
+
+	@GetMapping(value = {"/uaa/open/dingtalk/access_token"})
+	JSONObject getDingtalkAppId(@RequestParam(value = "id", required = false) String id);
+
+	@GetMapping(value = {"/uaa/open/dingtalk/auth/{code}"})
+	AuthenticationInfo getUserByToken(@PathVariable(value = "code") String code, @RequestParam(value = "id",required = false) String id);
 }
+

@@ -71,6 +71,11 @@ export default class ForwardModel {
         dataType: 'FLOAT',
       },
       {
+        name: 'multiple',
+        prop: 'multiple',
+        dataType: 'TEXT',
+      },
+      {
         name: 'comment',
         prop: 'comment',
         dataType: 'HTMLTEXT',

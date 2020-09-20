@@ -12,6 +12,8 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
+
+    
     </ion-header>
 
 
@@ -42,19 +44,16 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
+    <ion-footer class="view-footer" style="z-index:9999;">
                 <div  class = "fab_container">
-            <div class="bottom_menu">
-        
-        
-            <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.tbitem1.visabled" :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)">
-                <ion-icon name="done-all"></ion-icon>
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.tbitem1.disabled}" v-show="righttoolbarModels.tbitem1.visabled">
+                <ion-button :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" size="large">
+                    <ion-icon name="checkmark-outline"></ion-icon>
                 
-            </ion-fab-button>
-        
-            </ion-fab>
+                </ion-button>
+                
             </div>
+        
         </div>
     </ion-footer>
 </ion-page>
@@ -317,6 +316,24 @@ export default class ProjectCloseMobEditViewBase extends Vue {
         return toolBarVisable;
     }
 
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof ProjectCloseMobEditView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof ProjectCloseMobEditView 
+     */
+    public popUpGroup () {
+        this.showGrop = !this.showGrop;
+    }
+
     
 
 
@@ -411,6 +428,7 @@ export default class ProjectCloseMobEditViewBase extends Vue {
         }
 
     }
+
 
     /**
      * 销毁之前
@@ -617,7 +635,8 @@ export default class ProjectCloseMobEditViewBase extends Vue {
             if (this.viewDefaultUsage === "routerView") {
                 this.$store.commit("deletePage", this.$route.fullPath);
                 this.$router.go(-1);
-            } else {
+            } 
+            if (this.viewDefaultUsage === "actionView") {
                 this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
             }
         }
@@ -692,7 +711,7 @@ export default class ProjectCloseMobEditViewBase extends Vue {
         if (view && view.viewdatachange) {
                 const title: any = this.$t('app.tabpage.sureclosetip.title');
                 const contant: any = this.$t('app.tabpage.sureclosetip.content');
-                const result = await this.$notice.confirm(title, contant);
+                const result = await this.$notice.confirm(title, contant, this.$store);
                 if (result) {
                     this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
                     return true;

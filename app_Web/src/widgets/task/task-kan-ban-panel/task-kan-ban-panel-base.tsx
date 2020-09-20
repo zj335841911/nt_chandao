@@ -4,9 +4,10 @@ import { Watch, PanelControlBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskKanBanService from './task-kan-ban-panel-service';
 import TaskUIService from '@/uiservice/task/task-ui-service';
-import { FormItemModel } from '@/model/form-detail';
+import { PanelDetailModel,PanelRawitemModel,PanelTabPanelModel,PanelTabPageModel,PanelFieldModel,PanelContainerModel,PanelControlModel,PanelUserControlModel,PanelButtonModel } from '@/model/panel-detail';
 import TaskKanBanModel from './task-kan-ban-panel-model';
 import CodeListService from "@service/app/codelist-service";
+import { ViewTool } from '@/utils';
 
 
 /**
@@ -104,30 +105,54 @@ export class TaskKanBanPanelBase extends PanelControlBase {
      * @memberof TaskKanBan
      */
     public detailsModel: any = {
-        name: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        rawitem1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        button1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        assignedto: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        deadline: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        rawitem2: new FormItemModel({ visible: false, disabled: false, enableCond: 3 }), 
-        container4: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        container2: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        estimate: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        rawitem3: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        container3: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        project: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        module: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        srfkey: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        story: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        pri: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        desc: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        mailto: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        parent: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        eststarted: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        consumed: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        color: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        container5: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
-        container1: new FormItemModel({ visible: true, disabled: false, enableCond: 3 }), 
+        name: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'name', panel: this })
+,
+        rawitem1: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem1', panel: this })
+,
+        button1: new PanelButtonModel({ caption: '指派', itemType: 'BUTTON',visible: true, disabled: false, name: 'button1', panel: this, uiaction: { type: 'DEUIACTION', tag: 'AssignTask',actiontarget: 'SINGLEKEY',noprivdisplaymode:1,dataaccaction:'SRFUR__TASK_ASSIGN_BUT',visabled: true,disabled: false} })
+,
+        assignedto: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'assignedto', panel: this })
+,
+        deadline: new PanelFieldModel({ caption: '截止日期', itemType: 'FIELD',visible: true, disabled: false, name: 'deadline', panel: this })
+,
+        rawitem2: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: false, disabled: false, name: 'rawitem2', panel: this })
+,
+        container4: new PanelContainerModel({ caption: '动态内容', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container4', panel: this })
+,
+        container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container2', panel: this })
+,
+        estimate: new PanelFieldModel({ caption: 'h', itemType: 'FIELD',visible: true, disabled: false, name: 'estimate', panel: this })
+,
+        rawitem3: new PanelRawitemModel({ caption: '', itemType: 'RAWITEM',visible: true, disabled: false, name: 'rawitem3', panel: this })
+,
+        container3: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container3', panel: this })
+,
+        project: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'project', panel: this })
+,
+        module: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'module', panel: this })
+,
+        srfkey: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'srfkey', panel: this })
+,
+        story: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'story', panel: this })
+,
+        pri: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'pri', panel: this })
+,
+        desc: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'desc', panel: this })
+,
+        mailto: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'mailto', panel: this })
+,
+        parent: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'parent', panel: this })
+,
+        eststarted: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'eststarted', panel: this })
+,
+        consumed: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'consumed', panel: this })
+,
+        color: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'color', panel: this })
+,
+        container5: new PanelContainerModel({ caption: '隐藏项', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container5', panel: this })
+,
+        container1: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container1', panel: this })
+,
     };
 
     /**
@@ -189,8 +214,7 @@ export class TaskKanBanPanelBase extends PanelControlBase {
      * @param {*} $event
      * @memberof TaskKanBan
      */
-    public async uiAction(row: any, tag: any, $event: any) {
-        await this.computePanelData();
+    public uiAction(row: any, tag: any, $event: any) {
         if(Object.is('AssignTask', tag)) {
             this.itemlayoutpanel_button1_click(row, tag, $event);
         }

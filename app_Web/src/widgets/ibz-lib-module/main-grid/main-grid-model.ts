@@ -27,9 +27,10 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
+          isEditable:true
         },
         {
           name: 'short',
@@ -38,15 +39,14 @@ export default class MainModel {
           isEditable:true
         },
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
           name: 'root',
           prop: 'root',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
-          isEditable:true
         },
         {
           name: 'parent',

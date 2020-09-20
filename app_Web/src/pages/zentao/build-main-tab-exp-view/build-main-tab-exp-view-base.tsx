@@ -57,16 +57,6 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
      */
     public appUIService: BuildUIService = new BuildUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof BuildMainTabExpViewBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
 	/**
 	 * 自定义视图导航参数集合
 	 *
@@ -80,6 +70,13 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
         'project': { isRawValue: false, value: 'project' },
         'objecttype': { isRawValue: true, value: 'build' }
     };
+
+    /**
+     * 是否显示信息栏
+     *
+     * @memberof BuildMainTabExpViewBase
+     */
+    isShowDataInfoBar = true;
 
     /**
      * 视图模型数据
@@ -125,6 +122,15 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
      * @memberof BuildMainTabExpViewBase
      */
     public engine: TabExpViewEngine = new TabExpViewEngine();
+
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof BuildMainTabExpViewBase
+     */    
+    public counterServiceArray:Array<any> = [];
 
     /**
      * 引擎初始化

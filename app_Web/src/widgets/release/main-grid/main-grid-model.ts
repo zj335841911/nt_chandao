@@ -27,19 +27,9 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'name',
@@ -47,24 +37,34 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'buildname',
           prop: 'buildname',
           dataType: 'PICKUPTEXT',
         },
         {
-          name: 'build',
-          prop: 'build',
-          dataType: 'PICKUP',
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'date',
           prop: 'date',
           dataType: 'DATE',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'branch',
+          prop: 'branch',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'build',
+          prop: 'build',
+          dataType: 'PICKUP',
         },
         {
           name: 'srfmstag',

@@ -28,7 +28,7 @@
     "element-ui": "^2.13.2",
     "file-saver": "^2.0.2",
     "font-awesome": "^4.7.0",
-    "ibiz-gantt-elastic": "^1.0.17",
+    "ibiz-gantt-elastic": "^1.0.18",
     "ibiz-studio-components-vue": "^0.0.1-alpha.9",
     "ibiz-vue-lib": "^0.1.13",
     "ibiz-vue-pivottable": "^1.0.6",

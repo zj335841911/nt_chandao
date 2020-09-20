@@ -197,7 +197,6 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        parent: null,
         id: null,
         title: null,
         spec: null,
@@ -205,6 +204,8 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
         prodoctname: null,
         branch: null,
         modulename: null,
+        parent: null,
+        parentname: null,
         plan: null,
         source: null,
         sourcenote: null,
@@ -303,8 +304,6 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        parent: new FormItemModel({ caption: '父需求', detailType: 'FORMITEM', name: 'parent', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
         id: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
         title: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -318,6 +317,10 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
         branch: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         modulename: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'modulename', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        parent: new FormItemModel({ caption: '父需求', detailType: 'FORMITEM', name: 'parent', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        parentname: new FormItemModel({ caption: '父需求', detailType: 'FORMITEM', name: 'parentname', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         plan: new FormItemModel({ caption: '所属计划', detailType: 'FORMITEM', name: 'plan', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -425,6 +428,15 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
 
 
 
+
+        if (Object.is(name, '') || Object.is(name, 'parent')) {
+            let ret = false;
+            const _parent = this.data.parent;
+            if (this.$verify.testCond(_parent, 'NOTEQ', '-1')) {
+                ret = true;
+            }
+            this.detailsModel.parentname.setVisible(ret);
+        }
 
 
 

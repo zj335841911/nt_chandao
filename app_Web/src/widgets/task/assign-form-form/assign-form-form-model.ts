@@ -66,6 +66,11 @@ export default class AssignFormModel {
         dataType: 'TEXT',
       },
       {
+        name: 'multiple',
+        prop: 'multiple',
+        dataType: 'TEXT',
+      },
+      {
         name: 'left',
         prop: 'left',
         dataType: 'FLOAT',

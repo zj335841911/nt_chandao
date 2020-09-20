@@ -20,6 +20,8 @@ export default {
     bugcnt: "bug数",
     isexpired: "是否过期",
     estimatecnt: "工时数",
+    beginstr: "开始日期",
+    endstr: "结束日期",
   },
 	views: {
 		subplancreateview: {
@@ -27,7 +29,7 @@ export default {
       		title: "计划",
 		},
 		subplangridview: {
-			caption: "产品计划",
+			caption: "子计划",
       		title: "子计划",
 		},
 		subplaneditview: {
@@ -52,7 +54,9 @@ export default {
 			parentname: "父计划名称", 
 			title: "名称", 
 			begin: "开始日期", 
+			future: "", 
 			end: "结束日期", 
+			delta: "", 
 			desc: "描述", 
 			id: "编号", 
 		},
@@ -63,24 +67,8 @@ export default {
 		columns: {
 			id: "编号",
 			title: "名称",
-			begin: "开始日期",
-			end: "结束日期",
 		},
 		uiactions: {
-		},
-	},
-	subplangridviewtoolbar_toolbar: {
-		deuiaction3_create: {
-			caption: "创建计划",
-			tip: "创建计划",
-		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-		deuiaction1: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
 		},
 	},
 	subplancreateviewtoolbar_toolbar: {

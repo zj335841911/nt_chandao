@@ -27,11 +27,25 @@ import cn.ibizlab.pms.core.zentao.domain.User;
 @Data
 public class UserSearchContext extends QueryWrapperContext<User> {
 
+	private String n_realname_like;//[真实姓名]
+	public void setN_realname_like(String n_realname_like) {
+        this.n_realname_like = n_realname_like;
+        if(!ObjectUtils.isEmpty(this.n_realname_like)){
+            this.getSearchCond().like("realname", n_realname_like);
+        }
+    }
 	private Integer n_dept_eq;//[所属部门]
 	public void setN_dept_eq(Integer n_dept_eq) {
         this.n_dept_eq = n_dept_eq;
         if(!ObjectUtils.isEmpty(this.n_dept_eq)){
             this.getSearchCond().eq("dept", n_dept_eq);
+        }
+    }
+	private String n_role_eq;//[职位]
+	public void setN_role_eq(String n_role_eq) {
+        this.n_role_eq = n_role_eq;
+        if(!ObjectUtils.isEmpty(this.n_role_eq)){
+            this.getSearchCond().eq("role", n_role_eq);
         }
     }
 	private String n_clientstatus_eq;//[clientStatus]

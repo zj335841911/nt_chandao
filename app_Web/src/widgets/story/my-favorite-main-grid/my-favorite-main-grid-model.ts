@@ -141,6 +141,11 @@ export default class MyFavoriteMainModel {
           dataType: 'TEXT',
         },
         {
+          name: 'ischild',
+          prop: 'ischild',
+          dataType: 'TEXT',
+        },
+        {
           name: 'story',
           prop: 'id',
         },
@@ -163,6 +168,10 @@ export default class MyFavoriteMainModel {
         {
           name:'sort',
           prop:'sort'
+        },
+        {
+          name:'items',
+          prop:'items'
         },
         {
           name:'srfparentdata',

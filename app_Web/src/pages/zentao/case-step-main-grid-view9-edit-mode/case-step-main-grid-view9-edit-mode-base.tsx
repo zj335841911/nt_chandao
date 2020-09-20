@@ -60,16 +60,6 @@ export class CaseStepMainGridView9_EditModeBase extends GridView9Base {
      */
     public appUIService: IBZCaseStepUIService = new IBZCaseStepUIService(this.$store);
 
-
-    /**
-     * 计数器服务对象集合
-     *
-     * @protected
-     * @type {Array<*>}
-     * @memberof CaseStepMainGridView9_EditModeBase
-     */    
-    protected counterServiceArray: Array<any> = [];
-
     /**
      * 视图模型数据
      *
@@ -128,6 +118,15 @@ export class CaseStepMainGridView9_EditModeBase extends GridView9Base {
      */
     public engine: GridView9Engine = new GridView9Engine();
 
+
+    /**
+     * 计数器服务对象集合
+     *
+     * @type {Array<*>}
+     * @memberof CaseStepMainGridView9_EditModeBase
+     */    
+    public counterServiceArray:Array<any> = [];
+
     /**
      * 引擎初始化
      *
@@ -146,7 +145,7 @@ export class CaseStepMainGridView9_EditModeBase extends GridView9Base {
             grid: this.$refs.grid,
             keyPSDEField: 'ibzcasestep',
             majorPSDEField: 'expect',
-            isLoadDefault: true,
+            isLoadDefault: false,
         });
     }
 

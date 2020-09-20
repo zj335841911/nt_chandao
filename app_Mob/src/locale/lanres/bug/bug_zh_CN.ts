@@ -69,6 +69,7 @@ export default {
     buildname: "版本名称",
     buildproject: "版本项目",
     createbuild: "创建版本",
+    overduebugs: "过期天数",
   },
 	views: {
 		colsemobeditview: {
@@ -77,11 +78,32 @@ export default {
 		planmobmdview9: {
 			caption: '计划下属',
 		},
+		cmoboptionview: {
+			caption: '确认Bug',
+		},
+		rmoboptionview: {
+			caption: '解决Bug',
+		},
+		testmobmdview: {
+			caption: 'Bug',
+		},
+		acmoboptionview: {
+			caption: '激活Bug',
+		},
 		mobmdview: {
+			caption: 'Bug',
+		},
+		assmobmdview9: {
 			caption: 'Bug',
 		},
 		mobeditview: {
 			caption: 'Bug',
+		},
+		newmobeditview: {
+			caption: 'Bug',
+		},
+		assmoboptionview: {
+			caption: '指派Bug',
 		},
 		confirmmobeditview: {
 			caption: 'Bug',
@@ -97,6 +119,12 @@ export default {
 		},
 		activationmobeditview: {
 			caption: 'Bug',
+		},
+		closemoboptionview: {
+			caption: '关闭Bug',
+		},
+		assmoremobmdview: {
+			caption: '指派给我的Bug',
 		},
 	},
 	closemob_form: {
@@ -114,7 +142,6 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			comment: '备注', 
-			mobimage: '移动端图片', 
 			id: 'Bug编号', 
 		},
 		uiactions: {
@@ -134,6 +161,13 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
+			productname: '产品', 
+			branch: '平台/分支', 
+			product: '所属产品', 
+			branchname: '平台/分支', 
+			modulename1: '模块名称', 
+			projectname: '项目', 
+			openedbuild: '影响版本', 
 			title: 'Bug标题', 
 			type: 'Bug类型', 
 			severity: '严重程度', 
@@ -144,33 +178,9 @@ export default {
 			repotype: '代码类型', 
 			status: 'Bug状态', 
 			resolution: '解决方案', 
+			resolveddate: '解决日期', 
 			resolvedby: '解决者', 
-			id: 'Bug编号', 
-		},
-		uiactions: {
-		},
-	},
-	confirmmob_form: {
-		details: {
-			druipart1: '', 
-			grouppanel6: '历史记录', 
-			group1: 'Bug基本信息', 
-			formpage1: '基本信息', 
-			srfupdatedate: '修改日期', 
-			srforikey: '', 
-			srfkey: 'Bug编号', 
-			srfmajortext: 'Bug标题', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			assignedto: '指派给', 
-			type: 'Bug类型', 
-			pri: '优先级', 
-			mailto: '抄送给', 
-			comment: '备注', 
-			mobimage: '移动端图片', 
-			project: '所属项目', 
+			steps: '重现步骤', 
 			id: 'Bug编号', 
 		},
 		uiactions: {
@@ -195,8 +205,58 @@ export default {
 			project: '所属项目', 
 			mailto: '抄送给', 
 			comment: '备注', 
-			mobimage: '移动端图片', 
 			id: 'Bug编号', 
+		},
+		uiactions: {
+		},
+	},
+	confirmmob_form: {
+		details: {
+			druipart1: '', 
+			grouppanel6: '历史记录', 
+			group1: 'Bug基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '修改日期', 
+			srforikey: '', 
+			srfkey: 'Bug编号', 
+			srfmajortext: 'Bug标题', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			assignedto: '指派给', 
+			type: 'Bug类型', 
+			pri: '优先级', 
+			mailto: '抄送给', 
+			comment: '备注', 
+			project: '所属项目', 
+			id: 'Bug编号', 
+		},
+		uiactions: {
+		},
+	},
+	activationmob_form: {
+		details: {
+			grouppanel1: '分组面板', 
+			druipart1: '', 
+			grouppanel6: '历史记录', 
+			group1: 'Bug基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '修改日期', 
+			srforikey: '', 
+			srfkey: 'Bug编号', 
+			srfmajortext: 'Bug标题', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			id: 'Bug编号', 
+			resolvedbuild: '影响版本', 
+			assignedto: '指派给', 
+			product: '所属产品', 
+			files: '附件', 
+			project: '所属项目', 
+			comment: '备注', 
 		},
 		uiactions: {
 		},
@@ -225,17 +285,15 @@ export default {
 			project: '所属项目', 
 			files: '附件', 
 			comment: '备注', 
-			mobimage: '移动端图片', 
 		},
 		uiactions: {
 		},
 	},
-	activationmob_form: {
+	mobnewfrom_form: {
 		details: {
 			grouppanel1: '分组面板', 
-			druipart1: '', 
-			grouppanel6: '历史记录', 
-			group1: 'Bug基本信息', 
+			grouppanel2: '分组面板', 
+			group1: 'bug基本信息', 
 			formpage1: '基本信息', 
 			srfupdatedate: '修改日期', 
 			srforikey: '', 
@@ -245,14 +303,30 @@ export default {
 			srfuf: '', 
 			srfdeid: '', 
 			srfsourcekey: '', 
-			id: 'Bug编号', 
-			resolvedbuild: '影响版本', 
-			assignedto: '指派给', 
+			productname: '产品', 
+			branch: '平台/分支', 
 			product: '所属产品', 
-			files: '附件', 
+			modulename: '所属模块', 
+			module: '所属模块', 
+			projectname: '项目', 
 			project: '所属项目', 
-			comment: '备注', 
-			mobimage: '移动端图片', 
+			openedbuild: '影响版本', 
+			assignedto: '指派给', 
+			deadline: '截止日期', 
+			type: 'Bug类型', 
+			os: '操作系统', 
+			browser: '浏览器', 
+			title: 'Bug标题', 
+			severity: '严重程度', 
+			pri: '优先级', 
+			steps: '重现步骤', 
+			task: '相关任务', 
+			storyname: '相关需求', 
+			story: '相关需求', 
+			taskname: '相关任务', 
+			mailto: '抄送给', 
+			keywords: '关键词', 
+			id: 'Bug编号', 
 		},
 		uiactions: {
 		},
@@ -266,6 +340,40 @@ export default {
 	planmobmdview9righttoolbar_toolbar: {
 	},
 	mobeditviewrighttoolbar_toolbar: {
+		deuiaction1_assingtobugmob: {
+			caption: '指派',
+			tip: '指派',
+		},
+		deuiaction1_confirmbugmob: {
+			caption: '确认',
+			tip: '确认',
+		},
+		deuiaction1_activationmob: {
+			caption: '激活',
+			tip: '激活',
+		},
+		deuiaction1_resolvebugmob: {
+			caption: '解决',
+			tip: '解决',
+		},
+		deuiaction1_closebugmob: {
+			caption: '关闭',
+			tip: '关闭',
+		},
+	},
+	mobmdviewrighttoolbar_toolbar: {
+	},
+	newmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
+	},
+	testmobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建',
+			tip: '新建',
+		},
 	},
 	confirmmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
@@ -290,9 +398,5 @@ export default {
 			caption: '保存',
 			tip: '保存',
 		},
-	},
-	mobmdviewrighttoolbar_toolbar: {
-	},
-	assmobmdviewrighttoolbar_toolbar: {
 	},
 };

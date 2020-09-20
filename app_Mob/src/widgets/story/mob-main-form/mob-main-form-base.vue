@@ -1,5 +1,5 @@
 <template>
-    <div ref='form' class="app-form ">
+    <div ref='form' class="app-form story-form ">
                 
 
 <app-form-group 
@@ -15,6 +15,78 @@
     :isInfoGroupMode="true" 
     @groupuiactionclick="groupUIActionClick($event)">
     
+<app-form-item 
+    name='prodoctname' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="prodoctname_item"  
+    :itemValue="this.data.prodoctname" 
+    v-show="detailsModel.prodoctname.visible" 
+    :itemRules="this.rules.prodoctname" 
+    :caption="$t('story.mobmain_form.details.prodoctname')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.prodoctname.disabled"
+    :error="detailsModel.prodoctname.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.prodoctname" 
+    :context="context" 
+    :value="data.prodoctname" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='branchname' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="branchname_item"  
+    :itemValue="this.data.branchname" 
+    v-show="detailsModel.branchname.visible" 
+    :itemRules="this.rules.branchname" 
+    :caption="$t('story.mobmain_form.details.branchname')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.branchname.disabled"
+    :error="detailsModel.branchname.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.branchname" 
+    :context="context" 
+    :value="data.branchname" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='modulename1' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="modulename1_item"  
+    :itemValue="this.data.modulename1" 
+    v-show="detailsModel.modulename1.visible" 
+    :itemRules="this.rules.modulename1" 
+    :caption="$t('story.mobmain_form.details.modulename1')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.modulename1.disabled"
+    :error="detailsModel.modulename1.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.modulename1" 
+    :context="context" 
+    :value="data.modulename1" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
 <app-form-item 
     name='title' 
     class='' 
@@ -172,6 +244,84 @@
 
 
 <app-form-item 
+    name='source' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="source_item"  
+    :itemValue="this.data.source" 
+    v-show="detailsModel.source.visible" 
+    :itemRules="this.rules.source" 
+    :caption="$t('story.mobmain_form.details.source')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.source.disabled"
+    :error="detailsModel.source.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        codeListType="STATIC" 
+    tag="Story__source"
+    :isCache="false" 
+    v-if="data.source" 
+    :context="context" 
+    :value="data.source" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='sourcenote' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="sourcenote_item"  
+    :itemValue="this.data.sourcenote" 
+    v-show="detailsModel.sourcenote.visible" 
+    :itemRules="this.rules.sourcenote" 
+    :caption="$t('story.mobmain_form.details.sourcenote')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.sourcenote.disabled"
+    :error="detailsModel.sourcenote.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.sourcenote" 
+    :context="context" 
+    :value="data.sourcenote" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='stage' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="stage_item"  
+    :itemValue="this.data.stage" 
+    v-show="detailsModel.stage.visible" 
+    :itemRules="this.rules.stage" 
+    :caption="$t('story.mobmain_form.details.stage')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.stage.disabled"
+    :error="detailsModel.stage.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        codeListType="STATIC" 
+    tag="Story__stage"
+    :isCache="false" 
+    v-if="data.stage" 
+    :context="context" 
+    :value="data.stage" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
     name='closedby' 
     class='' 
     uiStyle="DEFAULT"  
@@ -248,6 +398,138 @@
 </app-form-item>
 
 
+
+<app-form-item 
+    name='spec' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="spec_item"  
+    :itemValue="this.data.spec" 
+    v-show="detailsModel.spec.visible" 
+    :itemRules="this.rules.spec" 
+    :caption="$t('story.mobmain_form.details.spec')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :error="detailsModel.spec.error" 
+    :isEmptyCaption="false">
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.spec" @change="(val) =>{this.data.spec =val}" :disabled="detailsModel.spec.disabled" :data="JSON.stringify(this.data)"  name="spec" :uploadparams='{}' :exportparams='{}'  style=""/>
+
+</app-form-item>
+
+
+
+<app-form-item 
+    name='verify' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="verify_item"  
+    :itemValue="this.data.verify" 
+    v-show="detailsModel.verify.visible" 
+    :itemRules="this.rules.verify" 
+    :caption="$t('story.mobmain_form.details.verify')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :error="detailsModel.verify.error" 
+    :isEmptyCaption="false">
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.verify" @change="(val) =>{this.data.verify =val}" :disabled="detailsModel.verify.disabled" :data="JSON.stringify(this.data)"  name="verify" :uploadparams='{}' :exportparams='{}'  style=""/>
+
+</app-form-item>
+
+
+
+<app-form-item 
+    name='mailto' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="mailto_item"  
+    :itemValue="this.data.mailto" 
+    v-show="detailsModel.mailto.visible" 
+    :itemRules="this.rules.mailto" 
+    :caption="$t('story.mobmain_form.details.mailto')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.mailto.disabled"
+    :error="detailsModel.mailto.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        codeListType="DYNAMIC" 
+    tag="UserRealName"
+    :isCache="false" 
+    v-if="data.mailto" 
+    :context="context" 
+    :value="data.mailto" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='keywords' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="keywords_item"  
+    :itemValue="this.data.keywords" 
+    v-show="detailsModel.keywords.visible" 
+    :itemRules="this.rules.keywords" 
+    :caption="$t('story.mobmain_form.details.keywords')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.keywords.disabled"
+    :error="detailsModel.keywords.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        v-if="data.keywords" 
+    :context="context" 
+    :value="data.keywords" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel1.visible" 
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
+    :caption="$t('story.mobmain_form.details.grouppanel1')" 
+    :isShowCaption="true" 
+    :titleBarCloseMode="0" 
+    :isInfoGroupMode="true" 
+    @groupuiactionclick="groupUIActionClick($event)">
+    
+<app-form-druipart
+    class='' 
+    parameterName='story' 
+    refviewtype='DEMOBMDVIEW9'  
+    refreshitems='' 
+    viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
+    paramItem='story' 
+    style="" 
+    :formState="formState" 
+    :parentdata='{"srfparentdename":"ZT_STORY","SRFPARENTTYPE":"CUSTOM"}' 
+    :parameters="[
+    ]" 
+    tempMode='0'
+    :context="context" 
+    :viewparams="viewparams" 
+    :navigateContext ='{ } ' 
+    :navigateParam ='{ } ' 
+    :ignorefieldvaluechange="ignorefieldvaluechange" 
+    :data="JSON.stringify(this.data)"  
+    @drdatasaved="drdatasaved($event)"/>
+
+
+    
+</app-form-group>
+
+
     
 </app-form-group>
 
@@ -256,7 +538,6 @@
 
     </div>
 </template>
-
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch, Model } from 'vue-property-decorator';
 import { CreateElement } from 'vue';
@@ -570,15 +851,25 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        prodoctname: null,
+        branchname: null,
+        modulename1: null,
         title: null,
         type: null,
         pri: null,
         status: null,
         assignedto: null,
         assigneddate: null,
+        source: null,
+        sourcenote: null,
+        stage: null,
         closedby: null,
         closeddate: null,
         closedreason: null,
+        spec: null,
+        verify: null,
+        mailto: null,
+        keywords: null,
         id: null,
         story: null,
     };
@@ -656,6 +947,24 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
+        prodoctname: [
+            { type: 'string', message: '产品名称 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '产品名称 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'blur' },
+        ],
+        branchname: [
+            { type: 'string', message: '平台/分支 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '平台/分支 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '平台/分支 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '平台/分支 值不能为空', trigger: 'blur' },
+        ],
+        modulename1: [
+            { type: 'string', message: '所属模块名称 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '所属模块名称 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '所属模块名称 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '所属模块名称 值不能为空', trigger: 'blur' },
+        ],
         title: [
             { type: 'string', message: '需求名称 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '需求名称 值必须为字符串类型', trigger: 'blur' },
@@ -692,6 +1001,24 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '指派日期 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '指派日期 值不能为空', trigger: 'blur' },
         ],
+        source: [
+            { type: 'string', message: '需求来源 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '需求来源 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '需求来源 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '需求来源 值不能为空', trigger: 'blur' },
+        ],
+        sourcenote: [
+            { type: 'string', message: '来源备注 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '来源备注 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '来源备注 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '来源备注 值不能为空', trigger: 'blur' },
+        ],
+        stage: [
+            { type: 'string', message: '所处阶段 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '所处阶段 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '所处阶段 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '所处阶段 值不能为空', trigger: 'blur' },
+        ],
         closedby: [
             { type: 'string', message: '由谁关闭 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '由谁关闭 值必须为字符串类型', trigger: 'blur' },
@@ -709,6 +1036,30 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { type: 'string', message: '关闭原因 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '关闭原因 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '关闭原因 值不能为空', trigger: 'blur' },
+        ],
+        spec: [
+            { type: 'string', message: '需求描述 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '需求描述 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '需求描述 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '需求描述 值不能为空', trigger: 'blur' },
+        ],
+        verify: [
+            { type: 'string', message: '验收标准 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '验收标准 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '验收标准 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '验收标准 值不能为空', trigger: 'blur' },
+        ],
+        mailto: [
+            { type: 'string', message: '抄送给 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '抄送给 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '抄送给 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '抄送给 值不能为空', trigger: 'blur' },
+        ],
+        keywords: [
+            { type: 'string', message: '关键词 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '关键词 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '关键词 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '关键词 值不能为空', trigger: 'blur' },
         ],
         id: [
             { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
@@ -800,6 +1151,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected detailsModel: any = {
+        druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this })
+, 
+        grouppanel1: new FormGroupPanelModel({ caption: '历史记录', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: true, form: this, uiActionGroup: { caption: '', langbase: 'story.mobmain_form', extractMode: 'ITEM', details: [] } })
+, 
         group1: new FormGroupPanelModel({ caption: '需求基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'story.mobmain_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
@@ -818,6 +1173,12 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        prodoctname: new FormItemModel({ caption: '产品名称', detailType: 'FORMITEM', name: 'prodoctname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        branchname: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branchname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        modulename1: new FormItemModel({ caption: '所属模块名称', detailType: 'FORMITEM', name: 'modulename1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         title: new FormItemModel({ caption: '需求名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         type: new FormItemModel({ caption: '需求类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -830,11 +1191,25 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         assigneddate: new FormItemModel({ caption: '指派日期', detailType: 'FORMITEM', name: 'assigneddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        source: new FormItemModel({ caption: '需求来源', detailType: 'FORMITEM', name: 'source', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        sourcenote: new FormItemModel({ caption: '来源备注', detailType: 'FORMITEM', name: 'sourcenote', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        stage: new FormItemModel({ caption: '所处阶段', detailType: 'FORMITEM', name: 'stage', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         closedby: new FormItemModel({ caption: '由谁关闭', detailType: 'FORMITEM', name: 'closedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         closeddate: new FormItemModel({ caption: '关闭日期	', detailType: 'FORMITEM', name: 'closeddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         closedreason: new FormItemModel({ caption: '关闭原因', detailType: 'FORMITEM', name: 'closedreason', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        spec: new FormItemModel({ caption: '需求描述', detailType: 'FORMITEM', name: 'spec', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        verify: new FormItemModel({ caption: '验收标准', detailType: 'FORMITEM', name: 'verify', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        keywords: new FormItemModel({ caption: '关键词', detailType: 'FORMITEM', name: 'keywords', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -925,6 +1300,42 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 prodoctname 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.prodoctname')
+    onProdoctnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'prodoctname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 branchname 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.branchname')
+    onBranchnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'branchname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 modulename1 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.modulename1')
+    onModulename1Change(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'modulename1', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 title 值
      *
      * @param {*} newVal
@@ -997,6 +1408,42 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 source 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.source')
+    onSourceChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'source', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 sourcenote 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.sourcenote')
+    onSourcenoteChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'sourcenote', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 stage 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.stage')
+    onStageChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'stage', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 closedby 值
      *
      * @param {*} newVal
@@ -1030,6 +1477,54 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.closedreason')
     onClosedreasonChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'closedreason', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 spec 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.spec')
+    onSpecChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'spec', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 verify 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.verify')
+    onVerifyChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'verify', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 mailto 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.mailto')
+    onMailtoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mailto', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 keywords 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.keywords')
+    onKeywordsChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'keywords', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1080,6 +1575,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1274,7 +1781,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['title_item', 'type_item', 'pri_item', 'status_item', 'assignedto_item', 'assigneddate_item', 'closedby_item', 'closeddate_item', 'closedreason_item', ];
+        const refArr: Array<string> = ['prodoctname_item', 'branchname_item', 'modulename1_item', 'title_item', 'type_item', 'pri_item', 'status_item', 'assignedto_item', 'assigneddate_item', 'source_item', 'sourcenote_item', 'stage_item', 'closedby_item', 'closeddate_item', 'closedreason_item', 'spec_item', 'verify_item', 'mailto_item', 'keywords_item', ];
         let falg = true;
         for (let item = 0; item < refArr.length; item++) {
             const element = refArr[item];
@@ -1610,7 +2117,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             return Promise.reject();
         }
         if (isStateNext) {
-            this.drcounter = 0;
+            this.drcounter = 1;
             if (this.drcounter !== 0) {
                 this.formState.next({ type: 'beforesave', data: arg });//先通知关系界面保存
                 this.saveState = Promise.resolve();

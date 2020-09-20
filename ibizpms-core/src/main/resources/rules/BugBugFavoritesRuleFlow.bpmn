@@ -8,14 +8,14 @@
         <tns:global identifier="bugbugfavoritesibzfavorites" type="cn.ibizlab.pms.core.ibiz.domain.IbzFavorites" />
         <tns:global identifier="bugbugfavoritesdefault" type="cn.ibizlab.pms.core.zentao.domain.Bug" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="bugbugfavoritesprepareparam1" id="94610d86c2ba11bc5749fe28854afe54" implementation="http://www.jboss.org/drools/rule" name="设置收藏参数"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="bugbugfavoritesdeaction1" id="05eb63005feb258d09937336692966cb" implementation="http://www.jboss.org/drools/rule" name="创建收藏信息"/>
-     <endEvent id="05eb63005feb258d09937336692966cb_End" name="End"/>
-     <sequenceFlow id="05eb63005feb258d09937336692966cb_End_Line" sourceRef="05eb63005feb258d09937336692966cb" targetRef="05eb63005feb258d09937336692966cb_End"/>
-     <startEvent id="95ce5c785cbe2dae279bebce33bbc82b" isInterrupting="true"/>
-     <sequenceFlow id="8a195f8bfe3e0855bbd1784bbe2dca55" sourceRef="94610d86c2ba11bc5749fe28854afe54" targetRef="05eb63005feb258d09937336692966cb">
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="bugbugfavoritesprepareparam1" id="prepareparam1" implementation="http://www.jboss.org/drools/rule" name="设置收藏参数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="bugbugfavoritesdeaction1" id="deaction1" implementation="http://www.jboss.org/drools/rule" name="创建收藏信息"/>
+     <endEvent id="deaction1_end" name="end"/>
+     <sequenceFlow id="deaction1_end_line" sourceRef="deaction1" targetRef="deaction1_end"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <sequenceFlow id="prepareparam1_deaction1" sourceRef="prepareparam1" targetRef="deaction1">
      </sequenceFlow>
-     <sequenceFlow id="28d4dd43c03ea6003a5c3c2585c6cf4e" sourceRef="95ce5c785cbe2dae279bebce33bbc82b" targetRef="94610d86c2ba11bc5749fe28854afe54">
+     <sequenceFlow id="begin_prepareparam1" sourceRef="begin" targetRef="prepareparam1">
      </sequenceFlow>
     </process>
 </definitions>

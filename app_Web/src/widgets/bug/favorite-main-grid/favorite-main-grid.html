@@ -9,6 +9,7 @@
         :cell-class-name="getCellClassName.bind(_self)"
         size="mini"
         stripe
+        :height="tableHeight"
         @row-click="rowClick($event)"  
         @select-all="selectAll($event)"  
         @select="select($event)"  
@@ -190,7 +191,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('uagridcolumn1')">
-                <el-table-column :column-key="'uagridcolumn1'" :label="$t('entities.bug.favoritemain_grid.columns.uagridcolumn1')" :width="200"  :align="'center'">
+                <el-table-column :column-key="'uagridcolumn1'" fixed="right" :label="$t('entities.bug.favoritemain_grid.columns.uagridcolumn1')" :width="200"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.bug.favoritemain_grid.columns.uagridcolumn1')}}
@@ -233,6 +234,18 @@
                             
                           </a>
                         </div>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('isfavorites')">
+                <el-table-column show-overflow-tooltip :prop="'isfavorites'" :label="$t('entities.bug.favoritemain_grid.columns.isfavorites')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.bug.favoritemain_grid.columns.isfavorites')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.isfavorites}}</span>
                     </template>
                 </el-table-column>
             </template>

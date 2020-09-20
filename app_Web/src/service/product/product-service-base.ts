@@ -245,6 +245,20 @@ export default class ProductServiceBase extends EntityService {
     }
 
     /**
+     * MobProductTestCounter接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async MobProductTestCounter(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/products/${context.product}/mobproducttestcounter`,data,isloading);
+            return res;
+    }
+
+    /**
      * ProductTop接口方法
      *
      * @param {*} [context={}]
@@ -377,5 +391,17 @@ export default class ProductServiceBase extends EntityService {
      * @memberof ProductServiceBase
      */
     public async ReturnEdit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * WizardCreate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async WizardCreate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 }

@@ -4,8 +4,10 @@ import ibzfavorites_zh_CN from '@locale/lanres/ibz-favorites/ibz-favorites_zh_CN
 import projectteam_zh_CN from '@locale/lanres/project-team/project-team_zh_CN';
 import build_zh_CN from '@locale/lanres/build/build_zh_CN';
 import task_zh_CN from '@locale/lanres/task/task_zh_CN';
+import taskestimate_zh_CN from '@locale/lanres/task-estimate/task-estimate_zh_CN';
 import module_zh_CN from '@locale/lanres/module/module_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
+import dynadashboard_zh_CN from '@locale/lanres/dyna-dashboard/dyna-dashboard_zh_CN';
 import action_zh_CN from '@locale/lanres/action/action_zh_CN';
 import casestep_zh_CN from '@locale/lanres/case-step/case-step_zh_CN';
 import productline_zh_CN from '@locale/lanres/product-line/product-line_zh_CN';
@@ -19,7 +21,9 @@ import ibzmyterritory_zh_CN from '@locale/lanres/ibz-my-territory/ibz-my-territo
 import case_zh_CN from '@locale/lanres/case/case_zh_CN';
 import testmodule_zh_CN from '@locale/lanres/test-module/test-module_zh_CN';
 import productplan_zh_CN from '@locale/lanres/product-plan/product-plan_zh_CN';
+import ibztaskestimate_zh_CN from '@locale/lanres/ibz-taskestimate/ibz-taskestimate_zh_CN';
 import projectstats_zh_CN from '@locale/lanres/project-stats/project-stats_zh_CN';
+import ibztaskteam_zh_CN from '@locale/lanres/ibztaskteam/ibztaskteam_zh_CN';
 import bug_zh_CN from '@locale/lanres/bug/bug_zh_CN';
 import projectmodule_zh_CN from '@locale/lanres/project-module/project-module_zh_CN';
 import productstats_zh_CN from '@locale/lanres/product-stats/product-stats_zh_CN';
@@ -77,14 +81,16 @@ export default {
                 menuitem12: '更多',
             },
             appindexview: {
-                menuitem5: '收藏',
                 menuitem1: '产品',
                 menuitem2: '项目',
                 menuitem3: '测试',
                 menuitem4: '我的',
+                menuitem6: '个人中心',
+                menuitem7: '用户选择',
             },
             listmenu: {
                 menuitem1: '电脑',
+                menuitem8: '个人信息',
                 menuitem2: '手机',
                 menuitem3: '杯子',
                 menuitem4: '用户',
@@ -166,8 +172,10 @@ export default {
     projectteam: projectteam_zh_CN,
     build: build_zh_CN,
     task: task_zh_CN,
+    taskestimate: taskestimate_zh_CN,
     module: module_zh_CN,
     product: product_zh_CN,
+    dynadashboard: dynadashboard_zh_CN,
     action: action_zh_CN,
     casestep: casestep_zh_CN,
     productline: productline_zh_CN,
@@ -181,7 +189,9 @@ export default {
     case: case_zh_CN,
     testmodule: testmodule_zh_CN,
     productplan: productplan_zh_CN,
+    ibztaskestimate: ibztaskestimate_zh_CN,
     projectstats: projectstats_zh_CN,
+    ibztaskteam: ibztaskteam_zh_CN,
     bug: bug_zh_CN,
     projectmodule: projectmodule_zh_CN,
     productstats: productstats_zh_CN,

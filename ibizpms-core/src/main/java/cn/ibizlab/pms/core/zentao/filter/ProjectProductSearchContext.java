@@ -69,29 +69,29 @@ public class ProjectProductSearchContext extends QueryWrapperContext<ProjectProd
             this.getSearchCond().like("planname", n_planname_like);
         }
     }
-	private BigInteger n_product_eq;//[产品]
-	public void setN_product_eq(BigInteger n_product_eq) {
+	private Long n_product_eq;//[产品]
+	public void setN_product_eq(Long n_product_eq) {
         this.n_product_eq = n_product_eq;
         if(!ObjectUtils.isEmpty(this.n_product_eq)){
             this.getSearchCond().eq("product", n_product_eq);
         }
     }
-	private BigInteger n_plan_eq;//[产品计划]
-	public void setN_plan_eq(BigInteger n_plan_eq) {
+	private Long n_plan_eq;//[产品计划]
+	public void setN_plan_eq(Long n_plan_eq) {
         this.n_plan_eq = n_plan_eq;
         if(!ObjectUtils.isEmpty(this.n_plan_eq)){
             this.getSearchCond().eq("plan", n_plan_eq);
         }
     }
-	private BigInteger n_branch_eq;//[平台/分支]
-	public void setN_branch_eq(BigInteger n_branch_eq) {
+	private Long n_branch_eq;//[平台/分支]
+	public void setN_branch_eq(Long n_branch_eq) {
         this.n_branch_eq = n_branch_eq;
         if(!ObjectUtils.isEmpty(this.n_branch_eq)){
             this.getSearchCond().eq("branch", n_branch_eq);
         }
     }
-	private BigInteger n_project_eq;//[项目]
-	public void setN_project_eq(BigInteger n_project_eq) {
+	private Long n_project_eq;//[项目]
+	public void setN_project_eq(Long n_project_eq) {
         this.n_project_eq = n_project_eq;
         if(!ObjectUtils.isEmpty(this.n_project_eq)){
             this.getSearchCond().eq("project", n_project_eq);

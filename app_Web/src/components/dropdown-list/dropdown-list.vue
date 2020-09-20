@@ -11,7 +11,7 @@
             :placeholder="$t('components.dropDownList.placeholder')">
             <i-option v-for="(item, index) in items" :key="index" :value="item.value">{{($t('codelist.'+tag+'.'+item.value)!== ('codelist.'+tag+'.'+item.value))?$t('codelist.'+tag+'.'+item.value) : item.text}}</i-option>
         </i-select>
-        <i v-if="currentVal == null || currentVal == '' ? false :true" @click="clear" type="md-close" class="el-icon-circle-close" />
+        <i v-if="currentVal == null || currentVal == '' || disabled ? false : true" @click="clear" type="md-close" class="el-icon-circle-close" />
         <ibiz-select-tree v-if="hasChildren" class="tree-dropdown-list" :disabled="disabled" :NodesData="items" v-model="currentVal" :multiple="false"></ibiz-select-tree>
     </div>
 </template>
@@ -192,7 +192,7 @@ export default class DropDownList extends Vue {
             if(this.value && !this.items.find((item: any) => Object.is(this.value, item.value))) {
                 return;
             }
-            this.$emit('change', undefined);
+            this.$emit('change', null);
         }
     }
 

@@ -63,6 +63,10 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IProductPlanGetBedinANDEndLogic getbedinandendLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProductPlanGetOldPlanNameLogic getoldplannameLogic;
 
     protected int batchSize = 500;
@@ -103,7 +107,7 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     }
         @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         ProductPlan et = this.get(key);
@@ -113,16 +117,18 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList){
+    public void removeBatch(Collection<Long> idList){
         if (idList != null && !idList.isEmpty()) {
-            for (BigInteger id : idList) {
+            for (Long id : idList) {
                 this.remove(id);
             }
         }
     }
     @Override
     @Transactional
-    public ProductPlan get(BigInteger key) {
+    public ProductPlan get(Long key) {
+        ProductPlan tempET=new ProductPlan();
+        tempET.set("id",key);
         ProductPlan et = getById(key);
         if(et==null){
             et=new ProductPlan();
@@ -130,6 +136,7 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
         }
         else{
         }
+        getbedinandendLogic.execute(et);
         return et;
     }
 
@@ -255,32 +262,32 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
 
 
 	@Override
-    public List<ProductPlan> selectByBranch(BigInteger id) {
+    public List<ProductPlan> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
 
     @Override
-    public void removeByBranch(BigInteger id) {
+    public void removeByBranch(Long id) {
         this.remove(new QueryWrapper<ProductPlan>().eq("branch",id));
     }
 
 	@Override
-    public List<ProductPlan> selectByProduct(BigInteger id) {
+    public List<ProductPlan> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(BigInteger id) {
+    public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<ProductPlan>().eq("product",id));
     }
 
 	@Override
-    public List<ProductPlan> selectByParent(BigInteger id) {
+    public List<ProductPlan> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
 
     @Override
-    public void removeByParent(BigInteger id) {
+    public void removeByParent(Long id) {
         this.remove(new QueryWrapper<ProductPlan>().eq("parent",id));
     }
 
@@ -300,6 +307,15 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Override
     public Page<ProductPlan> searchDefault(ProductPlanSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductPlan> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProductPlan>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 默认查询
+     */
+    @Override
+    public Page<ProductPlan> searchDefaultParent(ProductPlanSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductPlan> pages=baseMapper.searchDefaultParent(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProductPlan>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

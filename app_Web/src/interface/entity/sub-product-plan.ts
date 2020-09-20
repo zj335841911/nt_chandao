@@ -157,4 +157,20 @@ export interface SubProductPlan {
      * @memberof SubProductPlan
      */
     estimatecnt?: any;
+
+    /**
+     * 开始日期
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    beginstr?: any;
+
+    /**
+     * 结束日期
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    endstr?: any;
 }

@@ -224,4 +224,6 @@ export class ALLProductGridBase extends GridControlBase {
         ]);
     }
 
+
+
 }
