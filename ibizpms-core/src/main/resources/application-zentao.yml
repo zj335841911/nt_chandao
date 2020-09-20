@@ -25,10 +25,6 @@ ibiz:
       uaa: ibzuaa-api
       ou: ibzou-api
       notify: ibznotify-api
-      ibizpssysmodelapi-sysmodelapi:
-        serviceid: ibizpssysmodelapi-sysmodelapi
-        loginname: 13764449939
-        password: cx5415
   cacheLevel: L2
 
   #消息推送相关
