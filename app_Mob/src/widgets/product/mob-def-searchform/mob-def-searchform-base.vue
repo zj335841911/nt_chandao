@@ -100,13 +100,27 @@
     :disabled="detailsModel.n_linename_like.disabled"  
     :error="detailsModel.n_linename_like.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.n_linename_like"
-    
-    :disabled="detailsModel.n_linename_like.disabled" 
-    @change="($event)=>this.data.n_linename_like = $event" />
+        <app-mob-select-drop-down 
+    name='n_linename_like' 
+    deMajorField='name'
+    deKeyField='id'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    :viewparams="viewparams"
+    :itemParam='{ }' 
+    :disabled="detailsModel.n_linename_like.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'module', interfaceName: 'FetchLine'}"
+    :value="data.n_linename_like" 
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.n_linename_like = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
