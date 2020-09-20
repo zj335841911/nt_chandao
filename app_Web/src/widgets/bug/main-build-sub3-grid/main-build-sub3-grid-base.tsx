@@ -180,6 +180,14 @@ export class Main_BuildSub3GridBase extends GridControlBase {
             unit: 'PX',
             isEnableRowEdit: false,
         },
+        {
+            name: 'isfavorites',
+            label: '是否收藏',
+            langtag: 'entities.bug.main_buildsub3_grid.columns.isfavorites',
+            show: false,
+            unit: 'PX',
+            isEnableRowEdit: false,
+        },
     ]
 
     /**
@@ -228,6 +236,7 @@ export class Main_BuildSub3GridBase extends GridControlBase {
         'resolvedby':true,
         'resolution':false,
         'project':false,
+        'isfavorites':false,
     };
 
     /**

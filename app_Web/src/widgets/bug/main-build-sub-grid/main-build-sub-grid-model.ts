@@ -37,6 +37,11 @@ export default class Main_BuildSubModel {
           dataType: 'NSCODELIST',
         },
         {
+          name: 'confirmed',
+          prop: 'confirmed',
+          dataType: 'NSCODELIST',
+        },
+        {
           name: 'title',
           prop: 'title',
           dataType: 'TEXT',
@@ -65,6 +70,11 @@ export default class Main_BuildSubModel {
           name: 'resolution',
           prop: 'resolution',
           dataType: 'SSCODELIST',
+        },
+        {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
         },
         {
           name: 'bug',

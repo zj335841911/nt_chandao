@@ -201,6 +201,14 @@ export class Main_BuildSub2GridBase extends GridControlBase {
             unit: 'PX',
             isEnableRowEdit: false,
         },
+        {
+            name: 'isfavorites',
+            label: '是否收藏',
+            langtag: 'entities.bug.main_buildsub2_grid.columns.isfavorites',
+            show: false,
+            unit: 'PX',
+            isEnableRowEdit: false,
+        },
     ]
 
     /**
@@ -243,6 +251,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
         'openeddate':false,
         'resolvedby':false,
         'uagridcolumn1':false,
+        'isfavorites':false,
     };
 
     /**

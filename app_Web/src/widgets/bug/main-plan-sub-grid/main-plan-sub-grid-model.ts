@@ -62,6 +62,11 @@ export default class Main_PlanSubModel {
           dataType: 'TEXT',
         },
         {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
           name: 'bug',
           prop: 'id',
         },

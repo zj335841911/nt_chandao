@@ -62,6 +62,11 @@ export default class Main_BuildSub2Model {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
           name: 'bug',
           prop: 'id',
         },

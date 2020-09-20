@@ -435,6 +435,14 @@ export class MainGridBase extends GridControlBase {
             unit: 'PX',
             isEnableRowEdit: false,
         },
+        {
+            name: 'isfavorites',
+            label: '是否收藏',
+            langtag: 'entities.bug.main_grid.columns.isfavorites',
+            show: false,
+            unit: 'PX',
+            isEnableRowEdit: false,
+        },
     ]
 
     /**
@@ -481,6 +489,7 @@ export class MainGridBase extends GridControlBase {
         'uagridcolumn1':false,
         'lastediteddate':false,
         'activateddate':false,
+        'isfavorites':false,
     };
 
     /**
