@@ -2,7 +2,7 @@
   <div class="app-mob-rich-text-editor" >
     <div class="rich-text-editor-info" v-html="showVal" ref="content" @click="open"></div>
     <ion-icon class="app-mob-rich-text-editor-icon" v-if="!showVal" name="options-outline" @click.stop="open"></ion-icon>
-    <van-popup closeable v-model="picturePreview.status" @click-overlay="closePreview" get-container="#app" @opened="openedPreview"><img class="preview" v-show="picturePreview.status" :src="picturePreview.src"/></van-popup>
+    <van-popup closeable v-model="picturePreview.status" @click-overlay="closePreview" get-container="#app" @opened="openedPreview"><img @click="closePreview" class="preview" v-show="picturePreview.status" :src="picturePreview.src"/></van-popup>
   </div>
 </template>
 <script lang = 'ts'>
@@ -54,17 +54,7 @@ export default class AppRichTextEditor extends Vue {
      *
      * @memberof AppRichTextEditor
      */
-    public picturePreview:any = {};
-
-    /**
-     * 监听图片预览
-     *
-     * @memberof AppRichTextEditor
-     */
-    @Watch('picturePreview')
-    onPicturePreviewChange(){
-        this.$forceUpdate();
-    }
+    public picturePreview:any = {status:false};
 
     /**
      * 上传params
@@ -213,23 +203,6 @@ export default class AppRichTextEditor extends Vue {
      * @private
      * @memberof AppMobFileUpload
      */
-    public created(){
-        if (localStorage.getItem('picture-preview')) {
-            let pic:any = localStorage.getItem('picture-preview');   
-            this.picturePreview = JSON.parse(pic);
-            this.$forceUpdate();
-        } else {
-            this.picturePreview = {status:false};
-            this.$forceUpdate();
-        }
-    }
-
-    /**
-     * 生命周期
-     *
-     * @private
-     * @memberof AppMobFileUpload
-     */
     public mounted(){
       this.dataProcess();
       this.getPictureDom();
@@ -262,7 +235,7 @@ export default class AppRichTextEditor extends Vue {
      */
     public closePreview(){
       localStorage.setItem('picture-preview',`{"src":"","status":false}`);
-      this.$forceUpdate();
+      this.picturePreview = {"src":"","status":false};
     }
 
     /**
