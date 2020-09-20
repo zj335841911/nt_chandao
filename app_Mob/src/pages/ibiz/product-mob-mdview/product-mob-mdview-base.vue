@@ -13,11 +13,50 @@
         </ion-toolbar>
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
+            <ion-button class="filter-btn" size="small" slot="end"  @click="openSearchform"><ion-icon  slot="end" name="filter-outline"></ion-icon>过滤</ion-button>  
         </ion-toolbar>
 
     
     </ion-header>
 
+    <ion-menu side="start" content-id="searchformproductmobmdview" ref='searchformproductmobmdview'>
+        <ion-header>
+            <ion-toolbar translucent>
+            <ion-title>条件搜索</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <view_searchform
+    :viewState="viewState"
+    viewName="ProductMobMDView"  
+    :viewparams="viewparams" 
+    :context="context" 
+     
+    :viewtag="viewtag"
+    :showBusyIndicator="true"
+    updateAction=""
+    removeAction=""
+    loaddraftAction="FilterGetDraft"
+    loadAction="FilterGet"
+    createAction=""
+    WFSubmitAction=""
+    WFStartAction=""
+    style='' 
+    name="searchform"  
+    ref='searchform' 
+    @search="searchform_search($event)"  
+    @load="searchform_load($event)"  
+    @closeview="closeView($event)">
+</view_searchform>
+        </ion-content>
+        <ion-footer>
+        <div class="search-btn">
+            <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
+            <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
+        </div>
+        </ion-footer>
+    </ion-menu>
+    <div id="searchformproductmobmdview"></div>
 
     <ion-content>
         <ion-refresher 
@@ -280,6 +319,7 @@ export default class ProductMobMDViewBase extends Vue {
      * @memberof ProductMobMDViewBase
      */
     protected containerModel: any = {
+        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
         view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
@@ -300,6 +340,7 @@ export default class ProductMobMDViewBase extends Vue {
      * @memberof ProductMobMDViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
 
@@ -435,6 +476,7 @@ export default class ProductMobMDViewBase extends Vue {
             newdata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
                 this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
             },
+            searchform: this.$refs.searchform,
             keyPSDEField: 'product',
             majorPSDEField: 'name',
             isLoadDefault: true,
@@ -543,6 +585,28 @@ export default class ProductMobMDViewBase extends Vue {
             });
         }
 
+    }
+
+    /**
+     * searchform 部件 search 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductMobMDViewBase
+     */
+    protected searchform_search($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('searchform', 'search', $event);
+    }
+
+    /**
+     * searchform 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProductMobMDViewBase
+     */
+    protected searchform_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('searchform', 'load', $event);
     }
 
     /**
@@ -804,6 +868,52 @@ export default class ProductMobMDViewBase extends Vue {
         }
     }
 
+
+    /**
+     * 搜索表单状态
+     *
+     * @type {boolean}
+     * @memberof ProductMobMDViewBase
+     */
+    public searchformState: boolean = false;
+
+    /**
+     * 是否展开搜索表单
+     *
+     * @type {boolean}
+     * @memberof ProductMobMDViewBase
+     */
+    public isExpandSearchForm: boolean = false;
+
+    /**
+     * 执行搜索表单
+     *
+     * @memberof ProductMobMDViewBase
+     */
+    public onSearch(): void {
+        this.searchformState = false;
+        this.isExpandSearchForm = true;
+        const form: any = this.$refs.searchform;
+        if (form) {
+            form.onSearch();
+        }
+        this.closeSearchform();
+    }
+
+    /**
+     * 重置搜索表单
+     *
+     * @memberof ProductMobMDViewBase
+     */
+    public onReset(): void {
+        this.searchformState = false;
+        this.isExpandSearchForm = false;
+        const form: any = this.$refs.searchform;
+        if (form) {
+            form.onReset();
+        }
+        this.closeSearchform();
+    }
 
     /**
      * 搜索值

@@ -19,6 +19,7 @@
 }
 
 
+
 // this is less
 .srf_empty_class {
     width: 100%;
@@ -200,6 +201,14 @@ ion-backdrop {
         }
     }
 }
+//搜索表单按钮
+.search-btn{
+  display: flex;
+  margin-bottom: 15px;
+  .search-btn-item{
+    width: 50%;
+  }
+}
 .filter-btn{
   position: relative;
     top: 5px;
@@ -210,6 +219,21 @@ ion-infinite-scroll-content{
   min-height: 1px;
 }
 
+    // 搜索表单内容
+    .searchform-content {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        .form-content {
+            flex-grow: 1;
+            overflow: auto;
+            height: 50%;
+        }
+        .form-action {
+            padding: 0.5rem 1rem;
+            text-align: center;
+        }
+    }
     .batch_btn{
         display: flex;
         justify-content: center;

@@ -20,6 +20,21 @@ export class MobDefModel {
                 prop: 'srfwfmemo',
                 dataType: 'TEXT',
             },
+            {
+                name: 'n_name_like',
+                prop: 'n_name_like', 
+                dataType: 'TEXT',
+            },
+            {
+                name: 'n_status_eq',
+                prop: 'n_status_eq', 
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'n_type_eq',
+                prop: 'n_type_eq', 
+                dataType: 'SSCODELIST',
+            },
         ];
     }
 

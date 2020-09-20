@@ -2,6 +2,89 @@
     <div ref='searchform' class="app-form product-searchform ">
                 
 
+<app-form-item 
+    name='n_name_like' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="n_name_like_item"  
+    :itemValue="this.data.n_name_like" 
+    v-show="detailsModel.n_name_like.visible" 
+    :itemRules="this.rules.n_name_like" 
+    :caption="$t('product.mobdef_searchform.details.n_name_like')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.n_name_like.disabled"  
+    :error="detailsModel.n_name_like.error" 
+    :isEmptyCaption="false">
+        <app-mob-input 
+    class="app-form-item-input"  
+        type="text"  
+    :value="data.n_name_like"
+    
+    :disabled="detailsModel.n_name_like.disabled" 
+    @change="($event)=>this.data.n_name_like = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
+    name='n_status_eq' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="n_status_eq_item"  
+    :itemValue="this.data.n_status_eq" 
+    v-show="detailsModel.n_status_eq.visible" 
+    :itemRules="this.rules.n_status_eq" 
+    :caption="$t('product.mobdef_searchform.details.n_status_eq')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.n_status_eq.disabled"  
+    :error="detailsModel.n_status_eq.error" 
+    :isEmptyCaption="false">
+        <app-mob-radio-list 
+    style="width: 100%;" 
+        type="static" 
+    tag="Product__status"
+    :value="data.n_status_eq"  
+    :disabled="detailsModel.n_status_eq.disabled" 
+    @change="($event)=>this.data.n_status_eq = $event"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='n_type_eq' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="n_type_eq_item"  
+    :itemValue="this.data.n_type_eq" 
+    v-show="detailsModel.n_type_eq.visible" 
+    :itemRules="this.rules.n_type_eq" 
+    :caption="$t('product.mobdef_searchform.details.n_type_eq')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.n_type_eq.disabled"  
+    :error="detailsModel.n_type_eq.error" 
+    :isEmptyCaption="false">
+        <app-mob-select 
+    tag="Product__type"
+    codeListType="STATIC" 
+    :isCache="false" 
+    :disabled="detailsModel.n_type_eq.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.n_type_eq"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.n_type_eq = $event" />
+</app-form-item>
+
+
+
 
     </div>
 </template>
@@ -311,6 +394,9 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected data: any = {
+        n_name_like: null,
+        n_status_eq: null,
+        n_type_eq: null,
         product: null,
     };
 
@@ -345,6 +431,24 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected rules: any = {
+        n_name_like: [
+            { type: 'string', message: '产品名称 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '产品名称 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'blur' },
+        ],
+        n_status_eq: [
+            { type: 'string', message: '状态 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '状态 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '状态 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '状态 值不能为空', trigger: 'blur' },
+        ],
+        n_type_eq: [
+            { type: 'string', message: '产品类型 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '产品类型 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '产品类型 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '产品类型 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**
@@ -356,7 +460,49 @@ export default class MobDefBase extends Vue implements ControlInterface {
     protected detailsModel: any = {
         formpage1: new FormPageModel({ caption: '常规条件', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
+        n_name_like: new FormItemModel({ caption: '产品名称', detailType: 'FORMITEM', name: 'n_name_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        n_status_eq: new FormItemModel({ caption: '状态', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        n_type_eq: new FormItemModel({ caption: '产品类型', detailType: 'FORMITEM', name: 'n_type_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
     };
+
+    /**
+     * 监控表单属性 n_name_like 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobDef
+     */
+    @Watch('data.n_name_like')
+    onN_name_likeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'n_name_like', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 n_status_eq 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobDef
+     */
+    @Watch('data.n_status_eq')
+    onN_status_eqChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'n_status_eq', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 n_type_eq 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobDef
+     */
+    @Watch('data.n_type_eq')
+    onN_type_eqChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'n_type_eq', newVal: newVal, oldVal: oldVal });
+    }
 
 
     /**
@@ -394,6 +540,9 @@ export default class MobDefBase extends Vue implements ControlInterface {
      */
     private formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
+
 
     }
 
@@ -520,7 +669,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected formValidateStatus(): boolean {
-        const refArr: Array<string> = [];
+        const refArr: Array<string> = ['n_name_like_item', 'n_status_eq_item', 'n_type_eq_item', ];
         let falg = true;
         refArr.forEach((item: any) => {
             if (this.$refs[item] && (this.$refs[item] as any).validateRules && !(this.$refs[item] as any).validateRules()) {

@@ -160,6 +160,9 @@ export default {
 	mobdef_searchform: {
 		details: {
 			formpage1: '常规条件', 
+			n_name_like: '产品名称', 
+			n_status_eq: '状态', 
+			n_type_eq: '产品类型', 
 		},
 		uiactions: {
 		},
