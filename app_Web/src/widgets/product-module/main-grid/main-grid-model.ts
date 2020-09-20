@@ -27,36 +27,9 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'short',
-          prop: 'ibizshort',
-          dataType: 'TEXT',
-          isEditable:true
-        },
-        {
-          name: 'root',
-          prop: 'root',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'branch_text',
-          prop: 'branch',
-          dataType: 'INT',
-        },
-        {
           name: 'name',
           prop: 'name',
           dataType: 'TEXT',
-          isEditable:true
-        },
-        {
-          name: 'owner',
-          prop: 'owner',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
           isEditable:true
         },
         {
@@ -66,25 +39,9 @@ export default class MainModel {
           isEditable:true
         },
         {
-          name: 'type',
-          prop: 'type',
+          name: 'short',
+          prop: 'ibizshort',
           dataType: 'TEXT',
-          isEditable:true
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
           isEditable:true
         },
         {

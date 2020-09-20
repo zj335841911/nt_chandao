@@ -27,34 +27,9 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'order',
-          prop: 'order',
-          dataType: 'INT',
-        },
-        {
           name: 'name',
           prop: 'name',
           dataType: 'TEXT',
-        },
-        {
-          name: 'owner',
-          prop: 'owner',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'grade',
-          prop: 'grade',
-          dataType: 'INT',
         },
         {
           name: 'parentname',
@@ -62,20 +37,19 @@ export default class MainModel {
           dataType: 'PICKUPTEXT',
         },
         {
-          name: 'srfmajortext',
-          prop: 'name',
+          name: 'grade',
+          prop: 'grade',
+          dataType: 'INT',
+        },
+        {
+          name: 'order',
+          prop: 'order',
+          dataType: 'INT',
+        },
+        {
+          name: 'owner',
+          prop: 'owner',
           dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'module',

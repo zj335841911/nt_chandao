@@ -27,63 +27,14 @@ export default class MainSubPlanModel {
     }else{
 		  return [
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
         },
         {
-          name: 'statuss',
-          prop: 'statuss',
-          dataType: 'TEXT',
-        },
-        {
           name: 'title',
           prop: 'title',
           dataType: 'TEXT',
-        },
-        {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'end',
-          prop: 'end',
-          dataType: 'DATE',
-        },
-        {
-          name: 'begin',
-          prop: 'begin',
-          dataType: 'DATE',
         },
         {
           name: 'productplan',

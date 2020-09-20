@@ -27,55 +27,6 @@ export default class Main2Model {
     }else{
 		  return [
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'frombug',
-          prop: 'frombug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'status1',
-          prop: 'status1',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'story',
-          prop: 'story',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'pri',
           prop: 'pri',
           dataType: 'NSCODELIST',
@@ -86,24 +37,9 @@ export default class Main2Model {
           dataType: 'TEXT',
         },
         {
-          name: 'lib',
-          prop: 'lib',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'lastrunresult1',
-          prop: 'lastrunresult1',
+          name: 'status1',
+          prop: 'status1',
           dataType: 'SSCODELIST',
-        },
-        {
-          name: 'fromcaseid',
-          prop: 'fromcaseid',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
         },
         {
           name: 'case',

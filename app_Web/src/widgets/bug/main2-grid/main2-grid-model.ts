@@ -27,78 +27,9 @@ export default class Main2Model {
     }else{
 		  return [
         {
-          name: 'totask',
-          prop: 'totask',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'task',
-          prop: 'task',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'testtask',
-          prop: 'testtask',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'tostory',
-          prop: 'tostory',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'duplicatebug',
-          prop: 'duplicatebug',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'project',
-          prop: 'project',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'story',
-          prop: 'story',
-          dataType: 'PICKUP',
         },
         {
           name: 'pri',
@@ -111,29 +42,9 @@ export default class Main2Model {
           dataType: 'TEXT',
         },
         {
-          name: 'plan',
-          prop: 'plan',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'repo',
-          prop: 'repo',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'entry',
-          prop: 'entry',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'case',
-          prop: 'ibizcase',
-          dataType: 'PICKUP',
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'bug',

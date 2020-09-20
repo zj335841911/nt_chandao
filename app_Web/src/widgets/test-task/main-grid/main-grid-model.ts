@@ -27,58 +27,9 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'build',
-          prop: 'build',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'begin',
-          prop: 'begin',
-          dataType: 'DATE',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'project',
-          prop: 'project',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'projecttname',
-          prop: 'projecttname',
-          dataType: 'PICKUPTEXT',
         },
         {
           name: 'name',
@@ -86,9 +37,29 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
+          name: 'productname',
+          prop: 'productname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'projecttname',
+          prop: 'projecttname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'build',
+          prop: 'build',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'owner',
           prop: 'owner',
           dataType: 'TEXT',
+        },
+        {
+          name: 'begin',
+          prop: 'begin',
+          dataType: 'DATE',
         },
         {
           name: 'end',
@@ -96,9 +67,9 @@ export default class MainModel {
           dataType: 'DATE',
         },
         {
-          name: 'productname',
-          prop: 'productname',
-          dataType: 'PICKUPTEXT',
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'testtask',

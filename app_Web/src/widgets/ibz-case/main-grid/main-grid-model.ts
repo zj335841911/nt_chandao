@@ -27,14 +27,9 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'module',
-          prop: 'module',
+          name: 'lib',
+          prop: 'lib',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
         },
         {
           name: 'pri',
@@ -42,14 +37,9 @@ export default class MainModel {
           dataType: 'SSCODELIST',
         },
         {
-          name: 'lib',
-          prop: 'lib',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
         },
         {
           name: 'type',
@@ -57,24 +47,13 @@ export default class MainModel {
           dataType: 'SSCODELIST',
         },
         {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
           name: 'openedby',
           prop: 'openedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'status',
+          prop: 'status',
           dataType: 'SSCODELIST',
         },
         {

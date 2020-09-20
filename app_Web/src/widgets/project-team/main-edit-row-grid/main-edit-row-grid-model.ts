@@ -27,37 +27,10 @@ export default class Main_EditRowModel {
     }else{
 		  return [
         {
-          name: 'limited',
-          prop: 'limited',
-          dataType: 'SSCODELIST',
-          isEditable:true
-        },
-        {
-          name: 'username',
-          prop: 'username',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'days',
-          prop: 'days',
-          dataType: 'INT',
-          isEditable:true
-        },
-        {
-          name: 'root',
-          prop: 'root',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'hours',
-          prop: 'hours',
-          dataType: 'FLOAT',
-          isEditable:true
-        },
-        {
-          name: 'account_text',
+          name: 'account',
           prop: 'account',
           dataType: 'TEXT',
+          isEditable:true
         },
         {
           name: 'role',
@@ -66,25 +39,21 @@ export default class Main_EditRowModel {
           isEditable:true
         },
         {
-          name: 'account',
-          prop: 'account',
-          dataType: 'TEXT',
+          name: 'days',
+          prop: 'days',
+          dataType: 'INT',
           isEditable:true
         },
         {
-          name: 'srfmajortext',
-          prop: 'account',
-          dataType: 'TEXT',
+          name: 'hours',
+          prop: 'hours',
+          dataType: 'FLOAT',
+          isEditable:true
         },
         {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
+          name: 'limited',
+          prop: 'limited',
+          dataType: 'SSCODELIST',
           isEditable:true
         },
         {

@@ -27,58 +27,9 @@ export default class Main_ReleaseSubModel {
     }else{
 		  return [
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'frombug',
-          prop: 'frombug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'tobug',
-          prop: 'tobug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'modulename',
-          prop: 'modulename',
-          dataType: 'PICKUPTEXT',
         },
         {
           name: 'pri',
@@ -91,24 +42,9 @@ export default class Main_ReleaseSubModel {
           dataType: 'TEXT',
         },
         {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'duplicatestory',
-          prop: 'duplicatestory',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'isfavorites',
-          prop: 'isfavorites',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'ischild',
-          prop: 'ischild',
-          dataType: 'TEXT',
+          name: 'modulename',
+          prop: 'modulename',
+          dataType: 'PICKUPTEXT',
         },
         {
           name: 'story',

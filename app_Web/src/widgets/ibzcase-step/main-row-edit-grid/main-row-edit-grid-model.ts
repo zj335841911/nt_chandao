@@ -27,26 +27,9 @@ export default class Main_RowEditModel {
     }else{
 		  return [
         {
-          name: 'expect',
-          prop: 'expect',
-          dataType: 'LONGTEXT',
-          isEditable:true
-        },
-        {
           name: 'desc',
           prop: 'desc',
           dataType: 'LONGTEXT',
-          isEditable:true
-        },
-        {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'case',
-          prop: 'ibizcase',
-          dataType: 'PICKUP',
           isEditable:true
         },
         {
@@ -56,19 +39,9 @@ export default class Main_RowEditModel {
           isEditable:true
         },
         {
-          name: 'srfmajortext',
+          name: 'expect',
           prop: 'expect',
           dataType: 'LONGTEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
           isEditable:true
         },
         {

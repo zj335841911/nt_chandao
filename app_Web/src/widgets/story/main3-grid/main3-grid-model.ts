@@ -27,68 +27,9 @@ export default class Main3Model {
     }else{
 		  return [
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'frombug',
-          prop: 'frombug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'estimate',
-          prop: 'estimate',
-          dataType: 'FLOAT',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'tobug',
-          prop: 'tobug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
         },
         {
           name: 'pri',
@@ -101,24 +42,19 @@ export default class Main3Model {
           dataType: 'TEXT',
         },
         {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'duplicatestory',
-          prop: 'duplicatestory',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'isfavorites',
-          prop: 'isfavorites',
+          name: 'assignedto',
+          prop: 'assignedto',
           dataType: 'TEXT',
         },
         {
-          name: 'ischild',
-          prop: 'ischild',
-          dataType: 'TEXT',
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'story',

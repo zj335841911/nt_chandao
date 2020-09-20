@@ -27,24 +27,24 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
         },
         {
-          name: 'project',
-          prop: 'project',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'title',
           prop: 'title',
           dataType: 'TEXT',
+        },
+        {
+          name: 'createdby',
+          prop: 'createdby',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'createddate',
+          prop: 'createddate',
+          dataType: 'DATETIME',
         },
         {
           name: 'projectname',
@@ -55,32 +55,6 @@ export default class MainModel {
           name: 'tasks',
           prop: 'tasks',
           dataType: 'TEXT',
-        },
-        {
-          name: 'createddate',
-          prop: 'createddate',
-          dataType: 'DATETIME',
-        },
-        {
-          name: 'createdby',
-          prop: 'createdby',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'testreport',

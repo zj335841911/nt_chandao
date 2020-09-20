@@ -27,68 +27,14 @@ export default class StoryRelatedModel {
     }else{
 		  return [
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'story',
-          prop: 'story',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
           name: 'pri',
           prop: 'pri',
           dataType: 'NSCODELIST',
         },
         {
-          name: 'lib',
-          prop: 'lib',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'frombug',
-          prop: 'frombug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'fromcaseid',
-          prop: 'fromcaseid',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
+          name: 'title',
           prop: 'title',
           dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'case',

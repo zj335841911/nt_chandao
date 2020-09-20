@@ -32,6 +32,11 @@ export default class MainModel {
           dataType: 'ACID',
         },
         {
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
           name: 'ibiz_id',
           prop: 'ibizid',
           dataType: 'TEXT',
@@ -40,32 +45,6 @@ export default class MainModel {
           name: 'root',
           prop: 'root',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'ibzprostorymodule',

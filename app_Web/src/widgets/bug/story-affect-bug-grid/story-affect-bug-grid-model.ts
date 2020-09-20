@@ -27,88 +27,9 @@ export default class StoryAffectBugModel {
     }else{
 		  return [
         {
-          name: 'totask',
-          prop: 'totask',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'task',
-          prop: 'task',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'testtask',
-          prop: 'testtask',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'tostory',
-          prop: 'tostory',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'resolution',
-          prop: 'resolution',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'duplicatebug',
-          prop: 'duplicatebug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'project',
-          prop: 'project',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'story',
-          prop: 'story',
-          dataType: 'PICKUP',
         },
         {
           name: 'title',
@@ -116,14 +37,14 @@ export default class StoryAffectBugModel {
           dataType: 'TEXT',
         },
         {
-          name: 'plan',
-          prop: 'plan',
-          dataType: 'PICKUP',
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
         },
         {
-          name: 'repo',
-          prop: 'repo',
-          dataType: 'PICKUP',
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'resolvedby',
@@ -131,19 +52,9 @@ export default class StoryAffectBugModel {
           dataType: 'SSCODELIST',
         },
         {
-          name: 'entry',
-          prop: 'entry',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'case',
-          prop: 'ibizcase',
-          dataType: 'PICKUP',
+          name: 'resolution',
+          prop: 'resolution',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'lasteditedby',

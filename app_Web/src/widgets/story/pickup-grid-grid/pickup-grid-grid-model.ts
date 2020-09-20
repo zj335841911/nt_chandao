@@ -27,83 +27,9 @@ export default class PickupGridModel {
     }else{
 		  return [
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'frombug',
-          prop: 'frombug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'estimate',
-          prop: 'estimate',
-          dataType: 'FLOAT',
-        },
-        {
-          name: 'stage',
-          prop: 'stage',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'tobug',
-          prop: 'tobug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'modulename',
-          prop: 'modulename',
-          dataType: 'PICKUPTEXT',
-        },
-        {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
         },
         {
           name: 'pri',
@@ -111,24 +37,44 @@ export default class PickupGridModel {
           dataType: 'NSCODELIST',
         },
         {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
           name: 'plan',
           prop: 'plan',
           dataType: 'LONGTEXT',
         },
         {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
+          name: 'modulename',
+          prop: 'modulename',
+          dataType: 'PICKUPTEXT',
         },
         {
-          name: 'duplicatestory',
-          prop: 'duplicatestory',
-          dataType: 'PICKUP',
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'stage',
+          prop: 'stage',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'story',

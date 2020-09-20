@@ -32,18 +32,8 @@ export default class MainModel {
           dataType: 'ACID',
         },
         {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'INT',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'name',
-          prop: 'name',
+          name: 'date1',
+          prop: 'date1',
           dataType: 'TEXT',
         },
         {
@@ -52,23 +42,19 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
-          name: 'srfmstag',
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'INT',
         },
         {
-          name: 'srfmajortext',
+          name: 'name',
           prop: 'name',
           dataType: 'TEXT',
         },
         {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
+          name: 'begin',
+          prop: 'begin',
+          dataType: 'NSCODELIST',
         },
         {
           name: 'end',
@@ -76,14 +62,9 @@ export default class MainModel {
           dataType: 'NSCODELIST',
         },
         {
-          name: 'date1',
-          prop: 'date1',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'begin',
-          prop: 'begin',
-          dataType: 'NSCODELIST',
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'todo',

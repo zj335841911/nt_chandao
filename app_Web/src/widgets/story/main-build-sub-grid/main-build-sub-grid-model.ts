@@ -27,78 +27,9 @@ export default class Main_BuildSubModel {
     }else{
 		  return [
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'frombug',
-          prop: 'frombug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'estimate',
-          prop: 'estimate',
-          dataType: 'FLOAT',
-        },
-        {
-          name: 'stage',
-          prop: 'stage',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'tobug',
-          prop: 'tobug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'modulename',
-          prop: 'modulename',
-          dataType: 'PICKUPTEXT',
         },
         {
           name: 'pri',
@@ -111,24 +42,29 @@ export default class Main_BuildSubModel {
           dataType: 'TEXT',
         },
         {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
+          name: 'modulename',
+          prop: 'modulename',
+          dataType: 'PICKUPTEXT',
         },
         {
-          name: 'duplicatestory',
-          prop: 'duplicatestory',
-          dataType: 'PICKUP',
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
         },
         {
-          name: 'isfavorites',
-          prop: 'isfavorites',
-          dataType: 'TEXT',
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
         },
         {
-          name: 'ischild',
-          prop: 'ischild',
-          dataType: 'TEXT',
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'stage',
+          prop: 'stage',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'story',

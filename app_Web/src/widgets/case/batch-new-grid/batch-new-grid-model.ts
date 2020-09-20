@@ -27,63 +27,15 @@ export default class BatchNewModel {
     }else{
 		  return [
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-          isEditable:true
-        },
-        {
-          name: 'frombug',
-          prop: 'frombug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'storyname',
-          prop: 'storyname',
-          dataType: 'PICKUPTEXT',
-          isEditable:true
-        },
-        {
-          name: 'type',
-          prop: 'type',
-          dataType: 'SSCODELIST',
-          isEditable:true
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-          isEditable:true
-        },
-        {
           name: 'modulename',
           prop: 'modulename',
           dataType: 'PICKUPTEXT',
           isEditable:true
         },
         {
-          name: 'story',
-          prop: 'story',
-          dataType: 'PICKUP',
+          name: 'storyname',
+          prop: 'storyname',
+          dataType: 'PICKUPTEXT',
           isEditable:true
         },
         {
@@ -93,19 +45,10 @@ export default class BatchNewModel {
           isEditable:true
         },
         {
-          name: 'lib',
-          prop: 'lib',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'fromcaseid',
-          prop: 'fromcaseid',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
+          isEditable:true
         },
         {
           name: 'case',

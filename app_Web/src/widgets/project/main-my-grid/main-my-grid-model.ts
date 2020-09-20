@@ -27,23 +27,38 @@ export default class MainMyModel {
     }else{
 		  return [
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'code',
+          prop: 'code',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'begin',
+          prop: 'begin',
+          dataType: 'DATE',
+        },
+        {
+          name: 'end',
+          prop: 'end',
+          dataType: 'DATE',
+        },
+        {
           name: 'status',
           prop: 'status',
           dataType: 'SSCODELIST',
         },
         {
-          name: 'hours',
-          prop: 'hours',
-          dataType: 'DECIMAL',
-        },
-        {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'code',
-          prop: 'code',
+          name: 'role',
+          prop: 'role',
           dataType: 'TEXT',
         },
         {
@@ -52,48 +67,9 @@ export default class MainMyModel {
           dataType: 'DATE',
         },
         {
-          name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'begin',
-          prop: 'begin',
-          dataType: 'DATE',
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'role',
-          prop: 'role',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'end',
-          prop: 'end',
-          dataType: 'DATE',
+          name: 'hours',
+          prop: 'hours',
+          dataType: 'DECIMAL',
         },
         {
           name: 'project',

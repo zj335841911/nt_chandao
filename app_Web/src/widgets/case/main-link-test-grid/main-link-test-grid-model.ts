@@ -27,85 +27,15 @@ export default class MainLinkTestModel {
     }else{
 		  return [
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'lastrundate',
-          prop: 'lastrundate',
-          dataType: 'DATETIME',
-        },
-        {
-          name: 'frombug',
-          prop: 'frombug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'version_text',
-          prop: 'version',
-          dataType: 'INT',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'status1',
-          prop: 'status1',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'type',
-          prop: 'type',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
+          name: 'id',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'version',
           prop: 'version',
           dataType: 'INT',
           isEditable:true
-        },
-        {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-          isEditable:true
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'story',
-          prop: 'story',
-          dataType: 'PICKUP',
         },
         {
           name: 'pri',
@@ -118,24 +48,24 @@ export default class MainLinkTestModel {
           dataType: 'TEXT',
         },
         {
-          name: 'lib',
-          prop: 'lib',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'lastrunresult1',
-          prop: 'lastrunresult1',
+          name: 'type',
+          prop: 'type',
           dataType: 'SSCODELIST',
         },
         {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'TEXT',
         },
         {
-          name: 'fromcaseid',
-          prop: 'fromcaseid',
-          dataType: 'PICKUP',
+          name: 'lastrunner',
+          prop: 'lastrunner',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'lastrundate',
+          prop: 'lastrundate',
+          dataType: 'DATETIME',
         },
         {
           name: 'lastrunresult',
@@ -143,9 +73,9 @@ export default class MainLinkTestModel {
           dataType: 'SSCODELIST',
         },
         {
-          name: 'lastrunner',
-          prop: 'lastrunner',
-          dataType: 'TEXT',
+          name: 'status1',
+          prop: 'status1',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'case',

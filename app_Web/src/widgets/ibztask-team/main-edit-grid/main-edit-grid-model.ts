@@ -27,38 +27,9 @@ export default class MainEditModel {
     }else{
 		  return [
         {
-          name: 'consumed',
-          prop: 'consumed',
-          dataType: 'DECIMAL',
-          isEditable:true
-        },
-        {
-          name: 'root',
-          prop: 'root',
-          dataType: 'PICKUP',
-          isEditable:true
-        },
-        {
-          name: 'account_text',
-          prop: 'account',
-          dataType: 'TEXT',
-        },
-        {
           name: 'account',
           prop: 'account',
           dataType: 'TEXT',
-          isEditable:true
-        },
-        {
-          name: 'left',
-          prop: 'left',
-          dataType: 'DECIMAL',
-          isEditable:true
-        },
-        {
-          name: 'type',
-          prop: 'type',
-          dataType: 'SSCODELIST',
           isEditable:true
         },
         {
@@ -68,19 +39,15 @@ export default class MainEditModel {
           isEditable:true
         },
         {
-          name: 'srfmajortext',
-          prop: 'account',
-          dataType: 'TEXT',
+          name: 'consumed',
+          prop: 'consumed',
+          dataType: 'DECIMAL',
+          isEditable:true
         },
         {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
+          name: 'left',
+          prop: 'left',
+          dataType: 'DECIMAL',
           isEditable:true
         },
         {

@@ -27,52 +27,28 @@ export default class Main_BuildSub3Model {
     }else{
 		  return [
         {
-          name: 'tostory',
-          prop: 'tostory',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'resolution',
-          prop: 'resolution',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'duplicatebug',
-          prop: 'duplicatebug',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
         },
         {
-          name: 'resolvedby_text',
-          prop: 'resolvedby',
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
           dataType: 'SSCODELIST',
         },
         {
@@ -81,94 +57,19 @@ export default class Main_BuildSub3Model {
           dataType: 'TEXT',
         },
         {
-          name: 'story',
-          prop: 'story',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'confirmed',
-          prop: 'confirmed',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'repo',
-          prop: 'repo',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'isfavorites',
-          prop: 'isfavorites',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'totask',
-          prop: 'totask',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'task',
-          prop: 'task',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'testtask',
-          prop: 'testtask',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'project',
-          prop: 'project',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'plan',
-          prop: 'plan',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'resolvedby',
           prop: 'resolvedby',
           dataType: 'SSCODELIST',
           isEditable:true
         },
         {
-          name: 'entry',
-          prop: 'entry',
-          dataType: 'PICKUP',
+          name: 'resolution',
+          prop: 'resolution',
+          dataType: 'SSCODELIST',
         },
         {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'case',
-          prop: 'ibizcase',
+          name: 'project',
+          prop: 'project',
           dataType: 'PICKUP',
         },
         {

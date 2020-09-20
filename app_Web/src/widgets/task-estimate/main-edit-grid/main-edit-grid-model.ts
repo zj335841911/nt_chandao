@@ -27,19 +27,9 @@ export default class MainEditModel {
     }else{
 		  return [
         {
-          name: 'work',
-          prop: 'work',
-          dataType: 'LONGTEXT',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'consumed',
-          prop: 'consumed',
-          dataType: 'FLOAT',
         },
         {
           name: 'dates',
@@ -47,9 +37,9 @@ export default class MainEditModel {
           dataType: 'DATE',
         },
         {
-          name: 'task',
-          prop: 'task',
-          dataType: 'PICKUP',
+          name: 'consumed',
+          prop: 'consumed',
+          dataType: 'FLOAT',
         },
         {
           name: 'left',
@@ -57,20 +47,9 @@ export default class MainEditModel {
           dataType: 'FLOAT',
         },
         {
-          name: 'srfmajortext',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
+          name: 'work',
+          prop: 'work',
+          dataType: 'LONGTEXT',
         },
         {
           name: 'task',

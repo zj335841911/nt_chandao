@@ -27,19 +27,19 @@ export default class PivotTableModel {
     }else{
 		  return [
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
         },
         {
-          name: 'tasktype',
-          prop: 'tasktype',
-          dataType: 'SSCODELIST',
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
         },
         {
-          name: 'frombug',
-          prop: 'frombug',
-          dataType: 'PICKUP',
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
         },
         {
           name: 'status',
@@ -47,9 +47,34 @@ export default class PivotTableModel {
           dataType: 'SSCODELIST',
         },
         {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'left',
+          prop: 'left',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'consumed',
+          prop: 'consumed',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'productname',
+          prop: 'productname',
+          dataType: 'PICKUPDATA',
         },
         {
           name: 'projectname',
@@ -62,88 +87,14 @@ export default class PivotTableModel {
           dataType: 'PICKUPTEXT',
         },
         {
-          name: 'parentname',
-          prop: 'parentname',
-          dataType: 'PICKUPTEXT',
-        },
-        {
-          name: 'type',
-          prop: 'type',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'estimate',
-          prop: 'estimate',
-          dataType: 'FLOAT',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'story',
-          prop: 'story',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'project',
-          prop: 'project',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'modulename',
           prop: 'modulename',
           dataType: 'PICKUPTEXT',
         },
         {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'consumed',
-          prop: 'consumed',
-          dataType: 'FLOAT',
-        },
-        {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'left',
-          prop: 'left',
-          dataType: 'FLOAT',
-        },
-        {
-          name: 'productname',
-          prop: 'productname',
-          dataType: 'PICKUPDATA',
+          name: 'parentname',
+          prop: 'parentname',
+          dataType: 'PICKUPTEXT',
         },
         {
           name: 'task',

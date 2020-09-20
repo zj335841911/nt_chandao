@@ -27,44 +27,13 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'phone',
-          prop: 'phone',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'last',
-          prop: 'last',
-          dataType: 'INT',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'realname',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
         },
         {
-          name: 'email',
-          prop: 'email',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'address',
-          prop: 'address',
+          name: 'realname',
+          prop: 'realname',
           dataType: 'TEXT',
         },
         {
@@ -78,24 +47,39 @@ export default class MainModel {
           dataType: 'SSCODELIST',
         },
         {
+          name: 'email',
+          prop: 'email',
+          dataType: 'TEXT',
+        },
+        {
           name: 'gender',
           prop: 'gender',
           dataType: 'SSCODELIST',
         },
         {
-          name: 'realname',
-          prop: 'realname',
+          name: 'phone',
+          prop: 'phone',
           dataType: 'TEXT',
-        },
-        {
-          name: 'visits',
-          prop: 'visits',
-          dataType: 'INT',
         },
         {
           name: 'qq',
           prop: 'qq',
           dataType: 'TEXT',
+        },
+        {
+          name: 'address',
+          prop: 'address',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'last',
+          prop: 'last',
+          dataType: 'INT',
+        },
+        {
+          name: 'visits',
+          prop: 'visits',
+          dataType: 'INT',
         },
         {
           name: 'user',

@@ -27,14 +27,9 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'work',
-          prop: 'work',
-          dataType: 'LONGTEXT',
+          name: 'dates',
+          prop: 'dates',
+          dataType: 'DATE',
           isEditable:true
         },
         {
@@ -44,36 +39,15 @@ export default class MainModel {
           isEditable:true
         },
         {
-          name: 'dates',
-          prop: 'dates',
-          dataType: 'DATE',
-          isEditable:true
-        },
-        {
-          name: 'task',
-          prop: 'task',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'left',
           prop: 'left',
           dataType: 'FLOAT',
           isEditable:true
         },
         {
-          name: 'srfmajortext',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
+          name: 'work',
+          prop: 'work',
+          dataType: 'LONGTEXT',
           isEditable:true
         },
         {

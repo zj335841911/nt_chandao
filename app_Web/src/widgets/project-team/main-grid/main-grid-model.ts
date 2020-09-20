@@ -27,38 +27,13 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'total',
-          prop: 'total',
-          dataType: 'INT',
-        },
-        {
-          name: 'limited',
-          prop: 'limited',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'days',
-          prop: 'days',
-          dataType: 'INT',
-        },
-        {
-          name: 'root',
-          prop: 'root',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'hours',
-          prop: 'hours',
-          dataType: 'FLOAT',
+          name: 'account',
+          prop: 'account',
+          dataType: 'TEXT',
         },
         {
           name: 'role',
           prop: 'role',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'account',
-          prop: 'account',
           dataType: 'TEXT',
         },
         {
@@ -67,20 +42,24 @@ export default class MainModel {
           dataType: 'DATE',
         },
         {
-          name: 'srfmajortext',
-          prop: 'account',
-          dataType: 'TEXT',
+          name: 'days',
+          prop: 'days',
+          dataType: 'INT',
         },
         {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
+          name: 'hours',
+          prop: 'hours',
+          dataType: 'FLOAT',
         },
         {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
+          name: 'total',
+          prop: 'total',
+          dataType: 'INT',
+        },
+        {
+          name: 'limited',
+          prop: 'limited',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'projectteam',

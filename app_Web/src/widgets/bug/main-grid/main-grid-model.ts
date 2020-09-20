@@ -27,123 +27,9 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'activateddate',
-          prop: 'activateddate',
-          dataType: 'DATE',
-        },
-        {
-          name: 'tostory',
-          prop: 'tostory',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'resolution',
-          prop: 'resolution',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'duplicatebug',
-          prop: 'duplicatebug',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'story',
-          prop: 'story',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'confirmed',
-          prop: 'confirmed',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'repo',
-          prop: 'repo',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'isfavorites',
-          prop: 'isfavorites',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'totask',
-          prop: 'totask',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'openeddate',
-          prop: 'openeddate',
-          dataType: 'DATETIME',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'task',
-          prop: 'task',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'testtask',
-          prop: 'testtask',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'project',
-          prop: 'project',
-          dataType: 'PICKUP',
         },
         {
           name: 'pri',
@@ -151,29 +37,49 @@ export default class MainModel {
           dataType: 'NSCODELIST',
         },
         {
+          name: 'confirmed',
+          prop: 'confirmed',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'openeddate',
+          prop: 'openeddate',
+          dataType: 'DATETIME',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'resolution',
+          prop: 'resolution',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'lastediteddate',
           prop: 'lastediteddate',
           dataType: 'DATETIME',
         },
         {
-          name: 'plan',
-          prop: 'plan',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'entry',
-          prop: 'entry',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'case',
-          prop: 'ibizcase',
-          dataType: 'PICKUP',
+          name: 'activateddate',
+          prop: 'activateddate',
+          dataType: 'DATE',
         },
         {
           name: 'bug',

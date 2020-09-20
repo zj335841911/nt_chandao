@@ -27,13 +27,28 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'filepath',
-          prop: 'filepath',
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'productname',
+          prop: 'productname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'name',
+          prop: 'name',
           dataType: 'TEXT',
         },
         {
-          name: 'builder',
-          prop: 'builder',
+          name: 'scmpath',
+          prop: 'scmpath',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'filepath',
+          prop: 'filepath',
           dataType: 'TEXT',
         },
         {
@@ -42,55 +57,9 @@ export default class MainModel {
           dataType: 'DATE',
         },
         {
-          name: 'srfmajortext',
-          prop: 'name',
+          name: 'builder',
+          prop: 'builder',
           dataType: 'TEXT',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'project',
-          prop: 'project',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'scmpath',
-          prop: 'scmpath',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'productname',
-          prop: 'productname',
-          dataType: 'PICKUPTEXT',
         },
         {
           name: 'build',

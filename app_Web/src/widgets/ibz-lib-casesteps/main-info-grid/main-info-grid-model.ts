@@ -27,9 +27,9 @@ export default class MainInfoModel {
     }else{
 		  return [
         {
-          name: 'expect',
-          prop: 'expect',
-          dataType: 'LONGTEXT',
+          name: 'case',
+          prop: 'ibizcase',
+          dataType: 'PICKUP',
         },
         {
           name: 'desc',
@@ -37,35 +37,14 @@ export default class MainInfoModel {
           dataType: 'LONGTEXT',
         },
         {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'case',
-          prop: 'ibizcase',
-          dataType: 'PICKUP',
+          name: 'expect',
+          prop: 'expect',
+          dataType: 'LONGTEXT',
         },
         {
           name: 'type',
           prop: 'type',
           dataType: 'SSCODELIST',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'expect',
-          dataType: 'LONGTEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
         },
         {
           name: 'ibzcase',

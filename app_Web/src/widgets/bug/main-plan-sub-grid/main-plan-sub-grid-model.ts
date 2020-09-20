@@ -27,113 +27,9 @@ export default class Main_PlanSubModel {
     }else{
 		  return [
         {
-          name: 'tostory',
-          prop: 'tostory',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'duplicatebug',
-          prop: 'duplicatebug',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'story',
-          prop: 'story',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'confirmed',
-          prop: 'confirmed',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'repo',
-          prop: 'repo',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'isfavorites',
-          prop: 'isfavorites',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'totask',
-          prop: 'totask',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'openeddate',
-          prop: 'openeddate',
-          dataType: 'DATETIME',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'task',
-          prop: 'task',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'testtask',
-          prop: 'testtask',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'project',
-          prop: 'project',
-          dataType: 'PICKUP',
         },
         {
           name: 'pri',
@@ -141,24 +37,29 @@ export default class Main_PlanSubModel {
           dataType: 'NSCODELIST',
         },
         {
-          name: 'plan',
-          prop: 'plan',
-          dataType: 'PICKUP',
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
         },
         {
-          name: 'entry',
-          prop: 'entry',
-          dataType: 'PICKUP',
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
         },
         {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
         },
         {
-          name: 'case',
-          prop: 'ibizcase',
-          dataType: 'PICKUP',
+          name: 'openeddate',
+          prop: 'openeddate',
+          dataType: 'DATETIME',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
         },
         {
           name: 'bug',

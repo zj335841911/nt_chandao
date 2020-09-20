@@ -27,79 +27,26 @@ export default class SubStoryNewModel {
     }else{
 		  return [
         {
-          name: 'spec',
-          prop: 'spec',
-          dataType: 'TEXT',
-          isEditable:true
-        },
-        {
-          name: 'neednotreview',
-          prop: 'neednotreview',
-          dataType: 'SMCODELIST',
-          isEditable:true
-        },
-        {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-          isEditable:true
-        },
-        {
-          name: 'frombug',
-          prop: 'frombug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
-          isEditable:true
-        },
-        {
-          name: 'srfmstag',
-        },
-        {
-          name: 'estimate',
-          prop: 'estimate',
-          dataType: 'FLOAT',
-          isEditable:true
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'tobug',
-          prop: 'tobug',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-          isEditable:true
-        },
-        {
           name: 'modulename',
           prop: 'modulename',
           dataType: 'PICKUPTEXT',
           isEditable:true
         },
         {
+          name: 'plan',
+          prop: 'plan',
+          dataType: 'LONGTEXT',
+          isEditable:true
+        },
+        {
           name: 'title',
           prop: 'title',
+          dataType: 'TEXT',
+          isEditable:true
+        },
+        {
+          name: 'spec',
+          prop: 'spec',
           dataType: 'TEXT',
           isEditable:true
         },
@@ -110,25 +57,28 @@ export default class SubStoryNewModel {
           isEditable:true
         },
         {
-          name: 'plan',
-          prop: 'plan',
-          dataType: 'LONGTEXT',
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
           isEditable:true
         },
         {
-          name: 'branch',
-          prop: 'branch',
-          dataType: 'PICKUP',
+          name: 'neednotreview',
+          prop: 'neednotreview',
+          dataType: 'SMCODELIST',
+          isEditable:true
         },
         {
-          name: 'duplicatestory',
-          prop: 'duplicatestory',
+          name: 'product',
+          prop: 'product',
           dataType: 'PICKUP',
+          isEditable:true
         },
         {
-          name: 'plan_text',
-          prop: 'plan',
-          dataType: 'LONGTEXT',
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+          isEditable:true
         },
         {
           name: 'substory',

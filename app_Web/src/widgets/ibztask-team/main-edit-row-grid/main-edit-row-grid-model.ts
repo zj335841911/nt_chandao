@@ -27,47 +27,15 @@ export default class MainEditRowModel {
     }else{
 		  return [
         {
-          name: 'root',
-          prop: 'root',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'account_text',
-          prop: 'account',
-          dataType: 'TEXT',
-        },
-        {
           name: 'account',
           prop: 'account',
           dataType: 'TEXT',
           isEditable:true
         },
         {
-          name: 'type',
-          prop: 'type',
-          dataType: 'SSCODELIST',
-          isEditable:true
-        },
-        {
           name: 'estimate',
           prop: 'estimate',
           dataType: 'DECIMAL',
-          isEditable:true
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'account',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
           isEditable:true
         },
         {

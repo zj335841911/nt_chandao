@@ -32,19 +32,9 @@ export default class MainModel {
           dataType: 'ACID',
         },
         {
-          name: 'manager',
-          prop: 'manager',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'name',
           prop: 'name',
           dataType: 'TEXT',
-        },
-        {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
         },
         {
           name: 'parentname',
@@ -52,20 +42,9 @@ export default class MainModel {
           dataType: 'PICKUPTEXT',
         },
         {
-          name: 'srfmajortext',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
+          name: 'manager',
+          prop: 'manager',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'dept',

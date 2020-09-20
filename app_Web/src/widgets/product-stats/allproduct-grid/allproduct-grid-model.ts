@@ -27,13 +27,18 @@ export default class ALLProductModel {
     }else{
 		  return [
         {
-          name: 'productplancnt',
-          prop: 'productplancnt',
-          dataType: 'INT',
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
         },
         {
-          name: 'activebugcnt',
-          prop: 'activebugcnt',
+          name: 'currproject',
+          prop: 'currproject',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'productplancnt',
+          prop: 'productplancnt',
           dataType: 'INT',
         },
         {
@@ -47,30 +52,9 @@ export default class ALLProductModel {
           dataType: 'INT',
         },
         {
-          name: 'currproject',
-          prop: 'currproject',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
+          name: 'activebugcnt',
+          prop: 'activebugcnt',
+          dataType: 'INT',
         },
         {
           name: 'productstats',
