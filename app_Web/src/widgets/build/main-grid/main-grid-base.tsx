@@ -208,34 +208,6 @@ export class MainGridBase extends GridControlBase {
     }
 
     /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_ued78b0c_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:BuildUIService  = new BuildUIService();
-        curUIService.Build_OneEdit(datas,contextJO, paramJO,  $event, xData,this,"Build");
-    }
-
-    /**
      * 界面行为模型
      *
      * @type {*}
@@ -246,8 +218,7 @@ export class MainGridBase extends GridControlBase {
         submitToTesting: { name: 'submitToTesting',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUILD_SUBT_BUT', actiontarget: 'SINGLEKEY'},
         viewBugs: { name: 'viewBugs',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
         editBuild: { name: 'editBuild',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUILD_EDIT_BUT', actiontarget: 'SINGLEKEY'},
-        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUILD_DELETE_BUT', actiontarget: 'SINGLEKEY'},
-        OneEdit: { name: 'OneEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__ADMIN', actiontarget: 'SINGLEKEY'}
+        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUILD_DELETE_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -449,9 +420,6 @@ export class MainGridBase extends GridControlBase {
         }
         if(Object.is('Delete', tag)) {
             this.grid_uagridcolumn1_uc7f0296_click(row, tag, $event);
-        }
-        if(Object.is('OneEdit', tag)) {
-            this.grid_uagridcolumn1_ued78b0c_click(row, tag, $event);
         }
     }
 

@@ -105,27 +105,6 @@ export default {
 		uiactions: {
 		},
 	},
-	onerelease_form: {
-		details: {
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "ID", 
-			srfmajortext: "发布名称", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			releasetype: "运行模式", 
-			backgroundid: "后台体系", 
-			frontapplication: "系统应用", 
-			sqlid: "运行数据库", 
-			rebuild: "重新构建", 
-			product: "产品", 
-			id: "ID", 
-		},
-		uiactions: {
-		},
-	},
 	quickcreate_form: {
 		details: {
 			grouppanel1: "分组面板", 
@@ -152,6 +131,27 @@ export default {
 		uiactions: {
 		},
 	},
+	onerelease_form: {
+		details: {
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "ID", 
+			srfmajortext: "发布名称", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			releasetype: "运行模式", 
+			backgroundid: "后台体系", 
+			frontapplication: "系统应用", 
+			sqlid: "运行数据库", 
+			rebuild: "重新构建", 
+			product: "产品", 
+			id: "ID", 
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		columns: {
 			id: "ID",
@@ -169,7 +169,6 @@ export default {
         release_terminal: "停止维护",
         release_quickedit: "编辑",
         release_remove: "删除",
-        release_oneedit: "发布",
 		},
 	},
 	editviewtoolbar_toolbar: {
