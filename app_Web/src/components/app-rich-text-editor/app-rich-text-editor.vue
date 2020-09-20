@@ -555,6 +555,7 @@ export default class AppRichTextEditor extends Vue {
      */
     public showSelectList(){
         this.showSelect = 'visible';
+        this.calculate();
         this.atNumber++;
         let fakeNode: any = document.createElement('span');
         fakeNode.className = 'fake-at';
@@ -715,6 +716,24 @@ export default class AppRichTextEditor extends Vue {
          this.showSelect = 'hidden';
     }
 
+    /**
+     * 计算当前'@'数
+     * 
+     * @memberof AppRichTextEditor
+     */
+    public calculate(){
+        const atSymbol:any = this.editor.dom.select('span');
+        let id:number = 0;
+        atSymbol.forEach((item:any)=>{
+            if(Object.is(item.className,'at-text') || Object.is(item.className,'fake-at')){
+                const atId = parseInt(item.id.substring(item.id.length-1));
+                if(atId>id){
+                    id = atId;
+                }
+            }
+        })
+        this.atNumber = id;
+    }
 
     /**
      * 上传文件
