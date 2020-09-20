@@ -420,7 +420,7 @@ export class MainToolbarPortletBase extends MainControlBase {
         disabled:false
         },
         { viewlogicname:"dashboard_sysportlet3_ub9b8ba7_click",
-        text: "需求细分",
+        text: "细分",
         iconcls: "iconfont studio-icon-subnets",
         icon: "",
         noprivdisplaymode: 2,

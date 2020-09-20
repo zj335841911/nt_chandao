@@ -399,7 +399,7 @@ export default class StoryUIServiceBase extends UIService {
     }
 
     /**
-     * 需求细分
+     * 细分
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
