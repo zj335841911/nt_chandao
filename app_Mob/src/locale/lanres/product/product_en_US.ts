@@ -163,6 +163,7 @@ export default {
 			n_name_like: '产品名称', 
 			n_status_eq: '状态', 
 			n_type_eq: '产品类型', 
+			n_linename_like: '产品线', 
 		},
 		uiactions: {
 		},

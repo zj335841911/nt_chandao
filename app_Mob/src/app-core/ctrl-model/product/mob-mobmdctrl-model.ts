@@ -58,6 +58,11 @@ export class MobModel {
                 prop: 'n_type_eq', 
                 dataType: 'SSCODELIST',
             },
+            {
+                name: 'n_linename_like',
+                prop: 'n_linename_like', 
+                dataType: 'PICKUPTEXT',
+            },
 
 			{
 				name: 'size',
