@@ -2041,7 +2041,7 @@
 
 
     <!--输出实体[ZT_TESTREPORT]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_testreport-114-82">
+    <changeSet author="zentao" id="tab-zt_testreport-116-82">
         <createTable tableName="zt_testreport">
                 <column name="OBJECTID" remarks="" type="INT">
                 </column>
@@ -2720,10 +2720,10 @@
        <addForeignKeyConstraint baseColumnNames="ROOT" baseTableName="zt_module" constraintName="DER1N_IBZ_TESTMODULE_ZT_PRODUC" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_TESTREPORT]外键关系 -->
-    <changeSet author="zentao" id="fk-zt_testreport-114-189">
+    <changeSet author="zentao" id="fk-zt_testreport-116-189">
        <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="zt_testreport" constraintName="DER1N_ZT_TESTREPORT_ZT_PRODUCT" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_testreport-114-190">
+    <changeSet author="zentao" id="fk-zt_testreport-116-190">
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="zt_testreport" constraintName="DER1N_ZT_TESTREPORT_ZT_PROJECT" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_TESTRESULT]外键关系 -->
