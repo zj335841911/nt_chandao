@@ -88,16 +88,16 @@ mock.onDelete(new RegExp(/^\/testreports\/batch$/)).reply((config: any) => {
 
 
     
-// GetInfoTestTask
-mock.onPut(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/testreports\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testreport 方法: GetInfoTestTask");
+// getinfotesttask
+mock.onPut(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/testreports\/([a-zA-Z0-9\-\;]{1,35})\/getinfotesttask$/)).reply((config: any) => {
+    console.groupCollapsed("实体:testreport 方法: getinfotesttask");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }
     const paramArray:Array<any> = ['id','id'];
-    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/testreports\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/testreports\/([a-zA-Z0-9\-\;]{1,35})\/getinfotesttask$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -114,16 +114,16 @@ mock.onPut(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/testreports\/([a-zA
     return [status, {}];
 });
         
-// GetInfoTestTask
-mock.onPut(new RegExp(/^\/testreports\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
-    console.groupCollapsed("实体:testreport 方法: GetInfoTestTask");
+// getinfotesttask
+mock.onPut(new RegExp(/^\/testreports\/?([a-zA-Z0-9\-\;]{0,35})\/getinfotesttask$/)).reply((config: any) => {
+    console.groupCollapsed("实体:testreport 方法: getinfotesttask");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['id'];
-    const matchArray:any = new RegExp(/^\/testreports\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/testreports\/([a-zA-Z0-9\-\;]{1,35})\/getinfotesttask$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
