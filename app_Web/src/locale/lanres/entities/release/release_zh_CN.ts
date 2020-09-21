@@ -22,6 +22,8 @@ export default {
     frontapplication: "系统应用",
     rebuild: "重新构建",
     releasetype: "运行模式",
+    builder: "构建者",
+    builddate: "打包日期",
   },
 	views: {
 		optionview: {

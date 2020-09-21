@@ -220,6 +220,24 @@ public class ReleaseDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String releasetype;
 
+    /**
+     * 属性 [BUILDER]
+     *
+     */
+    @JSONField(name = "builder")
+    @JsonProperty("builder")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String builder;
+
+    /**
+     * 属性 [BUILDDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "builddate" , format="yyyy-MM-dd")
+    @JsonProperty("builddate")
+    private Timestamp builddate;
+
 
     /**
      * 设置 [STORIES]

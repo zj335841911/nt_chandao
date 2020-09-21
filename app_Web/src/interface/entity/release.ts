@@ -181,4 +181,20 @@ export interface Release {
      * @memberof Release
      */
     releasetype?: any;
+
+    /**
+     * 构建者
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    builder?: any;
+
+    /**
+     * 打包日期
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    builddate?: any;
 }

@@ -202,6 +202,21 @@ public class Release extends EntityMP implements Serializable {
     @JSONField(name = "releasetype")
     @JsonProperty("releasetype")
     private String releasetype;
+    /**
+     * 构建者
+     */
+    @TableField(exist = false)
+    @JSONField(name = "builder")
+    @JsonProperty("builder")
+    private String builder;
+    /**
+     * 打包日期
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "builddate" , format="yyyy-MM-dd")
+    @JsonProperty("builddate")
+    private Timestamp builddate;
 
     /**
      * 

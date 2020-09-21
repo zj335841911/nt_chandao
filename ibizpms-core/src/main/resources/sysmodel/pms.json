@@ -23377,6 +23377,40 @@
     "data_length":200,
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"BUILDER" ,
+    "codename":"Builder",
+    "field_logic_name":"构建者",
+    "entity_name":"Release",
+    "ref_de":"ZT_BUILD",
+    "ref_field_name":"BUILDER",
+    "relation_name":"DER1N_ZT_RELEASE_ZT_BUILD_BUILD",
+    "relation_codename":"ZTBuild",
+    "field_type":"PICKUPDATA",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":30,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BUILDDATE" ,
+    "codename":"Builddate",
+    "field_logic_name":"打包日期",
+    "entity_name":"Release",
+    "ref_de":"ZT_BUILD",
+    "ref_field_name":"DATE",
+    "relation_name":"DER1N_ZT_RELEASE_ZT_BUILD_BUILD",
+    "relation_codename":"ZTBuild",
+    "field_type":"PICKUPDATA",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[
