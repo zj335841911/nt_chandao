@@ -42,6 +42,7 @@ public interface IBuildService extends IService<Build>{
     Page<Build> searchCurProduct(BuildSearchContext context) ;
     Page<Build> searchDefault(BuildSearchContext context) ;
     Page<Build> searchTestBuild(BuildSearchContext context) ;
+    Page<Build> searchTestRounds(BuildSearchContext context) ;
     List<Build> selectByBranch(Long id) ;
     void removeByBranch(Long id) ;
     List<Build> selectByProduct(Long id) ;

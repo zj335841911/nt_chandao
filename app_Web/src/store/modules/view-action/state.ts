@@ -357,6 +357,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1b214bd727533f6662aa78368fb67e4b',
+            viewmodule: 'zentao',
+            viewname: 'CaseReportLinkGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '02b7ecd8e994b90558a9d6c23705f600',
+            ],
+        },
+        {
             viewtag: '1be20d21085195e17a87ad447b4cddb2',
             viewmodule: 'ibiz',
             viewname: 'IbzLibModuleTreeExpView',
@@ -2209,6 +2219,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '9a2fd7bf8e74f4b95bd5a24d8ffb1643',
+            viewmodule: 'zentao',
+            viewname: 'BuildTestRoundsGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e9d61d4506a28dec9a6f1d7b9e1fff6a',
+            ],
+        },
+        {
             viewtag: '9a8c28c2365d7dc8bb5619f39576b558',
             viewmodule: 'zentao',
             viewname: 'ProjectEditView_Close',
@@ -2654,6 +2674,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'ba3ac5351ca273bb889ffcb52ec7217b',
+            viewmodule: 'zentao',
+            viewname: 'TestReportActionEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'aeee411b8bffcf0c30d65557a8deeeee',
+            ],
+        },
+        {
             viewtag: 'bae11f9447355ecc9e2cdff2490e6d11',
             viewmodule: 'zentao',
             viewname: 'DeptEditView',
@@ -2772,6 +2802,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e00040c0d616f2f1c0ad4b36c9e920b5',
+            ],
+        },
+        {
+            viewtag: 'c47c534ae15c1fd1a04b5ad78d174841',
+            viewmodule: 'zentao',
+            viewname: 'TestReportEditView_tosumup',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -3324,6 +3363,11 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '9a2fd7bf8e74f4b95bd5a24d8ffb1643',
+                '1b214bd727533f6662aa78368fb67e4b',
+                'ba3ac5351ca273bb889ffcb52ec7217b',
+                'c47c534ae15c1fd1a04b5ad78d174841',
+                '09b6c2af7dcc4b719d4c8aad2319f1c5',
                 '3d56b0e37a56b9be1a28589c04f573fa',
                 'f810cda19770327ea00f51d89a003efe',
             ],

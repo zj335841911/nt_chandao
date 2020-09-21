@@ -359,6 +359,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectTestTabExpView",
             "viewtag": "19641dcdbd1f1973c9693859003e1f60"
         },
+        "casereportlinkgridview": {
+            "title": "测试用例表格视图（报告关联用例）",
+            "caption": "关联用例",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseReportLinkGridView",
+            "viewtag": "1b214bd727533f6662aa78368fb67e4b"
+        },
         "testresultgridview9": {
             "title": "测试结果表格视图",
             "caption": "测试结果",
@@ -1911,6 +1919,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzLibModuleCaseTreeExpView",
             "viewtag": "99b83386d61eab84cd7d65a445def4ed"
         },
+        "buildtestroundsgridview": {
+            "title": "版本表格视图（轮次）",
+            "caption": "轮次",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BuildTestRoundsGridView",
+            "viewtag": "9a2fd7bf8e74f4b95bd5a24d8ffb1643"
+        },
         "projecteditview_close": {
             "title": "项目",
             "caption": "项目",
@@ -2287,6 +2303,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryPlanSubGridView",
             "viewtag": "b9e94e3713c82ebab002631bda872b94"
         },
+        "testreportactioneditview": {
+            "title": "测试报告编辑视图（历史记录）",
+            "caption": "历史记录",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestReportActionEditView",
+            "viewtag": "ba3ac5351ca273bb889ffcb52ec7217b"
+        },
         "depteditview": {
             "title": "部门编辑视图",
             "caption": "部门信息",
@@ -2390,6 +2414,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TodoGridView9",
             "viewtag": "c3f0a8956b863fa05a7d961df90a3975"
+        },
+        "testreporteditview_tosumup": {
+            "title": "测试报告编辑视图",
+            "caption": "测试报告",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestReportEditView_tosumup",
+            "viewtag": "c47c534ae15c1fd1a04b5ad78d174841"
         },
         "producttestlistexpview": {
             "title": "测试统计",

@@ -1,0 +1,14 @@
+<i-form :model="this.data" class='app-form' ref='form'  id='testreport_tosumup' style="">
+    <input style="display:none;" />
+    <row >
+            
+<i-col class="form-layout-container" v-show="detailsModel.report.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='report' :itemRules="this.rules.report" class='' :caption="$t('entities.testreport.tosumup_form.details.report')" uiStyle="DEFAULT" :labelWidth="10" :isShowCaption="true" :error="detailsModel.report.error" :isEmptyCaption="true" labelPos="LEFT">
+    <html-container :content="data.report"></html-container>
+</app-form-item>
+
+</i-col>
+
+
+    </row>
+</i-form>

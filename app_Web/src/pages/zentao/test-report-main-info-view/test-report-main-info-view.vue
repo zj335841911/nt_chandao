@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { TestReportMainInfoViewBase } from './test-report-main-info-view-base';
-import view_form from '@widgets/test-report/main-form/main-form.vue';
+import view_form from '@widgets/test-report/main-info-form/main-info-form.vue';
 
 /**
  * 测试报告编辑视图视图

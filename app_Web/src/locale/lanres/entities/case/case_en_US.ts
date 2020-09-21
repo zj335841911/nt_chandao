@@ -67,6 +67,10 @@ export default {
 			caption: "关联用例",
       		title: "测试用例表格视图（关联用例）",
 		},
+		reportlinkgridview: {
+			caption: "关联用例",
+      		title: "测试用例表格视图（报告关联用例）",
+		},
 		optionview: {
 			caption: "执行",
       		title: "执行",
@@ -542,6 +546,25 @@ export default {
 			storyname: "相关需求",
 			title: "用例标题",
 			type: "用例类型",
+		},
+		uiactions: {
+		},
+	},
+	reportmaingrid_grid: {
+		columns: {
+			id: "id",
+			pri: "P",
+			title: "用例标题",
+			type: "用例类型",
+			openedby: "创建",
+			lastrunner: "执行人",
+			lastrundate: "执行时间",
+			lastrunresult: "结果",
+			status1: "状态",
+			tobugcnt: "B",
+			resultcnt: "R",
+			casesteps: "S",
+			lastrunresult1: "测试用例结果",
 		},
 		uiactions: {
 		},
