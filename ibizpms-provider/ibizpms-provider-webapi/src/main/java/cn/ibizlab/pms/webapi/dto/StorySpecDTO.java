@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,7 @@ public class StorySpecDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "spec")
     @JsonProperty("spec")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String spec;
 
     /**
@@ -38,6 +42,7 @@ public class StorySpecDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "verify")
     @JsonProperty("verify")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String verify;
 
     /**
@@ -46,6 +51,7 @@ public class StorySpecDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String id;
 
     /**
@@ -54,6 +60,8 @@ public class StorySpecDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "title")
     @JsonProperty("title")
+    @NotBlank(message = "[需求名称]不允许为空!")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String title;
 
     /**
@@ -70,7 +78,7 @@ public class StorySpecDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "story")
     @JsonProperty("story")
-    private BigInteger story;
+    private Long story;
 
 
     /**
@@ -108,11 +116,12 @@ public class StorySpecDTO extends DTOBase implements Serializable {
     /**
      * 设置 [STORY]
      */
-    public void setStory(BigInteger  story){
+    public void setStory(Long  story){
         this.story = story ;
         this.modify("story",story);
     }
 
 
 }
+
 

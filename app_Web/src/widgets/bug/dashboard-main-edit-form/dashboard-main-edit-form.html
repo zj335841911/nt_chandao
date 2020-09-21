@@ -26,14 +26,14 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.steps.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 23, offset: 0 }">
     <app-form-item name='steps' :itemRules="this.rules.steps" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.steps')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.steps.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-rich-text-editor :formState="formState" :value="data.steps" @change="(val) =>{this.data.steps =val}" :disabled="detailsModel.steps.disabled" :data="JSON.stringify(this.data)"  name="steps" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor :formState="formState" :value="data.steps" @change="(val) =>{this.data.steps =val}" :disabled="detailsModel.steps.disabled" :data="JSON.stringify(this.data)"  name="steps" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""></app-rich-text-editor>
 
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 23, offset: 0 }">
     <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.bug.dashboardmainedit_form.details.comment')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="TOP">
-    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""></app-rich-text-editor>
 
 </app-form-item>
 
@@ -446,14 +446,14 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ ZT_PRODUCT:"%product%", N_MODULE_EQ:"%module%", PRODUCT:"%product%" }' 
-  :localParam ='{ product:"%product%", n_product_eq:"%product%", n_module_eq:"%module%" }' 
+  :localContext ='{ ZT_PRODUCT:"%product%", N_MODULE_EQ:"%module%", N_PROJECT_EQ:"%project%", PRODUCT:"%product%" }' 
+  :localParam ='{ product:"%product%", n_product_eq:"%product%", n_project_eq:"%project%", n_module_eq:"%module%" }' 
   :disabled="detailsModel.storyname.disabled"
   name='storyname'
   deMajorField='title'
   deKeyField='story'
   :service="service"
-  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchBugStory'}"
   valueitem='story' 
   :value="data.storyname" 
   editortype="dropdown"

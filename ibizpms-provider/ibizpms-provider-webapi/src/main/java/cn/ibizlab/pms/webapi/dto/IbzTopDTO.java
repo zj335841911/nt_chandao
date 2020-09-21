@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,7 @@ public class IbzTopDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibztopid")
     @JsonProperty("ibztopid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String ibztopid;
 
     /**
@@ -47,6 +51,7 @@ public class IbzTopDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String updateman;
 
     /**
@@ -55,6 +60,7 @@ public class IbzTopDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibztopname")
     @JsonProperty("ibztopname")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String ibztopname;
 
     /**
@@ -63,6 +69,7 @@ public class IbzTopDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "createman")
     @JsonProperty("createman")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String createman;
 
     /**
@@ -80,6 +87,7 @@ public class IbzTopDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "type")
     @JsonProperty("type")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String type;
 
     /**
@@ -104,6 +112,7 @@ public class IbzTopDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "account")
     @JsonProperty("account")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String account;
 
 
@@ -149,4 +158,5 @@ public class IbzTopDTO extends DTOBase implements Serializable {
 
 
 }
+
 

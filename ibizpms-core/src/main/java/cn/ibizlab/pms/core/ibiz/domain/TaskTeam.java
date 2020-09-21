@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[任务团队]
@@ -53,7 +54,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     @TableField(value = "root")
     @JSONField(name = "root")
     @JsonProperty("root")
-    private BigInteger root;
+    private Long root;
     /**
      * 受限用户
      */
@@ -107,7 +108,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     @TableField(value = "estimate")
     @JSONField(name = "estimate")
     @JsonProperty("estimate")
-    private Double estimate;
+    private BigDecimal estimate;
     /**
      * 用户
      */
@@ -122,7 +123,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     @TableField(value = "consumed")
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
-    private Double consumed;
+    private BigDecimal consumed;
     /**
      * 编号
      */
@@ -130,7 +131,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 加盟日
      */
@@ -155,7 +156,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     @TableField(value = "left")
     @JSONField(name = "left")
     @JsonProperty("left")
-    private Double left;
+    private BigDecimal left;
 
     /**
      * 
@@ -178,7 +179,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [编号]
      */
-    public void setRoot(BigInteger root){
+    public void setRoot(Long root){
         this.root = root ;
         this.modify("root",root);
     }
@@ -218,7 +219,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [最初预计]
      */
-    public void setEstimate(Double estimate){
+    public void setEstimate(BigDecimal estimate){
         this.estimate = estimate ;
         this.modify("estimate",estimate);
     }
@@ -234,7 +235,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [总计消耗]
      */
-    public void setConsumed(Double consumed){
+    public void setConsumed(BigDecimal consumed){
         this.consumed = consumed ;
         this.modify("consumed",consumed);
     }
@@ -268,12 +269,28 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [预计剩余]
      */
-    public void setLeft(Double left){
+    public void setLeft(BigDecimal left){
         this.left = left ;
         this.modify("left",left);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
+    /**
+     * 复制当前对象数据到目标对象(粘贴重置)
+     * @param targetEntity 目标数据对象
+     * @param bIncEmpty  是否包括空值
+     * @param <T>
+     * @return
+     */
+    @Override
+    public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
+        this.reset("id");
+        return super.copyTo(targetEntity,bIncEmpty);
+    }
 }
 
 

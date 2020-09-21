@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[测试用例]
@@ -267,7 +268,7 @@ public class Case extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 前置条件
      */
@@ -303,49 +304,49 @@ public class Case extends EntityMP implements Serializable {
     @TableField(value = "fromcaseid")
     @JSONField(name = "fromcaseid")
     @JsonProperty("fromcaseid")
-    private BigInteger fromcaseid;
+    private Long fromcaseid;
     /**
      * 平台/分支
      */
     @TableField(value = "branch")
     @JSONField(name = "branch")
     @JsonProperty("branch")
-    private BigInteger branch;
+    private Long branch;
     /**
      * 来源Bug
      */
     @TableField(value = "frombug")
     @JSONField(name = "frombug")
     @JsonProperty("frombug")
-    private BigInteger frombug;
+    private Long frombug;
     /**
      * 相关需求
      */
     @TableField(value = "story")
     @JSONField(name = "story")
     @JsonProperty("story")
-    private BigInteger story;
+    private Long story;
     /**
      * 所属产品
      */
     @TableField(value = "product")
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
     /**
      * 所属库
      */
     @TableField(value = "lib")
     @JSONField(name = "lib")
     @JsonProperty("lib")
-    private BigInteger lib;
+    private Long lib;
     /**
      * 所属模块
      */
     @TableField(value = "module")
     @JSONField(name = "module")
     @JsonProperty("module")
-    private BigInteger module;
+    private Long module;
     /**
      * 模块名称
      */
@@ -430,6 +431,13 @@ public class Case extends EntityMP implements Serializable {
     @JSONField(name = "libname")
     @JsonProperty("libname")
     private String libname;
+    /**
+     * 测试用例结果
+     */
+    @TableField(exist = false)
+    @JSONField(name = "lastrunresult1")
+    @JsonProperty("lastrunresult1")
+    private String lastrunresult1;
 
     /**
      * 
@@ -780,7 +788,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [来源用例]
      */
-    public void setFromcaseid(BigInteger fromcaseid){
+    public void setFromcaseid(Long fromcaseid){
         this.fromcaseid = fromcaseid ;
         this.modify("fromcaseid",fromcaseid);
     }
@@ -788,7 +796,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [平台/分支]
      */
-    public void setBranch(BigInteger branch){
+    public void setBranch(Long branch){
         this.branch = branch ;
         this.modify("branch",branch);
     }
@@ -796,7 +804,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [来源Bug]
      */
-    public void setFrombug(BigInteger frombug){
+    public void setFrombug(Long frombug){
         this.frombug = frombug ;
         this.modify("frombug",frombug);
     }
@@ -804,7 +812,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [相关需求]
      */
-    public void setStory(BigInteger story){
+    public void setStory(Long story){
         this.story = story ;
         this.modify("story",story);
     }
@@ -812,7 +820,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [所属产品]
      */
-    public void setProduct(BigInteger product){
+    public void setProduct(Long product){
         this.product = product ;
         this.modify("product",product);
     }
@@ -820,7 +828,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [所属库]
      */
-    public void setLib(BigInteger lib){
+    public void setLib(Long lib){
         this.lib = lib ;
         this.modify("lib",lib);
     }
@@ -828,12 +836,28 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 设置 [所属模块]
      */
-    public void setModule(BigInteger module){
+    public void setModule(Long module){
         this.module = module ;
         this.modify("module",module);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
+    /**
+     * 复制当前对象数据到目标对象(粘贴重置)
+     * @param targetEntity 目标数据对象
+     * @param bIncEmpty  是否包括空值
+     * @param <T>
+     * @return
+     */
+    @Override
+    public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
+        this.reset("id");
+        return super.copyTo(targetEntity,bIncEmpty);
+    }
 }
 
 

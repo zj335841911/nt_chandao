@@ -15,7 +15,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.text.DecimalFormat;
 import java.util.*;
 
 /**
@@ -131,7 +133,7 @@ public class TaskExService extends TaskServiceImpl {
         JSONArray jsonArray = new JSONArray();
         for(TaskEstimate taskEstimate : list) {
             if(taskEstimate.getId() == null) {
-                taskEstimate.setId(new BigInteger(String.valueOf(i)));
+                taskEstimate.setId(Long.parseLong(String.valueOf(i)));
                 JSONObject jsonObject = (JSONObject) JSONObject.toJSON(taskEstimate);
                 i ++;
                 jsonArray.add(jsonObject);
@@ -174,21 +176,22 @@ public class TaskExService extends TaskServiceImpl {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
-        if(et.getMultiple() != null && et.getMultiple() == 1) {
+        DecimalFormat df = new DecimalFormat("#.00");
+        if(et.getMultiple() != null && "1".equals(et.getMultiple())) {
             List<TaskTeam> list = et.getTaskteam();
             if(!list.isEmpty() && list.size() > 0) {
                 jo.put("assignedTo", list.get(0).getAccount());
-                double estimate = 0;
+                BigDecimal estimate = new BigDecimal(0.0);
                 JSONArray team = new JSONArray();
                 JSONArray teamEstimate = new JSONArray();
                 for (TaskTeam taskTeam : list) {
                     team.add(taskTeam.getAccount());
                     teamEstimate.add(taskTeam.getEstimate());
                     if(taskTeam.getEstimate() != null) {
-                        estimate += taskTeam.getEstimate();
+                        estimate.add(taskTeam.getEstimate());
                     }
                 }
-                jo.put("estimate", estimate);
+                jo.put("estimate", df.format(estimate));
                 jo.put("team", team);
                 jo.put("teamEstimate", teamEstimate);
             }
@@ -208,7 +211,7 @@ public class TaskExService extends TaskServiceImpl {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
-        if(et.getMultiple() != null && et.getMultiple() == 1) {
+        if(et.getMultiple() != null && "1".equals(et.getMultiple())) {
             List<TaskTeam> list = et.getTaskteam();
             if(!list.isEmpty() && list.size() > 0) {
                 JSONArray team = new JSONArray();
@@ -242,9 +245,12 @@ public class TaskExService extends TaskServiceImpl {
     public Page<Task> searchByModule(TaskSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchByModule(context.getPages(),context,context.getSelectCond());
         for(Task task : pages.getRecords()) {
-            TaskSearchContext taskSearchContext = new TaskSearchContext();
-            taskSearchContext.setN_parent_eq(task.getId());
-            task.set("items", this.searchDefault(taskSearchContext).getContent());
+            TaskSearchContext context1 = new TaskSearchContext();
+            context1.setSelectCond(context.getSelectCond().clone());
+            context1.setN_parent_eq(task.getId());
+            List<Task> taskList = this.searchDefault(context1).getContent();
+            task.set("items", taskList);
+            pages.setPages(pages.getTotal() + taskList.size());
         }
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
@@ -257,15 +263,19 @@ public class TaskExService extends TaskServiceImpl {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchProjectTASK(context.getPages(),context,context.getSelectCond());
         for(Task task : pages.getRecords()) {
             TaskSearchContext context1 = new TaskSearchContext();
+            context1.setSelectCond(context.getSelectCond().clone());
             context1.setN_parent_eq(task.getId());
-            task.set("items", this.searchDefault(context1).getContent());
+            List<Task> taskList = this.searchDefault(context1).getContent();
+            task.set("items", taskList);
+            pages.setPages(pages.getTotal() + taskList.size());
+
         }
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
     @Override
     @Transactional
-    public Task get(BigInteger key) {
+    public Task get(Long key) {
         Task et = getById(key);
         if(et==null){
             et=new Task();

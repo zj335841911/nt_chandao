@@ -94,7 +94,7 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     }
         @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         TestSuite et = this.get(key);
@@ -104,16 +104,16 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList){
+    public void removeBatch(Collection<Long> idList){
         if (idList != null && !idList.isEmpty()) {
-            for (BigInteger id : idList) {
+            for (Long id : idList) {
                 this.remove(id);
             }
         }
     }
     @Override
     @Transactional
-    public TestSuite get(BigInteger key) {
+    public TestSuite get(Long key) {
         TestSuite et = getById(key);
         if(et==null){
             et=new TestSuite();
@@ -164,12 +164,12 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
 
 
 	@Override
-    public List<TestSuite> selectByProduct(BigInteger id) {
+    public List<TestSuite> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
 
     @Override
-    public void removeByProduct(BigInteger id) {
+    public void removeByProduct(Long id) {
         this.remove(new QueryWrapper<TestSuite>().eq("product",id));
     }
 

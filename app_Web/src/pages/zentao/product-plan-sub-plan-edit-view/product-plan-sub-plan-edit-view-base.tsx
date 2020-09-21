@@ -58,6 +58,13 @@ export class ProductPlanSubPlanEditViewBase extends EditViewBase {
     public appUIService: SubProductPlanUIService = new SubProductPlanUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof ProductPlanSubPlanEditViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

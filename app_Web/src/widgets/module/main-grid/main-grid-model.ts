@@ -27,14 +27,24 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'order',
-          prop: 'order',
-          dataType: 'INT',
-        },
-        {
           name: 'name',
           prop: 'name',
           dataType: 'TEXT',
+        },
+        {
+          name: 'parentname',
+          prop: 'parentname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'grade',
+          prop: 'grade',
+          dataType: 'INT',
+        },
+        {
+          name: 'order',
+          prop: 'order',
+          dataType: 'INT',
         },
         {
           name: 'owner',
@@ -50,16 +60,6 @@ export default class MainModel {
           name: 'branch',
           prop: 'branch',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'grade',
-          prop: 'grade',
-          dataType: 'INT',
-        },
-        {
-          name: 'parentname',
-          prop: 'parentname',
-          dataType: 'PICKUPTEXT',
         },
         {
           name: 'srfmajortext',

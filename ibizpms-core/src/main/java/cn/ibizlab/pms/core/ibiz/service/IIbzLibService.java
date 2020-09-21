@@ -29,9 +29,9 @@ public interface IIbzLibService extends IService<IbzLib>{
     void createBatch(List<IbzLib> list) ;
     boolean update(IbzLib et) ;
     void updateBatch(List<IbzLib> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    IbzLib get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    IbzLib get(Long key) ;
     IbzLib getDraft(IbzLib et) ;
     boolean checkKey(IbzLib et) ;
     boolean save(IbzLib et) ;

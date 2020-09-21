@@ -27,11 +27,6 @@ export default class MainSubPlanModel {
     }else{
 		  return [
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
@@ -39,6 +34,16 @@ export default class MainSubPlanModel {
         {
           name: 'title',
           prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'statuss',
+          prop: 'statuss',
           dataType: 'TEXT',
         },
         {

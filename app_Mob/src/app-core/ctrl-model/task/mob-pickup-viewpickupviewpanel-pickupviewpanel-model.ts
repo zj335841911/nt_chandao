@@ -177,6 +177,12 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'status1',
+      },
+      {
+        name: 'tasktype',
+      },
     ]
   }
 

@@ -288,7 +288,6 @@
     :caption="$t('todo.mobmain_form.details.desc')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.desc.disabled"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""/>
@@ -316,12 +315,14 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
     paramItem='todo' 
     style="" 
     :formState="formState" 
     :parentdata='{"srfparentdename":"ZT_TODO","SRFPARENTTYPE":"CUSTOM"}' 
     :parameters="[
     ]" 
+    tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
@@ -483,12 +484,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
-    /**
-     * 加载完成
-     *
-     * @memberof MobMain
-     */
-    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -1648,7 +1643,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
@@ -1681,7 +1675,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

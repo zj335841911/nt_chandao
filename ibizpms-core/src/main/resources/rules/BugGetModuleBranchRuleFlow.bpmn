@@ -8,15 +8,15 @@
         <tns:global identifier="buggetmodulebranchdefault" type="cn.ibizlab.pms.core.zentao.domain.Bug" />
         <tns:global identifier="buggetmodulebranchmodule" type="cn.ibizlab.pms.core.zentao.domain.Module" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="buggetmodulebranchprepareparam2" id="F621454B-838B-4BA2-8EDD-E9BB9A77E84D" implementation="http://www.jboss.org/drools/rule" name="设置bug平台值"/>
-     <endEvent id="F621454B-838B-4BA2-8EDD-E9BB9A77E84D_End" name="End"/>
-     <sequenceFlow id="F621454B-838B-4BA2-8EDD-E9BB9A77E84D_End_Line" sourceRef="F621454B-838B-4BA2-8EDD-E9BB9A77E84D" targetRef="F621454B-838B-4BA2-8EDD-E9BB9A77E84D_End"/>
-     <startEvent id="2EB279DB-E388-42BB-845F-D1B9EF3F2F8B" isInterrupting="true"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="buggetmodulebranchdeaction1" id="0A30004D-AA4D-43AC-883C-7C0CF6C472AC" implementation="http://www.jboss.org/drools/rule" name="获取模块详情"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="buggetmodulebranchprepareparam1" id="41266C9A-A7CA-4ABA-8B69-304058C0ACD1" implementation="http://www.jboss.org/drools/rule" name="设置模块参数"/>
-     <sequenceFlow id="C8C94287-96CC-4947-AC0F-CAD383DF3B66" sourceRef="0A30004D-AA4D-43AC-883C-7C0CF6C472AC" targetRef="F621454B-838B-4BA2-8EDD-E9BB9A77E84D">
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="buggetmodulebranchprepareparam2" id="prepareparam2" implementation="http://www.jboss.org/drools/rule" name="设置bug平台值"/>
+     <endEvent id="prepareparam2_end" name="end"/>
+     <sequenceFlow id="prepareparam2_end_line" sourceRef="prepareparam2" targetRef="prepareparam2_end"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="buggetmodulebranchdeaction1" id="deaction1" implementation="http://www.jboss.org/drools/rule" name="获取模块详情"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="buggetmodulebranchprepareparam1" id="prepareparam1" implementation="http://www.jboss.org/drools/rule" name="设置模块参数"/>
+     <sequenceFlow id="deaction1_prepareparam2" sourceRef="deaction1" targetRef="prepareparam2">
      </sequenceFlow>
-     <sequenceFlow id="EE9B4572-666C-4011-B6C5-90C2223EC8AD" sourceRef="gateway-2EB279DB-E388-42BB-845F-D1B9EF3F2F8B" targetRef="41266C9A-A7CA-4ABA-8B69-304058C0ACD1">
+     <sequenceFlow id="gateway-begin_prepareparam1" sourceRef="gateway-begin" targetRef="prepareparam1">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $buggetmodulebranchdefault:Bug();
             $buggetmodulebranchmodule:Module();
@@ -25,12 +25,12 @@
                 ]]>
             </conditionExpression>
      </sequenceFlow>
-     <sequenceFlow id="A6614693-2D49-465D-ADC4-7EDA24BB5FEF" sourceRef="41266C9A-A7CA-4ABA-8B69-304058C0ACD1" targetRef="0A30004D-AA4D-43AC-883C-7C0CF6C472AC">
+     <sequenceFlow id="prepareparam1_deaction1" sourceRef="prepareparam1" targetRef="deaction1">
      </sequenceFlow>
-    <exclusiveGateway id="gateway-2EB279DB-E388-42BB-845F-D1B9EF3F2F8B" name="Gateway" gatewayDirection="Diverging" default="gateway-2EB279DB-E388-42BB-845F-D1B9EF3F2F8B_End_Line"></exclusiveGateway>
-    <sequenceFlow id="EE9B4572-666C-4011-B6C5-90C2223EC8AD-gatewayline" sourceRef="2EB279DB-E388-42BB-845F-D1B9EF3F2F8B" targetRef="gateway-2EB279DB-E388-42BB-845F-D1B9EF3F2F8B"></sequenceFlow>
-    <sequenceFlow id="gateway-2EB279DB-E388-42BB-845F-D1B9EF3F2F8B_End_Line" sourceRef="gateway-2EB279DB-E388-42BB-845F-D1B9EF3F2F8B" targetRef="gateway-2EB279DB-E388-42BB-845F-D1B9EF3F2F8B_End"/>
-    <endEvent id="gateway-2EB279DB-E388-42BB-845F-D1B9EF3F2F8B_End" name="End"/>
+    <exclusiveGateway id="gateway-begin" name="Gateway" gatewayDirection="Diverging" default="gateway-begin_end_line"></exclusiveGateway>
+    <sequenceFlow id="begin_gateway-begin_gatewayline" sourceRef="begin" targetRef="gateway-begin"></sequenceFlow>
+    <sequenceFlow id="gateway-begin_end_line" sourceRef="gateway-begin" targetRef="gateway-begin_end"/>
+    <endEvent id="gateway-begin_end" name="end"/>
     </process>
 </definitions>
 

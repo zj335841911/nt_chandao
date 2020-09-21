@@ -58,6 +58,13 @@ export class TodoCloseViewBase extends OptionViewBase {
     public appUIService: TodoUIService = new TodoUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof TodoCloseViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

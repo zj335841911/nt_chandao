@@ -1,5 +1,5 @@
 server:
-  port: 10120
+  port: 22120
 #Log配置
 logging:
   level:
@@ -207,6 +207,10 @@ zuul:
       path: /productlines/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    pssyssfpub:
+      path: /pssyssfpubs/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_testreport:
       path: /testreports/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -235,8 +239,16 @@ zuul:
       path: /ibzdocs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    pssysapp:
+      path: /pssysapps/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_case:
       path: /ibzcases/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    pssystemdbcfg:
+      path: /pssystemdbcfgs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_release:
@@ -294,6 +306,10 @@ zuul:
     ou_sys_dept:
       path: /sysdepartments/**
       serviceId: ${ibiz.ref.service.ou:ibzou-api}
+      stripPrefix: false
+    lite-core:
+      path: /lite/**
+      serviceId: ${ibiz.ref.service.lite:ibzlite-api}
       stripPrefix: false
   sensitive-headers:
     - Cookie,Set-Cookie,Authorization

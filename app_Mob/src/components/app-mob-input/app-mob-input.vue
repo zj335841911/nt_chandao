@@ -1,5 +1,8 @@
 <template>
-    <ion-input class="app-mob-input" debounce="300" :type="type" :value="value" :placeholder="placeholder" @ionChange="change" @ionBlur="()=>{this.$emit('blur')}"></ion-input>
+    <div class="editor-input">
+        <ion-input class="app-mob-input" debounce="300" :type="type" :value="value" :placeholder="placeholder" @ionChange="change" @ionBlur="()=>{this.$emit('blur')}"></ion-input>
+        <div class="app-mob-unit" v-if="unit">{{unit}}</div>
+    </div>
 </template>
 
 <script lang="ts">
@@ -32,7 +35,15 @@ export default class AppInput extends Vue {
      * @type {string}
      * @memberof AppInput
      */
-    @Prop() public placeholder?:string;   
+    @Prop() public placeholder?:string;  
+    
+    /**
+     * 单位
+     *
+     * @type {string}
+     * @memberof AppInput
+     */
+    @Prop() public unit?: string;
     
     /**
      * change事件

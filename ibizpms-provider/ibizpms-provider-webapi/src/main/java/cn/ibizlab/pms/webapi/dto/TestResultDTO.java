@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "lastrunner")
     @JsonProperty("lastrunner")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String lastrunner;
 
     /**
@@ -38,6 +42,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "stepresults")
     @JsonProperty("stepresults")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String stepresults;
 
     /**
@@ -46,6 +51,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "caseresult")
     @JsonProperty("caseresult")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String caseresult;
 
     /**
@@ -54,6 +60,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "xml")
     @JsonProperty("xml")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String xml;
 
     /**
@@ -79,7 +86,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [VERSION]
@@ -95,7 +102,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "job")
     @JsonProperty("job")
-    private BigInteger job;
+    private Long job;
 
     /**
      * 属性 [CASE]
@@ -103,7 +110,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
-    private BigInteger ibizcase;
+    private Long ibizcase;
 
     /**
      * 属性 [RUN]
@@ -111,7 +118,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "run")
     @JsonProperty("run")
-    private BigInteger run;
+    private Long run;
 
     /**
      * 属性 [COMPILE]
@@ -119,7 +126,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "compile")
     @JsonProperty("compile")
-    private BigInteger compile;
+    private Long compile;
 
     /**
      * 属性 [TASK]
@@ -127,6 +134,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "task")
     @JsonProperty("task")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String task;
 
     /**
@@ -135,6 +143,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "title")
     @JsonProperty("title")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String title;
 
     /**
@@ -143,7 +152,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "story")
     @JsonProperty("story")
-    private BigInteger story;
+    private Long story;
 
     /**
      * 属性 [MODULE]
@@ -151,7 +160,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "module")
     @JsonProperty("module")
-    private BigInteger module;
+    private Long module;
 
     /**
      * 属性 [PRODUCT]
@@ -159,7 +168,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
 
     /**
      * 属性 [PRECONDITION]
@@ -167,6 +176,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "precondition")
     @JsonProperty("precondition")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String precondition;
 
 
@@ -229,7 +239,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
     /**
      * 设置 [JOB]
      */
-    public void setJob(BigInteger  job){
+    public void setJob(Long  job){
         this.job = job ;
         this.modify("job",job);
     }
@@ -237,7 +247,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
     /**
      * 设置 [CASE]
      */
-    public void setIbizcase(BigInteger  ibizcase){
+    public void setIbizcase(Long  ibizcase){
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
@@ -245,7 +255,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
     /**
      * 设置 [RUN]
      */
-    public void setRun(BigInteger  run){
+    public void setRun(Long  run){
         this.run = run ;
         this.modify("run",run);
     }
@@ -253,11 +263,12 @@ public class TestResultDTO extends DTOBase implements Serializable {
     /**
      * 设置 [COMPILE]
      */
-    public void setCompile(BigInteger  compile){
+    public void setCompile(Long  compile){
         this.compile = compile ;
         this.modify("compile",compile);
     }
 
 
 }
+
 

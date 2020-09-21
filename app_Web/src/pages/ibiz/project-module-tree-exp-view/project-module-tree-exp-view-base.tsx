@@ -69,6 +69,13 @@ export class ProjectModuleTreeExpViewBase extends TreeExpViewBase {
     };
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof ProjectModuleTreeExpViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

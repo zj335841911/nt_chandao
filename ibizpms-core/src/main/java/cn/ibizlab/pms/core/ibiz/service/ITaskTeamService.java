@@ -29,17 +29,17 @@ public interface ITaskTeamService extends IService<TaskTeam>{
     void createBatch(List<TaskTeam> list) ;
     boolean update(TaskTeam et) ;
     void updateBatch(List<TaskTeam> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    TaskTeam get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    TaskTeam get(Long key) ;
     TaskTeam getDraft(TaskTeam et) ;
     boolean checkKey(TaskTeam et) ;
     boolean save(TaskTeam et) ;
     void saveBatch(List<TaskTeam> list) ;
     Page<TaskTeam> searchDefault(TaskTeamSearchContext context) ;
-    List<TaskTeam> selectByRoot(BigInteger id) ;
-    void removeByRoot(BigInteger id) ;
-    void saveByRoot(BigInteger id,List<TaskTeam> list) ;
+    List<TaskTeam> selectByRoot(Long id) ;
+    void removeByRoot(Long id) ;
+    void saveByRoot(Long id,List<TaskTeam> list) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

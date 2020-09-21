@@ -29,9 +29,9 @@ public interface IProjectStatsService extends IService<ProjectStats>{
     void createBatch(List<ProjectStats> list) ;
     boolean update(ProjectStats et) ;
     void updateBatch(List<ProjectStats> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    ProjectStats get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    ProjectStats get(Long key) ;
     ProjectStats getDraft(ProjectStats et) ;
     boolean checkKey(ProjectStats et) ;
     boolean save(ProjectStats et) ;

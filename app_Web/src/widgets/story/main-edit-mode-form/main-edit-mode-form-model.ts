@@ -51,11 +51,6 @@ export default class Main_EditModeModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'parent',
-        prop: 'parent',
-        dataType: 'PICKUP',
-      },
-      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
@@ -88,6 +83,16 @@ export default class Main_EditModeModel {
       {
         name: 'modulename',
         prop: 'modulename',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'parent',
+        prop: 'parent',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'parentname',
+        prop: 'parentname',
         dataType: 'PICKUPTEXT',
       },
       {

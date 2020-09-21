@@ -27,6 +27,26 @@ export default class Main_ReleaseSubModel {
     }else{
 		  return [
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'modulename',
+          prop: 'modulename',
+          dataType: 'PICKUPTEXT',
+        },
+        {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
@@ -66,29 +86,9 @@ export default class Main_ReleaseSubModel {
           dataType: 'ACID',
         },
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'modulename',
-          prop: 'modulename',
-          dataType: 'PICKUPTEXT',
-        },
-        {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
         },
         {
           name: 'branch',

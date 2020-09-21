@@ -58,6 +58,9 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().get(`/substories/${context.substory}/select`,isloading);
+            
+            return res;
     }
 
     /**
@@ -98,6 +101,18 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+        if(!data.srffrontuf || data.srffrontuf !== "1"){
+            data[this.APPDEKEY] = null;
+        }
+        if(data.srffrontuf){
+            delete data.srffrontuf;
+        }
+        let tempContext:any = JSON.parse(JSON.stringify(context));
+        let res:any = await Http.getInstance().post(`/substories`,data,isloading);
+        
+        return res;
     }
 
     /**
@@ -124,6 +139,11 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().put(`/substories/${context.substory}`,data,isloading);
+            
+            return res;
     }
 
     /**
@@ -144,6 +164,8 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().delete(`/stories/${context.story}/substories/${context.substory}`,isloading);
             return res;
         }
+            let res:any = Http.getInstance().delete(`/substories/${context.substory}`,isloading);
+            return res;
     }
 
     /**
@@ -166,6 +188,9 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = await Http.getInstance().get(`/substories/${context.substory}`,isloading);
+            
+            return res;
     }
 
     /**
@@ -190,6 +215,10 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+        let res:any = await  Http.getInstance().get(`/substories/getdraft`,isloading);
+        res.data.substory = data.substory;
+        
+        return res;
     }
 
     /**
@@ -216,6 +245,36 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/activate`,data,isloading);
+            return res;
+    }
+
+    /**
+     * AllPush接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async AllPush(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.substory){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/${context.substory}/allpush`,data,isloading);
+            
+            return res;
+        }
+        if(context.story && context.substory){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/substories/${context.substory}/allpush`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/allpush`,data,isloading);
+            return res;
     }
 
     /**
@@ -242,6 +301,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/assignto`,data,isloading);
+            return res;
     }
 
     /**
@@ -268,6 +329,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/batchassignto`,data,isloading);
+            return res;
     }
 
     /**
@@ -294,6 +357,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/batchchangebranch`,data,isloading);
+            return res;
     }
 
     /**
@@ -320,6 +385,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/batchchangemodule`,data,isloading);
+            return res;
     }
 
     /**
@@ -346,6 +413,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/batchchangeplan`,data,isloading);
+            return res;
     }
 
     /**
@@ -372,6 +441,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/batchchangestage`,data,isloading);
+            return res;
     }
 
     /**
@@ -398,6 +469,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/batchclose`,data,isloading);
+            return res;
     }
 
     /**
@@ -424,6 +497,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/batchreview`,data,isloading);
+            return res;
     }
 
     /**
@@ -450,6 +525,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/batchunlinkstory`,data,isloading);
+            return res;
     }
 
     /**
@@ -476,6 +553,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/bugtostory`,data,isloading);
+            return res;
     }
 
     /**
@@ -502,6 +581,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/buildbatchunlinkstory`,data,isloading);
+            return res;
     }
 
     /**
@@ -528,6 +609,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/buildlinkstory`,data,isloading);
+            return res;
     }
 
     /**
@@ -554,6 +637,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/buildunlinkstory`,data,isloading);
+            return res;
     }
 
     /**
@@ -580,6 +665,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/buildunlinkstorys`,data,isloading);
+            return res;
     }
 
     /**
@@ -606,6 +693,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/change`,data,isloading);
+            return res;
     }
 
     /**
@@ -632,6 +721,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -658,6 +749,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/close`,data,isloading);
+            return res;
     }
 
     /**
@@ -684,6 +777,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/getstoryspec`,data,isloading);
+            return res;
     }
 
     /**
@@ -706,6 +801,9 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = await Http.getInstance().get(`/substories/${context.substory}/getstoryspecs`,isloading);
+            
+            return res;
     }
 
     /**
@@ -732,6 +830,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/importplanstories`,data,isloading);
+            return res;
     }
 
     /**
@@ -758,6 +858,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/linkstory`,data,isloading);
+            return res;
     }
 
     /**
@@ -784,6 +886,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/projectbatchunlinkstory`,data,isloading);
+            return res;
     }
 
     /**
@@ -810,6 +914,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/projectlinkstory`,data,isloading);
+            return res;
     }
 
     /**
@@ -836,6 +942,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/projectunlinkstory`,data,isloading);
+            return res;
     }
 
     /**
@@ -862,6 +970,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/projectunlinkstorys`,data,isloading);
+            return res;
     }
 
     /**
@@ -888,6 +998,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/push`,data,isloading);
+            return res;
     }
 
     /**
@@ -914,6 +1026,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/releasebatchunlinkstory`,data,isloading);
+            return res;
     }
 
     /**
@@ -940,6 +1054,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/releaselinkstory`,data,isloading);
+            return res;
     }
 
     /**
@@ -966,6 +1082,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/releaseunlinkstory`,data,isloading);
+            return res;
     }
 
     /**
@@ -992,6 +1110,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/resetreviewedby`,data,isloading);
+            return res;
     }
 
     /**
@@ -1018,6 +1138,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/review`,data,isloading);
+            return res;
     }
 
     /**
@@ -1044,6 +1166,11 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/substories/${context.substory}/save`,data,isloading);
+            
+            return res;
     }
 
     /**
@@ -1070,6 +1197,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/sendmessage`,data,isloading);
+            return res;
     }
 
     /**
@@ -1096,6 +1225,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/sendmsgpreprocess`,data,isloading);
+            return res;
     }
 
     /**
@@ -1122,6 +1253,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/storyfavorites`,data,isloading);
+            return res;
     }
 
     /**
@@ -1148,6 +1281,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/storynfavorites`,data,isloading);
+            return res;
     }
 
     /**
@@ -1174,6 +1309,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/syncfromibiz`,data,isloading);
+            return res;
     }
 
     /**
@@ -1200,6 +1337,8 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/substories/${context.substory}/unlinkstory`,data,isloading);
+            return res;
     }
 
     /**
@@ -1222,6 +1361,34 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchassignedtomystory`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchassignedtomystory`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchBugStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async FetchBugStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchbugstory`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchbugstory`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchbugstory`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1244,6 +1411,9 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchbuildlinkcompletedstories`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchbuildlinkcompletedstories`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1266,6 +1436,9 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchbuildlinkablestories`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchbuildlinkablestories`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1288,6 +1461,9 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchbuildstories`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchbuildstories`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1310,6 +1486,9 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchbymodule`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchbymodule`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1332,6 +1511,9 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchdefault`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchdefault`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1354,6 +1536,9 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchgetproductstories`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchgetproductstories`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1376,6 +1561,9 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchmyfavorites`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchmyfavorites`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1398,6 +1586,9 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchparentdefault`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchparentdefault`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1420,6 +1611,9 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchprojectlinkstory`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchprojectlinkstory`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1442,6 +1636,9 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchprojectstories`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchprojectstories`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1464,6 +1661,9 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchreleaselinkablestories`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchreleaselinkablestories`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1486,6 +1686,9 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchreleasestories`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchreleasestories`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1508,6 +1711,9 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchreportstories`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchreportstories`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1530,6 +1736,9 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchstorychild`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchstorychild`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1552,6 +1761,9 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchstoryrelated`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchstoryrelated`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1574,6 +1786,9 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchsubstory`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchsubstory`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1596,6 +1811,9 @@ export default class SubStoryServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchtaskrelatedstory`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/substories/fetchtaskrelatedstory`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1608,12 +1826,6 @@ export default class SubStoryServiceBase extends EntityService {
      * @memberof SubStoryServiceBase
      */
     public async GetTaskReStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story &&  true){
-            return Http.getInstance().post(`products/${context.product}/stories/${context.story}/substories/gettaskrestory`,data,isloading);
-        }
-        if(context.story &&  true){
-            return Http.getInstance().post(`stories/${context.story}/substories/gettaskrestory`,data,isloading);
-        }
     }
 
     /**
@@ -1626,11 +1838,5 @@ export default class SubStoryServiceBase extends EntityService {
      * @memberof SubStoryServiceBase
      */
     public async ToStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story &&  true){
-            return Http.getInstance().post(`products/${context.product}/stories/${context.story}/substories/tostory`,data,isloading);
-        }
-        if(context.story &&  true){
-            return Http.getInstance().post(`stories/${context.story}/substories/tostory`,data,isloading);
-        }
     }
 }

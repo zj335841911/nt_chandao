@@ -148,7 +148,7 @@
             </el-select>
             <i-button type="primary" @click="onSearch.apply(_self, arguments)">{{ $t('app.searchButton.search') }}</i-button>
             <i-button @click="onReset.apply(_self, arguments)">{{ $t('app.searchButton.reset') }}</i-button>
-            <Poptip ref="propip" trigger="hover" placement="top-end" :title="$t('app.searchForm.custom')" :width="250" @on-popper-show="openPoper.apply(_self, arguments)">
+            <Poptip ref="propip" trigger="hover" transfer placement="top-end" :title="$t('app.searchForm.custom')" :width="250" @on-popper-show="openPoper.apply(_self, arguments)">
                 <i-button><i class="fa fa-floppy-o" aria-hidden="true"></i></i-button>
                 <template slot="content">
                     <div>

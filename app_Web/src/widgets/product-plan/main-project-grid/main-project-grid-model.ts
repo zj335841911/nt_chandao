@@ -27,14 +27,14 @@ export default class MainProjectModel {
     }else{
 		  return [
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'title',
           prop: 'title',
           dataType: 'TEXT',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
         },
         {
           name: 'parent',

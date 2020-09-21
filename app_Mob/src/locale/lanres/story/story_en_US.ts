@@ -60,17 +60,35 @@ export default {
 		newmobeditview: {
 			caption: '需求',
 		},
+		moblistview: {
+			caption: '需求',
+		},
 		mobmdview9: {
 			caption: '需求',
 		},
 		rmoboptionview: {
 			caption: '评审',
 		},
+		mobmdviewcurproject: {
+			caption: '需求',
+		},
 		mobpickupmdview: {
 			caption: '需求',
 		},
+		linkstorymobmpickupview: {
+			caption: '管理需求',
+		},
+		favoritemoremobmdview: {
+			caption: '我收藏的需求',
+		},
 		asmoboptionview: {
 			caption: '指派',
+		},
+		assmobmdview9: {
+			caption: '需求',
+		},
+		favoritemobmdview9: {
+			caption: '需求',
 		},
 		cmoboptionview: {
 			caption: '关闭',
@@ -84,11 +102,17 @@ export default {
 		mobmdview: {
 			caption: '需求',
 		},
+		assmoremobmdview: {
+			caption: '指派给我的需求',
+		},
 		favoritemobmdview: {
 			caption: '需求',
 		},
 		changemoboptionview: {
 			caption: '变更',
+		},
+		linkstorymobpickupmdview: {
+			caption: '关联需求',
 		},
 		mobeditview: {
 			caption: '需求',
@@ -317,13 +341,15 @@ export default {
 			caption: '关闭',
 			tip: 'deuiaction1_closestorymob',
 		},
+		deuiaction1_openbaseinfoeditviewmob: {
+			caption: '编辑',
+			tip: 'deuiaction1_openbaseinfoeditviewmob',
+		},
 		deuiaction1_deletemob: {
 			caption: '删除',
 			tip: 'deuiaction1_deletemob',
 		},
 	},
-	favoritemobmdviewrighttoolbar_toolbar: {
-	},
-	assmobmdviewrighttoolbar_toolbar: {
+	mobmdviewcurprojectrighttoolbar_toolbar: {
 	},
 };

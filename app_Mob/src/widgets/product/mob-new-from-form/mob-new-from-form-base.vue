@@ -46,7 +46,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.name" 
+    :value="data.name"
+    unit=""
     :disabled="detailsModel.name.disabled" 
     @change="($event)=>this.data.name = $event" />
 </app-form-item>
@@ -71,7 +72,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.code" 
+    :value="data.code"
+    unit=""
     :disabled="detailsModel.code.disabled" 
     @change="($event)=>this.data.code = $event" />
 </app-form-item>
@@ -109,14 +111,13 @@
         <app-mob-select-drop-down 
     name='linename' 
     deMajorField='name'
-    deKeyField='moduleid'
+    deKeyField='id'
     valueitem='' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :dataOverLoad="dataOverLoad"
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     :viewparams="viewparams"
@@ -125,6 +126,7 @@
     :service="service"
     :acParams="{ serviceName: 'module', interfaceName: 'FetchLine'}"
     :value="data.linename" 
+    @formitemvaluechange="onFormItemValueChange"
     @change="($event)=>this.data.linename = $event">
 </app-mob-select-drop-down>
 </app-form-item>
@@ -158,8 +160,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.po"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.po"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.po = $event" />
@@ -190,8 +191,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.qd"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.qd"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.qd = $event" />
@@ -222,8 +222,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.rd"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.rd"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.rd = $event" />
@@ -254,8 +253,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.type"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.type"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.type = $event" />
@@ -279,7 +277,6 @@
     :caption="$t('product.mobnewfrom_form.details.desc')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.desc.disabled"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"product",version:"editor"}' :exportparams='{objecttype:"product",version:"editor"}'  style=""/>
@@ -311,8 +308,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.acl"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.acl"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.acl = $event" />
@@ -467,12 +463,6 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
-    /**
-     * 加载完成
-     *
-     * @memberof MobNewFROM
-     */
-    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -1610,7 +1600,6 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
@@ -1643,7 +1632,6 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

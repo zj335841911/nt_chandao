@@ -43,13 +43,16 @@ export default {
   },
 	views: {
 		prodmobtabexpview: {
-			caption: '产品详情',
+			caption: '产品',
 		},
 		mobpickupmdview: {
 			caption: '产品',
 		},
+		mobchartview9: {
+			caption: '产品',
+		},
 		mobtabexpview: {
-			caption: '测试详情',
+			caption: '测试',
 		},
 		mobpickupview: {
 			caption: '产品',
@@ -150,6 +153,17 @@ export default {
 			desc: '产品描述	', 
 			acl: '访问控制', 
 			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
+	mobdef_searchform: {
+		details: {
+			formpage1: '常规条件', 
+			n_name_like: '产品名称', 
+			n_status_eq: '状态', 
+			n_type_eq: '产品类型', 
+			n_linename_like: '产品线', 
 		},
 		uiactions: {
 		},

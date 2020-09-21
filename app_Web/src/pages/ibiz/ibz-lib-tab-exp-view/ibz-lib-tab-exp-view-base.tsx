@@ -58,6 +58,13 @@ export class IbzLibTabExpViewBase extends TabExpViewBase {
     public appUIService: IbzLibUIService = new IbzLibUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof IbzLibTabExpViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

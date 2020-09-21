@@ -33,14 +33,13 @@
         <app-mob-select-drop-down 
     name='productname' 
     deMajorField='name'
-    deKeyField='productid'
+    deKeyField='id'
     valueitem='' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :dataOverLoad="dataOverLoad"
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     :viewparams="viewparams"
@@ -49,6 +48,7 @@
     :service="service"
     :acParams="{ serviceName: 'product', interfaceName: 'FetchDefault'}"
     :value="data.productname" 
+    @formitemvaluechange="onFormItemValueChange"
     @change="($event)=>this.data.productname = $event">
 </app-mob-select-drop-down>
 </app-form-item>
@@ -86,7 +86,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.name" 
+    :value="data.name"
+    unit=""
     :disabled="detailsModel.name.disabled" 
     @change="($event)=>this.data.name = $event" />
 </app-form-item>
@@ -116,8 +117,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.marker"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.marker"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.marker = $event" />
@@ -143,14 +143,13 @@
         <app-mob-select-drop-down 
     name='buildname' 
     deMajorField='name'
-    deKeyField='buildid'
+    deKeyField='id'
     valueitem='' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :dataOverLoad="dataOverLoad"
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     :viewparams="viewparams"
@@ -159,6 +158,7 @@
     :service="service"
     :acParams="{ serviceName: 'build', interfaceName: 'FetchDefault'}"
     :value="data.buildname" 
+    @formitemvaluechange="onFormItemValueChange"
     @change="($event)=>this.data.buildname = $event">
 </app-mob-select-drop-down>
 </app-form-item>
@@ -206,7 +206,6 @@
     :caption="$t('release.mobnewform_form.details.desc')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.desc.disabled"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""/>
@@ -362,12 +361,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
-    /**
-     * 加载完成
-     *
-     * @memberof MobNewForm
-     */
-    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -660,6 +653,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             { type: 'string', message: '发布日期 值必须为字符串类型', trigger: 'blur' },
             { required: true, type: 'string', message: '发布日期 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '发布日期 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("date").isPast},message: "", trigger: 'change' },
         ],
         desc: [
             { type: 'string', message: '描述 值必须为字符串类型', trigger: 'change' },
@@ -682,6 +676,17 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @memberof MobNewFormBase
      */
     public deRules:any = {
+                date:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"LTANDEQ",
+                      ruleInfo:"发布日期不能大于当前日期", 
+                      isKeyCond:false,
+                      paramType:"CURTIME",
+                      isNotMode:false,
+                      deName:"date",
+                  },
+                ],
     };
 
     /**
@@ -1436,7 +1441,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
@@ -1469,7 +1473,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

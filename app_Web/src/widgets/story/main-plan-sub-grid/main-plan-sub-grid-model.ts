@@ -27,6 +27,51 @@ export default class Main_PlanSubModel {
     }else{
 		  return [
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'modulename',
+          prop: 'modulename',
+          dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'stage',
+          prop: 'stage',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
@@ -37,27 +82,12 @@ export default class Main_PlanSubModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
         },
         {
           name: 'srfmstag',
-        },
-        {
-          name: 'estimate',
-          prop: 'estimate',
-          dataType: 'FLOAT',
-        },
-        {
-          name: 'stage',
-          prop: 'stage',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'srfmajortext',
@@ -81,39 +111,9 @@ export default class Main_PlanSubModel {
           isEditable:true
         },
         {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'modulename',
-          prop: 'modulename',
-          dataType: 'PICKUPTEXT',
-        },
-        {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
         },
         {
           name: 'branch',

@@ -7,6 +7,7 @@ import TaskAuthService from '@/authservice/task/task-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import TaskUIService from '@/uiservice/task/task-ui-service';
 import CodeListService from "@service/app/codelist-service";
+import  ProjectTaskQCounterCounterService  from '@/counter/project-task-qcounter/project-task-qcounter-counter';
 
 
 /**
@@ -59,6 +60,28 @@ export class TaskMainGridViewBase extends GridViewBase {
      * @memberof TaskMainGridViewBase
      */
     public appUIService: TaskUIService = new TaskUIService(this.$store);
+
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskMainGridViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'PROJECT': { isRawValue: false, value: 'project' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskMainGridViewBase
+	 */
+    protected customViewParams: any = {
+        'project': { isRawValue: false, value: 'project' }
+    };
 
     /**
      * 视图模型数据
@@ -458,6 +481,14 @@ export class TaskMainGridViewBase extends GridViewBase {
         }
         xData.exportExcel($event.exportparms);
     }
+
+    /**
+     * ProjectTaskQCounterCounterService计数器服务对象
+     *
+     * @type {ProjectTaskQCounterCounterService}
+     * @memberof TaskMainGridViewBase
+     */
+    protected projecttaskqcountercounterservice: ProjectTaskQCounterCounterService = new ProjectTaskQCounterCounterService({ $store: this.$store,context:this.context,viewparams:this.viewparams });
 
     /**
      * 是否启用快速分组

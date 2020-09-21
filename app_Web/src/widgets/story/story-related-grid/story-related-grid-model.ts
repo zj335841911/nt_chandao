@@ -27,24 +27,24 @@ export default class StoryRelatedModel {
     }else{
 		  return [
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
         },
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'title',
           prop: 'title',
           dataType: 'TEXT',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
         },
         {
           name: 'frombug',

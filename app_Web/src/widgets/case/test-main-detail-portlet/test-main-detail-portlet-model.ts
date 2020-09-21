@@ -177,6 +177,9 @@ export default class TestMainDetailModel {
       {
         name: 'libname',
       },
+      {
+        name: 'lastrunresult1',
+      },
     ]
   }
 

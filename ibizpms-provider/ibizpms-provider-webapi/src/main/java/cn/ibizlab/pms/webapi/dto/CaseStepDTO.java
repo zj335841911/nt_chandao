@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,7 @@ public class CaseStepDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "type")
     @JsonProperty("type")
+    @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
     private String type;
 
     /**
@@ -38,7 +42,7 @@ public class CaseStepDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [DESC]
@@ -46,6 +50,7 @@ public class CaseStepDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "desc")
     @JsonProperty("desc")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String desc;
 
     /**
@@ -54,6 +59,7 @@ public class CaseStepDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "expect")
     @JsonProperty("expect")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String expect;
 
     /**
@@ -70,7 +76,7 @@ public class CaseStepDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
-    private BigInteger ibizcase;
+    private Long ibizcase;
 
     /**
      * 属性 [PARENT]
@@ -78,7 +84,7 @@ public class CaseStepDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "parent")
     @JsonProperty("parent")
-    private BigInteger parent;
+    private Long parent;
 
     /**
      * 属性 [REALS]
@@ -86,6 +92,7 @@ public class CaseStepDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "reals")
     @JsonProperty("reals")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String reals;
 
     /**
@@ -94,6 +101,7 @@ public class CaseStepDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "steps")
     @JsonProperty("steps")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String steps;
 
     /**
@@ -102,6 +110,7 @@ public class CaseStepDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "files")
     @JsonProperty("files")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String files;
 
     /**
@@ -148,7 +157,7 @@ public class CaseStepDTO extends DTOBase implements Serializable {
     /**
      * 设置 [CASE]
      */
-    public void setIbizcase(BigInteger  ibizcase){
+    public void setIbizcase(Long  ibizcase){
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
@@ -156,11 +165,12 @@ public class CaseStepDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PARENT]
      */
-    public void setParent(BigInteger  parent){
+    public void setParent(Long  parent){
         this.parent = parent ;
         this.modify("parent",parent);
     }
 
 
 }
+
 

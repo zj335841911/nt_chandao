@@ -27,14 +27,60 @@ export default class Main_BuildSub3Model {
     }else{
 		  return [
         {
-          name: 'tostory',
-          prop: 'tostory',
-          dataType: 'PICKUP',
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'resolvedby',
+          prop: 'resolvedby',
+          dataType: 'SSCODELIST',
+          isEditable:true
         },
         {
           name: 'resolution',
           prop: 'resolution',
           dataType: 'SSCODELIST',
+        },
+        {
+          name: 'project',
+          prop: 'project',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'tostory',
+          prop: 'tostory',
+          dataType: 'PICKUP',
         },
         {
           name: 'srfmstag',
@@ -56,19 +102,9 @@ export default class Main_BuildSub3Model {
           dataType: 'ACID',
         },
         {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'duplicatebug',
           prop: 'duplicatebug',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
         },
         {
           name: 'resolvedby_text',
@@ -76,19 +112,9 @@ export default class Main_BuildSub3Model {
           dataType: 'SSCODELIST',
         },
         {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
-        },
-        {
           name: 'story',
           prop: 'story',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
         },
         {
           name: 'confirmed',
@@ -101,11 +127,6 @@ export default class Main_BuildSub3Model {
           dataType: 'PICKUP',
         },
         {
-          name: 'isfavorites',
-          prop: 'isfavorites',
-          dataType: 'TEXT',
-        },
-        {
           name: 'totask',
           prop: 'totask',
           dataType: 'PICKUP',
@@ -114,11 +135,6 @@ export default class Main_BuildSub3Model {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'task',
@@ -136,25 +152,9 @@ export default class Main_BuildSub3Model {
           dataType: 'PICKUP',
         },
         {
-          name: 'project',
-          prop: 'project',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
           name: 'plan',
           prop: 'plan',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'resolvedby',
-          prop: 'resolvedby',
-          dataType: 'SSCODELIST',
-          isEditable:true
         },
         {
           name: 'entry',

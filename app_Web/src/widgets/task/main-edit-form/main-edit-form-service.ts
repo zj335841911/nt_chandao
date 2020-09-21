@@ -118,8 +118,8 @@ export default class MainEditService extends ControlService {
         if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchTaskRelatedStory')) {
             return this.doItems(this.storyService.FetchTaskRelatedStory(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');
         }
-        if (Object.is(serviceName, 'TaskService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.appEntityService.FetchDefault(JSON.parse(JSON.stringify(context)), data, isloading), 'id', 'task');
+        if (Object.is(serviceName, 'TaskService') && Object.is(interfaceName, 'FetchRootTask')) {
+            return this.doItems(this.appEntityService.FetchRootTask(JSON.parse(JSON.stringify(context)), data, isloading), 'id', 'task');
         }
 
         return Promise.reject([])

@@ -703,6 +703,7 @@ export default {
 			openeddate: "创建日期",
 			assignedto: "指派给",
 			uagridcolumn1: "操作",
+			isfavorites: "是否收藏",
 		},
 		uiactions: {
 			bug_unlinkbug: "移除关联",
@@ -734,6 +735,7 @@ export default {
 			uagridcolumn1: "操作",
 			lastediteddate: "修改日期",
 			activateddate: "激活日期",
+			isfavorites: "是否收藏",
 		},
 		uiactions: {
 			bug_confirmbug: "确认",
@@ -755,6 +757,7 @@ export default {
 			openeddate: "创建日期",
 			resolvedby: "解决",
 			uagridcolumn1: "操作",
+			isfavorites: "是否收藏",
 		},
 		uiactions: {
 			bug_unlinkbug_build: "解除关联",
@@ -771,6 +774,7 @@ export default {
 			resolvedby: "解决者",
 			resolution: "方案",
 			project: "所属项目",
+			isfavorites: "是否收藏",
 		},
 		uiactions: {
 		},
@@ -779,6 +783,7 @@ export default {
 		columns: {
 			id: "ID",
 			pri: "P",
+			confirmed: "是否确认",
 			title: "Bug标题",
 			status: "Bug状态",
 			openedby: "创建",
@@ -786,6 +791,7 @@ export default {
 			resolvedby: "解决者",
 			resolution: "方案",
 			uagridcolumn1: "操作列",
+			isfavorites: "是否收藏",
 		},
 		uiactions: {
 			bug_confirmbug: "确认",
@@ -843,6 +849,7 @@ export default {
 			assignedto: "指派给",
 			resolution: "方案",
 			uagridcolumn1: "操作",
+			isfavorites: "是否收藏",
 		},
 		uiactions: {
 			bug_confirmbug: "确认",

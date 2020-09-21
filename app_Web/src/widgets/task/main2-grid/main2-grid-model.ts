@@ -32,14 +32,19 @@ export default class Main2Model {
           dataType: 'ACID',
         },
         {
-          name: 'story',
-          prop: 'story',
-          dataType: 'PICKUP',
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
         },
         {
-          name: 'project',
-          prop: 'project',
-          dataType: 'PICKUP',
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'status1',
+          prop: 'status1',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'module',
@@ -47,9 +52,9 @@ export default class Main2Model {
           dataType: 'PICKUP',
         },
         {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
+          name: 'tasktype',
+          prop: 'tasktype',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'frombug',
@@ -60,11 +65,6 @@ export default class Main2Model {
           name: 'status',
           prop: 'status',
           dataType: 'SSCODELIST',
-        },
-        {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
         },
         {
           name: 'parent',
@@ -80,15 +80,25 @@ export default class Main2Model {
           dataType: 'TEXT',
         },
         {
+          name: 'srfkey',
+          prop: 'id',
+          dataType: 'ACID',
+          isEditable:true
+        },
+        {
           name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',
         },
         {
-          name: 'srfkey',
-          prop: 'id',
-          dataType: 'ACID',
-          isEditable:true
+          name: 'project',
+          prop: 'project',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'story',
+          prop: 'story',
+          dataType: 'PICKUP',
         },
         {
           name: 'task',

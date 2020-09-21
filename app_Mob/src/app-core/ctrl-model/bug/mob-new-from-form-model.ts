@@ -136,9 +136,19 @@ export class MobNewFROMModel {
                 dataType: 'LONGTEXT',
             },
             {
+                name: 'task',
+                prop: 'task',
+                dataType: 'PICKUP',
+            },
+            {
                 name: 'storyname',
                 prop: 'storyname',
                 dataType: 'PICKUPTEXT',
+            },
+            {
+                name: 'story',
+                prop: 'story',
+                dataType: 'PICKUP',
             },
             {
                 name: 'taskname',

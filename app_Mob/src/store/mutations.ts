@@ -244,3 +244,41 @@ export const setThirdPartyName = (state: any, name: any) => {
 export const updateZIndex = (state: any, zIndex: number) => {
     state.zIndex = zIndex;
 }
+
+/**
+ * 是否弹出过表单确认框
+ * 
+ * @param state 
+ */
+export const setNoticeStatus = (state: any, status: boolean) => {
+    state.noticeStatus = status;
+}
+
+/**
+ * 是否能弹出选择框
+ * 
+ * @param state 
+ */
+export const setSelectStatus = (state: any, status: boolean) => {
+  state.selectStatus = status;
+}
+
+/**
+ * 修改文本对齐方式
+ * 
+ * @param state 
+ * @param val 
+ */
+export const setTextAlignStyle = (state: any, val: any) => {
+  state.selectTextAlign = val;
+}
+
+/**
+ * 修改导航栏风格
+ * 
+ * @param state 
+ * @param val 
+ */
+export const setNavigationStyle = (state: any, val: any) => {
+  state.selectNaviStyle = val;
+}

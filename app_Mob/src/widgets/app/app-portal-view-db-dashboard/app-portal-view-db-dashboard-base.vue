@@ -1,7 +1,7 @@
 <template>
     <ion-grid class="app-mob-dashboard  ">
         <div v-show="isEnableCustomized" class="dashboard-enableCustomized" @click="openCustomized">定制仪表盘<ion-icon name="settings-outline"></ion-icon></div>
-            <div class="dashboard-item" v-if="!isEnableCustomized">
+            <ion-card class="dashboard-item" v-if="!isEnableCustomized">
             <view_db_appmenu1
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -11,8 +11,8 @@
     ref='db_appmenu1' 
     @closeview="closeView($event)">
 </view_db_appmenu1>
-            </div>
-            <div class="dashboard-item" v-if="!isEnableCustomized">
+            </ion-card>
+            <ion-card class="dashboard-item" v-if="!isEnableCustomized">
             <view_db_appmenu2
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -22,8 +22,8 @@
     ref='db_appmenu2' 
     @closeview="closeView($event)">
 </view_db_appmenu2>
-            </div>
-            <div class="dashboard-item" v-if="!isEnableCustomized">
+            </ion-card>
+            <ion-card class="dashboard-item" v-if="!isEnableCustomized">
             <view_db_appmenu3
     :viewState="viewState"
     viewName="AppPortalView"  
@@ -33,11 +33,11 @@
     ref='db_appmenu3' 
     @closeview="closeView($event)">
 </view_db_appmenu3>
-            </div>
+            </ion-card>
             <template v-for="item in customizeModel">
-                <div class="dashboard-item"  :key="item.id" v-if="isEnableCustomized">
-                    <component :is="item.componentName" :viewState="viewState" :name="item.portletCodeName" :context="context" :viewparams="viewparams"></component>
-                </div>
+                <ion-card class="dashboard-item ios hydrated" :class="item.componentName + 'dashboard'"  :key="item.id" v-if="isEnableCustomized">
+                    <component :is="item.componentName" :item="item" :isCustomize="true" :customizeTitle="item.customizeTitle" :viewState="viewState" :name="item.portletCodeName" :context="context" :isChildView="true" :viewparams="viewparams" @enableCustomizedEvent="enableCustomizedEvent"></component>
+                </ion-card>
             </template>
     </ion-grid>
 </template>
@@ -198,7 +198,7 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
     protected utilService: UtilService = new UtilService();
 
     /**
-     * 加载数据模型
+     * 加载定制数据模型
      *
      * @param {string} serviceName
      * @param {*} context
@@ -224,7 +224,36 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
         });
     }
 
+    /**
+     * 保存定制数据模型
+     *
+     * @param {string} serviceName
+     * @param {*} context
+     * @param {*} viewparams
+     * @memberof AppPortalView_db
+     */
+    public saveModel(serviceName: string, context: any, viewparams: any) {
+        return new Promise((resolve: any, reject: any) => {
+            this.utilService.getService(serviceName).then((service: any) => {
+                service.saveModelData(JSON.stringify(context), "", viewparams)
+                    .then((response: any) => {
+                        resolve(response);
+                    })
+                    .catch((response: any) => {
+                        reject(response);
+                    });
+                })
+                .catch((response: any) => {
+                    reject(response);
+                });
+            });
+    }
 
+    /**
+     * 定制数据模型
+     *
+     * @memberof AppPortalView_db
+     */
     public customizeModel :any = [];
 
     /**
@@ -257,13 +286,14 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
                 if (!Object.is(tag, this.name)) {
                     return;
                 }
+                if(this.isEnableCustomized){
+                    this.loadModel(this.utilServiceName,this.context,Object.assign({utilServiceName:this.utilServiceName,modelid:this.modelId},this.viewparams));
+                    return;
+                }
                 const refs: any = this.$refs;
                 Object.keys(refs).forEach((name: string) => {
                     this.viewState.next({ tag: name, action: action, data: data });
                 });
-                if(this.isEnableCustomized){
-                    this.loadModel(this.utilServiceName,this.context,Object.assign({utilServiceName:this.utilServiceName,modelid:this.modelId},this.viewparams));
-                }
             });
         }
     }
@@ -308,6 +338,34 @@ export default class AppPortalView_dbBase extends Vue implements ControlInterfac
         if (result || Object.is(result.ret, 'OK')) {
             this.loadModel(this.utilServiceName,this.context,Object.assign({utilServiceName:this.utilServiceName,modelid:this.modelId},this.viewparams));
         }
+    }
+
+    /**
+     * 定制事件
+     *
+     * @type {string}
+     * @memberof AppRichTextEditor
+     */
+    public async enableCustomizedEvent(tag:string,customizeModelItem:any,title:string) {
+        let index = this.customizeModel.findIndex((item:any)=>{
+                return item.id === customizeModelItem.id;
+        })
+        let meassage :string= '';
+        if(tag === 'rename'){
+            this.customizeModel.splice(index,1,(customizeModelItem as never));
+            meassage = '重命名';
+        }
+        if(tag === 'delete'){
+            this.customizeModel.splice(index,1); 
+            meassage = '删除';
+        }
+        let falg = await this.saveModel(this.utilServiceName,{},
+        {
+            utilServiceName: this.utilServiceName,
+            modelid: this.modelId,
+            model: this.customizeModel,
+        });
+          falg? this.$notice.success(meassage+'成功'):this.$notice.error(meassage+'失败');
     }
 
 }

@@ -165,6 +165,10 @@ export default class ProjectStoryModel {
           prop:'sort'
         },
         {
+          name:'items',
+          prop:'items'
+        },
+        {
           name:'srfparentdata',
           prop:'srfparentdata'
         },

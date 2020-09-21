@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class ActionResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Create-all')")
     @ApiOperation(value = "新建系统日志", tags = {"系统日志" },  notes = "新建系统日志")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions")
-    public ResponseEntity<ActionDTO> create(@RequestBody ActionDTO actiondto) {
+    public ResponseEntity<ActionDTO> create(@Validated @RequestBody ActionDTO actiondto) {
         Action domain = actionMapping.toDomain(actiondto);
 		actionService.create(domain);
         ActionDTO dto = actionMapping.toDto(domain);
@@ -67,7 +68,7 @@ public class ActionResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Update-all')")
     @ApiOperation(value = "更新系统日志", tags = {"系统日志" },  notes = "更新系统日志")
 	@RequestMapping(method = RequestMethod.PUT, value = "/actions/{action_id}")
-    public ResponseEntity<ActionDTO> update(@PathVariable("action_id") BigInteger action_id, @RequestBody ActionDTO actiondto) {
+    public ResponseEntity<ActionDTO> update(@PathVariable("action_id") Long action_id, @RequestBody ActionDTO actiondto) {
 		Action domain  = actionMapping.toDomain(actiondto);
         domain .setId(action_id);
 		actionService.update(domain );
@@ -86,14 +87,14 @@ public class ActionResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Remove-all')")
     @ApiOperation(value = "删除系统日志", tags = {"系统日志" },  notes = "删除系统日志")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/actions/{action_id}")
-    public ResponseEntity<Boolean> remove(@PathVariable("action_id") BigInteger action_id) {
+    public ResponseEntity<Boolean> remove(@PathVariable("action_id") Long action_id) {
          return ResponseEntity.status(HttpStatus.OK).body(actionService.remove(action_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Remove-all')")
     @ApiOperation(value = "批量删除系统日志", tags = {"系统日志" },  notes = "批量删除系统日志")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/actions/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         actionService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -101,7 +102,7 @@ public class ActionResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Get-all')")
     @ApiOperation(value = "获取系统日志", tags = {"系统日志" },  notes = "获取系统日志")
 	@RequestMapping(method = RequestMethod.GET, value = "/actions/{action_id}")
-    public ResponseEntity<ActionDTO> get(@PathVariable("action_id") BigInteger action_id) {
+    public ResponseEntity<ActionDTO> get(@PathVariable("action_id") Long action_id) {
         Action domain = actionService.get(action_id);
         ActionDTO dto = actionMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
@@ -122,7 +123,7 @@ public class ActionResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Comment-all')")
     @ApiOperation(value = "添加备注", tags = {"系统日志" },  notes = "添加备注")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/comment")
-    public ResponseEntity<ActionDTO> comment(@PathVariable("action_id") BigInteger action_id, @RequestBody ActionDTO actiondto) {
+    public ResponseEntity<ActionDTO> comment(@PathVariable("action_id") Long action_id, @RequestBody ActionDTO actiondto) {
         Action domain = actionMapping.toDomain(actiondto);
         domain.setId(action_id);
         domain = actionService.comment(domain);
@@ -133,7 +134,7 @@ public class ActionResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-EditComment-all')")
     @ApiOperation(value = "编辑备注信息", tags = {"系统日志" },  notes = "编辑备注信息")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/editcomment")
-    public ResponseEntity<ActionDTO> editComment(@PathVariable("action_id") BigInteger action_id, @RequestBody ActionDTO actiondto) {
+    public ResponseEntity<ActionDTO> editComment(@PathVariable("action_id") Long action_id, @RequestBody ActionDTO actiondto) {
         Action domain = actionMapping.toDomain(actiondto);
         domain.setId(action_id);
         domain = actionService.editComment(domain);

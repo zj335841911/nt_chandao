@@ -192,7 +192,7 @@ export default class DropDownList extends Vue {
             if(this.value && !this.items.find((item: any) => Object.is(this.value, item.value))) {
                 return;
             }
-            this.$emit('change', undefined);
+            this.$emit('change', null);
         }
     }
 

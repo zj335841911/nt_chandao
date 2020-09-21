@@ -1,13 +1,14 @@
 package cn.ibizlab.pms.ibiz.logic.productmodulelogic.fixpath;
-
 import java.util.Map;
 import java.util.HashMap;
 import com.alibaba.fastjson.JSONObject;
+import org.springframework.util.StringUtils;
 global cn.ibizlab.pms.core.zentao.domain.Module productmodulefixpathzt_module;
 global cn.ibizlab.pms.core.ibiz.domain.ProductModule productmodulefixpathdefault;
 global cn.ibizlab.pms.core.zentao.service.IModuleService moduleservice;
 global cn.ibizlab.pms.core.ibiz.service.IProductModuleService iBzSysProductmoduleDefaultService;
 global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
+
 
 no-loop
 

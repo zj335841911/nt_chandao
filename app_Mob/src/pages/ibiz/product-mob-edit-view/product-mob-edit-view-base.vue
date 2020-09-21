@@ -3,6 +3,8 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'product-mob-edit-view': true }">
     
     <ion-header>
+
+    
     </ion-header>
 
 
@@ -33,29 +35,31 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
+    <ion-footer class="view-footer" style="z-index:9999;">
                 <div  class = "fab_container">
-            <div class="bottom_menu">
-        
-        
-            <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
-                <ion-fab-list class="fab-list" side="top">
+            <ion-button @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <van-popup class="popup" v-model="showGrop" round position="bottom">
+                <div class="container">
                 
         
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
-            {{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}    
-            </ion-fab-button>
-        
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction2.visabled" :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)">
-            {{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}    
-            </ion-fab-button>
-        
-        
-        
-                </ion-fab-list>
-            </ion-fab>
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
+                <span class="btn-inner-text">{{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction1.caption')}}</span>
             </div>
+        
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction2.disabled}" v-show="righttoolbarModels.deuiaction2.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction2.disabled" @click="righttoolbar_click({ tag: 'deuiaction2' }, $event)" size="large">
+                <span class="btn-inner-text">{{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('product.mobeditviewrighttoolbar_toolbar.deuiaction2.caption')}}</span>
+            </div>
+        
+        
+        
+                </div>
+            </van-popup>
         </div>
     </ion-footer>
 </ion-page>
@@ -320,6 +324,24 @@ export default class ProductMobEditViewBase extends Vue {
         return toolBarVisable;
     }
 
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof ProductMobEditView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof ProductMobEditView 
+     */
+    public popUpGroup () {
+        this.showGrop = !this.showGrop;
+    }
+
     
 
 
@@ -414,6 +436,7 @@ export default class ProductMobEditViewBase extends Vue {
         }
 
     }
+
 
     /**
      * 销毁之前
@@ -734,7 +757,7 @@ export default class ProductMobEditViewBase extends Vue {
         if (view && view.viewdatachange) {
                 const title: any = this.$t('app.tabpage.sureclosetip.title');
                 const contant: any = this.$t('app.tabpage.sureclosetip.content');
-                const result = await this.$notice.confirm(title, contant);
+                const result = await this.$notice.confirm(title, contant, this.$store);
                 if (result) {
                     this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
                     return true;

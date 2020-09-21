@@ -29,9 +29,9 @@ public interface ILangService extends IService<Lang>{
     void createBatch(List<Lang> list) ;
     boolean update(Lang et) ;
     void updateBatch(List<Lang> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Lang get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Lang get(Long key) ;
     Lang getDraft(Lang et) ;
     boolean checkKey(Lang et) ;
     boolean save(Lang et) ;

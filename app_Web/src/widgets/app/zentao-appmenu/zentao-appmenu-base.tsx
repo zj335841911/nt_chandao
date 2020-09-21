@@ -309,16 +309,19 @@ export class ZentaoBase extends Vue {
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'ibzproproducts', parameterName: 'ibzproproduct' },
-            { pathName: 'gridview', parameterName: 'gridview' },
+            { pathName: 'products', parameterName: 'product' },
         ];
-        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        if(Object.is(this.$route.fullPath,path)){
-            return;
-        }
-        this.$nextTick(function(){
-            this.$router.push(path);
-        })
+        const view: any = {
+            viewname: 'product-wizard-view',
+            title: (this.$t('entities.product.views.wizardview.title') as any),
+            height: 0,
+            width: 0,
+            placement: 'DRAWER_RIGHT'
+        };
+        const appdrawer = this.$appdrawer.openDrawer(view, JSON.parse(JSON.stringify(this.context)), viewparam);
+        appdrawer.subscribe((result: any) => {
+            console.log(result);
+        });
     }
     
     /**

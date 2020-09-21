@@ -29,9 +29,9 @@ public interface ITeamService extends IService<Team>{
     void createBatch(List<Team> list) ;
     boolean update(Team et) ;
     void updateBatch(List<Team> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Team get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Team get(Long key) ;
     Team getDraft(Team et) ;
     boolean checkKey(Team et) ;
     Team managePorjectMembers(Team et) ;

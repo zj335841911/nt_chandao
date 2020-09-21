@@ -10,7 +10,6 @@
     .app-mob-portlet {
         margin: 0;
         width: 100%;
-        min-height: 300px;
         &__header {
             padding-left: @padding-xs;
             font-size: @font-size-md;
@@ -20,15 +19,17 @@
         }
     }
     .dashboard-item {
-        margin: 10px;
         background: #fafafa;
         min-height: 300px;
+        .app-mob-mdctrl {
+            background: #fafafa;
+        }
     }
     .dashboard-enableCustomized{
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        margin: 10px;
+        margin: 0 10px;
         font-size: 14px;
         color: #7b7575;
         ion-icon{

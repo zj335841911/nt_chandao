@@ -2,6 +2,9 @@
 <embed-view :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview9': true, 'story-mob-mdview9': true }">
     <template slot="header">
     </template>
+
+    <template slot="toolbar">
+    </template>
     <template slot="content">
                 <view_mdctrl
             :viewState="viewState"
@@ -22,6 +25,7 @@
             @showCheackChange="showCheackChange"
             :isTempMode="false"
             :isEnableChoose="false"
+            :needLoadMore="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -181,7 +185,7 @@ export default class StoryMobMDView9Base extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-star-o'
     }
 
     /**
@@ -356,6 +360,7 @@ export default class StoryMobMDView9Base extends Vue {
         }
 
     }
+
 
     /**
      * 销毁之前
@@ -610,8 +615,12 @@ export default class StoryMobMDView9Base extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
         }
         if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
@@ -700,6 +709,15 @@ export default class StoryMobMDView9Base extends Vue {
      * @memberof StoryMobMDView9Base
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+
+   /**
+     * 能否上拉加载
+     *
+     * @type {boolean}
+     * @memberof StoryMobMDView9Base
+     */ 
+    @Prop({ default: true }) public isEnablePullUp?: boolean;
+
 
     /**
      * 分类值
@@ -812,8 +830,6 @@ export default class StoryMobMDView9Base extends Vue {
         event.target.complete();
       }
     }
-
-
 
 
 

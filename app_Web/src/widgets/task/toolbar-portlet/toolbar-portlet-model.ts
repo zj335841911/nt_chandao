@@ -177,6 +177,12 @@ export default class ToolbarModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'status1',
+      },
+      {
+        name: 'tasktype',
+      },
     ]
   }
 

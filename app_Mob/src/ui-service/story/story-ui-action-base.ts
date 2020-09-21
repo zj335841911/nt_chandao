@@ -53,7 +53,7 @@ export default class StoryUIActionBase extends EntityUIActionBase {
      * 
      * @memberof  StoryUIServiceBase
      */  
-    public mainStateFields:Array<any> = ['status','isfavorites'];
+    public mainStateFields:Array<any> = ['status','isfavorites','ischild'];
 
     /**
      * 主状态集合Map
@@ -90,16 +90,24 @@ export default class StoryUIActionBase extends EntityUIActionBase {
      */  
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'moblistview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mobmdview9',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'rmoboptionview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'mobmdviewcurproject',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mobpickupmdview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'linkstorymobmpickupview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'favoritemoremobmdview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'asmoboptionview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'assmobmdview9',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'favoritemobmdview9',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'cmoboptionview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'assmobmdview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'acmoboptionview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'mobmdview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'assmoremobmdview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'favoritemobmdview',srfappde:'stories'});
         this.allViewMap.set(':',{viewname:'changemoboptionview',srfappde:'stories'});
+        this.allViewMap.set(':',{viewname:'linkstorymobpickupmdview',srfappde:'stories'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'stories'});
         this.allViewMap.set('MOBPICKUPVIEW:',{viewname:'mobpickupview',srfappde:'stories'});
     }
@@ -112,20 +120,28 @@ export default class StoryUIActionBase extends EntityUIActionBase {
     public initDeMainStateMap(){
         this.allDeMainStateMap.set('active__0__0','active__0__0');
         this.allDeMainStateMap.set('active__0__1','active__0__1');
+        this.allDeMainStateMap.set('active__0__2','active__0__2');
         this.allDeMainStateMap.set('active__1__0','active__1__0');
         this.allDeMainStateMap.set('active__1__1','active__1__1');
+        this.allDeMainStateMap.set('active__1__2','active__1__2');
         this.allDeMainStateMap.set('changed__0__0','changed__0__0');
         this.allDeMainStateMap.set('changed__0__1','changed__0__1');
+        this.allDeMainStateMap.set('changed__0__2','changed__0__2');
         this.allDeMainStateMap.set('changed__1__0','changed__1__0');
         this.allDeMainStateMap.set('changed__1__1','changed__1__1');
+        this.allDeMainStateMap.set('changed__1__2','changed__1__2');
         this.allDeMainStateMap.set('closed__0__0','closed__0__0');
         this.allDeMainStateMap.set('closed__0__1','closed__0__1');
+        this.allDeMainStateMap.set('closed__0__2','closed__0__2');
         this.allDeMainStateMap.set('closed__1__0','closed__1__0');
         this.allDeMainStateMap.set('closed__1__1','closed__1__1');
+        this.allDeMainStateMap.set('closed__1__2','closed__1__2');
         this.allDeMainStateMap.set('draft__0__0','draft__0__0');
         this.allDeMainStateMap.set('draft__0__1','draft__0__1');
+        this.allDeMainStateMap.set('draft__0__2','draft__0__2');
         this.allDeMainStateMap.set('draft__1__0','draft__1__0');
         this.allDeMainStateMap.set('draft__1__1','draft__1__1');
+        this.allDeMainStateMap.set('draft__1__2','draft__1__2');
     }
 
     /**
@@ -135,21 +151,129 @@ export default class StoryUIActionBase extends EntityUIActionBase {
      */  
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('active__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('active__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_CCASE_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__0__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('active__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('active__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CCASE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__1__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('changed__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('changed__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('changed__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CCASE_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('changed__0__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('changed__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('changed__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('changed__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CCASE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('changed__1__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('closed__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_CCASE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__0__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('closed__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_CCASE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('draft__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('draft__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('draft__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_CCASE_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('draft__0__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('draft__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('draft__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('draft__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_CCASE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_ASS_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('draft__1__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+    }
+
+    /**
+     * 更多
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof StoryUIService
+     */
+    public async Story_MyFavMore(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if (context.product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'favoritemoremobmdview', parameterName: 'favoritemoremobmdview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        return response;
+    }
+
+    /**
+     * 编辑
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof StoryUIService
+     */
+    public async Story_OpenBaseInfoEditViewMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { story: '%story%' });
+        Object.assign(paramJO, { id: '%story%' });
+        Object.assign(paramJO, { title: '%title%' });
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if (context.product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+        }
+        return response;
     }
 
     /**
@@ -468,6 +592,52 @@ export default class StoryUIActionBase extends EntityUIActionBase {
     }
 
     /**
+     * 更多
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof StoryUIService
+     */
+    public async Story_MyAssMore(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if (context.product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'assmoremobmdview', parameterName: 'assmoremobmdview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        return response;
+    }
+
+    /**
      * 关闭
      *
      * @param {any[]} args 数据
@@ -628,6 +798,63 @@ export default class StoryUIActionBase extends EntityUIActionBase {
             }
         }
         return response;
+    }
+
+    /**
+     * 移除
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof StoryUIService
+     */
+    public async Story_ProjectUnlinkStoryMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const state: boolean = await Notice.getInstance().confirm('警告', '您确定从该项目中移除该需求吗？');
+        if (!state) {
+            return Promise.reject();
+        }
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { story: '%story%' });
+        Object.assign(paramJO, { id: '%story%' });
+        Object.assign(paramJO, { title: '%title%' });
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('story');
+            const response: any = await curUIService.ProjectUnlinkStory(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('已移除');
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        return backend();
     }
 
 

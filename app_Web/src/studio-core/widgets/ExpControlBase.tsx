@@ -209,4 +209,30 @@ export class ExpControlBase extends ControlBase {
         }
         this.onSearch($event);
     }
+
+    /**
+     * 设置导航区工具栏禁用状态
+     *
+     * @param {boolean} state
+     * @param {*} models
+     * @return {*} 
+     * @memberof ExpControlBase
+     */
+    calcToolbarItemState(state: boolean, models?: any) {
+        if (models) {
+            for (const key in models) {
+                if (!models.hasOwnProperty(key)) {
+                    return;
+                }
+                const _item = models[key];
+                if (_item.uiaction && (Object.is(_item.uiaction.target, 'SINGLEKEY') || Object.is(_item.uiaction.target, 'MULTIKEY'))) {
+                    _item.disabled = state;
+                }
+                _item.visabled = true;
+                if (_item.noprivdisplaymode && _item.noprivdisplaymode === 6) {
+                    _item.visabled = false;
+                }
+            }
+        }
+    }
 }

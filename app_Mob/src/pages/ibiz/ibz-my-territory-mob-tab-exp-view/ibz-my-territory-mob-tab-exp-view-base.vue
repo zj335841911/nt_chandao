@@ -11,6 +11,8 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
+
+    
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
                             <ion-segment-button value="tabviewpanel4">
@@ -19,6 +21,9 @@
                             <ion-segment-button value="tabviewpanel">
                             
                             仪表盘</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel5">
+                            
+                            我的工作</ion-segment-button>
                         </ion-segment>
                     </ion-toolbar>
     </ion-header>
@@ -262,6 +267,7 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
 
 
 
+
     /**
      * 工具栏模型集合名
      *
@@ -440,6 +446,7 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *
@@ -548,8 +555,12 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
         }
         if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });

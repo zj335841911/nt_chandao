@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { StoryMainGridViewBase } from './story-main-grid-view-base';
-import view_grid from '@widgets/story/main-grid/main-grid.vue';
+import view_grid from '@widgets/story/tree-main-grid/tree-main-grid.vue';
 import view_searchbar from '@widgets/story/custom-searchbar/custom-searchbar.vue';
 
 /**

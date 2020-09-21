@@ -1,11 +1,12 @@
 package cn.ibizlab.pms.zentao.logic.projectlogic.mobprojectcount;
-
 import java.util.Map;
 import java.util.HashMap;
 import com.alibaba.fastjson.JSONObject;
+import org.springframework.util.StringUtils;
 global cn.ibizlab.pms.core.zentao.domain.Project projectmobprojectcountdefault;
 global cn.ibizlab.pms.core.zentao.service.IProjectService iBzSysProjectDefaultService;
 global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
+
 
 no-loop
 
@@ -77,7 +78,7 @@ ruleflow-group "projectmobprojectcountrawsqlcall2"
     then
     Map param =new HashMap();
     param.put("param0",projectmobprojectcountdefault.get("id"));
-    String strSql="select count(t1.id) as TASKCNT from zt_task t1 where t1.deleted = '0' and t1.project = #{et.param0}";
+    String strSql="select count(t1.id) as TASKCNT from zt_task t1 where t1.deleted = '0' and t1.project = #{et.param0} and `STATUS` in('doing','wait','pause')";
     java.util.List<JSONObject> entities=iBzSysProjectDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);

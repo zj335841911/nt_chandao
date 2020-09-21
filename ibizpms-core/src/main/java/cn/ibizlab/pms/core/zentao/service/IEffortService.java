@@ -29,9 +29,9 @@ public interface IEffortService extends IService<Effort>{
     void createBatch(List<Effort> list) ;
     boolean update(Effort et) ;
     void updateBatch(List<Effort> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Effort get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Effort get(Long key) ;
     Effort getDraft(Effort et) ;
     boolean checkKey(Effort et) ;
     boolean save(Effort et) ;

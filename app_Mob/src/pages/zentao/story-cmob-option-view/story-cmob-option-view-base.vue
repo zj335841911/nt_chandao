@@ -1,3 +1,4 @@
+
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demoboptview': true, 'story-cmob-option-view': true }">
     
@@ -11,6 +12,8 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
+
+    
     </ion-header>
 
 
@@ -39,7 +42,7 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
+    <ion-footer class="view-footer" style="z-index:9999;">
         <div class="option-view-btnbox">
   <ion-button class="option-btn medium" color="medium" @click="back">返回</ion-button>
   <ion-button class="option-btn success" @click="save">保存</ion-button> 
@@ -193,7 +196,7 @@ export default class StoryCMobOptionViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-star-o'
     }
 
     /**
@@ -355,6 +358,7 @@ export default class StoryCMobOptionViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *
@@ -491,17 +495,25 @@ export default class StoryCMobOptionViewBase extends Vue {
      * @memberof StoryCMobOptionViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+              let result = await this.cheackChange();
+      if(result){
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
         }
         if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
         }
+      }
+
         
     }
 
@@ -573,6 +585,28 @@ export default class StoryCMobOptionViewBase extends Vue {
         }
     }
 
+    /**
+     * 检查表单是否修改
+     *
+     * @param {any[]} args
+     * @memberof PimEducationMobEditViewBase
+     */
+    public async cheackChange(): Promise<any>{
+        const view = this.$store.getters['viewaction/getAppView'](this.viewtag);
+        if (view && view.viewdatachange) {
+                const title: any = this.$t('app.tabpage.sureclosetip.title');
+                const contant: any = this.$t('app.tabpage.sureclosetip.content');
+                const result = await this.$notice.confirm(title, contant, this.$store);
+                if (result) {
+                    this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
+                    return true;
+                } else {
+                    return false;
+                }
+        }else{
+            return true;
+        }
+    }
 }
 </script>
 

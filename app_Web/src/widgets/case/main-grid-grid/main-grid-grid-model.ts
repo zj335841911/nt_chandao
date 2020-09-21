@@ -27,9 +27,34 @@ export default class MainGridModel {
     }else{
 		  return [
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'lastrunner',
+          prop: 'lastrunner',
+          dataType: 'TEXT',
         },
         {
           name: 'lastrundate',
@@ -37,9 +62,34 @@ export default class MainGridModel {
           dataType: 'DATETIME',
         },
         {
+          name: 'lastrunresult',
+          prop: 'lastrunresult',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'status1',
+          prop: 'status1',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'tobugcnt',
+          prop: 'tobugcnt',
+          dataType: 'INT',
+        },
+        {
           name: 'resultcnt',
           prop: 'resultcnt',
           dataType: 'INT',
+        },
+        {
+          name: 'casesteps',
+          prop: 'casesteps',
+          dataType: 'ONE2MANYDATA',
+        },
+        {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
         },
         {
           name: 'frombug',
@@ -49,16 +99,6 @@ export default class MainGridModel {
         {
           name: 'status',
           prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'status1',
-          prop: 'status1',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'type',
-          prop: 'type',
           dataType: 'SSCODELIST',
         },
         {
@@ -81,19 +121,9 @@ export default class MainGridModel {
           isEditable:true
         },
         {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'TEXT',
-        },
-        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
         },
         {
           name: 'story',
@@ -101,19 +131,14 @@ export default class MainGridModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
           name: 'lib',
           prop: 'lib',
           dataType: 'PICKUP',
+        },
+        {
+          name: 'lastrunresult1',
+          prop: 'lastrunresult1',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'branch',
@@ -124,26 +149,6 @@ export default class MainGridModel {
           name: 'fromcaseid',
           prop: 'fromcaseid',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'lastrunresult',
-          prop: 'lastrunresult',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'casesteps',
-          prop: 'casesteps',
-          dataType: 'ONE2MANYDATA',
-        },
-        {
-          name: 'lastrunner',
-          prop: 'lastrunner',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'tobugcnt',
-          prop: 'tobugcnt',
-          dataType: 'INT',
         },
         {
           name: 'case',

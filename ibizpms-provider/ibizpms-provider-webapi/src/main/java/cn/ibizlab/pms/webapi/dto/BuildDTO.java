@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,8 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "name")
     @JsonProperty("name")
+    @NotBlank(message = "[名称编号]不允许为空!")
+    @Size(min = 0, max = 150, message = "内容长度必须小于等于[150]")
     private String name;
 
     /**
@@ -38,6 +43,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "builder")
     @JsonProperty("builder")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String builder;
 
     /**
@@ -46,6 +52,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "desc")
     @JsonProperty("desc")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String desc;
 
     /**
@@ -54,7 +61,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [DELETED]
@@ -62,6 +69,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
     private String deleted;
 
     /**
@@ -70,6 +78,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "scmpath")
     @JsonProperty("scmpath")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String scmpath;
 
     /**
@@ -78,6 +87,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "filepath")
     @JsonProperty("filepath")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String filepath;
 
     /**
@@ -86,6 +96,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "stories")
     @JsonProperty("stories")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String stories;
 
     /**
@@ -94,6 +105,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "bugs")
     @JsonProperty("bugs")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String bugs;
 
     /**
@@ -111,7 +123,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
 
     /**
      * 属性 [BRANCH]
@@ -119,7 +131,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "branch")
     @JsonProperty("branch")
-    private BigInteger branch;
+    private Long branch;
 
     /**
      * 属性 [PROJECT]
@@ -127,7 +139,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "project")
     @JsonProperty("project")
-    private BigInteger project;
+    private Long project;
 
     /**
      * 属性 [PRODUCTNAME]
@@ -135,6 +147,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "productname")
     @JsonProperty("productname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String productname;
 
     /**
@@ -143,6 +156,7 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ids")
     @JsonProperty("ids")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String ids;
 
     /**
@@ -151,7 +165,52 @@ public class BuildDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "files")
     @JsonProperty("files")
+    @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
     private String files;
+
+    /**
+     * 属性 [REBUILD]
+     *
+     */
+    @JSONField(name = "rebuild")
+    @JsonProperty("rebuild")
+    private Integer rebuild;
+
+    /**
+     * 属性 [RELEASETYPE]
+     *
+     */
+    @JSONField(name = "releasetype")
+    @JsonProperty("releasetype")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String releasetype;
+
+    /**
+     * 属性 [FRONTAPPLICATION]
+     *
+     */
+    @JSONField(name = "frontapplication")
+    @JsonProperty("frontapplication")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String frontapplication;
+
+    /**
+     * 属性 [BACKGROUNDID]
+     *
+     */
+    @JSONField(name = "backgroundid")
+    @JsonProperty("backgroundid")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String backgroundid;
+
+    /**
+     * 属性 [SQLID]
+     *
+     */
+    @JSONField(name = "sqlid")
+    @JsonProperty("sqlid")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String sqlid;
 
 
     /**
@@ -221,7 +280,7 @@ public class BuildDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PRODUCT]
      */
-    public void setProduct(BigInteger  product){
+    public void setProduct(Long  product){
         this.product = product ;
         this.modify("product",product);
     }
@@ -229,7 +288,7 @@ public class BuildDTO extends DTOBase implements Serializable {
     /**
      * 设置 [BRANCH]
      */
-    public void setBranch(BigInteger  branch){
+    public void setBranch(Long  branch){
         this.branch = branch ;
         this.modify("branch",branch);
     }
@@ -237,11 +296,12 @@ public class BuildDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PROJECT]
      */
-    public void setProject(BigInteger  project){
+    public void setProject(Long  project){
         this.project = project ;
         this.modify("project",project);
     }
 
 
 }
+
 

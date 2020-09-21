@@ -54,6 +54,7 @@ export default {
     assignedto: "指派给",
     task: "属性",
     libname: "用例库",
+    lastrunresult1: "测试用例结果",
   },
 	views: {
 		editview: {

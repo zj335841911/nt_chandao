@@ -7,14 +7,14 @@
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="caseruncasesdefault" type="cn.ibizlab.pms.core.zentao.domain.Case" />
         </extensionElements>
-     <startEvent id="687D83DD-A007-4137-804B-7ABC04B7FF48" isInterrupting="true"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseruncasesprepareparam1" id="CB9952BD-EA5F-44E3-8448-77F6FCF4D6AB" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseruncasesdeaction1" id="04BF942E-4DDC-4B29-B288-8BCDA79A21DB" implementation="http://www.jboss.org/drools/rule" name="执行测试"/>
-     <endEvent id="04BF942E-4DDC-4B29-B288-8BCDA79A21DB_End" name="End"/>
-     <sequenceFlow id="04BF942E-4DDC-4B29-B288-8BCDA79A21DB_End_Line" sourceRef="04BF942E-4DDC-4B29-B288-8BCDA79A21DB" targetRef="04BF942E-4DDC-4B29-B288-8BCDA79A21DB_End"/>
-     <sequenceFlow id="B96716F2-6820-4A1A-B375-25FB33B43F23" sourceRef="687D83DD-A007-4137-804B-7ABC04B7FF48" targetRef="CB9952BD-EA5F-44E3-8448-77F6FCF4D6AB">
+     <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseruncasesprepareparam1" id="prepareparam1" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseruncasesdeaction1" id="deaction1" implementation="http://www.jboss.org/drools/rule" name="执行测试"/>
+     <endEvent id="deaction1_end" name="end"/>
+     <sequenceFlow id="deaction1_end_line" sourceRef="deaction1" targetRef="deaction1_end"/>
+     <sequenceFlow id="begin_prepareparam1" sourceRef="begin" targetRef="prepareparam1">
      </sequenceFlow>
-     <sequenceFlow id="92B590E0-51AD-40D2-8221-A830A36A56E6" sourceRef="CB9952BD-EA5F-44E3-8448-77F6FCF4D6AB" targetRef="04BF942E-4DDC-4B29-B288-8BCDA79A21DB">
+     <sequenceFlow id="prepareparam1_deaction1" sourceRef="prepareparam1" targetRef="deaction1">
      </sequenceFlow>
     </process>
 </definitions>

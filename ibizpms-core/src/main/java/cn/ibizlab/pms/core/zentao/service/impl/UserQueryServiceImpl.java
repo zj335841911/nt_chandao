@@ -79,19 +79,19 @@ public class UserQueryServiceImpl extends ServiceImpl<UserQueryMapper, UserQuery
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public UserQuery get(BigInteger key) {
+    public UserQuery get(Long key) {
         UserQuery et = getById(key);
         if(et==null){
             et=new UserQuery();

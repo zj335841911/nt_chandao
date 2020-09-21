@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,7 +33,7 @@ public class IBZProProductDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [NAME]
@@ -38,6 +41,8 @@ public class IBZProProductDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "name")
     @JsonProperty("name")
+    @NotBlank(message = "[产品名称]不允许为空!")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String name;
 
     /**
@@ -46,7 +51,17 @@ public class IBZProProductDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibizid")
     @JsonProperty("ibizid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String ibizid;
+
+    /**
+     * 属性 [CODE]
+     *
+     */
+    @JSONField(name = "code")
+    @JsonProperty("code")
+    @Size(min = 0, max = 45, message = "内容长度必须小于等于[45]")
+    private String code;
 
 
     /**
@@ -65,6 +80,15 @@ public class IBZProProductDTO extends DTOBase implements Serializable {
         this.modify("ibiz_id",ibizid);
     }
 
+    /**
+     * 设置 [CODE]
+     */
+    public void setCode(String  code){
+        this.code = code ;
+        this.modify("code",code);
+    }
+
 
 }
+
 

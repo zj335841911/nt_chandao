@@ -58,6 +58,13 @@ export class ProjectEditView_SuspendBase extends EditViewBase {
     public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof ProjectEditView_SuspendBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

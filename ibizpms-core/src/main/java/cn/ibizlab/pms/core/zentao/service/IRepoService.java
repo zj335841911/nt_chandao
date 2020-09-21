@@ -29,9 +29,9 @@ public interface IRepoService extends IService<Repo>{
     void createBatch(List<Repo> list) ;
     boolean update(Repo et) ;
     void updateBatch(List<Repo> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Repo get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Repo get(Long key) ;
     Repo getDraft(Repo et) ;
     boolean checkKey(Repo et) ;
     boolean save(Repo et) ;

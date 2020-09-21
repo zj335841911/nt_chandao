@@ -108,45 +108,12 @@ export class TestListExpViewlistexpbarListexpbarBase extends ListViewExpBarContr
     public showMode:string ="horizontal";
 
     /**
-     * 控件宽度
-     *
-     * @type {number}
-     * @memberof TestListExpViewlistexpbarBase
-     */
-    public ctrlWidth:number = 0;
-
-    /**
      * 控件高度
      *
      * @type {number}
      * @memberof TestListExpViewlistexpbarBase
      */
     public ctrlHeight: number = 0;
-
-
-    /**
-    * 执行mounted后的逻辑
-    *
-    * @memberof TestListExpViewlistexpbarBase
-    */
-    public ctrlMounted(){ 
-        if(this.$store.getters.getViewSplit(this.viewUID)){
-            this.split = this.$store.getters.getViewSplit(this.viewUID);
-        }else{
-            let containerWidth:number = (document.getElementById("testlistexpviewlistexpbar") as any).offsetWidth;
-            let containerHeight:number = (document.getElementById("testlistexpviewlistexpbar") as any).offsetHeight;
-            if(Object.is(this.showMode,'horizontal')){
-                if(this.ctrlWidth){
-                    this.split = this.ctrlWidth/containerWidth;
-                }
-            }else{
-                if(this.ctrlHeight){
-                    this.split = this.ctrlHeight/containerHeight;
-                }
-            }
-            this.$store.commit("setViewSplit",{viewUID:this.viewUID,viewSplit:this.split}); 
-        }  
-    }
     
     /**
      * listexpbar的选中数据事件
@@ -157,6 +124,7 @@ export class TestListExpViewlistexpbarListexpbarBase extends ListViewExpBarContr
         let tempContext:any = {};
         let tempViewParam:any = {};
         if (args.length === 0) {
+            this.selection = {};
             return ;
         }
         const arg:any = args[0];

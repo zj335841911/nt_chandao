@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,7 @@ public class DynaDashboardDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "dynadashboardid")
     @JsonProperty("dynadashboardid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String dynadashboardid;
 
     /**
@@ -38,6 +42,7 @@ public class DynaDashboardDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "dynadashboardname")
     @JsonProperty("dynadashboardname")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String dynadashboardname;
 
     /**
@@ -46,6 +51,7 @@ public class DynaDashboardDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "createman")
     @JsonProperty("createman")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String createman;
 
     /**
@@ -54,6 +60,7 @@ public class DynaDashboardDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String updateman;
 
     /**
@@ -80,6 +87,7 @@ public class DynaDashboardDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "userid")
     @JsonProperty("userid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String userid;
 
     /**
@@ -88,6 +96,7 @@ public class DynaDashboardDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "appid")
     @JsonProperty("appid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String appid;
 
     /**
@@ -96,6 +105,7 @@ public class DynaDashboardDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "model")
     @JsonProperty("model")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
     private String model;
 
     /**
@@ -104,6 +114,7 @@ public class DynaDashboardDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "modelid")
     @JsonProperty("modelid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String modelid;
 
 
@@ -149,4 +160,5 @@ public class DynaDashboardDTO extends DTOBase implements Serializable {
 
 
 }
+
 

@@ -1,8 +1,16 @@
 package cn.ibizlab.pms.core.extensions.service;
 
+import cn.ibizlab.pms.core.ibizpro.domain.IBZProProduct;
+import cn.ibizlab.pms.core.ibizpro.service.IIBZProProductService;
+import cn.ibizlab.pms.core.ibizsysmodel.domain.PSSysRunSession;
+import cn.ibizlab.pms.core.ibizsysmodel.service.IPSSysRunSessionService;
+import cn.ibizlab.pms.core.zentao.domain.Build;
+import cn.ibizlab.pms.core.zentao.service.IBuildService;
 import cn.ibizlab.pms.core.zentao.service.impl.ReleaseServiceImpl;
+import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Release;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
@@ -15,6 +23,13 @@ import java.util.*;
 @Primary
 @Service("ReleaseExService")
 public class ReleaseExService extends ReleaseServiceImpl {
+
+    @Autowired
+    IPSSysRunSessionService psSysRunSessionService;
+
+    @Autowired
+    IIBZProProductService iibzProProductService;
+
 
     @Override
     protected Class currentModelClass() {
@@ -90,6 +105,32 @@ public class ReleaseExService extends ReleaseServiceImpl {
     @Transactional
     public Release linkStory(Release et) {
         return super.linkStory(et);
+    }
+    /**
+     * 自定义行为[OneClickRelease]用户扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Release oneClickRelease(Release et) {
+
+        PSSysRunSession runSession = new PSSysRunSession();
+        // 后台服务体系标识
+        runSession.setPssyssfpubid(et.getBackgroundid());
+        // 数据标识
+        runSession.setPssystemdbcfgid(et.getSqlid());
+        // 发布类型
+        runSession.setRunmode(et.getReleasetype());
+        // 前端应用标识
+        runSession.setPssysappid(et.getFrontapplication());
+
+        runSession.setRebuildmode(et.getRebuild());
+        et = this.get(et.getId());
+        IBZProProduct ibzProProduct = iibzProProductService.get(et.getProduct());
+        runSession.setMemo("正式版本[#"+ et.getId() +"] " + et.getName());
+        psSysRunSessionService.create(ibzProProduct.getIbizid(), runSession);
+        return super.oneClickRelease(et);
     }
     /**
      * 自定义行为[Terminate]用户扩展

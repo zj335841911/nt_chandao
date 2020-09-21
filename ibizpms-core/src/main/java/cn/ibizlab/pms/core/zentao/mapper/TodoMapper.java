@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 public interface TodoMapper extends BaseMapper<Todo>{
 
     Page<Todo> searchDefault(IPage page, @Param("srf") TodoSearchContext context, @Param("ew") Wrapper<Todo> wrapper) ;
+    Page<Todo> searchMyTodo(IPage page, @Param("srf") TodoSearchContext context, @Param("ew") Wrapper<Todo> wrapper) ;
     Page<Todo> searchMyUpcoming(IPage page, @Param("srf") TodoSearchContext context, @Param("ew") Wrapper<Todo> wrapper) ;
     @Override
     Todo selectById(Serializable id);

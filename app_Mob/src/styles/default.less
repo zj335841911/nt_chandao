@@ -1,11 +1,10 @@
 @import "../../node_modules/font-awesome/less/font-awesome.less";
-@import "../theme/blue.theme.less";
-@import "../theme/dark-blue.theme.less";
-@import "../theme/default.theme.less";
-@import "./theme.less";
-@import "./layout.less";
+@import "./theme/index.less";
+@import "./layout/index.less";
 @import "./sysStyles.less";
-.view-container {
+
+
+.ion-page.view-container {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -108,6 +107,9 @@ ion-item{
 ion-segment{
   width: 100%;
 }
+.header-ios ion-toolbar:last-of-type {
+  --border-width: 0;
+}
 // 确认操作按钮颜色调整
 button.alert-button.ion-focusable.ion-activatable.secondary.sc-ion-alert-ios {
   color: #ef6b6b;
@@ -123,3 +125,17 @@ button.alert-button.ion-focusable.ion-activatable.secondary.sc-ion-alert-ios {
 .layout(@default-form-text-align);
 
 @import "./user.less";
+// ion-content{
+//   --background: inherit;
+// }
+
+// ion-list.items.ios.list-ios.hydrated {
+//   --background: inherit;
+// }
+
+ion-toolbar{
+  --padding-bottom: 0;
+  --padding-end: 0;
+  --padding-start: 0;
+  --padding-top: 0;
+}

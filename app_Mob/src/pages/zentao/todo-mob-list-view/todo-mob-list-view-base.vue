@@ -20,6 +20,8 @@
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
         </ion-toolbar>
+
+    
     </ion-header>
 
 
@@ -333,6 +335,7 @@ export default class TodoMobListViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *
@@ -527,8 +530,12 @@ export default class TodoMobListViewBase extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
         }
         if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });

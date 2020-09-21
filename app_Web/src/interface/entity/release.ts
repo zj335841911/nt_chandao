@@ -141,4 +141,44 @@ export interface Release {
      * @memberof Release
      */
     files?: any;
+
+    /**
+     * 后台体系
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    backgroundid?: any;
+
+    /**
+     * 运行数据库
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    sqlid?: any;
+
+    /**
+     * 系统应用
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    frontapplication?: any;
+
+    /**
+     * 重新构建
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    rebuild?: any;
+
+    /**
+     * 运行模式
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    releasetype?: any;
 }

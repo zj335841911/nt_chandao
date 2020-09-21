@@ -27,14 +27,14 @@ export default class PlatformManagementModel {
     }else{
 		  return [
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
+        },
+        {
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
         },
         {
           name: 'order',
@@ -42,9 +42,9 @@ export default class PlatformManagementModel {
           dataType: 'INT',
         },
         {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
         },
         {
           name: 'srfmajortext',

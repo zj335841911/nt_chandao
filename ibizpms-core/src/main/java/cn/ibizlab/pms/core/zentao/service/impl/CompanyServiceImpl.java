@@ -79,19 +79,19 @@ public class CompanyServiceImpl extends ServiceImpl<CompanyMapper, Company> impl
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public Company get(BigInteger key) {
+    public Company get(Long key) {
         Company et = getById(key);
         if(et==null){
             et=new Company();

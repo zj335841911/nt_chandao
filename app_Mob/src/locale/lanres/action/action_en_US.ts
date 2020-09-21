@@ -13,9 +13,14 @@ export default {
     project: "项目",
     lastcomment: "备注",
     actionmanner: "操作方式",
+    isactorss: "当前用户",
+    date1: "显示日期",
   },
 	views: {
 		mobmdview9: {
+			caption: '通用',
+		},
+		allmobmdview9: {
 			caption: '通用',
 		},
 	},

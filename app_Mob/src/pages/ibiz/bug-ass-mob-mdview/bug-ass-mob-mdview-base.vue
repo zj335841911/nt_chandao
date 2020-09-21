@@ -2,6 +2,8 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'bug-ass-mob-mdview': true }">
     
     <ion-header>
+
+    
     </ion-header>
 
 
@@ -33,14 +35,14 @@
             @load="mdctrl_load($event)"  
             @closeview="closeView($event)">
         </view_mdctrl>
-        <ion-infinite-scroll  @ionInfinite="loadMore" distance="2%" >
+        <ion-infinite-scroll  @ionInfinite="loadMore" threshold="1px" v-if="this.isEnablePullUp">
           <ion-infinite-scroll-content
           loadingSpinner="bubbles"
           loadingText="Loading more data...">
         </ion-infinite-scroll-content>
         </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
+    <ion-footer class="view-footer" style="z-index:9999;">
         
     </ion-footer>
 </ion-page>
@@ -190,7 +192,7 @@ export default class BugAssMobMDViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-bug'
     }
 
     /**
@@ -356,6 +358,7 @@ export default class BugAssMobMDViewBase extends Vue {
         this.setViewTitleStatus();
 
     }
+
 
     /**
      * 销毁之前
@@ -639,8 +642,12 @@ export default class BugAssMobMDViewBase extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
         }
         if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
@@ -689,6 +696,15 @@ export default class BugAssMobMDViewBase extends Vue {
      * @memberof BugAssMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+
+   /**
+     * 能否上拉加载
+     *
+     * @type {boolean}
+     * @memberof BugAssMobMDViewBase
+     */ 
+    @Prop({ default: true }) public isEnablePullUp?: boolean;
+
 
 
     /**
@@ -802,8 +818,6 @@ export default class BugAssMobMDViewBase extends Vue {
         event.target.complete();
       }
     }
-
-
 
 
 

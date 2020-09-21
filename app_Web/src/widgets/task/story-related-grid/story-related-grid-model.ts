@@ -32,6 +32,16 @@ export default class StoryRelatedModel {
           dataType: 'ACID',
         },
         {
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'projectname',
+          prop: 'projectname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
           name: 'story',
           prop: 'story',
           dataType: 'PICKUP',
@@ -52,19 +62,9 @@ export default class StoryRelatedModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'projectname',
-          prop: 'projectname',
-          dataType: 'PICKUPTEXT',
         },
         {
           name: 'srfmstag',

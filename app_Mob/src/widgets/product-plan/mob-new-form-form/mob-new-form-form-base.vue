@@ -51,8 +51,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.branch"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.branch"  
     :navigateContext ='{ "product": "%product%" } '
     :navigateParam ='{ "product": "%product%" } '
     @change="($event)=>this.data.branch = $event" />
@@ -78,7 +77,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.title" 
+    :value="data.title"
+    unit=""
     :disabled="detailsModel.title.disabled" 
     @change="($event)=>this.data.title = $event" />
 </app-form-item>
@@ -166,10 +166,9 @@
     :caption="$t('productplan.mobnewform_form.details.desc')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.desc.disabled"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"productplan",version:"editor"}' :exportparams='{objecttype:"productplan",version:"editor"}'  style=""/>
 
 </app-form-item>
 
@@ -322,12 +321,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
-    /**
-     * 加载完成
-     *
-     * @memberof MobNewForm
-     */
-    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -1485,7 +1478,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
@@ -1518,7 +1510,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

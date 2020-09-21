@@ -58,6 +58,13 @@ export class TestTaskMainTabExpViewBase extends TabExpViewBase {
     public appUIService: TestTaskUIService = new TestTaskUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof TestTaskMainTabExpViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

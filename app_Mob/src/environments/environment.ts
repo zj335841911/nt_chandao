@@ -43,7 +43,9 @@ export const Environment = {
     // 是否开启访客模式
     VisitorsMode:false,
     // 访客模式地址
-    VisitorsUrl: ''
+    VisitorsUrl: '',
+    // 默认菜单
+    useDefaultMenu:true
 };
 // 挂载外部配置文件
 if ((window as any).Environment) {

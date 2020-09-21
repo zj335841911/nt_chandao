@@ -1,51 +1,51 @@
 export default {
   fields: {
-    assignedTo: "指派给",
-    childStories: "细分需求",
+    assignedto: "指派给",
+    childstories: "细分需求",
     plan: "所属计划",
     version: "版本号",
-    assignedDate: "指派日期",
+    assigneddate: "指派日期",
     pri: "优先级",
-    linkStories: "相关需求",
+    linkstories: "相关需求",
     status: "当前状态",
     estimate: "预计工时",
-    reviewedDate: "评审时间",
+    revieweddate: "评审时间",
     title: "需求名称",
-    sourceNote: "来源备注",
-    reviewedBy: "由谁评审",
-    subStatus: "子状态",
-    stagedBy: "设置阶段者",
-    openedBy: "由谁创建",
-    openedDate: "创建日期",
+    sourcenote: "来源备注",
+    reviewedby: "由谁评审",
+    substatus: "子状态",
+    stagedby: "设置阶段者",
+    openedby: "由谁创建",
+    openeddate: "创建日期",
     id: "编号",
     source: "需求来源",
-    closedReason: "关闭原因",
+    closedreason: "关闭原因",
     color: "标题颜色",
     mailto: "抄送给",
     deleted: "已删除",
     keywords: "关键词",
-    lastEditedBy: "最后修改",
+    lasteditedby: "最后修改",
     stage: "所处阶段",
-    closedDate: "关闭日期	",
-    closedBy: "由谁关闭",
+    closeddate: "关闭日期	",
+    closedby: "由谁关闭",
     type: "需求类型",
-    lastEditedDate: "最后修改日期",
+    lastediteddate: "最后修改日期",
     path: "模块路径",
-    parentName: "父需求名称",
+    parentname: "父需求名称",
     modulename: "所属模块名称",
-    productName: "产品名称",
-    fromBug: "来源Bug",
+    productname: "产品名称",
+    frombug: "来源Bug",
     parent: "父需求",
     module: "所属模块",
     product: "所属产品",
-    duplicateStory: "重复需求ID",
+    duplicatestory: "重复需求ID",
     branch: "平台/分支",
-    toBug: "转Bug",
+    tobug: "转Bug",
     spec: "需求描述",
     verify: "验收标准",
     result: "评审结果",
     comment: "备注",
-    isLeaf: "是否子需求",
+    isleaf: "是否子需求",
     files: "附件",
     branchname: "平台/分支",
     versionc: "版本号",
@@ -60,17 +60,35 @@ export default {
 		newmobeditview: {
 			caption: '需求',
 		},
+		moblistview: {
+			caption: '需求',
+		},
 		mobmdview9: {
 			caption: '需求',
 		},
 		rmoboptionview: {
 			caption: '评审',
 		},
+		mobmdviewcurproject: {
+			caption: '需求',
+		},
 		mobpickupmdview: {
 			caption: '需求',
 		},
+		linkstorymobmpickupview: {
+			caption: '管理需求',
+		},
+		favoritemoremobmdview: {
+			caption: '我收藏的需求',
+		},
 		asmoboptionview: {
 			caption: '指派',
+		},
+		assmobmdview9: {
+			caption: '需求',
+		},
+		favoritemobmdview9: {
+			caption: '需求',
 		},
 		cmoboptionview: {
 			caption: '关闭',
@@ -84,11 +102,17 @@ export default {
 		mobmdview: {
 			caption: '需求',
 		},
+		assmoremobmdview: {
+			caption: '指派给我的需求',
+		},
 		favoritemobmdview: {
 			caption: '需求',
 		},
 		changemoboptionview: {
 			caption: '变更',
+		},
+		linkstorymobpickupmdview: {
+			caption: '关联需求',
 		},
 		mobeditview: {
 			caption: '需求',
@@ -317,13 +341,15 @@ export default {
 			caption: '关闭',
 			tip: '关闭',
 		},
+		deuiaction1_openbaseinfoeditviewmob: {
+			caption: '编辑',
+			tip: '编辑',
+		},
 		deuiaction1_deletemob: {
 			caption: '删除',
 			tip: '删除',
 		},
 	},
-	favoritemobmdviewrighttoolbar_toolbar: {
-	},
-	assmobmdviewrighttoolbar_toolbar: {
+	mobmdviewcurprojectrighttoolbar_toolbar: {
 	},
 };

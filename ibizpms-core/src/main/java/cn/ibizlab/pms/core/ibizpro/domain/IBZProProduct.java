@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[平台产品]
@@ -47,7 +48,7 @@ public class IBZProProduct extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 产品名称
      */
@@ -63,6 +64,13 @@ public class IBZProProduct extends EntityMP implements Serializable {
     @JSONField(name = "ibizid")
     @JsonProperty("ibizid")
     private String ibizid;
+    /**
+     * 产品代号
+     */
+    @TableField(value = "code")
+    @JSONField(name = "code")
+    @JsonProperty("code")
+    private String code;
 
 
 
@@ -82,7 +90,31 @@ public class IBZProProduct extends EntityMP implements Serializable {
         this.modify("ibiz_id",ibizid);
     }
 
+    /**
+     * 设置 [产品代号]
+     */
+    public void setCode(String code){
+        this.code = code ;
+        this.modify("code",code);
+    }
 
+
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
+    /**
+     * 复制当前对象数据到目标对象(粘贴重置)
+     * @param targetEntity 目标数据对象
+     * @param bIncEmpty  是否包括空值
+     * @param <T>
+     * @return
+     */
+    @Override
+    public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
+        this.reset("id");
+        return super.copyTo(targetEntity,bIncEmpty);
+    }
 }
 
 

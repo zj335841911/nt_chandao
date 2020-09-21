@@ -1,14 +1,16 @@
 import { HttpResponse } from '@/ibiz-core/utils';
+import  RelatedStory  from '@/app-core/code-list/related-story';
 import  CurProductPlan  from '@/app-core/code-list/cur-product-plan';
-import  UserRealNameTask  from '@/app-core/code-list/user-real-name-task';
 import  UserRealName  from '@/app-core/code-list/user-real-name';
 import  ProductBranch  from '@/app-core/code-list/product-branch';
 import  CurProductBuild  from '@/app-core/code-list/cur-product-build';
 import  BugModule  from '@/app-core/code-list/bug-module';
+import  Role  from '@/app-core/code-list/role';
 import  BugUserRealName  from '@/app-core/code-list/bug-user-real-name';
 import  CurCaseVersion  from '@/app-core/code-list/cur-case-version';
 import  UserRealNameProject  from '@/app-core/code-list/user-real-name-project';
 import  CurStory  from '@/app-core/code-list/cur-story';
+import  UserRealNameTaskTeam  from '@/app-core/code-list/user-real-name-task-team';
 
 /**
  * 动态代码表服务类
@@ -46,10 +48,10 @@ export class CodeListService {
      * @memberof CodeListService
      */
     protected allCodeList: any = {
+        // 关联需求（动态）
+        RelatedStory: new RelatedStory(),
         // 当前产品计划（动态）_缓存
         CurProductPlan: new CurProductPlan(),
-        // 用户真实名称（项目团队成员-任务）
-        UserRealNameTask: new UserRealNameTask(),
         // 用户真实名称（动态）
         UserRealName: new UserRealName(),
         // 产品平台（动态）
@@ -58,6 +60,8 @@ export class CodeListService {
         CurProductBuild: new CurProductBuild(),
         // 所属模板（动态）
         BugModule: new BugModule(),
+        // 群组（动态）
+        Role: new Role(),
         // 用户真实名称（动态）（Bug）
         BugUserRealName: new BugUserRealName(),
         // 当前用例版本（动态）
@@ -66,6 +70,8 @@ export class CodeListService {
         UserRealNameProject: new UserRealNameProject(),
         // 当前需求版本（动态）
         CurStory: new CurStory(),
+        // 用户真实名称（任务团队）
+        UserRealNameTaskTeam: new UserRealNameTaskTeam(),
     };
 
     /**

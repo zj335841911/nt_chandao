@@ -19,7 +19,6 @@
                             </ion-item>
                         </div>
                     </ion-item-sliding>
-                    <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px);"  @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                 </template>
             </ion-list>
             <ion-list class="items">
@@ -28,7 +27,7 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                    <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                      <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.StoryFavoritesMob.visabled" :disabled="item.StoryFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'ubb909cc', item)"><ion-icon v-if="item.StoryFavoritesMob.icon && item.StoryFavoritesMob.isShowIcon" :name="item.StoryFavoritesMob.icon"></ion-icon><ion-label v-if="item.StoryFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
                             <ion-item-option v-show="item.StoryNFavoritesMob.visabled" :disabled="item.StoryNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u832a879', item)"><ion-icon v-if="item.StoryNFavoritesMob.icon && item.StoryNFavoritesMob.isShowIcon" :name="item.StoryNFavoritesMob.icon"></ion-icon><ion-label v-if="item.StoryNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
@@ -39,8 +38,7 @@
                                 <layout_mdctrl_itempanel :context="{}" :viewparams="{}" :item="item"></layout_mdctrl_itempanel>
                             </ion-item>
                         </div>
-                    </ion-item-sliding>
-                    <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px);"  @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
+                      </ion-item-sliding>
                 </template>
                 <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
                 </template>
@@ -73,7 +71,7 @@
                     </li>
                 </template>
                 <template v-else>
-                    <ion-list  v-model="selectedArray"   v-if="isMutli">
+                    <ion-list  v-model="selectedArray"   v-if="isMutli" class="pickUpList">
                         <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item" >
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -83,6 +81,7 @@
                         </div>
                         </ion-item>
                     </ion-list>
+                    <div class="pickUpList">
                     <ion-radio-group  :value="selectedValue" v-if="!isMutli">
                         <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
                         <div style="width:100%;">
@@ -93,6 +92,7 @@
                         </div>
                         </ion-item>
                     </ion-radio-group>
+                    </div>
                 </template>
             </ion-list>
             <div class="no-data" v-if="items.length == 0">暂无数据</div>
@@ -380,6 +380,13 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     */
      @Prop() public selectedData?:Array<any>;
 
+    /**
+     * 部件行为--update
+     *
+     * @type {string}
+     * @memberof FavoriteMOB
+     */
+    @Prop({default: true}) protected needLoadMore?: boolean;
 
     /**
     * 新建打开视图
@@ -440,6 +447,61 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     public checkboxList:Array<string> = [];
 
     /**
+    * 是否为分组模式
+    *
+    * @type {boolean}
+    * @memberof FavoriteMOB
+    */
+    public isEnableGroup:boolean =  false;
+
+    /**
+    * 代码表分组细节
+    *
+    * @type {Object}
+    * @memberof FavoriteMOB
+    */
+    public group_detail:any = [];
+
+    /**
+    * 分组模式
+    *
+    * @type {string}
+    * @memberof FavoriteMOB
+    */
+    public group_mode = 'NONE';
+
+    /**
+    * 分组数据
+    *
+    * @type {array}
+    * @memberof FavoriteMOB
+    */
+    public group_data?:any = [];
+
+    /**
+    * 分组标识
+    *
+    * @type {array}
+    * @memberof FavoriteMOB
+    */
+    public group_field:string = '';
+
+    /**
+     * 分组方法
+     *
+     * @memberof FavoriteMOB
+     */
+    public group(){
+      let _this:any = this;
+      if(_this.getGroupDataByCodeList && _this.getGroupDataByCodeList instanceof Function && Object.is(_this.group_mode,"CODELIST") ){
+        _this.getGroupDataByCodeList(_this.items);
+      }else if(_this.getGroupDataAuto && _this.getGroupDataAuto instanceof Function && Object.is(_this.group_mode,"AUTO") ){
+        _this.getGroupDataAuto(_this.items);
+      }
+    }
+
+
+    /**
     * 存放数据选择数组(单选)
     *
     * @type {object}
@@ -484,7 +546,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
     * @type {number}
     * @memberof FavoriteMOB
     */
-    public pageSize: number = 5;
+    public pageSize: number = 25;
 
     /**
     * 总页数
@@ -633,6 +695,9 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * @memberof FavoriteMOB
      */
     public async loadBottom(): Promise<any> {
+        if (((this.pageNumber + 1) * this.pageSize) >= this.pageTotal) {
+          return;
+        }
         this.pageNumber++;
         let params = {};
         if (this.viewparams) {
@@ -682,7 +747,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
                 if (response && response.status === 200 && response.data.records) {
                     this.$notice.success((this.$t('app.message.deleteSccess') as string));
                     this.load();
-                    this.closeSliding();
+                    this.closeSlidings();
                     resolve(response);
                 } else {
                     this.$notice.error(response.message?response.message:"删除失败");
@@ -805,8 +870,13 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
             Object.assign(item,this.getActionState(item));    
             this.setSlidingDisabled(item);
         });
+        if(this.isEnableGroup){
+          this.group();
+        }
         return response;
     }
+
+
 
     /**
     * 全选
@@ -985,10 +1055,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * @memberof FavoriteMOB
      */
     public activated() {
-        this.items.forEach((item:any)=>{
-            let curr:any = this.$refs[item.srfkey];
-            curr[0].close();
-        })
+        this.closeSlidings()
     }
 
     /**
@@ -1009,8 +1076,20 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
         if (Object.is(tag, 'u832a879')) {
             this.mdctrl_u832a879_click();
         }
-        let curr :any = this.$refs[item.srfkey];
-        curr[0].closeOpened();
+        this.closeSlidings();
+    }
+
+    /**
+     * 关闭列表项左滑右滑
+     * @memberof Mdctrl
+     */
+    public closeSlidings () {
+        let slidings:any = this.$refs.sliding; 
+        if (slidings) {
+            slidings.forEach((sliding:any) => {
+                sliding.close()
+            })     
+        }
     }
 
     /**
@@ -1081,22 +1160,6 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * @memberof Mdctrl
      */
     public selectAllIschecked = false;
-
-
-    /**
-     * 关闭滑动项
-     *
-     * @memberof Mdctrl
-     */
-    public closeSliding(){
-        let sliding :any = this.$refs.sliding;
-        if(sliding){
-            sliding.forEach((item:any) => {
-                item.closeOpened();
-            });
-        }
-    }
-
     
 
     /**
@@ -1107,7 +1170,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      */  
     public ActionModel:any ={
         StoryFavoritesMob: { name: 'StoryFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_NFAVOR_BUT', target: 'SINGLEKEY',icon:'star-outline',isShowCaption:false,isShowIcon:true},
-        StoryNFavoritesMob: { name: 'StoryNFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', target: 'SINGLEKEY',icon:'star',isShowCaption:false,isShowIcon:true}
+        StoryNFavoritesMob: { name: 'StoryNFavoritesMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', target: 'SINGLEKEY',icon:'star-half-outline',isShowCaption:false,isShowIcon:true}
     };
 
     

@@ -177,6 +177,12 @@ export default class AssignToMeModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'status1',
+      },
+      {
+        name: 'tasktype',
+      },
     ]
   }
 

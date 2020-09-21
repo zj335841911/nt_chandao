@@ -198,4 +198,6 @@ export class LineGridBase extends GridControlBase {
             row['type'] = 'line';
         }
     }
+
+
 }

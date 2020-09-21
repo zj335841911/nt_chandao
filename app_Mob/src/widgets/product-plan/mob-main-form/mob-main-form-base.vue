@@ -130,6 +130,7 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='story-mob-mdview9' 
+    v-show="detailsModel.druipart2.visible" 
     paramItem='productplan' 
     style="" 
     :formState="formState" 
@@ -137,6 +138,7 @@
     :parameters="[
         { pathName: 'products', parameterName: 'product' },
     ]" 
+    tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
@@ -194,6 +196,7 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='bug-plan-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
     paramItem='productplan' 
     style="" 
     :formState="formState" 
@@ -201,6 +204,7 @@
     :parameters="[
         { pathName: 'products', parameterName: 'product' },
     ]" 
+    tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
@@ -362,12 +366,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
-    /**
-     * 加载完成
-     *
-     * @memberof MobMain
-     */
-    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -1433,7 +1431,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
@@ -1466,7 +1463,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

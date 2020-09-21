@@ -31,17 +31,16 @@
     :error="detailsModel.account.error" 
     :isEmptyCaption="false">
         <app-mob-select 
-    tag="UserRealNameTask"
+    tag="UserRealNameProject"
     codeListType="DYNAMIC" 
     :isCache="false" 
     :disabled="detailsModel.account.disabled" 
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.account"
-    :dataOverLoad="dataOverLoad"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
+    :value="data.account"  
+    :navigateContext ='{ "project": "%project%" } '
+    :navigateParam ='{ "project": "%project%" } '
     @change="($event)=>this.data.account = $event" />
 </app-form-item>
 
@@ -219,12 +218,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
-    /**
-     * 加载完成
-     *
-     * @memberof MobMain
-     */
-    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -1224,7 +1217,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
@@ -1257,7 +1249,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

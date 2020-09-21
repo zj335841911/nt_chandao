@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class IbzTopResource {
     @PreAuthorize("hasPermission(this.ibztopMapping.toDomain(#ibztopdto),'pms-IbzTop-Create')")
     @ApiOperation(value = "新建置顶", tags = {"置顶" },  notes = "新建置顶")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibztops")
-    public ResponseEntity<IbzTopDTO> create(@RequestBody IbzTopDTO ibztopdto) {
+    public ResponseEntity<IbzTopDTO> create(@Validated @RequestBody IbzTopDTO ibztopdto) {
         IbzTop domain = ibztopMapping.toDomain(ibztopdto);
 		ibztopService.create(domain);
         IbzTopDTO dto = ibztopMapping.toDto(domain);

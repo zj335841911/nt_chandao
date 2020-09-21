@@ -38,8 +38,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.assignedto"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.assignedto"  
     :navigateContext ='{ "project": "%project%" } '
     :navigateParam ='{ "project": "%project%" } '
     @change="($event)=>this.data.assignedto = $event" />
@@ -70,8 +69,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.type"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.type"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.type = $event" />
@@ -102,8 +100,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.pri"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.pri"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.pri = $event" />
@@ -156,7 +153,6 @@
     :caption="$t('bug.confirmmob_form.details.comment')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.comment.disabled"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{}' :exportparams='{}'  style=""/>
@@ -184,12 +180,14 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
     paramItem='bug' 
     style="" 
     :formState="formState" 
     :parentdata='{"srfparentdename":"ZT_BUG","SRFPARENTTYPE":"CUSTOM"}' 
     :parameters="[
     ]" 
+    tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
@@ -351,12 +349,6 @@ export default class ConfirmMobBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
-    /**
-     * 加载完成
-     *
-     * @memberof ConfirmMob
-     */
-    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -1428,7 +1420,6 @@ export default class ConfirmMobBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
@@ -1461,7 +1452,6 @@ export default class ConfirmMobBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

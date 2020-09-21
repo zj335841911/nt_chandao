@@ -69,6 +69,13 @@ export class ReleaseMainInfoViewBase extends EditViewBase {
     };
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof ReleaseMainInfoViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

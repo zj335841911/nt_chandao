@@ -27,23 +27,13 @@ export default class Main2Model {
     }else{
 		  return [
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
         },
         {
-          name: 'project',
-          prop: 'project',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'projecttname',
-          prop: 'projecttname',
+          name: 'productname',
+          prop: 'productname',
           dataType: 'PICKUPTEXT',
         },
         {
@@ -52,8 +42,33 @@ export default class Main2Model {
           dataType: 'TEXT',
         },
         {
+          name: 'projecttname',
+          prop: 'projecttname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
           name: 'build',
           prop: 'build',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'begin',
+          prop: 'begin',
+          dataType: 'DATE',
+        },
+        {
+          name: 'end',
+          prop: 'end',
+          dataType: 'DATE',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'project',
+          prop: 'project',
           dataType: 'PICKUP',
         },
         {
@@ -74,21 +89,6 @@ export default class Main2Model {
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
-        },
-        {
-          name: 'end',
-          prop: 'end',
-          dataType: 'DATE',
-        },
-        {
-          name: 'begin',
-          prop: 'begin',
-          dataType: 'DATE',
-        },
-        {
-          name: 'productname',
-          prop: 'productname',
-          dataType: 'PICKUPTEXT',
         },
         {
           name: 'testtask',

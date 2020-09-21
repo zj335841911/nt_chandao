@@ -29,9 +29,9 @@ public interface IIm_chatService extends IService<Im_chat>{
     void createBatch(List<Im_chat> list) ;
     boolean update(Im_chat et) ;
     void updateBatch(List<Im_chat> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Im_chat get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Im_chat get(Long key) ;
     Im_chat getDraft(Im_chat et) ;
     boolean checkKey(Im_chat et) ;
     boolean save(Im_chat et) ;

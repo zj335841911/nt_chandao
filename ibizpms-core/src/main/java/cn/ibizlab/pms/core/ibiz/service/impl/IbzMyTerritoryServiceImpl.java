@@ -91,19 +91,19 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public IbzMyTerritory get(BigInteger key) {
+    public IbzMyTerritory get(Long key) {
         IbzMyTerritory et = getById(key);
         if(et==null){
             et=new IbzMyTerritory();
@@ -190,6 +190,15 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
     @Override
     public Page<IbzMyTerritory> searchMyWork(IbzMyTerritorySearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchMyWork(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<IbzMyTerritory>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我的工作
+     */
+    @Override
+    public Page<IbzMyTerritory> searchMyWorkMob(IbzMyTerritorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchMyWorkMob(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbzMyTerritory>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

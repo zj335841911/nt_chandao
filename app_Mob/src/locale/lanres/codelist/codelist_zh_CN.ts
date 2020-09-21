@@ -21,6 +21,9 @@ export default {
         'public': '公开',
         empty: '',
     },
+    RelatedStory: {
+        empty: '',
+    },
     Testcase__stage: {
         'unittest': '单元测试阶段',
         'feature': '功能测试阶段',
@@ -52,6 +55,21 @@ export default {
     CurProductPlan: {
         empty: '',
     },
+    Task_quickpacket: {
+        'All': '所有',
+        'UNCLOSED': '未关闭',
+        'TOME': '指派给我',
+        'storychange': '需求变更',
+        'MORE': '更多',
+        'NOTSTARTED': '未开始',
+        'INPROGRESS': '进行中',
+        'UNACCOMPLISHED': '未完成',
+        'IFINISHED': '我完成',
+        'COMPLETED': '已完成',
+        'CLOSED': '已关闭',
+        'CANCELLED': '已取消',
+        empty: '',
+    },
     ActionManner: {
         'story_closed_willnotdo': '不做',
         'story_closed_cancel': '已取消',
@@ -74,9 +92,6 @@ export default {
         'story_reviewed_pass': '确认通过',
         ' release_changestatus_terminate': '停止维护',
         ' release_changestatus_normal': '正常',
-        empty: '',
-    },
-    UserRealNameTask: {
         empty: '',
     },
     Pri: {
@@ -185,6 +200,11 @@ export default {
         'changed': '已变更',
         empty: '',
     },
+    Action__read: {
+        '0': '0',
+        '1': '1',
+        empty: '',
+    },
     Task__status: {
         'wait': '未开始',
         'doing': '进行中',
@@ -207,6 +227,9 @@ export default {
         empty: '',
     },
     BugModule: {
+        empty: '',
+    },
+    Role: {
         empty: '',
     },
     Date_disable: {
@@ -487,6 +510,37 @@ export default {
     CurCaseVersion: {
         empty: '',
     },
+    User__gender: {
+        'f': '女',
+        'm': '男',
+        empty: '',
+    },
+    Action__object_type: {
+        'product': '产品',
+        'story': '需求',
+        'productplan': '计划',
+        'release': '发布',
+        'project': '项目',
+        'task': '任务',
+        'build': '版本',
+        'bug': 'Bug',
+        'case': '用例',
+        'caseresult': '用例结果',
+        'stepresult': '用例步骤',
+        'testtask': '测试单',
+        'user': '用户',
+        'doc': '文档',
+        'doclib': '文档库',
+        'todo': '待办',
+        'branch': '分支',
+        'module': '模块',
+        'testsuite': '套件',
+        'caselib': '用例库',
+        'testreport': '报告',
+        'entry': '应用',
+        'webhook': 'Webhook',
+        empty: '',
+    },
     Task__pri: {
         '1': '1',
         '2': '2',
@@ -586,6 +640,9 @@ export default {
         'fail': '失败',
         'blocked': '阻塞',
         empty: '未执行',
+    },
+    UserRealNameTaskTeam: {
+        empty: '',
     },
     Bug__pri: {
         '1': '1',

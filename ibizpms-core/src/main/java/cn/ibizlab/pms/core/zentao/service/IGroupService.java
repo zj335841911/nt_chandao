@@ -29,9 +29,9 @@ public interface IGroupService extends IService<Group>{
     void createBatch(List<Group> list) ;
     boolean update(Group et) ;
     void updateBatch(List<Group> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Group get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Group get(Long key) ;
     Group getDraft(Group et) ;
     boolean checkKey(Group et) ;
     boolean save(Group et) ;

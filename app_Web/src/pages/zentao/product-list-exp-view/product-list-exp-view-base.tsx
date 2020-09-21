@@ -58,6 +58,13 @@ export class ProductListExpViewBase extends ListExpViewBase {
     public appUIService: ProductUIService = new ProductUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof ProductListExpViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

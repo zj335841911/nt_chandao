@@ -11,11 +11,10 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
+
+    
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel3">
-                            
-                            详情</ion-segment-button>
                             <ion-segment-button value="tabviewpanel">
                             <ion-badge color="danger">{{counter.counterData.relatedbugcnt?counter.counterData.relatedbugcnt:''}}</ion-badge>
                             Bug</ion-segment-button>
@@ -191,7 +190,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      * @memberof ProductMobTabExpViewBase
      */
     protected model: any = {
-        srfTitle: '测试详情',
+        srfTitle: '测试',
         srfCaption: 'product.views.mobtabexpview.caption',
         srfSubCaption: '',
         dataInfo: '',
@@ -273,7 +272,6 @@ export default class ProductMobTabExpViewBase extends Vue {
 
 
 
-
     /**
      * 工具栏模型集合名
      *
@@ -332,7 +330,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      * @type {string}
      * @memberof  ProductMobTabExpViewBase
      */
-    protected activiedTabViewPanel: string = 'tabviewpanel3';
+    protected activiedTabViewPanel: string = 'tabviewpanel';
 
     /**
      * 分页导航栏激活
@@ -391,7 +389,7 @@ export default class ProductMobTabExpViewBase extends Vue {
         if (info.name && info.name == 'product' && info.id && info.id == this.context.product) {
           this.activiedTabViewPanel = info.value;
         } else { 
-          this.activiedTabViewPanel = 'tabviewpanel3';
+          this.activiedTabViewPanel = 'tabviewpanel';
         }
         }
     }
@@ -451,6 +449,7 @@ export default class ProductMobTabExpViewBase extends Vue {
         this.getLocalStorage();
 
     }
+
 
     /**
      * 销毁之前
@@ -560,8 +559,12 @@ export default class ProductMobTabExpViewBase extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
         }
         if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });

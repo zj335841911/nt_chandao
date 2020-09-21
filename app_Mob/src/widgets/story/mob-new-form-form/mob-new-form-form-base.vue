@@ -33,14 +33,13 @@
         <app-mob-select-drop-down 
     name='prodoctname' 
     deMajorField='name'
-    deKeyField='productid'
-    valueitem='' 
+    deKeyField='id'
+    valueitem='product' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :dataOverLoad="dataOverLoad"
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     :viewparams="viewparams"
@@ -49,6 +48,7 @@
     :service="service"
     :acParams="{ serviceName: 'product', interfaceName: 'FetchDefault'}"
     :value="data.prodoctname" 
+    @formitemvaluechange="onFormItemValueChange"
     @change="($event)=>this.data.prodoctname = $event">
 </app-mob-select-drop-down>
 </app-form-item>
@@ -78,8 +78,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.branch"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.branch"  
     :navigateContext ='{ "product": "%product%" } '
     :navigateParam ='{ "product": "%product%" } '
     @change="($event)=>this.data.branch = $event" />
@@ -105,14 +104,13 @@
         <app-mob-select-drop-down 
     name='modulename' 
     deMajorField='name'
-    deKeyField='productmoduleid'
-    valueitem='' 
+    deKeyField='id'
+    valueitem='module' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :dataOverLoad="dataOverLoad"
     :navigateContext ='{ "product": "%product%" } '
     :navigateParam ='{ "product": "%product%" } '
     :viewparams="viewparams"
@@ -121,6 +119,7 @@
     :service="service"
     :acParams="{ serviceName: 'productmodule', interfaceName: 'FetchStoryModule'}"
     :value="data.modulename" 
+    @formitemvaluechange="onFormItemValueChange"
     @change="($event)=>this.data.modulename = $event">
 </app-mob-select-drop-down>
 </app-form-item>
@@ -150,8 +149,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.plan"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.plan"  
     :navigateContext ='{ "n_product_eq": "%product%" } '
     :navigateParam ='{ "n_product_eq": "%product%" } '
     @change="($event)=>this.data.plan = $event" />
@@ -182,8 +180,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.source"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.source"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.source = $event" />
@@ -209,7 +206,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.sourcenote" 
+    :value="data.sourcenote"
+    unit=""
     :disabled="detailsModel.sourcenote.disabled" 
     @change="($event)=>this.data.sourcenote = $event" />
 </app-form-item>
@@ -239,8 +237,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.assignedto"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.assignedto"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.assignedto = $event" />
@@ -271,8 +268,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.neednotreview"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.neednotreview"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.neednotreview = $event" />
@@ -298,7 +294,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.title" 
+    :value="data.title"
+    unit=""
     :disabled="detailsModel.title.disabled" 
     @change="($event)=>this.data.title = $event" />
 </app-form-item>
@@ -328,8 +325,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.pri"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.pri"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.pri = $event" />
@@ -356,7 +352,8 @@
     class="app-form-item-input"  
         placeholder="工时"
     type="text"  
-    :value="data.estimate" 
+    :value="data.estimate"
+    unit=""
     :disabled="detailsModel.estimate.disabled" 
     @change="($event)=>this.data.estimate = $event" />
 </app-form-item>
@@ -375,7 +372,6 @@
     :caption="$t('story.mobnewform_form.details.spec')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.spec.disabled"
     :error="detailsModel.spec.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.spec" @change="(val) =>{this.data.spec =val}" :disabled="detailsModel.spec.disabled" :data="JSON.stringify(this.data)"  name="spec" :uploadparams='{objecttype:"story",version:"editor"}' :exportparams='{objecttype:"story",version:"editor"}'  style=""/>
@@ -396,7 +392,6 @@
     :caption="$t('story.mobnewform_form.details.verify')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.verify.disabled"
     :error="detailsModel.verify.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.verify" @change="(val) =>{this.data.verify =val}" :disabled="detailsModel.verify.disabled" :data="JSON.stringify(this.data)"  name="verify" :uploadparams='{objecttype:"story",version:"editor"}' :exportparams='{objecttype:"story",version:"editor"}'  style=""/>
@@ -456,7 +451,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.keywords" 
+    :value="data.keywords"
+    unit=""
     :disabled="detailsModel.keywords.disabled" 
     @change="($event)=>this.data.keywords = $event" />
 </app-form-item>
@@ -610,12 +606,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
-    /**
-     * 加载完成
-     *
-     * @memberof MobNewForm
-     */
-    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -1466,6 +1456,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         }
         if (Object.is(name, 'branch')) {
             this.onFormItemValueChange({ name: 'modulename', value: null });
+            this.onFormItemValueChange({ name: 'module', value: null });
         }
         if (Object.is(name, 'prodoctname')) {
             this.onFormItemValueChange({ name: 'plan', value: null });
@@ -1943,7 +1934,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
@@ -1976,7 +1966,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "account")
     @JsonProperty("account")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String account;
 
     /**
@@ -54,7 +58,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [DATE]
@@ -71,6 +75,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "work")
     @JsonProperty("work")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String work;
 
     /**
@@ -79,7 +84,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "task")
     @JsonProperty("task")
-    private BigInteger task;
+    private Long task;
 
     /**
      * 属性 [DATES]
@@ -134,11 +139,12 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     /**
      * 设置 [TASK]
      */
-    public void setTask(BigInteger  task){
+    public void setTask(Long  task){
         this.task = task ;
         this.modify("task",task);
     }
 
 
 }
+
 

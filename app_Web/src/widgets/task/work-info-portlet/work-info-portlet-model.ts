@@ -177,6 +177,12 @@ export default class WorkInfoModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'status1',
+      },
+      {
+        name: 'tasktype',
+      },
     ]
   }
 

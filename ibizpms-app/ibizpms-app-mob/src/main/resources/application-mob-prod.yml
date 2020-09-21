@@ -1,5 +1,5 @@
 server:
-  port: 10130
+  port: 22130
 #Log配置
 logging:
   level:
@@ -31,6 +31,10 @@ zuul:
       path: /tasks/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    zt_taskestimate:
+      path: /taskestimates/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_module:
       path: /modules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -59,7 +63,7 @@ zuul:
       path: /releases/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
-    ibz_taskteam:
+    zt_taskteam:
       path: /taskteams/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
@@ -95,8 +99,16 @@ zuul:
       path: /productplans/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_taskestimate:
+      path: /ibztaskestimates/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_projectstats:
       path: /projectstats/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_taskteam:
+      path: /ibztaskteams/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_bug:
@@ -166,6 +178,10 @@ zuul:
     ou_sys_dept:
       path: /sysdepartments/**
       serviceId: ${ibiz.ref.service.ou:ibzou-api}
+      stripPrefix: false
+    lite-core:
+      path: /lite/**
+      serviceId: ${ibiz.ref.service.lite:ibzlite-api}
       stripPrefix: false
   sensitive-headers:
     - Cookie,Set-Cookie,Authorization

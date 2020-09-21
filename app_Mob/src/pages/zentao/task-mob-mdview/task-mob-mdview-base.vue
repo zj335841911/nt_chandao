@@ -5,6 +5,13 @@
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
         </ion-toolbar>
+
+    <app-quick-group-tab
+        :items="quickGroupModel"
+        @valuechange="quickGroupValueChange($event)"
+        :pageTotal="pageTotal"
+    ></app-quick-group-tab>
+    
     </ion-header>
 
 
@@ -40,6 +47,7 @@
             :isMutli="!isSingleSelect"
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
+            @pageTotalChange="pageTotalChange($event)"
             :isTempMode="false"
             :isEnableChoose="false"
             name="mdctrl"  
@@ -50,26 +58,23 @@
             @load="mdctrl_load($event)"  
             @closeview="closeView($event)">
         </view_mdctrl>
-        <ion-infinite-scroll  @ionInfinite="loadMore" distance="2%" >
+        <ion-infinite-scroll  @ionInfinite="loadMore" threshold="1px" v-if="this.isEnablePullUp">
           <ion-infinite-scroll-content
           loadingSpinner="bubbles"
           loadingText="Loading more data...">
         </ion-infinite-scroll-content>
         </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
+    <ion-footer class="view-footer" style="z-index:9999;">
                 <div v-show="!showCheack" class = "fab_container">
-            <div class="bottom_menu">
-        
-        
-            <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
-                <ion-icon name="add"></ion-icon>
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
+                    <ion-icon name="add"></ion-icon>
                 
-            </ion-fab-button>
-        
-            </ion-fab>
+                </ion-button>
+                
             </div>
+        
         </div>
         
     </ion-footer>
@@ -80,6 +85,7 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
+import { CodeListService } from "@/ibiz-core";
 import TaskService from '@/app-core/service/task/task-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
@@ -220,7 +226,7 @@ export default class TaskMobMDViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-tasks'
     }
 
     /**
@@ -331,6 +337,24 @@ export default class TaskMobMDViewBase extends Vue {
             })
         }
         return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof TaskMobMDView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof TaskMobMDView 
+     */
+    public popUpGroup () {
+        this.showGrop = !this.showGrop;
     }
 
     
@@ -444,8 +468,25 @@ export default class TaskMobMDViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
+        this.loadQuickGroupModel();
 
     }
+
+       /**
+        * 部件计数
+        *
+        * @memberof TaskMobMDViewBase
+        */
+        public pageTotal:number = 0;
+
+       /**
+        * 获取部件计数
+        *
+        * @memberof TaskMobMDViewBase
+        */
+        public pageTotalChange($event:any) {
+            this.pageTotal = $event;
+        }
 
     /**
      * 销毁之前
@@ -764,8 +805,12 @@ export default class TaskMobMDViewBase extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
         }
         if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
@@ -845,6 +890,15 @@ export default class TaskMobMDViewBase extends Vue {
      * @memberof TaskMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+
+   /**
+     * 能否上拉加载
+     *
+     * @type {boolean}
+     * @memberof TaskMobMDViewBase
+     */ 
+    @Prop({ default: true }) public isEnablePullUp?: boolean;
+
 
 
     /**
@@ -961,7 +1015,96 @@ export default class TaskMobMDViewBase extends Vue {
 
 
 
+    /**
+     * 代码表服务对象
+     *
+     * @type {CodeListService}
+     * @memberof TaskMobMDViewBase
+     */  
+    public codeListService:CodeListService = new CodeListService();
 
+    /**
+     * 快速分组数据对象
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public quickGroupData:any;
+
+    /**
+     * 快速分组是否有抛值
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public isEmitQuickGroupValue:boolean = false;
+
+    /**
+     * 快速分组模型
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public quickGroupModel:Array<any> = [];
+
+    /**
+     * 加载快速分组模型
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public loadQuickGroupModel(){
+        let quickGroupCodeList:any = {tag:'Task_quickpacket',codelistType:'STATIC'};
+        if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType,"STATIC")){
+            const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
+            if (codelist) {
+                this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
+            } else {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            }
+        }else if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType,"DYNAMIC")){
+            this.codeListService.getItems(quickGroupCodeList.tag,{},{}).then((res:any) => {
+                this.quickGroupModel = res;
+            }).catch((error:any) => {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            });
+        }
+    }
+
+    /**
+     * 处理快速分组模型动态数据部分(%xxx%)
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public handleDynamicData(inputArray:Array<any>){
+        if(inputArray.length >0){
+            inputArray.forEach((item:any) =>{
+               if(item.data && Object.keys(item.data).length >0){
+                   Object.keys(item.data).forEach((name:any) =>{
+                        let value: any = item.data[name];
+                        if (value && typeof(value)=='string' && value.startsWith('%') && value.endsWith('%')) {
+                            const key = (value.substring(1, value.length - 1)).toLowerCase();
+                            if (this.context[key]) {
+                                value = this.context[key];
+                            } else if(this.viewparams[key]){
+                                value = this.viewparams[key];
+                            }
+                        }
+                        item.data[name] = value;
+                   })
+               }
+            })
+        }
+        return inputArray;
+    }
+
+    /**
+     * 快速分组值变化
+     *
+     * @memberof TaskMobMDViewBase
+     */
+    public quickGroupValueChange($event:any) {
+        if($event){
+            this.quickGroupData = $event.data;
+            this.engine.onViewEvent('mdctrl','viewload',$event.data);
+        }
+    }
 
 }
 </script>

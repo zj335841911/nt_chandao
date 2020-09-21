@@ -27,14 +27,59 @@ export default class Main_BuildSubModel {
     }else{
 		  return [
         {
-          name: 'tostory',
-          prop: 'tostory',
-          dataType: 'PICKUP',
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'confirmed',
+          prop: 'confirmed',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'resolvedby',
+          prop: 'resolvedby',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'resolution',
           prop: 'resolution',
           dataType: 'SSCODELIST',
+        },
+        {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'tostory',
+          prop: 'tostory',
+          dataType: 'PICKUP',
         },
         {
           name: 'srfmstag',
@@ -56,24 +101,9 @@ export default class Main_BuildSubModel {
           isEditable:true
         },
         {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'duplicatebug',
           prop: 'duplicatebug',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
         },
         {
           name: 'story',
@@ -81,24 +111,9 @@ export default class Main_BuildSubModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'confirmed',
-          prop: 'confirmed',
-          dataType: 'NSCODELIST',
-        },
-        {
           name: 'repo',
           prop: 'repo',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'isfavorites',
-          prop: 'isfavorites',
-          dataType: 'TEXT',
         },
         {
           name: 'totask',
@@ -109,11 +124,6 @@ export default class Main_BuildSubModel {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'task',
@@ -136,19 +146,9 @@ export default class Main_BuildSubModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
           name: 'plan',
           prop: 'plan',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'resolvedby',
-          prop: 'resolvedby',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'entry',

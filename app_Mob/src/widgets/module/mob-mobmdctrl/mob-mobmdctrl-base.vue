@@ -16,7 +16,6 @@
                             <app-icon-list :item="item" v-if="controlStyle === 'ICONVIEW'"></app-icon-list>
                         </ion-item>
                     </ion-item-sliding>
-                    <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px);"  @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                 </template>
             </ion-list>
             <ion-list class="items">
@@ -25,7 +24,7 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                    <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                      <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item>
                             <ion-checkbox :checked="item.checked" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
                             <!-- 列表视图样式 -->
@@ -33,8 +32,7 @@
                             <!-- 图标视图样式 -->
                             <app-icon-list :item="item" v-if="controlStyle === 'ICONVIEW'"></app-icon-list>
                         </ion-item>                      
-                    </ion-item-sliding>
-                    <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px);"  @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
+                      </ion-item-sliding>
                 </template>
                 <template v-else-if="(viewType == 'DEMOBMDVIEW9')">
                 </template>
@@ -67,18 +65,20 @@
                     </li>
                 </template>
                 <template v-else>
-                    <ion-list  v-model="selectedArray"   v-if="isMutli">
+                    <ion-list  v-model="selectedArray"   v-if="isMutli" class="pickUpList">
                         <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item" >
                             <ion-checkbox color="secondary" :value="item.srfkey" @ionChange="checkboxChange"  slot="end"></ion-checkbox>
                             <ion-label>{{item.name}}</ion-label>
                         </ion-item>
                     </ion-list>
+                    <div class="pickUpList">
                     <ion-radio-group  :value="selectedValue" v-if="!isMutli">
                         <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
                             <ion-label>{{item.name}}</ion-label>
                             <ion-radio slot="end" :value="item.srfkey"></ion-radio>
                         </ion-item>
                     </ion-radio-group>
+                    </div>
                 </template>
             </ion-list>
             <div class="no-data" v-if="items.length == 0">暂无数据</div>
@@ -304,6 +304,13 @@ export default class MobBase extends Vue implements ControlInterface {
     */
      @Prop() public selectedData?:Array<any>;
 
+    /**
+     * 部件行为--update
+     *
+     * @type {string}
+     * @memberof Mob
+     */
+    @Prop({default: true}) protected needLoadMore?: boolean;
 
     /**
     * 新建打开视图
@@ -362,6 +369,61 @@ export default class MobBase extends Vue implements ControlInterface {
     * @memberof Mob
     */
     public checkboxList:Array<string> = [];
+
+    /**
+    * 是否为分组模式
+    *
+    * @type {boolean}
+    * @memberof Mob
+    */
+    public isEnableGroup:boolean =  false;
+
+    /**
+    * 代码表分组细节
+    *
+    * @type {Object}
+    * @memberof Mob
+    */
+    public group_detail:any = [];
+
+    /**
+    * 分组模式
+    *
+    * @type {string}
+    * @memberof Mob
+    */
+    public group_mode = 'NONE';
+
+    /**
+    * 分组数据
+    *
+    * @type {array}
+    * @memberof Mob
+    */
+    public group_data?:any = [];
+
+    /**
+    * 分组标识
+    *
+    * @type {array}
+    * @memberof Mob
+    */
+    public group_field:string = '';
+
+    /**
+     * 分组方法
+     *
+     * @memberof Mob
+     */
+    public group(){
+      let _this:any = this;
+      if(_this.getGroupDataByCodeList && _this.getGroupDataByCodeList instanceof Function && Object.is(_this.group_mode,"CODELIST") ){
+        _this.getGroupDataByCodeList(_this.items);
+      }else if(_this.getGroupDataAuto && _this.getGroupDataAuto instanceof Function && Object.is(_this.group_mode,"AUTO") ){
+        _this.getGroupDataAuto(_this.items);
+      }
+    }
+
 
     /**
     * 存放数据选择数组(单选)
@@ -557,6 +619,9 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     public async loadBottom(): Promise<any> {
+        if (((this.pageNumber + 1) * this.pageSize) >= this.pageTotal) {
+          return;
+        }
         this.pageNumber++;
         let params = {};
         if (this.viewparams) {
@@ -606,7 +671,7 @@ export default class MobBase extends Vue implements ControlInterface {
                 if (response && response.status === 200 && response.data.records) {
                     this.$notice.success((this.$t('app.message.deleteSccess') as string));
                     this.load();
-                    this.closeSliding();
+                    this.closeSlidings();
                     resolve(response);
                 } else {
                     this.$notice.error(response.message?response.message:"删除失败");
@@ -729,8 +794,13 @@ export default class MobBase extends Vue implements ControlInterface {
             Object.assign(item,this.getActionState(item));    
             this.setSlidingDisabled(item);
         });
+        if(this.isEnableGroup){
+          this.group();
+        }
         return response;
     }
+
+
 
     /**
     * 全选
@@ -921,10 +991,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     public activated() {
-        this.items.forEach((item:any)=>{
-            let curr:any = this.$refs[item.srfkey];
-            curr[0].close();
-        })
+        this.closeSlidings()
     }
 
     /**
@@ -939,8 +1006,20 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        let curr :any = this.$refs[item.srfkey];
-        curr[0].closeOpened();
+        this.closeSlidings();
+    }
+
+    /**
+     * 关闭列表项左滑右滑
+     * @memberof Mdctrl
+     */
+    public closeSlidings () {
+        let slidings:any = this.$refs.sliding; 
+        if (slidings) {
+            slidings.forEach((sliding:any) => {
+                sliding.close()
+            })     
+        }
     }
 
     /**
@@ -1011,22 +1090,6 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mdctrl
      */
     public selectAllIschecked = false;
-
-
-    /**
-     * 关闭滑动项
-     *
-     * @memberof Mdctrl
-     */
-    public closeSliding(){
-        let sliding :any = this.$refs.sliding;
-        if(sliding){
-            sliding.forEach((item:any) => {
-                item.closeOpened();
-            });
-        }
-    }
-
     
 
     /**

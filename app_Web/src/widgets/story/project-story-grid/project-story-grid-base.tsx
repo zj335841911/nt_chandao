@@ -130,8 +130,8 @@ export class ProjectStoryGridBase extends GridControlBase {
      * @memberof ProjectStoryBase
      */  
     public ActionModel: any = {
-        Breakdowntasks: { name: 'Breakdowntasks',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_FJTASK_BUT', actiontarget: 'SINGLEKEY'},
-        ProjectUnlinkStory: { name: 'ProjectUnlinkStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_UNLP_BUT', actiontarget: 'SINGLEKEY'}
+        Breakdowntasks: { name: 'Breakdowntasks',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_FJTASK_BUT', target: 'SINGLEKEY'},
+        ProjectUnlinkStory: { name: 'ProjectUnlinkStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_UNLP_BUT', target: 'SINGLEKEY'}
     };
 
     /**
@@ -382,6 +382,107 @@ export class ProjectStoryGridBase extends GridControlBase {
         }
         if(Object.is('ProjectUnlinkStory', tag)) {
             this.grid_uagridcolumn1_ucdf692f_click(row, tag, $event);
+        }
+    }
+
+    /**
+     * 表格数据加载
+     *
+     * @param {*} [opt={}]
+     * @param {boolean} [pageReset=false]
+     * @returns {void}
+     * @memberof ProjectStoryGridBase
+     */
+    public load(opt: any = {}, pageReset: boolean = false): void {
+        if (!this.fetchAction) {
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: (this.$t('app.gridpage.notConfig.fetchAction') as string) });
+            return;
+        }
+        if (pageReset) {
+            this.curPage = 1;
+        }
+        const arg: any = { ...opt };
+        const page: any = {};
+        if (this.isEnablePagingBar) {
+            Object.assign(page, { page: this.curPage - 1, size: this.limit });
+        }
+        // 设置排序
+        if (!this.isNoSort && !Object.is(this.minorSortDir, '') && !Object.is(this.minorSortPSDEF, '')) {
+            const sort: string = this.minorSortPSDEF + "," + this.minorSortDir;
+            Object.assign(page, { sort: sort });
+        }
+        Object.assign(arg, page);
+        const parentdata: any = {};
+        this.$emit('beforeload', parentdata);
+        Object.assign(arg, parentdata);
+        let tempViewParams: any = parentdata.viewparams ? parentdata.viewparams : {};
+        Object.assign(tempViewParams, JSON.parse(JSON.stringify(this.viewparams)));
+        Object.assign(arg, { viewparams: tempViewParams });
+        const post: Promise<any> = this.service.search(this.fetchAction, JSON.parse(JSON.stringify(this.context)), arg, this.showBusyIndicator);
+        post.then((response: any) => {
+            if (!response.status || response.status !== 200) {
+                if (response.errorMessage) {
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
+                }
+                return;
+            }
+            const data: any = response.data;
+            this.totalRecord = response.total;
+            this.items = JSON.parse(JSON.stringify(data));
+            // 清空selections,gridItemsModel
+            this.selections = [];
+            this.gridItemsModel = [];
+            this.items.forEach(() => { this.gridItemsModel.push(this.getGridRowModel()) });
+            this.items.forEach((item: any) => {
+                this.setActionState(item);
+            });
+            this.$emit('load', this.items);
+            // 向上下文中填充当前数据
+            this.$appService.contextStore.setContextData(this.context, this.appDeName, { items: this.items });
+            // 设置默认选中
+            setTimeout(() => {
+                if (this.isSelectFirstDefault) {
+                    this.rowClick(this.items[0]);
+                }
+                if (this.selectedData) {
+                    const refs: any = this.$refs;
+                    if (refs.multipleTable) {
+                        refs.multipleTable.clearSelection();
+                        JSON.parse(this.selectedData).forEach((selection: any) => {
+                            let selectedItem = this.items.find((item: any) => {
+                                return Object.is(item.srfkey, selection.srfkey);
+                            });
+                            if (selectedItem) {
+                                this.rowClick(selectedItem);
+                            }
+                        });
+                    }
+                }
+            }, 300);
+            // 
+        }).catch((response: any) => {
+            if (response && response.status === 401) {
+                return;
+            }
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
+        });
+    }
+
+    /**
+     * 表格数据加载
+     *
+     * @param {*} item
+     * @returns {void}
+     * @memberof ProjectStoryGridBase
+     */
+    public setActionState(item: any) {
+        Object.assign(item, this.getActionState(item));
+        if(item.items && item.items.length > 0) {
+            item.items.forEach((data: any) => {
+                let _data: any = this.service.handleResponseData('', data);
+                Object.assign(data, _data);
+                this.setActionState(data);
+            })
         }
     }
 }

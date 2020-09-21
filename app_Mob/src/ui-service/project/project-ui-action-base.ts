@@ -89,6 +89,7 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
      * @memberof  ProjectUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'mobchartview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'projects'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'supmobeditview',srfappde:'projects'});
@@ -302,6 +303,50 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
             return response;
         };
         return backend();
+    }
+
+    /**
+     * 详情
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof ProjectUIService
+     */
+    public async Project_EditMod(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { project: '%project%' });
+        Object.assign(paramJO, { id: '%project%' });
+        Object.assign(paramJO, { name: '%name%' });
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        let response: any = null;
+        const view: any = { 
+            viewname: 'project-mob-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: '项目移动端编辑视图', 
+            placement: 'POPUPMODAL',
+        };
+        response = await this.openService.openModal(view, _context, _params);
+        return response;
     }
 
     /**

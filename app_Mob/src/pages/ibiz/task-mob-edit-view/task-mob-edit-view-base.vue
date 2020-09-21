@@ -12,6 +12,8 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
+
+    
     </ion-header>
 
 
@@ -42,52 +44,84 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
+    <ion-footer class="view-footer" style="z-index:9999;">
                 <div  class = "fab_container">
-            <div class="bottom_menu">
-        
-        
-            <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
-                <ion-fab-list class="fab-list" side="top">
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_starttaskmob.visabled" :disabled="righttoolbarModels.deuiaction1_starttaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_starttaskmob' }, $event)">
-                <ion-icon name="play"></ion-icon>
-            {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_starttaskmob.caption')}}    
-            </ion-fab-button>
-        
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_assigntaskmob.visabled" :disabled="righttoolbarModels.deuiaction1_assigntaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assigntaskmob' }, $event)">
-                <ion-icon name="people"></ion-icon>
-            {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntaskmob.caption')}}    
-            </ion-fab-button>
-        
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_donetaskmob.visabled" :disabled="righttoolbarModels.deuiaction1_donetaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_donetaskmob' }, $event)">
-                <ion-icon name="checkmark-circle-outline"></ion-icon>
-            {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_donetaskmob.caption')}}    
-            </ion-fab-button>
-        
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_pausetaskmob.visabled" :disabled="righttoolbarModels.deuiaction1_pausetaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_pausetaskmob' }, $event)">
-                <ion-icon name="pause"></ion-icon>
-            {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_pausetaskmob.caption')}}    
-            </ion-fab-button>
-        
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_canceltaskmob.visabled" :disabled="righttoolbarModels.deuiaction1_canceltaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_canceltaskmob' }, $event)">
-                <ion-icon name="power"></ion-icon>
-            {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_canceltaskmob.caption')}}    
-            </ion-fab-button>
-        
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_closetaskmob.visabled" :disabled="righttoolbarModels.deuiaction1_closetaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closetaskmob' }, $event)">
-                <ion-icon name="backspace"></ion-icon>
-            {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_closetaskmob.caption')}}    
-            </ion-fab-button>
-        
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_deletemob.visabled" :disabled="righttoolbarModels.deuiaction1_deletemob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event)">
-                <ion-icon name="remove"></ion-icon>
-            {{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}    
-            </ion-fab-button>
-        
-                </ion-fab-list>
-            </ion-fab>
+            <ion-button @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <van-popup class="popup" v-model="showGrop" round position="bottom">
+                <div class="container">
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_confirmstorychangecz.disabled}" v-show="righttoolbarModels.deuiaction1_confirmstorychangecz.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_confirmstorychangecz.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_confirmstorychangecz' }, $event)" size="large">
+                    <ion-icon name="search"></ion-icon>
+                <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmstorychangecz.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmstorychangecz.caption')}}</span>
             </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_starttaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_starttaskmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_starttaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_starttaskmob' }, $event)" size="large">
+                    <ion-icon name="play"></ion-icon>
+                <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_starttaskmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_starttaskmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_assigntaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_assigntaskmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_assigntaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assigntaskmob' }, $event)" size="large">
+                    <ion-icon name="people"></ion-icon>
+                <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntaskmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntaskmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_workhoursmob.disabled}" v-show="righttoolbarModels.deuiaction1_workhoursmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_workhoursmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_workhoursmob' }, $event)" size="large">
+                <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_workhoursmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_workhoursmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_donetaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_donetaskmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_donetaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_donetaskmob' }, $event)" size="large">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_donetaskmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_donetaskmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_pausetaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_pausetaskmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_pausetaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_pausetaskmob' }, $event)" size="large">
+                    <ion-icon name="pause"></ion-icon>
+                <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_pausetaskmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_pausetaskmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_canceltaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_canceltaskmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_canceltaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_canceltaskmob' }, $event)" size="large">
+                    <ion-icon name="power"></ion-icon>
+                <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_canceltaskmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_canceltaskmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_closetaskmob.disabled}" v-show="righttoolbarModels.deuiaction1_closetaskmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_closetaskmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closetaskmob' }, $event)" size="large">
+                    <ion-icon name="backspace"></ion-icon>
+                <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_closetaskmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_closetaskmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_deletemob.disabled}" v-show="righttoolbarModels.deuiaction1_deletemob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_deletemob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event)" size="large">
+                    <ion-icon name="remove"></ion-icon>
+                <span class="btn-inner-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('task.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}</span>
+            </div>
+        
+                </div>
+            </van-popup>
         </div>
     </ion-footer>
 </ion-page>
@@ -237,7 +271,7 @@ export default class TaskMobEditViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-tasks'
     }
 
     /**
@@ -319,9 +353,13 @@ export default class TaskMobEditViewBase extends Vue {
     * @memberof TaskMobEditView
     */
     public righttoolbarModels: any = {
+            deuiaction1_confirmstorychangecz: { name: 'deuiaction1_confirmstorychangecz', caption: '确认', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_XQCHANGE_BUT', uiaction: { tag: 'confirmStoryChangeCz', target: 'SINGLEKEY' } },
+
             deuiaction1_starttaskmob: { name: 'deuiaction1_starttaskmob', caption: '开始', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_START_BUT', uiaction: { tag: 'StartTaskMob', target: 'SINGLEKEY' } },
 
             deuiaction1_assigntaskmob: { name: 'deuiaction1_assigntaskmob', caption: '指派', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', uiaction: { tag: 'AssignTaskMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_workhoursmob: { name: 'deuiaction1_workhoursmob', caption: '工时', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CUTINTBEHAVIOR', uiaction: { tag: 'WorkHoursMob', target: 'SINGLEKEY' } },
 
             deuiaction1_donetaskmob: { name: 'deuiaction1_donetaskmob', caption: '完成', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', uiaction: { tag: 'DoneTaskMob', target: 'SINGLEKEY' } },
 
@@ -360,6 +398,24 @@ export default class TaskMobEditViewBase extends Vue {
             })
         }
         return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof TaskMobEditView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof TaskMobEditView 
+     */
+    public popUpGroup () {
+        this.showGrop = !this.showGrop;
     }
 
     
@@ -456,6 +512,7 @@ export default class TaskMobEditViewBase extends Vue {
         }
 
     }
+
 
     /**
      * 销毁之前
@@ -591,11 +648,17 @@ export default class TaskMobEditViewBase extends Vue {
      * @memberof TaskMobEditViewBase
      */
     protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1_confirmstorychangecz')) {
+            this.righttoolbar_deuiaction1_confirmstorychangecz_click($event, '', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction1_starttaskmob')) {
             this.righttoolbar_deuiaction1_starttaskmob_click($event, '', $event2);
         }
         if (Object.is($event.tag, 'deuiaction1_assigntaskmob')) {
             this.righttoolbar_deuiaction1_assigntaskmob_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_workhoursmob')) {
+            this.righttoolbar_deuiaction1_workhoursmob_click($event, '', $event2);
         }
         if (Object.is($event.tag, 'deuiaction1_donetaskmob')) {
             this.righttoolbar_deuiaction1_donetaskmob_click($event, '', $event2);
@@ -614,6 +677,38 @@ export default class TaskMobEditViewBase extends Vue {
         }
     }
 
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TaskMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_confirmstorychangecz_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        if (curUIService) {
+            curUIService.Task_confirmStoryChangeCz(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 逻辑事件
@@ -676,6 +771,38 @@ export default class TaskMobEditViewBase extends Vue {
         const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
             curUIService.Task_AssignTaskMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TaskMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_workhoursmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        if (curUIService) {
+            curUIService.Task_WorkHoursMob(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -951,7 +1078,7 @@ export default class TaskMobEditViewBase extends Vue {
         if (view && view.viewdatachange) {
                 const title: any = this.$t('app.tabpage.sureclosetip.title');
                 const contant: any = this.$t('app.tabpage.sureclosetip.content');
-                const result = await this.$notice.confirm(title, contant);
+                const result = await this.$notice.confirm(title, contant, this.$store);
                 if (result) {
                     this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
                     return true;

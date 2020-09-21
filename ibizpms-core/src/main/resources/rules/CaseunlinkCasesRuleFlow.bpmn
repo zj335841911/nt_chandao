@@ -8,17 +8,17 @@
         <tns:global identifier="caseunlinkcasestestrun" type="cn.ibizlab.pms.core.zentao.domain.TestRun" />
         <tns:global identifier="caseunlinkcasesdefault" type="cn.ibizlab.pms.core.zentao.domain.Case" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseunlinkcasesrawsqlcall1" id="14B0ABB4-0C5F-40C1-A86A-2B4C8D2511C1" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseunlinkcasesdeaction1" id="2FDE26F9-29D4-4862-9DD8-018555E8B8BC" implementation="http://www.jboss.org/drools/rule" name="处理移除接口"/>
-     <endEvent id="2FDE26F9-29D4-4862-9DD8-018555E8B8BC_End" name="End"/>
-     <sequenceFlow id="2FDE26F9-29D4-4862-9DD8-018555E8B8BC_End_Line" sourceRef="2FDE26F9-29D4-4862-9DD8-018555E8B8BC" targetRef="2FDE26F9-29D4-4862-9DD8-018555E8B8BC_End"/>
-     <startEvent id="02C5CDE0-FF72-4170-80B4-A2FBD030C61F" isInterrupting="true"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseunlinkcasesprepareparam1" id="D201CA1F-E0D3-4836-B28A-A35C62FD1B69" implementation="http://www.jboss.org/drools/rule" name="重置ID"/>
-     <sequenceFlow id="A7F82187-34EB-40DD-A4E9-B94FFB61F2FF" sourceRef="02C5CDE0-FF72-4170-80B4-A2FBD030C61F" targetRef="14B0ABB4-0C5F-40C1-A86A-2B4C8D2511C1">
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseunlinkcasesrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseunlinkcasesdeaction1" id="deaction1" implementation="http://www.jboss.org/drools/rule" name="处理移除接口"/>
+     <endEvent id="deaction1_end" name="end"/>
+     <sequenceFlow id="deaction1_end_line" sourceRef="deaction1" targetRef="deaction1_end"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="caseunlinkcasesprepareparam1" id="prepareparam1" implementation="http://www.jboss.org/drools/rule" name="重置ID"/>
+     <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
      </sequenceFlow>
-     <sequenceFlow id="DF3DA968-4A7A-4F4B-B09B-2971260BC8D5" sourceRef="14B0ABB4-0C5F-40C1-A86A-2B4C8D2511C1" targetRef="D201CA1F-E0D3-4836-B28A-A35C62FD1B69">
+     <sequenceFlow id="rawsqlcall1_prepareparam1" sourceRef="rawsqlcall1" targetRef="prepareparam1">
      </sequenceFlow>
-     <sequenceFlow id="702BEC12-B110-4746-BB15-6B5474931584" sourceRef="D201CA1F-E0D3-4836-B28A-A35C62FD1B69" targetRef="2FDE26F9-29D4-4862-9DD8-018555E8B8BC">
+     <sequenceFlow id="prepareparam1_deaction1" sourceRef="prepareparam1" targetRef="deaction1">
      </sequenceFlow>
     </process>
 </definitions>

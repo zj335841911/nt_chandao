@@ -184,6 +184,7 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='task-team-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
     paramItem='task' 
     style="" 
     :formState="formState" 
@@ -191,6 +192,7 @@
     :parameters="[
         { pathName: 'tasks', parameterName: 'task' },
     ]" 
+    tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
@@ -520,7 +522,6 @@
     :caption="$t('task.mobmain_form.details.desc')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.desc.disabled"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""/>
@@ -548,12 +549,14 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart2.visible" 
     paramItem='task' 
     style="" 
     :formState="formState" 
     :parentdata='{"srfparentdename":"ZT_TASK","SRFPARENTTYPE":"CUSTOM"}' 
     :parameters="[
     ]" 
+    tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
@@ -715,12 +718,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
-    /**
-     * 加载完成
-     *
-     * @memberof MobMain
-     */
-    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -1035,10 +1032,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '指派日期 值不能为空', trigger: 'blur' },
         ],
         multiple: [
-            { type: 'number', message: '多人任务 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '多人任务 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '多人任务 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '多人任务 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '多人任务 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '多人任务 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'blur' },
         ],
         status: [
             { type: 'string', message: '任务状态 值必须为字符串类型', trigger: 'change' },
@@ -2122,7 +2119,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
@@ -2155,7 +2151,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

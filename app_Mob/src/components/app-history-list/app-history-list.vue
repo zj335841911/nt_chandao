@@ -3,32 +3,57 @@
     <div class="onecontent" ref="onecontent">   
       <div v-for="item in items" :key="item.id" class="oneitem" ref="oneitem">
             <div class="header"><span>{{item.date}}</span> <span>{{item.method}}</span></div>
-            <div class="footer">
-              <span>{{$t('by')}} </span>
-              <strong>{{item.actor}}</strong> 
-              {{item.method}} 
-              <span v-if="item.actions !== 'closed'">
-                <span v-if="item.actions !=='suspended'">
-                  <span v-if="item.actions !=='delayed'">
-                  <strong>{{item.file}}</strong>
+            <div v-if="item.item.length > 0" class="footer">
+              <div v-for="(detail,index) in item.item" :key="index">
+                <span>{{$t('by')}} </span>
+                <strong>{{item.actor}}</strong> 
+                {{item.method}} 
+                <span v-if="item.actions !== 'closed'">
+                  <span v-if="item.actions !=='suspended'">
+                    <span v-if="item.actions !=='delayed'">
+                    <strong>{{detail.file}} </strong>
+                    </span>
+                  </span>
+                  <span v-if="item.actions == 'delayed'">
+                  </span>
+                  <span v-if="item.actions == 'commented' ">
+                    <strong v-html="item.comment" class="comment"></strong>
+                  </span>
+                  <span v-if="item.actions == 'edited' ">
+                    <span v-if="item.old">{{$t('oldvalue')}}</span> <span v-html="item.old"></span>,<span v-if="item.new">{{$t('newvalue')}}</span> <span v-html="item.new"></span>
+                  </span>
+                  <span v-if="item.actions == 'activated'">
+                    <span v-if="item.old">{{$t('oldvalue')}}</span> <span v-html="item.old"></span>,<span v-if="item.new">{{$t('newvalue')}}</span> <span v-html="item.new"></span> 
                   </span>
                 </span>
-                <span v-if="item.actions == 'delayed'">
+              </div>
+            </div>
+            <div v-else class="footer">
+              <span>{{$t('by')}} </span>
+                <strong>{{item.actor}}</strong> 
+                {{item.method}} 
+                <span v-if="item.actions !== 'closed'">
+                  <span v-if="item.actions !=='suspended'">
+                    <span v-if="item.actions !=='delayed'">
+                    <strong>{{item.file}} </strong>
+                    </span>
+                  </span>
+                  <span v-if="item.actions == 'delayed'">
+                  </span>
+                  <span v-if="item.actions == 'commented' ">
+                    <strong v-html="item.comment" class="comment"></strong>
+                  </span>
+                  <span v-if="item.actions == 'edited' ">
+                    <span v-if="detail.old">{{$t('oldvalue')}}</span> <span v-html="detail.old"></span>,<span v-if="detail.ibiznew">{{$t('newvalue')}}</span> <span v-html="detail.ibiznew"></span>
+                  </span>
+                  <span v-if="item.actions == 'activated'">
+                    <span v-if="detail.old">{{$t('oldvalue')}}</span> <span v-html="detail.old"></span>,<span v-if="detail.ibiznew">{{$t('newvalue')}}</span> <span v-html="detail.ibiznew"></span> 
+                  </span>
                 </span>
-                <span v-if="item.actions == 'commented' ">
-                  <strong v-html="item.comment" class="comment"></strong>
-                </span>
-                <span v-if="item.actions == 'edited' ">
-                  {{$t('oldvalue')}} <span v-html="item.old"></span>,{{$t('newvalue')}} <span v-html="item.new"></span>
-                </span>
-                <span v-if="item.actions == 'activated'">
-                  {{$t('oldvalue')}} <span v-html="item.old"></span>,{{$t('newvalue')}} <span v-html="item.new"></span> 
-                </span>
-              </span>
             </div>
       </div>
     </div>
-    <div class="button" v-if="items.length > 3">
+    <div class="button" v-if="items.length > 3" ref="loadMore">
       <div @click="loadMore"><span>{{text}}</span></div>
     </div>
     <div class="zero" v-if="items.length == 0">
@@ -40,6 +65,7 @@
 <script lang="ts">
 import { Vue, Component, Prop,Watch } from 'vue-property-decorator';
 import { CodeListService } from "@/ibiz-core";
+
 
 @Component({
     components: {},
@@ -78,6 +104,8 @@ export default class APPHistoryList extends Vue {
      */
     @Prop() public items?: Array<any>;
 
+    public listItems:Array<any> = [];
+
     /**
      * 传入数据itemNameDetail
      *
@@ -105,7 +133,7 @@ export default class APPHistoryList extends Vue {
      */
     @Watch('items',{immediate: true, deep: true})
     itemsChange(){
-      if (this.items!=undefined && this.items.length !== 0) {
+      if (this.items && this.items.length !== 0) {
         this.text = '查看更多记录';
       } else {
         this.text = '暂无更多记录';
@@ -134,22 +162,22 @@ export default class APPHistoryList extends Vue {
      * @returns {void}
      * @memberof APPHistoryList
      */
-    public handler(){
-      if (this.items != undefined) {
-        this.items.forEach((v:any)=>{
+    public handler() {
+      if (this.items) {
+        this.items.forEach((v:any) => {
           let file:string = "";
           let method:string = "";
-          if(v.objecttype){
-
-          }
-          if(v.actions){
-            let info:any = this.getCodeList(this.codeListAAA.actions.tag,'STATIC',v.actions);
+          if (v.actions) {
+            let info:any = this.getCodeList(this.codeListStandard.actions.tag,'STATIC',v.actions);
               v.method = info.text;
               method = info.text;
+              if (v.actions === 'closed') {
+                v.item.length = 1;
+              }
           }
-          if(v.item){
+          if (v.item.length > 0) {
             v.item.forEach((i:any) => {
-              v.file = (this.$t(v.objecttype+'.fields.'+i.field) as string);
+              i.file = (this.$t(v.objecttype+'.fields.'+i.field.toLowerCase()) as string);
               v.old = i.old;
               v.new = i.ibiznew;
             });
@@ -179,7 +207,7 @@ export default class APPHistoryList extends Vue {
      *
      * @memberof APPHistoryList
      */
-    public codeListAAA :any= {
+    public codeListStandard :any= {
       "actions":{
         type:"static",
         tag:"Action__type"
@@ -227,14 +255,14 @@ export default class APPHistoryList extends Vue {
           let ite:any =  document.querySelectorAll('.oneitem');
           this.startHeig = 0;
           this.endHeig = 0;
-            for(let i = 0; i < this.num; i++){
+            for (let i = 0; i < this.num; i++) {
               if (ite[i] != undefined) {
-                this.startHeig += ite[i].offsetHeight + 15;
+                this.startHeig += ite[i].offsetHeight;
               }
             }
-            for(let i = 0; i <= ite.length; i++){
+            for (let i = 0; i <= ite.length; i++) {
               if (ite[i] != undefined) {              
-              this.endHeig += ite[i].offsetHeight + 15;
+                this.endHeig += ite[i].offsetHeight;
               }
             }  
           ele.style.height = this.isShow?this.endHeig+'px':  + this.startHeig+'px';
@@ -249,7 +277,6 @@ export default class APPHistoryList extends Vue {
      */
     public created(){
       this.handler();
-      console.log('items',this.items)
     }
 
     /**
@@ -258,19 +285,26 @@ export default class APPHistoryList extends Vue {
      * @returns {void}
      * @memberof APPHistoryList
      */
-    public setHeight(){
-
+    public setHeight() {
       let ele:any =  document.querySelector('.onecontent');
       let ite:any =  this.$refs.oneitem;
       if (ite !== undefined) {
         for(let i:any = 0; i < this.num; i++){
           if (ite[i] !== undefined) {
-            this.startHeig += ite[i].offsetHeight + 15;
+            this.startHeig += ite[i].offsetHeight;
           }
         }
       }
-      if(ele && ele.style){
+      if (ele && ele.style) {
         ele.style.height = this.startHeig + 'px';
+      }
+      const userAgent:string = navigator.userAgent;
+      let isIOS = (userAgent: string) => /iphone/i.test(userAgent) || /ipod/i.test(userAgent) || /iPad/i.test(userAgent);
+      if (isIOS(userAgent)) {
+        let loadMore:any = this.$refs.loadMore;
+        if (loadMore) {
+          loadMore.style.marginBottom = "10px";
+        }
       }
     }
 
@@ -282,6 +316,7 @@ export default class APPHistoryList extends Vue {
      */
     public mounted(){
       this.setHeight();
+      // console.log("this.items",this.items)
     }
 
 }

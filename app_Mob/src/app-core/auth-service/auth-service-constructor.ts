@@ -20,6 +20,7 @@ export class AuthServiceConstructor extends ServiceConstructorBase {
         this.allService.set('projectteam', () => import('@/app-core/auth-service/project-team/project-team-auth-service'));
         this.allService.set('build', () => import('@/app-core/auth-service/build/build-auth-service'));
         this.allService.set('task', () => import('@/app-core/auth-service/task/task-auth-service'));
+        this.allService.set('taskestimate', () => import('@/app-core/auth-service/task-estimate/task-estimate-auth-service'));
         this.allService.set('module', () => import('@/app-core/auth-service/module/module-auth-service'));
         this.allService.set('product', () => import('@/app-core/auth-service/product/product-auth-service'));
         this.allService.set('dynadashboard', () => import('@/app-core/auth-service/dyna-dashboard/dyna-dashboard-auth-service'));
@@ -36,7 +37,9 @@ export class AuthServiceConstructor extends ServiceConstructorBase {
         this.allService.set('case', () => import('@/app-core/auth-service/case/case-auth-service'));
         this.allService.set('testmodule', () => import('@/app-core/auth-service/test-module/test-module-auth-service'));
         this.allService.set('productplan', () => import('@/app-core/auth-service/product-plan/product-plan-auth-service'));
+        this.allService.set('ibztaskestimate', () => import('@/app-core/auth-service/ibz-taskestimate/ibz-taskestimate-auth-service'));
         this.allService.set('projectstats', () => import('@/app-core/auth-service/project-stats/project-stats-auth-service'));
+        this.allService.set('ibztaskteam', () => import('@/app-core/auth-service/ibztaskteam/ibztaskteam-auth-service'));
         this.allService.set('bug', () => import('@/app-core/auth-service/bug/bug-auth-service'));
         this.allService.set('projectmodule', () => import('@/app-core/auth-service/project-module/project-module-auth-service'));
         this.allService.set('productstats', () => import('@/app-core/auth-service/product-stats/product-stats-auth-service'));

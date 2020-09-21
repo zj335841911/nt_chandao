@@ -125,8 +125,20 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.productplan.main_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
-
+    
+<rich-text-editor 
+    :formState="formState" 
+    :value="data.desc"
+    @change="(val) =>{this.data.desc =val}" 
+    :disabled="detailsModel.desc.disabled" 
+    :data="JSON.stringify(this.data)"  
+    name="desc" 
+    :viewparams="viewparams"
+    :context="context"
+    :uploadparams='{objecttype:"productplan",version:"editor"}' 
+    :exportparams='{objecttype:"productplan",version:"editor"}' 
+    :templParams='{ }' 
+    style=""/>
 </app-form-item>
 
 </i-col>

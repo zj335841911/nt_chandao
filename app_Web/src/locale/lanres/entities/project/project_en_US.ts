@@ -59,6 +59,18 @@ export default {
     managemembers: "复制团队",
     buildcnt: "版本总数",
     teamcnt: "团队成员总数",
+    alltaskcnt: "所有任务数",
+    unclosetaskcnt: "未关闭任务数",
+    asstomytaskcnt: "指派给我任务数",
+    unstarttaskcnt: "未开始任务数",
+    moretaskcnt: "更多任务数",
+    ystarttaskcnt: "进行中任务数",
+    uncompletetaskcnt: "未完成任务数",
+    ycompletetaskcnt: "已完成任务数",
+    mycompletetaskcnt: "我完成任务数",
+    closetaskcnt: "关闭任务数",
+    canceltaskcnt: "取消任务数",
+    storychangecnt: "需求变更数",
   },
 	views: {
 		storymeditview9: {

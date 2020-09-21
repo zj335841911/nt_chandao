@@ -27,6 +27,16 @@ export default class StoryRelatedModel {
     }else{
 		  return [
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
           name: 'totask',
           prop: 'totask',
           dataType: 'PICKUP',
@@ -76,11 +86,6 @@ export default class StoryRelatedModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
@@ -94,11 +99,6 @@ export default class StoryRelatedModel {
           name: 'story',
           prop: 'story',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
         },
         {
           name: 'plan',

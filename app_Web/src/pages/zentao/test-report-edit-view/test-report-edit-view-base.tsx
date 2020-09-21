@@ -58,6 +58,13 @@ export class TestReportEditViewBase extends EditViewBase {
     public appUIService: TestReportUIService = new TestReportUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof TestReportEditViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

@@ -19,6 +19,13 @@ export class ViewBase extends Vue {
     public viewState: Subject<ViewState> = new Subject();
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof ViewBase
+     */
+    isShowDataInfoBar = false;
+
+    /**
      * 视图标题
      *
      * @readonly
@@ -26,8 +33,8 @@ export class ViewBase extends Vue {
      * @memberof ViewBase
      */
     get viewCaption(): string {
-        if (isExistAndNotEmpty(this.model.dataInfo)) {
-            return `${this.model.srfCaption} - ${this.model.dataInfo}`;
+        if (this.isShowDataInfoBar && isExistAndNotEmpty(this.model.dataInfo)) {
+            return `${this.model.srfCaption}：${this.model.dataInfo}`;
         }
         return this.model.srfCaption;
     }
@@ -276,7 +283,9 @@ export class ViewBase extends Vue {
             for (let key in this.viewparams) {
                 delete this.viewparams[key];
             }
-            Object.assign(this.viewparams, JSON.parse(this.viewparam));
+            if (typeof this.viewparam == 'string') {
+                Object.assign(this.viewparams, JSON.parse(this.viewparam));
+            }
         }
     }
 
@@ -305,6 +314,8 @@ export class ViewBase extends Vue {
                 this.viewDataChange(newVal, oldVal);
                 if (this.engine) {
                     this.engine.load();
+                } else {
+                    this.refresh();
                 }
             });
         }
@@ -437,6 +448,14 @@ export class ViewBase extends Vue {
         this.accLocalTags.forEach(((str: string) => {
             this.$acc.unsubscribeLocal(str);
         }));
+        // 销毁计数器定时器
+        if (this.counterServiceArray && this.counterServiceArray.length > 0) {
+            this.counterServiceArray.forEach((item: any) => {
+                if (item.destroyCounter && item.destroyCounter instanceof Function) {
+                    item.destroyCounter();
+                }
+            })
+        }
     }
 
     /**
@@ -484,7 +503,9 @@ export class ViewBase extends Vue {
             if (this.$store.getters.getAppData() && this.$store.getters.getAppData().context) {
                 Object.assign(this.context, this.$store.getters.getAppData().context);
             }
-            Object.assign(this.context, JSON.parse(this.viewdata));
+            if (typeof this.viewdata == 'string') {
+                Object.assign(this.context, JSON.parse(this.viewdata));
+            }
             if (this.context && this.context.srfparentdename) {
                 Object.assign(this.viewparams, { srfparentdename: this.context.srfparentdename });
             }
@@ -597,4 +618,11 @@ export class ViewBase extends Vue {
             this.$appService.navHistory.pop();
         }
     }
+
+    /**
+     * 刷新
+     *
+     * @memberof ViewBase
+     */
+    public refresh() { };
 }

@@ -29,9 +29,9 @@ public interface IProjectService extends IService<Project>{
     void createBatch(List<Project> list) ;
     boolean update(Project et) ;
     void updateBatch(List<Project> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Project get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Project get(Long key) ;
     Project getDraft(Project et) ;
     Project activate(Project et) ;
     Project batchUnlinkStory(Project et) ;
@@ -41,6 +41,7 @@ public interface IProjectService extends IService<Project>{
     Project linkStory(Project et) ;
     Project manageMembers(Project et) ;
     Project mobProjectCount(Project et) ;
+    Project projectTaskQCnt(Project et) ;
     Project projectTop(Project et) ;
     Project putoff(Project et) ;
     boolean save(Project et) ;
@@ -57,8 +58,8 @@ public interface IProjectService extends IService<Project>{
     Page<Project> searchMyProject(ProjectSearchContext context) ;
     Page<Project> searchProjectTeam(ProjectSearchContext context) ;
     Page<Project> searchStoryProject(ProjectSearchContext context) ;
-    List<Project> selectByParent(BigInteger id) ;
-    void removeByParent(BigInteger id) ;
+    List<Project> selectByParent(Long id) ;
+    void removeByParent(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

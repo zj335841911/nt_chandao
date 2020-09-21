@@ -12,6 +12,8 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
+
+    
     </ion-header>
 
 
@@ -42,42 +44,53 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
+    <ion-footer class="view-footer" style="z-index:9999;">
                 <div  class = "fab_container">
-            <div class="bottom_menu">
-        
-        
-            <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
-                <ion-fab-list class="fab-list" side="top">
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_assingtobugmob.visabled" :disabled="righttoolbarModels.deuiaction1_assingtobugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assingtobugmob' }, $event)">
-                <ion-icon name="hand-o-right"></ion-icon>
-            {{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_assingtobugmob.caption')}}    
-            </ion-fab-button>
-        
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_confirmbugmob.visabled" :disabled="righttoolbarModels.deuiaction1_confirmbugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_confirmbugmob' }, $event)">
-                <ion-icon name="eye"></ion-icon>
-            {{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmbugmob.caption')}}    
-            </ion-fab-button>
-        
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_activationmob.visabled" :disabled="righttoolbarModels.deuiaction1_activationmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_activationmob' }, $event)">
-                <ion-icon name="color-wand"></ion-icon>
-            {{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_activationmob.caption')}}    
-            </ion-fab-button>
-        
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_resolvebugmob.visabled" :disabled="righttoolbarModels.deuiaction1_resolvebugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_resolvebugmob' }, $event)">
-                <ion-icon name="check-square-o"></ion-icon>
-            {{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_resolvebugmob.caption')}}    
-            </ion-fab-button>
-        
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_closebugmob.visabled" :disabled="righttoolbarModels.deuiaction1_closebugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closebugmob' }, $event)">
-                <ion-icon name="close"></ion-icon>
-            {{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_closebugmob.caption')}}    
-            </ion-fab-button>
-        
-                </ion-fab-list>
-            </ion-fab>
+            <ion-button @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <van-popup class="popup" v-model="showGrop" round position="bottom">
+                <div class="container">
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_assingtobugmob.disabled}" v-show="righttoolbarModels.deuiaction1_assingtobugmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_assingtobugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assingtobugmob' }, $event)" size="large">
+                    <ion-icon name="hand-o-right"></ion-icon>
+                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_assingtobugmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_assingtobugmob.caption')}}</span>
             </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_confirmbugmob.disabled}" v-show="righttoolbarModels.deuiaction1_confirmbugmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_confirmbugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_confirmbugmob' }, $event)" size="large">
+                    <ion-icon name="eye"></ion-icon>
+                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmbugmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_confirmbugmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_activationmob.disabled}" v-show="righttoolbarModels.deuiaction1_activationmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_activationmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_activationmob' }, $event)" size="large">
+                    <ion-icon name="color-wand"></ion-icon>
+                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_activationmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_activationmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_resolvebugmob.disabled}" v-show="righttoolbarModels.deuiaction1_resolvebugmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_resolvebugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_resolvebugmob' }, $event)" size="large">
+                    <ion-icon name="check-square-o"></ion-icon>
+                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_resolvebugmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_resolvebugmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_closebugmob.disabled}" v-show="righttoolbarModels.deuiaction1_closebugmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_closebugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closebugmob' }, $event)" size="large">
+                    <ion-icon name="close"></ion-icon>
+                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_closebugmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_closebugmob.caption')}}</span>
+            </div>
+        
+                </div>
+            </van-popup>
         </div>
     </ion-footer>
 </ion-page>
@@ -227,7 +240,7 @@ export default class BugMobEditViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-bug'
     }
 
     /**
@@ -348,6 +361,24 @@ export default class BugMobEditViewBase extends Vue {
         return toolBarVisable;
     }
 
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof BugMobEditView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof BugMobEditView 
+     */
+    public popUpGroup () {
+        this.showGrop = !this.showGrop;
+    }
+
     
 
 
@@ -442,6 +473,7 @@ export default class BugMobEditViewBase extends Vue {
         }
 
     }
+
 
     /**
      * 销毁之前
@@ -867,7 +899,7 @@ export default class BugMobEditViewBase extends Vue {
         if (view && view.viewdatachange) {
                 const title: any = this.$t('app.tabpage.sureclosetip.title');
                 const contant: any = this.$t('app.tabpage.sureclosetip.content');
-                const result = await this.$notice.confirm(title, contant);
+                const result = await this.$notice.confirm(title, contant, this.$store);
                 if (result) {
                     this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
                     return true;

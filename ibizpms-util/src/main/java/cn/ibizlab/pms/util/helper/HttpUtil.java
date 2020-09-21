@@ -1,5 +1,6 @@
 package cn.ibizlab.pms.util.helper;
 
+import cn.ibizlab.pms.util.constants.IBizPMSConstants;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.http.*;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -102,7 +103,7 @@ final public class HttpUtil {
     }
 
     public static RestTemplate getRestTemplate(){
-        return getRestTemplate("UTF-8");
+    return getRestTemplate(IBizPMSConstants.ENCODING);
     }
 
     public static RestTemplate getRestTemplate(String charset){

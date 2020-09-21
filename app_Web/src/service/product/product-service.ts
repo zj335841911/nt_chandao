@@ -21,5 +21,18 @@ export default class ProductService extends ProductServiceBase {
         super(opts);
     }
 
+    /**
+     * WizardCreate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async WizardCreate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        return { status: 200, data: {} };
+    }
+
 
 }

@@ -8,20 +8,20 @@
         <tns:global identifier="releaseremove__msdenydefault" type="cn.ibizlab.pms.core.zentao.domain.Release" />
         <tns:global identifier="releaseremove__msdenytemp" type="cn.ibizlab.pms.core.zentao.domain.Release" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="releaseremove__msdenydenybynormal" id="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__normal" implementation="http://www.jboss.org/drools/rule" name="状态[正常]拒绝[Remove]操作"/>
-     <endEvent id="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__normal_End" name="End"/>
-     <sequenceFlow id="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__normal_End_Line" sourceRef="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__normal" targetRef="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__normal_End"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="releaseremove__msdenypreparetemp" id="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__PREPARETEMP" implementation="http://www.jboss.org/drools/rule" name="准备临时参数"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="releaseremove__msdenydenybyterminate" id="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__terminate" implementation="http://www.jboss.org/drools/rule" name="状态[停止维护]拒绝[Remove]操作"/>
-     <endEvent id="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__terminate_End" name="End"/>
-     <sequenceFlow id="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__terminate_End_Line" sourceRef="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__terminate" targetRef="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__terminate_End"/>
-     <startEvent id="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__BEGIN" isInterrupting="true"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="releaseremove__msdenyget" id="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__GET" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
-     <sequenceFlow id="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__PREPARETEMP" sourceRef="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__BEGIN" targetRef="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__PREPARETEMP">
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="releaseremove__msdenydenybynormal" id="denybynormal" implementation="http://www.jboss.org/drools/rule" name="状态[正常]拒绝[Remove]操作"/>
+     <endEvent id="denybynormal_end" name="end"/>
+     <sequenceFlow id="denybynormal_end_line" sourceRef="denybynormal" targetRef="denybynormal_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="releaseremove__msdenypreparetemp" id="preparetemp" implementation="http://www.jboss.org/drools/rule" name="准备临时参数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="releaseremove__msdenydenybyterminate" id="denybyterminate" implementation="http://www.jboss.org/drools/rule" name="状态[停止维护]拒绝[Remove]操作"/>
+     <endEvent id="denybyterminate_end" name="end"/>
+     <sequenceFlow id="denybyterminate_end_line" sourceRef="denybyterminate" targetRef="denybyterminate_end"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="releaseremove__msdenyget" id="get" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
+     <sequenceFlow id="begin_preparetemp" sourceRef="begin" targetRef="preparetemp">
      </sequenceFlow>
-     <sequenceFlow id="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__GET" sourceRef="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__PREPARETEMP" targetRef="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__GET">
+     <sequenceFlow id="preparetemp_get" sourceRef="preparetemp" targetRef="get">
      </sequenceFlow>
-     <sequenceFlow id="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__normal" sourceRef="gateway-fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__GET" targetRef="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__normal">
+     <sequenceFlow id="gateway-get_denybynormal" sourceRef="gateway-get" targetRef="denybynormal">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $releaseremove__msdenydefault:Release();
             $releaseremove__msdenytemp:Release();
@@ -30,7 +30,7 @@
                 ]]>
             </conditionExpression>
      </sequenceFlow>
-     <sequenceFlow id="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__terminate" sourceRef="gateway-fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__GET" targetRef="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__terminate">
+     <sequenceFlow id="gateway-get_denybyterminate" sourceRef="gateway-get" targetRef="denybyterminate">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $releaseremove__msdenydefault:Release();
             $releaseremove__msdenytemp:Release();
@@ -39,10 +39,10 @@
                 ]]>
             </conditionExpression>
      </sequenceFlow>
-    <exclusiveGateway id="gateway-fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__GET" name="Gateway" gatewayDirection="Diverging" default="gateway-fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__GET_End_Line"></exclusiveGateway>
-    <sequenceFlow id="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__normal-gatewayline" sourceRef="fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__GET" targetRef="gateway-fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__GET"></sequenceFlow>
-    <sequenceFlow id="gateway-fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__GET_End_Line" sourceRef="gateway-fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__GET" targetRef="gateway-fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__GET_End"/>
-    <endEvent id="gateway-fd1e0ca923a22dbb201bdd7a7e4e2483__MSDENY__GET_End" name="End"/>
+    <exclusiveGateway id="gateway-get" name="Gateway" gatewayDirection="Diverging" default="gateway-get_end_line"></exclusiveGateway>
+    <sequenceFlow id="get_gateway-get_gatewayline" sourceRef="get" targetRef="gateway-get"></sequenceFlow>
+    <sequenceFlow id="gateway-get_end_line" sourceRef="gateway-get" targetRef="gateway-get_end"/>
+    <endEvent id="gateway-get_end" name="end"/>
     </process>
 </definitions>
 

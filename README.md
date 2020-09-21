@@ -149,6 +149,23 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 本系统100%开源，遵守MIT协议。
 
+##  官方网站
+
+> 待开放。
+
+##  文档手册
+
+> 系统的说明文档与操作手册逐步完善中。
+
+- iBizPMS介绍（待开放）
+
+- iBizPMS快速上手指南（待开放）
+- iBizPMS移动端快速上手指南（待开放）
+- iBizPMS进阶指南（待开放）
+- iBizPMS开发手册（待开放）
+- iBizPMS部署手册（待开放）
+- iBizPMS定制开发（待开放）
+
 ## 系统地址
 
 演示Demo地址：http://pms.ibizlab.cn/
@@ -215,23 +232,65 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
   ![show25](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show25.png)
 
+#### 我的收藏
+
+- 我的地盘--需求
+
+  ![show30](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show30.png)
+
 ### 移动端
 
 #### 产品
 
-![show26](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show26.png)
+- 产品-产品列表
+
+![show31](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show31.png)
+
+- 产品-主页
+
+![show32](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show32.png)
 
 #### 项目
 
-![show27](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show27.png)
+- 项目-项目列表
+
+![show33](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show33.png)
+
+- 项目-主页
+
+![show34](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show34.png)
 
 #### 测试
 
-![show28](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show28.png)
+- 测试-测试列表
+
+![show35](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show35.png)
+
+- 测试-主页
+
+![show36](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show36.png)
 
 #### 我的地盘
 
-![show29](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show29.png)
+- 我的地盘-我的待办
+
+![show37](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show37.png)
+
+- 我的地盘-自定义仪表盘
+
+![show38](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show38.png)
+
+![show39](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show39.png)
+
+- 我的地盘-我的工作
+
+![show40](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show40.png)
+
+#### 设置
+
+- 设置-首页
+
+![show41](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/show41.png)
 
 ### 接口
 
@@ -266,8 +325,12 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 | 10   | 2020-08-22 | 统一用户权限（微服务） | 支持操作、展示权限，支持数据状态控制操作。（微服务）         |
 | 11   | 2020-08-22 | 移动端H5第一版         | 上线移动端H5（我的地盘、产品、项目、测试、待办处理操作）；集成进钉钉应用 |
 | 12   | 2020-08-30 | 我的收藏、置顶功能     |                                                              |
+| 13   | 2020-09-20 | 与生产系统协助第一版   | 与生产系统相互同步需求内容；产品发布、开发（测试）版本与生产系统的代码发布连通。（微服务） |
+| 14   | 2020-09-20 | 移动端H5第二版         | 定制个人仪表盘（定制首页展示模块）；个人办公日程化（每日办公日程表--任务、BUG、待办）；个性化主题设置；钉钉待办与消息推送 |
 
 > **9月会增强PC端、移动端功能，完善操作的引导性，与更多的生产运行系统功能进行连通。**
+>
+> **系统文档与相关手册也在逐步完善中。**
 
 ### 快速建立issue
 
@@ -287,8 +350,28 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 ![fl002](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/fl002.png)
 
+### 开发说明
+
+iBizPMS使用的是微服务架构模式，因此在项目运行中，存在一部分功能需要依赖其它系统提供的微服务能力，因此在本地开发时，在没有微服务的前提下，iBizPMS提供了单机开发模式：
+
+只需要启动ibizpms-boot模块下DevBootApplication即可。
+
+然而在使用本地开发模式时，相关微服务的功能也无法使用，具体微服务请参照[iBizPMS使用到的其它系统微服务](#iBizPMS使用到的其它系统微服务)。
+
+### iBizPMS使用到的其它系统微服务
+
+iBizPMS使用了 [埃毕致开源商业套件](https://gitee.com/ibizlab)下  [iBizRuntime（微服务运行时）](https://gitee.com/ibizlab/ibizlab-runtime)的相关运行支撑服务。
+
+目前使用到的微服务有
+
+| 序号 | 微服务     | 说明                                 | iBizPMS应用说明          |
+| ---- | ---------- | ------------------------------------ | ------------------------ |
+| 1    | ibz-uaa    | 统一认证授权微服务（支持第三方认证） | 统一认证，角色、权限管理 |
+| 2    | ibz-ou     | 组织人事管理微服务                   | 用户、组织管理           |
+| 3    | ibz-notify | 通知微服务                           | 钉钉待办与消息通知       |
+
 ### 感谢
 
 最后对以下参与的小伙伴发出衷心的感谢。
 
-@Unidentified、@Yuzuriha_Inori、@crimson777、前端模板团队、后端模板团队、CI/CD团队
+@Unidentified、@Yuzuriha_Inori、@crimson777、@huwei_031588 、@nancygitee 、前端模板团队、后端模板团队、CI/CD团队

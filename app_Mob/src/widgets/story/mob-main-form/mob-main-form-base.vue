@@ -411,7 +411,6 @@
     :caption="$t('story.mobmain_form.details.spec')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.spec.disabled"
     :error="detailsModel.spec.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.spec" @change="(val) =>{this.data.spec =val}" :disabled="detailsModel.spec.disabled" :data="JSON.stringify(this.data)"  name="spec" :uploadparams='{}' :exportparams='{}'  style=""/>
@@ -432,7 +431,6 @@
     :caption="$t('story.mobmain_form.details.verify')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.verify.disabled"
     :error="detailsModel.verify.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.verify" @change="(val) =>{this.data.verify =val}" :disabled="detailsModel.verify.disabled" :data="JSON.stringify(this.data)"  name="verify" :uploadparams='{}' :exportparams='{}'  style=""/>
@@ -511,12 +509,14 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
     paramItem='story' 
     style="" 
     :formState="formState" 
     :parentdata='{"srfparentdename":"ZT_STORY","SRFPARENTTYPE":"CUSTOM"}' 
     :parameters="[
     ]" 
+    tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
@@ -678,12 +678,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
-    /**
-     * 加载完成
-     *
-     * @memberof MobMain
-     */
-    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -2019,7 +2013,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
@@ -2052,7 +2045,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

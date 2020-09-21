@@ -32,24 +32,29 @@ export default class MainModel {
           dataType: 'ACID',
         },
         {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'name',
           prop: 'name',
           dataType: 'TEXT',
         },
         {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'code',
           prop: 'code',
           dataType: 'TEXT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'end',
+          prop: 'end',
+          dataType: 'DATE',
+        },
+        {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
         },
         {
           name: 'srfmstag',
@@ -69,11 +74,6 @@ export default class MainModel {
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
-        },
-        {
-          name: 'end',
-          prop: 'end',
-          dataType: 'DATE',
         },
         {
           name: 'project',

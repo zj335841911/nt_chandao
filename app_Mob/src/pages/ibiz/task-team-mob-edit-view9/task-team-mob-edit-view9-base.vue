@@ -1,15 +1,15 @@
 <template>
 <embed-view :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview9': true, 'task-team-mob-edit-view9': true }">
     <template slot="header">
-        <ion-toolbar>
-            <ion-title v-if="showTitle">{{$t(model.srfCaption)}}</ion-title>
+    </template>
+
+    <template slot="toolbar">
             <ion-buttons slot="end" class="ibiz-top-right-buttons ibiz-buttonGroup">
                                 <div class="app-toolbar-container ">
                     <div class="app-quick-toolbar toolbar-right-bottons">
                     </div>
                 </div>
             </ion-buttons>
-        </ion-toolbar>
     </template>
     <template slot="content">
                 <view_form
@@ -45,10 +45,10 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskTeamService from '@/app-core/service/task-team/task-team-service';
+import IbztaskteamService from '@/app-core/service/ibztaskteam/ibztaskteam-service';
 
 import MobEditView9Engine from '@engine/view/mob-edit-view9-engine';
-import TaskTeamUIService from '@/ui-service/task-team/task-team-ui-action';
+import IbztaskteamUIService from '@/ui-service/ibztaskteam/ibztaskteam-ui-action';
 
 @Component({
     components: {
@@ -67,18 +67,18 @@ export default class TaskTeamMobEditView9Base extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {TaskTeamService}
+     * @type {IbztaskteamService}
      * @memberof TaskTeamMobEditView9Base
      */
-    protected appEntityService: TaskTeamService = new TaskTeamService();
+    protected appEntityService: IbztaskteamService = new IbztaskteamService();
 
     /**
      * 实体UI服务对象
      *
-     * @type TaskTeamUIService
+     * @type IbztaskteamUIService
      * @memberof TaskTeamMobEditView9Base
      */
-    public appUIService: TaskTeamUIService = new TaskTeamUIService(this.$store);
+    public appUIService: IbztaskteamUIService = new IbztaskteamUIService(this.$store);
 
     /**
      * 数据变化
@@ -181,7 +181,7 @@ export default class TaskTeamMobEditView9Base extends Vue {
      */
     protected model: any = {
         srfTitle: '任务团队移动端编辑视图',
-        srfCaption: 'taskteam.views.mobeditview9.caption',
+        srfCaption: 'ibztaskteam.views.mobeditview9.caption',
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
@@ -322,7 +322,7 @@ export default class TaskTeamMobEditView9Base extends Vue {
         this.engine.init({
             view: this,
             form: this.$refs.form,
-            keyPSDEField: 'taskteam',
+            keyPSDEField: 'ibztaskteam',
             majorPSDEField: 'account',
             isLoadDefault: true,
         });
@@ -371,6 +371,7 @@ export default class TaskTeamMobEditView9Base extends Vue {
         }
 
     }
+
 
     /**
      * 销毁之前
@@ -531,8 +532,12 @@ export default class TaskTeamMobEditView9Base extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
         }
         if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });

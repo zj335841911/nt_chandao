@@ -58,6 +58,13 @@ export class IbzFavoritesTabExpViewBase extends TabExpViewBase {
     public appUIService: IbzFavoritesUIService = new IbzFavoritesUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof IbzFavoritesTabExpViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

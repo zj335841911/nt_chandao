@@ -54,6 +54,12 @@ export default class ProjectTrendsTimelineModel {
       {
         name: 'actionmanner',
       },
+      {
+        name: 'isactorss',
+      },
+      {
+        name: 'date1',
+      },
     ]
   }
 

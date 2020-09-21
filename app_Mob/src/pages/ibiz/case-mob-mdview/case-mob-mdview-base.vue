@@ -5,6 +5,8 @@
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
         </ion-toolbar>
+
+    
     </ion-header>
 
 
@@ -50,14 +52,14 @@
             @load="mdctrl_load($event)"  
             @closeview="closeView($event)">
         </view_mdctrl>
-        <ion-infinite-scroll  @ionInfinite="loadMore" distance="2%" >
+        <ion-infinite-scroll  @ionInfinite="loadMore" threshold="1px" v-if="this.isEnablePullUp">
           <ion-infinite-scroll-content
           loadingSpinner="bubbles"
           loadingText="Loading more data...">
         </ion-infinite-scroll-content>
         </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
+    <ion-footer class="view-footer" style="z-index:9999;">
         
     </ion-footer>
 </ion-page>
@@ -405,6 +407,7 @@ export default class CaseMobMDViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *
@@ -677,8 +680,12 @@ export default class CaseMobMDViewBase extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
         }
         if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
@@ -758,6 +765,15 @@ export default class CaseMobMDViewBase extends Vue {
      * @memberof CaseMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+
+   /**
+     * 能否上拉加载
+     *
+     * @type {boolean}
+     * @memberof CaseMobMDViewBase
+     */ 
+    @Prop({ default: true }) public isEnablePullUp?: boolean;
+
 
 
     /**
@@ -871,8 +887,6 @@ export default class CaseMobMDViewBase extends Vue {
         event.target.complete();
       }
     }
-
-
 
 
 

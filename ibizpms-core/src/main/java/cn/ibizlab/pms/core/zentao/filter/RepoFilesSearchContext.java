@@ -27,8 +27,8 @@ import cn.ibizlab.pms.core.zentao.domain.RepoFiles;
 @Data
 public class RepoFilesSearchContext extends QueryWrapperContext<RepoFiles> {
 
-	private BigInteger n_parent_eq;//[parent]
-	public void setN_parent_eq(BigInteger n_parent_eq) {
+	private Long n_parent_eq;//[parent]
+	public void setN_parent_eq(Long n_parent_eq) {
         this.n_parent_eq = n_parent_eq;
         if(!ObjectUtils.isEmpty(this.n_parent_eq)){
             this.getSearchCond().eq("parent", n_parent_eq);

@@ -177,6 +177,9 @@ export default class DashboardQuickActionModel {
       {
         name: 'libname',
       },
+      {
+        name: 'lastrunresult1',
+      },
     ]
   }
 

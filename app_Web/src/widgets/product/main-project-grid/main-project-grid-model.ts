@@ -27,6 +27,16 @@ export default class MainProjectModel {
     }else{
 		  return [
         {
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'code',
+          prop: 'code',
+          dataType: 'TEXT',
+        },
+        {
           name: 'linename',
           prop: 'linename',
           dataType: 'PICKUPTEXT',
@@ -37,19 +47,9 @@ export default class MainProjectModel {
           dataType: 'SSCODELIST',
         },
         {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
           name: 'line',
           prop: 'line',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'code',
-          prop: 'code',
-          dataType: 'TEXT',
         },
         {
           name: 'type',

@@ -19,37 +19,10 @@
                 
                 </ion-col>
                 
-                <ion-col v-show="detailsModel.role.visible"  :lg="3" :size="3" :offset="3" style="" class="app-layoutpanel-field">
-                    <div class="item-field ">
-                    
-                    <app-mob-span  v-if="data.role" :context="context" :value="data.role" :itemParam="{}"  ></app-mob-span>
-                </div>
-                
-                
-                </ion-col>
-                
-                <ion-col v-show="detailsModel.estimate.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
+                <ion-col v-show="detailsModel.estimate.visible"  :lg="4" :size="4" :offset="2" style="" class="app-layoutpanel-field">
                     <div class="item-field ">
                     
                     <app-mob-span  v-if="data.estimate" :context="context" :value="data.estimate" :itemParam="{}"  ></app-mob-span>
-                </div>
-                
-                
-                </ion-col>
-                
-                <ion-col v-show="detailsModel.consumed.visible"  :lg="4" :size="4" style="" class="app-layoutpanel-field">
-                    <div class="item-field ">
-                    
-                    <app-mob-span  v-if="data.consumed" :context="context" :value="data.consumed" :itemParam="{}"  ></app-mob-span>
-                </div>
-                
-                
-                </ion-col>
-                
-                <ion-col v-show="detailsModel.left.visible"  :lg="2" :size="2" :offset="2" style="" class="app-layoutpanel-field">
-                    <div class="item-field ">
-                    
-                    <app-mob-span  v-if="data.left" :context="context" :value="data.left" :itemParam="{}"  ></app-mob-span>
                 </div>
                 
                 
@@ -320,9 +293,6 @@ export default class MobBase extends Vue implements ControlInterface {
 
 
 
-
-
-
     }
 
    /**
@@ -336,13 +306,7 @@ export default class MobBase extends Vue implements ControlInterface {
 , 
         account: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'account', panel: this, visible: true  })
 , 
-        role: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'role', panel: this, visible: true  })
-, 
         estimate: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'estimate', panel: this, visible: true  })
-, 
-        consumed: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'consumed', panel: this, visible: true  })
-, 
-        left: new PanelFieldModel({ caption: '', itemType: 'FIELD', name: 'left', panel: this, visible: true  })
 , 
         container1: new PanelContainerModel({ caption: '', itemType: 'CONTAINER', name: 'container1', panel: this, visible: true  })
 , 

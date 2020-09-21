@@ -273,8 +273,20 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.steps.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='steps' :itemRules="this.rules.steps" class='' :caption="$t('entities.bug.main_form.details.steps')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.steps.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.steps" @change="(val) =>{this.data.steps =val}" :disabled="detailsModel.steps.disabled" :data="JSON.stringify(this.data)"  name="steps" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""></app-rich-text-editor>
-
+    
+<rich-text-editor 
+    :formState="formState" 
+    :value="data.steps"
+    @change="(val) =>{this.data.steps =val}" 
+    :disabled="detailsModel.steps.disabled" 
+    :data="JSON.stringify(this.data)"  
+    name="steps" 
+    :viewparams="viewparams"
+    :context="context"
+    :uploadparams='{objecttype:"bug",version:"editor"}' 
+    :exportparams='{objecttype:"bug",version:"editor"}' 
+    :templParams='{ account:"%srfloginname%", public:"0", type:"bug" }' 
+    style=""/>
 </app-form-item>
 
 </i-col>
@@ -290,14 +302,14 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ ZT_PRODUCT:"%product%", N_MODULE_EQ:"%module%" }' 
-  :localParam ='{ n_product_eq:"%product%", n_module_eq:"%module%" }' 
+  :localContext ='{ ZT_PRODUCT:"%product%", N_MODULE_EQ:"%module%", N_PROJECT_EQ:"%project%", N_PRODUCT_EQ:"%product%" }' 
+  :localParam ='{ n_product_eq:"%product%", n_project_eq:"%project%", n_module_eq:"%module%" }' 
   :disabled="detailsModel.storyname.disabled"
   name='storyname'
   deMajorField='title'
   deKeyField='story'
   :service="service"
-  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchBugStory'}"
   valueitem='story' 
   :value="data.storyname" 
   editortype="dropdown"
@@ -315,7 +327,7 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ ZT_PROJECT:"%project%" }' 
+  :localContext ='{ ZT_PROJECT:"%project%", N_PROJECT_EQ:"%project%" }' 
   :localParam ='{ n_project_eq:"%project%" }' 
   :disabled="detailsModel.taskname.disabled"
   name='taskname'

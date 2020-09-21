@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,7 @@ public class IBZ_LOGINDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "realname")
     @JsonProperty("realname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String realname;
 
     /**
@@ -38,7 +42,7 @@ public class IBZ_LOGINDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [ACCOUNT]
@@ -46,6 +50,7 @@ public class IBZ_LOGINDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "account")
     @JsonProperty("account")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String account;
 
     /**
@@ -54,6 +59,7 @@ public class IBZ_LOGINDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "commiter")
     @JsonProperty("commiter")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String commiter;
 
     /**
@@ -62,6 +68,7 @@ public class IBZ_LOGINDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "token")
     @JsonProperty("token")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String token;
 
 
@@ -91,4 +98,5 @@ public class IBZ_LOGINDTO extends DTOBase implements Serializable {
 
 
 }
+
 

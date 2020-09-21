@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class ProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Create-all')")
     @ApiOperation(value = "新建产品", tags = {"产品" },  notes = "新建产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/products")
-    public ResponseEntity<ProductDTO> create(@RequestBody ProductDTO productdto) {
+    public ResponseEntity<ProductDTO> create(@Validated @RequestBody ProductDTO productdto) {
         Product domain = productMapping.toDomain(productdto);
 		productService.create(domain);
         ProductDTO dto = productMapping.toDto(domain);
@@ -67,7 +68,7 @@ public class ProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Update-all')")
     @ApiOperation(value = "更新产品", tags = {"产品" },  notes = "更新产品")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}")
-    public ResponseEntity<ProductDTO> update(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
+    public ResponseEntity<ProductDTO> update(@PathVariable("product_id") Long product_id, @RequestBody ProductDTO productdto) {
 		Product domain  = productMapping.toDomain(productdto);
         domain .setId(product_id);
 		productService.update(domain );
@@ -86,14 +87,14 @@ public class ProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Remove-all')")
     @ApiOperation(value = "删除产品", tags = {"产品" },  notes = "删除产品")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}")
-    public ResponseEntity<Boolean> remove(@PathVariable("product_id") BigInteger product_id) {
+    public ResponseEntity<Boolean> remove(@PathVariable("product_id") Long product_id) {
          return ResponseEntity.status(HttpStatus.OK).body(productService.remove(product_id));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Remove-all')")
     @ApiOperation(value = "批量删除产品", tags = {"产品" },  notes = "批量删除产品")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/batch")
-    public ResponseEntity<Boolean> removeBatch(@RequestBody List<BigInteger> ids) {
+    public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
         productService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
@@ -101,7 +102,7 @@ public class ProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Get-all')")
     @ApiOperation(value = "获取产品", tags = {"产品" },  notes = "获取产品")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}")
-    public ResponseEntity<ProductDTO> get(@PathVariable("product_id") BigInteger product_id) {
+    public ResponseEntity<ProductDTO> get(@PathVariable("product_id") Long product_id) {
         Product domain = productService.get(product_id);
         ProductDTO dto = productMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
@@ -116,7 +117,7 @@ public class ProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-CancelProductTop-all')")
     @ApiOperation(value = "取消置顶", tags = {"产品" },  notes = "取消置顶")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cancelproducttop")
-    public ResponseEntity<ProductDTO> cancelProductTop(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
+    public ResponseEntity<ProductDTO> cancelProductTop(@PathVariable("product_id") Long product_id, @RequestBody ProductDTO productdto) {
         Product domain = productMapping.toDomain(productdto);
         domain.setId(product_id);
         domain = productService.cancelProductTop(domain);
@@ -133,7 +134,7 @@ public class ProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Close-all')")
     @ApiOperation(value = "关闭", tags = {"产品" },  notes = "关闭")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/close")
-    public ResponseEntity<ProductDTO> close(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
+    public ResponseEntity<ProductDTO> close(@PathVariable("product_id") Long product_id, @RequestBody ProductDTO productdto) {
         Product domain = productMapping.toDomain(productdto);
         domain.setId(product_id);
         domain = productService.close(domain);
@@ -144,7 +145,7 @@ public class ProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-MobProductCounter-all')")
     @ApiOperation(value = "产品移动端计数器方法", tags = {"产品" },  notes = "产品移动端计数器方法")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/mobproductcounter")
-    public ResponseEntity<ProductDTO> mobProductCounter(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
+    public ResponseEntity<ProductDTO> mobProductCounter(@PathVariable("product_id") Long product_id, @RequestBody ProductDTO productdto) {
         Product domain = productMapping.toDomain(productdto);
         domain.setId(product_id);
         domain = productService.mobProductCounter(domain);
@@ -155,7 +156,7 @@ public class ProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-MobProductTestCounter-all')")
     @ApiOperation(value = "移动端测试计数器", tags = {"产品" },  notes = "移动端测试计数器")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/mobproducttestcounter")
-    public ResponseEntity<ProductDTO> mobProductTestCounter(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
+    public ResponseEntity<ProductDTO> mobProductTestCounter(@PathVariable("product_id") Long product_id, @RequestBody ProductDTO productdto) {
         Product domain = productMapping.toDomain(productdto);
         domain.setId(product_id);
         domain = productService.mobProductTestCounter(domain);
@@ -166,7 +167,7 @@ public class ProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-ProductTop-all')")
     @ApiOperation(value = "置顶", tags = {"产品" },  notes = "置顶")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/producttop")
-    public ResponseEntity<ProductDTO> productTop(@PathVariable("product_id") BigInteger product_id, @RequestBody ProductDTO productdto) {
+    public ResponseEntity<ProductDTO> productTop(@PathVariable("product_id") Long product_id, @RequestBody ProductDTO productdto) {
         Product domain = productMapping.toDomain(productdto);
         domain.setId(product_id);
         domain = productService.productTop(domain);

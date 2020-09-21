@@ -4,12 +4,13 @@
                 <ion-list class="items">
                   <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                       <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
-                      <ion-button size="small" color="secondary" v-if="!isTempMode && !allLoaded" style ="position: relative;left: calc( 50% - 44px);"    @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
+                      <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn"   @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                   </template>
                 </ion-list>
                 <ion-list class="items">
                   <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.EditMod.visabled" :disabled="item.EditMod.disabled" color="primary" @click="mdctrl_click($event, 'ueeac2b8', item)"><ion-icon v-if="item.EditMod.icon && item.EditMod.isShowIcon" :name="item.EditMod.icon"></ion-icon><ion-label v-if="item.EditMod.isShowCaption">详情</ion-label></ion-item-option>
                             <ion-item-option v-show="item.ProjectTop.visabled" :disabled="item.ProjectTop.disabled" color="primary" @click="mdctrl_click($event, 'u4186bd7', item)"><ion-icon v-if="item.ProjectTop.icon && item.ProjectTop.isShowIcon" :name="item.ProjectTop.icon"></ion-icon><ion-label v-if="item.ProjectTop.isShowCaption">置顶</ion-label></ion-item-option>
                             <ion-item-option v-show="item.CancelProjectTop.visabled" :disabled="item.CancelProjectTop.disabled" color="primary" @click="mdctrl_click($event, 'ua7fd566', item)"><ion-icon v-if="item.CancelProjectTop.icon && item.CancelProjectTop.isShowIcon" :name="item.CancelProjectTop.icon"></ion-icon><ion-label v-if="item.CancelProjectTop.isShowCaption">取消置顶</ion-label></ion-item-option>
                             <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u02bc474', item)"><ion-icon v-if="item.deleteMob.icon && item.deleteMob.isShowIcon" :name="item.deleteMob.icon"></ion-icon><ion-label v-if="item.deleteMob.isShowCaption">删除</ion-label></ion-item-option>
@@ -50,18 +51,20 @@
                     </li>
                 </template>
                       <template v-else>
-                    <ion-list  v-model="selectedArray"   v-if="isMutli">
+                    <ion-list  v-model="selectedArray"   v-if="isMutli" class="pickUpList">
                         <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item" >
                             <ion-checkbox color="secondary" :value="item.srfkey" @ionChange="checkboxChange"  slot="end"></ion-checkbox>
                             <ion-label>{{item.name}}</ion-label>
                         </ion-item>
                     </ion-list>
+                    <div class="pickUpList">
                     <ion-radio-group  :value="selectedValue" v-if="!isMutli">
                         <ion-item v-for="(item, index) of items" :key="index" class="app-mob-mdctrl-item"  @click="onSimpleSelChange(item)">
                             <ion-label>{{item.name}}</ion-label>
                             <ion-radio slot="end" :value="item.srfkey"></ion-radio>
                         </ion-item>
                     </ion-radio-group>
+                    </div>
                       </template>
                     </ion-item>
                   </ion-item-sliding>
@@ -204,6 +207,37 @@ export default class MobBase extends Vue implements ControlInterface {
      */  
     public deUIService:ProjectUIService = new ProjectUIService(this.$store);
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_ueeac2b8_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('project_ui_action');
+        if (curUIService) {
+            curUIService.Project_EditMod(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 逻辑事件
@@ -389,6 +423,13 @@ export default class MobBase extends Vue implements ControlInterface {
     */
      @Prop() public selectedData?:Array<any>;
 
+    /**
+     * 部件行为--update
+     *
+     * @type {string}
+     * @memberof Mob
+     */
+    @Prop({default: true}) protected needLoadMore?: boolean;
 
     /**
     * 新建打开视图
@@ -447,6 +488,61 @@ export default class MobBase extends Vue implements ControlInterface {
     * @memberof Mob
     */
     public checkboxList:Array<string> = [];
+
+    /**
+    * 是否为分组模式
+    *
+    * @type {boolean}
+    * @memberof Mob
+    */
+    public isEnableGroup:boolean =  false;
+
+    /**
+    * 代码表分组细节
+    *
+    * @type {Object}
+    * @memberof Mob
+    */
+    public group_detail:any = [];
+
+    /**
+    * 分组模式
+    *
+    * @type {string}
+    * @memberof Mob
+    */
+    public group_mode = 'NONE';
+
+    /**
+    * 分组数据
+    *
+    * @type {array}
+    * @memberof Mob
+    */
+    public group_data?:any = [];
+
+    /**
+    * 分组标识
+    *
+    * @type {array}
+    * @memberof Mob
+    */
+    public group_field:string = '';
+
+    /**
+     * 分组方法
+     *
+     * @memberof Mob
+     */
+    public group(){
+      let _this:any = this;
+      if(_this.getGroupDataByCodeList && _this.getGroupDataByCodeList instanceof Function && Object.is(_this.group_mode,"CODELIST") ){
+        _this.getGroupDataByCodeList(_this.items);
+      }else if(_this.getGroupDataAuto && _this.getGroupDataAuto instanceof Function && Object.is(_this.group_mode,"AUTO") ){
+        _this.getGroupDataAuto(_this.items);
+      }
+    }
+
 
     /**
     * 存放数据选择数组(单选)
@@ -642,6 +738,9 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     public async loadBottom(): Promise<any> {
+        if (((this.pageNumber + 1) * this.pageSize) >= this.pageTotal) {
+          return;
+        }
         this.pageNumber++;
         let params = {};
         if (this.viewparams) {
@@ -691,7 +790,7 @@ export default class MobBase extends Vue implements ControlInterface {
                 if (response && response.status === 200 && response.data.records) {
                     this.$notice.success((this.$t('app.message.deleteSccess') as string));
                     this.load();
-                    this.closeSliding();
+                    this.closeSlidings();
                     resolve(response);
                 } else {
                     this.$notice.error(response.message?response.message:"删除失败");
@@ -814,8 +913,13 @@ export default class MobBase extends Vue implements ControlInterface {
             Object.assign(item,this.getActionState(item));    
             this.setSlidingDisabled(item);
         });
+        if(this.isEnableGroup){
+          this.group();
+        }
         return response;
     }
+
+
 
     /**
     * 全选
@@ -994,10 +1098,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     public activated() {
-        this.items.forEach((item:any)=>{
-            let curr:any = this.$refs[item.srfkey];
-            curr[0].close();
-        })
+        this.closeSlidings()
     }
 
     /**
@@ -1012,6 +1113,9 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
+        if (Object.is(tag, 'ueeac2b8')) {
+            this.mdctrl_ueeac2b8_click();
+        }
         if (Object.is(tag, 'u4186bd7')) {
             this.mdctrl_u4186bd7_click();
         }
@@ -1021,8 +1125,20 @@ export default class MobBase extends Vue implements ControlInterface {
         if (Object.is(tag, 'u02bc474')) {
             this.mdctrl_u02bc474_click();
         }
-        let curr :any = this.$refs[item.srfkey];
-        curr[0].closeOpened();
+        this.closeSlidings();
+    }
+
+    /**
+     * 关闭列表项左滑右滑
+     * @memberof Mdctrl
+     */
+    public closeSlidings () {
+        let slidings:any = this.$refs.sliding; 
+        if (slidings) {
+            slidings.forEach((sliding:any) => {
+                sliding.close()
+            })     
+        }
     }
 
     /**
@@ -1093,22 +1209,6 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mdctrl
      */
     public selectAllIschecked = false;
-
-
-    /**
-     * 关闭滑动项
-     *
-     * @memberof Mdctrl
-     */
-    public closeSliding(){
-        let sliding :any = this.$refs.sliding;
-        if(sliding){
-            sliding.forEach((item:any) => {
-                item.closeOpened();
-            });
-        }
-    }
-
     
 
     /**
@@ -1118,6 +1218,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
+        EditMod: { name: 'EditMod',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'paper',isShowCaption:true,isShowIcon:true},
         ProjectTop: { name: 'ProjectTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', target: 'SINGLEKEY',icon:'hand-o-up',isShowCaption:true,isShowIcon:true},
         CancelProjectTop: { name: 'CancelProjectTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'TOP', target: 'SINGLEKEY',icon:'hand-o-down',isShowCaption:true,isShowIcon:true},
         deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJ_DELETE_BUT', target: 'SINGLEKEY',icon:'close',isShowCaption:true,isShowIcon:true},

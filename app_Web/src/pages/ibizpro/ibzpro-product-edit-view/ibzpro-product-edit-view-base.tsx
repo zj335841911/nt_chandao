@@ -58,6 +58,13 @@ export class IBZProProductEditViewBase extends EditViewBase {
     public appUIService: IBZProProductUIService = new IBZProProductUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof IBZProProductEditViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

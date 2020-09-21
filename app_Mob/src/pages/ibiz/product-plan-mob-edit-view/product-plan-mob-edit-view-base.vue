@@ -18,6 +18,8 @@
                 </div>
             </ion-buttons>
         </ion-toolbar>
+
+    
     </ion-header>
 
 
@@ -374,6 +376,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *
@@ -613,7 +616,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
         if (view && view.viewdatachange) {
                 const title: any = this.$t('app.tabpage.sureclosetip.title');
                 const contant: any = this.$t('app.tabpage.sureclosetip.content');
-                const result = await this.$notice.confirm(title, contant);
+                const result = await this.$notice.confirm(title, contant, this.$store);
                 if (result) {
                     this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
                     return true;

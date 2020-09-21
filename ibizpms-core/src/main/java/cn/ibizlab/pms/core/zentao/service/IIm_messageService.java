@@ -29,9 +29,9 @@ public interface IIm_messageService extends IService<Im_message>{
     void createBatch(List<Im_message> list) ;
     boolean update(Im_message et) ;
     void updateBatch(List<Im_message> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Im_message get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Im_message get(Long key) ;
     Im_message getDraft(Im_message et) ;
     boolean checkKey(Im_message et) ;
     boolean save(Im_message et) ;

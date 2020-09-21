@@ -5,7 +5,7 @@ export default {
     desc: "步骤",
     expect: "预期",
     version: "用例版本",
-    iBizCase: "用例",
+    ibizcase: "用例",
     parent: "分组用例步骤的组编号",
     reals: "实际情况",
     steps: "测试结果",

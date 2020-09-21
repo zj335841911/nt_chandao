@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[burn]
@@ -51,7 +52,8 @@ public class Burn extends EntityMP implements Serializable {
     /**
      * 虚拟主键
      */
-    @TableId(value= "id",type=IdType.ASSIGN_UUID)
+    @DEField(isKeyField=true)
+    @TableField(exist = false)
     @JSONField(name = "id")
     @JsonProperty("id")
     private String id;
@@ -82,14 +84,14 @@ public class Burn extends EntityMP implements Serializable {
     @TableField(value = "project")
     @JSONField(name = "project")
     @JsonProperty("project")
-    private BigInteger project;
+    private Long project;
     /**
      * 任务
      */
     @TableField(value = "task")
     @JSONField(name = "task")
     @JsonProperty("task")
-    private BigInteger task;
+    private Long task;
 
     /**
      * 
@@ -154,7 +156,7 @@ public class Burn extends EntityMP implements Serializable {
     /**
      * 设置 [所属项目]
      */
-    public void setProject(BigInteger project){
+    public void setProject(Long project){
         this.project = project ;
         this.modify("project",project);
     }
@@ -162,12 +164,24 @@ public class Burn extends EntityMP implements Serializable {
     /**
      * 设置 [任务]
      */
-    public void setTask(BigInteger task){
+    public void setTask(Long task){
         this.task = task ;
         this.modify("task",task);
     }
 
 
+    /**
+     * 复制当前对象数据到目标对象(粘贴重置)
+     * @param targetEntity 目标数据对象
+     * @param bIncEmpty  是否包括空值
+     * @param <T>
+     * @return
+     */
+    @Override
+    public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
+        this.reset("id");
+        return super.copyTo(targetEntity,bIncEmpty);
+    }
 }
 
 

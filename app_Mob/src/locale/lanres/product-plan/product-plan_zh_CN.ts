@@ -7,7 +7,7 @@ export default {
     end: "结束日期",
     deleted: "已删除",
     order: "排序",
-    parentName: "父计划名称",
+    parentname: "父计划名称",
     branch: "平台/分支",
     parent: "父计划",
     product: "产品",
@@ -15,10 +15,12 @@ export default {
     future: "待定",
     delta: "周期",
     oldtitle: "上一次计划名称",
-    storyCnt: "需求数",
-    bugCnt: "bug数",
+    storycnt: "需求数",
+    bugcnt: "bug数",
     isexpired: "是否过期",
     estimatecnt: "工时数",
+    beginstr: "开始日期",
+    endstr: "结束日期",
   },
 	views: {
 		mobmdview: {

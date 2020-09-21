@@ -469,4 +469,100 @@ export interface Project {
      * @memberof Project
      */
     teamcnt?: any;
+
+    /**
+     * 所有任务数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    alltaskcnt?: any;
+
+    /**
+     * 未关闭任务数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    unclosetaskcnt?: any;
+
+    /**
+     * 指派给我任务数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    asstomytaskcnt?: any;
+
+    /**
+     * 未开始任务数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    unstarttaskcnt?: any;
+
+    /**
+     * 更多任务数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    moretaskcnt?: any;
+
+    /**
+     * 进行中任务数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    ystarttaskcnt?: any;
+
+    /**
+     * 未完成任务数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    uncompletetaskcnt?: any;
+
+    /**
+     * 已完成任务数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    ycompletetaskcnt?: any;
+
+    /**
+     * 我完成任务数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    mycompletetaskcnt?: any;
+
+    /**
+     * 关闭任务数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    closetaskcnt?: any;
+
+    /**
+     * 取消任务数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    canceltaskcnt?: any;
+
+    /**
+     * 需求变更数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    storychangecnt?: any;
 }

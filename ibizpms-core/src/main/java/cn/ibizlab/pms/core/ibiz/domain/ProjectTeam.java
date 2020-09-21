@@ -21,11 +21,13 @@ import cn.ibizlab.pms.util.enums.DEFieldDefaultValueType;
 import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
+import cn.ibizlab.pms.util.annotation.Audit;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[项目团队]
@@ -70,10 +72,11 @@ public class ProjectTeam extends EntityMP implements Serializable {
     @TableField(value = "`left`")
     @JSONField(name = "left")
     @JsonProperty("left")
-    private Double left;
+    private BigDecimal left;
     /**
      * 可用工日
      */
+    @DEField(defaultValue = "45")
     @TableField(value = "days")
     @JSONField(name = "days")
     @JsonProperty("days")
@@ -85,7 +88,7 @@ public class ProjectTeam extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 总计消耗
      */
@@ -93,7 +96,7 @@ public class ProjectTeam extends EntityMP implements Serializable {
     @TableField(value = "consumed")
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
-    private Double consumed;
+    private BigDecimal consumed;
     /**
      * 排序
      */
@@ -109,7 +112,7 @@ public class ProjectTeam extends EntityMP implements Serializable {
     @TableField(value = "estimate")
     @JSONField(name = "estimate")
     @JsonProperty("estimate")
-    private Double estimate;
+    private BigDecimal estimate;
     /**
      * 受限用户
      */
@@ -146,7 +149,14 @@ public class ProjectTeam extends EntityMP implements Serializable {
     @TableField(value = "root")
     @JSONField(name = "root")
     @JsonProperty("root")
-    private BigInteger root;
+    private Long root;
+    /**
+     * 用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "username")
+    @JsonProperty("username")
+    private String username;
 
     /**
      * 
@@ -195,7 +205,7 @@ public class ProjectTeam extends EntityMP implements Serializable {
     /**
      * 设置 [预计剩余]
      */
-    public void setLeft(Double left){
+    public void setLeft(BigDecimal left){
         this.left = left ;
         this.modify("left",left);
     }
@@ -211,7 +221,7 @@ public class ProjectTeam extends EntityMP implements Serializable {
     /**
      * 设置 [总计消耗]
      */
-    public void setConsumed(Double consumed){
+    public void setConsumed(BigDecimal consumed){
         this.consumed = consumed ;
         this.modify("consumed",consumed);
     }
@@ -227,7 +237,7 @@ public class ProjectTeam extends EntityMP implements Serializable {
     /**
      * 设置 [最初预计]
      */
-    public void setEstimate(Double estimate){
+    public void setEstimate(BigDecimal estimate){
         this.estimate = estimate ;
         this.modify("estimate",estimate);
     }
@@ -259,12 +269,16 @@ public class ProjectTeam extends EntityMP implements Serializable {
     /**
      * 设置 [项目编号]
      */
-    public void setRoot(BigInteger root){
+    public void setRoot(Long root){
         this.root = root ;
         this.modify("root",root);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
 }
 
 

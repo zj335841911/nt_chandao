@@ -51,8 +51,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.assignedto"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.assignedto"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.assignedto = $event" />
@@ -83,8 +82,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.neednotreview"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.neednotreview"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.neednotreview = $event" />
@@ -114,7 +112,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.title" 
+    :value="data.title"
+    unit=""
     :disabled="detailsModel.title.disabled" 
     @change="($event)=>this.data.title = $event" />
 </app-form-item>
@@ -133,7 +132,6 @@
     :caption="$t('story.mobchageform_form.details.spec')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.spec.disabled"
     :error="detailsModel.spec.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.spec" @change="(val) =>{this.data.spec =val}" :disabled="detailsModel.spec.disabled" :data="JSON.stringify(this.data)"  name="spec" :uploadparams='{objecttype:"story",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"story",objectid: "%id%",version:"editor"}'  style=""/>
@@ -154,7 +152,6 @@
     :caption="$t('story.mobchageform_form.details.verify')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.verify.disabled"
     :error="detailsModel.verify.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.verify" @change="(val) =>{this.data.verify =val}" :disabled="detailsModel.verify.disabled" :data="JSON.stringify(this.data)"  name="verify" :uploadparams='{objecttype:"story",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"story",objectid: "%id%",version:"editor"}'  style=""/>
@@ -175,7 +172,6 @@
     :caption="$t('story.mobchageform_form.details.comment')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.comment.disabled"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"story",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"story",objectid: "%id%",version:"editor"}'  style=""/>
@@ -236,12 +232,14 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
     paramItem='story' 
     style="" 
     :formState="formState" 
     :parentdata='{"srfparentdename":"ZT_STORY","SRFPARENTTYPE":"CUSTOM"}' 
     :parameters="[
     ]" 
+    tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
@@ -403,12 +401,6 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
-    /**
-     * 加载完成
-     *
-     * @memberof MobChageForm
-     */
-    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -1578,7 +1570,6 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
@@ -1611,7 +1602,6 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

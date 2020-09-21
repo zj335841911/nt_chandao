@@ -121,21 +121,26 @@ export class AppBreadcrumb extends Vue {
         }
         const arr = this.appService.navHistory.historyList;
         arr.forEach((item, i) => {
+            let info = '';
             let dropdown: any = null;
-            if (arr.length === (i + 1)) {
-                const list = this.getItems(item.context, item.tag);
-                if (list && list.length > 0) {
-                    const c = item.context;
-                    dropdown = <i-select v-model={c[c.srfappdename]} on-on-change={(val: any) => this.itemChange(c, item, val)} size="small">
-                        {list.map((item: any) => {
-                            return <i-option value={item.srfkey} key={item.srfkey}>{item.srfmajortext}</i-option>;
-                        })}
-                    </i-select>;
+            const view = this.$appService.viewStore.findParentByTag(item.tag as string);
+            if (view?.viewUsage === 1 && view.isShowDataInfoBar) {
+                info = item.meta?.info;
+                if (arr.length === (i + 1)) {
+                    const list = this.getItems(item.context, item.tag);
+                    if (list && list.length > 0) {
+                        const c = item.context;
+                        dropdown = <i-select v-model={c[c.srfappdename]} on-on-change={(val: any) => this.itemChange(c, item, val)} size="small">
+                            {list.map((item: any) => {
+                                return <i-option value={item.srfkey} key={item.srfkey}>{item.srfmajortext}</i-option>;
+                            })}
+                        </i-select>;
+                    }
                 }
             }
             items.push(<span class={{ 'app-breadcrumb-item': true, 'last': i === (arr.length - 1) }}>
                 {(!indexMeta && i === 0) ? null : <span class="separator">/</span>}
-                <span class="content" on-click={() => this.click(item.to)}>{this.$t(item.meta?.caption)}{dropdown ? null : (item.meta?.info && item.meta?.info !== '') ? ' - ' + item.meta?.info : ''}</span>
+                <span class="content" on-click={() => this.click(item.to)}>{this.$t(item.meta?.caption)}{dropdown ? null : isExistAndNotEmpty(info) ? ' - ' + info : ''}</span>
                 {dropdown ? <span class="select"> - {dropdown}</span> : null}
             </span>);
         });

@@ -29,18 +29,18 @@ public interface IDocLibService extends IService<DocLib>{
     void createBatch(List<DocLib> list) ;
     boolean update(DocLib et) ;
     void updateBatch(List<DocLib> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    DocLib get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    DocLib get(Long key) ;
     DocLib getDraft(DocLib et) ;
     boolean checkKey(DocLib et) ;
     boolean save(DocLib et) ;
     void saveBatch(List<DocLib> list) ;
     Page<DocLib> searchDefault(DocLibSearchContext context) ;
-    List<DocLib> selectByProduct(BigInteger id) ;
-    void removeByProduct(BigInteger id) ;
-    List<DocLib> selectByProject(BigInteger id) ;
-    void removeByProject(BigInteger id) ;
+    List<DocLib> selectByProduct(Long id) ;
+    void removeByProduct(Long id) ;
+    List<DocLib> selectByProject(Long id) ;
+    void removeByProject(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

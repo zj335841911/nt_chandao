@@ -242,6 +242,34 @@ export class MainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public dashboard_sysportlet3_ub9b8ba7_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:StoryUIService  = new StoryUIService();
+        curUIService.Story_SubStoryCz(datas,contextJO, paramJO,  $event, xData,this,"Story");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public dashboard_sysportlet3_u2eccee8_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -391,6 +419,16 @@ export class MainToolbarPortletBase extends MainControlBase {
         visabled:true,
         disabled:false
         },
+        { viewlogicname:"dashboard_sysportlet3_ub9b8ba7_click",
+        text: "细分",
+        iconcls: "iconfont studio-icon-subnets",
+        icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__STORY_XQXF_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
+        },
         { viewlogicname:"dashboard_sysportlet3_u2eccee8_click",
         text: "编辑",
         iconcls: "fa fa-edit",
@@ -436,6 +474,9 @@ export class MainToolbarPortletBase extends MainControlBase {
         }
         if(Object.is($event,'dashboard_sysportlet3_uf8a8e0c_click')){
             this.dashboard_sysportlet3_uf8a8e0c_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet3_ub9b8ba7_click')){
+            this.dashboard_sysportlet3_ub9b8ba7_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet3_u2eccee8_click')){
             this.dashboard_sysportlet3_u2eccee8_click(null);

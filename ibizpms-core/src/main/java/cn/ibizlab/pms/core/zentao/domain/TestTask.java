@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[测试版本]
@@ -98,7 +99,7 @@ public class TestTask extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 当前状态
      */
@@ -144,21 +145,21 @@ public class TestTask extends EntityMP implements Serializable {
     @TableField(value = "product")
     @JSONField(name = "product")
     @JsonProperty("product")
-    private BigInteger product;
+    private Long product;
     /**
      * 版本
      */
     @TableField(value = "build")
     @JSONField(name = "build")
     @JsonProperty("build")
-    private BigInteger build;
+    private Long build;
     /**
      * 所属项目
      */
     @TableField(value = "project")
     @JSONField(name = "project")
     @JsonProperty("project")
-    private BigInteger project;
+    private Long project;
     /**
      * 产品
      */
@@ -325,7 +326,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [所属产品]
      */
-    public void setProduct(BigInteger product){
+    public void setProduct(Long product){
         this.product = product ;
         this.modify("product",product);
     }
@@ -333,7 +334,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [版本]
      */
-    public void setBuild(BigInteger build){
+    public void setBuild(Long build){
         this.build = build ;
         this.modify("build",build);
     }
@@ -341,12 +342,28 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 设置 [所属项目]
      */
-    public void setProject(BigInteger project){
+    public void setProject(Long project){
         this.project = project ;
         this.modify("project",project);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
+    /**
+     * 复制当前对象数据到目标对象(粘贴重置)
+     * @param targetEntity 目标数据对象
+     * @param bIncEmpty  是否包括空值
+     * @param <T>
+     * @return
+     */
+    @Override
+    public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
+        this.reset("id");
+        return super.copyTo(targetEntity,bIncEmpty);
+    }
 }
 
 

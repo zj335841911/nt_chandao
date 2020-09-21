@@ -86,19 +86,19 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
 
     @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         boolean result=removeById(key);
         return result ;
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList) {
+    public void removeBatch(Collection<Long> idList) {
         removeByIds(idList);
     }
 
     @Override
     @Transactional
-    public DocContent get(BigInteger key) {
+    public DocContent get(Long key) {
         DocContent et = getById(key);
         if(et==null){
             et=new DocContent();
@@ -152,12 +152,12 @@ public class DocContentServiceImpl extends ServiceImpl<DocContentMapper, DocCont
 
 
 	@Override
-    public List<DocContent> selectByDoc(BigInteger id) {
+    public List<DocContent> selectByDoc(Long id) {
         return baseMapper.selectByDoc(id);
     }
 
     @Override
-    public void removeByDoc(BigInteger id) {
+    public void removeByDoc(Long id) {
         this.remove(new QueryWrapper<DocContent>().eq("doc",id));
     }
 

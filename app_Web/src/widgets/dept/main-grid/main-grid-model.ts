@@ -32,24 +32,24 @@ export default class MainModel {
           dataType: 'ACID',
         },
         {
-          name: 'manager',
-          prop: 'manager',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'name',
           prop: 'name',
           dataType: 'TEXT',
         },
         {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'parentname',
           prop: 'parentname',
           dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'manager',
+          prop: 'manager',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
         },
         {
           name: 'srfmajortext',

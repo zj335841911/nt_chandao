@@ -2,27 +2,12 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'story-favorite-mob-mdview': true }">
     
     <ion-header>
-        <ion-toolbar>
-            <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
-        </ion-toolbar>
+
+    
     </ion-header>
 
 
     <ion-content>
-        <ion-refresher 
-            slot="fixed" 
-            ref="loadmore" 
-            pull-factor="0.5" 
-            pull-min="50" 
-            pull-max="100" 
-            @ionRefresh="pullDownToRefresh($event)">
-            <ion-refresher-content
-                pulling-icon="arrow-down-outline"
-                :pulling-text="$t('app.pulling_text')"
-                refreshing-spinner="circles"
-                refreshing-text="">
-            </ion-refresher-content>
-        </ion-refresher>
                 <view_mdctrl
             :viewState="viewState"
             viewName="StoryFavoriteMobMDView"  
@@ -50,14 +35,14 @@
             @load="mdctrl_load($event)"  
             @closeview="closeView($event)">
         </view_mdctrl>
-        <ion-infinite-scroll  @ionInfinite="loadMore" distance="2%" >
+        <ion-infinite-scroll  @ionInfinite="loadMore" threshold="1px" v-if="this.isEnablePullUp">
           <ion-infinite-scroll-content
           loadingSpinner="bubbles"
           loadingText="Loading more data...">
         </ion-infinite-scroll-content>
         </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
+    <ion-footer class="view-footer" style="z-index:9999;">
         
     </ion-footer>
 </ion-page>
@@ -207,7 +192,7 @@ export default class StoryFavoriteMobMDViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-star-o'
     }
 
     /**
@@ -260,7 +245,6 @@ export default class StoryFavoriteMobMDViewBase extends Vue {
      */
     protected containerModel: any = {
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
-        view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
 
     /**
@@ -281,25 +265,12 @@ export default class StoryFavoriteMobMDViewBase extends Vue {
     @Prop({default:true}) protected showTitle?: boolean;
 
 
-
-   /**
-    * 工具栏 StoryFavoriteMobMDView 模型
-    *
-    * @type {*}
-    * @memberof StoryFavoriteMobMDView
-    */
-    public righttoolbarModels: any = {
-    };
-
-    
-
-
     /**
      * 工具栏模型集合名
      *
      * @memberof StoryFavoriteMobMDViewBase
      */
-    public toolbarModelList:any = ['righttoolbarModels',]
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数
@@ -325,23 +296,6 @@ export default class StoryFavoriteMobMDViewBase extends Vue {
             return false;
         }
         return true;
-    }
-
-    /**
-     * 下拉刷新
-     *
-     * @param {*} $event
-     * @returns {Promise<any>}
-     * @memberof StoryFavoriteMobMDViewBase
-     */
-    public async pullDownToRefresh($event: any): Promise<any> {
-        let mdctrl: any = this.$refs.mdctrl;
-        if (mdctrl && mdctrl.pullDownToRefresh instanceof Function) {
-            const response: any = await mdctrl.pullDownToRefresh();
-            if (response) {
-                $event.srcElement.complete();
-            }
-        }
     }
 
     /**
@@ -404,6 +358,7 @@ export default class StoryFavoriteMobMDViewBase extends Vue {
         this.setViewTitleStatus();
 
     }
+
 
     /**
      * 销毁之前
@@ -655,8 +610,12 @@ export default class StoryFavoriteMobMDViewBase extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
         }
         if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
@@ -698,37 +657,6 @@ export default class StoryFavoriteMobMDViewBase extends Vue {
     }
 
 
-    /**
-     * 搜索值
-     *
-     * @type {string}
-     * @memberof StoryFavoriteMobMDViewBase
-     */
-    public query: string = '';
-
-    /**
-     * 快速搜索值变化
-     *
-     * @param {*} event
-     * @returns
-     * @memberof StoryFavoriteMobMDViewBase
-     */
-    public async quickValueChange(event: any) {
-        let { detail } = event;
-        if (!detail) {
-            return;
-        }
-        let { value } = detail;
-        this.query = value;
-
-        const mdctrl: any = this.$refs.mdctrl;
-        if (mdctrl) {
-            let response = await mdctrl.quickSearch(this.query);
-            if (response) {
-            }
-        }
-    }
-
    /**
      * 是否单选
      *
@@ -736,6 +664,15 @@ export default class StoryFavoriteMobMDViewBase extends Vue {
      * @memberof StoryFavoriteMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+
+   /**
+     * 能否上拉加载
+     *
+     * @type {boolean}
+     * @memberof StoryFavoriteMobMDViewBase
+     */ 
+    @Prop({ default: true }) public isEnablePullUp?: boolean;
+
 
 
     /**
@@ -849,8 +786,6 @@ export default class StoryFavoriteMobMDViewBase extends Vue {
         event.target.complete();
       }
     }
-
-
 
 
 

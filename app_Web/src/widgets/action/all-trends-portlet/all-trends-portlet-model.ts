@@ -54,6 +54,12 @@ export default class AllTrendsModel {
       {
         name: 'actionmanner',
       },
+      {
+        name: 'isactorss',
+      },
+      {
+        name: 'date1',
+      },
     ]
   }
 

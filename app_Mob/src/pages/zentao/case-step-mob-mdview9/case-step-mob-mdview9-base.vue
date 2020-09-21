@@ -1,6 +1,12 @@
 <template>
 <embed-view :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview9': true, 'case-step-mob-mdview9': true }">
     <template slot="header">
+        <ion-toolbar>
+            <ion-title v-if="showTitle">{{$t(model.srfCaption)}}</ion-title>
+        </ion-toolbar>
+    </template>
+
+    <template slot="toolbar">
     </template>
     <template slot="content">
                 <view_mdctrl
@@ -22,6 +28,7 @@
             @showCheackChange="showCheackChange"
             :isTempMode="false"
             :isEnableChoose="false"
+            :needLoadMore="false"
             name="mdctrl"  
             ref='mdctrl' 
             @selectionchange="mdctrl_selectionchange($event)"  
@@ -357,6 +364,7 @@ export default class CaseStepMobMDView9Base extends Vue {
 
     }
 
+
     /**
      * 销毁之前
      *
@@ -483,7 +491,7 @@ export default class CaseStepMobMDView9Base extends Vue {
      * @memberof CaseStepMobMDView9
      */
     public async newdata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        this.$notice.warning('未指定关系视图');
+        //this.$notice.warning('未指定关系视图');
     }
 
 
@@ -501,7 +509,7 @@ export default class CaseStepMobMDView9Base extends Vue {
      * @memberof CaseStepMobMDView9
      */
     public async opendata(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        this.$notice.warning('未指定关系视图');
+        //this.$notice.warning('未指定关系视图');
     }
 
 
@@ -541,8 +549,12 @@ export default class CaseStepMobMDView9Base extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
         }
         if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
@@ -631,6 +643,15 @@ export default class CaseStepMobMDView9Base extends Vue {
      * @memberof CaseStepMobMDView9Base
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+
+   /**
+     * 能否上拉加载
+     *
+     * @type {boolean}
+     * @memberof CaseStepMobMDView9Base
+     */ 
+    @Prop({ default: true }) public isEnablePullUp?: boolean;
+
 
     /**
      * 分类值
@@ -743,8 +764,6 @@ export default class CaseStepMobMDView9Base extends Vue {
         event.target.complete();
       }
     }
-
-
 
 
 

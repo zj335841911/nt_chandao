@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import TaskAssMobMDViewBase from './task-ass-mob-mdview-base.vue';
 
-import view_mdctrl from '@widgets/task/ass-mob-mobmdctrl/ass-mob-mobmdctrl.vue';
+import view_mdctrl from '@widgets/task/ass-mob-dashboard-mobmdctrl/ass-mob-dashboard-mobmdctrl.vue';
 @Component({
     components: {
         view_mdctrl, 

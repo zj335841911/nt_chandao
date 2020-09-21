@@ -27,24 +27,24 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
         },
         {
-          name: 'project',
-          prop: 'project',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'title',
           prop: 'title',
           dataType: 'TEXT',
+        },
+        {
+          name: 'createdby',
+          prop: 'createdby',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'createddate',
+          prop: 'createddate',
+          dataType: 'DATETIME',
         },
         {
           name: 'projectname',
@@ -57,14 +57,14 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
-          name: 'createddate',
-          prop: 'createddate',
-          dataType: 'DATETIME',
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
         },
         {
-          name: 'createdby',
-          prop: 'createdby',
-          dataType: 'TEXT',
+          name: 'project',
+          prop: 'project',
+          dataType: 'PICKUP',
         },
         {
           name: 'srfmajortext',

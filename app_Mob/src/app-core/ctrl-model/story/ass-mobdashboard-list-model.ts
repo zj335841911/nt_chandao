@@ -10,7 +10,7 @@ export class AssMOBDASHBOARDModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof AssMOBDASHBOARDDashboard_sysportlet1_listMode
+	 * @memberof AssMOBDASHBOARDPortlet_MyStoryMob_listMode
 	 */
 	public getDataItems(): any[] {
 		return [

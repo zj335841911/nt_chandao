@@ -99,8 +99,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.result"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.result"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.result = $event" />
@@ -144,8 +143,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.pri"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.pri"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.pri = $event" />
@@ -171,7 +169,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.estimate" 
+    :value="data.estimate"
+    unit=""
     :disabled="detailsModel.estimate.disabled" 
     @change="($event)=>this.data.estimate = $event" />
 </app-form-item>
@@ -205,8 +204,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.preversion"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.preversion"  
     :navigateContext ='{ "n_version_noteq": "%version%" } '
     :navigateParam ='{ "n_version_noteq": "%version%" } '
     @change="($event)=>this.data.preversion = $event" />
@@ -250,8 +248,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.closedreason"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.closedreason"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.closedreason = $event" />
@@ -286,8 +283,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.assignedto"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.assignedto"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.assignedto = $event" />
@@ -344,7 +340,6 @@
     :caption="$t('story.reviewmob_form.details.comment')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.comment.disabled"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{}' :exportparams='{}'  style=""/>
@@ -359,12 +354,14 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
     paramItem='story' 
     style="" 
     :formState="formState" 
     :parentdata='{"srfparentdename":"ZT_STORY","SRFPARENTTYPE":"CUSTOM"}' 
     :parameters="[
     ]" 
+    tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
@@ -522,12 +519,6 @@ export default class ReviewMobBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
-    /**
-     * 加载完成
-     *
-     * @memberof ReviewMob
-     */
-    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -1743,7 +1734,6 @@ export default class ReviewMobBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
@@ -1776,7 +1766,6 @@ export default class ReviewMobBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

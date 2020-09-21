@@ -1,8 +1,8 @@
 <template>
-    <div v-if="overload" class="app-mobile-select" data-tap-disabled="true">
-        <div class="cancel-icon" v-if="curValue"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
+    <div class="app-mobile-select" data-tap-disabled="true">
+        <div class="cancel-icon" v-if="curValue || curValue === 0"><ion-icon name="close-circle-outline" @click="clear"></ion-icon></div>
         <div v-if="curValue== null || curValue==''" class="ion-select-icon"></div>
-        <ion-select  :value="curValue" :disabled="disabled ? disabled : false" @ionChange="change" interface="action-sheet" @click="load" :cancel-text="$t('app.button.cancel')">
+        <ion-select  :value="curValue" :disabled="disabled ? disabled : false" @ionChange="change" interface="action-sheet" @click="load" :cancel-text="$t('app.button.cancel')" @ionCancel="cancel">
               <template v-if="codeListType == 'DYNAMIC'">
                 <ion-select-option  v-for="option of options" :key="option.value" :value="option.value" class="mob-select-text">{{($t('userCustom.'+tag+'.'+option.value)!== ('userCustom.'+tag+'.'+option.value))?$t('userCustom.'+tag+'.'+option.value) : option.text}}</ion-select-option>
               </template>
@@ -42,28 +42,15 @@ export default class AppSelect extends Vue {
      * 当前选中值
      * @memberof AppSelect
      */
-    get curValue(){
-        return  this.value;
+    get curValue() {
+        if (this.options.length > 0 && this.value !== null && this.value !== "") {
+            let isIncluded = this.options.some((option:any)=>{return option.value === this.value})
+            if (isIncluded) {
+                return this.value;
+            }
+        }
+        return "";
     }
-    
-    set curValue(value:any){}
-
-    /**
-     * 监听表单请求完成
-     * @memberof AppSelectDropDown
-     */
-    @Watch("dataOverLoad")
-    onDataOverLoadChange(newVal: any, oldVal: any){
-        this.load();
-    }
-
-    /**
-     * 表单请求完成
-     *
-     * @type {*}
-     * @memberof AppSelectDropDown
-     */
-    @Prop() public dataOverLoad?: any;
 
     /**
      * change事件
@@ -71,18 +58,21 @@ export default class AppSelect extends Vue {
      * @memberof AppSelect
      */
     public change(value: any) {
+        this.$store.commit('setSelectStatus',true); 
         let devalue:any = value.detail.value;
-        for(let key in this.options){
-          if (this.options[key].isValueNumber) {
-            devalue = +devalue;
+        if (devalue !== '') {
+          for(let key in this.options){
+            if (this.options[key].isValueNumber) {
+              devalue = +devalue;
+            }
           }
-        }
-        if (Object.is(this.codeListType, 'DYNAMIC')) {
-         for(let key in this.options){
-           if (typeof this.options[key].id == 'number') {
-              devalue = +devalue
-           }
-         }
+          if (Object.is(this.codeListType, 'DYNAMIC')) {
+            for(let key in this.options){
+              if (typeof this.options[key].id == 'number') {
+                  devalue = +devalue;
+              }
+            }
+          }
         }
         this.$emit("change", devalue);
     }
@@ -178,24 +168,17 @@ export default class AppSelect extends Vue {
     public isCached: boolean = false;
 
     /**
-     * 加载完成
-     *
-     * @type {*}
-     * @memberof AppSelect
-     */
-    public overload: boolean = false;
-
-    /**
      * 监听表单数据
      *
      * @param {*} newVal
      * @param {*} val
      * @memberof AppSelect
      */
-    @Watch('data', { deep: true })
-    onDataChange(newVal: any, val: any) {
+    @Watch('value')
+    onDataChange(newVal: any, oldVal: any) {
         if (newVal) {
-            // this.handleOtherParam();
+            this.load();
+            this.$store.commit('setSelectStatus',true);
         }
     }
 
@@ -204,9 +187,23 @@ export default class AppSelect extends Vue {
      */
     public mounted() {
         if (Object.is(this.codeListType, "STATIC")) {
-            this.overload = true;
             this.options = this.$store.getters.getCodeListItems(this.tag);
+        } else {
+            if (this.curValue) {
+                this.load();
+                this.$store.commit('setSelectStatus',true);
+            }
         }
+    }
+
+    /**
+     * 取消选择
+     *
+     * @type {*}
+     * @memberof AppSelect
+     */
+    public cancel(){
+      this.$store.commit('setSelectStatus',true);
     }
 
     /**
@@ -216,6 +213,7 @@ export default class AppSelect extends Vue {
      * @memberof AppSelect
      */
     public async load(): Promise<any> {
+        this.$store.commit('setSelectStatus',false);
         if (Object.is(this.codeListType, "STATIC")) {
             return;
         }
@@ -228,13 +226,11 @@ export default class AppSelect extends Vue {
         }
         let response: any = await this.codeListService.getItems(this.tag,  param.context, param.param);
         if (response) {
-            this.overload = true;
             this.options = response
             if (this.isCache) {
                 this.isCached = true;
             }
         } else {
-            this.overload = true;
             this.options = [];
         }
     }

@@ -1,4 +1,4 @@
-import { Http } from '../utils';
+import { Http, HttpResponse } from '../utils';
 import { CodeListService } from "@/ibiz-core";
 
 /**
@@ -162,9 +162,9 @@ export  class EntityService {
                     return Object.is(item[this.APPDEKEY],data[this.APPDEKEY]);
                 })
                 let tempResultData:any = tempResult.length>0?tempResult[0]:Object.assign({},data);
-                return {"status":200,"data":tempResultData};
+                return new HttpResponse(200,tempResultData)
             }else{
-                return {"status":500,"data":null};
+                return new HttpResponse(500,null)
             } 
         }
     }
@@ -184,9 +184,9 @@ export  class EntityService {
             data.srffrontuf = "0";
             tempData.push(data);
             this.tempStorage.setItem(context.srfsessionkey+'_'+this.APPDENAME,JSON.stringify(tempData));
-            return {"status":200,"data":data};
+            return new HttpResponse(200,data);
         }else{
-            return {"status":200,"data":{}};
+            return new HttpResponse(200,{});
         }
     }
 
@@ -207,9 +207,9 @@ export  class EntityService {
                     return Object.is(item[this.APPDEKEY],data[this.APPDEKEY]);
                 })
                 let tempResultData:any = tempResult.length>0?tempResult[0]:Object.assign({},data);
-                return {"status":200,"data":tempResultData};
+                return new HttpResponse(200,tempResultData)
             }else{
-                return {"status":500,"data":null};
+                return new HttpResponse(500,null);
             } 
         }
     }
@@ -250,7 +250,7 @@ export  class EntityService {
      * @memberof EntityService
      */
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        return { status: 500, data: { title: '失败', message: '预置实体行为 Save 未实现' }};
+        return new HttpResponse(500, { title: '失败', message: '预置实体行为 Save 未实现' });
     }
 
     /**
@@ -281,9 +281,9 @@ export  class EntityService {
                     }  
                 });
                 this.tempStorage.setItem(context.srfsessionkey+'_'+this.APPDENAME,JSON.stringify(tempData));
-                return {"status":200,"data":data};
+                return new HttpResponse(200, data);
             }else{
-                return {"status":500,"data":null};
+                return new HttpResponse(500, null);
             }
         }
     }
@@ -306,9 +306,9 @@ export  class EntityService {
                     return !Object.is(item[this.APPDEKEY],data[this.APPDEKEY]);
                 })
                 this.tempStorage.setItem(context.srfsessionkey+'_'+this.APPDENAME,JSON.stringify(tempResult));
-                 return {"status":200,"data":data};
+                return new HttpResponse(200, data);
             }else{
-                return {"status":500,"data":null};
+                return new HttpResponse(500, null);
             } 
         }
     }
@@ -332,9 +332,9 @@ export  class EntityService {
                         flag = true;
                     }
                 });
-                return {"status":200,"data":flag};
+                return new HttpResponse(200, flag);
             }else{
-                return {"status":500,"data":null};
+                return new HttpResponse(500, null);
             } 
         }
     }
@@ -459,7 +459,7 @@ export  class EntityService {
             value: data[this.APPDEKEY]
         });
         Object.assign(data,tempData);
-        return {"status":200,"data":data}; 
+        return new HttpResponse(200,{"status":200,"data":data}); 
     }
 
     /**

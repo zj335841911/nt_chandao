@@ -14,6 +14,8 @@
         <ion-toolbar>
             <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
         </ion-toolbar>
+
+    
     </ion-header>
 
 
@@ -59,26 +61,23 @@
             @load="mdctrl_load($event)"  
             @closeview="closeView($event)">
         </view_mdctrl>
-        <ion-infinite-scroll  @ionInfinite="loadMore" distance="2%" >
+        <ion-infinite-scroll  @ionInfinite="loadMore" threshold="1px" v-if="this.isEnablePullUp">
           <ion-infinite-scroll-content
           loadingSpinner="bubbles"
           loadingText="Loading more data...">
         </ion-infinite-scroll-content>
         </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
+    <ion-footer class="view-footer" style="z-index:9999;">
                 <div v-show="!showCheack" class = "fab_container">
-            <div class="bottom_menu">
-        
-        
-            <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1.visabled" :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)">
-                <ion-icon name="add"></ion-icon>
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
+                    <ion-icon name="add"></ion-icon>
                 
-            </ion-fab-button>
-        
-            </ion-fab>
+                </ion-button>
+                
             </div>
+        
         </div>
         
     </ion-footer>
@@ -342,6 +341,24 @@ export default class ProjectMobMDViewBase extends Vue {
         return toolBarVisable;
     }
 
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof ProjectMobMDView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof ProjectMobMDView 
+     */
+    public popUpGroup () {
+        this.showGrop = !this.showGrop;
+    }
+
     
 
 
@@ -455,6 +472,7 @@ export default class ProjectMobMDViewBase extends Vue {
         this.setViewTitleStatus();
 
     }
+
 
     /**
      * 销毁之前
@@ -641,13 +659,14 @@ export default class ProjectMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'projects', parameterName: 'project' },
-            { pathName: 'mobeditview', parameterName: 'mobeditview' },
-        ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
-        response = await this.globaluiservice.openService.openView(routeParam);
+        const view: any = { 
+            viewname: 'project-mob-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: '项目移动端编辑视图', 
+            placement: 'POPUPMODAL',
+        };
+        response = await this.globaluiservice.openService.openModal(view, _context, _params);
         if (response) {
             if (!response || !Object.is(response.ret, 'OK')) {
                 return;
@@ -739,8 +758,12 @@ export default class ProjectMobMDViewBase extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
         }
         if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
@@ -820,6 +843,15 @@ export default class ProjectMobMDViewBase extends Vue {
      * @memberof ProjectMobMDViewBase
      */
     @Prop({ default: true }) protected isSingleSelect!: boolean;
+
+   /**
+     * 能否上拉加载
+     *
+     * @type {boolean}
+     * @memberof ProjectMobMDViewBase
+     */ 
+    @Prop({ default: true }) public isEnablePullUp?: boolean;
+
 
 
     /**
@@ -933,8 +965,6 @@ export default class ProjectMobMDViewBase extends Vue {
         event.target.complete();
       }
     }
-
-
 
 
 

@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import TaskTeamMobMEditView9Base from './task-team-mob-medit-view9-base.vue';
 
-import view_meditviewpanel from '@widgets/task-team/main-multieditviewpanel/main-multieditviewpanel.vue';
+import view_meditviewpanel from '@widgets/ibztaskteam/main-multieditviewpanel/main-multieditviewpanel.vue';
 @Component({
     components: {
         view_meditviewpanel, 

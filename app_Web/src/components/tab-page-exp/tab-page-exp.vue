@@ -135,7 +135,9 @@ export default class TabPageExp extends Vue {
             this.appService.navHistory.remove(item);
             if (this.appService.navHistory.historyList.length > 0) {
                 if (this.appService.navHistory.isRouteSame(item.to, this.$route)) {
-                    this.$router.back();
+                    // this.$router.back();
+                    let go: any = this.appService.navHistory.historyList[this.appService.navHistory.historyList.length-1].to;
+                    this.$router.push({ path: go.path, params: go.params, query: go.query });
                 }
             } else {
                 this.$router.push('/');

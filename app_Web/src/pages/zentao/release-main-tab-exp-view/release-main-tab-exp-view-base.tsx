@@ -58,6 +58,13 @@ export class ReleaseMainTabExpViewBase extends TabExpViewBase {
     public appUIService: ReleaseUIService = new ReleaseUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof ReleaseMainTabExpViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

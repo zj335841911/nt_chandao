@@ -10,7 +10,6 @@
 
     <!--通过mybatis将查询结果注入到entity中,通过配置autoMapping="true"由mybatis自动处理映射关系 -->
     <resultMap id="SuiteCaseResultMap" type="cn.ibizlab.pms.core.zentao.domain.SuiteCase" autoMapping="true">
-        <id property="id" column="id" /><!--主键字段映射-->
 		<result property="suite" column="suite" />
 		<result property="ibizcase" column="case" />
 		<result property="product" column="product" />

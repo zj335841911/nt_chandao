@@ -29,9 +29,9 @@ public interface IIbzMyTerritoryService extends IService<IbzMyTerritory>{
     void createBatch(List<IbzMyTerritory> list) ;
     boolean update(IbzMyTerritory et) ;
     void updateBatch(List<IbzMyTerritory> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    IbzMyTerritory get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    IbzMyTerritory get(Long key) ;
     IbzMyTerritory getDraft(IbzMyTerritory et) ;
     boolean checkKey(IbzMyTerritory et) ;
     IbzMyTerritory mobMenuCount(IbzMyTerritory et) ;
@@ -41,6 +41,7 @@ public interface IIbzMyTerritoryService extends IService<IbzMyTerritory>{
     void saveBatch(List<IbzMyTerritory> list) ;
     Page<IbzMyTerritory> searchDefault(IbzMyTerritorySearchContext context) ;
     Page<IbzMyTerritory> searchMyWork(IbzMyTerritorySearchContext context) ;
+    Page<IbzMyTerritory> searchMyWorkMob(IbzMyTerritorySearchContext context) ;
     Page<IbzMyTerritory> searchWelcome(IbzMyTerritorySearchContext context) ;
     /**
      *自定义查询SQL

@@ -29,9 +29,9 @@ public interface IIbzProjectMemberService extends IService<IbzProjectMember>{
     void createBatch(List<IbzProjectMember> list) ;
     boolean update(IbzProjectMember et) ;
     void updateBatch(List<IbzProjectMember> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    IbzProjectMember get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    IbzProjectMember get(Long key) ;
     IbzProjectMember getDraft(IbzProjectMember et) ;
     boolean checkKey(IbzProjectMember et) ;
     boolean save(IbzProjectMember et) ;

@@ -29,19 +29,19 @@ public interface IIbzLibModuleService extends IService<IbzLibModule>{
     void createBatch(List<IbzLibModule> list) ;
     boolean update(IbzLibModule et) ;
     void updateBatch(List<IbzLibModule> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    IbzLibModule get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    IbzLibModule get(Long key) ;
     IbzLibModule getDraft(IbzLibModule et) ;
     boolean checkKey(IbzLibModule et) ;
     boolean save(IbzLibModule et) ;
     void saveBatch(List<IbzLibModule> list) ;
     Page<IbzLibModule> searchDefault(IbzLibModuleSearchContext context) ;
     Page<IbzLibModule> searchRoot_NoBranch(IbzLibModuleSearchContext context) ;
-    List<IbzLibModule> selectByParent(BigInteger id) ;
-    void removeByParent(BigInteger id) ;
-    List<IbzLibModule> selectByRoot(BigInteger id) ;
-    void removeByRoot(BigInteger id) ;
+    List<IbzLibModule> selectByParent(Long id) ;
+    void removeByParent(Long id) ;
+    List<IbzLibModule> selectByRoot(Long id) ;
+    void removeByRoot(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

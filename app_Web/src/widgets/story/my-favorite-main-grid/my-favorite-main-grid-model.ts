@@ -170,6 +170,10 @@ export default class MyFavoriteMainModel {
           prop:'sort'
         },
         {
+          name:'items',
+          prop:'items'
+        },
+        {
           name:'srfparentdata',
           prop:'srfparentdata'
         },

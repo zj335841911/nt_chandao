@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,7 @@ public class HistoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "diff")
     @JsonProperty("diff")
+    @Size(min = 0, max = 16777215, message = "内容长度必须小于等于[16777215]")
     private String diff;
 
     /**
@@ -38,6 +42,7 @@ public class HistoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "field")
     @JsonProperty("field")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String field;
 
     /**
@@ -46,6 +51,7 @@ public class HistoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibiznew")
     @JsonProperty("ibiznew")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String ibiznew;
 
     /**
@@ -54,6 +60,7 @@ public class HistoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "old")
     @JsonProperty("old")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String old;
 
     /**
@@ -62,7 +69,7 @@ public class HistoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [ACTION]
@@ -70,7 +77,7 @@ public class HistoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "action")
     @JsonProperty("action")
-    private BigInteger action;
+    private Long action;
 
 
     /**
@@ -108,11 +115,12 @@ public class HistoryDTO extends DTOBase implements Serializable {
     /**
      * 设置 [ACTION]
      */
-    public void setAction(BigInteger  action){
+    public void setAction(Long  action){
         this.action = action ;
         this.modify("action",action);
     }
 
 
 }
+
 

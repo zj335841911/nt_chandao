@@ -27,14 +27,20 @@ export default class Main_RowEditModel {
     }else{
 		  return [
         {
-          name: 'expect',
-          prop: 'expect',
+          name: 'desc',
+          prop: 'desc',
           dataType: 'LONGTEXT',
           isEditable:true
         },
         {
-          name: 'desc',
-          prop: 'desc',
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
+          isEditable:true
+        },
+        {
+          name: 'expect',
+          prop: 'expect',
           dataType: 'LONGTEXT',
           isEditable:true
         },
@@ -47,12 +53,6 @@ export default class Main_RowEditModel {
           name: 'case',
           prop: 'ibizcase',
           dataType: 'PICKUP',
-          isEditable:true
-        },
-        {
-          name: 'type',
-          prop: 'type',
-          dataType: 'SSCODELIST',
           isEditable:true
         },
         {

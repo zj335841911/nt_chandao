@@ -72,6 +72,13 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
     };
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof BuildMainTabExpViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

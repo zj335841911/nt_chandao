@@ -14,10 +14,10 @@ export class ProductStatusPieMobModel {
 	 */
 	public getDataItems(): any[] {
 		return [
-			{
-				name:'query',
-				prop:'query'
-			},
+      {
+        name:'query',
+        prop:'query'
+      },
 		]
 	}
 

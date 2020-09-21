@@ -177,6 +177,12 @@ export class MyFavoriteTaskModel {
       {
         name: 'isfavorites',
       },
+      {
+        name: 'status1',
+      },
+      {
+        name: 'tasktype',
+      },
     ]
   }
 

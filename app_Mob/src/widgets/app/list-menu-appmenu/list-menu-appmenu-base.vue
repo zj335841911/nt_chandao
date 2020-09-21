@@ -418,12 +418,36 @@ export default class ListMenuBase extends Vue implements ControlInterface {
     private click(item: any) {
         if (item) {
             switch (item.appfunctag) {
+                case 'AppFunc': 
+                    this.clickAppFunc(item);
+                    return;
                 default:
                     console.warn('未指定应用功能');
             }
         }
     }
 
+    
+    /**
+     * 个人中心
+     *
+     * @param {*} [item={}]
+     * @memberof ListMenu
+     */
+    protected clickAppFunc(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'users', parameterName: 'user' },
+            { pathName: 'usercentermobeditview', parameterName: 'usercentermobeditview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
 
     /**
      * 数据加载

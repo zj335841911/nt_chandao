@@ -162,22 +162,22 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
 
 
 	@Override
-    public List<Burn> selectByProject(BigInteger id) {
+    public List<Burn> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
 
     @Override
-    public void removeByProject(BigInteger id) {
+    public void removeByProject(Long id) {
         this.remove(new QueryWrapper<Burn>().eq("project",id));
     }
 
 	@Override
-    public List<Burn> selectByTask(BigInteger id) {
+    public List<Burn> selectByTask(Long id) {
         return baseMapper.selectByTask(id);
     }
 
     @Override
-    public void removeByTask(BigInteger id) {
+    public void removeByTask(Long id) {
         this.remove(new QueryWrapper<Burn>().eq("task",id));
     }
 

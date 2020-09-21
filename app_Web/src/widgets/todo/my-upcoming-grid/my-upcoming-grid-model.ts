@@ -27,9 +27,14 @@ export default class MyUpcomingModel {
     }else{
 		  return [
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
+          name: 'date1',
+          prop: 'date1',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'begin',
+          prop: 'begin',
+          dataType: 'NSCODELIST',
         },
         {
           name: 'pri',
@@ -37,14 +42,19 @@ export default class MyUpcomingModel {
           dataType: 'INT',
         },
         {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
-        },
-        {
           name: 'name',
           prop: 'name',
           dataType: 'TEXT',
+        },
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'type',
@@ -73,16 +83,6 @@ export default class MyUpcomingModel {
         {
           name: 'end',
           prop: 'end',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'date1',
-          prop: 'date1',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'begin',
-          prop: 'begin',
           dataType: 'NSCODELIST',
         },
         {

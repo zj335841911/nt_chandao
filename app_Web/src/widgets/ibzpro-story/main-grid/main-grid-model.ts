@@ -27,19 +27,9 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'id',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
         },
         {
           name: 'title',
@@ -50,6 +40,16 @@ export default class MainModel {
           name: 'ibiz_id',
           prop: 'ibizid',
           dataType: 'TEXT',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
         },
         {
           name: 'srfmajortext',

@@ -54,6 +54,8 @@ export default {
     modulename1: "所属模块",
     ibztaskestimates: "工时",
     isfavorites: "是否收藏",
+    status1: "任务状态",
+    tasktype: "任务类型",
   },
 	views: {
 		mobmdview: {
@@ -62,11 +64,17 @@ export default {
 		mobeditview: {
 			caption: '任务',
 		},
+		assmoremobmdview: {
+			caption: '指派给我的任务',
+		},
 		stopmoboptionview: {
 			caption: '暂停',
 		},
 		cancelmoboptionview: {
 			caption: '取消',
+		},
+		favoritemobmdview9: {
+			caption: '任务',
 		},
 		closemoboptionview: {
 			caption: '关闭',
@@ -80,6 +88,9 @@ export default {
 		startmoboptionview: {
 			caption: '开始',
 		},
+		favoritemoremobmdview: {
+			caption: '我收藏的任务',
+		},
 		favoritemobmdview: {
 			caption: '任务',
 		},
@@ -91,6 +102,12 @@ export default {
 		},
 		moboptionview: {
 			caption: '指派',
+		},
+		gsmoboptionview: {
+			caption: '工时',
+		},
+		assmobmdview9: {
+			caption: '任务',
 		},
 		newmobeditview: {
 			caption: '任务',
@@ -135,6 +152,7 @@ export default {
 			srfsourcekey: '', 
 			project: '所属项目', 
 			assignedto: '指派给', 
+			multiple: '多人任务', 
 			left: '预计剩余', 
 			comment: '备注', 
 			id: '编号', 
@@ -163,6 +181,7 @@ export default {
 			assignedto: '指派给', 
 			finisheddate: '实际完成', 
 			files: '附件', 
+			multiple: '多人任务', 
 			comment: '备注', 
 		},
 		uiactions: {
@@ -208,6 +227,7 @@ export default {
 			modulename: '所属模块', 
 			allmodules: '所有模块', 
 			assignedto: '指派给', 
+			multiple: '多人任务', 
 			story: '相关需求', 
 			storyname: '相关需求', 
 			name: '任务名称', 
@@ -263,6 +283,26 @@ export default {
 		uiactions: {
 		},
 	},
+	estimatemob_form: {
+		details: {
+			druipart2: '', 
+			grouppanel1: '工时', 
+			druipart1: '', 
+			formpage1: '基本信息', 
+			srfupdatedate: '最后修改日期', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '任务名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			id: '编号', 
+			name: '任务名称', 
+		},
+		uiactions: {
+		},
+	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',
@@ -276,6 +316,10 @@ export default {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
+		deuiaction1_confirmstorychangecz: {
+			caption: '确认',
+			tip: 'deuiaction1_confirmstorychangecz',
+		},
 		deuiaction1_starttaskmob: {
 			caption: '开始',
 			tip: 'deuiaction1_starttaskmob',
@@ -283,6 +327,10 @@ export default {
 		deuiaction1_assigntaskmob: {
 			caption: '指派',
 			tip: 'deuiaction1_assigntaskmob',
+		},
+		deuiaction1_workhoursmob: {
+			caption: '工时',
+			tip: 'deuiaction1_workhoursmob',
 		},
 		deuiaction1_donetaskmob: {
 			caption: '完成',
@@ -305,32 +353,34 @@ export default {
 			tip: 'deuiaction1_deletemob',
 		},
 	},
+	assmobmdview9mdctrl_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: '更多',
+			tip: 'deuiaction1',
+		},
+	},
+	favoritemobmdview9mdctrl_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: '更多',
+			tip: 'deuiaction1',
+		},
+	},
+	favoritemobmdviewmdctrl_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: '更多',
+			tip: 'deuiaction1',
+		},
+	},
+	assmobmdviewmdctrl_quicktoolbar_toolbar: {
+		deuiaction1: {
+			caption: '更多',
+			tip: 'deuiaction1',
+		},
+	},
 	assmobmdviewrighttoolbar_toolbar: {
-	},
-	mobdashboardviewdashboard_sysportlet2_list_quicktoolbar_toolbar: {
-		deuiaction1: {
+		tbitem1_myassmore: {
 			caption: '更多',
-			tip: 'deuiaction1',
-		},
-	},
-	favoritemobmdviewrighttoolbar_toolbar: {
-	},
-	mobdashboardviewdashboard_sysportlet4_list_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: '更多',
-			tip: 'deuiaction1',
-		},
-	},
-	portlet_myfavoritetask_list_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: '更多',
-			tip: 'deuiaction1',
-		},
-	},
-	portlet_mytaskmob_list_quicktoolbar_toolbar: {
-		deuiaction1: {
-			caption: '更多',
-			tip: 'deuiaction1',
+			tip: 'tbitem1_myassmore',
 		},
 	},
 };

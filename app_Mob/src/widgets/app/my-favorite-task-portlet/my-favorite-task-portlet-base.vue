@@ -1,27 +1,19 @@
 <template>
     <ion-row>
         <ion-list class='app-mob-portlet task-dashboard_sysportlet4 '>
-            <ion-list-header class='app-mob-portlet__header'>我收藏的任务 </ion-list-header>
-                <view_dashboard_sysportlet4_list
-    :viewState="viewState"
-    viewName="IbzMyTerritoryMobDashboardView"  
-    :viewparams="viewparams" 
-    :context="context" 
-        listMode="LIST"
-     updateAction="Update"
-     removeAction="Remove"
-     loaddraftAction=""
-     loadAction="Get"
-     createAction="Create"
-     :showBusyIndicator="true"  
-     fetchAction="FetchMyFavorites" 
-    controlStyle=""
-    name="dashboard_sysportlet4_list"  
-    ref='dashboard_sysportlet4_list' 
-    @closeview="closeView($event)">
-</view_dashboard_sysportlet4_list>
-
+            <ion-list-header class='app-mob-portlet__header'>
+                <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
+                <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>我收藏的任务</span></span>
+                <div class="portlet__header_right">
+                    <ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon>
+                </div>
+            </ion-list-header>
+            <div class="edit_title_btn" :style="edit_title_btn"><ion-button @click="onConfirmClick(false)">取消</ion-button><ion-button @click="onConfirmClick(true)">确认</ion-button></div>
+            <task-favorite-mob-mdview9 :_context="JSON.stringify(context)" :isChildView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></task-favorite-mob-mdview9>
         </ion-list>
+        <ion-select ref="select" v-show="false"  @ionChange="actionBarClick" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
+            <ion-select-option  v-for="option of actionBarModelData" :key="option.viewlogicname"  :value="option.viewlogicname">{{option.actionName}}</ion-select-option>
+        </ion-select>
     </ion-row>
 </template>
 
@@ -153,6 +145,37 @@ export default class MyFavoriteTaskBase extends Vue implements ControlInterface 
     
 
     /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof Dashboard_sysportlet4Base
+     */
+    protected async dashboard_sysportlet4_u02f0175_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
+        if (curUIService) {
+            curUIService.Task_MyFavMore(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
      * 关闭视图
      *
      * @param {any[]} args
@@ -173,6 +196,49 @@ export default class MyFavoriteTaskBase extends Vue implements ControlInterface 
      */    
     protected counterServiceArray:Array<any> = [];
 
+
+    /**
+     * 是否为定制门户
+     *
+     * @type {string}
+     * @memberof MyTaskMob
+     */
+    @Prop({default:false}) protected isCustomize?: boolean;
+
+    /**
+     * 定制标题
+     *
+     * @type {string}
+     * @memberof MOBMyFavoriteStory
+     */
+    @Prop() protected customizeTitle?: string;
+
+    /**
+     * 操作栏模型数据
+     *
+     * @protected
+     * @type {any[]}
+     * @memberof MyFavoriteTask
+     */
+    protected actionBarModelData: any[] = [
+        {
+            viewlogicname: "dashboard_sysportlet4_u02f0175_click",
+            actionName: "更多",
+        }
+    ];
+
+    /**
+     * 触发界面行为
+     *
+     * @protected
+     * @param {*} $event
+     * @memberof MyFavoriteTask
+     */
+    protected handleItemClick($event: any) {
+        if (Object.is($event, 'dashboard_sysportlet4_u02f0175_click')) {
+            this.dashboard_sysportlet4_u02f0175_click(null);
+        }
+    }
 
     /**
      * 获取多项数据
@@ -240,6 +306,124 @@ export default class MyFavoriteTaskBase extends Vue implements ControlInterface 
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
         }
+    }
+
+    /**
+     * 门户名称编辑状态
+     *
+     * @memberof MyFavoriteTask
+     */
+    public isEditTitle = false;
+
+    /**
+     * 内置门户行为组
+     *
+     * @memberof MyTaskMob
+     */
+    public builtinItemS = [{actionName:'重命名',viewlogicname:'rename'},{actionName:"删除",viewlogicname:"delete"}]
+
+    /**
+     * 门户点击行为菜单
+     *
+     * @memberof MyFavoriteTask
+     */
+    public open() {
+        let select :any= this.$refs['select'];
+        if(select){
+            setTimeout(() => {
+                select.open();
+            }, 1);
+        }
+    }
+
+    get edit_title_btn(){
+        return this.isEditTitle?'padding-bottom: 30px':'padding:0'
+    }
+    
+    /**
+     * 门户点击行为
+     *
+     * @memberof MyFavoriteTask
+     */
+    public actionBarClick(value:any) {
+        if(value.detail.value){
+            if(value.detail.value == 'rename' ){
+                this.isEditTitle = true;
+            }else if(value.detail.value == 'delete' ){
+                this.$emit("enableCustomizedEvent",'delete',this.item)
+            }
+            else{
+                this.handleItemClick(value.detail.value);
+            }
+        }
+        let select :any = this.$refs['select'];
+        if (select) {
+            select.value = null;
+        }
+    }
+
+    /**
+     * 生命周期
+     *
+     * @type {string}
+     * @memberof MyFavoriteTask
+     */
+    public mounted() {
+        if(this.isCustomize){
+            this.actionBarModelData.push(...this.builtinItemS);
+        }
+    }
+
+    /**
+     * 定制项数据
+     *
+     * @type {string}
+     * @memberof MyFavoriteTask
+     */
+    @Prop() protected item: any;
+
+    /**
+     * 定制标题
+     *
+     * @type {string}
+     * @memberof MyFavoriteTask
+     */
+    get editTitle(){
+        if(this.customizeTitle){
+            return this.customizeTitle
+        }
+        return '我收藏的任务'
+    }
+
+    /**
+     * 定制标题
+     *
+     * @type {string}
+     * @memberof MyFavoriteTask
+     */
+    public reTitleValue = "";
+
+    /**
+     * 标题变更
+     *
+     * @type {string}
+     * @memberof MyFavoriteTask
+     */
+    titleChange(value:any){
+        this.reTitleValue = value.detail.value;
+    }
+
+    /**
+     * 重命名确认按钮
+     *
+     * @type {string}
+     * @memberof MyFavoriteTask
+     */
+    public onConfirmClick(val:boolean) {
+        if(val){
+            this.$emit("enableCustomizedEvent",'rename',Object.assign(this.item,{customizeTitle:this.reTitleValue?this.reTitleValue:this.editTitle}),this.reTitleValue?this.reTitleValue:this.editTitle)
+        }
+        this.isEditTitle = false;
     }
 
 }

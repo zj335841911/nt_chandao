@@ -32,6 +32,11 @@ export default class MainModel {
           dataType: 'ACID',
         },
         {
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
           name: 'ibiz_id',
           prop: 'ibizid',
           dataType: 'TEXT',
@@ -40,11 +45,6 @@ export default class MainModel {
           name: 'root',
           prop: 'root',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
         },
         {
           name: 'parent',

@@ -58,6 +58,13 @@ export class ProjectModuleQuickCfgViewBase extends OptionViewBase {
     public appUIService: ProjectModuleUIService = new ProjectModuleUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof ProjectModuleQuickCfgViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

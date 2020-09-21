@@ -89,6 +89,7 @@ export class UIServiceRegister {
         this.allUIService.set('testtask', () => import('@/uiservice/test-task/test-task-ui-service'));
         this.allUIService.set('ibztaskestimate', () => import('@/uiservice/ibztask-estimate/ibztask-estimate-ui-service'));
         this.allUIService.set('productline', () => import('@/uiservice/product-line/product-line-ui-service'));
+        this.allUIService.set('pssyssfpub', () => import('@/uiservice/pssys-sfpub/pssys-sfpub-ui-service'));
         this.allUIService.set('testreport', () => import('@/uiservice/test-report/test-report-ui-service'));
         this.allUIService.set('projectstats', () => import('@/uiservice/project-stats/project-stats-ui-service'));
         this.allUIService.set('testrun', () => import('@/uiservice/test-run/test-run-ui-service'));
@@ -96,7 +97,9 @@ export class UIServiceRegister {
         this.allUIService.set('bug', () => import('@/uiservice/bug/bug-ui-service'));
         this.allUIService.set('projectmodule', () => import('@/uiservice/project-module/project-module-ui-service'));
         this.allUIService.set('ibzdoc', () => import('@/uiservice/ibz-doc/ibz-doc-ui-service'));
+        this.allUIService.set('pssysapp', () => import('@/uiservice/pssys-app/pssys-app-ui-service'));
         this.allUIService.set('ibzcase', () => import('@/uiservice/ibz-case/ibz-case-ui-service'));
+        this.allUIService.set('pssystemdbcfg', () => import('@/uiservice/pssystem-dbcfg/pssystem-dbcfg-ui-service'));
         this.allUIService.set('release', () => import('@/uiservice/release/release-ui-service'));
         this.allUIService.set('dynadashboard', () => import('@/uiservice/dyna-dashboard/dyna-dashboard-ui-service'));
     }

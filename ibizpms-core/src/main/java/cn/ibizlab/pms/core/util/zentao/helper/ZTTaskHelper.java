@@ -387,6 +387,8 @@ final public class ZTTaskHelper {
 
         // ACTIVATE
         ACTION_URL_PARAMS_ACTIVATE.add("id");
+        // CONFIRMSTORYCHANGE
+        ACTION_URL_PARAMS_CONFIRMSTORYCHANGE.add("id");
 
         // FINISH
         ACTION_URL_PARAMS_FINISH.add("id");
@@ -430,6 +432,20 @@ final public class ZTTaskHelper {
         List<String> actionUrlParams = ACTION_URL_PARAMS_CREATE;
         String returnUrlRegexPrev = ACTION_RETURNURL_CREATE;
         List<ZTCheckItem> checkList = ACTION_CHECKLIST_CREATE;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    public static boolean confirmStoryChange(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_CONFIRMSTORYCHANGE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_CONFIRMSTORYCHANGE;
+        Map<String, Object> actionParams = ACTION_PARAMS_CONFIRMSTORYCHANGE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_CONFIRMSTORYCHANGE;
+        String returnUrlRegexPrev = ACTION_RETURNURL_CONFIRMSTORYCHANGE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_CONFIRMSTORYCHANGE;
 
         return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
     }

@@ -27,6 +27,36 @@ export default class PickupGirdModel {
     }else{
 		  return [
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'resolvedby',
+          prop: 'resolvedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'totask',
           prop: 'totask',
           dataType: 'PICKUP',
@@ -35,11 +65,6 @@ export default class PickupGirdModel {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'task',
@@ -81,16 +106,6 @@ export default class PickupGirdModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'openedby',
-          prop: 'openedby',
-          dataType: 'SSCODELIST',
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
@@ -106,16 +121,6 @@ export default class PickupGirdModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
-        },
-        {
           name: 'plan',
           prop: 'plan',
           dataType: 'PICKUP',
@@ -124,11 +129,6 @@ export default class PickupGirdModel {
           name: 'repo',
           prop: 'repo',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'resolvedby',
-          prop: 'resolvedby',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'entry',

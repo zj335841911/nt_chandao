@@ -58,5 +58,6 @@ export class GridExpBarControlBase extends ExpControlBase {
      */
     public gridexpbar_load(args: any, e?: any, data?: any) {
         this.$emit('load', args);
+        this.calcToolbarItemState(true);
     }
 }

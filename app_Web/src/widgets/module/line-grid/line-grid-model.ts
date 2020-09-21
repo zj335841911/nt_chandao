@@ -27,14 +27,14 @@ export default class LineModel {
     }else{
 		  return [
         {
-          name: 'short',
-          prop: 'ibizshort',
+          name: 'name',
+          prop: 'name',
           dataType: 'TEXT',
           isEditable:true
         },
         {
-          name: 'name',
-          prop: 'name',
+          name: 'short',
+          prop: 'ibizshort',
           dataType: 'TEXT',
           isEditable:true
         },

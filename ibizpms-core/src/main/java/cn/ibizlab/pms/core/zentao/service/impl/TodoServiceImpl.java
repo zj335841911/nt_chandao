@@ -51,6 +51,10 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITodoGetTODOTitleLogic gettodotitleLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITodoResetBeginEndLogic resetbeginendLogic;
+
     protected int batchSize = 500;
 
         @Override
@@ -89,7 +93,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     }
         @Override
     @Transactional
-    public boolean remove(BigInteger key) {
+    public boolean remove(Long key) {
         String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
         cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
         Todo et = this.get(key);
@@ -99,16 +103,16 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     }
 
     @Override
-    public void removeBatch(Collection<BigInteger> idList){
+    public void removeBatch(Collection<Long> idList){
         if (idList != null && !idList.isEmpty()) {
-            for (BigInteger id : idList) {
+            for (Long id : idList) {
                 this.remove(id);
             }
         }
     }
     @Override
     @Transactional
-    public Todo get(BigInteger key) {
+    public Todo get(Long key) {
         Todo tempET=new Todo();
         tempET.set("id",key);
         Todo et = getById(key);
@@ -119,6 +123,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         else{
         }
         gettodotitleLogic.execute(et);
+        resetbeginendLogic.execute(et);
         return et;
     }
 
@@ -256,6 +261,15 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     @Override
     public Page<Todo> searchDefault(TodoSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Todo>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我的待办
+     */
+    @Override
+    public Page<Todo> searchMyTodo(TodoSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyTodo(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Todo>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

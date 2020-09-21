@@ -435,6 +435,14 @@ export class FavoriteMainGridBase extends GridControlBase {
             unit: 'PX',
             isEnableRowEdit: false,
         },
+        {
+            name: 'isfavorites',
+            label: '是否收藏',
+            langtag: 'entities.bug.favoritemain_grid.columns.isfavorites',
+            show: false,
+            unit: 'PX',
+            isEnableRowEdit: false,
+        },
     ]
 
     /**
@@ -481,6 +489,7 @@ export class FavoriteMainGridBase extends GridControlBase {
         'assignedto':false,
         'resolution':false,
         'uagridcolumn1':false,
+        'isfavorites':false,
     };
 
     /**
@@ -590,4 +599,6 @@ export class FavoriteMainGridBase extends GridControlBase {
             this.grid_uagridcolumn1_u9e18a05_click(row, tag, $event);
         }
     }
+
+
 }

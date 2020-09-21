@@ -22,6 +22,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.validation.annotation.Validated;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,7 +50,7 @@ public class IBZ_LOGINResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZ_LOGIN-GetUser-all')")
     @ApiOperation(value = "获取ZT账户登录信息", tags = {"实体" },  notes = "获取ZT账户登录信息")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibz_logins/{ibz_login_id}/getuser")
-    public ResponseEntity<IBZ_LOGINDTO> getUser(@PathVariable("ibz_login_id") BigInteger ibz_login_id, @RequestBody IBZ_LOGINDTO ibz_logindto) {
+    public ResponseEntity<IBZ_LOGINDTO> getUser(@PathVariable("ibz_login_id") Long ibz_login_id, @RequestBody IBZ_LOGINDTO ibz_logindto) {
         IBZ_LOGIN domain = ibz_loginMapping.toDomain(ibz_logindto);
         domain.setId(ibz_login_id);
         domain = ibz_loginService.getUser(domain);
@@ -60,7 +61,7 @@ public class IBZ_LOGINResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZ_LOGIN-Ztlogin-all')")
     @ApiOperation(value = "ZT登录", tags = {"实体" },  notes = "ZT登录")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibz_logins/{ibz_login_id}/ztlogin")
-    public ResponseEntity<IBZ_LOGINDTO> ztlogin(@PathVariable("ibz_login_id") BigInteger ibz_login_id, @RequestBody IBZ_LOGINDTO ibz_logindto) {
+    public ResponseEntity<IBZ_LOGINDTO> ztlogin(@PathVariable("ibz_login_id") Long ibz_login_id, @RequestBody IBZ_LOGINDTO ibz_logindto) {
         IBZ_LOGIN domain = ibz_loginMapping.toDomain(ibz_logindto);
         domain.setId(ibz_login_id);
         domain = ibz_loginService.ztlogin(domain);

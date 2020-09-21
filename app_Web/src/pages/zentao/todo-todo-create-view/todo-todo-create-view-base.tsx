@@ -80,6 +80,13 @@ export class TodoTodoCreateViewBase extends EditViewBase {
     };
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof TodoTodoCreateViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

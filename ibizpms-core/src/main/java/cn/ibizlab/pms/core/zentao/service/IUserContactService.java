@@ -29,9 +29,9 @@ public interface IUserContactService extends IService<UserContact>{
     void createBatch(List<UserContact> list) ;
     boolean update(UserContact et) ;
     void updateBatch(List<UserContact> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    UserContact get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    UserContact get(Long key) ;
     UserContact getDraft(UserContact et) ;
     boolean checkKey(UserContact et) ;
     boolean save(UserContact et) ;

@@ -16,7 +16,9 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigInteger;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
@@ -118,6 +120,85 @@ public class IBZZTFileService implements IIBZZTFileService {
     }
 
     @Override
+    public ZTFileItem saveFile(File multipartFile, JSONObject params) {
+        ZTFileItem item = null;
+        // 获取文件名
+        String fileName = multipartFile.getName();
+        // 获取文件后缀
+        String extname = "." + getExtensionName(fileName);
+        String fileNameWithoutExt = fileName.substring(0, fileName.length() - extname.length());
+
+        String filePath = this.filePath;
+        if (filePath == null) {
+            filePath = "";
+        }
+        filePath = filePath.replaceAll("\\\\", "/");
+        if (!filePath.isEmpty() && !filePath.endsWith("/")) {
+            filePath += "/";
+        }
+        try {
+            if (params != null && params.get("objecttype") != null) {
+                String md5FileName = fileName;
+                long curTime = System.currentTimeMillis();
+                md5FileName += curTime;
+                AuthenticationUser user = AuthenticationUser.getAuthenticationUser();
+                String addedBy = null;
+                if (user != null && user.getUsername() != null) {
+                    addedBy = user.getUsername();
+                    md5FileName += user.getUsername();
+                }
+                md5FileName = DigestUtils.md5DigestAsHex(md5FileName.getBytes());
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
+                String curDate = sdf.format(new Date(curTime));
+                String fileShortPath = curDate + "/" + md5FileName + extname;
+                String fileFullPath = filePath + fileShortPath;
+                File file = new File(fileFullPath);
+                File parent = new File(file.getParent());
+                if(!parent.exists()) {
+                    parent.mkdirs();
+                }
+                InputStream inputStream = new FileInputStream(multipartFile);
+                FileCopyUtils.copy(inputStream, Files.newOutputStream(file.toPath()));
+
+                cn.ibizlab.pms.core.zentao.domain.File ztFile = new cn.ibizlab.pms.core.zentao.domain.File();
+
+                String objectType = params.getString("objecttype");
+                Integer objectId = params.getInteger("objectid");
+                String version = params.getString("version");
+                String extra = params.getString("extra");
+
+                ztFile.setPathname(fileShortPath);
+                ztFile.setTitle(fileName);
+                ztFile.setExtension(getExtensionName(fileName));
+                ztFile.setSize(1000);
+                ztFile.setObjecttype(objectType);
+                ztFile.setObjectid(objectId);
+                ztFile.setExtra(version == null ? extra : version);
+                ztFile.setDeleted("0");
+                ztFile.setAddedby(addedBy);
+                fileService.create(ztFile);
+                String fileId = ztFile.getId().toString();
+
+                item = new ZTFileItem(fileId, fileName, fileId, fileName, 1000, extname, objectType, objectId, extra, version);
+            } else {
+                InputStream inputStream = new FileInputStream(multipartFile);
+                String fileid = DigestUtils.md5DigestAsHex(inputStream);
+                String fileFullPath = filePath + "ibizutil/" + fileid + "/" + fileName;
+                File file = new File(fileFullPath);
+                File parent = new File(file.getParent());
+                if(!parent.exists()) {
+                    parent.mkdirs();
+                }
+                FileCopyUtils.copy(inputStream, Files.newOutputStream(file.toPath()));
+                item = new ZTFileItem(fileid, fileName, fileid, fileName, 1000, extname, null, null, null, null);
+            }
+        } catch (IOException e) {
+            throw new InternalServerErrorException(ZenTaoMessage.MSG_ERROR_0005);
+        }
+        return item;
+    }
+
+    @Override
     public ZTDownloadFile getFile(String fileId) {
         String filePath = this.filePath;
         if (filePath == null) {
@@ -136,7 +217,7 @@ public class IBZZTFileService implements IIBZZTFileService {
             downloadFile.setFileName(parent.listFiles()[0].getName());
             return downloadFile;
         }
-        cn.ibizlab.pms.core.zentao.domain.File ztFile = fileService.get(new BigInteger(fileId));
+        cn.ibizlab.pms.core.zentao.domain.File ztFile = fileService.get(Long.parseLong(fileId));
         if (ztFile == null) {
             throw new InternalServerErrorException("文件不存在");
         }

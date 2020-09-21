@@ -58,6 +58,13 @@ export class ReleaseEditViewBase extends EditViewBase {
     public appUIService: ReleaseUIService = new ReleaseUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof ReleaseEditViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

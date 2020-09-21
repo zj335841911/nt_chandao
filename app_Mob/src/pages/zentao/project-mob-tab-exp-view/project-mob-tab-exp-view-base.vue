@@ -11,11 +11,10 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
+
+    
                     <ion-toolbar>
                         <ion-segment :value="activiedTabViewPanel" @ionChange="tabExpPanelChange($event)">
-                            <ion-segment-button value="tabviewpanel">
-                            
-                            详情</ion-segment-button>
                             <ion-segment-button value="tabviewpanel2">
                             <ion-badge color="danger">{{counter.counterData.taskcnt?counter.counterData.taskcnt:''}}</ion-badge>
                             任务</ion-segment-button>
@@ -25,6 +24,9 @@
                             <ion-segment-button value="tabviewpanel5">
                             <ion-badge color="danger">{{counter.counterData.bugcnt?counter.counterData.bugcnt:''}}</ion-badge>
                             Bug</ion-segment-button>
+                            <ion-segment-button value="tabviewpanel6">
+                            <ion-badge color="danger">{{counter.counterData.storycnt?counter.counterData.storycnt:''}}</ion-badge>
+                            需求</ion-segment-button>
                             <ion-segment-button value="tabviewpanel3">
                             <ion-badge color="danger">{{counter.counterData.teamcnt?counter.counterData.teamcnt:''}}</ion-badge>
                             团队</ion-segment-button>
@@ -191,7 +193,7 @@ export default class ProjectMobTabExpViewBase extends Vue {
      * @memberof ProjectMobTabExpViewBase
      */
     protected model: any = {
-        srfTitle: '项目分页导航视图',
+        srfTitle: '项目',
         srfCaption: 'project.views.mobtabexpview.caption',
         srfSubCaption: '',
         dataInfo: '',
@@ -332,7 +334,7 @@ export default class ProjectMobTabExpViewBase extends Vue {
      * @type {string}
      * @memberof  ProjectMobTabExpViewBase
      */
-    protected activiedTabViewPanel: string = 'tabviewpanel';
+    protected activiedTabViewPanel: string = 'tabviewpanel2';
 
     /**
      * 分页导航栏激活
@@ -391,7 +393,7 @@ export default class ProjectMobTabExpViewBase extends Vue {
         if (info.name && info.name == 'project' && info.id && info.id == this.context.project) {
           this.activiedTabViewPanel = info.value;
         } else { 
-          this.activiedTabViewPanel = 'tabviewpanel';
+          this.activiedTabViewPanel = 'tabviewpanel2';
         }
         }
     }
@@ -451,6 +453,7 @@ export default class ProjectMobTabExpViewBase extends Vue {
         this.getLocalStorage();
 
     }
+
 
     /**
      * 销毁之前
@@ -560,8 +563,12 @@ export default class ProjectMobTabExpViewBase extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
         }
         if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });

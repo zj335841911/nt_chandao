@@ -219,7 +219,19 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD HH:mm:ss" :data="row.activateddate"></app-format-data>
+                        <app-format-data format="YYYY-MM-DD" :data="row.activateddate"></app-format-data>
+                    </template>
+                </el-table-column>
+            </template>
+            <template v-if="getColumnState('isfavorites')">
+                <el-table-column show-overflow-tooltip :prop="'isfavorites'" :label="$t('entities.bug.main_grid.columns.isfavorites')" :width="100"  :align="'left'" :sortable="'custom'">
+                    <template v-slot:header="{column}">
+                      <span class="column-header ">
+                        {{$t('entities.bug.main_grid.columns.isfavorites')}}
+                      </span>
+                    </template>
+                    <template v-slot="{row,column,$index}">
+                        <span>{{row.isfavorites}}</span>
                     </template>
                 </el-table-column>
             </template>

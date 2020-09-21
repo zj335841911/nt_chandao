@@ -35,4 +35,44 @@ export default {
     id: "ID",
     qq: "QQ",
   },
+	views: {
+		mobmpickupview: {
+			caption: '用户',
+		},
+		mobpickupmdview: {
+			caption: '用户',
+		},
+		mobpickupview: {
+			caption: '用户',
+		},
+		usercentermobeditview: {
+			caption: '个人中心',
+		},
+	},
+	usercenter_form: {
+		details: {
+			group1: '用户基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: 'ID', 
+			srfmajortext: '真实姓名', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			realname: '真实姓名', 
+			gender: '性别', 
+			account: '账户', 
+			address: '通讯地址', 
+			dingding: '钉钉', 
+			phone: '电话', 
+			mobile: '手机', 
+			role: '职位', 
+			qq: 'QQ', 
+			weixin: '微信', 
+			id: 'ID', 
+		},
+		uiactions: {
+		},
+	},
 };

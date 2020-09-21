@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -38,6 +41,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "howrun")
     @JsonProperty("howrun")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String howrun;
 
     /**
@@ -46,6 +50,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "scriptedby")
     @JsonProperty("scriptedby")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String scriptedby;
 
     /**
@@ -89,6 +94,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "comment")
     @JsonProperty("comment")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
     private String comment;
 
     /**
@@ -97,6 +103,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "auto")
     @JsonProperty("auto")
+    @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
     private String auto;
 
     /**
@@ -105,6 +112,8 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "title")
     @JsonProperty("title")
+    @NotBlank(message = "[用例标题]不允许为空!")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String title;
 
     /**
@@ -113,6 +122,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
     private String deleted;
 
     /**
@@ -121,6 +131,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "scriptlocation")
     @JsonProperty("scriptlocation")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String scriptlocation;
 
     /**
@@ -129,6 +140,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "scriptstatus")
     @JsonProperty("scriptstatus")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String scriptstatus;
 
     /**
@@ -137,6 +149,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "keywords")
     @JsonProperty("keywords")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String keywords;
 
     /**
@@ -145,7 +158,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [PRECONDITION]
@@ -153,6 +166,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "precondition")
     @JsonProperty("precondition")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String precondition;
 
     /**
@@ -161,6 +175,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "pri")
     @JsonProperty("pri")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String pri;
 
     /**
@@ -169,6 +184,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "type")
     @JsonProperty("type")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String type;
 
     /**
@@ -177,6 +193,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "status")
     @JsonProperty("status")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String status;
 
     /**
@@ -185,6 +202,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "stage")
     @JsonProperty("stage")
+    @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
     private String stage;
 
     /**
@@ -193,6 +211,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "openedby")
     @JsonProperty("openedby")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String openedby;
 
     /**
@@ -201,6 +220,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String lasteditedby;
 
     /**
@@ -209,7 +229,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "lib")
     @JsonProperty("lib")
-    private BigInteger lib;
+    private Long lib;
 
     /**
      * 属性 [MODULE]
@@ -217,7 +237,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "module")
     @JsonProperty("module")
-    private BigInteger module;
+    private Long module;
 
     /**
      * 属性 [MODULENAME]
@@ -225,6 +245,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "modulename")
     @JsonProperty("modulename")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String modulename;
 
     /**
@@ -233,6 +254,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "libname")
     @JsonProperty("libname")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String libname;
 
     /**
@@ -391,7 +413,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [LIB]
      */
-    public void setLib(BigInteger  lib){
+    public void setLib(Long  lib){
         this.lib = lib ;
         this.modify("lib",lib);
     }
@@ -399,7 +421,7 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [MODULE]
      */
-    public void setModule(BigInteger  module){
+    public void setModule(Long  module){
         this.module = module ;
         this.modify("module",module);
     }
@@ -421,4 +443,5 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
 	private List<IbzLibCaseStepTmpDTO> ibzlibcasesteps ;
 
 }
+
 

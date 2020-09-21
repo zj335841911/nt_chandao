@@ -85,7 +85,7 @@
     :context="context"
     :viewparams="viewparams"
     :localContext ='{}'
-    :localParam ='{}'
+    :localParam ='{n_extra_eq:"%version%",objecttype:"story"}'
     parameterName='story'
     parentName="Story"  
     refviewtype='DELISTVIEW9' 
@@ -235,6 +235,32 @@
   :acParams="{ serviceName: 'ProductModuleService', interfaceName: 'FetchStoryModule'}"
   valueitem='module' 
   :value="data.modulename" 
+  editortype="dropdown"
+  :valFormat="{0: '/'}"
+  style="" 
+  @formitemvaluechange="onFormItemValueChange($event)">
+</app-picker>
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.parentname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='parentname' :itemRules="this.rules.parentname" class='' :caption="$t('entities.story.main_editmode_form.details.parentname')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.parentname.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-picker  
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ PRODUCT:"%product%" }' 
+  :localParam ='{ product:"%product%" }' 
+  :disabled="detailsModel.parentname.disabled"
+  name='parentname'
+  deMajorField='title'
+  deKeyField='story'
+  :service="service"
+  :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchParentDefault'}"
+  valueitem='parent' 
+  :value="data.parentname" 
   editortype="dropdown"
   :valFormat="{0: '/'}"
   style="" 

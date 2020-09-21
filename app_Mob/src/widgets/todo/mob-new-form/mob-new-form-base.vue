@@ -33,7 +33,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.name" 
+    :value="data.name"
+    unit=""
     :disabled="detailsModel.name.disabled" 
     @change="($event)=>this.data.name = $event" />
 </app-form-item>
@@ -63,8 +64,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.pri"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.pri"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.pri = $event" />
@@ -120,8 +120,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.begin"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.begin"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.begin = $event" />
@@ -152,8 +151,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.end"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.end"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.end = $event" />
@@ -199,7 +197,6 @@
     :caption="$t('todo.mobnew_form.details.desc')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.desc.disabled"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"todo",version:"editor"}' :exportparams='{objecttype:"todo",version:"editor"}'  style=""/>
@@ -355,12 +352,6 @@ export default class MobNewBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
-    /**
-     * 加载完成
-     *
-     * @memberof MobNew
-     */
-    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -1448,7 +1439,6 @@ export default class MobNewBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
@@ -1481,7 +1471,6 @@ export default class MobNewBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

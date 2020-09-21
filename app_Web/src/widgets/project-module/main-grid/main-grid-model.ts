@@ -27,6 +27,12 @@ export default class MainModel {
     }else{
 		  return [
         {
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
+          isEditable:true
+        },
+        {
           name: 'short',
           prop: 'ibizshort',
           dataType: 'TEXT',
@@ -36,12 +42,6 @@ export default class MainModel {
           name: 'root',
           prop: 'root',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
-          isEditable:true
         },
         {
           name: 'owner',

@@ -15,11 +15,11 @@ public class ZTResult {
     /**
      * 对象标识
      */
-    private BigInteger etId;
+    private Long etId;
     /**
      * 批处理对象标识
      */
-    private List<BigInteger> etIds;
+    private List<Long> etIds;
     /**
      * 消息
      */

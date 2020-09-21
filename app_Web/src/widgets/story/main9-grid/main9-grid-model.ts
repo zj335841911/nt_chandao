@@ -27,6 +27,21 @@ export default class Main9Model {
     }else{
 		  return [
         {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',
@@ -35,11 +50,6 @@ export default class Main9Model {
           name: 'frombug',
           prop: 'frombug',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'parent',
@@ -74,16 +84,6 @@ export default class Main9Model {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'title',
-          prop: 'title',
-          dataType: 'TEXT',
         },
         {
           name: 'duplicatestory',

@@ -29,9 +29,9 @@ public interface ITodoService extends IService<Todo>{
     void createBatch(List<Todo> list) ;
     boolean update(Todo et) ;
     void updateBatch(List<Todo> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Todo get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Todo get(Long key) ;
     Todo getDraft(Todo et) ;
     Todo activate(Todo et) ;
     Todo assignTo(Todo et) ;
@@ -43,6 +43,7 @@ public interface ITodoService extends IService<Todo>{
     Todo sendMessage(Todo et) ;
     Todo sendMsgPreProcess(Todo et) ;
     Page<Todo> searchDefault(TodoSearchContext context) ;
+    Page<Todo> searchMyTodo(TodoSearchContext context) ;
     Page<Todo> searchMyUpcoming(TodoSearchContext context) ;
     /**
      *自定义查询SQL

@@ -390,4 +390,16 @@ export class ProductServiceBase extends EntityService {
      */
     public async ReturnEdit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
+
+    /**
+     * WizardCreate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async WizardCreate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
 }

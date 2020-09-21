@@ -29,9 +29,9 @@ public interface ICompanyService extends IService<Company>{
     void createBatch(List<Company> list) ;
     boolean update(Company et) ;
     void updateBatch(List<Company> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    Company get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    Company get(Long key) ;
     Company getDraft(Company et) ;
     boolean checkKey(Company et) ;
     boolean save(Company et) ;

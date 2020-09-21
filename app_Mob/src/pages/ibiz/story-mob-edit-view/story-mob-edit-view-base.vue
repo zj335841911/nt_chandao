@@ -12,6 +12,8 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
+
+    
     </ion-header>
 
 
@@ -42,40 +44,61 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9;">
+    <ion-footer class="view-footer" style="z-index:9999;">
                 <div  class = "fab_container">
-            <div class="bottom_menu">
-        
-        
-            <ion-fab v-show="getToolBarLimit">
-                <ion-fab-button class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-fab-button>
-                <ion-fab-list class="fab-list" side="top">
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_changestorydetailmob.visabled" :disabled="righttoolbarModels.deuiaction1_changestorydetailmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_changestorydetailmob' }, $event)">
-                <ion-icon name="swap"></ion-icon>
-            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_changestorydetailmob.caption')}}    
-            </ion-fab-button>
-        
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_assigntomob.visabled" :disabled="righttoolbarModels.deuiaction1_assigntomob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assigntomob' }, $event)">
-            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntomob.caption')}}    
-            </ion-fab-button>
-        
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_reviewstorymob.visabled" :disabled="righttoolbarModels.deuiaction1_reviewstorymob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_reviewstorymob' }, $event)">
-            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_reviewstorymob.caption')}}    
-            </ion-fab-button>
-        
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_closestorymob.visabled" :disabled="righttoolbarModels.deuiaction1_closestorymob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closestorymob' }, $event)">
-                <ion-icon name="close"></ion-icon>
-            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_closestorymob.caption')}}    
-            </ion-fab-button>
-        
-                    <ion-fab-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_deletemob.visabled" :disabled="righttoolbarModels.deuiaction1_deletemob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event)">
-                <ion-icon name="remove"></ion-icon>
-            {{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}    
-            </ion-fab-button>
-        
-                </ion-fab-list>
-            </ion-fab>
+            <ion-button @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <van-popup class="popup" v-model="showGrop" round position="bottom">
+                <div class="container">
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_changestorydetailmob.disabled}" v-show="righttoolbarModels.deuiaction1_changestorydetailmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_changestorydetailmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_changestorydetailmob' }, $event)" size="large">
+                    <ion-icon name="swap-vertical-outline"></ion-icon>
+                <span class="btn-inner-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_changestorydetailmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_changestorydetailmob.caption')}}</span>
             </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_assigntomob.disabled}" v-show="righttoolbarModels.deuiaction1_assigntomob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_assigntomob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_assigntomob' }, $event)" size="large">
+                    <ion-icon name="hand-o-right"></ion-icon>
+                <span class="btn-inner-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntomob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_assigntomob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_reviewstorymob.disabled}" v-show="righttoolbarModels.deuiaction1_reviewstorymob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_reviewstorymob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_reviewstorymob' }, $event)" size="large">
+                    <ion-icon name="search"></ion-icon>
+                <span class="btn-inner-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_reviewstorymob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_reviewstorymob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_closestorymob.disabled}" v-show="righttoolbarModels.deuiaction1_closestorymob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_closestorymob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closestorymob' }, $event)" size="large">
+                    <ion-icon name="close"></ion-icon>
+                <span class="btn-inner-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_closestorymob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_closestorymob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.disabled}" v-show="righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_openbaseinfoeditviewmob' }, $event)" size="large">
+                    <ion-icon name="edit (alias)"></ion-icon>
+                <span class="btn-inner-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_openbaseinfoeditviewmob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_openbaseinfoeditviewmob.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_deletemob.disabled}" v-show="righttoolbarModels.deuiaction1_deletemob.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_deletemob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_deletemob' }, $event)" size="large">
+                    <ion-icon name="remove"></ion-icon>
+                <span class="btn-inner-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_deletemob.caption')}}</span>
+            </div>
+        
+                </div>
+            </van-popup>
         </div>
     </ion-footer>
 </ion-page>
@@ -225,7 +248,7 @@ export default class StoryMobEditViewBase extends Vue {
         srfSubCaption: '',
         dataInfo: '',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-star-o'
     }
 
     /**
@@ -315,6 +338,8 @@ export default class StoryMobEditViewBase extends Vue {
 
             deuiaction1_closestorymob: { name: 'deuiaction1_closestorymob', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', uiaction: { tag: 'CloseStoryMob', target: 'SINGLEKEY' } },
 
+            deuiaction1_openbaseinfoeditviewmob: { name: 'deuiaction1_openbaseinfoeditviewmob', caption: '编辑', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_EDIT_BUT', uiaction: { tag: 'OpenBaseInfoEditViewMob', target: 'SINGLEKEY' } },
+
             deuiaction1_deletemob: { name: 'deuiaction1_deletemob', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
 
     };
@@ -344,6 +369,24 @@ export default class StoryMobEditViewBase extends Vue {
             })
         }
         return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof StoryMobEditView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof StoryMobEditView 
+     */
+    public popUpGroup () {
+        this.showGrop = !this.showGrop;
     }
 
     
@@ -440,6 +483,7 @@ export default class StoryMobEditViewBase extends Vue {
         }
 
     }
+
 
     /**
      * 销毁之前
@@ -587,6 +631,9 @@ export default class StoryMobEditViewBase extends Vue {
         if (Object.is($event.tag, 'deuiaction1_closestorymob')) {
             this.righttoolbar_deuiaction1_closestorymob_click($event, '', $event2);
         }
+        if (Object.is($event.tag, 'deuiaction1_openbaseinfoeditviewmob')) {
+            this.righttoolbar_deuiaction1_openbaseinfoeditviewmob_click($event, '', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction1_deletemob')) {
             this.righttoolbar_deuiaction1_deletemob_click($event, '', $event2);
         }
@@ -718,6 +765,38 @@ export default class StoryMobEditViewBase extends Vue {
         const curUIService: any = await this.globaluiservice.getService('story_ui_action');
         if (curUIService) {
             curUIService.Story_CloseStoryMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof StoryMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_openbaseinfoeditviewmob_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('story_ui_action');
+        if (curUIService) {
+            curUIService.Story_OpenBaseInfoEditViewMob(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -865,7 +944,7 @@ export default class StoryMobEditViewBase extends Vue {
         if (view && view.viewdatachange) {
                 const title: any = this.$t('app.tabpage.sureclosetip.title');
                 const contant: any = this.$t('app.tabpage.sureclosetip.content');
-                const result = await this.$notice.confirm(title, contant);
+                const result = await this.$notice.confirm(title, contant, this.$store);
                 if (result) {
                     this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
                     return true;

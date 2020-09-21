@@ -269,6 +269,16 @@
         "viewtag": "0f3dff62ef8bcb1662cc82e57a34c56b",
         "memo": ""
     },
+    "releaseoptionview": {
+        "title": "发布选项操作视图",
+        "caption": "发布",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ReleaseOptionView",
+        "viewfilename": "release-option-view",
+        "viewtag": "0f44800c5178aa53932ef08d0fc88590",
+        "memo": ""
+    },
     "projecttasktreeexpview": {
         "title": "项目任务导航视图",
         "caption": "项目",
@@ -849,6 +859,16 @@
         "viewtag": "3b346aee2b79b7b6b59bc870b4c67f72",
         "memo": ""
     },
+    "productwizardview": {
+        "title": "产品向导视图",
+        "caption": "产品",
+        "viewtype": "DEWIZARDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProductWizardView",
+        "viewfilename": "product-wizard-view",
+        "viewtag": "3b4ab1882a49962f12900abeeddf60f0",
+        "memo": ""
+    },
     "testreportmaininfoview": {
         "title": "测试报告编辑视图",
         "caption": "测试报告",
@@ -1181,7 +1201,7 @@
     },
     "productplansubplangridview": {
         "title": "子计划",
-        "caption": "产品计划",
+        "caption": "子计划",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
         "viewname": "ProductPlanSubPlanGridView",
@@ -1547,6 +1567,16 @@
         "viewname": "StoryProjectMPickupView3",
         "viewfilename": "story-project-mpickup-view3",
         "viewtag": "645efdb73a5b13723410903dff447667",
+        "memo": ""
+    },
+    "buildoptionview": {
+        "title": "版本选项操作视图",
+        "caption": "版本",
+        "viewtype": "DEOPTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BuildOptionView",
+        "viewfilename": "build-option-view",
+        "viewtag": "64dda8bee495e9713c61310a3fea2df9",
         "memo": ""
     },
     "testmodulegridviewbranch": {
@@ -2189,6 +2219,16 @@
         "viewtag": "8eb13e4fe49406265e2ed5fb1e0a6b53",
         "memo": ""
     },
+    "storyplaneditview": {
+        "title": "需求",
+        "caption": "需求",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "StoryPlanEditView",
+        "viewfilename": "story-plan-edit-view",
+        "viewtag": "901398a79547094cd0e9791cbe6e90ef",
+        "memo": ""
+    },
     "productplanprojectgridview9": {
         "title": "产品计划表格视图（项目）",
         "caption": "项目",
@@ -2777,6 +2817,16 @@
         "viewname": "StoryMyFavoritesGridView",
         "viewfilename": "story-my-favorites-grid-view",
         "viewtag": "b7e6268db4bdeb10211fc15383de685d",
+        "memo": ""
+    },
+    "productplanmaindataeditview": {
+        "title": "产品计划编辑视图",
+        "caption": "产品计划",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProductPlanMainDataEditView",
+        "viewfilename": "product-plan-main-data-edit-view",
+        "viewtag": "b9a10eb0b5a55e40c69c61387de5894a",
         "memo": ""
     },
     "storympickupview": {

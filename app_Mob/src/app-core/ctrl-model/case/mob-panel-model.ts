@@ -177,6 +177,9 @@ export class MobModel {
       {
         name: 'libname',
       },
+      {
+        name: 'lastrunresult1',
+      },
     ]
   }
 

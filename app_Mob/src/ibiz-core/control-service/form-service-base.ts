@@ -126,11 +126,7 @@ export class FormServiceBase extends ControlServiceBase {
         }
         let itemName = name;
         let mode: any = this.model.getDataItems();
-        if (!mode && mode.getDataItems instanceof Function) {
-            return name;
-        }
-        let formItemItems: any[] = mode.getDataItems();
-        formItemItems.forEach((item:any)=>{
+        mode.forEach((item:any)=>{
             if(item.prop === name){
                 itemName = item.name;
             }

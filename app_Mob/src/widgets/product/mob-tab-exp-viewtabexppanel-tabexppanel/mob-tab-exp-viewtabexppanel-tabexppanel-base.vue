@@ -1,16 +1,5 @@
 <template>
     <span>
-        <span v-show="activiedTabViewPanel == 'tabviewpanel3'">
-                        <view_tabviewpanel3
-                :viewState="viewState"
-                viewName="ProductMobTabExpView"  
-                :viewparams="viewparams" 
-                :context="context" 
-                name="tabviewpanel3"  
-                ref='tabviewpanel3' 
-                @closeview="closeView($event)">
-            </view_tabviewpanel3>
-        </span>
         <span v-show="activiedTabViewPanel == 'tabviewpanel'">
                         <view_tabviewpanel
                 :viewState="viewState"
@@ -270,8 +259,16 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
      * @type {string}
      * @memberof MobTabExpViewtabexppanel
      */
-    @Prop({ default: 'tabviewpanel3' }) protected activiedTabViewPanel?: string;     
-             
+    @Prop({ default: 'tabviewpanel' }) protected activiedTabViewPanel?: string;     
+
+    /**
+     * 是否开启点击重新渲染
+     *
+     * @type {string}
+     * @memberof MobTabExpViewtabexppanel
+     */
+    @Prop({ default: true }) public isEnableReRender?:boolean;    
+
     /**
      * vue 生命周期
      *
@@ -367,6 +364,18 @@ export default class MobTabExpViewtabexppanelBase extends Vue implements Control
             let panel:any = this.activiedTabViewPanel
             if(panel){
               this.viewState.next({ tag: panel, action: this.action, data: {}});
+            }
+            if (this.isEnableReRender) {         
+              if (panel) {
+                let panelarr:any = Object.keys(this.$refs);
+                panelarr.splice(panelarr.findIndex((item:any) => item === panel), 1);
+                panelarr.forEach((item:any,index:number)=>{
+                  let tabviewpanel:any = this.$refs[item];
+                  if (tabviewpanel.isActivied) {
+                    tabviewpanel.isActivied = false;
+                  }
+                })
+              }
             }
         });
     }

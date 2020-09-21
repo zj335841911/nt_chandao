@@ -58,6 +58,13 @@ export class ProductMyTestTabExpViewBase extends TabExpViewBase {
     public appUIService: ProductUIService = new ProductUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof ProductMyTestTabExpViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

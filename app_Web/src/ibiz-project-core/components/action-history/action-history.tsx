@@ -217,11 +217,10 @@ export class ActionHistory extends Vue {
     protected renderAction(): any {
         return <div class="action-wrapper">
             {this.items.map((item: ActionItem, index: number) => {
-                
                 return <div class="action-item">
                     {this.renderActionContent(item)}
                     {(item.children && item.expand) ? this.renderHistory(item, item.children) : null}
-                    {item.comment ? this.renderActionComment(item, (this.items.length - 1 == index)) : null}
+                    {item.comment ? this.renderActionComment(item, (this.items.length - 1 == index && item.isactorss === 1)) : null}
                 </div>;
             })}
         </div>;

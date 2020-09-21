@@ -201,6 +201,14 @@ export class Main_PlanSubGridBase extends GridControlBase {
             unit: 'PX',
             isEnableRowEdit: false,
         },
+        {
+            name: 'isfavorites',
+            label: '是否收藏',
+            langtag: 'entities.bug.main_plansub_grid.columns.isfavorites',
+            show: false,
+            unit: 'PX',
+            isEnableRowEdit: false,
+        },
     ]
 
     /**
@@ -243,6 +251,7 @@ export class Main_PlanSubGridBase extends GridControlBase {
         'openeddate':false,
         'assignedto':false,
         'uagridcolumn1':false,
+        'isfavorites':false,
     };
 
     /**
@@ -318,4 +327,6 @@ export class Main_PlanSubGridBase extends GridControlBase {
             this.grid_uagridcolumn1_uda12208_click(row, tag, $event);
         }
     }
+
+
 }

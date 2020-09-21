@@ -33,7 +33,8 @@
         <app-mob-input 
     class="app-form-item-number" 
         type="number"  
-    :value="data.consumed" 
+    :value="data.consumed"
+    unit="小时"
     :disabled="detailsModel.consumed.disabled" 
     @change="($event)=>this.data.consumed = $event"/>
 </app-form-item>
@@ -58,7 +59,8 @@
         <app-mob-input 
     class="app-form-item-number" 
         type="number"  
-    :value="data.currentconsumed" 
+    :value="data.currentconsumed"
+    unit=""
     :disabled="detailsModel.currentconsumed.disabled" 
     @change="($event)=>this.data.currentconsumed = $event"/>
 </app-form-item>
@@ -83,7 +85,8 @@
         <app-mob-input 
     class="app-form-item-number" 
         type="number"  
-    :value="data.totaltime" 
+    :value="data.totaltime"
+    unit=""
     :disabled="detailsModel.totaltime.disabled" 
     @change="($event)=>this.data.totaltime = $event"/>
 </app-form-item>
@@ -106,17 +109,16 @@
     :error="detailsModel.assignedto.error" 
     :isEmptyCaption="false">
         <app-mob-select 
-    tag="UserRealName"
+    tag="UserRealNameTaskTeam"
     codeListType="DYNAMIC" 
     :isCache="false" 
     :disabled="detailsModel.assignedto.disabled" 
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.assignedto"
-    :dataOverLoad="dataOverLoad"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
+    :value="data.assignedto"  
+    :navigateContext ='{ "project": "%project%", "multiple": "%multiple%" } '
+    :navigateParam ='{ "project": "%project%", "multiple": "%multiple%" } '
     @change="($event)=>this.data.assignedto = $event" />
 </app-form-item>
 
@@ -192,7 +194,6 @@
     :caption="$t('task.completeformmob_form.details.comment')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.comment.disabled"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"task",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"task",objectid: "%id%",version:"editor"}'  style=""/>
@@ -220,12 +221,14 @@
     refviewtype='DEMOBMDVIEW9'  
     refreshitems='' 
     viewname='action-mob-mdview9' 
+    v-show="detailsModel.druipart1.visible" 
     paramItem='task' 
     style="" 
     :formState="formState" 
     :parentdata='{"srfparentdename":"ZT_TASK","SRFPARENTTYPE":"CUSTOM"}' 
     :parameters="[
     ]" 
+    tempMode='0'
     :context="context" 
     :viewparams="viewparams" 
     :navigateContext ='{ } ' 
@@ -387,12 +390,6 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
         _this.$emit('closeview', args);
     }
 
-    /**
-     * 加载完成
-     *
-     * @memberof CompleteFormMob
-     */
-    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -574,6 +571,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
         assignedto: null,
         finisheddate: null,
         files: null,
+        multiple: null,
         comment: null,
         task: null,
     };
@@ -698,6 +696,12 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
             { type: 'string', message: '附件 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
+        ],
+        multiple: [
+            { type: 'string', message: '多人任务 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '多人任务 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'blur' },
         ],
         comment: [
             { type: 'string', message: '备注 值必须为字符串类型', trigger: 'change' },
@@ -826,6 +830,8 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
         finisheddate: new FormItemModel({ caption: '实际完成', detailType: 'FORMITEM', name: 'finisheddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1012,6 +1018,18 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
     }
 
     /**
+     * 监控表单属性 multiple 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof CompleteFormMob
+     */
+    @Watch('data.multiple')
+    onMultipleChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'multiple', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 comment 值
      *
      * @param {*} newVal
@@ -1059,6 +1077,7 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 
@@ -1493,7 +1512,6 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
@@ -1526,7 +1544,6 @@ export default class CompleteFormMobBase extends Vue implements ControlInterface
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

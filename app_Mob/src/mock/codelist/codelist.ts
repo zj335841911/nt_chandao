@@ -117,6 +117,14 @@ const datas: Array<any> = [
         ]
     },
     {
+        "srfkey": "RelatedStory",
+        "emptytext": "",
+        "codelisttype":"dynamic",
+        "appdataentity":"Story",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         srfkey: 'Testcase__stage',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -263,6 +271,97 @@ const datas: Array<any> = [
         "appdataentity":"ProductPlan",
         "appdedataset":"FetchDefault",
         "items": []
+    },
+    {
+        srfkey: 'Task_quickpacket',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'All',
+                label: '所有',
+                text: '所有',
+                value: 'All',
+                disabled: false,
+            },
+            {
+                id: 'UNCLOSED',
+                label: '未关闭',
+                text: '未关闭',
+                value: 'UNCLOSED',
+                disabled: false,
+            },
+            {
+                id: 'TOME',
+                label: '指派给我',
+                text: '指派给我',
+                value: 'TOME',
+                disabled: false,
+            },
+            {
+                id: 'storychange',
+                label: '需求变更',
+                text: '需求变更',
+                value: 'storychange',
+                disabled: false,
+            },
+            {
+                id: 'MORE',
+                label: '更多',
+                text: '更多',
+                value: 'MORE',
+                disabled: false,
+            },
+            {
+                id: 'NOTSTARTED',
+                label: '未开始',
+                text: '未开始',
+                value: 'NOTSTARTED',
+                disabled: false,
+            },
+            {
+                id: 'INPROGRESS',
+                label: '进行中',
+                text: '进行中',
+                value: 'INPROGRESS',
+                disabled: false,
+            },
+            {
+                id: 'UNACCOMPLISHED',
+                label: '未完成',
+                text: '未完成',
+                value: 'UNACCOMPLISHED',
+                disabled: false,
+            },
+            {
+                id: 'IFINISHED',
+                label: '我完成',
+                text: '我完成',
+                value: 'IFINISHED',
+                disabled: false,
+            },
+            {
+                id: 'COMPLETED',
+                label: '已完成',
+                text: '已完成',
+                value: 'COMPLETED',
+                disabled: false,
+            },
+            {
+                id: 'CLOSED',
+                label: '已关闭',
+                text: '已关闭',
+                value: 'CLOSED',
+                disabled: false,
+            },
+            {
+                id: 'CANCELLED',
+                label: '已取消',
+                text: '已取消',
+                value: 'CANCELLED',
+                disabled: false,
+            },
+        ]
     },
     {
         srfkey: 'ActionManner',
@@ -417,14 +516,6 @@ const datas: Array<any> = [
                 disabled: false,
             },
         ]
-    },
-    {
-        "srfkey": "UserRealNameTask",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"User",
-        "appdedataset":"FetchProjectTeamUser_Task",
-        "items": []
     },
     {
         srfkey: 'Pri',
@@ -990,6 +1081,27 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'Action__read',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: '0',
+                label: '0',
+                text: '0',
+                value: '0',
+                disabled: false,
+            },
+            {
+                id: '1',
+                label: '1',
+                text: '1',
+                value: '1',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Task__status',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -1100,6 +1212,14 @@ const datas: Array<any> = [
         "codelisttype":"dynamic",
         "appdataentity":"Module",
         "appdedataset":"FetchBugModule",
+        "items": []
+    },
+    {
+        "srfkey": "Role",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
         "items": []
     },
     {
@@ -2827,6 +2947,195 @@ const datas: Array<any> = [
         "items": []
     },
     {
+        srfkey: 'User__gender',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'f',
+                label: '女',
+                text: '女',
+                value: 'f',
+                disabled: false,
+            },
+            {
+                id: 'm',
+                label: '男',
+                text: '男',
+                value: 'm',
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Action__object_type',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'product',
+                label: '产品',
+                text: '产品',
+                value: 'product',
+                disabled: false,
+            },
+            {
+                id: 'story',
+                label: '需求',
+                text: '需求',
+                value: 'story',
+                disabled: false,
+            },
+            {
+                id: 'productplan',
+                label: '计划',
+                text: '计划',
+                value: 'productplan',
+                disabled: false,
+            },
+            {
+                id: 'release',
+                label: '发布',
+                text: '发布',
+                value: 'release',
+                disabled: false,
+            },
+            {
+                id: 'project',
+                label: '项目',
+                text: '项目',
+                value: 'project',
+                disabled: false,
+            },
+            {
+                id: 'task',
+                label: '任务',
+                text: '任务',
+                value: 'task',
+                disabled: false,
+            },
+            {
+                id: 'build',
+                label: '版本',
+                text: '版本',
+                value: 'build',
+                disabled: false,
+            },
+            {
+                id: 'bug',
+                label: 'Bug',
+                text: 'Bug',
+                value: 'bug',
+                disabled: false,
+            },
+            {
+                id: 'case',
+                label: '用例',
+                text: '用例',
+                value: 'case',
+                disabled: false,
+            },
+            {
+                id: 'caseresult',
+                label: '用例结果',
+                text: '用例结果',
+                value: 'caseresult',
+                disabled: false,
+            },
+            {
+                id: 'stepresult',
+                label: '用例步骤',
+                text: '用例步骤',
+                value: 'stepresult',
+                disabled: false,
+            },
+            {
+                id: 'testtask',
+                label: '测试单',
+                text: '测试单',
+                value: 'testtask',
+                disabled: false,
+            },
+            {
+                id: 'user',
+                label: '用户',
+                text: '用户',
+                value: 'user',
+                disabled: false,
+            },
+            {
+                id: 'doc',
+                label: '文档',
+                text: '文档',
+                value: 'doc',
+                disabled: false,
+            },
+            {
+                id: 'doclib',
+                label: '文档库',
+                text: '文档库',
+                value: 'doclib',
+                disabled: false,
+            },
+            {
+                id: 'todo',
+                label: '待办',
+                text: '待办',
+                value: 'todo',
+                disabled: false,
+            },
+            {
+                id: 'branch',
+                label: '分支',
+                text: '分支',
+                value: 'branch',
+                disabled: false,
+            },
+            {
+                id: 'module',
+                label: '模块',
+                text: '模块',
+                value: 'module',
+                disabled: false,
+            },
+            {
+                id: 'testsuite',
+                label: '套件',
+                text: '套件',
+                value: 'testsuite',
+                disabled: false,
+            },
+            {
+                id: 'caselib',
+                label: '用例库',
+                text: '用例库',
+                value: 'caselib',
+                disabled: false,
+            },
+            {
+                id: 'testreport',
+                label: '报告',
+                text: '报告',
+                value: 'testreport',
+                disabled: false,
+            },
+            {
+                id: 'entry',
+                label: '应用',
+                text: '应用',
+                value: 'entry',
+                disabled: false,
+            },
+            {
+                id: 'webhook',
+                label: 'Webhook',
+                text: 'Webhook',
+                value: 'webhook',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Task__pri',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -3345,6 +3654,14 @@ const datas: Array<any> = [
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "UserRealNameTaskTeam",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"User",
+        "appdedataset":"FetchTaskTeam",
+        "items": []
     },
     {
         srfkey: 'Bug__pri',

@@ -38,8 +38,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.assignto"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.assignto"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.assignto = $event" />
@@ -95,8 +94,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.begin"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.begin"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.begin = $event" />
@@ -127,8 +125,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.end"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.end"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.end = $event" />
@@ -283,12 +280,6 @@ export default class AssMobBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
-    /**
-     * 加载完成
-     *
-     * @memberof AssMob
-     */
-    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -1288,7 +1279,6 @@ export default class AssMobBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
@@ -1321,7 +1311,6 @@ export default class AssMobBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

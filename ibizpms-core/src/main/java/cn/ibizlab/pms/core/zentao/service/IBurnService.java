@@ -39,10 +39,10 @@ public interface IBurnService extends IService<Burn>{
     void saveBatch(List<Burn> list) ;
     Page<Burn> searchDefault(BurnSearchContext context) ;
     Page<Burn> searchESTIMATEANDLEFT(BurnSearchContext context) ;
-    List<Burn> selectByProject(BigInteger id) ;
-    void removeByProject(BigInteger id) ;
-    List<Burn> selectByTask(BigInteger id) ;
-    void removeByTask(BigInteger id) ;
+    List<Burn> selectByProject(Long id) ;
+    void removeByProject(Long id) ;
+    List<Burn> selectByTask(Long id) ;
+    void removeByTask(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

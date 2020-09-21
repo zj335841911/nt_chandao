@@ -46,7 +46,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.name" 
+    :value="data.name"
+    unit=""
     :disabled="detailsModel.name.disabled" 
     @change="($event)=>this.data.name = $event" />
 </app-form-item>
@@ -71,7 +72,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.code" 
+    :value="data.code"
+    unit=""
     :disabled="detailsModel.code.disabled" 
     @change="($event)=>this.data.code = $event" />
 </app-form-item>
@@ -130,8 +132,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.period"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.period"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.period = $event" />
@@ -195,7 +196,8 @@
         <app-mob-input 
     class="app-form-item-number" 
         type="number"  
-    :value="data.days" 
+    :value="data.days"
+    unit="天"
     :disabled="detailsModel.days.disabled" 
     @change="($event)=>this.data.days = $event"/>
 </app-form-item>
@@ -220,7 +222,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.team" 
+    :value="data.team"
+    unit=""
     :disabled="detailsModel.team.disabled" 
     @change="($event)=>this.data.team = $event" />
 </app-form-item>
@@ -250,8 +253,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.type"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.type"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.type = $event" />
@@ -275,7 +277,6 @@
     :caption="$t('project.mobnewform_form.details.desc')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.desc.disabled"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"project",version:"editor"}' :exportparams='{objecttype:"project",version:"editor"}'  style=""/>
@@ -307,8 +308,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.acl"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.acl"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.acl = $event" />
@@ -463,12 +463,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
-    /**
-     * 加载完成
-     *
-     * @memberof MobNewForm
-     */
-    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -758,6 +752,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             { type: 'string', message: '结束日期 值必须为字符串类型', trigger: 'blur' },
             { required: true, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("end").isPast},message: "", trigger: 'change' },
         ],
         days: [
             { type: 'number', message: '可用工作日 值必须为数值类型', trigger: 'change' },
@@ -1650,7 +1645,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
@@ -1683,7 +1677,6 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

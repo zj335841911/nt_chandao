@@ -50,6 +50,12 @@ export default {
     myterritorycnt: "我的地盘",
   },
 	views: {
+		mobcalendarview: {
+			caption: '我的地盘',
+		},
+		mobmdview9: {
+			caption: '我的地盘',
+		},
 		mobtabexpview: {
 			caption: '我的地盘',
 		},

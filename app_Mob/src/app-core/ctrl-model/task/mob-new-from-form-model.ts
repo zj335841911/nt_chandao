@@ -86,6 +86,11 @@ export class MobNewFromModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'multiple',
+                prop: 'multiple',
+                dataType: 'TEXT',
+            },
+            {
                 name: 'story',
                 prop: 'story',
                 dataType: 'PICKUP',

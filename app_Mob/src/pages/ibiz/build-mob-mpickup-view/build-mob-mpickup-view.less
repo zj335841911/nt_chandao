@@ -20,6 +20,11 @@
 
 
 
+//去除滚动条高度
+ion-infinite-scroll-content{
+  min-height: 1px;
+}
+
 .build-mob-mpickup-view {
     .view-footer {
         padding: 0.5rem 1rem;
@@ -30,11 +35,15 @@
             line-height: 2.5rem;
             width: 40%;
         }
-        .mobpickupview_button{
-            ion-button{
-                width: 48%;
-                --border-radius: 0;
-            }
+        .mobpickupview_button {
+          width: 90%;
+          margin:0 auto;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+          .pick-btn{
+            width: 45%;
+          }
         }
     }
 }

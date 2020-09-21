@@ -27,14 +27,19 @@ export default class PivotTableModel {
     }else{
 		  return [
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
         },
         {
-          name: 'frombug',
-          prop: 'frombug',
-          dataType: 'PICKUP',
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
         },
         {
           name: 'status',
@@ -42,9 +47,34 @@ export default class PivotTableModel {
           dataType: 'SSCODELIST',
         },
         {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
+          name: 'type',
+          prop: 'type',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'left',
+          prop: 'left',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'consumed',
+          prop: 'consumed',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'productname',
+          prop: 'productname',
+          dataType: 'PICKUPDATA',
         },
         {
           name: 'projectname',
@@ -57,22 +87,37 @@ export default class PivotTableModel {
           dataType: 'PICKUPTEXT',
         },
         {
+          name: 'modulename',
+          prop: 'modulename',
+          dataType: 'PICKUPTEXT',
+        },
+        {
           name: 'parentname',
           prop: 'parentname',
           dataType: 'PICKUPTEXT',
         },
         {
-          name: 'type',
-          prop: 'type',
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'tasktype',
+          prop: 'tasktype',
           dataType: 'SSCODELIST',
         },
         {
-          name: 'srfmstag',
+          name: 'frombug',
+          prop: 'frombug',
+          dataType: 'PICKUP',
         },
         {
-          name: 'estimate',
-          prop: 'estimate',
-          dataType: 'FLOAT',
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'srfmstag',
         },
         {
           name: 'srfmajortext',
@@ -91,11 +136,6 @@ export default class PivotTableModel {
           isEditable:true
         },
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'story',
           prop: 'story',
           dataType: 'PICKUP',
@@ -104,41 +144,6 @@ export default class PivotTableModel {
           name: 'project',
           prop: 'project',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'modulename',
-          prop: 'modulename',
-          dataType: 'PICKUPTEXT',
-        },
-        {
-          name: 'assignedto',
-          prop: 'assignedto',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'pri',
-          prop: 'pri',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'consumed',
-          prop: 'consumed',
-          dataType: 'FLOAT',
-        },
-        {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'left',
-          prop: 'left',
-          dataType: 'FLOAT',
-        },
-        {
-          name: 'productname',
-          prop: 'productname',
-          dataType: 'PICKUPDATA',
         },
         {
           name: 'task',

@@ -1,13 +1,13 @@
 export default {
   fields: {
     name: "名称",
-    addedDate: "创建时间",
+    addeddate: "创建时间",
     id: "编号",
     deleted: "已删除",
-    lastEditedBy: "最后编辑人",
+    lasteditedby: "最后编辑人",
     type: "类型",
-    lastEditedDate: "最后编辑时间",
-    addedBy: "由谁创建",
+    lastediteddate: "最后编辑时间",
+    addedby: "由谁创建",
     desc: "描述",
     product: "所属产品",
   },

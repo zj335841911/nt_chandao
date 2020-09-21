@@ -12,6 +12,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.alibaba.fastjson.annotation.JSONField;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
@@ -30,6 +33,7 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "path")
     @JsonProperty("path")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String path;
 
     /**
@@ -38,6 +42,7 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
     private String deleted;
 
     /**
@@ -46,6 +51,8 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "name")
     @JsonProperty("name")
+    @NotBlank(message = "[名称]不允许为空!")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String name;
 
     /**
@@ -62,6 +69,7 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibizshort")
     @JsonProperty("ibizshort")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String ibizshort;
 
     /**
@@ -86,6 +94,7 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "type")
     @JsonProperty("type")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String type;
 
     /**
@@ -94,6 +103,7 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "owner")
     @JsonProperty("owner")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String owner;
 
     /**
@@ -102,6 +112,7 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "isleaf")
     @JsonProperty("isleaf")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String isleaf;
 
     /**
@@ -110,7 +121,7 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
 
     /**
      * 属性 [COLLECTOR]
@@ -118,6 +129,7 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "collector")
     @JsonProperty("collector")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String collector;
 
     /**
@@ -126,7 +138,7 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "root")
     @JsonProperty("root")
-    private BigInteger root;
+    private Long root;
 
     /**
      * 属性 [PARENT]
@@ -134,7 +146,7 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "parent")
     @JsonProperty("parent")
-    private BigInteger parent;
+    private Long parent;
 
     /**
      * 属性 [ROOTNAME]
@@ -142,6 +154,7 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "rootname")
     @JsonProperty("rootname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String rootname;
 
     /**
@@ -150,6 +163,7 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "parentname")
     @JsonProperty("parentname")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String parentname;
 
 
@@ -228,7 +242,7 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
     /**
      * 设置 [ROOT]
      */
-    public void setRoot(BigInteger  root){
+    public void setRoot(Long  root){
         this.root = root ;
         this.modify("root",root);
     }
@@ -236,11 +250,12 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
     /**
      * 设置 [PARENT]
      */
-    public void setParent(BigInteger  parent){
+    public void setParent(Long  parent){
         this.parent = parent ;
         this.modify("parent",parent);
     }
 
 
 }
+
 

@@ -58,6 +58,13 @@ export class ProjectEditView_CloseBase extends EditViewBase {
     public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof ProjectEditView_CloseBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

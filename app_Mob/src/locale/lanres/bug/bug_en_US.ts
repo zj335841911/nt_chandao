@@ -93,6 +93,9 @@ export default {
 		mobmdview: {
 			caption: 'Bug',
 		},
+		assmobmdview9: {
+			caption: 'Bug',
+		},
 		mobeditview: {
 			caption: 'Bug',
 		},
@@ -119,6 +122,9 @@ export default {
 		},
 		closemoboptionview: {
 			caption: '关闭Bug',
+		},
+		assmoremobmdview: {
+			caption: '指派给我的Bug',
 		},
 	},
 	closemob_form: {
@@ -156,6 +162,8 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			productname: '产品', 
+			branch: '平台/分支', 
+			product: '所属产品', 
 			branchname: '平台/分支', 
 			modulename1: '模块名称', 
 			projectname: '项目', 
@@ -312,7 +320,9 @@ export default {
 			severity: '严重程度', 
 			pri: '优先级', 
 			steps: '重现步骤', 
+			task: '相关任务', 
 			storyname: '相关需求', 
+			story: '相关需求', 
 			taskname: '相关任务', 
 			mailto: '抄送给', 
 			keywords: '关键词', 

@@ -18,7 +18,7 @@ export class CalendarViewBase extends MDViewBase {
     protected onSearch(): void {
         const calendar: any = this.$refs.calendar;
         if (calendar) {
-            calendar.load(this.context, true);
+            calendar.refresh();
         }
     }
 
@@ -68,5 +68,14 @@ export class CalendarViewBase extends MDViewBase {
     public searchform_load() {
         this.onSearch();
     }
+
+    /**
+     * 刷新
+     *
+     * @memberof ViewBase
+     */
+    public refresh() {
+        this.onSearch();
+    };
 
 }

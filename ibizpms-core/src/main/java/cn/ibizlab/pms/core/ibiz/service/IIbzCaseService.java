@@ -29,18 +29,18 @@ public interface IIbzCaseService extends IService<IbzCase>{
     void createBatch(List<IbzCase> list) ;
     boolean update(IbzCase et) ;
     void updateBatch(List<IbzCase> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    IbzCase get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    IbzCase get(Long key) ;
     IbzCase getDraft(IbzCase et) ;
     boolean checkKey(IbzCase et) ;
     boolean save(IbzCase et) ;
     void saveBatch(List<IbzCase> list) ;
     Page<IbzCase> searchDefault(IbzCaseSearchContext context) ;
-    List<IbzCase> selectByModule(BigInteger id) ;
-    void removeByModule(BigInteger id) ;
-    List<IbzCase> selectByLib(BigInteger id) ;
-    void removeByLib(BigInteger id) ;
+    List<IbzCase> selectByModule(Long id) ;
+    void removeByModule(Long id) ;
+    List<IbzCase> selectByLib(Long id) ;
+    void removeByLib(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

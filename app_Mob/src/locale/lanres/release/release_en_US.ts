@@ -17,6 +17,11 @@ export default {
     branch: "平台/分支",
     productName: "产品名称",
     files: "附件",
+    backgroundid: "后台体系",
+    sqlid: "运行数据库",
+    frontapplication: "系统应用",
+    rebuild: "重新构建",
+    releasetype: "运行模式",
   },
 	views: {
 		mobeditview: {

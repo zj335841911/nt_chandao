@@ -55,7 +55,7 @@
             <!-- user -->
             <template v-for="(usersign,us) in sign">
             <div  class="sign" v-if="usersign.time==child.date" :key="us">
-                <div class="sign-item" v-for="(sigin,si) in usersign.evens" :key="si" :style="{color: sigin.fontcolor}">—</div>
+                <div class="sign-item" v-for="(sigin,si) in usersign.evens" :key="si" :style="{color: sigin.color}">—</div>
             </div>
             </template>
             <div
@@ -85,7 +85,7 @@
     </div>
     <!-- user -->
     <div v-if="illustration" class="illustration">
-      <div v-for="(il,index) in illustration" :key="index" class="illustration-item"><div :style="{color: il.color}" class="illustration-color">—</div><div class="illustration-text">{{il.text}}</div></div>
+      <div v-for="(il,index) in illustration" :key="index" class="illustration-item"><div :style="{'background-color': il.color}" class="illustration-color"></div><div class="illustration-text">{{il.text}}</div></div>
     </div>
   </div>
 </template>
@@ -329,6 +329,7 @@
       loopArray.push(this.months[0]);
       this.monthsLoop = loopArray;
       this.monthsLoopCopy = this.monthsLoop.concat();
+      console.log("sign",this.sign);
     },
     mounted() {
       const self = this;

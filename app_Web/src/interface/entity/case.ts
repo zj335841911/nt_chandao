@@ -437,4 +437,12 @@ export interface Case {
      * @memberof Case
      */
     libname?: any;
+
+    /**
+     * 测试用例结果
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    lastrunresult1?: any;
 }

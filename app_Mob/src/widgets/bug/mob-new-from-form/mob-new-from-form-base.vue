@@ -46,14 +46,13 @@
         <app-mob-select-drop-down 
     name='productname' 
     deMajorField='name'
-    deKeyField='productid'
-    valueitem='' 
+    deKeyField='id'
+    valueitem='product' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :dataOverLoad="dataOverLoad"
     :navigateContext ='{ "page": "0" } '
     :navigateParam ='{ "size": "1000" } '
     :viewparams="viewparams"
@@ -62,6 +61,7 @@
     :service="service"
     :acParams="{ serviceName: 'product', interfaceName: 'FetchCurUer'}"
     :value="data.productname" 
+    @formitemvaluechange="onFormItemValueChange"
     @change="($event)=>this.data.productname = $event">
 </app-mob-select-drop-down>
 </app-form-item>
@@ -91,8 +91,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.branch"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.branch"  
     :navigateContext ='{ "product": "%product%" } '
     :navigateParam ='{ "product": "%product%" } '
     @change="($event)=>this.data.branch = $event" />
@@ -118,14 +117,13 @@
         <app-mob-select-drop-down 
     name='modulename' 
     deMajorField='name'
-    deKeyField='moduleid'
-    valueitem='' 
+    deKeyField='id'
+    valueitem='module' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :dataOverLoad="dataOverLoad"
     :navigateContext ='{ "n_branch_eq": "%branch%", "product": "%product%", "n_root_eq": "%product%", "branch": "%branch%" } '
     :navigateParam ='{ "product": "%product%", "branch": "%branch%", "n_root_eq": "%product%", "n_branch_eq": "%branch%" } '
     :viewparams="viewparams"
@@ -134,6 +132,7 @@
     :service="service"
     :acParams="{ serviceName: 'module', interfaceName: 'FetchBugModule'}"
     :value="data.modulename" 
+    @formitemvaluechange="onFormItemValueChange"
     @change="($event)=>this.data.modulename = $event">
 </app-mob-select-drop-down>
 </app-form-item>
@@ -158,14 +157,13 @@
         <app-mob-select-drop-down 
     name='projectname' 
     deMajorField='name'
-    deKeyField='projectid'
-    valueitem='' 
+    deKeyField='id'
+    valueitem='project' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :dataOverLoad="dataOverLoad"
     :navigateContext ='{ "product": "%product%" } '
     :navigateParam ='{ "product": "%product%", "size": "1000" } '
     :viewparams="viewparams"
@@ -174,6 +172,7 @@
     :service="service"
     :acParams="{ serviceName: 'project', interfaceName: 'FetchBugProject'}"
     :value="data.projectname" 
+    @formitemvaluechange="onFormItemValueChange"
     @change="($event)=>this.data.projectname = $event">
 </app-mob-select-drop-down>
 </app-form-item>
@@ -233,8 +232,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.assignedto"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.assignedto"  
     :navigateContext ='{ "project": "%project%" } '
     :navigateParam ='{ "project": "%project%" } '
     @change="($event)=>this.data.assignedto = $event" />
@@ -290,8 +288,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.type"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.type"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.type = $event" />
@@ -322,8 +319,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.os"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.os"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.os = $event" />
@@ -354,8 +350,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.browser"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.browser"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.browser = $event" />
@@ -385,7 +380,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.title" 
+    :value="data.title"
+    unit=""
     :disabled="detailsModel.title.disabled" 
     @change="($event)=>this.data.title = $event" />
 </app-form-item>
@@ -415,8 +411,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.severity"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.severity"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.severity = $event" />
@@ -447,8 +442,7 @@
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.pri"
-    :dataOverLoad="dataOverLoad"  
+    :value="data.pri"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.pri = $event" />
@@ -468,7 +462,6 @@
     :caption="$t('bug.mobnewfrom_form.details.steps')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.steps.disabled"
     :error="detailsModel.steps.error" 
     :isEmptyCaption="false">
         <app-mob-rich-text-editor-pms :formState="formState" :value="data.steps" @change="(val) =>{this.data.steps =val}" :disabled="detailsModel.steps.disabled" :data="JSON.stringify(this.data)"  name="steps" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""/>
@@ -508,22 +501,22 @@
         <app-mob-select-drop-down 
     name='storyname' 
     deMajorField='title'
-    deKeyField='storyid'
-    valueitem='' 
+    deKeyField='id'
+    valueitem='story' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :dataOverLoad="dataOverLoad"
-    :navigateContext ='{ "n_module_eq": "%module%" } '
-    :navigateParam ='{ "n_module_eq": "%module%" } '
+    :navigateContext ='{ "n_module_eq": "%module%", "n_project_eq": "%project%", "n_product_eq": "%product%" } '
+    :navigateParam ='{ "n_product_eq": "%product%", "n_project_eq": "%project%", "n_module_eq": "%module%" } '
     :viewparams="viewparams"
     :itemParam='{ }' 
     :disabled="detailsModel.storyname.disabled"
     :service="service"
-    :acParams="{ serviceName: 'story', interfaceName: 'FetchDefault'}"
+    :acParams="{ serviceName: 'story', interfaceName: 'FetchBugStory'}"
     :value="data.storyname" 
+    @formitemvaluechange="onFormItemValueChange"
     @change="($event)=>this.data.storyname = $event">
 </app-mob-select-drop-down>
 </app-form-item>
@@ -548,22 +541,22 @@
         <app-mob-select-drop-down 
     name='taskname' 
     deMajorField='name'
-    deKeyField='taskid'
-    valueitem='' 
+    deKeyField='id'
+    valueitem='task' 
     style="" 
     editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :dataOverLoad="dataOverLoad"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
+    :navigateContext ='{ "n_project_eq": "%project%" } '
+    :navigateParam ='{ "n_project_eq": "%project%" } '
     :viewparams="viewparams"
     :itemParam='{ }' 
     :disabled="detailsModel.taskname.disabled"
     :service="service"
     :acParams="{ serviceName: 'task', interfaceName: 'FetchDefault'}"
     :value="data.taskname" 
+    @formitemvaluechange="onFormItemValueChange"
     @change="($event)=>this.data.taskname = $event">
 </app-mob-select-drop-down>
 </app-form-item>
@@ -621,7 +614,8 @@
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.keywords" 
+    :value="data.keywords"
+    unit=""
     :disabled="detailsModel.keywords.disabled" 
     @change="($event)=>this.data.keywords = $event" />
 </app-form-item>
@@ -779,12 +773,6 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
         _this.$emit('closeview', args);
     }
 
-    /**
-     * 加载完成
-     *
-     * @memberof MobNewFROM
-     */
-    public dataOverLoad:boolean = false;
 
     /**
      * 工作流审批意见控件绑定值
@@ -976,7 +964,9 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
         severity: null,
         pri: null,
         steps: null,
+        task: null,
         storyname: null,
+        story: null,
         taskname: null,
         mailto: null,
         keywords: null,
@@ -1165,11 +1155,23 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '重现步骤 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '重现步骤 值不能为空', trigger: 'blur' },
         ],
+        task: [
+            { type: 'number', message: '相关任务 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '相关任务 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '相关任务 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '相关任务 值不能为空', trigger: 'blur' },
+        ],
         storyname: [
             { type: 'string', message: '相关需求 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '相关需求 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '相关需求 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '相关需求 值不能为空', trigger: 'blur' },
+        ],
+        story: [
+            { type: 'number', message: '相关需求 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '相关需求 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '相关需求 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '相关需求 值不能为空', trigger: 'blur' },
         ],
         taskname: [
             { type: 'string', message: '相关任务 值必须为字符串类型', trigger: 'change' },
@@ -1337,7 +1339,11 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
 , 
         steps: new FormItemModel({ caption: '重现步骤', detailType: 'FORMITEM', name: 'steps', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        task: new FormItemModel({ caption: '相关任务', detailType: 'FORMITEM', name: 'task', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         storyname: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'storyname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         taskname: new FormItemModel({ caption: '相关任务', detailType: 'FORMITEM', name: 'taskname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -1650,6 +1656,18 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 task 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFROM
+     */
+    @Watch('data.task')
+    onTaskChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'task', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 storyname 值
      *
      * @param {*} newVal
@@ -1659,6 +1677,18 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
     @Watch('data.storyname')
     onStorynameChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'storyname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 story 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobNewFROM
+     */
+    @Watch('data.story')
+    onStoryChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'story', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1723,12 +1753,21 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
         }
         if (Object.is(name, 'branch')) {
             this.onFormItemValueChange({ name: 'modulename', value: null });
+            this.onFormItemValueChange({ name: 'module', value: null });
+        }
+        if (Object.is(name, 'project')) {
+            this.onFormItemValueChange({ name: 'task', value: null });
         }
         if (Object.is(name, 'modulename')) {
             this.onFormItemValueChange({ name: 'storyname', value: null });
+            this.onFormItemValueChange({ name: 'story', value: null });
+        }
+        if (Object.is(name, 'product')) {
+            this.onFormItemValueChange({ name: 'story', value: null });
         }
         if (Object.is(name, 'projectname')) {
             this.onFormItemValueChange({ name: 'taskname', value: null });
+            this.onFormItemValueChange({ name: 'task', value: null });
         }
     }
 
@@ -1757,6 +1796,8 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
 
 
 
@@ -2198,7 +2239,6 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);
@@ -2231,7 +2271,6 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });
             });
-            this.dataOverLoad = true;
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
             this.$notice.error(_data.message);

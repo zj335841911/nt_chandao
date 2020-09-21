@@ -27,9 +27,44 @@ export default class MainMyModel {
     }else{
 		  return [
         {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'code',
+          prop: 'code',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'name',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'begin',
+          prop: 'begin',
+          dataType: 'DATE',
+        },
+        {
+          name: 'end',
+          prop: 'end',
+          dataType: 'DATE',
+        },
+        {
           name: 'status',
           prop: 'status',
           dataType: 'SSCODELIST',
+        },
+        {
+          name: 'role',
+          prop: 'role',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'join',
+          prop: 'join',
+          dataType: 'DATE',
         },
         {
           name: 'hours',
@@ -40,16 +75,6 @@ export default class MainMyModel {
           name: 'parent',
           prop: 'parent',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'code',
-          prop: 'code',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'join',
-          prop: 'join',
-          dataType: 'DATE',
         },
         {
           name: 'srfmstag',
@@ -69,31 +94,6 @@ export default class MainMyModel {
           name: 'srfdataaccaction',
           prop: 'id',
           dataType: 'ACID',
-        },
-        {
-          name: 'begin',
-          prop: 'begin',
-          dataType: 'DATE',
-        },
-        {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'role',
-          prop: 'role',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'end',
-          prop: 'end',
-          dataType: 'DATE',
         },
         {
           name: 'project',

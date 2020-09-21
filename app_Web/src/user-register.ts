@@ -8,5 +8,6 @@ export const UserComponent = {
     install(v: any, opt: any) {
         Vue.use(UserDefaultComponent);
         Vue.use(iBizProjectCore);
+        v.component('comb-form-item',CombFormItem);
     }
 };

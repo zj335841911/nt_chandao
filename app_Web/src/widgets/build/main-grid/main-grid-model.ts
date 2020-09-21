@@ -27,19 +27,39 @@ export default class MainModel {
     }else{
 		  return [
         {
-          name: 'filepath',
-          prop: 'filepath',
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'productname',
+          prop: 'productname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'name',
+          prop: 'name',
           dataType: 'TEXT',
         },
         {
-          name: 'builder',
-          prop: 'builder',
+          name: 'scmpath',
+          prop: 'scmpath',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'filepath',
+          prop: 'filepath',
           dataType: 'TEXT',
         },
         {
           name: 'date',
           prop: 'date',
           dataType: 'DATE',
+        },
+        {
+          name: 'builder',
+          prop: 'builder',
+          dataType: 'TEXT',
         },
         {
           name: 'srfmajortext',
@@ -58,11 +78,6 @@ export default class MainModel {
           dataType: 'ACID',
         },
         {
-          name: 'id',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'product',
           prop: 'product',
           dataType: 'PICKUP',
@@ -73,24 +88,9 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'scmpath',
-          prop: 'scmpath',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'name',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
           name: 'branch',
           prop: 'branch',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'productname',
-          prop: 'productname',
-          dataType: 'PICKUPTEXT',
         },
         {
           name: 'build',

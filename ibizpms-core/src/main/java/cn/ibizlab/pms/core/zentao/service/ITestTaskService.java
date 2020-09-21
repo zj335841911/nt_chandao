@@ -29,9 +29,9 @@ public interface ITestTaskService extends IService<TestTask>{
     void createBatch(List<TestTask> list) ;
     boolean update(TestTask et) ;
     void updateBatch(List<TestTask> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    TestTask get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    TestTask get(Long key) ;
     TestTask getDraft(TestTask et) ;
     TestTask activate(TestTask et) ;
     TestTask block(TestTask et) ;
@@ -43,12 +43,12 @@ public interface ITestTaskService extends IService<TestTask>{
     TestTask start(TestTask et) ;
     TestTask unlinkCase(TestTask et) ;
     Page<TestTask> searchDefault(TestTaskSearchContext context) ;
-    List<TestTask> selectByBuild(BigInteger id) ;
-    void removeByBuild(BigInteger id) ;
-    List<TestTask> selectByProduct(BigInteger id) ;
-    void removeByProduct(BigInteger id) ;
-    List<TestTask> selectByProject(BigInteger id) ;
-    void removeByProject(BigInteger id) ;
+    List<TestTask> selectByBuild(Long id) ;
+    void removeByBuild(Long id) ;
+    List<TestTask> selectByProduct(Long id) ;
+    void removeByProduct(Long id) ;
+    List<TestTask> selectByProject(Long id) ;
+    void removeByProject(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

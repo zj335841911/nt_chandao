@@ -10,7 +10,6 @@
 
     <!--通过mybatis将查询结果注入到entity中,通过配置autoMapping="true"由mybatis自动处理映射关系 -->
     <resultMap id="GroupPrivResultMap" type="cn.ibizlab.pms.core.zentao.domain.GroupPriv" autoMapping="true">
-        <id property="id" column="id" /><!--主键字段映射-->
             
 		
     </resultMap>

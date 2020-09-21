@@ -205,7 +205,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
         name: new FormItemModel({ caption: '任务名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         desc: new FormItemModel({ caption: '任务描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -227,7 +227,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
         story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        parentname: new FormItemModel({ caption: '父任务', detailType: 'FORMITEM', name: 'parentname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        parentname: new FormItemModel({ caption: '父任务', detailType: 'FORMITEM', name: 'parentname', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         parent: new FormItemModel({ caption: '父任务', detailType: 'FORMITEM', name: 'parent', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -310,6 +310,14 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'parent')) {
+            let ret = false;
+            const _parent = this.data.parent;
+            if (this.$verify.testCond(_parent, 'EQ', '0') || this.$verify.testCond(_parent, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.multiple.setVisible(ret);
+        }
 
 
 
@@ -321,6 +329,15 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'parent') || Object.is(name, 'multiple')) {
+            let ret = false;
+            const _parent = this.data.parent;
+            const _multiple = this.data.multiple;
+            if (this.$verify.testCond(_parent, 'NOTEQ', '-1') && this.$verify.testCond(_multiple, 'EQ', '0') || this.$verify.testCond(_multiple, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.parentname.setVisible(ret);
+        }
 
 
 

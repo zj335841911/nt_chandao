@@ -2,6 +2,8 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobportalview': true, 'ibz-my-territory-mob-dashboard-view': true }">
     
     <ion-header>
+
+    
     </ion-header>
 
 
@@ -244,18 +246,6 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
 
 
 
-   /**
-    * 工具栏 IbzMyTerritoryMobDashboardView 模型
-    *
-    * @type {*}
-    * @memberof IbzMyTerritoryMobDashboardView
-    */
-    public dashboard_sysportlet4_list_quicktoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyFavMore', target: 'NONE' } },
-
-    };
-
-    
 
 
 
@@ -263,19 +253,6 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
 
 
 
-
-   /**
-    * 工具栏 IbzMyTerritoryMobDashboardView 模型
-    *
-    * @type {*}
-    * @memberof IbzMyTerritoryMobDashboardView
-    */
-    public dashboard_sysportlet2_list_quicktoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'MyAssMore', target: 'NONE' } },
-
-    };
-
-    
 
 
 
@@ -287,7 +264,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      *
      * @memberof IbzMyTerritoryMobDashboardViewBase
      */
-    public toolbarModelList:any = ['dashboard_sysportlet4_list_quicktoolbarModels','dashboard_sysportlet2_list_quicktoolbarModels',]
+    public toolbarModelList:any = []
 
     /**
      * 解析视图参数
@@ -390,6 +367,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
         this.setViewTitleStatus();
 
     }
+
 
     /**
      * 销毁之前
@@ -510,8 +488,12 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
             return;
         }
         if (this.viewDefaultUsage === "routerView" ) {
-            this.$store.commit("deletePage", this.$route.fullPath);
-            this.$router.go(-1);
+           if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                this.quitFun();
+            }else{
+                this.$store.commit("deletePage", this.$route.fullPath);
+                this.$router.go(-1);
+           }
         }
         if (this.viewDefaultUsage === "actionView") {
             this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });

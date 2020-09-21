@@ -9,7 +9,9 @@
         :cell-class-name="getCellClassName.bind(_self)"
         size="mini"
         stripe
+        rowKey="id"
         :height="tableHeight"
+        :treeProps="{children: 'items', hasChildren: 'hasChildren'}"
         @row-click="rowClick($event)"  
         @select-all="selectAll($event)"  
         @select="select($event)"  
@@ -44,39 +46,39 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-column-link deKeyField='productplan' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-plan-main-tab-exp', height: 0,width: 0,title: $t('entities.productplan.views.maintabexp.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
+                        <app-column-link deKeyField='productplan' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'product-plan-main-data-edit-view', height: 0,width: 0,title: $t('entities.productplan.views.maindataeditview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
             { pathName: 'products', parameterName: 'product' },
             ]
             ,parameters: [
             { pathName: 'productplans', parameterName: 'productplan' },
-            { pathName: 'maintabexp', parameterName: 'maintabexp' }
+            { pathName: 'maindataeditview', parameterName: 'maindataeditview' }
             ]}" valueitem="srfkey">
                             <span>{{row.title}}</span>
                         </app-column-link >
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('begin')">
-                <el-table-column show-overflow-tooltip :prop="'begin'" :label="$t('entities.productplan.main_grid.columns.begin')" :width="120"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('beginstr')">
+                <el-table-column show-overflow-tooltip :prop="'beginstr'" :label="$t('entities.productplan.main_grid.columns.beginstr')" :width="120"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.productplan.main_grid.columns.begin')}}
+                        {{$t('entities.productplan.main_grid.columns.beginstr')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD" :data="row.begin"></app-format-data>
+                        <span>{{row.beginstr}}</span>
                     </template>
                 </el-table-column>
             </template>
-            <template v-if="getColumnState('end')">
-                <el-table-column show-overflow-tooltip :prop="'end'" :label="$t('entities.productplan.main_grid.columns.end')" :width="120"  :align="'left'" :sortable="'custom'">
+            <template v-if="getColumnState('endstr')">
+                <el-table-column show-overflow-tooltip :prop="'endstr'" :label="$t('entities.productplan.main_grid.columns.endstr')" :width="120"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
-                        {{$t('entities.productplan.main_grid.columns.end')}}
+                        {{$t('entities.productplan.main_grid.columns.endstr')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <app-format-data format="YYYY-MM-DD" :data="row.end"></app-format-data>
+                        <span>{{row.endstr}}</span>
                     </template>
                 </el-table-column>
             </template>
@@ -105,7 +107,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('actions')">
-                <el-table-column :column-key="'actions'" fixed="right" :label="$t('entities.productplan.main_grid.columns.actions')" :width="160"  :align="'center'">
+                <el-table-column :column-key="'actions'" fixed="right" :label="$t('entities.productplan.main_grid.columns.actions')" :width="180"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.productplan.main_grid.columns.actions')}}
@@ -135,6 +137,11 @@
                           <divider v-show="scope.row.NewSubPlan.visabled" type='vertical'></divider>
                           <a v-show="scope.row.NewSubPlan.visabled" :disabled="scope.row.NewSubPlan.disabled" @click="uiAction(scope.row, 'NewSubPlan', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_newsubplan')">
                             <i class='fa fa-sitemap'></i>
+                            
+                          </a>
+                          <divider v-show="scope.row.Delete.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.Delete.visabled" :disabled="scope.row.Delete.disabled" @click="uiAction(scope.row, 'Delete', $event)" :title="$t('entities.productplan.main_grid.uiactions.productplan_delete')">
+                            <i class='fa fa-remove'></i>
                             
                           </a>
                         </div>

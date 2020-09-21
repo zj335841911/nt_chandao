@@ -23,6 +23,11 @@
     .app-mob-mdctrl-mdctrl{
         height:100%;
         .items{
+            .loadmore_btn{
+                width: 100%;
+                margin: 0;
+                --border-radius: 0;
+            }
             .ibz-ionic-item{
                 --inner-padding-end: 10px;
                 --padding-start: 10px;
@@ -41,6 +46,16 @@
             .app-mob-mdctrl-item{
                 margin-top:10px;
             }
+            .item-grouped {
+              .text{
+                margin: 10px 5px;
+                font-size: 13px;
+                color: #7c7c7c;
+              }
+            }
+            .van-collapse-item__content{
+              padding: 0;
+            }
         }
         .no-data{
             position: absolute;
@@ -49,6 +64,18 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%);
+        }
+        .pickUpList {
+            width: 100%;
+            ion-item { 
+                --padding-start:20px;
+                --inner-padding-end:10px;
+                --background-activated:#5c5c5c;
+                border-bottom: 1px solid #e8e8e86b; 
+            }
+            .app-mob-mdctrl-item{
+                margin-top:0;
+            }
         }
     }
 }

@@ -85,6 +85,13 @@ export class StoryEditViewBase extends EditViewBase {
     };
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof StoryEditViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

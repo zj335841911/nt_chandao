@@ -29,9 +29,9 @@ public interface IWebHookService extends IService<WebHook>{
     void createBatch(List<WebHook> list) ;
     boolean update(WebHook et) ;
     void updateBatch(List<WebHook> list) ;
-    boolean remove(BigInteger key) ;
-    void removeBatch(Collection<BigInteger> idList) ;
-    WebHook get(BigInteger key) ;
+    boolean remove(Long key) ;
+    void removeBatch(Collection<Long> idList) ;
+    WebHook get(Long key) ;
     WebHook getDraft(WebHook et) ;
     boolean checkKey(WebHook et) ;
     boolean save(WebHook et) ;

@@ -58,6 +58,13 @@ export class IBZProStoryModuleOptionViewBase extends OptionViewBase {
     public appUIService: IBZProStoryModuleUIService = new IBZProStoryModuleUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof IBZProStoryModuleOptionViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

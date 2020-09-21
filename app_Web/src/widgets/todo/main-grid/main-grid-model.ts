@@ -32,14 +32,19 @@ export default class MainModel {
           dataType: 'ACID',
         },
         {
+          name: 'date1',
+          prop: 'date1',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'type',
+          prop: 'type',
+          dataType: 'TEXT',
+        },
+        {
           name: 'pri',
           prop: 'pri',
           dataType: 'INT',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'name',
@@ -47,9 +52,19 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
-          name: 'type',
-          prop: 'type',
-          dataType: 'TEXT',
+          name: 'begin',
+          prop: 'begin',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'end',
+          prop: 'end',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'srfmstag',
@@ -69,21 +84,6 @@ export default class MainModel {
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
-        },
-        {
-          name: 'end',
-          prop: 'end',
-          dataType: 'NSCODELIST',
-        },
-        {
-          name: 'date1',
-          prop: 'date1',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'begin',
-          prop: 'begin',
-          dataType: 'NSCODELIST',
         },
         {
           name: 'todo',

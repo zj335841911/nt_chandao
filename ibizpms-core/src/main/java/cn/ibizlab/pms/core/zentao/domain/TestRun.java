@@ -27,6 +27,7 @@ import cn.ibizlab.pms.util.annotation.Audit;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.ibizlab.pms.util.domain.EntityMP;
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 
 /**
  * 实体[测试运行]
@@ -83,7 +84,7 @@ public class TestRun extends EntityMP implements Serializable {
     @TableId(value= "id",type=IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
-    private BigInteger id;
+    private Long id;
     /**
      * 用例版本
      */
@@ -99,14 +100,14 @@ public class TestRun extends EntityMP implements Serializable {
     @TableField(value = "case")
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
-    private BigInteger ibizcase;
+    private Long ibizcase;
     /**
      * 测试单
      */
     @TableField(value = "task")
     @JSONField(name = "task")
     @JsonProperty("task")
-    private BigInteger task;
+    private Long task;
 
     /**
      * 
@@ -187,7 +188,7 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 设置 [测试用例]
      */
-    public void setIbizcase(BigInteger ibizcase){
+    public void setIbizcase(Long ibizcase){
         this.ibizcase = ibizcase ;
         this.modify("case",ibizcase);
     }
@@ -195,12 +196,28 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 设置 [测试单]
      */
-    public void setTask(BigInteger task){
+    public void setTask(Long task){
         this.task = task ;
         this.modify("task",task);
     }
 
 
+    @Override
+    public Serializable getDefaultKey(boolean gen) {
+       return IdWorker.getId();
+    }
+    /**
+     * 复制当前对象数据到目标对象(粘贴重置)
+     * @param targetEntity 目标数据对象
+     * @param bIncEmpty  是否包括空值
+     * @param <T>
+     * @return
+     */
+    @Override
+    public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
+        this.reset("id");
+        return super.copyTo(targetEntity,bIncEmpty);
+    }
 }
 
 

@@ -7,20 +7,20 @@
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="ibzmyterritorymyterritorycountdefault" type="cn.ibizlab.pms.core.ibiz.domain.IbzMyTerritory" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymyterritorycountrawsqlcall4" id="8BBBB834-FD97-45AE-B709-66C7CD434964" implementation="http://www.jboss.org/drools/rule" name="我的待办数"/>
-     <endEvent id="8BBBB834-FD97-45AE-B709-66C7CD434964_End" name="End"/>
-     <sequenceFlow id="8BBBB834-FD97-45AE-B709-66C7CD434964_End_Line" sourceRef="8BBBB834-FD97-45AE-B709-66C7CD434964" targetRef="8BBBB834-FD97-45AE-B709-66C7CD434964_End"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymyterritorycountrawsqlcall3" id="5A76A771-21A1-49BE-A872-F71A8E9822EC" implementation="http://www.jboss.org/drools/rule" name="获取我的Bug数"/>
-     <startEvent id="ECC7315C-3CC1-4C75-8540-390551B28B7D" isInterrupting="true"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymyterritorycountrawsqlcall1" id="7CC3112A-DD76-49B8-A1FA-8EF15FAFEF0F" implementation="http://www.jboss.org/drools/rule" name="获取我的需求数"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymyterritorycountrawsqlcall2" id="48EC02F7-3240-4C2C-8908-657B05C9DC58" implementation="http://www.jboss.org/drools/rule" name="获取我的Bug数"/>
-     <sequenceFlow id="9B9F6B11-C7D4-44CB-AD6C-968230C68854" sourceRef="48EC02F7-3240-4C2C-8908-657B05C9DC58" targetRef="5A76A771-21A1-49BE-A872-F71A8E9822EC">
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymyterritorycountrawsqlcall4" id="rawsqlcall4" implementation="http://www.jboss.org/drools/rule" name="我的待办数"/>
+     <endEvent id="rawsqlcall4_end" name="end"/>
+     <sequenceFlow id="rawsqlcall4_end_line" sourceRef="rawsqlcall4" targetRef="rawsqlcall4_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymyterritorycountrawsqlcall3" id="rawsqlcall3" implementation="http://www.jboss.org/drools/rule" name="获取我的Bug数"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymyterritorycountrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取我的需求数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymyterritorycountrawsqlcall2" id="rawsqlcall2" implementation="http://www.jboss.org/drools/rule" name="获取我的Bug数"/>
+     <sequenceFlow id="rawsqlcall2_rawsqlcall3" sourceRef="rawsqlcall2" targetRef="rawsqlcall3">
      </sequenceFlow>
-     <sequenceFlow id="26CC21A2-71E9-438E-B704-08189C5F8DFB" sourceRef="5A76A771-21A1-49BE-A872-F71A8E9822EC" targetRef="8BBBB834-FD97-45AE-B709-66C7CD434964">
+     <sequenceFlow id="rawsqlcall3_rawsqlcall4" sourceRef="rawsqlcall3" targetRef="rawsqlcall4">
      </sequenceFlow>
-     <sequenceFlow id="FA9B7ED9-A930-4DDB-8A6C-FC97A52468F4" sourceRef="7CC3112A-DD76-49B8-A1FA-8EF15FAFEF0F" targetRef="48EC02F7-3240-4C2C-8908-657B05C9DC58">
+     <sequenceFlow id="rawsqlcall1_rawsqlcall2" sourceRef="rawsqlcall1" targetRef="rawsqlcall2">
      </sequenceFlow>
-     <sequenceFlow id="A0F81A89-E9FF-4787-A785-869329E2C772" sourceRef="ECC7315C-3CC1-4C75-8540-390551B28B7D" targetRef="7CC3112A-DD76-49B8-A1FA-8EF15FAFEF0F">
+     <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
      </sequenceFlow>
     </process>
 </definitions>

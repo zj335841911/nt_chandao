@@ -58,6 +58,13 @@ export class IbzMyTerritoryTabExpViewBase extends TabExpViewBase {
     public appUIService: IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
     /**
+     * 是否显示信息栏
+     *
+     * @memberof IbzMyTerritoryTabExpViewBase
+     */
+    isShowDataInfoBar = true;
+
+    /**
      * 视图模型数据
      *
      * @protected

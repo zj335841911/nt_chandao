@@ -1,5 +1,6 @@
 import { Http,Util,HttpResponse } from '@/ibiz-core/utils';
 import  { EntityService }  from '@/ibiz-core';
+import { ProjectTaskQCntLogic } from './project-task-qcnt-logic';
 
 
 
@@ -289,6 +290,20 @@ export class ProjectServiceBase extends EntityService {
      */
     public async MobProjectCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = Http.getInstance().post(`/projects/${context.project}/mobprojectcount`,data,isloading);
+            return res;
+    }
+
+    /**
+     * ProjectTaskQCnt接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async ProjectTaskQCnt(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/projects/${context.project}/projecttaskqcnt`,data,isloading);
             return res;
     }
 
