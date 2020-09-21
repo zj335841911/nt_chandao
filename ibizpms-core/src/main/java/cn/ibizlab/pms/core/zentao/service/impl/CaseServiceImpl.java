@@ -218,6 +218,13 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
          return et ;
     }
 
+    @Override
+    @Transactional
+    public Case huaTestfavo(Case et) {
+        //自定义代码
+        return et;
+    }
+
         @Override
     @Transactional
     public Case linkCase(Case et) {
