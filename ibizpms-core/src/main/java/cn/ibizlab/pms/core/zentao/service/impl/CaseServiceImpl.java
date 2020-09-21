@@ -81,6 +81,10 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ICasehuaFavoriteLogic huafavoriteLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ICaserunCasesLogic runcasesLogic;
 
     @Autowired
@@ -205,6 +209,13 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public Case getByTestTask(Case et) {
         //自定义代码
         return et;
+    }
+
+    @Override
+    @Transactional
+    public Case huaFavorite(Case et) {
+        huafavoriteLogic.execute(et);
+         return et ;
     }
 
         @Override

@@ -37,6 +37,7 @@ public interface ICaseService extends IService<Case>{
     Case confirmChange(Case et) ;
     Case confirmstorychange(Case et) ;
     Case getByTestTask(Case et) ;
+    Case huaFavorite(Case et) ;
     Case linkCase(Case et) ;
     Case runCase(Case et) ;
     Case runCases(Case et) ;

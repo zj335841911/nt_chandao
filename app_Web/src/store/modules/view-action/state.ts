@@ -780,7 +780,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'fd0b8748ff96edcde009d39903a9f211',
             ],
         },
         {
@@ -3450,7 +3449,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'fd0b8748ff96edcde009d39903a9f211',
             ],
         },
         {

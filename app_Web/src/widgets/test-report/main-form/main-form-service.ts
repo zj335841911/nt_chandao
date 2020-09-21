@@ -2,7 +2,6 @@ import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import TestReportService from '@/service/test-report/test-report-service';
 import MainModel from './main-form-model';
-import ProjectService from '@/service/project/project-service';
 
 
 /**
@@ -41,14 +40,6 @@ export default class MainService extends ControlService {
         super(opts);
         this.model = new MainModel();
     }
-
-    /**
-     * 项目服务对象
-     *
-     * @type {ProjectService}
-     * @memberof MainService
-     */
-    public projectService: ProjectService = new ProjectService();
 
     /**
      * 处理数据
@@ -91,9 +82,6 @@ export default class MainService extends ControlService {
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
         data.page = data.page ? data.page : 0;
         data.size = data.size ? data.size : 1000;
-        if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.projectService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');
-        }
 
         return Promise.reject([])
     }

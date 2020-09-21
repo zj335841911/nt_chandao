@@ -119,6 +119,11 @@ export default {
     CurProductBuild: {
         "empty": "",
     },
+    Testreport__object_type: {
+        "testtask": "测试单",
+        "project": "项目",
+        "empty": ""
+    },
     Bug__severity: {
         "1": "1",
         "2": "2",
