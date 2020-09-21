@@ -33,12 +33,12 @@ public interface ICaseService extends IService<Case>{
     void removeBatch(Collection<Long> idList) ;
     Case get(Long key) ;
     Case getDraft(Case et) ;
+    Case caseFavorite(Case et) ;
+    Case caseNFavorite(Case et) ;
     boolean checkKey(Case et) ;
     Case confirmChange(Case et) ;
     Case confirmstorychange(Case et) ;
     Case getByTestTask(Case et) ;
-    Case huaFavorite(Case et) ;
-    Case huaTestfavo(Case et) ;
     Case linkCase(Case et) ;
     Case runCase(Case et) ;
     Case runCases(Case et) ;

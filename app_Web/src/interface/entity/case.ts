@@ -445,4 +445,12 @@ export interface Case {
      * @memberof Case
      */
     lastrunresult1?: any;
+
+    /**
+     * 是否收藏
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    isfavorites?: any;
 }

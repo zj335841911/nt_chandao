@@ -201,6 +201,11 @@
                             <i class='fa fa-check-square-o'></i>
                             
                           </a>
+                          <divider v-show="scope.row.CaseNFavorite.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.CaseNFavorite.visabled" :disabled="scope.row.CaseNFavorite.disabled" @click="uiAction(scope.row, 'CaseNFavorite', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_casenfavorite')">
+                            <i class=''></i>
+                            {{$t('entities.case.maingrid_grid.uiactions.case_casenfavorite')}}
+                          </a>
                           <divider v-show="scope.row.OpenTestRunResultView.visabled" type='vertical'></divider>
                           <a v-show="scope.row.OpenTestRunResultView.visabled" :disabled="scope.row.OpenTestRunResultView.disabled" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_opentestrunresultview')">
                             <i class='fa fa-stack-overflow'></i>

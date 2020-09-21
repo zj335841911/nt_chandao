@@ -180,6 +180,9 @@ export default class MeCreateCaseModel {
       {
         name: 'lastrunresult1',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

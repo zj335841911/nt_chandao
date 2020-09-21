@@ -55,6 +55,7 @@ export default {
     task: "属性",
     libname: "用例库",
     lastrunresult1: "测试用例结果",
+    isfavorites: "是否收藏",
   },
 	views: {
 		editview: {
@@ -524,6 +525,7 @@ export default {
 		},
 		uiactions: {
 			case_confirmstorychange: "确认",
+			case_casenfavorite: "取消收藏",
 			case_opentestrunresultview: "结果",
 			case_casefavorite: "收藏",
 			case_execute: "执行",

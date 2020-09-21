@@ -180,6 +180,9 @@ export default class TestMainDetailModel {
       {
         name: 'lastrunresult1',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 
