@@ -74,7 +74,7 @@ import {
   Emit,
   Watch,
 } from "vue-property-decorator";
-import { settingConfig } from "./app-setting";
+import { settingConfig } from "./config";
 @Component({
   components: {},
 })
