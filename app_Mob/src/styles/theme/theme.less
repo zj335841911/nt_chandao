@@ -10,17 +10,17 @@
     --background: @theme-color;
     --color: @text-color;
     --color-activated: @text-color;
-    --background-activated:@theme-color;
+    --background-activated: @theme-color;
   }
   // 多数据快速分组组件tab选中样式
   .app-seleted-item {
     color: @theme-color;
     border-bottom: 2px solid @theme-color;
   }
-  ion-fab-button{
-    --background:@theme-color;
-    --box-shadow:-1px 1px 5px #8e9eab;
-    --background-activated:@theme-color;
+  ion-fab-button {
+    --background: @theme-color;
+    --box-shadow: -1px 1px 5px #8e9eab;
+    --background-activated: @theme-color;
   }
   .view-container {
     ion-header {
@@ -112,48 +112,56 @@
     }
   }
   //多编辑面板底部新增按钮
-  .app-medit-view-panel{
-    ion-fab{
-        ion-fab-button{
-            --background:@theme-color;
-        }
+  .app-medit-view-panel {
+    ion-fab {
+      ion-fab-button {
+        --background: @theme-color;
+      }
     }
   }
   // 选项操作视图底部按钮
-  .mobtestmob-option-view{
-    .option-view-btnbox{
-      .success{
+  .mobtestmob-option-view {
+    .option-view-btnbox {
+      .success {
         --background: @theme-color;
         --color: @text-color;
       }
     }
   }
-//日历选中样式
-.mpvue-calendar td.selected span {
+  //日历选中样式
+  .mpvue-calendar td.selected span {
     background-color: @theme-color!important;
-    color:  @text-color !important;
-}
-.mpvue-calendar-change span.active{
-  background-color: @theme-color !important;
-  color:  @text-color!important;
-}
+    color: @text-color !important;
+  }
+  .mpvue-calendar-change span.active {
+    background-color: @theme-color !important;
+    color: @text-color!important;
+  }
 
-//分页tab样式 
-  ion-segment{ 
-    ion-segment-button{
-      --indicator-box-shadow:@theme-color!important;
-      --color-checked:@theme-color!important;
+  //分页tab样式
+  ion-segment {
+    ion-segment-button {
+      --indicator-box-shadow: @theme-color!important;
+      --color-checked: @theme-color!important;
     }
-    .segment-button-checked{
+    .segment-button-checked {
       border-color: @theme-color!important;
     }
   }
-// 风格改变样式
-.app-mob-select-changeStyle ion-list .align-boxs .active{
-  border: 2px solid @theme-color;
-  ion-icon{
-    color: @theme-color;
+  // 风格改变样式
+  .app-mob-select-changeStyle ion-list .align-boxs .active {
+    border: 2px solid @theme-color;
+    ion-icon {
+      color: @theme-color;
+    }
   }
-}
-
+  // 抽屉搜索表单主题
+  .show-menu {
+    ion-header {
+      ion-toolbar {
+        --background: @theme-color;
+        color: @text-color;
+      }
+    }
+  }
 }
