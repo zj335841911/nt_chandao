@@ -48,6 +48,9 @@ public class CasehuaFavoriteLogicImpl implements ICasehuaFavoriteLogic{
            kieSession=kieContainer.newKieSession();
            kieSession.insert(et); 
            kieSession.setGlobal("casehuafavoritedefault",et);
+           cn.ibizlab.pms.core.ibiz.domain.IbzFavorites  casehuafavoriteibzfavorite =new cn.ibizlab.pms.core.ibiz.domain.IbzFavorites();
+           kieSession.insert(casehuafavoriteibzfavorite); 
+           kieSession.setGlobal("casehuafavoriteibzfavorite",casehuafavoriteibzfavorite);
            kieSession.setGlobal("caseservice",caseservice);
            kieSession.setGlobal("iBzSysCaseDefaultService",iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());

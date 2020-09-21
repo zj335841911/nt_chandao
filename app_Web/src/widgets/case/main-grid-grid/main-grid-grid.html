@@ -206,6 +206,11 @@
                             <i class='fa fa-stack-overflow'></i>
                             
                           </a>
+                          <divider v-show="scope.row.caseFavorite.visabled" type='vertical'></divider>
+                          <a v-show="scope.row.caseFavorite.visabled" :disabled="scope.row.caseFavorite.disabled" @click="uiAction(scope.row, 'caseFavorite', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_casefavorite')">
+                            <i class=''></i>
+                            {{$t('entities.case.maingrid_grid.uiactions.case_casefavorite')}}
+                          </a>
                           <divider v-show="scope.row.Execute.visabled" type='vertical'></divider>
                           <a v-show="scope.row.Execute.visabled" :disabled="scope.row.Execute.disabled" @click="uiAction(scope.row, 'Execute', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_execute')">
                             <i class='fa fa-play-circle-o'></i>

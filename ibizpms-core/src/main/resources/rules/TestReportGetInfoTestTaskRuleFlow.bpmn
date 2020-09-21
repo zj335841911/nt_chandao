@@ -9,8 +9,11 @@
         <tns:global identifier="testreportgetinfotesttasktesttask" type="cn.ibizlab.pms.core.zentao.domain.TestTask" />
         </extensionElements>
      <startEvent id="begin" isInterrupting="true"/>
-     <endEvent id="begin_end" name="end"/>
-     <sequenceFlow id="begin_end_line" sourceRef="begin" targetRef="begin_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
+     <endEvent id="rawsqlcall1_end" name="end"/>
+     <sequenceFlow id="rawsqlcall1_end_line" sourceRef="rawsqlcall1" targetRef="rawsqlcall1_end"/>
+     <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
+     </sequenceFlow>
     </process>
 </definitions>
 

@@ -56,6 +56,7 @@ export default class HuaFavoriteLogicBase {
      */
     public initParams(opts:any){
         this.paramsMap.set('Default',opts);
+        this.paramsMap.set('IbzFavorite',{});
     }
 
 
@@ -128,6 +129,18 @@ export default class HuaFavoriteLogicBase {
     */
     private async executePrepareparam1(context:any,params:any,isloading:boolean){
         // 准备参数节点
+    let tempDstParam0Context:any = this.paramsMap.get('IbzFavorite').context?this.paramsMap.get('IbzFavorite').context:{};
+    let tempDstParam0Data:any = this.paramsMap.get('IbzFavorite').data?this.paramsMap.get('IbzFavorite').data:{};
+    let tempSrcParam0Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    Object.assign(tempDstParam0Data,{objectid:tempSrcParam0Data['id']});
+    this.paramsMap.set('IbzFavorite',{data:tempDstParam0Data,context:tempDstParam0Context});
+    let tempDstParam1Context:any = this.paramsMap.get('IbzFavorite').context?this.paramsMap.get('IbzFavorite').context:{};
+    let tempDstParam1Data:any = this.paramsMap.get('IbzFavorite').data?this.paramsMap.get('IbzFavorite').data:{};
+    this.paramsMap.set('IbzFavorite',{data:tempDstParam1Data,context:tempDstParam1Context});
+    let tempDstParam2Context:any = this.paramsMap.get('IbzFavorite').context?this.paramsMap.get('IbzFavorite').context:{};
+    let tempDstParam2Data:any = this.paramsMap.get('IbzFavorite').data?this.paramsMap.get('IbzFavorite').data:{};
+    Object.assign(tempDstParam2Data,{type:"case"});
+    this.paramsMap.set('IbzFavorite',{data:tempDstParam2Data,context:tempDstParam2Context});
         if(this.compute0Cond(params)){
             return this.executeCreate(context,params,isloading);   
         }

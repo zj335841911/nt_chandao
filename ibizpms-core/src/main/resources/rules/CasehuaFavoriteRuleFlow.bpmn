@@ -6,6 +6,7 @@
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="casehuafavoritedefault" type="cn.ibizlab.pms.core.zentao.domain.Case" />
+        <tns:global identifier="casehuafavoriteibzfavorite" type="cn.ibizlab.pms.core.ibiz.domain.IbzFavorites" />
         </extensionElements>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="casehuafavoritecreate" id="create" implementation="http://www.jboss.org/drools/rule" name="Create"/>
      <endEvent id="create_end" name="end"/>
