@@ -80,7 +80,7 @@ export const settingConfig = {
     },
   ],
   // 个人中心视图（需用户手动配置）
-  userCenterViewName: "user-user-center-mob-edit-view",
+  userCenterViewName: "",
   // 用户实体参数名称
   userEntityName: "user",
   // 自定义功能
