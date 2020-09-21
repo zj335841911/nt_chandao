@@ -24,7 +24,7 @@ ruleflow-group "testreportgetinfotesttaskrawsqlcall1"
     when
     then
     Map param =new HashMap();
-    param.put("param0",testreportgetinfotesttaskdefault.get("id"));
+    param.put("param0",testreportgetinfotesttaskdefault.get("tasks"));
     String strSql="select CONCAT_WS(' ',DATE_FORMAT(now(),'%Y-%m-%d'),concat('TESTTASK#',t.id),t.`name`,'测试报告') as TITLE,t.`begin`,t.`end`,t.project,t.build as builds,(select GROUP_CONCAT(DISTINCT tt.`case` order by tt.`case` asc Separator ',') from zt_testrun tt where tt.task = t.id GROUP BY tt.task) as cases,t.id as objectID,'TESTTASK' as objectType from zt_testtask t where t.deleted = '0' and t.id = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
