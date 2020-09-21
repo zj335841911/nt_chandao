@@ -1,6 +1,7 @@
 import { Http,Util,HttpResponse } from '@/ibiz-core/utils';
 import  { EntityService }  from '@/ibiz-core';
 import { GetCaseStepByIdVersionLogic } from './get-case-step-by-id-version-logic';
+import { HuaFavoriteLogic } from './hua-favorite-logic';
 
 
 
@@ -697,6 +698,21 @@ export class CaseServiceBase extends EntityService {
                         this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
 
             return res;
+    }
+
+    /**
+     * HuaFavorite接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async HuaFavorite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let appLogic:HuaFavoriteLogic = new HuaFavoriteLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
+        const res = await appLogic.onExecute(context,data,isloading?true:false);
+        return {status:200,data:res};
     }
 
     /**
