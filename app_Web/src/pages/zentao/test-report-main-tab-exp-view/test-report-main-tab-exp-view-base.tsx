@@ -57,6 +57,29 @@ export class TestReportMainTabExpViewBase extends TabExpViewBase {
      */
     public appUIService: TestReportUIService = new TestReportUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TestReportMainTabExpViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'OBJECTTYPE': { isRawValue: true, value: 'testreport' },
+        'BUILDS': { isRawValue: false, value: 'builds' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TestReportMainTabExpViewBase
+	 */
+    protected customViewParams: any = {
+        'builds': { isRawValue: false, value: 'builds' }
+    };
+
     /**
      * 是否显示信息栏
      *
