@@ -2,14 +2,18 @@
   <div class="app-mob-rich-text-editor" >
     <div class="rich-text-editor-info" v-html="showVal" ref="content" @click="open"></div>
     <ion-icon class="app-mob-rich-text-editor-icon" v-if="!showVal" name="options-outline" @click.stop="open"></ion-icon>
-    <van-popup closeable v-model="picturePreview.status" @click-overlay="closePreview" get-container="#app" @opened="openedPreview"><img @click="closePreview" class="preview" v-show="picturePreview.status" :src="picturePreview.src"/></van-popup>
   </div>
 </template>
 <script lang = 'ts'>
 import { Vue, Component, Prop, Model, Watch,Provide } from 'vue-property-decorator';
 import { Environment } from '@/environments/environment';
 import qs from 'qs';
-@Component({})
+import { ImagePreview } from 'vant';
+@Component({
+    components: {
+    [ImagePreview.Component.name]: ImagePreview.Component,
+  },
+})
 export default class AppRichTextEditor extends Vue {
 
     /**
@@ -48,13 +52,6 @@ export default class AppRichTextEditor extends Vue {
       const url:string = this.downloadUrl.indexOf('../') === 0 ? this.downloadUrl.substring(3) : this.downloadUrl;
       this.showVal = this.value ? this.value.replace(/\{(\d+)\.(bmp|jpg|jpeg|png|tif|gif|pcx|tga|exif|fpx|svg|psd|cdr|pcd|dxf|ufo|eps|ai|raw|WMF|webp)\}/g, `${url}/$1`) : "";
     }
-
-    /**
-     * 是否图片预览
-     *
-     * @memberof AppRichTextEditor
-     */
-    public picturePreview:any = {status:false};
 
     /**
      * 上传params
@@ -220,8 +217,7 @@ export default class AppRichTextEditor extends Vue {
         setTimeout(() => {
           Array.from(imgs).forEach((img:any)=>{
             img.addEventListener('click',(event:any)=>{
-              localStorage.setItem('picture-preview',`{"src":"${img.src}","status":true}`);
-              this.picturePreview = {"src":img.src,"status":true}
+              this.getPreview(img.src);
               event.stopPropagation();
             },false)
           })
@@ -229,22 +225,17 @@ export default class AppRichTextEditor extends Vue {
     }
 
     /**
-     * 关闭图片预览弹出层
-     *
-     * @memberof AppMobFileUpload
-     */
-    public closePreview(){
-      localStorage.setItem('picture-preview',`{"src":"","status":false}`);
-      this.picturePreview = {"src":"","status":false};
-    }
-
-    /**
      * 打开图片预览弹出层后
      *
      * @memberof AppMobFileUpload
      */
-    public openedPreview(){
-      console.log('打开弹出层且动画结束后触发');
+    public getPreview(src:any){
+      ImagePreview({
+        images: [
+          src,
+        ],
+        showIndex: false,
+      });
     }
 }
 </script>
