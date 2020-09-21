@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper	namespace="cn.ibizlab.pms.core.zentao.mapper.DocMapper">
+
+    <!--该方法用于重写mybatis中selectById方法，以实现查询逻辑属性-->
+	<select id="selectById"  resultMap="DocResultMap" databaseId="mysql">
+        <![CDATA[select t1.* from (SELECT t1.`ACL`, t1.`ADDEDBY`, t1.`ADDEDDATE`, t1.`COLLECTOR`, t1.`DELETED`, t1.`EDITEDBY`, t1.`EDITEDDATE`, t1.`GROUPS`, t1.`ID`, t1.`KEYWORDS`, t1.`LIB`, t1.`MODULE`, t1.`PRODUCT`, t1.`PROJECT`, t1.`TITLE`, t1.`TYPE`, t1.`USERS`, t1.`VERSION`, t1.`VIEWS` FROM `zt_doc` t1  ) t1 where id=#{id}]]>
+    </select>
+
+    <!--通过mybatis将查询结果注入到entity中,通过配置autoMapping="true"由mybatis自动处理映射关系 -->
+    <resultMap id="DocResultMap" type="cn.ibizlab.pms.core.zentao.domain.Doc" autoMapping="true">
+		<id property="id" column="id" /><!--主键字段映射-->
+		<result property="lib" column="lib" />
+		<result property="project" column="project" />
+		<result property="product" column="product" />
+		<result property="module" column="module" />
+            
+		
+		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
+		<association property="ztDoclib" javaType="cn.ibizlab.pms.core.zentao.domain.DocLib" column="lib" select="cn.ibizlab.pms.core.zentao.mapper.DocLibMapper.selectById" fetchType="lazy"></association>
+		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
+		<association property="ztModule" javaType="cn.ibizlab.pms.core.zentao.domain.Module" column="module" select="cn.ibizlab.pms.core.zentao.mapper.ModuleMapper.selectById" fetchType="lazy"></association>
+		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
+		<association property="ztProduct" javaType="cn.ibizlab.pms.core.zentao.domain.Product" column="product" select="cn.ibizlab.pms.core.zentao.mapper.ProductMapper.selectById" fetchType="lazy"></association>
+		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->
+		<association property="ztProject" javaType="cn.ibizlab.pms.core.zentao.domain.Project" column="project" select="cn.ibizlab.pms.core.zentao.mapper.ProjectMapper.selectById" fetchType="lazy"></association>
+    </resultMap>
+
+	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_DOC_ZT_DOCLIB_LIB] -->
+	 <select id="selectByLib" resultMap="DocResultMap">
+         select t1.* from (
+                <include refid="Default" />
+			 ) t1
+			 where  lib=#{id}
+     </select>
+	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_DOC_ZT_MODULE_MODULE] -->
+	 <select id="selectByModule" resultMap="DocResultMap">
+         select t1.* from (
+                <include refid="Default" />
+			 ) t1
+			 where  module=#{id}
+     </select>
+	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_DOC_ZT_PRODUCT_PRODUCT] -->
+	 <select id="selectByProduct" resultMap="DocResultMap">
+         select t1.* from (
+                <include refid="Default" />
+			 ) t1
+			 where  product=#{id}
+     </select>
+	<!--关系实体暴露select方法供主实体通过外键查询关系实体数据[实体关系名称:DER1N_ZT_DOC_ZT_PROJECT_PROJECT] -->
+	 <select id="selectByProject" resultMap="DocResultMap">
+         select t1.* from (
+                <include refid="Default" />
+			 ) t1
+			 where  project=#{id}
+     </select>
+
+    <!--数据集合[Default]-->
+	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.zentao.filter.DocSearchContext"  resultMap="DocResultMap">
+         select t1.* from (
+                <include refid="Default" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
+    <!--数据查询[Default]-->
+    <sql id="Default" databaseId="mysql">
+		<![CDATA[ SELECT t1.`ACL`, t1.`ADDEDBY`, t1.`ADDEDDATE`, t1.`DELETED`, t1.`EDITEDBY`, t1.`EDITEDDATE`, t1.`GROUPS`, t1.`ID`, t1.`KEYWORDS`, t1.`LIB`, t1.`MODULE`, t1.`PRODUCT`, t1.`PROJECT`, t1.`TITLE`, t1.`TYPE`, t1.`VERSION`, t1.`VIEWS` FROM `zt_doc` t1  
+					 WHERE 	t1.DELETED = '0'
+			]]>
+    </sql>
+    <!--数据查询[View]-->
+    <sql id="View" databaseId="mysql">
+		<![CDATA[ SELECT t1.`ACL`, t1.`ADDEDBY`, t1.`ADDEDDATE`, t1.`COLLECTOR`, t1.`DELETED`, t1.`EDITEDBY`, t1.`EDITEDDATE`, t1.`GROUPS`, t1.`ID`, t1.`KEYWORDS`, t1.`LIB`, t1.`MODULE`, t1.`PRODUCT`, t1.`PROJECT`, t1.`TITLE`, t1.`TYPE`, t1.`USERS`, t1.`VERSION`, t1.`VIEWS` FROM `zt_doc` t1  
+					 WHERE 	t1.DELETED = '0'
+			]]>
+    </sql>
+</mapper>
+
