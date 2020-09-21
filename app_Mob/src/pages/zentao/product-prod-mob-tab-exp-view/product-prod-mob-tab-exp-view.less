@@ -1,0 +1,60 @@
+// this is less
+.srf_empty_class {
+    width: 100%;
+    height: 100%;
+}
+.title-label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    ion-icon {
+      margin-right: 5px;
+    }
+    img{
+      width: 22px;
+      height: 22px;
+      margin-right: 5px;
+    }
+}
+
+
+
+
+
+
+
+
+//去除滚动条高度
+ion-infinite-scroll-content{
+  min-height: 1px;
+}
+
+.demobtabexpview{
+  ion-header{
+    ion-segment{      
+      ion-segment-button{
+        line-height: 20px;
+        position:relative;
+        ion-badge{
+          position: absolute;
+          top: -5px;
+          right: -20px !important;
+          min-width: 15px;
+          height: 15px;
+          font-size:10px;
+          text-align: center;
+          line-height: 15px;
+          --padding-end:0px;
+          --padding-start:0px;
+          --padding-top:1px;
+        }
+        ion-icon{
+          font-size: 20px;
+          position: absolute;
+          top: -1px;
+          left: -28px;
+        }
+      }
+    }
+  }
+}
