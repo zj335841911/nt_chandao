@@ -53,6 +53,10 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITestReportGetInfoTestTaskLogic getinfotesttaskLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -122,6 +126,13 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     public boolean checkKey(TestReport et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
+    @Override
+    @Transactional
+    public TestReport getInfoTestTask(TestReport et) {
+        getinfotesttaskLogic.execute(et);
+         return et ;
+    }
+
     @Override
     @Transactional
     public boolean save(TestReport et) {

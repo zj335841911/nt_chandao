@@ -767,6 +767,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        srfkey: "Testreport__object_type",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "testtask",
+                label: "测试单",
+                text: "测试单",
+                "data":"",
+                "codename":"Testtask",
+                value: "testtask",
+                
+                disabled: false,
+            },
+            {
+                id: "project",
+                label: "项目",
+                text: "项目",
+                "data":"",
+                "codename":"Project",
+                value: "project",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Bug__severity",
         emptytext: "未定义",
         "codelisttype":"static",

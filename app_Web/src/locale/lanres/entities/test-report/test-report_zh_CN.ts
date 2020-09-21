@@ -56,15 +56,25 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
+			tasks: "测试单", 
+			objectid: "所属对象", 
+			project: "所属项目", 
+			productname: "所属产品", 
+			product: "所属产品", 
 			begin: "开始时间", 
 			end: "结束时间", 
 			formitemex1: "起止时间", 
 			owner: "负责人", 
+			objecttype: "对象类型", 
+			builds: "版本信息", 
+			bugs: "测试的Bug", 
+			stories: "测试的需求", 
+			cases: "用例", 
+			title: "标题", 
 			members: "参与人员", 
 			projectname: "所属项目", 
 			report: "总结", 
 			id: "编号", 
-			project: "所属项目", 
 		},
 		uiactions: {
 		},
@@ -99,7 +109,17 @@ export default {
 		uiactions: {
 		},
 	},
+	editviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
 	gridviewtoolbar_toolbar: {
+		deuiaction3_create: {
+			caption: "新建",
+			tip: "新建",
+		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",
@@ -107,12 +127,6 @@ export default {
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
-		},
-	},
-	editviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "保存并关闭",
-			tip: "保存并关闭",
 		},
 	},
 };

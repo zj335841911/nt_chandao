@@ -53,7 +53,7 @@
                         <slot></slot>
                     </div>
                     <div v-if="itemRef && itemRef.validateState === 'error'" class="editor-error-tip">
-                        <Tooltip placement="left">
+                        <Tooltip placement="right">
                             <Icon type="ios-alert-outline" />
                             <template slot="content">
                               <span class="editor-error-tip-content">

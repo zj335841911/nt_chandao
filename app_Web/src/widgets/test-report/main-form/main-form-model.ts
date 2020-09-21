@@ -51,6 +51,31 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
+        name: 'tasks',
+        prop: 'tasks',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'objectid',
+        prop: 'objectid',
+        dataType: 'INT',
+      },
+      {
+        name: 'project',
+        prop: 'project',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'productname',
+        prop: 'productname',
+        dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'product',
+        prop: 'product',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'begin',
         prop: 'begin',
         dataType: 'DATE',
@@ -66,6 +91,36 @@ export default class MainModel {
       {
         name: 'owner',
         prop: 'owner',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'objecttype',
+        prop: 'objecttype',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'builds',
+        prop: 'builds',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'bugs',
+        prop: 'bugs',
+        dataType: 'LONGTEXT',
+      },
+      {
+        name: 'stories',
+        prop: 'stories',
+        dataType: 'LONGTEXT',
+      },
+      {
+        name: 'cases',
+        prop: 'cases',
+        dataType: 'LONGTEXT',
+      },
+      {
+        name: 'title',
+        prop: 'title',
         dataType: 'TEXT',
       },
       {
@@ -87,11 +142,6 @@ export default class MainModel {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
-      },
-      {
-        name: 'project',
-        prop: 'project',
-        dataType: 'PICKUP',
       },
       {
         name: 'testreport',
