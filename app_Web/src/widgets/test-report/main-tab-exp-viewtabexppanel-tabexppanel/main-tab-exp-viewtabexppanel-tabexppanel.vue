@@ -8,6 +8,7 @@ import view_tabviewpanel2 from '@widgets/test-report/main-tab-exp-viewtabviewpan
 import view_tabviewpanel4 from '@widgets/test-report/main-tab-exp-viewtabviewpanel4-tabviewpanel/main-tab-exp-viewtabviewpanel4-tabviewpanel.vue';
 import view_tabviewpanel5 from '@widgets/test-report/main-tab-exp-viewtabviewpanel5-tabviewpanel/main-tab-exp-viewtabviewpanel5-tabviewpanel.vue';
 import view_tabviewpanel6 from '@widgets/test-report/main-tab-exp-viewtabviewpanel6-tabviewpanel/main-tab-exp-viewtabviewpanel6-tabviewpanel.vue';
+import view_tabviewpanel8 from '@widgets/test-report/main-tab-exp-viewtabviewpanel8-tabviewpanel/main-tab-exp-viewtabviewpanel8-tabviewpanel.vue';
 import view_tabviewpanel3 from '@widgets/test-report/main-tab-exp-viewtabviewpanel3-tabviewpanel/main-tab-exp-viewtabviewpanel3-tabviewpanel.vue';
 import view_tabviewpanel7 from '@widgets/test-report/main-tab-exp-viewtabviewpanel7-tabviewpanel/main-tab-exp-viewtabviewpanel7-tabviewpanel.vue';
  
@@ -26,6 +27,7 @@ import view_tabviewpanel7 from '@widgets/test-report/main-tab-exp-viewtabviewpan
         view_tabviewpanel4, 
         view_tabviewpanel5, 
         view_tabviewpanel6, 
+        view_tabviewpanel8, 
         view_tabviewpanel3, 
         view_tabviewpanel7, 
          

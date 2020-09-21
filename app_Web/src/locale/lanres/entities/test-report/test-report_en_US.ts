@@ -29,6 +29,10 @@ export default {
 			caption: "测试报告",
       		title: "测试报告编辑视图",
 		},
+		dashboardview: {
+			caption: "测试报告",
+      		title: "测试报告数据看板视图",
+		},
 		gridview: {
 			caption: "测试报告",
       		title: "测试报告表格视图",

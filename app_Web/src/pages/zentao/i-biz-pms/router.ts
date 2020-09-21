@@ -3733,6 +3733,39 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-resolve-view/bug-resolve-view.vue'),
                 },
                 {
+                    path: 'products/:product?/testreports/:testreport?/dashboardview/:dashboardview?',
+                    meta: {
+                        caption: 'entities.testreport.views.dashboardview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testreports', parameterName: 'testreport' },
+                            { pathName: 'dashboardview', parameterName: 'dashboardview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-report-dashboard-view/test-report-dashboard-view.vue'),
+                },
+                {
+                    path: 'testreports/:testreport?/dashboardview/:dashboardview?',
+                    meta: {
+                        caption: 'entities.testreport.views.dashboardview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'testreports', parameterName: 'testreport' },
+                            { pathName: 'dashboardview', parameterName: 'dashboardview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-report-dashboard-view/test-report-dashboard-view.vue'),
+                },
+                {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/editeditview/:editeditview?',
                     meta: {
                         caption: 'entities.ibzcase.views.editeditview.caption',

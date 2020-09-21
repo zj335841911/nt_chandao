@@ -783,6 +783,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryCurProjectWGridView",
             "viewtag": "427e28cc5267cfc2a6d6da6fde36ef9f"
         },
+        "testreportdashboardview": {
+            "title": "测试报告数据看板视图",
+            "caption": "测试报告",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestReportDashboardView",
+            "viewtag": "42aa867a5dbd04d53462fa69b0e43296"
+        },
         "todoassigntoview": {
             "title": "指派表单视图",
             "caption": "指派给",

@@ -872,6 +872,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '42aa867a5dbd04d53462fa69b0e43296',
+            viewmodule: 'zentao',
+            viewname: 'TestReportDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '43582fa5b922cb77d0b1e704a7b6e5c3',
             viewmodule: 'zentao',
             viewname: 'TodoAssignToView',
@@ -3367,6 +3376,7 @@ export const viewstate: any = {
                 '1b214bd727533f6662aa78368fb67e4b',
                 'ba3ac5351ca273bb889ffcb52ec7217b',
                 'c47c534ae15c1fd1a04b5ad78d174841',
+                '42aa867a5dbd04d53462fa69b0e43296',
                 '09b6c2af7dcc4b719d4c8aad2319f1c5',
                 '3d56b0e37a56b9be1a28589c04f573fa',
                 'f810cda19770327ea00f51d89a003efe',

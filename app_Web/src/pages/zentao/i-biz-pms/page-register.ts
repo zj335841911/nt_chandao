@@ -87,6 +87,7 @@ export const PageComponents = {
         Vue.component('task-main-edit-view', () => import('@pages/zentao/task-main-edit-view/task-main-edit-view.vue'));
         Vue.component('test-result-test-task-medit-view9', () => import('@pages/zentao/test-result-test-task-medit-view9/test-result-test-task-medit-view9.vue'));
         Vue.component('bug-resolve-view', () => import('@pages/zentao/bug-resolve-view/bug-resolve-view.vue'));
+        Vue.component('test-report-dashboard-view', () => import('@pages/zentao/test-report-dashboard-view/test-report-dashboard-view.vue'));
         Vue.component('ibz-case-edit-edit-view', () => import('@pages/ibiz/ibz-case-edit-edit-view/ibz-case-edit-edit-view.vue'));
         Vue.component('case-main-grid-view', () => import('@pages/zentao/case-main-grid-view/case-main-grid-view.vue'));
         Vue.component('branch-pmgrid-view', () => import('@pages/zentao/branch-pmgrid-view/branch-pmgrid-view.vue'));

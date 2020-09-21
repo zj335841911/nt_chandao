@@ -969,6 +969,16 @@
         "viewtag": "427e28cc5267cfc2a6d6da6fde36ef9f",
         "memo": ""
     },
+    "testreportdashboardview": {
+        "title": "测试报告数据看板视图",
+        "caption": "测试报告",
+        "viewtype": "DEPORTALVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportDashboardView",
+        "viewfilename": "test-report-dashboard-view",
+        "viewtag": "42aa867a5dbd04d53462fa69b0e43296",
+        "memo": ""
+    },
     "todoassigntoview": {
         "title": "指派表单视图",
         "caption": "指派给",

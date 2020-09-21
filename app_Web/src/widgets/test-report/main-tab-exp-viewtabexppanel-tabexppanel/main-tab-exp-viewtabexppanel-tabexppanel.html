@@ -120,7 +120,31 @@
     @closeview="closeView($event)">
 </view_tabviewpanel6>
         </tab-pane>
-        <tab-pane :index="5" name='tabviewpanel3' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="5" name='tabviewpanel8' tab='maintabexpviewtabexppanel' class=''  
+            :label="(h) =>{
+                return h('div', [
+                    h('span', '报告'),
+                    h('Badge', {
+                        props: {
+                            count: undefined,
+                            type: 'primary'
+                        }
+                    })
+                ])
+            }" >
+            <view_tabviewpanel8 
+    :viewState="viewState"  
+    :viewparams="JSON.parse(JSON.stringify(viewparams))" 
+    :context="JSON.parse(JSON.stringify(context))" 
+    v-if="isInit.tabviewpanel8"
+    name="tabviewpanel8"  
+    ref='tabviewpanel8'
+    :expActive="activatedTabViewPanel === 'tabviewpanel8'"
+    @viewpanelDatasChange = "tabViewPanelDatasChange"
+    @closeview="closeView($event)">
+</view_tabviewpanel8>
+        </tab-pane>
+        <tab-pane :index="6" name='tabviewpanel3' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '总结'),
@@ -144,7 +168,7 @@
     @closeview="closeView($event)">
 </view_tabviewpanel3>
         </tab-pane>
-        <tab-pane :index="6" name='tabviewpanel7' tab='maintabexpviewtabexppanel' class=''  
+        <tab-pane :index="7" name='tabviewpanel7' tab='maintabexpviewtabexppanel' class=''  
             :label="(h) =>{
                 return h('div', [
                     h('span', '历史记录'),
