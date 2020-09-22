@@ -269,7 +269,7 @@ export class CaseTypeChartBase extends MainControlBase {
     public chartOption:any = {
         title:{
             show:true ,
-            text:'',
+            text:'按用例类型统计',
             subtext:''
         },
         legend:{

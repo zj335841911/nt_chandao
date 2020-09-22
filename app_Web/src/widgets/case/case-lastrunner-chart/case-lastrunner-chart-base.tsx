@@ -269,7 +269,7 @@ export class CaseLASTRUNNERChartBase extends MainControlBase {
     public chartOption:any = {
         title:{
             show:true ,
-            text:'',
+            text:'按用例执行人统计',
             subtext:''
         },
         legend:{
