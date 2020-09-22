@@ -1180,17 +1180,6 @@ export default class CaseUIServiceBase extends UIService {
      * @returns {Promise<any>}
      */
     public async Case_CaseNFavorite(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
-        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
-          actionContext.$Modal.confirm({
-              title: '警告',
-              content: '确认取消收藏吗？',
-              onOk: () => {resolve(true);},
-              onCancel: () => {resolve(false);}
-          });
-        });
-        if(!confirmResult){
-            return;
-        }
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
@@ -1225,7 +1214,7 @@ export default class CaseUIServiceBase extends UIService {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
                 }
-                actionContext.$Notice.success({ title: '成功', desc: '取消收藏成功' });
+                actionContext.$Notice.success({ title: '成功', desc: '取消收藏成功！' });
 
                 const _this: any = actionContext;
                 return response;
