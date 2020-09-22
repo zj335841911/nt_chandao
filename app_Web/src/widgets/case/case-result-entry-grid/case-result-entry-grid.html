@@ -23,7 +23,7 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('lastrunresult1')">
-                <el-table-column show-overflow-tooltip :prop="'lastrunresult1'" :label="$t('entities.case.caseresultentry_grid.columns.lastrunresult1')" :min-width="100"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'lastrunresult1'" :label="$t('entities.case.caseresultentry_grid.columns.lastrunresult1')" :min-width="100"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.case.caseresultentry_grid.columns.lastrunresult1')}}
@@ -37,7 +37,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('resultcnt')">
-                <el-table-column show-overflow-tooltip :prop="'resultcnt'" :label="$t('entities.case.caseresultentry_grid.columns.resultcnt')" :width="50"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'resultcnt'" :label="$t('entities.case.caseresultentry_grid.columns.resultcnt')" :width="50"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.case.caseresultentry_grid.columns.resultcnt')}}
@@ -49,7 +49,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('task')">
-                <el-table-column show-overflow-tooltip :prop="'task'" :label="$t('entities.case.caseresultentry_grid.columns.task')" :width="100"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'task'" :label="$t('entities.case.caseresultentry_grid.columns.task')" :width="100"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.case.caseresultentry_grid.columns.task')}}

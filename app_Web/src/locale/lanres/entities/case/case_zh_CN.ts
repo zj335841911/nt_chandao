@@ -138,6 +138,10 @@ export default {
 			caption: "测试用例",
       		title: "测试用例表格视图",
 		},
+		casefavorite: {
+			caption: "测试用例",
+      		title: "测试用例表格视图(我的收藏)",
+		},
 		resultentrygridview: {
 			caption: "测试结果条目",
       		title: "测试用例表格视图（测试结果条目）",
@@ -692,6 +696,8 @@ export default {
 			caption: "保存",
 			tip: "保存",
 		},
+	},
+	casefavoritetoolbar_toolbar: {
 	},
 	gridviewtoolbar_toolbar: {
 		deuiaction3_batchnew: {

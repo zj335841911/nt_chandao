@@ -1719,6 +1719,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IBZProStoryModuleOptionView",
             "viewtag": "87ca9109af86ed2745dcf7aa21294541"
         },
+        "casecasefavorite": {
+            "title": "测试用例表格视图(我的收藏)",
+            "caption": "测试用例",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseCaseFavorite",
+            "viewtag": "8a84b7829f6ecc77d8d3b4f6a7d1ade3"
+        },
         "bugusr2gridview": {
             "title": "Bug表格视图",
             "caption": "Bug",

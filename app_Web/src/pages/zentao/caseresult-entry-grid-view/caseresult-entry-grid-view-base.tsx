@@ -123,12 +123,6 @@ export class CaseresultEntryGridViewBase extends GridViewBase {
     public engineInit(): void {
         this.engine.init({
             view: this,
-            opendata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.opendata(args,fullargs, params, $event, xData);
-            },
-            newdata: (args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) => {
-                this.newdata(args,fullargs, params, $event, xData);
-            },
             grid: this.$refs.grid,
             keyPSDEField: 'case',
             majorPSDEField: 'title',
@@ -190,89 +184,6 @@ export class CaseresultEntryGridViewBase extends GridViewBase {
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
     }
-
-    /**
-     * 打开新建数据视图
-     *
-     * @param {any[]} args
-     * @param {*} [params]
-     * @param {*} [fullargs]
-     * @param {*} [$event]
-     * @param {*} [xData]
-     * @memberof CaseresultEntryGridView
-     */
-    public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
-        let localContext:any = null;
-        let localViewParam:any =null;
-        const data: any = {};
-        if(args[0].srfsourcekey){
-            data.srfsourcekey = args[0].srfsourcekey;
-        }
-        if(fullargs && (fullargs as any).copymode) {
-            Object.assign(data, { copymode: (fullargs as any).copymode });
-        }
-        let tempContext = JSON.parse(JSON.stringify(this.context));
-        delete tempContext.case;
-        if(args.length >0){
-            Object.assign(tempContext,args[0]);
-        }
-        let deResParameters: any[] = [];
-        if(tempContext.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'cases', parameterName: 'case' },
-            { pathName: 'editview', parameterName: 'editview' },
-        ];
-        const _this: any = this;
-        const openIndexViewTab = (data: any) => {
-            const _data: any = { w: (new Date().getTime()) };
-            Object.assign(_data, data);
-            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, _data);
-            this.$router.push(routePath);
-        }
-        openIndexViewTab(data);
-    }
-
-
-    /**
-     * 打开编辑数据视图
-     *
-     * @param {any[]} args
-     * @param {*} [params]
-     * @param {*} [fullargs]
-     * @param {*} [$event]
-     * @param {*} [xData]
-     * @memberof CaseresultEntryGridView
-     */
-    public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
-        const localContext: any = null;
-        const localViewParam: any =null;
-        const data: any = {};
-        let tempContext = JSON.parse(JSON.stringify(this.context));
-        if(args.length >0){
-            Object.assign(tempContext,args[0]);
-        }
-        let deResParameters: any[] = [];
-        if(tempContext.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'cases', parameterName: 'case' },
-            { pathName: 'editview', parameterName: 'editview' },
-        ];
-        const _this: any = this;
-        const openIndexViewTab = (data: any) => {
-            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, data);
-            this.$router.push(routePath);
-        }
-        openIndexViewTab(data);
-    }
-
 
 
     /**
