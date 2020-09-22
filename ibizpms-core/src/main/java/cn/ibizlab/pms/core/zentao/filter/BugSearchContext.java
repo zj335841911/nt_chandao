@@ -149,6 +149,13 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
             this.getSearchCond().ne("status", n_status_noteq);
         }
     }
+	private Long n_id_eq;//[Bug编号]
+	public void setN_id_eq(Long n_id_eq) {
+        this.n_id_eq = n_id_eq;
+        if(!ObjectUtils.isEmpty(this.n_id_eq)){
+            this.getSearchCond().eq("id", n_id_eq);
+        }
+    }
 	private String n_resolvedby_eq;//[解决者]
 	public void setN_resolvedby_eq(String n_resolvedby_eq) {
         this.n_resolvedby_eq = n_resolvedby_eq;
