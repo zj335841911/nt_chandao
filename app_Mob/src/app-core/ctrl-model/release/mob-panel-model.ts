@@ -81,6 +81,12 @@ export class MobModel {
       {
         name: 'releasetype',
       },
+      {
+        name: 'builder',
+      },
+      {
+        name: 'builddate',
+      },
     ]
   }
 

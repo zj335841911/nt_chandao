@@ -437,6 +437,31 @@ export class BuildServiceBase extends EntityService {
     }
 
     /**
+     * FetchTestRounds接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BuildServiceBase
+     */
+    public async FetchTestRounds(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/builds/fetchtestrounds`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/builds/fetchtestrounds`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/builds/fetchtestrounds`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * MentionTest接口方法
      *
      * @param {*} [context={}]
