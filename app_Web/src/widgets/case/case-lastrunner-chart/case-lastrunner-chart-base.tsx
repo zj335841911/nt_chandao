@@ -251,6 +251,7 @@ export class CaseLASTRUNNERChartBase extends MainControlBase {
      * @memberof Dashboard_sysportlet4_chartBase
      */   
     public chartUserParams:any ={
+        color:["#FF6633","#00CCFF","#3399FF","#3366FF",'#00ffa9','#85B3FF','#A1FFFF']
     };
 
     /**
