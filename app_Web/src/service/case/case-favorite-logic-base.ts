@@ -136,7 +136,8 @@ export default class CaseFavoriteLogicBase {
     this.paramsMap.set('IbzFavorite',{data:tempDstParam0Data,context:tempDstParam0Context});
     let tempDstParam1Context:any = this.paramsMap.get('IbzFavorite').context?this.paramsMap.get('IbzFavorite').context:{};
     let tempDstParam1Data:any = this.paramsMap.get('IbzFavorite').data?this.paramsMap.get('IbzFavorite').data:{};
-    Object.assign(tempDstParam1Data,{account:params['srfloginname']});
+    let tempSrcParam1Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
+    Object.assign(tempDstParam1Data,{account:tempSrcParam1Data['openedby']});
     this.paramsMap.set('IbzFavorite',{data:tempDstParam1Data,context:tempDstParam1Context});
     let tempDstParam2Context:any = this.paramsMap.get('IbzFavorite').context?this.paramsMap.get('IbzFavorite').context:{};
     let tempDstParam2Data:any = this.paramsMap.get('IbzFavorite').data?this.paramsMap.get('IbzFavorite').data:{};
