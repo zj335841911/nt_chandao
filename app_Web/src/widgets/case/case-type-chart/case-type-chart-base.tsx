@@ -251,7 +251,7 @@ export class CaseTypeChartBase extends MainControlBase {
      * @memberof Dashboard_sysportlet2_chartBase
      */   
     public chartUserParams:any ={
-        color:["#f69f54","#42B3FF","#aa00ff","#884bff",'#00ffa9','#85B3FF','#A1FFFF']
+        color:["#00FF99","#00CCFF","#aa00ff","#884bff",'#00ffa9','#85B3FF','#A1FFFF']
     };
 
     /**
