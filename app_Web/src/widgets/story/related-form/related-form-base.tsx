@@ -91,6 +91,7 @@ export class RelatedEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         linkstories: null,
+        frombug: null,
         childstories: null,
         id: null,
         story:null,
@@ -160,6 +161,8 @@ export class RelatedEditFormBase extends EditFormControlBase {
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         linkstories: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'linkstories', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        frombug: new FormItemModel({ caption: '来源Bug', detailType: 'FORMITEM', name: 'frombug', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         childstories: new FormItemModel({ caption: '细分需求', detailType: 'FORMITEM', name: 'childstories', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

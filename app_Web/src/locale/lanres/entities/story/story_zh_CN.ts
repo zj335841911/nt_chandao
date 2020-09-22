@@ -712,6 +712,7 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			linkstories: "相关需求", 
+			frombug: "来源Bug", 
 			childstories: "细分需求", 
 			id: "编号", 
 		},

@@ -56,6 +56,11 @@ export default class RelatedModel {
         dataType: 'SMCODELIST',
       },
       {
+        name: 'frombug',
+        prop: 'frombug',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'childstories',
         prop: 'childstories',
         dataType: 'SMCODELIST',
