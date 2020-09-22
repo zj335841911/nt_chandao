@@ -140,7 +140,7 @@ export default {
 		},
 		casefavorite: {
 			caption: "测试用例",
-      		title: "测试用例表格视图(我的收藏)",
+      		title: "case表格视图",
 		},
 		resultentrygridview: {
 			caption: "测试结果条目",

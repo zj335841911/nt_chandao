@@ -285,7 +285,7 @@ export class CaseModuleChartBase extends MainControlBase {
             name:'',
             type:'pie',
             datasetIndex:0,
-            width:"1,000",
+            
             seriesLayoutBy:"column",
             encode:{
                 itemName:"modulename",

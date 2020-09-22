@@ -1720,7 +1720,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "87ca9109af86ed2745dcf7aa21294541"
         },
         "casecasefavorite": {
-            "title": "测试用例表格视图(我的收藏)",
+            "title": "case表格视图",
             "caption": "测试用例",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
