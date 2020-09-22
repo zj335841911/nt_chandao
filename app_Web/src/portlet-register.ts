@@ -16,6 +16,7 @@ import CaseCaseType from '@/widgets/case/case-type-portlet/case-type-portlet.vue
 import CaseCaseResult from '@/widgets/case/case-result-portlet/case-result-portlet.vue';
 import CaseTestDashboardQuickAction from '@/widgets/case/test-dashboard-quick-action-portlet/test-dashboard-quick-action-portlet.vue';
 import CaseDashboardQuickAction from '@/widgets/case/dashboard-quick-action-portlet/dashboard-quick-action-portlet.vue';
+import CaseCaseResultEntry from '@/widgets/case/case-result-entry-portlet/case-result-entry-portlet.vue';
 import CaseMainInfo from '@/widgets/case/main-info-portlet/main-info-portlet.vue';
 import ProductProductMainToolbar from '@/widgets/product/product-main-toolbar-portlet/product-main-toolbar-portlet.vue';
 import ProductProductInfo from '@/widgets/product/product-info-portlet/product-info-portlet.vue';
@@ -90,6 +91,7 @@ export const  PortletComponent = {
         v.component('app-story-base-info-portlet', StoryBaseInfo);
         v.component('app-story-story-related-portlet', StoryStoryRelated);
         v.component('app-case-case-result-portlet', CaseCaseResult);
+        v.component('app-case-case-result-entry-portlet', CaseCaseResultEntry);
         v.component('app-case-case-type-portlet', CaseCaseType);
         v.component('app-case-case-module-portlet', CaseCaseModule);
         v.component('app-case-case-lastrunner-portlet', CaseCaseLastrunner);
@@ -135,6 +137,7 @@ export const  PortletComponent = {
         v.component('case-case-result-portlet', CaseCaseResult);
         v.component('case-test-dashboard-quick-action-portlet', CaseTestDashboardQuickAction);
         v.component('case-dashboard-quick-action-portlet', CaseDashboardQuickAction);
+        v.component('case-case-result-entry-portlet', CaseCaseResultEntry);
         v.component('case-main-info-portlet', CaseMainInfo);
         v.component('product-product-main-toolbar-portlet', ProductProductMainToolbar);
         v.component('product-product-info-portlet', ProductProductInfo);

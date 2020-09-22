@@ -878,6 +878,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '8d9e694196a8c1abd56fd1632eed0173',
             ],
         },
         {
@@ -2044,6 +2045,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: '8d9e694196a8c1abd56fd1632eed0173',
+            viewmodule: 'zentao',
+            viewname: 'CaseresultEntryGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '02b7ecd8e994b90558a9d6c23705f600',
             ],
         },
         {

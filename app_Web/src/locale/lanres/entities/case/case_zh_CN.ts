@@ -138,6 +138,10 @@ export default {
 			caption: "测试用例",
       		title: "测试用例表格视图",
 		},
+		resultentrygridview: {
+			caption: "测试结果条目",
+      		title: "测试用例表格视图（测试结果条目）",
+		},
 		maineditview: {
 			caption: "测试用例",
       		title: "测试用例",
@@ -564,6 +568,15 @@ export default {
 			resultcnt: "R",
 			casesteps: "S",
 			lastrunresult1: "测试用例结果",
+		},
+		uiactions: {
+		},
+	},
+	caseresultentry_grid: {
+		columns: {
+			lastrunresult1: "条目",
+			resultcnt: "值",
+			task: "百分比",
 		},
 		uiactions: {
 		},
