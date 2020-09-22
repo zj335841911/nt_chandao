@@ -1,13 +1,13 @@
 <template>
   <div class="app-seach-history">
         <ion-toolbar>
-            <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')" @ionFocus="showHistory" @ionBlur="hideHistory" @search="searchVal"></ion-searchbar>
+            <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')" @ionFocus="showHistory" @ionBlur="hideHistory" @search="searchVal" ref="searchbar"></ion-searchbar>
             <ion-button v-if="showfilter" class="filter-btn" size="small" slot="end"  @click="openSearchform"><ion-icon  slot="end" name="filter-outline"></ion-icon>过滤</ion-button> 
         </ion-toolbar>
         <div class="history" v-if="hasHistory">
-          <div class="hisText"><div>最近搜索</div> <ion-icon name="trash-bin-outline" @click="clearHistory"></ion-icon></div>
+          <div class="hisText"><div>最近搜索</div> <van-icon name="delete" @click="clearHistory"/></div>
           <div class="hisItems">
-            <van-tag type="primary" v-for="item in historyList" :key="item.index" round size="medium" color="#ededed" text-color="#333" >{{item}}</van-tag>
+            <van-tag type="primary" v-for="item in historyList" :key="item.index" round size="medium" color="#ededed" text-color="#333" @click="clickTag">{{item}}</van-tag>
           </div>
         </div>
   </div>
@@ -41,7 +41,7 @@ export default class AppRoundList extends Vue{
      * @type {boolean}
      * @memberof AppSearchHistory
      */ 
-    @Prop() public showfilter:boolean = false;
+    @Prop() public showfilter!:boolean;
 
     /**
      * 快速搜索值变化
@@ -52,6 +52,7 @@ export default class AppRoundList extends Vue{
      */
     public quickValueChange($event:any){
       this.$emit('quickValueChange',$event);
+      this.searchVal($event);
     }
 
     /**
@@ -153,7 +154,6 @@ export default class AppRoundList extends Vue{
         if ( (Array.isArray(this.historyLists.historyList)) && (this.historyLists.historyList.length <= 0) ) {
           this.hasHistory = false;
         } else {
-          console.log('333');
           this.hasHistory = true;
         }
       } 
@@ -176,6 +176,9 @@ export default class AppRoundList extends Vue{
     public searchVal($event:any){
       let val:any = $event.target.value;
       val = val.trim();
+      if (val === "") {
+        return;
+      }
       if (this.historyList.length > 0) {
         if (this.historyList.indexOf(val) !== -1) { 
           this.historyList.splice(this.historyList.indexOf(val), 1);
@@ -211,6 +214,18 @@ export default class AppRoundList extends Vue{
       } else {
           return false;
       }
+    }
+
+    /**
+     * 点击tag
+     *
+     * @memberof AppSearchHistory
+     */ 
+    public async clickTag($event:any){
+      let content:any = $event.target.textContent
+      let searchbar:any = this.$refs.searchbar;
+      searchbar.value = content;      
+      this.quickValueChange({detail:{value:content}});
     }
 };
 </script>

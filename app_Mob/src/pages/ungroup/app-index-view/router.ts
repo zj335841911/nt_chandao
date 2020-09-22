@@ -486,6 +486,8 @@ const router = new Router({
                     name: 'case_mobeditview',
                     meta: {
                         caption: 'case.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -502,6 +504,8 @@ const router = new Router({
                     name: 'case_mobeditview',
                     meta: {
                         caption: 'case.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -517,6 +521,8 @@ const router = new Router({
                     name: 'case_mobeditview',
                     meta: {
                         caption: 'case.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -532,6 +538,8 @@ const router = new Router({
                     name: 'case_mobeditview',
                     meta: {
                         caption: 'case.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -4380,6 +4388,8 @@ const router = new Router({
                     name: 'case_mobmdview',
                     meta: {
                         caption: 'case.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -4396,6 +4406,8 @@ const router = new Router({
                     name: 'case_mobmdview',
                     meta: {
                         caption: 'case.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -4411,6 +4423,8 @@ const router = new Router({
                     name: 'case_mobmdview',
                     meta: {
                         caption: 'case.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'products', parameterName: 'product' },
@@ -4426,6 +4440,8 @@ const router = new Router({
                     name: 'case_mobmdview',
                     meta: {
                         caption: 'case.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'cases', parameterName: 'case' },

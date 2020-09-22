@@ -198,7 +198,7 @@ export default class CaseMobEditViewBase extends Vue {
         dataInfo: '',
         viewname:'case.mobeditview.caption',
         iconcls: '',
-        icon: ''
+        icon: 'fa fa-star-o'
     }
 
     /**
