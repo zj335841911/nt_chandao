@@ -126,6 +126,11 @@ export default class TestMainGridModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
           name: 'module',
           prop: 'module',
           dataType: 'PICKUP',

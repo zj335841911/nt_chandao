@@ -92,19 +92,9 @@ export default class RePortMainGridModel {
           dataType: 'SSCODELIST',
         },
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'frombug',
           prop: 'frombug',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'srfmstag',
@@ -115,24 +105,44 @@ export default class RePortMainGridModel {
           dataType: 'TEXT',
         },
         {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
         },
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
         },
         {
           name: 'story',
           prop: 'story',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'fromcaseid',
+          prop: 'fromcaseid',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'product',
+          prop: 'product',
           dataType: 'PICKUP',
         },
         {
@@ -143,11 +153,6 @@ export default class RePortMainGridModel {
         {
           name: 'branch',
           prop: 'branch',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'fromcaseid',
-          prop: 'fromcaseid',
           dataType: 'PICKUP',
         },
         {

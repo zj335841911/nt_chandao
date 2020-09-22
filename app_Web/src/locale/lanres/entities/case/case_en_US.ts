@@ -550,14 +550,14 @@ export default {
 		},
 		uiactions: {
         case_confirmstorychange: "确认",
-        case_casenfavorite: "取消收藏",
         case_opentestrunresultview: "结果",
-        case_casefavorite: "收藏",
         case_execute: "执行",
         case_mainedit: "编辑",
         refresh: "刷新",
         case_newbugbycaseresult: "转Bug",
         case_delete: "删除",
+        case_casefavorite: "收藏",
+        case_casenfavorite: "取消收藏",
 		},
 	},
 	batchnew_grid: {
