@@ -50,6 +50,7 @@ export const PageComponents = {
         Vue.component('story-mpickup-view3', () => import('@pages/zentao/story-mpickup-view3/story-mpickup-view3.vue'));
         Vue.component('case-case-favorite', () => import('@pages/zentao/case-case-favorite/case-case-favorite.vue'));
         Vue.component('todo-assign-to-view', () => import('@pages/zentao/todo-assign-to-view/todo-assign-to-view.vue'));
+        Vue.component('bug-grid-view9-story-form-bug', () => import('@pages/zentao/bug-grid-view9-story-form-bug/bug-grid-view9-story-form-bug.vue'));
         Vue.component('task-work-info-edit-view9', () => import('@pages/zentao/task-work-info-edit-view9/task-work-info-edit-view9.vue'));
         Vue.component('test-suite-edit-view9', () => import('@pages/zentao/test-suite-edit-view9/test-suite-edit-view9.vue'));
         Vue.component('build-edit-view', () => import('@pages/zentao/build-edit-view/build-edit-view.vue'));

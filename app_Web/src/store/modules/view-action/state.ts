@@ -463,6 +463,7 @@ export const viewstate: any = {
                 'c959d7fe98c33b7befcad24e2596633e',
                 'a0f93007d7102bd236dc8f50ac4042ea',
                 '5895951b7f1045198682c8d51cd85482',
+                '723d3aebb532563a44fb34172cd502f0',
             ],
         },
         {
@@ -1603,6 +1604,17 @@ export const viewstate: any = {
                 'abca63015fc84466991c6479f955f6d0',
                 'ea141fddc78fd1af4d06e494baf12cc1',
                 '507c506d62dc910a814332e6ae242266',
+            ],
+        },
+        {
+            viewtag: '723d3aebb532563a44fb34172cd502f0',
+            viewmodule: 'zentao',
+            viewname: 'BugGridView9_StoryFormBug',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1540523a668e920d831510cfbec2c5e2',
+                '46517a803b2470cd0bef27aeda0dbcaf',
             ],
         },
         {

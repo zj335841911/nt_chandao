@@ -1759,6 +1759,16 @@
         "viewtag": "7088260bcd6a0303378af2f8e207f479",
         "memo": ""
     },
+    "buggridview9_storyformbug": {
+        "title": "来源Bug",
+        "caption": "来源Bug",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "BugGridView9_StoryFormBug",
+        "viewfilename": "bug-grid-view9-story-form-bug",
+        "viewtag": "723d3aebb532563a44fb34172cd502f0",
+        "memo": ""
+    },
     "testtaskprojectgridview": {
         "title": "测试单表格视图（项目）",
         "caption": "项目",

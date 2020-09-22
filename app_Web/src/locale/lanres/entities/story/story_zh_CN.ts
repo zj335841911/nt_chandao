@@ -697,6 +697,8 @@ export default {
 			formpage1: "项目任务", 
 			druipart4: "", 
 			druipart5: "", 
+			druipart6: "", 
+			grouppanel3: "来源Bug", 
 			druipart2: "", 
 			grouppanel1: "相关Bug", 
 			druipart3: "", 

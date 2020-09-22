@@ -74,7 +74,7 @@ export class RelatedEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof RelatedEditFormBase
      */
-    protected drCount: number = 5;
+    protected drCount: number = 6;
 
     /**
      * 表单数据对象
@@ -130,6 +130,10 @@ export class RelatedEditFormBase extends EditFormControlBase {
         druipart4: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart4', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         druipart5: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart5', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        druipart6: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart6', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        grouppanel3: new FormGroupPanelModel({ caption: '来源Bug', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.related_form', extractMode: 'ITEM', details: [] } }),
 
         druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 

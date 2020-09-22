@@ -1415,6 +1415,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskKanbanView",
             "viewtag": "7088260bcd6a0303378af2f8e207f479"
         },
+        "buggridview9_storyformbug": {
+            "title": "来源Bug",
+            "caption": "来源Bug",
+            "viewtype": "DEGRIDVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "BugGridView9_StoryFormBug",
+            "viewtag": "723d3aebb532563a44fb34172cd502f0"
+        },
         "testtaskprojectgridview": {
             "title": "测试单表格视图（项目）",
             "caption": "项目",

@@ -57,6 +57,28 @@ export class StoryMainView9_RelatedBase extends EditView9Base {
      */
     public appUIService: StoryUIService = new StoryUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof StoryMainView9_RelatedBase
+	 */
+    protected customViewNavContexts: any = {
+        'FROMBUG': { isRawValue: false, value: 'frombug' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof StoryMainView9_RelatedBase
+	 */
+    protected customViewParams: any = {
+        'frombug': { isRawValue: false, value: 'frombug' }
+    };
+
     /**
      * 视图模型数据
      *

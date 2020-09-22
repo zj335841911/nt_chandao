@@ -148,6 +148,10 @@ export default {
 			caption: "重现步骤",
       		title: "Bug编辑视图",
 		},
+		gridview9_storyformbug: {
+			caption: "来源Bug",
+      		title: "来源Bug",
+		},
 		confirmview: {
 			caption: "确认Bug",
       		title: "确认Bug",
