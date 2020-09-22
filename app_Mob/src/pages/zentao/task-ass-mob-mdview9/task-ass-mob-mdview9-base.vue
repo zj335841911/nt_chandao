@@ -182,6 +182,7 @@ export default class TaskAssMobMDView9Base extends Vue {
         srfCaption: 'task.views.assmobmdview9.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'task.assmobmdview9.caption',
         iconcls: '',
         icon: 'fa fa-tasks'
     }

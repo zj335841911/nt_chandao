@@ -195,6 +195,7 @@ export default class TodoMobOptionViewBase extends Vue {
         srfCaption: 'todo.views.moboptionview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'todo.moboptionview.caption',
         iconcls: '',
         icon: ''
     }

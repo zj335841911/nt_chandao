@@ -195,6 +195,7 @@ export default class BugCloseMobOptionViewBase extends Vue {
         srfCaption: 'bug.views.closemoboptionview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'bug.closemoboptionview.caption',
         iconcls: '',
         icon: 'fa fa-bug'
     }

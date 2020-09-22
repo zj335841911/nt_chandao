@@ -208,6 +208,7 @@ export default class ProductMobEditViewBase extends Vue {
         srfCaption: 'product.views.mobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'product.mobeditview.caption',
         iconcls: '',
         icon: ''
     }

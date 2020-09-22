@@ -196,6 +196,7 @@ export default class CaseMobEditViewBase extends Vue {
         srfCaption: 'case.views.mobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'case.mobeditview.caption',
         iconcls: '',
         icon: ''
     }

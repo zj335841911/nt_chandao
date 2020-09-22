@@ -195,6 +195,7 @@ export default class TaskComMobOptionViewBase extends Vue {
         srfCaption: 'task.views.commoboptionview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'task.commoboptionview.caption',
         iconcls: '',
         icon: 'fa fa-tasks'
     }

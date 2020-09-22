@@ -173,6 +173,7 @@ export default class ProjectMobPickupMDViewBase extends Vue {
         srfCaption: 'project.views.mobpickupmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'project.mobpickupmdview.caption',
         iconcls: '',
         icon: ''
     }

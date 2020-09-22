@@ -171,6 +171,7 @@ export default class IbzMyTerritoryMobCalendarViewBase extends Vue {
         srfCaption: 'ibzmyterritory.views.mobcalendarview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'ibzmyterritory.mobcalendarview.caption',
         iconcls: '',
         icon: ''
     }

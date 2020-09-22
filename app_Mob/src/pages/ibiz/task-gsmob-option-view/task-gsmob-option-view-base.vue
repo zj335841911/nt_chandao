@@ -195,6 +195,7 @@ export default class TaskGSMobOptionViewBase extends Vue {
         srfCaption: 'task.views.gsmoboptionview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'task.gsmoboptionview.caption',
         iconcls: '',
         icon: 'fa fa-tasks'
     }

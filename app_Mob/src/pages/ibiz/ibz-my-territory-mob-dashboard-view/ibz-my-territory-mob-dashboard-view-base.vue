@@ -165,6 +165,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
         srfCaption: 'ibzmyterritory.views.mobdashboardview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'ibzmyterritory.mobdashboardview.caption',
         iconcls: '',
         icon: ''
     }

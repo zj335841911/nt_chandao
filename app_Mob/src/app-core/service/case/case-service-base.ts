@@ -1,8 +1,6 @@
 import { Http,Util,HttpResponse } from '@/ibiz-core/utils';
 import  { EntityService }  from '@/ibiz-core';
-import { CaseNFavoriteLogic } from './case-nfavorite-logic';
 import { GetCaseStepByIdVersionLogic } from './get-case-step-by-id-version-logic';
-import { CaseFavoriteLogic } from './case-favorite-logic';
 
 
 
@@ -419,9 +417,80 @@ export class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async CaseFavorite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let appLogic:CaseFavoriteLogic = new CaseFavoriteLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
-        const res = await appLogic.onExecute(context,data,isloading?true:false);
-        return {status:200,data:res};
+        if(context.product && context.story && context.case){
+            let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casefavorite`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
+
+            return res;
+        }
+        if(context.story && context.case){
+            let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/casefavorite`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
+
+            return res;
+        }
+        if(context.product && context.case){
+            let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/casefavorite`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/cases/${context.case}/casefavorite`,data,isloading);
+            return res;
     }
 
     /**
@@ -434,9 +503,80 @@ export class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async CaseNFavorite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let appLogic:CaseNFavoriteLogic = new CaseNFavoriteLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
-        const res = await appLogic.onExecute(context,data,isloading?true:false);
-        return {status:200,data:res};
+        if(context.product && context.story && context.case){
+            let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casenfavorite`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
+
+            return res;
+        }
+        if(context.story && context.case){
+            let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/casenfavorite`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
+
+            return res;
+        }
+        if(context.product && context.case){
+            let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/casenfavorite`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/cases/${context.case}/casenfavorite`,data,isloading);
+            return res;
     }
 
     /**
@@ -1848,6 +1988,36 @@ export class CaseServiceBase extends EntityService {
     }
 
     /**
+     * FetchMyFavorites接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchMyFavorites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchmyfavorites`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchmyfavorites`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchmyfavorites`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/cases/fetchmyfavorites`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchNotCurTestSuite接口方法
      *
      * @param {*} [context={}]
@@ -2097,6 +2267,18 @@ export class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempModuleRePortCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempMyFavorites接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempMyFavorites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**

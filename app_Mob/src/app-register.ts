@@ -117,5 +117,7 @@ export const AppComponents = {
         v.component('app-setting',() => import('@/components/app-setting/app-setting.vue'));
         // 风格切换组件
         v.component('app-mob-select-changeStyle',() => import('@/components/app-mob-select-changeStyle/app-mob-select-changeStyle.vue'));
+        // 搜索历史组件
+        v.component('app-search-history',() => import('@/components/app-search-history/app-search-history.vue'));
     },
 };

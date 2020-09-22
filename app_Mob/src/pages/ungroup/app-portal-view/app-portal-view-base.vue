@@ -169,6 +169,7 @@ export default class AppPortalViewBase extends Vue {
         srfCaption: 'app.views.appportalview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'app.views.appportalview',
         iconcls: '',
         icon: ''
     }

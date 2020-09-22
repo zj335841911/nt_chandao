@@ -1,34 +1,16 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demoblistview': true, 'todo-mob-list-view': true }">
-    
-    <ion-header>
-        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
-            <ion-buttons slot="start">
-                <ion-button v-show="isShowBackButton" @click="closeView">
-                    <ion-icon name="chevron-back"></ion-icon>
-                    {{$t('app.button.back')}}
-                </ion-button>
-            </ion-buttons>
-            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-            <ion-buttons slot="end">
-                                <div class="app-toolbar-container ">
-                    <div class="app-quick-toolbar toolbar-right-bottons">
-                    </div>
-                </div>
-            </ion-buttons>
-        </ion-toolbar>
-        <ion-toolbar>
-            <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
-        </ion-toolbar>
+!!!!模版产生代码错误:----
+Tip: If you just want "true"/"false" result as you are generting computer-language output, use "?c", like ${myBool?c}.
+----
+Tip: You can write myBool?string('yes', 'no') and like to specify boolean formatting in place.
+----
+Tip: If you need the same two values on most places, the programmers should set the "boolean_format" setting to something like "yes,no".
+----
 
-    
-    </ion-header>
-
-
-    <ion-content>
-                <div>列表视图已废弃，请选择多数据视图</div>
-    </ion-content>
-</ion-page>
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${view.hasPSControl("searchform")}  [in template "TEMPLCODE_en_US" at line 171, column 127]
+----
 </template>
 
 <script lang='ts'>
@@ -173,6 +155,7 @@ export default class TodoMobListViewBase extends Vue {
         srfCaption: 'todo.views.moblistview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'todo.moblistview.caption',
         iconcls: '',
         icon: ''
     }

@@ -141,6 +141,7 @@ export default class AppIndexViewBase extends Vue {
         srfCaption: 'app.views.appindexview.caption',
         srfSubCaption: '工作台',
         dataInfo: '',
+        viewname:'app.views.appindexview',
         iconcls: '',
         icon: ''
     }

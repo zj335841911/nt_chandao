@@ -181,6 +181,7 @@ export default class BuildMobMPickupViewBase extends Vue {
         srfCaption: 'build.views.mobmpickupview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'build.mobmpickupview.caption',
         iconcls: '',
         icon: 'fa fa-code-fork'
     }

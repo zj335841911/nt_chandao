@@ -202,6 +202,7 @@ export default class ProjectCloseMobEditViewBase extends Vue {
         srfCaption: 'project.views.closemobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'project.closemobeditview.caption',
         iconcls: '',
         icon: ''
     }

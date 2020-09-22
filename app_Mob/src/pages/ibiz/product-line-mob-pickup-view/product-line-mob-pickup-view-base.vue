@@ -181,6 +181,7 @@ export default class ProductLineMobPickupViewBase extends Vue {
         srfCaption: 'productline.views.mobpickupview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'productline.mobpickupview.caption',
         iconcls: '',
         icon: ''
     }

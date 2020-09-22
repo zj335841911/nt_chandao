@@ -202,6 +202,7 @@ export default class ProjectSupMobEditViewBase extends Vue {
         srfCaption: 'project.views.supmobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'project.supmobeditview.caption',
         iconcls: '',
         icon: ''
     }

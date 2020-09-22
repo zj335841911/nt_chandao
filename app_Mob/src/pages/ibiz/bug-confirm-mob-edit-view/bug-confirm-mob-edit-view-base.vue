@@ -202,6 +202,7 @@ export default class BugConfirmMobEditViewBase extends Vue {
         srfCaption: 'bug.views.confirmmobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'bug.confirmmobeditview.caption',
         iconcls: '',
         icon: 'fa fa-bug'
     }

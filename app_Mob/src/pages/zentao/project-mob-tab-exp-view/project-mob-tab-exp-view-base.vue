@@ -197,6 +197,7 @@ export default class ProjectMobTabExpViewBase extends Vue {
         srfCaption: 'project.views.mobtabexpview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'project.mobtabexpview.caption',
         iconcls: '',
         icon: ''
     }

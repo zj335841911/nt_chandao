@@ -195,6 +195,7 @@ export default class TaskCancelMobOptionViewBase extends Vue {
         srfCaption: 'task.views.cancelmoboptionview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'task.cancelmoboptionview.caption',
         iconcls: '',
         icon: 'fa fa-tasks'
     }

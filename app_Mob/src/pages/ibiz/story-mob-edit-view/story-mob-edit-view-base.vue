@@ -247,6 +247,7 @@ export default class StoryMobEditViewBase extends Vue {
         srfCaption: 'story.views.mobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'story.mobeditview.caption',
         iconcls: '',
         icon: 'fa fa-star-o'
     }

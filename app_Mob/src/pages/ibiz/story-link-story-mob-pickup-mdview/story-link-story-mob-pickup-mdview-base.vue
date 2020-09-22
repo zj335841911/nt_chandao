@@ -173,6 +173,7 @@ export default class StoryLinkStoryMobPickupMDViewBase extends Vue {
         srfCaption: 'story.views.linkstorymobpickupmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'story.linkstorymobpickupmdview.caption',
         iconcls: '',
         icon: 'fa fa-star-o'
     }

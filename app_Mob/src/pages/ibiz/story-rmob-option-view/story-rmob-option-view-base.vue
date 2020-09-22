@@ -195,6 +195,7 @@ export default class StoryRMobOptionViewBase extends Vue {
         srfCaption: 'story.views.rmoboptionview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'story.rmoboptionview.caption',
         iconcls: '',
         icon: 'fa fa-star-o'
     }

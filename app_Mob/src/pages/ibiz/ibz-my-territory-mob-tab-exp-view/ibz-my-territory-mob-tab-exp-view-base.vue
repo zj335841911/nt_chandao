@@ -191,6 +191,7 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
         srfCaption: 'ibzmyterritory.views.mobtabexpview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'ibzmyterritory.mobtabexpview.caption',
         iconcls: '',
         icon: ''
     }

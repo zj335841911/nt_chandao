@@ -174,6 +174,7 @@ export default class TaskEstimateMobMEditView9Base extends Vue {
         srfCaption: 'ibztaskestimate.views.mobmeditview9.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'ibztaskestimate.mobmeditview9.caption',
         iconcls: '',
         icon: ''
     }

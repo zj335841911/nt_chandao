@@ -202,6 +202,7 @@ export default class BugActivationMobEditViewBase extends Vue {
         srfCaption: 'bug.views.activationmobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'bug.activationmobeditview.caption',
         iconcls: '',
         icon: 'fa fa-bug'
     }
