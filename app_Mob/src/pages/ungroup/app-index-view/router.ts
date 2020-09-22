@@ -60,6 +60,7 @@ const router = new Router({
             children: [
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/cancelmoboptionview',
+                    name: 'task_cancelmoboptionview',
                     meta: {
                         caption: 'task.views.cancelmoboptionview.caption',
                         imgPath: '',
@@ -77,6 +78,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/cancelmoboptionview',
+                    name: 'task_cancelmoboptionview',
                     meta: {
                         caption: 'task.views.cancelmoboptionview.caption',
                         imgPath: '',
@@ -93,6 +95,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/cancelmoboptionview',
+                    name: 'task_cancelmoboptionview',
                     meta: {
                         caption: 'task.views.cancelmoboptionview.caption',
                         imgPath: '',
@@ -109,6 +112,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/cancelmoboptionview',
+                    name: 'task_cancelmoboptionview',
                     meta: {
                         caption: 'task.views.cancelmoboptionview.caption',
                         imgPath: '',
@@ -124,6 +128,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/stopmoboptionview',
+                    name: 'task_stopmoboptionview',
                     meta: {
                         caption: 'task.views.stopmoboptionview.caption',
                         imgPath: '',
@@ -141,6 +146,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/stopmoboptionview',
+                    name: 'task_stopmoboptionview',
                     meta: {
                         caption: 'task.views.stopmoboptionview.caption',
                         imgPath: '',
@@ -157,6 +163,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/stopmoboptionview',
+                    name: 'task_stopmoboptionview',
                     meta: {
                         caption: 'task.views.stopmoboptionview.caption',
                         imgPath: '',
@@ -173,6 +180,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/stopmoboptionview',
+                    name: 'task_stopmoboptionview',
                     meta: {
                         caption: 'task.views.stopmoboptionview.caption',
                         imgPath: '',
@@ -188,6 +196,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/mobtabexpview',
+                    name: 'product_mobtabexpview',
                     meta: {
                         caption: 'product.views.mobtabexpview.caption',
                         parameters: [
@@ -201,6 +210,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/closemoboptionview',
+                    name: 'task_closemoboptionview',
                     meta: {
                         caption: 'task.views.closemoboptionview.caption',
                         imgPath: '',
@@ -218,6 +228,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/closemoboptionview',
+                    name: 'task_closemoboptionview',
                     meta: {
                         caption: 'task.views.closemoboptionview.caption',
                         imgPath: '',
@@ -234,6 +245,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/closemoboptionview',
+                    name: 'task_closemoboptionview',
                     meta: {
                         caption: 'task.views.closemoboptionview.caption',
                         imgPath: '',
@@ -250,6 +262,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/closemoboptionview',
+                    name: 'task_closemoboptionview',
                     meta: {
                         caption: 'task.views.closemoboptionview.caption',
                         imgPath: '',
@@ -265,6 +278,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/mobmdview',
+                    name: 'bug_mobmdview',
                     meta: {
                         caption: 'bug.views.mobmdview.caption',
                         imgPath: '',
@@ -282,6 +296,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/bugs/:bug?/mobmdview',
+                    name: 'bug_mobmdview',
                     meta: {
                         caption: 'bug.views.mobmdview.caption',
                         imgPath: '',
@@ -298,6 +313,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/bugs/:bug?/mobmdview',
+                    name: 'bug_mobmdview',
                     meta: {
                         caption: 'bug.views.mobmdview.caption',
                         imgPath: '',
@@ -314,6 +330,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/bugs/:bug?/mobmdview',
+                    name: 'bug_mobmdview',
                     meta: {
                         caption: 'bug.views.mobmdview.caption',
                         imgPath: '',
@@ -330,6 +347,7 @@ const router = new Router({
                 },
                 {
                     path: 'bugs/:bug?/mobmdview',
+                    name: 'bug_mobmdview',
                     meta: {
                         caption: 'bug.views.mobmdview.caption',
                         imgPath: '',
@@ -345,6 +363,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/mobpickupmdview',
+                    name: 'project_mobpickupmdview',
                     meta: {
                         caption: 'project.views.mobpickupmdview.caption',
                         parameters: [
@@ -358,6 +377,7 @@ const router = new Router({
                 },
                 {
                     path: 'todos/:todo?/newmobeditview',
+                    name: 'todo_newmobeditview',
                     meta: {
                         caption: 'todo.views.newmobeditview.caption',
                         parameters: [
@@ -371,6 +391,7 @@ const router = new Router({
                 },
                 {
                     path: 'users/:user?/mobpickupmdview',
+                    name: 'user_mobpickupmdview',
                     meta: {
                         caption: 'user.views.mobpickupmdview.caption',
                         parameters: [
@@ -384,6 +405,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/mobpickupview',
+                    name: 'product_mobpickupview',
                     meta: {
                         caption: 'product.views.mobpickupview.caption',
                         parameters: [
@@ -397,6 +419,7 @@ const router = new Router({
                 },
                 {
                     path: 'actions/:action?/mobmdview9',
+                    name: 'action_mobmdview9',
                     meta: {
                         caption: 'action.views.mobmdview9.caption',
                         parameters: [
@@ -410,6 +433,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/builds/:build?/mobeditview',
+                    name: 'build_mobeditview',
                     meta: {
                         caption: 'build.views.mobeditview.caption',
                         imgPath: '',
@@ -426,6 +450,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/builds/:build?/mobeditview',
+                    name: 'build_mobeditview',
                     meta: {
                         caption: 'build.views.mobeditview.caption',
                         imgPath: '',
@@ -442,6 +467,7 @@ const router = new Router({
                 },
                 {
                     path: 'builds/:build?/mobeditview',
+                    name: 'build_mobeditview',
                     meta: {
                         caption: 'build.views.mobeditview.caption',
                         imgPath: '',
@@ -457,6 +483,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/mobeditview',
+                    name: 'case_mobeditview',
                     meta: {
                         caption: 'case.views.mobeditview.caption',
                         parameters: [
@@ -472,6 +499,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/cases/:case?/mobeditview',
+                    name: 'case_mobeditview',
                     meta: {
                         caption: 'case.views.mobeditview.caption',
                         parameters: [
@@ -486,6 +514,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/cases/:case?/mobeditview',
+                    name: 'case_mobeditview',
                     meta: {
                         caption: 'case.views.mobeditview.caption',
                         parameters: [
@@ -500,6 +529,7 @@ const router = new Router({
                 },
                 {
                     path: 'cases/:case?/mobeditview',
+                    name: 'case_mobeditview',
                     meta: {
                         caption: 'case.views.mobeditview.caption',
                         parameters: [
@@ -513,6 +543,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/commoboptionview',
+                    name: 'task_commoboptionview',
                     meta: {
                         caption: 'task.views.commoboptionview.caption',
                         imgPath: '',
@@ -530,6 +561,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/commoboptionview',
+                    name: 'task_commoboptionview',
                     meta: {
                         caption: 'task.views.commoboptionview.caption',
                         imgPath: '',
@@ -546,6 +578,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/commoboptionview',
+                    name: 'task_commoboptionview',
                     meta: {
                         caption: 'task.views.commoboptionview.caption',
                         imgPath: '',
@@ -562,6 +595,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/commoboptionview',
+                    name: 'task_commoboptionview',
                     meta: {
                         caption: 'task.views.commoboptionview.caption',
                         imgPath: '',
@@ -577,6 +611,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/mobeditview',
+                    name: 'task_mobeditview',
                     meta: {
                         caption: 'task.views.mobeditview.caption',
                         imgPath: '',
@@ -594,6 +629,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/mobeditview',
+                    name: 'task_mobeditview',
                     meta: {
                         caption: 'task.views.mobeditview.caption',
                         imgPath: '',
@@ -610,6 +646,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/mobeditview',
+                    name: 'task_mobeditview',
                     meta: {
                         caption: 'task.views.mobeditview.caption',
                         imgPath: '',
@@ -626,6 +663,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/mobeditview',
+                    name: 'task_mobeditview',
                     meta: {
                         caption: 'task.views.mobeditview.caption',
                         imgPath: '',
@@ -641,6 +679,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/testtasks/:testtask?/mobmdview',
+                    name: 'testtask_mobmdview',
                     meta: {
                         caption: 'testtask.views.mobmdview.caption',
                         imgPath: '',
@@ -657,6 +696,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/testtasks/:testtask?/mobmdview',
+                    name: 'testtask_mobmdview',
                     meta: {
                         caption: 'testtask.views.mobmdview.caption',
                         imgPath: '',
@@ -673,6 +713,7 @@ const router = new Router({
                 },
                 {
                     path: 'testtasks/:testtask?/mobmdview',
+                    name: 'testtask_mobmdview',
                     meta: {
                         caption: 'testtask.views.mobmdview.caption',
                         imgPath: '',
@@ -688,6 +729,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/assmoremobmdview',
+                    name: 'bug_assmoremobmdview',
                     meta: {
                         caption: 'bug.views.assmoremobmdview.caption',
                         imgPath: '',
@@ -705,6 +747,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/bugs/:bug?/assmoremobmdview',
+                    name: 'bug_assmoremobmdview',
                     meta: {
                         caption: 'bug.views.assmoremobmdview.caption',
                         imgPath: '',
@@ -721,6 +764,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/bugs/:bug?/assmoremobmdview',
+                    name: 'bug_assmoremobmdview',
                     meta: {
                         caption: 'bug.views.assmoremobmdview.caption',
                         imgPath: '',
@@ -737,6 +781,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/bugs/:bug?/assmoremobmdview',
+                    name: 'bug_assmoremobmdview',
                     meta: {
                         caption: 'bug.views.assmoremobmdview.caption',
                         imgPath: '',
@@ -753,6 +798,7 @@ const router = new Router({
                 },
                 {
                     path: 'bugs/:bug?/assmoremobmdview',
+                    name: 'bug_assmoremobmdview',
                     meta: {
                         caption: 'bug.views.assmoremobmdview.caption',
                         imgPath: '',
@@ -768,6 +814,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/testmobmdview',
+                    name: 'bug_testmobmdview',
                     meta: {
                         caption: 'bug.views.testmobmdview.caption',
                         imgPath: '',
@@ -785,6 +832,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/bugs/:bug?/testmobmdview',
+                    name: 'bug_testmobmdview',
                     meta: {
                         caption: 'bug.views.testmobmdview.caption',
                         imgPath: '',
@@ -801,6 +849,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/bugs/:bug?/testmobmdview',
+                    name: 'bug_testmobmdview',
                     meta: {
                         caption: 'bug.views.testmobmdview.caption',
                         imgPath: '',
@@ -817,6 +866,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/bugs/:bug?/testmobmdview',
+                    name: 'bug_testmobmdview',
                     meta: {
                         caption: 'bug.views.testmobmdview.caption',
                         imgPath: '',
@@ -833,6 +883,7 @@ const router = new Router({
                 },
                 {
                     path: 'bugs/:bug?/testmobmdview',
+                    name: 'bug_testmobmdview',
                     meta: {
                         caption: 'bug.views.testmobmdview.caption',
                         imgPath: '',
@@ -848,6 +899,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/projectmodules/:projectmodule?/mobpickupview',
+                    name: 'projectmodule_mobpickupview',
                     meta: {
                         caption: 'projectmodule.views.mobpickupview.caption',
                         parameters: [
@@ -862,6 +914,7 @@ const router = new Router({
                 },
                 {
                     path: 'projectmodules/:projectmodule?/mobpickupview',
+                    name: 'projectmodule_mobpickupview',
                     meta: {
                         caption: 'projectmodule.views.mobpickupview.caption',
                         parameters: [
@@ -875,6 +928,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/productmodules/:productmodule?/mobpickupview',
+                    name: 'productmodule_mobpickupview',
                     meta: {
                         caption: 'productmodule.views.mobpickupview.caption',
                         parameters: [
@@ -889,6 +943,7 @@ const router = new Router({
                 },
                 {
                     path: 'productmodules/:productmodule?/mobpickupview',
+                    name: 'productmodule_mobpickupview',
                     meta: {
                         caption: 'productmodule.views.mobpickupview.caption',
                         parameters: [
@@ -902,6 +957,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/mobpickupmdview',
+                    name: 'product_mobpickupmdview',
                     meta: {
                         caption: 'product.views.mobpickupmdview.caption',
                         parameters: [
@@ -915,6 +971,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/casesteps/:casestep?/mobmdview9',
+                    name: 'casestep_mobmdview9',
                     meta: {
                         caption: 'casestep.views.mobmdview9.caption',
                         parameters: [
@@ -931,6 +988,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/cases/:case?/casesteps/:casestep?/mobmdview9',
+                    name: 'casestep_mobmdview9',
                     meta: {
                         caption: 'casestep.views.mobmdview9.caption',
                         parameters: [
@@ -946,6 +1004,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/cases/:case?/casesteps/:casestep?/mobmdview9',
+                    name: 'casestep_mobmdview9',
                     meta: {
                         caption: 'casestep.views.mobmdview9.caption',
                         parameters: [
@@ -961,6 +1020,7 @@ const router = new Router({
                 },
                 {
                     path: 'cases/:case?/casesteps/:casestep?/mobmdview9',
+                    name: 'casestep_mobmdview9',
                     meta: {
                         caption: 'casestep.views.mobmdview9.caption',
                         parameters: [
@@ -975,6 +1035,7 @@ const router = new Router({
                 },
                 {
                     path: 'casesteps/:casestep?/mobmdview9',
+                    name: 'casestep_mobmdview9',
                     meta: {
                         caption: 'casestep.views.mobmdview9.caption',
                         parameters: [
@@ -988,6 +1049,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/rmoboptionview',
+                    name: 'bug_rmoboptionview',
                     meta: {
                         caption: 'bug.views.rmoboptionview.caption',
                         imgPath: '',
@@ -1005,6 +1067,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/bugs/:bug?/rmoboptionview',
+                    name: 'bug_rmoboptionview',
                     meta: {
                         caption: 'bug.views.rmoboptionview.caption',
                         imgPath: '',
@@ -1021,6 +1084,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/bugs/:bug?/rmoboptionview',
+                    name: 'bug_rmoboptionview',
                     meta: {
                         caption: 'bug.views.rmoboptionview.caption',
                         imgPath: '',
@@ -1037,6 +1101,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/bugs/:bug?/rmoboptionview',
+                    name: 'bug_rmoboptionview',
                     meta: {
                         caption: 'bug.views.rmoboptionview.caption',
                         imgPath: '',
@@ -1053,6 +1118,7 @@ const router = new Router({
                 },
                 {
                     path: 'bugs/:bug?/rmoboptionview',
+                    name: 'bug_rmoboptionview',
                     meta: {
                         caption: 'bug.views.rmoboptionview.caption',
                         imgPath: '',
@@ -1068,6 +1134,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/acmoboptionview',
+                    name: 'bug_acmoboptionview',
                     meta: {
                         caption: 'bug.views.acmoboptionview.caption',
                         imgPath: '',
@@ -1085,6 +1152,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/bugs/:bug?/acmoboptionview',
+                    name: 'bug_acmoboptionview',
                     meta: {
                         caption: 'bug.views.acmoboptionview.caption',
                         imgPath: '',
@@ -1101,6 +1169,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/bugs/:bug?/acmoboptionview',
+                    name: 'bug_acmoboptionview',
                     meta: {
                         caption: 'bug.views.acmoboptionview.caption',
                         imgPath: '',
@@ -1117,6 +1186,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/bugs/:bug?/acmoboptionview',
+                    name: 'bug_acmoboptionview',
                     meta: {
                         caption: 'bug.views.acmoboptionview.caption',
                         imgPath: '',
@@ -1133,6 +1203,7 @@ const router = new Router({
                 },
                 {
                     path: 'bugs/:bug?/acmoboptionview',
+                    name: 'bug_acmoboptionview',
                     meta: {
                         caption: 'bug.views.acmoboptionview.caption',
                         imgPath: '',
@@ -1148,6 +1219,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobmeditview9',
+                    name: 'ibztaskestimate_mobmeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobmeditview9.caption',
                         parameters: [
@@ -1164,6 +1236,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobmeditview9',
+                    name: 'ibztaskestimate_mobmeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobmeditview9.caption',
                         parameters: [
@@ -1179,6 +1252,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobmeditview9',
+                    name: 'ibztaskestimate_mobmeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobmeditview9.caption',
                         parameters: [
@@ -1194,6 +1268,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobmeditview9',
+                    name: 'ibztaskestimate_mobmeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobmeditview9.caption',
                         parameters: [
@@ -1208,6 +1283,7 @@ const router = new Router({
                 },
                 {
                     path: 'ibztaskestimates/:ibztaskestimate?/mobmeditview9',
+                    name: 'ibztaskestimate_mobmeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobmeditview9.caption',
                         parameters: [
@@ -1221,6 +1297,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/favoritemobmdview9',
+                    name: 'task_favoritemobmdview9',
                     meta: {
                         caption: 'task.views.favoritemobmdview9.caption',
                         imgPath: '',
@@ -1238,6 +1315,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/favoritemobmdview9',
+                    name: 'task_favoritemobmdview9',
                     meta: {
                         caption: 'task.views.favoritemobmdview9.caption',
                         imgPath: '',
@@ -1254,6 +1332,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/favoritemobmdview9',
+                    name: 'task_favoritemobmdview9',
                     meta: {
                         caption: 'task.views.favoritemobmdview9.caption',
                         imgPath: '',
@@ -1270,6 +1349,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/favoritemobmdview9',
+                    name: 'task_favoritemobmdview9',
                     meta: {
                         caption: 'task.views.favoritemobmdview9.caption',
                         imgPath: '',
@@ -1285,6 +1365,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/projectteams/:projectteam?/mobmdview',
+                    name: 'projectteam_mobmdview',
                     meta: {
                         caption: 'projectteam.views.mobmdview.caption',
                         imgPath: '',
@@ -1301,6 +1382,7 @@ const router = new Router({
                 },
                 {
                     path: 'projectteams/:projectteam?/mobmdview',
+                    name: 'projectteam_mobmdview',
                     meta: {
                         caption: 'projectteam.views.mobmdview.caption',
                         imgPath: '',
@@ -1316,6 +1398,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/moboptionview',
+                    name: 'task_moboptionview',
                     meta: {
                         caption: 'task.views.moboptionview.caption',
                         imgPath: '',
@@ -1333,6 +1416,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/moboptionview',
+                    name: 'task_moboptionview',
                     meta: {
                         caption: 'task.views.moboptionview.caption',
                         imgPath: '',
@@ -1349,6 +1433,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/moboptionview',
+                    name: 'task_moboptionview',
                     meta: {
                         caption: 'task.views.moboptionview.caption',
                         imgPath: '',
@@ -1365,6 +1450,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/moboptionview',
+                    name: 'task_moboptionview',
                     meta: {
                         caption: 'task.views.moboptionview.caption',
                         imgPath: '',
@@ -1380,6 +1466,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/mobtabexpview',
+                    name: 'project_mobtabexpview',
                     meta: {
                         caption: 'project.views.mobtabexpview.caption',
                         parameters: [
@@ -1393,6 +1480,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/gsmoboptionview',
+                    name: 'task_gsmoboptionview',
                     meta: {
                         caption: 'task.views.gsmoboptionview.caption',
                         imgPath: '',
@@ -1410,6 +1498,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/gsmoboptionview',
+                    name: 'task_gsmoboptionview',
                     meta: {
                         caption: 'task.views.gsmoboptionview.caption',
                         imgPath: '',
@@ -1426,6 +1515,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/gsmoboptionview',
+                    name: 'task_gsmoboptionview',
                     meta: {
                         caption: 'task.views.gsmoboptionview.caption',
                         imgPath: '',
@@ -1442,6 +1532,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/gsmoboptionview',
+                    name: 'task_gsmoboptionview',
                     meta: {
                         caption: 'task.views.gsmoboptionview.caption',
                         imgPath: '',
@@ -1457,6 +1548,7 @@ const router = new Router({
                 },
                 {
                     path: 'modules/:module?/mobpickupmdview',
+                    name: 'module_mobpickupmdview',
                     meta: {
                         caption: 'module.views.mobpickupmdview.caption',
                         parameters: [
@@ -1470,6 +1562,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/favoritemoremobmdview',
+                    name: 'task_favoritemoremobmdview',
                     meta: {
                         caption: 'task.views.favoritemoremobmdview.caption',
                         imgPath: '',
@@ -1487,6 +1580,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/favoritemoremobmdview',
+                    name: 'task_favoritemoremobmdview',
                     meta: {
                         caption: 'task.views.favoritemoremobmdview.caption',
                         imgPath: '',
@@ -1503,6 +1597,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/favoritemoremobmdview',
+                    name: 'task_favoritemoremobmdview',
                     meta: {
                         caption: 'task.views.favoritemoremobmdview.caption',
                         imgPath: '',
@@ -1519,6 +1614,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/favoritemoremobmdview',
+                    name: 'task_favoritemoremobmdview',
                     meta: {
                         caption: 'task.views.favoritemoremobmdview.caption',
                         imgPath: '',
@@ -1534,6 +1630,7 @@ const router = new Router({
                 },
                 {
                     path: 'actions/:action?/allmobmdview9',
+                    name: 'action_allmobmdview9',
                     meta: {
                         caption: 'action.views.allmobmdview9.caption',
                         parameters: [
@@ -1547,6 +1644,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/changemoboptionview',
+                    name: 'story_changemoboptionview',
                     meta: {
                         caption: 'story.views.changemoboptionview.caption',
                         imgPath: '',
@@ -1563,6 +1661,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/changemoboptionview',
+                    name: 'story_changemoboptionview',
                     meta: {
                         caption: 'story.views.changemoboptionview.caption',
                         imgPath: '',
@@ -1578,6 +1677,7 @@ const router = new Router({
                 },
                 {
                     path: 'users/:user?/mobpickupview',
+                    name: 'user_mobpickupview',
                     meta: {
                         caption: 'user.views.mobpickupview.caption',
                         parameters: [
@@ -1591,6 +1691,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/newmobeditview',
+                    name: 'story_newmobeditview',
                     meta: {
                         caption: 'story.views.newmobeditview.caption',
                         imgPath: '',
@@ -1607,6 +1708,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/newmobeditview',
+                    name: 'story_newmobeditview',
                     meta: {
                         caption: 'story.views.newmobeditview.caption',
                         imgPath: '',
@@ -1622,6 +1724,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobeditview9',
+                    name: 'ibztaskestimate_mobeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobeditview9.caption',
                         parameters: [
@@ -1638,6 +1741,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobeditview9',
+                    name: 'ibztaskestimate_mobeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobeditview9.caption',
                         parameters: [
@@ -1653,6 +1757,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobeditview9',
+                    name: 'ibztaskestimate_mobeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobeditview9.caption',
                         parameters: [
@@ -1668,6 +1773,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobeditview9',
+                    name: 'ibztaskestimate_mobeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobeditview9.caption',
                         parameters: [
@@ -1682,6 +1788,7 @@ const router = new Router({
                 },
                 {
                     path: 'ibztaskestimates/:ibztaskestimate?/mobeditview9',
+                    name: 'ibztaskestimate_mobeditview9',
                     meta: {
                         caption: 'taskestimate.views.mobeditview9.caption',
                         parameters: [
@@ -1695,6 +1802,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/productplans/:productplan?/mobmdview',
+                    name: 'productplan_mobmdview',
                     meta: {
                         caption: 'productplan.views.mobmdview.caption',
                         parameters: [
@@ -1709,6 +1817,7 @@ const router = new Router({
                 },
                 {
                     path: 'productplans/:productplan?/mobmdview',
+                    name: 'productplan_mobmdview',
                     meta: {
                         caption: 'productplan.views.mobmdview.caption',
                         parameters: [
@@ -1722,6 +1831,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/startmoboptionview',
+                    name: 'task_startmoboptionview',
                     meta: {
                         caption: 'task.views.startmoboptionview.caption',
                         imgPath: '',
@@ -1739,6 +1849,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/startmoboptionview',
+                    name: 'task_startmoboptionview',
                     meta: {
                         caption: 'task.views.startmoboptionview.caption',
                         imgPath: '',
@@ -1755,6 +1866,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/startmoboptionview',
+                    name: 'task_startmoboptionview',
                     meta: {
                         caption: 'task.views.startmoboptionview.caption',
                         imgPath: '',
@@ -1771,6 +1883,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/startmoboptionview',
+                    name: 'task_startmoboptionview',
                     meta: {
                         caption: 'task.views.startmoboptionview.caption',
                         imgPath: '',
@@ -1786,6 +1899,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/supmobeditview',
+                    name: 'project_supmobeditview',
                     meta: {
                         caption: 'project.views.supmobeditview.caption',
                         parameters: [
@@ -1799,6 +1913,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/mobmdviewcurproject',
+                    name: 'story_mobmdviewcurproject',
                     meta: {
                         caption: 'story.views.mobmdviewcurproject.caption',
                         imgPath: '',
@@ -1815,6 +1930,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/mobmdviewcurproject',
+                    name: 'story_mobmdviewcurproject',
                     meta: {
                         caption: 'story.views.mobmdviewcurproject.caption',
                         imgPath: '',
@@ -1830,6 +1946,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/mobeditview',
+                    name: 'project_mobeditview',
                     meta: {
                         caption: 'project.views.mobeditview.caption',
                         parameters: [
@@ -1843,6 +1960,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/assmoremobmdview',
+                    name: 'story_assmoremobmdview',
                     meta: {
                         caption: 'story.views.assmoremobmdview.caption',
                         imgPath: '',
@@ -1859,6 +1977,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/assmoremobmdview',
+                    name: 'story_assmoremobmdview',
                     meta: {
                         caption: 'story.views.assmoremobmdview.caption',
                         imgPath: '',
@@ -1874,6 +1993,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/releases/:release?/newmobeditview',
+                    name: 'release_newmobeditview',
                     meta: {
                         caption: 'release.views.newmobeditview.caption',
                         imgPath: '',
@@ -1890,6 +2010,7 @@ const router = new Router({
                 },
                 {
                     path: 'releases/:release?/newmobeditview',
+                    name: 'release_newmobeditview',
                     meta: {
                         caption: 'release.views.newmobeditview.caption',
                         imgPath: '',
@@ -1905,6 +2026,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/assmobmdview9',
+                    name: 'bug_assmobmdview9',
                     meta: {
                         caption: 'bug.views.assmobmdview9.caption',
                         imgPath: '',
@@ -1922,6 +2044,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/bugs/:bug?/assmobmdview9',
+                    name: 'bug_assmobmdview9',
                     meta: {
                         caption: 'bug.views.assmobmdview9.caption',
                         imgPath: '',
@@ -1938,6 +2061,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/bugs/:bug?/assmobmdview9',
+                    name: 'bug_assmobmdview9',
                     meta: {
                         caption: 'bug.views.assmobmdview9.caption',
                         imgPath: '',
@@ -1954,6 +2078,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/bugs/:bug?/assmobmdview9',
+                    name: 'bug_assmobmdview9',
                     meta: {
                         caption: 'bug.views.assmobmdview9.caption',
                         imgPath: '',
@@ -1970,6 +2095,7 @@ const router = new Router({
                 },
                 {
                     path: 'bugs/:bug?/assmobmdview9',
+                    name: 'bug_assmobmdview9',
                     meta: {
                         caption: 'bug.views.assmobmdview9.caption',
                         imgPath: '',
@@ -1985,6 +2111,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/mobmdview',
+                    name: 'product_mobmdview',
                     meta: {
                         caption: 'product.views.mobmdview.caption',
                         parameters: [
@@ -1998,6 +2125,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/mobpickupview',
+                    name: 'task_mobpickupview',
                     meta: {
                         caption: 'task.views.mobpickupview.caption',
                         imgPath: '',
@@ -2015,6 +2143,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/mobpickupview',
+                    name: 'task_mobpickupview',
                     meta: {
                         caption: 'task.views.mobpickupview.caption',
                         imgPath: '',
@@ -2031,6 +2160,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/mobpickupview',
+                    name: 'task_mobpickupview',
                     meta: {
                         caption: 'task.views.mobpickupview.caption',
                         imgPath: '',
@@ -2047,6 +2177,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/mobpickupview',
+                    name: 'task_mobpickupview',
                     meta: {
                         caption: 'task.views.mobpickupview.caption',
                         imgPath: '',
@@ -2062,6 +2193,7 @@ const router = new Router({
                 },
                 {
                     path: 'modules/:module?/mobpickupview',
+                    name: 'module_mobpickupview',
                     meta: {
                         caption: 'module.views.mobpickupview.caption',
                         parameters: [
@@ -2075,6 +2207,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/favoritemoremobmdview',
+                    name: 'story_favoritemoremobmdview',
                     meta: {
                         caption: 'story.views.favoritemoremobmdview.caption',
                         imgPath: '',
@@ -2091,6 +2224,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/favoritemoremobmdview',
+                    name: 'story_favoritemoremobmdview',
                     meta: {
                         caption: 'story.views.favoritemoremobmdview.caption',
                         imgPath: '',
@@ -2106,6 +2240,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/closemobeditview',
+                    name: 'product_closemobeditview',
                     meta: {
                         caption: 'product.views.closemobeditview.caption',
                         parameters: [
@@ -2119,6 +2254,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobeditview9',
+                    name: 'ibztaskteam_mobeditview9',
                     meta: {
                         caption: 'taskteam.views.mobeditview9.caption',
                         parameters: [
@@ -2135,6 +2271,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobeditview9',
+                    name: 'ibztaskteam_mobeditview9',
                     meta: {
                         caption: 'taskteam.views.mobeditview9.caption',
                         parameters: [
@@ -2150,6 +2287,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobeditview9',
+                    name: 'ibztaskteam_mobeditview9',
                     meta: {
                         caption: 'taskteam.views.mobeditview9.caption',
                         parameters: [
@@ -2165,6 +2303,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/ibztaskteams/:ibztaskteam?/mobeditview9',
+                    name: 'ibztaskteam_mobeditview9',
                     meta: {
                         caption: 'taskteam.views.mobeditview9.caption',
                         parameters: [
@@ -2179,6 +2318,7 @@ const router = new Router({
                 },
                 {
                     path: 'ibztaskteams/:ibztaskteam?/mobeditview9',
+                    name: 'ibztaskteam_mobeditview9',
                     meta: {
                         caption: 'taskteam.views.mobeditview9.caption',
                         parameters: [
@@ -2192,6 +2332,7 @@ const router = new Router({
                 },
                 {
                     path: 'todos/:todo?/mobeditview',
+                    name: 'todo_mobeditview',
                     meta: {
                         caption: 'todo.views.mobeditview.caption',
                         parameters: [
@@ -2205,6 +2346,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/testtasks/:testtask?/mobeditview',
+                    name: 'testtask_mobeditview',
                     meta: {
                         caption: 'testtask.views.mobeditview.caption',
                         imgPath: '',
@@ -2221,6 +2363,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/testtasks/:testtask?/mobeditview',
+                    name: 'testtask_mobeditview',
                     meta: {
                         caption: 'testtask.views.mobeditview.caption',
                         imgPath: '',
@@ -2237,6 +2380,7 @@ const router = new Router({
                 },
                 {
                     path: 'testtasks/:testtask?/mobeditview',
+                    name: 'testtask_mobeditview',
                     meta: {
                         caption: 'testtask.views.mobeditview.caption',
                         imgPath: '',
@@ -2252,6 +2396,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/cmoboptionview',
+                    name: 'story_cmoboptionview',
                     meta: {
                         caption: 'story.views.cmoboptionview.caption',
                         imgPath: '',
@@ -2268,6 +2413,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/cmoboptionview',
+                    name: 'story_cmoboptionview',
                     meta: {
                         caption: 'story.views.cmoboptionview.caption',
                         imgPath: '',
@@ -2283,6 +2429,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/newmobeditview',
+                    name: 'task_newmobeditview',
                     meta: {
                         caption: 'task.views.newmobeditview.caption',
                         imgPath: '',
@@ -2300,6 +2447,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/newmobeditview',
+                    name: 'task_newmobeditview',
                     meta: {
                         caption: 'task.views.newmobeditview.caption',
                         imgPath: '',
@@ -2316,6 +2464,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/newmobeditview',
+                    name: 'task_newmobeditview',
                     meta: {
                         caption: 'task.views.newmobeditview.caption',
                         imgPath: '',
@@ -2332,6 +2481,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/newmobeditview',
+                    name: 'task_newmobeditview',
                     meta: {
                         caption: 'task.views.newmobeditview.caption',
                         imgPath: '',
@@ -2347,6 +2497,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/rmoboptionview',
+                    name: 'story_rmoboptionview',
                     meta: {
                         caption: 'story.views.rmoboptionview.caption',
                         imgPath: '',
@@ -2363,6 +2514,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/rmoboptionview',
+                    name: 'story_rmoboptionview',
                     meta: {
                         caption: 'story.views.rmoboptionview.caption',
                         imgPath: '',
@@ -2378,6 +2530,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/taskestimates/:taskestimate?/moboptionview',
+                    name: 'taskestimate_moboptionview',
                     meta: {
                         caption: 'taskestimate.views.moboptionview.caption',
                         parameters: [
@@ -2394,6 +2547,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/taskestimates/:taskestimate?/moboptionview',
+                    name: 'taskestimate_moboptionview',
                     meta: {
                         caption: 'taskestimate.views.moboptionview.caption',
                         parameters: [
@@ -2409,6 +2563,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/taskestimates/:taskestimate?/moboptionview',
+                    name: 'taskestimate_moboptionview',
                     meta: {
                         caption: 'taskestimate.views.moboptionview.caption',
                         parameters: [
@@ -2424,6 +2579,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/taskestimates/:taskestimate?/moboptionview',
+                    name: 'taskestimate_moboptionview',
                     meta: {
                         caption: 'taskestimate.views.moboptionview.caption',
                         parameters: [
@@ -2438,6 +2594,7 @@ const router = new Router({
                 },
                 {
                     path: 'taskestimates/:taskestimate?/moboptionview',
+                    name: 'taskestimate_moboptionview',
                     meta: {
                         caption: 'taskestimate.views.moboptionview.caption',
                         parameters: [
@@ -2451,6 +2608,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/closemoboptionview',
+                    name: 'bug_closemoboptionview',
                     meta: {
                         caption: 'bug.views.closemoboptionview.caption',
                         imgPath: '',
@@ -2468,6 +2626,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/bugs/:bug?/closemoboptionview',
+                    name: 'bug_closemoboptionview',
                     meta: {
                         caption: 'bug.views.closemoboptionview.caption',
                         imgPath: '',
@@ -2484,6 +2643,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/bugs/:bug?/closemoboptionview',
+                    name: 'bug_closemoboptionview',
                     meta: {
                         caption: 'bug.views.closemoboptionview.caption',
                         imgPath: '',
@@ -2500,6 +2660,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/bugs/:bug?/closemoboptionview',
+                    name: 'bug_closemoboptionview',
                     meta: {
                         caption: 'bug.views.closemoboptionview.caption',
                         imgPath: '',
@@ -2516,6 +2677,7 @@ const router = new Router({
                 },
                 {
                     path: 'bugs/:bug?/closemoboptionview',
+                    name: 'bug_closemoboptionview',
                     meta: {
                         caption: 'bug.views.closemoboptionview.caption',
                         imgPath: '',
@@ -2531,6 +2693,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/projectmodules/:projectmodule?/mobpickupmdview',
+                    name: 'projectmodule_mobpickupmdview',
                     meta: {
                         caption: 'projectmodule.views.mobpickupmdview.caption',
                         parameters: [
@@ -2545,6 +2708,7 @@ const router = new Router({
                 },
                 {
                     path: 'projectmodules/:projectmodule?/mobpickupmdview',
+                    name: 'projectmodule_mobpickupmdview',
                     meta: {
                         caption: 'projectmodule.views.mobpickupmdview.caption',
                         parameters: [
@@ -2558,6 +2722,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/mobpickupmdview',
+                    name: 'task_mobpickupmdview',
                     meta: {
                         caption: 'task.views.mobpickupmdview.caption',
                         imgPath: '',
@@ -2575,6 +2740,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/mobpickupmdview',
+                    name: 'task_mobpickupmdview',
                     meta: {
                         caption: 'task.views.mobpickupmdview.caption',
                         imgPath: '',
@@ -2591,6 +2757,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/mobpickupmdview',
+                    name: 'task_mobpickupmdview',
                     meta: {
                         caption: 'task.views.mobpickupmdview.caption',
                         imgPath: '',
@@ -2607,6 +2774,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/mobpickupmdview',
+                    name: 'task_mobpickupmdview',
                     meta: {
                         caption: 'task.views.mobpickupmdview.caption',
                         imgPath: '',
@@ -2622,6 +2790,7 @@ const router = new Router({
                 },
                 {
                     path: 'todos/:todo?/mobmdview',
+                    name: 'todo_mobmdview',
                     meta: {
                         caption: 'todo.views.mobmdview.caption',
                         parameters: [
@@ -2635,6 +2804,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/releases/:release?/mobmdview',
+                    name: 'release_mobmdview',
                     meta: {
                         caption: 'release.views.mobmdview.caption',
                         imgPath: '',
@@ -2651,6 +2821,7 @@ const router = new Router({
                 },
                 {
                     path: 'releases/:release?/mobmdview',
+                    name: 'release_mobmdview',
                     meta: {
                         caption: 'release.views.mobmdview.caption',
                         imgPath: '',
@@ -2666,6 +2837,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/asmoboptionview',
+                    name: 'story_asmoboptionview',
                     meta: {
                         caption: 'story.views.asmoboptionview.caption',
                         imgPath: '',
@@ -2682,6 +2854,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/asmoboptionview',
+                    name: 'story_asmoboptionview',
                     meta: {
                         caption: 'story.views.asmoboptionview.caption',
                         imgPath: '',
@@ -2697,6 +2870,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/mobeditview',
+                    name: 'story_mobeditview',
                     meta: {
                         caption: 'story.views.mobeditview.caption',
                         imgPath: '',
@@ -2713,6 +2887,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/mobeditview',
+                    name: 'story_mobeditview',
                     meta: {
                         caption: 'story.views.mobeditview.caption',
                         imgPath: '',
@@ -2728,6 +2903,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/taskteams/:taskteam?/mobmdview9',
+                    name: 'taskteam_mobmdview9',
                     meta: {
                         caption: 'taskteam.views.mobmdview9.caption',
                         parameters: [
@@ -2744,6 +2920,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/taskteams/:taskteam?/mobmdview9',
+                    name: 'taskteam_mobmdview9',
                     meta: {
                         caption: 'taskteam.views.mobmdview9.caption',
                         parameters: [
@@ -2759,6 +2936,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/taskteams/:taskteam?/mobmdview9',
+                    name: 'taskteam_mobmdview9',
                     meta: {
                         caption: 'taskteam.views.mobmdview9.caption',
                         parameters: [
@@ -2774,6 +2952,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/taskteams/:taskteam?/mobmdview9',
+                    name: 'taskteam_mobmdview9',
                     meta: {
                         caption: 'taskteam.views.mobmdview9.caption',
                         parameters: [
@@ -2788,6 +2967,7 @@ const router = new Router({
                 },
                 {
                     path: 'taskteams/:taskteam?/mobmdview9',
+                    name: 'taskteam_mobmdview9',
                     meta: {
                         caption: 'taskteam.views.mobmdview9.caption',
                         parameters: [
@@ -2801,6 +2981,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/planmobmdview9',
+                    name: 'bug_planmobmdview9',
                     meta: {
                         caption: 'bug.views.planmobmdview9.caption',
                         imgPath: '',
@@ -2818,6 +2999,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/bugs/:bug?/planmobmdview9',
+                    name: 'bug_planmobmdview9',
                     meta: {
                         caption: 'bug.views.planmobmdview9.caption',
                         imgPath: '',
@@ -2834,6 +3016,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/bugs/:bug?/planmobmdview9',
+                    name: 'bug_planmobmdview9',
                     meta: {
                         caption: 'bug.views.planmobmdview9.caption',
                         imgPath: '',
@@ -2850,6 +3033,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/bugs/:bug?/planmobmdview9',
+                    name: 'bug_planmobmdview9',
                     meta: {
                         caption: 'bug.views.planmobmdview9.caption',
                         imgPath: '',
@@ -2866,6 +3050,7 @@ const router = new Router({
                 },
                 {
                     path: 'bugs/:bug?/planmobmdview9',
+                    name: 'bug_planmobmdview9',
                     meta: {
                         caption: 'bug.views.planmobmdview9.caption',
                         imgPath: '',
@@ -2881,6 +3066,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/mobpickupmdview',
+                    name: 'story_mobpickupmdview',
                     meta: {
                         caption: 'story.views.mobpickupmdview.caption',
                         imgPath: '',
@@ -2897,6 +3083,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/mobpickupmdview',
+                    name: 'story_mobpickupmdview',
                     meta: {
                         caption: 'story.views.mobpickupmdview.caption',
                         imgPath: '',
@@ -2912,6 +3099,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/productplans/:productplan?/newmobeditview',
+                    name: 'productplan_newmobeditview',
                     meta: {
                         caption: 'productplan.views.newmobeditview.caption',
                         parameters: [
@@ -2926,6 +3114,7 @@ const router = new Router({
                 },
                 {
                     path: 'productplans/:productplan?/newmobeditview',
+                    name: 'productplan_newmobeditview',
                     meta: {
                         caption: 'productplan.views.newmobeditview.caption',
                         parameters: [
@@ -2939,6 +3128,7 @@ const router = new Router({
                 },
                 {
                     path: 'users/:user?/usercentermobeditview',
+                    name: 'user_usercentermobeditview',
                     meta: {
                         caption: 'user.views.usercentermobeditview.caption',
                         parameters: [
@@ -2952,6 +3142,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/cmoboptionview',
+                    name: 'bug_cmoboptionview',
                     meta: {
                         caption: 'bug.views.cmoboptionview.caption',
                         imgPath: '',
@@ -2969,6 +3160,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/bugs/:bug?/cmoboptionview',
+                    name: 'bug_cmoboptionview',
                     meta: {
                         caption: 'bug.views.cmoboptionview.caption',
                         imgPath: '',
@@ -2985,6 +3177,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/bugs/:bug?/cmoboptionview',
+                    name: 'bug_cmoboptionview',
                     meta: {
                         caption: 'bug.views.cmoboptionview.caption',
                         imgPath: '',
@@ -3001,6 +3194,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/bugs/:bug?/cmoboptionview',
+                    name: 'bug_cmoboptionview',
                     meta: {
                         caption: 'bug.views.cmoboptionview.caption',
                         imgPath: '',
@@ -3017,6 +3211,7 @@ const router = new Router({
                 },
                 {
                     path: 'bugs/:bug?/cmoboptionview',
+                    name: 'bug_cmoboptionview',
                     meta: {
                         caption: 'bug.views.cmoboptionview.caption',
                         imgPath: '',
@@ -3032,6 +3227,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/productplans/:productplan?/mobeditview',
+                    name: 'productplan_mobeditview',
                     meta: {
                         caption: 'productplan.views.mobeditview.caption',
                         parameters: [
@@ -3046,6 +3242,7 @@ const router = new Router({
                 },
                 {
                     path: 'productplans/:productplan?/mobeditview',
+                    name: 'productplan_mobeditview',
                     meta: {
                         caption: 'productplan.views.mobeditview.caption',
                         parameters: [
@@ -3059,6 +3256,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/builds/:build?/mobpickupmdview',
+                    name: 'build_mobpickupmdview',
                     meta: {
                         caption: 'build.views.mobpickupmdview.caption',
                         imgPath: '',
@@ -3075,6 +3273,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/builds/:build?/mobpickupmdview',
+                    name: 'build_mobpickupmdview',
                     meta: {
                         caption: 'build.views.mobpickupmdview.caption',
                         imgPath: '',
@@ -3091,6 +3290,7 @@ const router = new Router({
                 },
                 {
                     path: 'builds/:build?/mobpickupmdview',
+                    name: 'build_mobpickupmdview',
                     meta: {
                         caption: 'build.views.mobpickupmdview.caption',
                         imgPath: '',
@@ -3106,6 +3306,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/newmobeditview',
+                    name: 'project_newmobeditview',
                     meta: {
                         caption: 'project.views.newmobeditview.caption',
                         parameters: [
@@ -3119,6 +3320,7 @@ const router = new Router({
                 },
                 {
                     path: 'ibzmyterritories/:ibzmyterritory?/mobtabexpview',
+                    name: 'ibzmyterritory_mobtabexpview',
                     meta: {
                         caption: 'ibzmyterritory.views.mobtabexpview.caption',
                         parameters: [
@@ -3132,6 +3334,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/favoritemobmdview9',
+                    name: 'story_favoritemobmdview9',
                     meta: {
                         caption: 'story.views.favoritemobmdview9.caption',
                         imgPath: '',
@@ -3148,6 +3351,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/favoritemobmdview9',
+                    name: 'story_favoritemobmdview9',
                     meta: {
                         caption: 'story.views.favoritemobmdview9.caption',
                         imgPath: '',
@@ -3163,6 +3367,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/mobpickupview',
+                    name: 'project_mobpickupview',
                     meta: {
                         caption: 'project.views.mobpickupview.caption',
                         parameters: [
@@ -3176,6 +3381,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/assmoboptionview',
+                    name: 'bug_assmoboptionview',
                     meta: {
                         caption: 'bug.views.assmoboptionview.caption',
                         imgPath: '',
@@ -3193,6 +3399,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/bugs/:bug?/assmoboptionview',
+                    name: 'bug_assmoboptionview',
                     meta: {
                         caption: 'bug.views.assmoboptionview.caption',
                         imgPath: '',
@@ -3209,6 +3416,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/bugs/:bug?/assmoboptionview',
+                    name: 'bug_assmoboptionview',
                     meta: {
                         caption: 'bug.views.assmoboptionview.caption',
                         imgPath: '',
@@ -3225,6 +3433,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/bugs/:bug?/assmoboptionview',
+                    name: 'bug_assmoboptionview',
                     meta: {
                         caption: 'bug.views.assmoboptionview.caption',
                         imgPath: '',
@@ -3241,6 +3450,7 @@ const router = new Router({
                 },
                 {
                     path: 'bugs/:bug?/assmoboptionview',
+                    name: 'bug_assmoboptionview',
                     meta: {
                         caption: 'bug.views.assmoboptionview.caption',
                         imgPath: '',
@@ -3256,6 +3466,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/mobpickupview',
+                    name: 'story_mobpickupview',
                     meta: {
                         caption: 'story.views.mobpickupview.caption',
                         imgPath: '',
@@ -3272,6 +3483,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/mobpickupview',
+                    name: 'story_mobpickupview',
                     meta: {
                         caption: 'story.views.mobpickupview.caption',
                         imgPath: '',
@@ -3287,6 +3499,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/mobeditview',
+                    name: 'bug_mobeditview',
                     meta: {
                         caption: 'bug.views.mobeditview.caption',
                         imgPath: '',
@@ -3304,6 +3517,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/bugs/:bug?/mobeditview',
+                    name: 'bug_mobeditview',
                     meta: {
                         caption: 'bug.views.mobeditview.caption',
                         imgPath: '',
@@ -3320,6 +3534,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/bugs/:bug?/mobeditview',
+                    name: 'bug_mobeditview',
                     meta: {
                         caption: 'bug.views.mobeditview.caption',
                         imgPath: '',
@@ -3336,6 +3551,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/bugs/:bug?/mobeditview',
+                    name: 'bug_mobeditview',
                     meta: {
                         caption: 'bug.views.mobeditview.caption',
                         imgPath: '',
@@ -3352,6 +3568,7 @@ const router = new Router({
                 },
                 {
                     path: 'bugs/:bug?/mobeditview',
+                    name: 'bug_mobeditview',
                     meta: {
                         caption: 'bug.views.mobeditview.caption',
                         imgPath: '',
@@ -3367,6 +3584,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/assmoremobmdview',
+                    name: 'task_assmoremobmdview',
                     meta: {
                         caption: 'task.views.assmoremobmdview.caption',
                         imgPath: '',
@@ -3384,6 +3602,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/assmoremobmdview',
+                    name: 'task_assmoremobmdview',
                     meta: {
                         caption: 'task.views.assmoremobmdview.caption',
                         imgPath: '',
@@ -3400,6 +3619,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/assmoremobmdview',
+                    name: 'task_assmoremobmdview',
                     meta: {
                         caption: 'task.views.assmoremobmdview.caption',
                         imgPath: '',
@@ -3416,6 +3636,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/assmoremobmdview',
+                    name: 'task_assmoremobmdview',
                     meta: {
                         caption: 'task.views.assmoremobmdview.caption',
                         imgPath: '',
@@ -3431,6 +3652,7 @@ const router = new Router({
                 },
                 {
                     path: 'testsuites/:testsuite?/mobmdview',
+                    name: 'testsuite_mobmdview',
                     meta: {
                         caption: 'testsuite.views.mobmdview.caption',
                         imgPath: '',
@@ -3446,6 +3668,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/newmobeditview',
+                    name: 'product_newmobeditview',
                     meta: {
                         caption: 'product.views.newmobeditview.caption',
                         parameters: [
@@ -3459,6 +3682,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/mobmdview',
+                    name: 'story_mobmdview',
                     meta: {
                         caption: 'story.views.mobmdview.caption',
                         imgPath: '',
@@ -3475,6 +3699,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/mobmdview',
+                    name: 'story_mobmdview',
                     meta: {
                         caption: 'story.views.mobmdview.caption',
                         imgPath: '',
@@ -3490,6 +3715,7 @@ const router = new Router({
                 },
                 {
                     path: 'ibzmyterritories/:ibzmyterritory?/mobmdview9',
+                    name: 'ibzmyterritory_mobmdview9',
                     meta: {
                         caption: 'ibzmyterritory.views.mobmdview9.caption',
                         parameters: [
@@ -3503,6 +3729,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/assmobmdview9',
+                    name: 'task_assmobmdview9',
                     meta: {
                         caption: 'task.views.assmobmdview9.caption',
                         imgPath: '',
@@ -3520,6 +3747,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/assmobmdview9',
+                    name: 'task_assmobmdview9',
                     meta: {
                         caption: 'task.views.assmobmdview9.caption',
                         imgPath: '',
@@ -3536,6 +3764,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/assmobmdview9',
+                    name: 'task_assmobmdview9',
                     meta: {
                         caption: 'task.views.assmobmdview9.caption',
                         imgPath: '',
@@ -3552,6 +3781,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/assmobmdview9',
+                    name: 'task_assmobmdview9',
                     meta: {
                         caption: 'task.views.assmobmdview9.caption',
                         imgPath: '',
@@ -3567,6 +3797,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/taskestimates/:taskestimate?/mobmdview9',
+                    name: 'taskestimate_mobmdview9',
                     meta: {
                         caption: 'taskestimate.views.mobmdview9.caption',
                         parameters: [
@@ -3583,6 +3814,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/taskestimates/:taskestimate?/mobmdview9',
+                    name: 'taskestimate_mobmdview9',
                     meta: {
                         caption: 'taskestimate.views.mobmdview9.caption',
                         parameters: [
@@ -3598,6 +3830,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/taskestimates/:taskestimate?/mobmdview9',
+                    name: 'taskestimate_mobmdview9',
                     meta: {
                         caption: 'taskestimate.views.mobmdview9.caption',
                         parameters: [
@@ -3613,6 +3846,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/taskestimates/:taskestimate?/mobmdview9',
+                    name: 'taskestimate_mobmdview9',
                     meta: {
                         caption: 'taskestimate.views.mobmdview9.caption',
                         parameters: [
@@ -3627,6 +3861,7 @@ const router = new Router({
                 },
                 {
                     path: 'taskestimates/:taskestimate?/mobmdview9',
+                    name: 'taskestimate_mobmdview9',
                     meta: {
                         caption: 'taskestimate.views.mobmdview9.caption',
                         parameters: [
@@ -3640,6 +3875,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/newmobeditview',
+                    name: 'bug_newmobeditview',
                     meta: {
                         caption: 'bug.views.newmobeditview.caption',
                         imgPath: '',
@@ -3657,6 +3893,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/bugs/:bug?/newmobeditview',
+                    name: 'bug_newmobeditview',
                     meta: {
                         caption: 'bug.views.newmobeditview.caption',
                         imgPath: '',
@@ -3673,6 +3910,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/bugs/:bug?/newmobeditview',
+                    name: 'bug_newmobeditview',
                     meta: {
                         caption: 'bug.views.newmobeditview.caption',
                         imgPath: '',
@@ -3689,6 +3927,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/bugs/:bug?/newmobeditview',
+                    name: 'bug_newmobeditview',
                     meta: {
                         caption: 'bug.views.newmobeditview.caption',
                         imgPath: '',
@@ -3705,6 +3944,7 @@ const router = new Router({
                 },
                 {
                     path: 'bugs/:bug?/newmobeditview',
+                    name: 'bug_newmobeditview',
                     meta: {
                         caption: 'bug.views.newmobeditview.caption',
                         imgPath: '',
@@ -3720,6 +3960,7 @@ const router = new Router({
                 },
                 {
                     path: 'ibzmyterritories/:ibzmyterritory?/mobdashboardview',
+                    name: 'ibzmyterritory_mobdashboardview',
                     meta: {
                         caption: 'ibzmyterritory.views.mobdashboardview.caption',
                         parameters: [
@@ -3733,6 +3974,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/assmobmdview9',
+                    name: 'story_assmobmdview9',
                     meta: {
                         caption: 'story.views.assmobmdview9.caption',
                         imgPath: '',
@@ -3749,6 +3991,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/assmobmdview9',
+                    name: 'story_assmobmdview9',
                     meta: {
                         caption: 'story.views.assmobmdview9.caption',
                         imgPath: '',
@@ -3764,6 +4007,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/mobmdview',
+                    name: 'project_mobmdview',
                     meta: {
                         caption: 'project.views.mobmdview.caption',
                         parameters: [
@@ -3777,6 +4021,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/productmodules/:productmodule?/mobpickupmdview',
+                    name: 'productmodule_mobpickupmdview',
                     meta: {
                         caption: 'productmodule.views.mobpickupmdview.caption',
                         parameters: [
@@ -3791,6 +4036,7 @@ const router = new Router({
                 },
                 {
                     path: 'productmodules/:productmodule?/mobpickupmdview',
+                    name: 'productmodule_mobpickupmdview',
                     meta: {
                         caption: 'productmodule.views.mobpickupmdview.caption',
                         parameters: [
@@ -3804,6 +4050,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/mobeditview',
+                    name: 'product_mobeditview',
                     meta: {
                         caption: 'product.views.mobeditview.caption',
                         parameters: [
@@ -3817,6 +4064,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/closemobeditview',
+                    name: 'project_closemobeditview',
                     meta: {
                         caption: 'project.views.closemobeditview.caption',
                         parameters: [
@@ -3830,6 +4078,7 @@ const router = new Router({
                 },
                 {
                     path: 'todos/:todo?/moboptionview',
+                    name: 'todo_moboptionview',
                     meta: {
                         caption: 'todo.views.moboptionview.caption',
                         parameters: [
@@ -3843,6 +4092,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/prodmobtabexpview',
+                    name: 'product_prodmobtabexpview',
                     meta: {
                         caption: 'product.views.prodmobtabexpview.caption',
                         parameters: [
@@ -3856,6 +4106,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/mobmdview',
+                    name: 'task_mobmdview',
                     meta: {
                         caption: 'task.views.mobmdview.caption',
                         imgPath: '',
@@ -3873,6 +4124,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/mobmdview',
+                    name: 'task_mobmdview',
                     meta: {
                         caption: 'task.views.mobmdview.caption',
                         imgPath: '',
@@ -3889,6 +4141,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/mobmdview',
+                    name: 'task_mobmdview',
                     meta: {
                         caption: 'task.views.mobmdview.caption',
                         imgPath: '',
@@ -3905,6 +4158,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/mobmdview',
+                    name: 'task_mobmdview',
                     meta: {
                         caption: 'task.views.mobmdview.caption',
                         imgPath: '',
@@ -3920,6 +4174,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/activitemobeditview',
+                    name: 'project_activitemobeditview',
                     meta: {
                         caption: 'project.views.activitemobeditview.caption',
                         parameters: [
@@ -3933,6 +4188,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobmeditview9',
+                    name: 'ibztaskteam_mobmeditview9',
                     meta: {
                         caption: 'taskteam.views.mobmeditview9.caption',
                         parameters: [
@@ -3949,6 +4205,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobmeditview9',
+                    name: 'ibztaskteam_mobmeditview9',
                     meta: {
                         caption: 'taskteam.views.mobmeditview9.caption',
                         parameters: [
@@ -3964,6 +4221,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobmeditview9',
+                    name: 'ibztaskteam_mobmeditview9',
                     meta: {
                         caption: 'taskteam.views.mobmeditview9.caption',
                         parameters: [
@@ -3979,6 +4237,7 @@ const router = new Router({
                 },
                 {
                     path: 'tasks/:task?/ibztaskteams/:ibztaskteam?/mobmeditview9',
+                    name: 'ibztaskteam_mobmeditview9',
                     meta: {
                         caption: 'taskteam.views.mobmeditview9.caption',
                         parameters: [
@@ -3993,6 +4252,7 @@ const router = new Router({
                 },
                 {
                     path: 'ibztaskteams/:ibztaskteam?/mobmeditview9',
+                    name: 'ibztaskteam_mobmeditview9',
                     meta: {
                         caption: 'taskteam.views.mobmeditview9.caption',
                         parameters: [
@@ -4006,6 +4266,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/testmobmdview',
+                    name: 'product_testmobmdview',
                     meta: {
                         caption: 'product.views.testmobmdview.caption',
                         parameters: [
@@ -4019,6 +4280,7 @@ const router = new Router({
                 },
                 {
                     path: 'ibzmyterritories/:ibzmyterritory?/mobcalendarview',
+                    name: 'ibzmyterritory_mobcalendarview',
                     meta: {
                         caption: 'ibzmyterritory.views.mobcalendarview.caption',
                         parameters: [
@@ -4032,6 +4294,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/mobmdview9',
+                    name: 'story_mobmdview9',
                     meta: {
                         caption: 'story.views.mobmdview9.caption',
                         imgPath: '',
@@ -4048,6 +4311,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/mobmdview9',
+                    name: 'story_mobmdview9',
                     meta: {
                         caption: 'story.views.mobmdview9.caption',
                         imgPath: '',
@@ -4063,6 +4327,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/builds/:build?/mobmdview',
+                    name: 'build_mobmdview',
                     meta: {
                         caption: 'build.views.mobmdview.caption',
                         imgPath: '',
@@ -4079,6 +4344,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/builds/:build?/mobmdview',
+                    name: 'build_mobmdview',
                     meta: {
                         caption: 'build.views.mobmdview.caption',
                         imgPath: '',
@@ -4095,6 +4361,7 @@ const router = new Router({
                 },
                 {
                     path: 'builds/:build?/mobmdview',
+                    name: 'build_mobmdview',
                     meta: {
                         caption: 'build.views.mobmdview.caption',
                         imgPath: '',
@@ -4110,6 +4377,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/mobmdview',
+                    name: 'case_mobmdview',
                     meta: {
                         caption: 'case.views.mobmdview.caption',
                         parameters: [
@@ -4125,6 +4393,7 @@ const router = new Router({
                 },
                 {
                     path: 'stories/:story?/cases/:case?/mobmdview',
+                    name: 'case_mobmdview',
                     meta: {
                         caption: 'case.views.mobmdview.caption',
                         parameters: [
@@ -4139,6 +4408,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/cases/:case?/mobmdview',
+                    name: 'case_mobmdview',
                     meta: {
                         caption: 'case.views.mobmdview.caption',
                         parameters: [
@@ -4153,6 +4423,7 @@ const router = new Router({
                 },
                 {
                     path: 'cases/:case?/mobmdview',
+                    name: 'case_mobmdview',
                     meta: {
                         caption: 'case.views.mobmdview.caption',
                         parameters: [
@@ -4166,6 +4437,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/releases/:release?/mobeditview',
+                    name: 'release_mobeditview',
                     meta: {
                         caption: 'release.views.mobeditview.caption',
                         imgPath: '',
@@ -4182,6 +4454,7 @@ const router = new Router({
                 },
                 {
                     path: 'releases/:release?/mobeditview',
+                    name: 'release_mobeditview',
                     meta: {
                         caption: 'release.views.mobeditview.caption',
                         imgPath: '',
@@ -4197,6 +4470,7 @@ const router = new Router({
                 },
                 {
                     path: 'testsuites/:testsuite?/mobeditview',
+                    name: 'testsuite_mobeditview',
                     meta: {
                         caption: 'testsuite.views.mobeditview.caption',
                         imgPath: '',
@@ -4212,6 +4486,7 @@ const router = new Router({
                 },
                 {
                     path: 'projects/:project?/builds/:build?/mobpickupview',
+                    name: 'build_mobpickupview',
                     meta: {
                         caption: 'build.views.mobpickupview.caption',
                         imgPath: '',
@@ -4228,6 +4503,7 @@ const router = new Router({
                 },
                 {
                     path: 'products/:product?/builds/:build?/mobpickupview',
+                    name: 'build_mobpickupview',
                     meta: {
                         caption: 'build.views.mobpickupview.caption',
                         imgPath: '',
@@ -4244,6 +4520,7 @@ const router = new Router({
                 },
                 {
                     path: 'builds/:build?/mobpickupview',
+                    name: 'build_mobpickupview',
                     meta: {
                         caption: 'build.views.mobpickupview.caption',
                         imgPath: '',
