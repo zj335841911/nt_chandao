@@ -35,7 +35,7 @@ ruleflow-group "casecasefavoriteprepareparam1"
     when
     then
     casecasefavoriteibzfavorite.set("objectid",casecasefavoritedefault.get("id"));
-    casecasefavoriteibzfavorite.set("account",casecasefavoritedefault.get("openedby"));
+    casecasefavoriteibzfavorite.set("account",curuser.getSessionParams().get("srfloginname"));
     casecasefavoriteibzfavorite.set("type","case");
     update(casecasefavoritedefault);//更新fact中变量值
     update(casecasefavoriteibzfavorite);//更新fact中变量值
