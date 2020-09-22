@@ -39,13 +39,6 @@ import { ViewOpenService } from '@/utils/view-open-service/view-open-service';
 // };
 // thirdPartyAuth();
 
-router.beforeEach((to: any, from: any, next: any) => {
-    if (to.meta && !to.meta.ignoreAddPage) {
-        router.app.$store.commit('addPage', to);
-    }
-    next();
-});
-
 Vue.config.errorHandler = function (err: any, vm: any, info: any) {
     console.log(err);
 }
