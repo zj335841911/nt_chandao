@@ -198,8 +198,8 @@ export class CaseModuleChartBase extends MainControlBase {
     name:'caseresult',
     
     
-    categorField:'module',
-    categorCodeList:{type:'DYNAMIC',tag:'BugModule',emptycode:'empty',emptytext:'未定义'},
+    categorField:'modulename',
+    
     
     valueField:'srfcount',
     seriesValues:[],
@@ -207,7 +207,7 @@ export class CaseModuleChartBase extends MainControlBase {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"module",codelist:{type:"DYNAMIC",tag:"BugModule",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"CODELIST"},
+    {name:"modulename",codelist:null,isGroupField:true,groupMode:""},
     {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
@@ -288,7 +288,7 @@ export class CaseModuleChartBase extends MainControlBase {
             
             seriesLayoutBy:"column",
             encode:{
-                itemName:"module",
+                itemName:"modulename",
                 value:"srfcount"
             }}
         ]

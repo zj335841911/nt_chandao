@@ -199,7 +199,7 @@ export class CaseLASTRUNNERChartBase extends MainControlBase {
     
     
     categorField:'lastrunner',
-    categorCodeList:{type:'DYNAMIC',tag:'UserRealName',emptycode:'empty',emptytext:'未定义'},
+    
     
     valueField:'srfcount',
     seriesValues:[],
@@ -207,7 +207,7 @@ export class CaseLASTRUNNERChartBase extends MainControlBase {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"lastrunner",codelist:{type:"DYNAMIC",tag:"UserRealName",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"CODELIST"},
+    {name:"lastrunner",codelist:null,isGroupField:true,groupMode:""},
     {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
