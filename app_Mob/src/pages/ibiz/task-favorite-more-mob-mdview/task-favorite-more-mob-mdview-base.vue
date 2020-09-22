@@ -1,16 +1,75 @@
 <template>
-!!!!模版产生代码错误:----
-Tip: If you just want "true"/"false" result as you are generting computer-language output, use "?c", like ${myBool?c}.
-----
-Tip: You can write myBool?string('yes', 'no') and like to specify boolean formatting in place.
-----
-Tip: If you need the same two values on most places, the programmers should set the "boolean_format" setting to something like "yes,no".
-----
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'task-favorite-more-mob-mdview': true }">
+    
+    <ion-header>
+        <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
+            <ion-buttons slot="start">
+                <ion-button v-show="isShowBackButton" @click="closeView">
+                    <ion-icon name="chevron-back"></ion-icon>
+                    {{$t('app.button.back')}}
+                </ion-button>
+            </ion-buttons>
+            <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
+        </ion-toolbar>
+        <app-search-history @quickValueChange="quickValueChange" @openSearchform="openSearchform" :model="model" :showfilter="false"></app-search-history>
 
-----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${view.hasPSControl("searchform")}  [in template "TEMPLCODE_en_US" at line 244, column 127]
-----
+    
+    </ion-header>
+
+
+    <ion-content>
+        <ion-refresher 
+            slot="fixed" 
+            ref="loadmore" 
+            pull-factor="0.5" 
+            pull-min="50" 
+            pull-max="100" 
+            @ionRefresh="pullDownToRefresh($event)">
+            <ion-refresher-content
+                pulling-icon="arrow-down-outline"
+                :pulling-text="$t('app.pulling_text')"
+                refreshing-spinner="circles"
+                refreshing-text="">
+            </ion-refresher-content>
+        </ion-refresher>
+                <view_mdctrl
+            :viewState="viewState"
+            viewName="TaskFavoriteMoreMobMDView"  
+            :viewparams="viewparams" 
+            :context="context" 
+            :showBusyIndicator="true" 
+            viewType="DEMOBMDVIEW"
+            controlStyle="LISTVIEW"
+            updateAction="Update"
+            removeAction="Remove"
+            loaddraftAction=""
+            loadAction="Get"
+            createAction="Create"
+            fetchAction="FetchMyFavorites" 
+            :isMutli="!isSingleSelect"
+            :showCheack="showCheack"
+            @showCheackChange="showCheackChange"
+            :isTempMode="false"
+            :isEnableChoose="false"
+            name="mdctrl"  
+            ref='mdctrl' 
+            @selectionchange="mdctrl_selectionchange($event)"  
+            @beforeload="mdctrl_beforeload($event)"  
+            @rowclick="mdctrl_rowclick($event)"  
+            @load="mdctrl_load($event)"  
+            @closeview="closeView($event)">
+        </view_mdctrl>
+        <ion-infinite-scroll  @ionInfinite="loadMore" threshold="1px" v-if="this.isEnablePullUp">
+          <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </ion-content>
+    <ion-footer class="view-footer" style="z-index:9999;">
+        
+    </ion-footer>
+</ion-page>
 </template>
 
 <script lang='ts'>
