@@ -206,7 +206,7 @@ export default class CaseMobMDViewBase extends Vue {
         srfCaption: 'case.views.mobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'case.mobmdview.caption',
+        viewname:'case.mobmdview',
         iconcls: '',
         icon: 'fa fa-star-o'
     }

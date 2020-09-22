@@ -196,7 +196,7 @@ export default class BuildMobEditViewBase extends Vue {
         srfCaption: 'build.views.mobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'build.mobeditview.caption',
+        viewname:'build.mobeditview',
         iconcls: '',
         icon: 'fa fa-code-fork'
     }

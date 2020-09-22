@@ -202,7 +202,7 @@ export default class TodoMobMDViewBase extends Vue {
         srfCaption: 'todo.views.mobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'todo.mobmdview.caption',
+        viewname:'todo.mobmdview',
         iconcls: '',
         icon: ''
     }

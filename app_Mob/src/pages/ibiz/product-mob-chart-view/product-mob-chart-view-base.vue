@@ -177,7 +177,7 @@ export default class ProductMobChartViewBase extends Vue {
         srfCaption: 'product.views.mobchartview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'product.mobchartview.caption',
+        viewname:'product.mobchartview',
         iconcls: '',
         icon: ''
     }

@@ -156,7 +156,7 @@ export default class StoryMobListViewBase extends Vue {
         srfCaption: 'story.views.moblistview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'story.moblistview.caption',
+        viewname:'story.moblistview',
         iconcls: '',
         icon: 'fa fa-star-o'
     }

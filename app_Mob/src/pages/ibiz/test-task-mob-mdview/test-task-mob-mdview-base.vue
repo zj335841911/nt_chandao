@@ -206,7 +206,7 @@ export default class TestTaskMobMDViewBase extends Vue {
         srfCaption: 'testtask.views.mobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'testtask.mobmdview.caption',
+        viewname:'testtask.mobmdview',
         iconcls: '',
         icon: 'fa fa-clipboard'
     }

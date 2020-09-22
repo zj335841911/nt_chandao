@@ -216,7 +216,7 @@ export default class ProductPlanMobMDViewBase extends Vue {
         srfCaption: 'productplan.views.mobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'productplan.mobmdview.caption',
+        viewname:'productplan.mobmdview',
         iconcls: '',
         icon: ''
     }

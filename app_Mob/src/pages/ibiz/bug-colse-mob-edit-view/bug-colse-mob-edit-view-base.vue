@@ -202,7 +202,7 @@ export default class BugColseMobEditViewBase extends Vue {
         srfCaption: 'bug.views.colsemobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'bug.colsemobeditview.caption',
+        viewname:'bug.colsemobeditview',
         iconcls: '',
         icon: 'fa fa-bug'
     }

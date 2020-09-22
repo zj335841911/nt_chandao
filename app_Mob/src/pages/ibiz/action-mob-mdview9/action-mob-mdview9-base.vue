@@ -184,7 +184,7 @@ export default class ActionMobMDView9Base extends Vue {
         srfCaption: 'action.views.mobmdview9.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'action.mobmdview9.caption',
+        viewname:'action.mobmdview9',
         iconcls: '',
         icon: ''
     }

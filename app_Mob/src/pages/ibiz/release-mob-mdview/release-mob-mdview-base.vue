@@ -216,7 +216,7 @@ export default class ReleaseMobMDViewBase extends Vue {
         srfCaption: 'release.views.mobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'release.mobmdview.caption',
+        viewname:'release.mobmdview',
         iconcls: '',
         icon: 'fa fa-flag-o'
     }

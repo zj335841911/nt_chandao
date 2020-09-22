@@ -190,7 +190,7 @@ export default class BugPlanMobMDView9Base extends Vue {
         srfCaption: 'bug.views.planmobmdview9.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'bug.planmobmdview9.caption',
+        viewname:'bug.planmobmdview9',
         iconcls: '',
         icon: 'fa fa-bug'
     }

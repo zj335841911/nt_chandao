@@ -184,7 +184,7 @@ export default class StoryMobMDView9Base extends Vue {
         srfCaption: 'story.views.mobmdview9.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'story.mobmdview9.caption',
+        viewname:'story.mobmdview9',
         iconcls: '',
         icon: 'fa fa-star-o'
     }

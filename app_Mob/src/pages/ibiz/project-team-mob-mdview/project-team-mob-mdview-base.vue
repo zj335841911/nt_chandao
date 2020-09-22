@@ -192,7 +192,7 @@ export default class ProjectTeamMobMDViewBase extends Vue {
         srfCaption: 'projectteam.views.mobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'projectteam.mobmdview.caption',
+        viewname:'projectteam.mobmdview',
         iconcls: '',
         icon: 'fa fa-users'
     }

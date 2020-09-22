@@ -184,7 +184,7 @@ export default class TaskTeamMobEditView9Base extends Vue {
         srfCaption: 'ibztaskteam.views.mobeditview9.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'ibztaskteam.mobeditview9.caption',
+        viewname:'ibztaskteam.mobeditview9',
         iconcls: '',
         icon: ''
     }

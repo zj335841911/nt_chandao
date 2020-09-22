@@ -173,7 +173,7 @@ export default class TaskMobPickupMDViewBase extends Vue {
         srfCaption: 'task.views.mobpickupmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'task.mobpickupmdview.caption',
+        viewname:'task.mobpickupmdview',
         iconcls: '',
         icon: 'fa fa-tasks'
     }

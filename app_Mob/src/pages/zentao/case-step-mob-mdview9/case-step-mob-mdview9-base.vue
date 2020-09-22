@@ -187,7 +187,7 @@ export default class CaseStepMobMDView9Base extends Vue {
         srfCaption: 'casestep.views.mobmdview9.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'casestep.mobmdview9.caption',
+        viewname:'casestep.mobmdview9',
         iconcls: '',
         icon: ''
     }

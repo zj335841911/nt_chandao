@@ -191,7 +191,7 @@ export default class BugAssMobMDViewBase extends Vue {
         srfCaption: 'bug.views.assmobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'bug.assmobmdview.caption',
+        viewname:'bug.assmobmdview',
         iconcls: '',
         icon: 'fa fa-bug'
     }

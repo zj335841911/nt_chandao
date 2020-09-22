@@ -195,7 +195,7 @@ export default class StoryChangeMobOptionViewBase extends Vue {
         srfCaption: 'story.views.changemoboptionview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'story.changemoboptionview.caption',
+        viewname:'story.changemoboptionview',
         iconcls: '',
         icon: 'fa fa-star-o'
     }

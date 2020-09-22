@@ -190,7 +190,7 @@ export default class UserUserCenterMobEditViewBase extends Vue {
         srfCaption: 'user.views.usercentermobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'user.usercentermobeditview.caption',
+        viewname:'user.usercentermobeditview',
         iconcls: '',
         icon: ''
     }

@@ -202,7 +202,7 @@ export default class ProductCloseMobEditViewBase extends Vue {
         srfCaption: 'product.views.closemobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'product.closemobeditview.caption',
+        viewname:'product.closemobeditview',
         iconcls: '',
         icon: ''
     }

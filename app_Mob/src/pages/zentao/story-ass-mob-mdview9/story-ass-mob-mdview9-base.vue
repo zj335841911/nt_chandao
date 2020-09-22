@@ -182,7 +182,7 @@ export default class StoryAssMobMDView9Base extends Vue {
         srfCaption: 'story.views.assmobmdview9.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'story.assmobmdview9.caption',
+        viewname:'story.assmobmdview9',
         iconcls: '',
         icon: 'fa fa-star-o'
     }

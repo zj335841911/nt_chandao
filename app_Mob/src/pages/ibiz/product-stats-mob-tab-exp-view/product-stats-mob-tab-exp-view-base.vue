@@ -201,7 +201,7 @@ export default class ProductStatsMobTabExpViewBase extends Vue {
         srfCaption: 'productstats.views.mobtabexpview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'productstats.mobtabexpview.caption',
+        viewname:'productstats.mobtabexpview',
         iconcls: '',
         icon: ''
     }

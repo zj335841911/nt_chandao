@@ -184,7 +184,7 @@ export default class TaskEstimateMobMDView9Base extends Vue {
         srfCaption: 'taskestimate.views.mobmdview9.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'taskestimate.mobmdview9.caption',
+        viewname:'taskestimate.mobmdview9',
         iconcls: '',
         icon: ''
     }

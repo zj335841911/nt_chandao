@@ -196,7 +196,7 @@ export default class TestTaskMobEditViewBase extends Vue {
         srfCaption: 'testtask.views.mobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'testtask.mobeditview.caption',
+        viewname:'testtask.mobeditview',
         iconcls: '',
         icon: 'fa fa-clipboard'
     }

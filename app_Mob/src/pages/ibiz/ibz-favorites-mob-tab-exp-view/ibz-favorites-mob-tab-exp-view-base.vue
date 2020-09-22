@@ -179,7 +179,7 @@ export default class IbzFavoritesMobTabExpViewBase extends Vue {
         srfCaption: 'ibzfavorites.views.mobtabexpview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'ibzfavorites.mobtabexpview.caption',
+        viewname:'ibzfavorites.mobtabexpview',
         iconcls: '',
         icon: ''
     }

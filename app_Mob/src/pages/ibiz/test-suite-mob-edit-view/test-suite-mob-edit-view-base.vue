@@ -196,7 +196,7 @@ export default class TestSuiteMobEditViewBase extends Vue {
         srfCaption: 'testsuite.views.mobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'testsuite.mobeditview.caption',
+        viewname:'testsuite.mobeditview',
         iconcls: '',
         icon: 'fa fa-suitcase'
     }

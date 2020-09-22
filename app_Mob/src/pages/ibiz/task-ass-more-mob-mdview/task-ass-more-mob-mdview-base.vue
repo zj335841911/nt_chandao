@@ -215,7 +215,7 @@ export default class TaskAssMoreMobMDViewBase extends Vue {
         srfCaption: 'task.views.assmoremobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'task.assmoremobmdview.caption',
+        viewname:'task.assmoremobmdview',
         iconcls: '',
         icon: 'fa fa-tasks'
     }

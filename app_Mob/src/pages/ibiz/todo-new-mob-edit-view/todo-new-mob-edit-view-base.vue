@@ -202,7 +202,7 @@ export default class TodoNewMobEditViewBase extends Vue {
         srfCaption: 'todo.views.newmobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'todo.newmobeditview.caption',
+        viewname:'todo.newmobeditview',
         iconcls: '',
         icon: ''
     }

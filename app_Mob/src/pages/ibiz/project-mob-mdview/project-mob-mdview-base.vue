@@ -225,7 +225,7 @@ export default class ProjectMobMDViewBase extends Vue {
         srfCaption: 'project.views.mobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'project.mobmdview.caption',
+        viewname:'project.mobmdview',
         iconcls: '',
         icon: ''
     }

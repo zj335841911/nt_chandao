@@ -184,7 +184,7 @@ export default class IbzMyTerritoryMobMDView9Base extends Vue {
         srfCaption: 'ibzmyterritory.views.mobmdview9.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'ibzmyterritory.mobmdview9.caption',
+        viewname:'ibzmyterritory.mobmdview9',
         iconcls: '',
         icon: ''
     }

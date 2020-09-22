@@ -191,7 +191,7 @@ export default class StoryFavoriteMobMDViewBase extends Vue {
         srfCaption: 'story.views.favoritemobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'story.favoritemobmdview.caption',
+        viewname:'story.favoritemobmdview',
         iconcls: '',
         icon: 'fa fa-star-o'
     }

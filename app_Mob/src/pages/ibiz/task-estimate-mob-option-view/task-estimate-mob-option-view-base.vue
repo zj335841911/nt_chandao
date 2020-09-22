@@ -195,7 +195,7 @@ export default class TaskEstimateMobOptionViewBase extends Vue {
         srfCaption: 'taskestimate.views.moboptionview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'taskestimate.moboptionview.caption',
+        viewname:'taskestimate.moboptionview',
         iconcls: '',
         icon: ''
     }

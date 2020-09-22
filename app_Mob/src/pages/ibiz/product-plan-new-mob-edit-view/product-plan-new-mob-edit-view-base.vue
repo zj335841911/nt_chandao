@@ -202,7 +202,7 @@ export default class ProductPlanNewMobEditViewBase extends Vue {
         srfCaption: 'productplan.views.newmobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'productplan.newmobeditview.caption',
+        viewname:'productplan.newmobeditview',
         iconcls: '',
         icon: ''
     }

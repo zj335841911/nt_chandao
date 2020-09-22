@@ -215,7 +215,7 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
         srfCaption: 'task.views.favoritemoremobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'task.favoritemoremobmdview.caption',
+        viewname:'task.favoritemoremobmdview',
         iconcls: '',
         icon: 'fa fa-tasks'
     }

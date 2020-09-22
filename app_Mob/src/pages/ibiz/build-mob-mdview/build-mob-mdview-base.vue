@@ -206,7 +206,7 @@ export default class BuildMobMDViewBase extends Vue {
         srfCaption: 'build.views.mobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'build.mobmdview.caption',
+        viewname:'build.mobmdview',
         iconcls: '',
         icon: 'fa fa-code-fork'
     }

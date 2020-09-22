@@ -184,7 +184,7 @@ export default class TaskTeamMobMDView9Base extends Vue {
         srfCaption: 'taskteam.views.mobmdview9.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'taskteam.mobmdview9.caption',
+        viewname:'taskteam.mobmdview9',
         iconcls: '',
         icon: ''
     }

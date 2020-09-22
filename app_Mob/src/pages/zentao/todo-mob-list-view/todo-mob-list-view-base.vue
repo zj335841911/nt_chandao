@@ -171,7 +171,7 @@ export default class TodoMobListViewBase extends Vue {
         srfCaption: 'todo.views.moblistview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'todo.moblistview.caption',
+        viewname:'todo.moblistview',
         iconcls: '',
         icon: ''
     }

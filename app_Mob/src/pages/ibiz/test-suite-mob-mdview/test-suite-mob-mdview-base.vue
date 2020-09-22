@@ -206,7 +206,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
         srfCaption: 'testsuite.views.mobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'testsuite.mobmdview.caption',
+        viewname:'testsuite.mobmdview',
         iconcls: '',
         icon: 'fa fa-suitcase'
     }

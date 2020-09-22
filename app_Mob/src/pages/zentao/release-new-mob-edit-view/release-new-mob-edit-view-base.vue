@@ -202,7 +202,7 @@ export default class ReleaseNewMobEditViewBase extends Vue {
         srfCaption: 'release.views.newmobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'release.newmobeditview.caption',
+        viewname:'release.newmobeditview',
         iconcls: '',
         icon: 'fa fa-flag-o'
     }

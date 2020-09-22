@@ -239,7 +239,7 @@ export default class BugMobEditViewBase extends Vue {
         srfCaption: 'bug.views.mobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'bug.mobeditview.caption',
+        viewname:'bug.mobeditview',
         iconcls: '',
         icon: 'fa fa-bug'
     }

@@ -212,7 +212,7 @@ export default class ProductStatsTestMobMDViewBase extends Vue {
         srfCaption: 'productstats.views.testmobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'productstats.testmobmdview.caption',
+        viewname:'productstats.testmobmdview',
         iconcls: '',
         icon: ''
     }

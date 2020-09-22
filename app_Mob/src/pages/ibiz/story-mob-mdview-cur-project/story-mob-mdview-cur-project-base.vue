@@ -208,7 +208,7 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
         srfCaption: 'story.views.mobmdviewcurproject.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'story.mobmdviewcurproject.caption',
+        viewname:'story.mobmdviewcurproject',
         iconcls: '',
         icon: 'fa fa-star-o'
     }

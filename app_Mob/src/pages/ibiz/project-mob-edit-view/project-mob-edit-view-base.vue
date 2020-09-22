@@ -226,7 +226,7 @@ export default class ProjectMobEditViewBase extends Vue {
         srfCaption: 'project.views.mobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'project.mobeditview.caption',
+        viewname:'project.mobeditview',
         iconcls: '',
         icon: ''
     }

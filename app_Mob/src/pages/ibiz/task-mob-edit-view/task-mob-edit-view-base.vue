@@ -270,7 +270,7 @@ export default class TaskMobEditViewBase extends Vue {
         srfCaption: 'task.views.mobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'task.mobeditview.caption',
+        viewname:'task.mobeditview',
         iconcls: '',
         icon: 'fa fa-tasks'
     }
