@@ -57,6 +57,28 @@ export class TestReportDashboardViewBase extends DashboardViewBase {
      */
     public appUIService: TestReportUIService = new TestReportUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TestReportDashboardViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'SRFPARENTKEY': { isRawValue: false, value: 'srfparentkey' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TestReportDashboardViewBase
+	 */
+    protected customViewParams: any = {
+        'srfparentkey': { isRawValue: false, value: 'srfparentkey' }
+    };
+
     /**
      * 是否显示信息栏
      *
