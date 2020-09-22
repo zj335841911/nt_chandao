@@ -215,6 +215,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugMPickupView4",
             "viewtag": "0dc54afa855dec1037987a074b6bc8a3"
         },
+        "casecasefavorite": {
+            "title": "case我得收藏",
+            "caption": "测试用例",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseCaseFavorite",
+            "viewtag": "0f0573a5043e9bd93a605e5f1d3ca334"
+        },
         "ibzmyterritorytabexpview": {
             "title": "我的地盘",
             "caption": "我的地盘",
@@ -1718,14 +1726,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibizpro",
             "viewname": "IBZProStoryModuleOptionView",
             "viewtag": "87ca9109af86ed2745dcf7aa21294541"
-        },
-        "casecasefavorite": {
-            "title": "case表格视图",
-            "caption": "测试用例",
-            "viewtype": "DEGRIDVIEW",
-            "viewmodule": "zentao",
-            "viewname": "CaseCaseFavorite",
-            "viewtag": "8a84b7829f6ecc77d8d3b4f6a7d1ade3"
         },
         "bugusr2gridview": {
             "title": "Bug表格视图",

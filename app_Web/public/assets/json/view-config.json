@@ -259,6 +259,16 @@
         "viewtag": "0dc54afa855dec1037987a074b6bc8a3",
         "memo": ""
     },
+    "casecasefavorite": {
+        "title": "case我得收藏",
+        "caption": "测试用例",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseCaseFavorite",
+        "viewfilename": "case-case-favorite",
+        "viewtag": "0f0573a5043e9bd93a605e5f1d3ca334",
+        "memo": ""
+    },
     "ibzmyterritorytabexpview": {
         "title": "我的地盘",
         "caption": "我的地盘",
@@ -2137,16 +2147,6 @@
         "viewname": "IBZProStoryModuleOptionView",
         "viewfilename": "ibzpro-story-module-option-view",
         "viewtag": "87ca9109af86ed2745dcf7aa21294541",
-        "memo": ""
-    },
-    "casecasefavorite": {
-        "title": "case表格视图",
-        "caption": "测试用例",
-        "viewtype": "DEGRIDVIEW",
-        "viewmodule": "zentao",
-        "viewname": "CaseCaseFavorite",
-        "viewfilename": "case-case-favorite",
-        "viewtag": "8a84b7829f6ecc77d8d3b4f6a7d1ade3",
         "memo": ""
     },
     "bugusr2gridview": {

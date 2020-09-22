@@ -146,7 +146,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '14f00c25c80cfa8ec6c94ad76e82cf16',
-                '417541fa331fc089b84936b8359403fa',
+                '0f0573a5043e9bd93a605e5f1d3ca334',
                 'b7e6268db4bdeb10211fc15383de685d',
                 '82b045705ced7d1c938a0df4a58046ca',
             ],
@@ -190,6 +190,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '1c4104beb7e8515d20d03262732ba4f8',
+            ],
+        },
+        {
+            viewtag: '0f0573a5043e9bd93a605e5f1d3ca334',
+            viewmodule: 'zentao',
+            viewname: 'CaseCaseFavorite',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '02b7ecd8e994b90558a9d6c23705f600',
             ],
         },
         {

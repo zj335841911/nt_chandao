@@ -90,6 +90,7 @@ export default class CaseUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'cases',component:'case-edit-view'});
+        this.allViewMap.set(':',{viewname:'casefavorite',srfappde:'cases',component:'case-case-favorite'});
         this.allViewMap.set(':',{viewname:'linkcasegridview',srfappde:'cases',component:'case-link-case-grid-view'});
         this.allViewMap.set(':',{viewname:'reportlinkgridview',srfappde:'cases',component:'case-report-link-grid-view'});
         this.allViewMap.set(':',{viewname:'optionview',srfappde:'cases',component:'case-option-view'});
@@ -109,7 +110,6 @@ export default class CaseUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'cases',component:'case-main-dashboard-view'});
         this.allViewMap.set(':',{viewname:'cursuitgridview',srfappde:'cases',component:'case-cur-suit-grid-view'});
         this.allViewMap.set(':',{viewname:'gridview9',srfappde:'cases',component:'case-grid-view9'});
-        this.allViewMap.set(':',{viewname:'casefavorite',srfappde:'cases',component:'case-case-favorite'});
         this.allViewMap.set(':',{viewname:'resultentrygridview',srfappde:'cases',component:'caseresult-entry-grid-view'});
         this.allViewMap.set(':',{viewname:'maineditview',srfappde:'cases',component:'case-main-edit-view'});
         this.allViewMap.set(':',{viewname:'mainmynewgridview',srfappde:'cases',component:'case-main-my-new-grid-view'});

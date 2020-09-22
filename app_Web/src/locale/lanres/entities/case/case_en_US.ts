@@ -63,6 +63,10 @@ export default {
 			caption: "测试用例",
       		title: "功能测试编辑视图",
 		},
+		casefavorite: {
+			caption: "测试用例",
+      		title: "case我得收藏",
+		},
 		linkcasegridview: {
 			caption: "关联用例",
       		title: "测试用例表格视图（关联用例）",
@@ -138,10 +142,6 @@ export default {
 		gridview9: {
 			caption: "测试用例",
       		title: "测试用例表格视图",
-		},
-		casefavorite: {
-			caption: "测试用例",
-      		title: "case表格视图",
 		},
 		resultentrygridview: {
 			caption: "测试结果条目",
@@ -605,7 +605,7 @@ export default {
         case_execute: "执行",
 		},
 	},
-	main2_grid: {
+	main_grid: {
 		columns: {
 			pri: "P",
 			title: "用例标题",
@@ -614,7 +614,7 @@ export default {
 		uiactions: {
 		},
 	},
-	main_grid: {
+	main2_grid: {
 		columns: {
 			pri: "P",
 			title: "用例标题",
@@ -699,6 +699,14 @@ export default {
 		},
 	},
 	casefavoritetoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
 	},
 	gridviewtoolbar_toolbar: {
 		deuiaction3_batchnew: {
