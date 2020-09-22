@@ -221,11 +221,6 @@
                             <i class='fa fa-bug'></i>
                             
                           </a>
-                          <divider v-show="scope.row.delete.visabled" type='vertical'></divider>
-                          <a v-show="scope.row.delete.visabled" :disabled="scope.row.delete.disabled" @click="uiAction(scope.row, 'delete', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_delete')">
-                            <i class=''></i>
-                            
-                          </a>
                           <divider v-show="scope.row.caseFavorite.visabled" type='vertical'></divider>
                           <a v-show="scope.row.caseFavorite.visabled" :disabled="scope.row.caseFavorite.disabled" @click="uiAction(scope.row, 'caseFavorite', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_casefavorite')">
                             <i class='fa fa-star-o'></i>
