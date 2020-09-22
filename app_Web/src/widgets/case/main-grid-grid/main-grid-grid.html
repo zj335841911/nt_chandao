@@ -204,7 +204,7 @@
                           <divider v-show="scope.row.CaseNFavorite.visabled" type='vertical'></divider>
                           <a v-show="scope.row.CaseNFavorite.visabled" :disabled="scope.row.CaseNFavorite.disabled" @click="uiAction(scope.row, 'CaseNFavorite', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_casenfavorite')">
                             <i class=''></i>
-                            {{$t('entities.case.maingrid_grid.uiactions.case_casenfavorite')}}
+                            
                           </a>
                           <divider v-show="scope.row.OpenTestRunResultView.visabled" type='vertical'></divider>
                           <a v-show="scope.row.OpenTestRunResultView.visabled" :disabled="scope.row.OpenTestRunResultView.disabled" @click="uiAction(scope.row, 'OpenTestRunResultView', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_opentestrunresultview')">
@@ -214,7 +214,7 @@
                           <divider v-show="scope.row.caseFavorite.visabled" type='vertical'></divider>
                           <a v-show="scope.row.caseFavorite.visabled" :disabled="scope.row.caseFavorite.disabled" @click="uiAction(scope.row, 'caseFavorite', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_casefavorite')">
                             <i class=''></i>
-                            {{$t('entities.case.maingrid_grid.uiactions.case_casefavorite')}}
+                            
                           </a>
                           <divider v-show="scope.row.Execute.visabled" type='vertical'></divider>
                           <a v-show="scope.row.Execute.visabled" :disabled="scope.row.Execute.disabled" @click="uiAction(scope.row, 'Execute', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_execute')">
