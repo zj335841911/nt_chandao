@@ -62,6 +62,10 @@ export default {
 			caption: "测试用例",
       		title: "功能测试编辑视图",
 		},
+		moduleentrygridview: {
+			caption: "测试结果条目",
+      		title: "测试用例表格视图（测试结果条目）",
+		},
 		casefavorite: {
 			caption: "测试用例",
       		title: "case我得收藏",
@@ -73,6 +77,10 @@ export default {
 		reportlinkgridview: {
 			caption: "关联用例",
       		title: "测试用例表格视图（报告关联用例）",
+		},
+		typeentrygridview: {
+			caption: "测试结果条目",
+      		title: "测试用例表格视图（测试结果条目）",
 		},
 		optionview: {
 			caption: "执行",
@@ -161,6 +169,10 @@ export default {
 		gridview9_mecretae: {
 			caption: "测试用例",
       		title: "测试用例表格视图",
+		},
+		runerentrygridview: {
+			caption: "测试结果条目",
+      		title: "测试用例表格视图（测试结果条目）",
 		},
 		mainmygridview: {
 			caption: "功能测试",

@@ -189,6 +189,16 @@
         "viewtag": "0a43b5a8be540dcb1227223ae1c9adc9",
         "memo": ""
     },
+    "casemoduleentrygridview": {
+        "title": "测试用例表格视图（测试结果条目）",
+        "caption": "测试结果条目",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseModuleEntryGridView",
+        "viewfilename": "case-module-entry-grid-view",
+        "viewtag": "0abddf92966b6314d75cc71da4e7f7b8",
+        "memo": ""
+    },
     "productprojectgridview9": {
         "title": "产品表格视图（项目）",
         "caption": "项目",
@@ -577,6 +587,16 @@
         "viewname": "ProjectTeamMainGridView",
         "viewfilename": "project-team-main-grid-view",
         "viewtag": "231eecf4805f0b378601ea1a7912077f",
+        "memo": ""
+    },
+    "casetypeentrygridview": {
+        "title": "测试用例表格视图（测试结果条目）",
+        "caption": "测试结果条目",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseTypeEntryGridView",
+        "viewfilename": "case-type-entry-grid-view",
+        "viewtag": "2398b174d972ff2a5aebe52946ef3a53",
         "memo": ""
     },
     "storympickupview3": {
@@ -3087,6 +3107,16 @@
         "viewname": "IbzLibModuleGridView",
         "viewfilename": "ibz-lib-module-grid-view",
         "viewtag": "c5bf2f708034d7488fbb4aa848d15d1d",
+        "memo": ""
+    },
+    "caserunerentrygridview": {
+        "title": "测试用例表格视图（测试结果条目）",
+        "caption": "测试结果条目",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseRUNEREntryGridView",
+        "viewfilename": "case-runerentry-grid-view",
+        "viewtag": "c778697bb0f4f35a37892853575e1145",
         "memo": ""
     },
     "buggridview": {

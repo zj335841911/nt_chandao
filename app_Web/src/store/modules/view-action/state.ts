@@ -129,6 +129,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0abddf92966b6314d75cc71da4e7f7b8',
+            viewmodule: 'zentao',
+            viewname: 'CaseModuleEntryGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '0b1b51910ca13751bfd6d356dcadbbce',
             viewmodule: 'zentao',
             viewname: 'ProductProjectGridView9',
@@ -499,6 +508,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'ac21af5f9696e38031a7c2291ed02d64',
+            ],
+        },
+        {
+            viewtag: '2398b174d972ff2a5aebe52946ef3a53',
+            viewmodule: 'zentao',
+            viewname: 'CaseTypeEntryGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -889,7 +907,10 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '0abddf92966b6314d75cc71da4e7f7b8',
+                '2398b174d972ff2a5aebe52946ef3a53',
                 '8d9e694196a8c1abd56fd1632eed0173',
+                'c778697bb0f4f35a37892853575e1145',
             ],
         },
         {
@@ -2881,6 +2902,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'c5630df2f9e4729be1d7ba4048064774',
+            ],
+        },
+        {
+            viewtag: 'c778697bb0f4f35a37892853575e1145',
+            viewmodule: 'zentao',
+            viewname: 'CaseRUNEREntryGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

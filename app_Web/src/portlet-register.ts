@@ -16,6 +16,9 @@ import CaseCaseType from '@/widgets/case/case-type-portlet/case-type-portlet.vue
 import CaseCaseResult from '@/widgets/case/case-result-portlet/case-result-portlet.vue';
 import CaseTestDashboardQuickAction from '@/widgets/case/test-dashboard-quick-action-portlet/test-dashboard-quick-action-portlet.vue';
 import CaseDashboardQuickAction from '@/widgets/case/dashboard-quick-action-portlet/dashboard-quick-action-portlet.vue';
+import CaseTestErEntry from '@/widgets/case/test-er-entry-portlet/test-er-entry-portlet.vue';
+import CaseTestModuleEntry from '@/widgets/case/test-module-entry-portlet/test-module-entry-portlet.vue';
+import CaseTestTypeEntry from '@/widgets/case/test-type-entry-portlet/test-type-entry-portlet.vue';
 import CaseCaseResultEntry from '@/widgets/case/case-result-entry-portlet/case-result-entry-portlet.vue';
 import CaseMainInfo from '@/widgets/case/main-info-portlet/main-info-portlet.vue';
 import ProductProductMainToolbar from '@/widgets/product/product-main-toolbar-portlet/product-main-toolbar-portlet.vue';
@@ -93,8 +96,11 @@ export const  PortletComponent = {
         v.component('app-case-case-result-portlet', CaseCaseResult);
         v.component('app-case-case-result-entry-portlet', CaseCaseResultEntry);
         v.component('app-case-case-type-portlet', CaseCaseType);
+        v.component('app-case-test-type-entry-portlet', CaseTestTypeEntry);
         v.component('app-case-case-module-portlet', CaseCaseModule);
+        v.component('app-case-test-module-entry-portlet', CaseTestModuleEntry);
         v.component('app-case-case-lastrunner-portlet', CaseCaseLastrunner);
+        v.component('app-case-test-er-entry-portlet', CaseTestErEntry);
         v.component('app-case-main-info-portlet', CaseMainInfo);
         v.component('app-case-test-dashboard-quick-action-portlet', CaseTestDashboardQuickAction);
         v.component('app-case-test-main-detail-portlet', CaseTestMainDetail);
@@ -137,6 +143,9 @@ export const  PortletComponent = {
         v.component('case-case-result-portlet', CaseCaseResult);
         v.component('case-test-dashboard-quick-action-portlet', CaseTestDashboardQuickAction);
         v.component('case-dashboard-quick-action-portlet', CaseDashboardQuickAction);
+        v.component('case-test-er-entry-portlet', CaseTestErEntry);
+        v.component('case-test-module-entry-portlet', CaseTestModuleEntry);
+        v.component('case-test-type-entry-portlet', CaseTestTypeEntry);
         v.component('case-case-result-entry-portlet', CaseCaseResultEntry);
         v.component('case-main-info-portlet', CaseMainInfo);
         v.component('product-product-main-toolbar-portlet', ProductProductMainToolbar);

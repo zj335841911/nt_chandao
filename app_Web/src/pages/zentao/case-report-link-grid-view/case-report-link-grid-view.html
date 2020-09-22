@@ -1,5 +1,6 @@
 <studio-view viewName="casereportlinkgridview" viewTitle="测试用例表格视图（报告关联用例）" class='degridview case-report-link-grid-view'>
     <template slot='title'>
+    <span class='caption-image'><i class='    fa fa-star-o    '></i></span>
     <span class='caption-info'>{{viewCaption}}</span>
     </template>
     <i-input slot="quickSearch" v-model="query" placeholder="用例标题" search @on-search="onSearch($event)"/>

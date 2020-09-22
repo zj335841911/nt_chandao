@@ -159,6 +159,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzCaseEditEditView",
             "viewtag": "0a43b5a8be540dcb1227223ae1c9adc9"
         },
+        "casemoduleentrygridview": {
+            "title": "测试用例表格视图（测试结果条目）",
+            "caption": "测试结果条目",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseModuleEntryGridView",
+            "viewtag": "0abddf92966b6314d75cc71da4e7f7b8"
+        },
         "productprojectgridview9": {
             "title": "产品表格视图（项目）",
             "caption": "项目",
@@ -470,6 +478,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "ProjectTeamMainGridView",
             "viewtag": "231eecf4805f0b378601ea1a7912077f"
+        },
+        "casetypeentrygridview": {
+            "title": "测试用例表格视图（测试结果条目）",
+            "caption": "测试结果条目",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseTypeEntryGridView",
+            "viewtag": "2398b174d972ff2a5aebe52946ef3a53"
         },
         "storympickupview3": {
             "title": "关联需求",
@@ -2478,6 +2494,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "IbzLibModuleGridView",
             "viewtag": "c5bf2f708034d7488fbb4aa848d15d1d"
+        },
+        "caserunerentrygridview": {
+            "title": "测试用例表格视图（测试结果条目）",
+            "caption": "测试结果条目",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "CaseRUNEREntryGridView",
+            "viewtag": "c778697bb0f4f35a37892853575e1145"
         },
         "buggridview": {
             "title": "bug表格视图",

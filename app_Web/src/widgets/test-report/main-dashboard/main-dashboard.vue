@@ -3,6 +3,9 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MainDashboardBase } from './main-dashboard-base';
+import view_dashboard_sysportlet8 from '@widgets/case/test-er-entry-portlet/test-er-entry-portlet.vue';
+import view_dashboard_sysportlet6 from '@widgets/case/test-type-entry-portlet/test-type-entry-portlet.vue';
+import view_dashboard_sysportlet7 from '@widgets/case/test-module-entry-portlet/test-module-entry-portlet.vue';
 import view_dashboard_sysportlet4 from '@widgets/case/case-lastrunner-portlet/case-lastrunner-portlet.vue';
 import view_dashboard_sysportlet5 from '@widgets/case/case-result-entry-portlet/case-result-entry-portlet.vue';
 import view_dashboard_sysportlet2 from '@widgets/case/case-type-portlet/case-type-portlet.vue';
@@ -19,6 +22,9 @@ import view_dashboard_sysportlet1 from '@widgets/case/case-result-portlet/case-r
  */
 @Component({
     components: {
+        view_dashboard_sysportlet8, 
+        view_dashboard_sysportlet6, 
+        view_dashboard_sysportlet7, 
         view_dashboard_sysportlet4, 
         view_dashboard_sysportlet5, 
         view_dashboard_sysportlet2, 

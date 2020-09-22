@@ -111,6 +111,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maineditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -127,6 +129,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maineditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -142,6 +146,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maineditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -157,6 +163,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maineditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -353,6 +361,74 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/bug-pickup-grid-view4/bug-pickup-grid-view4.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/cases/:case?/typeentrygridview/:typeentrygridview?',
+                    meta: {
+                        caption: 'entities.case.views.typeentrygridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'typeentrygridview', parameterName: 'typeentrygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-type-entry-grid-view/case-type-entry-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/cases/:case?/typeentrygridview/:typeentrygridview?',
+                    meta: {
+                        caption: 'entities.case.views.typeentrygridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'typeentrygridview', parameterName: 'typeentrygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-type-entry-grid-view/case-type-entry-grid-view.vue'),
+                },
+                {
+                    path: 'products/:product?/cases/:case?/typeentrygridview/:typeentrygridview?',
+                    meta: {
+                        caption: 'entities.case.views.typeentrygridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'typeentrygridview', parameterName: 'typeentrygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-type-entry-grid-view/case-type-entry-grid-view.vue'),
+                },
+                {
+                    path: 'cases/:case?/typeentrygridview/:typeentrygridview?',
+                    meta: {
+                        caption: 'entities.case.views.typeentrygridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'typeentrygridview', parameterName: 'typeentrygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-type-entry-grid-view/case-type-entry-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/gridview9_storyrelated/:gridview9_storyrelated?',
@@ -728,6 +804,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.testoptionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -744,6 +822,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.testoptionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -759,6 +839,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.testoptionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -774,6 +856,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.testoptionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -1566,6 +1650,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.mainnewview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1582,6 +1668,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.mainnewview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1597,6 +1685,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.mainnewview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1612,6 +1702,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.mainnewview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -1865,6 +1957,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.casefavorite.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1881,6 +1975,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.casefavorite.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -1896,6 +1992,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.casefavorite.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -1911,6 +2009,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.casefavorite.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -2166,6 +2266,74 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/bug-main-dashboard-view/bug-main-dashboard-view.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/cases/:case?/moduleentrygridview/:moduleentrygridview?',
+                    meta: {
+                        caption: 'entities.case.views.moduleentrygridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'moduleentrygridview', parameterName: 'moduleentrygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-module-entry-grid-view/case-module-entry-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/cases/:case?/moduleentrygridview/:moduleentrygridview?',
+                    meta: {
+                        caption: 'entities.case.views.moduleentrygridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'moduleentrygridview', parameterName: 'moduleentrygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-module-entry-grid-view/case-module-entry-grid-view.vue'),
+                },
+                {
+                    path: 'products/:product?/cases/:case?/moduleentrygridview/:moduleentrygridview?',
+                    meta: {
+                        caption: 'entities.case.views.moduleentrygridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'moduleentrygridview', parameterName: 'moduleentrygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-module-entry-grid-view/case-module-entry-grid-view.vue'),
+                },
+                {
+                    path: 'cases/:case?/moduleentrygridview/:moduleentrygridview?',
+                    meta: {
+                        caption: 'entities.case.views.moduleentrygridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'moduleentrygridview', parameterName: 'moduleentrygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-module-entry-grid-view/case-module-entry-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/buildsubgridview/:buildsubgridview?',
@@ -2806,6 +2974,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.gridview9_storyaffect.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2822,6 +2992,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.gridview9_storyaffect.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -2837,6 +3009,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.gridview9_storyaffect.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -2852,6 +3026,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.gridview9_storyaffect.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -3244,6 +3420,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.linkcasegridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3260,6 +3438,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.linkcasegridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -3275,6 +3455,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.linkcasegridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3290,6 +3472,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.linkcasegridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -3859,6 +4043,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maingridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3875,6 +4061,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maingridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -3890,6 +4078,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maingridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -3905,6 +4095,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maingridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -5556,6 +5748,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maininfoeditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5572,6 +5766,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maininfoeditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -5587,6 +5783,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maininfoeditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5602,6 +5800,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maininfoeditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -5908,6 +6108,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5924,6 +6126,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -5939,6 +6143,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -5954,6 +6160,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.editview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -6353,6 +6561,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.testtaskexceditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -6369,6 +6579,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.testtaskexceditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -6384,6 +6596,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.testtaskexceditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -6399,6 +6613,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.testtaskexceditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -6983,6 +7199,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.suitelinkcasegridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -6999,6 +7217,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.suitelinkcasegridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -7014,6 +7234,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.suitelinkcasegridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -7029,6 +7251,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.suitelinkcasegridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -7144,6 +7368,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.mainmynewgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -7160,6 +7386,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.mainmynewgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -7175,6 +7403,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.mainmynewgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -7190,6 +7420,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.mainmynewgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -7589,6 +7821,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.testmaindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -7605,6 +7839,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.testmaindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -7620,6 +7856,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.testmaindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -7635,6 +7873,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.testmaindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -8377,6 +8617,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.resultentrygridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8393,6 +8635,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.resultentrygridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -8408,6 +8652,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.resultentrygridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8423,6 +8669,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.resultentrygridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -8437,6 +8685,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.batchnewgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8453,6 +8703,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.batchnewgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -8468,6 +8720,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.batchnewgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8483,6 +8737,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.batchnewgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -8594,6 +8850,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.cursuitgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8610,6 +8868,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.cursuitgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -8625,6 +8885,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.cursuitgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -8640,6 +8902,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.cursuitgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -9538,6 +9802,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.optionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -9554,6 +9820,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.optionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -9569,6 +9837,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.optionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -9584,6 +9854,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.optionview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -9772,6 +10044,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.testmaindetaileditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -9788,6 +10062,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.testmaindetaileditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -9803,6 +10079,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.testmaindetaileditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -9818,6 +10096,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.testmaindetaileditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -10366,6 +10646,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.tobugeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10382,6 +10664,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.tobugeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -10397,6 +10681,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.tobugeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10412,6 +10698,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.tobugeditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -10518,6 +10806,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.mainmygridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10534,6 +10824,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.mainmygridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -10549,6 +10841,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.mainmygridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10564,6 +10858,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.mainmygridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -10572,6 +10868,74 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/case-main-my-grid-view/case-main-my-grid-view.vue'),
+                },
+                {
+                    path: 'products/:product?/stories/:story?/cases/:case?/runerentrygridview/:runerentrygridview?',
+                    meta: {
+                        caption: 'entities.case.views.runerentrygridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'runerentrygridview', parameterName: 'runerentrygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-runerentry-grid-view/case-runerentry-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/cases/:case?/runerentrygridview/:runerentrygridview?',
+                    meta: {
+                        caption: 'entities.case.views.runerentrygridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'runerentrygridview', parameterName: 'runerentrygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-runerentry-grid-view/case-runerentry-grid-view.vue'),
+                },
+                {
+                    path: 'products/:product?/cases/:case?/runerentrygridview/:runerentrygridview?',
+                    meta: {
+                        caption: 'entities.case.views.runerentrygridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'runerentrygridview', parameterName: 'runerentrygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-runerentry-grid-view/case-runerentry-grid-view.vue'),
+                },
+                {
+                    path: 'cases/:case?/runerentrygridview/:runerentrygridview?',
+                    meta: {
+                        caption: 'entities.case.views.runerentrygridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'runerentrygridview', parameterName: 'runerentrygridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-runerentry-grid-view/case-runerentry-grid-view.vue'),
                 },
                 {
                     path: 'projects/:project?/editview_activate/:editview_activate?',
@@ -10762,6 +11126,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10778,6 +11144,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -10793,6 +11161,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10808,6 +11178,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maindashboardview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -10978,6 +11350,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maindetaileditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -10994,6 +11368,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maindetaileditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -11009,6 +11385,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maindetaileditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -11024,6 +11402,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.maindetaileditview9.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -11205,6 +11585,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.gridview9_mecretae.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -11221,6 +11603,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.gridview9_mecretae.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -11236,6 +11620,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.gridview9_mecretae.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -11251,6 +11637,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.gridview9_mecretae.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -11432,6 +11820,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.exceditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -11448,6 +11838,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.exceditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -11463,6 +11855,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.exceditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -11478,6 +11872,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.exceditview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -12619,6 +13015,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.reportlinkgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -12635,6 +13033,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.reportlinkgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -12650,6 +13050,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.reportlinkgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -12665,6 +13067,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.reportlinkgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -13011,6 +13415,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.gridview9_storyrelated.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -13027,6 +13433,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.gridview9_storyrelated.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -13042,6 +13450,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.gridview9_storyrelated.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -13057,6 +13467,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.gridview9_storyrelated.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },
@@ -13222,6 +13634,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.curtesttaskgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -13238,6 +13652,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.curtesttaskgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'stories', parameterName: 'story' },
@@ -13253,6 +13669,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.curtesttaskgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'products', parameterName: 'product' },
@@ -13268,6 +13686,8 @@ const router = new Router({
                     meta: {
                         caption: 'entities.case.views.curtesttaskgridview.caption',
                         info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
                             { pathName: 'cases', parameterName: 'case' },

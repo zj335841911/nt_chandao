@@ -1,5 +1,6 @@
 <studio-view viewName="casecasefavorite" viewTitle="case我得收藏" class='degridview case-case-favorite'>
     <template slot='title'>
+    <span class='caption-image'><i class='    fa fa-star-o    '></i></span>
     <span class='caption-info'>{{viewCaption}}</span>
     </template>
     <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" placeholder="用例标题" search @on-search="onSearch($event)"/>
