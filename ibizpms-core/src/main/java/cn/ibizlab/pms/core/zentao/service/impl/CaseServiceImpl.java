@@ -528,6 +528,15 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 测试报告关联--执行结果条目
+     */
+    @Override
+    public Page<Case> searchRunRePortCaseEntry(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchRunRePortCaseEntry(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**

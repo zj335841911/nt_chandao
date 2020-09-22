@@ -253,7 +253,7 @@
 
 
     <!--输出实体[ZT_CASE]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_case-959-7">
+    <changeSet author="zentao" id="tab-zt_case-964-7">
         <createTable tableName="zt_case">
                 <column name="LASTEDITEDDATE" remarks="" type="DATETIME">
                 </column>
@@ -2435,25 +2435,25 @@
        <addForeignKeyConstraint baseColumnNames="TASK" baseTableName="zt_burn" constraintName="DER1N_ZT_BURN_ZT_TASK_TASK" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_task" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_CASE]外键关系 -->
-    <changeSet author="zentao" id="fk-zt_case-959-116">
+    <changeSet author="zentao" id="fk-zt_case-964-116">
        <addForeignKeyConstraint baseColumnNames="BRANCH" baseTableName="zt_case" constraintName="DER1N_ZT_CASE_ZT_BRANCH_BRANCH" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_branch" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_case-959-117">
+    <changeSet author="zentao" id="fk-zt_case-964-117">
        <addForeignKeyConstraint baseColumnNames="FROMBUG" baseTableName="zt_case" constraintName="DER1N_ZT_CASE_ZT_BUG_FROMBUG" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_bug" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_case-959-118">
+    <changeSet author="zentao" id="fk-zt_case-964-118">
        <addForeignKeyConstraint baseColumnNames="FROMCASEID" baseTableName="zt_case" constraintName="DER1N_ZT_CASE_ZT_CASE_FROMCAEI" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_case" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_case-959-119">
+    <changeSet author="zentao" id="fk-zt_case-964-119">
        <addForeignKeyConstraint baseColumnNames="MODULE" baseTableName="zt_case" constraintName="DER1N_ZT_CASE_ZT_MODULE_MODULE" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_module" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_case-959-120">
+    <changeSet author="zentao" id="fk-zt_case-964-120">
        <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="zt_case" constraintName="DER1N_ZT_CASE_ZT_PRODUCT_PRODU" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_case-959-121">
+    <changeSet author="zentao" id="fk-zt_case-964-121">
        <addForeignKeyConstraint baseColumnNames="STORY" baseTableName="zt_case" constraintName="DER1N_ZT_CASE_ZT_STORY_STORY" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_story" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_case-959-122">
+    <changeSet author="zentao" id="fk-zt_case-964-122">
        <addForeignKeyConstraint baseColumnNames="LIB" baseTableName="zt_case" constraintName="DER1N_ZT_CASE_ZT_TESTSUITE_LIB" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_testsuite" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_CASESTEP]外键关系 -->
