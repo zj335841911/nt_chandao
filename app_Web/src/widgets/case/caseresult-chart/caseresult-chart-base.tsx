@@ -199,7 +199,7 @@ export class CaseresultChartBase extends MainControlBase {
     
     
     categorField:'lastrunresult1',
-    categorCodeList:{type:'STATIC',tag:'Testcase__result',emptycode:'empty',emptytext:'未执行'},
+    
     
     valueField:'srfcount',
     seriesValues:[],
@@ -207,7 +207,7 @@ export class CaseresultChartBase extends MainControlBase {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"lastrunresult1",codelist:{type:"STATIC",tag:"Testcase__result",emptycode:'empty',emptytext:'未执行'},isGroupField:true,groupMode:"CODELIST"},
+    {name:"lastrunresult1",codelist:null,isGroupField:true,groupMode:""},
     {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
