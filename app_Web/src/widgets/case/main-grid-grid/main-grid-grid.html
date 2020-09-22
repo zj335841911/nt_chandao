@@ -203,7 +203,7 @@
                           </a>
                           <divider v-show="scope.row.CaseNFavorite.visabled" type='vertical'></divider>
                           <a v-show="scope.row.CaseNFavorite.visabled" :disabled="scope.row.CaseNFavorite.disabled" @click="uiAction(scope.row, 'CaseNFavorite', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_casenfavorite')">
-                            <i class=''></i>
+                            <i class='fa fa-star-o'></i>
                             
                           </a>
                           <divider v-show="scope.row.OpenTestRunResultView.visabled" type='vertical'></divider>
@@ -213,7 +213,7 @@
                           </a>
                           <divider v-show="scope.row.caseFavorite.visabled" type='vertical'></divider>
                           <a v-show="scope.row.caseFavorite.visabled" :disabled="scope.row.caseFavorite.disabled" @click="uiAction(scope.row, 'caseFavorite', $event)" :title="$t('entities.case.maingrid_grid.uiactions.case_casefavorite')">
-                            <i class=''></i>
+                            <i class='fa fa-star-o'></i>
                             
                           </a>
                           <divider v-show="scope.row.Execute.visabled" type='vertical'></divider>
