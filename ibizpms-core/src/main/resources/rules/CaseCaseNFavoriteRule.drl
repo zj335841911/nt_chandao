@@ -24,8 +24,8 @@ ruleflow-group "casecasenfavoritecasenfavrite"
     when
     then
     Map param =new HashMap();
-    param.put("param0",casecasenfavoritedefault.get("id"));
-    param.put("param1",curuser.getSessionParams().get("srfloginname"));
+    param.put("param0",curuser.getSessionParams().get("srfloginname"));
+    param.put("param1",casecasenfavoritedefault.get("id"));
     String strSql="delete from T_IBZ_FAVORITES where type = 'case' and account = #{et.param0} and objectid = #{et.param1}";
     iBzSysCaseDefaultService.execute(strSql,param);//SQL调用
     update(casecasenfavoriteibzfavorite);//更新fact中变量值
