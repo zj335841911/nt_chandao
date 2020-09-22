@@ -319,9 +319,9 @@ export class MainGridGridBase extends GridControlBase {
      */  
     public ActionModel: any = {
         confirmstorychange: { name: 'confirmstorychange',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CONFIRM_BUT', actiontarget: 'SINGLEKEY'},
-        CaseNFavorite: { name: 'CaseNFavorite',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        CaseNFavorite: { name: 'CaseNFavorite',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_FAVOR_BUT', actiontarget: 'SINGLEKEY'},
         OpenTestRunResultView: { name: 'OpenTestRunResultView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_RESULT_BUT', actiontarget: 'SINGLEKEY'},
-        caseFavorite: { name: 'caseFavorite',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        caseFavorite: { name: 'caseFavorite',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CASE_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
         Execute: { name: 'Execute',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_CASERUN_BUT', actiontarget: 'SINGLEKEY'},
         MainEdit: { name: 'MainEdit',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__CASE_EDIT_BUT', actiontarget: 'SINGLEKEY'},
         Refresh: { name: 'Refresh',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: ''},
