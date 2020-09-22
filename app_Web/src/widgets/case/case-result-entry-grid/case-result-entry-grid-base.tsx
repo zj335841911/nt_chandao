@@ -94,14 +94,6 @@ export class CaseResultEntryGridBase extends GridControlBase {
     public isEnablePagingBar: boolean = false;
 
     /**
-     * 是否禁用排序
-     *
-     * @type {boolean}
-     * @memberof CaseResultEntryGridBase
-     */
-    public isNoSort: boolean = true;
-
-    /**
      * 排序方向
      *
      * @type {string}
