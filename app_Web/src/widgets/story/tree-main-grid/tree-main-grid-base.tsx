@@ -628,6 +628,11 @@ export class TreeMainGridBase extends GridControlBase {
                 return;
             }
             const data: any = response.data;
+            if(data.length === 0 && this.curPage > 1) {
+                this.curPage--;
+                this.load(opt, pageReset);
+                return;
+            }
             this.totalRecord = response.total;
             this.items = JSON.parse(JSON.stringify(data));
             // 清空selections,gridItemsModel

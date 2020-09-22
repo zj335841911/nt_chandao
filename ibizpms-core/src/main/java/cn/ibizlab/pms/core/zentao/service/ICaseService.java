@@ -55,9 +55,12 @@ public interface ICaseService extends IService<Case>{
     Page<Case> searchCurSuite(CaseSearchContext context) ;
     Page<Case> searchCurTestTask(CaseSearchContext context) ;
     Page<Case> searchDefault(CaseSearchContext context) ;
+    Page<Case> searchModuleRePortCase(CaseSearchContext context) ;
     Page<Case> searchNotCurTestSuite(CaseSearchContext context) ;
     Page<Case> searchNotCurTestTask(CaseSearchContext context) ;
     Page<Case> searchRePortCase(CaseSearchContext context) ;
+    Page<Case> searchRunERRePortCase(CaseSearchContext context) ;
+    Page<Case> searchRunRePortCase(CaseSearchContext context) ;
     List<Case> selectByBranch(Long id) ;
     void removeByBranch(Long id) ;
     List<Case> selectByFrombug(Long id) ;
