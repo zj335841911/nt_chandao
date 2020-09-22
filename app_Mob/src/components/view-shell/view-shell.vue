@@ -1,12 +1,10 @@
 <template>
-    <!-- <transition name="fade">
-        <app-keep-alive :routerList="this.$store.state.historyPathList">
+    <transition name="fade">
+        <app-keep-alive :routerList="getRouterList">
             <router-view :key="this.$route.fullPath"></router-view>
         </app-keep-alive>
-    </transition> -->
-    <transition name="fade">
-            <router-view />
     </transition>
+
 </template>
 
 <script lang="ts">
@@ -14,6 +12,18 @@ import { Component, Vue } from 'vue-property-decorator';
 
 @Component({})
 export default class ViewShell extends Vue {
+
+    /**
+     * 获取路由列表
+     *
+     * @readonly
+     * @type {any[]}
+     * @memberof AppIndexViewBase
+     */
+    get getRouterList(): any[] {
+        return this.$store.state.historyPathList;
+    }
+
     /**
      * 首页上下文
      *

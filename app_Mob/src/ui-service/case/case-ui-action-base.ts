@@ -53,7 +53,7 @@ export default class CaseUIActionBase extends EntityUIActionBase {
      * 
      * @memberof  CaseUIServiceBase
      */  
-    public mainStateFields:Array<any> = ['status1','lastrunresult1'];
+    public mainStateFields:Array<any> = ['status1','lastrunresult1','isfavorites'];
 
     /**
      * 主状态集合Map
@@ -99,7 +99,7 @@ export default class CaseUIActionBase extends EntityUIActionBase {
      * @memberof  CaseUIServiceBase
      */  
     public initDeMainStateMap(){
-        this.allDeMainStateMap.set('blocked__blocked','blocked__blocked');
+        this.allDeMainStateMap.set('blocked__blocked__0','blocked__blocked__0');
         this.allDeMainStateMap.set('blocked__fail','blocked__fail');
         this.allDeMainStateMap.set('blocked__n/a','blocked__n/a');
         this.allDeMainStateMap.set('blocked__no','blocked__no');
@@ -142,7 +142,7 @@ export default class CaseUIActionBase extends EntityUIActionBase {
      * @memberof  CaseUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('blocked__blocked',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('blocked__blocked__0',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('blocked__fail',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('blocked__n/a',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_CONFIRM_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CASECOF_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('blocked__no',Object.assign({'CASECOF':1,'CASERESULT':1,'CASERUN':1,'CASETOBUG':1,'CONFIRM':1,'CREATE':1,'DELETE':1,'EDIT':1,'READ':1,'RESULT':1,'RUN':1,'TOBUG':1,'UNLINK':1,'UPDATE':1},{'SRFUR__CASE_CASECOF_BUT':0,'SRFUR__CASE_TOBUG_BUT':0,'SRFUR__CASE_CONFIRM_BUT':0,}));
