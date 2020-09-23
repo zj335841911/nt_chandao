@@ -1,7 +1,7 @@
 <template>
 
 <div class="indexView">
-<view_appmenu
+    <view_appmenu
     :viewState="viewState"
     viewName="AppIndexView"  
     :viewparams="viewparams" 
@@ -17,7 +17,7 @@
     ref='appmenu' 
     @closeview="closeView($event)">
 </view_appmenu>
-        <app-update-log v-if="updateLogStatus"></app-update-log>
+    <app-update-log v-if="updateLogStatus"></app-update-log>
 </div>
 </template>
 
@@ -252,8 +252,6 @@ export default class AppIndexViewBase extends Vue {
         }
         return true;
     }
-
-
 
 
     /**

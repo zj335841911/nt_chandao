@@ -100,8 +100,6 @@ export const AppComponents = {
         v.component('app-keep-alive', AppKeepAlive);
         // 工作流审批意见控件
         v.component('app-wf-approval',() => import('@/components/app-wf-approval/app-wf-approval.vue'));
-        // 主题切换组件
-        v.component('app-mob-select-changeTheme',() => import('@/components/app-mob-select-changeTheme/app-mob-select-changeTheme.vue'));
         v.component('app-list-index',() => import('@/components/app-list-index/app-list-index.vue'));
         // 富文本项
         v.component('app-mob-rich-text-editor',() => import('@/components/app-mob-rich-text-editor/app-mob-rich-text-editor.vue'));
@@ -109,15 +107,23 @@ export const AppComponents = {
         v.component('app-list-index-text',() => import('@/components/app-list-index-text/app-list-index-text.vue'));
         // 富文本（模态）
         v.component('app-rich-text',() => import('@/components/app-rich-text/app-rich-text.vue'));
-        // 定制组件
-        v.component('app-customize',() => import('@/components/app-customize/app-customize.vue'));
+
         // 多数据快速分组组件
         v.component('app-quick-group-tab',() => import('@/components/app-quick-group-tab/app-quick-group-tab.vue'));
-        // setting组件
-        v.component('app-setting',() => import('@/components/app-setting/app-setting.vue'));
-        // 风格切换组件
-        v.component('app-mob-select-changeStyle',() => import('@/components/app-mob-select-changeStyle/app-mob-select-changeStyle.vue'));
+
         // 搜索历史组件
         v.component('app-search-history',() => import('@/components/app-search-history/app-search-history.vue'));
+
+        // 更新日志
+        v.component('app-update-log',() => import('@/ibiz-core/components/app-update-log/app-update-log.vue'));
+        // 风格切换组件
+        v.component('app-mob-select-changeStyle',() => import('@/ibiz-core/components/app-mob-select-changeStyle/app-mob-select-changeStyle.vue'));
+        // setting组件
+        v.component('app-setting',() => import('@/components/app-setting/app-setting.vue'));
+        // 定制组件
+        v.component('app-customize',() => import('@/components/app-customize/app-customize.vue'));
+        // 主题切换组件
+        v.component('app-mob-select-changeTheme',() => import('@/components/app-mob-select-changeTheme/app-mob-select-changeTheme.vue'));
+        // 内置组件 BEGIN
     },
 };
