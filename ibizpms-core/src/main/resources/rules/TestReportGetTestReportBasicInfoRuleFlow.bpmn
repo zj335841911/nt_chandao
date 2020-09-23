@@ -8,6 +8,7 @@
         <tns:global identifier="testreportgettestreportbasicinfodefault" type="cn.ibizlab.pms.core.zentao.domain.TestReport" />
         </extensionElements>
      <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgettestreportbasicinforawsqlcall10" id="rawsqlcall10" implementation="http://www.jboss.org/drools/rule" name="遗留Bug"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgettestreportbasicinforawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取需求数"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgettestreportbasicinforawsqlcall8" id="rawsqlcall8" implementation="http://www.jboss.org/drools/rule" name="产生的Bug"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgettestreportbasicinforawsqlcall2" id="rawsqlcall2" implementation="http://www.jboss.org/drools/rule" name="获取用例数"/>
@@ -19,10 +20,13 @@
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgettestreportbasicinforawsqlcall9" id="rawsqlcall9" implementation="http://www.jboss.org/drools/rule" name="设置概况"/>
      <endEvent id="rawsqlcall9_end" name="end"/>
      <sequenceFlow id="rawsqlcall9_end_line" sourceRef="rawsqlcall9" targetRef="rawsqlcall9_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgettestreportbasicinforawsqlcall11" id="rawsqlcall11" implementation="http://www.jboss.org/drools/rule" name="用例产生的Bug"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgettestreportbasicinforawsqlcall6" id="rawsqlcall6" implementation="http://www.jboss.org/drools/rule" name="有效Bug数"/>
-     <sequenceFlow id="rawsqlcall4_rawsqlcall5" sourceRef="rawsqlcall4" targetRef="rawsqlcall5">
+     <sequenceFlow id="rawsqlcall4_rawsqlcall10" sourceRef="rawsqlcall4" targetRef="rawsqlcall10">
      </sequenceFlow>
      <sequenceFlow id="rawsqlcall2_rawsqlcall3" sourceRef="rawsqlcall2" targetRef="rawsqlcall3">
+     </sequenceFlow>
+     <sequenceFlow id="rawsqlcall11_rawsqlcall5" sourceRef="rawsqlcall11" targetRef="rawsqlcall5">
      </sequenceFlow>
      <sequenceFlow id="deaction1_rawsqlcall1" sourceRef="deaction1" targetRef="rawsqlcall1">
      </sequenceFlow>
@@ -39,6 +43,8 @@
      <sequenceFlow id="rawsqlcall1_rawsqlcall2" sourceRef="rawsqlcall1" targetRef="rawsqlcall2">
      </sequenceFlow>
      <sequenceFlow id="rawsqlcall5_rawsqlcall6" sourceRef="rawsqlcall5" targetRef="rawsqlcall6">
+     </sequenceFlow>
+     <sequenceFlow id="rawsqlcall10_rawsqlcall11" sourceRef="rawsqlcall10" targetRef="rawsqlcall11">
      </sequenceFlow>
     </process>
 </definitions>
