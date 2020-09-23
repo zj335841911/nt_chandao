@@ -134,6 +134,11 @@ export default class MainInfoModel {
         dataType: 'PICKUPTEXT',
       },
       {
+        name: 'overviews',
+        prop: 'overviews',
+        dataType: 'HTMLTEXT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

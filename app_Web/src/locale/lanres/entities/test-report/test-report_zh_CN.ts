@@ -22,6 +22,7 @@ export default {
     productname: "所属产品",
     projectname: "所属项目",
     comment: "备注",
+    overviews: "概况",
   },
 	views: {
 		maininfoview: {
@@ -89,6 +90,7 @@ export default {
 			cases: "用例", 
 			title: "标题", 
 			projectname: "所属项目", 
+			overviews: "概况", 
 			id: "编号", 
 		},
 		uiactions: {

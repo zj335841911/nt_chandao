@@ -181,4 +181,12 @@ export interface TestReport {
      * @memberof TestReport
      */
     comment?: any;
+
+    /**
+     * 概况
+     *
+     * @returns {*}
+     * @memberof TestReport
+     */
+    overviews?: any;
 }

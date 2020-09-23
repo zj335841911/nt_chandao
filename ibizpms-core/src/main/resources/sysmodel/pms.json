@@ -27448,6 +27448,19 @@
     "data_length":1048576,
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"OVERVIEWS" ,
+    "codename":"Overviews",
+    "field_logic_name":"概况",
+    "entity_name":"TestReport",
+    "field_type":"HTMLTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[

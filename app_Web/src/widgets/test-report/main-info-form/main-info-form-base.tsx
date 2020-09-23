@@ -98,6 +98,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
         cases: null,
         title: null,
         projectname: null,
+        overviews: null,
         id: null,
         testreport:null,
     };
@@ -179,6 +180,8 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
         projectname: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'projectname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        overviews: new FormItemModel({ caption: '概况', detailType: 'FORMITEM', name: 'overviews', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
@@ -192,6 +195,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
+
 
 
 

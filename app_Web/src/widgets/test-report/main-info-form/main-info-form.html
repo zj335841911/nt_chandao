@@ -52,6 +52,12 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-item>
 
 </i-col>
+<i-col class="form-layout-container" v-show="detailsModel.overviews.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='overviews' :itemRules="this.rules.overviews" class='' :caption="$t('entities.testreport.maininfo_form.details.overviews')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.overviews.error" :isEmptyCaption="false" labelPos="LEFT">
+    <html-container :content="data.overviews"></html-container>
+</app-form-item>
+
+</i-col>
     
     </row>
 </app-form-group>

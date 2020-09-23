@@ -203,6 +203,13 @@ public class TestReport extends EntityMP implements Serializable {
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
+    /**
+     * 概况
+     */
+    @TableField(exist = false)
+    @JSONField(name = "overviews")
+    @JsonProperty("overviews")
+    private String overviews;
 
     /**
      * 

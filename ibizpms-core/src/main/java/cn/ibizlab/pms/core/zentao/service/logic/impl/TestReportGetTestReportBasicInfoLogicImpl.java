@@ -26,6 +26,13 @@ public class TestReportGetTestReportBasicInfoLogicImpl implements ITestReportGet
     @Autowired
     private KieContainer kieContainer;
 
+    @Autowired
+    private cn.ibizlab.pms.core.zentao.service.ITestReportService testreportservice;
+
+    public cn.ibizlab.pms.core.zentao.service.ITestReportService getTestreportService() {
+        return this.testreportservice;
+    }
+
 
     @Autowired
     private cn.ibizlab.pms.core.zentao.service.ITestReportService iBzSysDefaultService;
@@ -41,9 +48,7 @@ public class TestReportGetTestReportBasicInfoLogicImpl implements ITestReportGet
            kieSession=kieContainer.newKieSession();
            kieSession.insert(et); 
            kieSession.setGlobal("testreportgettestreportbasicinfodefault",et);
-           Map testreportgettestreportbasicinfostorycount =new HashMap();
-           kieSession.insert(testreportgettestreportbasicinfostorycount); 
-           kieSession.setGlobal("testreportgettestreportbasicinfostorycount",testreportgettestreportbasicinfostorycount);
+           kieSession.setGlobal("testreportservice",testreportservice);
            kieSession.setGlobal("iBzSysTestreportDefaultService",iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
            kieSession.startProcess("cn.ibizlab.pms.core.zentao.service.logic.testreportgettestreportbasicinfo");

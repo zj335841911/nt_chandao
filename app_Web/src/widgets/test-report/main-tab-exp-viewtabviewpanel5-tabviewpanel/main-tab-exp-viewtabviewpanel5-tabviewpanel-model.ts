@@ -81,6 +81,9 @@ export default class MainTabExpViewtabviewpanel5Model {
       {
         name: 'comment',
       },
+      {
+        name: 'overviews',
+      },
     ]
   }
 

@@ -1,6 +1,5 @@
 import { Http,Util } from '@/utils';
 import EntityService from '../entity-service';
-import GetTestReportBasicInfoLogic from '@/service/test-report/get-test-report-basic-info-logic';
 
 
 
@@ -220,6 +219,26 @@ export default class TestReportServiceBase extends EntityService {
             return res;
         }
             let res:any = Http.getInstance().post(`/testreports/${context.testreport}/checkkey`,data,isloading);
+            return res;
+    }
+
+    /**
+     * GetTestReportBasicInfo接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestReportServiceBase
+     */
+    public async GetTestReportBasicInfo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.testreport){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testreports/${context.testreport}/gettestreportbasicinfo`,isloading);
+            
+            return res;
+        }
+            let res:any = await Http.getInstance().get(`/testreports/${context.testreport}/gettestreportbasicinfo`,isloading);
+            
             return res;
     }
 

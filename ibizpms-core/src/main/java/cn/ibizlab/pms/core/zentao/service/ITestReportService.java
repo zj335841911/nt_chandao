@@ -35,6 +35,7 @@ public interface ITestReportService extends IService<TestReport>{
     TestReport getDraft(TestReport et) ;
     boolean checkKey(TestReport et) ;
     TestReport getInfoTestTask(TestReport et) ;
+    TestReport getTestReportBasicInfo(TestReport et) ;
     boolean save(TestReport et) ;
     void saveBatch(List<TestReport> list) ;
     Page<TestReport> searchDefault(TestReportSearchContext context) ;

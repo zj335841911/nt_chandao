@@ -81,6 +81,9 @@ export default class MainModel {
       {
         name: 'comment',
       },
+      {
+        name: 'overviews',
+      },
     ]
   }
 
