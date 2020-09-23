@@ -265,6 +265,15 @@ export default class MyWorkBase extends Vue implements ControlInterface {
     public calendarItems: any = {};
 
     /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof MyWorkBase
+     */
+    public appStateEvent: Subscription | undefined;
+
+    /**
      * 日历数据项模型
      *
      * @type {Map<string, any>}
@@ -371,7 +380,7 @@ export default class MyWorkBase extends Vue implements ControlInterface {
     protected afterCreated() {
         this.initcurrentTime();
         if (this.viewState) {
-            this.viewState.subscribe(({ tag, action, data }) => {
+            this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(this.name, tag)) {
                     return;
                 }
@@ -379,6 +388,16 @@ export default class MyWorkBase extends Vue implements ControlInterface {
                     this.formatData(this.currentDate, data);
                 }
             });
+        }
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"IbzMyTerritory")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh')){
+                    this.formatData(this.currentDate, data);
+                }
+            })
         }
     }
 
@@ -813,6 +832,31 @@ export default class MyWorkBase extends Vue implements ControlInterface {
             this.selectedArray.splice(count,1);
         }
     }
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof MyWork
+     */
+    public destroyed() {
+        this.afterDestroy();
+    }
+
+    /**
+     * 执行destroyed后的逻辑
+     *
+     * @memberof MyWork
+     */
+    protected afterDestroy() {
+        if (this.viewStateEvent) {
+            this.viewStateEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
+        }
+        window.removeEventListener('contextmenu',()=>{});
+    }
+
 }
 </script>
 

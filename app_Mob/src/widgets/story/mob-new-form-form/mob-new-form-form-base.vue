@@ -2107,6 +2107,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.$emit('remove', data);
             this.formState.next({ type: 'remove', data: data });
             this.data.ismodify = false;
+            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
             this.$notice.success((data.srfmajortext ? data.srfmajortext : '') + '&nbsp;'+ this.$t('app.message.deleteSccess'));
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
@@ -2130,6 +2131,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
             this.$notice.success('工作流启动成功');
+            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
         } else if (response && response.status !== 401) {
             this.$notice.error('工作流启动失败, ' + response.error.message);
         }
@@ -2156,6 +2158,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
             this.$notice.success('工作流提交成功');
+            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
         } else if (response && response.status !== 401) {
             this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
@@ -2193,6 +2196,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             this.fillForm(_data, 'updateFormItem');
             this.formLogic({ name: '', newVal: null, oldVal: null });
             this.dataChang.next(JSON.stringify(this.data));
+            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
             this.$nextTick(() => {
                 this.formState.next({ type: 'updateformitem', ufimode: arg.srfufimode, data: _data });
             });

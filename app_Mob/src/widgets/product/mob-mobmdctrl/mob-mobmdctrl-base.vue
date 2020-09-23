@@ -555,6 +555,15 @@ export default class MobBase extends Vue implements ControlInterface {
     public group_data?:any = [];
 
     /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof MobBase
+     */
+    public appStateEvent: Subscription | undefined;
+
+    /**
     * 分组标识
     *
     * @type {array}
@@ -1108,7 +1117,7 @@ export default class MobBase extends Vue implements ControlInterface {
                     return;
                 }
                 if(Object.is(action,'appRefresh')){
-                    this.refresh([data]);
+                    this.refresh();
                 }
             })
         }
@@ -1131,6 +1140,9 @@ export default class MobBase extends Vue implements ControlInterface {
     protected afterDestroy() {
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
         window.removeEventListener('contextmenu',()=>{});
     }
