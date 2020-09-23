@@ -1,5 +1,5 @@
 import { toastController, alertController } from '@ionic/core';
-import { Store } from 'vuex';
+import store from '../../store';
 /**
  * 消息提示
  *
@@ -28,7 +28,7 @@ export class Notice {
      * @memberof Notice
      */
     constructor() {
-        this.store = Store;
+        this.store = store;
         if (Notice.instance) {
             return Notice.instance;
         }
@@ -93,7 +93,7 @@ export class Notice {
      * @returns {Promise<any>}
      * @memberof Notice
      */
-    public async confirm(title: string, message: string, store?: Store<any>): Promise<boolean> {
+    public async confirm(title: string, message: string): Promise<boolean> {
       return new Promise(async (resolve, reject) => {
           const alert = await alertController.create({
               header: title ? title : '标题',
@@ -103,8 +103,8 @@ export class Notice {
                       text: '取消',
                       role: 'cancel',
                       handler: () => {
-                          if (store && store.commit) {
-                            store.commit('setNoticeStatus',true);
+                          if (this.store && this.store.commit) {
+                            this.store.commit('setNoticeStatus',true);
                           }
                           resolve(false);
                       }
@@ -113,18 +113,18 @@ export class Notice {
                       text: '确认',
                       cssClass: 'secondary',
                       handler: () => {
-                          if (store && store.commit) {
-                            store.commit('setNoticeStatus',true);
+                          if (this.store && this.store.commit) {
+                            this.store.commit('setNoticeStatus',true);
                           }
                           resolve(true);
                       }
                   },
               ],
           });
-          if (store && store.state && store.state.noticeStatus) {
+          if (this.store && this.store.state && this.store.state.noticeStatus) {
             await alert.present();
-            if (store && store.commit) {
-              store.commit('setNoticeStatus',false);
+            if (this.store && this.store.commit) {
+              this.store.commit('setNoticeStatus',false);
             }
           }
       });

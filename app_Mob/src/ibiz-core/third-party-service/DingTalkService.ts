@@ -238,7 +238,7 @@ export class DingTalkService {
      * @memberof DingTalkService
      */
     public controlBackEvent(){
-      if (this.$store.state.selectStatus) {  
+      if (this.$store.state.selectStatus && this.$store.state.noticeStatus) {
         this.backEvent();
       }
     }
