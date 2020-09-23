@@ -36,6 +36,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductService from '@/app-core/service/product/product-service';
 import ProductStatusChartMobService from '@/app-core/ctrl-service/product/product-status-chart-mob-portlet-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import ProductUIService from '@/ui-service/product/product-ui-action';
 

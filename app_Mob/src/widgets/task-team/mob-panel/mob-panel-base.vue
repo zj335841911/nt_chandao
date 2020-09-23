@@ -40,6 +40,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskTeamService from '@/app-core/service/task-team/task-team-service';
 import MobService from '@/app-core/ctrl-service/task-team/mob-panel-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import TaskTeamUIService from '@/ui-service/task-team/task-team-ui-action';
 

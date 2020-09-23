@@ -133,8 +133,8 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 由谁创建
      */
-    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "createdby" , fill = FieldFill.INSERT)
+    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
+    @TableField(value = "createdby")
     @JSONField(name = "createdby")
     @JsonProperty("createdby")
     private String createdby;

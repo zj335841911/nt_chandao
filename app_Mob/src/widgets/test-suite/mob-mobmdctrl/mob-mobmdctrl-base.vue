@@ -101,6 +101,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TestSuiteService from '@/app-core/service/test-suite/test-suite-service';
 import MobService from '@/app-core/ctrl-service/test-suite/mob-mobmdctrl-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import TestSuiteUIService from '@/ui-service/test-suite/test-suite-ui-action';
 

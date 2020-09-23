@@ -34,6 +34,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import IbzFavoritesService from '@/app-core/service/ibz-favorites/ibz-favorites-service';
 import MobTabExpViewtabexppanelService from '@/app-core/ctrl-service/ibz-favorites/mob-tab-exp-viewtabexppanel-tabexppanel-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import IbzFavoritesUIService from '@/ui-service/ibz-favorites/ibz-favorites-ui-action';
 

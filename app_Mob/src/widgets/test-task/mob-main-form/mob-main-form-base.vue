@@ -207,6 +207,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TestTaskService from '@/app-core/service/test-task/test-task-service';
 import MobMainService from '@/app-core/ctrl-service/test-task/mob-main-form-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import TestTaskUIService from '@/ui-service/test-task/test-task-ui-action';
 

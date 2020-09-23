@@ -490,6 +490,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProjectService from '@/app-core/service/project/project-service';
 import MobMainService from '@/app-core/ctrl-service/project/mob-main-form-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import ProjectUIService from '@/ui-service/project/project-ui-action';
 

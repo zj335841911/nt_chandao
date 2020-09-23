@@ -115,6 +115,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import BugService from '@/app-core/service/bug/bug-service';
 import Mob_MyService from '@/app-core/ctrl-service/bug/mob-my-mobmdctrl-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import BugUIService from '@/ui-service/bug/bug-ui-action';
 

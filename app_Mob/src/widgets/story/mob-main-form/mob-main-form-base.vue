@@ -546,6 +546,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import StoryService from '@/app-core/service/story/story-service';
 import MobMainService from '@/app-core/ctrl-service/story/mob-main-form-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import StoryUIService from '@/ui-service/story/story-ui-action';
 

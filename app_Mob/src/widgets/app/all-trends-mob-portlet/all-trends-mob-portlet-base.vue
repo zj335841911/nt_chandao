@@ -26,6 +26,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ActionService from '@/app-core/service/action/action-service';
 import AllTrendsMobService from '@/app-core/ctrl-service/action/all-trends-mob-portlet-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import ActionUIService from '@/ui-service/action/action-ui-action';
 

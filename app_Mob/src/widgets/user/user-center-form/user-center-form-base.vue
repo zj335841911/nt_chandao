@@ -276,6 +276,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import UserService from '@/app-core/service/user/user-service';
 import UserCenterService from '@/app-core/ctrl-service/user/user-center-form-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import UserUIService from '@/ui-service/user/user-ui-action';
 

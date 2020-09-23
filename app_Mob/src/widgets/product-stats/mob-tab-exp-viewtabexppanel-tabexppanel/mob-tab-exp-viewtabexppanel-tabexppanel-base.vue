@@ -67,6 +67,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductStatsService from '@/app-core/service/product-stats/product-stats-service';
 import MobTabExpViewtabexppanelService from '@/app-core/ctrl-service/product-stats/mob-tab-exp-viewtabexppanel-tabexppanel-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import ProductStatsUIService from '@/ui-service/product-stats/product-stats-ui-action';
 

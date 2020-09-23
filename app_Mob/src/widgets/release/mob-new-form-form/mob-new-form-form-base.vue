@@ -229,6 +229,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ReleaseService from '@/app-core/service/release/release-service';
 import MobNewFormService from '@/app-core/ctrl-service/release/mob-new-form-form-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import ReleaseUIService from '@/ui-service/release/release-ui-action';
 

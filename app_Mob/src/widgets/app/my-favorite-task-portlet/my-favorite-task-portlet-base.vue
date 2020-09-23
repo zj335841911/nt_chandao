@@ -26,6 +26,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskService from '@/app-core/service/task/task-service';
 import MyFavoriteTaskService from '@/app-core/ctrl-service/task/my-favorite-task-portlet-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import TaskUIService from '@/ui-service/task/task-ui-action';
 

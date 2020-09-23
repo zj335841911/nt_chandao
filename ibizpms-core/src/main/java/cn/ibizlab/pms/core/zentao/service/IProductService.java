@@ -63,8 +63,6 @@ public interface IProductService extends IService<Product>{
      */
     boolean execute(String sql, Map param);
 
-    List<Product> getProductByIds(List<String> ids) ;
-    List<Product> getProductByEntities(List<Product> entities) ;
 }
 
 

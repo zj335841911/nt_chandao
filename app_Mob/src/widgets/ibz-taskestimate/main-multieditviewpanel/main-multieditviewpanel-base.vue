@@ -36,6 +36,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import IbzTaskestimateService from '@/app-core/service/ibz-taskestimate/ibz-taskestimate-service';
 import MainService from '@/app-core/ctrl-service/ibz-taskestimate/main-multieditviewpanel-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import IbzTaskestimateUIService from '@/ui-service/ibz-taskestimate/ibz-taskestimate-ui-action';
 

@@ -101,6 +101,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import CaseService from '@/app-core/service/case/case-service';
 import MobService from '@/app-core/ctrl-service/case/mob-mobmdctrl-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import CaseUIService from '@/ui-service/case/case-ui-action';
 

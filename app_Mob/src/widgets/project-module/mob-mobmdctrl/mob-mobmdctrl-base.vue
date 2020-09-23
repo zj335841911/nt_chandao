@@ -95,6 +95,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProjectModuleService from '@/app-core/service/project-module/project-module-service';
 import MobService from '@/app-core/ctrl-service/project-module/mob-mobmdctrl-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import ProjectModuleUIService from '@/ui-service/project-module/project-module-ui-action';
 
