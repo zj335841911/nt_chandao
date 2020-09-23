@@ -233,12 +233,13 @@ export default class TestReportServiceBase extends EntityService {
      */
     public async GetTestReportBasicInfo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.testreport){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/testreports/${context.testreport}/gettestreportbasicinfo`,isloading);
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/testreports/${context.testreport}/gettestreportbasicinfo`,data,isloading);
             
             return res;
         }
-            let res:any = await Http.getInstance().get(`/testreports/${context.testreport}/gettestreportbasicinfo`,isloading);
-            
+            let res:any = Http.getInstance().put(`/testreports/${context.testreport}/gettestreportbasicinfo`,data,isloading);
             return res;
     }
 

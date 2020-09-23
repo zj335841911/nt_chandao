@@ -133,7 +133,7 @@ public class TestReportResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetTestReportBasicInfo-all')")
     @ApiOperation(value = "根据测试报告获取基本信息", tags = {"测试报告" },  notes = "根据测试报告获取基本信息")
-	@RequestMapping(method = RequestMethod.GET, value = "/testreports/{testreport_id}/gettestreportbasicinfo")
+	@RequestMapping(method = RequestMethod.PUT, value = "/testreports/{testreport_id}/gettestreportbasicinfo")
     public ResponseEntity<TestReportDTO> getTestReportBasicInfo(@PathVariable("testreport_id") Long testreport_id, @RequestBody TestReportDTO testreportdto) {
         TestReport domain = testreportMapping.toDomain(testreportdto);
         domain.setId(testreport_id);
@@ -276,7 +276,7 @@ public class TestReportResource {
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetTestReportBasicInfo-all')")
     @ApiOperation(value = "根据产品测试报告", tags = {"测试报告" },  notes = "根据产品测试报告")
-	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/testreports/{testreport_id}/gettestreportbasicinfo")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testreports/{testreport_id}/gettestreportbasicinfo")
     public ResponseEntity<TestReportDTO> getTestReportBasicInfoByProduct(@PathVariable("product_id") Long product_id, @PathVariable("testreport_id") Long testreport_id, @RequestBody TestReportDTO testreportdto) {
         TestReport domain = testreportMapping.toDomain(testreportdto);
         domain.setProduct(product_id);
