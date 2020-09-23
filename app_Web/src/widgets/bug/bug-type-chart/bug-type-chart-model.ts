@@ -1,16 +1,16 @@
 /**
- * Caseresult 部件模型
+ * BugType 部件模型
  *
  * @export
- * @class CaseresultModel
+ * @class BugTypeModel
  */
-export default class CaseresultModel {
+export default class BugTypeModel {
 
 	/**
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof CaseresultDashboard_sysportlet1_chartMode
+	 * @memberof BugTypeDashboard_sysportlet10_chartMode
 	 */
 	public getDataItems(): any[] {
 		return [

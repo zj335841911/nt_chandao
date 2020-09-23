@@ -112,24 +112,6 @@ export default {
 		uiactions: {
 		},
 	},
-	report_form: {
-		details: {
-			druipart1: "", 
-			druipart2: "", 
-			grouppanel1: "按执行结果", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "编号", 
-			srfmajortext: "标题", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			id: "编号", 
-		},
-		uiactions: {
-		},
-	},
 	tosumup_form: {
 		details: {
 			formpage1: "基本信息", 
@@ -192,6 +174,24 @@ export default {
 			members: "参与人员", 
 			projectname: "所属项目", 
 			report: "总结", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	report_form: {
+		details: {
+			druipart1: "", 
+			druipart2: "", 
+			grouppanel1: "按执行结果", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
 			id: "编号", 
 		},
 		uiactions: {

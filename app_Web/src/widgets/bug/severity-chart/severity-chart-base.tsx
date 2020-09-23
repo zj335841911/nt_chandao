@@ -2,9 +2,9 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
-import CaseService from '@/service/case/case-service';
-import CaseresultService from './caseresult-chart-service';
-import CaseUIService from '@/uiservice/case/case-ui-service';
+import BugService from '@/service/bug/bug-service';
+import SeverityService from './severity-chart-service';
+import BugUIService from '@/uiservice/bug/bug-ui-service';
 import echarts from 'echarts';
 import moment from "moment"; 
 import CodeListService from "@service/app/codelist-service";
@@ -12,70 +12,70 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
 
 
 /**
- * dashboard_sysportlet1_chart部件基类
+ * dashboard_sysportlet9_chart部件基类
  *
  * @export
  * @class MainControlBase
- * @extends {CaseresultChartBase}
+ * @extends {SeverityChartBase}
  */
-export class CaseresultChartBase extends MainControlBase {
+export class SeverityChartBase extends MainControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof CaseresultChartBase
+     * @memberof SeverityChartBase
      */
     protected controlType: string = 'CHART';
 
     /**
      * 建构部件服务对象
      *
-     * @type {CaseresultService}
-     * @memberof CaseresultChartBase
+     * @type {SeverityService}
+     * @memberof SeverityChartBase
      */
-    public service: CaseresultService = new CaseresultService({ $store: this.$store });
+    public service: SeverityService = new SeverityService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {CaseService}
-     * @memberof CaseresultChartBase
+     * @type {BugService}
+     * @memberof SeverityChartBase
      */
-    public appEntityService: CaseService = new CaseService({ $store: this.$store });
+    public appEntityService: BugService = new BugService({ $store: this.$store });
 
     /**
      * 应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof CaseresultChartBase
+     * @memberof SeverityChartBase
      */
-    protected appDeName: string = 'case';
+    protected appDeName: string = 'bug';
 
     /**
      * 应用实体中文名称
      *
      * @protected
      * @type {string}
-     * @memberof CaseresultChartBase
+     * @memberof SeverityChartBase
      */
-    protected appDeLogicName: string = '测试用例';
+    protected appDeLogicName: string = 'Bug';
 
     /**
      * 界面UI服务对象
      *
-     * @type {CaseUIService}
-     * @memberof CaseresultBase
+     * @type {BugUIService}
+     * @memberof SeverityBase
      */  
-    public appUIService:CaseUIService = new CaseUIService(this.$store);
+    public appUIService:BugUIService = new BugUIService(this.$store);
 
     /**
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof CaseresultBase
+     * @memberof SeverityBase
      */
     public getDatas(): any[] {
         return [];
@@ -85,7 +85,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof CaseresultBase
+     * @memberof SeverityBase
      */
     public getData(): any {
         return null;
@@ -95,7 +95,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof CaseresultBase
+     * @memberof SeverityBase
      */
     @Prop({ default: true }) public showBusyIndicator!: boolean;
 
@@ -103,14 +103,14 @@ export class CaseresultChartBase extends MainControlBase {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof CaseresultBase
+     * @memberof SeverityBase
      */
     @Prop() public fetchAction!: string;  
 
     /**
     * Vue声明周期(组件初始化完毕)
     *
-    * @memberof CaseresultBase
+    * @memberof SeverityBase
     */
     public created() {
          this.afterCreated();     
@@ -119,7 +119,7 @@ export class CaseresultChartBase extends MainControlBase {
     /**
     * 执行created后的逻辑
     *
-    * @memberof CaseresultBase
+    * @memberof SeverityBase
     */
     public afterCreated(){
         if (this.viewState) {
@@ -137,7 +137,7 @@ export class CaseresultChartBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof CaseresultBase
+     * @memberof SeverityBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -146,7 +146,7 @@ export class CaseresultChartBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof CaseresultBase
+     * @memberof SeverityBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -159,7 +159,7 @@ export class CaseresultChartBase extends MainControlBase {
      *
      * @public
      * @type {boolean}
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */
     public isNoData: boolean  = false;
 
@@ -167,7 +167,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 图表div绑定的id
      *
      * @type {}
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */   
     public chartId:string = this.$util.createUUID();
 
@@ -175,7 +175,7 @@ export class CaseresultChartBase extends MainControlBase {
      * echarts图表对象
      *
      * @type {}
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */   
     public myChart:any;
 
@@ -183,7 +183,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 代码表服务对象
      *
      * @type {CodeListService}
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */  
     public codeListService:CodeListService = new CodeListService({ $store: this.$store });
 
@@ -191,15 +191,15 @@ export class CaseresultChartBase extends MainControlBase {
      * 序列模型
      *
      * @type {}
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */
     public  seriesModel:any = {
-        caseresult:new ChartPieSeries({
-    name:'caseresult',
+        severity:new ChartPieSeries({
+    name:'severity',
     
     
-    categorField:'lastrunresult1',
-    
+    categorField:'severity',
+    categorCodeList:{type:'STATIC',tag:'Bug__severity',emptycode:'empty',emptytext:'未定义'},
     
     valueField:'srfcount',
     seriesValues:[],
@@ -207,7 +207,7 @@ export class CaseresultChartBase extends MainControlBase {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"lastrunresult1",codelist:null,isGroupField:true,groupMode:""},
+    {name:"severity",codelist:{type:"STATIC",tag:"Bug__severity",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"CODELIST"},
     {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
@@ -248,16 +248,16 @@ export class CaseresultChartBase extends MainControlBase {
     /**
      * 图表自定义参数集合
      *
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */   
     public chartUserParams:any ={
-        color:["#FF0000","#FFCC33","#aa00ff","#884bff",'#00ffa9','#85B3FF','#A1FFFF']
+        color:["#2979FF","#3D5AFE","#651fff","#D500f9",'#00ffa9','#85B3FF','#A1FFFF']
     };
 
     /**
      * 图表基础动态模型
      *
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */  
     public chartBaseOPtion:any = {};
 
@@ -265,12 +265,12 @@ export class CaseresultChartBase extends MainControlBase {
      * 初始化图表所需参数
      *
      * @type {}
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */   
     public chartOption:any = {
         title:{
             show:true ,
-            text:'按用例结果统计',
+            text:'',
             subtext:''
         },
         legend:{
@@ -282,14 +282,14 @@ export class CaseresultChartBase extends MainControlBase {
         dataset:[],
         series:[
                      {
-            id:'caseresult',
+            id:'severity',
             name:'',
             type:'pie',
             datasetIndex:0,
             
             seriesLayoutBy:"column",
             encode:{
-                itemName:"lastrunresult1",
+                itemName:"severity",
                 value:"srfcount"
             }}
         ]
@@ -299,7 +299,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 刷新
      *
      * @param {*} [opt={}]
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */
     public refresh(opt: any = {}) {
         this.load(opt);
@@ -309,7 +309,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 获取图表数据
      * 
      * @returns {*} 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */
     public load(opt?:any) {
         let _this = this;
@@ -331,7 +331,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 绘制图表
      * 
      * @returns {*} 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */
     public drawCharts(codelist:any){
         if(!this.myChart){
@@ -347,7 +347,7 @@ export class CaseresultChartBase extends MainControlBase {
     /**
      * 处理图表参数
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */
     public handleChartOPtion(allcodelist:any){
         let _chartOption:any = JSON.parse(JSON.stringify(this.chartOption));
@@ -416,7 +416,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 
      * @param {*} data 实体数据集
      * @param {Function} callback 回调
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */
     public async transformToBasicChartSetData(data:any,callback:Function){
         if(!data || !Array.isArray(data) || data.length === 0){
@@ -510,7 +510,7 @@ export class CaseresultChartBase extends MainControlBase {
      * @param {Array<any>} callback 回调
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */
     public transformToChartSeriesDataSet(data:any,item:any,callback:Function,allCodeList:any):any{
         if(item.seriesIdField){
@@ -563,7 +563,7 @@ export class CaseresultChartBase extends MainControlBase {
      * @param {*} groupFieldModel 分组属性模型
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */
     public groupAndAdd(groupField:Array<any>,seriesField:Array<any>,valueField:Array<any>,data:any,item:any,groupFieldModel:any,allCodeList:any){
         let tempMap:Map<string,any> = new Map();
@@ -691,7 +691,7 @@ export class CaseresultChartBase extends MainControlBase {
      * @param {*} groupField 分组属性
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */
     public sortReturnArray(arr:Array<any>,groupField:any,allCodeList:any){
         let returnArray:Array<any> = [];
@@ -758,7 +758,7 @@ export class CaseresultChartBase extends MainControlBase {
      * @param {Array<any>} groupField 分组属性
      * @param {Array<any>} label label标签
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */
     public handleSortGroupData(arr:Array<any>,groupField:any,label:string){
         arr.forEach((item:any) =>{
@@ -792,7 +792,7 @@ export class CaseresultChartBase extends MainControlBase {
      * @param {Array<any>} item 单个序列
      * @param {Array<any>} allCodeList 所有的代码表
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */
     public completeDataSet(data:any,item:any,allCodeList:any){
         // 分组属性
@@ -817,7 +817,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 
      * @param {Array<any>} tempTimeArray 传入数据
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */
     public  getRangeData(tempTimeArray:Array<any>){
         tempTimeArray.forEach((item:any) =>{
@@ -841,7 +841,7 @@ export class CaseresultChartBase extends MainControlBase {
      * @param {Array<any>} allCodeList 所有的代码表
      * @param {Array<any>} groupField 分组属性
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */
     public handleTimeData(data:any,item:any,allCodeList:any,groupField:any){
         let valueField = item.dataSetFields.find((datasetField:any) =>{
@@ -973,7 +973,7 @@ export class CaseresultChartBase extends MainControlBase {
      * @param {Array<any>} item 单个序列
      * @param {Array<any>} allCodeList 所有的代码表
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */
     public  completeCodeList(data:any,item:any,allCodeList:any){
         let groupField = item.dataSetFields.find((datasetField:any) =>{
@@ -1017,7 +1017,7 @@ export class CaseresultChartBase extends MainControlBase {
      * @param {*} allCodeList 所有代码表
      * @param {*} result 结果值
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */
     public handleSingleDataSetField(input:any,field:any,allCodeList:any,result:any,groupField:any){
         let tempFieldObj:any = {};
@@ -1053,7 +1053,7 @@ export class CaseresultChartBase extends MainControlBase {
     /**
      * 获取图表所需代码表
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */
     public getChartAllCodeList():Promise<any>{
         return new Promise((resolve:any,reject:any) =>{
@@ -1100,7 +1100,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 获取代码表
      * 
      * @returns {Promise<any>} 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet9_chartBase
      */
     public getCodeList(codeListObject:any):Promise<any>{
         return new Promise((resolve:any,reject:any) =>{

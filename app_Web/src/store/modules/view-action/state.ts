@@ -906,6 +906,19 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '42aa867a5dbd04d53462fa69b0e43296',
+            viewmodule: 'zentao',
+            viewname: 'TestReportDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '0abddf92966b6314d75cc71da4e7f7b8',
+                '2398b174d972ff2a5aebe52946ef3a53',
+                '8d9e694196a8c1abd56fd1632eed0173',
+                'c778697bb0f4f35a37892853575e1145',
+            ],
+        },
+        {
             viewtag: '43582fa5b922cb77d0b1e704a7b6e5c3',
             viewmodule: 'zentao',
             viewname: 'TodoAssignToView',
@@ -2122,15 +2135,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '907d612f5ca588f2bb83116afc66e761',
-            viewmodule: 'zentao',
-            viewname: 'CaseRunResultChartView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '908a34af4784424622d2f7905335d023',
             viewmodule: 'zentao',
             viewname: 'ProductPlanProjectGridView9',
@@ -2926,17 +2930,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: 'c7e7e989793981f260c73513c2a4e18b',
-            viewmodule: 'zentao',
-            viewname: 'TestReportEditView_Report',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                '907d612f5ca588f2bb83116afc66e761',
-                '8d9e694196a8c1abd56fd1632eed0173',
-            ],
-        },
-        {
             viewtag: 'c9410c9f72535adf1fff569d5243edd1',
             viewmodule: 'zentao',
             viewname: 'BugGridView',
@@ -3447,10 +3440,10 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '9a2fd7bf8e74f4b95bd5a24d8ffb1643',
-                'c7e7e989793981f260c73513c2a4e18b',
                 '1b214bd727533f6662aa78368fb67e4b',
                 'ba3ac5351ca273bb889ffcb52ec7217b',
                 'c47c534ae15c1fd1a04b5ad78d174841',
+                '42aa867a5dbd04d53462fa69b0e43296',
                 '09b6c2af7dcc4b719d4c8aad2319f1c5',
                 '3d56b0e37a56b9be1a28589c04f573fa',
                 'f810cda19770327ea00f51d89a003efe',

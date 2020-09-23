@@ -1,16 +1,16 @@
 /**
- * Caseresult 部件模型
+ * Severity 部件模型
  *
  * @export
- * @class CaseresultModel
+ * @class SeverityModel
  */
-export default class CaseresultModel {
+export default class SeverityModel {
 
 	/**
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof CaseresultDashboard_sysportlet1_chartMode
+	 * @memberof SeverityDashboard_sysportlet9_chartMode
 	 */
 	public getDataItems(): any[] {
 		return [

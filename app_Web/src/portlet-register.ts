@@ -56,7 +56,11 @@ import TestTaskMainInfo from '@/widgets/test-task/main-info-portlet/main-info-po
 import TestTaskToTestTestTask from '@/widgets/test-task/to-test-test-task-portlet/to-test-test-task-portlet.vue';
 import TestTaskActionBar from '@/widgets/test-task/action-bar-portlet/action-bar-portlet.vue';
 import TestTaskMainDetail from '@/widgets/test-task/main-detail-portlet/main-detail-portlet.vue';
+import BugBugSeverity from '@/widgets/bug/bug-severity-portlet/bug-severity-portlet.vue';
+import BugBugStatus from '@/widgets/bug/bug-status-portlet/bug-status-portlet.vue';
 import BugDashboardBugLife from '@/widgets/bug/dashboard-bug-life-portlet/dashboard-bug-life-portlet.vue';
+import BugBugType from '@/widgets/bug/bug-type-portlet/bug-type-portlet.vue';
+import BugBugResolution from '@/widgets/bug/bug-resolution-portlet/bug-resolution-portlet.vue';
 import BugActionHistoryList from '@/widgets/bug/action-history-list-portlet/action-history-list-portlet.vue';
 import BugDashboardBugMain from '@/widgets/bug/dashboard-bug-main-portlet/dashboard-bug-main-portlet.vue';
 import BugBugDashboardActions from '@/widgets/bug/bug-dashboard-actions-portlet/bug-dashboard-actions-portlet.vue';
@@ -101,6 +105,10 @@ export const  PortletComponent = {
         v.component('app-case-test-module-entry-portlet', CaseTestModuleEntry);
         v.component('app-case-case-lastrunner-portlet', CaseCaseLastrunner);
         v.component('app-case-test-er-entry-portlet', CaseTestErEntry);
+        v.component('app-bug-bug-severity-portlet', BugBugSeverity);
+        v.component('app-bug-bug-type-portlet', BugBugType);
+        v.component('app-bug-bug-status-portlet', BugBugStatus);
+        v.component('app-bug-bug-resolution-portlet', BugBugResolution);
         v.component('app-case-main-info-portlet', CaseMainInfo);
         v.component('app-case-test-dashboard-quick-action-portlet', CaseTestDashboardQuickAction);
         v.component('app-case-test-main-detail-portlet', CaseTestMainDetail);
@@ -183,7 +191,11 @@ export const  PortletComponent = {
         v.component('test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
         v.component('test-task-action-bar-portlet', TestTaskActionBar);
         v.component('test-task-main-detail-portlet', TestTaskMainDetail);
+        v.component('bug-bug-severity-portlet', BugBugSeverity);
+        v.component('bug-bug-status-portlet', BugBugStatus);
         v.component('bug-dashboard-bug-life-portlet', BugDashboardBugLife);
+        v.component('bug-bug-type-portlet', BugBugType);
+        v.component('bug-bug-resolution-portlet', BugBugResolution);
         v.component('bug-action-history-list-portlet', BugActionHistoryList);
         v.component('bug-dashboard-bug-main-portlet', BugDashboardBugMain);
         v.component('bug-bug-dashboard-actions-portlet', BugBugDashboardActions);
