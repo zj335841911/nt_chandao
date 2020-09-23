@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { CaseCaseFavoriteBase } from './case-case-favorite-base';
-import view_grid from '@widgets/case/main-grid/main-grid.vue';
+import view_grid from '@widgets/case/main-grid-grid/main-grid-grid.vue';
 import view_searchform from '@widgets/case/default-searchform/default-searchform.vue';
 
 /**

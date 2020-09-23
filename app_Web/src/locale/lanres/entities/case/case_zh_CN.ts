@@ -615,7 +615,7 @@ export default {
 			case_execute: "执行",
 		},
 	},
-	main_grid: {
+	main2_grid: {
 		columns: {
 			pri: "P",
 			title: "用例标题",
@@ -624,7 +624,7 @@ export default {
 		uiactions: {
 		},
 	},
-	main2_grid: {
+	main_grid: {
 		columns: {
 			pri: "P",
 			title: "用例标题",
