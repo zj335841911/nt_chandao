@@ -73,6 +73,17 @@ export default class AppRoundList extends Vue{
     public historyList:Array<any> = [];
 
    /**
+     * 监听搜索历史数组
+     *
+     * @type {Array}
+     * @memberof AppSearchHistory
+     */ 
+    @Watch('historyList')
+    onHistoryListChange(){
+      this.hasHistory = true;
+    }
+
+   /**
      * 每一类搜索历史
      *
      * @type {Object}
@@ -119,6 +130,9 @@ export default class AppRoundList extends Vue{
      * @memberof AppSearchHistory
      */ 
     public afterMounted(){
+      setTimeout(() => {
+        this.hasHistory = false;
+      }, 1);
       let storage:any = localStorage.getItem('historyStorage');
       if (storage) {
         // 后续拿
