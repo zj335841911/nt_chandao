@@ -59,14 +59,14 @@ public class IbzLibCaseStep extends EntityMP implements Serializable {
     /**
      * 预期
      */
-    @TableField(value = "expect")
+    @TableField(value = "`expect"`)
     @JSONField(name = "expect")
     @JsonProperty("expect")
     private String expect;
     /**
      * 步骤
      */
-    @TableField(value = "desc")
+    @TableField(value = "`desc"`)
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
@@ -80,7 +80,7 @@ public class IbzLibCaseStep extends EntityMP implements Serializable {
     /**
      * 类型
      */
-    @TableField(value = "type")
+    @TableField(value = "`type"`)
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;

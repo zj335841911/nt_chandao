@@ -44,14 +44,14 @@ public class Im_message extends EntityMP implements Serializable {
     /**
      * user
      */
-    @TableField(value = "user")
+    @TableField(value = "`user"`)
     @JSONField(name = "user")
     @JsonProperty("user")
     private String user;
     /**
      * gid
      */
-    @TableField(value = "gid")
+    @TableField(value = "`gid"`)
     @JSONField(name = "gid")
     @JsonProperty("gid")
     private String gid;
@@ -67,7 +67,7 @@ public class Im_message extends EntityMP implements Serializable {
      * date
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
-    @TableField(value = "date")
+    @TableField(value = "`date"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("date")
@@ -77,49 +77,49 @@ public class Im_message extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "deleted")
+    @TableField(value = "`deleted"`)
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * data
      */
-    @TableField(value = "data")
+    @TableField(value = "`data"`)
     @JSONField(name = "data")
     @JsonProperty("data")
     private String data;
     /**
      * type
      */
-    @TableField(value = "type")
+    @TableField(value = "`type"`)
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
     /**
      * content
      */
-    @TableField(value = "content")
+    @TableField(value = "`content"`)
     @JSONField(name = "content")
     @JsonProperty("content")
     private String content;
     /**
      * cgid
      */
-    @TableField(value = "cgid")
+    @TableField(value = "`cgid"`)
     @JSONField(name = "cgid")
     @JsonProperty("cgid")
     private String cgid;
     /**
      * order
      */
-    @TableField(value = "order")
+    @TableField(value = "`order"`)
     @JSONField(name = "order")
     @JsonProperty("order")
     private Long order;
     /**
      * contentType
      */
-    @TableField(value = "contenttype")
+    @TableField(value = "`contenttype"`)
     @JSONField(name = "contenttype")
     @JsonProperty("contenttype")
     private String contenttype;

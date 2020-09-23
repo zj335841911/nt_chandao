@@ -52,42 +52,42 @@ public class UserQuery extends EntityMP implements Serializable {
     /**
      * shortcut
      */
-    @TableField(value = "shortcut")
+    @TableField(value = "`shortcut"`)
     @JSONField(name = "shortcut")
     @JsonProperty("shortcut")
     private String shortcut;
     /**
      * sql
      */
-    @TableField(value = "sql")
+    @TableField(value = "`sql"`)
     @JSONField(name = "sql")
     @JsonProperty("sql")
     private String sql;
     /**
      * title
      */
-    @TableField(value = "title")
+    @TableField(value = "`title"`)
     @JSONField(name = "title")
     @JsonProperty("title")
     private String title;
     /**
      * module
      */
-    @TableField(value = "module")
+    @TableField(value = "`module"`)
     @JSONField(name = "module")
     @JsonProperty("module")
     private String module;
     /**
      * form
      */
-    @TableField(value = "form")
+    @TableField(value = "`form"`)
     @JSONField(name = "form")
     @JsonProperty("form")
     private String form;
     /**
      * account
      */
-    @TableField(value = "account")
+    @TableField(value = "`account"`)
     @JSONField(name = "account")
     @JsonProperty("account")
     private String account;

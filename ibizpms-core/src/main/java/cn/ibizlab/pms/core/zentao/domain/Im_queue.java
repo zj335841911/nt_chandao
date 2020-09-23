@@ -44,7 +44,7 @@ public class Im_queue extends EntityMP implements Serializable {
     /**
      * processDate
      */
-    @TableField(value = "processdate")
+    @TableField(value = "`processdate"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "processdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("processdate")
@@ -52,7 +52,7 @@ public class Im_queue extends EntityMP implements Serializable {
     /**
      * addDate
      */
-    @TableField(value = "adddate")
+    @TableField(value = "`adddate"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "adddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("adddate")
@@ -60,14 +60,14 @@ public class Im_queue extends EntityMP implements Serializable {
     /**
      * content
      */
-    @TableField(value = "content")
+    @TableField(value = "`content"`)
     @JSONField(name = "content")
     @JsonProperty("content")
     private String content;
     /**
      * type
      */
-    @TableField(value = "type")
+    @TableField(value = "`type"`)
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
@@ -82,14 +82,14 @@ public class Im_queue extends EntityMP implements Serializable {
     /**
      * status
      */
-    @TableField(value = "status")
+    @TableField(value = "`status"`)
     @JSONField(name = "status")
     @JsonProperty("status")
     private String status;
     /**
      * result
      */
-    @TableField(value = "result")
+    @TableField(value = "`result"`)
     @JSONField(name = "result")
     @JsonProperty("result")
     private String result;

@@ -44,7 +44,8 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 测试负责人
      */
-    @TableField(value = "qd")
+    @DEField(defaultValue = "")
+    @TableField(value = "`qd"`)
     @JSONField(name = "qd")
     @JsonProperty("qd")
     private String qd;
@@ -52,14 +53,14 @@ public class Product extends EntityMP implements Serializable {
      * 访问控制
      */
     @DEField(defaultValue = "open")
-    @TableField(value = "acl")
+    @TableField(value = "`acl"`)
     @JSONField(name = "acl")
     @JsonProperty("acl")
     private String acl;
     /**
      * 产品名称
      */
-    @TableField(value = "name")
+    @TableField(value = "`name"`)
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
@@ -76,28 +77,31 @@ public class Product extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "deleted")
+    @TableField(value = "`deleted"`)
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * 分组白名单
      */
-    @TableField(value = "whitelist")
+    @DEField(defaultValue = "")
+    @TableField(value = "`whitelist"`)
     @JSONField(name = "whitelist")
     @JsonProperty("whitelist")
     private String whitelist;
     /**
      * 发布负责人
      */
-    @TableField(value = "rd")
+    @DEField(defaultValue = "")
+    @TableField(value = "`rd"`)
     @JSONField(name = "rd")
     @JsonProperty("rd")
     private String rd;
     /**
      * 排序
      */
-    @TableField(value = "order")
+    @DEField(defaultValue = "0")
+    @TableField(value = "`order"`)
     @JSONField(name = "order")
     @JsonProperty("order")
     private Integer order;
@@ -105,28 +109,30 @@ public class Product extends EntityMP implements Serializable {
      * 产品类型
      */
     @DEField(defaultValue = "normal")
-    @TableField(value = "type")
+    @TableField(value = "`type"`)
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
     /**
      * 产品负责人
      */
-    @TableField(value = "po")
+    @DEField(defaultValue = "")
+    @TableField(value = "`po"`)
     @JSONField(name = "po")
     @JsonProperty("po")
     private String po;
     /**
      * 产品描述	
      */
-    @TableField(value = "desc")
+    @DEField(defaultValue = "")
+    @TableField(value = "`desc"`)
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
     /**
      * 状态
      */
-    @TableField(value = "status")
+    @TableField(value = "`status"`)
     @JSONField(name = "status")
     @JsonProperty("status")
     private String status;
@@ -134,28 +140,29 @@ public class Product extends EntityMP implements Serializable {
      * 由谁创建
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
-    @TableField(value = "createdby")
+    @TableField(value = "`createdby"`)
     @JSONField(name = "createdby")
     @JsonProperty("createdby")
     private String createdby;
     /**
      * 当前系统版本
      */
-    @TableField(value = "createdversion")
+    @DEField(defaultValue = "")
+    @TableField(value = "`createdversion"`)
     @JSONField(name = "createdversion")
     @JsonProperty("createdversion")
     private String createdversion;
     /**
      * 子状态
      */
-    @TableField(value = "substatus")
+    @TableField(value = "`substatus"`)
     @JSONField(name = "substatus")
     @JsonProperty("substatus")
     private String substatus;
     /**
      * 产品代号
      */
-    @TableField(value = "code")
+    @TableField(value = "`code"`)
     @JSONField(name = "code")
     @JsonProperty("code")
     private String code;
@@ -163,7 +170,7 @@ public class Product extends EntityMP implements Serializable {
      * 创建日期
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "createddate" , fill = FieldFill.INSERT)
+    @TableField(value = "`createddate"` , fill = FieldFill.INSERT)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
@@ -179,7 +186,7 @@ public class Product extends EntityMP implements Serializable {
      * 产品线
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "line")
+    @TableField(value = "`line"`)
     @JSONField(name = "line")
     @JsonProperty("line")
     private Long line;

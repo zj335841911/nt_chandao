@@ -114,16 +114,6 @@ export const AppComponents = {
         // 搜索历史组件
         v.component('app-search-history',() => import('@/components/app-search-history/app-search-history.vue'));
 
-        // 更新日志
-        v.component('app-update-log',() => import('@/ibiz-core/components/app-update-log/app-update-log.vue'));
-        // 风格切换组件
-        v.component('app-mob-select-changeStyle',() => import('@/ibiz-core/components/app-mob-select-changeStyle/app-mob-select-changeStyle.vue'));
-        // setting组件
-        v.component('app-setting',() => import('@/ibiz-core/components/app-setting/app-setting.vue'));
-        // 定制组件
-        v.component('app-customize',() => import('@/ibiz-core/components/app-customize/app-customize.vue'));
-        // 主题切换组件
-        v.component('app-mob-select-changeTheme',() => import('@/ibiz-core/components/app-mob-select-changeTheme/app-mob-select-changeTheme.vue'));
         // 内置组件 BEGIN
     },
 };

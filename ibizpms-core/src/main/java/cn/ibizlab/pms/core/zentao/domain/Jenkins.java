@@ -44,14 +44,14 @@ public class Jenkins extends EntityMP implements Serializable {
     /**
      * name
      */
-    @TableField(value = "name")
+    @TableField(value = "`name"`)
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
     /**
      * password
      */
-    @TableField(value = "password")
+    @TableField(value = "`password"`)
     @JSONField(name = "password")
     @JsonProperty("password")
     private String password;
@@ -60,28 +60,28 @@ public class Jenkins extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "deleted")
+    @TableField(value = "`deleted"`)
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * account
      */
-    @TableField(value = "account")
+    @TableField(value = "`account"`)
     @JSONField(name = "account")
     @JsonProperty("account")
     private String account;
     /**
      * url
      */
-    @TableField(value = "url")
+    @TableField(value = "`url"`)
     @JSONField(name = "url")
     @JsonProperty("url")
     private String url;
     /**
      * editedDate
      */
-    @TableField(value = "editeddate")
+    @TableField(value = "`editeddate"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "editeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("editeddate")
@@ -89,28 +89,28 @@ public class Jenkins extends EntityMP implements Serializable {
     /**
      * token
      */
-    @TableField(value = "token")
+    @TableField(value = "`token"`)
     @JSONField(name = "token")
     @JsonProperty("token")
     private String token;
     /**
      * createdBy
      */
-    @TableField(value = "createdby")
+    @TableField(value = "`createdby"`)
     @JSONField(name = "createdby")
     @JsonProperty("createdby")
     private String createdby;
     /**
      * editedBy
      */
-    @TableField(value = "editedby")
+    @TableField(value = "`editedby"`)
     @JSONField(name = "editedby")
     @JsonProperty("editedby")
     private String editedby;
     /**
      * createdDate
      */
-    @TableField(value = "createddate")
+    @TableField(value = "`createddate"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")

@@ -44,28 +44,28 @@ public class TestReport extends EntityMP implements Serializable {
     /**
      * 所属对象
      */
-    @TableField(value = "objectid")
+    @TableField(value = "`objectid"`)
     @JSONField(name = "objectid")
     @JsonProperty("objectid")
     private Integer objectid;
     /**
      * 用例
      */
-    @TableField(value = "cases")
+    @TableField(value = "`cases"`)
     @JSONField(name = "cases")
     @JsonProperty("cases")
     private String cases;
     /**
      * 参与人员
      */
-    @TableField(value = "members")
+    @TableField(value = "`members"`)
     @JSONField(name = "members")
     @JsonProperty("members")
     private String members;
     /**
      * 测试的Bug
      */
-    @TableField(value = "bugs")
+    @TableField(value = "`bugs"`)
     @JSONField(name = "bugs")
     @JsonProperty("bugs")
     private String bugs;
@@ -73,35 +73,35 @@ public class TestReport extends EntityMP implements Serializable {
      * 由谁创建
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
-    @TableField(value = "createdby")
+    @TableField(value = "`createdby"`)
     @JSONField(name = "createdby")
     @JsonProperty("createdby")
     private String createdby;
     /**
      * 测试的需求
      */
-    @TableField(value = "stories")
+    @TableField(value = "`stories"`)
     @JSONField(name = "stories")
     @JsonProperty("stories")
     private String stories;
     /**
      * 测试单
      */
-    @TableField(value = "tasks")
+    @TableField(value = "`tasks"`)
     @JSONField(name = "tasks")
     @JsonProperty("tasks")
     private String tasks;
     /**
      * 标题
      */
-    @TableField(value = "title")
+    @TableField(value = "`title"`)
     @JSONField(name = "title")
     @JsonProperty("title")
     private String title;
     /**
      * 开始时间
      */
-    @TableField(value = "begin")
+    @TableField(value = "`begin"`)
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "begin" , format="yyyy-MM-dd")
     @JsonProperty("begin")
@@ -109,14 +109,14 @@ public class TestReport extends EntityMP implements Serializable {
     /**
      * 对象类型
      */
-    @TableField(value = "objecttype")
+    @TableField(value = "`objecttype"`)
     @JSONField(name = "objecttype")
     @JsonProperty("objecttype")
     private String objecttype;
     /**
      * 结束时间
      */
-    @TableField(value = "end")
+    @TableField(value = "`end"`)
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "end" , format="yyyy-MM-dd")
     @JsonProperty("end")
@@ -124,7 +124,7 @@ public class TestReport extends EntityMP implements Serializable {
     /**
      * 版本信息
      */
-    @TableField(value = "builds")
+    @TableField(value = "`builds"`)
     @JSONField(name = "builds")
     @JsonProperty("builds")
     private String builds;
@@ -132,7 +132,7 @@ public class TestReport extends EntityMP implements Serializable {
      * 创建时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "createddate" , fill = FieldFill.INSERT)
+    @TableField(value = "`createddate"` , fill = FieldFill.INSERT)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
@@ -140,7 +140,7 @@ public class TestReport extends EntityMP implements Serializable {
     /**
      * 总结
      */
-    @TableField(value = "report")
+    @TableField(value = "`report"`)
     @JSONField(name = "report")
     @JsonProperty("report")
     private String report;
@@ -155,7 +155,7 @@ public class TestReport extends EntityMP implements Serializable {
     /**
      * 负责人
      */
-    @TableField(value = "owner")
+    @TableField(value = "`owner"`)
     @JSONField(name = "owner")
     @JsonProperty("owner")
     private String owner;
@@ -164,21 +164,21 @@ public class TestReport extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "deleted")
+    @TableField(value = "`deleted"`)
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * 所属产品
      */
-    @TableField(value = "product")
+    @TableField(value = "`product"`)
     @JSONField(name = "product")
     @JsonProperty("product")
     private Long product;
     /**
      * 所属项目
      */
-    @TableField(value = "project")
+    @TableField(value = "`project"`)
     @JSONField(name = "project")
     @JsonProperty("project")
     private Long project;

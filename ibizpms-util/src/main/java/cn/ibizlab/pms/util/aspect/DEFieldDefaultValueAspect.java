@@ -194,7 +194,7 @@ public class DEFieldDefaultValueAspect
                         et.set(fieldname,curUser.getUserid());
                         break;
                     case OPERATORNAME:
-                        et.set(fieldname,curUser.getPersonname());
+                        et.set(fieldname,curUser.getUsername());
                         break;
                     case CURTIME:
                         et.set(fieldname,new Timestamp(new Date().getTime()));
@@ -222,13 +222,13 @@ public class DEFieldDefaultValueAspect
                     et.set(fieldname,curUser.getUserid());
                     break;
                 case CREATEMANNAME:
-                    et.set(fieldname,curUser.getPersonname());
+                    et.set(fieldname,curUser.getUsername());
                     break;
                 case UPDATEMAN:
                     et.set(fieldname,curUser.getUserid());
                     break;
                 case UPDATEMANNAME:
-                    et.set(fieldname,curUser.getPersonname());
+                    et.set(fieldname,curUser.getUsername());
                     break;
                 case CREATEDATE:
                     et.set(fieldname,new Timestamp(new Date().getTime()));

@@ -52,7 +52,7 @@ public class IBZProProduct extends EntityMP implements Serializable {
     /**
      * 产品名称
      */
-    @TableField(value = "name")
+    @TableField(value = "`name"`)
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
@@ -60,14 +60,14 @@ public class IBZProProduct extends EntityMP implements Serializable {
      * IBIZ标识
      */
     @DEField(name = "ibiz_id")
-    @TableField(value = "ibiz_id")
+    @TableField(value = "`ibiz_id"`)
     @JSONField(name = "ibizid")
     @JsonProperty("ibizid")
     private String ibizid;
     /**
      * 产品代号
      */
-    @TableField(value = "code")
+    @TableField(value = "`code"`)
     @JSONField(name = "code")
     @JsonProperty("code")
     private String code;

@@ -44,7 +44,7 @@ public class Build extends EntityMP implements Serializable {
     /**
      * 名称编号
      */
-    @TableField(value = "name")
+    @TableField(value = "`name"`)
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
@@ -52,14 +52,14 @@ public class Build extends EntityMP implements Serializable {
      * 构建者
      */
     @DEField(defaultValueType = DEFieldDefaultValueType.OPERATORNAME)
-    @TableField(value = "builder")
+    @TableField(value = "`builder"`)
     @JSONField(name = "builder")
     @JsonProperty("builder")
     private String builder;
     /**
      * 描述
      */
-    @TableField(value = "desc")
+    @TableField(value = "`desc"`)
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
@@ -76,42 +76,42 @@ public class Build extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "deleted")
+    @TableField(value = "`deleted"`)
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * 源代码地址
      */
-    @TableField(value = "scmpath")
+    @TableField(value = "`scmpath"`)
     @JSONField(name = "scmpath")
     @JsonProperty("scmpath")
     private String scmpath;
     /**
      * 下载地址
      */
-    @TableField(value = "filepath")
+    @TableField(value = "`filepath"`)
     @JSONField(name = "filepath")
     @JsonProperty("filepath")
     private String filepath;
     /**
      * 完成的需求
      */
-    @TableField(value = "stories")
+    @TableField(value = "`stories"`)
     @JSONField(name = "stories")
     @JsonProperty("stories")
     private String stories;
     /**
      * 解决的Bug
      */
-    @TableField(value = "bugs")
+    @TableField(value = "`bugs"`)
     @JSONField(name = "bugs")
     @JsonProperty("bugs")
     private String bugs;
     /**
      * 打包日期
      */
-    @TableField(value = "date")
+    @TableField(value = "`date"`)
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd")
     @JsonProperty("date")
@@ -120,14 +120,14 @@ public class Build extends EntityMP implements Serializable {
      * 产品
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "product")
+    @TableField(value = "`product"`)
     @JSONField(name = "product")
     @JsonProperty("product")
     private Long product;
     /**
      * 平台/分支
      */
-    @TableField(value = "branch")
+    @TableField(value = "`branch"`)
     @JSONField(name = "branch")
     @JsonProperty("branch")
     private Long branch;
@@ -135,7 +135,7 @@ public class Build extends EntityMP implements Serializable {
      * 所属项目
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "project")
+    @TableField(value = "`project"`)
     @JSONField(name = "project")
     @JsonProperty("project")
     private Long project;

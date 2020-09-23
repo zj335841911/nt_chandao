@@ -44,35 +44,35 @@ public class Log extends EntityMP implements Serializable {
     /**
      * url
      */
-    @TableField(value = "url")
+    @TableField(value = "`url"`)
     @JSONField(name = "url")
     @JsonProperty("url")
     private String url;
     /**
      * action
      */
-    @TableField(value = "action")
+    @TableField(value = "`action"`)
     @JSONField(name = "action")
     @JsonProperty("action")
     private Integer action;
     /**
      * contentType
      */
-    @TableField(value = "contenttype")
+    @TableField(value = "`contenttype"`)
     @JSONField(name = "contenttype")
     @JsonProperty("contenttype")
     private String contenttype;
     /**
      * objectID
      */
-    @TableField(value = "objectid")
+    @TableField(value = "`objectid"`)
     @JSONField(name = "objectid")
     @JsonProperty("objectid")
     private Integer objectid;
     /**
      * date
      */
-    @TableField(value = "date")
+    @TableField(value = "`date"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("date")
@@ -80,14 +80,14 @@ public class Log extends EntityMP implements Serializable {
     /**
      * result
      */
-    @TableField(value = "result")
+    @TableField(value = "`result"`)
     @JSONField(name = "result")
     @JsonProperty("result")
     private String result;
     /**
      * objectType
      */
-    @TableField(value = "objecttype")
+    @TableField(value = "`objecttype"`)
     @JSONField(name = "objecttype")
     @JsonProperty("objecttype")
     private String objecttype;
@@ -102,7 +102,7 @@ public class Log extends EntityMP implements Serializable {
     /**
      * data
      */
-    @TableField(value = "data")
+    @TableField(value = "`data"`)
     @JSONField(name = "data")
     @JsonProperty("data")
     private String data;

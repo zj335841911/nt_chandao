@@ -44,7 +44,7 @@ public class UserTpl extends EntityMP implements Serializable {
     /**
      * title
      */
-    @TableField(value = "title")
+    @TableField(value = "`title"`)
     @JSONField(name = "title")
     @JsonProperty("title")
     private String title;
@@ -59,21 +59,21 @@ public class UserTpl extends EntityMP implements Serializable {
     /**
      * content
      */
-    @TableField(value = "content")
+    @TableField(value = "`content"`)
     @JSONField(name = "content")
     @JsonProperty("content")
     private String content;
     /**
      * type
      */
-    @TableField(value = "type")
+    @TableField(value = "`type"`)
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
     /**
      * account
      */
-    @TableField(value = "account")
+    @TableField(value = "`account"`)
     @JSONField(name = "account")
     @JsonProperty("account")
     private String account;
@@ -81,7 +81,7 @@ public class UserTpl extends EntityMP implements Serializable {
      * public
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "public")
+    @TableField(value = "`public"`)
     @JSONField(name = "ibizpublic")
     @JsonProperty("ibizpublic")
     private String ibizpublic;

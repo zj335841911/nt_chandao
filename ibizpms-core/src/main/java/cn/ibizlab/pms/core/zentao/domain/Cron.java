@@ -52,7 +52,7 @@ public class Cron extends EntityMP implements Serializable {
     /**
      * status
      */
-    @TableField(value = "status")
+    @TableField(value = "`status"`)
     @JSONField(name = "status")
     @JsonProperty("status")
     private String status;
@@ -60,21 +60,21 @@ public class Cron extends EntityMP implements Serializable {
      * buildin
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "buildin")
+    @TableField(value = "`buildin"`)
     @JSONField(name = "buildin")
     @JsonProperty("buildin")
     private Integer buildin;
     /**
      * m
      */
-    @TableField(value = "m")
+    @TableField(value = "`m"`)
     @JSONField(name = "m")
     @JsonProperty("m")
     private String m;
     /**
      * lastTime
      */
-    @TableField(value = "lasttime")
+    @TableField(value = "`lasttime"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "lasttime" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lasttime")
@@ -82,49 +82,49 @@ public class Cron extends EntityMP implements Serializable {
     /**
      * command
      */
-    @TableField(value = "command")
+    @TableField(value = "`command"`)
     @JSONField(name = "command")
     @JsonProperty("command")
     private String command;
     /**
      * dom
      */
-    @TableField(value = "dom")
+    @TableField(value = "`dom"`)
     @JSONField(name = "dom")
     @JsonProperty("dom")
     private String dom;
     /**
      * mon
      */
-    @TableField(value = "mon")
+    @TableField(value = "`mon"`)
     @JSONField(name = "mon")
     @JsonProperty("mon")
     private String mon;
     /**
      * remark
      */
-    @TableField(value = "remark")
+    @TableField(value = "`remark"`)
     @JSONField(name = "remark")
     @JsonProperty("remark")
     private String remark;
     /**
      * h
      */
-    @TableField(value = "h")
+    @TableField(value = "`h"`)
     @JSONField(name = "h")
     @JsonProperty("h")
     private String h;
     /**
      * type
      */
-    @TableField(value = "type")
+    @TableField(value = "`type"`)
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
     /**
      * dow
      */
-    @TableField(value = "dow")
+    @TableField(value = "`dow"`)
     @JSONField(name = "dow")
     @JsonProperty("dow")
     private String dow;

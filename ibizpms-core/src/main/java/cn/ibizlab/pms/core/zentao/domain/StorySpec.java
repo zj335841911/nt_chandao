@@ -44,14 +44,14 @@ public class StorySpec extends EntityMP implements Serializable {
     /**
      * 需求描述	
      */
-    @TableField(value = "spec")
+    @TableField(value = "`spec"`)
     @JSONField(name = "spec")
     @JsonProperty("spec")
     private String spec;
     /**
      * 验收标准
      */
-    @TableField(value = "verify")
+    @TableField(value = "`verify"`)
     @JSONField(name = "verify")
     @JsonProperty("verify")
     private String verify;
@@ -66,21 +66,21 @@ public class StorySpec extends EntityMP implements Serializable {
     /**
      * 需求名称
      */
-    @TableField(value = "title")
+    @TableField(value = "`title"`)
     @JSONField(name = "title")
     @JsonProperty("title")
     private String title;
     /**
      * 版本号
      */
-    @TableField(value = "version")
+    @TableField(value = "`version"`)
     @JSONField(name = "version")
     @JsonProperty("version")
     private Integer version;
     /**
      * 需求
      */
-    @TableField(value = "story")
+    @TableField(value = "`story"`)
     @JSONField(name = "story")
     @JsonProperty("story")
     private Long story;

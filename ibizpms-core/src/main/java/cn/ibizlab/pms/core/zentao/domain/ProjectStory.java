@@ -52,7 +52,7 @@ public class ProjectStory extends EntityMP implements Serializable {
     /**
      * 排序
      */
-    @TableField(value = "order")
+    @TableField(value = "`order"`)
     @JSONField(name = "order")
     @JsonProperty("order")
     private Integer order;
@@ -60,28 +60,28 @@ public class ProjectStory extends EntityMP implements Serializable {
      * 需求版本
      */
     @DEField(defaultValue = "1")
-    @TableField(value = "version")
+    @TableField(value = "`version"`)
     @JSONField(name = "version")
     @JsonProperty("version")
     private Integer version;
     /**
      * 需求
      */
-    @TableField(value = "story")
+    @TableField(value = "`story"`)
     @JSONField(name = "story")
     @JsonProperty("story")
     private Long story;
     /**
      * 项目
      */
-    @TableField(value = "project")
+    @TableField(value = "`project"`)
     @JSONField(name = "project")
     @JsonProperty("project")
     private Long project;
     /**
      * 所属产品
      */
-    @TableField(value = "product")
+    @TableField(value = "`product"`)
     @JSONField(name = "product")
     @JsonProperty("product")
     private Long product;

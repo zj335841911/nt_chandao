@@ -53,28 +53,28 @@ public class Im_chatuser extends EntityMP implements Serializable {
      * order
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "order")
+    @TableField(value = "`order"`)
     @JSONField(name = "order")
     @JsonProperty("order")
     private Integer order;
     /**
      * freeze
      */
-    @TableField(value = "freeze")
+    @TableField(value = "`freeze"`)
     @JSONField(name = "freeze")
     @JsonProperty("freeze")
     private String freeze;
     /**
      * star
      */
-    @TableField(value = "star")
+    @TableField(value = "`star"`)
     @JSONField(name = "star")
     @JsonProperty("star")
     private String star;
     /**
      * hide
      */
-    @TableField(value = "hide")
+    @TableField(value = "`hide"`)
     @JSONField(name = "hide")
     @JsonProperty("hide")
     private String hide;
@@ -82,7 +82,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
      * join
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
-    @TableField(value = "join")
+    @TableField(value = "`join"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "join" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("join")
@@ -91,21 +91,21 @@ public class Im_chatuser extends EntityMP implements Serializable {
      * user
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "user")
+    @TableField(value = "`user"`)
     @JSONField(name = "user")
     @JsonProperty("user")
     private Integer user;
     /**
      * mute
      */
-    @TableField(value = "mute")
+    @TableField(value = "`mute"`)
     @JSONField(name = "mute")
     @JsonProperty("mute")
     private String mute;
     /**
      * cgid
      */
-    @TableField(value = "cgid")
+    @TableField(value = "`cgid"`)
     @JSONField(name = "cgid")
     @JsonProperty("cgid")
     private String cgid;
@@ -113,7 +113,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
      * quit
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
-    @TableField(value = "quit")
+    @TableField(value = "`quit"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "quit" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("quit")
@@ -121,7 +121,7 @@ public class Im_chatuser extends EntityMP implements Serializable {
     /**
      * category
      */
-    @TableField(value = "category")
+    @TableField(value = "`category"`)
     @JSONField(name = "category")
     @JsonProperty("category")
     private String category;

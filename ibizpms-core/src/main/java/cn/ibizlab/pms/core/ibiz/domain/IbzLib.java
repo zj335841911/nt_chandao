@@ -44,14 +44,14 @@ public class IbzLib extends EntityMP implements Serializable {
     /**
      * 描述
      */
-    @TableField(value = "desc")
+    @TableField(value = "`desc"`)
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
     /**
      * 最后编辑时间
      */
-    @TableField(value = "lastediteddate")
+    @TableField(value = "`lastediteddate"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastediteddate")
@@ -60,7 +60,7 @@ public class IbzLib extends EntityMP implements Serializable {
      * 创建时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "addeddate" , fill = FieldFill.INSERT)
+    @TableField(value = "`addeddate"` , fill = FieldFill.INSERT)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "addeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("addeddate")
@@ -77,35 +77,35 @@ public class IbzLib extends EntityMP implements Serializable {
      * 已删除
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID)
-    @TableField(value = "deleted")
+    @TableField(value = "`deleted"`)
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * 名称
      */
-    @TableField(value = "name")
+    @TableField(value = "`name"`)
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
     /**
      * 类型
      */
-    @TableField(value = "type")
+    @TableField(value = "`type"`)
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
     /**
      * 由谁创建
      */
-    @TableField(value = "addedby")
+    @TableField(value = "`addedby"`)
     @JSONField(name = "addedby")
     @JsonProperty("addedby")
     private String addedby;
     /**
      * 最后编辑人
      */
-    @TableField(value = "lasteditedby")
+    @TableField(value = "`lasteditedby"`)
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
     private String lasteditedby;

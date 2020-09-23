@@ -52,21 +52,21 @@ public class UserView extends EntityMP implements Serializable {
     /**
      * products
      */
-    @TableField(value = "products")
+    @TableField(value = "`products"`)
     @JSONField(name = "products")
     @JsonProperty("products")
     private String products;
     /**
      * account
      */
-    @TableField(value = "account")
+    @TableField(value = "`account"`)
     @JSONField(name = "account")
     @JsonProperty("account")
     private String account;
     /**
      * projects
      */
-    @TableField(value = "projects")
+    @TableField(value = "`projects"`)
     @JSONField(name = "projects")
     @JsonProperty("projects")
     private String projects;

@@ -44,14 +44,14 @@ public class Im_messagestatus extends EntityMP implements Serializable {
     /**
      * message
      */
-    @TableField(value = "message")
+    @TableField(value = "`message"`)
     @JSONField(name = "message")
     @JsonProperty("message")
     private Integer message;
     /**
      * status
      */
-    @TableField(value = "status")
+    @TableField(value = "`status"`)
     @JSONField(name = "status")
     @JsonProperty("status")
     private String status;
@@ -59,7 +59,7 @@ public class Im_messagestatus extends EntityMP implements Serializable {
      * user
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "user")
+    @TableField(value = "`user"`)
     @JSONField(name = "user")
     @JsonProperty("user")
     private Integer user;

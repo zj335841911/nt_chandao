@@ -44,7 +44,7 @@ public class DocContent extends EntityMP implements Serializable {
     /**
      * 附件
      */
-    @TableField(value = "files")
+    @TableField(value = "`files"`)
     @JSONField(name = "files")
     @JsonProperty("files")
     private String files;
@@ -59,42 +59,42 @@ public class DocContent extends EntityMP implements Serializable {
     /**
      * 文档正文
      */
-    @TableField(value = "content")
+    @TableField(value = "`content"`)
     @JSONField(name = "content")
     @JsonProperty("content")
     private String content;
     /**
      * 文档类型
      */
-    @TableField(value = "type")
+    @TableField(value = "`type"`)
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
     /**
      * 文档标题
      */
-    @TableField(value = "title")
+    @TableField(value = "`title"`)
     @JSONField(name = "title")
     @JsonProperty("title")
     private String title;
     /**
      * 文档摘要
      */
-    @TableField(value = "digest")
+    @TableField(value = "`digest"`)
     @JSONField(name = "digest")
     @JsonProperty("digest")
     private String digest;
     /**
      * 版本号
      */
-    @TableField(value = "version")
+    @TableField(value = "`version"`)
     @JSONField(name = "version")
     @JsonProperty("version")
     private Integer version;
     /**
      * 文档
      */
-    @TableField(value = "doc")
+    @TableField(value = "`doc"`)
     @JSONField(name = "doc")
     @JsonProperty("doc")
     private Long doc;

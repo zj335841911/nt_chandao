@@ -45,14 +45,14 @@ public class GroupPriv extends EntityMP implements Serializable {
      * group
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "group")
+    @TableField(value = "`group"`)
     @JSONField(name = "group")
     @JsonProperty("group")
     private Integer group;
     /**
      * method
      */
-    @TableField(value = "method")
+    @TableField(value = "`method"`)
     @JSONField(name = "method")
     @JsonProperty("method")
     private String method;
@@ -67,7 +67,7 @@ public class GroupPriv extends EntityMP implements Serializable {
     /**
      * module
      */
-    @TableField(value = "module")
+    @TableField(value = "`module"`)
     @JSONField(name = "module")
     @JsonProperty("module")
     private String module;

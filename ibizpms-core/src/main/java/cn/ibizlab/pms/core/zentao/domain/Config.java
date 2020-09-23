@@ -52,35 +52,35 @@ public class Config extends EntityMP implements Serializable {
     /**
      * 模块
      */
-    @TableField(value = "module")
+    @TableField(value = "`module"`)
     @JSONField(name = "module")
     @JsonProperty("module")
     private String module;
     /**
      * 附加部分
      */
-    @TableField(value = "section")
+    @TableField(value = "`section"`)
     @JSONField(name = "section")
     @JsonProperty("section")
     private String section;
     /**
      * 值
      */
-    @TableField(value = "value")
+    @TableField(value = "`value"`)
     @JSONField(name = "value")
     @JsonProperty("value")
     private String value;
     /**
      * 键
      */
-    @TableField(value = "key")
+    @TableField(value = "`key"`)
     @JSONField(name = "key")
     @JsonProperty("key")
     private String key;
     /**
      * 所有者
      */
-    @TableField(value = "owner")
+    @TableField(value = "`owner"`)
     @JSONField(name = "owner")
     @JsonProperty("owner")
     private String owner;

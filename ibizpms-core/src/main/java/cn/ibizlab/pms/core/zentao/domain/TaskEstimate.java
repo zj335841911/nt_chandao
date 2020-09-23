@@ -44,7 +44,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
     /**
      * 用户
      */
-    @TableField(value = "account")
+    @TableField(value = "`account"`)
     @JSONField(name = "account")
     @JsonProperty("account")
     private String account;
@@ -52,14 +52,14 @@ public class TaskEstimate extends EntityMP implements Serializable {
      * 预计剩余
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "left")
+    @TableField(value = "`left"`)
     @JSONField(name = "left")
     @JsonProperty("left")
     private Double left;
     /**
      * 总计消耗
      */
-    @TableField(value = "consumed")
+    @TableField(value = "`consumed"`)
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
     private Double consumed;
@@ -74,7 +74,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
     /**
      * 日期
      */
-    @TableField(value = "date")
+    @TableField(value = "`date"`)
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd")
     @JsonProperty("date")
@@ -82,14 +82,14 @@ public class TaskEstimate extends EntityMP implements Serializable {
     /**
      * work
      */
-    @TableField(value = "work")
+    @TableField(value = "`work"`)
     @JSONField(name = "work")
     @JsonProperty("work")
     private String work;
     /**
      * 任务
      */
-    @TableField(value = "task")
+    @TableField(value = "`task"`)
     @JSONField(name = "task")
     @JsonProperty("task")
     private Long task;

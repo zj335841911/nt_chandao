@@ -44,14 +44,14 @@ public class History extends EntityMP implements Serializable {
     /**
      * 不同
      */
-    @TableField(value = "diff")
+    @TableField(value = "`diff"`)
     @JSONField(name = "diff")
     @JsonProperty("diff")
     private String diff;
     /**
      * 字段
      */
-    @TableField(value = "field")
+    @TableField(value = "`field"`)
     @JSONField(name = "field")
     @JsonProperty("field")
     private String field;
@@ -59,14 +59,14 @@ public class History extends EntityMP implements Serializable {
      * 新值
      */
     @DEField(name = "new")
-    @TableField(value = "new")
+    @TableField(value = "`new"`)
     @JSONField(name = "ibiznew")
     @JsonProperty("ibiznew")
     private String ibiznew;
     /**
      * 旧值
      */
-    @TableField(value = "old")
+    @TableField(value = "`old"`)
     @JSONField(name = "old")
     @JsonProperty("old")
     private String old;
@@ -82,7 +82,7 @@ public class History extends EntityMP implements Serializable {
      * 关联日志
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "action")
+    @TableField(value = "`action"`)
     @JSONField(name = "action")
     @JsonProperty("action")
     private Long action;

@@ -45,21 +45,21 @@ public class Block extends EntityMP implements Serializable {
      * 高度
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "height")
+    @TableField(value = "`height"`)
     @JSONField(name = "height")
     @JsonProperty("height")
     private Integer height;
     /**
      * params
      */
-    @TableField(value = "params")
+    @TableField(value = "`params"`)
     @JSONField(name = "params")
     @JsonProperty("params")
     private String params;
     /**
      * 区块名称
      */
-    @TableField(value = "title")
+    @TableField(value = "`title"`)
     @JSONField(name = "title")
     @JsonProperty("title")
     private String title;
@@ -67,21 +67,21 @@ public class Block extends EntityMP implements Serializable {
      * 排序
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "order")
+    @TableField(value = "`order"`)
     @JSONField(name = "order")
     @JsonProperty("order")
     private Integer order;
     /**
      * 来源区块
      */
-    @TableField(value = "block")
+    @TableField(value = "`block"`)
     @JSONField(name = "block")
     @JsonProperty("block")
     private String block;
     /**
      * 所属用户
      */
-    @TableField(value = "account")
+    @TableField(value = "`account"`)
     @JSONField(name = "account")
     @JsonProperty("account")
     private String account;
@@ -89,14 +89,14 @@ public class Block extends EntityMP implements Serializable {
      * 位置
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "grid")
+    @TableField(value = "`grid"`)
     @JSONField(name = "grid")
     @JsonProperty("grid")
     private Integer grid;
     /**
      * 所属模块
      */
-    @TableField(value = "module")
+    @TableField(value = "`module"`)
     @JSONField(name = "module")
     @JsonProperty("module")
     private String module;
@@ -104,14 +104,14 @@ public class Block extends EntityMP implements Serializable {
      * 隐藏
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "hidden")
+    @TableField(value = "`hidden"`)
     @JSONField(name = "hidden")
     @JsonProperty("hidden")
     private Integer hidden;
     /**
      * 来源模块
      */
-    @TableField(value = "source")
+    @TableField(value = "`source"`)
     @JSONField(name = "source")
     @JsonProperty("source")
     private String source;

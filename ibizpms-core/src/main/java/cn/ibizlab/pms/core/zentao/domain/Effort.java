@@ -44,7 +44,7 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * user
      */
-    @TableField(value = "user")
+    @TableField(value = "`user"`)
     @JSONField(name = "user")
     @JsonProperty("user")
     private String user;
@@ -52,14 +52,14 @@ public class Effort extends EntityMP implements Serializable {
      * idvalue
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "idvalue")
+    @TableField(value = "`idvalue"`)
     @JSONField(name = "idvalue")
     @JsonProperty("idvalue")
     private Integer idvalue;
     /**
      * status
      */
-    @TableField(value = "status")
+    @TableField(value = "`status"`)
     @JSONField(name = "status")
     @JsonProperty("status")
     private String status;
@@ -67,7 +67,7 @@ public class Effort extends EntityMP implements Serializable {
      * end
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
-    @TableField(value = "end")
+    @TableField(value = "`end"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "end" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("end")
@@ -75,7 +75,7 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * date
      */
-    @TableField(value = "date")
+    @TableField(value = "`date"`)
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd")
     @JsonProperty("date")
@@ -83,28 +83,28 @@ public class Effort extends EntityMP implements Serializable {
     /**
      * name
      */
-    @TableField(value = "name")
+    @TableField(value = "`name"`)
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
     /**
      * desc
      */
-    @TableField(value = "desc")
+    @TableField(value = "`desc"`)
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
     /**
      * todo
      */
-    @TableField(value = "todo")
+    @TableField(value = "`todo"`)
     @JSONField(name = "todo")
     @JsonProperty("todo")
     private String todo;
     /**
      * type
      */
-    @TableField(value = "type")
+    @TableField(value = "`type"`)
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
@@ -120,7 +120,7 @@ public class Effort extends EntityMP implements Serializable {
      * begin
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
-    @TableField(value = "begin")
+    @TableField(value = "`begin"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "begin" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("begin")

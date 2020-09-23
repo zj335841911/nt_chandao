@@ -44,14 +44,14 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 分组
      */
-    @TableField(value = "groups")
+    @TableField(value = "`groups"`)
     @JSONField(name = "groups")
     @JsonProperty("groups")
     private String groups;
     /**
      * 更新时间
      */
-    @TableField(value = "editeddate")
+    @TableField(value = "`editeddate"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "editeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("editeddate")
@@ -59,7 +59,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * views
      */
-    @TableField(value = "views")
+    @TableField(value = "`views"`)
     @JSONField(name = "views")
     @JsonProperty("views")
     private Integer views;
@@ -67,14 +67,14 @@ public class Doc extends EntityMP implements Serializable {
      * 版本号
      */
     @DEField(defaultValue = "1")
-    @TableField(value = "version")
+    @TableField(value = "`version"`)
     @JSONField(name = "version")
     @JsonProperty("version")
     private Integer version;
     /**
      * 由谁更新
      */
-    @TableField(value = "editedby")
+    @TableField(value = "`editedby"`)
     @JSONField(name = "editedby")
     @JsonProperty("editedby")
     private String editedby;
@@ -89,7 +89,7 @@ public class Doc extends EntityMP implements Serializable {
     /**
      * 文档标题
      */
-    @TableField(value = "title")
+    @TableField(value = "`title"`)
     @JSONField(name = "title")
     @JsonProperty("title")
     private String title;
@@ -98,14 +98,14 @@ public class Doc extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "deleted")
+    @TableField(value = "`deleted"`)
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * 文档类型
      */
-    @TableField(value = "type")
+    @TableField(value = "`type"`)
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
@@ -113,7 +113,7 @@ public class Doc extends EntityMP implements Serializable {
      * 添加时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "addeddate" , fill = FieldFill.INSERT)
+    @TableField(value = "`addeddate"` , fill = FieldFill.INSERT)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "addeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("addeddate")
@@ -122,28 +122,28 @@ public class Doc extends EntityMP implements Serializable {
      * 权限
      */
     @DEField(defaultValue = "open")
-    @TableField(value = "acl")
+    @TableField(value = "`acl"`)
     @JSONField(name = "acl")
     @JsonProperty("acl")
     private String acl;
     /**
      * 用户
      */
-    @TableField(value = "users")
+    @TableField(value = "`users"`)
     @JSONField(name = "users")
     @JsonProperty("users")
     private String users;
     /**
      * 关键字
      */
-    @TableField(value = "keywords")
+    @TableField(value = "`keywords"`)
     @JSONField(name = "keywords")
     @JsonProperty("keywords")
     private String keywords;
     /**
      * 收藏者
      */
-    @TableField(value = "collector")
+    @TableField(value = "`collector"`)
     @JSONField(name = "collector")
     @JsonProperty("collector")
     private String collector;
@@ -151,35 +151,35 @@ public class Doc extends EntityMP implements Serializable {
      * 由谁添加
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
-    @TableField(value = "addedby")
+    @TableField(value = "`addedby"`)
     @JSONField(name = "addedby")
     @JsonProperty("addedby")
     private String addedby;
     /**
      * 所属文档库
      */
-    @TableField(value = "lib")
+    @TableField(value = "`lib"`)
     @JSONField(name = "lib")
     @JsonProperty("lib")
     private Long lib;
     /**
      * 所属项目
      */
-    @TableField(value = "project")
+    @TableField(value = "`project"`)
     @JSONField(name = "project")
     @JsonProperty("project")
     private Long project;
     /**
      * 所属产品
      */
-    @TableField(value = "product")
+    @TableField(value = "`product"`)
     @JSONField(name = "product")
     @JsonProperty("product")
     private Long product;
     /**
      * 所属分类
      */
-    @TableField(value = "module")
+    @TableField(value = "`module"`)
     @JSONField(name = "module")
     @JsonProperty("module")
     private Long module;

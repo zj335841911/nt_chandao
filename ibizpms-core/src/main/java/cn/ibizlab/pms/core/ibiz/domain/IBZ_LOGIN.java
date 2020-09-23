@@ -44,7 +44,7 @@ public class IBZ_LOGIN extends EntityMP implements Serializable {
     /**
      * 真实姓名
      */
-    @TableField(value = "realname")
+    @TableField(value = "`realname"`)
     @JSONField(name = "realname")
     @JsonProperty("realname")
     private String realname;
@@ -59,14 +59,14 @@ public class IBZ_LOGIN extends EntityMP implements Serializable {
     /**
      * 账户
      */
-    @TableField(value = "account")
+    @TableField(value = "`account"`)
     @JSONField(name = "account")
     @JsonProperty("account")
     private String account;
     /**
      * 源代码账户
      */
-    @TableField(value = "commiter")
+    @TableField(value = "`commiter"`)
     @JSONField(name = "commiter")
     @JsonProperty("commiter")
     private String commiter;

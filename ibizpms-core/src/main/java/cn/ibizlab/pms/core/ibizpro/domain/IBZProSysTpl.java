@@ -53,7 +53,7 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
      * 建立人
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "createman" , fill = FieldFill.INSERT)
+    @TableField(value = "`createman"` , fill = FieldFill.INSERT)
     @JSONField(name = "createman")
     @JsonProperty("createman")
     private String createman;
@@ -61,7 +61,7 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "createdate" , fill = FieldFill.INSERT)
+    @TableField(value = "`createdate"` , fill = FieldFill.INSERT)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
@@ -70,7 +70,7 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
      * 系统模板名称
      */
     @DEField(name = "ibzpro_systplname")
-    @TableField(value = "ibzpro_systplname")
+    @TableField(value = "`ibzpro_systplname"`)
     @JSONField(name = "ibzprosystplname")
     @JsonProperty("ibzprosystplname")
     private String ibzprosystplname;
@@ -78,7 +78,7 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
      * 更新人
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
-    @TableField(value = "updateman")
+    @TableField(value = "`updateman"`)
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     private String updateman;
@@ -86,7 +86,7 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @TableField(value = "updatedate")
+    @TableField(value = "`updatedate"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
@@ -95,7 +95,7 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
      * 是否公开
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "public")
+    @TableField(value = "`public"`)
     @JSONField(name = "ibizpublic")
     @JsonProperty("ibizpublic")
     private String ibizpublic;
@@ -103,14 +103,14 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
      * 来源对象
      */
     @DEField(name = "ibiz_sourceobject")
-    @TableField(value = "ibiz_sourceobject")
+    @TableField(value = "`ibiz_sourceobject"`)
     @JSONField(name = "ibiz_sourceobject")
     @JsonProperty("ibiz_sourceobject")
     private String ibizSourceobject;
     /**
      * 模板内容
      */
-    @TableField(value = "content")
+    @TableField(value = "`content"`)
     @JSONField(name = "content")
     @JsonProperty("content")
     private String content;
@@ -118,14 +118,14 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
      * IBIZ模板类型
      */
     @DEField(defaultValue = "freemarker")
-    @TableField(value = "tpltype")
+    @TableField(value = "`tpltype"`)
     @JSONField(name = "tpltype")
     @JsonProperty("tpltype")
     private String tpltype;
     /**
      * id
      */
-    @TableField(value = "file")
+    @TableField(value = "`file"`)
     @JSONField(name = "file")
     @JsonProperty("file")
     private Long file;

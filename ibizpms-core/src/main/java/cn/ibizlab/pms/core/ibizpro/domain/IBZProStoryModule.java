@@ -52,14 +52,14 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
     /**
      * 名称
      */
-    @TableField(value = "name")
+    @TableField(value = "`name"`)
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
     /**
      * 编号
      */
-    @TableField(value = "root")
+    @TableField(value = "`root"`)
     @JSONField(name = "root")
     @JsonProperty("root")
     private Long root;
@@ -67,7 +67,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
      * IBIZ标识
      */
     @DEField(name = "ibiz_id")
-    @TableField(value = "ibiz_id")
+    @TableField(value = "`ibiz_id"`)
     @JSONField(name = "ibizid")
     @JsonProperty("ibizid")
     private String ibizid;
@@ -75,7 +75,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
      * 类型
      */
     @DEField(defaultValue = "story")
-    @TableField(value = "type")
+    @TableField(value = "`type"`)
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
@@ -83,7 +83,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
      * 级别
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "grade")
+    @TableField(value = "`grade"`)
     @JSONField(name = "grade")
     @JsonProperty("grade")
     private Integer grade;
@@ -91,7 +91,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
      * 路径
      */
     @DEField(defaultValue = "，")
-    @TableField(value = "path")
+    @TableField(value = "`path"`)
     @JSONField(name = "path")
     @JsonProperty("path")
     private String path;
@@ -99,14 +99,14 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
      * 简称
      */
     @DEField(defaultValue = "/")
-    @TableField(value = "short")
+    @TableField(value = "`short"`)
     @JSONField(name = "ibizshort")
     @JsonProperty("ibizshort")
     private String ibizshort;
     /**
      * id
      */
-    @TableField(value = "parent")
+    @TableField(value = "`parent"`)
     @JSONField(name = "parent")
     @JsonProperty("parent")
     private Long parent;
@@ -121,7 +121,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
      * owner
      */
     @DEField(defaultValue = "/")
-    @TableField(value = "owner")
+    @TableField(value = "`owner"`)
     @JSONField(name = "owner")
     @JsonProperty("owner")
     private String owner;
@@ -129,7 +129,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
      * collector
      */
     @DEField(defaultValue = "/")
-    @TableField(value = "collector")
+    @TableField(value = "`collector"`)
     @JSONField(name = "collector")
     @JsonProperty("collector")
     private String collector;
@@ -137,7 +137,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
      * 已删除
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID)
-    @TableField(value = "deleted")
+    @TableField(value = "`deleted"`)
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
@@ -145,7 +145,7 @@ public class IBZProStoryModule extends EntityMP implements Serializable {
      * 需求模块类型
      */
     @DEField(name = "ibiz_storytype")
-    @TableField(value = "ibiz_storytype")
+    @TableField(value = "`ibiz_storytype"`)
     @JSONField(name = "ibiz_storytype")
     @JsonProperty("ibiz_storytype")
     private String ibizStorytype;

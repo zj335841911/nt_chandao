@@ -44,7 +44,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 完成的需求
      */
-    @TableField(value = "stories")
+    @TableField(value = "`stories"`)
     @JSONField(name = "stories")
     @JsonProperty("stories")
     private String stories;
@@ -52,7 +52,7 @@ public class Release extends EntityMP implements Serializable {
      * 里程碑
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "marker")
+    @TableField(value = "`marker"`)
     @JSONField(name = "marker")
     @JsonProperty("marker")
     private Integer marker;
@@ -67,14 +67,14 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 遗留的Bug
      */
-    @TableField(value = "leftbugs")
+    @TableField(value = "`leftbugs"`)
     @JSONField(name = "leftbugs")
     @JsonProperty("leftbugs")
     private String leftbugs;
     /**
      * 解决的Bug
      */
-    @TableField(value = "bugs")
+    @TableField(value = "`bugs"`)
     @JSONField(name = "bugs")
     @JsonProperty("bugs")
     private String bugs;
@@ -83,21 +83,21 @@ public class Release extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "deleted")
+    @TableField(value = "`deleted"`)
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * 发布名称
      */
-    @TableField(value = "name")
+    @TableField(value = "`name"`)
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
     /**
      * 发布日期
      */
-    @TableField(value = "date")
+    @TableField(value = "`date"`)
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd")
     @JsonProperty("date")
@@ -106,21 +106,21 @@ public class Release extends EntityMP implements Serializable {
      * 状态
      */
     @DEField(defaultValue = "normal")
-    @TableField(value = "status")
+    @TableField(value = "`status"`)
     @JSONField(name = "status")
     @JsonProperty("status")
     private String status;
     /**
      * 子状态
      */
-    @TableField(value = "substatus")
+    @TableField(value = "`substatus"`)
     @JSONField(name = "substatus")
     @JsonProperty("substatus")
     private String substatus;
     /**
      * 描述
      */
-    @TableField(value = "desc")
+    @TableField(value = "`desc"`)
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
@@ -135,21 +135,21 @@ public class Release extends EntityMP implements Serializable {
      * 产品
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "product")
+    @TableField(value = "`product"`)
     @JSONField(name = "product")
     @JsonProperty("product")
     private Long product;
     /**
      * 版本
      */
-    @TableField(value = "build")
+    @TableField(value = "`build"`)
     @JSONField(name = "build")
     @JsonProperty("build")
     private Long build;
     /**
      * 平台/分支
      */
-    @TableField(value = "branch")
+    @TableField(value = "`branch"`)
     @JSONField(name = "branch")
     @JsonProperty("branch")
     private Long branch;

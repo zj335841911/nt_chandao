@@ -44,7 +44,7 @@ public class RepoBranch extends EntityMP implements Serializable {
     /**
      * revision
      */
-    @TableField(value = "revision")
+    @TableField(value = "`revision"`)
     @JSONField(name = "revision")
     @JsonProperty("revision")
     private Integer revision;
@@ -59,14 +59,14 @@ public class RepoBranch extends EntityMP implements Serializable {
     /**
      * repo
      */
-    @TableField(value = "repo")
+    @TableField(value = "`repo"`)
     @JSONField(name = "repo")
     @JsonProperty("repo")
     private Integer repo;
     /**
      * branch
      */
-    @TableField(value = "branch")
+    @TableField(value = "`branch"`)
     @JSONField(name = "branch")
     @JsonProperty("branch")
     private String branch;

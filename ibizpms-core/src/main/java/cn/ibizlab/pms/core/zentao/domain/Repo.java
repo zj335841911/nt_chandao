@@ -44,21 +44,21 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * SCM
      */
-    @TableField(value = "scm")
+    @TableField(value = "`scm"`)
     @JSONField(name = "scm")
     @JsonProperty("scm")
     private String scm;
     /**
      * prefix
      */
-    @TableField(value = "prefix")
+    @TableField(value = "`prefix"`)
     @JSONField(name = "prefix")
     @JsonProperty("prefix")
     private String prefix;
     /**
      * password
      */
-    @TableField(value = "password")
+    @TableField(value = "`password"`)
     @JSONField(name = "password")
     @JsonProperty("password")
     private String password;
@@ -73,14 +73,14 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * encoding
      */
-    @TableField(value = "encoding")
+    @TableField(value = "`encoding"`)
     @JSONField(name = "encoding")
     @JsonProperty("encoding")
     private String encoding;
     /**
      * commits
      */
-    @TableField(value = "commits")
+    @TableField(value = "`commits"`)
     @JSONField(name = "commits")
     @JsonProperty("commits")
     private Integer commits;
@@ -88,14 +88,14 @@ public class Repo extends EntityMP implements Serializable {
      * synced
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "synced")
+    @TableField(value = "`synced"`)
     @JSONField(name = "synced")
     @JsonProperty("synced")
     private Integer synced;
     /**
      * lastSync
      */
-    @TableField(value = "lastsync")
+    @TableField(value = "`lastsync"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "lastsync" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastsync")
@@ -103,14 +103,14 @@ public class Repo extends EntityMP implements Serializable {
     /**
      * client
      */
-    @TableField(value = "client")
+    @TableField(value = "`client"`)
     @JSONField(name = "client")
     @JsonProperty("client")
     private String client;
     /**
      * acl
      */
-    @TableField(value = "acl")
+    @TableField(value = "`acl"`)
     @JSONField(name = "acl")
     @JsonProperty("acl")
     private String acl;
@@ -118,28 +118,28 @@ public class Repo extends EntityMP implements Serializable {
      * encrypt
      */
     @DEField(defaultValue = "plain")
-    @TableField(value = "encrypt")
+    @TableField(value = "`encrypt"`)
     @JSONField(name = "encrypt")
     @JsonProperty("encrypt")
     private String encrypt;
     /**
      * account
      */
-    @TableField(value = "account")
+    @TableField(value = "`account"`)
     @JSONField(name = "account")
     @JsonProperty("account")
     private String account;
     /**
      * desc
      */
-    @TableField(value = "desc")
+    @TableField(value = "`desc"`)
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
     /**
      * name
      */
-    @TableField(value = "name")
+    @TableField(value = "`name"`)
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
@@ -148,14 +148,14 @@ public class Repo extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "deleted")
+    @TableField(value = "`deleted"`)
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * path
      */
-    @TableField(value = "path")
+    @TableField(value = "`path"`)
     @JSONField(name = "path")
     @JsonProperty("path")
     private String path;

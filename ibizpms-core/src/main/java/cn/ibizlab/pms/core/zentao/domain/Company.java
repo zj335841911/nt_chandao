@@ -44,14 +44,14 @@ public class Company extends EntityMP implements Serializable {
     /**
      * admins
      */
-    @TableField(value = "admins")
+    @TableField(value = "`admins"`)
     @JSONField(name = "admins")
     @JsonProperty("admins")
     private String admins;
     /**
      * 传真
      */
-    @TableField(value = "fax")
+    @TableField(value = "`fax"`)
     @JSONField(name = "fax")
     @JsonProperty("fax")
     private String fax;
@@ -60,14 +60,14 @@ public class Company extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "deleted")
+    @TableField(value = "`deleted"`)
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * 官网
      */
-    @TableField(value = "website")
+    @TableField(value = "`website"`)
     @JSONField(name = "website")
     @JsonProperty("website")
     private String website;
@@ -82,42 +82,42 @@ public class Company extends EntityMP implements Serializable {
     /**
      * 邮政编码
      */
-    @TableField(value = "zipcode")
+    @TableField(value = "`zipcode"`)
     @JSONField(name = "zipcode")
     @JsonProperty("zipcode")
     private String zipcode;
     /**
      * 通讯地址
      */
-    @TableField(value = "address")
+    @TableField(value = "`address"`)
     @JSONField(name = "address")
     @JsonProperty("address")
     private String address;
     /**
      * 内网
      */
-    @TableField(value = "backyard")
+    @TableField(value = "`backyard"`)
     @JSONField(name = "backyard")
     @JsonProperty("backyard")
     private String backyard;
     /**
      * 公司名称
      */
-    @TableField(value = "name")
+    @TableField(value = "`name"`)
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
     /**
      * 匿名登陆
      */
-    @TableField(value = "guest")
+    @TableField(value = "`guest"`)
     @JSONField(name = "guest")
     @JsonProperty("guest")
     private String guest;
     /**
      * 联系电话
      */
-    @TableField(value = "phone")
+    @TableField(value = "`phone"`)
     @JSONField(name = "phone")
     @JsonProperty("phone")
     private String phone;

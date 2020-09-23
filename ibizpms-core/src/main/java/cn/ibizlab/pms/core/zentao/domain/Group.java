@@ -44,14 +44,14 @@ public class Group extends EntityMP implements Serializable {
     /**
      * acl
      */
-    @TableField(value = "acl")
+    @TableField(value = "`acl"`)
     @JSONField(name = "acl")
     @JsonProperty("acl")
     private String acl;
     /**
      * 分组描述
      */
-    @TableField(value = "desc")
+    @TableField(value = "`desc"`)
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
@@ -66,14 +66,14 @@ public class Group extends EntityMP implements Serializable {
     /**
      * 分组名称
      */
-    @TableField(value = "name")
+    @TableField(value = "`name"`)
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
     /**
      * role
      */
-    @TableField(value = "role")
+    @TableField(value = "`role"`)
     @JSONField(name = "role")
     @JsonProperty("role")
     private String role;

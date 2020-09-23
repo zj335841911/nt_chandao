@@ -46,14 +46,14 @@ public class Job extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "deleted")
+    @TableField(value = "`deleted"`)
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * editedDate
      */
-    @TableField(value = "editeddate")
+    @TableField(value = "`editeddate"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "editeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("editeddate")
@@ -61,21 +61,21 @@ public class Job extends EntityMP implements Serializable {
     /**
      * product
      */
-    @TableField(value = "product")
+    @TableField(value = "`product"`)
     @JSONField(name = "product")
     @JsonProperty("product")
     private Integer product;
     /**
      * lastStatus
      */
-    @TableField(value = "laststatus")
+    @TableField(value = "`laststatus"`)
     @JSONField(name = "laststatus")
     @JsonProperty("laststatus")
     private String laststatus;
     /**
      * createdDate
      */
-    @TableField(value = "createddate")
+    @TableField(value = "`createddate"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
@@ -83,28 +83,28 @@ public class Job extends EntityMP implements Serializable {
     /**
      * createdBy
      */
-    @TableField(value = "createdby")
+    @TableField(value = "`createdby"`)
     @JSONField(name = "createdby")
     @JsonProperty("createdby")
     private String createdby;
     /**
      * triggerType
      */
-    @TableField(value = "triggertype")
+    @TableField(value = "`triggertype"`)
     @JSONField(name = "triggertype")
     @JsonProperty("triggertype")
     private String triggertype;
     /**
      * comment
      */
-    @TableField(value = "comment")
+    @TableField(value = "`comment"`)
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
     /**
      * lastExec
      */
-    @TableField(value = "lastexec")
+    @TableField(value = "`lastexec"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "lastexec" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastexec")
@@ -112,49 +112,49 @@ public class Job extends EntityMP implements Serializable {
     /**
      * jkHost
      */
-    @TableField(value = "jkhost")
+    @TableField(value = "`jkhost"`)
     @JSONField(name = "jkhost")
     @JsonProperty("jkhost")
     private Integer jkhost;
     /**
      * frame
      */
-    @TableField(value = "frame")
+    @TableField(value = "`frame"`)
     @JSONField(name = "frame")
     @JsonProperty("frame")
     private String frame;
     /**
      * atDay
      */
-    @TableField(value = "atday")
+    @TableField(value = "`atday"`)
     @JSONField(name = "atday")
     @JsonProperty("atday")
     private String atday;
     /**
      * jkJob
      */
-    @TableField(value = "jkjob")
+    @TableField(value = "`jkjob"`)
     @JSONField(name = "jkjob")
     @JsonProperty("jkjob")
     private String jkjob;
     /**
      * svnDir
      */
-    @TableField(value = "svndir")
+    @TableField(value = "`svndir"`)
     @JSONField(name = "svndir")
     @JsonProperty("svndir")
     private String svndir;
     /**
      * repo
      */
-    @TableField(value = "repo")
+    @TableField(value = "`repo"`)
     @JSONField(name = "repo")
     @JsonProperty("repo")
     private Integer repo;
     /**
      * name
      */
-    @TableField(value = "name")
+    @TableField(value = "`name"`)
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
@@ -169,21 +169,21 @@ public class Job extends EntityMP implements Serializable {
     /**
      * lastTag
      */
-    @TableField(value = "lasttag")
+    @TableField(value = "`lasttag"`)
     @JSONField(name = "lasttag")
     @JsonProperty("lasttag")
     private String lasttag;
     /**
      * atTime
      */
-    @TableField(value = "attime")
+    @TableField(value = "`attime"`)
     @JSONField(name = "attime")
     @JsonProperty("attime")
     private String attime;
     /**
      * editedBy
      */
-    @TableField(value = "editedby")
+    @TableField(value = "`editedby"`)
     @JSONField(name = "editedby")
     @JsonProperty("editedby")
     private String editedby;

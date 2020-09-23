@@ -44,14 +44,14 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 结果
      */
-    @TableField(value = "lastrunresult")
+    @TableField(value = "`lastrunresult"`)
     @JSONField(name = "lastrunresult")
     @JsonProperty("lastrunresult")
     private String lastrunresult;
     /**
      * 最后执行时间
      */
-    @TableField(value = "lastrundate")
+    @TableField(value = "`lastrundate"`)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "lastrundate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastrundate")
@@ -59,21 +59,21 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 指派给
      */
-    @TableField(value = "assignedto")
+    @TableField(value = "`assignedto"`)
     @JSONField(name = "assignedto")
     @JsonProperty("assignedto")
     private String assignedto;
     /**
      * 最后执行人
      */
-    @TableField(value = "lastrunner")
+    @TableField(value = "`lastrunner"`)
     @JSONField(name = "lastrunner")
     @JsonProperty("lastrunner")
     private String lastrunner;
     /**
      * 当前状态
      */
-    @TableField(value = "status")
+    @TableField(value = "`status"`)
     @JSONField(name = "status")
     @JsonProperty("status")
     private String status;
@@ -89,7 +89,7 @@ public class TestRun extends EntityMP implements Serializable {
      * 用例版本
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "version")
+    @TableField(value = "`version"`)
     @JSONField(name = "version")
     @JsonProperty("version")
     private Integer version;
@@ -97,14 +97,14 @@ public class TestRun extends EntityMP implements Serializable {
      * 测试用例
      */
     @DEField(name = "case")
-    @TableField(value = "case")
+    @TableField(value = "`case"`)
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
     private Long ibizcase;
     /**
      * 测试单
      */
-    @TableField(value = "task")
+    @TableField(value = "`task"`)
     @JSONField(name = "task")
     @JsonProperty("task")
     private Long task;
