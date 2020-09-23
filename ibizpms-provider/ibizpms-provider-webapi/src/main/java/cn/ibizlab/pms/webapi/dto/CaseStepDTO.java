@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.alibaba.fastjson.annotation.JSONField;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -42,6 +44,7 @@ public class CaseStepDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
 
     /**
@@ -76,6 +79,7 @@ public class CaseStepDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long ibizcase;
 
     /**
@@ -84,6 +88,7 @@ public class CaseStepDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "parent")
     @JsonProperty("parent")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long parent;
 
     /**

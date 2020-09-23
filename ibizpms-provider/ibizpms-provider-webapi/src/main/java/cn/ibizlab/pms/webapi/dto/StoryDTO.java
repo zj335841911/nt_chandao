@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.alibaba.fastjson.annotation.JSONField;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -184,6 +186,7 @@ public class StoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
 
     /**
@@ -336,6 +339,7 @@ public class StoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "frombug")
     @JsonProperty("frombug")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long frombug;
 
     /**
@@ -344,6 +348,7 @@ public class StoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "parent")
     @JsonProperty("parent")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long parent;
 
     /**
@@ -352,6 +357,7 @@ public class StoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "module")
     @JsonProperty("module")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long module;
 
     /**
@@ -360,6 +366,7 @@ public class StoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long product;
 
     /**
@@ -368,6 +375,7 @@ public class StoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "duplicatestory")
     @JsonProperty("duplicatestory")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long duplicatestory;
 
     /**
@@ -376,6 +384,7 @@ public class StoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "branch")
     @JsonProperty("branch")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long branch;
 
     /**
@@ -384,6 +393,7 @@ public class StoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "tobug")
     @JsonProperty("tobug")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long tobug;
 
     /**

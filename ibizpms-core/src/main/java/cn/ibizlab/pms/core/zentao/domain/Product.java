@@ -44,7 +44,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 测试负责人
      */
-    @DEField(defaultValue = "")
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`qd`")
     @JSONField(name = "qd")
     @JsonProperty("qd")
@@ -84,7 +84,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 分组白名单
      */
-    @DEField(defaultValue = "")
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`whitelist`")
     @JSONField(name = "whitelist")
     @JsonProperty("whitelist")
@@ -92,7 +92,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 发布负责人
      */
-    @DEField(defaultValue = "")
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`rd`")
     @JSONField(name = "rd")
     @JsonProperty("rd")
@@ -116,7 +116,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 产品负责人
      */
-    @DEField(defaultValue = "")
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`po`")
     @JSONField(name = "po")
     @JsonProperty("po")
@@ -124,7 +124,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 产品描述	
      */
-    @DEField(defaultValue = "")
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
@@ -147,7 +147,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 当前系统版本
      */
-    @DEField(defaultValue = "")
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`createdversion`")
     @JSONField(name = "createdversion")
     @JsonProperty("createdversion")

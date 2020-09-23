@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.alibaba.fastjson.annotation.JSONField;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -291,6 +293,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
 
     /**
@@ -333,6 +336,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "fromcaseid")
     @JsonProperty("fromcaseid")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long fromcaseid;
 
     /**
@@ -341,6 +345,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "branch")
     @JsonProperty("branch")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long branch;
 
     /**
@@ -349,6 +354,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "frombug")
     @JsonProperty("frombug")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long frombug;
 
     /**
@@ -357,6 +363,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "story")
     @JsonProperty("story")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long story;
 
     /**
@@ -365,6 +372,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long product;
 
     /**
@@ -373,6 +381,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "lib")
     @JsonProperty("lib")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long lib;
 
     /**
@@ -381,6 +390,7 @@ public class CaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "module")
     @JsonProperty("module")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long module;
 
     /**
