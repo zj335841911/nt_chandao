@@ -18999,7 +18999,7 @@
     "physical_field":1,
     "data_type":"VARCHAR",
     "data_length":30,
-    "predefined":"CREATEMANNAME",
+    "predefined":"CREATEMAN",
     "key_field":0,
     "major_field":0
     },

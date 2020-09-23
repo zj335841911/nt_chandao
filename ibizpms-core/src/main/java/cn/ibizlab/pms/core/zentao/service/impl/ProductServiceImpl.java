@@ -378,6 +378,25 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         return true;
     }
 
+    @Override
+    public List<Product> getProductByIds(List<String> ids) {
+         return this.listByIds(ids);
+    }
+
+    @Override
+    public List<Product> getProductByEntities(List<Product> entities) {
+        List ids =new ArrayList();
+        for(Product entity : entities){
+            Serializable id=entity.getId();
+            if(!ObjectUtils.isEmpty(id)){
+                ids.add(id);
+            }
+        }
+        if(ids.size()>0)
+           return this.listByIds(ids);
+        else
+           return entities;
+    }
 
 }
 

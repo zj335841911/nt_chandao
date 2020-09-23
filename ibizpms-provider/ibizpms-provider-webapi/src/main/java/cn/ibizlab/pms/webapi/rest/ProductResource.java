@@ -47,7 +47,7 @@ public class ProductResource {
     @Lazy
     public ProductMapping productMapping;
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Create-all')")
+    @PreAuthorize("hasPermission(this.productMapping.toDomain(#productdto),'pms-Product-Create')")
     @ApiOperation(value = "新建产品", tags = {"产品" },  notes = "新建产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/products")
     public ResponseEntity<ProductDTO> create(@Validated @RequestBody ProductDTO productdto) {
@@ -57,7 +57,7 @@ public class ProductResource {
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Create-all')")
+    @PreAuthorize("hasPermission(this.productMapping.toDomain(#productdtos),'pms-Product-Create')")
     @ApiOperation(value = "批量新建产品", tags = {"产品" },  notes = "批量新建产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<ProductDTO> productdtos) {
@@ -65,7 +65,7 @@ public class ProductResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Update-all')")
+    @PreAuthorize("hasPermission(this.productService.get(#product_id),'pms-Product-Update')")
     @ApiOperation(value = "更新产品", tags = {"产品" },  notes = "更新产品")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}")
     public ResponseEntity<ProductDTO> update(@PathVariable("product_id") Long product_id, @RequestBody ProductDTO productdto) {
@@ -76,7 +76,7 @@ public class ProductResource {
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Update-all')")
+    @PreAuthorize("hasPermission(this.productService.getProductByEntities(this.productMapping.toDomain(#productdtos)),'pms-Product-Update')")
     @ApiOperation(value = "批量更新产品", tags = {"产品" },  notes = "批量更新产品")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<ProductDTO> productdtos) {
@@ -84,14 +84,14 @@ public class ProductResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Remove-all')")
+    @PreAuthorize("hasPermission(this.productService.get(#product_id),'pms-Product-Remove')")
     @ApiOperation(value = "删除产品", tags = {"产品" },  notes = "删除产品")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}")
     public ResponseEntity<Boolean> remove(@PathVariable("product_id") Long product_id) {
          return ResponseEntity.status(HttpStatus.OK).body(productService.remove(product_id));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Remove-all')")
+    @PreAuthorize("hasPermission(this.productService.getProductByIds(#ids),'pms-Product-Remove')")
     @ApiOperation(value = "批量删除产品", tags = {"产品" },  notes = "批量删除产品")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/products/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<Long> ids) {
@@ -99,7 +99,7 @@ public class ProductResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Get-all')")
+    @PostAuthorize("hasPermission(this.productMapping.toDomain(returnObject.body),'pms-Product-Get')")
     @ApiOperation(value = "获取产品", tags = {"产品" },  notes = "获取产品")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}")
     public ResponseEntity<ProductDTO> get(@PathVariable("product_id") Long product_id) {
@@ -175,14 +175,14 @@ public class ProductResource {
         return ResponseEntity.status(HttpStatus.OK).body(productdto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Save-all')")
+    @PreAuthorize("hasPermission(this.productMapping.toDomain(#productdto),'pms-Product-Save')")
     @ApiOperation(value = "保存产品", tags = {"产品" },  notes = "保存产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/save")
     public ResponseEntity<Boolean> save(@RequestBody ProductDTO productdto) {
         return ResponseEntity.status(HttpStatus.OK).body(productService.save(productMapping.toDomain(productdto)));
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Save-all')")
+    @PreAuthorize("hasPermission(this.productMapping.toDomain(#productdtos),'pms-Product-Save')")
     @ApiOperation(value = "批量保存产品", tags = {"产品" },  notes = "批量保存产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<ProductDTO> productdtos) {
@@ -190,7 +190,7 @@ public class ProductResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchCurProject-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchCurProject-all') and hasPermission(#context,'pms-Product-Get')")
 	@ApiOperation(value = "获取当前项目", tags = {"产品" } ,notes = "获取当前项目")
     @RequestMapping(method= RequestMethod.GET , value="/products/fetchcurproject")
 	public ResponseEntity<List<ProductDTO>> fetchCurProject(ProductSearchContext context) {
@@ -203,7 +203,7 @@ public class ProductResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchCurProject-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchCurProject-all') and hasPermission(#context,'pms-Product-Get')")
 	@ApiOperation(value = "查询当前项目", tags = {"产品" } ,notes = "查询当前项目")
     @RequestMapping(method= RequestMethod.POST , value="/products/searchcurproject")
 	public ResponseEntity<Page<ProductDTO>> searchCurProject(@RequestBody ProductSearchContext context) {
@@ -211,7 +211,7 @@ public class ProductResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchCurUer-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchCurUer-all') and hasPermission(#context,'pms-Product-Get')")
 	@ApiOperation(value = "获取当前用户", tags = {"产品" } ,notes = "获取当前用户")
     @RequestMapping(method= RequestMethod.GET , value="/products/fetchcuruer")
 	public ResponseEntity<List<ProductDTO>> fetchCurUer(ProductSearchContext context) {
@@ -224,7 +224,7 @@ public class ProductResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchCurUer-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchCurUer-all') and hasPermission(#context,'pms-Product-Get')")
 	@ApiOperation(value = "查询当前用户", tags = {"产品" } ,notes = "查询当前用户")
     @RequestMapping(method= RequestMethod.POST , value="/products/searchcuruer")
 	public ResponseEntity<Page<ProductDTO>> searchCurUer(@RequestBody ProductSearchContext context) {
@@ -232,7 +232,7 @@ public class ProductResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchDefault-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchDefault-all') and hasPermission(#context,'pms-Product-Get')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"产品" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/products/fetchdefault")
 	public ResponseEntity<List<ProductDTO>> fetchDefault(ProductSearchContext context) {
@@ -245,7 +245,7 @@ public class ProductResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchDefault-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchDefault-all') and hasPermission(#context,'pms-Product-Get')")
 	@ApiOperation(value = "查询DEFAULT", tags = {"产品" } ,notes = "查询DEFAULT")
     @RequestMapping(method= RequestMethod.POST , value="/products/searchdefault")
 	public ResponseEntity<Page<ProductDTO>> searchDefault(@RequestBody ProductSearchContext context) {
@@ -253,7 +253,7 @@ public class ProductResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchProductPM-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchProductPM-all') and hasPermission(#context,'pms-Product-Get')")
 	@ApiOperation(value = "获取产品总览", tags = {"产品" } ,notes = "获取产品总览")
     @RequestMapping(method= RequestMethod.GET , value="/products/fetchproductpm")
 	public ResponseEntity<List<ProductDTO>> fetchProductPM(ProductSearchContext context) {
@@ -266,7 +266,7 @@ public class ProductResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchProductPM-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchProductPM-all') and hasPermission(#context,'pms-Product-Get')")
 	@ApiOperation(value = "查询产品总览", tags = {"产品" } ,notes = "查询产品总览")
     @RequestMapping(method= RequestMethod.POST , value="/products/searchproductpm")
 	public ResponseEntity<Page<ProductDTO>> searchProductPM(@RequestBody ProductSearchContext context) {
@@ -274,7 +274,7 @@ public class ProductResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchStoryCurProject-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchStoryCurProject-all') and hasPermission(#context,'pms-Product-Get')")
 	@ApiOperation(value = "获取当前项目", tags = {"产品" } ,notes = "获取当前项目")
     @RequestMapping(method= RequestMethod.GET , value="/products/fetchstorycurproject")
 	public ResponseEntity<List<ProductDTO>> fetchStoryCurProject(ProductSearchContext context) {
@@ -287,7 +287,7 @@ public class ProductResource {
                 .body(list);
 	}
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchStoryCurProject-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-searchStoryCurProject-all') and hasPermission(#context,'pms-Product-Get')")
 	@ApiOperation(value = "查询当前项目", tags = {"产品" } ,notes = "查询当前项目")
     @RequestMapping(method= RequestMethod.POST , value="/products/searchstorycurproject")
 	public ResponseEntity<Page<ProductDTO>> searchStoryCurProject(@RequestBody ProductSearchContext context) {
