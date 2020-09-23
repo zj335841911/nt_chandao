@@ -16,5 +16,7 @@ export const UserComponent = {
         v.component('app-setting',() => import('@/ibiz-core/components/app-setting/app-setting.vue'));
         // 更新日志组件
         v.component('app-update-log',() => import('@/ibiz-core/components/app-update-log/app-update-log.vue'))
+        // 更新日志列表组件
+        v.component('app-update-log-list',() => import('@/ibiz-core/components/app-update-log-list/app-update-log-list.vue'))
     }
 };
