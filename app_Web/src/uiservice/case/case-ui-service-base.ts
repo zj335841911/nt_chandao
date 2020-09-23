@@ -112,8 +112,11 @@ export default class CaseUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'cases',component:'case-main-dashboard-view'});
         this.allViewMap.set(':',{viewname:'cursuitgridview',srfappde:'cases',component:'case-cur-suit-grid-view'});
         this.allViewMap.set(':',{viewname:'gridview9',srfappde:'cases',component:'case-grid-view9'});
+        this.allViewMap.set(':',{viewname:'casetypechartview9',srfappde:'cases',component:'case-case-type-chart-view9'});
         this.allViewMap.set(':',{viewname:'resultentrygridview',srfappde:'cases',component:'caseresult-entry-grid-view'});
         this.allViewMap.set(':',{viewname:'maineditview',srfappde:'cases',component:'case-main-edit-view'});
+        this.allViewMap.set(':',{viewname:'runresultchartview9',srfappde:'cases',component:'case-run-result-chart-view9'});
+        this.allViewMap.set(':',{viewname:'modulechartview9',srfappde:'cases',component:'case-module-chart-view9'});
         this.allViewMap.set(':',{viewname:'mainmynewgridview',srfappde:'cases',component:'case-main-my-new-grid-view'});
         this.allViewMap.set(':',{viewname:'maindetaileditview9',srfappde:'cases',component:'case-main-detail-edit-view9'});
         this.allViewMap.set(':',{viewname:'gridview9_mecretae',srfappde:'cases',component:'case-grid-view9-me-cretae'});

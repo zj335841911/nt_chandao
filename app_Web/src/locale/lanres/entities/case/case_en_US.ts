@@ -151,6 +151,10 @@ export default {
 			caption: "测试用例",
       		title: "测试用例表格视图",
 		},
+		casetypechartview9: {
+			caption: "测试类型",
+      		title: "测试用例图表视图（测试类型）",
+		},
 		resultentrygridview: {
 			caption: "测试结果条目",
       		title: "测试用例表格视图（测试结果条目）",
@@ -158,6 +162,14 @@ export default {
 		maineditview: {
 			caption: "测试用例",
       		title: "测试用例",
+		},
+		runresultchartview9: {
+			caption: "执行结果",
+      		title: "测试用例图表视图（执行结果）",
+		},
+		modulechartview9: {
+			caption: "模块",
+      		title: "测试用例图表视图（模块）",
 		},
 		mainmynewgridview: {
 			caption: "功能测试",

@@ -1751,6 +1751,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IBZProStoryModuleOptionView",
             "viewtag": "87ca9109af86ed2745dcf7aa21294541"
         },
+        "casecasetypechartview9": {
+            "title": "测试用例图表视图（测试类型）",
+            "caption": "测试类型",
+            "viewtype": "DECHARTVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "CaseCaseTypeChartView9",
+            "viewtag": "881c4bef100253cf5e6f67893b9a4294"
+        },
         "bugusr2gridview": {
             "title": "Bug表格视图",
             "caption": "Bug",
@@ -1847,6 +1855,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryPlanEditView",
             "viewtag": "901398a79547094cd0e9791cbe6e90ef"
         },
+        "caserunresultchartview9": {
+            "title": "测试用例图表视图（执行结果）",
+            "caption": "执行结果",
+            "viewtype": "DECHARTVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "CaseRunResultChartView9",
+            "viewtag": "907d612f5ca588f2bb83116afc66e761"
+        },
         "productplanprojectgridview9": {
             "title": "产品计划表格视图（项目）",
             "caption": "项目",
@@ -1878,6 +1894,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryReleaseSubEditView",
             "viewtag": "928e6614bcfbd67af3b596cf5dc5a46b"
+        },
+        "casemodulechartview9": {
+            "title": "测试用例图表视图（模块）",
+            "caption": "模块",
+            "viewtype": "DECHARTVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "CaseModuleChartView9",
+            "viewtag": "936e87b3f81060a933e5f9e2336e8ed7"
         },
         "testmodulegridviewmain": {
             "title": "产品模块表格视图",
