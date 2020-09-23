@@ -804,7 +804,7 @@
 
 
     <!--输出实体[ZT_HISTORY]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_history-9-24">
+    <changeSet author="zentao" id="tab-zt_history-13-24">
         <createTable tableName="zt_history">
                 <column name="DIFF" remarks="" type="TEXT(16777215)">
                 </column>
@@ -2503,7 +2503,7 @@
         <!--输出实体[ZT_GROUP]外键关系 -->
         <!--输出实体[ZT_GROUPPRIV]外键关系 -->
         <!--输出实体[ZT_HISTORY]外键关系 -->
-    <changeSet author="zentao" id="fk-zt_history-9-133">
+    <changeSet author="zentao" id="fk-zt_history-13-133">
        <addForeignKeyConstraint baseColumnNames="ACTION" baseTableName="zt_history" constraintName="DER1N_ZT_HISTORY_ZT_ACTION_ACT" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_action" validate="true"/>
     </changeSet>
         <!--输出实体[IBZPRO_PRODUCT]外键关系 -->
