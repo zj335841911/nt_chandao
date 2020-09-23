@@ -7,15 +7,9 @@
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
         <tns:global identifier="testreportgettestreportbasicinfodefault" type="cn.ibizlab.pms.core.zentao.domain.TestReport" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgettestreportbasicinforawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取需求数量"/>
-     <endEvent id="rawsqlcall1_end" name="end"/>
-     <sequenceFlow id="rawsqlcall1_end_line" sourceRef="rawsqlcall1" targetRef="rawsqlcall1_end"/>
      <startEvent id="begin" isInterrupting="true"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgettestreportbasicinfoprepareparam1" id="prepareparam1" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
-     <endEvent id="prepareparam1_end" name="end"/>
-     <sequenceFlow id="prepareparam1_end_line" sourceRef="prepareparam1" targetRef="prepareparam1_end"/>
-     <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
-     </sequenceFlow>
+     <endEvent id="begin_end" name="end"/>
+     <sequenceFlow id="begin_end_line" sourceRef="begin" targetRef="begin_end"/>
     </process>
 </definitions>
 

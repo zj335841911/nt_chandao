@@ -274,7 +274,7 @@ export class BugModuleChartBase extends MainControlBase {
             subtext:''
         },
         legend:{
-            show:true
+            show:false
         },
         tooltip:{
             show:true
