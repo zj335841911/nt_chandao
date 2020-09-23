@@ -188,18 +188,23 @@ ruleflow-group "testreportgettestreportbasicinforawsqlcall9"
     Map param =new HashMap();
     param.put("param0",testreportgettestreportbasicinfodefault.get("storycnt"));
     param.put("param1",testreportgettestreportbasicinfodefault.get("storyestimate"));
-    param.put("param2",testreportgettestreportbasicinfodefault.get("casecnt"));
-    param.put("param3",testreportgettestreportbasicinfodefault.get("rencase"));
-    param.put("param4",testreportgettestreportbasicinfodefault.get("testresultcnt"));
-    param.put("param5",testreportgettestreportbasicinfodefault.get("failcase"));
-    param.put("param6",testreportgettestreportbasicinfodefault.get("bugcnt"));
-    param.put("param7",testreportgettestreportbasicinfodefault.get("ylbugcnt"));
-    param.put("param8",testreportgettestreportbasicinfodefault.get("casebugcnt"));
-    param.put("param9",testreportgettestreportbasicinfodefault.get("effective"));
-    param.put("param10",testreportgettestreportbasicinfodefault.get("resolvedcnt"));
-    param.put("param11",testreportgettestreportbasicinfodefault.get("casebugcnt"));
-    param.put("param12",testreportgettestreportbasicinfodefault.get("bugcnt"));
-    String strSql="select CONCAT_WS('','本页共 ',#{et.param0},'个需求，预计 ',#{et.param1},' 个工时，用例覆盖率 ',8,'%。<br>','共测试了1个版本。共有',#{et.param2},'个用例，共执行',#{et.param3},'个用例，产生了',#{et.param4},'个结果，失败的用例有',#{et.param5},'个。<br>','共发现',#{et.param6},'个Bug<a data-toggle=\"tooltip\" class=\"text-warning\" title=\"影响版本在测试轮次内，并且创建时间在测试时间范围内产生的Bug数。\" style=\"vertical-align: middle;padding: 2px;\"><i class=\"fa fa-question-circle\" style=\" color: #ff9800;\"></i></a>，遗留',#{et.param7},'个Bug<a data-toggle=\"tooltip\" class=\"text-warning\" title=\"Bug状态是激活，或Bug的解决时间在测试结束时间之后。\" style=\"vertical-align: middle;padding: 2px;\"><i class=\"fa fa-question-circle\" style=\" color: #ff9800;\"></i></a>。 用例执行产生',#{et.param8},'个Bug<a data-toggle=\"tooltip\" class=\"text-warning\" title=\"测试时间范围内，用例执行失败后创建的Bug。\" style=\"vertical-align: middle;padding: 2px;\"><i class=\"fa fa-question-circle\" style=\" color: #ff9800;\"></i></a>。 有效Bug率（方案为已解决或延期 / 状态为已解决或已关闭）：',CONCAT(ROUND(#{et.param9}/#{et.param10} * 100, 2), '%'),'，用例发现Bug率（用例创建的Bug / 发现Bug数）：',CONCAT(ROUND(#{et.param11}/#{et.param12}* 100, 2) , '%')) as OVERVIEWS from dual";
+    param.put("param2",testreportgettestreportbasicinfodefault.get("storyestimate"));
+    param.put("param3",testreportgettestreportbasicinfodefault.get("casecnt"));
+    param.put("param4",testreportgettestreportbasicinfodefault.get("rencase"));
+    param.put("param5",testreportgettestreportbasicinfodefault.get("testresultcnt"));
+    param.put("param6",testreportgettestreportbasicinfodefault.get("failcase"));
+    param.put("param7",testreportgettestreportbasicinfodefault.get("bugcnt"));
+    param.put("param8",testreportgettestreportbasicinfodefault.get("ylbugcnt"));
+    param.put("param9",testreportgettestreportbasicinfodefault.get("casebugcnt"));
+    param.put("param10",testreportgettestreportbasicinfodefault.get("effective"));
+    param.put("param11",testreportgettestreportbasicinfodefault.get("resolvedcnt"));
+    param.put("param12",testreportgettestreportbasicinfodefault.get("resolvedcnt"));
+    param.put("param13",testreportgettestreportbasicinfodefault.get("resolvedcnt"));
+    param.put("param14",testreportgettestreportbasicinfodefault.get("casebugcnt"));
+    param.put("param15",testreportgettestreportbasicinfodefault.get("bugcnt"));
+    param.put("param16",testreportgettestreportbasicinfodefault.get("bugcnt"));
+    param.put("param17",testreportgettestreportbasicinfodefault.get("bugcnt"));
+    String strSql="select CONCAT_WS('','本页共 ',#{et.param0},' 个需求，预计 ',case when #{et.param1} is null then 0 else #{et.param2} end,' 个工时，用例覆盖率 ',8,'%。<br>','共测试了1个版本。共有',#{et.param3},'个用例，共执行',#{et.param4},'个用例，产生了',#{et.param5},'个结果，失败的用例有',#{et.param6},'个。<br>','共发现',#{et.param7},'个Bug<a data-toggle=\"tooltip\" class=\"text-warning\" title=\"影响版本在测试轮次内，并且创建时间在测试时间范围内产生的Bug数。\" style=\"vertical-align: middle;padding: 2px;\"><i class=\"fa fa-question-circle\" style=\" color: #ff9800;\"></i></a>，遗留',#{et.param8},'个Bug<a data-toggle=\"tooltip\" class=\"text-warning\" title=\"Bug状态是激活，或Bug的解决时间在测试结束时间之后。\" style=\"vertical-align: middle;padding: 2px;\"><i class=\"fa fa-question-circle\" style=\" color: #ff9800;\"></i></a>。 用例执行产生',#{et.param9},'个Bug<a data-toggle=\"tooltip\" class=\"text-warning\" title=\"测试时间范围内，用例执行失败后创建的Bug。\" style=\"vertical-align: middle;padding: 2px;\"><i class=\"fa fa-question-circle\" style=\" color: #ff9800;\"></i></a>。 有效Bug率（方案为已解决或延期 / 状态为已解决或已关闭）：',CONCAT(ROUND(#{et.param10}/(case when #{et.param11} = 0 or #{et.param12} is null then 1 else #{et.param13} end) * 100, 2), '%'),'，用例发现Bug率（用例创建的Bug / 发现Bug数）：',CONCAT(ROUND(#{et.param14}/(case when #{et.param15} = 0 or #{et.param16} is null then 1 else #{et.param17} end)* 100, 2) , '%')) as OVERVIEWS from dual";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
