@@ -15,7 +15,7 @@
       </ion-header>
 
     <div class="content">
-      <!-- <ion-list>
+      <ion-list>
         <ion-radio-group >
           <ion-list-header>
             <ion-label>文本对齐方式</ion-label>
@@ -28,7 +28,7 @@
             </div>
           </div>
         </ion-radio-group>
-      </ion-list> -->
+      </ion-list>
 
       <ion-list>
         <ion-radio-group :value="activeNavi">
@@ -59,7 +59,7 @@ export default class AppSelect extends Vue {
      * 当前文本对齐方式选中值
      * @memberof AppMobSelectChangeStyle
      */
-    // public activeAlign:any = '';
+    public activeAlign:any = '';
 
     /**
      * 当前导航栏选中值
@@ -71,10 +71,10 @@ export default class AppSelect extends Vue {
      * 文本对齐方式
      * @memberof AppMobSelectChangeStyle
      */
-    // public alignItems:Array<any> = [
-    //     {text:'左对齐',value:'app-text-align-left',info:'设置对齐方式为左对齐'},
-    //     {text:'右对齐',value:'app-text-align-right',info:'设置对齐方式为右对齐'},
-    //   ]
+    public alignItems:Array<any> = [
+        {text:'左对齐',value:'app-text-align-left',info:'设置对齐方式为左对齐'},
+        {text:'右对齐',value:'app-text-align-right',info:'设置对齐方式为右对齐'},
+      ]
 
     /**
      * 导航栏样式
@@ -117,7 +117,7 @@ export default class AppSelect extends Vue {
      * @memberof AppMobSelectChangeStyle
      */
     public mounted(){
-        // this.activeAlign = this.getActiveAlign();
+        this.activeAlign = this.getActiveAlign();
         this.activeNavi = this.getActiveNavi();
     }
 
@@ -125,15 +125,15 @@ export default class AppSelect extends Vue {
      * 获取文本对齐方式
      * @memberof AppMobSelectChangeStyle
      */
-    // public getActiveAlign(){
-    //     if (this.$store.state.selectTextAlign) {
-    //         return this.$store.state.selectTextAlign;
-    //     } else if (localStorage.getItem('align-class')) {
-    //         return localStorage.getItem('align-class');
-    //     } else {
-    //         return 'app-text-align-right';
-    //     }
-    // }
+    public getActiveAlign(){
+        if (this.$store.state.selectTextAlign) {
+            return this.$store.state.selectTextAlign;
+        } else if (localStorage.getItem('align-class')) {
+            return localStorage.getItem('align-class');
+        } else {
+            return 'app-text-align-right';
+        }
+    }
 
     /**
      * 获取导航栏样式
@@ -153,21 +153,21 @@ export default class AppSelect extends Vue {
      * 点击改变文本对齐方式
      * @memberof AppMobSelectChangeStyle
      */
-    // public changeTextAlign(item:any){
-    //   this.textAlignChange(item.value);
-    // }
+    public changeTextAlign(item:any){
+      this.textAlignChange(item.value);
+    }
 
     /**
      * 文本对齐方式变化
      * @memberof AppMobSelectChangeStyle
      */
-    // public textAlignChange(val:any){
-    //     if (!Object.is(this.activeAlign, val)) {
-    //         this.activeAlign = val;
-    //         localStorage.setItem('align-class', val);
-    //         this.$store.commit('setTextAlignStyle', val);
-    //     }
-    // }
+    public textAlignChange(val:any){
+        if (!Object.is(this.activeAlign, val)) {
+            this.activeAlign = val;
+            localStorage.setItem('align-class', val);
+            this.$store.commit('setTextAlignStyle', val);
+        }
+    }
 
     /**
      * 点击改变导航栏样式
