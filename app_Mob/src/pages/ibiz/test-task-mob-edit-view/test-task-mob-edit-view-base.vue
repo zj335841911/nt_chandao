@@ -351,15 +351,6 @@ export default class TestTaskMobEditViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof TestTaskMobEditViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof TestTaskMobEditViewBase

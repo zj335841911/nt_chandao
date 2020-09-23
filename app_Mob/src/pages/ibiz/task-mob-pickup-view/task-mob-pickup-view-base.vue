@@ -328,15 +328,6 @@ export default class TaskMobPickupViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof TaskMobPickupViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof TaskMobPickupViewBase

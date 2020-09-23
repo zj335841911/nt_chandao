@@ -337,15 +337,6 @@ export default class BugRMobOptionViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof BugRMobOptionViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof BugRMobOptionViewBase

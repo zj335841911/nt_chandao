@@ -312,15 +312,6 @@ export default class IbzMyTerritoryMobCalendarViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof IbzMyTerritoryMobCalendarViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof IbzMyTerritoryMobCalendarViewBase

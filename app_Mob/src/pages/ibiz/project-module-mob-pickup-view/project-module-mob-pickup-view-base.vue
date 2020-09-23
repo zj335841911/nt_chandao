@@ -328,15 +328,6 @@ export default class ProjectModuleMobPickupViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof ProjectModuleMobPickupViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof ProjectModuleMobPickupViewBase

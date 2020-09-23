@@ -404,15 +404,6 @@ export default class ReleaseNewMobEditViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof ReleaseNewMobEditViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof ReleaseNewMobEditViewBase

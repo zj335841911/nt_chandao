@@ -3410,6 +3410,41 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'Testcase__status',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'wait',
+                label: '待评审',
+                text: '待评审',
+                value: 'wait',
+                disabled: false,
+            },
+            {
+                id: 'normal',
+                label: '正常',
+                text: '正常',
+                value: 'normal',
+                disabled: false,
+            },
+            {
+                id: 'blocked',
+                label: '被阻塞',
+                text: '被阻塞',
+                value: 'blocked',
+                disabled: false,
+            },
+            {
+                id: 'investigate',
+                label: '研究中',
+                text: '研究中',
+                value: 'investigate',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Story__stage',
         emptytext: '未定义',
         "codelisttype":"static",

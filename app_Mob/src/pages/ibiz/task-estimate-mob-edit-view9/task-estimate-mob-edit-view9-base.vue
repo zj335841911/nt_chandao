@@ -322,15 +322,6 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof TaskEstimateMobEditView9Base
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof TaskEstimateMobEditView9Base

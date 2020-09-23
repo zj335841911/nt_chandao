@@ -331,15 +331,6 @@ export default class UserUserCenterMobEditViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof UserUserCenterMobEditViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof UserUserCenterMobEditViewBase

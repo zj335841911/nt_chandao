@@ -5186,6 +5186,61 @@
         ]
     }, 
     {
+        "srfkey": "Testcase__status",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "wait",
+                "label": "待评审",
+                "text": "待评审",
+                "default": true,
+                "data": "",
+                "value": "wait",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+            , {
+                "id": "normal",
+                "label": "正常",
+                "text": "正常",
+                "default": false,
+                "data": "",
+                "value": "normal",
+                "isValueNumber":false,
+                
+                "color": "rgba(84, 238, 19, 1)",
+                "disabled": false
+            }
+            , {
+                "id": "blocked",
+                "label": "被阻塞",
+                "text": "被阻塞",
+                "default": false,
+                "data": "",
+                "value": "blocked",
+                "isValueNumber":false,
+                
+                "color": "rgba(242, 238, 7, 1)",
+                "className":"codeitemback",
+                "disabled": false
+            }
+            , {
+                "id": "investigate",
+                "label": "研究中",
+                "text": "研究中",
+                "default": false,
+                "data": "",
+                "value": "investigate",
+                "isValueNumber":false,
+                
+                "color": "rgba(245, 12, 12, 1)",
+                "disabled": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "Story__stage",
         "emptytext": "未定义",
         "codelisttype":"static",

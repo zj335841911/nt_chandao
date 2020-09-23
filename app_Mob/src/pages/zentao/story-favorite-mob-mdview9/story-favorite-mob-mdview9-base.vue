@@ -329,15 +329,6 @@ export default class StoryFavoriteMobMDView9Base extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof StoryFavoriteMobMDView9Base
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof StoryFavoriteMobMDView9Base

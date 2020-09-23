@@ -596,6 +596,13 @@ export default {
         'other': '其他',
         empty: '',
     },
+    Testcase__status: {
+        'wait': '待评审',
+        'normal': '正常',
+        'blocked': '被阻塞',
+        'investigate': '研究中',
+        empty: '',
+    },
     Story__stage: {
         'wait': '未开始',
         'planned': '已计划',
