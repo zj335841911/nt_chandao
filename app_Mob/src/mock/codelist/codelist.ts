@@ -1258,6 +1258,62 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'TaskStatusCK',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'wait',
+                label: '未开始',
+                text: '未开始',
+                value: 'wait',
+                disabled: false,
+            },
+            {
+                id: 'doing',
+                label: '进行中',
+                text: '进行中',
+                value: 'doing',
+                disabled: false,
+            },
+            {
+                id: 'done',
+                label: '已完成',
+                text: '已完成',
+                value: 'done',
+                disabled: false,
+            },
+            {
+                id: 'pause',
+                label: '已暂停',
+                text: '已暂停',
+                value: 'pause',
+                disabled: false,
+            },
+            {
+                id: 'cancel',
+                label: '已取消',
+                text: '已取消',
+                value: 'cancel',
+                disabled: false,
+            },
+            {
+                id: 'closed',
+                label: '已关闭',
+                text: '已关闭',
+                value: 'closed',
+                disabled: false,
+            },
+            {
+                id: 'storychange',
+                label: '需求变更',
+                text: '需求变更',
+                value: 'storychange',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Task__type',
         emptytext: '未定义',
         "codelisttype":"static",

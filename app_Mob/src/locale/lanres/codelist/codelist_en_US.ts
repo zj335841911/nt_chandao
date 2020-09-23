@@ -241,6 +241,16 @@ export default {
         'closed': '结束',
         empty: '',
     },
+    TaskStatusCK: {
+        'wait': '未开始',
+        'doing': '进行中',
+        'done': '已完成',
+        'pause': '已暂停',
+        'cancel': '已取消',
+        'closed': '已关闭',
+        'storychange': '需求变更',
+        empty: '',
+    },
     Task__type: {
         'design': '设计',
         'devel': '开发',

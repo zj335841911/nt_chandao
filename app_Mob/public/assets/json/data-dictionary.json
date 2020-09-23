@@ -1858,6 +1858,97 @@
         ]
     }, 
     {
+        "srfkey": "TaskStatusCK",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "wait",
+                "label": "未开始",
+                "text": "未开始",
+                "default": true,
+                "data": "",
+                "value": "wait",
+                "isValueNumber":false,
+                
+                "color": "rgba(131, 138, 157, 1)",
+                "disabled": false
+            }
+            , {
+                "id": "doing",
+                "label": "进行中",
+                "text": "进行中",
+                "default": false,
+                "data": "",
+                "value": "doing",
+                "isValueNumber":false,
+                
+                "color": "rgba(255, 93, 93, 1)",
+                "disabled": false
+            }
+            , {
+                "id": "done",
+                "label": "已完成",
+                "text": "已完成",
+                "default": false,
+                "data": "",
+                "value": "done",
+                "isValueNumber":false,
+                
+                "color": "rgba(67, 160, 71, 1)",
+                "disabled": false
+            }
+            , {
+                "id": "pause",
+                "label": "已暂停",
+                "text": "已暂停",
+                "default": false,
+                "data": "",
+                "value": "pause",
+                "isValueNumber":false,
+                
+                "color": "rgba(255, 152, 0, 1)",
+                "disabled": false
+            }
+            , {
+                "id": "cancel",
+                "label": "已取消",
+                "text": "已取消",
+                "default": false,
+                "data": "",
+                "value": "cancel",
+                "isValueNumber":false,
+                
+                "color": "rgba(131, 138, 157, 1)",
+                "disabled": false
+            }
+            , {
+                "id": "closed",
+                "label": "已关闭",
+                "text": "已关闭",
+                "default": false,
+                "data": "",
+                "value": "closed",
+                "isValueNumber":false,
+                
+                "color": "rgba(131, 138, 157, 1)",
+                "disabled": false
+            }
+            , {
+                "id": "storychange",
+                "label": "需求变更",
+                "text": "需求变更",
+                "default": false,
+                "data": "",
+                "value": "storychange",
+                "isValueNumber":false,
+                
+                "color": "rgba(245, 8, 8, 1)",
+                "disabled": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "Task__type",
         "emptytext": "未定义",
         "codelisttype":"static",
