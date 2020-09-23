@@ -119,11 +119,11 @@ export const AppComponents = {
         // 风格切换组件
         v.component('app-mob-select-changeStyle',() => import('@/ibiz-core/components/app-mob-select-changeStyle/app-mob-select-changeStyle.vue'));
         // setting组件
-        v.component('app-setting',() => import('@/components/app-setting/app-setting.vue'));
+        v.component('app-setting',() => import('@/ibiz-core/components/app-setting/app-setting.vue'));
         // 定制组件
-        v.component('app-customize',() => import('@/components/app-customize/app-customize.vue'));
+        v.component('app-customize',() => import('@/ibiz-core/components/app-customize/app-customize.vue'));
         // 主题切换组件
-        v.component('app-mob-select-changeTheme',() => import('@/components/app-mob-select-changeTheme/app-mob-select-changeTheme.vue'));
+        v.component('app-mob-select-changeTheme',() => import('@/ibiz-core/components/app-mob-select-changeTheme/app-mob-select-changeTheme.vue'));
         // 内置组件 BEGIN
     },
 };
