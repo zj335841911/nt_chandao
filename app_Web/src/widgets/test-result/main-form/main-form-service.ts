@@ -27,7 +27,7 @@ export default class MainService extends ControlService {
      * @memberof MainService
      */
     public setTempMode(){
-        this.isTempMode = false;
+        this.isTempMode = true;
     }
 
     /**
