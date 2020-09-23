@@ -1352,6 +1352,7 @@ export default class SuspendNCloseMobBase extends Vue implements ControlInterfac
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
+            AppCenterService.notifyMessage({name:"Project",action:'appRefresh',data:data});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

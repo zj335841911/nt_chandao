@@ -1315,6 +1315,7 @@ export default class ClosePauseCancelFormMobBase extends Vue implements ControlI
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
+            AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:data});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });

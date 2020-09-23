@@ -951,6 +951,16 @@ export default class MobBase extends Vue implements ControlInterface {
                 }
             });
         }
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Module")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh')){
+                    this.refresh([data]);
+                }
+            })
+        }
         if (!this.isMutli) {
             if (this.selectedData && this.selectedData.length > 0) {
                 this.radio = this.selectedData[0].srfkey;

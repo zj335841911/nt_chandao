@@ -957,6 +957,16 @@ export default class Mob_3335Base extends Vue implements ControlInterface {
                 }
             });
         }
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Task")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh')){
+                    this.refresh([data]);
+                }
+            })
+        }
         if (!this.isMutli) {
             if (this.selectedData && this.selectedData.length > 0) {
                 this.radio = this.selectedData[0].srfkey;
