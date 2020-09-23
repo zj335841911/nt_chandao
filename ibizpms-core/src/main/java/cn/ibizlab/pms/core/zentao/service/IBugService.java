@@ -62,6 +62,7 @@ public interface IBugService extends IService<Bug>{
     Page<Bug> searchBuildLinkResolvedBugs(BugSearchContext context) ;
     Page<Bug> searchBuildOpenBugs(BugSearchContext context) ;
     Page<Bug> searchBuildProduceBug(BugSearchContext context) ;
+    Page<Bug> searchBuildProduceBugRES(BugSearchContext context) ;
     Page<Bug> searchDefault(BugSearchContext context) ;
     Page<Bug> searchMyFavorites(BugSearchContext context) ;
     Page<Bug> searchReleaseBugs(BugSearchContext context) ;
