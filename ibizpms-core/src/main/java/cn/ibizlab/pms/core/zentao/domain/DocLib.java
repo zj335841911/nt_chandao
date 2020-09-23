@@ -51,6 +51,7 @@ public class DocLib extends EntityMP implements Serializable {
     /**
      * 收藏者
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`collector`")
     @JSONField(name = "collector")
     @JsonProperty("collector")
@@ -75,6 +76,7 @@ public class DocLib extends EntityMP implements Serializable {
     /**
      * 分组
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`groups`")
     @JSONField(name = "groups")
     @JsonProperty("groups")
@@ -90,6 +92,7 @@ public class DocLib extends EntityMP implements Serializable {
     /**
      * 用户
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`users`")
     @JSONField(name = "users")
     @JsonProperty("users")
@@ -112,6 +115,7 @@ public class DocLib extends EntityMP implements Serializable {
     /**
      * 排序
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`order`")
     @JSONField(name = "order")
     @JsonProperty("order")
