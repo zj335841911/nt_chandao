@@ -517,6 +517,105 @@ export class MainGridBase extends GridControlBase {
 
 
     /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof MainGridBase
+     */
+    public allExportColumns: any[] = [
+        {
+            name: 'id',
+            label: 'ID',
+            langtag: 'entities.task.main_grid.exportColumns.id',
+            show: true,
+        },
+        {
+            name: 'pri',
+            label: 'P',
+            langtag: 'entities.task.main_grid.exportColumns.pri',
+            show: true,
+        },
+        {
+            name: 'name',
+            label: '任务名称',
+            langtag: 'entities.task.main_grid.exportColumns.name',
+            show: true,
+        },
+        {
+            name: 'status',
+            label: '任务状态',
+            langtag: 'entities.task.main_grid.exportColumns.status',
+            show: true,
+        },
+        {
+            name: 'status1',
+            label: '任务状态',
+            langtag: 'entities.task.main_grid.exportColumns.status1',
+            show: true,
+        },
+        {
+            name: 'assignedto',
+            label: '指派给',
+            langtag: 'entities.task.main_grid.exportColumns.assignedto',
+            show: true,
+        },
+        {
+            name: 'finishedby',
+            label: '完成者',
+            langtag: 'entities.task.main_grid.exportColumns.finishedby',
+            show: true,
+        },
+        {
+            name: 'estimate',
+            label: '预计',
+            langtag: 'entities.task.main_grid.exportColumns.estimate',
+            show: true,
+        },
+        {
+            name: 'consumed',
+            label: '消耗',
+            langtag: 'entities.task.main_grid.exportColumns.consumed',
+            show: true,
+        },
+        {
+            name: 'left',
+            label: '剩余',
+            langtag: 'entities.task.main_grid.exportColumns.left',
+            show: true,
+        },
+        {
+            name: 'deadline',
+            label: '截止日期',
+            langtag: 'entities.task.main_grid.exportColumns.deadline',
+            show: true,
+        },
+        {
+            name: 'isfavorites',
+            label: '是否收藏',
+            langtag: 'entities.task.main_grid.exportColumns.isfavorites',
+            show: true,
+        },
+        {
+            name: 'tasktype',
+            label: '任务类型',
+            langtag: 'entities.task.main_grid.exportColumns.tasktype',
+            show: true,
+        },
+        {
+            name: 'product',
+            label: '产品',
+            langtag: 'entities.task.main_grid.exportColumns.product',
+            show: true,
+        },
+        {
+            name: 'projectname',
+            label: '所属项目',
+            langtag: 'entities.task.main_grid.exportColumns.projectname',
+            show: true,
+        },
+    ]
+
+    /**
      * 导出数据格式化
      *
      * @param {*} filterVal
@@ -527,38 +626,6 @@ export class MainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-            {
-                name: 'pri',
-                srfkey: 'Task__pri',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
-                name: 'status1',
-                srfkey: 'TaskStatusCK',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
-                name: 'assignedto',
-                srfkey: 'UserRealNameW',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
-            {
-                name: 'finishedby',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
         ]);
     }
 

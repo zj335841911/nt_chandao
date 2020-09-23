@@ -74,7 +74,7 @@ export class MainCarryEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof MainCarryEditFormBase
      */
-    protected drCount: number = 2;
+    protected drCount: number = 1;
 
     /**
      * 表单数据对象
@@ -133,8 +133,6 @@ export class MainCarryEditFormBase extends EditFormControlBase {
 
         grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.case.maincarry_form', extractMode: 'ITEM', details: [] } }),
 
-        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
         grouppanel1: new FormGroupPanelModel({ caption: '执行结果', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.case.maincarry_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel3: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.case.maincarry_form', extractMode: 'ITEM', details: [] } }),
@@ -190,7 +188,6 @@ export class MainCarryEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.rawitem2.setVisible(ret);
         }
-
 
 
 
