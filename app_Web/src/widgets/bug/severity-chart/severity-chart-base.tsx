@@ -270,7 +270,7 @@ export class SeverityChartBase extends MainControlBase {
     public chartOption:any = {
         title:{
             show:true ,
-            text:'',
+            text:'Bug严重级别分布',
             subtext:''
         },
         legend:{
