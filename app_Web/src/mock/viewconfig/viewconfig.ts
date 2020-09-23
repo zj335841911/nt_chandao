@@ -2535,6 +2535,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseRUNEREntryGridView",
             "viewtag": "c778697bb0f4f35a37892853575e1145"
         },
+        "testreporteditview_report": {
+            "title": "测试报告编辑视图",
+            "caption": "测试报告",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestReportEditView_Report",
+            "viewtag": "c7e7e989793981f260c73513c2a4e18b"
+        },
         "buggridview": {
             "title": "bug表格视图",
             "caption": "Bug",

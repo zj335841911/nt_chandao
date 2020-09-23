@@ -6,7 +6,7 @@ import { CaseresultChartBase } from './caseresult-chart-base';
  
 
 /**
- * dashboard_sysportlet1_chart部件
+ * chart部件
  *
  * @export
  * @class CaseresultChart

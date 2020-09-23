@@ -10,7 +10,7 @@ export default class CaseresultModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof CaseresultDashboard_sysportlet1_chartMode
+	 * @memberof CaseresultChartMode
 	 */
 	public getDataItems(): any[] {
 		return [

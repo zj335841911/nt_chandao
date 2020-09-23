@@ -45,6 +45,10 @@ export default {
 			caption: "测试报告",
       		title: "测试报告编辑视图",
 		},
+		editview_report: {
+			caption: "测试报告",
+      		title: "测试报告编辑视图",
+		},
 		maintabexpview: {
 			caption: "测试报告",
       		title: "测试报告分页导航视图",
@@ -96,6 +100,24 @@ export default {
 			druipart1: "", 
 			druipart2: "", 
 			group1: "基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	report_form: {
+		details: {
+			druipart1: "", 
+			druipart2: "", 
+			grouppanel1: "按执行结果", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "编号", 

@@ -12,7 +12,7 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
 
 
 /**
- * dashboard_sysportlet1_chart部件基类
+ * chart部件基类
  *
  * @export
  * @class MainControlBase
@@ -159,7 +159,7 @@ export class CaseresultChartBase extends MainControlBase {
      *
      * @public
      * @type {boolean}
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */
     public isNoData: boolean  = false;
 
@@ -167,7 +167,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 图表div绑定的id
      *
      * @type {}
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */   
     public chartId:string = this.$util.createUUID();
 
@@ -175,7 +175,7 @@ export class CaseresultChartBase extends MainControlBase {
      * echarts图表对象
      *
      * @type {}
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */   
     public myChart:any;
 
@@ -183,7 +183,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 代码表服务对象
      *
      * @type {CodeListService}
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */  
     public codeListService:CodeListService = new CodeListService({ $store: this.$store });
 
@@ -191,7 +191,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 序列模型
      *
      * @type {}
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */
     public  seriesModel:any = {
         caseresult:new ChartPieSeries({
@@ -248,7 +248,7 @@ export class CaseresultChartBase extends MainControlBase {
     /**
      * 图表自定义参数集合
      *
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */   
     public chartUserParams:any ={
         color:["#FF0000","#FFCC33","#aa00ff","#884bff",'#00ffa9','#85B3FF','#A1FFFF']
@@ -257,7 +257,7 @@ export class CaseresultChartBase extends MainControlBase {
     /**
      * 图表基础动态模型
      *
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */  
     public chartBaseOPtion:any = {};
 
@@ -265,7 +265,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 初始化图表所需参数
      *
      * @type {}
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */   
     public chartOption:any = {
         title:{
@@ -299,7 +299,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 刷新
      *
      * @param {*} [opt={}]
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */
     public refresh(opt: any = {}) {
         this.load(opt);
@@ -309,7 +309,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 获取图表数据
      * 
      * @returns {*} 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */
     public load(opt?:any) {
         let _this = this;
@@ -331,7 +331,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 绘制图表
      * 
      * @returns {*} 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */
     public drawCharts(codelist:any){
         if(!this.myChart){
@@ -347,7 +347,7 @@ export class CaseresultChartBase extends MainControlBase {
     /**
      * 处理图表参数
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */
     public handleChartOPtion(allcodelist:any){
         let _chartOption:any = JSON.parse(JSON.stringify(this.chartOption));
@@ -416,7 +416,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 
      * @param {*} data 实体数据集
      * @param {Function} callback 回调
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */
     public async transformToBasicChartSetData(data:any,callback:Function){
         if(!data || !Array.isArray(data) || data.length === 0){
@@ -510,7 +510,7 @@ export class CaseresultChartBase extends MainControlBase {
      * @param {Array<any>} callback 回调
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */
     public transformToChartSeriesDataSet(data:any,item:any,callback:Function,allCodeList:any):any{
         if(item.seriesIdField){
@@ -563,7 +563,7 @@ export class CaseresultChartBase extends MainControlBase {
      * @param {*} groupFieldModel 分组属性模型
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */
     public groupAndAdd(groupField:Array<any>,seriesField:Array<any>,valueField:Array<any>,data:any,item:any,groupFieldModel:any,allCodeList:any){
         let tempMap:Map<string,any> = new Map();
@@ -691,7 +691,7 @@ export class CaseresultChartBase extends MainControlBase {
      * @param {*} groupField 分组属性
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */
     public sortReturnArray(arr:Array<any>,groupField:any,allCodeList:any){
         let returnArray:Array<any> = [];
@@ -758,7 +758,7 @@ export class CaseresultChartBase extends MainControlBase {
      * @param {Array<any>} groupField 分组属性
      * @param {Array<any>} label label标签
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */
     public handleSortGroupData(arr:Array<any>,groupField:any,label:string){
         arr.forEach((item:any) =>{
@@ -792,7 +792,7 @@ export class CaseresultChartBase extends MainControlBase {
      * @param {Array<any>} item 单个序列
      * @param {Array<any>} allCodeList 所有的代码表
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */
     public completeDataSet(data:any,item:any,allCodeList:any){
         // 分组属性
@@ -817,7 +817,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 
      * @param {Array<any>} tempTimeArray 传入数据
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */
     public  getRangeData(tempTimeArray:Array<any>){
         tempTimeArray.forEach((item:any) =>{
@@ -841,7 +841,7 @@ export class CaseresultChartBase extends MainControlBase {
      * @param {Array<any>} allCodeList 所有的代码表
      * @param {Array<any>} groupField 分组属性
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */
     public handleTimeData(data:any,item:any,allCodeList:any,groupField:any){
         let valueField = item.dataSetFields.find((datasetField:any) =>{
@@ -973,7 +973,7 @@ export class CaseresultChartBase extends MainControlBase {
      * @param {Array<any>} item 单个序列
      * @param {Array<any>} allCodeList 所有的代码表
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */
     public  completeCodeList(data:any,item:any,allCodeList:any){
         let groupField = item.dataSetFields.find((datasetField:any) =>{
@@ -1017,7 +1017,7 @@ export class CaseresultChartBase extends MainControlBase {
      * @param {*} allCodeList 所有代码表
      * @param {*} result 结果值
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */
     public handleSingleDataSetField(input:any,field:any,allCodeList:any,result:any,groupField:any){
         let tempFieldObj:any = {};
@@ -1053,7 +1053,7 @@ export class CaseresultChartBase extends MainControlBase {
     /**
      * 获取图表所需代码表
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */
     public getChartAllCodeList():Promise<any>{
         return new Promise((resolve:any,reject:any) =>{
@@ -1100,7 +1100,7 @@ export class CaseresultChartBase extends MainControlBase {
      * 获取代码表
      * 
      * @returns {Promise<any>} 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof ChartBase
      */
     public getCodeList(codeListObject:any):Promise<any>{
         return new Promise((resolve:any,reject:any) =>{
