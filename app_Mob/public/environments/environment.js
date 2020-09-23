@@ -23,6 +23,8 @@ window.Environment = {
     UploadFile: 'ibizutil/ztupload',
     // 是否开启访客模式
     VisitorsMode:true,
+    // 启用更新日志
+    useUpdateLog: true,
     // 访客模式地址
     VisitorsUrl: '/login/guest'
 }
