@@ -1,0 +1,49 @@
+package cn.ibizlab.pms.zentao.logic.testreportlogic.gettestreportbasicinfo;
+import java.util.Map;
+import java.util.HashMap;
+import com.alibaba.fastjson.JSONObject;
+import org.springframework.util.StringUtils;
+import org.springframework.util.ObjectUtils;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
+global cn.ibizlab.pms.core.zentao.domain.TestReport testreportgettestreportbasicinfodefault;
+global java.util.Map testreportgettestreportbasicinfostorycount;
+global cn.ibizlab.pms.core.zentao.service.ITestReportService iBzSysTestreportDefaultService;
+global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
+
+
+no-loop
+
+//逻辑处理节点[获取需求数量]
+rule "rawsqlcall1"
+ruleflow-group "testreportgettestreportbasicinforawsqlcall1"
+    when
+    then
+    Map param =new HashMap();
+    param.put("param0",testreportgettestreportbasicinfodefault.get("id"));
+    param.put("param1",testreportgettestreportbasicinfodefault.get("srfparentkey"));
+    String strSql="";
+    java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        testreportgettestreportbasicinfostorycount.putAll(entity);
+    }
+    update(testreportgettestreportbasicinfodefault);//更新fact中变量值
+    update(testreportgettestreportbasicinfostorycount);//更新fact中变量值
+    end
+
+//逻辑处理节点[开始]
+rule "begin"
+ruleflow-group "testreportgettestreportbasicinfobegin"
+    when
+    then
+    end
+
+//逻辑处理节点[准备参数]
+rule "prepareparam1"
+ruleflow-group "testreportgettestreportbasicinfoprepareparam1"
+    when
+    then
+    update(testreportgettestreportbasicinfodefault);//更新fact中变量值
+    update(testreportgettestreportbasicinfostorycount);//更新fact中变量值
+    end
+

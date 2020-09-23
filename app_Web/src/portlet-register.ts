@@ -57,6 +57,8 @@ import TestTaskToTestTestTask from '@/widgets/test-task/to-test-test-task-portle
 import TestTaskActionBar from '@/widgets/test-task/action-bar-portlet/action-bar-portlet.vue';
 import TestTaskMainDetail from '@/widgets/test-task/main-detail-portlet/main-detail-portlet.vue';
 import BugBugSeverity from '@/widgets/bug/bug-severity-portlet/bug-severity-portlet.vue';
+import BugBugOpenedBy from '@/widgets/bug/bug-opened-by-portlet/bug-opened-by-portlet.vue';
+import BugBugModule from '@/widgets/bug/bug-module-portlet/bug-module-portlet.vue';
 import BugBugStatus from '@/widgets/bug/bug-status-portlet/bug-status-portlet.vue';
 import BugDashboardBugLife from '@/widgets/bug/dashboard-bug-life-portlet/dashboard-bug-life-portlet.vue';
 import BugBugType from '@/widgets/bug/bug-type-portlet/bug-type-portlet.vue';
@@ -109,6 +111,8 @@ export const  PortletComponent = {
         v.component('app-bug-bug-type-portlet', BugBugType);
         v.component('app-bug-bug-status-portlet', BugBugStatus);
         v.component('app-bug-bug-resolution-portlet', BugBugResolution);
+        v.component('app-bug-bug-opened-by-portlet', BugBugOpenedBy);
+        v.component('app-bug-bug-module-portlet', BugBugModule);
         v.component('app-case-main-info-portlet', CaseMainInfo);
         v.component('app-case-test-dashboard-quick-action-portlet', CaseTestDashboardQuickAction);
         v.component('app-case-test-main-detail-portlet', CaseTestMainDetail);
@@ -192,6 +196,8 @@ export const  PortletComponent = {
         v.component('test-task-action-bar-portlet', TestTaskActionBar);
         v.component('test-task-main-detail-portlet', TestTaskMainDetail);
         v.component('bug-bug-severity-portlet', BugBugSeverity);
+        v.component('bug-bug-opened-by-portlet', BugBugOpenedBy);
+        v.component('bug-bug-module-portlet', BugBugModule);
         v.component('bug-bug-status-portlet', BugBugStatus);
         v.component('bug-dashboard-bug-life-portlet', BugDashboardBugLife);
         v.component('bug-bug-type-portlet', BugBugType);
