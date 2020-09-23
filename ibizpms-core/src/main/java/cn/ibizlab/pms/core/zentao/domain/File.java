@@ -44,14 +44,14 @@ public class File extends EntityMP implements Serializable {
     /**
      * 路径
      */
-    @TableField(value = "`pathname"`)
+    @TableField(value = "`pathname`")
     @JSONField(name = "pathname")
     @JsonProperty("pathname")
     private String pathname;
     /**
      * 对象ID
      */
-    @TableField(value = "`objectid"`)
+    @TableField(value = "`objectid`")
     @JSONField(name = "objectid")
     @JsonProperty("objectid")
     private Integer objectid;
@@ -60,21 +60,21 @@ public class File extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "`deleted"`)
+    @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * 文件类型
      */
-    @TableField(value = "`extension"`)
+    @TableField(value = "`extension`")
     @JSONField(name = "extension")
     @JsonProperty("extension")
     private String extension;
     /**
      * 对象类型
      */
-    @TableField(value = "`objecttype"`)
+    @TableField(value = "`objecttype`")
     @JSONField(name = "objecttype")
     @JsonProperty("objecttype")
     private String objecttype;
@@ -82,14 +82,14 @@ public class File extends EntityMP implements Serializable {
      * 由谁添加
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
-    @TableField(value = "`addedby"`)
+    @TableField(value = "`addedby`")
     @JSONField(name = "addedby")
     @JsonProperty("addedby")
     private String addedby;
     /**
      * 标题
      */
-    @TableField(value = "`title"`)
+    @TableField(value = "`title`")
     @JSONField(name = "title")
     @JsonProperty("title")
     private String title;
@@ -97,7 +97,7 @@ public class File extends EntityMP implements Serializable {
      * 添加时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`addeddate"` , fill = FieldFill.INSERT)
+    @TableField(value = "`addeddate`" , fill = FieldFill.INSERT)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "addeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("addeddate")
@@ -106,7 +106,7 @@ public class File extends EntityMP implements Serializable {
      * 下载次数
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "`downloads"`)
+    @TableField(value = "`downloads`")
     @JSONField(name = "downloads")
     @JsonProperty("downloads")
     private Integer downloads;
@@ -114,7 +114,7 @@ public class File extends EntityMP implements Serializable {
      * 大小
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "`size"`)
+    @TableField(value = "`size`")
     @JSONField(name = "size")
     @JsonProperty("size")
     private Integer size;
@@ -129,7 +129,7 @@ public class File extends EntityMP implements Serializable {
     /**
      * 备注
      */
-    @TableField(value = "`extra"`)
+    @TableField(value = "`extra`")
     @JSONField(name = "extra")
     @JsonProperty("extra")
     private String extra;

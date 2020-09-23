@@ -44,7 +44,7 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * dirs
      */
-    @TableField(value = "`dirs"`)
+    @TableField(value = "`dirs`")
     @JSONField(name = "dirs")
     @JsonProperty("dirs")
     private String dirs;
@@ -59,21 +59,21 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * status
      */
-    @TableField(value = "`status"`)
+    @TableField(value = "`status`")
     @JSONField(name = "status")
     @JsonProperty("status")
     private String status;
     /**
      * code
      */
-    @TableField(value = "`code"`)
+    @TableField(value = "`code`")
     @JSONField(name = "code")
     @JsonProperty("code")
     private String code;
     /**
      * depends
      */
-    @TableField(value = "`depends"`)
+    @TableField(value = "`depends`")
     @JSONField(name = "depends")
     @JsonProperty("depends")
     private String depends;
@@ -81,42 +81,42 @@ public class Extension extends EntityMP implements Serializable {
      * type
      */
     @DEField(defaultValue = "extension")
-    @TableField(value = "`type"`)
+    @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
     /**
      * files
      */
-    @TableField(value = "`files"`)
+    @TableField(value = "`files`")
     @JSONField(name = "files")
     @JsonProperty("files")
     private String files;
     /**
      * zentaoCompatible
      */
-    @TableField(value = "`zentaocompatible"`)
+    @TableField(value = "`zentaocompatible`")
     @JSONField(name = "zentaocompatible")
     @JsonProperty("zentaocompatible")
     private String zentaocompatible;
     /**
      * license
      */
-    @TableField(value = "`license"`)
+    @TableField(value = "`license`")
     @JSONField(name = "license")
     @JsonProperty("license")
     private String license;
     /**
      * name
      */
-    @TableField(value = "`name"`)
+    @TableField(value = "`name`")
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
     /**
      * installedTime
      */
-    @TableField(value = "`installedtime"`)
+    @TableField(value = "`installedtime`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "installedtime" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("installedtime")
@@ -124,28 +124,28 @@ public class Extension extends EntityMP implements Serializable {
     /**
      * site
      */
-    @TableField(value = "`site"`)
+    @TableField(value = "`site`")
     @JSONField(name = "site")
     @JsonProperty("site")
     private String site;
     /**
      * author
      */
-    @TableField(value = "`author"`)
+    @TableField(value = "`author`")
     @JSONField(name = "author")
     @JsonProperty("author")
     private String author;
     /**
      * desc
      */
-    @TableField(value = "`desc"`)
+    @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
     /**
      * version
      */
-    @TableField(value = "`version"`)
+    @TableField(value = "`version`")
     @JSONField(name = "version")
     @JsonProperty("version")
     private String version;

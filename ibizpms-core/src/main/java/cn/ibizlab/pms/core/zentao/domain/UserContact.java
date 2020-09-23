@@ -44,14 +44,14 @@ public class UserContact extends EntityMP implements Serializable {
     /**
      * userList
      */
-    @TableField(value = "`userlist"`)
+    @TableField(value = "`userlist`")
     @JSONField(name = "userlist")
     @JsonProperty("userlist")
     private String userlist;
     /**
      * listName
      */
-    @TableField(value = "`listname"`)
+    @TableField(value = "`listname`")
     @JSONField(name = "listname")
     @JsonProperty("listname")
     private String listname;
@@ -66,7 +66,7 @@ public class UserContact extends EntityMP implements Serializable {
     /**
      * account
      */
-    @TableField(value = "`account"`)
+    @TableField(value = "`account`")
     @JSONField(name = "account")
     @JsonProperty("account")
     private String account;

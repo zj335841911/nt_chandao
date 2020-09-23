@@ -44,7 +44,7 @@ public class Score extends EntityMP implements Serializable {
     /**
      * method
      */
-    @TableField(value = "`method"`)
+    @TableField(value = "`method`")
     @JSONField(name = "method")
     @JsonProperty("method")
     private String method;
@@ -52,14 +52,14 @@ public class Score extends EntityMP implements Serializable {
      * score
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "`score"`)
+    @TableField(value = "`score`")
     @JSONField(name = "score")
     @JsonProperty("score")
     private Integer score;
     /**
      * time
      */
-    @TableField(value = "`time"`)
+    @TableField(value = "`time`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "time" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("time")
@@ -67,7 +67,7 @@ public class Score extends EntityMP implements Serializable {
     /**
      * account
      */
-    @TableField(value = "`account"`)
+    @TableField(value = "`account`")
     @JSONField(name = "account")
     @JsonProperty("account")
     private String account;
@@ -75,14 +75,14 @@ public class Score extends EntityMP implements Serializable {
      * before
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "`before"`)
+    @TableField(value = "`before`")
     @JSONField(name = "before")
     @JsonProperty("before")
     private Integer before;
     /**
      * desc
      */
-    @TableField(value = "`desc"`)
+    @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
@@ -98,14 +98,14 @@ public class Score extends EntityMP implements Serializable {
      * after
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "`after"`)
+    @TableField(value = "`after`")
     @JSONField(name = "after")
     @JsonProperty("after")
     private Integer after;
     /**
      * module
      */
-    @TableField(value = "`module"`)
+    @TableField(value = "`module`")
     @JSONField(name = "module")
     @JsonProperty("module")
     private String module;

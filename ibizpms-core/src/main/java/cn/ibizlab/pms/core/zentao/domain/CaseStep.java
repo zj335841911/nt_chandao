@@ -45,7 +45,7 @@ public class CaseStep extends EntityMP implements Serializable {
      * 用例步骤类型
      */
     @DEField(defaultValue = "step")
-    @TableField(value = "`type"`)
+    @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
@@ -60,14 +60,14 @@ public class CaseStep extends EntityMP implements Serializable {
     /**
      * 步骤
      */
-    @TableField(value = "`desc"`)
+    @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
     /**
      * 预期
      */
-    @TableField(value = "`expect"`)
+    @TableField(value = "`expect`")
     @JSONField(name = "expect")
     @JsonProperty("expect")
     private String expect;
@@ -75,7 +75,7 @@ public class CaseStep extends EntityMP implements Serializable {
      * 用例版本
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "`version"`)
+    @TableField(value = "`version`")
     @JSONField(name = "version")
     @JsonProperty("version")
     private Integer version;
@@ -83,7 +83,7 @@ public class CaseStep extends EntityMP implements Serializable {
      * 用例
      */
     @DEField(name = "case")
-    @TableField(value = "`case"`)
+    @TableField(value = "`case`")
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
     private Long ibizcase;
@@ -91,7 +91,7 @@ public class CaseStep extends EntityMP implements Serializable {
      * 分组用例步骤的组编号
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "`parent"`)
+    @TableField(value = "`parent`")
     @JSONField(name = "parent")
     @JsonProperty("parent")
     private Long parent;

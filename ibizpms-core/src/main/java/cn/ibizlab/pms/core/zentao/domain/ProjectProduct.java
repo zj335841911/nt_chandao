@@ -73,28 +73,28 @@ public class ProjectProduct extends EntityMP implements Serializable {
     /**
      * 产品
      */
-    @TableField(value = "`product"`)
+    @TableField(value = "`product`")
     @JSONField(name = "product")
     @JsonProperty("product")
     private Long product;
     /**
      * 产品计划
      */
-    @TableField(value = "`plan"`)
+    @TableField(value = "`plan`")
     @JSONField(name = "plan")
     @JsonProperty("plan")
     private Long plan;
     /**
      * 平台/分支
      */
-    @TableField(value = "`branch"`)
+    @TableField(value = "`branch`")
     @JSONField(name = "branch")
     @JsonProperty("branch")
     private Long branch;
     /**
      * 项目
      */
-    @TableField(value = "`project"`)
+    @TableField(value = "`project`")
     @JSONField(name = "project")
     @JsonProperty("project")
     private Long project;

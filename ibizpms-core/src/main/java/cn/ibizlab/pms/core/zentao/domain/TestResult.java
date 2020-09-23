@@ -44,42 +44,42 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 最后执行人
      */
-    @TableField(value = "`lastrunner"`)
+    @TableField(value = "`lastrunner`")
     @JSONField(name = "lastrunner")
     @JsonProperty("lastrunner")
     private String lastrunner;
     /**
      * 步骤结果
      */
-    @TableField(value = "`stepresults"`)
+    @TableField(value = "`stepresults`")
     @JSONField(name = "stepresults")
     @JsonProperty("stepresults")
     private String stepresults;
     /**
      * 测试结果
      */
-    @TableField(value = "`caseresult"`)
+    @TableField(value = "`caseresult`")
     @JSONField(name = "caseresult")
     @JsonProperty("caseresult")
     private String caseresult;
     /**
      * 结果文件
      */
-    @TableField(value = "`xml"`)
+    @TableField(value = "`xml`")
     @JSONField(name = "xml")
     @JsonProperty("xml")
     private String xml;
     /**
      * 持续时间
      */
-    @TableField(value = "`duration"`)
+    @TableField(value = "`duration`")
     @JSONField(name = "duration")
     @JsonProperty("duration")
     private Double duration;
     /**
      * 测试时间
      */
-    @TableField(value = "`date"`)
+    @TableField(value = "`date`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("date")
@@ -95,14 +95,14 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 用例版本
      */
-    @TableField(value = "`version"`)
+    @TableField(value = "`version`")
     @JSONField(name = "version")
     @JsonProperty("version")
     private Integer version;
     /**
      * 构建任务
      */
-    @TableField(value = "`job"`)
+    @TableField(value = "`job`")
     @JSONField(name = "job")
     @JsonProperty("job")
     private Long job;
@@ -110,21 +110,21 @@ public class TestResult extends EntityMP implements Serializable {
      * 用例
      */
     @DEField(name = "case")
-    @TableField(value = "`case"`)
+    @TableField(value = "`case`")
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
     private Long ibizcase;
     /**
      * 测试执行
      */
-    @TableField(value = "`run"`)
+    @TableField(value = "`run`")
     @JSONField(name = "run")
     @JsonProperty("run")
     private Long run;
     /**
      * 代码编译
      */
-    @TableField(value = "`compile"`)
+    @TableField(value = "`compile`")
     @JSONField(name = "compile")
     @JsonProperty("compile")
     private Long compile;

@@ -44,14 +44,14 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 当前系统版本
      */
-    @TableField(value = "`openedversion"`)
+    @TableField(value = "`openedversion`")
     @JSONField(name = "openedversion")
     @JsonProperty("openedversion")
     private String openedversion;
     /**
      * 开始时间
      */
-    @TableField(value = "`begin"`)
+    @TableField(value = "`begin`")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "begin" , format="yyyy-MM-dd")
     @JsonProperty("begin")
@@ -59,7 +59,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 访问控制
      */
-    @TableField(value = "`acl"`)
+    @TableField(value = "`acl`")
     @JSONField(name = "acl")
     @JsonProperty("acl")
     private String acl;
@@ -68,21 +68,21 @@ public class Project extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "`deleted"`)
+    @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * 项目描述
      */
-    @TableField(value = "`desc"`)
+    @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
     /**
      * 项目负责人
      */
-    @TableField(value = "`pm"`)
+    @TableField(value = "`pm`")
     @JSONField(name = "pm")
     @JsonProperty("pm")
     private String pm;
@@ -97,35 +97,35 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 项目名称
      */
-    @TableField(value = "`name"`)
+    @TableField(value = "`name`")
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
     /**
      * 子状态
      */
-    @TableField(value = "`substatus"`)
+    @TableField(value = "`substatus`")
     @JSONField(name = "substatus")
     @JsonProperty("substatus")
     private String substatus;
     /**
      * 项目排序
      */
-    @TableField(value = "`order"`)
+    @TableField(value = "`order`")
     @JSONField(name = "order")
     @JsonProperty("order")
     private Integer order;
     /**
      * 发布负责人
      */
-    @TableField(value = "`rd"`)
+    @TableField(value = "`rd`")
     @JSONField(name = "rd")
     @JsonProperty("rd")
     private String rd;
     /**
      * 分组白名单
      */
-    @TableField(value = "`whitelist"`)
+    @TableField(value = "`whitelist`")
     @JSONField(name = "whitelist")
     @JsonProperty("whitelist")
     private String whitelist;
@@ -133,14 +133,14 @@ public class Project extends EntityMP implements Serializable {
      * 优先级
      */
     @DEField(defaultValue = "1")
-    @TableField(value = "`pri"`)
+    @TableField(value = "`pri`")
     @JSONField(name = "pri")
     @JsonProperty("pri")
     private String pri;
     /**
      * 结束日期
      */
-    @TableField(value = "`end"`)
+    @TableField(value = "`end`")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "end" , format="yyyy-MM-dd")
     @JsonProperty("end")
@@ -148,7 +148,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 取消日期
      */
-    @TableField(value = "`canceleddate"`)
+    @TableField(value = "`canceleddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "canceleddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("canceleddate")
@@ -156,14 +156,14 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 项目代号
      */
-    @TableField(value = "`code"`)
+    @TableField(value = "`code`")
     @JSONField(name = "code")
     @JsonProperty("code")
     private String code;
     /**
      * catID
      */
-    @TableField(value = "`catid"`)
+    @TableField(value = "`catid`")
     @JSONField(name = "catid")
     @JsonProperty("catid")
     private Integer catid;
@@ -171,14 +171,14 @@ public class Project extends EntityMP implements Serializable {
      * statge
      */
     @DEField(defaultValue = "1")
-    @TableField(value = "`statge"`)
+    @TableField(value = "`statge`")
     @JSONField(name = "statge")
     @JsonProperty("statge")
     private String statge;
     /**
      * 由谁取消
      */
-    @TableField(value = "`canceledby"`)
+    @TableField(value = "`canceledby`")
     @JSONField(name = "canceledby")
     @JsonProperty("canceledby")
     private String canceledby;
@@ -186,7 +186,7 @@ public class Project extends EntityMP implements Serializable {
      * isCat
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "`iscat"`)
+    @TableField(value = "`iscat`")
     @JSONField(name = "iscat")
     @JsonProperty("iscat")
     private Integer iscat;
@@ -194,7 +194,7 @@ public class Project extends EntityMP implements Serializable {
      * 创建日期
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`openeddate"` , fill = FieldFill.INSERT)
+    @TableField(value = "`openeddate`" , fill = FieldFill.INSERT)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "openeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("openeddate")
@@ -202,7 +202,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 由谁关闭
      */
-    @TableField(value = "`closedby"`)
+    @TableField(value = "`closedby`")
     @JSONField(name = "closedby")
     @JsonProperty("closedby")
     private String closedby;
@@ -210,42 +210,42 @@ public class Project extends EntityMP implements Serializable {
      * 项目类型
      */
     @DEField(defaultValue = "sprint")
-    @TableField(value = "`type"`)
+    @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
     /**
      * 产品负责人
      */
-    @TableField(value = "`po"`)
+    @TableField(value = "`po`")
     @JSONField(name = "po")
     @JsonProperty("po")
     private String po;
     /**
      * 项目状态
      */
-    @TableField(value = "`status"`)
+    @TableField(value = "`status`")
     @JSONField(name = "status")
     @JsonProperty("status")
     private String status;
     /**
      * 可用工作日
      */
-    @TableField(value = "`days"`)
+    @TableField(value = "`days`")
     @JSONField(name = "days")
     @JsonProperty("days")
     private Integer days;
     /**
      * 团队名称
      */
-    @TableField(value = "`team"`)
+    @TableField(value = "`team`")
     @JSONField(name = "team")
     @JsonProperty("team")
     private String team;
     /**
      * 关闭日期
      */
-    @TableField(value = "`closeddate"`)
+    @TableField(value = "`closeddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "closeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("closeddate")
@@ -254,14 +254,14 @@ public class Project extends EntityMP implements Serializable {
      * 由谁创建
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
-    @TableField(value = "`openedby"`)
+    @TableField(value = "`openedby`")
     @JSONField(name = "openedby")
     @JsonProperty("openedby")
     private String openedby;
     /**
      * 测试负责人
      */
-    @TableField(value = "`qd"`)
+    @TableField(value = "`qd`")
     @JSONField(name = "qd")
     @JsonProperty("qd")
     private String qd;
@@ -275,7 +275,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 父项目
      */
-    @TableField(value = "`parent"`)
+    @TableField(value = "`parent`")
     @JSONField(name = "parent")
     @JsonProperty("parent")
     private Long parent;

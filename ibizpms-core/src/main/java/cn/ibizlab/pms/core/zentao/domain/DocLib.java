@@ -44,14 +44,14 @@ public class DocLib extends EntityMP implements Serializable {
     /**
      * 文档类型
      */
-    @TableField(value = "`type"`)
+    @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
     /**
      * 收藏者
      */
-    @TableField(value = "`collector"`)
+    @TableField(value = "`collector`")
     @JSONField(name = "collector")
     @JsonProperty("collector")
     private String collector;
@@ -59,7 +59,7 @@ public class DocLib extends EntityMP implements Serializable {
      * 权限
      */
     @DEField(defaultValue = "default")
-    @TableField(value = "`acl"`)
+    @TableField(value = "`acl`")
     @JSONField(name = "acl")
     @JsonProperty("acl")
     private String acl;
@@ -68,14 +68,14 @@ public class DocLib extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "`deleted"`)
+    @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * 分组
      */
-    @TableField(value = "`groups"`)
+    @TableField(value = "`groups`")
     @JSONField(name = "groups")
     @JsonProperty("groups")
     private String groups;
@@ -90,7 +90,7 @@ public class DocLib extends EntityMP implements Serializable {
     /**
      * 用户
      */
-    @TableField(value = "`users"`)
+    @TableField(value = "`users`")
     @JSONField(name = "users")
     @JsonProperty("users")
     private String users;
@@ -98,21 +98,21 @@ public class DocLib extends EntityMP implements Serializable {
      * 是否是主库
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "`main"`)
+    @TableField(value = "`main`")
     @JSONField(name = "main")
     @JsonProperty("main")
     private Integer main;
     /**
      * 文档库名称
      */
-    @TableField(value = "`name"`)
+    @TableField(value = "`name`")
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
     /**
      * 排序
      */
-    @TableField(value = "`order"`)
+    @TableField(value = "`order`")
     @JSONField(name = "order")
     @JsonProperty("order")
     private Integer order;
@@ -120,14 +120,14 @@ public class DocLib extends EntityMP implements Serializable {
      * 项目库
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "`project"`)
+    @TableField(value = "`project`")
     @JSONField(name = "project")
     @JsonProperty("project")
     private Long project;
     /**
      * 产品库
      */
-    @TableField(value = "`product"`)
+    @TableField(value = "`product`")
     @JSONField(name = "product")
     @JsonProperty("product")
     private Long product;

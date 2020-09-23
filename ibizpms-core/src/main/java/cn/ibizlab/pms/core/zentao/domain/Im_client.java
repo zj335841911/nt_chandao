@@ -44,7 +44,7 @@ public class Im_client extends EntityMP implements Serializable {
     /**
      * editedDate
      */
-    @TableField(value = "`editeddate"`)
+    @TableField(value = "`editeddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "editeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("editeddate")
@@ -52,14 +52,14 @@ public class Im_client extends EntityMP implements Serializable {
     /**
      * strategy
      */
-    @TableField(value = "`strategy"`)
+    @TableField(value = "`strategy`")
     @JSONField(name = "strategy")
     @JsonProperty("strategy")
     private String strategy;
     /**
      * createdDate
      */
-    @TableField(value = "`createddate"`)
+    @TableField(value = "`createddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
@@ -67,35 +67,35 @@ public class Im_client extends EntityMP implements Serializable {
     /**
      * changeLog
      */
-    @TableField(value = "`changelog"`)
+    @TableField(value = "`changelog`")
     @JSONField(name = "changelog")
     @JsonProperty("changelog")
     private String changelog;
     /**
      * version
      */
-    @TableField(value = "`version"`)
+    @TableField(value = "`version`")
     @JSONField(name = "version")
     @JsonProperty("version")
     private String version;
     /**
      * downloads
      */
-    @TableField(value = "`downloads"`)
+    @TableField(value = "`downloads`")
     @JSONField(name = "downloads")
     @JsonProperty("downloads")
     private String downloads;
     /**
      * status
      */
-    @TableField(value = "`status"`)
+    @TableField(value = "`status`")
     @JSONField(name = "status")
     @JsonProperty("status")
     private String status;
     /**
      * desc
      */
-    @TableField(value = "`desc"`)
+    @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
@@ -110,14 +110,14 @@ public class Im_client extends EntityMP implements Serializable {
     /**
      * createdBy
      */
-    @TableField(value = "`createdby"`)
+    @TableField(value = "`createdby`")
     @JSONField(name = "createdby")
     @JsonProperty("createdby")
     private String createdby;
     /**
      * editedBy
      */
-    @TableField(value = "`editedby"`)
+    @TableField(value = "`editedby`")
     @JSONField(name = "editedby")
     @JsonProperty("editedby")
     private String editedby;

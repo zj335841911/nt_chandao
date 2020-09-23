@@ -53,14 +53,14 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
      * 建立人
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "`createman"` , fill = FieldFill.INSERT)
+    @TableField(value = "`createman`" , fill = FieldFill.INSERT)
     @JSONField(name = "createman")
     @JsonProperty("createman")
     private String createman;
     /**
      * 待办消息记录名称
      */
-    @TableField(value = "`taskmsgrecordname"`)
+    @TableField(value = "`taskmsgrecordname`")
     @JSONField(name = "taskmsgrecordname")
     @JsonProperty("taskmsgrecordname")
     private String taskmsgrecordname;
@@ -69,7 +69,7 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
      */
     @DEField(preType = DEPredefinedFieldType.LOGICVALID, logicval = "1" , logicdelval="0")
     @TableLogic(value= "1",delval="0")
-    @TableField(value = "`enable"`)
+    @TableField(value = "`enable`")
     @JSONField(name = "enable")
     @JsonProperty("enable")
     private Integer enable;
@@ -77,7 +77,7 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @TableField(value = "`updatedate"`)
+    @TableField(value = "`updatedate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
@@ -86,7 +86,7 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
      * 更新人
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
-    @TableField(value = "`updateman"`)
+    @TableField(value = "`updateman`")
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     private String updateman;
@@ -94,7 +94,7 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`createdate"` , fill = FieldFill.INSERT)
+    @TableField(value = "`createdate`" , fill = FieldFill.INSERT)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
@@ -102,42 +102,42 @@ public class TaskMsgRecord extends EntityMP implements Serializable {
     /**
      * 待办人标识
      */
-    @TableField(value = "`taskuserid"`)
+    @TableField(value = "`taskuserid`")
     @JSONField(name = "taskuserid")
     @JsonProperty("taskuserid")
     private String taskuserid;
     /**
      * 第三方应用待办标识
      */
-    @TableField(value = "`apptaskid"`)
+    @TableField(value = "`apptaskid`")
     @JSONField(name = "apptaskid")
     @JsonProperty("apptaskid")
     private String apptaskid;
     /**
      * 待办类型
      */
-    @TableField(value = "`tasktype"`)
+    @TableField(value = "`tasktype`")
     @JSONField(name = "tasktype")
     @JsonProperty("tasktype")
     private String tasktype;
     /**
      * 备注
      */
-    @TableField(value = "`memo"`)
+    @TableField(value = "`memo`")
     @JSONField(name = "memo")
     @JsonProperty("memo")
     private String memo;
     /**
      * 标题
      */
-    @TableField(value = "`title"`)
+    @TableField(value = "`title`")
     @JSONField(name = "title")
     @JsonProperty("title")
     private String title;
     /**
      * 数据标识
      */
-    @TableField(value = "`dataid"`)
+    @TableField(value = "`dataid`")
     @JSONField(name = "dataid")
     @JsonProperty("dataid")
     private String dataid;

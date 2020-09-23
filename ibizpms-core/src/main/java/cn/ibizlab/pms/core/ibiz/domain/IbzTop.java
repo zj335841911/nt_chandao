@@ -53,7 +53,7 @@ public class IbzTop extends EntityMP implements Serializable {
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`createdate"` , fill = FieldFill.INSERT)
+    @TableField(value = "`createdate`" , fill = FieldFill.INSERT)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
@@ -62,7 +62,7 @@ public class IbzTop extends EntityMP implements Serializable {
      * 更新人
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
-    @TableField(value = "`updateman"`)
+    @TableField(value = "`updateman`")
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     private String updateman;
@@ -70,7 +70,7 @@ public class IbzTop extends EntityMP implements Serializable {
      * 置顶名称
      */
     @DEField(name = "ibz_topname")
-    @TableField(value = "`ibz_topname"`)
+    @TableField(value = "`ibz_topname`")
     @JSONField(name = "ibztopname")
     @JsonProperty("ibztopname")
     private String ibztopname;
@@ -78,7 +78,7 @@ public class IbzTop extends EntityMP implements Serializable {
      * 建立人
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "`createman"` , fill = FieldFill.INSERT)
+    @TableField(value = "`createman`" , fill = FieldFill.INSERT)
     @JSONField(name = "createman")
     @JsonProperty("createman")
     private String createman;
@@ -86,7 +86,7 @@ public class IbzTop extends EntityMP implements Serializable {
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @TableField(value = "`updatedate"`)
+    @TableField(value = "`updatedate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
@@ -94,28 +94,28 @@ public class IbzTop extends EntityMP implements Serializable {
     /**
      * 类型
      */
-    @TableField(value = "`type"`)
+    @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
     /**
      * 数据对象标识
      */
-    @TableField(value = "`objectid"`)
+    @TableField(value = "`objectid`")
     @JSONField(name = "objectid")
     @JsonProperty("objectid")
     private Integer objectid;
     /**
      * 排序
      */
-    @TableField(value = "`objectorder"`)
+    @TableField(value = "`objectorder`")
     @JSONField(name = "objectorder")
     @JsonProperty("objectorder")
     private Integer objectorder;
     /**
      * 置顶用户
      */
-    @TableField(value = "`account"`)
+    @TableField(value = "`account`")
     @JSONField(name = "account")
     @JsonProperty("account")
     private String account;

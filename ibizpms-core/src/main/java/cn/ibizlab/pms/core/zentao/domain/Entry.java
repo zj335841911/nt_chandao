@@ -46,14 +46,14 @@ public class Entry extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "`deleted"`)
+    @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * code
      */
-    @TableField(value = "`code"`)
+    @TableField(value = "`code`")
     @JSONField(name = "code")
     @JsonProperty("code")
     private String code;
@@ -68,7 +68,7 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * editedDate
      */
-    @TableField(value = "`editeddate"`)
+    @TableField(value = "`editeddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "editeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("editeddate")
@@ -76,7 +76,7 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * createdDate
      */
-    @TableField(value = "`createddate"`)
+    @TableField(value = "`createddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
@@ -84,21 +84,21 @@ public class Entry extends EntityMP implements Serializable {
     /**
      * freePasswd
      */
-    @TableField(value = "`freepasswd"`)
+    @TableField(value = "`freepasswd`")
     @JSONField(name = "freepasswd")
     @JsonProperty("freepasswd")
     private String freepasswd;
     /**
      * createdBy
      */
-    @TableField(value = "`createdby"`)
+    @TableField(value = "`createdby`")
     @JSONField(name = "createdby")
     @JsonProperty("createdby")
     private String createdby;
     /**
      * account
      */
-    @TableField(value = "`account"`)
+    @TableField(value = "`account`")
     @JSONField(name = "account")
     @JsonProperty("account")
     private String account;
@@ -106,42 +106,42 @@ public class Entry extends EntityMP implements Serializable {
      * calledTime
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "`calledtime"`)
+    @TableField(value = "`calledtime`")
     @JSONField(name = "calledtime")
     @JsonProperty("calledtime")
     private Integer calledtime;
     /**
      * key
      */
-    @TableField(value = "`key"`)
+    @TableField(value = "`key`")
     @JSONField(name = "key")
     @JsonProperty("key")
     private String key;
     /**
      * editedBy
      */
-    @TableField(value = "`editedby"`)
+    @TableField(value = "`editedby`")
     @JSONField(name = "editedby")
     @JsonProperty("editedby")
     private String editedby;
     /**
      * ip
      */
-    @TableField(value = "`ip"`)
+    @TableField(value = "`ip`")
     @JSONField(name = "ip")
     @JsonProperty("ip")
     private String ip;
     /**
      * desc
      */
-    @TableField(value = "`desc"`)
+    @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
     /**
      * name
      */
-    @TableField(value = "`name"`)
+    @TableField(value = "`name`")
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;

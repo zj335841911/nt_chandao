@@ -44,21 +44,21 @@ public class RepoHistory extends EntityMP implements Serializable {
     /**
      * committer
      */
-    @TableField(value = "`committer"`)
+    @TableField(value = "`committer`")
     @JSONField(name = "committer")
     @JsonProperty("committer")
     private String committer;
     /**
      * revision
      */
-    @TableField(value = "`revision"`)
+    @TableField(value = "`revision`")
     @JSONField(name = "revision")
     @JsonProperty("revision")
     private String revision;
     /**
      * time
      */
-    @TableField(value = "`time"`)
+    @TableField(value = "`time`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "time" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("time")
@@ -66,21 +66,21 @@ public class RepoHistory extends EntityMP implements Serializable {
     /**
      * repo
      */
-    @TableField(value = "`repo"`)
+    @TableField(value = "`repo`")
     @JSONField(name = "repo")
     @JsonProperty("repo")
     private Integer repo;
     /**
      * comment
      */
-    @TableField(value = "`comment"`)
+    @TableField(value = "`comment`")
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
     /**
      * commit
      */
-    @TableField(value = "`commit"`)
+    @TableField(value = "`commit`")
     @JSONField(name = "commit")
     @JsonProperty("commit")
     private Integer commit;

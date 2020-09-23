@@ -44,7 +44,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 名称
      */
-    @TableField(value = "`title"`)
+    @TableField(value = "`title`")
     @JSONField(name = "title")
     @JsonProperty("title")
     private String title;
@@ -59,7 +59,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 开始日期
      */
-    @TableField(value = "`begin"`)
+    @TableField(value = "`begin`")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "begin" , format="yyyy-MM-dd")
     @JsonProperty("begin")
@@ -67,14 +67,14 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 描述
      */
-    @TableField(value = "`desc"`)
+    @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
     /**
      * 结束日期
      */
-    @TableField(value = "`end"`)
+    @TableField(value = "`end`")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "end" , format="yyyy-MM-dd")
     @JsonProperty("end")
@@ -84,14 +84,14 @@ public class ProductPlan extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "`deleted"`)
+    @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * 排序
      */
-    @TableField(value = "`order"`)
+    @TableField(value = "`order`")
     @JSONField(name = "order")
     @JsonProperty("order")
     private String order;
@@ -105,7 +105,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 平台/分支
      */
-    @TableField(value = "`branch"`)
+    @TableField(value = "`branch`")
     @JSONField(name = "branch")
     @JsonProperty("branch")
     private Long branch;
@@ -113,14 +113,14 @@ public class ProductPlan extends EntityMP implements Serializable {
      * 父计划
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "`parent"`)
+    @TableField(value = "`parent`")
     @JSONField(name = "parent")
     @JsonProperty("parent")
     private Long parent;
     /**
      * 产品
      */
-    @TableField(value = "`product"`)
+    @TableField(value = "`product`")
     @JSONField(name = "product")
     @JsonProperty("product")
     private Long product;

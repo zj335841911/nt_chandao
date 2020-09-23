@@ -44,42 +44,42 @@ public class Relation extends EntityMP implements Serializable {
     /**
      * BID
      */
-    @TableField(value = "`bid"`)
+    @TableField(value = "`bid`")
     @JSONField(name = "bid")
     @JsonProperty("bid")
     private Integer bid;
     /**
      * AVersion
      */
-    @TableField(value = "`aversion"`)
+    @TableField(value = "`aversion`")
     @JSONField(name = "aversion")
     @JsonProperty("aversion")
     private String aversion;
     /**
      * BType
      */
-    @TableField(value = "`btype"`)
+    @TableField(value = "`btype`")
     @JSONField(name = "btype")
     @JsonProperty("btype")
     private String btype;
     /**
      * project
      */
-    @TableField(value = "`project"`)
+    @TableField(value = "`project`")
     @JSONField(name = "project")
     @JsonProperty("project")
     private Integer project;
     /**
      * extra
      */
-    @TableField(value = "`extra"`)
+    @TableField(value = "`extra`")
     @JSONField(name = "extra")
     @JsonProperty("extra")
     private String extra;
     /**
      * relation
      */
-    @TableField(value = "`relation"`)
+    @TableField(value = "`relation`")
     @JSONField(name = "relation")
     @JsonProperty("relation")
     private String relation;
@@ -94,35 +94,35 @@ public class Relation extends EntityMP implements Serializable {
     /**
      * program
      */
-    @TableField(value = "`program"`)
+    @TableField(value = "`program`")
     @JSONField(name = "program")
     @JsonProperty("program")
     private Integer program;
     /**
      * BVersion
      */
-    @TableField(value = "`bversion"`)
+    @TableField(value = "`bversion`")
     @JSONField(name = "bversion")
     @JsonProperty("bversion")
     private String bversion;
     /**
      * AType
      */
-    @TableField(value = "`atype"`)
+    @TableField(value = "`atype`")
     @JSONField(name = "atype")
     @JsonProperty("atype")
     private String atype;
     /**
      * product
      */
-    @TableField(value = "`product"`)
+    @TableField(value = "`product`")
     @JSONField(name = "product")
     @JsonProperty("product")
     private Integer product;
     /**
      * AID
      */
-    @TableField(value = "`aid"`)
+    @TableField(value = "`aid`")
     @JSONField(name = "aid")
     @JsonProperty("aid")
     private Integer aid;

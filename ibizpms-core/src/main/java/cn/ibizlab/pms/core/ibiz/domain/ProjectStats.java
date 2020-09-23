@@ -138,7 +138,7 @@ public class ProjectStats extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "`deleted"`)
+    @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
@@ -159,7 +159,7 @@ public class ProjectStats extends EntityMP implements Serializable {
     /**
      * 项目名称
      */
-    @TableField(value = "`name"`)
+    @TableField(value = "`name`")
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
@@ -208,7 +208,7 @@ public class ProjectStats extends EntityMP implements Serializable {
     /**
      * 截止日期
      */
-    @TableField(value = "`end"`)
+    @TableField(value = "`end`")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "end" , format="yyyy-MM-dd")
     @JsonProperty("end")
@@ -216,7 +216,7 @@ public class ProjectStats extends EntityMP implements Serializable {
     /**
      * 状态
      */
-    @TableField(value = "`status"`)
+    @TableField(value = "`status`")
     @JSONField(name = "status")
     @JsonProperty("status")
     private String status;

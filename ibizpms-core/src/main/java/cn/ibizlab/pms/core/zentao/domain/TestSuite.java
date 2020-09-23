@@ -44,7 +44,7 @@ public class TestSuite extends EntityMP implements Serializable {
     /**
      * 名称
      */
-    @TableField(value = "`name"`)
+    @TableField(value = "`name`")
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
@@ -52,7 +52,7 @@ public class TestSuite extends EntityMP implements Serializable {
      * 创建时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`addeddate"` , fill = FieldFill.INSERT)
+    @TableField(value = "`addeddate`" , fill = FieldFill.INSERT)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "addeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("addeddate")
@@ -70,28 +70,28 @@ public class TestSuite extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "`deleted"`)
+    @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * 最后编辑人
      */
-    @TableField(value = "`lasteditedby"`)
+    @TableField(value = "`lasteditedby`")
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
     private String lasteditedby;
     /**
      * 类型
      */
-    @TableField(value = "`type"`)
+    @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
     /**
      * 最后编辑时间
      */
-    @TableField(value = "`lastediteddate"`)
+    @TableField(value = "`lastediteddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastediteddate")
@@ -100,21 +100,21 @@ public class TestSuite extends EntityMP implements Serializable {
      * 由谁创建
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
-    @TableField(value = "`addedby"`)
+    @TableField(value = "`addedby`")
     @JSONField(name = "addedby")
     @JsonProperty("addedby")
     private String addedby;
     /**
      * 描述
      */
-    @TableField(value = "`desc"`)
+    @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
     /**
      * 所属产品
      */
-    @TableField(value = "`product"`)
+    @TableField(value = "`product`")
     @JSONField(name = "product")
     @JsonProperty("product")
     private Long product;

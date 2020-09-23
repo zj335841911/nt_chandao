@@ -44,7 +44,7 @@ public class Dept extends EntityMP implements Serializable {
     /**
      * 负责人
      */
-    @TableField(value = "`manager"`)
+    @TableField(value = "`manager`")
     @JSONField(name = "manager")
     @JsonProperty("manager")
     private String manager;
@@ -52,14 +52,14 @@ public class Dept extends EntityMP implements Serializable {
      * grade
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "`grade"`)
+    @TableField(value = "`grade`")
     @JSONField(name = "grade")
     @JsonProperty("grade")
     private Integer grade;
     /**
      * function
      */
-    @TableField(value = "`function"`)
+    @TableField(value = "`function`")
     @JSONField(name = "function")
     @JsonProperty("function")
     private String function;
@@ -67,21 +67,21 @@ public class Dept extends EntityMP implements Serializable {
      * order
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "`order"`)
+    @TableField(value = "`order`")
     @JSONField(name = "order")
     @JsonProperty("order")
     private Integer order;
     /**
      * path
      */
-    @TableField(value = "`path"`)
+    @TableField(value = "`path`")
     @JSONField(name = "path")
     @JsonProperty("path")
     private String path;
     /**
      * position
      */
-    @TableField(value = "`position"`)
+    @TableField(value = "`position`")
     @JSONField(name = "position")
     @JsonProperty("position")
     private String position;
@@ -96,7 +96,7 @@ public class Dept extends EntityMP implements Serializable {
     /**
      * 部门名称
      */
-    @TableField(value = "`name"`)
+    @TableField(value = "`name`")
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
@@ -110,7 +110,7 @@ public class Dept extends EntityMP implements Serializable {
     /**
      * parent
      */
-    @TableField(value = "`parent"`)
+    @TableField(value = "`parent`")
     @JSONField(name = "parent")
     @JsonProperty("parent")
     private Long parent;

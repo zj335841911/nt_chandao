@@ -44,7 +44,7 @@ public class Lang extends EntityMP implements Serializable {
     /**
      * module
      */
-    @TableField(value = "`module"`)
+    @TableField(value = "`module`")
     @JSONField(name = "module")
     @JsonProperty("module")
     private String module;
@@ -59,35 +59,35 @@ public class Lang extends EntityMP implements Serializable {
     /**
      * key
      */
-    @TableField(value = "`key"`)
+    @TableField(value = "`key`")
     @JSONField(name = "key")
     @JsonProperty("key")
     private String key;
     /**
      * section
      */
-    @TableField(value = "`section"`)
+    @TableField(value = "`section`")
     @JSONField(name = "section")
     @JsonProperty("section")
     private String section;
     /**
      * lang
      */
-    @TableField(value = "`lang"`)
+    @TableField(value = "`lang`")
     @JSONField(name = "lang")
     @JsonProperty("lang")
     private String lang;
     /**
      * system
      */
-    @TableField(value = "`system"`)
+    @TableField(value = "`system`")
     @JSONField(name = "system")
     @JsonProperty("system")
     private String system;
     /**
      * value
      */
-    @TableField(value = "`value"`)
+    @TableField(value = "`value`")
     @JSONField(name = "value")
     @JsonProperty("value")
     private String value;

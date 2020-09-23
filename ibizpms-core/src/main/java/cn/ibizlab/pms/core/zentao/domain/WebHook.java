@@ -44,14 +44,14 @@ public class WebHook extends EntityMP implements Serializable {
     /**
      * secret
      */
-    @TableField(value = "`secret"`)
+    @TableField(value = "`secret`")
     @JSONField(name = "secret")
     @JsonProperty("secret")
     private String secret;
     /**
      * createdDate
      */
-    @TableField(value = "`createddate"`)
+    @TableField(value = "`createddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
@@ -59,14 +59,14 @@ public class WebHook extends EntityMP implements Serializable {
     /**
      * actions
      */
-    @TableField(value = "`actions"`)
+    @TableField(value = "`actions`")
     @JSONField(name = "actions")
     @JsonProperty("actions")
     private String actions;
     /**
      * desc
      */
-    @TableField(value = "`desc"`)
+    @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
     private String desc;
@@ -74,7 +74,7 @@ public class WebHook extends EntityMP implements Serializable {
      * contentType
      */
     @DEField(defaultValue = "application/json")
-    @TableField(value = "`contenttype"`)
+    @TableField(value = "`contenttype`")
     @JSONField(name = "contenttype")
     @JsonProperty("contenttype")
     private String contenttype;
@@ -82,7 +82,7 @@ public class WebHook extends EntityMP implements Serializable {
      * type
      */
     @DEField(defaultValue = "default")
-    @TableField(value = "`type"`)
+    @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
@@ -97,7 +97,7 @@ public class WebHook extends EntityMP implements Serializable {
     /**
      * editedBy
      */
-    @TableField(value = "`editedby"`)
+    @TableField(value = "`editedby`")
     @JSONField(name = "editedby")
     @JsonProperty("editedby")
     private String editedby;
@@ -106,63 +106,63 @@ public class WebHook extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "`deleted"`)
+    @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * name
      */
-    @TableField(value = "`name"`)
+    @TableField(value = "`name`")
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
     /**
      * url
      */
-    @TableField(value = "`url"`)
+    @TableField(value = "`url`")
     @JSONField(name = "url")
     @JsonProperty("url")
     private String url;
     /**
      * domain
      */
-    @TableField(value = "`domain"`)
+    @TableField(value = "`domain`")
     @JSONField(name = "domain")
     @JsonProperty("domain")
     private String domain;
     /**
      * createdBy
      */
-    @TableField(value = "`createdby"`)
+    @TableField(value = "`createdby`")
     @JSONField(name = "createdby")
     @JsonProperty("createdby")
     private String createdby;
     /**
      * params
      */
-    @TableField(value = "`params"`)
+    @TableField(value = "`params`")
     @JSONField(name = "params")
     @JsonProperty("params")
     private String params;
     /**
      * sendType
      */
-    @TableField(value = "`sendtype"`)
+    @TableField(value = "`sendtype`")
     @JSONField(name = "sendtype")
     @JsonProperty("sendtype")
     private String sendtype;
     /**
      * products
      */
-    @TableField(value = "`products"`)
+    @TableField(value = "`products`")
     @JSONField(name = "products")
     @JsonProperty("products")
     private String products;
     /**
      * editedDate
      */
-    @TableField(value = "`editeddate"`)
+    @TableField(value = "`editeddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "editeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("editeddate")
@@ -170,7 +170,7 @@ public class WebHook extends EntityMP implements Serializable {
     /**
      * projects
      */
-    @TableField(value = "`projects"`)
+    @TableField(value = "`projects`")
     @JSONField(name = "projects")
     @JsonProperty("projects")
     private String projects;

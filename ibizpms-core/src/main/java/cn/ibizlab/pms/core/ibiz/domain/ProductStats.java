@@ -54,7 +54,7 @@ public class ProductStats extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "`deleted"`)
+    @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
@@ -159,7 +159,7 @@ public class ProductStats extends EntityMP implements Serializable {
     /**
      * 产品名称
      */
-    @TableField(value = "`name"`)
+    @TableField(value = "`name`")
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
@@ -229,21 +229,21 @@ public class ProductStats extends EntityMP implements Serializable {
     /**
      * 状态
      */
-    @TableField(value = "`status"`)
+    @TableField(value = "`status`")
     @JSONField(name = "status")
     @JsonProperty("status")
     private String status;
     /**
      * 产品代号
      */
-    @TableField(value = "`code"`)
+    @TableField(value = "`code`")
     @JSONField(name = "code")
     @JsonProperty("code")
     private String code;
     /**
      * 产品类型
      */
-    @TableField(value = "`type"`)
+    @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;

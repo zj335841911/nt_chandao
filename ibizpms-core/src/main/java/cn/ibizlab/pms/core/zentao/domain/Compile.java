@@ -44,14 +44,14 @@ public class Compile extends EntityMP implements Serializable {
     /**
      * queue
      */
-    @TableField(value = "`queue"`)
+    @TableField(value = "`queue`")
     @JSONField(name = "queue")
     @JsonProperty("queue")
     private Integer queue;
     /**
      * createdDate
      */
-    @TableField(value = "`createddate"`)
+    @TableField(value = "`createddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
@@ -59,7 +59,7 @@ public class Compile extends EntityMP implements Serializable {
     /**
      * atTime
      */
-    @TableField(value = "`attime"`)
+    @TableField(value = "`attime`")
     @JSONField(name = "attime")
     @JsonProperty("attime")
     private String attime;
@@ -67,7 +67,7 @@ public class Compile extends EntityMP implements Serializable {
      * updateDate
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @TableField(value = "`updatedate"`)
+    @TableField(value = "`updatedate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
@@ -83,42 +83,42 @@ public class Compile extends EntityMP implements Serializable {
     /**
      * tag
      */
-    @TableField(value = "`tag"`)
+    @TableField(value = "`tag`")
     @JSONField(name = "tag")
     @JsonProperty("tag")
     private String tag;
     /**
      * testtask
      */
-    @TableField(value = "`testtask"`)
+    @TableField(value = "`testtask`")
     @JSONField(name = "testtask")
     @JsonProperty("testtask")
     private Integer testtask;
     /**
      * job
      */
-    @TableField(value = "`job"`)
+    @TableField(value = "`job`")
     @JSONField(name = "job")
     @JsonProperty("job")
     private Integer job;
     /**
      * name
      */
-    @TableField(value = "`name"`)
+    @TableField(value = "`name`")
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
     /**
      * logs
      */
-    @TableField(value = "`logs"`)
+    @TableField(value = "`logs`")
     @JSONField(name = "logs")
     @JsonProperty("logs")
     private String logs;
     /**
      * status
      */
-    @TableField(value = "`status"`)
+    @TableField(value = "`status`")
     @JSONField(name = "status")
     @JsonProperty("status")
     private String status;
@@ -127,14 +127,14 @@ public class Compile extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "`deleted"`)
+    @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
     /**
      * createdBy
      */
-    @TableField(value = "`createdby"`)
+    @TableField(value = "`createdby`")
     @JSONField(name = "createdby")
     @JsonProperty("createdby")
     private String createdby;

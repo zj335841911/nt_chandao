@@ -44,14 +44,14 @@ public class Im_conference extends EntityMP implements Serializable {
     /**
      * status
      */
-    @TableField(value = "`status"`)
+    @TableField(value = "`status`")
     @JSONField(name = "status")
     @JsonProperty("status")
     private String status;
     /**
      * cgid
      */
-    @TableField(value = "`cgid"`)
+    @TableField(value = "`cgid`")
     @JSONField(name = "cgid")
     @JsonProperty("cgid")
     private String cgid;
@@ -59,7 +59,7 @@ public class Im_conference extends EntityMP implements Serializable {
      * openedBy
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "`openedby"`)
+    @TableField(value = "`openedby`")
     @JSONField(name = "openedby")
     @JsonProperty("openedby")
     private Integer openedby;
@@ -67,7 +67,7 @@ public class Im_conference extends EntityMP implements Serializable {
      * openedDate
      */
     @DEField(defaultValue = "0000-00-00 00:00:00")
-    @TableField(value = "`openeddate"`)
+    @TableField(value = "`openeddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "openeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("openeddate")
@@ -83,14 +83,14 @@ public class Im_conference extends EntityMP implements Serializable {
     /**
      * rid
      */
-    @TableField(value = "`rid"`)
+    @TableField(value = "`rid`")
     @JSONField(name = "rid")
     @JsonProperty("rid")
     private String rid;
     /**
      * participants
      */
-    @TableField(value = "`participants"`)
+    @TableField(value = "`participants`")
     @JSONField(name = "participants")
     @JsonProperty("participants")
     private String participants;
