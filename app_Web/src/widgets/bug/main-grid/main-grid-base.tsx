@@ -271,7 +271,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof BugMainMyGridViewBase
+     * @memberof BugUsr3GridView1Base
      */
     public Copy(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         if (args.length === 0) {

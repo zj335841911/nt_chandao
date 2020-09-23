@@ -7517,6 +7517,91 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-main-my-new-grid-view/case-main-my-new-grid-view.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/bugs/:bug?/usr3gridview1/:usr3gridview1?',
+                    meta: {
+                        caption: 'entities.bug.views.usr3gridview1.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'usr3gridview1', parameterName: 'usr3gridview1' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-usr3-grid-view1/bug-usr3-grid-view1.vue'),
+                },
+                {
+                    path: 'projects/:project?/bugs/:bug?/usr3gridview1/:usr3gridview1?',
+                    meta: {
+                        caption: 'entities.bug.views.usr3gridview1.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'usr3gridview1', parameterName: 'usr3gridview1' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-usr3-grid-view1/bug-usr3-grid-view1.vue'),
+                },
+                {
+                    path: 'stories/:story?/bugs/:bug?/usr3gridview1/:usr3gridview1?',
+                    meta: {
+                        caption: 'entities.bug.views.usr3gridview1.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'usr3gridview1', parameterName: 'usr3gridview1' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-usr3-grid-view1/bug-usr3-grid-view1.vue'),
+                },
+                {
+                    path: 'products/:product?/bugs/:bug?/usr3gridview1/:usr3gridview1?',
+                    meta: {
+                        caption: 'entities.bug.views.usr3gridview1.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'usr3gridview1', parameterName: 'usr3gridview1' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-usr3-grid-view1/bug-usr3-grid-view1.vue'),
+                },
+                {
+                    path: 'bugs/:bug?/usr3gridview1/:usr3gridview1?',
+                    meta: {
+                        caption: 'entities.bug.views.usr3gridview1.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-bug',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugs', parameterName: 'bug' },
+                            { pathName: 'usr3gridview1', parameterName: 'usr3gridview1' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/bug-usr3-grid-view1/bug-usr3-grid-view1.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/activiteview/:activiteview?',
                     meta: {
                         caption: 'entities.story.views.activiteview.caption',

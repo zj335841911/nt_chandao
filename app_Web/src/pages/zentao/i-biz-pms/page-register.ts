@@ -171,6 +171,7 @@ export const PageComponents = {
         Vue.component('bug-assing-to-view', () => import('@pages/zentao/bug-assing-to-view/bug-assing-to-view.vue'));
         Vue.component('user-tree-exp-view', () => import('@pages/zentao/user-tree-exp-view/user-tree-exp-view.vue'));
         Vue.component('case-main-my-new-grid-view', () => import('@pages/zentao/case-main-my-new-grid-view/case-main-my-new-grid-view.vue'));
+        Vue.component('bug-usr3-grid-view1', () => import('@pages/zentao/bug-usr3-grid-view1/bug-usr3-grid-view1.vue'));
         Vue.component('story-activite-view', () => import('@pages/zentao/story-activite-view/story-activite-view.vue'));
         Vue.component('story-release-sub-edit-view', () => import('@pages/zentao/story-release-sub-edit-view/story-release-sub-edit-view.vue'));
         Vue.component('test-suite-edit-view', () => import('@pages/zentao/test-suite-edit-view/test-suite-edit-view.vue'));

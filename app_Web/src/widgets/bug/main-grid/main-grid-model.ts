@@ -179,6 +179,7 @@ export default class MainModel {
           name: 'bug',
           prop: 'id',
         },
+
         {
           name:'size',
           prop:'size'

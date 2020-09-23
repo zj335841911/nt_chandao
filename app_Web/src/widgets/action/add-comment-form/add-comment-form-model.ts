@@ -58,7 +58,7 @@ export default class AddCommentModel {
       {
         name: 'objectid',
         prop: 'objectid',
-        dataType: 'INT',
+        dataType: 'BIGINT',
       },
       {
         name: 'comment',

@@ -217,6 +217,10 @@ export default {
 			caption: "Bug",
       		title: "Bug",
 		},
+		usr3gridview1: {
+			caption: "Bug",
+      		title: "Bug表格视图(遗留的bug)",
+		},
 		closeview: {
 			caption: "关闭Bug",
       		title: "关闭Bug",
@@ -876,6 +880,13 @@ export default {
 		uiactions: {
 		},
 	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
+		},
+		uiactions: {
+		},
+	},
 	maineditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
@@ -991,6 +1002,8 @@ export default {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},
+	},
+	usr3gridview1toolbar_toolbar: {
 	},
 	myfavoritegridviewtoolbar_toolbar: {
 		deuiaction2: {

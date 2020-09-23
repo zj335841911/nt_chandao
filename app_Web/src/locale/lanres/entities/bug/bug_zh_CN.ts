@@ -216,6 +216,10 @@ export default {
 			caption: "Bug",
       		title: "Bug",
 		},
+		usr3gridview1: {
+			caption: "Bug",
+      		title: "Bug表格视图(遗留的bug)",
+		},
 		closeview: {
 			caption: "关闭Bug",
       		title: "关闭Bug",
@@ -875,6 +879,13 @@ export default {
 		uiactions: {
 		},
 	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
+		},
+		uiactions: {
+		},
+	},
 	maineditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "保存并关闭",
@@ -990,6 +1001,8 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+	},
+	usr3gridview1toolbar_toolbar: {
 	},
 	myfavoritegridviewtoolbar_toolbar: {
 		deuiaction2: {

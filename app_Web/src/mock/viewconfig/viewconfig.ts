@@ -2775,6 +2775,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzMyTerritoryDashboardView",
             "viewtag": "d8df5ca51341d33ccc19208dde3f2cce"
         },
+        "bugusr3gridview1": {
+            "title": "Bug表格视图(遗留的bug)",
+            "caption": "Bug",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugUsr3GridView1",
+            "viewtag": "de3b10b3f9f11d67c6ea3418bc77f2b3"
+        },
         "storymain2gridview": {
             "title": "story表格视图",
             "caption": "需求",

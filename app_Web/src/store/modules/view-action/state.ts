@@ -3214,6 +3214,20 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'de3b10b3f9f11d67c6ea3418bc77f2b3',
+            viewmodule: 'zentao',
+            viewname: 'BugUsr3GridView1',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e67fe0ec86d17b74944c16e187da482d',
+                '7c6956b0c4bcc773697adb506d3ce5e9',
+                '46517a803b2470cd0bef27aeda0dbcaf',
+                'c1e9611b6972b1877b75fa5d2c67aad6',
+                '122af527bf38b47ddc53c882847b490e',
+            ],
+        },
+        {
             viewtag: 'df5a966e312ca9c5f5a41428bc2e2672',
             viewmodule: 'zentao',
             viewname: 'StoryRevIewView',
@@ -3444,9 +3458,9 @@ export const viewstate: any = {
                 'ba3ac5351ca273bb889ffcb52ec7217b',
                 'c47c534ae15c1fd1a04b5ad78d174841',
                 '42aa867a5dbd04d53462fa69b0e43296',
-                '09b6c2af7dcc4b719d4c8aad2319f1c5',
                 '3d56b0e37a56b9be1a28589c04f573fa',
                 'f810cda19770327ea00f51d89a003efe',
+                'de3b10b3f9f11d67c6ea3418bc77f2b3',
             ],
         },
         {
