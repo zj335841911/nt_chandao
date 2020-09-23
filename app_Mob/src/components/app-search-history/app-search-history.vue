@@ -190,30 +190,32 @@ export default class AppRoundList extends Vue{
      * @memberof AppSearchHistory
      */ 
     public searchVal($event:any){
-      let val:any = $event.target.value;
-      val = val.trim();
-      if (val === "") {
-        return;
-      }
-      if (this.historyList.length > 0) {
-        if (this.historyList.indexOf(val) !== -1) { 
-          this.historyList.splice(this.historyList.indexOf(val), 1);
-          this.historyList.unshift(val);
+      if ($event.target) {
+        let val:any = $event.target.value;
+        val = val.trim();
+        if (val === "") {
+          return;
+        }
+        if (this.historyList.length > 0) {
+          if (this.historyList.indexOf(val) !== -1) { 
+            this.historyList.splice(this.historyList.indexOf(val), 1);
+            this.historyList.unshift(val);
+          } else {
+            this.historyList.unshift(val);
+          }
         } else {
           this.historyList.unshift(val);
         }
-      } else {
-        this.historyList.unshift(val);
-      }
-      if (this.historyList.length > 10) {
-        this.historyList.pop();
-      }
-      if (this.enableHistory) {
-        this.historyLists = this.historyStorage.find((historyLists:any)=>{
-          return historyLists.viewname == this.model.viewname;
-        })
-        this.historyLists.historyList = this.historyList;
-        localStorage.setItem('historyStorage', JSON.stringify(this.historyStorage))
+        if (this.historyList.length > 10) {
+          this.historyList.pop();
+        }
+        if (this.enableHistory) {
+          this.historyLists = this.historyStorage.find((historyLists:any)=>{
+            return historyLists.viewname == this.model.viewname;
+          })
+          this.historyLists.historyList = this.historyList;
+          localStorage.setItem('historyStorage', JSON.stringify(this.historyStorage))
+        }
       }
     }
 
