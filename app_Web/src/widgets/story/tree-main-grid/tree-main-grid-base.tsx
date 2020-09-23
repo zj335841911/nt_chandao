@@ -488,6 +488,105 @@ export class TreeMainGridBase extends GridControlBase {
 
 
     /**
+     * 所有导出列成员
+     *
+     * @type {any[]}
+     * @memberof TreeMainGridBase
+     */
+    public allExportColumns: any[] = [
+        {
+            name: 'id',
+            label: 'ID',
+            langtag: 'entities.story.treemain_grid.exportColumns.id',
+            show: true,
+        },
+        {
+            name: 'pri',
+            label: 'P',
+            langtag: 'entities.story.treemain_grid.exportColumns.pri',
+            show: true,
+        },
+        {
+            name: 'title',
+            label: '需求名称',
+            langtag: 'entities.story.treemain_grid.exportColumns.title',
+            show: true,
+        },
+        {
+            name: 'plan',
+            label: '计划',
+            langtag: 'entities.story.treemain_grid.exportColumns.plan',
+            show: true,
+        },
+        {
+            name: 'openedby',
+            label: '创建',
+            langtag: 'entities.story.treemain_grid.exportColumns.openedby',
+            show: true,
+        },
+        {
+            name: 'assignedto',
+            label: '指派',
+            langtag: 'entities.story.treemain_grid.exportColumns.assignedto',
+            show: true,
+        },
+        {
+            name: 'estimate',
+            label: '预计',
+            langtag: 'entities.story.treemain_grid.exportColumns.estimate',
+            show: true,
+        },
+        {
+            name: 'status',
+            label: '状态',
+            langtag: 'entities.story.treemain_grid.exportColumns.status',
+            show: true,
+        },
+        {
+            name: 'stage',
+            label: '阶段',
+            langtag: 'entities.story.treemain_grid.exportColumns.stage',
+            show: true,
+        },
+        {
+            name: 'modulename',
+            label: '所属模块名称',
+            langtag: 'entities.story.treemain_grid.exportColumns.modulename',
+            show: true,
+        },
+        {
+            name: 'module',
+            label: '所属模块',
+            langtag: 'entities.story.treemain_grid.exportColumns.module',
+            show: true,
+        },
+        {
+            name: 'isfavorites',
+            label: '是否收藏',
+            langtag: 'entities.story.treemain_grid.exportColumns.isfavorites',
+            show: true,
+        },
+        {
+            name: 'ischild',
+            label: '是否可以细分',
+            langtag: 'entities.story.treemain_grid.exportColumns.ischild',
+            show: true,
+        },
+        {
+            name: 'product',
+            label: '所属产品',
+            langtag: 'entities.story.treemain_grid.exportColumns.product',
+            show: true,
+        },
+        {
+            name: 'prodoctname',
+            label: '产品名称',
+            langtag: 'entities.story.treemain_grid.exportColumns.prodoctname',
+            show: true,
+        },
+    ]
+
+    /**
      * 导出数据格式化
      *
      * @param {*} filterVal
@@ -498,54 +597,6 @@ export class TreeMainGridBase extends GridControlBase {
      */
     public async formatExcelData(filterVal: any, jsonData: any, codelistColumns?: any[]): Promise<any> {
         return super.formatExcelData(filterVal, jsonData, [
-            {
-                name: 'pri',
-                srfkey: 'Story__pri',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
-                name: 'plan',
-                srfkey: 'CurProductPlan',
-                codelistType : 'DYNAMIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
-                name: 'openedby',
-                srfkey: 'UserRealName',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
-            {
-                name: 'assignedto',
-                srfkey: 'UserRealNameW',
-                codelistType : 'DYNAMIC',
-                textSeparator: ',',
-                renderMode: 'string',
-                valueSeparator: ",",
-            },
-            {
-                name: 'status',
-                srfkey: 'Story__status',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
-            {
-                name: 'stage',
-                srfkey: 'Story__stage',
-                codelistType : 'STATIC',
-                renderMode: 'other',
-                textSeparator: '、',
-                valueSeparator: ',',
-            },
         ]);
     }
 

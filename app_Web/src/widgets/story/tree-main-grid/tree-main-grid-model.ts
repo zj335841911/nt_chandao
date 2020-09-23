@@ -23,6 +23,81 @@ export default class TreeMainModel {
 	public getDataItems(): any[] {
     if(this.isDEExport){
 		  return [
+        {
+          name: 'id',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'pri',
+          prop: 'pri',
+          dataType: 'NSCODELIST',
+        },
+        {
+          name: 'title',
+          prop: 'title',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'plan',
+          prop: 'plan',
+          dataType: 'LONGTEXT',
+        },
+        {
+          name: 'openedby',
+          prop: 'openedby',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'assignedto',
+          prop: 'assignedto',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'estimate',
+          prop: 'estimate',
+          dataType: 'FLOAT',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'stage',
+          prop: 'stage',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'modulename',
+          prop: 'modulename',
+          dataType: 'PICKUPTEXT',
+        },
+        {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'ischild',
+          prop: 'ischild',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'prodoctname',
+          prop: 'productname',
+          dataType: 'PICKUPTEXT',
+        },
       ]
     }else{
 		  return [

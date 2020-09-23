@@ -178,6 +178,7 @@ public class Product extends EntityMP implements Serializable {
     /**
      * 产品线
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "line")
     @JSONField(name = "line")
     @JsonProperty("line")
