@@ -131,6 +131,7 @@ public class DocLib extends EntityMP implements Serializable {
     /**
      * 产品库
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`product`")
     @JSONField(name = "product")
     @JsonProperty("product")
