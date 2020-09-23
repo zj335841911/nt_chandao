@@ -104,7 +104,7 @@ public class ActionDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "objectid")
     @JsonProperty("objectid")
-    private Integer objectid;
+    private Long objectid;
 
     /**
      * 属性 [ACTOR]
@@ -147,7 +147,7 @@ public class ActionDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "isactorss")
     @JsonProperty("isactorss")
-    private Integer isactorss;
+    private Long isactorss;
 
     /**
      * 属性 [DATE1]
@@ -210,7 +210,7 @@ public class ActionDTO extends DTOBase implements Serializable {
     /**
      * 设置 [OBJECTID]
      */
-    public void setObjectid(Integer  objectid){
+    public void setObjectid(Long  objectid){
         this.objectid = objectid ;
         this.modify("objectid",objectid);
     }
