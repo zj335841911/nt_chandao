@@ -159,7 +159,7 @@ public class TransHelper {
         }
         if (o instanceof Case){
             Case et = (Case)o;
-            if ("create".equals(method)){
+            if ("create".equals(method) || "update".equals(method)){
                 jo.put("srfArray",getSrfArray(et.getCasestep()));
             }
         }
