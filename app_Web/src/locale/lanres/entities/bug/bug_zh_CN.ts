@@ -843,6 +843,26 @@ export default {
 		uiactions: {
 		},
 	},
+	main_dataexport_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			confirmed: "确认",
+			title: "Bug标题",
+			status: "Bug状态",
+			openedby: "由谁创建",
+			openeddate: "创建日期",
+			assignedto: "指派给",
+			resolution: "方案",
+			lastediteddate: "修改日期",
+			activateddate: "激活日期",
+			isfavorites: "是否收藏",
+			product: "所属产品",
+			projectname: "项目",
+		},
+		uiactions: {
+		},
+	},
 	favoritemain_grid: {
 		columns: {
 			id: "ID",
@@ -875,13 +895,6 @@ export default {
 			pri: "级别",
 			title: "Bug标题",
 			status: "状态",
-		},
-		uiactions: {
-		},
-	},
-	default_searchform: {
-		details: {
-			formpage1: "常规条件", 
 		},
 		uiactions: {
 		},
@@ -1001,8 +1014,6 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
-	},
-	usr3gridview1toolbar_toolbar: {
 	},
 	myfavoritegridviewtoolbar_toolbar: {
 		deuiaction2: {

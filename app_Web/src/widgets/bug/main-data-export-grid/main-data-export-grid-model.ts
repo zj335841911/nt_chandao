@@ -1,16 +1,16 @@
 /**
- * Main 部件模型
+ * Main_DataExport 部件模型
  *
  * @export
- * @class MainModel
+ * @class Main_DataExportModel
  */
-export default class MainModel {
+export default class Main_DataExportModel {
 
 	/**
 	 * 是否是实体数据导出
 	 *
 	 * @returns {any[]}
-	 * @memberof MainGridMode
+	 * @memberof Main_DataExportGridMode
 	 */
 	public isDEExport: boolean = false;
 
@@ -18,7 +18,7 @@ export default class MainModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof MainGridMode
+	 * @memberof Main_DataExportGridMode
 	 */
 	public getDataItems(): any[] {
     if(this.isDEExport){
@@ -87,6 +87,16 @@ export default class MainModel {
           dataType: 'TEXT',
         },
         {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'projectname',
+          prop: 'projectname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
           name: 'tostory',
           prop: 'tostory',
           dataType: 'PICKUP',
@@ -143,11 +153,6 @@ export default class MainModel {
         {
           name: 'testtask',
           prop: 'testtask',
-          dataType: 'PICKUP',
-        },
-        {
-          name: 'product',
-          prop: 'product',
           dataType: 'PICKUP',
         },
         {

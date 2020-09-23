@@ -3,8 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { BugUsr3GridView1Base } from './bug-usr3-grid-view1-base';
-import view_grid from '@widgets/bug/main-grid/main-grid.vue';
-import view_searchform from '@widgets/bug/default-searchform/default-searchform.vue';
+import view_grid from '@widgets/bug/main-data-export-grid/main-data-export-grid.vue';
 
 /**
  * Bug表格视图(遗留的bug)视图
@@ -16,7 +15,6 @@ import view_searchform from '@widgets/bug/default-searchform/default-searchform.
 @Component({
     components: {
         view_grid, 
-        view_searchform, 
     }
 })
 @VueLifeCycleProcessing()

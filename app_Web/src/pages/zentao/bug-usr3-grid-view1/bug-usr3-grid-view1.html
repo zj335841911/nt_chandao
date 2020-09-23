@@ -1,29 +1,5 @@
 <studio-view viewName="bugusr3gridview1" viewTitle="Bug表格视图(遗留的bug)" class='degridview bug-usr3-grid-view1'>
-    <template slot='title'>
-    <span class='caption-image'><i class='    fa fa-bug    '></i></span>
-    <span class='caption-info'>{{viewCaption}}</span>
-    </template>
-    <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" placeholder="Bug标题" search @on-search="onSearch($event)"/>
-    <template slot="toolbar">
-                <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
-    <template slot="searchForm">
-                <view_searchform 
-            :viewState="viewState"  
-            :viewparams="viewparams" 
-            :context="context" 
-            :showBusyIndicator="true"
-            v-show="isExpandSearchForm"
-            loaddraftAction="FilterGetDraft"
-            loadAction="FilterGet"
-        
-            name="searchform"  
-            ref='searchform' 
-            @save="searchform_save($event)"  
-            @search="searchform_search($event)"  
-            @load="searchform_load($event)"  
-            @closeview="closeView($event)">
-        </view_searchform>
-    </template>
+    <i-input slot="quickSearch" v-model="query" placeholder="Bug标题" search @on-search="onSearch($event)"/>
     <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 
