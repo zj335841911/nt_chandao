@@ -79,8 +79,10 @@ export default class AppRoundList extends Vue{
      * @memberof AppSearchHistory
      */ 
     @Watch('historyList')
-    onHistoryListChange(){
-      this.hasHistory = true;
+    onHistoryListChange(newVal:any){
+      if (newVal.length != 0) {
+        this.hasHistory = true;
+      }
     }
 
    /**
@@ -207,6 +209,10 @@ export default class AppRoundList extends Vue{
         this.historyList.pop();
       }
       if (this.enableHistory) {
+        this.historyLists = this.historyStorage.find((historyLists:any)=>{
+          return historyLists.viewname == this.model.viewname;
+        })
+        this.historyLists.historyList = this.historyList;
         localStorage.setItem('historyStorage', JSON.stringify(this.historyStorage))
       }
     }
@@ -218,11 +224,10 @@ export default class AppRoundList extends Vue{
      * @memberof AppSearchHistory
      */ 
     public async clearHistory(){
-      const result = await this.$notice.confirm('提醒','是否清除搜索历史？',this.$store);
+      const result = await this.$notice.confirm('提醒','是否清除搜索历史？');
       if (result) {
           this.historyList = [];
           this.historyLists.historyList = [];
-          this.historyStorage.splice(this.historyStorage.indexOf(this.historyLists),1);
           localStorage.setItem('historyStorage', JSON.stringify(this.historyStorage))
           return true;
       } else {

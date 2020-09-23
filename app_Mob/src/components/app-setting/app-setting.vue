@@ -166,7 +166,7 @@ export default class AppSetting extends Vue {
   public async logout() {
     const title: any = this.$t("app.tabpage.sureclosetip.title");
     const contant: any = this.$t("app.tabpage.sureclosetip.content");
-    const result = await this.$notice.confirm(title, "确认退出当前账号？", this.$store);
+    const result = await this.$notice.confirm(title, "确认退出当前账号？");
     if (result) {
       if (this.thirdPartyName) {
         this.$viewTool.ThirdPartyClose();
@@ -203,7 +203,7 @@ export default class AppSetting extends Vue {
    * 清除缓存
    */
   public async clear() {
-    const result = await this.$notice.confirm("清除缓存", "清除缓存可能会导致当前登录信息失效！！！", this.$store);
+    const result = await this.$notice.confirm("清除缓存", "清除缓存可能会导致当前登录信息失效！！！");
     if (result) {
       localStorage.clear();
     }

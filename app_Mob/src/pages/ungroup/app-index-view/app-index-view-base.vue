@@ -1,4 +1,6 @@
 <template>
+
+<div class="indexView">
 <view_appmenu
     :viewState="viewState"
     viewName="AppIndexView"  
@@ -15,6 +17,8 @@
     ref='appmenu' 
     @closeview="closeView($event)">
 </view_appmenu>
+        <app-update-log v-if="updateLogStatus"></app-update-log>
+</div>
 </template>
 
 <script lang='ts'>
@@ -289,6 +293,7 @@ export default class AppIndexViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
+        this.updateLogStatus = Environment.useUpdateLog && !localStorage.getItem('updateLogStatus')?true:false;
 
     }
 
@@ -453,6 +458,14 @@ export default class AppIndexViewBase extends Vue {
             return 'app-default-theme';
         }
     }
+
+    /**
+     * 显示更新日志
+     *
+     * @readonly
+     * @memberof AppIndexViewBase
+     */
+    public updateLogStatus:boolean = true;
 
     /**
      * 当前字体
