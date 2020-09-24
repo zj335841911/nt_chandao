@@ -59,18 +59,52 @@
 
 
 
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${P.getEditorCode(item, "EDITOR.vue")...  [in template "TEMPLCODE_en_US" at line 36, column 9]
-----
-无法获取指定编辑器[DATEPICKEREX_NOTIME]发布代码[FORMITEM][EDITOR.vue]模板
+<app-form-item 
+    name='n_begin_gtandeq' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="n_begin_gtandeq_item"  
+    :itemValue="this.data.n_begin_gtandeq" 
+    v-show="detailsModel.n_begin_gtandeq.visible" 
+    :itemRules="this.rules.n_begin_gtandeq" 
+    :caption="$t('productplan.mobdef_searchform.details.n_begin_gtandeq')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.n_begin_gtandeq.disabled"  
+    :error="detailsModel.n_begin_gtandeq.error" 
+    :isEmptyCaption="false">
+        <app-mob-datetime-picker 
+    class="app-form-item-datetime" 
+    :value="data.n_begin_gtandeq" 
+    :disabled="detailsModel.n_begin_gtandeq.disabled"
+    @change="($event)=>this.data.n_begin_gtandeq = $event"/>
+</app-form-item>
 
 
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${P.getEditorCode(item, "EDITOR.vue")...  [in template "TEMPLCODE_en_US" at line 36, column 9]
-----
-无法获取指定编辑器[DATEPICKEREX_NOTIME]发布代码[FORMITEM][EDITOR.vue]模板
+
+<app-form-item 
+    name='n_end_ltandeq' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="n_end_ltandeq_item"  
+    :itemValue="this.data.n_end_ltandeq" 
+    v-show="detailsModel.n_end_ltandeq.visible" 
+    :itemRules="this.rules.n_end_ltandeq" 
+    :caption="$t('productplan.mobdef_searchform.details.n_end_ltandeq')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.n_end_ltandeq.disabled"  
+    :error="detailsModel.n_end_ltandeq.error" 
+    :isEmptyCaption="false">
+        <app-mob-datetime-picker 
+    class="app-form-item-datetime" 
+    :value="data.n_end_ltandeq" 
+    :disabled="detailsModel.n_end_ltandeq.disabled"
+    @change="($event)=>this.data.n_end_ltandeq = $event"/>
+</app-form-item>
+
 
 
 
