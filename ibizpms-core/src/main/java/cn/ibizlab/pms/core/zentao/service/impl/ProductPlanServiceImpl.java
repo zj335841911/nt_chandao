@@ -74,7 +74,7 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
         @Override
     @Transactional
     public boolean create(ProductPlan et) {
-  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pmscore.util.ibizzentao.helper.ProductPlanHelper.class).create(et);
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).create(et);
     }
 
     @Override
