@@ -21,17 +21,22 @@ import { Vue, Component } from 'vue-property-decorator';
 })
 export default class Error404 extends Vue {
 
-    /**
-     * 跳转首页
-     *
-     * @memberof Error404
-     */
-    public gotoIndexView() {
+    redirect: any = null;
+
+    created() {
+        this.redirect = this.$route.params.p403;
+        const dom = document.getElementById('app-loading-x');
+        if (dom) {
+            dom.style.display = 'none';
+        }
+    }
+
+    gotoIndexView() {
         this.$router.back();
     }
 
     logout() {
-        this.$appService.logout();
+        this.$appService.logout(decodeURIComponent(this.redirect));
     }
 }
 </script>
