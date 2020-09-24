@@ -23,7 +23,7 @@ ruleflow-group "testreportgettestreportbasicinforawsqlcall10"
     param.put("param1",testreportgettestreportbasicinfodefault.get("id"));
     param.put("param2",testreportgettestreportbasicinfodefault.get("id"));
     param.put("param3",testreportgettestreportbasicinfodefault.get("id"));
-    String strSql="SELECT COUNT(1) as ylbugcnt FROM `zt_bug` t1  where FIND_IN_SET((select t.build from zt_testtask t inner join zt_testreport tt on t.id = tt.tasks where tt.id = #{et.param0}  ),t1.OPENEDBUILD)  and t1.openedDate > (select tt.`begin` from  zt_testreport tt  where tt.id = #{et.param1} ) and t1.openedDate < (select tt.`end` from  zt_testreport tt  where tt.id = #{et.param2} ) and (t1.`status` = 'active' or t1.resolvedDate > (select tt.`end` from zt_testreport tt where tt.id = #{et.param3}))";
+    String strSql="SELECT COUNT(1) as ylbugcnt FROM `zt_bug` t1  where  t1.OPENEDBUILD = (select t.build from zt_testtask t inner join zt_testreport tt on t.id = tt.tasks where tt.id = #{et.param0})   and t1.openedDate > (select tt.`begin` from  zt_testreport tt  where tt.id = #{et.param1} ) and t1.openedDate < (select CONCAT( DATE_FORMAT( tt.`end`, '%Y-%m-%d'),' 23:59:59') from  zt_testreport tt  where tt.id = #{et.param2} ) and (t1.`status` = 'active' or t1.resolvedDate > (select tt.`end` from zt_testreport tt where tt.id = #{et.param3}))";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
@@ -62,7 +62,7 @@ ruleflow-group "testreportgettestreportbasicinforawsqlcall4"
     param.put("param1",testreportgettestreportbasicinfodefault.get("id"));
     param.put("param2",testreportgettestreportbasicinfodefault.get("id"));
     param.put("param3",testreportgettestreportbasicinfodefault.get("id"));
-    String strSql="select COUNT(1) as failcase from (SELECT DISTINCT t1.id FROM `zt_case` t1  left join zt_testrun t11 on t1.id = t11.`case` left join zt_testresult t21 on t21.run = t11.id WHERE  t1.`DELETED` = '0' AND FIND_IN_SET ( t1.ID, (SELECT cases FROM ZT_TESTREPORT WHERE ID= #{et.param0})) and t11.task = (SELECT tasks FROM ZT_TESTREPORT WHERE ID= #{et.param1}) and t21.caseResult = 'fail' and t21.date >   (SELECT `BEGIN` FROM ZT_TESTREPORT WHERE ID= #{et.param2}) and t21.date <  (SELECT `end` FROM ZT_TESTREPORT WHERE ID= #{et.param3})) t";
+    String strSql="select COUNT(1) as failcase from (SELECT DISTINCT t1.id FROM `zt_case` t1  left join zt_testrun t11 on t1.id = t11.`case` left join zt_testresult t21 on t21.run = t11.id WHERE  t1.`DELETED` = '0' AND FIND_IN_SET ( t1.ID, (SELECT cases FROM ZT_TESTREPORT WHERE ID= #{et.param0})) and t11.task = (SELECT tasks FROM ZT_TESTREPORT WHERE ID= #{et.param1}) and t21.caseResult = 'fail' and t21.date >   (SELECT `BEGIN` FROM ZT_TESTREPORT WHERE ID= #{et.param2}) and t21.date <  (SELECT CONCAT( DATE_FORMAT( `end`, '%Y-%m-%d'),' 23:59:59') FROM ZT_TESTREPORT WHERE ID= #{et.param3})) t";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
@@ -82,7 +82,7 @@ ruleflow-group "testreportgettestreportbasicinforawsqlcall7"
     param.put("param0",testreportgettestreportbasicinfodefault.get("id"));
     param.put("param1",testreportgettestreportbasicinfodefault.get("id"));
     param.put("param2",testreportgettestreportbasicinfodefault.get("id"));
-    String strSql="SELECT COUNT(1) as resolvedcnt FROM `zt_bug` t1  where FIND_IN_SET((select t.build from zt_testtask t inner join zt_testreport tt on t.id = tt.tasks where tt.id = #{et.param0} ),t1.OPENEDBUILD)  and t1.openedDate > (select tt.`begin` from  zt_testreport tt  where tt.id = #{et.param1} ) and t1.openedDate < (select tt.`end` from  zt_testreport tt  where tt.id = #{et.param2} )  and t1.`status` in ('resolved','closed')";
+    String strSql="SELECT COUNT(1) as resolvedcnt FROM `zt_bug` t1  where  t1.OPENEDBUILD = (select t.build from zt_testtask t inner join zt_testreport tt on t.id = tt.tasks where tt.id = #{et.param0})   and t1.openedDate > (select tt.`begin` from  zt_testreport tt  where tt.id = #{et.param1} ) and t1.openedDate < (select CONCAT( DATE_FORMAT( tt.`end`, '%Y-%m-%d'),' 23:59:59') from  zt_testreport tt  where tt.id = #{et.param2} )  and t1.`status` in ('resolved','closed')";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
@@ -100,7 +100,7 @@ ruleflow-group "testreportgettestreportbasicinforawsqlcall5"
     then
     Map param =new HashMap();
     param.put("param0",testreportgettestreportbasicinfodefault.get("id"));
-    String strSql="select COUNT(1) testresultcnt from zt_testresult t1  INNER JOIN zt_case t31 on t31.id = t1.`case` inner join zt_testrun t11 on t1.run = t11.id and t1.`case` = t11.`case` inner join zt_testreport t21 on t11.task = t21.tasks where t21.id = #{et.param0} and FIND_IN_SET(t11.`case`,t21.cases) and t31.deleted = '0' and t1.date >   t21.`begin` and t1.date <  t21.`end`";
+    String strSql="select COUNT(1) testresultcnt from zt_testresult t1  INNER JOIN zt_case t31 on t31.id = t1.`case` inner join zt_testrun t11 on t1.run = t11.id and t1.`case` = t11.`case` inner join zt_testreport t21 on t11.task = t21.tasks where t21.id = #{et.param0} and FIND_IN_SET(t11.`case`,t21.cases) and t31.deleted = '0' and t1.date >   t21.`begin` and t1.date <  CONCAT( DATE_FORMAT( t21.`end`, '%Y-%m-%d'),' 23:59:59')";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
@@ -182,7 +182,7 @@ ruleflow-group "testreportgettestreportbasicinforawsqlcall8"
     param.put("param0",testreportgettestreportbasicinfodefault.get("id"));
     param.put("param1",testreportgettestreportbasicinfodefault.get("id"));
     param.put("param2",testreportgettestreportbasicinfodefault.get("id"));
-    String strSql="SELECT COUNT(1) as bugcnt FROM `zt_bug` t1  where FIND_IN_SET((select t.build from zt_testtask t inner join zt_testreport tt on t.id = tt.tasks where tt.id = #{et.param0} ),t1.OPENEDBUILD)  and t1.openedDate > (select tt.`begin` from  zt_testreport tt  where tt.id = #{et.param1} ) and t1.openedDate < (select tt.`end` from  zt_testreport tt  where tt.id = #{et.param2} )";
+    String strSql="SELECT COUNT(1) as bugcnt FROM `zt_bug` t1  where t1.OPENEDBUILD = (select t.build from zt_testtask t inner join zt_testreport tt on t.id = tt.tasks where tt.id = #{et.param0})  and t1.openedDate > (select tt.`begin` from  zt_testreport tt  where tt.id = #{et.param1} ) and t1.openedDate < (select CONCAT( DATE_FORMAT( tt.`end`, '%Y-%m-%d'),' 23:59:59') from  zt_testreport tt  where tt.id = #{et.param2} )";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
@@ -212,7 +212,7 @@ ruleflow-group "testreportgettestreportbasicinforawsqlcall3"
     param.put("param1",testreportgettestreportbasicinfodefault.get("id"));
     param.put("param2",testreportgettestreportbasicinfodefault.get("id"));
     param.put("param3",testreportgettestreportbasicinfodefault.get("id"));
-    String strSql="select COUNT(1) as rencase from (SELECT DISTINCT t1.id FROM `zt_case` t1  left join zt_testrun t11 on t1.id = t11.`case` INNER join zt_testresult t21 on t21.run = t11.id WHERE  t1.`DELETED` = '0' AND FIND_IN_SET ( t1.ID, (SELECT cases FROM ZT_TESTREPORT WHERE ID= #{et.param0})) and t11.task = (SELECT tasks FROM ZT_TESTREPORT WHERE ID= #{et.param1}) and t21.date >   (SELECT `BEGIN` FROM ZT_TESTREPORT WHERE ID= #{et.param2}) and t21.date <  (SELECT `end` FROM ZT_TESTREPORT WHERE ID= #{et.param3}) ) t";
+    String strSql="select COUNT(1) as rencase from (SELECT DISTINCT t1.id FROM `zt_case` t1  left join zt_testrun t11 on t1.id = t11.`case` INNER join zt_testresult t21 on t21.run = t11.id WHERE  t1.`DELETED` = '0' AND FIND_IN_SET ( t1.ID, (SELECT cases FROM ZT_TESTREPORT WHERE ID= #{et.param0})) and t11.task = (SELECT tasks FROM ZT_TESTREPORT WHERE ID= #{et.param1}) and t21.date >   (SELECT `BEGIN` FROM ZT_TESTREPORT WHERE ID= #{et.param2}) and t21.date <  (SELECT CONCAT( DATE_FORMAT( `end`, '%Y-%m-%d'),' 23:59:59') FROM ZT_TESTREPORT WHERE ID= #{et.param3}) ) t";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
@@ -271,7 +271,7 @@ ruleflow-group "testreportgettestreportbasicinforawsqlcall11"
     param.put("param0",testreportgettestreportbasicinfodefault.get("id"));
     param.put("param1",testreportgettestreportbasicinfodefault.get("id"));
     param.put("param2",testreportgettestreportbasicinfodefault.get("id"));
-    String strSql="SELECT COUNT(1) as casebugcnt FROM `zt_bug` t1  where FIND_IN_SET((select t.build from zt_testtask t inner join zt_testreport tt on t.id = tt.tasks where tt.id = #{et.param0} ),t1.OPENEDBUILD)  and t1.openedDate > (select tt.`begin` from zt_testreport tt where tt.id = #{et.param1} and t1.openedDate < (select tt.`end` from  zt_testreport tt  where tt.id = #{et.param2} ) )  and t1.`case` > 0";
+    String strSql="SELECT COUNT(1) as casebugcnt FROM `zt_bug` t1  where  t1.OPENEDBUILD = (select t.build from zt_testtask t inner join zt_testreport tt on t.id = tt.tasks where tt.id = #{et.param0})   and t1.openedDate > (select tt.`begin` from zt_testreport tt where tt.id = #{et.param1} and t1.openedDate < (select CONCAT( DATE_FORMAT( tt.`end`, '%Y-%m-%d'),' 23:59:59') from  zt_testreport tt  where tt.id = #{et.param2} ) )  and t1.`case` > 0";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
@@ -291,7 +291,7 @@ ruleflow-group "testreportgettestreportbasicinforawsqlcall6"
     param.put("param0",testreportgettestreportbasicinfodefault.get("id"));
     param.put("param1",testreportgettestreportbasicinfodefault.get("id"));
     param.put("param2",testreportgettestreportbasicinfodefault.get("id"));
-    String strSql="SELECT COUNT(1) as effective FROM `zt_bug` t1  where FIND_IN_SET((select t.build from zt_testtask t inner join zt_testreport tt on t.id = tt.tasks where tt.id = #{et.param0} ),t1.OPENEDBUILD)  and t1.openedDate > (select tt.`begin` from  zt_testreport tt  where tt.id = #{et.param1} ) and t1.openedDate < (select tt.`end` from  zt_testreport tt  where tt.id = #{et.param2} ) and t1.`status` in ('resolved','closed') and t1.resolution in ('fixed','postponed')";
+    String strSql="SELECT COUNT(1) as effective FROM `zt_bug` t1  where  t1.OPENEDBUILD = (select t.build from zt_testtask t inner join zt_testreport tt on t.id = tt.tasks where tt.id = #{et.param0})  and t1.openedDate > (select tt.`begin` from  zt_testreport tt  where tt.id = #{et.param1} ) and t1.openedDate < (select CONCAT( DATE_FORMAT( tt.`end`, '%Y-%m-%d'),' 23:59:59') from  zt_testreport tt  where tt.id = #{et.param2} ) and t1.`status` in ('resolved','closed') and t1.resolution in ('fixed','postponed')";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
