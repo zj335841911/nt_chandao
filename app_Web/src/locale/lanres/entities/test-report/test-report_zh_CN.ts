@@ -30,6 +30,10 @@ export default {
 			caption: "项目报告",
       		title: "测试报告表格视图",
 		},
+		projectmaininfoview: {
+			caption: "测试报告",
+      		title: "测试报告编辑视图",
+		},
 		mainediteditview: {
 			caption: "测试报告",
       		title: "测试报告编辑视图",
@@ -50,6 +54,10 @@ export default {
 			caption: "测试报告",
       		title: "测试报告表格视图",
 		},
+		projectmainediteditview: {
+			caption: "测试报告",
+      		title: "测试报告编辑视图",
+		},
 		actioneditview: {
 			caption: "历史记录",
       		title: "测试报告编辑视图（历史记录）",
@@ -65,6 +73,10 @@ export default {
 		maintabexpview: {
 			caption: "测试报告",
       		title: "测试报告分页导航视图",
+		},
+		projectdashboardview: {
+			caption: "项目报告",
+      		title: "测试报告数据看板视图",
 		},
 		editview: {
 			caption: "测试报告",
@@ -301,6 +313,12 @@ export default {
 		deuiaction1: {
 			caption: "导出",
 			tip: "导出",
+		},
+	},
+	projectmainediteditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
 		},
 	},
 };

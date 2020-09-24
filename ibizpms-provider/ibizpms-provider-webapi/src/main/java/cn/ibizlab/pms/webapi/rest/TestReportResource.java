@@ -142,6 +142,17 @@ public class TestReportResource {
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetTestReportProject-all')")
+    @ApiOperation(value = "根据测试报告获取基本信息", tags = {"测试报告" },  notes = "根据测试报告获取基本信息")
+	@RequestMapping(method = RequestMethod.PUT, value = "/testreports/{testreport_id}/gettestreportproject")
+    public ResponseEntity<TestReportDTO> getTestReportProject(@PathVariable("testreport_id") Long testreport_id, @RequestBody TestReportDTO testreportdto) {
+        TestReport domain = testreportMapping.toDomain(testreportdto);
+        domain.setId(testreport_id);
+        domain = testreportService.getTestReportProject(domain);
+        testreportdto = testreportMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-Save-all')")
     @ApiOperation(value = "保存测试报告", tags = {"测试报告" },  notes = "保存测试报告")
 	@RequestMapping(method = RequestMethod.POST, value = "/testreports/save")
@@ -281,6 +292,17 @@ public class TestReportResource {
         TestReport domain = testreportMapping.toDomain(testreportdto);
         domain.setProduct(product_id);
         domain = testreportService.getTestReportBasicInfo(domain) ;
+        testreportdto = testreportMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetTestReportProject-all')")
+    @ApiOperation(value = "根据产品测试报告", tags = {"测试报告" },  notes = "根据产品测试报告")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testreports/{testreport_id}/gettestreportproject")
+    public ResponseEntity<TestReportDTO> getTestReportProjectByProduct(@PathVariable("product_id") Long product_id, @PathVariable("testreport_id") Long testreport_id, @RequestBody TestReportDTO testreportdto) {
+        TestReport domain = testreportMapping.toDomain(testreportdto);
+        domain.setProduct(product_id);
+        domain = testreportService.getTestReportProject(domain) ;
         testreportdto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
@@ -432,6 +454,17 @@ public class TestReportResource {
         TestReport domain = testreportMapping.toDomain(testreportdto);
         domain.setProject(project_id);
         domain = testreportService.getTestReportBasicInfo(domain) ;
+        testreportdto = testreportMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetTestReportProject-all')")
+    @ApiOperation(value = "根据项目测试报告", tags = {"测试报告" },  notes = "根据项目测试报告")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/testreports/{testreport_id}/gettestreportproject")
+    public ResponseEntity<TestReportDTO> getTestReportProjectByProject(@PathVariable("project_id") Long project_id, @PathVariable("testreport_id") Long testreport_id, @RequestBody TestReportDTO testreportdto) {
+        TestReport domain = testreportMapping.toDomain(testreportdto);
+        domain.setProject(project_id);
+        domain = testreportService.getTestReportProject(domain) ;
         testreportdto = testreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
