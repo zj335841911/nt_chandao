@@ -67,6 +67,11 @@ export class MobModel {
                 prop: 'n_name_like', 
                 dataType: 'TEXT',
             },
+            {
+                name: 'n_status_eq',
+                prop: 'n_status_eq', 
+                dataType: 'SSCODELIST',
+            },
 
 			{
 				name: 'size',

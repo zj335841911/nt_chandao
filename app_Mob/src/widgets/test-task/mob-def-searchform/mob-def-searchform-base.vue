@@ -28,6 +28,37 @@
 
 
 
+<app-form-item 
+    name='n_status_eq' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="n_status_eq_item"  
+    :itemValue="this.data.n_status_eq" 
+    v-show="detailsModel.n_status_eq.visible" 
+    :itemRules="this.rules.n_status_eq" 
+    :caption="$t('testtask.mobdef_searchform.details.n_status_eq')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.n_status_eq.disabled"  
+    :error="detailsModel.n_status_eq.error" 
+    :isEmptyCaption="false">
+        <app-mob-select 
+    tag="Testtask__status"
+    codeListType="STATIC" 
+    :isCache="false" 
+    :disabled="detailsModel.n_status_eq.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.n_status_eq"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.n_status_eq = $event" />
+</app-form-item>
+
+
+
 
     </div>
 </template>
@@ -339,6 +370,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      */
     protected data: any = {
         n_name_like: null,
+        n_status_eq: null,
         testtask: null,
     };
 
@@ -379,6 +411,12 @@ export default class MobDefBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '名称(文本包含(%)) 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '名称(文本包含(%)) 值不能为空', trigger: 'blur' },
         ],
+        n_status_eq: [
+            { type: 'string', message: '当前状态(等于(=)) 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '当前状态(等于(=)) 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '当前状态(等于(=)) 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '当前状态(等于(=)) 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**
@@ -392,6 +430,8 @@ export default class MobDefBase extends Vue implements ControlInterface {
 , 
         n_name_like: new FormItemModel({ caption: '名称(文本包含(%))', detailType: 'FORMITEM', name: 'n_name_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        n_status_eq: new FormItemModel({ caption: '当前状态(等于(=))', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
     };
 
     /**
@@ -404,6 +444,18 @@ export default class MobDefBase extends Vue implements ControlInterface {
     @Watch('data.n_name_like')
     onN_name_likeChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'n_name_like', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 n_status_eq 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobDef
+     */
+    @Watch('data.n_status_eq')
+    onN_status_eqChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'n_status_eq', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -442,6 +494,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      */
     private formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
 
 
     }
@@ -569,7 +622,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected formValidateStatus(): boolean {
-        const refArr: Array<string> = ['n_name_like_item', ];
+        const refArr: Array<string> = ['n_name_like_item', 'n_status_eq_item', ];
         let falg = true;
         refArr.forEach((item: any) => {
             if (this.$refs[item] && (this.$refs[item] as any).validateRules && !(this.$refs[item] as any).validateRules()) {
