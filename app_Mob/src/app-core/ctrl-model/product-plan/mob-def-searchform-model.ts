@@ -26,19 +26,19 @@ export class MobDefModel {
                 dataType: 'TEXT',
             },
             {
-                name: 'n_isexpired_eq',
-                prop: 'n_isexpired_eq', 
-                dataType: 'YESNO',
-            },
-            {
-                name: 'n_future_eq',
-                prop: 'n_future_eq', 
-                dataType: 'SSCODELIST',
-            },
-            {
                 name: 'n_delta_eq',
                 prop: 'n_delta_eq', 
                 dataType: 'SSCODELIST',
+            },
+            {
+                name: 'n_begin_gtandeq',
+                prop: 'n_begin_gtandeq', 
+                dataType: 'DATE',
+            },
+            {
+                name: 'n_end_ltandeq',
+                prop: 'n_end_ltandeq', 
+                dataType: 'DATE',
             },
         ];
     }

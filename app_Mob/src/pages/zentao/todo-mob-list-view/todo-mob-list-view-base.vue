@@ -17,11 +17,10 @@
                 </div>
             </ion-buttons>
         </ion-toolbar>
-        <app-search-history @quickValueChange="quickValueChange" @openSearchform="openSearchform" :model="model" :showfilter="false"></app-search-history>
+        <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="false"></app-search-history>
 
     
     </ion-header>
-
 
     <ion-content>
                 <div>列表视图已废弃，请选择多数据视图</div>

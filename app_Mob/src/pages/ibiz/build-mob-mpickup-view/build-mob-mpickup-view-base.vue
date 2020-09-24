@@ -11,10 +11,10 @@
 
     </ion-header>
 
-    <ion-menu side="start" content-id="searchformbuildmobmpickupview" ref='searchformbuildmobmpickupview'>
+    <van-popup duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%;width: 77%;"  >
         <ion-header>
             <ion-toolbar translucent>
-            <ion-title>条件搜索</ion-title>
+                <ion-title>条件搜索</ion-title>
             </ion-toolbar>
         </ion-header>
         <ion-content>
@@ -45,9 +45,8 @@
             <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
         </div>
         </ion-footer>
-    </ion-menu>
+    </van-popup>
     <div id="searchformbuildmobmpickupview"></div>
-
     <ion-content>
                 <view_pickupviewpanel
             :viewState="viewState"
@@ -63,7 +62,7 @@
             @closeview="closeView($event)">
         </view_pickupviewpanel>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
         <ion-toolbar style="text-align: center;">
     <div class="mobpickupview_button">
       <ion-button class="pick-btn" @click="onClickCancel" color="medium">{{$t('app.button.cancel')}}</ion-button>

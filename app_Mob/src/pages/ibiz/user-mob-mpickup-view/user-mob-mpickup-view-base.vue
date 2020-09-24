@@ -19,7 +19,6 @@
 
     </ion-header>
 
-
     <ion-content>
                 <view_pickupviewpanel
             :viewState="viewState"
@@ -35,7 +34,7 @@
             @closeview="closeView($event)">
         </view_pickupviewpanel>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
         <ion-toolbar style="text-align: center;">
     <div class="mobpickupview_button">
       <ion-button class="pick-btn" @click="onClickCancel" color="medium">{{$t('app.button.cancel')}}</ion-button>

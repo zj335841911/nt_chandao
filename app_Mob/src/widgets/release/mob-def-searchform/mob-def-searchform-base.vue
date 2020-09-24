@@ -59,35 +59,11 @@
 
 
 
-<app-form-item 
-    name='n_releasetype_eq' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="n_releasetype_eq_item"  
-    :itemValue="this.data.n_releasetype_eq" 
-    v-show="detailsModel.n_releasetype_eq.visible" 
-    :itemRules="this.rules.n_releasetype_eq" 
-    :caption="$t('release.mobdef_searchform.details.n_releasetype_eq')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.n_releasetype_eq.disabled"  
-    :error="detailsModel.n_releasetype_eq.error" 
-    :isEmptyCaption="false">
-        <app-mob-select 
-    tag="RELEASE_Type"
-    codeListType="STATIC" 
-    :isCache="false" 
-    :disabled="detailsModel.n_releasetype_eq.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.n_releasetype_eq"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.n_releasetype_eq = $event" />
-</app-form-item>
-
+!!!!模版产生代码错误:----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${P.getEditorCode(item, "EDITOR.vue")...  [in template "TEMPLCODE_en_US" at line 36, column 9]
+----
+无法获取指定编辑器[DATEPICKEREX_HOUR]发布代码[FORMITEM][EDITOR.vue]模板
 
 
 
@@ -402,7 +378,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
     protected data: any = {
         n_name_like: null,
         n_status_eq: null,
-        n_releasetype_eq: null,
+        n_date_ltandeq: null,
         release: null,
     };
 
@@ -449,11 +425,11 @@ export default class MobDefBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '状态(等于 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '状态(等于 值不能为空', trigger: 'blur' },
         ],
-        n_releasetype_eq: [
-            { type: 'string', message: '运行模式 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '运行模式 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '运行模式 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '运行模式 值不能为空', trigger: 'blur' },
+        n_date_ltandeq: [
+            { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -470,7 +446,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
 , 
         n_status_eq: new FormItemModel({ caption: '状态(等于', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_releasetype_eq: new FormItemModel({ caption: '运行模式', detailType: 'FORMITEM', name: 'n_releasetype_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_date_ltandeq: new FormItemModel({ caption: '截止日期', detailType: 'FORMITEM', name: 'n_date_ltandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -499,15 +475,15 @@ export default class MobDefBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 n_releasetype_eq 值
+     * 监控表单属性 n_date_ltandeq 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobDef
      */
-    @Watch('data.n_releasetype_eq')
-    onN_releasetype_eqChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'n_releasetype_eq', newVal: newVal, oldVal: oldVal });
+    @Watch('data.n_date_ltandeq')
+    onN_date_ltandeqChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'n_date_ltandeq', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -675,7 +651,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected formValidateStatus(): boolean {
-        const refArr: Array<string> = ['n_name_like_item', 'n_status_eq_item', 'n_releasetype_eq_item', ];
+        const refArr: Array<string> = ['n_name_like_item', 'n_status_eq_item', 'n_date_ltandeq_item', ];
         let falg = true;
         refArr.forEach((item: any) => {
             if (this.$refs[item] && (this.$refs[item] as any).validateRules && !(this.$refs[item] as any).validateRules()) {

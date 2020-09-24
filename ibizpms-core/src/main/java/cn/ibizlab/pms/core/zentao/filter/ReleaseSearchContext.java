@@ -41,6 +41,15 @@ public class ReleaseSearchContext extends QueryWrapperContext<Release> {
             this.getSearchCond().like("name", n_name_like);
         }
     }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_date_ltandeq;//[发布日期]
+	public void setN_date_ltandeq(Timestamp n_date_ltandeq) {
+        this.n_date_ltandeq = n_date_ltandeq;
+        if(!ObjectUtils.isEmpty(this.n_date_ltandeq)){
+            this.getSearchCond().le("date", n_date_ltandeq);
+        }
+    }
 	private String n_status_eq;//[状态]
 	public void setN_status_eq(String n_status_eq) {
         this.n_status_eq = n_status_eq;

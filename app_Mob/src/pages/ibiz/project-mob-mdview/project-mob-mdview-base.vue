@@ -11,15 +11,15 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
-        <app-search-history @quickValueChange="quickValueChange" @openSearchform="openSearchform" :model="model" :showfilter="true"></app-search-history>
+        <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="true"></app-search-history>
 
     
     </ion-header>
 
-    <ion-menu side="start" content-id="searchformprojectmobmdview" ref='searchformprojectmobmdview'>
+    <van-popup duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%;width: 77%;"  >
         <ion-header>
             <ion-toolbar translucent>
-            <ion-title>条件搜索</ion-title>
+                <ion-title>条件搜索</ion-title>
             </ion-toolbar>
         </ion-header>
         <ion-content>
@@ -52,9 +52,8 @@
             <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
         </div>
         </ion-footer>
-    </ion-menu>
+    </van-popup>
     <div id="searchformprojectmobmdview"></div>
-
     <ion-content>
         <ion-refresher 
             slot="fixed" 
@@ -104,7 +103,7 @@
         </ion-infinite-scroll-content>
         </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
                 <div v-show="!showCheack" class = "fab_container">
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">

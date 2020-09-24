@@ -28,7 +28,6 @@
                     </ion-toolbar>
     </ion-header>
 
-
     <ion-content>
                 <view_tabexppanel
             :viewState="viewState"

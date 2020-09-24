@@ -6,7 +6,6 @@
     
     </ion-header>
 
-
     <ion-content>
                 <view_dashboard
             :viewState="viewState"

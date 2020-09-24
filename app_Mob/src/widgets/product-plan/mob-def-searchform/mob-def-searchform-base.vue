@@ -29,57 +29,6 @@
 
 
 <app-form-item 
-    name='n_isexpired_eq' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="n_isexpired_eq_item"  
-    :itemValue="this.data.n_isexpired_eq" 
-    v-show="detailsModel.n_isexpired_eq.visible" 
-    :itemRules="this.rules.n_isexpired_eq" 
-    :caption="$t('productplan.mobdef_searchform.details.n_isexpired_eq')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.n_isexpired_eq.disabled"  
-    :error="detailsModel.n_isexpired_eq.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        v-if="data.n_isexpired_eq" 
-    :context="context" 
-    :value="data.n_isexpired_eq" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='n_future_eq' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="n_future_eq_item"  
-    :itemValue="this.data.n_future_eq" 
-    v-show="detailsModel.n_future_eq.visible" 
-    :itemRules="this.rules.n_future_eq" 
-    :caption="$t('productplan.mobdef_searchform.details.n_future_eq')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.n_future_eq.disabled"  
-    :error="detailsModel.n_future_eq.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        codeListType="STATIC" 
-    tag="Date_disable"
-    :isCache="false" 
-    v-if="data.n_future_eq" 
-    :context="context" 
-    :value="data.n_future_eq" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
     name='n_delta_eq' 
     class='' 
     uiStyle="DEFAULT"  
@@ -108,6 +57,20 @@
     @change="($event)=>this.data.n_delta_eq = $event" />
 </app-form-item>
 
+
+
+!!!!模版产生代码错误:----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${P.getEditorCode(item, "EDITOR.vue")...  [in template "TEMPLCODE_en_US" at line 36, column 9]
+----
+无法获取指定编辑器[DATEPICKEREX_HOUR]发布代码[FORMITEM][EDITOR.vue]模板
+
+
+!!!!模版产生代码错误:----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${P.getEditorCode(item, "EDITOR.vue")...  [in template "TEMPLCODE_en_US" at line 36, column 9]
+----
+无法获取指定编辑器[DATEPICKEREX_HOUR]发布代码[FORMITEM][EDITOR.vue]模板
 
 
 
@@ -421,9 +384,9 @@ export default class MobDefBase extends Vue implements ControlInterface {
      */
     protected data: any = {
         n_title_like: null,
-        n_isexpired_eq: null,
-        n_future_eq: null,
         n_delta_eq: null,
+        n_begin_gtandeq: null,
+        n_end_ltandeq: null,
         productplan: null,
     };
 
@@ -464,23 +427,23 @@ export default class MobDefBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '名称 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
         ],
-        n_isexpired_eq: [
-            { type: 'string', message: '是否过期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '是否过期 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '是否过期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '是否过期 值不能为空', trigger: 'blur' },
-        ],
-        n_future_eq: [
-            { type: 'string', message: '待定 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '待定 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '待定 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '待定 值不能为空', trigger: 'blur' },
-        ],
         n_delta_eq: [
             { type: 'string', message: '周期 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: '周期 值必须为字符串类型', trigger: 'blur' },
             { required: false, type: 'string', message: '周期 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '周期 值不能为空', trigger: 'blur' },
+        ],
+        n_begin_gtandeq: [
+            { type: 'string', message: '开始日期 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '开始日期 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '开始日期 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '开始日期 值不能为空', trigger: 'blur' },
+        ],
+        n_end_ltandeq: [
+            { type: 'string', message: '结束日期 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '结束日期 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -495,11 +458,11 @@ export default class MobDefBase extends Vue implements ControlInterface {
 , 
         n_title_like: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'n_title_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_isexpired_eq: new FormItemModel({ caption: '是否过期', detailType: 'FORMITEM', name: 'n_isexpired_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        n_future_eq: new FormItemModel({ caption: '待定', detailType: 'FORMITEM', name: 'n_future_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
         n_delta_eq: new FormItemModel({ caption: '周期', detailType: 'FORMITEM', name: 'n_delta_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        n_begin_gtandeq: new FormItemModel({ caption: '开始日期', detailType: 'FORMITEM', name: 'n_begin_gtandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        n_end_ltandeq: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'n_end_ltandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -516,30 +479,6 @@ export default class MobDefBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 n_isexpired_eq 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobDef
-     */
-    @Watch('data.n_isexpired_eq')
-    onN_isexpired_eqChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'n_isexpired_eq', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 n_future_eq 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobDef
-     */
-    @Watch('data.n_future_eq')
-    onN_future_eqChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'n_future_eq', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 n_delta_eq 值
      *
      * @param {*} newVal
@@ -549,6 +488,30 @@ export default class MobDefBase extends Vue implements ControlInterface {
     @Watch('data.n_delta_eq')
     onN_delta_eqChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'n_delta_eq', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 n_begin_gtandeq 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobDef
+     */
+    @Watch('data.n_begin_gtandeq')
+    onN_begin_gtandeqChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'n_begin_gtandeq', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 n_end_ltandeq 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobDef
+     */
+    @Watch('data.n_end_ltandeq')
+    onN_end_ltandeqChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'n_end_ltandeq', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -717,7 +680,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected formValidateStatus(): boolean {
-        const refArr: Array<string> = ['n_title_like_item', 'n_isexpired_eq_item', 'n_future_eq_item', 'n_delta_eq_item', ];
+        const refArr: Array<string> = ['n_title_like_item', 'n_delta_eq_item', 'n_begin_gtandeq_item', 'n_end_ltandeq_item', ];
         let falg = true;
         refArr.forEach((item: any) => {
             if (this.$refs[item] && (this.$refs[item] as any).validateRules && !(this.$refs[item] as any).validateRules()) {

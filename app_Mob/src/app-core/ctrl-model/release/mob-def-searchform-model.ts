@@ -31,9 +31,9 @@ export class MobDefModel {
                 dataType: 'SSCODELIST',
             },
             {
-                name: 'n_releasetype_eq',
-                prop: 'n_releasetype_eq', 
-                dataType: 'SSCODELIST',
+                name: 'n_date_ltandeq',
+                prop: 'n_date_ltandeq', 
+                dataType: 'DATE',
             },
         ];
     }

@@ -15,7 +15,6 @@
     
     </ion-header>
 
-
     <ion-content>
                 <view_chart
             :viewState="viewState"

@@ -2,15 +2,15 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'build-mob-mdview': true }">
     
     <ion-header>
-        <app-search-history @quickValueChange="quickValueChange" @openSearchform="openSearchform" :model="model" :showfilter="true"></app-search-history>
+        <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="true"></app-search-history>
 
     
     </ion-header>
 
-    <ion-menu side="start" content-id="searchformbuildmobmdview" ref='searchformbuildmobmdview'>
+    <van-popup duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%;width: 77%;"  >
         <ion-header>
             <ion-toolbar translucent>
-            <ion-title>条件搜索</ion-title>
+                <ion-title>条件搜索</ion-title>
             </ion-toolbar>
         </ion-header>
         <ion-content>
@@ -43,9 +43,8 @@
             <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
         </div>
         </ion-footer>
-    </ion-menu>
+    </van-popup>
     <div id="searchformbuildmobmdview"></div>
-
     <ion-content>
         <ion-refresher 
             slot="fixed" 
@@ -95,7 +94,7 @@
         </ion-infinite-scroll-content>
         </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
         
     </ion-footer>
 </ion-page>

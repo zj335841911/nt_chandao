@@ -124,6 +124,7 @@ export const AppComponents = {
         v.component('app-customize',() => import('@/ibiz-core/components/app-customize/app-customize.vue'));
         // 主题切换组件
         v.component('app-mob-select-changeTheme',() => import('@/ibiz-core/components/app-mob-select-changeTheme/app-mob-select-changeTheme.vue'));
-        // 内置组件 BEGIN
+        // 锚点列表插件
+        v.component('app-anchor-list',() => import('@/components/app-anchor-list/app-anchor-list.vue'));
     },
 };

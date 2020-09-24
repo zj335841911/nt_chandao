@@ -93,7 +93,7 @@ export default {
 			formpage1: '常规条件', 
 			n_name_like: '发布名称', 
 			n_status_eq: '状态(等于', 
-			n_releasetype_eq: '运行模式', 
+			n_date_ltandeq: '截止日期', 
 		},
 		uiactions: {
 		},

@@ -16,7 +16,6 @@
     
     </ion-header>
 
-
     <ion-content>
                 <view_form
             :viewState="viewState"
@@ -42,7 +41,7 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
         <div class="option-view-btnbox">
   <ion-button class="option-btn medium" color="medium" @click="back">返回</ion-button>
   <ion-button class="option-btn success" @click="save">保存</ion-button> 

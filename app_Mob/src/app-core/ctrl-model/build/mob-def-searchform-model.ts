@@ -26,9 +26,14 @@ export class MobDefModel {
                 dataType: 'TEXT',
             },
             {
-                name: 'n_releasetype_eq',
-                prop: 'n_releasetype_eq', 
-                dataType: 'SSCODELIST',
+                name: 'n_productname_like',
+                prop: 'n_productname_like', 
+                dataType: 'PICKUPTEXT',
+            },
+            {
+                name: 'n_date_ltandeq',
+                prop: 'n_date_ltandeq', 
+                dataType: 'DATE',
             },
         ];
     }

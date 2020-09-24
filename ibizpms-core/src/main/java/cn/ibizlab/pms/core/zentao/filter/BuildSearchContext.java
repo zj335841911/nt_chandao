@@ -34,6 +34,15 @@ public class BuildSearchContext extends QueryWrapperContext<Build> {
             this.getSearchCond().like("name", n_name_like);
         }
     }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_date_ltandeq;//[打包日期]
+	public void setN_date_ltandeq(Timestamp n_date_ltandeq) {
+        this.n_date_ltandeq = n_date_ltandeq;
+        if(!ObjectUtils.isEmpty(this.n_date_ltandeq)){
+            this.getSearchCond().le("date", n_date_ltandeq);
+        }
+    }
 	private Long n_product_eq;//[产品]
 	public void setN_product_eq(Long n_product_eq) {
         this.n_product_eq = n_product_eq;

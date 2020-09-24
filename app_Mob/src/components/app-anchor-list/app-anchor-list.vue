@@ -82,8 +82,14 @@ export default class AppQuickGroupTab extends Vue {
       this.$forceUpdate();
       
       // 根据分组属性进行排序
-      this.showItems.push(...this.items);
-      this.reSort(this.showItems);
+      this.showItems.push(...newVal);
+      this.showItems.sort((prev: any, next: any) => {
+        let x:any = prev.group;
+        let y:any = next.group;
+        if (x < y) {return -1}
+        if (x > y) {return 1}
+        return 0;
+      });
 
       // 没有分组的单独处理
       this.unSetGroupHandled();
@@ -96,10 +102,8 @@ export default class AppQuickGroupTab extends Vue {
     }
   }
 
-  // item_click(item)
-
   /**
-   * 监控items变化
+   * 锚点列表处理
    *
    * @memberof AppQuickGroup
    */
@@ -115,15 +119,26 @@ export default class AppQuickGroupTab extends Vue {
       return this.anchorList.indexOf(anchor, 0) === index;
     });
     // 锚点列表排序
-      this.reSort(this.anchorList);
+      this.anchorList.sort((prev: any, next: any) => {
+        let x:any = prev;
+        let y:any = next;
+        if (x < y) {return -1}
+        if (x > y) {return 1}
+        return 0;
+      });
   }
 
+  /**
+   * 列表项点击事件
+   *
+   * @memberof AppQuickGroup
+   */
   public termClick(item:any) {
     this.$emit("termClick",item)
   }
 
   /**
-   * 监控items变化
+   * 未分组项处理
    *
    * @memberof AppQuickGroup
    */
@@ -137,22 +152,7 @@ export default class AppQuickGroupTab extends Vue {
   }
 
   /**
-   * 监控items变化
-   *
-   * @memberof AppQuickGroup
-   */
-  public reSort(array:any) {
-    array.sort((prev: any, next: any) => {
-        let x:any = prev;
-        let y:any = next;
-        if (x < y) {return -1}
-        if (x > y) {return 1}
-        return 0;
-      });
-  }
-
-  /**
-   * 监控items变化
+   * 设置锚点
    *
    * @memberof AppQuickGroup
    */
@@ -172,7 +172,7 @@ export default class AppQuickGroupTab extends Vue {
   }
 
   /**
-   * 监控items变化
+   * 锚点跳转
    *
    * @memberof AppQuickGroup
    */

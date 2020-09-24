@@ -16,7 +16,6 @@
     
     </ion-header>
 
-
     <ion-content>
         <ion-refresher 
             slot="fixed" 

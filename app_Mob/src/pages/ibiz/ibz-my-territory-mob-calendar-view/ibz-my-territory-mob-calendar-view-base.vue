@@ -6,7 +6,6 @@
     
     </ion-header>
 
-
     <ion-content>
                 <view_calendar
             :viewState="viewState"
@@ -22,7 +21,7 @@
             @closeview="closeView($event)">
         </view_calendar>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
         
     </ion-footer>
 </ion-page>

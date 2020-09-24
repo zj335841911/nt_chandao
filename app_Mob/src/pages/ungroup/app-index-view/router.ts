@@ -550,39 +550,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/case-mob-edit-view/case-mob-edit-view.vue'),
                 },
                 {
-                    path: 'products/:product?/releases/:release?/mobpickupmdview',
-                    name: 'release_mobpickupmdview',
-                    meta: {
-                        caption: 'release.views.mobpickupmdview.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-flag-o',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'releases', parameterName: 'release' },
-                            { pathName: 'mobpickupmdview', parameterName: 'mobpickupmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/release-mob-pickup-mdview/release-mob-pickup-mdview.vue'),
-                },
-                {
-                    path: 'releases/:release?/mobpickupmdview',
-                    name: 'release_mobpickupmdview',
-                    meta: {
-                        caption: 'release.views.mobpickupmdview.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-flag-o',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'releases', parameterName: 'release' },
-                            { pathName: 'mobpickupmdview', parameterName: 'mobpickupmdview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/release-mob-pickup-mdview/release-mob-pickup-mdview.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/commoboptionview',
                     name: 'task_commoboptionview',
                     meta: {
@@ -767,39 +734,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/test-task-mob-mdview/test-task-mob-mdview.vue'),
-                },
-                {
-                    path: 'products/:product?/releases/:release?/mobpickupview',
-                    name: 'release_mobpickupview',
-                    meta: {
-                        caption: 'release.views.mobpickupview.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-flag-o',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'releases', parameterName: 'release' },
-                            { pathName: 'mobpickupview', parameterName: 'mobpickupview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/release-mob-pickup-view/release-mob-pickup-view.vue'),
-                },
-                {
-                    path: 'releases/:release?/mobpickupview',
-                    name: 'release_mobpickupview',
-                    meta: {
-                        caption: 'release.views.mobpickupview.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-flag-o',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'releases', parameterName: 'release' },
-                            { pathName: 'mobpickupview', parameterName: 'mobpickupview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/release-mob-pickup-view/release-mob-pickup-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/assmoremobmdview',
