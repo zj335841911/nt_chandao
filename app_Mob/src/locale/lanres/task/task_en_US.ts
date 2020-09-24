@@ -310,6 +310,8 @@ export default {
 			n_type_eq: '任务类型', 
 			n_status_eq: '任务状态', 
 			n_projectname_eq: '所属项目', 
+			n_closeddate_ltandeq: '关闭时间', 
+			n_finisheddate_ltandeq: '完成时间', 
 		},
 		uiactions: {
 		},

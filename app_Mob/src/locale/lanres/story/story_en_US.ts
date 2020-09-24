@@ -315,9 +315,9 @@ export default {
 	mobdef_searchform: {
 		details: {
 			formpage1: '常规条件', 
-			n_title_like: '需求名称(文本包含(%))', 
-			n_status_eq: '当前状态(等于(=))', 
-			n_type_eq: '需求类型(等于(=))', 
+			n_title_like: '需求名', 
+			n_status_eq: '当前状态', 
+			n_type_eq: '需求类型', 
 		},
 		uiactions: {
 		},

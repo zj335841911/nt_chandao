@@ -130,6 +130,37 @@
 
 
 
+!!!!模版产生代码错误:----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${P.getEditorCode(item, "EDITOR.vue")...  [in template "TEMPLCODE_en_US" at line 36, column 9]
+----
+无法获取指定编辑器[DATEPICKEREX]发布代码[FORMITEM][EDITOR.vue]模板
+
+
+<app-form-item 
+    name='n_finisheddate_ltandeq' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="n_finisheddate_ltandeq_item"  
+    :itemValue="this.data.n_finisheddate_ltandeq" 
+    v-show="detailsModel.n_finisheddate_ltandeq.visible" 
+    :itemRules="this.rules.n_finisheddate_ltandeq" 
+    :caption="$t('task.mobdef_searchform.details.n_finisheddate_ltandeq')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.n_finisheddate_ltandeq.disabled"  
+    :error="detailsModel.n_finisheddate_ltandeq.error" 
+    :isEmptyCaption="false">
+        <app-mob-datetime-picker 
+    class="app-form-item-datetime" 
+    :value="data.n_finisheddate_ltandeq" 
+    :disabled="detailsModel.n_finisheddate_ltandeq.disabled"
+    @change="($event)=>this.data.n_finisheddate_ltandeq = $event"/>
+</app-form-item>
+
+
+
 
     </div>
 </template>
@@ -444,6 +475,8 @@ export default class MobDefBase extends Vue implements ControlInterface {
         n_type_eq: null,
         n_status_eq: null,
         n_projectname_eq: null,
+        n_closeddate_ltandeq: null,
+        n_finisheddate_ltandeq: null,
         task: null,
     };
 
@@ -502,6 +535,18 @@ export default class MobDefBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '所属项目 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '所属项目 值不能为空', trigger: 'blur' },
         ],
+        n_closeddate_ltandeq: [
+            { type: 'string', message: '关闭时间 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '关闭时间 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '关闭时间 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '关闭时间 值不能为空', trigger: 'blur' },
+        ],
+        n_finisheddate_ltandeq: [
+            { type: 'string', message: '完成时间 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '完成时间 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '完成时间 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '完成时间 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**
@@ -520,6 +565,10 @@ export default class MobDefBase extends Vue implements ControlInterface {
         n_status_eq: new FormItemModel({ caption: '任务状态', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         n_projectname_eq: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'n_projectname_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        n_closeddate_ltandeq: new FormItemModel({ caption: '关闭时间', detailType: 'FORMITEM', name: 'n_closeddate_ltandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        n_finisheddate_ltandeq: new FormItemModel({ caption: '完成时间', detailType: 'FORMITEM', name: 'n_finisheddate_ltandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -571,6 +620,30 @@ export default class MobDefBase extends Vue implements ControlInterface {
         this.formDataChange({ name: 'n_projectname_eq', newVal: newVal, oldVal: oldVal });
     }
 
+    /**
+     * 监控表单属性 n_closeddate_ltandeq 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobDef
+     */
+    @Watch('data.n_closeddate_ltandeq')
+    onN_closeddate_ltandeqChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'n_closeddate_ltandeq', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 n_finisheddate_ltandeq 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobDef
+     */
+    @Watch('data.n_finisheddate_ltandeq')
+    onN_finisheddate_ltandeqChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'n_finisheddate_ltandeq', newVal: newVal, oldVal: oldVal });
+    }
+
 
     /**
      * 重置表单项值
@@ -607,6 +680,8 @@ export default class MobDefBase extends Vue implements ControlInterface {
      */
     private formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
 
 
 
@@ -737,7 +812,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected formValidateStatus(): boolean {
-        const refArr: Array<string> = ['n_name_like_item', 'n_type_eq_item', 'n_status_eq_item', 'n_projectname_eq_item', ];
+        const refArr: Array<string> = ['n_name_like_item', 'n_type_eq_item', 'n_status_eq_item', 'n_projectname_eq_item', 'n_closeddate_ltandeq_item', 'n_finisheddate_ltandeq_item', ];
         let falg = true;
         refArr.forEach((item: any) => {
             if (this.$refs[item] && (this.$refs[item] as any).validateRules && !(this.$refs[item] as any).validateRules()) {
