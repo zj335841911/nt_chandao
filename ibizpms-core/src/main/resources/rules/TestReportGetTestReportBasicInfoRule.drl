@@ -231,7 +231,7 @@ ruleflow-group "testreportgettestreportbasicinforawsqlcall11"
     param.put("param0",testreportgettestreportbasicinfodefault.get("id"));
     param.put("param1",testreportgettestreportbasicinfodefault.get("id"));
     param.put("param2",testreportgettestreportbasicinfodefault.get("id"));
-    String strSql="SELECT COUNT(1) as casebugcnt FROM `zt_bug` t1  where FIND_IN_SET((select t.build from zt_testtask t inner join zt_testreport tt on t.id = tt.tasks where tt.id = 13 ),t1.OPENEDBUILD)  and t1.openedDate > (select tt.`begin` from zt_testreport tt where tt.id = 13 and t1.openedDate < (select tt.`end` from  zt_testreport tt  where tt.id = 13 ) )  and t1.`case` > 0";
+    String strSql="SELECT COUNT(1) as casebugcnt FROM `zt_bug` t1  where FIND_IN_SET((select t.build from zt_testtask t inner join zt_testreport tt on t.id = tt.tasks where tt.id = #{et.param0} ),t1.OPENEDBUILD)  and t1.openedDate > (select tt.`begin` from zt_testreport tt where tt.id = #{et.param1} and t1.openedDate < (select tt.`end` from  zt_testreport tt  where tt.id = #{et.param2} ) )  and t1.`case` > 0";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
