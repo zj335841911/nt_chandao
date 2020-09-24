@@ -539,6 +539,16 @@
         "viewtag": "1ed8a475f4c185fc99c487900bbcf69e",
         "memo": "\"????\" \"????\""
     },
+    "testreportmainediteditview": {
+        "title": "测试报告编辑视图",
+        "caption": "测试报告",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportMainEditEditView",
+        "viewfilename": "test-report-main-edit-edit-view",
+        "viewtag": "1f13f330cbca49433d11328f9e7d8ae2",
+        "memo": ""
+    },
     "storymainview9_related": {
         "title": "需求编辑视图",
         "caption": "需求",

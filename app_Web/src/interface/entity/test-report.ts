@@ -189,4 +189,12 @@ export interface TestReport {
      * @memberof TestReport
      */
     overviews?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof TestReport
+     */
+    files?: any;
 }

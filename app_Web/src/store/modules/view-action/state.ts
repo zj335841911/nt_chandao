@@ -456,6 +456,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1f13f330cbca49433d11328f9e7d8ae2',
+            viewmodule: 'zentao',
+            viewname: 'TestReportMainEditEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '1f87f07919b8496e5bf832f95686fada',
             viewmodule: 'zentao',
             viewname: 'StoryMainView9_Related',
@@ -824,6 +833,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '9ed41cee96088630f3d4b0a91e705930',
             ],
         },
         {
@@ -1020,6 +1030,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '1f13f330cbca49433d11328f9e7d8ae2',
                 'ea7a4f0ccc237a45f39ffb2e3df7e9fd',
                 'f340b16bd1355b1c511d9da4b00476e2',
             ],

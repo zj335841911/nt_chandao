@@ -439,6 +439,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "iBizPMS",
             "viewtag": "1ed8a475f4c185fc99c487900bbcf69e"
         },
+        "testreportmainediteditview": {
+            "title": "测试报告编辑视图",
+            "caption": "测试报告",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestReportMainEditEditView",
+            "viewtag": "1f13f330cbca49433d11328f9e7d8ae2"
+        },
         "storymainview9_related": {
             "title": "需求编辑视图",
             "caption": "需求",

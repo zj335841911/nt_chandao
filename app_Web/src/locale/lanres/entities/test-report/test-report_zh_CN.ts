@@ -23,8 +23,13 @@ export default {
     projectname: "所属项目",
     comment: "备注",
     overviews: "概况",
+    files: "附件",
   },
 	views: {
+		mainediteditview: {
+			caption: "测试报告",
+      		title: "测试报告编辑视图",
+		},
 		maininfoview: {
 			caption: "测试报告",
       		title: "测试报告编辑视图",
@@ -64,6 +69,8 @@ export default {
 	},
 	maininfo_form: {
 		details: {
+			druipart1: "", 
+			grouppanel1: "附件", 
 			group1: "基本信息", 
 			formpage1: "基本信息", 
 			srforikey: "", 
@@ -147,6 +154,42 @@ export default {
 		uiactions: {
 		},
 	},
+	mainedit_form: {
+		details: {
+			group1: "基本信息", 
+			formpage1: "报告编辑", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			tasks: "测试单", 
+			objectid: "所属对象", 
+			project: "所属项目", 
+			productname: "所属产品", 
+			product: "所属产品", 
+			begin: "开始时间", 
+			end: "结束时间", 
+			formitemex1: "起止时间", 
+			owner: "负责人", 
+			objecttype: "对象类型", 
+			builds: "版本信息", 
+			bugs: "测试的Bug", 
+			stories: "测试的需求", 
+			cases: "用例", 
+			title: "标题", 
+			members: "参与人员", 
+			projectname: "所属项目", 
+			overviews: "概况", 
+			report: "总结", 
+			files: "附件", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
 	main_form: {
 		details: {
 			group1: "基本信息", 
@@ -175,6 +218,7 @@ export default {
 			title: "标题", 
 			members: "参与人员", 
 			projectname: "所属项目", 
+			overviews: "概况", 
 			report: "总结", 
 			id: "编号", 
 		},
@@ -207,8 +251,17 @@ export default {
 			createddate: "创建时间",
 			projectname: "所属项目",
 			tasks: "测试版本",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			testreport_edits: "编辑",
+			testreport_delete: "删除",
+		},
+	},
+	mainediteditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
 		},
 	},
 	editviewtoolbar_toolbar: {

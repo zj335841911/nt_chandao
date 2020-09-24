@@ -84,6 +84,9 @@ export default class MainModel {
       {
         name: 'overviews',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

@@ -1392,6 +1392,39 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-team-grid-view9/task-team-grid-view9.vue'),
                 },
                 {
+                    path: 'products/:product?/testreports/:testreport?/mainediteditview/:mainediteditview?',
+                    meta: {
+                        caption: 'entities.testreport.views.mainediteditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testreports', parameterName: 'testreport' },
+                            { pathName: 'mainediteditview', parameterName: 'mainediteditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-report-main-edit-edit-view/test-report-main-edit-edit-view.vue'),
+                },
+                {
+                    path: 'testreports/:testreport?/mainediteditview/:mainediteditview?',
+                    meta: {
+                        caption: 'entities.testreport.views.mainediteditview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'testreports', parameterName: 'testreport' },
+                            { pathName: 'mainediteditview', parameterName: 'mainediteditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-report-main-edit-edit-view/test-report-main-edit-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/mainview_link/:mainview_link?',
                     meta: {
                         caption: 'entities.story.views.mainview_link.caption',

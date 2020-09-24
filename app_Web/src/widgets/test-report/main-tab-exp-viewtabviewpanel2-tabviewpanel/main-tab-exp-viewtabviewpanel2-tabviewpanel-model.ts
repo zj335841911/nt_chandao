@@ -84,6 +84,9 @@ export default class MainTabExpViewtabviewpanel2Model {
       {
         name: 'overviews',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

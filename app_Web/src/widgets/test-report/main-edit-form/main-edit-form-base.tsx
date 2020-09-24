@@ -2,7 +2,7 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, EditFormControlBase } from '@/studio-core';
 import TestReportService from '@/service/test-report/test-report-service';
-import MainService from './main-form-service';
+import MainEditService from './main-edit-form-service';
 import TestReportUIService from '@/uiservice/test-report/test-report-ui-service';
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 
@@ -12,32 +12,32 @@ import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormP
  *
  * @export
  * @class EditFormControlBase
- * @extends {MainEditFormBase}
+ * @extends {MainEditEditFormBase}
  */
-export class MainEditFormBase extends EditFormControlBase {
+export class MainEditEditFormBase extends EditFormControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof MainEditFormBase
+     * @memberof MainEditEditFormBase
      */
     protected controlType: string = 'FORM';
 
     /**
      * 建构部件服务对象
      *
-     * @type {MainService}
-     * @memberof MainEditFormBase
+     * @type {MainEditService}
+     * @memberof MainEditEditFormBase
      */
-    public service: MainService = new MainService({ $store: this.$store });
+    public service: MainEditService = new MainEditService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {TestReportService}
-     * @memberof MainEditFormBase
+     * @memberof MainEditEditFormBase
      */
     public appEntityService: TestReportService = new TestReportService({ $store: this.$store });
 
@@ -46,7 +46,7 @@ export class MainEditFormBase extends EditFormControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof MainEditFormBase
+     * @memberof MainEditEditFormBase
      */
     protected appDeName: string = 'testreport';
 
@@ -55,7 +55,7 @@ export class MainEditFormBase extends EditFormControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof MainEditFormBase
+     * @memberof MainEditEditFormBase
      */
     protected appDeLogicName: string = '测试报告';
 
@@ -63,7 +63,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * 界面UI服务对象
      *
      * @type {TestReportUIService}
-     * @memberof MainBase
+     * @memberof MainEditBase
      */  
     public appUIService:TestReportUIService = new TestReportUIService(this.$store);
 
@@ -71,7 +71,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * 表单数据对象
      *
      * @type {*}
-     * @memberof MainEditFormBase
+     * @memberof MainEditEditFormBase
      */
     public data: any = {
         srforikey: null,
@@ -100,6 +100,7 @@ export class MainEditFormBase extends EditFormControlBase {
         projectname: null,
         overviews: null,
         report: null,
+        files: null,
         id: null,
         testreport:null,
     };
@@ -108,7 +109,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainEditFormBase
+     * @memberof MainEditEditFormBase
      */
     public rules: any = {
         title: [
@@ -121,7 +122,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * 属性值规则
      *
      * @type {*}
-     * @memberof MainBase
+     * @memberof MainEditBase
      */
     public deRules:any = {
     };
@@ -130,12 +131,12 @@ export class MainEditFormBase extends EditFormControlBase {
      * 详情模型集合
      *
      * @type {*}
-     * @memberof MainEditFormBase
+     * @memberof MainEditEditFormBase
      */
     public detailsModel: any = {
-        group1: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testreport.main_form', extractMode: 'ITEM', details: [] } }),
+        group1: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.testreport.mainedit_form', extractMode: 'ITEM', details: [] } }),
 
-        formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+        formpage1: new FormPageModel({ caption: '报告编辑', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -189,6 +190,8 @@ export class MainEditFormBase extends EditFormControlBase {
 
         report: new FormItemModel({ caption: '总结', detailType: 'FORMITEM', name: 'report', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
@@ -198,7 +201,7 @@ export class MainEditFormBase extends EditFormControlBase {
      *
      * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
      * @returns {Promise<void>}
-     * @memberof MainEditFormBase
+     * @memberof MainEditEditFormBase
      */
     public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
@@ -231,8 +234,9 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
+
         if (Object.is(name, 'tasks')) {
-            const details: string[] = ['stories', 'title', 'cases', 'builds', 'projectname', 'members', 'objecttype', 'bugs', 'begin', 'overviews', 'project', 'end', 'objectid'];
+            const details: string[] = ['projectname', 'cases', 'builds', 'project', 'bugs', 'stories', 'title', 'begin', 'objectid', 'end', 'objecttype'];
             this.updateFormItems('GetInfoTestTask', this.data, details, true);
         }
     }
