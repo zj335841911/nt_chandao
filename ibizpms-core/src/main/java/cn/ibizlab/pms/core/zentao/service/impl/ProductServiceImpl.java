@@ -150,7 +150,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         @Override
     @Transactional
     public boolean remove(Long key) {
-  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductHelper.class).delete(et);
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductHelper.class).delete(key);
     }
 
     @Override
