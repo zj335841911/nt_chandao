@@ -26,6 +26,9 @@ export default {
     builddate: "打包日期",
   },
 	views: {
+		mobpickupview: {
+			caption: '发布',
+		},
 		mobeditview: {
 			caption: '发布',
 		},
@@ -33,6 +36,9 @@ export default {
 			caption: '发布',
 		},
 		newmobeditview: {
+			caption: '发布',
+		},
+		mobpickupmdview: {
 			caption: '发布',
 		},
 	},

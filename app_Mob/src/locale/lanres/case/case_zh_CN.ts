@@ -91,9 +91,10 @@ export default {
 	mobdef_searchform: {
 		details: {
 			formpage1: '常规条件', 
-			n_title_like: '用例标题(文本包含(%))', 
-			n_type_eq: '用例类型(等于(=))', 
-			n_status_eq: '用例状态(等于(=))', 
+			n_title_like: '用例标题', 
+			n_type_eq: '用例类型', 
+			n_status_eq: '用例状态', 
+			n_modulename_eq: '模块名称', 
 		},
 		uiactions: {
 		},

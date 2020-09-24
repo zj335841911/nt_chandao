@@ -976,6 +976,18 @@ export default class MobBase extends Vue implements ControlInterface {
                 }
             })
         }
+        if (!this.isMutli) {
+            if (this.selectedData && this.selectedData.length > 0) {
+                this.radio = this.selectedData[0].srfkey;
+            }
+        } else {
+            if (this.selectedData && this.selectedData.length > 0) {
+                this.checkboxList = [];
+                this.selectedData.forEach((item: any) => {
+                    this.checkboxList.push(item.srfkey);
+                })
+            }
+        }
     }
 
     /**

@@ -31,6 +31,11 @@ export class MobDefModel {
                 dataType: 'SSCODELIST',
             },
             {
+                name: 'n_type_eq',
+                prop: 'n_type_eq', 
+                dataType: 'SSCODELIST',
+            },
+            {
                 name: 'n_openedby_eq',
                 prop: 'n_openedby_eq', 
                 dataType: 'SSCODELIST',
@@ -39,6 +44,11 @@ export class MobDefModel {
                 name: 'n_severity_eq',
                 prop: 'n_severity_eq', 
                 dataType: 'NSCODELIST',
+            },
+            {
+                name: 'n_modulename_like',
+                prop: 'n_modulename_like', 
+                dataType: 'PICKUPTEXT',
             },
         ];
     }

@@ -59,6 +59,46 @@
 
 
 
+<app-form-item 
+    name='n_buildname_eq' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="n_buildname_eq_item"  
+    :itemValue="this.data.n_buildname_eq" 
+    v-show="detailsModel.n_buildname_eq.visible" 
+    :itemRules="this.rules.n_buildname_eq" 
+    :caption="$t('testtask.mobdef_searchform.details.n_buildname_eq')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.n_buildname_eq.disabled"  
+    :error="detailsModel.n_buildname_eq.error" 
+    :isEmptyCaption="false">
+        <app-mob-select-drop-down 
+    name='n_buildname_eq' 
+    deMajorField='name'
+    deKeyField='id'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    :viewparams="viewparams"
+    :itemParam='{ }' 
+    :disabled="detailsModel.n_buildname_eq.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'build', interfaceName: 'FetchTestBuild'}"
+    :value="data.n_buildname_eq" 
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.n_buildname_eq = $event">
+</app-mob-select-drop-down>
+</app-form-item>
+
+
+
 
     </div>
 </template>
@@ -371,6 +411,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
     protected data: any = {
         n_name_like: null,
         n_status_eq: null,
+        n_buildname_eq: null,
         testtask: null,
     };
 
@@ -417,6 +458,12 @@ export default class MobDefBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '当前状态 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '当前状态 值不能为空', trigger: 'blur' },
         ],
+        n_buildname_eq: [
+            { type: 'string', message: '版本 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '版本 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '版本 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '版本 值不能为空', trigger: 'blur' },
+        ],
     }
 
     /**
@@ -431,6 +478,8 @@ export default class MobDefBase extends Vue implements ControlInterface {
         n_name_like: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'n_name_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         n_status_eq: new FormItemModel({ caption: '当前状态', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        n_buildname_eq: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'n_buildname_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -456,6 +505,18 @@ export default class MobDefBase extends Vue implements ControlInterface {
     @Watch('data.n_status_eq')
     onN_status_eqChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'n_status_eq', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 n_buildname_eq 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobDef
+     */
+    @Watch('data.n_buildname_eq')
+    onN_buildname_eqChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'n_buildname_eq', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -494,6 +555,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      */
     private formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
 
 
 
@@ -622,7 +684,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected formValidateStatus(): boolean {
-        const refArr: Array<string> = ['n_name_like_item', 'n_status_eq_item', ];
+        const refArr: Array<string> = ['n_name_like_item', 'n_status_eq_item', 'n_buildname_eq_item', ];
         let falg = true;
         refArr.forEach((item: any) => {
             if (this.$refs[item] && (this.$refs[item] as any).validateRules && !(this.$refs[item] as any).validateRules()) {

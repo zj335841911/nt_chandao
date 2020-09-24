@@ -45,9 +45,6 @@ export default {
         'custom': '自定义白名单(团队成员和白名单的成员可以访问)',
         empty: '',
     },
-    SQLBuild: {
-        empty: '',
-    },
     Project__status: {
         'wait': '未开始',
         'doing': '进行中',

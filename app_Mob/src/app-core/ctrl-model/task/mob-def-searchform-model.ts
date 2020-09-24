@@ -35,6 +35,11 @@ export class MobDefModel {
                 prop: 'n_status_eq', 
                 dataType: 'SSCODELIST',
             },
+            {
+                name: 'n_projectname_eq',
+                prop: 'n_projectname_eq', 
+                dataType: 'PICKUPTEXT',
+            },
         ];
     }
 

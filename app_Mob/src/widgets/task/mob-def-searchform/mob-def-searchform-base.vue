@@ -90,6 +90,46 @@
 
 
 
+<app-form-item 
+    name='n_projectname_eq' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="n_projectname_eq_item"  
+    :itemValue="this.data.n_projectname_eq" 
+    v-show="detailsModel.n_projectname_eq.visible" 
+    :itemRules="this.rules.n_projectname_eq" 
+    :caption="$t('task.mobdef_searchform.details.n_projectname_eq')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.n_projectname_eq.disabled"  
+    :error="detailsModel.n_projectname_eq.error" 
+    :isEmptyCaption="false">
+        <app-mob-select-drop-down 
+    name='n_projectname_eq' 
+    deMajorField='name'
+    deKeyField='id'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    :viewparams="viewparams"
+    :itemParam='{ }' 
+    :disabled="detailsModel.n_projectname_eq.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'project', interfaceName: 'FetchCurUser'}"
+    :value="data.n_projectname_eq" 
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.n_projectname_eq = $event">
+</app-mob-select-drop-down>
+</app-form-item>
+
+
+
 
     </div>
 </template>
@@ -403,6 +443,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
         n_name_like: null,
         n_type_eq: null,
         n_status_eq: null,
+        n_projectname_eq: null,
         task: null,
     };
 
@@ -438,22 +479,28 @@ export default class MobDefBase extends Vue implements ControlInterface {
      */
     protected rules: any = {
         n_name_like: [
-            { type: 'string', message: '任务名称(文本包含(%)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '任务名称(文本包含(%)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '任务名称(文本包含(%)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务名称(文本包含(%)) 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
         ],
         n_type_eq: [
-            { type: 'string', message: '任务类型(等于(=)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '任务类型(等于(=)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '任务类型(等于(=)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务类型(等于(=)) 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '任务类型 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '任务类型 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '任务类型 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '任务类型 值不能为空', trigger: 'blur' },
         ],
         n_status_eq: [
-            { type: 'string', message: '任务状态(等于(=)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '任务状态(等于(=)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '任务状态(等于(=)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务状态(等于(=)) 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '任务状态 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '任务状态 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '任务状态 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '任务状态 值不能为空', trigger: 'blur' },
+        ],
+        n_projectname_eq: [
+            { type: 'string', message: '所属项目 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '所属项目 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '所属项目 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '所属项目 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -466,11 +513,13 @@ export default class MobDefBase extends Vue implements ControlInterface {
     protected detailsModel: any = {
         formpage1: new FormPageModel({ caption: '常规条件', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        n_name_like: new FormItemModel({ caption: '任务名称(文本包含(%))', detailType: 'FORMITEM', name: 'n_name_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_name_like: new FormItemModel({ caption: '任务名称', detailType: 'FORMITEM', name: 'n_name_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_type_eq: new FormItemModel({ caption: '任务类型(等于(=))', detailType: 'FORMITEM', name: 'n_type_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_type_eq: new FormItemModel({ caption: '任务类型', detailType: 'FORMITEM', name: 'n_type_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_status_eq: new FormItemModel({ caption: '任务状态(等于(=))', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_status_eq: new FormItemModel({ caption: '任务状态', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        n_projectname_eq: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'n_projectname_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -510,6 +559,18 @@ export default class MobDefBase extends Vue implements ControlInterface {
         this.formDataChange({ name: 'n_status_eq', newVal: newVal, oldVal: oldVal });
     }
 
+    /**
+     * 监控表单属性 n_projectname_eq 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobDef
+     */
+    @Watch('data.n_projectname_eq')
+    onN_projectname_eqChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'n_projectname_eq', newVal: newVal, oldVal: oldVal });
+    }
+
 
     /**
      * 重置表单项值
@@ -546,6 +607,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      */
     private formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
 
 
 
@@ -675,7 +737,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected formValidateStatus(): boolean {
-        const refArr: Array<string> = ['n_name_like_item', 'n_type_eq_item', 'n_status_eq_item', ];
+        const refArr: Array<string> = ['n_name_like_item', 'n_type_eq_item', 'n_status_eq_item', 'n_projectname_eq_item', ];
         let falg = true;
         refArr.forEach((item: any) => {
             if (this.$refs[item] && (this.$refs[item] as any).validateRules && !(this.$refs[item] as any).validateRules()) {

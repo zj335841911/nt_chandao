@@ -89,9 +89,11 @@ export default class ReleaseUIActionBase extends EntityUIActionBase {
      * @memberof  ReleaseUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('MOBPICKUPVIEW:',{viewname:'mobpickupview',srfappde:'releases'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'releases'});
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'releases'});
         this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'releases'});
+        this.allViewMap.set(':',{viewname:'mobpickupmdview',srfappde:'releases'});
     }
 
     /**

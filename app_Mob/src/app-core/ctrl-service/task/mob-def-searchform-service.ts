@@ -51,6 +51,12 @@ export class MobDefService extends SearchFormServiceBase {
      * @memberof  MobDefService
      */
     public async getItems(serviceName: string, interfaceName: string, context?: any, data?: any, isLoading?: boolean): Promise<any[]> {
+        if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchCurUser')) {
+            const service: any = await this.getService('project');
+            await this.onBeforeAction(interfaceName, context, data, isLoading);
+            const response: any = await service.FetchCurUser(data);
+            return this.doItems(response);
+        }
         return [];
     }
 

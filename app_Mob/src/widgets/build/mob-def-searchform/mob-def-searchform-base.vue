@@ -43,72 +43,8 @@
     :disabled="detailsModel.n_releasetype_eq.disabled"  
     :error="detailsModel.n_releasetype_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="RELEASE_Type"
-    codeListType="STATIC" 
-    :isCache="false" 
-    :disabled="detailsModel.n_releasetype_eq.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.n_releasetype_eq"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.n_releasetype_eq = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='n_sqlid_eq' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="n_sqlid_eq_item"  
-    :itemValue="this.data.n_sqlid_eq" 
-    v-show="detailsModel.n_sqlid_eq.visible" 
-    :itemRules="this.rules.n_sqlid_eq" 
-    :caption="$t('build.mobdef_searchform.details.n_sqlid_eq')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.n_sqlid_eq.disabled"  
-    :error="detailsModel.n_sqlid_eq.error" 
-    :isEmptyCaption="false">
-        <app-mob-select 
-    tag="SQLBuild"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.n_sqlid_eq.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.n_sqlid_eq"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.n_sqlid_eq = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='n_project_eq' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="n_project_eq_item"  
-    :itemValue="this.data.n_project_eq" 
-    v-show="detailsModel.n_project_eq.visible" 
-    :itemRules="this.rules.n_project_eq" 
-    :caption="$t('build.mobdef_searchform.details.n_project_eq')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.n_project_eq.disabled"  
-    :error="detailsModel.n_project_eq.error" 
-    :isEmptyCaption="false">
         <app-mob-select-drop-down 
-    name='n_project_eq' 
-    deMajorField='name'
-    deKeyField='id'
+    name='n_releasetype_eq' 
     valueitem='' 
     style="" 
     editortype="dropdown" 
@@ -119,12 +55,12 @@
     :navigateParam ='{ } '
     :viewparams="viewparams"
     :itemParam='{ }' 
-    :disabled="detailsModel.n_project_eq.disabled"
+    :disabled="detailsModel.n_releasetype_eq.disabled"
     :service="service"
-    :acParams="{ serviceName: 'project', interfaceName: 'FetchDefault'}"
-    :value="data.n_project_eq" 
+    :acParams="{ }"
+    :value="data.n_releasetype_eq" 
     @formitemvaluechange="onFormItemValueChange"
-    @change="($event)=>this.data.n_project_eq = $event">
+    @change="($event)=>this.data.n_releasetype_eq = $event">
 </app-mob-select-drop-down>
 </app-form-item>
 
@@ -442,8 +378,6 @@ export default class MobDefBase extends Vue implements ControlInterface {
     protected data: any = {
         n_name_like: null,
         n_releasetype_eq: null,
-        n_sqlid_eq: null,
-        n_project_eq: null,
         build: null,
     };
 
@@ -479,28 +413,16 @@ export default class MobDefBase extends Vue implements ControlInterface {
      */
     protected rules: any = {
         n_name_like: [
-            { type: 'string', message: '名称编号(文本包含(%)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '名称编号(文本包含(%)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '名称编号(文本包含(%)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '名称编号(文本包含(%)) 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '名称编号 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '名称编号 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '名称编号 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '名称编号 值不能为空', trigger: 'blur' },
         ],
         n_releasetype_eq: [
-            { type: 'string', message: '运行模式(等于(=)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '运行模式(等于(=)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '运行模式(等于(=)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '运行模式(等于(=)) 值不能为空', trigger: 'blur' },
-        ],
-        n_sqlid_eq: [
-            { type: 'string', message: '运行数据库(等于(=)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '运行数据库(等于(=)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '运行数据库(等于(=)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '运行数据库(等于(=)) 值不能为空', trigger: 'blur' },
-        ],
-        n_project_eq: [
-            { type: 'number', message: '所属项目(等于(=)) 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '所属项目(等于(=)) 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '所属项目(等于(=)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '所属项目(等于(=)) 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '运行模式 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '运行模式 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '运行模式 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '运行模式 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -513,13 +435,9 @@ export default class MobDefBase extends Vue implements ControlInterface {
     protected detailsModel: any = {
         formpage1: new FormPageModel({ caption: '常规条件', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        n_name_like: new FormItemModel({ caption: '名称编号(文本包含(%))', detailType: 'FORMITEM', name: 'n_name_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_name_like: new FormItemModel({ caption: '名称编号', detailType: 'FORMITEM', name: 'n_name_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_releasetype_eq: new FormItemModel({ caption: '运行模式(等于(=))', detailType: 'FORMITEM', name: 'n_releasetype_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        n_sqlid_eq: new FormItemModel({ caption: '运行数据库(等于(=))', detailType: 'FORMITEM', name: 'n_sqlid_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        n_project_eq: new FormItemModel({ caption: '所属项目(等于(=))', detailType: 'FORMITEM', name: 'n_project_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_releasetype_eq: new FormItemModel({ caption: '运行模式', detailType: 'FORMITEM', name: 'n_releasetype_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -545,30 +463,6 @@ export default class MobDefBase extends Vue implements ControlInterface {
     @Watch('data.n_releasetype_eq')
     onN_releasetype_eqChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'n_releasetype_eq', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 n_sqlid_eq 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobDef
-     */
-    @Watch('data.n_sqlid_eq')
-    onN_sqlid_eqChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'n_sqlid_eq', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 n_project_eq 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobDef
-     */
-    @Watch('data.n_project_eq')
-    onN_project_eqChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'n_project_eq', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -607,8 +501,6 @@ export default class MobDefBase extends Vue implements ControlInterface {
      */
     private formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
-
-
 
 
 
@@ -737,7 +629,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected formValidateStatus(): boolean {
-        const refArr: Array<string> = ['n_name_like_item', 'n_releasetype_eq_item', 'n_sqlid_eq_item', 'n_project_eq_item', ];
+        const refArr: Array<string> = ['n_name_like_item', 'n_releasetype_eq_item', ];
         let falg = true;
         refArr.forEach((item: any) => {
             if (this.$refs[item] && (this.$refs[item] as any).validateRules && !(this.$refs[item] as any).validateRules()) {

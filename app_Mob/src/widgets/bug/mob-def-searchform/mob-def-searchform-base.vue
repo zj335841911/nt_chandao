@@ -60,6 +60,37 @@
 
 
 <app-form-item 
+    name='n_type_eq' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="n_type_eq_item"  
+    :itemValue="this.data.n_type_eq" 
+    v-show="detailsModel.n_type_eq.visible" 
+    :itemRules="this.rules.n_type_eq" 
+    :caption="$t('bug.mobdef_searchform.details.n_type_eq')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.n_type_eq.disabled"  
+    :error="detailsModel.n_type_eq.error" 
+    :isEmptyCaption="false">
+        <app-mob-select 
+    tag="Bug__type"
+    codeListType="STATIC" 
+    :isCache="false" 
+    :disabled="detailsModel.n_type_eq.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.n_type_eq"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.n_type_eq = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
     name='n_openedby_eq' 
     class='' 
     uiStyle="DEFAULT"  
@@ -117,6 +148,32 @@
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.n_severity_eq = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
+    name='n_modulename_like' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="n_modulename_like_item"  
+    :itemValue="this.data.n_modulename_like" 
+    v-show="detailsModel.n_modulename_like.visible" 
+    :itemRules="this.rules.n_modulename_like" 
+    :caption="$t('bug.mobdef_searchform.details.n_modulename_like')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.n_modulename_like.disabled"  
+    :error="detailsModel.n_modulename_like.error" 
+    :isEmptyCaption="false">
+        <app-mob-input 
+    class="app-form-item-input"  
+        type="text"  
+    :value="data.n_modulename_like"
+    
+    :disabled="detailsModel.n_modulename_like.disabled" 
+    @change="($event)=>this.data.n_modulename_like = $event" />
 </app-form-item>
 
 
@@ -433,8 +490,10 @@ export default class MobDefBase extends Vue implements ControlInterface {
     protected data: any = {
         n_title_like: null,
         n_status_eq: null,
+        n_type_eq: null,
         n_openedby_eq: null,
         n_severity_eq: null,
+        n_modulename_like: null,
         bug: null,
     };
 
@@ -470,28 +529,40 @@ export default class MobDefBase extends Vue implements ControlInterface {
      */
     protected rules: any = {
         n_title_like: [
-            { type: 'string', message: 'Bug标题(文本包含(%)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: 'Bug标题(文本包含(%)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: 'Bug标题(文本包含(%)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: 'Bug标题(文本包含(%)) 值不能为空', trigger: 'blur' },
+            { type: 'string', message: 'Bug标题 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: 'Bug标题 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: 'Bug标题 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: 'Bug标题 值不能为空', trigger: 'blur' },
         ],
         n_status_eq: [
-            { type: 'string', message: 'Bug状态(等于(=)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: 'Bug状态(等于(=)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: 'Bug状态(等于(=)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: 'Bug状态(等于(=)) 值不能为空', trigger: 'blur' },
+            { type: 'string', message: 'Bug状态 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: 'Bug状态 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: 'Bug状态 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: 'Bug状态 值不能为空', trigger: 'blur' },
+        ],
+        n_type_eq: [
+            { type: 'string', message: 'Bug类型 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: 'Bug类型 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: 'Bug类型 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: 'Bug类型 值不能为空', trigger: 'blur' },
         ],
         n_openedby_eq: [
-            { type: 'string', message: '由谁创建(等于(=)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '由谁创建(等于(=)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '由谁创建(等于(=)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '由谁创建(等于(=)) 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '由谁创建 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '由谁创建 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '由谁创建 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '由谁创建 值不能为空', trigger: 'blur' },
         ],
         n_severity_eq: [
-            { type: 'number', message: '严重程度(等于(=)) 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '严重程度(等于(=)) 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '严重程度(等于(=)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '严重程度(等于(=)) 值不能为空', trigger: 'blur' },
+            { type: 'number', message: '严重程度 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '严重程度 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '严重程度 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '严重程度 值不能为空', trigger: 'blur' },
+        ],
+        n_modulename_like: [
+            { type: 'string', message: '模块名称 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '模块名称 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '模块名称 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '模块名称 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -504,13 +575,17 @@ export default class MobDefBase extends Vue implements ControlInterface {
     protected detailsModel: any = {
         formpage1: new FormPageModel({ caption: '常规条件', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        n_title_like: new FormItemModel({ caption: 'Bug标题(文本包含(%))', detailType: 'FORMITEM', name: 'n_title_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_title_like: new FormItemModel({ caption: 'Bug标题', detailType: 'FORMITEM', name: 'n_title_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_status_eq: new FormItemModel({ caption: 'Bug状态(等于(=))', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_status_eq: new FormItemModel({ caption: 'Bug状态', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_openedby_eq: new FormItemModel({ caption: '由谁创建(等于(=))', detailType: 'FORMITEM', name: 'n_openedby_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_type_eq: new FormItemModel({ caption: 'Bug类型', detailType: 'FORMITEM', name: 'n_type_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_severity_eq: new FormItemModel({ caption: '严重程度(等于(=))', detailType: 'FORMITEM', name: 'n_severity_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_openedby_eq: new FormItemModel({ caption: '由谁创建', detailType: 'FORMITEM', name: 'n_openedby_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        n_severity_eq: new FormItemModel({ caption: '严重程度', detailType: 'FORMITEM', name: 'n_severity_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        n_modulename_like: new FormItemModel({ caption: '模块名称', detailType: 'FORMITEM', name: 'n_modulename_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -539,6 +614,18 @@ export default class MobDefBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 n_type_eq 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobDef
+     */
+    @Watch('data.n_type_eq')
+    onN_type_eqChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'n_type_eq', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 n_openedby_eq 值
      *
      * @param {*} newVal
@@ -560,6 +647,18 @@ export default class MobDefBase extends Vue implements ControlInterface {
     @Watch('data.n_severity_eq')
     onN_severity_eqChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'n_severity_eq', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 n_modulename_like 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobDef
+     */
+    @Watch('data.n_modulename_like')
+    onN_modulename_likeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'n_modulename_like', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -598,6 +697,8 @@ export default class MobDefBase extends Vue implements ControlInterface {
      */
     private formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
+
+
 
 
 
@@ -728,7 +829,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected formValidateStatus(): boolean {
-        const refArr: Array<string> = ['n_title_like_item', 'n_status_eq_item', 'n_openedby_eq_item', 'n_severity_eq_item', ];
+        const refArr: Array<string> = ['n_title_like_item', 'n_status_eq_item', 'n_type_eq_item', 'n_openedby_eq_item', 'n_severity_eq_item', 'n_modulename_like_item', ];
         let falg = true;
         refArr.forEach((item: any) => {
             if (this.$refs[item] && (this.$refs[item] as any).validateRules && !(this.$refs[item] as any).validateRules()) {

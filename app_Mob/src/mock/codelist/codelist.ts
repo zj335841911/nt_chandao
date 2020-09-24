@@ -230,14 +230,6 @@ const datas: Array<any> = [
         ]
     },
     {
-        "srfkey": "SQLBuild",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"",
-        "appdedataset":"",
-        "items": []
-    },
-    {
         srfkey: 'Project__status',
         emptytext: '未定义',
         "codelisttype":"static",

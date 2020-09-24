@@ -46,6 +46,7 @@ export const viewstate: any = {
                 '3dceefbdc55213c1c17b2eb35095fb3c',
                 '20d9ad91186fc647b9fd98d0b562341b',
                 '5417edd9f4126190105417c652149d76',
+                'fff6b013908d42dfb7dc46a67e7467b9',
                 'd739ee414172cbfdc3d6e2d2e01e3676',
                 'e6b8dc7c5f604f8cc4cabb89752aac17',
                 '78beacb29481bfa83dfce62ac4bd9d13',
@@ -206,6 +207,7 @@ export const viewstate: any = {
                 '3dceefbdc55213c1c17b2eb35095fb3c',
                 '20d9ad91186fc647b9fd98d0b562341b',
                 '5417edd9f4126190105417c652149d76',
+                'fff6b013908d42dfb7dc46a67e7467b9',
                 'd739ee414172cbfdc3d6e2d2e01e3676',
                 '78beacb29481bfa83dfce62ac4bd9d13',
                 '4a68a7fca37b1f7d3cf396c66fd2347a',
@@ -288,6 +290,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '29237f1e5802baa0f592a7724935ea0b',
+            viewmodule: 'ibiz',
+            viewname: 'ReleaseMobPickupView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'db4ed15665047c5e87c912301467ff83',
+            ],
+        },
+        {
             viewtag: '2a07bb13f1ffd6dabae943ff44cd0b2c',
             viewmodule: 'ibiz',
             viewname: 'ProductMobPickupMDView',
@@ -323,6 +335,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'a5df58fce83822477d21fefa32f84741',
+                '0e2762177f3bf384b00d863798bd744c',
             ],
         },
         {
@@ -398,6 +411,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'fff6b013908d42dfb7dc46a67e7467b9',
                 '61673d1a86a046c9ff672f16ab4b7ce7',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
@@ -419,6 +433,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'fff6b013908d42dfb7dc46a67e7467b9',
             ],
         },
         {
@@ -550,6 +565,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'fff6b013908d42dfb7dc46a67e7467b9',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },
@@ -620,7 +636,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'b1c76392040ff2e9ed2e3ae2b0260602',
+                '29237f1e5802baa0f592a7724935ea0b',
                 '72d73b7f458439bc2355414e5a810ad5',
             ],
         },
@@ -655,6 +671,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'fff6b013908d42dfb7dc46a67e7467b9',
                 '61673d1a86a046c9ff672f16ab4b7ce7',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
@@ -826,6 +843,7 @@ export const viewstate: any = {
                 '3dceefbdc55213c1c17b2eb35095fb3c',
                 '20d9ad91186fc647b9fd98d0b562341b',
                 '5417edd9f4126190105417c652149d76',
+                'fff6b013908d42dfb7dc46a67e7467b9',
                 'd739ee414172cbfdc3d6e2d2e01e3676',
                 '78beacb29481bfa83dfce62ac4bd9d13',
                 '1a957197655fae1ce44ceccda6f65852',
@@ -1260,6 +1278,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'db4ed15665047c5e87c912301467ff83',
+            viewmodule: 'ibiz',
+            viewname: 'ReleaseMobPickupMDView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'dc64d438e2778b16e0996277b8feabce',
             viewmodule: 'zentao',
             viewname: 'TaskAssMobMDView9',
@@ -1269,6 +1296,7 @@ export const viewstate: any = {
                 '3dceefbdc55213c1c17b2eb35095fb3c',
                 '20d9ad91186fc647b9fd98d0b562341b',
                 '5417edd9f4126190105417c652149d76',
+                'fff6b013908d42dfb7dc46a67e7467b9',
                 'd739ee414172cbfdc3d6e2d2e01e3676',
                 '78beacb29481bfa83dfce62ac4bd9d13',
                 '1a957197655fae1ce44ceccda6f65852',
@@ -1283,6 +1311,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '85742d38f356f400b16652a3f7ae714b',
                 '9576fe405a243332b6f648c8d0632e88',
             ],
         },
@@ -1403,8 +1432,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '29237f1e5802baa0f592a7724935ea0b',
                 '2771dfa8ed94c48f35d293293bfbf6ac',
-                'b1c76392040ff2e9ed2e3ae2b0260602',
             ],
         },
         {
