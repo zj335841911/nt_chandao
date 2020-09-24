@@ -60,6 +60,28 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
      */
     public appUIService: TestTaskUIService = new TestTaskUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TestTaskProjectGridViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'PROJECT': { isRawValue: false, value: 'project' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TestTaskProjectGridViewBase
+	 */
+    protected customViewParams: any = {
+        'project': { isRawValue: false, value: 'project' }
+    };
+
     /**
      * 视图模型数据
      *
