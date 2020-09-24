@@ -53,7 +53,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '1f13f330cbca49433d11328f9e7d8ae2',
-                'ea7a4f0ccc237a45f39ffb2e3df7e9fd',
+                '34d99e271bca6539e707f467f9575044',
                 'f340b16bd1355b1c511d9da4b00476e2',
             ],
         },
@@ -730,6 +730,23 @@ export const viewstate: any = {
             refviews: [
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '02b7ecd8e994b90558a9d6c23705f600',
+            ],
+        },
+        {
+            viewtag: '34d99e271bca6539e707f467f9575044',
+            viewmodule: 'zentao',
+            viewname: 'TestReportProjectTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9a2fd7bf8e74f4b95bd5a24d8ffb1643',
+                '1b214bd727533f6662aa78368fb67e4b',
+                'ba3ac5351ca273bb889ffcb52ec7217b',
+                'c47c534ae15c1fd1a04b5ad78d174841',
+                '42aa867a5dbd04d53462fa69b0e43296',
+                '3d56b0e37a56b9be1a28589c04f573fa',
+                'f810cda19770327ea00f51d89a003efe',
+                'de3b10b3f9f11d67c6ea3418bc77f2b3',
             ],
         },
         {

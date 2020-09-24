@@ -68,6 +68,7 @@ export class TestReportProjectGridViewBase extends GridViewBase {
 	 * @memberof TestReportProjectGridViewBase
 	 */
     protected customViewNavContexts: any = {
+        'N_PROJECT_EQ': { isRawValue: false, value: 'project' },
         'N_OBJECTTYPE_EQ': { isRawValue: true, value: 'project' }
     };
 
@@ -79,6 +80,7 @@ export class TestReportProjectGridViewBase extends GridViewBase {
 	 * @memberof TestReportProjectGridViewBase
 	 */
     protected customViewParams: any = {
+        'n_project_eq': { isRawValue: false, value: 'project' },
         'n_objecttype_eq': { isRawValue: true, value: 'project' }
     };
 
@@ -399,10 +401,10 @@ export class TestReportProjectGridViewBase extends GridViewBase {
             });
         }
         const view: any = {
-            viewname: 'test-report-main-tab-exp-view', 
+            viewname: 'test-report-project-tab-exp-view', 
             height: 0, 
             width: 0,  
-            title: this.$t('entities.testreport.views.maintabexpview.title'),
+            title: this.$t('entities.testreport.views.projecttabexpview.title'),
             placement: 'DRAWER_TOP',
         };
         openDrawer(view, data);
