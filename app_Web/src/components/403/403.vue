@@ -3,8 +3,12 @@
         <div class="app-error-container">
             <ion-icon class='err-icon' src="./assets/svg/icon-500.svg"/>
             <div class="error-text">
-                <div class="error-text1">{{$t('components.500.errorText1')}}</div>
-                <div class="error-text2">{{$t('components.500.errorText2')}} <a @click="gotoIndexView">{{$t('components.500.indexPage')}}</a> {{$t('components.500.continue')}}</div>
+                <div class="error-text1">403 抱歉您无权限访问此内容</div>
+                <div class="error-text2">
+                    <a @click="gotoIndexView">返回</a>
+                    or
+                    <a @click="logout">退出登录</a>
+                </div>
             </div>
         </div>
     </div>
@@ -23,11 +27,15 @@ export default class Error404 extends Vue {
      * @memberof Error404
      */
     public gotoIndexView() {
-        this.$router.push('/'); 
+        this.$router.back();
+    }
+
+    logout() {
+        this.$appService.logout();
     }
 }
 </script>
 
 <style lang='less'>
-@import './500.less';
+@import './403.less';
 </style>

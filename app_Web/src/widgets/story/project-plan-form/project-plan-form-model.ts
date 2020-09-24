@@ -58,7 +58,7 @@ export default class ProjectPlanModel {
       {
         name: 'project',
         prop: 'project',
-        dataType: 'TEXT',
+        dataType: 'BIGINT',
       },
       {
         name: 'plan',

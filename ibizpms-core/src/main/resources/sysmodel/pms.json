@@ -24802,11 +24802,10 @@
     "codename":"Project",
     "field_logic_name":"项目",
     "entity_name":"Story",
-    "field_type":"TEXT",
+    "field_type":"BIGINT",
     "nullable":1,
     "physical_field":0,
-    "data_type":"VARCHAR",
-    "data_length":100,
+    "data_type":"BIGINT",
     "key_field":0,
     "major_field":0
     },

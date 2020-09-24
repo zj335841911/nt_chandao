@@ -44,6 +44,7 @@ public class StorySpec extends EntityMP implements Serializable {
     /**
      * 需求描述	
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`spec`")
     @JSONField(name = "spec")
     @JsonProperty("spec")
@@ -51,6 +52,7 @@ public class StorySpec extends EntityMP implements Serializable {
     /**
      * 验收标准
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`verify`")
     @JSONField(name = "verify")
     @JsonProperty("verify")

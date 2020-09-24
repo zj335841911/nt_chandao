@@ -39,19 +39,22 @@ export class AppServiceBase {
     /**
      * 退出登录
      *
+     * @param {string} [redirect]
      * @memberof AppServiceBase
      */
-    public logout(): void {
-        this.doLogin();
+    public logout(redirect?: string): void {
+        this.doLogin(null, redirect);
     }
 
     /**
      * 去登录
      *
      * @param {*} [data]
+     * @param {string} [redirect=location.href]
+     * @return {*}  {void}
      * @memberof AppServiceBase
      */
-    public doLogin(data?: any): void {
+    public doLogin(data?: any, redirect: string = location.href): void {
         const win: any = window;
         if (win.isDoLogin) {
             return;
@@ -76,11 +79,11 @@ export class AppServiceBase {
         } else {
             // 后期此处应调用后天退出，明确可以退出后才退出
             if (Environment.LoginMode === 'UAA') {
-                location.href = `${Environment.LoginUrl}?redirect=${encodeURIComponent(location.href)}`;
+                location.href = `${Environment.LoginUrl}?redirect=${encodeURIComponent(redirect)}`;
             } else if (Environment.LoginMode === 'CAS') {
-                location.href = `${Environment.CasUrl}/logout?service=${encodeURIComponent(`${Environment.CasUrl}/login?service=${encodeURIComponent(`${window.location.origin}${Environment.BaseUrl}/appdata?RU=${encodeURIComponent(location.href)}`)}`)}`;
+                location.href = `${Environment.CasUrl}/logout?service=${encodeURIComponent(`${Environment.CasUrl}/login?service=${encodeURIComponent(`${window.location.origin}${Environment.BaseUrl}/appdata?RU=${encodeURIComponent(redirect)}`)}`)}`;
             } else {
-                location.href = `${location.origin}${location.pathname}#/login?redirect=${encodeURIComponent(location.href)}`;
+                location.href = `${location.origin}${location.pathname}#/login?redirect=${encodeURIComponent(redirect)}`;
             }
             const x = document.getElementById('app-loading-x');
             if (x) {

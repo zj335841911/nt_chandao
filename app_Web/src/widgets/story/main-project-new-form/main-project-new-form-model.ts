@@ -103,7 +103,7 @@ export default class MainProjectNewModel {
       {
         name: 'project',
         prop: 'project',
-        dataType: 'TEXT',
+        dataType: 'BIGINT',
       },
       {
         name: 'title',

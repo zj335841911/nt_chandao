@@ -44,6 +44,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 指派给
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`assignedto`")
     @JSONField(name = "assignedto")
     @JsonProperty("assignedto")
@@ -51,6 +52,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 细分需求
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`childstories`")
     @JSONField(name = "childstories")
     @JsonProperty("childstories")
@@ -58,6 +60,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 所属计划
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`plan`")
     @JSONField(name = "plan")
     @JsonProperty("plan")
@@ -89,6 +92,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 相关需求
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`linkstories`")
     @JSONField(name = "linkstories")
     @JsonProperty("linkstories")
@@ -125,6 +129,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 来源备注
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`sourcenote`")
     @JSONField(name = "sourcenote")
     @JsonProperty("sourcenote")
@@ -146,6 +151,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 设置阶段者
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`stagedby`")
     @JSONField(name = "stagedby")
     @JsonProperty("stagedby")
@@ -178,6 +184,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 需求来源
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`source`")
     @JSONField(name = "source")
     @JsonProperty("source")
@@ -192,6 +199,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 标题颜色
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`color`")
     @JSONField(name = "color")
     @JsonProperty("color")
@@ -215,6 +223,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 关键词
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`keywords`")
     @JSONField(name = "keywords")
     @JsonProperty("keywords")
@@ -245,6 +254,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 由谁关闭
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`closedby`")
     @JSONField(name = "closedby")
     @JsonProperty("closedby")
@@ -328,6 +338,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 重复需求ID
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`duplicatestory`")
     @JSONField(name = "duplicatestory")
     @JsonProperty("duplicatestory")
@@ -335,6 +346,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 平台/分支
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`branch`")
     @JSONField(name = "branch")
     @JsonProperty("branch")
@@ -342,6 +354,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 转Bug
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`tobug`")
     @JSONField(name = "tobug")
     @JsonProperty("tobug")
@@ -415,7 +428,7 @@ public class Story extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "project")
     @JsonProperty("project")
-    private String project;
+    private Long project;
     /**
      * 之前的版本
      */

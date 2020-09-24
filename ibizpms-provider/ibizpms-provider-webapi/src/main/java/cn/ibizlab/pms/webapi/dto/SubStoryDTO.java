@@ -483,8 +483,8 @@ public class SubStoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "project")
     @JsonProperty("project")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String project;
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long project;
 
     /**
      * 属性 [PREVERSION]

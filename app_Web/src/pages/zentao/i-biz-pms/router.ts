@@ -13998,11 +13998,18 @@ const router = new Router({
             component: () => import('@components/login/login'),
         },
         {
+            path: '/403',
+            name: '403',
+            component: () => import('@components/403/403.vue')
+        },
+        {
             path: '/404',
+            name: '404',
             component: () => import('@components/404/404.vue')
         },
         {
             path: '/500',
+            name: '500',
             component: () => import('@components/500/500.vue')
         },
         {
