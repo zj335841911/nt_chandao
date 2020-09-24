@@ -978,12 +978,15 @@ div::-webkit-scrollbar-thumb {
 // 列表部件
 .app-list {
     height: 100%;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+
     .app-list-item {
         border-bottom: 1px solid var(--view-font-color-bright);
         padding: 5px 0;
         cursor: pointer;
     }
+
     .app-list-item.isSelect {
         background: rgba(var(--view-background-color-active-rgb), 0.5);
     }

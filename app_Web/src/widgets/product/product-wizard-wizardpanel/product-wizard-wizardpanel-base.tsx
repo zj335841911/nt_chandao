@@ -347,7 +347,7 @@ export class ProductWizardWizardPanelBase extends MainControlBase {
             if (response && response.status === 401) {
                 return;
             }
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.info });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
         });
     }
 
@@ -401,7 +401,7 @@ export class ProductWizardWizardPanelBase extends MainControlBase {
             if (response && response.status === 401) {
                 return;
             }
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.info });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
         });
     }
 
