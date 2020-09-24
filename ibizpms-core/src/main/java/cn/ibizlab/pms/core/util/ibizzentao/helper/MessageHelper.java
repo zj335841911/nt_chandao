@@ -1,5 +1,6 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
+import cn.ibizlab.pms.core.util.ibizzentao.ZTBaseHelper;
 import cn.ibizlab.pms.core.zentao.domain.Im_message;
 import cn.ibizlab.pms.core.zentao.mapper.Im_messageMapper;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
@@ -12,34 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Component
 @Slf4j
-public class MessageHelper extends ServiceImpl<Im_messageMapper, Im_message> {
-
-    @Transactional
-    public Im_message get(Long key) {
-        Im_message et = getById(key);
-        if (et == null) {
-            et = new Im_message();
-            et.setId(key);
-        } else {
-        }
-        return et;
-    }
-
-    @Transactional
-    public boolean create(Im_message et) {
-        if (!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()), et);
-        return true;
-    }
-
-    @Transactional
-    public boolean internalUpdate(Im_message et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()), et);
-        return true;
-    }
+public class MessageHelper extends ZTBaseHelper<Im_messageMapper, Im_message> {
 
     /**
      * edit 编辑
@@ -54,17 +28,6 @@ public class MessageHelper extends ServiceImpl<Im_messageMapper, Im_message> {
         return true;
     }
 
-    /**
-     * delete 删除
-     *
-     * @param key
-     * @return
-     */
-    @Transactional
-    public boolean delete(Long key) {
-        boolean result = removeById(key);
-        return result;
-    }
 
 
     @Transactional

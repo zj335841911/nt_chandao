@@ -1,5 +1,6 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
+import cn.ibizlab.pms.core.util.ibizzentao.ZTBaseHelper;
 import cn.ibizlab.pms.core.util.ibizzentao.common.Helper;
 import cn.ibizlab.pms.core.zentao.domain.File;
 import cn.ibizlab.pms.core.zentao.mapper.FileMapper;
@@ -13,34 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Component
 @Slf4j
-public class FileHelper extends ServiceImpl<FileMapper, File> {
-
-    @Transactional
-    public File get(Long key) {
-        File et = getById(key);
-        if (et == null) {
-            et = new File();
-            et.setId(key);
-        } else {
-        }
-        return et;
-    }
-
-    @Transactional
-    public boolean create(File et) {
-        if (!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()), et);
-        return true;
-    }
-
-    @Transactional
-    public boolean interalUpdate(File et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()), et);
-        return true;
-    }
+public class FileHelper extends ZTBaseHelper<FileMapper, File> {
 
     /**
      * edit 编辑
@@ -55,17 +29,6 @@ public class FileHelper extends ServiceImpl<FileMapper, File> {
         return true;
     }
 
-    /**
-     * delete 删除
-     *
-     * @param key
-     * @return
-     */
-    @Transactional
-    public boolean delete(Long key) {
-        boolean result = removeById(key);
-        return result;
-    }
 
     @Transactional
     public void processImgURL(EntityMP et, String editorList, Long uid) {

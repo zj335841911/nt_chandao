@@ -1,5 +1,6 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
+import cn.ibizlab.pms.core.util.ibizzentao.ZTBaseHelper;
 import cn.ibizlab.pms.core.util.ibizzentao.common.Fixer;
 import cn.ibizlab.pms.core.zentao.domain.Action;
 import cn.ibizlab.pms.core.zentao.domain.History;
@@ -10,10 +11,8 @@ import cn.ibizlab.pms.core.zentao.service.IProjectProductService;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,7 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
-public class ActionHelper extends ServiceImpl<ActionMapper, Action> {
+public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
 
     String[] processType = new String[]{"story", "productplan", "release", "task", "build", "bug", "case", "testtask", "doc"};
 
@@ -38,35 +37,16 @@ public class ActionHelper extends ServiceImpl<ActionMapper, Action> {
     @Autowired
     IProjectProductService projectProductService;
 
-    @Transactional
-    public Action get(Long key) {
-        Action et = getById(key);
-        if (et == null) {
-            et = new Action();
-            et.setId(key);
-        } else {
-        }
-        return et;
-    }
 
     @Transactional
     public boolean create(Action et) {
-        if (!this.retBool(this.baseMapper.insert(et)))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()), et);
+        super.create(et);
 
         messageHelper.send(et.getObjecttype(), et.getObjectid(), et.getAction(), et.getId(), et.getActor());
 
         return true;
     }
 
-    @Transactional
-    public boolean internalUpdate(Action et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()), et);
-        return true;
-    }
 
     /**
      * edit 编辑
@@ -81,17 +61,6 @@ public class ActionHelper extends ServiceImpl<ActionMapper, Action> {
         return true;
     }
 
-    /**
-     * delete 删除
-     *
-     * @param key
-     * @return
-     */
-    @Transactional
-    public boolean delete(Long key) {
-        boolean result = removeById(key);
-        return result;
-    }
 
     @Transactional
     public Action create(String objectType, Long objectID, String actionType, String comment, String extra, String actor, boolean autoDelete) {
