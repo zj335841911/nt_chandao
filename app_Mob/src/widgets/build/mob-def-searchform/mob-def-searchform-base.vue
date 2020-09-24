@@ -54,11 +54,28 @@
 
 
 
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${P.getEditorCode(item, "EDITOR.vue")...  [in template "TEMPLCODE_en_US" at line 36, column 9]
-----
-无法获取指定编辑器[DATEPICKEREX]发布代码[FORMITEM][EDITOR.vue]模板
+<app-form-item 
+    name='n_date_ltandeq' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="n_date_ltandeq_item"  
+    :itemValue="this.data.n_date_ltandeq" 
+    v-show="detailsModel.n_date_ltandeq.visible" 
+    :itemRules="this.rules.n_date_ltandeq" 
+    :caption="$t('build.mobdef_searchform.details.n_date_ltandeq')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.n_date_ltandeq.disabled"  
+    :error="detailsModel.n_date_ltandeq.error" 
+    :isEmptyCaption="false">
+        <app-mob-datetime-picker 
+    class="app-form-item-datetime" 
+    :value="data.n_date_ltandeq" 
+    :disabled="detailsModel.n_date_ltandeq.disabled"
+    @change="($event)=>this.data.n_date_ltandeq = $event"/>
+</app-form-item>
+
 
 
 
