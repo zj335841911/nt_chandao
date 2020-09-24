@@ -175,6 +175,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '0e2762177f3bf384b00d863798bd744c',
                 '69a540ab88c1edd1da7f89cebe5f4588',
             ],
         },
@@ -209,6 +210,7 @@ export const viewstate: any = {
                 '5417edd9f4126190105417c652149d76',
                 'd739ee414172cbfdc3d6e2d2e01e3676',
                 '78beacb29481bfa83dfce62ac4bd9d13',
+                '0e2762177f3bf384b00d863798bd744c',
                 '4a68a7fca37b1f7d3cf396c66fd2347a',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
@@ -383,7 +385,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '0e2762177f3bf384b00d863798bd744c',
             ],
         },
         {
@@ -403,6 +404,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '61673d1a86a046c9ff672f16ab4b7ce7',
+                '0e2762177f3bf384b00d863798bd744c',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },
@@ -423,6 +425,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '0e2762177f3bf384b00d863798bd744c',
             ],
         },
         {
@@ -555,6 +558,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '0e2762177f3bf384b00d863798bd744c',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },
@@ -585,6 +589,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '0e2762177f3bf384b00d863798bd744c',
                 '9349ea1684c700138349df5c672a7c19',
                 '206584f40a0caade6c253a360fad96c1',
                 '3cada37cd0f6b5c0492af340b3aa0a65',
@@ -661,6 +666,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '61673d1a86a046c9ff672f16ab4b7ce7',
+                '0e2762177f3bf384b00d863798bd744c',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
         },
@@ -834,6 +840,7 @@ export const viewstate: any = {
                 'd739ee414172cbfdc3d6e2d2e01e3676',
                 '78beacb29481bfa83dfce62ac4bd9d13',
                 '1a957197655fae1ce44ceccda6f65852',
+                '0e2762177f3bf384b00d863798bd744c',
                 '4a68a7fca37b1f7d3cf396c66fd2347a',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
@@ -1002,6 +1009,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '0e2762177f3bf384b00d863798bd744c',
                 '9349ea1684c700138349df5c672a7c19',
                 '206584f40a0caade6c253a360fad96c1',
                 '3cada37cd0f6b5c0492af340b3aa0a65',
@@ -1017,7 +1025,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '0e2762177f3bf384b00d863798bd744c',
                 '984a4d5ce6ca2ede5539d44590ef20a6',
                 'c7a80e4f493974e2e06f5ae3ff9dc72c',
                 'd9cdd2f760fb5a1e35bcf8ddeab9417c',
@@ -1279,6 +1286,7 @@ export const viewstate: any = {
                 'd739ee414172cbfdc3d6e2d2e01e3676',
                 '78beacb29481bfa83dfce62ac4bd9d13',
                 '1a957197655fae1ce44ceccda6f65852',
+                '0e2762177f3bf384b00d863798bd744c',
                 '4a68a7fca37b1f7d3cf396c66fd2347a',
                 '16bfeba2aa5ae0287f8821660cf2dc78',
             ],
@@ -1396,6 +1404,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '0e2762177f3bf384b00d863798bd744c',
                 '9349ea1684c700138349df5c672a7c19',
                 '206584f40a0caade6c253a360fad96c1',
                 '3cada37cd0f6b5c0492af340b3aa0a65',

@@ -67,6 +67,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 描述
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
@@ -91,6 +92,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 排序
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`order`")
     @JSONField(name = "order")
     @JsonProperty("order")

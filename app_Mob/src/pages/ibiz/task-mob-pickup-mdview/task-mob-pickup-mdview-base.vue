@@ -227,6 +227,7 @@ export default class TaskMobPickupMDViewBase extends Vue {
      * @memberof TaskMobPickupMDViewBase
      */
     protected containerModel: any = {
+        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
     };
 
@@ -246,6 +247,7 @@ export default class TaskMobPickupMDViewBase extends Vue {
      * @memberof TaskMobPickupMDViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
     /**

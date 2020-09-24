@@ -236,6 +236,7 @@ export default class TaskFavoriteMobMDView9Base extends Vue {
      * @memberof TaskFavoriteMobMDView9Base
      */
     protected containerModel: any = {
+        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
     };
 
@@ -255,6 +256,7 @@ export default class TaskFavoriteMobMDView9Base extends Vue {
      * @memberof TaskFavoriteMobMDView9Base
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
 
@@ -697,6 +699,52 @@ export default class TaskFavoriteMobMDView9Base extends Vue {
      */
     @Prop() public formDruipart !: Subject<ViewState>;
 
+
+    /**
+     * 搜索表单状态
+     *
+     * @type {boolean}
+     * @memberof TaskFavoriteMobMDView9Base
+     */
+    public searchformState: boolean = false;
+
+    /**
+     * 是否展开搜索表单
+     *
+     * @type {boolean}
+     * @memberof TaskFavoriteMobMDView9Base
+     */
+    public isExpandSearchForm: boolean = false;
+
+    /**
+     * 执行搜索表单
+     *
+     * @memberof TaskFavoriteMobMDView9Base
+     */
+    public onSearch(): void {
+        this.searchformState = false;
+        this.isExpandSearchForm = true;
+        const form: any = this.$refs.searchform;
+        if (form) {
+            form.onSearch();
+        }
+        this.closeSearchform();
+    }
+
+    /**
+     * 重置搜索表单
+     *
+     * @memberof TaskFavoriteMobMDView9Base
+     */
+    public onReset(): void {
+        this.searchformState = false;
+        this.isExpandSearchForm = false;
+        const form: any = this.$refs.searchform;
+        if (form) {
+            form.onReset();
+        }
+        this.closeSearchform();
+    }
 
    /**
      * 是否单选
