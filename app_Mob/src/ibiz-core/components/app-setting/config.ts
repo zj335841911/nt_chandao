@@ -63,6 +63,7 @@ export const settingConfig = {
       text: "关于",
       position: "center",
       sort: "500",
+      viewName: "app-update-log-list",
     },
     {
       name: "logout",
