@@ -230,6 +230,14 @@ const datas: Array<any> = [
         ]
     },
     {
+        "srfkey": "SQLBuild",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"",
+        "appdedataset":"",
+        "items": []
+    },
+    {
         srfkey: 'Project__status',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -824,6 +832,76 @@ const datas: Array<any> = [
                 label: '4',
                 text: '4',
                 value: 4,
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'RELEASE_Type',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'DEPLOYPKG',
+                label: '部署系统组件到仓库',
+                text: '部署系统组件到仓库',
+                value: 'DEPLOYPKG',
+                disabled: false,
+            },
+            {
+                id: 'PACKMOBAPP',
+                label: '打包移动应用',
+                text: '打包移动应用',
+                value: 'PACKMOBAPP',
+                disabled: false,
+            },
+            {
+                id: 'PACKVER',
+                label: '打包版本',
+                text: '打包版本',
+                value: 'PACKVER',
+                disabled: false,
+            },
+            {
+                id: 'PUBCODE',
+                label: '代码发布',
+                text: '代码发布',
+                value: 'PUBCODE',
+                disabled: false,
+            },
+            {
+                id: 'PUBCODE2',
+                label: '代码发布（模板开发）',
+                text: '代码发布（模板开发）',
+                value: 'PUBCODE2',
+                disabled: false,
+            },
+            {
+                id: 'STARTMSAPI',
+                label: '启动微服务',
+                text: '启动微服务',
+                value: 'STARTMSAPI',
+                disabled: false,
+            },
+            {
+                id: 'STARTMSAPP',
+                label: '启动微服务应用',
+                text: '启动微服务应用',
+                value: 'STARTMSAPP',
+                disabled: false,
+            },
+            {
+                id: 'STARTMSFUNC',
+                label: '启动微服务功能',
+                text: '启动微服务功能',
+                value: 'STARTMSFUNC',
+                disabled: false,
+            },
+            {
+                id: 'STARTX',
+                label: '启动系统',
+                text: '启动系统',
+                value: 'STARTX',
                 disabled: false,
             },
         ]
@@ -3246,14 +3324,6 @@ const datas: Array<any> = [
                 disabled: false,
             },
         ]
-    },
-    {
-        "srfkey": "CurProductProject",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"Project",
-        "appdedataset":"FetchCurProduct",
-        "items": []
     },
     {
         srfkey: 'Type',

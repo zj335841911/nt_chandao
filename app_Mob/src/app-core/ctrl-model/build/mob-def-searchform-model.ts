@@ -21,23 +21,23 @@ export class MobDefModel {
                 dataType: 'TEXT',
             },
             {
-                name: 'n_title_like',
-                prop: 'n_title_like', 
+                name: 'n_name_like',
+                prop: 'n_name_like', 
                 dataType: 'TEXT',
             },
             {
-                name: 'n_type_eq',
-                prop: 'n_type_eq', 
+                name: 'n_releasetype_eq',
+                prop: 'n_releasetype_eq', 
                 dataType: 'SSCODELIST',
             },
             {
-                name: 'n_status_eq',
-                prop: 'n_status_eq', 
+                name: 'n_sqlid_eq',
+                prop: 'n_sqlid_eq', 
                 dataType: 'SSCODELIST',
             },
             {
-                name: 'n_module_eq',
-                prop: 'n_module_eq', 
+                name: 'n_project_eq',
+                prop: 'n_project_eq', 
                 dataType: 'PICKUP',
             },
         ];

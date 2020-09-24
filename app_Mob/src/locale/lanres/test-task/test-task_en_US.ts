@@ -57,6 +57,7 @@ export default {
 			formpage1: '常规条件', 
 			n_name_like: '名称(文本包含(%))', 
 			n_status_eq: '当前状态(等于(=))', 
+			n_build_eq: '版本(等于(=))', 
 		},
 		uiactions: {
 		},

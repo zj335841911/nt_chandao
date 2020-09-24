@@ -1,112 +1,112 @@
 <template>
-    <div ref='searchform' class="app-form case-searchform ">
+    <div ref='searchform' class="app-form build-searchform ">
                 
 
 <app-form-item 
-    name='n_title_like' 
+    name='n_name_like' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="n_title_like_item"  
-    :itemValue="this.data.n_title_like" 
-    v-show="detailsModel.n_title_like.visible" 
-    :itemRules="this.rules.n_title_like" 
-    :caption="$t('case.mobdef_searchform.details.n_title_like')"  
+    ref="n_name_like_item"  
+    :itemValue="this.data.n_name_like" 
+    v-show="detailsModel.n_name_like.visible" 
+    :itemRules="this.rules.n_name_like" 
+    :caption="$t('build.mobdef_searchform.details.n_name_like')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.n_title_like.disabled"  
-    :error="detailsModel.n_title_like.error" 
+    :disabled="detailsModel.n_name_like.disabled"  
+    :error="detailsModel.n_name_like.error" 
     :isEmptyCaption="false">
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.n_title_like"
+    :value="data.n_name_like"
     
-    :disabled="detailsModel.n_title_like.disabled" 
-    @change="($event)=>this.data.n_title_like = $event" />
+    :disabled="detailsModel.n_name_like.disabled" 
+    @change="($event)=>this.data.n_name_like = $event" />
 </app-form-item>
 
 
 
 <app-form-item 
-    name='n_type_eq' 
+    name='n_releasetype_eq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="n_type_eq_item"  
-    :itemValue="this.data.n_type_eq" 
-    v-show="detailsModel.n_type_eq.visible" 
-    :itemRules="this.rules.n_type_eq" 
-    :caption="$t('case.mobdef_searchform.details.n_type_eq')"  
+    ref="n_releasetype_eq_item"  
+    :itemValue="this.data.n_releasetype_eq" 
+    v-show="detailsModel.n_releasetype_eq.visible" 
+    :itemRules="this.rules.n_releasetype_eq" 
+    :caption="$t('build.mobdef_searchform.details.n_releasetype_eq')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.n_type_eq.disabled"  
-    :error="detailsModel.n_type_eq.error" 
+    :disabled="detailsModel.n_releasetype_eq.disabled"  
+    :error="detailsModel.n_releasetype_eq.error" 
     :isEmptyCaption="false">
         <app-mob-select 
-    tag="Testcase__type"
+    tag="RELEASE_Type"
     codeListType="STATIC" 
     :isCache="false" 
-    :disabled="detailsModel.n_type_eq.disabled" 
+    :disabled="detailsModel.n_releasetype_eq.disabled" 
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.n_type_eq"  
+    :value="data.n_releasetype_eq"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.n_type_eq = $event" />
+    @change="($event)=>this.data.n_releasetype_eq = $event" />
 </app-form-item>
 
 
 
 <app-form-item 
-    name='n_status_eq' 
+    name='n_sqlid_eq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="n_status_eq_item"  
-    :itemValue="this.data.n_status_eq" 
-    v-show="detailsModel.n_status_eq.visible" 
-    :itemRules="this.rules.n_status_eq" 
-    :caption="$t('case.mobdef_searchform.details.n_status_eq')"  
+    ref="n_sqlid_eq_item"  
+    :itemValue="this.data.n_sqlid_eq" 
+    v-show="detailsModel.n_sqlid_eq.visible" 
+    :itemRules="this.rules.n_sqlid_eq" 
+    :caption="$t('build.mobdef_searchform.details.n_sqlid_eq')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.n_status_eq.disabled"  
-    :error="detailsModel.n_status_eq.error" 
+    :disabled="detailsModel.n_sqlid_eq.disabled"  
+    :error="detailsModel.n_sqlid_eq.error" 
     :isEmptyCaption="false">
         <app-mob-select 
-    tag="Testcase__status"
-    codeListType="STATIC" 
+    tag="SQLBuild"
+    codeListType="DYNAMIC" 
     :isCache="false" 
-    :disabled="detailsModel.n_status_eq.disabled" 
+    :disabled="detailsModel.n_sqlid_eq.disabled" 
     :data="data" 
     :context="context" 
     :viewparams="viewparams"
-    :value="data.n_status_eq"  
+    :value="data.n_sqlid_eq"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.n_status_eq = $event" />
+    @change="($event)=>this.data.n_sqlid_eq = $event" />
 </app-form-item>
 
 
 
 <app-form-item 
-    name='n_module_eq' 
+    name='n_project_eq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="n_module_eq_item"  
-    :itemValue="this.data.n_module_eq" 
-    v-show="detailsModel.n_module_eq.visible" 
-    :itemRules="this.rules.n_module_eq" 
-    :caption="$t('case.mobdef_searchform.details.n_module_eq')"  
+    ref="n_project_eq_item"  
+    :itemValue="this.data.n_project_eq" 
+    v-show="detailsModel.n_project_eq.visible" 
+    :itemRules="this.rules.n_project_eq" 
+    :caption="$t('build.mobdef_searchform.details.n_project_eq')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.n_module_eq.disabled"  
-    :error="detailsModel.n_module_eq.error" 
+    :disabled="detailsModel.n_project_eq.disabled"  
+    :error="detailsModel.n_project_eq.error" 
     :isEmptyCaption="false">
         <app-mob-select-drop-down 
-    name='n_module_eq' 
+    name='n_project_eq' 
     deMajorField='name'
     deKeyField='id'
     valueitem='' 
@@ -119,12 +119,12 @@
     :navigateParam ='{ } '
     :viewparams="viewparams"
     :itemParam='{ }' 
-    :disabled="detailsModel.n_module_eq.disabled"
+    :disabled="detailsModel.n_project_eq.disabled"
     :service="service"
-    :acParams="{ serviceName: 'module', interfaceName: 'FetchDefault'}"
-    :value="data.n_module_eq" 
+    :acParams="{ serviceName: 'project', interfaceName: 'FetchDefault'}"
+    :value="data.n_project_eq" 
     @formitemvaluechange="onFormItemValueChange"
-    @change="($event)=>this.data.n_module_eq = $event">
+    @change="($event)=>this.data.n_project_eq = $event">
 </app-mob-select-drop-down>
 </app-form-item>
 
@@ -140,11 +140,11 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import CaseService from '@/app-core/service/case/case-service';
-import MobDefService from '@/app-core/ctrl-service/case/mob-def-searchform-service';
+import BuildService from '@/app-core/service/build/build-service';
+import MobDefService from '@/app-core/ctrl-service/build/mob-def-searchform-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
-import CaseUIService from '@/ui-service/case/case-ui-action';
+import BuildUIService from '@/ui-service/build/build-ui-action';
 
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -249,18 +249,18 @@ export default class MobDefBase extends Vue implements ControlInterface {
     /**
      * 实体服务对象
      *
-     * @type {CaseService}
+     * @type {BuildService}
      * @memberof MobDef
      */
-    protected appEntityService: CaseService = new CaseService();
+    protected appEntityService: BuildService = new BuildService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {CaseUIService}
+     * @type {BuildUIService}
      * @memberof MobDefBase
      */  
-    public deUIService:CaseUIService = new CaseUIService(this.$store);
+    public deUIService:BuildUIService = new BuildUIService(this.$store);
     
 
     /**
@@ -440,11 +440,11 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected data: any = {
-        n_title_like: null,
-        n_type_eq: null,
-        n_status_eq: null,
-        n_module_eq: null,
-        case: null,
+        n_name_like: null,
+        n_releasetype_eq: null,
+        n_sqlid_eq: null,
+        n_project_eq: null,
+        build: null,
     };
 
     /**
@@ -478,29 +478,29 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected rules: any = {
-        n_title_like: [
-            { type: 'string', message: '用例标题(文本包含(%)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '用例标题(文本包含(%)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '用例标题(文本包含(%)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '用例标题(文本包含(%)) 值不能为空', trigger: 'blur' },
+        n_name_like: [
+            { type: 'string', message: '名称编号(文本包含(%)) 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '名称编号(文本包含(%)) 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '名称编号(文本包含(%)) 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '名称编号(文本包含(%)) 值不能为空', trigger: 'blur' },
         ],
-        n_type_eq: [
-            { type: 'string', message: '用例类型(等于(=)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '用例类型(等于(=)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '用例类型(等于(=)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '用例类型(等于(=)) 值不能为空', trigger: 'blur' },
+        n_releasetype_eq: [
+            { type: 'string', message: '运行模式(等于(=)) 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '运行模式(等于(=)) 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '运行模式(等于(=)) 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '运行模式(等于(=)) 值不能为空', trigger: 'blur' },
         ],
-        n_status_eq: [
-            { type: 'string', message: '用例状态(等于(=)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '用例状态(等于(=)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '用例状态(等于(=)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '用例状态(等于(=)) 值不能为空', trigger: 'blur' },
+        n_sqlid_eq: [
+            { type: 'string', message: '运行数据库(等于(=)) 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '运行数据库(等于(=)) 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '运行数据库(等于(=)) 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '运行数据库(等于(=)) 值不能为空', trigger: 'blur' },
         ],
-        n_module_eq: [
-            { type: 'number', message: '所属模块(等于(=)) 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '所属模块(等于(=)) 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '所属模块(等于(=)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '所属模块(等于(=)) 值不能为空', trigger: 'blur' },
+        n_project_eq: [
+            { type: 'number', message: '所属项目(等于(=)) 值必须为数值类型', trigger: 'change' },
+            { type: 'number', message: '所属项目(等于(=)) 值必须为数值类型', trigger: 'blur' },
+            { required: false, type: 'number', message: '所属项目(等于(=)) 值不能为空', trigger: 'change' },
+            { required: false, type: 'number', message: '所属项目(等于(=)) 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -513,62 +513,62 @@ export default class MobDefBase extends Vue implements ControlInterface {
     protected detailsModel: any = {
         formpage1: new FormPageModel({ caption: '常规条件', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        n_title_like: new FormItemModel({ caption: '用例标题(文本包含(%))', detailType: 'FORMITEM', name: 'n_title_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_name_like: new FormItemModel({ caption: '名称编号(文本包含(%))', detailType: 'FORMITEM', name: 'n_name_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_type_eq: new FormItemModel({ caption: '用例类型(等于(=))', detailType: 'FORMITEM', name: 'n_type_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_releasetype_eq: new FormItemModel({ caption: '运行模式(等于(=))', detailType: 'FORMITEM', name: 'n_releasetype_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_status_eq: new FormItemModel({ caption: '用例状态(等于(=))', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_sqlid_eq: new FormItemModel({ caption: '运行数据库(等于(=))', detailType: 'FORMITEM', name: 'n_sqlid_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_module_eq: new FormItemModel({ caption: '所属模块(等于(=))', detailType: 'FORMITEM', name: 'n_module_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_project_eq: new FormItemModel({ caption: '所属项目(等于(=))', detailType: 'FORMITEM', name: 'n_project_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
     /**
-     * 监控表单属性 n_title_like 值
+     * 监控表单属性 n_name_like 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobDef
      */
-    @Watch('data.n_title_like')
-    onN_title_likeChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'n_title_like', newVal: newVal, oldVal: oldVal });
+    @Watch('data.n_name_like')
+    onN_name_likeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'n_name_like', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 n_type_eq 值
+     * 监控表单属性 n_releasetype_eq 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobDef
      */
-    @Watch('data.n_type_eq')
-    onN_type_eqChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'n_type_eq', newVal: newVal, oldVal: oldVal });
+    @Watch('data.n_releasetype_eq')
+    onN_releasetype_eqChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'n_releasetype_eq', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 n_status_eq 值
+     * 监控表单属性 n_sqlid_eq 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobDef
      */
-    @Watch('data.n_status_eq')
-    onN_status_eqChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'n_status_eq', newVal: newVal, oldVal: oldVal });
+    @Watch('data.n_sqlid_eq')
+    onN_sqlid_eqChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'n_sqlid_eq', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 n_module_eq 值
+     * 监控表单属性 n_project_eq 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobDef
      */
-    @Watch('data.n_module_eq')
-    onN_module_eqChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'n_module_eq', newVal: newVal, oldVal: oldVal });
+    @Watch('data.n_project_eq')
+    onN_project_eqChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'n_project_eq', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -737,7 +737,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected formValidateStatus(): boolean {
-        const refArr: Array<string> = ['n_title_like_item', 'n_type_eq_item', 'n_status_eq_item', 'n_module_eq_item', ];
+        const refArr: Array<string> = ['n_name_like_item', 'n_releasetype_eq_item', 'n_sqlid_eq_item', 'n_project_eq_item', ];
         let falg = true;
         refArr.forEach((item: any) => {
             if (this.$refs[item] && (this.$refs[item] as any).validateRules && !(this.$refs[item] as any).validateRules()) {
@@ -989,8 +989,8 @@ export default class MobDefBase extends Vue implements ControlInterface {
         const response: any = await this.service.loadDraft(this.loaddraftAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
             const data = response.data;
-            if(data.case){
-                Object.assign(this.context, { case: data.case });
+            if(data.build){
+                Object.assign(this.context, { build: data.build });
             }
             this.resetDraftFormStates();
             this.onFormLoad(data, 'loadDraft');

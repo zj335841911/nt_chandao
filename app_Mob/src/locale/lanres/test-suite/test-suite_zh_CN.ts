@@ -41,6 +41,16 @@ export default {
 		uiactions: {
 		},
 	},
+	mobdef_searchform: {
+		details: {
+			formpage1: '常规条件', 
+			n_name_like: '名称(文本包含(%))', 
+			n_type_eq: '类型(等于(=))', 
+			n_product_eq: '所属产品(等于(=))', 
+		},
+		uiactions: {
+		},
+	},
 	mobmdviewrighttoolbar_toolbar: {
 	},
 	mobeditviewrighttoolbar_toolbar: {

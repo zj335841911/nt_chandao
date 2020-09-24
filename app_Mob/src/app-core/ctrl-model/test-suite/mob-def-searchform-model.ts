@@ -21,8 +21,8 @@ export class MobDefModel {
                 dataType: 'TEXT',
             },
             {
-                name: 'n_title_like',
-                prop: 'n_title_like', 
+                name: 'n_name_like',
+                prop: 'n_name_like', 
                 dataType: 'TEXT',
             },
             {
@@ -31,13 +31,8 @@ export class MobDefModel {
                 dataType: 'SSCODELIST',
             },
             {
-                name: 'n_status_eq',
-                prop: 'n_status_eq', 
-                dataType: 'SSCODELIST',
-            },
-            {
-                name: 'n_module_eq',
-                prop: 'n_module_eq', 
+                name: 'n_product_eq',
+                prop: 'n_product_eq', 
                 dataType: 'PICKUP',
             },
         ];

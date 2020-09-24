@@ -6,10 +6,47 @@
     
               <ion-toolbar>
     <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
+    <ion-button class="filter-btn" size="small" slot="end"  @click="openSearchform"><ion-icon  slot="end" name="filter-outline"></ion-icon>过滤</ion-button>  
   </ion-toolbar>
 
     </ion-header>
 
+    <ion-menu side="start" content-id="searchformbuildmobmpickupview" ref='searchformbuildmobmpickupview'>
+        <ion-header>
+            <ion-toolbar translucent>
+            <ion-title>条件搜索</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <view_searchform
+    :viewState="viewState"
+    viewName="BuildMobMPickupView"  
+    :viewparams="viewparams" 
+    :context="context" 
+     
+    :viewtag="viewtag"
+    :showBusyIndicator="true"
+    updateAction=""
+    removeAction=""
+    loaddraftAction="FilterGetDraft"
+    loadAction="FilterGet"
+    createAction=""
+    WFSubmitAction=""
+    WFStartAction=""
+    style='' 
+    name="searchform"  
+    ref='searchform' 
+    @closeview="closeView($event)">
+</view_searchform>
+        </ion-content>
+        <ion-footer>
+        <div class="search-btn">
+            <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
+            <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
+        </div>
+        </ion-footer>
+    </ion-menu>
+    <div id="searchformbuildmobmpickupview"></div>
 
     <ion-content>
                 <view_pickupviewpanel
@@ -235,6 +272,7 @@ export default class BuildMobMPickupViewBase extends Vue {
      * @memberof BuildMobMPickupViewBase
      */
     protected containerModel: any = {
+        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
         view_pickupviewpanel: { name: 'pickupviewpanel', type: 'PICKUPVIEWPANEL' },
         view_okbtn: { name: 'okbtn', type: 'button', text: '确定', disabled: true },
         view_cancelbtn: { name: 'cancelbtn', type: 'button', text: '取消', disabled: false },
@@ -260,6 +298,7 @@ export default class BuildMobMPickupViewBase extends Vue {
      * @memberof BuildMobMPickupViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
     /**

@@ -309,7 +309,7 @@ export default {
 			n_name_like: '任务名称(文本包含(%))', 
 			n_type_eq: '任务类型(等于(=))', 
 			n_status_eq: '任务状态(等于(=))', 
-			n_modulename_like: '所属模块(文本包含(%))', 
+			n_modulename_eq: '所属模块(等于(=))', 
 		},
 		uiactions: {
 		},

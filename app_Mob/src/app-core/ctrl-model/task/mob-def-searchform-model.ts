@@ -36,8 +36,8 @@ export class MobDefModel {
                 dataType: 'SSCODELIST',
             },
             {
-                name: 'n_modulename_like',
-                prop: 'n_modulename_like', 
+                name: 'n_modulename_eq',
+                prop: 'n_modulename_eq', 
                 dataType: 'PICKUPTEXT',
             },
         ];

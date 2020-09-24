@@ -1,6 +1,6 @@
 import { SearchFormServiceBase } from '@/ibiz-core';
 import { Util, HttpResponse } from '@/ibiz-core/utils';
-import { MobDefModel } from '@/app-core/ctrl-model/case/mob-def-searchform-model';
+import { MobDefModel } from '@/app-core/ctrl-model/test-suite/mob-def-searchform-model';
 
 
 /**
@@ -28,7 +28,7 @@ export class MobDefService extends SearchFormServiceBase {
      * @type {string}
      * @memberof MobDefService
      */
-    protected appDEName: string = 'case';
+    protected appDEName: string = 'testsuite';
 
     /**
      * 当前应用实体主键标识
@@ -51,8 +51,8 @@ export class MobDefService extends SearchFormServiceBase {
      * @memberof  MobDefService
      */
     public async getItems(serviceName: string, interfaceName: string, context?: any, data?: any, isLoading?: boolean): Promise<any[]> {
-        if (Object.is(serviceName, 'ModuleService') && Object.is(interfaceName, 'FetchDefault')) {
-            const service: any = await this.getService('module');
+        if (Object.is(serviceName, 'ProductService') && Object.is(interfaceName, 'FetchDefault')) {
+            const service: any = await this.getService('product');
             await this.onBeforeAction(interfaceName, context, data, isLoading);
             const response: any = await service.FetchDefault(data);
             return this.doItems(response);

@@ -21,19 +21,9 @@ export class MobDefModel {
                 dataType: 'TEXT',
             },
             {
-                name: 'n_modulename_like',
-                prop: 'n_modulename_like', 
-                dataType: 'PICKUPTEXT',
-            },
-            {
-                name: 'n_id_eq',
-                prop: 'n_id_eq', 
-                dataType: 'ACID',
-            },
-            {
-                name: 'n_buildproject_eq',
-                prop: 'n_buildproject_eq', 
-                dataType: 'SSCODELIST',
+                name: 'n_title_like',
+                prop: 'n_title_like', 
+                dataType: 'TEXT',
             },
             {
                 name: 'n_status_eq',
@@ -46,9 +36,9 @@ export class MobDefModel {
                 dataType: 'SSCODELIST',
             },
             {
-                name: 'bug',
-                prop: 'id',
-                dataType: 'FONTKEY',
+                name: 'n_severity_eq',
+                prop: 'n_severity_eq', 
+                dataType: 'NSCODELIST',
             },
         ];
     }

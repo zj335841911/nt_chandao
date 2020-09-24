@@ -58,6 +58,17 @@ export default {
 		uiactions: {
 		},
 	},
+	mobdef_searchform: {
+		details: {
+			formpage1: '常规条件', 
+			n_name_like: '名称编号(文本包含(%))', 
+			n_releasetype_eq: '运行模式(等于(=))', 
+			n_sqlid_eq: '运行数据库(等于(=))', 
+			n_project_eq: '所属项目(等于(=))', 
+		},
+		uiactions: {
+		},
+	},
 	mobmdviewrighttoolbar_toolbar: {
 	},
 	mobeditviewrighttoolbar_toolbar: {

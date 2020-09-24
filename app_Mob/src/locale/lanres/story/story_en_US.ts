@@ -318,7 +318,6 @@ export default {
 			n_title_like: '需求名称(文本包含(%))', 
 			n_status_eq: '当前状态(等于(=))', 
 			n_type_eq: '需求类型(等于(=))', 
-			n_modulename_like: '所属模块名称(文本包含(%))', 
 		},
 		uiactions: {
 		},

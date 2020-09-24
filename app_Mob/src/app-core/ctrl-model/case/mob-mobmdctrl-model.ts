@@ -98,9 +98,9 @@ export class MobModel {
                 dataType: 'SSCODELIST',
             },
             {
-                name: 'n_modulename_like',
-                prop: 'n_modulename_like', 
-                dataType: 'PICKUPTEXT',
+                name: 'n_module_eq',
+                prop: 'n_module_eq', 
+                dataType: 'PICKUP',
             },
 
 			{
