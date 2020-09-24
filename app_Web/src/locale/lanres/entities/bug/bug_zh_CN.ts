@@ -809,27 +809,6 @@ export default {
 			bug_mainedit: "编辑",
 		},
 	},
-	storyrelated_grid: {
-		columns: {
-			id: "ID",
-			title: "Bug标题",
-		},
-		uiactions: {
-		},
-	},
-	main_releasesub_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			title: "Bug标题",
-			status: "Bug状态",
-			openedby: "由谁创建",
-			openeddate: "创建日期",
-			assignedto: "指派给",
-		},
-		uiactions: {
-		},
-	},
 	main_reportsub_grid: {
 		columns: {
 			id: "ID",
@@ -859,6 +838,27 @@ export default {
 			isfavorites: "是否收藏",
 			product: "所属产品",
 			projectname: "项目",
+		},
+		uiactions: {
+		},
+	},
+	storyrelated_grid: {
+		columns: {
+			id: "ID",
+			title: "Bug标题",
+		},
+		uiactions: {
+		},
+	},
+	main_releasesub_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "Bug标题",
+			status: "Bug状态",
+			openedby: "由谁创建",
+			openeddate: "创建日期",
+			assignedto: "指派给",
 		},
 		uiactions: {
 		},
@@ -979,6 +979,16 @@ export default {
 			tip: "提Bug",
 		},
 	},
+	testreportsubgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		deuiaction1: {
+			caption: "导出",
+			tip: "导出",
+		},
+	},
 	releasesubgridview_donetoolbar_toolbar: {
 		deuiaction1: {
 			caption: "关联bug",
@@ -996,16 +1006,6 @@ export default {
 			caption: "新建",
 			tip: "新建",
 		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-		deuiaction1: {
-			caption: "导出",
-			tip: "导出",
-		},
-	},
-	testreportsubgridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

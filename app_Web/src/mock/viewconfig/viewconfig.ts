@@ -55,6 +55,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzCaseNewEditEditView9",
             "viewtag": "03840483160859a4e36e33e9f9471ed3"
         },
+        "testreportprojectgridview": {
+            "title": "测试报告表格视图",
+            "caption": "项目报告",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestReportProjectGridView",
+            "viewtag": "038fb7788a6add9cc268fe8dd67e6262"
+        },
         "projectproductplanlistview9": {
             "title": "项目产品列表视图",
             "caption": "关联计划",
@@ -646,6 +654,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "CaseGridView9_Storyaffect",
             "viewtag": "3458603afa6fef36eda88e9f794840f5"
+        },
+        "testreportprojecttabexpview": {
+            "title": "测试报告分页导航视图",
+            "caption": "项目报告",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestReportProjectTabExpView",
+            "viewtag": "34d99e271bca6539e707f467f9575044"
         },
         "tasksubtasknewview": {
             "title": "子任务",

@@ -93,6 +93,8 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			lastcomment: "", 
+			objectid: "对象ID", 
+			objecttype: "对象类型", 
 			id: "id", 
 		},
 		uiactions: {

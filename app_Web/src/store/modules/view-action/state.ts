@@ -46,6 +46,18 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '038fb7788a6add9cc268fe8dd67e6262',
+            viewmodule: 'zentao',
+            viewname: 'TestReportProjectGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1f13f330cbca49433d11328f9e7d8ae2',
+                'ea7a4f0ccc237a45f39ffb2e3df7e9fd',
+                'f340b16bd1355b1c511d9da4b00476e2',
+            ],
+        },
+        {
             viewtag: '0568d197dda832ceb89ad0442ab9f230',
             viewmodule: 'ibiz',
             viewname: 'ProjectModuleQuickCfgView',
@@ -1643,6 +1655,7 @@ export const viewstate: any = {
                 '14d95e9a02db631c2b9af47641fcec4e',
                 '513dfe852d9d8a97b32eccb44e7b55c3',
                 '5273dc442a49b8c4d37ba9ff008531e7',
+                '038fb7788a6add9cc268fe8dd67e6262',
                 '7cba1f165fc6b4948ce752d3c3b68a34',
             ],
         },

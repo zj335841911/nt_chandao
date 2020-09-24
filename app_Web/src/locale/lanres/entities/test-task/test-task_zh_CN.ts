@@ -390,6 +390,10 @@ export default {
 		},
 	},
 	projectgridviewtoolbar_toolbar: {
+		deuiaction3_reports: {
+			caption: "报告列表",
+			tip: "报告列表",
+		},
 		deuiaction3_projectcreate: {
 			caption: "新建",
 			tip: "新建",

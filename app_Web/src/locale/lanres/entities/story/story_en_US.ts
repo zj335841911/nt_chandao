@@ -808,6 +808,20 @@ export default {
         story_buildunlinkstory: "解绑需求",
 		},
 	},
+	main_reportsub_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "需求名称",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+		},
+		uiactions: {
+		},
+	},
 	storyrelated_grid: {
 		columns: {
 			id: "编号",
@@ -868,20 +882,6 @@ export default {
 		},
 		uiactions: {
         story_releaseunlinkbug: "移除关联",
-		},
-	},
-	main_reportsub_grid: {
-		columns: {
-			id: "ID",
-			pri: "P",
-			title: "需求名称",
-			openedby: "创建",
-			assignedto: "指派",
-			estimate: "预计",
-			status: "状态",
-			stage: "阶段",
-		},
-		uiactions: {
 		},
 	},
 	myfavoritemain_grid: {
@@ -1099,6 +1099,16 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
+	reportsubgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+	},
 	maingridviewtoolbar_toolbar: {
 		deuiaction1_create: {
 			caption: "新建需求",
@@ -1133,16 +1143,6 @@ export default {
 			tip: "关联需求",
 		},
 		deuiaction2: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
-		},
-	},
-	reportsubgridviewtoolbar_toolbar: {
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
 		},

@@ -27,9 +27,17 @@ export default {
     files: "附件",
   },
 	views: {
+		projectgridview: {
+			caption: "项目报告",
+      		title: "测试报告表格视图",
+		},
 		mainediteditview: {
 			caption: "测试报告",
       		title: "测试报告编辑视图",
+		},
+		projecttabexpview: {
+			caption: "项目报告",
+      		title: "测试报告分页导航视图",
 		},
 		maininfoview: {
 			caption: "测试报告",
@@ -263,6 +271,16 @@ export default {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
+		},
+	},
+	projectgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	editviewtoolbar_toolbar: {

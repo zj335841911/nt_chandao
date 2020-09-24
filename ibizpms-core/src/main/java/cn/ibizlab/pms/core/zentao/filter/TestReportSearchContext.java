@@ -34,6 +34,13 @@ public class TestReportSearchContext extends QueryWrapperContext<TestReport> {
             this.getSearchCond().like("title", n_title_like);
         }
     }
+	private String n_objecttype_eq;//[对象类型]
+	public void setN_objecttype_eq(String n_objecttype_eq) {
+        this.n_objecttype_eq = n_objecttype_eq;
+        if(!ObjectUtils.isEmpty(this.n_objecttype_eq)){
+            this.getSearchCond().eq("objecttype", n_objecttype_eq);
+        }
+    }
 	private Long n_product_eq;//[所属产品]
 	public void setN_product_eq(Long n_product_eq) {
         this.n_product_eq = n_product_eq;

@@ -13,16 +13,16 @@ import CodeListService from "@service/app/codelist-service";
  * 测试报告表格视图视图基类
  *
  * @export
- * @class TestReportGridViewBase
+ * @class TestReportProjectGridViewBase
  * @extends {GridViewBase}
  */
-export class TestReportGridViewBase extends GridViewBase {
+export class TestReportProjectGridViewBase extends GridViewBase {
     /**
      * 视图对应应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof TestReportGridViewBase
+     * @memberof TestReportProjectGridViewBase
      */
     protected appDeName: string = 'testreport';
 
@@ -31,7 +31,7 @@ export class TestReportGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof TestReportGridViewBase
+     * @memberof TestReportProjectGridViewBase
      */
     protected appDeKey: string = 'id';
 
@@ -40,7 +40,7 @@ export class TestReportGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof TestReportGridViewBase
+     * @memberof TestReportProjectGridViewBase
      */
     protected appDeMajor: string = 'title';
 
@@ -48,7 +48,7 @@ export class TestReportGridViewBase extends GridViewBase {
      * 实体服务对象
      *
      * @type {TestReportService}
-     * @memberof TestReportGridViewBase
+     * @memberof TestReportProjectGridViewBase
      */
     protected appEntityService: TestReportService = new TestReportService;
 
@@ -56,7 +56,7 @@ export class TestReportGridViewBase extends GridViewBase {
      * 实体权限服务对象
      *
      * @type TestReportUIService
-     * @memberof TestReportGridViewBase
+     * @memberof TestReportProjectGridViewBase
      */
     public appUIService: TestReportUIService = new TestReportUIService(this.$store);
 
@@ -65,10 +65,10 @@ export class TestReportGridViewBase extends GridViewBase {
 	 *
      * @protected
 	 * @type {*}
-	 * @memberof TestReportGridViewBase
+	 * @memberof TestReportProjectGridViewBase
 	 */
     protected customViewNavContexts: any = {
-        'N_OBJECTTYPE_EQ': { isRawValue: true, value: 'testtask' }
+        'N_OBJECTTYPE_EQ': { isRawValue: true, value: 'project' }
     };
 
 	/**
@@ -76,10 +76,10 @@ export class TestReportGridViewBase extends GridViewBase {
 	 *
      * @protected
 	 * @type {*}
-	 * @memberof TestReportGridViewBase
+	 * @memberof TestReportProjectGridViewBase
 	 */
     protected customViewParams: any = {
-        'n_objecttype_eq': { isRawValue: true, value: 'testtask' }
+        'n_objecttype_eq': { isRawValue: true, value: 'project' }
     };
 
     /**
@@ -87,12 +87,12 @@ export class TestReportGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {*}
-     * @memberof TestReportGridViewBase
+     * @memberof TestReportProjectGridViewBase
      */
     protected model: any = {
-        srfCaption: 'entities.testreport.views.gridview.caption',
-        srfTitle: 'entities.testreport.views.gridview.title',
-        srfSubTitle: 'entities.testreport.views.gridview.subtitle',
+        srfCaption: 'entities.testreport.views.projectgridview.caption',
+        srfTitle: 'entities.testreport.views.projectgridview.title',
+        srfSubTitle: 'entities.testreport.views.projectgridview.subtitle',
         dataInfo: ''
     }
 
@@ -101,7 +101,7 @@ export class TestReportGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {*}
-     * @memberof TestReportGridViewBase
+     * @memberof TestReportProjectGridViewBase
      */
     protected containerModel: any = {
         view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
@@ -112,11 +112,9 @@ export class TestReportGridViewBase extends GridViewBase {
      * 工具栏模型
      *
      * @type {*}
-     * @memberof TestReportGridView
+     * @memberof TestReportProjectGridView
      */
     public toolBarModels: any = {
-        deuiaction3_create: { name: 'deuiaction3_create', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Create', target: 'NONE', class: '' } },
-
         deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
         deuiaction1: { name: 'deuiaction1', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
@@ -132,7 +130,7 @@ export class TestReportGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ViewBase
      */
-	protected viewtag: string = '48600bd551aa923b5fceabcb83f65239';
+	protected viewtag: string = '038fb7788a6add9cc268fe8dd67e6262';
 
 
     /**
@@ -140,7 +138,7 @@ export class TestReportGridViewBase extends GridViewBase {
      *
      * @public
      * @type {Engine}
-     * @memberof TestReportGridViewBase
+     * @memberof TestReportProjectGridViewBase
      */
     public engine: GridViewEngine = new GridViewEngine();
 
@@ -149,7 +147,7 @@ export class TestReportGridViewBase extends GridViewBase {
      * 计数器服务对象集合
      *
      * @type {Array<*>}
-     * @memberof TestReportGridViewBase
+     * @memberof TestReportProjectGridViewBase
      */    
     public counterServiceArray:Array<any> = [];
 
@@ -157,7 +155,7 @@ export class TestReportGridViewBase extends GridViewBase {
      * 引擎初始化
      *
      * @public
-     * @memberof TestReportGridViewBase
+     * @memberof TestReportProjectGridViewBase
      */
     public engineInit(): void {
         this.engine.init({
@@ -180,12 +178,9 @@ export class TestReportGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TestReportGridViewBase
+     * @memberof TestReportProjectGridViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'deuiaction3_create')) {
-            this.toolbar_deuiaction3_create_click(null, '', $event2);
-        }
         if (Object.is($event.tag, 'deuiaction2')) {
             this.toolbar_deuiaction2_click(null, '', $event2);
         }
@@ -199,7 +194,7 @@ export class TestReportGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TestReportGridViewBase
+     * @memberof TestReportProjectGridViewBase
      */
     public grid_selectionchange($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'selectionchange', $event);
@@ -210,7 +205,7 @@ export class TestReportGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TestReportGridViewBase
+     * @memberof TestReportProjectGridViewBase
      */
     public grid_beforeload($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'beforeload', $event);
@@ -221,7 +216,7 @@ export class TestReportGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TestReportGridViewBase
+     * @memberof TestReportProjectGridViewBase
      */
     public grid_rowdblclick($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'rowdblclick', $event);
@@ -232,7 +227,7 @@ export class TestReportGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TestReportGridViewBase
+     * @memberof TestReportProjectGridViewBase
      */
     public grid_remove($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'remove', $event);
@@ -243,39 +238,10 @@ export class TestReportGridViewBase extends GridViewBase {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TestReportGridViewBase
+     * @memberof TestReportProjectGridViewBase
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public toolbar_deuiaction3_create_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:TestReportUIService  = new TestReportUIService();
-        curUIService.TestReport_Create(datas,contextJO, paramJO,  $event, xData,this,"TestReport");
     }
 
     /**
@@ -342,7 +308,7 @@ export class TestReportGridViewBase extends GridViewBase {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof TestReportGridView
+     * @memberof TestReportProjectGridView
      */
     public newdata(args: any[],fullargs?:any[], params?: any, $event?: any, xData?: any) {
         let localContext:any = null;
@@ -400,7 +366,7 @@ export class TestReportGridViewBase extends GridViewBase {
      * @param {*} [fullargs]
      * @param {*} [$event]
      * @param {*} [xData]
-     * @memberof TestReportGridView
+     * @memberof TestReportProjectGridView
      */
     public opendata(args: any[],fullargs?:any[],params?: any, $event?: any, xData?: any) {
         const localContext: any = null;
@@ -452,7 +418,7 @@ export class TestReportGridViewBase extends GridViewBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof TestReportGridViewBase
+     * @memberof TestReportProjectGridViewBase
      */
     public Refresh(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;
@@ -471,7 +437,7 @@ export class TestReportGridViewBase extends GridViewBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof TestReportGridViewBase
+     * @memberof TestReportProjectGridViewBase
      */
     public ExportExcel(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;

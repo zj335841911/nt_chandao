@@ -245,6 +245,7 @@ export const PageComponents = {
         Vue.component('task-kanban-view', () => import('@pages/zentao/task-kanban-view/task-kanban-view.vue'));
         Vue.component('ibzpro-story-grid-view', () => import('@pages/ibizpro/ibzpro-story-grid-view/ibzpro-story-grid-view.vue'));
         Vue.component('test-report-main-info-view', () => import('@pages/zentao/test-report-main-info-view/test-report-main-info-view.vue'));
+        Vue.component('test-report-project-grid-view', () => import('@pages/zentao/test-report-project-grid-view/test-report-project-grid-view.vue'));
         Vue.component('release-main-info-view', () => import('@pages/zentao/release-main-info-view/release-main-info-view.vue'));
         Vue.component('product-stats-grid-view9', () => import('@pages/ibiz/product-stats-grid-view9/product-stats-grid-view9.vue'));
         Vue.component('task-grid-view9-assigned-to-me', () => import('@pages/zentao/task-grid-view9-assigned-to-me/task-grid-view9-assigned-to-me.vue'));

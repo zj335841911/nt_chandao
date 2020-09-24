@@ -89,7 +89,9 @@ export default class TestReportUIServiceBase extends UIService {
      * @memberof  TestReportUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'projectgridview',srfappde:'testreports',component:'test-report-project-grid-view'});
         this.allViewMap.set(':',{viewname:'mainediteditview',srfappde:'testreports',component:'test-report-main-edit-edit-view'});
+        this.allViewMap.set(':',{viewname:'projecttabexpview',srfappde:'testreports',component:'test-report-project-tab-exp-view'});
         this.allViewMap.set(':',{viewname:'maininfoview',srfappde:'testreports',component:'test-report-main-info-view'});
         this.allViewMap.set(':',{viewname:'dashboardview',srfappde:'testreports',component:'test-report-dashboard-view'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'testreports',component:'test-report-grid-view'});
