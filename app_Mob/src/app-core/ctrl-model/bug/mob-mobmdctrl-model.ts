@@ -133,6 +133,11 @@ export class MobModel {
                 dataType: 'SSCODELIST',
             },
             {
+                name: 'n_status_eq',
+                prop: 'n_status_eq', 
+                dataType: 'SSCODELIST',
+            },
+            {
                 name: 'n_openedby_eq',
                 prop: 'n_openedby_eq', 
                 dataType: 'SSCODELIST',

@@ -11,11 +11,49 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
-        <app-search-history @quickValueChange="quickValueChange" @openSearchform="openSearchform" :model="model" :showfilter="false"></app-search-history>
+        <app-search-history @quickValueChange="quickValueChange" @openSearchform="openSearchform" :model="model" :showfilter="true"></app-search-history>
 
     
     </ion-header>
 
+    <ion-menu side="start" content-id="searchformprojectmobmdview" ref='searchformprojectmobmdview'>
+        <ion-header>
+            <ion-toolbar translucent>
+            <ion-title>条件搜索</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <view_searchform
+    :viewState="viewState"
+    viewName="ProjectMobMDView"  
+    :viewparams="viewparams" 
+    :context="context" 
+     
+    :viewtag="viewtag"
+    :showBusyIndicator="true"
+    updateAction=""
+    removeAction=""
+    loaddraftAction="FilterGetDraft"
+    loadAction="FilterGet"
+    createAction=""
+    WFSubmitAction=""
+    WFStartAction=""
+    style='' 
+    name="searchform"  
+    ref='searchform' 
+    @search="searchform_search($event)"  
+    @load="searchform_load($event)"  
+    @closeview="closeView($event)">
+</view_searchform>
+        </ion-content>
+        <ion-footer>
+        <div class="search-btn">
+            <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
+            <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
+        </div>
+        </ion-footer>
+    </ion-menu>
+    <div id="searchformprojectmobmdview"></div>
 
     <ion-content>
         <ion-refresher 
@@ -279,6 +317,7 @@ export default class ProjectMobMDViewBase extends Vue {
      * @memberof ProjectMobMDViewBase
      */
     protected containerModel: any = {
+        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
         view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
@@ -299,6 +338,7 @@ export default class ProjectMobMDViewBase extends Vue {
      * @memberof ProjectMobMDViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
 
@@ -434,6 +474,7 @@ export default class ProjectMobMDViewBase extends Vue {
             newdata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
                 this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
             },
+            searchform: this.$refs.searchform,
             keyPSDEField: 'project',
             majorPSDEField: 'name',
             isLoadDefault: true,
@@ -533,6 +574,28 @@ export default class ProjectMobMDViewBase extends Vue {
             });
         }
 
+    }
+
+    /**
+     * searchform 部件 search 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProjectMobMDViewBase
+     */
+    protected searchform_search($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('searchform', 'search', $event);
+    }
+
+    /**
+     * searchform 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ProjectMobMDViewBase
+     */
+    protected searchform_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('searchform', 'load', $event);
     }
 
     /**
@@ -794,6 +857,52 @@ export default class ProjectMobMDViewBase extends Vue {
         }
     }
 
+
+    /**
+     * 搜索表单状态
+     *
+     * @type {boolean}
+     * @memberof ProjectMobMDViewBase
+     */
+    public searchformState: boolean = false;
+
+    /**
+     * 是否展开搜索表单
+     *
+     * @type {boolean}
+     * @memberof ProjectMobMDViewBase
+     */
+    public isExpandSearchForm: boolean = false;
+
+    /**
+     * 执行搜索表单
+     *
+     * @memberof ProjectMobMDViewBase
+     */
+    public onSearch(): void {
+        this.searchformState = false;
+        this.isExpandSearchForm = true;
+        const form: any = this.$refs.searchform;
+        if (form) {
+            form.onSearch();
+        }
+        this.closeSearchform();
+    }
+
+    /**
+     * 重置搜索表单
+     *
+     * @memberof ProjectMobMDViewBase
+     */
+    public onReset(): void {
+        this.searchformState = false;
+        this.isExpandSearchForm = false;
+        const form: any = this.$refs.searchform;
+        if (form) {
+            form.onReset();
+        }
+        this.closeSearchform();
+    }
 
     /**
      * 搜索值

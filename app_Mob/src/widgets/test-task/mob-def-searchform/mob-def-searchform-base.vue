@@ -1,146 +1,29 @@
 <template>
-    <div ref='searchform' class="app-form bug-searchform ">
+    <div ref='searchform' class="app-form testtask-searchform ">
                 
 
 <app-form-item 
-    name='n_modulename_like' 
+    name='n_name_like' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="n_modulename_like_item"  
-    :itemValue="this.data.n_modulename_like" 
-    v-show="detailsModel.n_modulename_like.visible" 
-    :itemRules="this.rules.n_modulename_like" 
-    :caption="$t('bug.mobdef_searchform.details.n_modulename_like')"  
+    ref="n_name_like_item"  
+    :itemValue="this.data.n_name_like" 
+    v-show="detailsModel.n_name_like.visible" 
+    :itemRules="this.rules.n_name_like" 
+    :caption="$t('testtask.mobdef_searchform.details.n_name_like')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.n_modulename_like.disabled"  
-    :error="detailsModel.n_modulename_like.error" 
+    :disabled="detailsModel.n_name_like.disabled"  
+    :error="detailsModel.n_name_like.error" 
     :isEmptyCaption="false">
         <app-mob-input 
     class="app-form-item-input"  
         type="text"  
-    :value="data.n_modulename_like"
+    :value="data.n_name_like"
     
-    :disabled="detailsModel.n_modulename_like.disabled" 
-    @change="($event)=>this.data.n_modulename_like = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='n_id_eq' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="n_id_eq_item"  
-    :itemValue="this.data.n_id_eq" 
-    v-show="detailsModel.n_id_eq.visible" 
-    :itemRules="this.rules.n_id_eq" 
-    :caption="$t('bug.mobdef_searchform.details.n_id_eq')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.n_id_eq.disabled"  
-    :error="detailsModel.n_id_eq.error" 
-    :isEmptyCaption="false">
-        <app-mob-span  
-        v-if="data.n_id_eq" 
-    :context="context" 
-    :value="data.n_id_eq" 
-    :itemParam="{}"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='n_buildproject_eq' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="n_buildproject_eq_item"  
-    :itemValue="this.data.n_buildproject_eq" 
-    v-show="detailsModel.n_buildproject_eq.visible" 
-    :itemRules="this.rules.n_buildproject_eq" 
-    :caption="$t('bug.mobdef_searchform.details.n_buildproject_eq')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.n_buildproject_eq.disabled"  
-    :error="detailsModel.n_buildproject_eq.error" 
-    :isEmptyCaption="false">
-        <app-mob-select 
-    tag="CurProductProject"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.n_buildproject_eq.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.n_buildproject_eq"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.n_buildproject_eq = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='n_status_eq' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="n_status_eq_item"  
-    :itemValue="this.data.n_status_eq" 
-    v-show="detailsModel.n_status_eq.visible" 
-    :itemRules="this.rules.n_status_eq" 
-    :caption="$t('bug.mobdef_searchform.details.n_status_eq')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.n_status_eq.disabled"  
-    :error="detailsModel.n_status_eq.error" 
-    :isEmptyCaption="false">
-        <app-mob-select 
-    tag="Bug__status"
-    codeListType="STATIC" 
-    :isCache="false" 
-    :disabled="detailsModel.n_status_eq.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.n_status_eq"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.n_status_eq = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='n_openedby_eq' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="n_openedby_eq_item"  
-    :itemValue="this.data.n_openedby_eq" 
-    v-show="detailsModel.n_openedby_eq.visible" 
-    :itemRules="this.rules.n_openedby_eq" 
-    :caption="$t('bug.mobdef_searchform.details.n_openedby_eq')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.n_openedby_eq.disabled"  
-    :error="detailsModel.n_openedby_eq.error" 
-    :isEmptyCaption="false">
-        <app-mob-select 
-    tag="UserRealName"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.n_openedby_eq.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.n_openedby_eq"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.n_openedby_eq = $event" />
+    :disabled="detailsModel.n_name_like.disabled" 
+    @change="($event)=>this.data.n_name_like = $event" />
 </app-form-item>
 
 
@@ -155,11 +38,11 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import BugService from '@/app-core/service/bug/bug-service';
-import MobDefService from '@/app-core/ctrl-service/bug/mob-def-searchform-service';
+import TestTaskService from '@/app-core/service/test-task/test-task-service';
+import MobDefService from '@/app-core/ctrl-service/test-task/mob-def-searchform-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
-import BugUIService from '@/ui-service/bug/bug-ui-action';
+import TestTaskUIService from '@/ui-service/test-task/test-task-ui-action';
 
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -264,18 +147,18 @@ export default class MobDefBase extends Vue implements ControlInterface {
     /**
      * 实体服务对象
      *
-     * @type {BugService}
+     * @type {TestTaskService}
      * @memberof MobDef
      */
-    protected appEntityService: BugService = new BugService();
+    protected appEntityService: TestTaskService = new TestTaskService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {BugUIService}
+     * @type {TestTaskUIService}
      * @memberof MobDefBase
      */  
-    public deUIService:BugUIService = new BugUIService(this.$store);
+    public deUIService:TestTaskUIService = new TestTaskUIService(this.$store);
     
 
     /**
@@ -455,12 +338,8 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected data: any = {
-        n_modulename_like: null,
-        n_id_eq: null,
-        n_buildproject_eq: null,
-        n_status_eq: null,
-        n_openedby_eq: null,
-        bug: null,
+        n_name_like: null,
+        testtask: null,
     };
 
     /**
@@ -494,35 +373,11 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected rules: any = {
-        n_modulename_like: [
-            { type: 'string', message: '模块名称(文本包含(%)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '模块名称(文本包含(%)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '模块名称(文本包含(%)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '模块名称(文本包含(%)) 值不能为空', trigger: 'blur' },
-        ],
-        n_id_eq: [
-            { type: 'number', message: 'Bug编号(等于(=)) 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: 'Bug编号(等于(=)) 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: 'Bug编号(等于(=)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: 'Bug编号(等于(=)) 值不能为空', trigger: 'blur' },
-        ],
-        n_buildproject_eq: [
-            { type: 'string', message: '版本项目(等于(=)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '版本项目(等于(=)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '版本项目(等于(=)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '版本项目(等于(=)) 值不能为空', trigger: 'blur' },
-        ],
-        n_status_eq: [
-            { type: 'string', message: 'Bug状态(等于(=)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: 'Bug状态(等于(=)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: 'Bug状态(等于(=)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: 'Bug状态(等于(=)) 值不能为空', trigger: 'blur' },
-        ],
-        n_openedby_eq: [
-            { type: 'string', message: '由谁创建(等于(=)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '由谁创建(等于(=)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '由谁创建(等于(=)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '由谁创建(等于(=)) 值不能为空', trigger: 'blur' },
+        n_name_like: [
+            { type: 'string', message: '名称(文本包含(%)) 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '名称(文本包含(%)) 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '名称(文本包含(%)) 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '名称(文本包含(%)) 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -535,76 +390,20 @@ export default class MobDefBase extends Vue implements ControlInterface {
     protected detailsModel: any = {
         formpage1: new FormPageModel({ caption: '常规条件', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        n_modulename_like: new FormItemModel({ caption: '模块名称(文本包含(%))', detailType: 'FORMITEM', name: 'n_modulename_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        n_id_eq: new FormItemModel({ caption: 'Bug编号(等于(=))', detailType: 'FORMITEM', name: 'n_id_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        n_buildproject_eq: new FormItemModel({ caption: '版本项目(等于(=))', detailType: 'FORMITEM', name: 'n_buildproject_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        n_status_eq: new FormItemModel({ caption: 'Bug状态(等于(=))', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        n_openedby_eq: new FormItemModel({ caption: '由谁创建(等于(=))', detailType: 'FORMITEM', name: 'n_openedby_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_name_like: new FormItemModel({ caption: '名称(文本包含(%))', detailType: 'FORMITEM', name: 'n_name_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
     /**
-     * 监控表单属性 n_modulename_like 值
+     * 监控表单属性 n_name_like 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobDef
      */
-    @Watch('data.n_modulename_like')
-    onN_modulename_likeChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'n_modulename_like', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 n_id_eq 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobDef
-     */
-    @Watch('data.n_id_eq')
-    onN_id_eqChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'n_id_eq', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 n_buildproject_eq 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobDef
-     */
-    @Watch('data.n_buildproject_eq')
-    onN_buildproject_eqChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'n_buildproject_eq', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 n_status_eq 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobDef
-     */
-    @Watch('data.n_status_eq')
-    onN_status_eqChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'n_status_eq', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 n_openedby_eq 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobDef
-     */
-    @Watch('data.n_openedby_eq')
-    onN_openedby_eqChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'n_openedby_eq', newVal: newVal, oldVal: oldVal });
+    @Watch('data.n_name_like')
+    onN_name_likeChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'n_name_like', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -643,10 +442,6 @@ export default class MobDefBase extends Vue implements ControlInterface {
      */
     private formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
-
-
-
-
 
 
     }
@@ -774,7 +569,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected formValidateStatus(): boolean {
-        const refArr: Array<string> = ['n_modulename_like_item', 'n_id_eq_item', 'n_buildproject_eq_item', 'n_status_eq_item', 'n_openedby_eq_item', ];
+        const refArr: Array<string> = ['n_name_like_item', ];
         let falg = true;
         refArr.forEach((item: any) => {
             if (this.$refs[item] && (this.$refs[item] as any).validateRules && !(this.$refs[item] as any).validateRules()) {
@@ -1026,8 +821,8 @@ export default class MobDefBase extends Vue implements ControlInterface {
         const response: any = await this.service.loadDraft(this.loaddraftAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
             const data = response.data;
-            if(data.bug){
-                Object.assign(this.context, { bug: data.bug });
+            if(data.testtask){
+                Object.assign(this.context, { testtask: data.testtask });
             }
             this.resetDraftFormStates();
             this.onFormLoad(data, 'loadDraft');

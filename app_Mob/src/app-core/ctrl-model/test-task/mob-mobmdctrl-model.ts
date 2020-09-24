@@ -62,6 +62,12 @@ export class MobModel {
 				prop: 'id',
 				dataType: 'FONTKEY',
 			},
+            {
+                name: 'n_name_like',
+                prop: 'n_name_like', 
+                dataType: 'TEXT',
+            },
+
 			{
 				name: 'size',
 				prop: 'size'

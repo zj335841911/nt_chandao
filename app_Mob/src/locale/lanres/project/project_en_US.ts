@@ -208,6 +208,16 @@ export default {
 		uiactions: {
 		},
 	},
+	mobdef_searchform: {
+		details: {
+			formpage1: '常规条件', 
+			n_name_like: '项目名称(文本包含(%))', 
+			n_status_eq: '项目状态(等于(=))', 
+			n_type_eq: '项目类型(等于(=))', 
+		},
+		uiactions: {
+		},
+	},
 	activitemobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',
