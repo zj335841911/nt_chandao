@@ -458,8 +458,8 @@ export class GridControlBase extends MDControlBase {
         const post: Promise<any> = this.service.search(this.fetchAction, JSON.parse(JSON.stringify(this.context)), arg, this.showBusyIndicator);
         post.then((response: any) => {
             if (!response.status || response.status !== 200) {
-                if (response.errorMessage) {
-                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
+                if (response.message) {
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.message });
                 }
                 return;
             }
@@ -508,7 +508,7 @@ export class GridControlBase extends MDControlBase {
             if (response && response.status === 401) {
                 return;
             }
-            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
+            this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
         });
     }
 
@@ -578,7 +578,6 @@ export class GridControlBase extends MDControlBase {
                         this.$Notice.success({ title: '', desc: (this.$t('app.gridpage.delSuccess') as string) });
                     }
                     //删除items中已删除的项
-                    console.log(this.items);
                     arr.forEach((data: any) => {
                         this.items.some((item: any, index: number) => {
                             if (Object.is(item.srfkey, data.srfkey)) {
@@ -602,6 +601,7 @@ export class GridControlBase extends MDControlBase {
                         reject(response);
                         return;
                     }
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.data.message });
                     reject(response);
                 });
             });
@@ -1062,8 +1062,8 @@ export class GridControlBase extends MDControlBase {
         let post: Promise<any> = this.service.loadDraft(this.loaddraftAction, JSON.parse(JSON.stringify(this.context)), args[0], this.showBusyIndicator);
         post.then((response: any) => {
             if (!response.status || response.status !== 200) {
-                if (response.errorMessage) {
-                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.errorMessage });
+                if (response.message) {
+                    this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.message });
                 }
                 return;
             }
