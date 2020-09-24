@@ -18,5 +18,16 @@ import { MainMultieditviewpanelBase } from './main-multieditviewpanel-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class MainMultieditviewpanel extends MainMultieditviewpanelBase { }
+export default class MainMultieditviewpanel extends MainMultieditviewpanelBase {
+
+     /**
+          * 保存数据
+          *
+          * @memberof Meditviewpanel
+          */
+        public saveData(data?: any) {
+            this.$emit("drdatasaved",{action:'drdatasaved'});
+        }
+
+ }
 </script>
