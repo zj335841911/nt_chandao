@@ -63,14 +63,14 @@
 FTL stack trace ("~" means nesting-related):
 	- Failed at: ${P.getEditorCode(item, "EDITOR.vue")...  [in template "TEMPLCODE_en_US" at line 36, column 9]
 ----
-无法获取指定编辑器[DATEPICKEREX_HOUR]发布代码[FORMITEM][EDITOR.vue]模板
+无法获取指定编辑器[DATEPICKEREX]发布代码[FORMITEM][EDITOR.vue]模板
 
 
 !!!!模版产生代码错误:----
 FTL stack trace ("~" means nesting-related):
 	- Failed at: ${P.getEditorCode(item, "EDITOR.vue")...  [in template "TEMPLCODE_en_US" at line 36, column 9]
 ----
-无法获取指定编辑器[DATEPICKEREX_HOUR]发布代码[FORMITEM][EDITOR.vue]模板
+无法获取指定编辑器[DATEPICKEREX]发布代码[FORMITEM][EDITOR.vue]模板
 
 
 
