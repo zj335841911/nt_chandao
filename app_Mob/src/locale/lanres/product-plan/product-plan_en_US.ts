@@ -85,6 +85,17 @@ export default {
 		uiactions: {
 		},
 	},
+	mobdef_searchform: {
+		details: {
+			formpage1: '常规条件', 
+			n_title_like: '名称', 
+			n_isexpired_eq: '是否过期', 
+			n_future_eq: '待定', 
+			n_delta_eq: '周期', 
+		},
+		uiactions: {
+		},
+	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',

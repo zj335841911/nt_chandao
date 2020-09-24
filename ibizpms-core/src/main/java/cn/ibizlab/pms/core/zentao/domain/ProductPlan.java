@@ -107,6 +107,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 平台/分支
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`branch`")
     @JSONField(name = "branch")
     @JsonProperty("branch")
@@ -122,6 +123,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     /**
      * 产品
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`product`")
     @JSONField(name = "product")
     @JsonProperty("product")

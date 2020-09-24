@@ -438,22 +438,22 @@ export default class MobDefBase extends Vue implements ControlInterface {
      */
     protected rules: any = {
         n_name_like: [
-            { type: 'string', message: '项目名称(文本包含(%)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '项目名称(文本包含(%)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '项目名称(文本包含(%)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '项目名称(文本包含(%)) 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '项目名称 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '项目名称 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '项目名称 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '项目名称 值不能为空', trigger: 'blur' },
         ],
         n_status_eq: [
-            { type: 'string', message: '项目状态(等于(=)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '项目状态(等于(=)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '项目状态(等于(=)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '项目状态(等于(=)) 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '项目状态 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '项目状态 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '项目状态 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '项目状态 值不能为空', trigger: 'blur' },
         ],
         n_type_eq: [
-            { type: 'string', message: '项目类型(等于(=)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '项目类型(等于(=)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '项目类型(等于(=)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '项目类型(等于(=)) 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '项目类型 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '项目类型 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '项目类型 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '项目类型 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -466,11 +466,11 @@ export default class MobDefBase extends Vue implements ControlInterface {
     protected detailsModel: any = {
         formpage1: new FormPageModel({ caption: '常规条件', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        n_name_like: new FormItemModel({ caption: '项目名称(文本包含(%))', detailType: 'FORMITEM', name: 'n_name_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_name_like: new FormItemModel({ caption: '项目名称', detailType: 'FORMITEM', name: 'n_name_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_status_eq: new FormItemModel({ caption: '项目状态(等于(=))', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_status_eq: new FormItemModel({ caption: '项目状态', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_type_eq: new FormItemModel({ caption: '项目类型(等于(=))', detailType: 'FORMITEM', name: 'n_type_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_type_eq: new FormItemModel({ caption: '项目类型', detailType: 'FORMITEM', name: 'n_type_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 

@@ -30,11 +30,6 @@ export class MobDefModel {
                 prop: 'n_status_eq', 
                 dataType: 'SSCODELIST',
             },
-            {
-                name: 'n_build_eq',
-                prop: 'n_build_eq', 
-                dataType: 'PICKUP',
-            },
         ];
     }
 

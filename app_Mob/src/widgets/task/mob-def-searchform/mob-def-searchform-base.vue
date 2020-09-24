@@ -90,46 +90,6 @@
 
 
 
-<app-form-item 
-    name='n_modulename_eq' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="n_modulename_eq_item"  
-    :itemValue="this.data.n_modulename_eq" 
-    v-show="detailsModel.n_modulename_eq.visible" 
-    :itemRules="this.rules.n_modulename_eq" 
-    :caption="$t('task.mobdef_searchform.details.n_modulename_eq')"  
-    :labelWidth="130"  
-    :isShowCaption="true"
-    :disabled="detailsModel.n_modulename_eq.disabled"  
-    :error="detailsModel.n_modulename_eq.error" 
-    :isEmptyCaption="false">
-        <app-mob-select-drop-down 
-    name='n_modulename_eq' 
-    deMajorField='name'
-    deKeyField='id'
-    valueitem='' 
-    style="" 
-    editortype="dropdown" 
-    :formState="formState"
-    :data="data"
-    :context="context"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    :viewparams="viewparams"
-    :itemParam='{ }' 
-    :disabled="detailsModel.n_modulename_eq.disabled"
-    :service="service"
-    :acParams="{ serviceName: 'projectmodule', interfaceName: 'FetchTaskModules'}"
-    :value="data.n_modulename_eq" 
-    @formitemvaluechange="onFormItemValueChange"
-    @change="($event)=>this.data.n_modulename_eq = $event">
-</app-mob-select-drop-down>
-</app-form-item>
-
-
-
 
     </div>
 </template>
@@ -443,7 +403,6 @@ export default class MobDefBase extends Vue implements ControlInterface {
         n_name_like: null,
         n_type_eq: null,
         n_status_eq: null,
-        n_modulename_eq: null,
         task: null,
     };
 
@@ -496,12 +455,6 @@ export default class MobDefBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '任务状态(等于(=)) 值不能为空', trigger: 'change' },
             { required: false, type: 'string', message: '任务状态(等于(=)) 值不能为空', trigger: 'blur' },
         ],
-        n_modulename_eq: [
-            { type: 'string', message: '所属模块(等于(=)) 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '所属模块(等于(=)) 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '所属模块(等于(=)) 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '所属模块(等于(=)) 值不能为空', trigger: 'blur' },
-        ],
     }
 
     /**
@@ -518,8 +471,6 @@ export default class MobDefBase extends Vue implements ControlInterface {
         n_type_eq: new FormItemModel({ caption: '任务类型(等于(=))', detailType: 'FORMITEM', name: 'n_type_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         n_status_eq: new FormItemModel({ caption: '任务状态(等于(=))', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        n_modulename_eq: new FormItemModel({ caption: '所属模块(等于(=))', detailType: 'FORMITEM', name: 'n_modulename_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -559,18 +510,6 @@ export default class MobDefBase extends Vue implements ControlInterface {
         this.formDataChange({ name: 'n_status_eq', newVal: newVal, oldVal: oldVal });
     }
 
-    /**
-     * 监控表单属性 n_modulename_eq 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobDef
-     */
-    @Watch('data.n_modulename_eq')
-    onN_modulename_eqChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'n_modulename_eq', newVal: newVal, oldVal: oldVal });
-    }
-
 
     /**
      * 重置表单项值
@@ -607,7 +546,6 @@ export default class MobDefBase extends Vue implements ControlInterface {
      */
     private formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
                 
-
 
 
 
@@ -737,7 +675,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
      * @memberof MobDef
      */
     protected formValidateStatus(): boolean {
-        const refArr: Array<string> = ['n_name_like_item', 'n_type_eq_item', 'n_status_eq_item', 'n_modulename_eq_item', ];
+        const refArr: Array<string> = ['n_name_like_item', 'n_type_eq_item', 'n_status_eq_item', ];
         let falg = true;
         refArr.forEach((item: any) => {
             if (this.$refs[item] && (this.$refs[item] as any).validateRules && !(this.$refs[item] as any).validateRules()) {

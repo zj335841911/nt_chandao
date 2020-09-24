@@ -227,6 +227,7 @@ export default class StoryMobPickupMDViewBase extends Vue {
      * @memberof StoryMobPickupMDViewBase
      */
     protected containerModel: any = {
+        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
     };
 
@@ -246,6 +247,7 @@ export default class StoryMobPickupMDViewBase extends Vue {
      * @memberof StoryMobPickupMDViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
     /**

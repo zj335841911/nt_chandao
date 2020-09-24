@@ -94,7 +94,6 @@ export default {
 			n_title_like: '用例标题(文本包含(%))', 
 			n_type_eq: '用例类型(等于(=))', 
 			n_status_eq: '用例状态(等于(=))', 
-			n_module_eq: '所属模块(等于(=))', 
 		},
 		uiactions: {
 		},

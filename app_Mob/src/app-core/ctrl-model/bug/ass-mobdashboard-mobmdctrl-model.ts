@@ -137,11 +137,6 @@ export class AssMOBDASHBOARDModel {
                 prop: 'n_severity_eq', 
                 dataType: 'NSCODELIST',
             },
-            {
-                name: 'n_modulename_eq',
-                prop: 'n_modulename_eq', 
-                dataType: 'PICKUPTEXT',
-            },
 
 			{
 				name: 'size',

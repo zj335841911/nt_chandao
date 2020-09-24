@@ -87,11 +87,6 @@ export class Mob_3335Model {
                 prop: 'n_status_eq', 
                 dataType: 'SSCODELIST',
             },
-            {
-                name: 'n_modulename_eq',
-                prop: 'n_modulename_eq', 
-                dataType: 'PICKUPTEXT',
-            },
 
 			{
 				name: 'size',

@@ -97,11 +97,6 @@ export class MobModel {
                 prop: 'n_status_eq', 
                 dataType: 'SSCODELIST',
             },
-            {
-                name: 'n_module_eq',
-                prop: 'n_module_eq', 
-                dataType: 'PICKUP',
-            },
 
 			{
 				name: 'size',
