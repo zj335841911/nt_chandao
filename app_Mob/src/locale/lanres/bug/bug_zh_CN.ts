@@ -338,6 +338,7 @@ export default {
 			n_status_eq: 'Bug状态(等于(=))', 
 			n_openedby_eq: '由谁创建(等于(=))', 
 			n_severity_eq: '严重程度(等于(=))', 
+			n_modulename_eq: '模块名称(等于(=))', 
 		},
 		uiactions: {
 		},
