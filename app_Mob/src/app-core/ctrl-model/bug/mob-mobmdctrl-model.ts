@@ -117,6 +117,32 @@ export class MobModel {
 				prop: 'id',
 				dataType: 'FONTKEY',
 			},
+            {
+                name: 'n_modulename_like',
+                prop: 'n_modulename_like', 
+                dataType: 'PICKUPTEXT',
+            },
+            {
+                name: 'n_id_eq',
+                prop: 'n_id_eq', 
+                dataType: 'ACID',
+            },
+            {
+                name: 'n_buildproject_eq',
+                prop: 'n_buildproject_eq', 
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'n_openedby_eq',
+                prop: 'n_openedby_eq', 
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'bug',
+                prop: 'id',
+                dataType: 'FONTKEY',
+            },
+
 			{
 				name: 'size',
 				prop: 'size'

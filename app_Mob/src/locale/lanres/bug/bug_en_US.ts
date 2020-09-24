@@ -331,6 +331,17 @@ export default {
 		uiactions: {
 		},
 	},
+	mobdef_searchform: {
+		details: {
+			formpage1: '常规条件', 
+			n_modulename_like: '模块名称(文本包含(%))', 
+			n_id_eq: 'Bug编号(等于(=))', 
+			n_buildproject_eq: '版本项目(等于(=))', 
+			n_openedby_eq: '由谁创建(等于(=))', 
+		},
+		uiactions: {
+		},
+	},
 	colsemobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',

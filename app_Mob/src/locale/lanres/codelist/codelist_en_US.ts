@@ -563,6 +563,9 @@ export default {
         'terminate': '停止维护',
         empty: '',
     },
+    CurProductProject: {
+        empty: '',
+    },
     Type: {
         'custom': '自定义',
         'bug': 'Bug',

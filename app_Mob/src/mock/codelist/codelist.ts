@@ -3248,6 +3248,14 @@ const datas: Array<any> = [
         ]
     },
     {
+        "srfkey": "CurProductProject",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Project",
+        "appdedataset":"FetchCurProduct",
+        "items": []
+    },
+    {
         srfkey: 'Type',
         emptytext: '未定义',
         "codelisttype":"static",
