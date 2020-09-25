@@ -120,7 +120,6 @@ import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import IbzMyTerritoryUIService from '@/ui-service/ibz-my-territory/ibz-my-territory-ui-action';
 
-import UtilService from '@/utilservice/util-service';
 
 
 @Component({
@@ -292,7 +291,7 @@ export default class MobHomeBase extends Vue implements ControlInterface {
      * @type {UtilService}
      * @memberof MobHomeBase
      */
-    protected utilService: UtilService = new UtilService();
+    protected utilService:any =  window.utilServiceConstructor;
 
     /**
      * 加载定制数据模型
