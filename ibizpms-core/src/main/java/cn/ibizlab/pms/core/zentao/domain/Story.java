@@ -100,6 +100,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 当前状态
      */
+    @DEField(defaultValue = "draft")
     @TableField(value = "`status`")
     @JSONField(name = "status")
     @JsonProperty("status")
@@ -249,6 +250,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 关闭日期	
      */
+    @DEField(defaultValue = "0000-00-00")
     @TableField(value = "`closeddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "closeddate" , format="yyyy-MM-dd HH:mm:ss")
