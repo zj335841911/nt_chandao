@@ -25,6 +25,7 @@ public interface CaseMapper extends BaseMapper<Case>{
     Page<Case> searchDefault(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
     Page<Case> searchModuleRePortCase(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
     Page<Case> searchModuleRePortCaseEntry(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
+    Page<Case> searchModuleRePortCase_Project(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
     Page<Case> searchMyFavorites(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
     Page<Case> searchNotCurTestSuite(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
     Page<Case> searchNotCurTestTask(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
@@ -35,6 +36,7 @@ public interface CaseMapper extends BaseMapper<Case>{
     Page<Case> searchRunERRePortCaseEntry(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
     Page<Case> searchRunRePortCase(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
     Page<Case> searchRunRePortCaseEntry(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
+    Page<Case> searchRunRePortCase_Project(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
     @Override
     Case selectById(Serializable id);
     @Override

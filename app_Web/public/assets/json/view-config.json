@@ -3519,13 +3519,23 @@
         "viewtag": "d8df5ca51341d33ccc19208dde3f2cce",
         "memo": ""
     },
-    "bugusr3gridview1": {
+    "bugprojectbugsgridview": {
+        "title": "Bug实体表格视图(项目遗留得Bug)",
+        "caption": "Bug",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugProjectBugsGridView",
+        "viewfilename": "bug-project-bugs-grid-view",
+        "viewtag": "d9cf190662d0781bee34acdfd9d1c6d2",
+        "memo": ""
+    },
+    "bugtestbugsgridview": {
         "title": "Bug表格视图(遗留的bug)",
         "caption": "Bug",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "zentao",
-        "viewname": "BugUsr3GridView1",
-        "viewfilename": "bug-usr3-grid-view1",
+        "viewname": "BugTestBugsGridView",
+        "viewfilename": "bug-test-bugs-grid-view",
         "viewtag": "de3b10b3f9f11d67c6ea3418bc77f2b3",
         "memo": ""
     },

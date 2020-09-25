@@ -493,6 +493,15 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     }
 
     /**
+     * 查询集合 项目报告关联-按模块
+     */
+    @Override
+    public Page<Case> searchModuleRePortCase_Project(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchModuleRePortCase_Project(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 我的收藏
      */
     @Override
@@ -579,6 +588,15 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Override
     public Page<Case> searchRunRePortCaseEntry(CaseSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchRunRePortCaseEntry(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目报告关联-执行结果
+     */
+    @Override
+    public Page<Case> searchRunRePortCase_Project(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchRunRePortCase_Project(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

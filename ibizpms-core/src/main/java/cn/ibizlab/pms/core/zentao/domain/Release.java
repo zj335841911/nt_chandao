@@ -44,6 +44,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 完成的需求
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`stories`")
     @JSONField(name = "stories")
     @JsonProperty("stories")
@@ -142,6 +143,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 版本
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`build`")
     @JSONField(name = "build")
     @JsonProperty("build")

@@ -749,12 +749,12 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'd9cf190662d0781bee34acdfd9d1c6d2',
                 '9a2fd7bf8e74f4b95bd5a24d8ffb1643',
                 'ba3ac5351ca273bb889ffcb52ec7217b',
                 'c47c534ae15c1fd1a04b5ad78d174841',
                 '1c92f5b1cba0fe541c16c54f45fb7317',
                 'f810cda19770327ea00f51d89a003efe',
-                'de3b10b3f9f11d67c6ea3418bc77f2b3',
                 'ea7b1f6631cb623ea079455b374ef9d4',
                 '8761916619d520c6cca7053b358e3a40',
             ],
@@ -3275,9 +3275,23 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'd9cf190662d0781bee34acdfd9d1c6d2',
+            viewmodule: 'zentao',
+            viewname: 'BugProjectBugsGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'e67fe0ec86d17b74944c16e187da482d',
+                '7c6956b0c4bcc773697adb506d3ce5e9',
+                '46517a803b2470cd0bef27aeda0dbcaf',
+                'c1e9611b6972b1877b75fa5d2c67aad6',
+                '122af527bf38b47ddc53c882847b490e',
+            ],
+        },
+        {
             viewtag: 'de3b10b3f9f11d67c6ea3418bc77f2b3',
             viewmodule: 'zentao',
-            viewname: 'BugUsr3GridView1',
+            viewname: 'BugTestBugsGridView',
             viewaction: '',
             viewdatachange: false,
             refviews: [

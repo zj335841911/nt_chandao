@@ -2823,12 +2823,20 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzMyTerritoryDashboardView",
             "viewtag": "d8df5ca51341d33ccc19208dde3f2cce"
         },
-        "bugusr3gridview1": {
+        "bugprojectbugsgridview": {
+            "title": "Bug实体表格视图(项目遗留得Bug)",
+            "caption": "Bug",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugProjectBugsGridView",
+            "viewtag": "d9cf190662d0781bee34acdfd9d1c6d2"
+        },
+        "bugtestbugsgridview": {
             "title": "Bug表格视图(遗留的bug)",
             "caption": "Bug",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "zentao",
-            "viewname": "BugUsr3GridView1",
+            "viewname": "BugTestBugsGridView",
             "viewtag": "de3b10b3f9f11d67c6ea3418bc77f2b3"
         },
         "storymain2gridview": {
