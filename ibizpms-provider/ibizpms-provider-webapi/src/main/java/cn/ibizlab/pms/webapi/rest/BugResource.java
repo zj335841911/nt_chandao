@@ -650,6 +650,27 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugSeverity_Project-all')")
+	@ApiOperation(value = "获取Build产生的Bug-严重程度分布(项目)", tags = {"Bug" } ,notes = "获取Build产生的Bug-严重程度分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchbuildproducebugseverity_project")
+	public ResponseEntity<List<BugDTO>> fetchBuildProduceBugSeverity_Project(BugSearchContext context) {
+        Page<Bug> domains = bugService.searchBuildProduceBugSeverity_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugSeverity_Project-all')")
+	@ApiOperation(value = "查询Build产生的Bug-严重程度分布(项目)", tags = {"Bug" } ,notes = "查询Build产生的Bug-严重程度分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/bugs/searchbuildproducebugseverity_project")
+	public ResponseEntity<Page<BugDTO>> searchBuildProduceBugSeverity_Project(@RequestBody BugSearchContext context) {
+        Page<Bug> domains = bugService.searchBuildProduceBugSeverity_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugStatus_Project-all')")
 	@ApiOperation(value = "获取Build产生的Bug-状态分布(项目)", tags = {"Bug" } ,notes = "获取Build产生的Bug-状态分布(项目)")
     @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchbuildproducebugstatus_project")
@@ -668,6 +689,27 @@ public class BugResource {
     @RequestMapping(method= RequestMethod.POST , value="/bugs/searchbuildproducebugstatus_project")
 	public ResponseEntity<Page<BugDTO>> searchBuildProduceBugStatus_Project(@RequestBody BugSearchContext context) {
         Page<Bug> domains = bugService.searchBuildProduceBugStatus_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugType_Project-all')")
+	@ApiOperation(value = "获取Build产生的Bug-类型分布(项目)", tags = {"Bug" } ,notes = "获取Build产生的Bug-类型分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchbuildproducebugtype_project")
+	public ResponseEntity<List<BugDTO>> fetchBuildProduceBugType_Project(BugSearchContext context) {
+        Page<Bug> domains = bugService.searchBuildProduceBugType_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugType_Project-all')")
+	@ApiOperation(value = "查询Build产生的Bug-类型分布(项目)", tags = {"Bug" } ,notes = "查询Build产生的Bug-类型分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/bugs/searchbuildproducebugtype_project")
+	public ResponseEntity<Page<BugDTO>> searchBuildProduceBugType_Project(@RequestBody BugSearchContext context) {
+        Page<Bug> domains = bugService.searchBuildProduceBugType_Project(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -1488,6 +1530,29 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugSeverity_Project-all')")
+	@ApiOperation(value = "根据产品获取Build产生的Bug-严重程度分布(项目)", tags = {"Bug" } ,notes = "根据产品获取Build产生的Bug-严重程度分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchbuildproducebugseverity_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugSeverity_ProjectByProduct(@PathVariable("product_id") Long product_id,BugSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugSeverity_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugSeverity_Project-all')")
+	@ApiOperation(value = "根据产品查询Build产生的Bug-严重程度分布(项目)", tags = {"Bug" } ,notes = "根据产品查询Build产生的Bug-严重程度分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/bugs/searchbuildproducebugseverity_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugSeverity_ProjectByProduct(@PathVariable("product_id") Long product_id, @RequestBody BugSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugSeverity_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugStatus_Project-all')")
 	@ApiOperation(value = "根据产品获取Build产生的Bug-状态分布(项目)", tags = {"Bug" } ,notes = "根据产品获取Build产生的Bug-状态分布(项目)")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchbuildproducebugstatus_project")
@@ -1508,6 +1573,29 @@ public class BugResource {
 	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugStatus_ProjectByProduct(@PathVariable("product_id") Long product_id, @RequestBody BugSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Bug> domains = bugService.searchBuildProduceBugStatus_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugType_Project-all')")
+	@ApiOperation(value = "根据产品获取Build产生的Bug-类型分布(项目)", tags = {"Bug" } ,notes = "根据产品获取Build产生的Bug-类型分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchbuildproducebugtype_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugType_ProjectByProduct(@PathVariable("product_id") Long product_id,BugSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugType_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugType_Project-all')")
+	@ApiOperation(value = "根据产品查询Build产生的Bug-类型分布(项目)", tags = {"Bug" } ,notes = "根据产品查询Build产生的Bug-类型分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/bugs/searchbuildproducebugtype_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugType_ProjectByProduct(@PathVariable("product_id") Long product_id, @RequestBody BugSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugType_Project(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -2344,6 +2432,29 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugSeverity_Project-all')")
+	@ApiOperation(value = "根据需求获取Build产生的Bug-严重程度分布(项目)", tags = {"Bug" } ,notes = "根据需求获取Build产生的Bug-严重程度分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/bugs/fetchbuildproducebugseverity_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugSeverity_ProjectByStory(@PathVariable("story_id") Long story_id,BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugSeverity_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugSeverity_Project-all')")
+	@ApiOperation(value = "根据需求查询Build产生的Bug-严重程度分布(项目)", tags = {"Bug" } ,notes = "根据需求查询Build产生的Bug-严重程度分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/bugs/searchbuildproducebugseverity_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugSeverity_ProjectByStory(@PathVariable("story_id") Long story_id, @RequestBody BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugSeverity_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugStatus_Project-all')")
 	@ApiOperation(value = "根据需求获取Build产生的Bug-状态分布(项目)", tags = {"Bug" } ,notes = "根据需求获取Build产生的Bug-状态分布(项目)")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/bugs/fetchbuildproducebugstatus_project")
@@ -2364,6 +2475,29 @@ public class BugResource {
 	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugStatus_ProjectByStory(@PathVariable("story_id") Long story_id, @RequestBody BugSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Bug> domains = bugService.searchBuildProduceBugStatus_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugType_Project-all')")
+	@ApiOperation(value = "根据需求获取Build产生的Bug-类型分布(项目)", tags = {"Bug" } ,notes = "根据需求获取Build产生的Bug-类型分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/bugs/fetchbuildproducebugtype_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugType_ProjectByStory(@PathVariable("story_id") Long story_id,BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugType_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugType_Project-all')")
+	@ApiOperation(value = "根据需求查询Build产生的Bug-类型分布(项目)", tags = {"Bug" } ,notes = "根据需求查询Build产生的Bug-类型分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/bugs/searchbuildproducebugtype_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugType_ProjectByStory(@PathVariable("story_id") Long story_id, @RequestBody BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugType_Project(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -3200,6 +3334,29 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugSeverity_Project-all')")
+	@ApiOperation(value = "根据项目获取Build产生的Bug-严重程度分布(项目)", tags = {"Bug" } ,notes = "根据项目获取Build产生的Bug-严重程度分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/bugs/fetchbuildproducebugseverity_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugSeverity_ProjectByProject(@PathVariable("project_id") Long project_id,BugSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugSeverity_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugSeverity_Project-all')")
+	@ApiOperation(value = "根据项目查询Build产生的Bug-严重程度分布(项目)", tags = {"Bug" } ,notes = "根据项目查询Build产生的Bug-严重程度分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/bugs/searchbuildproducebugseverity_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugSeverity_ProjectByProject(@PathVariable("project_id") Long project_id, @RequestBody BugSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugSeverity_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugStatus_Project-all')")
 	@ApiOperation(value = "根据项目获取Build产生的Bug-状态分布(项目)", tags = {"Bug" } ,notes = "根据项目获取Build产生的Bug-状态分布(项目)")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/bugs/fetchbuildproducebugstatus_project")
@@ -3220,6 +3377,29 @@ public class BugResource {
 	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugStatus_ProjectByProject(@PathVariable("project_id") Long project_id, @RequestBody BugSearchContext context) {
         context.setN_project_eq(project_id);
         Page<Bug> domains = bugService.searchBuildProduceBugStatus_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugType_Project-all')")
+	@ApiOperation(value = "根据项目获取Build产生的Bug-类型分布(项目)", tags = {"Bug" } ,notes = "根据项目获取Build产生的Bug-类型分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/bugs/fetchbuildproducebugtype_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugType_ProjectByProject(@PathVariable("project_id") Long project_id,BugSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugType_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugType_Project-all')")
+	@ApiOperation(value = "根据项目查询Build产生的Bug-类型分布(项目)", tags = {"Bug" } ,notes = "根据项目查询Build产生的Bug-类型分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/bugs/searchbuildproducebugtype_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugType_ProjectByProject(@PathVariable("project_id") Long project_id, @RequestBody BugSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugType_Project(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -4056,6 +4236,29 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugSeverity_Project-all')")
+	@ApiOperation(value = "根据产品需求获取Build产生的Bug-严重程度分布(项目)", tags = {"Bug" } ,notes = "根据产品需求获取Build产生的Bug-严重程度分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/bugs/fetchbuildproducebugseverity_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugSeverity_ProjectByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugSeverity_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugSeverity_Project-all')")
+	@ApiOperation(value = "根据产品需求查询Build产生的Bug-严重程度分布(项目)", tags = {"Bug" } ,notes = "根据产品需求查询Build产生的Bug-严重程度分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/bugs/searchbuildproducebugseverity_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugSeverity_ProjectByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugSeverity_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugStatus_Project-all')")
 	@ApiOperation(value = "根据产品需求获取Build产生的Bug-状态分布(项目)", tags = {"Bug" } ,notes = "根据产品需求获取Build产生的Bug-状态分布(项目)")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/bugs/fetchbuildproducebugstatus_project")
@@ -4076,6 +4279,29 @@ public class BugResource {
 	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugStatus_ProjectByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody BugSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Bug> domains = bugService.searchBuildProduceBugStatus_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugType_Project-all')")
+	@ApiOperation(value = "根据产品需求获取Build产生的Bug-类型分布(项目)", tags = {"Bug" } ,notes = "根据产品需求获取Build产生的Bug-类型分布(项目)")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/bugs/fetchbuildproducebugtype_project")
+	public ResponseEntity<List<BugDTO>> fetchBugBuildProduceBugType_ProjectByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugType_Project(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchBuildProduceBugType_Project-all')")
+	@ApiOperation(value = "根据产品需求查询Build产生的Bug-类型分布(项目)", tags = {"Bug" } ,notes = "根据产品需求查询Build产生的Bug-类型分布(项目)")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/bugs/searchbuildproducebugtype_project")
+	public ResponseEntity<Page<BugDTO>> searchBugBuildProduceBugType_ProjectByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchBuildProduceBugType_Project(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

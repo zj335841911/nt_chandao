@@ -269,7 +269,7 @@ export class BugResolvedBy_ProjectChartBase extends MainControlBase {
     public chartOption:any = {
         title:{
             show:true ,
-            text:'',
+            text:'Bug解决者分布_Project',
             subtext:''
         },
         legend:{

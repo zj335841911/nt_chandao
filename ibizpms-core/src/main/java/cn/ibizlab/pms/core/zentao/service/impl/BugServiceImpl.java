@@ -739,11 +739,29 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     }
 
     /**
+     * 查询集合 Build产生的Bug-严重程度分布(项目)
+     */
+    @Override
+    public Page<Bug> searchBuildProduceBugSeverity_Project(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchBuildProduceBugSeverity_Project(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 Build产生的Bug-状态分布(项目)
      */
     @Override
     public Page<Bug> searchBuildProduceBugStatus_Project(BugSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchBuildProduceBugStatus_Project(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 Build产生的Bug-类型分布(项目)
+     */
+    @Override
+    public Page<Bug> searchBuildProduceBugType_Project(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchBuildProduceBugType_Project(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

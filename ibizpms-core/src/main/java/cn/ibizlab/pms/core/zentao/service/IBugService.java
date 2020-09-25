@@ -70,7 +70,9 @@ public interface IBugService extends IService<Bug>{
     Page<Bug> searchBuildProduceBugRESOLVEDBY(BugSearchContext context) ;
     Page<Bug> searchBuildProduceBugRESOLVEDBY_Project(BugSearchContext context) ;
     Page<Bug> searchBuildProduceBugResolution_Project(BugSearchContext context) ;
+    Page<Bug> searchBuildProduceBugSeverity_Project(BugSearchContext context) ;
     Page<Bug> searchBuildProduceBugStatus_Project(BugSearchContext context) ;
+    Page<Bug> searchBuildProduceBugType_Project(BugSearchContext context) ;
     Page<Bug> searchDefault(BugSearchContext context) ;
     Page<Bug> searchMyFavorites(BugSearchContext context) ;
     Page<Bug> searchProjectBugs(BugSearchContext context) ;
