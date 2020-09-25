@@ -568,6 +568,7 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
      * @memberof MobChageForm
      */
     protected data: any = {
+        srfupdatedate: null,
         srforikey: null,
         srfkey: null,
         srfmajortext: null,
@@ -620,6 +621,12 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
      * @memberof MobChageForm
      */
     protected rules: any = {
+        srfupdatedate: [
+            { type: 'string', message: '最后修改日期 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '最后修改日期 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '最后修改日期 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '最后修改日期 值不能为空', trigger: 'blur' },
+        ],
         srforikey: [
             { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
             { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
@@ -822,6 +829,8 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
+        srfupdatedate: new FormItemModel({ caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         srfkey: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
@@ -859,6 +868,18 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
+
+    /**
+     * 监控表单属性 srfupdatedate 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobChageForm
+     */
+    @Watch('data.srfupdatedate')
+    onSrfupdatedateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'srfupdatedate', newVal: newVal, oldVal: oldVal });
+    }
 
     /**
      * 监控表单属性 srforikey 值
@@ -1118,6 +1139,7 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
 
 
 

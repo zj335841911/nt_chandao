@@ -101,7 +101,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 当前状态
      */
-    @DEField(defaultValue = "draft")
+    @DEField(defaultValue = "draft1")
     @TableField(value = "`status`")
     @JSONField(name = "status")
     @JsonProperty("status")
