@@ -70,7 +70,6 @@ import {
 } from "vue-property-decorator";
 import draggable from "vuedraggable";
 import { Http } from "@/ibiz-core/utils";
-import UtilService from "@/utilservice/util-service";
 @Component({
   components: {
     draggable,
@@ -104,7 +103,7 @@ export default class AppCustomize extends Vue {
      * @type {UtilService}
      * @memberof AppCustomize
      */
-    protected utilService: UtilService = new UtilService();
+    protected utilService:any =  window.utilServiceConstructor;
 
     /**
      * 传入数据list_add
