@@ -39,7 +39,7 @@ export class UtilServiceConstructor {
      * @memberof UtilServiceRegister
      */
     protected init(): void {
-                this.allUtilService.set('dynadashboard', () => import('@/utilservice/dynadashboard/dynadashboard-util-service'));
+                this.allUtilService.set('dynadashboard', () => import('./dynadashboard/dynadashboard-util-service'));
     }
 
     /**
