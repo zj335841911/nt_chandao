@@ -34,6 +34,7 @@ public interface CaseMapper extends BaseMapper<Case>{
     Page<Case> searchRePortCase_Project(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
     Page<Case> searchRunERRePortCase(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
     Page<Case> searchRunERRePortCaseEntry(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
+    Page<Case> searchRunERRePortCase_Project(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
     Page<Case> searchRunRePortCase(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
     Page<Case> searchRunRePortCaseEntry(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;
     Page<Case> searchRunRePortCase_Project(IPage page, @Param("srf") CaseSearchContext context, @Param("ew") Wrapper<Case> wrapper) ;

@@ -683,14 +683,6 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [LASTEDITEDBY]
-     */
-    public void setLasteditedby(String  lasteditedby){
-        this.lasteditedby = lasteditedby ;
-        this.modify("lasteditedby",lasteditedby);
-    }
-
-    /**
      * 设置 [STAGE]
      */
     public void setStage(String  stage){
@@ -720,14 +712,6 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     public void setType(String  type){
         this.type = type ;
         this.modify("type",type);
-    }
-
-    /**
-     * 设置 [LASTEDITEDDATE]
-     */
-    public void setLastediteddate(Timestamp  lastediteddate){
-        this.lastediteddate = lastediteddate ;
-        this.modify("lastediteddate",lastediteddate);
     }
 
     /**

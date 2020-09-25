@@ -107,6 +107,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 预计工时
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`estimate`")
     @JSONField(name = "estimate")
     @JsonProperty("estimate")
@@ -231,6 +232,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 最后修改
      */
+    @DEField(preType = DEPredefinedFieldType.UPDATEMANNAME)
     @TableField(value = "`lasteditedby`")
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
@@ -270,6 +272,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 最后修改日期
      */
+    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`lastediteddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
@@ -697,14 +700,6 @@ public class Story extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [最后修改]
-     */
-    public void setLasteditedby(String lasteditedby){
-        this.lasteditedby = lasteditedby ;
-        this.modify("lasteditedby",lasteditedby);
-    }
-
-    /**
      * 设置 [所处阶段]
      */
     public void setStage(String stage){
@@ -746,24 +741,6 @@ public class Story extends EntityMP implements Serializable {
         this.modify("type",type);
     }
 
-    /**
-     * 设置 [最后修改日期]
-     */
-    public void setLastediteddate(Timestamp lastediteddate){
-        this.lastediteddate = lastediteddate ;
-        this.modify("lastediteddate",lastediteddate);
-    }
-
-    /**
-     * 格式化日期 [最后修改日期]
-     */
-    public String formatLastediteddate(){
-        if (this.lastediteddate == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return sdf.format(lastediteddate);
-    }
     /**
      * 设置 [来源Bug]
      */

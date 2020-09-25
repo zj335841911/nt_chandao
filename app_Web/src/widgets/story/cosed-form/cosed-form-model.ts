@@ -26,6 +26,11 @@ export default class CosedModel {
         dataType: 'TEXT',
       },
       {
+        name: 'srfupdatedate',
+        prop: 'lastediteddate',
+        dataType: 'DATETIME',
+      },
+      {
         name: 'srforikey',
       },
       {

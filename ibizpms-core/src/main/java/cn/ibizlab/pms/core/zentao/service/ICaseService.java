@@ -66,6 +66,7 @@ public interface ICaseService extends IService<Case>{
     Page<Case> searchRePortCase_Project(CaseSearchContext context) ;
     Page<Case> searchRunERRePortCase(CaseSearchContext context) ;
     Page<Case> searchRunERRePortCaseEntry(CaseSearchContext context) ;
+    Page<Case> searchRunERRePortCase_Project(CaseSearchContext context) ;
     Page<Case> searchRunRePortCase(CaseSearchContext context) ;
     Page<Case> searchRunRePortCaseEntry(CaseSearchContext context) ;
     Page<Case> searchRunRePortCase_Project(CaseSearchContext context) ;

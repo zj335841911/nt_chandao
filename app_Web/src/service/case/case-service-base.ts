@@ -3273,6 +3273,36 @@ export default class CaseServiceBase extends EntityService {
     }
 
     /**
+     * FetchRunERRePortCase_Project接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchRunERRePortCase_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunerreportcase_project`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchrunerreportcase_project`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchrunerreportcase_project`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/cases/fetchrunerreportcase_project`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchRunRePortCase接口方法
      *
      * @param {*} [context={}]
@@ -3552,6 +3582,18 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempRunERRePortCaseEntry(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempRunERRePortCase_Project接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempRunERRePortCase_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**

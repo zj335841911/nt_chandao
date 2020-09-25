@@ -74,6 +74,7 @@ export class ProjectPlanEditFormBase extends EditFormControlBase {
      * @memberof ProjectPlanEditFormBase
      */
     public data: any = {
+        srfupdatedate: null,
         srforikey: null,
         srfkey: null,
         srfmajortext: null,
@@ -116,6 +117,8 @@ export class ProjectPlanEditFormBase extends EditFormControlBase {
         group1: new FormGroupPanelModel({ caption: '(此操作会将所选计划下面的需求全部关联到此项目中)', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.projectplan_form', extractMode: 'ITEM', details: [] } }),
 
         formpage1: new FormPageModel({ caption: '按照计划关联', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        srfupdatedate: new FormItemModel({ caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

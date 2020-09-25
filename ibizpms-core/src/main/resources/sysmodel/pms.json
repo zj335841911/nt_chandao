@@ -24419,6 +24419,7 @@
     "physical_field":1,
     "data_type":"VARCHAR",
     "data_length":200,
+    "predefined":"UPDATEMANNAME",
     "key_field":0,
     "major_field":0
     },
@@ -24485,6 +24486,7 @@
     "nullable":1,
     "physical_field":1,
     "data_type":"DATETIME",
+    "predefined":"UPDATEDATE",
     "key_field":0,
     "major_field":0
     },
