@@ -14,6 +14,21 @@
         <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="true"></app-search-history>
 
     
+                    <ion-toolbar class="product-mob-mdview-toolbar default-sort">
+                <div class="view-tool">
+                    <div class="view-tool-sorts">
+                        <div class="view-tool-sorts-item">
+                            <span class="text" @click="onSort('ORDER')">排序</span>
+                            <span class="sort-icon" @click="onSort('ORDER')">
+                                <ion-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.asc == 'ORDER'}" name="chevron-up-outline" ></ion-icon>
+                                <ion-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.desc == 'ORDER'}" name="chevron-down-outline" ></ion-icon>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </ion-toolbar>
+                <div style="display:flex;overflow: auto;">
+                </div>
     </ion-header>
 
     <van-popup :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%;width: 77%;"  >
@@ -951,6 +966,40 @@ export default class ProductMobMDViewBase extends Vue {
     @Prop({ default: true }) public isEnablePullUp?: boolean;
 
 
+
+    /**
+     * 排序对象
+     *
+     * @type {*}
+     * @memberof ProductMobMDViewBase
+     */
+    public sort: any = { asc: "", desc: "" };
+
+    /**
+     * 排序
+     *
+     * @param {*} field
+     * @memberof ProductMobMDViewBase
+     */
+    public onSort(field: any) {
+        if (this.sort.desc == field) {
+            this.sort.desc = "";
+            this.sortValue = {};
+            this.onViewLoad();
+            return
+        }
+        if (this.sort.asc == field) {
+            this.sort.asc = "";
+            this.sort.desc = field;
+            this.sortValue = { sort: field + ",desc" };
+            this.onViewLoad();
+        } else {
+            this.sort.asc = field;
+            this.sort.desc = "";
+            this.sortValue = { sort: field + ",asc" };
+            this.onViewLoad();
+        }
+    }
 
     /**
      * 分类值
