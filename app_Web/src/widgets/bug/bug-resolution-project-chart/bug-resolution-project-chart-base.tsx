@@ -194,12 +194,12 @@ export class BugResolution_ProjectChartBase extends MainControlBase {
      * @memberof Dashboard_BugResolutionProject_chartBase
      */
     public  seriesModel:any = {
-        bugopenedby_project:new ChartPieSeries({
-    name:'bugopenedby_project',
+        bugresolution_project:new ChartPieSeries({
+    name:'bugresolution_project',
     
     
     categorField:'resolution',
-    categorCodeList:{type:'STATIC',tag:'Bug__resolution',emptycode:'empty',emptytext:'未定义'},
+    
     
     valueField:'srfcount',
     seriesValues:[],
@@ -207,7 +207,7 @@ export class BugResolution_ProjectChartBase extends MainControlBase {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"resolution",codelist:{type:"STATIC",tag:"Bug__resolution",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"CODELIST"},
+    {name:"resolution",codelist:null,isGroupField:true,groupMode:""},
     {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
@@ -281,7 +281,7 @@ export class BugResolution_ProjectChartBase extends MainControlBase {
         dataset:[],
         series:[
                      {
-            id:'bugopenedby_project',
+            id:'bugresolution_project',
             name:'',
             type:'pie',
             datasetIndex:0,
