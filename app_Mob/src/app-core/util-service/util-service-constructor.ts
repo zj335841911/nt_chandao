@@ -4,7 +4,7 @@
  * @export
  * @class UtilServiceRegister
  */
-export class UtilServiceRegister {
+export class UtilServiceConstructor {
 
     /**
      * 所有功能服务Map
@@ -77,4 +77,4 @@ export class UtilServiceRegister {
     }
 
 }
-export const utilServiceRegister: UtilServiceRegister = new UtilServiceRegister();
+export const utilServiceConstructor: UtilServiceConstructor = new UtilServiceConstructor();

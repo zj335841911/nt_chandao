@@ -99,7 +99,7 @@ export class UtilService {
      * @memberof UtilService
      */
     public getService(name: string): Promise<any> {
-        return (window as any)['utilServiceRegister'].getService(name);
+        return window.utilServiceConstructor.getService(name);
     }
 
     /**
