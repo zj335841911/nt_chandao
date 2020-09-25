@@ -64,6 +64,7 @@ import BugDashboardBugLife from '@/widgets/bug/dashboard-bug-life-portlet/dashbo
 import BugBugType from '@/widgets/bug/bug-type-portlet/bug-type-portlet.vue';
 import BugBugResolution from '@/widgets/bug/bug-resolution-portlet/bug-resolution-portlet.vue';
 import BugBugResolvedBy from '@/widgets/bug/bug-resolved-by-portlet/bug-resolved-by-portlet.vue';
+import BugBugResolvedBy_Project from '@/widgets/bug/bug-resolved-by-project-portlet/bug-resolved-by-project-portlet.vue';
 import BugActionHistoryList from '@/widgets/bug/action-history-list-portlet/action-history-list-portlet.vue';
 import BugDashboardBugMain from '@/widgets/bug/dashboard-bug-main-portlet/dashboard-bug-main-portlet.vue';
 import BugBugDashboardActions from '@/widgets/bug/bug-dashboard-actions-portlet/bug-dashboard-actions-portlet.vue';
@@ -149,6 +150,7 @@ export const  PortletComponent = {
         v.component('app-case-case-type-project-portlet', CaseCaseTypeProject);
         v.component('app-case-case-module-project-portlet', CaseCaseModuleProject);
         v.component('app-case-case-lastrunner-project-portlet', CaseCaseLastrunnerProject);
+        v.component('app-bug-bug-resolved-by-project-portlet', BugBugResolvedBy_Project);
         v.component('case-test-main-detail-portlet', CaseTestMainDetail);
         v.component('case-main-detail-portlet', CaseMainDetail);
         v.component('case-case-lastrunner-portlet', CaseCaseLastrunner);
@@ -205,6 +207,7 @@ export const  PortletComponent = {
         v.component('bug-bug-type-portlet', BugBugType);
         v.component('bug-bug-resolution-portlet', BugBugResolution);
         v.component('bug-bug-resolved-by-portlet', BugBugResolvedBy);
+        v.component('bug-bug-resolved-by-project-portlet', BugBugResolvedBy_Project);
         v.component('bug-action-history-list-portlet', BugActionHistoryList);
         v.component('bug-dashboard-bug-main-portlet', BugDashboardBugMain);
         v.component('bug-bug-dashboard-actions-portlet', BugBugDashboardActions);

@@ -460,6 +460,14 @@ mock.onGet('./assets/json/portlet-data.json').reply((config: any) => {
     {"type":"appde",
     "appCodeName":"Bug",
     "appName":"Bug",
+    "portletCodeName": "BugResolvedBy_Project",
+    "portletName": "Bug解决者分布_Project",
+    "groupCodeName":"Ungroup",
+    "groupName":"（未分类）",
+    "portletTYpe":"CHART","componentName":"bug-bug-resolved-by-project-portlet"},
+    {"type":"appde",
+    "appCodeName":"Bug",
+    "appName":"Bug",
     "portletCodeName": "ActionHistoryList",
     "portletName": "历史记录",
     "groupCodeName":"Ungroup",
@@ -1112,6 +1120,14 @@ mock.onGet('./assets/json/portlet-data.json').reply((config: any) => {
     "portletName": "按用例执行人统计",
     "groupCodeName":"Ungroup",
     "groupName":"（未分类）",
-    "portletTYpe":"CHART","componentName":"app-case-case-lastrunner-project-portlet"}
+    "portletTYpe":"CHART","componentName":"app-case-case-lastrunner-project-portlet"},
+    {"type":"app",
+    "appCodeName":"Bug",
+    "appName":"Bug",
+    "portletCodeName": "BugResolvedBy_Project",
+    "portletName": "Bug解决者分布_Project",
+    "groupCodeName":"Ungroup",
+    "groupName":"（未分类）",
+    "portletTYpe":"CHART","componentName":"app-bug-bug-resolved-by-project-portlet"}
     ]];
 });

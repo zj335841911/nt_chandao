@@ -29,6 +29,7 @@ public interface BugMapper extends BaseMapper<Bug>{
     Page<Bug> searchBuildProduceBugOpenedBy(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
     Page<Bug> searchBuildProduceBugRES(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
     Page<Bug> searchBuildProduceBugRESOLVEDBY(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
+    Page<Bug> searchBuildProduceBugRESOLVEDBY_Project(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
     Page<Bug> searchDefault(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
     Page<Bug> searchMyFavorites(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
     Page<Bug> searchProjectBugs(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
