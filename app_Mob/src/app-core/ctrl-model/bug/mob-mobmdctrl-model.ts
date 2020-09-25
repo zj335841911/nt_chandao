@@ -18,7 +18,12 @@ export class MobModel {
 				name: 'resolution',
 			},
 			{
-				name: 'pri',
+				name: 'pri1',
+				prop: 'pri',
+				dataType: 'NSCODELIST',
+			},
+			{
+				name: 'severity',
 			},
 			{
 				name: 'title',
