@@ -28,6 +28,7 @@
                 </div>
             </ion-toolbar>
                 <div style="display:flex;overflow: auto;">
+                    <app-van-select  name="n_acl_eq" title="访问控制" :items="[{value:'open',label:'默认设置(有产品视图权限，即可访问)'},{value:'private',label:'私有产品(相关负责人和项目团队成员才能访问)'},{value:'custom',label:'自定义白名单(团队成员和白名单的成员可以访问)'},]" @onConfirm="onCategory"></app-van-select>
                 </div>
     </ion-header>
 
