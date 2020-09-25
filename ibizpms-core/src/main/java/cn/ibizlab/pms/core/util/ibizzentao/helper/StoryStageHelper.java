@@ -1,6 +1,5 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
-import cn.ibizlab.pms.core.util.ibizzentao.ZTBaseHelper;
 import cn.ibizlab.pms.core.zentao.domain.StorySpec;
 import cn.ibizlab.pms.core.zentao.mapper.StorySpecMapper;
 import org.springframework.stereotype.Component;
@@ -13,4 +12,8 @@ public class StoryStageHelper extends ZTBaseHelper<StorySpecMapper, StorySpec> {
         return false ;
     }
 
+    @Override
+    public boolean hasId() {
+        return false ;
+    }
 }

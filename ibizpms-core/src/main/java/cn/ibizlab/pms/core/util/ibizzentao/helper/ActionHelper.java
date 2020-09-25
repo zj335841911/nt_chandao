@@ -1,7 +1,7 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
-import cn.ibizlab.pms.core.util.ibizzentao.ZTBaseHelper;
 import cn.ibizlab.pms.core.util.ibizzentao.common.Fixer;
+import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.Action;
 import cn.ibizlab.pms.core.zentao.domain.History;
 import cn.ibizlab.pms.core.zentao.domain.ProjectProduct;
@@ -74,7 +74,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
         et.setObjectid(objectID);
         et.setActor(actor);
         et.setAction(actionType.toLowerCase());
-        et.setDate(new Timestamp(System.currentTimeMillis()));
+        et.setDate(ZTDateUtil.now());
         et.setExtra(extra);
         et.setRead("0");
         et.setComment(Fixer.stripDataTags(comment));
@@ -122,7 +122,7 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
 
     @Transactional
     public boolean editComment(Action et){
-        et.setDate(new Timestamp(System.currentTimeMillis()));
+        et.setDate(ZTDateUtil.now());
         return this.internalUpdate(et);
     }
 

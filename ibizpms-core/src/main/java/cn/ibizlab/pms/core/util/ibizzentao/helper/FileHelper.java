@@ -1,13 +1,10 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
-import cn.ibizlab.pms.core.util.ibizzentao.ZTBaseHelper;
-import cn.ibizlab.pms.core.util.ibizzentao.common.Helper;
 import cn.ibizlab.pms.core.zentao.domain.File;
 import cn.ibizlab.pms.core.zentao.mapper.FileMapper;
 import cn.ibizlab.pms.util.domain.EntityMP;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

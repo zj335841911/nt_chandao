@@ -1,4 +1,4 @@
-package cn.ibizlab.pms.core.util.ibizzentao;
+package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
 import cn.ibizlab.pms.util.domain.EntityMP;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
@@ -9,6 +9,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.transaction.annotation.Transactional;
 
 public class ZTBaseHelper<M extends BaseMapper<T>, T extends EntityMP> extends ServiceImpl<M , T> {
+
+
 
     public T get(Long key){
         T et = getById(key);
@@ -27,7 +29,8 @@ public class ZTBaseHelper<M extends BaseMapper<T>, T extends EntityMP> extends S
     public boolean create(T et) {
         if (!this.retBool(this.baseMapper.insert(et)))
             return false;
-        CachedBeanCopier.copy(get(Long.valueOf(et.get("id").toString())), et);
+        if(hasId())
+            CachedBeanCopier.copy(get(Long.valueOf(et.get("id").toString())), et);
         return true;
     }
 
@@ -35,20 +38,28 @@ public class ZTBaseHelper<M extends BaseMapper<T>, T extends EntityMP> extends S
     public boolean internalUpdate(T et ){
         if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", Long.valueOf(et.get("id").toString()))))
             return false;
-        CachedBeanCopier.copy(get(Long.valueOf(et.get("id").toString())), et);
+        if(hasId())
+            CachedBeanCopier.copy(get(Long.valueOf(et.get("id").toString())), et);
         return true;
     }
 
     @Transactional
     public boolean delete(Long key){
-        if(hasDeleted()){
-            UpdateWrapper deleteWrapper=new UpdateWrapper();
-            deleteWrapper.set("deleted","1") ;
-            deleteWrapper.eq("id",key) ;
-            return this.update(deleteWrapper);
-        }else{
-            return removeById(key);
+        if(hasId()){
+            if(hasDeleted()){
+                UpdateWrapper deleteWrapper=new UpdateWrapper();
+                deleteWrapper.set("deleted","1") ;
+                deleteWrapper.eq("id",key) ;
+                return this.update(deleteWrapper);
+            }else{
+                return removeById(key);
+            }
         }
+        return true ;
+    }
+
+    public boolean hasId(){
+        return true ;
     }
 
     public boolean hasDeleted(){

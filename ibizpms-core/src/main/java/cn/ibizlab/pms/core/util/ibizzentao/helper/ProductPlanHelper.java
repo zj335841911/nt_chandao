@@ -1,13 +1,11 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
-import cn.ibizlab.pms.core.util.ibizzentao.ZTBaseHelper;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.zentao.domain.Action;
 import cn.ibizlab.pms.core.zentao.domain.History;
 import cn.ibizlab.pms.core.zentao.domain.ProductPlan;
 import cn.ibizlab.pms.core.zentao.mapper.ProductPlanMapper;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
-import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
