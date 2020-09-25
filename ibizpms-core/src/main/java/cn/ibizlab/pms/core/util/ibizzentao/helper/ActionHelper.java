@@ -11,6 +11,7 @@ import cn.ibizlab.pms.core.zentao.service.IProjectProductService;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,6 +22,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
+@Slf4j
 public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
 
     String[] processType = new String[]{"story", "productplan", "release", "task", "build", "bug", "case", "testtask", "doc"};
@@ -99,7 +101,8 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
             et.setProduct("," + products + ",");
             et.setProject(objectID);
         } else if (Arrays.binarySearch(processType, objectType) > 0) {
-
+            //
+            log.info(processType + "product、project设置未实现");
         }
 
         this.create(et);
