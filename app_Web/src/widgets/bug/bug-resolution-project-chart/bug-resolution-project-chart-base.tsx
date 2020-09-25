@@ -198,7 +198,7 @@ export class BugResolution_ProjectChartBase extends MainControlBase {
     name:'bugopenedby_project',
     
     
-    categorField:'openedby',
+    categorField:'resolution',
     
     
     valueField:'srfcount',
@@ -207,7 +207,7 @@ export class BugResolution_ProjectChartBase extends MainControlBase {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"openedby",codelist:null,isGroupField:true,groupMode:""},
+    {name:"resolution",codelist:null,isGroupField:true,groupMode:""},
     {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
@@ -269,7 +269,7 @@ export class BugResolution_ProjectChartBase extends MainControlBase {
     public chartOption:any = {
         title:{
             show:true ,
-            text:'Bug解决方案分布_Project',
+            text:'',
             subtext:''
         },
         legend:{
@@ -288,7 +288,7 @@ export class BugResolution_ProjectChartBase extends MainControlBase {
             
             seriesLayoutBy:"column",
             encode:{
-                itemName:"openedby",
+                itemName:"resolution",
                 value:"srfcount"
             }}
         ]
