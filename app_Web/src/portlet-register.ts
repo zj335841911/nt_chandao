@@ -66,6 +66,7 @@ import BugBugResolution from '@/widgets/bug/bug-resolution-portlet/bug-resolutio
 import BugBugResolvedBy from '@/widgets/bug/bug-resolved-by-portlet/bug-resolved-by-portlet.vue';
 import BugBugResolvedBy_Project from '@/widgets/bug/bug-resolved-by-project-portlet/bug-resolved-by-project-portlet.vue';
 import BugActionHistoryList from '@/widgets/bug/action-history-list-portlet/action-history-list-portlet.vue';
+import BugBugOpenedBy_Project from '@/widgets/bug/bug-opened-by-project-portlet/bug-opened-by-project-portlet.vue';
 import BugDashboardBugMain from '@/widgets/bug/dashboard-bug-main-portlet/dashboard-bug-main-portlet.vue';
 import BugBugDashboardActions from '@/widgets/bug/bug-dashboard-actions-portlet/bug-dashboard-actions-portlet.vue';
 import BugStepsInfo from '@/widgets/bug/steps-info-portlet/steps-info-portlet.vue';
@@ -150,6 +151,7 @@ export const  PortletComponent = {
         v.component('app-case-case-type-project-portlet', CaseCaseTypeProject);
         v.component('app-case-case-module-project-portlet', CaseCaseModuleProject);
         v.component('app-case-case-lastrunner-project-portlet', CaseCaseLastrunnerProject);
+        v.component('app-bug-bug-opened-by-project-portlet', BugBugOpenedBy_Project);
         v.component('app-bug-bug-resolved-by-project-portlet', BugBugResolvedBy_Project);
         v.component('case-test-main-detail-portlet', CaseTestMainDetail);
         v.component('case-main-detail-portlet', CaseMainDetail);
@@ -209,6 +211,7 @@ export const  PortletComponent = {
         v.component('bug-bug-resolved-by-portlet', BugBugResolvedBy);
         v.component('bug-bug-resolved-by-project-portlet', BugBugResolvedBy_Project);
         v.component('bug-action-history-list-portlet', BugActionHistoryList);
+        v.component('bug-bug-opened-by-project-portlet', BugBugOpenedBy_Project);
         v.component('bug-dashboard-bug-main-portlet', BugDashboardBugMain);
         v.component('bug-bug-dashboard-actions-portlet', BugBugDashboardActions);
         v.component('bug-steps-info-portlet', BugStepsInfo);

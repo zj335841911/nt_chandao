@@ -111,6 +111,8 @@ export class TosumupEditFormBase extends EditFormControlBase {
      * @memberof TosumupEditFormBase
      */
     public detailsModel: any = {
+        rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: false, isShowCaption: true, form: this, showMoreMode: 0 }),
+
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -127,9 +129,47 @@ export class TosumupEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        report: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'report', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        report: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'report', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof TosumupEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+        if (Object.is(name, '') || Object.is(name, 'report')) {
+            let ret = false;
+            const _report = this.data.report;
+            if (this.$verify.testCond(_report, 'ISNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.rawitem1.setVisible(ret);
+        }
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, '') || Object.is(name, 'report')) {
+            let ret = false;
+            const _report = this.data.report;
+            if (this.$verify.testCond(_report, 'ISNOTNULL', '')) {
+                ret = true;
+            }
+            this.detailsModel.report.setVisible(ret);
+        }
+
+
+    }
 }

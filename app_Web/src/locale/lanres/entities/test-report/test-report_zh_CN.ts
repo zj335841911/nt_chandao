@@ -214,6 +214,7 @@ export default {
 	},
 	tosumup_form: {
 		details: {
+			rawitem1: "", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "编号", 
