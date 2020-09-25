@@ -56,7 +56,7 @@ export const AppComponents = {
         v.component('app-mob-textarea',() => import('./components/app-mob-textarea/app-mob-textarea.vue'));
         // 日历组件
         v.component('app-calendar',() => import('@/components/app-calendar/app-calendar.vue'));
-
+        v.component('app-vcalendar',() => import('@/components/app-vcalendar/app-vcalendar.vue'));
         // 编辑器 BEGIN
         // 图片选择
         v.component('app-mob-picture', () => import('@/components/app-mob-picture/app-mob-picture.vue'));
@@ -126,5 +126,7 @@ export const AppComponents = {
         v.component('app-mob-select-changeTheme',() => import('@/ibiz-core/components/app-mob-select-changeTheme/app-mob-select-changeTheme.vue'));
         // 锚点列表插件
         v.component('app-anchor-list',() => import('@/components/app-anchor-list/app-anchor-list.vue'));
+        // 新菜单组件
+        v.component('app-mob-menu-sideslip-view',() => import('@/components/app-mob-menu-sideslip-view/app-mob-menu-sideslip-view.vue'));
     },
 };

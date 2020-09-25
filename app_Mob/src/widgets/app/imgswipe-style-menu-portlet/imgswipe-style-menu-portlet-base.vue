@@ -15,7 +15,7 @@
     :viewparams="viewparams" 
     :context="context" 
     :showBusyIndicator="true" 
-    controlStyle="SWIPERVIEW"   
+    controlStyle="SWIPERVIEW"
     name="db_appmenu1_appmenu"  
     ref='db_appmenu1_appmenu' 
     @closeview="closeView($event)">

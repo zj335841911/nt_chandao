@@ -1,0 +1,302 @@
+<template>
+    <ion-tabs ref="ionNav" class="app-mob-menu-sideslip-view" @ionTabsDidChange="selectItem($event)">
+        <ion-button @click="openMenu"  size="small" v-show="isShowSideSlipMenu" style="z-index:999;">
+          <ion-icon name="menu-outline"></ion-icon>
+        </ion-button>
+        <van-popup v-model="showPopup" get-container="#app" position="left" :style="{ height: '100%',width: '80%' }">
+            <div class="app-menu-plugin">
+              <div class="header">
+                <img src="assets/images/logo.png" class="ibizLogo"/>
+                <div class="title">iBizPMS</div>
+                <div class="text">登录·试用测试版</div>
+                <div class="notice"><ion-icon name="megaphone-outline"></ion-icon> #最新通知——更新/下载</div>
+              </div>
+              <div class="top">
+                <div class="title">Menu</div>
+                <template v-for="item in items"  >
+                  <template v-if="!item.hidden">
+                    <div class="list" :key="item.index" @click="active(item)">
+                      <ion-icon :name=" item.iconcls ? item.iconcls : 'home' "></ion-icon>
+                      <div class="text">
+                        <ion-label v-if="item.appfunctag != 'settings'">{{$t(`app.menus.${menuName}.${item.name}`)}}</ion-label>
+                        <ion-label v-else>{{item.text}}</ion-label>
+                        <ion-badge color="danger" v-if="counterServide && counterServide.counterData && counterServide.counterData[item.counterid]"><ion-label>{{counterServide.counterData[item.counterid]}}</ion-label></ion-badge>
+                      </div>
+                    </div>
+                  </template>
+                </template>
+              </div>
+            </div>    
+        </van-popup>
+        <template v-for="item in items">
+                <template v-if="!item.hidden" >
+                        <component :key="item.id" v-if="item.id == activeId" :is="item.componentname" viewDefaultUsage="indexView"></component>
+                </template>
+        </template>
+    </ion-tabs>
+</template>
+
+<script lang="ts">
+import { Vue, Component, Prop, Emit, Model } from 'vue-property-decorator';
+import { Environment } from '@/environments/environment';
+@Component({
+    components: {
+    }
+})
+export default class AppMobMenuSideslipView extends Vue {
+  
+    /**
+     * 是否能显示侧滑菜单
+     *
+     * @type {*}
+     * @memberof AppMobMenuSideslipView
+     */
+    public isShowSideSlipMenu:boolean = true;
+
+    /**
+     * 是否显示侧滑菜单
+     *
+     * @type {*}
+     * @memberof AppMobMenuSideslipView
+     */
+    public showPopup:boolean = false;
+
+    /**
+     * 打开弹出层
+     *
+     * @type {*}
+     * @memberof AppMobMenuSideslipView
+     */
+    public openMenu(){
+      this.showPopup = true;
+    }
+
+    /**
+     * 使用默认菜单
+     *
+     * @type {*}
+     * @memberof AppMobMenuSideslipView
+     */
+    public useDefaultMenu:boolean = Environment.useDefaultMenu;
+
+    /**
+     * 双向值绑定
+     *
+     * @type {*}
+     * @memberof AppMobMenuSideslipView
+     */
+    @Model("change") readonly itemValue?: any;
+
+
+    /**
+     * 获取值
+     *
+     * @type {*}
+     * @memberof AppMobMenuSideslipView
+     */
+    get defaultActive(): any {
+        this.items.some((item: any) => {
+            if (Object.is(item.name, this.itemValue)) {
+                item.select = true;
+                return true;
+            }
+            return false;
+        });
+        return this.itemValue;
+    }
+
+    /**
+     * 设置值
+     *
+     * @memberof AppMobMenuSideslipView
+     */
+    set defaultActive(val) {
+        this.$emit("change", val);
+    }
+
+    /**
+     * 菜单名称
+     *
+     * @type {string}
+     * @memberof AppMobMenuSideslipView
+     */
+    @Prop() public menuName!: string;
+
+    /**
+     * 菜单数据项
+     *
+     * @type {Array<any>}
+     * @memberof AppMobMenuSideslipView
+     */
+    @Prop() public items!: Array<any>;
+
+    /**
+     * 菜单模型
+     *
+     * @type {Array<any>}
+     * @memberof AppMobMenuSideslipView
+     */
+    @Prop() public menuModels!: Array<any>;
+
+    /**
+     * 计数器名称
+     *
+     * @type {string}
+     * @memberof AppMobMenuSideslipView
+     */
+    @Prop() public counterName!: string;
+
+    /**
+     * 激活id
+     *
+     * @type {string}
+     * @memberof AppMobMenuSideslipView
+     */
+    public activeId = "";
+
+    public defaultMenu =  {
+        appfunctag: "settings",
+        componentname: "app-setting",
+        expanded: false,
+        hidden: false,
+        hidesidebar: false,
+        icon: "",
+        iconcls: "settings",
+        id: "setting",
+        name: "setting",
+        opendefault: false,
+        resourcetag: "",
+        separator: false,
+        text: "设置",
+        textcls: "",
+        tooltip: "设置",
+        type: "MENUITEM",
+    };
+    /**
+     * 生命周期
+     *
+     * @memberof AppMobMenuSideslipView
+     */
+    public created() {
+        if(this.useDefaultMenu){
+            this.items.push(this.defaultMenu);
+        }
+        let count = 0;
+        this.items.forEach((item:any,index:number) => {
+            if(item.hidden == false){
+                count++;
+            }
+            if(count == 1){
+                this.activeId = item.id;
+            }
+            let model = this.menuModels.find((model:any) => Object.is(model.appfunctag, item.appfunctag));
+            if (model) {
+                item.componentname = model.componentname;
+            }
+        });
+        this.loadCounterData();
+    }
+
+        /**
+     * 生命周期
+     *
+     * @memberof AppMobMenuSideslipView
+     */
+    public mounted() {
+        let ionNav:any = this.$refs.ionNav;
+        let currPage = sessionStorage.getItem("currId");
+        if(currPage){
+            this.items.forEach((item:any,index:number) => {
+                if(item.id == currPage){
+                    this.activeId =  item.id       
+                    ionNav.select(item.name);
+                }
+            })
+        } 
+    }
+
+    /**
+     * 点击菜单事件
+     *
+     * @memberof AppMobMenuSideslipView
+     */    
+    public active(val:any) {
+        const index :number = this.items.findIndex((item: any) => Object.is(item.id, val.id));
+        this.activeId = this.items[index].id; 
+        sessionStorage.setItem("currId",this.items[index].id)
+        this.showPopup = false;
+    }
+
+    /**
+     * 计数器数据
+     *
+     * @type {*}
+     * @memberof AppMobMenuSideslipView
+     */
+    public counterdata: any = {};
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof AppMobMenuSideslipView
+     */
+    public destroyed() {
+        this.counterServide.destroyCounter();
+    }
+
+    /**
+     * 计数器
+     *
+     * @memberof AppMobMenuSideslipView
+     */
+    public counterServide:any = null;
+
+    /**
+     * 加载计数器数据
+     *
+     * @returns {Promise<any>}
+     * @memberof AppMobMenuSideslipView
+     */
+    public async loadCounterData(): Promise<any> {
+        const counterServiceConstructor = window.counterServiceConstructor;
+        this.counterServide = await counterServiceConstructor.getService(this.counterName);
+    }
+
+    /**
+     * 菜单选中事件
+     *
+     * @param {*} val
+     * @returns
+     * @memberof AppMobMenuSideslipView
+     */
+    @Emit()
+    select(val: any) {
+        return val;
+    }
+
+    /**
+     * 选中菜单项
+     *
+     * @param {*} $event
+     * @returns {void}
+     * @memberof AppMobMenuSideslipView
+     */
+    public selectItem($event: any): void {
+        if (!$event) {
+            return ;
+        }
+        let { detail } = $event;
+        if (!detail) {
+            return ;
+        }
+        let { tab }  = detail;
+        if (!tab) {
+            return;
+        }
+    }
+}
+</script>
+
+<style lang="less">
+@import "./app-mob-menu-sideslip-view.less";
+</style>

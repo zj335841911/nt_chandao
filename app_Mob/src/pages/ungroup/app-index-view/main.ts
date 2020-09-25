@@ -56,6 +56,9 @@ Vue.use(PortletComponent);
 //富文本
 import 'quill/dist/quill.snow.css'
 import VueQuillEditor from 'vue-quill-editor'
+// 日历
+import Calendar from 'v-calendar/lib/components/calendar.umd'
+Vue.component('v-calendar', Calendar)
 Vue.use(VueQuillEditor);
 router.beforeEach((to: any, from: any, next: any) => {
     if (to.meta && !to.meta.ignoreAddPage) {

@@ -7,7 +7,7 @@
     :viewparams="viewparams" 
     :context="context" 
     :showBusyIndicator="true" 
-    controlStyle=""   
+    controlStyle=""
     v-model="collapseChange"  
     :mode="mode"  
     :selectTheme="selectTheme"  
@@ -429,10 +429,10 @@ export default class AppIndexViewBase extends Vue {
      * 菜单位置
      *
      * @private
-     * @type {string}
+     * @type {boolean}
      * @memberof AppIndexViewBase
      */
-    private mode: string ='vertical';
+    private mode: boolean = false;
 
     /**
      * 当前主题
