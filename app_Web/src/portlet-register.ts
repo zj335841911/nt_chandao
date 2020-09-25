@@ -65,6 +65,7 @@ import BugBugStatus from '@/widgets/bug/bug-status-portlet/bug-status-portlet.vu
 import BugDashboardBugLife from '@/widgets/bug/dashboard-bug-life-portlet/dashboard-bug-life-portlet.vue';
 import BugBugType from '@/widgets/bug/bug-type-portlet/bug-type-portlet.vue';
 import BugBugResolution from '@/widgets/bug/bug-resolution-portlet/bug-resolution-portlet.vue';
+import BugBugResolution_Project from '@/widgets/bug/bug-resolution-project-portlet/bug-resolution-project-portlet.vue';
 import BugBugResolvedBy from '@/widgets/bug/bug-resolved-by-portlet/bug-resolved-by-portlet.vue';
 import BugBugResolvedBy_Project from '@/widgets/bug/bug-resolved-by-project-portlet/bug-resolved-by-project-portlet.vue';
 import BugActionHistoryList from '@/widgets/bug/action-history-list-portlet/action-history-list-portlet.vue';
@@ -152,6 +153,7 @@ export const  PortletComponent = {
         v.component('app-case-case-type-project-portlet', CaseCaseTypeProject);
         v.component('app-case-case-module-project-portlet', CaseCaseModuleProject);
         v.component('app-case-case-lastrunner-project-portlet', CaseCaseLastrunnerProject);
+        v.component('app-bug-bug-resolution-project-portlet', BugBugResolution_Project);
         v.component('app-bug-bug-opened-by-project-portlet', BugBugOpenedBy_Project);
         v.component('app-bug-bug-module-project-portlet', BugBugModule_Project);
         v.component('app-bug-bug-resolved-by-project-portlet', BugBugResolvedBy_Project);
@@ -212,6 +214,7 @@ export const  PortletComponent = {
         v.component('bug-dashboard-bug-life-portlet', BugDashboardBugLife);
         v.component('bug-bug-type-portlet', BugBugType);
         v.component('bug-bug-resolution-portlet', BugBugResolution);
+        v.component('bug-bug-resolution-project-portlet', BugBugResolution_Project);
         v.component('bug-bug-resolved-by-portlet', BugBugResolvedBy);
         v.component('bug-bug-resolved-by-project-portlet', BugBugResolvedBy_Project);
         v.component('bug-action-history-list-portlet', BugActionHistoryList);
