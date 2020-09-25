@@ -199,7 +199,7 @@ export class BugResolution_ProjectChartBase extends MainControlBase {
     
     
     categorField:'resolution',
-    
+    categorCodeList:{type:'STATIC',tag:'Bug__resolution',emptycode:'empty',emptytext:'未定义'},
     
     valueField:'srfcount',
     seriesValues:[],
@@ -207,7 +207,7 @@ export class BugResolution_ProjectChartBase extends MainControlBase {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"resolution",codelist:null,isGroupField:true,groupMode:""},
+    {name:"resolution",codelist:{type:"STATIC",tag:"Bug__resolution",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"CODELIST"},
     {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
