@@ -271,7 +271,7 @@ export class BugResolvedBy_ProjectChartBase extends MainControlBase {
         title:{
             show:true ,
             text:'Bug解决者分布_Project',
-            subtext:''
+            subtext:'Bug解决者分类'
         },
         legend:{
             show:true

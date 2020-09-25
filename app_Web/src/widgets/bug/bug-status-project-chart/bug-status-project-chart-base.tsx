@@ -271,7 +271,7 @@ export class BugStatus_ProjectChartBase extends MainControlBase {
         title:{
             show:true ,
             text:'Bug状态分布_Project',
-            subtext:''
+            subtext:'Bug状态分类'
         },
         legend:{
             show:true

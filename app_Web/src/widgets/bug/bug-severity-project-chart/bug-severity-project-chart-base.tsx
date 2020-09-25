@@ -271,7 +271,7 @@ export class BugSeverity_ProjectChartBase extends MainControlBase {
         title:{
             show:true ,
             text:'Bug严重级别分布_Project',
-            subtext:''
+            subtext:'Bug严重级别分类'
         },
         legend:{
             show:true
