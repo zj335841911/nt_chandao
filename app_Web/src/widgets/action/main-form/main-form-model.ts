@@ -56,6 +56,16 @@ export default class MainModel {
         dataType: 'HTMLTEXT',
       },
       {
+        name: 'objectid',
+        prop: 'objectid',
+        dataType: 'BIGINT',
+      },
+      {
+        name: 'objecttype',
+        prop: 'objecttype',
+        dataType: 'SSCODELIST',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

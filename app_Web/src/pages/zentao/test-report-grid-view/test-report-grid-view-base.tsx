@@ -60,6 +60,28 @@ export class TestReportGridViewBase extends GridViewBase {
      */
     public appUIService: TestReportUIService = new TestReportUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TestReportGridViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'N_OBJECTTYPE_EQ': { isRawValue: true, value: 'testtask' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TestReportGridViewBase
+	 */
+    protected customViewParams: any = {
+        'n_objecttype_eq': { isRawValue: true, value: 'testtask' }
+    };
+
     /**
      * 视图模型数据
      *

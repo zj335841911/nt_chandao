@@ -112,6 +112,7 @@ export default class CaseUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'cases',component:'case-main-dashboard-view'});
         this.allViewMap.set(':',{viewname:'cursuitgridview',srfappde:'cases',component:'case-cur-suit-grid-view'});
         this.allViewMap.set(':',{viewname:'gridview9',srfappde:'cases',component:'case-grid-view9'});
+        this.allViewMap.set(':',{viewname:'projectreportlinkgridview',srfappde:'cases',component:'case-project-report-link-grid-view'});
         this.allViewMap.set(':',{viewname:'casetypechartview9',srfappde:'cases',component:'case-case-type-chart-view9'});
         this.allViewMap.set(':',{viewname:'resultentrygridview',srfappde:'cases',component:'caseresult-entry-grid-view'});
         this.allViewMap.set(':',{viewname:'maineditview',srfappde:'cases',component:'case-main-edit-view'});

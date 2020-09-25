@@ -151,6 +151,10 @@ export default {
 			caption: "测试用例",
       		title: "测试用例表格视图",
 		},
+		projectreportlinkgridview: {
+			caption: "关联用例",
+      		title: "测试用例表格视图（报告关联用例）",
+		},
 		casetypechartview9: {
 			caption: "测试类型",
       		title: "测试用例图表视图（测试类型）",
@@ -544,6 +548,34 @@ export default {
 		uiactions: {
 		},
 	},
+	reportmaingrid_grid: {
+		columns: {
+			id: "id",
+			pri: "P",
+			title: "用例标题",
+			type: "用例类型",
+			openedby: "创建",
+			lastrunner: "执行人",
+			lastrundate: "执行时间",
+			lastrunresult: "结果",
+			status1: "状态",
+			tobugcnt: "B",
+			resultcnt: "R",
+			casesteps: "S",
+			lastrunresult1: "测试用例结果",
+		},
+		uiactions: {
+		},
+	},
+	caseresultentry_grid: {
+		columns: {
+			lastrunresult1: "条目",
+			resultcnt: "值",
+			task: "百分比",
+		},
+		uiactions: {
+		},
+	},
 	maingrid_grid: {
 		columns: {
 			id: "id",
@@ -595,34 +627,6 @@ export default {
 			storyname: "相关需求",
 			title: "用例标题",
 			type: "用例类型",
-		},
-		uiactions: {
-		},
-	},
-	reportmaingrid_grid: {
-		columns: {
-			id: "id",
-			pri: "P",
-			title: "用例标题",
-			type: "用例类型",
-			openedby: "创建",
-			lastrunner: "执行人",
-			lastrundate: "执行时间",
-			lastrunresult: "结果",
-			status1: "状态",
-			tobugcnt: "B",
-			resultcnt: "R",
-			casesteps: "S",
-			lastrunresult1: "测试用例结果",
-		},
-		uiactions: {
-		},
-	},
-	caseresultentry_grid: {
-		columns: {
-			lastrunresult1: "条目",
-			resultcnt: "值",
-			task: "百分比",
 		},
 		uiactions: {
 		},

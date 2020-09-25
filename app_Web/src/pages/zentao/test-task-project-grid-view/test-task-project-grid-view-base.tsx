@@ -60,6 +60,28 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
      */
     public appUIService: TestTaskUIService = new TestTaskUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TestTaskProjectGridViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'PROJECT': { isRawValue: false, value: 'project' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TestTaskProjectGridViewBase
+	 */
+    protected customViewParams: any = {
+        'project': { isRawValue: false, value: 'project' }
+    };
+
     /**
      * 视图模型数据
      *
@@ -93,6 +115,8 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
      * @memberof TestTaskProjectGridView
      */
     public toolBarModels: any = {
+        deuiaction3_reports: { name: 'deuiaction3_reports', caption: '报告列表', 'isShowCaption': true, 'isShowIcon': true, tooltip: '报告列表', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Reports', target: 'NONE', class: '' } },
+
         deuiaction3_projectcreate: { name: 'deuiaction3_projectcreate', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', iconcls: 'fa fa-plus', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_CREATE_BUT', uiaction: { tag: 'ProjectCreate', target: 'NONE', class: '' } },
 
         deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
@@ -161,6 +185,9 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
      * @memberof TestTaskProjectGridViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
+        if (Object.is($event.tag, 'deuiaction3_reports')) {
+            this.toolbar_deuiaction3_reports_click(null, '', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction3_projectcreate')) {
             this.toolbar_deuiaction3_projectcreate_click(null, '', $event2);
         }
@@ -225,6 +252,35 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction3_reports_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestTaskUIService  = new TestTaskUIService();
+        curUIService.TestTask_Reports(datas,contextJO, paramJO,  $event, xData,this,"TestTask");
     }
 
     /**

@@ -46,6 +46,18 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '038fb7788a6add9cc268fe8dd67e6262',
+            viewmodule: 'zentao',
+            viewname: 'TestReportProjectGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '1f13f330cbca49433d11328f9e7d8ae2',
+                '34d99e271bca6539e707f467f9575044',
+                'f340b16bd1355b1c511d9da4b00476e2',
+            ],
+        },
+        {
             viewtag: '0568d197dda832ceb89ad0442ab9f230',
             viewmodule: 'ibiz',
             viewname: 'ProjectModuleQuickCfgView',
@@ -410,6 +422,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1c92f5b1cba0fe541c16c54f45fb7317',
+            viewmodule: 'zentao',
+            viewname: 'TestReportProjectMainInfoView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9ed41cee96088630f3d4b0a91e705930',
+            ],
+        },
+        {
             viewtag: '1d697dd8e47a4781be8f690bcc5f7800',
             viewmodule: 'zentao',
             viewname: 'ProductTestGridView',
@@ -718,6 +740,23 @@ export const viewstate: any = {
             refviews: [
                 '6f78b25e86923ab600a2141d50fe49fd',
                 '02b7ecd8e994b90558a9d6c23705f600',
+            ],
+        },
+        {
+            viewtag: '34d99e271bca6539e707f467f9575044',
+            viewmodule: 'zentao',
+            viewname: 'TestReportProjectTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '9a2fd7bf8e74f4b95bd5a24d8ffb1643',
+                'ba3ac5351ca273bb889ffcb52ec7217b',
+                'c47c534ae15c1fd1a04b5ad78d174841',
+                '1c92f5b1cba0fe541c16c54f45fb7317',
+                'f810cda19770327ea00f51d89a003efe',
+                'de3b10b3f9f11d67c6ea3418bc77f2b3',
+                'ea7b1f6631cb623ea079455b374ef9d4',
+                '8761916619d520c6cca7053b358e3a40',
             ],
         },
         {
@@ -1643,6 +1682,7 @@ export const viewstate: any = {
                 '14d95e9a02db631c2b9af47641fcec4e',
                 '513dfe852d9d8a97b32eccb44e7b55c3',
                 '5273dc442a49b8c4d37ba9ff008531e7',
+                '038fb7788a6add9cc268fe8dd67e6262',
                 '7cba1f165fc6b4948ce752d3c3b68a34',
             ],
         },
@@ -1986,6 +2026,16 @@ export const viewstate: any = {
                 'aeee411b8bffcf0c30d65557a8deeeee',
                 '5b7c1b586dc5e23998a2765d235eaa7e',
                 '4b8db6d139edb8adadbef2f0c0b3350a',
+            ],
+        },
+        {
+            viewtag: '8761916619d520c6cca7053b358e3a40',
+            viewmodule: 'zentao',
+            viewname: 'CaseProjectReportLinkGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '02b7ecd8e994b90558a9d6c23705f600',
             ],
         },
         {
@@ -3468,6 +3518,19 @@ export const viewstate: any = {
                 '3d56b0e37a56b9be1a28589c04f573fa',
                 'f810cda19770327ea00f51d89a003efe',
                 'de3b10b3f9f11d67c6ea3418bc77f2b3',
+            ],
+        },
+        {
+            viewtag: 'ea7b1f6631cb623ea079455b374ef9d4',
+            viewmodule: 'zentao',
+            viewname: 'TestReportprojectDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '0abddf92966b6314d75cc71da4e7f7b8',
+                '2398b174d972ff2a5aebe52946ef3a53',
+                '8d9e694196a8c1abd56fd1632eed0173',
+                'c778697bb0f4f35a37892853575e1145',
             ],
         },
         {

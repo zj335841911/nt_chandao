@@ -89,14 +89,19 @@ export default class TestReportUIServiceBase extends UIService {
      * @memberof  TestReportUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'projectgridview',srfappde:'testreports',component:'test-report-project-grid-view'});
+        this.allViewMap.set(':',{viewname:'projectmaininfoview',srfappde:'testreports',component:'test-report-project-main-info-view'});
         this.allViewMap.set(':',{viewname:'mainediteditview',srfappde:'testreports',component:'test-report-main-edit-edit-view'});
+        this.allViewMap.set(':',{viewname:'projecttabexpview',srfappde:'testreports',component:'test-report-project-tab-exp-view'});
         this.allViewMap.set(':',{viewname:'maininfoview',srfappde:'testreports',component:'test-report-main-info-view'});
         this.allViewMap.set(':',{viewname:'dashboardview',srfappde:'testreports',component:'test-report-dashboard-view'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'testreports',component:'test-report-grid-view'});
+        this.allViewMap.set(':',{viewname:'projectmainediteditview',srfappde:'testreports',component:'test-report-project-main-edit-edit-view'});
         this.allViewMap.set(':',{viewname:'actioneditview',srfappde:'testreports',component:'test-report-action-edit-view'});
         this.allViewMap.set(':',{viewname:'editview_tosumup',srfappde:'testreports',component:'test-report-edit-view-tosumup'});
         this.allViewMap.set(':',{viewname:'editview_report',srfappde:'testreports',component:'test-report-edit-view-report'});
         this.allViewMap.set(':',{viewname:'maintabexpview',srfappde:'testreports',component:'test-report-main-tab-exp-view'});
+        this.allViewMap.set(':',{viewname:'projectdashboardview',srfappde:'testreports',component:'test-reportproject-dashboard-view'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'testreports',component:'test-report-edit-view'});
         this.allViewMap.set(':',{viewname:'editview_testrange',srfappde:'testreports',component:'test-report-edit-view-test-range'});
     }
