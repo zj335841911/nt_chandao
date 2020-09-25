@@ -322,6 +322,7 @@ export const PageComponents = {
         Vue.component('test-task-edit-view9-info', () => import('@pages/zentao/test-task-edit-view9-info/test-task-edit-view9-info.vue'));
         Vue.component('story-main-view9-related', () => import('@pages/zentao/story-main-view9-related/story-main-view9-related.vue'));
         Vue.component('task-grid-view9-story-related', () => import('@pages/zentao/task-grid-view9-story-related/task-grid-view9-story-related.vue'));
+        Vue.component('case-project-report-link-grid-view', () => import('@pages/zentao/case-project-report-link-grid-view/case-project-report-link-grid-view.vue'));
         Vue.component('case-cur-test-task-grid-view', () => import('@pages/zentao/case-cur-test-task-grid-view/case-cur-test-task-grid-view.vue'));
         Vue.component('case-step-main-grid-view9-edit-mode', () => import('@pages/zentao/case-step-main-grid-view9-edit-mode/case-step-main-grid-view9-edit-mode.vue'));
         Vue.component('ibz-case-grid-view', () => import('@pages/zentao/ibz-case-grid-view/ibz-case-grid-view.vue'));

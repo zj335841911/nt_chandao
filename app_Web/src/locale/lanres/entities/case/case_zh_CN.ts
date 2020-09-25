@@ -150,6 +150,10 @@ export default {
 			caption: "测试用例",
       		title: "测试用例表格视图",
 		},
+		projectreportlinkgridview: {
+			caption: "关联用例",
+      		title: "测试用例表格视图（报告关联用例）",
+		},
 		casetypechartview9: {
 			caption: "测试类型",
       		title: "测试用例图表视图（测试类型）",

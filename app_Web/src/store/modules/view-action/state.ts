@@ -750,13 +750,13 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '9a2fd7bf8e74f4b95bd5a24d8ffb1643',
-                '1b214bd727533f6662aa78368fb67e4b',
                 'ba3ac5351ca273bb889ffcb52ec7217b',
                 'c47c534ae15c1fd1a04b5ad78d174841',
                 '1c92f5b1cba0fe541c16c54f45fb7317',
                 'f810cda19770327ea00f51d89a003efe',
                 'de3b10b3f9f11d67c6ea3418bc77f2b3',
                 'ea7b1f6631cb623ea079455b374ef9d4',
+                '8761916619d520c6cca7053b358e3a40',
             ],
         },
         {
@@ -2026,6 +2026,16 @@ export const viewstate: any = {
                 'aeee411b8bffcf0c30d65557a8deeeee',
                 '5b7c1b586dc5e23998a2765d235eaa7e',
                 '4b8db6d139edb8adadbef2f0c0b3350a',
+            ],
+        },
+        {
+            viewtag: '8761916619d520c6cca7053b358e3a40',
+            viewmodule: 'zentao',
+            viewname: 'CaseProjectReportLinkGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '02b7ecd8e994b90558a9d6c23705f600',
             ],
         },
         {

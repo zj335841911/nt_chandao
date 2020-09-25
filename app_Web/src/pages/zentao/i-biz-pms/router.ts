@@ -14186,6 +14186,74 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-grid-view9-story-related/task-grid-view9-story-related.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/cases/:case?/projectreportlinkgridview/:projectreportlinkgridview?',
+                    meta: {
+                        caption: 'entities.case.views.projectreportlinkgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'projectreportlinkgridview', parameterName: 'projectreportlinkgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-project-report-link-grid-view/case-project-report-link-grid-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/cases/:case?/projectreportlinkgridview/:projectreportlinkgridview?',
+                    meta: {
+                        caption: 'entities.case.views.projectreportlinkgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'projectreportlinkgridview', parameterName: 'projectreportlinkgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-project-report-link-grid-view/case-project-report-link-grid-view.vue'),
+                },
+                {
+                    path: 'products/:product?/cases/:case?/projectreportlinkgridview/:projectreportlinkgridview?',
+                    meta: {
+                        caption: 'entities.case.views.projectreportlinkgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'projectreportlinkgridview', parameterName: 'projectreportlinkgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-project-report-link-grid-view/case-project-report-link-grid-view.vue'),
+                },
+                {
+                    path: 'cases/:case?/projectreportlinkgridview/:projectreportlinkgridview?',
+                    meta: {
+                        caption: 'entities.case.views.projectreportlinkgridview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-star-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'cases', parameterName: 'case' },
+                            { pathName: 'projectreportlinkgridview', parameterName: 'projectreportlinkgridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/case-project-report-link-grid-view/case-project-report-link-grid-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/cases/:case?/curtesttaskgridview/:curtesttaskgridview?',
                     meta: {
                         caption: 'entities.case.views.curtesttaskgridview.caption',
