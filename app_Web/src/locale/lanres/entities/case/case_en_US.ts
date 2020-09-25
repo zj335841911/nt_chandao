@@ -567,15 +567,6 @@ export default {
 		uiactions: {
 		},
 	},
-	caseresultentry_grid: {
-		columns: {
-			lastrunresult1: "条目",
-			resultcnt: "值",
-			task: "百分比",
-		},
-		uiactions: {
-		},
-	},
 	maingrid_grid: {
 		columns: {
 			id: "id",
@@ -648,6 +639,15 @@ export default {
         case_unlinksuitecase: "移除",
         case_opentestrunresultview: "结果",
         case_execute: "执行",
+		},
+	},
+	caseresultentry_grid: {
+		columns: {
+			lastrunresult1: "条目",
+			resultcnt: "值",
+			task: "百分比",
+		},
+		uiactions: {
 		},
 	},
 	main2_grid: {

@@ -193,6 +193,7 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 关闭原因
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`closedreason`")
     @JSONField(name = "closedreason")
     @JsonProperty("closedreason")

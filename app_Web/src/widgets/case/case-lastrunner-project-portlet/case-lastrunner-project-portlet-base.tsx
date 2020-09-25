@@ -2,7 +2,7 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
-import CaseLastrunnerService from './case-lastrunner-portlet-service';
+import CaseLastrunnerProjectService from './case-lastrunner-project-portlet-service';
 import CaseUIService from '@/uiservice/case/case-ui-service';
 import { Environment } from '@/environments/environment';
 
@@ -12,32 +12,32 @@ import { Environment } from '@/environments/environment';
  *
  * @export
  * @class MainControlBase
- * @extends {CaseLastrunnerPortletBase}
+ * @extends {CaseLastrunnerProjectPortletBase}
  */
-export class CaseLastrunnerPortletBase extends MainControlBase {
+export class CaseLastrunnerProjectPortletBase extends MainControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof CaseLastrunnerPortletBase
+     * @memberof CaseLastrunnerProjectPortletBase
      */
     protected controlType: string = 'PORTLET';
 
     /**
      * 建构部件服务对象
      *
-     * @type {CaseLastrunnerService}
-     * @memberof CaseLastrunnerPortletBase
+     * @type {CaseLastrunnerProjectService}
+     * @memberof CaseLastrunnerProjectPortletBase
      */
-    public service: CaseLastrunnerService = new CaseLastrunnerService({ $store: this.$store });
+    public service: CaseLastrunnerProjectService = new CaseLastrunnerProjectService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {CaseService}
-     * @memberof CaseLastrunnerPortletBase
+     * @memberof CaseLastrunnerProjectPortletBase
      */
     public appEntityService: CaseService = new CaseService({ $store: this.$store });
 
@@ -46,7 +46,7 @@ export class CaseLastrunnerPortletBase extends MainControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof CaseLastrunnerPortletBase
+     * @memberof CaseLastrunnerProjectPortletBase
      */
     protected appDeName: string = 'case';
 
@@ -55,7 +55,7 @@ export class CaseLastrunnerPortletBase extends MainControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof CaseLastrunnerPortletBase
+     * @memberof CaseLastrunnerProjectPortletBase
      */
     protected appDeLogicName: string = '测试用例';
 
@@ -63,7 +63,7 @@ export class CaseLastrunnerPortletBase extends MainControlBase {
      * 界面UI服务对象
      *
      * @type {CaseUIService}
-     * @memberof CaseLastrunnerBase
+     * @memberof CaseLastrunnerProjectBase
      */  
     public appUIService:CaseUIService = new CaseUIService(this.$store);
 
@@ -71,7 +71,7 @@ export class CaseLastrunnerPortletBase extends MainControlBase {
      * 长度
      *
      * @type {number}
-     * @memberof CaseLastrunner
+     * @memberof CaseLastrunnerProject
      */
     @Prop() public height?: number;
 
@@ -79,7 +79,7 @@ export class CaseLastrunnerPortletBase extends MainControlBase {
      * 宽度
      *
      * @type {number}
-     * @memberof CaseLastrunner
+     * @memberof CaseLastrunnerProject
      */
     @Prop() public width?: number;
 
@@ -89,7 +89,7 @@ export class CaseLastrunnerPortletBase extends MainControlBase {
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof CaseLastrunnerBase
+     * @memberof CaseLastrunnerProjectBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -97,7 +97,7 @@ export class CaseLastrunnerPortletBase extends MainControlBase {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof CaseLastrunnerBase
+     * @memberof CaseLastrunnerProjectBase
      */
     public getDatas(): any[] {
         return [];
@@ -107,7 +107,7 @@ export class CaseLastrunnerPortletBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof CaseLastrunnerBase
+     * @memberof CaseLastrunnerProjectBase
      */
     public getData(): any {
         return {};
@@ -117,7 +117,7 @@ export class CaseLastrunnerPortletBase extends MainControlBase {
      * 获取高度
      *
      * @returns {any[]}
-     * @memberof CaseLastrunnerBase
+     * @memberof CaseLastrunnerProjectBase
      */
     get getHeight(): any{
         if(!this.$util.isEmpty(this.height) && !this.$util.isNumberNaN(this.height)){
@@ -134,7 +134,7 @@ export class CaseLastrunnerPortletBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof CaseLastrunnerBase
+     * @memberof CaseLastrunnerProjectBase
      */
     public created() {
         this.afterCreated();
@@ -143,7 +143,7 @@ export class CaseLastrunnerPortletBase extends MainControlBase {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof CaseLastrunnerBase
+     *  @memberof CaseLastrunnerProjectBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -162,7 +162,7 @@ export class CaseLastrunnerPortletBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof CaseLastrunnerBase
+     * @memberof CaseLastrunnerProjectBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -171,7 +171,7 @@ export class CaseLastrunnerPortletBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof CaseLastrunnerBase
+     * @memberof CaseLastrunnerProjectBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
