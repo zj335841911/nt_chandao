@@ -1,6 +1,7 @@
 import { Vue, Component, Prop, Emit } from 'vue-property-decorator';
 import { localList } from '@locale/local-list';
 import './user-info.less';
+import { Environment } from '@/environments/environment';
 
 /**
  * 用户信息
@@ -18,9 +19,9 @@ export class UserInfo extends Vue {
      * @type {string}
      * @memberof UserInfo
      */
-    @Prop() 
+    @Prop()
     public ctrlName!: string;
-    
+
     /**
      * 菜单项
      *
@@ -36,7 +37,14 @@ export class UserInfo extends Vue {
      * @type {string}
      * @memberof UserInfo
      */
-    public langTitle: string = ''
+    public langTitle: string = '';
+
+    /**
+     * 是否启用主题
+     *
+     * @memberof AppHeaderMenus
+     */
+    public isEnableTheme = Environment.isEnableTheme;
 
     /**
      * 菜单项点击
@@ -83,11 +91,11 @@ export class UserInfo extends Vue {
         }
         if (name === 'custom-logout') {
             const get: Promise<any> = this.$http.get('/v7/logout');
-            get.then((response:any) =>{
+            get.then((response: any) => {
                 if (response && response.status === 200) {
                     this.$appService.logout();
                 }
-            }).catch((error: any) =>{
+            }).catch((error: any) => {
                 console.error(error);
             })
             return;
@@ -188,7 +196,7 @@ export class UserInfo extends Vue {
      * @memberof UserInfo
      */
     protected renderMenuItem(item: any): any {
-        if(item.hidden) {
+        if (item.hidden) {
             return;
         }
         return <dropdownItem name={item.name} title={item.tooltip}>
@@ -206,7 +214,7 @@ export class UserInfo extends Vue {
      * @memberof UserInfo
      */
     protected renderMenuGroup(item: any): any {
-        if(item.hidden) {
+        if (item.hidden) {
             return;
         }
         return <dropdown class="user-menu-child" placement="left-start">
@@ -230,8 +238,8 @@ export class UserInfo extends Vue {
         const appData = this.$store.getters.getAppData();
         return <dropdown class="studio-dropdown user-info-dropdown-menus" placement="bottom-end" on-on-click={(name: string) => this.onSelect(name)}>
             <div class="user-info">
-                <span>
-                    <svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                <span class='icon-span'>
+                    <svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                         <path d="M512 85.333333c235.52 0 426.666667 191.146667 426.666667 426.666667s-191.146667 426.666667-426.666667 426.666667S85.333333 747.52 85.333333 512 276.48 85.333333 512 85.333333z m0 85.333334c-188.373333 0-341.333333 152.96-341.333333 341.333333s152.96 341.333333 341.333333 341.333333 341.333333-152.96 341.333333-341.333333-152.96-341.333333-341.333333-341.333333z m0 597.333333c-84.010667 0-161.450667-34.858667-213.333333-93.098667 26.154667-39.68 121.941333-77.568 213.333333-77.568s187.178667 37.888 213.333333 77.568C673.450667 733.141333 596.010667 768 512 768z m0-469.333333c70.826667 0 128 57.173333 128 128s-57.173333 128-128 128-128-57.173333-128-128 57.173333-128 128-128z"></path>
                     </svg>
                 </span>
@@ -242,21 +250,21 @@ export class UserInfo extends Vue {
                     {this.renderMenuItems(this.menus)}
                     {
                         localList.length > 1 ? (
-                        <dropdown class="user-menu-child" placement="left-start">
-                            <dropdownItem name="语言" title="切换语言">
-                                <i class="fa fa-language"></i>
-                                {this.langTitle}
-                            </dropdownItem>
-                            <dropdown-menu slot='list'>
-                                {
-                                    localList.map((item: any) => {
-                                        return <dropdown-item name={'app-lang-' + item.type}>{item.name}</dropdown-item>
-                                    })
-                                }
-                            </dropdown-menu>
-                        </dropdown>) : null
+                            <dropdown class="user-menu-child" placement="left-start">
+                                <dropdownItem name="语言" title="切换语言">
+                                    <i class="fa fa-language"></i>
+                                    {this.langTitle}
+                                </dropdownItem>
+                                <dropdown-menu slot='list'>
+                                    {
+                                        localList.map((item: any) => {
+                                            return <dropdown-item name={'app-lang-' + item.type}>{item.name}</dropdown-item>
+                                        })
+                                    }
+                                </dropdown-menu>
+                            </dropdown>) : null
                     }
-                    <dropdown class="user-menu-child" placement="left-start">
+                    {this.isEnableTheme ? <dropdown class="user-menu-child" placement="left-start">
                         <dropdownItem name="主题" title="切换主题">
                             <icon type="ios-arrow-back"></icon>
                             主题颜色
@@ -267,7 +275,7 @@ export class UserInfo extends Vue {
                             <dropdownItem name="app-theme-dark-white" title="黑白主题">黑白</dropdownItem>
                             <dropdownItem name="app-theme-blue-dark" title="黑色主题">蓝黑</dropdownItem>
                         </dropdownMenu>
-                    </dropdown>
+                    </dropdown> : null}
                     <dropdown class="user-menu-child" placement="left-start">
                         <dropdownItem name="custom-logout" title="退出登录">
                             <icon type="md-log-out" />

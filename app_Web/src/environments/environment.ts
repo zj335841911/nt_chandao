@@ -49,7 +49,9 @@ export const Environment = {
     debugOpenMode: 'mos',
     // 默认登录账户与密码
     defaultLogin: '',
-    defaultPwd: ''
+    defaultPwd: '',
+    // 是否启用主题
+    isEnableTheme: true
 };
 // 挂载外部配置文件
 if ((window as any).Environment) {

@@ -5,8 +5,6 @@
             <div class="error-text">
                 <div class="error-text1">403 抱歉您无权限访问此内容</div>
                 <div class="error-text2">
-                    <a @click="gotoIndexView">返回</a>
-                    or
                     <a @click="logout">退出登录</a>
                 </div>
             </div>

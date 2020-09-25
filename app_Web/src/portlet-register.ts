@@ -58,7 +58,9 @@ import TestTaskActionBar from '@/widgets/test-task/action-bar-portlet/action-bar
 import TestTaskMainDetail from '@/widgets/test-task/main-detail-portlet/main-detail-portlet.vue';
 import BugBugSeverity from '@/widgets/bug/bug-severity-portlet/bug-severity-portlet.vue';
 import BugBugOpenedBy from '@/widgets/bug/bug-opened-by-portlet/bug-opened-by-portlet.vue';
+import BugBugOpenedBy_Project from '@/widgets/bug/bug-opened-by-project-portlet/bug-opened-by-project-portlet.vue';
 import BugBugModule from '@/widgets/bug/bug-module-portlet/bug-module-portlet.vue';
+import BugBugModule_Project from '@/widgets/bug/bug-module-project-portlet/bug-module-project-portlet.vue';
 import BugBugStatus from '@/widgets/bug/bug-status-portlet/bug-status-portlet.vue';
 import BugDashboardBugLife from '@/widgets/bug/dashboard-bug-life-portlet/dashboard-bug-life-portlet.vue';
 import BugBugType from '@/widgets/bug/bug-type-portlet/bug-type-portlet.vue';
@@ -66,7 +68,6 @@ import BugBugResolution from '@/widgets/bug/bug-resolution-portlet/bug-resolutio
 import BugBugResolvedBy from '@/widgets/bug/bug-resolved-by-portlet/bug-resolved-by-portlet.vue';
 import BugBugResolvedBy_Project from '@/widgets/bug/bug-resolved-by-project-portlet/bug-resolved-by-project-portlet.vue';
 import BugActionHistoryList from '@/widgets/bug/action-history-list-portlet/action-history-list-portlet.vue';
-import BugBugOpenedBy_Project from '@/widgets/bug/bug-opened-by-project-portlet/bug-opened-by-project-portlet.vue';
 import BugDashboardBugMain from '@/widgets/bug/dashboard-bug-main-portlet/dashboard-bug-main-portlet.vue';
 import BugBugDashboardActions from '@/widgets/bug/bug-dashboard-actions-portlet/bug-dashboard-actions-portlet.vue';
 import BugStepsInfo from '@/widgets/bug/steps-info-portlet/steps-info-portlet.vue';
@@ -152,6 +153,7 @@ export const  PortletComponent = {
         v.component('app-case-case-module-project-portlet', CaseCaseModuleProject);
         v.component('app-case-case-lastrunner-project-portlet', CaseCaseLastrunnerProject);
         v.component('app-bug-bug-opened-by-project-portlet', BugBugOpenedBy_Project);
+        v.component('app-bug-bug-module-project-portlet', BugBugModule_Project);
         v.component('app-bug-bug-resolved-by-project-portlet', BugBugResolvedBy_Project);
         v.component('case-test-main-detail-portlet', CaseTestMainDetail);
         v.component('case-main-detail-portlet', CaseMainDetail);
@@ -203,7 +205,9 @@ export const  PortletComponent = {
         v.component('test-task-main-detail-portlet', TestTaskMainDetail);
         v.component('bug-bug-severity-portlet', BugBugSeverity);
         v.component('bug-bug-opened-by-portlet', BugBugOpenedBy);
+        v.component('bug-bug-opened-by-project-portlet', BugBugOpenedBy_Project);
         v.component('bug-bug-module-portlet', BugBugModule);
+        v.component('bug-bug-module-project-portlet', BugBugModule_Project);
         v.component('bug-bug-status-portlet', BugBugStatus);
         v.component('bug-dashboard-bug-life-portlet', BugDashboardBugLife);
         v.component('bug-bug-type-portlet', BugBugType);
@@ -211,7 +215,6 @@ export const  PortletComponent = {
         v.component('bug-bug-resolved-by-portlet', BugBugResolvedBy);
         v.component('bug-bug-resolved-by-project-portlet', BugBugResolvedBy_Project);
         v.component('bug-action-history-list-portlet', BugActionHistoryList);
-        v.component('bug-bug-opened-by-project-portlet', BugBugOpenedBy_Project);
         v.component('bug-dashboard-bug-main-portlet', BugDashboardBugMain);
         v.component('bug-bug-dashboard-actions-portlet', BugBugDashboardActions);
         v.component('bug-steps-info-portlet', BugStepsInfo);

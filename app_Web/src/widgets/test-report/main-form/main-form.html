@@ -1,8 +1,7 @@
 <i-form :model="this.data" class='app-form' ref='form'  id='testreport_main' style="">
     <input style="display:none;" />
     <row >
-            
-<i-col class="form-layout-container" v-show="detailsModel.tasks.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+            <i-col class="form-layout-container" v-show="detailsModel.tasks.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='tasks' :itemRules="this.rules.tasks" class='' :caption="$t('entities.testreport.main_form.details.tasks')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.tasks.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 

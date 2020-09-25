@@ -218,7 +218,16 @@ export class ExpControlBase extends ControlBase {
      * @return {*} 
      * @memberof ExpControlBase
      */
-    calcToolbarItemState(state: boolean, models?: any) {
+    /**
+     * 设置导航区工具栏禁用状态
+     *
+     * @param {boolean} state
+     * @param {*} models
+     * @param {*} uiService
+     * @return {*} 
+     * @memberof ExpControlBase
+     */
+    public calcToolbarItemState(state: boolean, models?: any,uiService?:any) {
         if (models) {
             for (const key in models) {
                 if (!models.hasOwnProperty(key)) {
@@ -233,6 +242,57 @@ export class ExpControlBase extends ControlBase {
                     _item.visabled = false;
                 }
             }
+            this.calcToolbarItemAuthState({},models,uiService);
         }
+    }
+
+    /**
+     * 计算导航区工具栏权限状态
+     *
+     * @static
+     * @param {*} [data] 传入数据
+     * @param {*} [ActionModel] 工具栏模型
+     * @param {*} [UIService] 界面行为服务
+     * @return {*} 
+     * @memberof ExpControlBase
+     */
+    public calcToolbarItemAuthState(data:any,ActionModel:any,UIService:any){
+        let result: any[] = [];
+        for (const key in ActionModel) {
+            if (!ActionModel.hasOwnProperty(key)) {
+                return result;
+            }
+            const _item = ActionModel[key];
+            if(_item && _item['dataaccaction'] && UIService){
+                let dataActionResult:any;
+                if(_item['uiaction']){
+                    if(Object.is(_item['uiaction']['actiontarget'],"NONE") || Object.is(_item['uiaction']['actiontarget'],"")){
+                        dataActionResult = UIService.getResourceOPPrivs(_item['dataaccaction']);
+                    }else{
+                        if(data && Object.keys(data).length >0){
+                            dataActionResult = UIService.getAllOPPrivs(data)[_item['dataaccaction']];
+                        }
+                    }
+                    // 无权限:0;有权限:1
+                    if(dataActionResult === 0){
+                        // 禁用:1;隐藏:2;隐藏且默认隐藏:6
+                        if(_item.noprivdisplaymode === 1){
+                            _item.disabled = true;
+                        }
+                        if((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)){
+                            _item.visabled = false;
+                        }else{
+                            _item.visabled = true;
+                        }
+                    }
+                    if(dataActionResult === 1){
+                        _item.visabled = true;
+                        _item.disabled = false;
+                    }
+                    result.push(dataActionResult);
+                }
+            }
+        }
+        return result;
     }
 }

@@ -1,8 +1,7 @@
 <i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='ibzcase_newedit' style="">
     <input style="display:none;" />
     <row >
-            
-<i-col class="form-layout-container" v-show="detailsModel.openedby.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+            <i-col class="form-layout-container" v-show="detailsModel.openedby.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-item name='openedby' :itemRules="this.rules.openedby" class='' :caption="$t('entities.ibzcase.newedit_form.details.openedby')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.openedby.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='openedby' :value="data.openedby" dataType="SSCODELIST"     :precision="0"
