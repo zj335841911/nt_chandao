@@ -185,7 +185,7 @@ export default class Login extends Vue {
             }
         }).catch((error: any) => {
             this.isLoadding = false;
-            this.$notice.error(error?error.error.message:`${this.$t('badlogin')}`);
+            this.$notice.error(error?error.data.message:`${this.$t('badlogin')}`);
         });
     }
 

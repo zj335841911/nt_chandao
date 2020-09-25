@@ -1,9 +1,6 @@
 <template>
-    <ion-tabs ref="ionNav" class="app-mob-menu-sideslip-view" @ionTabsDidChange="selectItem($event)">
-        <ion-button @click="openMenu"  size="small" v-show="isShowSideSlipMenu" style="z-index:999;">
-          <ion-icon name="menu-outline"></ion-icon>
-        </ion-button>
-        <van-popup v-model="showPopup" get-container="#app" position="left" :style="{ height: '100%',width: '80%' }">
+    <div class="app-mob-menu-sideslip-view">
+        <van-popup v-model="showPopup" get-container="#app" position="left" :style="{ height: '100%',width: '80%' }" duration="0.2">
             <div class="app-menu-plugin">
               <div class="header">
                 <img src="assets/images/logo.png" class="ibizLogo"/>
@@ -28,12 +25,14 @@
               </div>
             </div>    
         </van-popup>
-        <template v-for="item in items">
-                <template v-if="!item.hidden" >
-                        <component :key="item.id" v-if="item.id == activeId" :is="item.componentname" viewDefaultUsage="indexView"></component>
-                </template>
-        </template>
-    </ion-tabs>
+        <v-touch v-on:swiperight="onSwipeLeft" style="height:100%;">
+          <template v-for="item in items">
+                  <template v-if="!item.hidden">
+                          <component  :key="item.id" v-if="item.id == activeId" :is="item.componentname" viewDefaultUsage="indexView"></component>
+                  </template>
+          </template>
+        </v-touch>
+    </div>
 </template>
 
 <script lang="ts">
@@ -45,6 +44,16 @@ import { Environment } from '@/environments/environment';
 })
 export default class AppMobMenuSideslipView extends Vue {
   
+    /**
+     * 滑动打开弹出层
+     *
+     * @type {*}
+     * @memberof AppMobMenuSideslipView
+     */
+    public onSwipeLeft(){
+      this.showPopup= true;
+    }
+
     /**
      * 是否能显示侧滑菜单
      *

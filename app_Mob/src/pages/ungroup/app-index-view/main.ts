@@ -53,13 +53,16 @@ Vue.use(AppComponents);
 Vue.use(PageComponents);
 Vue.use(UserComponent);
 Vue.use(PortletComponent);
-//富文本
+// 富文本
 import 'quill/dist/quill.snow.css'
 import VueQuillEditor from 'vue-quill-editor'
+Vue.use(VueQuillEditor);
 // 日历
 import Calendar from 'v-calendar/lib/components/calendar.umd'
-Vue.component('v-calendar', Calendar)
-Vue.use(VueQuillEditor);
+Vue.component('v-calendar', Calendar);
+// 手势滑动
+import VueTouch from 'vue-touch'
+Vue.use(VueTouch, {name: 'v-touch'});
 router.beforeEach((to: any, from: any, next: any) => {
     if (to.meta && !to.meta.ignoreAddPage) {
         router.app.$store.commit('addPage', to);
