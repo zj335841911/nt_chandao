@@ -198,7 +198,7 @@ export class BugModule_ProjectChartBase extends MainControlBase {
     name:'bugmodule_project',
     
     
-    categorField:'module',
+    categorField:'modulename',
     
     
     valueField:'srfcount',
@@ -207,7 +207,7 @@ export class BugModule_ProjectChartBase extends MainControlBase {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"module",codelist:null,isGroupField:true,groupMode:""},
+    {name:"modulename",codelist:null,isGroupField:true,groupMode:""},
     {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
@@ -289,7 +289,7 @@ export class BugModule_ProjectChartBase extends MainControlBase {
             
             seriesLayoutBy:"column",
             encode:{
-                itemName:"module",
+                itemName:"modulename",
                 value:"srfcount"
             }}
         ]
