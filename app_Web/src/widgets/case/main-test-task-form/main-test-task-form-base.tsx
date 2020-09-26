@@ -94,6 +94,7 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
         precondition: null,
         resultcnt: null,
         resultfalicnt: null,
+        task: null,
         id: null,
         case:null,
     };
@@ -165,6 +166,8 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
 
         resultfalicnt: new FormItemModel({ caption: '失败', detailType: 'FORMITEM', name: 'resultfalicnt', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        task: new FormItemModel({ caption: '属性', detailType: 'FORMITEM', name: 'task', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         id: new FormItemModel({ caption: '用例编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
     };
@@ -225,5 +228,16 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
         }
 
 
+
+    }
+
+    /**
+     * 更新默认值
+     * @memberof MainTestTaskEditFormBase
+     */
+    public updateDefault(){                    
+        if (this.data.hasOwnProperty('task') && !this.data.task) {
+            this.data['task'] = this.viewparams['task'];
+        }
     }
 }

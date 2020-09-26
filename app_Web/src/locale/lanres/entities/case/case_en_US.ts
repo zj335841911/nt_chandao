@@ -455,6 +455,7 @@ export default {
 			precondition: "前置条件", 
 			resultcnt: "共执行", 
 			resultfalicnt: "失败", 
+			task: "属性", 
 			id: "用例编号", 
 		},
 		uiactions: {

@@ -143,7 +143,7 @@ public class TestReportResource {
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetTestReportProject-all')")
-    @ApiOperation(value = "根据测试报告获取基本信息", tags = {"测试报告" },  notes = "根据测试报告获取基本信息")
+    @ApiOperation(value = "根据测试报告获取基本信息（项目报告）", tags = {"测试报告" },  notes = "根据测试报告获取基本信息（项目报告）")
 	@RequestMapping(method = RequestMethod.PUT, value = "/testreports/{testreport_id}/gettestreportproject")
     public ResponseEntity<TestReportDTO> getTestReportProject(@PathVariable("testreport_id") Long testreport_id, @RequestBody TestReportDTO testreportdto) {
         TestReport domain = testreportMapping.toDomain(testreportdto);
