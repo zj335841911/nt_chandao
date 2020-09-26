@@ -38,6 +38,11 @@
        }
         ,
        {
+            "unirescode":"PROJ_TEST_TESTTASK",
+            "uniresname":"项目分页导航-测试-测试单"
+       }
+        ,
+       {
             "unirescode":"LIBM_OPEN_BUT",
             "uniresname":"用例库模块概况"
        }
@@ -168,6 +173,11 @@
        }
         ,
        {
+            "unirescode":"TEST_TESTTASK",
+            "uniresname":"测试分页导航-测试单"
+       }
+        ,
+       {
             "unirescode":"STORY_DELETE_BUT",
             "uniresname":"需求删除"
        }
@@ -230,6 +240,11 @@
        {
             "unirescode":"PRODSTA_STOREOP_BUT",
             "uniresname":"产品统计打开需求"
+       }
+        ,
+       {
+            "unirescode":"PROJECT_REPORT_BUT",
+            "uniresname":"项目报告列表"
        }
         ,
        {
@@ -300,6 +315,11 @@
        {
             "unirescode":"CASE_CREATE_BUT",
             "uniresname":"测试用例新建"
+       }
+        ,
+       {
+            "unirescode":"TEST_TESTREPORT",
+            "uniresname":"测试分页导航-测试报告"
        }
         ,
        {
