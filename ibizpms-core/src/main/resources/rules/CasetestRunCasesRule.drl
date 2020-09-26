@@ -19,6 +19,7 @@ rule "prepareparam1"
 ruleflow-group "casetestruncasesprepareparam1"
     when
     then
+    casetestruncasesdefault.set("srfarray",casetestruncasesdefault.get("casestep"));
     casetestruncasesdefault.set("case",casetestruncasesdefault.get("id"));
     casetestruncasesdefault.set("version",casetestruncasesdefault.get("version"));
     casetestruncasesdefault.set("id",casetestruncasestestrun.get("id"));
