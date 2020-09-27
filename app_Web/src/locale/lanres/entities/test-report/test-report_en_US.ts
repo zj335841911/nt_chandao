@@ -60,6 +60,10 @@ export default {
 			caption: "测试报告",
       		title: "测试报告编辑视图",
 		},
+		editview_testtasks: {
+			caption: "测试报告",
+      		title: "测试报告编辑视图",
+		},
 		actioneditview: {
 			caption: "历史记录",
       		title: "测试报告编辑视图（历史记录）",
@@ -368,6 +372,12 @@ export default {
 		},
 	},
 	projectmainediteditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
+	editview_testtaskstoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",

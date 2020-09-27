@@ -67,6 +67,10 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITestReportGetInfoTestTaskSLogic getinfotesttasksLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITestReportGetTestReportBasicInfoLogic gettestreportbasicinfoLogic;
 
     @Autowired
@@ -160,6 +164,13 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     @Transactional
     public TestReport getInfoTestTaskProject(TestReport et) {
         getinfotesttaskprojectLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public TestReport getInfoTestTaskS(TestReport et) {
+        getinfotesttasksLogic.execute(et);
          return et ;
     }
 

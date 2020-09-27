@@ -334,6 +334,34 @@ export default class TestReportServiceBase extends EntityService {
     }
 
     /**
+     * GetInfoTestTaskS接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestReportServiceBase
+     */
+    public async GetInfoTestTaskS(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.testreport){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/testreports/${context.testreport}/getinfotesttasks`,data,isloading);
+            
+            return res;
+        }
+        if(context.product && context.testreport){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/testreports/${context.testreport}/getinfotesttasks`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().put(`/testreports/${context.testreport}/getinfotesttasks`,data,isloading);
+            return res;
+    }
+
+    /**
      * GetTestReportBasicInfo接口方法
      *
      * @param {*} [context={}]

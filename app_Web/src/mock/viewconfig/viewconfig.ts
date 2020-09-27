@@ -1807,6 +1807,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseCaseTypeChartView9",
             "viewtag": "881c4bef100253cf5e6f67893b9a4294"
         },
+        "testreporteditview_testtasks": {
+            "title": "测试报告编辑视图",
+            "caption": "测试报告",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestReportEditView_TestTasks",
+            "viewtag": "88de710e1590f4e2c17360c3c1612308"
+        },
         "bugusr2gridview": {
             "title": "Bug表格视图",
             "caption": "Bug",
