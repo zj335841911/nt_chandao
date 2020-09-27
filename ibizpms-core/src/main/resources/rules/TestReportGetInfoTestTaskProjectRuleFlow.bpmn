@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.testreportgetinfotesttaskproject" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.testreportgetinfotesttaskproject">
+        <extensionElements>
+            <tns:import name="java.util.Map" />
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+        <tns:global identifier="testreportgetinfotesttaskprojectdefault" type="cn.ibizlab.pms.core.zentao.domain.TestReport" />
+        <tns:global identifier="testreportgetinfotesttaskprojecttesttask" type="cn.ibizlab.pms.core.zentao.domain.TestTask" />
+        </extensionElements>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskprojectrawsqlcall2" id="rawsqlcall2" implementation="http://www.jboss.org/drools/rule" name="获取测试单"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskprojectrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
+     <endEvent id="rawsqlcall1_end" name="end"/>
+     <sequenceFlow id="rawsqlcall1_end_line" sourceRef="rawsqlcall1" targetRef="rawsqlcall1_end"/>
+     <sequenceFlow id="rawsqlcall2_rawsqlcall1" sourceRef="rawsqlcall2" targetRef="rawsqlcall1">
+     </sequenceFlow>
+     <sequenceFlow id="begin_rawsqlcall2" sourceRef="begin" targetRef="rawsqlcall2">
+     </sequenceFlow>
+    </process>
+</definitions>
+

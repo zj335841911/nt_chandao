@@ -68,6 +68,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 遗留的Bug
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`leftbugs`")
     @JSONField(name = "leftbugs")
     @JsonProperty("leftbugs")
@@ -75,6 +76,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 解决的Bug
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`bugs`")
     @JSONField(name = "bugs")
     @JsonProperty("bugs")
@@ -114,6 +116,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 子状态
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`substatus`")
     @JSONField(name = "substatus")
     @JsonProperty("substatus")
@@ -121,6 +124,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 描述
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
@@ -151,6 +155,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 平台/分支
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`branch`")
     @JSONField(name = "branch")
     @JsonProperty("branch")
