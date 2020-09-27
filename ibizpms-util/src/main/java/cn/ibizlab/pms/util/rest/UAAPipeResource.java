@@ -1,8 +1,5 @@
 package cn.ibizlab.pms.util.rest;
 
-
-//import cn.ibizlab.pms.mob.client.PMSFeignClient;
-
 import cn.ibizlab.pms.util.client.IBZUAAFeignClient;
 import cn.ibizlab.pms.util.client.IPMSFeignClient;
 import cn.ibizlab.pms.util.errors.BadRequestAlertException;
@@ -15,11 +12,10 @@ import cn.ibizlab.pms.util.security.AuthorizationLogin;
 import cn.ibizlab.pms.util.service.AuthenticationUserService;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.validator.internal.util.StringHelper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -66,6 +62,18 @@ public class UAAPipeResource {
         return ResponseEntity.ok(resp);
     }
 
+    /**
+     * 获取钉钉jsApi签名
+     * @param id
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.GET, value = "/uaa/dingtalk/jsapi/sign")
+    public ResponseEntity<JSONObject> getDingTalkJSSign(@RequestParam(value = "id", required = false) String id){
+        String openAccessId = StringUtils.isEmpty(id) ? getRefererURL() : id;
+        String url = getRequestUrl();
+        return ResponseEntity.ok(uaaFeignClient.getDingTalkJSSign(openAccessId, url));
+    }
+
     @GetMapping(value = {"/uaa/open/dingtalk/auth/{code}"})
     public ResponseEntity<AuthenticationInfo> getUserByToken(@PathVariable(value = "code") String code, @RequestParam(value = "id", required = false) String id) {
 
@@ -93,6 +101,7 @@ public class UAAPipeResource {
         // 返回 token
         return ResponseEntity.ok().body(new AuthenticationInfo(token,user2));
     }
+
     /**
      * 返回当前请求的来源URL
      *
@@ -103,6 +112,25 @@ public class UAAPipeResource {
         String fromUrl = request.getHeader("referer");
         log.info("请求来源：{}", fromUrl);
         return StringUtils.isEmpty(fromUrl) ? "dingtalk" : fromUrl;
+    }
+
+    /**
+     * 返回当前请求的url的IP或者域名
+     *
+     * @return 钉钉的地址
+     */
+    private String getRequestUrl() {
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        String fromUrl = request.getHeader("referer");
+        if (StringHelper.isNullOrEmptyString(fromUrl)) {
+            if (!StringHelper.isNullOrEmptyString(request.getHeader("host"))) {
+                fromUrl = request.getScheme() + "://" + request.getHeader("host");
+            } else {
+                fromUrl = request.getScheme() + "://127.0.0.1/";
+            }
+        }
+        log.info("请求的url的IP或者域名：{}", fromUrl);
+        return fromUrl;
     }
 
     private void ztLogin(AuthenticationInfo authenticationInfo) {

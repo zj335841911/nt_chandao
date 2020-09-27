@@ -6,8 +6,11 @@ import cn.ibizlab.pms.util.security.AuthorizationLogin;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import com.alibaba.fastjson.JSONObject;
+
+import javax.validation.constraints.NotBlank;
 
 @FeignClient(value = "${ibiz.ref.service.uaa:ibzuaa-api}",fallback = IBZUAAFallback.class)
 public interface IBZUAAFeignClient {
@@ -44,5 +47,9 @@ public interface IBZUAAFeignClient {
 
 	@GetMapping(value = {"/uaa/open/dingtalk/auth/{code}"})
 	AuthenticationInfo getUserByToken(@PathVariable(value = "code") String code, @RequestParam(value = "id",required = false) String id);
+
+	@RequestMapping(method = RequestMethod.GET, value = "/uaa/dingtalk/jsapi/sign")
+	public JSONObject getDingTalkJSSign(@RequestParam ("openaccessid") String openAccessId, @RequestParam ("url")String url);
+
 }
 
