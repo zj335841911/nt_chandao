@@ -57,7 +57,7 @@ ruleflow-group "testreportgetinfotesttasksrawsqlcall2"
     when
     then
     Map param =new HashMap();
-    param.put("param0",testreportgetinfotesttasksdefault.get("project"));
+    param.put("param0",testreportgetinfotesttasksdefault.get("tasks"));
     String strSql="select case when GROUP_CONCAT(DISTINCT t1.build) is null then '' else GROUP_CONCAT(DISTINCT t1.build) end as builds  from zt_testtask t1 where FIND_IN_SET(t1.id, #{et.param0}) and t1.deleted = '0' GROUP BY t1.project";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
