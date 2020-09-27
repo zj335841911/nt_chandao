@@ -67,14 +67,10 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.projectname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='projectname' :itemRules="this.rules.projectname" class='' :caption="$t('entities.testreport.project_new_form.details.projectname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.projectname.error" :isEmptyCaption="false" labelPos="LEFT">
-    <input-box 
-    v-model="data.projectname"  
-    @enter="onEnter($event)"  
-     unit=""  
-    :disabled="detailsModel.projectname.disabled" 
-    type='text' 
-    style="">
-</input-box>
+    
+<app-span name='projectname' :value="data.projectname" dataType="PICKUPTEXT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
 
 </app-form-item>
 
