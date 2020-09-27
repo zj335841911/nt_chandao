@@ -501,10 +501,13 @@ public class StoryExService extends StoryServiceImpl {
         context.setN_story_eq(et.getId());
         context.setN_version_eq(et.getVersion());
         context.setSort("version,desc");
-        StorySpec storySpec = storyspecService.searchDefault(context).getContent().get(0);
-        et.setSpec(storySpec.getSpec());
-        et.setVerify(storySpec.getVerify());
-        et.setTitle(storySpec.getTitle());
+        List<StorySpec> list =  storyspecService.searchDefault(context).getContent();
+        if(!list.isEmpty() && list.size() > 0) {
+            StorySpec storySpec = storyspecService.searchDefault(context).getContent().get(0);
+            et.setSpec(storySpec.getSpec());
+            et.setVerify(storySpec.getVerify());
+            et.setTitle(storySpec.getTitle());
+        }
         return et;
     }
 
