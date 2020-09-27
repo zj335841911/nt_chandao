@@ -7,6 +7,7 @@ import org.springframework.util.ObjectUtils;
 import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 global cn.ibizlab.pms.core.zentao.domain.TestReport testreportgetinfotesttaskprojectdefault;
 global cn.ibizlab.pms.core.zentao.domain.TestTask testreportgetinfotesttaskprojecttesttask;
+global cn.ibizlab.pms.core.zentao.service.ITestReportService testreportservice;
 global cn.ibizlab.pms.core.zentao.service.ITestReportService iBzSysTestreportDefaultService;
 global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
 
@@ -74,6 +75,16 @@ ruleflow-group "testreportgetinfotesttaskprojectrawsqlcall1"
             testreportgetinfotesttaskprojectdefault.set(String.valueOf(entry.getKey()),entry.getValue());
         }
     }
+    update(testreportgetinfotesttaskprojectdefault);//更新fact中变量值
+    update(testreportgetinfotesttaskprojecttesttask);//更新fact中变量值
+    end
+
+//逻辑处理节点[获取概况信息]
+rule "deaction1"
+ruleflow-group "testreportgetinfotesttaskprojectdeaction1"
+    when
+    then
+    testreportservice.getInfoTestTaskOvProject(testreportgetinfotesttaskprojectdefault);
     update(testreportgetinfotesttaskprojectdefault);//更新fact中变量值
     update(testreportgetinfotesttaskprojecttesttask);//更新fact中变量值
     end

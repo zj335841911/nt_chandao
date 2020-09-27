@@ -48,7 +48,7 @@ public class Team extends EntityMP implements Serializable {
     @TableField(value = "`estimate`")
     @JSONField(name = "estimate")
     @JsonProperty("estimate")
-    private BigDecimal estimate;
+    private Double estimate;
     /**
      * 总计消耗
      */
@@ -56,7 +56,7 @@ public class Team extends EntityMP implements Serializable {
     @TableField(value = "`consumed`")
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
-    private BigDecimal consumed;
+    private Double consumed;
     /**
      * 可用工时/天
      */
@@ -68,6 +68,7 @@ public class Team extends EntityMP implements Serializable {
     /**
      * 角色
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`role`")
     @JSONField(name = "role")
     @JsonProperty("role")
@@ -142,14 +143,14 @@ public class Team extends EntityMP implements Serializable {
     @TableField(value = "`root`")
     @JSONField(name = "root")
     @JsonProperty("root")
-    private Integer root;
+    private Long root;
 
 
 
     /**
      * 设置 [最初预计]
      */
-    public void setEstimate(BigDecimal estimate){
+    public void setEstimate(Double estimate){
         this.estimate = estimate ;
         this.modify("estimate",estimate);
     }
@@ -157,7 +158,7 @@ public class Team extends EntityMP implements Serializable {
     /**
      * 设置 [总计消耗]
      */
-    public void setConsumed(BigDecimal consumed){
+    public void setConsumed(Double consumed){
         this.consumed = consumed ;
         this.modify("consumed",consumed);
     }
@@ -247,7 +248,7 @@ public class Team extends EntityMP implements Serializable {
     /**
      * 设置 [关联编号]
      */
-    public void setRoot(Integer root){
+    public void setRoot(Long root){
         this.root = root ;
         this.modify("root",root);
     }
