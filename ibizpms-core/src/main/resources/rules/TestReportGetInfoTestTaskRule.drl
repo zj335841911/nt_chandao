@@ -61,7 +61,7 @@ ruleflow-group "testreportgetinfotesttaskrawsqlcall6"
     then
     Map param =new HashMap();
     param.put("param0",testreportgetinfotesttaskdefault.get("tasks"));
-    String strSql="SELECT COUNT(1) as storycnts FROM `zt_story` t1  LEFT JOIN zt_build t21 on FIND_IN_SET(t1.id,t21.stories) LEFT JOIN zt_testtask t31 on t31.build = t21.id WHERE t1.`DELETED` = '0' and (t1.`status` <> 'closed' or (t1.`status` = 'closed' and t1.closedReason in ('done','postponed'))) and t31.id = ？";
+    String strSql="SELECT COUNT(1) as storycnts FROM `zt_story` t1  LEFT JOIN zt_build t21 on FIND_IN_SET(t1.id,t21.stories) LEFT JOIN zt_testtask t31 on t31.build = t21.id WHERE t1.`DELETED` = '0' and (t1.`status` <> 'closed' or (t1.`status` = 'closed' and t1.closedReason in ('done','postponed'))) and t31.id = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
