@@ -181,14 +181,14 @@ public class TaskExService extends TaskServiceImpl {
             List<TaskTeam> list = et.getTaskteam();
             if(!list.isEmpty() && list.size() > 0) {
                 jo.put("assignedTo", list.get(0).getAccount());
-                BigDecimal estimate = new BigDecimal(0.0);
+                double estimate = 0;
                 JSONArray team = new JSONArray();
                 JSONArray teamEstimate = new JSONArray();
                 for (TaskTeam taskTeam : list) {
                     team.add(taskTeam.getAccount());
                     teamEstimate.add(taskTeam.getEstimate());
                     if(taskTeam.getEstimate() != null) {
-                        estimate.add(taskTeam.getEstimate());
+                        estimate = estimate + taskTeam.getEstimate();
                     }
                 }
                 jo.put("estimate", df.format(estimate));
