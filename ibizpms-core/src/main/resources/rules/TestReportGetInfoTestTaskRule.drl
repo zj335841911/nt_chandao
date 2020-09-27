@@ -13,6 +13,25 @@ global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
 
 no-loop
 
+//逻辑处理节点[获取参与人员]
+rule "rawsqlcall15"
+ruleflow-group "testreportgetinfotesttaskrawsqlcall15"
+    when
+    then
+    Map param =new HashMap();
+    param.put("param0",testreportgetinfotesttaskdefault.get("tasks"));
+    String strSql="SELECT  GROUP_CONCAT(DISTINCT t1.lastRunner) as members from zt_testrun t1  LEFT JOIN zt_testtask t21 on t21.id = t1.task where t21.id = ？";
+    java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        for (Map.Entry entry : entity.entrySet()) {
+            testreportgetinfotesttaskdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+        }
+    }
+    update(testreportgetinfotesttaskdefault);//更新fact中变量值
+    update(testreportgetinfotesttasktesttask);//更新fact中变量值
+    end
+
 //逻辑处理节点[遗留的bug]
 rule "rawsqlcall8"
 ruleflow-group "testreportgetinfotesttaskrawsqlcall8"
@@ -81,6 +100,25 @@ ruleflow-group "testreportgetinfotesttaskrawsqlcall2"
     Map param =new HashMap();
     param.put("param0",testreportgetinfotesttaskdefault.get("tasks"));
     String strSql="SELECT COUNT(1) as storycnt, sum(t1.ESTIMATE) as storyestimate FROM `zt_story` t1  LEFT JOIN zt_build t11 on FIND_IN_SET(t1.id,t11.stories) LEFT JOIN zt_testtask t21 on t21.build = t11.id WHERE t1.`DELETED` = '0' and t21.id = #{et.param0}";
+    java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        for (Map.Entry entry : entity.entrySet()) {
+            testreportgetinfotesttaskdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+        }
+    }
+    update(testreportgetinfotesttaskdefault);//更新fact中变量值
+    update(testreportgetinfotesttasktesttask);//更新fact中变量值
+    end
+
+//逻辑处理节点[获取项目名]
+rule "rawsqlcall16"
+ruleflow-group "testreportgetinfotesttaskrawsqlcall16"
+    when
+    then
+    Map param =new HashMap();
+    param.put("param0",testreportgetinfotesttaskdefault.get("project"));
+    String strSql="select projectname from zt_project where id = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
@@ -174,6 +212,25 @@ ruleflow-group "testreportgetinfotesttaskrawsqlcall10"
     update(testreportgetinfotesttasktesttask);//更新fact中变量值
     end
 
+//逻辑处理节点[获取项目名]
+rule "rawsqlcall16"
+ruleflow-group "testreportgetinfotesttaskrawsqlcall16"
+    when
+    then
+    Map param =new HashMap();
+    param.put("param0",testreportgetinfotesttaskdefault.get("project"));
+    String strSql="select projectname from zt_project where id = #{et.param0}";
+    java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        for (Map.Entry entry : entity.entrySet()) {
+            testreportgetinfotesttaskdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+        }
+    }
+    update(testreportgetinfotesttaskdefault);//更新fact中变量值
+    update(testreportgetinfotesttasktesttask);//更新fact中变量值
+    end
+
 //逻辑处理节点[失败的用例数]
 rule "rawsqlcall5"
 ruleflow-group "testreportgetinfotesttaskrawsqlcall5"
@@ -221,6 +278,25 @@ rule "begin"
 ruleflow-group "testreportgetinfotesttaskbegin"
     when
     then
+    end
+
+//逻辑处理节点[获取参与人员]
+rule "rawsqlcall15"
+ruleflow-group "testreportgetinfotesttaskrawsqlcall15"
+    when
+    then
+    Map param =new HashMap();
+    param.put("param0",testreportgetinfotesttaskdefault.get("tasks"));
+    String strSql="SELECT  GROUP_CONCAT(DISTINCT t1.lastRunner) as members from zt_testrun t1  LEFT JOIN zt_testtask t21 on t21.id = t1.task where t21.id = ？";
+    java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        for (Map.Entry entry : entity.entrySet()) {
+            testreportgetinfotesttaskdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+        }
+    }
+    update(testreportgetinfotesttaskdefault);//更新fact中变量值
+    update(testreportgetinfotesttasktesttask);//更新fact中变量值
     end
 
 //逻辑处理节点[有效bug数]
