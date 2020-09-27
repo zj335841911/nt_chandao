@@ -1,6 +1,6 @@
 <template>
     <div  class="app-mob-mdctrl productstats-mdctrl ">
-        <div class="app-mob-mdctrl-mdctrl">
+        <div class="app-mob-mdctrl-mdctrl" ref="mdctrl>
                     <app-list-index :items="items" @clickItem="item_click"></app-list-index>
 
             <div class="no-data" v-if="items.length == 0">暂无数据</div>
@@ -909,10 +909,26 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mob
      */
     public mounted(){
-      let list:any = document.querySelector('.app-mob-mdctrl-mdctrl')      
+      let list:any = this.$refs.mdctrl;      
       setTimeout(() => {
         if(list){
           list.addEventListener('touchend',()=>{
+            this.$store.commit('setPopupStatus',true)
+          })
+        }
+      }, 500);
+    }
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof Mob
+     */
+    public beforeDestroy(){
+      let list:any = this.$refs.mdctrl;
+      setTimeout(() => {
+        if(list){
+          list.removeEventListener('touchend',()=>{
             this.$store.commit('setPopupStatus',true)
           })
         }

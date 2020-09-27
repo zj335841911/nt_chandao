@@ -33,6 +33,43 @@ ruleflow-group "testreportgetinfotesttaskprojectrawsqlcall2"
     update(testreportgetinfotesttaskprojecttesttask);//更新fact中变量值
     end
 
+//逻辑处理节点[获取影响bug]
+rule "rawsqlcall5"
+ruleflow-group "testreportgetinfotesttaskprojectrawsqlcall5"
+    when
+    then
+    Map param = null;
+    String strSql="";
+    java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        for (Map.Entry entry : entity.entrySet()) {
+            testreportgetinfotesttaskprojectdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+        }
+    }
+    update(testreportgetinfotesttaskprojectdefault);//更新fact中变量值
+    update(testreportgetinfotesttaskprojecttesttask);//更新fact中变量值
+    end
+
+//逻辑处理节点[获取影响需求]
+rule "rawsqlcall4"
+ruleflow-group "testreportgetinfotesttaskprojectrawsqlcall4"
+    when
+    then
+    Map param =new HashMap();
+    param.put("param0",testreportgetinfotesttaskprojectdefault.get("project"));
+    String strSql="select GROUP_CONCAT(t1.id) as stories from ( select DISTINCT t1.* from zt_story t1  left join zt_build t11 on FIND_IN_SET(t1.id,t11.stories) where t1.deleted = '0' and  FIND_IN_SET(t11.id,(select GROUP_CONCAT(DISTINCT t1.build) as builds  from zt_testtask t1 where t1.project = #{et.param0} and t1.deleted = '0' GROUP BY t1.project )) ) t1 GROUP BY t1.product";
+    java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        for (Map.Entry entry : entity.entrySet()) {
+            testreportgetinfotesttaskprojectdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+        }
+    }
+    update(testreportgetinfotesttaskprojectdefault);//更新fact中变量值
+    update(testreportgetinfotesttaskprojecttesttask);//更新fact中变量值
+    end
+
 //逻辑处理节点[开始]
 rule "begin"
 ruleflow-group "testreportgetinfotesttaskprojectbegin"
@@ -46,7 +83,7 @@ ruleflow-group "testreportgetinfotesttaskprojectrawsqlcall3"
     when
     then
     Map param =new HashMap();
-    param.put("param0",testreportgetinfotesttaskprojectdefault.get("id"));
+    param.put("param0",testreportgetinfotesttaskprojectdefault.get("project"));
     String strSql="select  t1.`begin`,t1.`end` , CONCAT_WS( ' ', DATE_FORMAT( now( ), '%Y-%m-%d' ), concat( 'PROJECT#', t1.id ), t1.`name`, '测试报告' ) AS TITLE from zt_project t1 where t1.id = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){

@@ -1,6 +1,6 @@
 <template>
     <div  class="app-mob-mdctrl action-mdctrl ">
-        <div class="app-mob-mdctrl-mdctrl">
+        <div class="app-mob-mdctrl-mdctrl" ref="mdctrl>
             <ion-list class="items">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
@@ -993,10 +993,26 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
      * @memberof TrendsMob
      */
     public mounted(){
-      let list:any = document.querySelector('.app-mob-mdctrl-mdctrl')      
+      let list:any = this.$refs.mdctrl;      
       setTimeout(() => {
         if(list){
           list.addEventListener('touchend',()=>{
+            this.$store.commit('setPopupStatus',true)
+          })
+        }
+      }, 500);
+    }
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof TrendsMob
+     */
+    public beforeDestroy(){
+      let list:any = this.$refs.mdctrl;
+      setTimeout(() => {
+        if(list){
+          list.removeEventListener('touchend',()=>{
             this.$store.commit('setPopupStatus',true)
           })
         }
