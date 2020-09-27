@@ -19,11 +19,11 @@ ruleflow-group "testreportgetinfotesttaskrawsqlcall8"
     when
     then
     Map param =new HashMap();
-    param.put("param0",testreportgetinfotesttasktesttask.get("build"));
-    param.put("param1",testreportgetinfotesttasktesttask.get("begin"));
-    param.put("param2",testreportgetinfotesttasktesttask.get("end"));
-    param.put("param3",testreportgetinfotesttasktesttask.get("end"));
-    String strSql="SELECT COUNT(1) as ylbugcnt FROM `zt_bug` t1  where  t1.OPENEDBUILD = #{et.param0}   and t1.openedDate > #{et.param1}  and t1.openedDate < #{et.param2}  and (t1.`status` = 'active' or t1.resolvedDate > #{et.param3})";
+    param.put("param0",testreportgetinfotesttaskdefault.get("tasks"));
+    param.put("param1",testreportgetinfotesttaskdefault.get("tasks"));
+    param.put("param2",testreportgetinfotesttaskdefault.get("tasks"));
+    param.put("param3",testreportgetinfotesttaskdefault.get("tasks"));
+    String strSql="SELECT COUNT(1) as ylbugcnt FROM `zt_bug` t1  where  t1.OPENEDBUILD = (select t.build from zt_testtask t  where t.id = #{et.param0})   and t1.openedDate > (select tt.`begin` from  zt_testtask tt  where tt.id = #{et.param1} ) and t1.openedDate < (select CONCAT( DATE_FORMAT( tt.`end`, '%Y-%m-%d'),' 23:59:59') from  zt_testtask tt  where tt.id = #{et.param2} ) and (t1.`status` = 'active' or t1.resolvedDate > (select tt.`end` from zt_testtask tt where tt.id = #{et.param3}))";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
