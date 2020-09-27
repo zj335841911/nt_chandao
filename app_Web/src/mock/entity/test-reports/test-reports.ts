@@ -677,7 +677,7 @@ mock.onPut(new RegExp(/^\/testreports\/?([a-zA-Z0-9\-\;]{0,35})\/getinfotesttask
 
     
 // GetInfoTestTaskProject
-mock.onGet(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/testreports\/([a-zA-Z0-9\-\;]{1,35})\/getinfotesttaskproject$/)).reply((config: any) => {
+mock.onPut(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/testreports\/([a-zA-Z0-9\-\;]{1,35})\/getinfotesttaskproject$/)).reply((config: any) => {
     console.groupCollapsed("实体:testreport 方法: GetInfoTestTaskProject");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
@@ -704,7 +704,7 @@ mock.onGet(new RegExp(/^\/projects\/([a-zA-Z0-9\-\;]{1,35})\/testreports\/([a-zA
 
     
 // GetInfoTestTaskProject
-mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/testreports\/([a-zA-Z0-9\-\;]{1,35})\/getinfotesttaskproject$/)).reply((config: any) => {
+mock.onPut(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/testreports\/([a-zA-Z0-9\-\;]{1,35})\/getinfotesttaskproject$/)).reply((config: any) => {
     console.groupCollapsed("实体:testreport 方法: GetInfoTestTaskProject");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
@@ -730,7 +730,7 @@ mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/testreports\/([a-zA
 });
         
 // GetInfoTestTaskProject
-mock.onGet(new RegExp(/^\/testreports\/?([a-zA-Z0-9\-\;]{0,35})\/getinfotesttaskproject$/)).reply((config: any) => {
+mock.onPut(new RegExp(/^\/testreports\/?([a-zA-Z0-9\-\;]{0,35})\/getinfotesttaskproject$/)).reply((config: any) => {
     console.groupCollapsed("实体:testreport 方法: GetInfoTestTaskProject");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
