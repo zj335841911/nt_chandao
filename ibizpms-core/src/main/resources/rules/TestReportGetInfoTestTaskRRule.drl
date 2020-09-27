@@ -21,7 +21,7 @@ ruleflow-group "testreportgetinfotesttaskrrawsqlcall6"
     then
     Map param =new HashMap();
     param.put("param0",testreportgetinfotesttaskrdefault.get("tasks"));
-    String strSql="select t.product,t.project,tt.`name` as productname,ttt.`name` as projectname from zt_testtask t left join zt_product tt on t.product = tt.id left join zt_project ttt on t.project = ttt.id where t.id = #{et.param0}";
+    String strSql="select t.product,t.project,tt.`name` as productname,ttt.`name` as projectname,t.`OWNER` as `OWNER` from zt_testtask t left join zt_product tt on t.product = tt.id left join zt_project ttt on t.project = ttt.id where t.id = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
