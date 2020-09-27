@@ -49,7 +49,7 @@ export class ThirdPartyService {
      * @type {WeChatService}
      * @memberof ThirdPartyService
      */
-    private backEvent:Array<Function> = [];
+    private backEvent: Array<Function> = [];
 
     /**
      * 第三方导航标题
@@ -57,7 +57,7 @@ export class ThirdPartyService {
      * @type {WeChatService}
      * @memberof ThirdPartyService
      */
-    private navTitle:Array<string> = [];
+    private navTitle: Array<string> = [];
 
     /**
      * 是否已经初始化
@@ -143,7 +143,7 @@ export class ThirdPartyService {
      * @returns {boolean}
      * @memberof ThirdPartyService
      */
-    public isWeChat():boolean {
+    public isWeChat(): boolean {
         return Object.is(this.platform, 'WeChat');
     }
 
@@ -165,9 +165,9 @@ export class ThirdPartyService {
      * @returns {ThirdPartyService}
      * @memberof ThirdPartyService
      */
-    public close(){
+    public close() {
         if (this.isDingTalk()) {
-            this.dd.close();
+            this.thirdPartyEvent('close');
         } else if (this.isWeChat()) {
             this.weChat.close();
         }
@@ -180,15 +180,15 @@ export class ThirdPartyService {
      * @returns {DingTalkService}
      * @memberof DingTalkService
      */
-    public setTitle(title:string){
+    public setTitle(title: string) {
         this.navTitle.push(title);
         if (this.isDingTalk()) {
-            this.dd.setTitle(title);
+            this.thirdPartyEvent('setTitle', title);
         } else if (this.isWeChat()) {
             this.weChat.setTitle(title);
         }
     }
-    
+
 
     /**
      * 设置第三方容器导航栏返回事件
@@ -197,31 +197,46 @@ export class ThirdPartyService {
      * @returns {DingTalkService}
      * @memberof DingTalkService
      */
-    public setBackEvent(event:Function){
+    public setBackEvent(event: Function) {
         this.backEvent.push(event);
         if (this.isDingTalk()) {
-            this.dd.setBackEvent(this.backEvent);
+            this.thirdPartyEvent('setBackEvent', this.backEvent);
         } else if (this.isWeChat()) {
             this.weChat.setBackEvent(this.backEvent);
         }
     }
-    
+
     /**
      * 第三方容器导航销毁返回事件
      */
     public destroyBackEvent() {
-        this.backEvent = this.backEvent.slice(0,-1);
-        this.navTitle = this.navTitle.slice(0,-1);
-        if(!this.backEvent){
+        this.backEvent = this.backEvent.slice(0, -1);
+        this.navTitle = this.navTitle.slice(0, -1);
+        if (!this.backEvent) {
             return
         }
         if (this.isDingTalk()) {
-            this.dd.setTitle(this.navTitle[this.navTitle.length -1]);
-            this.dd.setBackEvent(this.backEvent);
+            this.thirdPartyEvent('setTitle', this.navTitle[this.navTitle.length - 1]);
+            this.thirdPartyEvent('setBackEvent', this.backEvent);
         } else if (this.isWeChat()) {
-            this.weChat.setTitle(this.navTitle[this.navTitle.length -1]);
+            this.weChat.setTitle(this.navTitle[this.navTitle.length - 1]);
             this.weChat.setBackEvent(this.backEvent);
-        } 
+        }
     }
 
+    public test() {
+        this.dd.test();
+    }
+
+    /**
+     * 第三方事件
+     */
+    public thirdPartyEvent(tag: string, arg: any = {}): any {
+        if (!this.isInit) {
+            return;
+        }
+        if (this.isDingTalk()) {
+            return this.dd.ddEvent(tag, arg);
+        }
+    }
 }
