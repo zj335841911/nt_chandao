@@ -7,7 +7,7 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                    <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                    <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -23,7 +23,7 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                      <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                      <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -976,6 +976,31 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
                 }
             })
         }
+    }
+
+    /**
+     * ion-item-sliding拖动事件
+     *
+     * @memberof TrendsMob
+     */
+    public ionDrag(){
+      this.$store.commit('setPopupStatus',false)
+    }
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof TrendsMob
+     */
+    public mounted(){
+      let list:any = document.querySelector('.app-mob-mdctrl-mdctrl')      
+      setTimeout(() => {
+        if(list){
+          list.addEventListener('touchend',()=>{
+            this.$store.commit('setPopupStatus',true)
+          })
+        }
+      }, 500);
     }
 
     /**

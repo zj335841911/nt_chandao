@@ -7,7 +7,7 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                    <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                    <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.UnlinkBugMob.visabled" :disabled="item.UnlinkBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u2f9e360', item)"><ion-icon v-if="item.UnlinkBugMob.icon && item.UnlinkBugMob.isShowIcon" :name="item.UnlinkBugMob.icon"></ion-icon><ion-label v-if="item.UnlinkBugMob.isShowCaption">移除关联</ion-label></ion-item-option>
                         </ion-item-options>
@@ -26,7 +26,7 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                      <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                      <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.UnlinkBugMob.visabled" :disabled="item.UnlinkBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u2f9e360', item)"><ion-icon v-if="item.UnlinkBugMob.icon && item.UnlinkBugMob.isShowIcon" :name="item.UnlinkBugMob.icon"></ion-icon><ion-label v-if="item.UnlinkBugMob.isShowCaption">移除关联</ion-label></ion-item-option>
                         </ion-item-options>
@@ -1013,6 +1013,31 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
                 }
             })
         }
+    }
+
+    /**
+     * ion-item-sliding拖动事件
+     *
+     * @memberof Mob_Plan
+     */
+    public ionDrag(){
+      this.$store.commit('setPopupStatus',false)
+    }
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof Mob_Plan
+     */
+    public mounted(){
+      let list:any = document.querySelector('.app-mob-mdctrl-mdctrl')      
+      setTimeout(() => {
+        if(list){
+          list.addEventListener('touchend',()=>{
+            this.$store.commit('setPopupStatus',true)
+          })
+        }
+      }, 500);
     }
 
     /**

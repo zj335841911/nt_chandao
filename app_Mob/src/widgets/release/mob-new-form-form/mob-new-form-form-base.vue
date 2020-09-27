@@ -110,7 +110,7 @@
     :error="detailsModel.marker.error" 
     :isEmptyCaption="false">
         <app-mob-select 
-    tag="YesNo2"
+    tag="YesNo"
     codeListType="STATIC" 
     :isCache="false" 
     :disabled="detailsModel.marker.disabled" 
@@ -638,10 +638,10 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             { required: true, type: 'string', message: '发布名称 值不能为空', trigger: 'blur' },
         ],
         marker: [
-            { type: 'number', message: '里程碑 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '里程碑 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '里程碑 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '里程碑 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '里程碑 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '里程碑 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '里程碑 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '里程碑 值不能为空', trigger: 'blur' },
         ],
         buildname: [
             { type: 'string', message: '版本 值必须为字符串类型', trigger: 'change' },

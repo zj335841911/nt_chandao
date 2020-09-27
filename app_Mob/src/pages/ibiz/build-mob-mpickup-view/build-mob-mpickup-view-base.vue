@@ -12,7 +12,7 @@
     </ion-header>
 
     <van-popup :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%;width: 77%;"  >
-        <ion-header v-if="!isChildView">
+        <ion-header>
             <ion-toolbar translucent>
                 <ion-title>条件搜索</ion-title>
             </ion-toolbar>

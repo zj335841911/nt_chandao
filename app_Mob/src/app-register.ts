@@ -126,7 +126,9 @@ export const AppComponents = {
         v.component('app-mob-select-changeTheme',() => import('@/ibiz-core/components/app-mob-select-changeTheme/app-mob-select-changeTheme.vue'));
         // 锚点列表插件
         v.component('app-anchor-list',() => import('@/components/app-anchor-list/app-anchor-list.vue'));
-        // 新菜单组件
+        // 侧滑菜单组件
         v.component('app-mob-menu-sideslip-view',() => import('@/components/app-mob-menu-sideslip-view/app-mob-menu-sideslip-view.vue'));
+        // 侧滑菜单组件头部信息
+        v.component('app-mob-menu-sideslip-view-header',() => import('@/components/app-mob-menu-sideslip-view-header/app-mob-menu-sideslip-view-header.vue'));
     },
 };

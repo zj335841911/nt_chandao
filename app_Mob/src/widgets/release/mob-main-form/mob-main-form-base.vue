@@ -104,7 +104,7 @@
     :isEmptyCaption="false">
         <app-mob-span  
         codeListType="STATIC" 
-    tag="YesNo2"
+    tag="YesNo"
     :isCache="false" 
     v-if="data.marker" 
     :context="context" 

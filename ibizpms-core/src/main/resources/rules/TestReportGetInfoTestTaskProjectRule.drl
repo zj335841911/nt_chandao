@@ -76,8 +76,8 @@ ruleflow-group "testreportgetinfotesttaskprojectrawsqlcall1"
     when
     then
     Map param =new HashMap();
-    param.put("param0",testreportgetinfotesttaskprojectdefault.get("id"));
-    param.put("param1",testreportgetinfotesttaskprojectdefault.get("id"));
+    param.put("param0",testreportgetinfotesttaskprojectdefault.get("project"));
+    param.put("param1",testreportgetinfotesttaskprojectdefault.get("project"));
     String strSql="select GROUP_CONCAT(DISTINCT t1.`case` order by t1.`case` asc) as cases,GROUP_CONCAT(DISTINCT t1.lastRunner) as MEMBERS	from (select t1.*,#{et.param0} as project from zt_testrun t1 left join zt_case t11 on t1.`case` = t11.id where t11.deleted = '0' and FIND_IN_SET(t1.task,(select GROUP_CONCAT(t1.id) as tasks from zt_testtask t1 where t1.project = #{et.param1} and t1.deleted = '0' GROUP BY t1.project))) t1 GROUP BY t1.project";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){

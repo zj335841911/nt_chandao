@@ -8,7 +8,7 @@
                   </template>
                 </ion-list>
                 <ion-list class="items">
-                  <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                  <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.EditMob.visabled" :disabled="item.EditMob.disabled" color="primary" @click="mdctrl_click($event, 'u89c41af', item)"><ion-icon v-if="item.EditMob.icon && item.EditMob.isShowIcon" :name="item.EditMob.icon"></ion-icon><ion-label v-if="item.EditMob.isShowCaption">详情</ion-label></ion-item-option>
                             <ion-item-option v-show="item.ProductTop.visabled" :disabled="item.ProductTop.disabled" color="primary" @click="mdctrl_click($event, 'u1f01c30', item)"><ion-icon v-if="item.ProductTop.icon && item.ProductTop.isShowIcon" :name="item.ProductTop.icon"></ion-icon><ion-label v-if="item.ProductTop.isShowCaption">置顶</ion-label></ion-item-option>
@@ -1121,6 +1121,31 @@ export default class MobBase extends Vue implements ControlInterface {
                 }
             })
         }
+    }
+
+    /**
+     * ion-item-sliding拖动事件
+     *
+     * @memberof Mob
+     */
+    public ionDrag(){
+      this.$store.commit('setPopupStatus',false)
+    }
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof Mob
+     */
+    public mounted(){
+      let list:any = document.querySelector('.app-mob-mdctrl-mdctrl')      
+      setTimeout(() => {
+        if(list){
+          list.addEventListener('touchend',()=>{
+            this.$store.commit('setPopupStatus',true)
+          })
+        }
+      }, 500);
     }
 
     /**

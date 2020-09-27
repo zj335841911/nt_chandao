@@ -282,3 +282,13 @@ export const setTextAlignStyle = (state: any, val: any) => {
 export const setNavigationStyle = (state: any, val: any) => {
   state.selectNaviStyle = val;
 }
+
+/**
+ * 是否能弹出侧滑菜单
+ * 
+ * @param state 
+ * @param val 
+ */
+export const setPopupStatus = (state: any, val: any) => {
+  state.popupStatus = val;
+}

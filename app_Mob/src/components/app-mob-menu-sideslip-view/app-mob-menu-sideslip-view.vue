@@ -1,57 +1,66 @@
 <template>
-    <div class="app-mob-menu-sideslip-view">
-        <van-popup v-model="showPopup" get-container="#app" position="left" :style="{ height: '100%',width: '80%' }" duration="0.2">
-            <div class="app-menu-plugin">
-              <div class="header">
-                <img src="assets/images/logo.png" class="ibizLogo"/>
-                <div class="title">iBizPMS</div>
-                <div class="text">登录·试用测试版</div>
-                <div class="notice"><ion-icon name="megaphone-outline"></ion-icon> #最新通知——更新/下载</div>
-              </div>
-              <div class="top">
-                <div class="title">Menu</div>
-                <template v-for="item in items"  >
-                  <template v-if="!item.hidden">
-                    <div class="list" :key="item.index" @click="active(item)">
-                      <ion-icon :name=" item.iconcls ? item.iconcls : 'home' "></ion-icon>
-                      <div class="text">
-                        <ion-label v-if="item.appfunctag != 'settings'">{{$t(`app.menus.${menuName}.${item.name}`)}}</ion-label>
-                        <ion-label v-else>{{item.text}}</ion-label>
-                        <ion-badge color="danger" v-if="counterServide && counterServide.counterData && counterServide.counterData[item.counterid]"><ion-label>{{counterServide.counterData[item.counterid]}}</ion-label></ion-badge>
+    <div class="app-mob-menu-sideslip-view"> 
+      <van-popup v-model="showPopup" get-container="#app" position="left" :style="{ height: '100%',width: '80%' }" duration="0.2" :close-on-popstate="true">
+        <v-touch v-on:swipeleft="onSwipeLeft" style="height:100%;">
+              <div class="app-menu-plugin">
+                <app-mob-menu-sideslip-view-header></app-mob-menu-sideslip-view-header>
+                <div class="top">
+                  <div class="title">Menu</div>
+                  <template v-for="item in items"  >
+                    <template v-if="!item.hidden">
+                      <div class="list" :key="item.index" @click="active(item)">
+                        <ion-icon :name=" item.iconcls ? item.iconcls : 'home' "></ion-icon>
+                        <div class="text">
+                          <ion-label v-if="item.appfunctag != 'settings'">{{$t(`app.menus.${menuName}.${item.name}`)}}</ion-label>
+                          <ion-label v-else>{{item.text}}</ion-label>
+                          <ion-badge color="danger" v-if="counterServide && counterServide.counterData && counterServide.counterData[item.counterid]"><ion-label>{{counterServide.counterData[item.counterid]}}</ion-label></ion-badge>
+                        </div>
                       </div>
-                    </div>
+                    </template>
                   </template>
-                </template>
+                </div>
               </div>
-            </div>    
-        </van-popup>
-        <v-touch v-on:swiperight="onSwipeLeft" style="height:100%;">
-          <template v-for="item in items">
-                  <template v-if="!item.hidden">
-                          <component  :key="item.id" v-if="item.id == activeId" :is="item.componentname" viewDefaultUsage="indexView"></component>
-                  </template>
-          </template>
         </v-touch>
+      </van-popup>
+
+      <v-touch v-on:swiperight="onSwipeRight" style="height:100%;">
+        <template v-for="item in items">
+                <template v-if="!item.hidden">
+                        <component  :key="item.id" v-if="item.id == activeId" :is="item.componentname" viewDefaultUsage="indexView"></component>
+                </template>
+        </template>
+      </v-touch>
     </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop, Emit, Model } from 'vue-property-decorator';
+import { Vue, Component, Prop, Emit, Model, Provide } from 'vue-property-decorator';
 import { Environment } from '@/environments/environment';
 @Component({
     components: {
     }
 })
 export default class AppMobMenuSideslipView extends Vue {
-  
     /**
-     * 滑动打开弹出层
+     * 向左滑动关闭弹出层
      *
      * @type {*}
      * @memberof AppMobMenuSideslipView
      */
-    public onSwipeLeft(){
-      this.showPopup= true;
+    public onSwipeLeft(e:any){
+      this.showPopup = false;
+    }
+
+    /**
+     * 向右滑动打开弹出层
+     *
+     * @type {*}
+     * @memberof AppMobMenuSideslipView
+     */
+    public onSwipeRight(){
+      if (this.$store.state.popupStatus) {
+        this.showPopup = true;
+      }
     }
 
     /**
@@ -212,16 +221,18 @@ export default class AppMobMenuSideslipView extends Vue {
      * @memberof AppMobMenuSideslipView
      */
     public mounted() {
-        let ionNav:any = this.$refs.ionNav;
         let currPage = sessionStorage.getItem("currId");
         if(currPage){
             this.items.forEach((item:any,index:number) => {
                 if(item.id == currPage){
-                    this.activeId =  item.id       
-                    ionNav.select(item.name);
+                    this.activeId =  item.id;    
                 }
             })
         } 
+        // 阻止冒泡
+        document.addEventListener('touchmove',function(event){
+          event.stopPropagation();
+        },false);
     }
 
     /**
@@ -283,26 +294,6 @@ export default class AppMobMenuSideslipView extends Vue {
         return val;
     }
 
-    /**
-     * 选中菜单项
-     *
-     * @param {*} $event
-     * @returns {void}
-     * @memberof AppMobMenuSideslipView
-     */
-    public selectItem($event: any): void {
-        if (!$event) {
-            return ;
-        }
-        let { detail } = $event;
-        if (!detail) {
-            return ;
-        }
-        let { tab }  = detail;
-        if (!tab) {
-            return;
-        }
-    }
 }
 </script>
 
