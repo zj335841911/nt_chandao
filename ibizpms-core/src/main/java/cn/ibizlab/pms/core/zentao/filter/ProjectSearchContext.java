@@ -83,8 +83,8 @@ public class ProjectSearchContext extends QueryWrapperContext<Project> {
             this.getSearchCond().eq("statge", n_statge_eq);
         }
     }
-	private Integer n_iscat_eq;//[isCat]
-	public void setN_iscat_eq(Integer n_iscat_eq) {
+	private String n_iscat_eq;//[isCat]
+	public void setN_iscat_eq(String n_iscat_eq) {
         this.n_iscat_eq = n_iscat_eq;
         if(!ObjectUtils.isEmpty(this.n_iscat_eq)){
             this.getSearchCond().eq("iscat", n_iscat_eq);

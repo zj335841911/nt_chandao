@@ -204,7 +204,7 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`iscat`")
     @JSONField(name = "iscat")
     @JsonProperty("iscat")
-    private Integer iscat;
+    private String iscat;
     /**
      * 创建日期
      */
@@ -757,7 +757,7 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 设置 [isCat]
      */
-    public void setIscat(Integer iscat){
+    public void setIscat(String iscat){
         this.iscat = iscat ;
         this.modify("iscat",iscat);
     }
