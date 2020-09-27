@@ -944,8 +944,8 @@ export default class TestTaskUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{TASKS:"%id%",ID:"0"});
-        Object.assign(params,{id:"0",tasks:"%id%"});
+        Object.assign(context,{TASKS:"%id%",ID:"0",PROJECT:"%project%"});
+        Object.assign(params,{id:"0",project:"%project%",tasks:"%id%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'MULTIKEY';
         Object.assign(context, { testtask: '%testtask%' });
