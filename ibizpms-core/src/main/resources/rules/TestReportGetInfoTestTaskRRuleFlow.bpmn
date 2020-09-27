@@ -8,7 +8,7 @@
         <tns:global identifier="testreportgetinfotesttaskrtesttask" type="cn.ibizlab.pms.core.zentao.domain.TestTask" />
         <tns:global identifier="testreportgetinfotesttaskrdefault" type="cn.ibizlab.pms.core.zentao.domain.TestReport" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrrawsqlcall3" id="rawsqlcall3" implementation="http://www.jboss.org/drools/rule" name="获取项目周期"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrrawsqlcall3" id="rawsqlcall3" implementation="http://www.jboss.org/drools/rule" name="获取测试单周期"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrrawsqlcall4" id="rawsqlcall4" implementation="http://www.jboss.org/drools/rule" name="获取相应需求"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrrawsqlcall2" id="rawsqlcall2" implementation="http://www.jboss.org/drools/rule" name="获取测试单"/>
