@@ -19,7 +19,7 @@
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttasksdeaction1" id="deaction1" implementation="http://www.jboss.org/drools/rule" name="获取概况信息"/>
      <endEvent id="deaction1_end" name="end"/>
      <sequenceFlow id="deaction1_end_line" sourceRef="deaction1" targetRef="deaction1_end"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttasksrawsqlcall4" id="rawsqlcall4" implementation="http://www.jboss.org/drools/rule" name="获取影响需求"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttasksrawsqlcall4" id="rawsqlcall4" implementation="http://www.jboss.org/drools/rule" name="获取相应需求"/>
      <sequenceFlow id="rawsqlcall6_rawsqlcall7" sourceRef="rawsqlcall6" targetRef="rawsqlcall7">
      </sequenceFlow>
      <sequenceFlow id="rawsqlcall3_rawsqlcall5" sourceRef="rawsqlcall3" targetRef="rawsqlcall5">
