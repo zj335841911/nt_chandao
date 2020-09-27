@@ -27,8 +27,8 @@ import cn.ibizlab.pms.core.zentao.domain.Release;
 @Data
 public class ReleaseSearchContext extends QueryWrapperContext<Release> {
 
-	private Integer n_marker_eq;//[里程碑]
-	public void setN_marker_eq(Integer n_marker_eq) {
+	private String n_marker_eq;//[里程碑]
+	public void setN_marker_eq(String n_marker_eq) {
         this.n_marker_eq = n_marker_eq;
         if(!ObjectUtils.isEmpty(this.n_marker_eq)){
             this.getSearchCond().eq("marker", n_marker_eq);

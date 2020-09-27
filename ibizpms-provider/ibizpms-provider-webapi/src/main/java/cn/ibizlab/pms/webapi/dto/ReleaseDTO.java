@@ -44,7 +44,8 @@ public class ReleaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "marker")
     @JsonProperty("marker")
-    private Integer marker;
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    private String marker;
 
     /**
      * 属性 [ID]
@@ -256,7 +257,7 @@ public class ReleaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [MARKER]
      */
-    public void setMarker(Integer  marker){
+    public void setMarker(String  marker){
         this.marker = marker ;
         this.modify("marker",marker);
     }

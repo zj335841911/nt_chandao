@@ -56,7 +56,7 @@ public class Release extends EntityMP implements Serializable {
     @TableField(value = "`marker`")
     @JSONField(name = "marker")
     @JsonProperty("marker")
-    private Integer marker;
+    private String marker;
     /**
      * ID
      */
@@ -262,7 +262,7 @@ public class Release extends EntityMP implements Serializable {
     /**
      * 设置 [里程碑]
      */
-    public void setMarker(Integer marker){
+    public void setMarker(String marker){
         this.marker = marker ;
         this.modify("marker",marker);
     }

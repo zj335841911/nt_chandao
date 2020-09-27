@@ -1722,7 +1722,7 @@
         <createTable tableName="zt_release">
                 <column name="STORIES" remarks="" type="TEXT(65535)">
                 </column>
-                <column name="MARKER" remarks="" type="INT">
+                <column name="MARKER" remarks="" type="VARCHAR(1)">
                 </column>
                 <column name="ID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_ZT_RELEASE_ID"/>
