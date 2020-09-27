@@ -39,7 +39,7 @@ ruleflow-group "testreportgetinfotesttaskprojectrawsqlcall5"
     when
     then
     Map param = null;
-    String strSql="";
+    String strSql="select GROUP_CONCAT(t1.id) as bugs from zt_bug t1 where t1.deleted = '0' and t1.product = 1 and t1.openedDate < '2020-08-15' and (FIND_IN_SET(t1.id,(select GROUP_CONCAT(t2.bugs) from zt_build t2 where t2.id in (select build from zt_testtask t3 where t3.deleted = '0' and t3.project = 1) ORDER BY t2.product)) or (t1.resolvedBuild = 'trunk' and t1.resolvedDate >= '2020-08-15' and t1.resolvedDate <= '2020-08-30 23:59:59')) GROUP BY t1.product";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);

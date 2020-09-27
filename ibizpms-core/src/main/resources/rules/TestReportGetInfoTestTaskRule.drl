@@ -160,8 +160,8 @@ ruleflow-group "testreportgetinfotesttaskrawsqlcall10"
     then
     Map param =new HashMap();
     param.put("param0",testreportgetinfotesttaskdefault.get("tasks"));
-    param.put("param1",testreportgetinfotesttasktesttask.get("begin"));
-    param.put("param2",testreportgetinfotesttasktesttask.get("end"));
+    param.put("param1",testreportgetinfotesttaskdefault.get("begin"));
+    param.put("param2",testreportgetinfotesttaskdefault.get("end"));
     String strSql="select COUNT(1) testresultcnt from zt_testresult t1  INNER JOIN zt_case t31 on t31.id = t1.`case` inner join zt_testrun t11 on t1.run = t11.id and t1.`case` = t11.`case` INNER JOIN zt_testtask t41 on t41.id = t11.task where t41.id = #{et.param0}  and t31.deleted = '0' and t1.date >  #{et.param1} and t1.date <  #{et.param2}";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
@@ -201,9 +201,9 @@ ruleflow-group "testreportgetinfotesttaskrawsqlcall12"
     when
     then
     Map param =new HashMap();
-    param.put("param0",testreportgetinfotesttasktesttask.get("build"));
-    param.put("param1",testreportgetinfotesttasktesttask.get("begin"));
-    param.put("param2",testreportgetinfotesttasktesttask.get("end"));
+    param.put("param0",testreportgetinfotesttaskdefault.get("build"));
+    param.put("param1",testreportgetinfotesttaskdefault.get("begin"));
+    param.put("param2",testreportgetinfotesttaskdefault.get("end"));
     String strSql="SELECT COUNT(1) as resolvedcnt FROM `zt_bug` t1  where  t1.OPENEDBUILD = #{et.param0}   and t1.openedDate > #{et.param1}  and t1.openedDate < #{et.param2}  and t1.case > 0  and t1.`status` in ('resolved','closed')";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
@@ -229,9 +229,9 @@ ruleflow-group "testreportgetinfotesttaskrawsqlcall11"
     when
     then
     Map param =new HashMap();
-    param.put("param0",testreportgetinfotesttasktesttask.get("build"));
-    param.put("param1",testreportgetinfotesttasktesttask.get("begin"));
-    param.put("param2",testreportgetinfotesttasktesttask.get("end"));
+    param.put("param0",testreportgetinfotesttaskdefault.get("build"));
+    param.put("param1",testreportgetinfotesttaskdefault.get("begin"));
+    param.put("param2",testreportgetinfotesttaskdefault.get("end"));
     String strSql="SELECT COUNT(1) as effective FROM `zt_bug` t1  where  t1.OPENEDBUILD = #{et.param0}   and t1.openedDate > #{et.param1}  and t1.openedDate < #{et.param2}  and t1.case > 0  and t1.`status` in ('resolved','closed') and t1.resolution in ('fixed','postponed')";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
@@ -269,9 +269,9 @@ ruleflow-group "testreportgetinfotesttaskrawsqlcall9"
     when
     then
     Map param =new HashMap();
-    param.put("param0",testreportgetinfotesttasktesttask.get("build"));
-    param.put("param1",testreportgetinfotesttasktesttask.get("begin"));
-    param.put("param2",testreportgetinfotesttasktesttask.get("end"));
+    param.put("param0",testreportgetinfotesttaskdefault.get("build"));
+    param.put("param1",testreportgetinfotesttaskdefault.get("begin"));
+    param.put("param2",testreportgetinfotesttaskdefault.get("end"));
     String strSql="SELECT COUNT(1) as   casebugcnt FROM `zt_bug` t1  where  t1.OPENEDBUILD = #{et.param0}   and t1.openedDate > #{et.param1}  and t1.openedDate < #{et.param2}  and t1.case > 0";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
