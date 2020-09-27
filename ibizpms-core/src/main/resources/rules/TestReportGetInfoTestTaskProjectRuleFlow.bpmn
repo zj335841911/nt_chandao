@@ -10,12 +10,15 @@
         </extensionElements>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskprojectrawsqlcall2" id="rawsqlcall2" implementation="http://www.jboss.org/drools/rule" name="获取测试单"/>
      <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskprojectrawsqlcall3" id="rawsqlcall3" implementation="http://www.jboss.org/drools/rule" name="获取项目周期"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskprojectrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
      <endEvent id="rawsqlcall1_end" name="end"/>
      <sequenceFlow id="rawsqlcall1_end_line" sourceRef="rawsqlcall1" targetRef="rawsqlcall1_end"/>
-     <sequenceFlow id="rawsqlcall2_rawsqlcall1" sourceRef="rawsqlcall2" targetRef="rawsqlcall1">
+     <sequenceFlow id="rawsqlcall2_rawsqlcall3" sourceRef="rawsqlcall2" targetRef="rawsqlcall3">
      </sequenceFlow>
      <sequenceFlow id="begin_rawsqlcall2" sourceRef="begin" targetRef="rawsqlcall2">
+     </sequenceFlow>
+     <sequenceFlow id="rawsqlcall3_rawsqlcall1" sourceRef="rawsqlcall3" targetRef="rawsqlcall1">
      </sequenceFlow>
     </process>
 </definitions>

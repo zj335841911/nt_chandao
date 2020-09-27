@@ -599,14 +599,6 @@ public class TaskDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [LASTEDITEDBY]
-     */
-    public void setLasteditedby(String  lasteditedby){
-        this.lasteditedby = lasteditedby ;
-        this.modify("lasteditedby",lasteditedby);
-    }
-
-    /**
      * 设置 [STATUS]
      */
     public void setStatus(String  status){
