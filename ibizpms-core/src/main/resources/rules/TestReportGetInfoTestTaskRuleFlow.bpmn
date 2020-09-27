@@ -9,28 +9,31 @@
         <tns:global identifier="testreportgetinfotesttasktesttask" type="cn.ibizlab.pms.core.zentao.domain.TestTask" />
         </extensionElements>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall5" id="rawsqlcall5" implementation="http://www.jboss.org/drools/rule" name="失败的用例数"/>
-     <endEvent id="rawsqlcall5_end" name="end"/>
-     <sequenceFlow id="rawsqlcall5_end_line" sourceRef="rawsqlcall5" targetRef="rawsqlcall5_end"/>
      <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall8" id="rawsqlcall8" implementation="http://www.jboss.org/drools/rule" name="遗留的Bug"/>
+     <endEvent id="rawsqlcall8_end" name="end"/>
+     <sequenceFlow id="rawsqlcall8_end_line" sourceRef="rawsqlcall8" targetRef="rawsqlcall8_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
-     <endEvent id="rawsqlcall1_end" name="end"/>
-     <sequenceFlow id="rawsqlcall1_end_line" sourceRef="rawsqlcall1" targetRef="rawsqlcall1_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall6" id="rawsqlcall6" implementation="http://www.jboss.org/drools/rule" name="有效需求数"/>
-     <endEvent id="rawsqlcall6_end" name="end"/>
-     <sequenceFlow id="rawsqlcall6_end_line" sourceRef="rawsqlcall6" targetRef="rawsqlcall6_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall2" id="rawsqlcall2" implementation="http://www.jboss.org/drools/rule" name="获取需求数"/>
-     <endEvent id="rawsqlcall2_end" name="end"/>
-     <sequenceFlow id="rawsqlcall2_end_line" sourceRef="rawsqlcall2" targetRef="rawsqlcall2_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall3" id="rawsqlcall3" implementation="http://www.jboss.org/drools/rule" name="获取用例数"/>
-     <endEvent id="rawsqlcall3_end" name="end"/>
-     <sequenceFlow id="rawsqlcall3_end_line" sourceRef="rawsqlcall3" targetRef="rawsqlcall3_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall7" id="rawsqlcall7" implementation="http://www.jboss.org/drools/rule" name="需求覆盖用例数"/>
-     <endEvent id="rawsqlcall7_end" name="end"/>
-     <sequenceFlow id="rawsqlcall7_end_line" sourceRef="rawsqlcall7" targetRef="rawsqlcall7_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall4" id="rawsqlcall4" implementation="http://www.jboss.org/drools/rule" name="执行的用例数"/>
-     <endEvent id="rawsqlcall4_end" name="end"/>
-     <sequenceFlow id="rawsqlcall4_end_line" sourceRef="rawsqlcall4" targetRef="rawsqlcall4_end"/>
+     <sequenceFlow id="rawsqlcall3_rawsqlcall4" sourceRef="rawsqlcall3" targetRef="rawsqlcall4">
+     </sequenceFlow>
+     <sequenceFlow id="rawsqlcall7_rawsqlcall8" sourceRef="rawsqlcall7" targetRef="rawsqlcall8">
+     </sequenceFlow>
+     <sequenceFlow id="rawsqlcall5_rawsqlcall6" sourceRef="rawsqlcall5" targetRef="rawsqlcall6">
+     </sequenceFlow>
      <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
+     </sequenceFlow>
+     <sequenceFlow id="rawsqlcall6_rawsqlcall7" sourceRef="rawsqlcall6" targetRef="rawsqlcall7">
+     </sequenceFlow>
+     <sequenceFlow id="rawsqlcall4_rawsqlcall5" sourceRef="rawsqlcall4" targetRef="rawsqlcall5">
+     </sequenceFlow>
+     <sequenceFlow id="rawsqlcall2_rawsqlcall3" sourceRef="rawsqlcall2" targetRef="rawsqlcall3">
+     </sequenceFlow>
+     <sequenceFlow id="rawsqlcall1_rawsqlcall2" sourceRef="rawsqlcall1" targetRef="rawsqlcall2">
      </sequenceFlow>
     </process>
 </definitions>

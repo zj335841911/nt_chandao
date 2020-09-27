@@ -41,6 +41,24 @@ ruleflow-group "testreportgetinfotesttaskbegin"
     then
     end
 
+//逻辑处理节点[遗留的bug]
+rule "rawsqlcall8"
+ruleflow-group "testreportgetinfotesttaskrawsqlcall8"
+    when
+    then
+    Map param = null;
+    String strSql="SELECT COUNT(1) as ylbugcnt FROM `zt_bug` t1  where  t1.OPENEDBUILD = (select t.build from zt_testtask t inner join zt_testreport tt on t.id = tt.tasks where tt.id = ?)   and t1.openedDate > (select tt.`begin` from  zt_testreport tt  where tt.id = ? ) and t1.openedDate < (select CONCAT( DATE_FORMAT( tt.`end`, '%Y-%m-%d'),' 23:59:59') from  zt_testreport tt  where tt.id = ? ) and (t1.`status` = 'active' or t1.resolvedDate > (select tt.`end` from zt_testreport tt where tt.id = ?))";
+    java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        for (Map.Entry entry : entity.entrySet()) {
+            testreportgetinfotesttaskdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+        }
+    }
+    update(testreportgetinfotesttaskdefault);//更新fact中变量值
+    update(testreportgetinfotesttasktesttask);//更新fact中变量值
+    end
+
 //逻辑处理节点[获取数据]
 rule "rawsqlcall1"
 ruleflow-group "testreportgetinfotesttaskrawsqlcall1"
@@ -122,8 +140,9 @@ rule "rawsqlcall7"
 ruleflow-group "testreportgetinfotesttaskrawsqlcall7"
     when
     then
-    Map param = null;
-    String strSql="SELECT count(1) as casecnts FROM `zt_story` t1  WHERE t1.`DELETED` = '0' AND FIND_IN_SET ( t1.ID, (SELECT STORIES FROM ZT_TESTREPORT WHERE ID= ?)) and (t1.`status` <> 'closed' or (t1.`status` = 'closed' and t1.closedReason in ('done','postponed'))) and EXISTS(select 1 from zt_case t where t.deleted = '0' and t1.id = t.story)";
+    Map param =new HashMap();
+    param.put("param0",testreportgetinfotesttaskdefault.get("tasks"));
+    String strSql="SELECT count(1) as casecnts FROM `zt_story` t1  LEFT JOIN zt_build t21 on FIND_IN_SET(t1.id,t21.stories) LEFT JOIN zt_testtask t31 on t31.build = t21.id WHERE t1.`DELETED` = '0'  and (t1.`status` <> 'closed' or (t1.`status` = 'closed' and t1.closedReason in ('done','postponed'))) and EXISTS(select 1 from zt_case t where t.deleted = '0' and t1.id = t.story) and t31.id = ？";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);

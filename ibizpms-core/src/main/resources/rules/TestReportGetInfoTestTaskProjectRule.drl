@@ -59,6 +59,17 @@ ruleflow-group "testreportgetinfotesttaskprojectrawsqlcall3"
     update(testreportgetinfotesttaskprojecttesttask);//更新fact中变量值
     end
 
+//逻辑处理节点[准备参数]
+rule "prepareparam1"
+ruleflow-group "testreportgetinfotesttaskprojectprepareparam1"
+    when
+    then
+    testreportgetinfotesttaskprojectdefault.set("objectid",testreportgetinfotesttaskprojectdefault.get("project"));
+    testreportgetinfotesttaskprojectdefault.set("objecttype","project");
+    update(testreportgetinfotesttaskprojectdefault);//更新fact中变量值
+    update(testreportgetinfotesttaskprojecttesttask);//更新fact中变量值
+    end
+
 //逻辑处理节点[获取数据]
 rule "rawsqlcall1"
 ruleflow-group "testreportgetinfotesttaskprojectrawsqlcall1"

@@ -52,6 +52,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 所有者
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`account`")
     @JSONField(name = "account")
     @JsonProperty("account")
@@ -59,6 +60,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 关闭时间
      */
+    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`closeddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "closeddate" , format="yyyy-MM-dd HH:mm:ss")
@@ -67,6 +69,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 由谁关闭
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`closedby`")
     @JSONField(name = "closedby")
     @JsonProperty("closedby")
@@ -88,6 +91,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 描述
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
@@ -102,6 +106,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 开始
      */
+    @DEField(defaultValue = "600")
     @TableField(value = "`begin`")
     @JSONField(name = "begin")
     @JsonProperty("begin")
@@ -117,6 +122,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 由谁指派
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`assignedby`")
     @JSONField(name = "assignedby")
     @JsonProperty("assignedby")
@@ -140,6 +146,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 指派给
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`assignedto`")
     @JSONField(name = "assignedto")
     @JsonProperty("assignedto")
@@ -170,6 +177,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 优先级
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`pri`")
     @JSONField(name = "pri")
     @JsonProperty("pri")
@@ -177,6 +185,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 日期
      */
+    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`date`")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd")
@@ -193,6 +202,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * config
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`config`")
     @JSONField(name = "config")
     @JsonProperty("config")
