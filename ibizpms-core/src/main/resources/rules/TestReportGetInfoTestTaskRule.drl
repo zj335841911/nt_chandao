@@ -249,7 +249,7 @@ ruleflow-group "testreportgetinfotesttaskrawsqlcall15"
     then
     Map param =new HashMap();
     param.put("param0",testreportgetinfotesttaskdefault.get("tasks"));
-    String strSql="SELECT  GROUP_CONCAT(DISTINCT t1.lastRunner) as members from zt_testrun t1  LEFT JOIN zt_testtask t21 on t21.id = t1.task where t21.id = ？";
+    String strSql="SELECT  GROUP_CONCAT(DISTINCT t1.lastRunner) as members from zt_testrun t1  LEFT JOIN zt_testtask t21 on t21.id = t1.task where t21.id = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
