@@ -12,9 +12,10 @@
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall6" id="rawsqlcall6" implementation="http://www.jboss.org/drools/rule" name="有效需求数"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall2" id="rawsqlcall2" implementation="http://www.jboss.org/drools/rule" name="获取需求数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall14" id="rawsqlcall14" implementation="http://www.jboss.org/drools/rule" name="设置概况"/>
+     <endEvent id="rawsqlcall14_end" name="end"/>
+     <sequenceFlow id="rawsqlcall14_end_line" sourceRef="rawsqlcall14" targetRef="rawsqlcall14_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall13" id="rawsqlcall13" implementation="http://www.jboss.org/drools/rule" name="产生的bug"/>
-     <endEvent id="rawsqlcall13_end" name="end"/>
-     <sequenceFlow id="rawsqlcall13_end_line" sourceRef="rawsqlcall13" targetRef="rawsqlcall13_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall10" id="rawsqlcall10" implementation="http://www.jboss.org/drools/rule" name="执行结果"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall5" id="rawsqlcall5" implementation="http://www.jboss.org/drools/rule" name="失败的用例数"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall12" id="rawsqlcall12" implementation="http://www.jboss.org/drools/rule" name="解决的bug"/>
@@ -35,6 +36,8 @@
      <sequenceFlow id="rawsqlcall10_rawsqlcall11" sourceRef="rawsqlcall10" targetRef="rawsqlcall11">
      </sequenceFlow>
      <sequenceFlow id="rawsqlcall12_rawsqlcall13" sourceRef="rawsqlcall12" targetRef="rawsqlcall13">
+     </sequenceFlow>
+     <sequenceFlow id="rawsqlcall13_rawsqlcall14" sourceRef="rawsqlcall13" targetRef="rawsqlcall14">
      </sequenceFlow>
      <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
      </sequenceFlow>
