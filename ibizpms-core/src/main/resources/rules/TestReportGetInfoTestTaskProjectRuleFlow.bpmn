@@ -11,13 +11,16 @@
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskprojectrawsqlcall2" id="rawsqlcall2" implementation="http://www.jboss.org/drools/rule" name="获取测试单"/>
      <startEvent id="begin" isInterrupting="true"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskprojectrawsqlcall3" id="rawsqlcall3" implementation="http://www.jboss.org/drools/rule" name="获取项目周期"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskprojectprepareparam1" id="prepareparam1" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskprojectrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskprojectdeaction1" id="deaction1" implementation="http://www.jboss.org/drools/rule" name="获取概况信息"/>
      <endEvent id="deaction1_end" name="end"/>
      <sequenceFlow id="deaction1_end_line" sourceRef="deaction1" targetRef="deaction1_end"/>
      <sequenceFlow id="rawsqlcall2_rawsqlcall3" sourceRef="rawsqlcall2" targetRef="rawsqlcall3">
      </sequenceFlow>
-     <sequenceFlow id="begin_rawsqlcall2" sourceRef="begin" targetRef="rawsqlcall2">
+     <sequenceFlow id="begin_prepareparam1" sourceRef="begin" targetRef="prepareparam1">
+     </sequenceFlow>
+     <sequenceFlow id="prepareparam1_rawsqlcall2" sourceRef="prepareparam1" targetRef="rawsqlcall2">
      </sequenceFlow>
      <sequenceFlow id="rawsqlcall3_rawsqlcall1" sourceRef="rawsqlcall3" targetRef="rawsqlcall1">
      </sequenceFlow>
