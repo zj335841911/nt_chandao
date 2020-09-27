@@ -69,6 +69,7 @@ export class TestReportProjectGridViewBase extends GridViewBase {
 	 */
     protected customViewNavContexts: any = {
         'N_PROJECT_EQ': { isRawValue: false, value: 'project' },
+        'PROJECT': { isRawValue: false, value: 'project' },
         'N_OBJECTTYPE_EQ': { isRawValue: true, value: 'project' }
     };
 
@@ -80,6 +81,7 @@ export class TestReportProjectGridViewBase extends GridViewBase {
 	 * @memberof TestReportProjectGridViewBase
 	 */
     protected customViewParams: any = {
+        'project': { isRawValue: false, value: 'project' },
         'n_project_eq': { isRawValue: false, value: 'project' },
         'n_objecttype_eq': { isRawValue: true, value: 'project' }
     };

@@ -11,13 +11,14 @@
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall5" id="rawsqlcall5" implementation="http://www.jboss.org/drools/rule" name="失败的用例数"/>
      <startEvent id="begin" isInterrupting="true"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall8" id="rawsqlcall8" implementation="http://www.jboss.org/drools/rule" name="遗留的Bug"/>
-     <endEvent id="rawsqlcall8_end" name="end"/>
-     <sequenceFlow id="rawsqlcall8_end_line" sourceRef="rawsqlcall8" targetRef="rawsqlcall8_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall6" id="rawsqlcall6" implementation="http://www.jboss.org/drools/rule" name="有效需求数"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall2" id="rawsqlcall2" implementation="http://www.jboss.org/drools/rule" name="获取需求数"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall3" id="rawsqlcall3" implementation="http://www.jboss.org/drools/rule" name="获取用例数"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall7" id="rawsqlcall7" implementation="http://www.jboss.org/drools/rule" name="需求覆盖用例数"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall9" id="rawsqlcall9" implementation="http://www.jboss.org/drools/rule" name="用例产生的bug"/>
+     <endEvent id="rawsqlcall9_end" name="end"/>
+     <sequenceFlow id="rawsqlcall9_end_line" sourceRef="rawsqlcall9" targetRef="rawsqlcall9_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskrawsqlcall4" id="rawsqlcall4" implementation="http://www.jboss.org/drools/rule" name="执行的用例数"/>
      <sequenceFlow id="rawsqlcall3_rawsqlcall4" sourceRef="rawsqlcall3" targetRef="rawsqlcall4">
      </sequenceFlow>
@@ -30,6 +31,8 @@
      <sequenceFlow id="rawsqlcall6_rawsqlcall7" sourceRef="rawsqlcall6" targetRef="rawsqlcall7">
      </sequenceFlow>
      <sequenceFlow id="rawsqlcall4_rawsqlcall5" sourceRef="rawsqlcall4" targetRef="rawsqlcall5">
+     </sequenceFlow>
+     <sequenceFlow id="rawsqlcall8_rawsqlcall9" sourceRef="rawsqlcall8" targetRef="rawsqlcall9">
      </sequenceFlow>
      <sequenceFlow id="rawsqlcall2_rawsqlcall3" sourceRef="rawsqlcall2" targetRef="rawsqlcall3">
      </sequenceFlow>
