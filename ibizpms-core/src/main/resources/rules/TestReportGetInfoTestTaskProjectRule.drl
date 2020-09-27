@@ -38,8 +38,13 @@ rule "rawsqlcall5"
 ruleflow-group "testreportgetinfotesttaskprojectrawsqlcall5"
     when
     then
-    Map param = null;
-    String strSql="select GROUP_CONCAT(t1.id) as bugs from zt_bug t1 where t1.deleted = '0' and t1.product = 1 and t1.openedDate < '2020-08-15' and (FIND_IN_SET(t1.id,(select GROUP_CONCAT(t2.bugs) from zt_build t2 where t2.id in (select build from zt_testtask t3 where t3.deleted = '0' and t3.project = 1) ORDER BY t2.product)) or (t1.resolvedBuild = 'trunk' and t1.resolvedDate >= '2020-08-15' and t1.resolvedDate <= '2020-08-30 23:59:59')) GROUP BY t1.product";
+    Map param =new HashMap();
+    param.put("param0",testreportgetinfotesttaskprojectdefault.get("product"));
+    param.put("param1",testreportgetinfotesttaskprojectdefault.get("begin"));
+    param.put("param2",testreportgetinfotesttaskprojectdefault.get("project"));
+    param.put("param3",testreportgetinfotesttaskprojectdefault.get("begin"));
+    param.put("param4",testreportgetinfotesttaskprojectdefault.get("end"));
+    String strSql="select GROUP_CONCAT(t1.id) as bugs from zt_bug t1 where t1.deleted = '0' and t1.product = #{et.param0} and t1.openedDate < #{et.param1} and (FIND_IN_SET(t1.id,(select GROUP_CONCAT(t2.bugs) from zt_build t2 where t2.id in (select build from zt_testtask t3 where t3.deleted = '0' and t3.project = #{et.param2}) ORDER BY t2.product)) or (t1.resolvedBuild = 'trunk' and t1.resolvedDate >= #{et.param3} and t1.resolvedDate <= CONCAT(#{et.param4},' 23:59:59'))) GROUP BY t1.product";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
@@ -70,6 +75,25 @@ ruleflow-group "testreportgetinfotesttaskprojectrawsqlcall4"
     update(testreportgetinfotesttaskprojecttesttask);//更新fact中变量值
     end
 
+//逻辑处理节点[获取产品]
+rule "rawsqlcall7"
+ruleflow-group "testreportgetinfotesttaskprojectrawsqlcall7"
+    when
+    then
+    Map param =new HashMap();
+    param.put("param0",testreportgetinfotesttaskprojectdefault.get("project"));
+    String strSql="select t.product  from (select DISTINCT t.product from zt_testtask t where t.deleted = '0' and FIND_IN_SET(t.id,(select GROUP_CONCAT(t1.id) as tasks from zt_testtask t1 where t1.project = #{et.param0} and t1.deleted = '0' GROUP BY t1.project))) t  LIMIT 0,1";
+    java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        for (Map.Entry entry : entity.entrySet()) {
+            testreportgetinfotesttaskprojectdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+        }
+    }
+    update(testreportgetinfotesttaskprojectdefault);//更新fact中变量值
+    update(testreportgetinfotesttaskprojecttesttask);//更新fact中变量值
+    end
+
 //逻辑处理节点[开始]
 rule "begin"
 ruleflow-group "testreportgetinfotesttaskprojectbegin"
@@ -84,7 +108,7 @@ ruleflow-group "testreportgetinfotesttaskprojectrawsqlcall3"
     then
     Map param =new HashMap();
     param.put("param0",testreportgetinfotesttaskprojectdefault.get("project"));
-    String strSql="select  t1.`begin`,t1.`end` , CONCAT_WS( ' ', DATE_FORMAT( now( ), '%Y-%m-%d' ), concat( 'PROJECT#', t1.id ), t1.`name`, '测试报告' ) AS TITLE from zt_project t1 where t1.id = #{et.param0}";
+    String strSql="select  t1.`begin`,t1.`end` , CONCAT_WS( ' ', DATE_FORMAT( now( ), '%Y-%m-%d' ), concat( 'PROJECT#', t1.id ), t1.`name`, '测试报告' ) AS TITLE,t1.name as projectname from zt_project t1 where t1.id = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
@@ -133,6 +157,25 @@ ruleflow-group "testreportgetinfotesttaskprojectdeaction1"
     when
     then
     testreportservice.getInfoTestTaskOvProject(testreportgetinfotesttaskprojectdefault);
+    update(testreportgetinfotesttaskprojectdefault);//更新fact中变量值
+    update(testreportgetinfotesttaskprojecttesttask);//更新fact中变量值
+    end
+
+//逻辑处理节点[获取产品数]
+rule "rawsqlcall6"
+ruleflow-group "testreportgetinfotesttaskprojectrawsqlcall6"
+    when
+    then
+    Map param =new HashMap();
+    param.put("param0",testreportgetinfotesttaskprojectdefault.get("project"));
+    String strSql="select COUNT(1) as productcnt from ( select DISTINCT t.product from zt_testtask t where t.deleted = '0' and FIND_IN_SET(t.id,(select GROUP_CONCAT(t1.id) as tasks from zt_testtask t1 where t1.project = #{et.param0} and t1.deleted = '0' GROUP BY t1.project))) t";
+    java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        for (Map.Entry entry : entity.entrySet()) {
+            testreportgetinfotesttaskprojectdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+        }
+    }
     update(testreportgetinfotesttaskprojectdefault);//更新fact中变量值
     update(testreportgetinfotesttaskprojecttesttask);//更新fact中变量值
     end

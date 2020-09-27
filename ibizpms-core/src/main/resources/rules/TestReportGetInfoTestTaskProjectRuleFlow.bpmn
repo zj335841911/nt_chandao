@@ -11,6 +11,7 @@
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskprojectrawsqlcall2" id="rawsqlcall2" implementation="http://www.jboss.org/drools/rule" name="获取测试单"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskprojectrawsqlcall5" id="rawsqlcall5" implementation="http://www.jboss.org/drools/rule" name="获取影响Bug"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskprojectrawsqlcall4" id="rawsqlcall4" implementation="http://www.jboss.org/drools/rule" name="获取影响需求"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskprojectrawsqlcall7" id="rawsqlcall7" implementation="http://www.jboss.org/drools/rule" name="获取产品"/>
      <startEvent id="begin" isInterrupting="true"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskprojectrawsqlcall3" id="rawsqlcall3" implementation="http://www.jboss.org/drools/rule" name="获取项目周期"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskprojectprepareparam1" id="prepareparam1" implementation="http://www.jboss.org/drools/rule" name="准备参数"/>
@@ -18,17 +19,22 @@
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskprojectdeaction1" id="deaction1" implementation="http://www.jboss.org/drools/rule" name="获取概况信息"/>
      <endEvent id="deaction1_end" name="end"/>
      <sequenceFlow id="deaction1_end_line" sourceRef="deaction1" targetRef="deaction1_end"/>
-     <sequenceFlow id="rawsqlcall2_rawsqlcall4" sourceRef="rawsqlcall2" targetRef="rawsqlcall4">
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskprojectrawsqlcall6" id="rawsqlcall6" implementation="http://www.jboss.org/drools/rule" name="获取产品数"/>
+     <sequenceFlow id="rawsqlcall2_rawsqlcall6" sourceRef="rawsqlcall2" targetRef="rawsqlcall6">
      </sequenceFlow>
-     <sequenceFlow id="rawsqlcall4_rawsqlcall5" sourceRef="rawsqlcall4" targetRef="rawsqlcall5">
+     <sequenceFlow id="rawsqlcall7_rawsqlcall4" sourceRef="rawsqlcall7" targetRef="rawsqlcall4">
      </sequenceFlow>
-     <sequenceFlow id="rawsqlcall5_rawsqlcall3" sourceRef="rawsqlcall5" targetRef="rawsqlcall3">
+     <sequenceFlow id="rawsqlcall4_rawsqlcall3" sourceRef="rawsqlcall4" targetRef="rawsqlcall3">
+     </sequenceFlow>
+     <sequenceFlow id="rawsqlcall5_rawsqlcall1" sourceRef="rawsqlcall5" targetRef="rawsqlcall1">
      </sequenceFlow>
      <sequenceFlow id="begin_prepareparam1" sourceRef="begin" targetRef="prepareparam1">
      </sequenceFlow>
+     <sequenceFlow id="rawsqlcall6_rawsqlcall7" sourceRef="rawsqlcall6" targetRef="rawsqlcall7">
+     </sequenceFlow>
      <sequenceFlow id="prepareparam1_rawsqlcall2" sourceRef="prepareparam1" targetRef="rawsqlcall2">
      </sequenceFlow>
-     <sequenceFlow id="rawsqlcall3_rawsqlcall1" sourceRef="rawsqlcall3" targetRef="rawsqlcall1">
+     <sequenceFlow id="rawsqlcall3_rawsqlcall5" sourceRef="rawsqlcall3" targetRef="rawsqlcall5">
      </sequenceFlow>
      <sequenceFlow id="rawsqlcall1_deaction1" sourceRef="rawsqlcall1" targetRef="deaction1">
      </sequenceFlow>
