@@ -1663,6 +1663,7 @@ export const viewstate: any = {
                 '5273dc442a49b8c4d37ba9ff008531e7',
                 '038fb7788a6add9cc268fe8dd67e6262',
                 '7cba1f165fc6b4948ce752d3c3b68a34',
+                '88de710e1590f4e2c17360c3c1612308',
             ],
         },
         {
@@ -2033,6 +2034,15 @@ export const viewstate: any = {
             viewtag: '87ca9109af86ed2745dcf7aa21294541',
             viewmodule: 'ibizpro',
             viewname: 'IBZProStoryModuleOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '88de710e1590f4e2c17360c3c1612308',
+            viewmodule: 'zentao',
+            viewname: 'TestReportEditView_TestTasks',
             viewaction: '',
             viewdatachange: false,
             refviews: [

@@ -391,6 +391,10 @@ export default {
 		},
 	},
 	projectgridviewtoolbar_toolbar: {
+		deuiaction3_testreport: {
+			caption: "测试报告",
+			tip: "测试报告",
+		},
 		deuiaction3_reports: {
 			caption: "报告列表",
 			tip: "报告列表",

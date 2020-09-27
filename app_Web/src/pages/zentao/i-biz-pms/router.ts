@@ -9642,6 +9642,56 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-project-grid-view/bug-project-grid-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/testreports/:testreport?/editview_testtasks/:editview_testtasks?',
+                    meta: {
+                        caption: 'entities.testreport.views.editview_testtasks.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'testreports', parameterName: 'testreport' },
+                            { pathName: 'editview_testtasks', parameterName: 'editview_testtasks' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-report-edit-view-test-tasks/test-report-edit-view-test-tasks.vue'),
+                },
+                {
+                    path: 'products/:product?/testreports/:testreport?/editview_testtasks/:editview_testtasks?',
+                    meta: {
+                        caption: 'entities.testreport.views.editview_testtasks.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testreports', parameterName: 'testreport' },
+                            { pathName: 'editview_testtasks', parameterName: 'editview_testtasks' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-report-edit-view-test-tasks/test-report-edit-view-test-tasks.vue'),
+                },
+                {
+                    path: 'testreports/:testreport?/editview_testtasks/:editview_testtasks?',
+                    meta: {
+                        caption: 'entities.testreport.views.editview_testtasks.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'testreports', parameterName: 'testreport' },
+                            { pathName: 'editview_testtasks', parameterName: 'editview_testtasks' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-report-edit-view-test-tasks/test-report-edit-view-test-tasks.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/maininfoview9/:maininfoview9?',
                     meta: {
                         caption: 'entities.task.views.maininfoview9.caption',
