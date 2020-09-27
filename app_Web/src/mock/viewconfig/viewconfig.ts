@@ -2647,6 +2647,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ModulePickupView",
             "viewtag": "cb6c278fd7205b3de3fc041816d15dd8"
         },
+        "testreporteditview_project": {
+            "title": "测试报告编辑视图",
+            "caption": "测试报告",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TestReportEditView_Project",
+            "viewtag": "cbd1280e0ec2cd69ffa85cf60ece100d"
+        },
         "projectportalview": {
             "title": "项目主页",
             "caption": "项目主页",

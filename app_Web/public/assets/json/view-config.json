@@ -3299,6 +3299,16 @@
         "viewtag": "cb6c278fd7205b3de3fc041816d15dd8",
         "memo": ""
     },
+    "testreporteditview_project": {
+        "title": "测试报告编辑视图",
+        "caption": "测试报告",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportEditView_Project",
+        "viewfilename": "test-report-edit-view-project",
+        "viewtag": "cbd1280e0ec2cd69ffa85cf60ece100d",
+        "memo": ""
+    },
     "projectportalview": {
         "title": "项目主页",
         "caption": "项目主页",

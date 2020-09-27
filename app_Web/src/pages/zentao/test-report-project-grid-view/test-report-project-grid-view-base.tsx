@@ -117,6 +117,8 @@ export class TestReportProjectGridViewBase extends GridViewBase {
      * @memberof TestReportProjectGridView
      */
     public toolBarModels: any = {
+        deuiaction3_createproject: { name: 'deuiaction3_createproject', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'CreateProject', target: 'NONE', class: '' } },
+
         deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
         deuiaction1: { name: 'deuiaction1', caption: '导出', 'isShowCaption': true, 'isShowIcon': true, tooltip: '导出', iconcls: 'fa fa-file-excel-o', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'ExportExcel', target: '' }, MaxRowCount: 1000, class: '' },
@@ -183,6 +185,9 @@ export class TestReportProjectGridViewBase extends GridViewBase {
      * @memberof TestReportProjectGridViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
+        if (Object.is($event.tag, 'deuiaction3_createproject')) {
+            this.toolbar_deuiaction3_createproject_click(null, '', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction2')) {
             this.toolbar_deuiaction2_click(null, '', $event2);
         }
@@ -244,6 +249,35 @@ export class TestReportProjectGridViewBase extends GridViewBase {
      */
     public grid_load($event: any, $event2?: any): void {
         this.engine.onCtrlEvent('grid', 'load', $event);
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public toolbar_deuiaction3_createproject_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestReportUIService  = new TestReportUIService();
+        curUIService.TestReport_CreateProject(datas,contextJO, paramJO,  $event, xData,this,"TestReport");
     }
 
     /**

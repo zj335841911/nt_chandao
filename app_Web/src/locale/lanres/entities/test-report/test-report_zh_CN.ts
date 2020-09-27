@@ -70,6 +70,10 @@ export default {
 			caption: "测试报告",
       		title: "测试报告编辑视图",
 		},
+		editview_project: {
+			caption: "测试报告",
+      		title: "测试报告编辑视图",
+		},
 		maintabexpview: {
 			caption: "测试报告",
       		title: "测试报告分页导航视图",
@@ -118,6 +122,41 @@ export default {
 			overviews: "概况", 
 			report: "总结", 
 			files: "附件", 
+			id: "编号", 
+		},
+		uiactions: {
+		},
+	},
+	project_new_form: {
+		details: {
+			group1: "基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "编号", 
+			srfmajortext: "标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			objectid: "所属对象", 
+			project: "所属项目", 
+			tasks: "测试单", 
+			productname: "所属产品", 
+			product: "所属产品", 
+			begin: "开始时间", 
+			end: "结束时间", 
+			formitemex1: "起止时间", 
+			owner: "负责人", 
+			objecttype: "对象类型", 
+			builds: "版本信息", 
+			bugs: "测试的Bug", 
+			stories: "测试的需求", 
+			cases: "用例", 
+			title: "标题", 
+			members: "参与人员", 
+			projectname: "所属项目", 
+			overviews: "概况", 
+			report: "总结", 
 			id: "编号", 
 		},
 		uiactions: {
@@ -286,7 +325,17 @@ export default {
 			tip: "保存并关闭",
 		},
 	},
+	editview_projecttoolbar_toolbar: {
+		deuiaction1: {
+			caption: "保存并关闭",
+			tip: "保存并关闭",
+		},
+	},
 	projectgridviewtoolbar_toolbar: {
+		deuiaction3_createproject: {
+			caption: "新建",
+			tip: "新建",
+		},
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

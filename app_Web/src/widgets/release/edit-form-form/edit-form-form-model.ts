@@ -78,7 +78,7 @@ export default class EditFormModel {
       {
         name: 'marker',
         prop: 'marker',
-        dataType: 'YESNO',
+        dataType: 'SSCODELIST',
       },
       {
         name: 'desc',
