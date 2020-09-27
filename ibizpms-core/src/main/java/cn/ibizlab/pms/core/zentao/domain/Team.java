@@ -103,7 +103,7 @@ public class Team extends EntityMP implements Serializable {
     @TableField(value = "`left`")
     @JSONField(name = "left")
     @JsonProperty("left")
-    private BigDecimal left;
+    private Double left;
     /**
      * 排序
      */
@@ -198,7 +198,7 @@ public class Team extends EntityMP implements Serializable {
     /**
      * 设置 [预计剩余]
      */
-    public void setLeft(BigDecimal left){
+    public void setLeft(Double left){
         this.left = left ;
         this.modify("left",left);
     }

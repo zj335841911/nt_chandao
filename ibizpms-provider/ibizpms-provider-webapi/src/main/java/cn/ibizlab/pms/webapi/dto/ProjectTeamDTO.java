@@ -61,7 +61,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "left")
     @JsonProperty("left")
-    private BigDecimal left;
+    private Double left;
 
     /**
      * 属性 [DAYS]
@@ -86,7 +86,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
-    private BigDecimal consumed;
+    private Double consumed;
 
     /**
      * 属性 [ORDER]
@@ -102,7 +102,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "estimate")
     @JsonProperty("estimate")
-    private BigDecimal estimate;
+    private Double estimate;
 
     /**
      * 属性 [LIMITED]
@@ -185,7 +185,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
     /**
      * 设置 [LEFT]
      */
-    public void setLeft(BigDecimal  left){
+    public void setLeft(Double  left){
         this.left = left ;
         this.modify("left",left);
     }
@@ -201,7 +201,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
     /**
      * 设置 [CONSUMED]
      */
-    public void setConsumed(BigDecimal  consumed){
+    public void setConsumed(Double  consumed){
         this.consumed = consumed ;
         this.modify("consumed",consumed);
     }
@@ -217,7 +217,7 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
     /**
      * 设置 [ESTIMATE]
      */
-    public void setEstimate(BigDecimal  estimate){
+    public void setEstimate(Double  estimate){
         this.estimate = estimate ;
         this.modify("estimate",estimate);
     }

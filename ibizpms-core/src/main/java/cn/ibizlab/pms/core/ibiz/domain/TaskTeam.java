@@ -108,7 +108,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     @TableField(value = "`estimate`")
     @JSONField(name = "estimate")
     @JsonProperty("estimate")
-    private BigDecimal estimate;
+    private Double estimate;
     /**
      * 用户
      */
@@ -123,7 +123,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     @TableField(value = "`consumed`")
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
-    private BigDecimal consumed;
+    private Double consumed;
     /**
      * 编号
      */
@@ -156,7 +156,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     @TableField(value = "`left`")
     @JSONField(name = "left")
     @JsonProperty("left")
-    private BigDecimal left;
+    private Double left;
 
     /**
      * 
@@ -219,7 +219,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [最初预计]
      */
-    public void setEstimate(BigDecimal estimate){
+    public void setEstimate(Double estimate){
         this.estimate = estimate ;
         this.modify("estimate",estimate);
     }
@@ -235,7 +235,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [总计消耗]
      */
-    public void setConsumed(BigDecimal consumed){
+    public void setConsumed(Double consumed){
         this.consumed = consumed ;
         this.modify("consumed",consumed);
     }
@@ -269,7 +269,7 @@ public class TaskTeam extends EntityMP implements Serializable {
     /**
      * 设置 [预计剩余]
      */
-    public void setLeft(BigDecimal left){
+    public void setLeft(Double left){
         this.left = left ;
         this.modify("left",left);
     }
