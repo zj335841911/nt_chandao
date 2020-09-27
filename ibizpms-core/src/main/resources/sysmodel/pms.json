@@ -27476,6 +27476,18 @@
     "data_length":1000,
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"PRODUCTCNT" ,
+    "codename":"Productcnt",
+    "field_logic_name":"项目报告产品数",
+    "entity_name":"TestReport",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[

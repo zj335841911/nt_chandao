@@ -25,6 +25,7 @@ export default {
     comment: "备注",
     overviews: "概况",
     files: "附件",
+    productcnt: "项目报告产品数",
   },
 	views: {
 		projectgridview: {

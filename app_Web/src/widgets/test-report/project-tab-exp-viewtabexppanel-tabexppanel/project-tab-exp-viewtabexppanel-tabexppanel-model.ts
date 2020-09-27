@@ -87,6 +87,9 @@ export default class ProjectTabExpViewtabexppanelModel {
       {
         name: 'files',
       },
+      {
+        name: 'productcnt',
+      },
     ]
   }
 

@@ -197,4 +197,12 @@ export interface TestReport {
      * @memberof TestReport
      */
     files?: any;
+
+    /**
+     * 项目报告产品数
+     *
+     * @returns {*}
+     * @memberof TestReport
+     */
+    productcnt?: any;
 }

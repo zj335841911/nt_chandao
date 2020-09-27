@@ -245,6 +245,14 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
     private String files;
 
+    /**
+     * 属性 [PRODUCTCNT]
+     *
+     */
+    @JSONField(name = "productcnt")
+    @JsonProperty("productcnt")
+    private Integer productcnt;
+
 
     /**
      * 设置 [OBJECTID]
