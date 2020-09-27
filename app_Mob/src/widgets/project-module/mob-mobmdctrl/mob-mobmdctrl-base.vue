@@ -1,6 +1,6 @@
 <template>
     <div  class="app-mob-mdctrl projectmodule-mdctrl ">
-        <div class="app-mob-mdctrl-mdctrl" ref="mdctrl>
+        <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
             <ion-list class="items">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">

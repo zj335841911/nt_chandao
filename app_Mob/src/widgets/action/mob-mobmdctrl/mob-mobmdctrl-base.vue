@@ -1,6 +1,6 @@
 <template>
     <div  class="app-mob-mdctrl action-mdctrl ">
-        <div class="app-mob-mdctrl-mdctrl" ref="mdctrl>
+        <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
                     <app-history-list :items="items"  :itemNameDetail="{time:{ 'name':'date','isCodeList':false,'tag':'','codeListType':''} ,'method':{ 'name':'actions','isCodeList':false,'tag':'','codeListType':''} ,'info':{ 'name':'actionmanner','isCodeList':true,'tag':'ActionManner','codeListType':'STATIC'} }"></app-history-list>
 
             <div class="no-data" v-if="items.length == 0">暂无数据</div>

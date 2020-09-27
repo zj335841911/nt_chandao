@@ -1,6 +1,6 @@
 <template>
     <div  class="app-mob-mdctrl product-mdctrl ">
-        <div class="app-mob-mdctrl-mdctrl" ref="mdctrl>
+        <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
                 <ion-list class="items">
                   <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                       <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>

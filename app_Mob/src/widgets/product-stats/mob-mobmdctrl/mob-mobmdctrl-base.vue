@@ -1,6 +1,6 @@
 <template>
     <div  class="app-mob-mdctrl productstats-mdctrl ">
-        <div class="app-mob-mdctrl-mdctrl" ref="mdctrl>
+        <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
                     <app-list-index :items="items" @clickItem="item_click"></app-list-index>
 
             <div class="no-data" v-if="items.length == 0">暂无数据</div>
