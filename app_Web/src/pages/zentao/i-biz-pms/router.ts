@@ -3104,6 +3104,56 @@ const router = new Router({
                     component: () => import('@pages/zentao/case-grid-view9-storyaffect/case-grid-view9-storyaffect.vue'),
                 },
                 {
+                    path: 'projects/:project?/testreports/:testreport?/editview_r/:editview_r?',
+                    meta: {
+                        caption: 'entities.testreport.views.editview_r.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'testreports', parameterName: 'testreport' },
+                            { pathName: 'editview_r', parameterName: 'editview_r' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-report-edit-view-r/test-report-edit-view-r.vue'),
+                },
+                {
+                    path: 'products/:product?/testreports/:testreport?/editview_r/:editview_r?',
+                    meta: {
+                        caption: 'entities.testreport.views.editview_r.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testreports', parameterName: 'testreport' },
+                            { pathName: 'editview_r', parameterName: 'editview_r' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-report-edit-view-r/test-report-edit-view-r.vue'),
+                },
+                {
+                    path: 'testreports/:testreport?/editview_r/:editview_r?',
+                    meta: {
+                        caption: 'entities.testreport.views.editview_r.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-file-text-o',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'testreports', parameterName: 'testreport' },
+                            { pathName: 'editview_r', parameterName: 'editview_r' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/test-report-edit-view-r/test-report-edit-view-r.vue'),
+                },
+                {
                     path: 'projects/:project?/listexpview/:listexpview?',
                     meta: {
                         caption: 'entities.project.views.listexpview.caption',

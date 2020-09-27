@@ -353,6 +353,7 @@ export default {
 		},
 		uiactions: {
 			testtask_linkcase: "关联用例",
+			testtask_testreportr: "测试报告",
 			testtask_openinfoview: "概况",
 			testtask_editedit: "编辑",
 			testtask_delete: "删除",

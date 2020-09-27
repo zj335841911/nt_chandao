@@ -501,6 +501,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e8763999350c7bd92e884e0381d7ac6b',
+                '88b0a618836437a54b879dfb94ee0f3c',
                 '14d95e9a02db631c2b9af47641fcec4e',
                 '5b139a407fa34f386f3f784f33841184',
                 '5273dc442a49b8c4d37ba9ff008531e7',
@@ -696,6 +697,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e8763999350c7bd92e884e0381d7ac6b',
+                '88b0a618836437a54b879dfb94ee0f3c',
                 '14d95e9a02db631c2b9af47641fcec4e',
                 '5b139a407fa34f386f3f784f33841184',
                 '5273dc442a49b8c4d37ba9ff008531e7',
@@ -1658,6 +1660,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e8763999350c7bd92e884e0381d7ac6b',
+                '88b0a618836437a54b879dfb94ee0f3c',
                 '14d95e9a02db631c2b9af47641fcec4e',
                 '513dfe852d9d8a97b32eccb44e7b55c3',
                 '5273dc442a49b8c4d37ba9ff008531e7',
@@ -2034,6 +2037,15 @@ export const viewstate: any = {
             viewtag: '87ca9109af86ed2745dcf7aa21294541',
             viewmodule: 'ibizpro',
             viewname: 'IBZProStoryModuleOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: '88b0a618836437a54b879dfb94ee0f3c',
+            viewmodule: 'zentao',
+            viewname: 'TestReportEditView_R',
             viewaction: '',
             viewdatachange: false,
             refviews: [
@@ -2596,6 +2608,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'e8763999350c7bd92e884e0381d7ac6b',
+                '88b0a618836437a54b879dfb94ee0f3c',
                 '14d95e9a02db631c2b9af47641fcec4e',
                 '5b139a407fa34f386f3f784f33841184',
                 '5273dc442a49b8c4d37ba9ff008531e7',
