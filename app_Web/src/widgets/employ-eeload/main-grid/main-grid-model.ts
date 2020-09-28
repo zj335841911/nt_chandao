@@ -29,7 +29,7 @@ export default class MainModel {
         {
           name: 'assignedto',
           prop: 'assignedto',
-          dataType: 'TEXT',
+          dataType: 'SSCODELIST',
         },
         {
           name: 'projectname',

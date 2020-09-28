@@ -23,19 +23,21 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('assignedto')">
-                <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.employeeload.main_grid.columns.assignedto')" :width="100"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.employeeload.main_grid.columns.assignedto')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.employeeload.main_grid.columns.assignedto')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.assignedto}}</span>
+                        <template >
+            <codelist :value="row.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>
             <template v-if="getColumnState('projectname')">
-                <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.employeeload.main_grid.columns.projectname')" :min-width="100"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.employeeload.main_grid.columns.projectname')" :min-width="100"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.employeeload.main_grid.columns.projectname')}}
@@ -54,7 +56,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('taskcnt')">
-                <el-table-column show-overflow-tooltip :prop="'taskcnt'" :label="$t('entities.employeeload.main_grid.columns.taskcnt')" :width="100"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'taskcnt'" :label="$t('entities.employeeload.main_grid.columns.taskcnt')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.employeeload.main_grid.columns.taskcnt')}}
@@ -66,7 +68,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('left')">
-                <el-table-column show-overflow-tooltip :prop="'left'" :label="$t('entities.employeeload.main_grid.columns.left')" :width="100"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'left'" :label="$t('entities.employeeload.main_grid.columns.left')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.employeeload.main_grid.columns.left')}}
@@ -78,7 +80,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('totaltaskcnt')">
-                <el-table-column show-overflow-tooltip :prop="'totaltaskcnt'" :label="$t('entities.employeeload.main_grid.columns.totaltaskcnt')" :width="100"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'totaltaskcnt'" :label="$t('entities.employeeload.main_grid.columns.totaltaskcnt')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.employeeload.main_grid.columns.totaltaskcnt')}}
@@ -90,7 +92,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('totalleft')">
-                <el-table-column show-overflow-tooltip :prop="'totalleft'" :label="$t('entities.employeeload.main_grid.columns.totalleft')" :width="100"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'totalleft'" :label="$t('entities.employeeload.main_grid.columns.totalleft')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.employeeload.main_grid.columns.totalleft')}}
@@ -102,7 +104,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('workload')">
-                <el-table-column show-overflow-tooltip :prop="'workload'" :label="$t('entities.employeeload.main_grid.columns.workload')" :width="100"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'workload'" :label="$t('entities.employeeload.main_grid.columns.workload')" :width="150"  :align="'center'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.employeeload.main_grid.columns.workload')}}
