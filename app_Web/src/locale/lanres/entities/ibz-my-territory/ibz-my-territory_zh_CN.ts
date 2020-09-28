@@ -66,6 +66,10 @@ export default {
 			caption: "统计",
       		title: "我的地盘分页导航视图（统计）",
 		},
+		employtreeexpview: {
+			caption: "员工负载",
+      		title: "我的地盘树导航视图（员工负载计）",
+		},
 		dashboardview: {
 			caption: "首页",
       		title: "首页",
@@ -83,6 +87,14 @@ export default {
 		nodes: {
 			bugassignedto: "Bug指派表",
 			bugopenendby: "Bug创建表",
+			root: "默认根节点",
+		},
+		uiactions: {
+		},
+	},
+	employeeload_treeview: {
+		nodes: {
+			employeeload: "员工负载表",
 			root: "默认根节点",
 		},
 		uiactions: {

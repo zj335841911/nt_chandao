@@ -1882,7 +1882,7 @@
     "ref_field_name":"NAME",
     "relation_name":"DER1N_IBZ_BUGSTATS_ZT_PRODUCT_PRODUCT",
     "relation_codename":"ZTProduct",
-    "field_type":"PICKUPDATA",
+    "field_type":"PICKUPTEXT",
     "nullable":1,
     "physical_field":0,
     "data_type":"VARCHAR",

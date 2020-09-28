@@ -2759,6 +2759,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ReleaseMainTabExpView",
             "viewtag": "ceb630b252aac50781a373e0bef90eb2"
         },
+        "ibzmyterritoryemploytreeexpview": {
+            "title": "我的地盘树导航视图（员工负载计）",
+            "caption": "员工负载",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryEmployTreeExpView",
+            "viewtag": "cef6e71f89bb0007d341328d455f6da0"
+        },
         "storymainview_link": {
             "title": "需求数据看板视图",
             "caption": "需求",

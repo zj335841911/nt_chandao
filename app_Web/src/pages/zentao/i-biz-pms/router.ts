@@ -12516,6 +12516,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-dashboard-info-view/project-dashboard-info-view.vue'),
                 },
                 {
+                    path: 'employeeloads/:employeeload?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.employeeload.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'employeeloads', parameterName: 'employeeload' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/employeeloadedit-view/employeeloadedit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/todoeditview/:todoeditview?',
                     meta: {
                         caption: 'entities.bug.views.todoeditview.caption',
@@ -12601,18 +12615,18 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-todo-edit-view/bug-todo-edit-view.vue'),
                 },
                 {
-                    path: 'employeeloads/:employeeload?/editview/:editview?',
+                    path: 'ibzmyterritories/:ibzmyterritory?/employtreeexpview/:employtreeexpview?',
                     meta: {
-                        caption: 'entities.employeeload.views.editview.caption',
+                        caption: 'entities.ibzmyterritory.views.employtreeexpview.caption',
                         info:'',
                         parameters: [
                             { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'employeeloads', parameterName: 'employeeload' },
-                            { pathName: 'editview', parameterName: 'editview' },
+                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                            { pathName: 'employtreeexpview', parameterName: 'employtreeexpview' },
                         ],
                         requireAuth: true,
                     },
-                    component: () => import('@pages/ibiz/employeeloadedit-view/employeeloadedit-view.vue'),
+                    component: () => import('@pages/ibiz/ibz-my-territory-employ-tree-exp-view/ibz-my-territory-employ-tree-exp-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/tabexpview/:tabexpview?',

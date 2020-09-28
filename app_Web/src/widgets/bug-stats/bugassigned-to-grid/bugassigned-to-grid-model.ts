@@ -34,7 +34,7 @@ export default class BugassignedToModel {
         {
           name: 'productname',
           prop: 'productname',
-          dataType: 'PICKUPDATA',
+          dataType: 'PICKUPTEXT',
         },
         {
           name: 'bugcnt',
