@@ -52,7 +52,6 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 开始时间
      */
-    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`begin`")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "begin" , format="yyyy-MM-dd")
@@ -150,7 +149,6 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 结束日期
      */
-    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`end`")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "end" , format="yyyy-MM-dd")
@@ -159,7 +157,6 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 取消日期
      */
-    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`canceleddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "canceleddate" , format="yyyy-MM-dd HH:mm:ss")
@@ -265,7 +262,6 @@ public class Project extends EntityMP implements Serializable {
     /**
      * 关闭日期
      */
-    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`closeddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "closeddate" , format="yyyy-MM-dd HH:mm:ss")

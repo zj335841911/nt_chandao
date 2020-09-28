@@ -60,7 +60,6 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 关闭时间
      */
-    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`closeddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "closeddate" , format="yyyy-MM-dd HH:mm:ss")
@@ -185,7 +184,6 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 日期
      */
-    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`date`")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd")

@@ -76,7 +76,6 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 指派日期
      */
-    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`assigneddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "assigneddate" , format="yyyy-MM-dd HH:mm:ss")
@@ -117,7 +116,6 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 评审时间
      */
-    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`revieweddate`")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "revieweddate" , format="yyyy-MM-dd")
@@ -252,7 +250,6 @@ public class Story extends EntityMP implements Serializable {
     /**
      * 关闭日期	
      */
-    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`closeddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "closeddate" , format="yyyy-MM-dd HH:mm:ss")

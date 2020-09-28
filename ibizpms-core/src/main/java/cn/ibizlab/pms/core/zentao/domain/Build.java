@@ -116,7 +116,6 @@ public class Build extends EntityMP implements Serializable {
     /**
      * 打包日期
      */
-    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`date`")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd")
