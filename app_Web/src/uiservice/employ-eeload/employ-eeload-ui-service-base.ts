@@ -89,6 +89,8 @@ export default class EmployEeloadUIServiceBase extends UIService {
      * @memberof  EmployEeloadUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'employeeloads',component:'employeeloadedit-view'});
+        this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'employeeloads',component:'employeeloadgrid-view'});
     }
 
     /**

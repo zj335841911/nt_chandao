@@ -2735,6 +2735,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseMainMyGridView",
             "viewtag": "cd3d221ec6771bb755a0e482b8bcd171"
         },
+        "employeeloadeditview": {
+            "title": "员工负载表编辑视图",
+            "caption": "员工负载表",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "EMPLOYEELOADEditView",
+            "viewtag": "cdb6ad5305bb1900e7349e9e057b3596"
+        },
         "bugmainmygridview": {
             "title": "bug表格视图",
             "caption": "Bug",
@@ -2934,6 +2942,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TodoEditView",
             "viewtag": "e00040c0d616f2f1c0ad4b36c9e920b5"
+        },
+        "employeeloadgridview": {
+            "title": "员工负载表表格视图",
+            "caption": "员工负载表",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "EMPLOYEELOADGridView",
+            "viewtag": "e008123fe4c3014fac07b33dd79f6b13"
         },
         "producteditview": {
             "title": "产品编辑视图",

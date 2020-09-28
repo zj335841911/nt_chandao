@@ -3409,6 +3409,16 @@
         "viewtag": "cd3d221ec6771bb755a0e482b8bcd171",
         "memo": ""
     },
+    "employeeloadeditview": {
+        "title": "员工负载表编辑视图",
+        "caption": "员工负载表",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "EMPLOYEELOADEditView",
+        "viewfilename": "employeeloadedit-view",
+        "viewtag": "cdb6ad5305bb1900e7349e9e057b3596",
+        "memo": ""
+    },
     "bugmainmygridview": {
         "title": "bug表格视图",
         "caption": "Bug",
@@ -3657,6 +3667,16 @@
         "viewname": "TodoEditView",
         "viewfilename": "todo-edit-view",
         "viewtag": "e00040c0d616f2f1c0ad4b36c9e920b5",
+        "memo": ""
+    },
+    "employeeloadgridview": {
+        "title": "员工负载表表格视图",
+        "caption": "员工负载表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "EMPLOYEELOADGridView",
+        "viewfilename": "employeeloadgrid-view",
+        "viewtag": "e008123fe4c3014fac07b33dd79f6b13",
         "memo": ""
     },
     "producteditview": {
