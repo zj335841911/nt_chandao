@@ -60,6 +60,28 @@ export class BugProjectBugsGridViewBase extends GridViewBase {
      */
     public appUIService: BugUIService = new BugUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof BugProjectBugsGridViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'PROJECT': { isRawValue: true, value: 'null' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof BugProjectBugsGridViewBase
+	 */
+    protected customViewParams: any = {
+        'project': { isRawValue: true, value: 'null' }
+    };
+
     /**
      * 视图模型数据
      *
