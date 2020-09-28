@@ -36,7 +36,10 @@ public interface IBugStatsService extends IService<BugStats>{
     boolean checkKey(BugStats et) ;
     boolean save(BugStats et) ;
     void saveBatch(List<BugStats> list) ;
+    Page<BugStats> searchBugassignedTo(BugStatsSearchContext context) ;
     Page<BugStats> searchDefault(BugStatsSearchContext context) ;
+    List<BugStats> selectByProduct(Long id) ;
+    void removeByProduct(Long id) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

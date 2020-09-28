@@ -676,6 +676,14 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
     protected saveState:any ;
 
     /**
+      * 异常信息缓存
+      *
+      * @type {any}
+      * @memberof MobNewForm
+      */
+    public errorCache :any;
+
+    /**
      * 属性值规则
      *
      * @type {*}
@@ -853,25 +861,30 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
             if(item.type == 'SIMPLE'){
                 startOp(!this.$verify.checkFieldSimpleRule(dataValue,item.condOP,item.paramValue,item.ruleInfo,item.paramType,this.data,item.isKeyCond));
                 falg.infoMessage = item.ruleInfo;
+                this.errorCache[item.deName] = item.ruleInfo;
             }
             // 数值范围
             if(item.type == 'VALUERANGE2'){
                 startOp( !this.$verify.checkFieldValueRangeRule(dataValue,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond));
+                this.errorCache[item.deName] = item.ruleInfo;
                 falg.infoMessage = item.ruleInfo;
             }
             // 正则式
             if (item.type == "REGEX") {
                 startOp(!this.$verify.checkFieldRegExRule(dataValue,item.regExCode,item.ruleInfo,item.isKeyCond));
+                this.errorCache[item.deName] = item.ruleInfo;
                 falg.infoMessage = item.ruleInfo;
             }
             // 长度
             if (item.type == "STRINGLENGTH") {
                 startOp(!this.$verify.checkFieldStringLengthRule(dataValue,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond)); 
+                this.errorCache[item.deName] = item.ruleInfo;
                 falg.infoMessage = item.ruleInfo;
             }
             // 系统值规则
             if(item.type == "SYSVALUERULE") {
                 startOp(!this.$verify.checkFieldSysValueRule(dataValue,item.sysRule.regExCode,item.ruleInfo,item.isKeyCond));
+                this.errorCache[item.deName] = item.ruleInfo;
                 falg.infoMessage = item.ruleInfo;
             }
             // 分组
@@ -1255,7 +1268,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(errors[0].message);
+                this.detailsModel[property].setError(this.errorCache[property]);
                 resolve(false);
             });
         });

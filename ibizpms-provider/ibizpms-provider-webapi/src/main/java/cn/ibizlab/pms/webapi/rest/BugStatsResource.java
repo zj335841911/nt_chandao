@@ -135,6 +135,27 @@ public class BugStatsResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchBugassignedTo-all')")
+	@ApiOperation(value = "获取Bug指派表", tags = {"Bug统计" } ,notes = "获取Bug指派表")
+    @RequestMapping(method= RequestMethod.GET , value="/bugstats/fetchbugassignedto")
+	public ResponseEntity<List<BugStatsDTO>> fetchBugassignedTo(BugStatsSearchContext context) {
+        Page<BugStats> domains = bugstatsService.searchBugassignedTo(context) ;
+        List<BugStatsDTO> list = bugstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchBugassignedTo-all')")
+	@ApiOperation(value = "查询Bug指派表", tags = {"Bug统计" } ,notes = "查询Bug指派表")
+    @RequestMapping(method= RequestMethod.POST , value="/bugstats/searchbugassignedto")
+	public ResponseEntity<Page<BugStatsDTO>> searchBugassignedTo(@RequestBody BugStatsSearchContext context) {
+        Page<BugStats> domains = bugstatsService.searchBugassignedTo(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchDefault-all')")
 	@ApiOperation(value = "获取数据集", tags = {"Bug统计" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/bugstats/fetchdefault")

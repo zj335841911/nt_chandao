@@ -19,6 +19,7 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface BugStatsMapper extends BaseMapper<BugStats>{
 
+    Page<BugStats> searchBugassignedTo(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper) ;
     Page<BugStats> searchDefault(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper) ;
     @Override
     BugStats selectById(Serializable id);
@@ -61,5 +62,7 @@ public interface BugStatsMapper extends BaseMapper<BugStats>{
     */
     @Delete("${sql}")
     boolean deleteBySQL(@Param("sql") String sql, @Param("et")Map param);
+
+    List<BugStats> selectByProduct(@Param("id") Serializable id) ;
 
 }

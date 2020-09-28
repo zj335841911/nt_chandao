@@ -145,6 +145,41 @@ public class BugStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("bugtotal")
     private Integer bugtotal;
 
+    /**
+     * 属性 [PRODUCT]
+     *
+     */
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long product;
+
+    /**
+     * 属性 [PRODUCTNAME]
+     *
+     */
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String productname;
+
+    /**
+     * 属性 [BUGCNT]
+     *
+     */
+    @JSONField(name = "bugcnt")
+    @JsonProperty("bugcnt")
+    private Integer bugcnt;
+
+    /**
+     * 属性 [ASSIGNEDTO]
+     *
+     */
+    @JSONField(name = "assignedto")
+    @JsonProperty("assignedto")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String assignedto;
+
 
     /**
      * 设置 [TITLE]
@@ -160,6 +195,22 @@ public class BugStatsDTO extends DTOBase implements Serializable {
     public void setOpenedby(String  openedby){
         this.openedby = openedby ;
         this.modify("openedby",openedby);
+    }
+
+    /**
+     * 设置 [PRODUCT]
+     */
+    public void setProduct(Long  product){
+        this.product = product ;
+        this.modify("product",product);
+    }
+
+    /**
+     * 设置 [ASSIGNEDTO]
+     */
+    public void setAssignedto(String  assignedto){
+        this.assignedto = assignedto ;
+        this.modify("assignedto",assignedto);
     }
 
 

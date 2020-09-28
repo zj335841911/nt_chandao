@@ -140,6 +140,42 @@ public class BugStats extends EntityMP implements Serializable {
     @JSONField(name = "bugtotal")
     @JsonProperty("bugtotal")
     private Integer bugtotal;
+    /**
+     * 编号
+     */
+    @TableField(value = "`product`")
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private Long product;
+    /**
+     * 产品名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+    /**
+     * Bug
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugcnt")
+    @JsonProperty("bugcnt")
+    private Integer bugcnt;
+    /**
+     * 指派给
+     */
+    @TableField(value = "`assignedto`")
+    @JSONField(name = "assignedto")
+    @JsonProperty("assignedto")
+    private String assignedto;
+
+    /**
+     * 产品
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.zentao.domain.Product ztproduct;
 
 
 
@@ -157,6 +193,22 @@ public class BugStats extends EntityMP implements Serializable {
     public void setOpenedby(String openedby){
         this.openedby = openedby ;
         this.modify("openedby",openedby);
+    }
+
+    /**
+     * 设置 [编号]
+     */
+    public void setProduct(Long product){
+        this.product = product ;
+        this.modify("product",product);
+    }
+
+    /**
+     * 设置 [指派给]
+     */
+    public void setAssignedto(String assignedto){
+        this.assignedto = assignedto ;
+        this.modify("assignedto",assignedto);
     }
 
 

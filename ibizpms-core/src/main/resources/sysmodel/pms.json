@@ -1855,11 +1855,77 @@
     "data_type":"INT",
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"PRODUCT" ,
+    "codename":"Product",
+    "field_logic_name":"编号",
+    "entity_name":"BugStats",
+    "ref_de":"ZT_PRODUCT",
+    "ref_field_name":"ID",
+    "relation_name":"DER1N_IBZ_BUGSTATS_ZT_PRODUCT_PRODUCT",
+    "relation_codename":"ZTProduct",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":8,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"PRODUCTNAME" ,
+    "codename":"ProductName",
+    "field_logic_name":"产品名称",
+    "entity_name":"BugStats",
+    "ref_de":"ZT_PRODUCT",
+    "ref_field_name":"NAME",
+    "relation_name":"DER1N_IBZ_BUGSTATS_ZT_PRODUCT_PRODUCT",
+    "relation_codename":"ZTProduct",
+    "field_type":"PICKUPDATA",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":90,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BUGCNT" ,
+    "codename":"BugCnt",
+    "field_logic_name":"Bug",
+    "entity_name":"BugStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"ASSIGNEDTO" ,
+    "codename":"AssignedTo",
+    "field_logic_name":"指派给",
+    "entity_name":"BugStats",
+    "field_type":"SSCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[
     ],
     "parentEntitys":[
+    {"name":"DER1N_IBZ_BUGSTATS_ZT_PRODUCT_PRODUCT",
+     "relation_type":"DER1N",
+     "code_name":"ZTProduct",
+     "entity_name":"IBZ_BUGSTATS",
+     "ref_entity_name":"ZT_PRODUCT"
+    }
     ]
  }
     ,
@@ -19533,6 +19599,12 @@
     }
     ],
     "subEntitys":[
+    {"name":"DER1N_IBZ_BUGSTATS_ZT_PRODUCT_PRODUCT",
+     "relation_type":"DER1N",
+     "code_name":"ZTProduct",
+     "entity_name":"IBZ_BUGSTATS",
+     "ref_entity_name":"ZT_PRODUCT"
+    },
     {"name":"DER1N_IBZ_PRODUCTMODULE_ZT_PRODUCT_ROOT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",

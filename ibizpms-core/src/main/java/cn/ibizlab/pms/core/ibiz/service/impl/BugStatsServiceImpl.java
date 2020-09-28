@@ -46,12 +46,16 @@ import org.springframework.util.StringUtils;
 @Service("BugStatsServiceImpl")
 public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> implements IBugStatsService {
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
     protected int batchSize = 500;
 
     @Override
     @Transactional
     public boolean create(BugStats et) {
+        fillParentData(et);
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -60,12 +64,14 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
 
     @Override
     public void createBatch(List<BugStats> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list,batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(BugStats et) {
+        fillParentData(et);
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
@@ -74,6 +80,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
 
     @Override
     public void updateBatch(List<BugStats> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list,batchSize);
     }
 
@@ -104,6 +111,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
 
     @Override
     public BugStats getDraft(BugStats et) {
+        fillParentData(et);
         return et;
     }
 
@@ -131,16 +139,37 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
 
     @Override
     public boolean saveBatch(Collection<BugStats> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
         return true;
     }
 
     @Override
     public void saveBatch(List<BugStats> list) {
+        list.forEach(item->fillParentData(item));
         saveOrUpdateBatch(list,batchSize);
     }
 
 
+	@Override
+    public List<BugStats> selectByProduct(Long id) {
+        return baseMapper.selectByProduct(id);
+    }
+
+    @Override
+    public void removeByProduct(Long id) {
+        this.remove(new QueryWrapper<BugStats>().eq("product",id));
+    }
+
+
+    /**
+     * 查询集合 Bug指派表
+     */
+    @Override
+    public Page<BugStats> searchBugassignedTo(BugStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchBugassignedTo(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
 
     /**
      * 查询集合 数据集
@@ -153,6 +182,22 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
 
 
 
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(BugStats et){
+        //实体关系[DER1N_IBZ_BUGSTATS_ZT_PRODUCT_PRODUCT]
+        if(!ObjectUtils.isEmpty(et.getProduct())){
+            cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
+            if(ObjectUtils.isEmpty(ztproduct)){
+                cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
+                et.setZtproduct(majorEntity);
+                ztproduct=majorEntity;
+            }
+            et.setProductname(ztproduct.getName());
+        }
+    }
 
 
 

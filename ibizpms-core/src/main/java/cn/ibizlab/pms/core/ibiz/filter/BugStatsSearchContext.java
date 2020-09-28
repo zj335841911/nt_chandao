@@ -48,6 +48,20 @@ public class BugStatsSearchContext extends QueryWrapperContext<BugStats> {
             this.getSearchCond().le("bugwillnotfix", n_bugwillnotfix_ltandeq);
         }
     }
+	private Long n_product_eq;//[编号]
+	public void setN_product_eq(Long n_product_eq) {
+        this.n_product_eq = n_product_eq;
+        if(!ObjectUtils.isEmpty(this.n_product_eq)){
+            this.getSearchCond().eq("product", n_product_eq);
+        }
+    }
+	private String n_assignedto_eq;//[指派给]
+	public void setN_assignedto_eq(String n_assignedto_eq) {
+        this.n_assignedto_eq = n_assignedto_eq;
+        if(!ObjectUtils.isEmpty(this.n_assignedto_eq)){
+            this.getSearchCond().eq("assignedto", n_assignedto_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索
