@@ -5046,6 +5046,161 @@
  }
     ,
     {
+    "entity_name":"IBZ_EMPLOYEELOAD",
+    "logic_name":"员工负载表",
+    "code_name":"EMPLOYEELOAD",
+    "table_name":"ZT_TASK",
+    "system_id":"pms",
+    "system_name":"pms",
+    "fields":[
+    {
+    "fieldname":"ID" ,
+    "codename":"Id",
+    "field_logic_name":"主键",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"ACID",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":20,
+    "key_field":1,
+    "major_field":0
+    },
+    {
+    "fieldname":"NAME" ,
+    "codename":"Name",
+    "field_logic_name":"任务名",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":1
+    },
+    {
+    "fieldname":"TASKCNT" ,
+    "codename":"TaskCnt",
+    "field_logic_name":"任务数",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"PROJECT" ,
+    "codename":"Project",
+    "field_logic_name":"项目编号",
+    "entity_name":"EMPLOYEELOAD",
+    "ref_de":"ZT_PROJECT",
+    "ref_field_name":"ID",
+    "relation_name":"DER1N_IBZ_EMPLOYEELOAD_ZT_PROJECT_PROJECT",
+    "relation_codename":"Ztproject",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":8,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"PROJECTNAME" ,
+    "codename":"ProjectName",
+    "field_logic_name":"项目",
+    "entity_name":"EMPLOYEELOAD",
+    "ref_de":"ZT_PROJECT",
+    "ref_field_name":"NAME",
+    "relation_name":"DER1N_IBZ_EMPLOYEELOAD_ZT_PROJECT_PROJECT",
+    "relation_codename":"Ztproject",
+    "field_type":"PICKUPTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":90,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"TOTALTASKCNT" ,
+    "codename":"Totaltaskcnt",
+    "field_logic_name":"总任务数",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"TOTALLEFT" ,
+    "codename":"TotalLeft",
+    "field_logic_name":"总工时",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"LEFT" ,
+    "codename":"Left",
+    "field_logic_name":"剩余工时",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"WORKLOAD" ,
+    "codename":"Workload",
+    "field_logic_name":"工作负载",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"ASSIGNEDTO" ,
+    "codename":"AssignedTo",
+    "field_logic_name":"指派给",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    ],
+    "parentEntitys":[
+    {"name":"DER1N_IBZ_EMPLOYEELOAD_ZT_PROJECT_PROJECT",
+     "relation_type":"DER1N",
+     "code_name":"Ztproject",
+     "entity_name":"IBZ_EMPLOYEELOAD",
+     "ref_entity_name":"ZT_PROJECT"
+    }
+    ]
+ }
+    ,
+    {
     "entity_name":"ZT_EFFORT",
     "logic_name":"effort",
     "code_name":"Effort",
@@ -21934,6 +22089,12 @@
     }
     ],
     "subEntitys":[
+    {"name":"DER1N_IBZ_EMPLOYEELOAD_ZT_PROJECT_PROJECT",
+     "relation_type":"DER1N",
+     "code_name":"Ztproject",
+     "entity_name":"IBZ_EMPLOYEELOAD",
+     "ref_entity_name":"ZT_PROJECT"
+    },
     {"name":"DER1N_IBZ_PROJECTMODULE_ZT_PROJECT_ROOT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",

@@ -12,6 +12,7 @@ import suitecase_en_US from '@locale/lanres/entities/suite-case/suite-case_en_US
 import burn_en_US from '@locale/lanres/entities/burn/burn_en_US';
 import substory_en_US from '@locale/lanres/entities/sub-story/sub-story_en_US';
 import subproductplan_en_US from '@locale/lanres/entities/sub-product-plan/sub-product-plan_en_US';
+import employeeload_en_US from '@locale/lanres/entities/employ-eeload/employ-eeload_en_US';
 import storyspec_en_US from '@locale/lanres/entities/story-spec/story-spec_en_US';
 import usertpl_en_US from '@locale/lanres/entities/user-tpl/user-tpl_en_US';
 import ibzfavorites_en_US from '@locale/lanres/entities/ibz-favorites/ibz-favorites_en_US';
@@ -335,6 +336,7 @@ export default {
         burn: burn_en_US,
         substory: substory_en_US,
         subproductplan: subproductplan_en_US,
+        employeeload: employeeload_en_US,
         storyspec: storyspec_en_US,
         usertpl: usertpl_en_US,
         ibzfavorites: ibzfavorites_en_US,

@@ -63,6 +63,10 @@ zuul:
       path: /subproductplans/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_employeeload:
+      path: /employeeloads/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_storyspec:
       path: /storyspecs/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

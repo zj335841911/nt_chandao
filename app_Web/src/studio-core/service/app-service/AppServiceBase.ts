@@ -92,6 +92,9 @@ export class AppServiceBase {
                 location.href = `${Environment.CasUrl}/logout?service=${encodeURIComponent(`${Environment.CasUrl}/login?service=${encodeURIComponent(`${window.location.origin}${Environment.BaseUrl}/appdata?RU=${encodeURIComponent(redirect)}`)}`)}`;
             } else {
                 location.href = `${location.origin}${location.pathname}#/login?redirect=${encodeURIComponent(redirect)}`;
+                setTimeout(() => {
+                    location.reload();
+                }, 100);
             }
             const x = document.getElementById('app-loading-x');
             if (x) {
@@ -99,9 +102,6 @@ export class AppServiceBase {
             }
         }
         win.isDoLogin = true;
-        setTimeout(() => {
-            location.reload();
-        }, 100);
     }
 
     /**
