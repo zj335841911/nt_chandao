@@ -145,7 +145,7 @@ export class BugSeverityPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return 'auto';
+            return '300px';
         }
     }
 

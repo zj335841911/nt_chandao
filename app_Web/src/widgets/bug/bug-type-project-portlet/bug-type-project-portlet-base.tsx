@@ -145,7 +145,7 @@ export class BugType_ProjectPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return 'auto';
+            return '300px';
         }
     }
 
