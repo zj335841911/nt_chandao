@@ -1,6 +1,6 @@
 <template>
     <div class="app-mob-menu-sideslip-view"> 
-      <van-popup v-model="showPopup" get-container="#app" position="left" :style="{ height: '100%',width: '80%' }" duration="0.2" :close-on-popstate="true">
+      <van-popup v-model="showPopup" get-container="#app" position="left" :style="{ height: '100%',width: '75%' }" duration="0.2" :close-on-popstate="true">
         <v-touch v-on:swipeleft="onSwipeLeft" style="height:100%;">
               <div class="app-menu-plugin">
                 <app-mob-menu-sideslip-view-header></app-mob-menu-sideslip-view-header>
@@ -8,12 +8,13 @@
                   <div class="title">Menu</div>
                   <template v-for="item in items"  >
                     <template v-if="!item.hidden">
-                      <div class="list" :key="item.index" @click="active(item)">
+                      <div class="list" :key="item.index" @click="active(item)" :class="{'active':item.id == activeId}">
                         <ion-icon :name=" item.iconcls ? item.iconcls : 'home' "></ion-icon>
                         <div class="text">
                           <ion-label v-if="item.appfunctag != 'settings'">{{$t(`app.menus.${menuName}.${item.name}`)}}</ion-label>
                           <ion-label v-else>{{item.text}}</ion-label>
-                          <ion-badge color="danger" v-if="counterServide && counterServide.counterData && counterServide.counterData[item.counterid]"><ion-label>{{counterServide.counterData[item.counterid]}}</ion-label></ion-badge>
+                          <van-tag round type="primary" size="medium" v-if="counterServide && counterServide.counterData && counterServide.counterData[item.counterid]">{{counterServide.counterData[item.counterid]}}</van-tag>
+                          <!-- <ion-badge color="danger" v-if="counterServide && counterServide.counterData && counterServide.counterData[item.counterid]"><ion-label>{{counterServide.counterData[item.counterid]}}</ion-label></ion-badge> -->
                         </div>
                       </div>
                     </template>
@@ -208,14 +209,10 @@ export default class AppMobMenuSideslipView extends Vue {
         if(currPage){
             this.items.forEach((item:any,index:number) => {
                 if(item.id == currPage){
-                    this.activeId =  item.id;    
+                    this.activeId =  item.id       
                 }
             })
-        } 
-        // 阻止冒泡
-        document.addEventListener('touchmove',function(event){
-          event.stopPropagation();
-        },false);
+        }
     }
 
     /**
@@ -260,6 +257,27 @@ export default class AppMobMenuSideslipView extends Vue {
     @Emit()
     select(val: any) {
         return val;
+    }
+
+    /**
+     * 选中菜单项
+     *
+     * @param {*} $event
+     * @returns {void}
+     * @memberof AppMobMenuDefaultView
+     */
+    public selectItem($event: any): void {
+        if (!$event) {
+            return ;
+        }
+        let { detail } = $event;
+        if (!detail) {
+            return ;
+        }
+        let { tab }  = detail;
+        if (!tab) {
+            return;
+        }
     }
 
     /**

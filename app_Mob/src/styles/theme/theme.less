@@ -169,7 +169,25 @@
     .header {
       background-color: @theme-color;
     }
+    .list{
+      &:active{
+        color: @theme-color;
+      }
+      .van-tag{
+        background-color: @theme-color;
+        color: @text-color;
+      }
+    }
+    .active{
+      ion-icon{
+        color: @theme-color;
+      }
+      ion-label{
+        color: @theme-color;
+      }
+    }
   }
+  
   // 快速搜索组件主题
   .app-seach-history {
     .record {
@@ -190,5 +208,14 @@
   }
   .dropdown-box .dropdown-item .dropdown-item-icon {
     color: @theme-color;
+  }
+
+  // 侧滑菜单头部
+  .app-mob-menu-sideslip-view-header{
+    .header{
+      .text{
+        color: @theme-color;
+      }
+    }
   }
 }
