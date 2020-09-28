@@ -222,7 +222,7 @@ public class DeFreemarkerTplHelper {
         try {
             StringBuilder changeLog = new StringBuilder();
 
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             changeLog.append("\r\n【" + sdf.format(new Date(updatedateLong)) + "（" + updatedateLong + "）】\r\n");
 
             File lastedFile = new File(lastedFilePath);
