@@ -184,4 +184,16 @@ export default class EmployEeloadServiceBase extends EntityService {
         let res:any = Http.getInstance().get(`/employeeloads/fetchdefault`,tempData,isloading);
         return res;
     }
+
+    /**
+     * UpdateTime接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EmployEeloadServiceBase
+     */
+    public async UpdateTime(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
 }
