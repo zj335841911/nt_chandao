@@ -549,7 +549,7 @@ export default class ActivationMobBase extends Vue implements ControlInterface {
       * @type {any}
       * @memberof ActivationMob
       */
-    public errorCache :any;
+    public errorCache :any = {};
 
     /**
      * 属性值规则
@@ -1031,7 +1031,7 @@ export default class ActivationMobBase extends Vue implements ControlInterface {
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(this.errorCache[property]);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
                 resolve(false);
             });
         });
