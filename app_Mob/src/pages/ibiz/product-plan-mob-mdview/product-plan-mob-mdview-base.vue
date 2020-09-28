@@ -1046,7 +1046,7 @@ export default class ProductPlanMobMDViewBase extends Vue {
      * @memberof ProductPlanMobMDViewBase
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

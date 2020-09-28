@@ -818,7 +818,7 @@ export default class StoryAssMobMDView9Base extends Vue {
      * @memberof StoryAssMobMDView9Base
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

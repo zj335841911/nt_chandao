@@ -991,7 +991,7 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
      * @memberof StoryMobMDViewCurProjectBase
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

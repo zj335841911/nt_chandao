@@ -908,7 +908,7 @@ export default class StoryFavoriteMoreMobMDViewBase extends Vue {
      * @memberof StoryFavoriteMoreMobMDViewBase
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

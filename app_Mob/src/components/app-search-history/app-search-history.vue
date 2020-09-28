@@ -10,9 +10,9 @@
             <van-tag type="primary" v-for="item in historyList" :key="item.index" round size="medium" color="#ededed" text-color="#333" @click="searchbarValueChange(item)">{{item}}</van-tag>
           </div>
         </div>
-        <div class="record" v-show="searchbarIsFocus || isSpeaking" >
+        <div class="record" v-show="thirdPartyService.isInit && (searchbarIsFocus || isSpeaking)" >
           <div class="record_icon" :class="{'speaking':isSpeaking}" >
-            <ion-icon name="mic-outline"  @touchstart="gotouchstart" @touchmove="gotouchmove" @touchend="gotouchend"></ion-icon>
+            <ion-icon name="mic-outline"  @touchstart="gotouchstart"  @touchend="gotouchend" @gesturestart="gotouchstart" @gestureend="gotouchend"></ion-icon>
           </div>
           <div class="record_text" v-show="!isSpeaking"><div>按住说话</div></div>
           <div class="record_text" v-show="isSpeaking"><div>请说话</div></div>
@@ -26,6 +26,7 @@ import { ThirdPartyService } from "@ibiz-core";
     components: {},
 })
 export default class AppRoundList extends Vue {
+  
     /**
      * 第三方服务
      *
@@ -88,6 +89,7 @@ export default class AppRoundList extends Vue {
             this.hasHistory = true;
         }
     }
+
     /**
      * 每一类搜索历史
      *

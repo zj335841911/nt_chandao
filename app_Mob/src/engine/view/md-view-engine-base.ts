@@ -398,6 +398,12 @@ export default class MDViewEngineBase extends ViewEngine {
         if (this.view && this.view.quickGroupData) {
             Object.assign(otherQueryParam,this.view.quickGroupData);
         }
+        if (this.view && this.view.categoryValue) {
+            Object.assign(otherQueryParam,this.view.categoryValue);
+        }
+        if (this.view && this.view.sortValue) {
+            Object.assign(otherQueryParam,this.view.sortValue);
+        }
         Object.assign(arg,{viewparams:otherQueryParam});
     }
 

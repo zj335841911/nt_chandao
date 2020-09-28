@@ -903,7 +903,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      * @memberof BugPlanMobMDView9Base
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

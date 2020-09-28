@@ -758,7 +758,7 @@ export default class TaskEstimateMobMDViewBase extends Vue {
      * @memberof TaskEstimateMobMDViewBase
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

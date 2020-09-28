@@ -9,6 +9,7 @@ import store from '@/store';
  * @class DingTalkService
  */
 export class DingTalkService {
+
     /**
      * 唯一实例
      *
@@ -92,24 +93,41 @@ export class DingTalkService {
     /**
      * 钉钉初始化
      */
-    private dd_ready() {
+    private async dd_ready() {
         // 设置导航标题
         this.setNavBack();
-        // 
-        this.dd.ui.webViewBounce.disable({});
+        let access_token: any = await this.getAccess_token();
+        // 鉴权
+        this.authentication(access_token.agentId, this.corpId, access_token.data.timeStamp, access_token.data.nonceStr, access_token.data.signature);
     }
 
+
+    /**
+     * 获取access_token
+     */
+    public async getAccess_token() {
+        let access_token = localStorage.getItem("access_token");
+        if (access_token) {
+            let reAccess_token: any = JSON.parse(access_token);
+            // 鉴权信息2小时过期 设置一小时五十分钟
+            if (reAccess_token.time && !(new Date().getTime() - reAccess_token.tiem > 5400000)) {
+                return reAccess_token;
+            }
+        }
+        const reAccess_token: any = await this.get(`/uaa/dingtalk/jsapi/sign`);
+        localStorage.setItem("access_token", JSON.stringify(Object.assign(reAccess_token, { time: new Date().getTime() })));
+        return reAccess_token;
+    }
     /**
      * 钉钉登录
      *
-     * @returns {Promise<any>} 返回用户信息
      * @memberof DingTalkService
      */
     public async login(): Promise<any> {
-        const access_token: any = await this.get(`/uaa/dingtalk/jsapi/sign`);
+        const access_token = await this.getAccess_token();
         if (access_token.status == 200 && access_token.data && access_token.data.corp_id) {
+            localStorage.setItem("access_token", JSON.stringify(Object.assign(access_token, new Date().getTime)));
             this.corpId = access_token.data.corp_id;
-            this.authentication(access_token.data.agentId, this.corpId, access_token.data.timeStamp, access_token.data.nonceStr, access_token.data.signature);
             const res: any = await dd.runtime.permission.requestAuthCode({ corpId: this.corpId });
             if (res && res.code) {
                 const userInfo: any = await this.get(`/uaa/open/dingtalk/auth/${res.code}`);
@@ -125,16 +143,12 @@ export class DingTalkService {
             } else {
                 return { issuccess: false, message: "钉钉用户信息获取失败" };
             }
-
-        } else {
-            return { issuccess: false, message: "获取企业id失败" };
         }
     }
 
     /**
      * 鉴权
      * 
-     * @returns {Promise<any>} 返回用户信息
      * @memberof DingTalkService
      */
     private authentication(agentId: string, corpId: string, timeStamp: any, nonceStr: string, signature: any) {
@@ -153,20 +167,8 @@ export class DingTalkService {
             ] // 必填，需要使用的jsapi列表，注意：不要带dd。
         });
         this.dd.error((error: any) => {
-            alert('dd error: ' + error);
+            // alert('dd error: ' + error);
         });
-    }
-
-    /**
-     * test
-     */
-    public async test() {
-        const access_token: any = await this.get(`/uaa/dingtalk/jsapi/sign`);
-        // alert(access_token.data.agentId)
-        this.authentication('859826642', access_token.data.corpId, access_token.data.timeStamp, access_token.data.nonceStr, access_token.data.signature);
-        setTimeout(() => {
-            // this.getuuid();
-        }, 2000);
     }
 
     /**
@@ -275,8 +277,6 @@ export class DingTalkService {
     /**
      * 获取实例
      *
-     * @static
-     * @returns {DingTalkService}
      * @memberof DingTalkService
      */
     public static getInstance(): DingTalkService {
@@ -286,8 +286,6 @@ export class DingTalkService {
     /**
      * 关闭钉钉应用
      *
-     * @static
-     * @returns {DingTalkService}
      * @memberof DingTalkService
      */
     private close() {
@@ -297,8 +295,6 @@ export class DingTalkService {
     /**
      * 设置钉钉标题
      *
-     * @static
-     * @returns {DingTalkService}
      * @memberof DingTalkService
      */
     private setTitle(title: string) {
@@ -310,8 +306,6 @@ export class DingTalkService {
     /**
      * 设置钉钉导航栏返回按钮
      *
-     * @static
-     * @returns {DingTalkService}
      * @memberof DingTalkService
      */
     private setNavBack() {
@@ -334,8 +328,6 @@ export class DingTalkService {
     /**
      * 钉钉导航栏返回事件
      *
-     * @static
-     * @returns {DingTalkService}
      * @memberof DingTalkService
      */
     private backEvent: Function = () => { };
@@ -343,8 +335,6 @@ export class DingTalkService {
     /**
      * 设置钉钉导航栏返回事件
      *
-     * @static
-     * @returns {DingTalkService}
      * @memberof DingTalkService
      */
     private setBackEvent(event: Array<Function>) {
@@ -353,6 +343,7 @@ export class DingTalkService {
 
     /**
      * 是否调用导航栏返回事件
+     * 
      * @memberof DingTalkService
      */
     private controlBackEvent() {
@@ -363,6 +354,8 @@ export class DingTalkService {
 
     /**
      * 钉钉开放事件
+     * 
+     *  @memberof DingTalkService
      */
     public ddEvent(tag: string, arg: any) {
         if (Object.is(tag, 'startRecord')) {

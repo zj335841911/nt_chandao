@@ -954,7 +954,7 @@ export default class BuildMobMDViewBase extends Vue {
      * @memberof BuildMobMDViewBase
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

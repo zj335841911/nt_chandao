@@ -961,7 +961,7 @@ export default class TaskAssMoreMobMDViewBase extends Vue {
      * @memberof TaskAssMoreMobMDViewBase
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

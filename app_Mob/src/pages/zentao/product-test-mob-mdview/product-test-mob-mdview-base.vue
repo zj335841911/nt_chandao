@@ -928,7 +928,7 @@ export default class ProductTestMobMDViewBase extends Vue {
      * @memberof ProductTestMobMDViewBase
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

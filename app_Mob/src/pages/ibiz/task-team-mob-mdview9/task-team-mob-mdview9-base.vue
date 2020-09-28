@@ -734,7 +734,7 @@ export default class TaskTeamMobMDView9Base extends Vue {
      * @memberof TaskTeamMobMDView9Base
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

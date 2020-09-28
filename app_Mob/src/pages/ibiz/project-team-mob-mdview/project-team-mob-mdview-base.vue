@@ -700,7 +700,7 @@ export default class ProjectTeamMobMDViewBase extends Vue {
      * @memberof ProjectTeamMobMDViewBase
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 
