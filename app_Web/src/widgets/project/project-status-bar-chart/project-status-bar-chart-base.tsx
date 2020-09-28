@@ -263,6 +263,13 @@ export class ProjectStatusBarChartBase extends MainControlBase {
     public chartBaseOPtion:any = {};
 
     /**
+     * 图表绘制最终参数
+     *
+     * @memberof Db_projectstatusportlet_chartBase
+     */ 
+    public chartRenderOption:any = {};
+
+    /**
      * 初始化图表所需参数
      *
      * @type {}
@@ -365,7 +372,7 @@ export class ProjectStatusBarChartBase extends MainControlBase {
           this.myChart = echarts.init(element);
         }
         let _chartOption = this.handleChartOPtion(codelist);
-        console.log(_chartOption);
+        this.chartRenderOption = {..._chartOption};
         this.myChart.setOption(_chartOption);
         this.myChart.resize();
     }
