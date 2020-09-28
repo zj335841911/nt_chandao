@@ -448,6 +448,17 @@ export default class CaseMobMDViewBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof CaseMobMDViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof CaseMobMDViewBase

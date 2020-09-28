@@ -431,6 +431,17 @@ export default class TodoNewMobEditViewBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof TodoNewMobEditViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof TodoNewMobEditViewBase

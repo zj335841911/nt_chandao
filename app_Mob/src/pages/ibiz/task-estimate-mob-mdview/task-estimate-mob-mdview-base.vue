@@ -371,6 +371,17 @@ export default class TaskEstimateMobMDViewBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof TaskEstimateMobMDViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof TaskEstimateMobMDViewBase

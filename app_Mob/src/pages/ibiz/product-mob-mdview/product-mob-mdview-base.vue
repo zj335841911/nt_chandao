@@ -514,6 +514,17 @@ export default class ProductMobMDViewBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof ProductMobMDViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof ProductMobMDViewBase

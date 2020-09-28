@@ -402,6 +402,17 @@ export default class StoryFavoriteMobMDViewBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof StoryFavoriteMobMDViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof StoryFavoriteMobMDViewBase

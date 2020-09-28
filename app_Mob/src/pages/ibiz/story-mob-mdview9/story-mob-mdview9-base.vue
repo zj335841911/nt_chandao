@@ -366,6 +366,17 @@ export default class StoryMobMDView9Base extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof StoryMobMDView9Base
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof StoryMobMDView9Base

@@ -299,6 +299,17 @@ export default class AppIndexViewBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof AppIndexViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof AppIndexViewBase

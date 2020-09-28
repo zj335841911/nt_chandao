@@ -431,6 +431,17 @@ export default class BugColseMobEditViewBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof BugColseMobEditViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof BugColseMobEditViewBase

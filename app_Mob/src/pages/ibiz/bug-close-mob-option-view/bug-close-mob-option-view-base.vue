@@ -360,6 +360,17 @@ export default class BugCloseMobOptionViewBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof BugCloseMobOptionViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof BugCloseMobOptionViewBase

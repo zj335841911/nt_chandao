@@ -486,6 +486,17 @@ export default class StoryMobEditViewBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof StoryMobEditViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof StoryMobEditViewBase

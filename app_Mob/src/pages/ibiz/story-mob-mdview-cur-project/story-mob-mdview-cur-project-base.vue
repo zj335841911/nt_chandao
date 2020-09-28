@@ -495,6 +495,17 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof StoryMobMDViewCurProjectBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof StoryMobMDViewCurProjectBase

@@ -338,6 +338,17 @@ export default class ProjectMobPickupMDViewBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof ProjectMobPickupMDViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof ProjectMobPickupMDViewBase

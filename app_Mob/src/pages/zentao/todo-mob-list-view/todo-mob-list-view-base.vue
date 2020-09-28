@@ -335,6 +335,17 @@ export default class TodoMobListViewBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof TodoMobListViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof TodoMobListViewBase

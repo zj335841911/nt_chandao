@@ -431,6 +431,17 @@ export default class ProjectActiviteMobEditViewBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof ProjectActiviteMobEditViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof ProjectActiviteMobEditViewBase

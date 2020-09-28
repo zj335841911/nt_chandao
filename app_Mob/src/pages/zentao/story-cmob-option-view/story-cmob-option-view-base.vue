@@ -360,6 +360,17 @@ export default class StoryCMobOptionViewBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof StoryCMobOptionViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof StoryCMobOptionViewBase

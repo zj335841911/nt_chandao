@@ -364,6 +364,17 @@ export default class IbzMyTerritoryMobMDView9Base extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof IbzMyTerritoryMobMDView9Base
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof IbzMyTerritoryMobMDView9Base

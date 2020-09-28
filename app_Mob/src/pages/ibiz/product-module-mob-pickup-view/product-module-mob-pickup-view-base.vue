@@ -351,6 +351,17 @@ export default class ProductModuleMobPickupViewBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof ProductModuleMobPickupViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof ProductModuleMobPickupViewBase

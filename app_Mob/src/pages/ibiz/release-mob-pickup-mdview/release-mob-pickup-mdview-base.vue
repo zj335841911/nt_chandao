@@ -338,6 +338,17 @@ export default class ReleaseMobPickupMDViewBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof ReleaseMobPickupMDViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof ReleaseMobPickupMDViewBase

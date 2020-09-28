@@ -339,6 +339,17 @@ export default class TaskTeamMobMEditView9Base extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof TaskTeamMobMEditView9Base
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof TaskTeamMobMEditView9Base

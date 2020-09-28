@@ -390,6 +390,17 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof StoryLinkStoryMobMPickupViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof StoryLinkStoryMobMPickupViewBase

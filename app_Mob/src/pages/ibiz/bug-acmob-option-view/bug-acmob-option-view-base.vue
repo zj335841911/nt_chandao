@@ -360,6 +360,17 @@ export default class BugACMobOptionViewBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof BugACMobOptionViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof BugACMobOptionViewBase

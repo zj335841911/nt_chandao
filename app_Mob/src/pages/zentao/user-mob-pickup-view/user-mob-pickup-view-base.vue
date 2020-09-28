@@ -351,6 +351,17 @@ export default class UserMobPickupViewBase extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof UserMobPickupViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof UserMobPickupViewBase

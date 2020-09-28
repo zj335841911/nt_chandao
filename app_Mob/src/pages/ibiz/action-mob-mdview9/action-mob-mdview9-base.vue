@@ -364,6 +364,17 @@ export default class ActionMobMDView9Base extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof ActionMobMDView9Base
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof ActionMobMDView9Base

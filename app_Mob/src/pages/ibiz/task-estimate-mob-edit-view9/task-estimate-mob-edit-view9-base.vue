@@ -358,6 +358,17 @@ export default class TaskEstimateMobEditView9Base extends Vue {
     }
 
     /**
+     * Vue声明周期
+     *
+     * @memberof TaskEstimateMobEditView9Base
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
+
+    /**
      * Vue声明周期(组件初始化完毕)
      *
      * @memberof TaskEstimateMobEditView9Base
