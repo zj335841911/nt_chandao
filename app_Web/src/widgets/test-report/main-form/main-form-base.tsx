@@ -244,7 +244,7 @@ export class MainEditFormBase extends EditFormControlBase {
             this.updateFormItems('GetInfoTestTask', this.data, details, true);
         }
         if (Object.is(name, 'formitemex1')) {
-            const details: string[] = ['overviews'];
+            const details: string[] = ['product', 'projectname', 'tasks', 'report', 'begin', 'overviews', 'objecttype', 'cases', 'builds', 'title', 'bugs', 'members', 'productname', 'owner', 'project', 'end', 'objectid', 'stories'];
             this.updateFormItems('GetInfoTaskOvByTime', this.data, details, true);
         }
     }
