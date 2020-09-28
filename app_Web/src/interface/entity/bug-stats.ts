@@ -117,4 +117,36 @@ export interface BugStats {
      * @memberof BugStats
      */
     bugtotal?: any;
+
+    /**
+     * 编号
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    product?: any;
+
+    /**
+     * 产品名称
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    productname?: any;
+
+    /**
+     * Bug
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    bugcnt?: any;
+
+    /**
+     * 指派给
+     *
+     * @returns {*}
+     * @memberof BugStats
+     */
+    assignedto?: any;
 }

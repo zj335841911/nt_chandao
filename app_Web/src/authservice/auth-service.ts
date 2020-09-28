@@ -1,4 +1,6 @@
 import store from '@/store';
+import { Environment } from '@/environments/environment';
+
 /**
  * 实体权限服务
  *
@@ -237,7 +239,16 @@ export default class AuthService {
      * @memberof AuthService
      */
     public getMenusPermission(item: any): boolean {
-        return this.$store.getters['authresource/getAuthMenu'](item);
+        if(!this.$store.getters['authresource/getEnablePermissionValid']) {
+            return true;
+        }
+        if(Object.is(Environment.menuPermissionMode,"RT")){
+            return this.$store.getters['authresource/getAuthMenuWithRT'](item);
+        }else if(Object.is(Environment.menuPermissionMode,"RESOURCE")){
+            return this.$store.getters['authresource/getAuthMenuWithResource'](item);
+        }else{
+            return this.$store.getters['authresource/getAuthMenu'](item);
+        }
     }
 
     /**

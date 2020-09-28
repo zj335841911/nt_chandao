@@ -237,6 +237,7 @@ export const viewstate: any = {
             refviews: [
                 '24a03de02dc02b92a3c228b944e78ed9',
                 'cdba1a5e90e147e5f3bf9f2c08c87f56',
+                'b90624360f51aadfbfaa92d563dc1410',
                 'd21c783cde14166ba9deb09e746a0f28',
                 'd86b9d1e9fad770e8fc97718cee8ed31',
                 'b7427fe34d292009905e126defc9fa22',
@@ -2774,6 +2775,16 @@ export const viewstate: any = {
                 'e0fbca7627cdd68765e173028b07f687',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
                 '6cf95e90393715815492a7e5e6f2a6f3',
+            ],
+        },
+        {
+            viewtag: 'b90624360f51aadfbfaa92d563dc1410',
+            viewmodule: 'ibiz',
+            viewname: 'BugStatsAssigntoGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '0174d3383dadc0878991e5c90bd5eaa3',
             ],
         },
         {

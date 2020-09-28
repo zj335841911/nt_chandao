@@ -687,7 +687,7 @@ export class ModuleExpTreeBase extends MainControlBase {
      * @type {string}
      * @memberof ModuleExpBase
      */
-    @Prop() public selectedData?: string;
+    @Prop() public selectedData!: string;
 
     /**
      * 备份行为模型

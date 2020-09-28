@@ -1,7 +1,7 @@
 <studio-view viewName="burnchartview" viewTitle="燃尽图" class='dechartview burn-chart-view'>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
-    <view_chart 
+        <view_chart 
         :viewState="viewState"  
         :viewparams="viewparams" 
         :context="context" 

@@ -5,6 +5,8 @@ import TestSuiteService from '@/service/test-suite/test-suite-service';
 import TestSuiteQuickActionService from './test-suite-quick-action-portlet-service';
 import TestSuiteUIService from '@/uiservice/test-suite/test-suite-ui-service';
 import { Environment } from '@/environments/environment';
+import UIService from '@/uiservice/ui-service';
+import { ViewTool } from '@/utils';
 
 
 /**
@@ -214,6 +216,26 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
     @Prop() public width?: number;
 
     /**
+     * 门户部件类型
+     *
+     * @type {number}
+     * @memberof TestSuiteQuickActionBase
+     */
+    public portletType: string = 'actionbar';
+
+    /**
+     * 界面行为模型数据
+     *
+     * @memberof TestSuiteQuickActionBase
+     */
+    public uiactionModel: any = {
+        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
+        linkcasedash: {name: 'linkcasedash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTSU_LINKCASE_BUT', uiaction: { tag: 'linkCaseDash', target: 'SINGLEKEY' } },
+        editsuitedash: {name: 'editsuitedash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTSU_EDITSUITE_BUT', uiaction: { tag: 'EditsuiteDash', target: 'SINGLEKEY' } },
+        deletedash: {name: 'deletedash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTSU_DELETE_BUT', uiaction: { tag: 'DeleteDash', target: 'SINGLEKEY' } },
+    }
+
+    /**
      * 操作栏模型数据
      *
      * @returns {any[]}
@@ -345,6 +367,9 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
     public afterCreated(){
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
+                if(Object.is(tag, "all-portlet") && Object.is(action,'loadmodel')){
+                   this.calcUIActionAuthState(data);
+                }
                 if (!Object.is(tag, this.name)) {
                     return;
                 }
@@ -373,6 +398,23 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
     public afterDestroy() {
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
+        }
+    }
+
+    /**
+     * 计算界面行为权限
+     *
+     * @memberof TestSuiteQuickActionBase
+     */
+    public calcUIActionAuthState(data:any = {}) {
+        //  如果是操作栏，不计算权限
+        if(this.portletType && Object.is('actionbar', this.portletType)) {
+            return;
+        }
+        let _this: any = this;
+        let uiservice: any = _this.appUIService ? _this.appUIService : new UIService(_this.$store);
+        if(_this.uiactionModel){
+            ViewTool.calcActionItemAuthState(data,_this.uiactionModel,uiservice);
         }
     }
 

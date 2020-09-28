@@ -2,6 +2,7 @@ import qs from 'qs';
 import i18n from '@/locale'
 import { AppContextStore } from '../app-context-store/AppContextStore';
 import { UIStateService } from '../UIStateService';
+import { AppEvent } from '../../events/app-event';
 
 /**
  * 历史记录项
@@ -54,6 +55,13 @@ export interface HistoryItem {
  * @class AppNavHistoryBase
  */
 export class AppNavHistoryBase {
+
+    /**
+     * 应用事件
+     *
+     * @memberof AppServiceBase
+     */
+    public readonly appEvent = AppEvent.getInstance();
 
     /**
      * 应用上下文仓库
@@ -264,6 +272,7 @@ export class AppNavHistoryBase {
                 item.meta.info = info;
                 item.title = `${i18n.t(item.meta.caption)} - ${info}`;
             }
+            this.appEvent.emit('navHistoryItemChange', item);
         }
         return true;
     }

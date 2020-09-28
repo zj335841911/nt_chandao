@@ -13,6 +13,7 @@ import { utilServiceRegister } from '@/utilservice/util-service-register';
 import { entityServiceRegister } from '@/service/entity-service-register';
 import { counterServiceRegister } from '@/counter/counter-service-register';
 import { codeListRegister } from '@codelist/codelist-register';
+import { messageServiceRegister } from '@/message/message-service-register';
 
 import iBizVueLib from 'ibiz-vue-lib';
 import InputBox from './components/input-box/input-box.vue'
@@ -77,6 +78,8 @@ import AppDepartmentSelect from './components/app-department-select/app-departme
 import AppGroupSelect from './components/app-group-select/app-group-select.vue'
 import UpdatePwd from './components/app-update-password/app-update-password.vue'
 import ActionTimeline from './components/action-timeline/action-timeline.vue'
+import AppAlert from './components/app-alert/app-alert.vue'
+import AppAlertGroup from './components/app-alert-group/app-alert-group.vue'
 
 // 全局挂载UI实体服务注册中心
 window['uiServiceRegister'] = uiServiceRegister;
@@ -90,6 +93,8 @@ window['entityServiceRegister'] = entityServiceRegister;
 window['counterServiceRegister'] = counterServiceRegister;
 // 全局挂载代码表服务注册中心
 window['codeListRegister'] = codeListRegister;
+// 全局挂载视图消息服务注册中心
+window['messageServiceRegister'] = messageServiceRegister;
 
 export const AppComponents = {
     install(v: any, opt: any) {
@@ -170,5 +175,7 @@ export const AppComponents = {
         v.component('app-department-select', () => import('./components/app-department-select/app-department-select.vue'));
         v.component('app-org-select', () => import('./components/app-org-select/app-org-select.vue'));
         v.component('action-timeline', ActionTimeline);
+        v.component('app-alert', AppAlert);
+        v.component('app-alert-group', AppAlertGroup);
     },
 };

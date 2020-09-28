@@ -3,6 +3,7 @@ import { AppContextStore } from '../app-context-store/AppContextStore';
 import { AppViewStore } from '../app-view-store/AppViewStore';
 import { Environment } from '@/environments/environment';
 import { Util } from '@/utils';
+import { AppEvent } from '../../events/app-event';
 
 /**
  * 应用服务基类
@@ -35,6 +36,13 @@ export class AppServiceBase {
      * @memberof AppServiceBase
      */
     public readonly viewStore: AppViewStore = new AppViewStore();
+
+    /**
+     * 应用事件
+     *
+     * @memberof AppServiceBase
+     */
+    public readonly appEvent = AppEvent.getInstance();
 
     /**
      * 退出登录

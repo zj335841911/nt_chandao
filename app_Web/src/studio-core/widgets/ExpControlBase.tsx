@@ -266,7 +266,7 @@ export class ExpControlBase extends ControlBase {
             if(_item && _item['dataaccaction'] && UIService){
                 let dataActionResult:any;
                 if(_item['uiaction']){
-                    if(Object.is(_item['uiaction']['actiontarget'],"NONE") || Object.is(_item['uiaction']['actiontarget'],"")){
+                    if(Object.is(_item['uiaction']['target'],"NONE") || Object.is(_item['uiaction']['target'],"")){
                         dataActionResult = UIService.getResourceOPPrivs(_item['dataaccaction']);
                     }else{
                         if(data && Object.keys(data).length >0){

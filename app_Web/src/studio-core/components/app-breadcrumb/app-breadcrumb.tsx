@@ -1,5 +1,6 @@
 import { Vue, Component } from 'vue-property-decorator';
 import qs from 'qs';
+import { Environment } from '@/environments/environment'
 import { AppService } from '@/studio-core/service/app-service/AppService';
 import { HistoryItem } from '@/studio-core/service/app-nav-history/AppNavHistoryBase';
 import './app-breadcrumb.less';
@@ -19,9 +20,26 @@ export class AppBreadcrumb extends Vue {
      *
      * @protected
      * @type {AppService}
-     * @memberof AppHeader
+     * @memberof AppBreadcrumb
      */
     protected appService: AppService = new AppService();
+
+    /**
+     * 界面导航条分隔符
+     *
+     * @protected
+     * @type {AppService}
+     * @memberof AppBreadcrumb
+     */
+    protected NavBarDelimiter: string = Environment.NavBarDelimiter;
+
+    created() {
+        this.appService.appEvent.on('navHistoryItemChange', this.historyItemChange);
+    }
+
+    historyItemChange = (item: HistoryItem) => {
+        this.$forceUpdate();
+    }
 
     /**
      * 跳转点击
@@ -31,9 +49,9 @@ export class AppBreadcrumb extends Vue {
      * @memberof AppBreadcrumb
      */
     protected click(to: any) {
-        const i = this.$appService.navHistory.findHistoryIndex(to);
+        const i = this.appService.navHistory.findHistoryIndex(to);
         this.$router.push({ path: to.path, params: to.params, query: to.query });
-        this.$appService.navHistory.reset(i + 1);
+        this.appService.navHistory.reset(i + 1);
     }
 
     /**
@@ -52,7 +70,7 @@ export class AppBreadcrumb extends Vue {
             });
         }
         this.$router.push(path);
-        this.$appService.navHistory.reset();
+        this.appService.navHistory.reset();
         location.reload();
     }
 
@@ -67,7 +85,7 @@ export class AppBreadcrumb extends Vue {
      */
     protected getItems(context: any, tag?: string): any[] | null {
         if (tag) {
-            const view = this.$appService.viewStore.findParentByTag(tag);
+            const view = this.appService.viewStore.findParentByTag(tag);
             if (view) {
                 const data = this.appService.contextStore.getContextData(view.context, context.srfappdename);
                 if (data && data.items) {
@@ -100,7 +118,7 @@ export class AppBreadcrumb extends Vue {
         }
         this.$router.push(path);
         if (to.fullPath !== path) {
-            this.$appService.navHistory.pop();
+            this.appService.navHistory.pop();
         }
         this.$forceUpdate();
     }
@@ -123,7 +141,7 @@ export class AppBreadcrumb extends Vue {
         arr.forEach((item, i) => {
             let info = '';
             let dropdown: any = null;
-            const view = this.$appService.viewStore.findParentByTag(item.tag as string);
+            const view = this.appService.viewStore.findByTag(item.tag as string);
             if (view?.viewUsage === 1 && view.isShowDataInfoBar) {
                 info = item.meta?.info;
                 if (arr.length === (i + 1)) {
@@ -139,7 +157,7 @@ export class AppBreadcrumb extends Vue {
                 }
             }
             items.push(<span class={{ 'app-breadcrumb-item': true, 'last': i === (arr.length - 1) }}>
-                {(!indexMeta && i === 0) ? null : <span class="separator">/</span>}
+                {(!indexMeta && i === 0) ? null : <span class="separator">{this.NavBarDelimiter}</span>}
                 <span class="content" on-click={() => this.click(item.to)}>{this.$t(item.meta?.caption)}{dropdown ? null : isExistAndNotEmpty(info) ? ' - ' + info : ''}</span>
                 {dropdown ? <span class="select"> - {dropdown}</span> : null}
             </span>);

@@ -10,6 +10,15 @@ import Schema from "async-validator";
 export class Util {
 
     /**
+     * App唯一自增主键记录值
+     *
+     * @private
+     * @static
+     * @memberof Util
+     */
+    private static autoIncrementPrimaryKey = 0;
+
+    /**
      * 创建 UUID
      *
      * @static
@@ -35,6 +44,17 @@ export class Util {
             return Math.floor((1 + Math.random()) * 0x10000);
         }
         return s4();
+    }
+
+    /**
+     * 获取当前应用界面唯一标识
+     *
+     * @static
+     * @return {*}  {number}
+     * @memberof Util
+     */
+    public static generateAppMajorKey(): number {
+        return this.autoIncrementPrimaryKey++;
     }
 
     /**

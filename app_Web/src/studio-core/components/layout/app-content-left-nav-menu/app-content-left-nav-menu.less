@@ -25,29 +25,28 @@
     overflow-y: auto;
     overflow-x: hidden;
     border-right: 1px solid var(--app-dividing-line-color-bright);
-    background-color: var(--app-left-sidebar-background-color);
+    background-color: var(--app-header-background-color);
 
     .el-menu {
         min-height: 100%;
-        background-color: var(--app-left-sidebar-background-color);
+        background-color: var(--app-header-background-color);
         border: 0;
 
         .el-menu-item,
         .el-submenu>.el-submenu__title {
             min-width: calc(100% - 10px);
-            color: hsla(0, 0%, 100%, .7);
-            height: 42px;
-            line-height: 42px;
+            color: var(--app-header-color);
+            height: 38px;
+            line-height: 38px;
             font-size: 18px;
             padding-left: 10px !important;
             padding-right: 0px !important;
-
+            
             >i {
                 margin-right: 5px;
                 width: 24px;
-                color: hsla(0, 0%, 100%, .7);
+                color: var(--app-header-color);
                 text-align: center;
-                font-size: 14px;
             }
 
             >span {
@@ -65,12 +64,7 @@
         .el-menu-item:hover,
         .el-menu-item.is-active,
         .el-submenu>.el-submenu__title:hover {
-            color: var(--app-left-sidebar-font-color-active);
-            background-color: var(--app-left-sidebar-background-color-active);
-
-            >i {
-                color: var(--app-left-sidebar-font-color-active);
-            }
+            background-color: hsla(0, 0%, 100%, 0.12);
         }
     }
 
@@ -91,14 +85,7 @@
 
             >i {
                 margin: 0 !important;
-                color: hsla(0, 0%, 100%, .7);
-            }
-        }
-
-        >.el-menu-item.is-active>.el-tooltip {
-
-            >i {
-                color: var(--app-left-sidebar-font-color-active);
+                color: var(--app-header-color);
             }
         }
     }

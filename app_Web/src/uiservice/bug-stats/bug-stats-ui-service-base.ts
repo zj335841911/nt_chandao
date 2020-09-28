@@ -91,6 +91,7 @@ export default class BugStatsUIServiceBase extends UIService {
     public initViewMap(){
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'bugstats',component:'bug-stats-edit-view'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'bugstats',component:'bug-stats-grid-view'});
+        this.allViewMap.set(':',{viewname:'assigntogridview',srfappde:'bugstats',component:'bug-stats-assignto-grid-view'});
     }
 
     /**

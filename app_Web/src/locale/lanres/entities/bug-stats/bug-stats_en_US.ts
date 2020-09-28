@@ -15,6 +15,10 @@ export default {
     bugtostory: "转为需求",
     bugefficient: "有效率",
     bugtotal: "总计",
+    product: "编号",
+    productname: "产品名称",
+    bugcnt: "Bug",
+    assignedto: "指派给",
   },
 	views: {
 		editview: {
@@ -24,6 +28,10 @@ export default {
 		gridview: {
 			caption: "Bug创建表",
       		title: "Bug统计表格视图",
+		},
+		assigntogridview: {
+			caption: "Bug指派表",
+      		title: "Bug统计表格视图（Bug指派表）",
 		},
 	},
 	main_form: {
@@ -57,6 +65,16 @@ export default {
 			bugwillnotfix: "不予解决",
 			bugtostory: "转为需求",
 			bugefficient: "有效率",
+			bugtotal: "总计",
+		},
+		uiactions: {
+		},
+	},
+	bugassignedto_grid: {
+		columns: {
+			assignedto: "姓名",
+			productname: "产品",
+			bugcnt: "Bug",
 			bugtotal: "总计",
 		},
 		uiactions: {

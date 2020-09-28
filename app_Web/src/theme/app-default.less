@@ -188,4 +188,44 @@
 
     // 默认字体
     font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, "\5FAE\8F6F\96C5\9ED1", Arial, sans-serif;
+
+    .app-content-lef-nav-menu {
+        border-right: 1px solid var(--app-dividing-line-color-bright);
+        background-color: var(--app-left-sidebar-background-color);
+
+        .el-menu {
+            background-color: var(--app-left-sidebar-background-color);
+
+
+            .el-menu-item,
+            .el-submenu>.el-submenu__title {
+                color: hsla(0, 0%, 100%, .7);
+
+                >i {
+                    color: hsla(0, 0%, 100%, .7);
+                }
+            }
+
+            .el-menu-item:hover,
+            .el-menu-item.is-active,
+            .el-submenu>.el-submenu__title:hover {
+                color: var(--app-left-sidebar-font-color-active);
+                background-color: var(--app-left-sidebar-background-color-active);
+
+                >i {
+                    color: var(--app-left-sidebar-font-color-active);
+                }
+            }
+        }
+
+        .el-menu.el-menu--collapse {
+
+            >.el-menu-item.is-active>.el-tooltip {
+
+                >i {
+                    color: var(--app-left-sidebar-font-color-active);
+                }
+            }
+        }
+    }
 }

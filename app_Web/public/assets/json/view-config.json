@@ -3029,6 +3029,16 @@
         "viewtag": "b7e6268db4bdeb10211fc15383de685d",
         "memo": ""
     },
+    "bugstatsassigntogridview": {
+        "title": "Bug统计表格视图（Bug指派表）",
+        "caption": "Bug指派表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "BugStatsAssigntoGridView",
+        "viewfilename": "bug-stats-assignto-grid-view",
+        "viewtag": "b90624360f51aadfbfaa92d563dc1410",
+        "memo": ""
+    },
     "productplanmaindataeditview": {
         "title": "产品计划编辑视图",
         "caption": "产品计划",

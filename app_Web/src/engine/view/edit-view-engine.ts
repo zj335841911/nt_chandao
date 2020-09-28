@@ -200,7 +200,9 @@ export default class EditViewEngine extends ViewEngine {
                 this.view.$route.meta.info = info;
             }
             this.view.$emit('viewModelChange', this.view.viewCaption);
-            this.view.$appService.navHistory.setCaption({ tag: this.view.viewtag, info: viewdata.dataInfo });
+            if (this.view.viewUsage === 1 || this.view.viewUsage === 7) {
+                this.view.$appService.navHistory.setCaption({ tag: this.view.viewtag, info: viewdata.dataInfo });
+            }
         }
     }
 

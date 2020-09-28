@@ -5,6 +5,8 @@ import TaskService from '@/service/task/task-service';
 import MainDetailService from './main-detail-portlet-service';
 import TaskUIService from '@/uiservice/task/task-ui-service';
 import { Environment } from '@/environments/environment';
+import UIService from '@/uiservice/ui-service';
+import { ViewTool } from '@/utils';
 
 
 /**
@@ -83,6 +85,22 @@ export class MainDetailPortletBase extends MainControlBase {
      */
     @Prop() public width?: number;
 
+    /**
+     * 门户部件类型
+     *
+     * @type {number}
+     * @memberof MainDetailBase
+     */
+    public portletType: string = 'view';
+
+    /**
+     * 界面行为模型数据
+     *
+     * @memberof MainDetailBase
+     */
+    public uiactionModel: any = {
+    }
+
 
 
     /**
@@ -148,6 +166,9 @@ export class MainDetailPortletBase extends MainControlBase {
     public afterCreated(){
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
+                if(Object.is(tag, "all-portlet") && Object.is(action,'loadmodel')){
+                   this.calcUIActionAuthState(data);
+                }
                 if (!Object.is(tag, this.name)) {
                     return;
                 }
@@ -176,6 +197,23 @@ export class MainDetailPortletBase extends MainControlBase {
     public afterDestroy() {
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
+        }
+    }
+
+    /**
+     * 计算界面行为权限
+     *
+     * @memberof MainDetailBase
+     */
+    public calcUIActionAuthState(data:any = {}) {
+        //  如果是操作栏，不计算权限
+        if(this.portletType && Object.is('actionbar', this.portletType)) {
+            return;
+        }
+        let _this: any = this;
+        let uiservice: any = _this.appUIService ? _this.appUIService : new UIService(_this.$store);
+        if(_this.uiactionModel){
+            ViewTool.calcActionItemAuthState(data,_this.uiactionModel,uiservice);
         }
     }
 

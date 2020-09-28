@@ -103,6 +103,11 @@ export default class MainModel {
           isEditable:true
         },
         {
+          name: 'product',
+          prop: 'product',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'bugstats',
           prop: 'id',
         },

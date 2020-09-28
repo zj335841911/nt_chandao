@@ -2431,6 +2431,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMyFavoritesGridView",
             "viewtag": "b7e6268db4bdeb10211fc15383de685d"
         },
+        "bugstatsassigntogridview": {
+            "title": "Bug统计表格视图（Bug指派表）",
+            "caption": "Bug指派表",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "BugStatsAssigntoGridView",
+            "viewtag": "b90624360f51aadfbfaa92d563dc1410"
+        },
         "productplanmaindataeditview": {
             "title": "产品计划编辑视图",
             "caption": "产品计划",
@@ -3303,5 +3311,12 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BuildMainTabExpView",
             "viewtag": "fffe78c32fb25b287d0c5165d46f8dd2"
         }
+    }];
+});
+
+// 获取视图消息分组信息
+mock.onGet('./assets/json/view-message-group.json').reply((config: any) => {
+    let status = MockAdapter.mockStatus(config);
+    return [status,{
     }];
 });
