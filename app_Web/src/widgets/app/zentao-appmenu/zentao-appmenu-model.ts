@@ -140,6 +140,27 @@ export default class ZentaoModel {
                 }
                 ,
                 		        {
+                	id: '832B4ECF-B32B-48DD-B1EE-CE25A5A11DD7',
+                	name: 'menuitem22',
+                	text: '统计',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '统计',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: 'AppFunc',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'ibz-my-territory-stats-tab-exp-view',
+                	authtag:'Web-zentao-menuitem22',
+                }
+                ,
+                		        {
                 	id: '28e753fc0b33a6fadf12f5f37150bb5a',
                 	name: 'menuitem10',
                 	text: '用例库',
@@ -530,6 +551,18 @@ export default class ZentaoModel {
 	 * @memberof ZentaoModel
 	 */
 	private funcs: any[] = [
+        {
+            appfunctag: 'AppFunc',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibzmyterritorystatstabexpview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibzmyterritories/:ibzmyterritory?/statstabexpview/:statstabexpview?',
+            parameters: [
+                { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                { pathName: 'statstabexpview', parameterName: 'statstabexpview' },
+            ],
+        },
         {
             appfunctag: 'Auto5',
             appfuncyype: 'APPVIEW',

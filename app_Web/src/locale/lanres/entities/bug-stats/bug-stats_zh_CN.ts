@@ -51,6 +51,16 @@ export default {
 		uiactions: {
 		},
 	},
+	bugassignedto_grid: {
+		columns: {
+			assignedto: "姓名",
+			productname: "产品",
+			bugcnt: "Bug",
+			bugtotal: "总计",
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		columns: {
 			openedby: "由谁创建",
@@ -64,16 +74,6 @@ export default {
 			bugwillnotfix: "不予解决",
 			bugtostory: "转为需求",
 			bugefficient: "有效率",
-			bugtotal: "总计",
-		},
-		uiactions: {
-		},
-	},
-	bugassignedto_grid: {
-		columns: {
-			assignedto: "姓名",
-			productname: "产品",
-			bugcnt: "Bug",
 			bugtotal: "总计",
 		},
 		uiactions: {

@@ -2535,6 +2535,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TodoGridView",
             "viewtag": "bedf1f50199b74a65c2e17771144329c"
         },
+        "ibzmyterritorytesttreeexpview": {
+            "title": "我的地盘树导航视图（测试统计）",
+            "caption": "测试统计",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryTestTreeExpView",
+            "viewtag": "bef7c08b651990569cd09ce805ebcfe3"
+        },
         "productmainview_edit": {
             "title": "产品编辑视图",
             "caption": "产品基本信息",
@@ -2630,6 +2638,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TestReportEditView_Report",
             "viewtag": "c7e7e989793981f260c73513c2a4e18b"
+        },
+        "ibzmyterritorystatstabexpview": {
+            "title": "我的地盘分页导航视图（统计）",
+            "caption": "统计",
+            "viewtype": "DETABEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryStatsTabExpView",
+            "viewtag": "c8171c13c1ba215f65c8587df1d98ba5"
         },
         "buggridview": {
             "title": "bug表格视图",

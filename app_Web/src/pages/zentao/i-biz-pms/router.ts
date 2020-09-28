@@ -5144,6 +5144,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/release-edit-view/release-edit-view.vue'),
                 },
                 {
+                    path: 'ibzmyterritories/:ibzmyterritory?/statstabexpview/:statstabexpview?',
+                    meta: {
+                        caption: 'entities.ibzmyterritory.views.statstabexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                            { pathName: 'statstabexpview', parameterName: 'statstabexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-my-territory-stats-tab-exp-view/ibz-my-territory-stats-tab-exp-view.vue'),
+                },
+                {
                     path: 'products/:product?/productplans/:productplan?/subproductplans/:subproductplan?/subplancreateview/:subplancreateview?',
                     meta: {
                         caption: 'entities.subproductplan.views.subplancreateview.caption',
@@ -7874,6 +7888,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-activite-view/story-activite-view.vue'),
+                },
+                {
+                    path: 'ibzmyterritories/:ibzmyterritory?/testtreeexpview/:testtreeexpview?',
+                    meta: {
+                        caption: 'entities.ibzmyterritory.views.testtreeexpview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                            { pathName: 'testtreeexpview', parameterName: 'testtreeexpview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-my-territory-test-tree-exp-view/ibz-my-territory-test-tree-exp-view.vue'),
                 },
                 {
                     path: 'todos/:todo?/dashboardview_link/:dashboardview_link?',
@@ -13682,20 +13710,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/todo-dashboard-view/todo-dashboard-view.vue'),
                 },
                 {
-                    path: 'projects/:project?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.project.views.editview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/project-edit-view/project-edit-view.vue'),
-                },
-                {
                     path: 'products/:product?/productplans/:productplan?/editview/:editview?',
                     meta: {
                         caption: 'entities.productplan.views.editview.caption',
@@ -13723,6 +13737,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/product-plan-edit-view/product-plan-edit-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.project.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-edit-view/project-edit-view.vue'),
                 },
                 {
                     path: 'ibzprostorymodules/:ibzprostorymodule?/editview/:editview?',

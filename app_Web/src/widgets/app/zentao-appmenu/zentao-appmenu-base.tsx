@@ -24,6 +24,8 @@ export class ZentaoBase extends Vue {
         if (item) {
             let judge = true;
             switch (item.appfunctag) {
+                case 'AppFunc': 
+                    this.clickAppFunc(item); break;
                 case 'Auto5': 
                     this.clickAuto5(item); break;
                 case 'Auto8': 
@@ -68,6 +70,29 @@ export class ZentaoBase extends Vue {
                 this.$appService.navHistory.reset();
             }
         }
+    }
+    
+    /**
+     * 统计
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickAppFunc(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+            { pathName: 'statstabexpview', parameterName: 'statstabexpview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
     }
     
     /**

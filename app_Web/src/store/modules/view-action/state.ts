@@ -237,10 +237,8 @@ export const viewstate: any = {
             refviews: [
                 '24a03de02dc02b92a3c228b944e78ed9',
                 'cdba1a5e90e147e5f3bf9f2c08c87f56',
-                'b90624360f51aadfbfaa92d563dc1410',
                 'd21c783cde14166ba9deb09e746a0f28',
                 'd86b9d1e9fad770e8fc97718cee8ed31',
-                'b7427fe34d292009905e126defc9fa22',
                 'bedf1f50199b74a65c2e17771144329c',
                 'd8df5ca51341d33ccc19208dde3f2cce',
                 '376e2623b256509cdf69e2de4c01d31b',
@@ -465,6 +463,7 @@ export const viewstate: any = {
                 'cfc7781789f7706e02b2d2504339de69',
                 '0bd16cd21ee2e8951fb8a86599ac1510',
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
+                'c8171c13c1ba215f65c8587df1d98ba5',
                 '0f3dff62ef8bcb1662cc82e57a34c56b',
                 'f9dd61cc8713a81451f3cb410cf11bbb',
                 '0846a45e5ffdd4d8f857575cfa955dce',
@@ -474,9 +473,9 @@ export const viewstate: any = {
                 'D1283E46-401A-4CFD-A7A1-BF5B90197463',
                 '4fcd2a15ff88a97425e1ab1cadc5eb9f',
                 '7c79a923d0cdd1a5bc41a34367809077',
+                '8ca39819b87c5e3e8669fcd7409cf9a2',
                 'e698418f007d36b627d6af23c1042f31',
                 'e2f8bc0ff75f204383d2a5c15117b476',
-                '8ca39819b87c5e3e8669fcd7409cf9a2',
                 '077af636991c5ae68e1bc260baffc10f',
             ],
         },
@@ -2913,6 +2912,17 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'bef7c08b651990569cd09ce805ebcfe3',
+            viewmodule: 'ibiz',
+            viewname: 'IbzMyTerritoryTestTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b90624360f51aadfbfaa92d563dc1410',
+                'b7427fe34d292009905e126defc9fa22',
+            ],
+        },
+        {
             viewtag: 'c02574075c8c15c67231cd71be040763',
             viewmodule: 'zentao',
             viewname: 'ProductMainView_Edit',
@@ -3003,6 +3013,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'c5630df2f9e4729be1d7ba4048064774',
+            ],
+        },
+        {
+            viewtag: 'c8171c13c1ba215f65c8587df1d98ba5',
+            viewmodule: 'ibiz',
+            viewname: 'IbzMyTerritoryStatsTabExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'bef7c08b651990569cd09ce805ebcfe3',
             ],
         },
         {

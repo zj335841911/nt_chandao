@@ -55,9 +55,17 @@ export default {
 			caption: "我的地盘",
       		title: "我的地盘",
 		},
+		testtreeexpview: {
+			caption: "测试统计",
+      		title: "我的地盘树导航视图（测试统计）",
+		},
 		mywork: {
 			caption: "我的工作",
       		title: "我的工作",
+		},
+		statstabexpview: {
+			caption: "统计",
+      		title: "我的地盘分页导航视图（统计）",
 		},
 		dashboardview: {
 			caption: "首页",
@@ -70,6 +78,15 @@ export default {
 		listview9: {
 			caption: "我的工作",
       		title: "我的工作",
+		},
+	},
+	test_treeview: {
+		nodes: {
+			bugassignedto: "Bug指派表",
+			bugopenendby: "Bug创建表",
+			root: "默认根节点",
+		},
+		uiactions: {
 		},
 	},
 };
