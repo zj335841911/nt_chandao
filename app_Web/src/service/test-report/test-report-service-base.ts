@@ -278,6 +278,34 @@ export default class TestReportServiceBase extends EntityService {
     }
 
     /**
+     * GetInfoTaskOvByTime接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestReportServiceBase
+     */
+    public async GetInfoTaskOvByTime(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.testreport){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/testreports/${context.testreport}/getinfotaskovbytime`,data,isloading);
+            
+            return res;
+        }
+        if(context.product && context.testreport){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testreports/${context.testreport}/getinfotaskovbytime`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().get(`/testreports/${context.testreport}/getinfotaskovbytime`,data,isloading);
+            return res;
+    }
+
+    /**
      * GetInfoTestTaskOvProject接口方法
      *
      * @param {*} [context={}]
