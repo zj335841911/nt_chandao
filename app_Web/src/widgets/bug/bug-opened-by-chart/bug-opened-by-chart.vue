@@ -20,7 +20,7 @@
                 </template>
             </el-table-column>
             <el-table-column
-                prop="modulename"
+                prop="openedby"
                 label="条目">
             </el-table-column>
             <el-table-column
