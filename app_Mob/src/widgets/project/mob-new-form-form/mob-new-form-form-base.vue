@@ -813,7 +813,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
                       condOP:"GTANDEQ",
                       ruleInfo:"截止日期应该大于起始日期", 
                       isKeyCond:false,
-                      paramValue:"BEGIN",
+                      paramValue:"begin",
                       paramType:"ENTITYFIELD",
                       isNotMode:false,
                       deName:"end",
