@@ -994,6 +994,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-story-tree-exp-view/product-story-tree-exp-view.vue'),
                 },
                 {
+                    path: 'bugstats/:bugstats?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.bugstats.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugstats', parameterName: 'bugstats' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-stats-edit-view/bug-stats-edit-view.vue'),
+                },
+                {
                     path: 'users/:user?/maingridview/:maingridview?',
                     meta: {
                         caption: 'entities.user.views.maingridview.caption',
@@ -6796,6 +6810,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-edit-view9/story-edit-view9.vue'),
+                },
+                {
+                    path: 'bugstats/:bugstats?/gridview/:gridview?',
+                    meta: {
+                        caption: 'entities.bugstats.views.gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'bugstats', parameterName: 'bugstats' },
+                            { pathName: 'gridview', parameterName: 'gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/bug-stats-grid-view/bug-stats-grid-view.vue'),
                 },
                 {
                     path: 'todos/:todo?/finishview/:finishview?',

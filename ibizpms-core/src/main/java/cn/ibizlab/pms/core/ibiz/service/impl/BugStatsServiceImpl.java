@@ -1,0 +1,188 @@
+package cn.ibizlab.pms.core.ibiz.service.impl;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.Map;
+import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Collection;
+import java.util.Objects;
+import java.util.Optional;
+import java.math.BigInteger;
+
+import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.beans.BeanCopier;
+import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+import org.springframework.util.ObjectUtils;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.context.annotation.Lazy;
+import cn.ibizlab.pms.core.ibiz.domain.BugStats;
+import cn.ibizlab.pms.core.ibiz.filter.BugStatsSearchContext;
+import cn.ibizlab.pms.core.ibiz.service.IBugStatsService;
+
+import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
+
+
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import cn.ibizlab.pms.core.ibiz.mapper.BugStatsMapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.alibaba.fastjson.JSONObject;
+import org.springframework.util.StringUtils;
+
+/**
+ * 实体[Bug统计] 服务对象接口实现
+ */
+@Slf4j
+@Service("BugStatsServiceImpl")
+public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> implements IBugStatsService {
+
+
+    protected int batchSize = 500;
+
+    @Override
+    @Transactional
+    public boolean create(BugStats et) {
+        if(!this.retBool(this.baseMapper.insert(et)))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void createBatch(List<BugStats> list) {
+        this.saveBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean update(BugStats et) {
+        if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
+            return false;
+        CachedBeanCopier.copy(get(et.getId()),et);
+        return true;
+    }
+
+    @Override
+    public void updateBatch(List<BugStats> list) {
+        updateBatchById(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public boolean remove(Long key) {
+        boolean result=removeById(key);
+        return result ;
+    }
+
+    @Override
+    public void removeBatch(Collection<Long> idList) {
+        removeByIds(idList);
+    }
+
+    @Override
+    @Transactional
+    public BugStats get(Long key) {
+        BugStats et = getById(key);
+        if(et==null){
+            et=new BugStats();
+            et.setId(key);
+        }
+        else{
+        }
+        return et;
+    }
+
+    @Override
+    public BugStats getDraft(BugStats et) {
+        return et;
+    }
+
+    @Override
+    public boolean checkKey(BugStats et) {
+        return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
+    }
+    @Override
+    @Transactional
+    public boolean save(BugStats et) {
+        if(!saveOrUpdate(et))
+            return false;
+        return true;
+    }
+
+    @Override
+    @Transactional
+    public boolean saveOrUpdate(BugStats et) {
+        if (null == et) {
+            return false;
+        } else {
+            return checkKey(et) ? this.update(et) : this.create(et);
+        }
+    }
+
+    @Override
+    public boolean saveBatch(Collection<BugStats> list) {
+        saveOrUpdateBatch(list,batchSize);
+        return true;
+    }
+
+    @Override
+    public void saveBatch(List<BugStats> list) {
+        saveOrUpdateBatch(list,batchSize);
+    }
+
+
+
+    /**
+     * 查询集合 数据集
+     */
+    @Override
+    public Page<BugStats> searchDefault(BugStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+
+
+
+
+
+
+    @Override
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
+    }
+
+    @Override
+    @Transactional
+    public boolean execute(String sql , Map param){
+        if (sql == null || sql.isEmpty()) {
+            return false;
+        }
+        if (sql.toLowerCase().trim().startsWith("insert")) {
+            return this.baseMapper.insertBySQL(sql,param);
+        }
+        if (sql.toLowerCase().trim().startsWith("update")) {
+            return this.baseMapper.updateBySQL(sql,param);
+        }
+        if (sql.toLowerCase().trim().startsWith("delete")) {
+            return this.baseMapper.deleteBySQL(sql,param);
+        }
+        log.warn("暂未支持的SQL语法");
+        return true;
+    }
+
+
+}
+
+
+

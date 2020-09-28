@@ -28,6 +28,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '0174d3383dadc0878991e5c90bd5eaa3',
+            viewmodule: 'ibiz',
+            viewname: 'BugStatsEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '02b7ecd8e994b90558a9d6c23705f600',
             viewmodule: 'zentao',
             viewname: 'CaseEditView',
@@ -230,6 +239,7 @@ export const viewstate: any = {
                 'cdba1a5e90e147e5f3bf9f2c08c87f56',
                 'd21c783cde14166ba9deb09e746a0f28',
                 'd86b9d1e9fad770e8fc97718cee8ed31',
+                'b7427fe34d292009905e126defc9fa22',
                 'bedf1f50199b74a65c2e17771144329c',
                 'd8df5ca51341d33ccc19208dde3f2cce',
                 '376e2623b256509cdf69e2de4c01d31b',
@@ -2737,6 +2747,16 @@ export const viewstate: any = {
             refviews: [
                 '9ed41cee96088630f3d4b0a91e705930',
                 '80a70857025f1c997cddb437e76ff6e1',
+            ],
+        },
+        {
+            viewtag: 'b7427fe34d292009905e126defc9fa22',
+            viewmodule: 'ibiz',
+            viewname: 'BugStatsGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '0174d3383dadc0878991e5c90bd5eaa3',
             ],
         },
         {

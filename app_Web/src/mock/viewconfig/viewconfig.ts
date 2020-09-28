@@ -31,6 +31,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductModuleGridViewBranch",
             "viewtag": "01384caaa1bc452610f056415c86aaf4"
         },
+        "bugstatseditview": {
+            "title": "Bug统计编辑视图",
+            "caption": "Bug统计",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "BugStatsEditView",
+            "viewtag": "0174d3383dadc0878991e5c90bd5eaa3"
+        },
         "companydepttreeexpview": {
             "title": "组织部门树导航视图",
             "caption": "公司",
@@ -2406,6 +2414,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "IbzCaseMainEditView9",
             "viewtag": "b613f8c14c436a5c95be4e1b9e730e6d"
+        },
+        "bugstatsgridview": {
+            "title": "Bug统计表格视图",
+            "caption": "Bug统计",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "BugStatsGridView",
+            "viewtag": "b7427fe34d292009905e126defc9fa22"
         },
         "storymyfavoritesgridview": {
             "title": "story表格视图",

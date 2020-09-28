@@ -19,6 +19,7 @@ import branch_zh_CN from '@locale/lanres/entities/branch/branch_zh_CN';
 import productstats_zh_CN from '@locale/lanres/entities/product-stats/product-stats_zh_CN';
 import ibzprojectmember_zh_CN from '@locale/lanres/entities/ibz-project-member/ibz-project-member_zh_CN';
 import action_zh_CN from '@locale/lanres/entities/action/action_zh_CN';
+import bugstats_zh_CN from '@locale/lanres/entities/bug-stats/bug-stats_zh_CN';
 import group_zh_CN from '@locale/lanres/entities/group/group_zh_CN';
 import ibzproproduct_zh_CN from '@locale/lanres/entities/ibzpro-product/ibzpro-product_zh_CN';
 import casestep_zh_CN from '@locale/lanres/entities/case-step/case-step_zh_CN';
@@ -339,6 +340,7 @@ export default {
         productstats: productstats_zh_CN,
         ibzprojectmember: ibzprojectmember_zh_CN,
         action: action_zh_CN,
+        bugstats: bugstats_zh_CN,
         group: group_zh_CN,
         ibzproproduct: ibzproproduct_zh_CN,
         casestep: casestep_zh_CN,

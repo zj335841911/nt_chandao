@@ -29,6 +29,16 @@
         "viewtag": "01384caaa1bc452610f056415c86aaf4",
         "memo": ""
     },
+    "bugstatseditview": {
+        "title": "Bug统计编辑视图",
+        "caption": "Bug统计",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "BugStatsEditView",
+        "viewfilename": "bug-stats-edit-view",
+        "viewtag": "0174d3383dadc0878991e5c90bd5eaa3",
+        "memo": ""
+    },
     "companydepttreeexpview": {
         "title": "组织部门树导航视图",
         "caption": "公司",
@@ -2997,6 +3007,16 @@
         "viewname": "IbzCaseMainEditView9",
         "viewfilename": "ibz-case-main-edit-view9",
         "viewtag": "b613f8c14c436a5c95be4e1b9e730e6d",
+        "memo": ""
+    },
+    "bugstatsgridview": {
+        "title": "Bug统计表格视图",
+        "caption": "Bug统计",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "BugStatsGridView",
+        "viewfilename": "bug-stats-grid-view",
+        "viewtag": "b7427fe34d292009905e126defc9fa22",
         "memo": ""
     },
     "storymyfavoritesgridview": {

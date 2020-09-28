@@ -62,6 +62,9 @@ export default {
     SQLBuild: {
         "empty": "",
     },
+    ProjectCodeList: {
+        "empty": "",
+    },
     Project__status: {
         "wait": "未开始",
         "doing": "进行中",
