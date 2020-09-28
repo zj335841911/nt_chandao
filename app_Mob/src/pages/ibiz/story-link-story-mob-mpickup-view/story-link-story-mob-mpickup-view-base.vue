@@ -17,7 +17,7 @@
                 <ion-title>条件搜索</ion-title>
             </ion-toolbar>
         </ion-header>
-        <ion-content>
+        <div class="searchform_content">
             <view_searchform
     :viewState="viewState"
     viewName="StoryLinkStoryMobMPickupView"  
@@ -38,7 +38,7 @@
     ref='searchform' 
     @closeview="closeView($event)">
 </view_searchform>
-        </ion-content>
+        </div>
         <ion-footer>
         <div class="search-btn">
             <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
