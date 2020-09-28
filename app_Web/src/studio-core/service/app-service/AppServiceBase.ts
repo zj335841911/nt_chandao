@@ -101,7 +101,6 @@ export class AppServiceBase {
                 x.style.display = 'block';
             }
         }
-        // 测试
         win.isDoLogin = true;
     }
 
