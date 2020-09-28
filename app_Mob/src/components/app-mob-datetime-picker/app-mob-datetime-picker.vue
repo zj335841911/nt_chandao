@@ -92,7 +92,7 @@
      * @memberof AppDateTimePicker
      */
     public valueChange(event: any) {
-      this.curValue = moment(event.detail.value).format('YYYY-MM-DD hh:mm:ss');
+      this.curValue = moment(event.detail.value).format(this.displayFormat);
       this.$emit('change', this.curValue);
     }
 
