@@ -34,6 +34,7 @@ public interface ITestReportService extends IService<TestReport>{
     TestReport get(Long key) ;
     TestReport getDraft(TestReport et) ;
     boolean checkKey(TestReport et) ;
+    TestReport getInfoTaskOvByTime(TestReport et) ;
     TestReport getInfoTestTask(TestReport et) ;
     TestReport getInfoTestTaskOvProject(TestReport et) ;
     TestReport getInfoTestTaskProject(TestReport et) ;

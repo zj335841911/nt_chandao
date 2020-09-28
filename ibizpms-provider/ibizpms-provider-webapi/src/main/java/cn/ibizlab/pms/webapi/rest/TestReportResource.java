@@ -131,6 +131,17 @@ public class TestReportResource {
         return  ResponseEntity.status(HttpStatus.OK).body(testreportService.checkKey(testreportMapping.toDomain(testreportdto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetInfoTaskOvByTime-all')")
+    @ApiOperation(value = "根据起始时间获取概况信息", tags = {"测试报告" },  notes = "根据起始时间获取概况信息")
+	@RequestMapping(method = RequestMethod.GET, value = "/testreports/{testreport_id}/getinfotaskovbytime")
+    public ResponseEntity<TestReportDTO> getInfoTaskOvByTime(@PathVariable("testreport_id") Long testreport_id, @RequestBody TestReportDTO testreportdto) {
+        TestReport domain = testreportMapping.toDomain(testreportdto);
+        domain.setId(testreport_id);
+        domain = testreportService.getInfoTaskOvByTime(domain);
+        testreportdto = testreportMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetInfoTestTaskOvProject-all')")
     @ApiOperation(value = "根据测试报告概况信息（项目报告）", tags = {"测试报告" },  notes = "根据测试报告概况信息（项目报告）")
 	@RequestMapping(method = RequestMethod.PUT, value = "/testreports/{testreport_id}/getinfotesttaskovproject")
@@ -327,6 +338,17 @@ public class TestReportResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testreports/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") Long product_id, @RequestBody TestReportDTO testreportdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(testreportService.checkKey(testreportMapping.toDomain(testreportdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetInfoTaskOvByTime-all')")
+    @ApiOperation(value = "根据产品测试报告", tags = {"测试报告" },  notes = "根据产品测试报告")
+	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/testreports/{testreport_id}/getinfotaskovbytime")
+    public ResponseEntity<TestReportDTO> getInfoTaskOvByTimeByProduct(@PathVariable("product_id") Long product_id, @PathVariable("testreport_id") Long testreport_id, @RequestBody TestReportDTO testreportdto) {
+        TestReport domain = testreportMapping.toDomain(testreportdto);
+        domain.setProduct(product_id);
+        domain = testreportService.getInfoTaskOvByTime(domain) ;
+        testreportdto = testreportMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetInfoTestTaskOvProject-all')")
@@ -533,6 +555,17 @@ public class TestReportResource {
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testreports/checkkey")
     public ResponseEntity<Boolean> checkKeyByProject(@PathVariable("project_id") Long project_id, @RequestBody TestReportDTO testreportdto) {
         return  ResponseEntity.status(HttpStatus.OK).body(testreportService.checkKey(testreportMapping.toDomain(testreportdto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetInfoTaskOvByTime-all')")
+    @ApiOperation(value = "根据项目测试报告", tags = {"测试报告" },  notes = "根据项目测试报告")
+	@RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/testreports/{testreport_id}/getinfotaskovbytime")
+    public ResponseEntity<TestReportDTO> getInfoTaskOvByTimeByProject(@PathVariable("project_id") Long project_id, @PathVariable("testreport_id") Long testreport_id, @RequestBody TestReportDTO testreportdto) {
+        TestReport domain = testreportMapping.toDomain(testreportdto);
+        domain.setProject(project_id);
+        domain = testreportService.getInfoTaskOvByTime(domain) ;
+        testreportdto = testreportMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testreportdto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetInfoTestTaskOvProject-all')")
