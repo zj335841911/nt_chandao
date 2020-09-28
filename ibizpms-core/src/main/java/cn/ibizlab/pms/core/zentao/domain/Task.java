@@ -101,7 +101,6 @@ public class Task extends EntityMP implements Serializable {
     /**
      * 实际开始
      */
-    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`realstarted`")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "realstarted" , format="yyyy-MM-dd")
@@ -143,7 +142,6 @@ public class Task extends EntityMP implements Serializable {
     /**
      * 指派日期
      */
-    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`assigneddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "assigneddate" , format="yyyy-MM-dd HH:mm:ss")
@@ -183,7 +181,6 @@ public class Task extends EntityMP implements Serializable {
     /**
      * 关闭时间
      */
-    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`closeddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "closeddate" , format="yyyy-MM-dd HH:mm:ss")
@@ -216,7 +213,6 @@ public class Task extends EntityMP implements Serializable {
     /**
      * 预计开始
      */
-    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`eststarted`")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "eststarted" , format="yyyy-MM-dd")
@@ -225,7 +221,6 @@ public class Task extends EntityMP implements Serializable {
     /**
      * 截止日期
      */
-    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`deadline`")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "deadline" , format="yyyy-MM-dd")
@@ -275,7 +270,6 @@ public class Task extends EntityMP implements Serializable {
     /**
      * 取消时间
      */
-    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`canceleddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "canceleddate" , format="yyyy-MM-dd HH:mm:ss")
@@ -284,7 +278,6 @@ public class Task extends EntityMP implements Serializable {
     /**
      * 实际完成
      */
-    @DEField(defaultValue = "0001-01-01")
     @TableField(value = "`finisheddate`")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "finisheddate" , format="yyyy-MM-dd")
