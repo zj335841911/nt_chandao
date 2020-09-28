@@ -5186,6 +5186,56 @@
     "data_length":100,
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"DEPT" ,
+    "codename":"Dept",
+    "field_logic_name":"部门",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"SSCODELIST",
+    "dict":"RealDept",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BEGIN" ,
+    "codename":"Begin",
+    "field_logic_name":"属性",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"END" ,
+    "codename":"End",
+    "field_logic_name":"结束",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"WORKDAY" ,
+    "codename":"Workday",
+    "field_logic_name":"工作日天数",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[

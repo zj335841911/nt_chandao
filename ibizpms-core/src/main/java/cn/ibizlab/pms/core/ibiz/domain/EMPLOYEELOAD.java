@@ -112,6 +112,36 @@ public class EMPLOYEELOAD extends EntityMP implements Serializable {
     @JSONField(name = "assignedto")
     @JsonProperty("assignedto")
     private String assignedto;
+    /**
+     * 部门
+     */
+    @TableField(exist = false)
+    @JSONField(name = "dept")
+    @JsonProperty("dept")
+    private String dept;
+    /**
+     * 属性
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "begin" , format="yyyy-MM-dd")
+    @JsonProperty("begin")
+    private Timestamp begin;
+    /**
+     * 结束
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "end" , format="yyyy-MM-dd")
+    @JsonProperty("end")
+    private Timestamp end;
+    /**
+     * 工作日天数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "workday")
+    @JsonProperty("workday")
+    private Integer workday;
 
     /**
      * 项目

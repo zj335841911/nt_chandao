@@ -93,14 +93,17 @@ export default class MainModel {
       {
         name: 'begin',
         prop: 'begin',
+        dataType: 'DATE',
       },
       {
         name: 'end',
         prop: 'end',
+        dataType: 'DATE',
       },
       {
         name: 'workday',
         prop: 'workday',
+        dataType: 'INT',
       },
       {
         name: 'everydaytime',

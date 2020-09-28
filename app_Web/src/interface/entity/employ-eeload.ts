@@ -85,4 +85,36 @@ export interface EmployEeload {
      * @memberof EmployEeload
      */
     assignedto?: any;
+
+    /**
+     * 部门
+     *
+     * @returns {*}
+     * @memberof EmployEeload
+     */
+    dept?: any;
+
+    /**
+     * 属性
+     *
+     * @returns {*}
+     * @memberof EmployEeload
+     */
+    begin?: any;
+
+    /**
+     * 结束
+     *
+     * @returns {*}
+     * @memberof EmployEeload
+     */
+    end?: any;
+
+    /**
+     * 工作日天数
+     *
+     * @returns {*}
+     * @memberof EmployEeload
+     */
+    workday?: any;
 }

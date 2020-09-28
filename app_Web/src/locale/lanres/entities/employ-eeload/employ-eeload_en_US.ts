@@ -11,6 +11,10 @@ export default {
     left: "剩余工时",
     workload: "工作负载",
     assignedto: "指派给",
+    dept: "部门",
+    begin: "属性",
+    end: "结束",
+    workday: "工作日天数",
   },
 	views: {
 		editview: {

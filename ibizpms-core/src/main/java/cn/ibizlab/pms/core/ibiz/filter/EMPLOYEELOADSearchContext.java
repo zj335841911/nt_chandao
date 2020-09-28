@@ -55,6 +55,38 @@ public class EMPLOYEELOADSearchContext extends QueryWrapperContext<EMPLOYEELOAD>
             this.getSearchCond().like("projectname", n_projectname_like);
         }
     }
+	private String n_dept_eq;//[部门]
+	public void setN_dept_eq(String n_dept_eq) {
+        this.n_dept_eq = n_dept_eq;
+        if(!ObjectUtils.isEmpty(this.n_dept_eq)){
+            this.getSearchCond().eq("dept", n_dept_eq);
+        }
+    }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_begin_ltandeq;//[属性]
+	public void setN_begin_ltandeq(Timestamp n_begin_ltandeq) {
+        this.n_begin_ltandeq = n_begin_ltandeq;
+        if(!ObjectUtils.isEmpty(this.n_begin_ltandeq)){
+            this.getSearchCond().le("begin", n_begin_ltandeq);
+        }
+    }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_end_gtandeq;//[结束]
+	public void setN_end_gtandeq(Timestamp n_end_gtandeq) {
+        this.n_end_gtandeq = n_end_gtandeq;
+        if(!ObjectUtils.isEmpty(this.n_end_gtandeq)){
+            this.getSearchCond().ge("end", n_end_gtandeq);
+        }
+    }
+	private Integer n_workday_eq;//[工作日天数]
+	public void setN_workday_eq(Integer n_workday_eq) {
+        this.n_workday_eq = n_workday_eq;
+        if(!ObjectUtils.isEmpty(this.n_workday_eq)){
+            this.getSearchCond().eq("workday", n_workday_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索
