@@ -108,6 +108,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "begin" , format="yyyy-MM-dd")
     @JsonProperty("begin")
+    @NotNull(message = "[开始时间]不允许为空!")
     private Timestamp begin;
 
     /**
@@ -126,6 +127,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "end" , format="yyyy-MM-dd")
     @JsonProperty("end")
+    @NotNull(message = "[结束时间]不允许为空!")
     private Timestamp end;
 
     /**
