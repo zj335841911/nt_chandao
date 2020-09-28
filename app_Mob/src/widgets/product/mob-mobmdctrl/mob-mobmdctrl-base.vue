@@ -1139,13 +1139,11 @@ export default class MobBase extends Vue implements ControlInterface {
      */
     public mounted(){
       let list:any = this.$refs.mdctrl;      
-      setTimeout(() => {
-        if(list){
-          list.addEventListener('touchend',()=>{
-            this.$store.commit('setPopupStatus',true)
-          })
-        }
-      }, 500);
+      if(list){
+        list.addEventListener('touchend',()=>{
+          this.$store.commit('setPopupStatus',true)
+        })
+      }
     }
 
     /**
@@ -1155,13 +1153,11 @@ export default class MobBase extends Vue implements ControlInterface {
      */
     public beforeDestroy(){
       let list:any = this.$refs.mdctrl;
-      setTimeout(() => {
-        if(list){
-          list.removeEventListener('touchend',()=>{
-            this.$store.commit('setPopupStatus',true)
-          })
-        }
-      }, 500);
+      if(list){
+        list.removeEventListener('touchend',()=>{
+          this.$store.commit('setPopupStatus',true)
+        })
+      }
     }
 
     /**

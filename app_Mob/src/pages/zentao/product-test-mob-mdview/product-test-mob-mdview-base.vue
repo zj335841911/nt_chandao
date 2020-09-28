@@ -14,22 +14,6 @@
         <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="true"></app-search-history>
 
     
-                    <ion-toolbar class="product-test-mob-mdview-toolbar default-sort">
-                <div class="view-tool">
-                    <div class="view-tool-sorts">
-                        <div class="view-tool-sorts-item">
-                            <span class="text" @click="onSort('ORDER')">排序</span>
-                            <span class="sort-icon" @click="onSort('ORDER')">
-                                <ion-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.asc == 'ORDER'}" name="chevron-up-outline" ></ion-icon>
-                                <ion-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.desc == 'ORDER'}" name="chevron-down-outline" ></ion-icon>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </ion-toolbar>
-                <div style="display:flex;overflow: auto;">
-                    <app-van-select  name="n_acl_eq" title="访问控制" :items="[{value:'open',label:'默认设置(有产品视图权限，即可访问)'},{value:'private',label:'私有产品(相关负责人和项目团队成员才能访问)'},{value:'custom',label:'自定义白名单(团队成员和白名单的成员可以访问)'},]" @onConfirm="onCategory"></app-van-select>
-                </div>
     </ion-header>
 
     <van-popup :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%;width: 77%;"  >
@@ -851,40 +835,6 @@ export default class ProductTestMobMDViewBase extends Vue {
     @Prop({ default: true }) public isEnablePullUp?: boolean;
 
 
-
-    /**
-     * 排序对象
-     *
-     * @type {*}
-     * @memberof ProductTestMobMDViewBase
-     */
-    public sort: any = { asc: "", desc: "" };
-
-    /**
-     * 排序
-     *
-     * @param {*} field
-     * @memberof ProductTestMobMDViewBase
-     */
-    public onSort(field: any) {
-        if (this.sort.desc == field) {
-            this.sort.desc = "";
-            this.sortValue = {};
-            this.onViewLoad();
-            return
-        }
-        if (this.sort.asc == field) {
-            this.sort.asc = "";
-            this.sort.desc = field;
-            this.sortValue = { sort: field + ",desc" };
-            this.onViewLoad();
-        } else {
-            this.sort.asc = field;
-            this.sort.desc = "";
-            this.sortValue = { sort: field + ",asc" };
-            this.onViewLoad();
-        }
-    }
 
     /**
      * 分类值

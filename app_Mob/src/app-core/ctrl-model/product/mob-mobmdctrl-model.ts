@@ -18,9 +18,6 @@ export class MobModel {
 				name: 'name',
 			},
 			{
-				name: 'acl',
-			},
-			{
 				name: 'istop',
 			},
 			{
