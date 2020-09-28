@@ -223,8 +223,8 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
     public hasRowEdit: any = {
         'desc':false,
         'expect':false,
-        'steps':false,
-        'reals':false,
+        'steps':true,
+        'reals':true,
     };
 
     /**

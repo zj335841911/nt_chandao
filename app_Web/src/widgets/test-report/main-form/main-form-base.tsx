@@ -85,10 +85,9 @@ export class MainEditFormBase extends EditFormControlBase {
         objectid: null,
         project: null,
         productname: null,
-        product: null,
         begin: null,
         end: null,
-        formitemex1: null,
+        product: null,
         owner: null,
         objecttype: null,
         builds: null,
@@ -114,6 +113,14 @@ export class MainEditFormBase extends EditFormControlBase {
         tasks: [
             { required: true, type: 'string', message: '测试单 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '测试单 值不能为空', trigger: 'blur' },
+        ],
+        begin: [
+            { required: true, type: 'string', message: '起始时间 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '起始时间 值不能为空', trigger: 'blur' },
+        ],
+        end: [
+            { required: true, type: 'string', message: '~ 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '~ 值不能为空', trigger: 'blur' },
         ],
         owner: [
             { required: true, type: 'string', message: '负责人 值不能为空', trigger: 'change' },
@@ -167,13 +174,11 @@ export class MainEditFormBase extends EditFormControlBase {
 
         productname: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        begin: new FormItemModel({ caption: '起始时间', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        end: new FormItemModel({ caption: '~', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        begin: new FormItemModel({ caption: '开始时间', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        end: new FormItemModel({ caption: '结束时间', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        formitemex1: new FormItemModel({ caption: '起止时间', detailType: 'FORMITEM', name: 'formitemex1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         owner: new FormItemModel({ caption: '负责人', detailType: 'FORMITEM', name: 'owner', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -238,12 +243,15 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
-
         if (Object.is(name, 'tasks')) {
-            const details: string[] = ['stories', 'title', 'cases', 'builds', 'projectname', 'members', 'objecttype', 'owner', 'bugs', 'begin', 'overviews', 'project', 'end', 'objectid'];
+            const details: string[] = ['stories', 'title', 'cases', 'builds', 'projectname', 'members', 'objecttype', 'owner', 'bugs', 'overviews', 'project', 'objectid'];
             this.updateFormItems('GetInfoTestTask', this.data, details, true);
         }
-        if (Object.is(name, 'formitemex1')) {
+        if (Object.is(name, 'begin')) {
+            const details: string[] = ['overviews'];
+            this.updateFormItems('GetInfoTaskOvByTime', this.data, details, true);
+        }
+        if (Object.is(name, 'end')) {
             const details: string[] = ['overviews'];
             this.updateFormItems('GetInfoTaskOvByTime', this.data, details, true);
         }
