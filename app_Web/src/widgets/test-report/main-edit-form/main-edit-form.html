@@ -83,7 +83,7 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.report.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='report' :itemRules="this.rules.report" class='' :caption="$t('entities.testreport.mainedit_form.details.report')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.report.error" :isEmptyCaption="false" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.report" @change="(val) =>{this.data.report =val}" :disabled="detailsModel.report.disabled" :data="JSON.stringify(this.data)"  name="report" :context="context" :viewparams="viewparams" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor :formState="formState" :value="data.report" @change="(val) =>{this.data.report =val}" :disabled="detailsModel.report.disabled" :data="JSON.stringify(this.data)"  name="report" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"testreport",version:"editor"}' :exportparams='{objecttype:"testreport",version:"editor"}'  style=""></app-rich-text-editor>
 
 </app-form-item>
 
