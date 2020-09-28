@@ -3011,7 +3011,7 @@
     },
     "bugstatsgridview": {
         "title": "Bug统计表格视图",
-        "caption": "Bug统计",
+        "caption": "Bug创建表",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "ibiz",
         "viewname": "BugStatsGridView",

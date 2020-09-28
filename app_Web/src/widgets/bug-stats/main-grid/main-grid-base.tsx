@@ -86,6 +86,22 @@ export class MainGridBase extends GridControlBase {
     protected localStorageTag: string = 'ibz_bugstats_main_grid';
 
     /**
+     * 是否禁用排序
+     *
+     * @type {boolean}
+     * @memberof MainGridBase
+     */
+    public isNoSort: boolean = true;
+
+    /**
+     * 分页条数
+     *
+     * @type {number}
+     * @memberof MainGridBase
+     */
+    public limit: number = 100;
+
+    /**
      * 所有列成员
      *
      * @type {any[]}

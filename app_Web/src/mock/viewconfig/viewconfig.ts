@@ -2417,7 +2417,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
         },
         "bugstatsgridview": {
             "title": "Bug统计表格视图",
-            "caption": "Bug统计",
+            "caption": "Bug创建表",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "ibiz",
             "viewname": "BugStatsGridView",

@@ -21,7 +21,7 @@ export default {
       		title: "Bug统计编辑视图",
 		},
 		gridview: {
-			caption: "Bug统计",
+			caption: "Bug创建表",
       		title: "Bug统计表格视图",
 		},
 	},
