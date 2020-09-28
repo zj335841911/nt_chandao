@@ -41,35 +41,6 @@ import { Environment } from '@/environments/environment';
     }
 })
 export default class AppMobMenuSideslipView extends Vue {
-    /**
-     * 向左滑动关闭弹出层
-     *
-     * @type {*}
-     * @memberof AppMobMenuSideslipView
-     */
-    public onSwipeLeft(e:any){
-      this.showPopup = false;
-    }
-
-    /**
-     * 向右滑动打开弹出层
-     *
-     * @type {*}
-     * @memberof AppMobMenuSideslipView
-     */
-    public onSwipeRight(){
-      if (this.$store.state.popupStatus) {
-        this.showPopup = true;
-      }
-    }
-
-    /**
-     * 是否能显示侧滑菜单
-     *
-     * @type {*}
-     * @memberof AppMobMenuSideslipView
-     */
-    public isShowSideSlipMenu:boolean = true;
 
     /**
      * 是否显示侧滑菜单
@@ -78,16 +49,6 @@ export default class AppMobMenuSideslipView extends Vue {
      * @memberof AppMobMenuSideslipView
      */
     public showPopup:boolean = false;
-
-    /**
-     * 打开弹出层
-     *
-     * @type {*}
-     * @memberof AppMobMenuSideslipView
-     */
-    public openMenu(){
-      this.showPopup = true;
-    }
 
     /**
      * 使用默认菜单
@@ -172,6 +133,12 @@ export default class AppMobMenuSideslipView extends Vue {
      */
     public activeId = "";
 
+    /**
+     * 默认菜单
+     *
+     * @type {Object}
+     * @memberof AppMobMenuSideslipView
+     */
     public defaultMenu =  {
         appfunctag: "settings",
         componentname: "app-setting",
@@ -190,6 +157,22 @@ export default class AppMobMenuSideslipView extends Vue {
         tooltip: "设置",
         type: "MENUITEM",
     };
+
+    /**
+     * 计数器
+     *
+     * @memberof AppMobMenuSideslipView
+     */
+    public counterServide:any = null;
+
+    /**
+     * 计数器数据
+     *
+     * @type {*}
+     * @memberof AppMobMenuSideslipView
+     */
+    public counterdata: any = {};
+
     /**
      * 生命周期
      *
@@ -248,14 +231,6 @@ export default class AppMobMenuSideslipView extends Vue {
     }
 
     /**
-     * 计数器数据
-     *
-     * @type {*}
-     * @memberof AppMobMenuSideslipView
-     */
-    public counterdata: any = {};
-
-    /**
      * vue 生命周期
      *
      * @memberof AppMobMenuSideslipView
@@ -263,13 +238,6 @@ export default class AppMobMenuSideslipView extends Vue {
     public destroyed() {
         this.counterServide.destroyCounter();
     }
-
-    /**
-     * 计数器
-     *
-     * @memberof AppMobMenuSideslipView
-     */
-    public counterServide:any = null;
 
     /**
      * 加载计数器数据
@@ -294,6 +262,27 @@ export default class AppMobMenuSideslipView extends Vue {
         return val;
     }
 
+    /**
+     * 向左滑动关闭弹出层
+     *
+     * @type {*}
+     * @memberof AppMobMenuSideslipView
+     */
+    public onSwipeLeft(e:any){
+      this.showPopup = false;
+    }
+
+    /**
+     * 向右滑动打开弹出层
+     *
+     * @type {*}
+     * @memberof AppMobMenuSideslipView
+     */
+    public onSwipeRight(){
+      if (this.$store.state.popupStatus) {
+        this.showPopup = true;
+      }
+    }
 }
 </script>
 
