@@ -290,18 +290,18 @@ export default class TestReportServiceBase extends EntityService {
         if(context.project && context.testreport){
             let masterData:any = {};
             Object.assign(data,masterData);
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/testreports/${context.testreport}/getinfotaskovbytime`,data,isloading);
+            let res:any = await Http.getInstance().put(`/projects/${context.project}/testreports/${context.testreport}/getinfotaskovbytime`,data,isloading);
             
             return res;
         }
         if(context.product && context.testreport){
             let masterData:any = {};
             Object.assign(data,masterData);
-            let res:any = await Http.getInstance().get(`/products/${context.product}/testreports/${context.testreport}/getinfotaskovbytime`,data,isloading);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/testreports/${context.testreport}/getinfotaskovbytime`,data,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/testreports/${context.testreport}/getinfotaskovbytime`,data,isloading);
+            let res:any = Http.getInstance().put(`/testreports/${context.testreport}/getinfotaskovbytime`,data,isloading);
             return res;
     }
 
