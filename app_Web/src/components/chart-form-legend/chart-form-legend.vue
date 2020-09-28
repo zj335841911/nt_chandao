@@ -1,9 +1,10 @@
 <template>
   <div style="width: 100%;height:100%;display: flex;justify-content: space-between;">
       <!-- 图表 -->
-      <div class="app-data-chart" style="width: 70%;">
+      <div style="width: 70%;">
           <div v-if="isNoData" class="chart-no-data"><i class="el-icon-data-analysis"></i>{{$t('app.commonWords.noData')}}</div>
           <div v-else class="app-charts" :id="chartId" style="height: 100%;padding: 6px 0;"></div>
+          <div class="app-charts" v-if="originId" :id="originId" style="width:0px;height:0px"></div>
       </div>
 
       <!-- 图例 -->
@@ -64,6 +65,15 @@ export default class ChartFormLegend extends Vue {
    */
   @Prop()
   public chartUserParams?: any;
+
+  /**
+   * 图表自定义参数集合
+   *
+   * @type {any}
+   * @memberof ChartFormLegend
+   */
+  @Prop()
+  public originId!: any;
 
     /**
    * echarts图表对象
