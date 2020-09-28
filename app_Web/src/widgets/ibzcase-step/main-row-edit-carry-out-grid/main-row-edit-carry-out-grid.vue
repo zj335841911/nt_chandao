@@ -1,4 +1,14 @@
-<template src="./main-row-edit-carry-out-grid.html"/>
+<template>
+    <group-step-table class="grid" 
+        groupfield="type"
+        :data="items"
+        :cols="allColumns"
+        :isEdit="actualIsOpenEdit"
+        @change="gridEditItemChange.apply(_self, arguments)"
+        @remove="remove.apply(_self, arguments)"
+        @add="add.apply(_self, arguments)">
+    </group-step-table>
+</template>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
