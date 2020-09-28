@@ -8,7 +8,7 @@
       </div>
 
       <!-- 图例 -->
-      <div v-if="legendList.length > 0" style="width: 25%;height: 100%;background-color: #FFF;padding-left: 10px;">
+      <div v-if="legendList.length > 0" style="width: 25%;height: 100%;padding-left: 10px;overflow: hidden;">
           <el-table
               :data="legendList"
               style="width: 100%;"
