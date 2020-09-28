@@ -2,7 +2,6 @@
     <template slot='title'>
     <span class='caption-info'>{{viewCaption}}</span>
     </template>
-    <i-input slot="quickSearch" v-show="!isExpandSearchForm" v-model="query" placeholder="任务名" search @on-search="onSearch($event)"/>
     <template slot="searchForm">
                 <view_searchform 
             :viewState="viewState"  
@@ -35,7 +34,7 @@
         loaddraftAction=""
         loadAction=""
         createAction=""
-        fetchAction="FetchDefault"
+        fetchAction="FetchGETWOERKLOAD"
         :newdata="newdata.bind(_self)"
         :opendata="opendata.bind(_self)"
         name="grid"  

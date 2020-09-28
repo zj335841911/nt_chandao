@@ -186,6 +186,21 @@ export default class EmployEeloadServiceBase extends EntityService {
     }
 
     /**
+     * FetchGETWOERKLOAD接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof EmployEeloadServiceBase
+     */
+    public async FetchGETWOERKLOAD(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/employeeloads/fetchgetwoerkload`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * UpdateTime接口方法
      *
      * @param {*} [context={}]

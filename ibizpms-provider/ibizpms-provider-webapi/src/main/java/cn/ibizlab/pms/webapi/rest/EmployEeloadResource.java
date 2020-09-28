@@ -156,5 +156,26 @@ public class EmployEeloadResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(employeeloadMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-EMPLOYEELOAD-searchGETWOERKLOAD-all')")
+	@ApiOperation(value = "获取获取员工负载表", tags = {"员工负载表" } ,notes = "获取获取员工负载表")
+    @RequestMapping(method= RequestMethod.GET , value="/employeeloads/fetchgetwoerkload")
+	public ResponseEntity<List<EmployEeloadDTO>> fetchGETWOERKLOAD(EMPLOYEELOADSearchContext context) {
+        Page<EMPLOYEELOAD> domains = employeeloadService.searchGETWOERKLOAD(context) ;
+        List<EmployEeloadDTO> list = employeeloadMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-EMPLOYEELOAD-searchGETWOERKLOAD-all')")
+	@ApiOperation(value = "查询获取员工负载表", tags = {"员工负载表" } ,notes = "查询获取员工负载表")
+    @RequestMapping(method= RequestMethod.POST , value="/employeeloads/searchgetwoerkload")
+	public ResponseEntity<Page<EmployEeloadDTO>> searchGETWOERKLOAD(@RequestBody EMPLOYEELOADSearchContext context) {
+        Page<EMPLOYEELOAD> domains = employeeloadService.searchGETWOERKLOAD(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(employeeloadMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 

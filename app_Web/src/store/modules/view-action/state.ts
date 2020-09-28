@@ -3137,6 +3137,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'cdb6ad5305bb1900e7349e9e057b3596',
+            viewmodule: 'ibiz',
+            viewname: 'EMPLOYEELOADEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'cdba1a5e90e147e5f3bf9f2c08c87f56',
             viewmodule: 'zentao',
             viewname: 'BugMainMyGridView',
@@ -3362,6 +3371,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'e008123fe4c3014fac07b33dd79f6b13',
+            viewmodule: 'ibiz',
+            viewname: 'EMPLOYEELOADGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'cdb6ad5305bb1900e7349e9e057b3596',
             ],
         },
         {

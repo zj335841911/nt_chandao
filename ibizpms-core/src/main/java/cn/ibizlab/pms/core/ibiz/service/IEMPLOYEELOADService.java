@@ -37,6 +37,7 @@ public interface IEMPLOYEELOADService extends IService<EMPLOYEELOAD>{
     boolean save(EMPLOYEELOAD et) ;
     void saveBatch(List<EMPLOYEELOAD> list) ;
     Page<EMPLOYEELOAD> searchDefault(EMPLOYEELOADSearchContext context) ;
+    Page<EMPLOYEELOAD> searchGETWOERKLOAD(EMPLOYEELOADSearchContext context) ;
     List<EMPLOYEELOAD> selectByProject(Long id) ;
     void removeByProject(Long id) ;
     /**

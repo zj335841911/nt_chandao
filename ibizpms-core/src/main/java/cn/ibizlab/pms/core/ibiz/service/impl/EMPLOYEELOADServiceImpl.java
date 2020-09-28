@@ -171,6 +171,15 @@ public class EMPLOYEELOADServiceImpl extends ServiceImpl<EMPLOYEELOADMapper, EMP
         return new PageImpl<EMPLOYEELOAD>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 获取员工负载表
+     */
+    @Override
+    public Page<EMPLOYEELOAD> searchGETWOERKLOAD(EMPLOYEELOADSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<EMPLOYEELOAD> pages=baseMapper.searchGETWOERKLOAD(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<EMPLOYEELOAD>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**

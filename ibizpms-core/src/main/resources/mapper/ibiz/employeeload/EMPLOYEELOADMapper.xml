@@ -35,6 +35,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[GETWOERKLOAD]-->
+	 <select id="searchGETWOERKLOAD"  parameterType="cn.ibizlab.pms.core.ibiz.filter.EMPLOYEELOADSearchContext"  resultMap="EMPLOYEELOADResultMap">
+         select t1.* from (
+                <include refid="GETWOERKLOAD" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
 		<![CDATA[ SELECT t1.`ASSIGNEDTO`, t1.`ID`, ０ AS `LEFT`, t1.`NAME`, t1.`PROJECT`, t11.`NAME` AS `PROJECTNAME`, ０ AS `TASKCNT`, ０ AS `TOTALLEFT`, ０ AS `TOTALTASKCNT`, ０ AS `WORKLOAD` FROM `ZT_TASK` t1  LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID  
