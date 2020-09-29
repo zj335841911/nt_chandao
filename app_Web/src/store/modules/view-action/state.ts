@@ -62,8 +62,8 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'cbd1280e0ec2cd69ffa85cf60ece100d',
-                '1f13f330cbca49433d11328f9e7d8ae2',
                 '34d99e271bca6539e707f467f9575044',
+                '6e5b23018b93f9f9fcea3afed7092e68',
                 'f340b16bd1355b1c511d9da4b00476e2',
             ],
         },
@@ -1617,6 +1617,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'f8b69912b3ca27b5d083c8fb1971c84a',
+            ],
+        },
+        {
+            viewtag: '6e5b23018b93f9f9fcea3afed7092e68',
+            viewmodule: 'zentao',
+            viewname: 'TestReportProjectMainEditEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

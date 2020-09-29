@@ -312,6 +312,22 @@ export default {
 		uiactions: {
 		},
 	},
+	projectmain_grid: {
+		columns: {
+			id: "ID",
+			title: "标题",
+			createdby: "创建",
+			createddate: "创建时间",
+			projectname: "所属项目",
+			tasks: "测试版本",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+        edit: "Edit",
+        testreport_projectedits: "编辑",
+        testreport_delete: "删除",
+		},
+	},
 	main_grid: {
 		columns: {
 			id: "ID",
@@ -340,7 +356,7 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
-	mainediteditviewtoolbar_toolbar: {
+	projectmainediteditviewtoolbar_toolbar: {
 		deuiaction1: {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
@@ -372,6 +388,12 @@ export default {
 			tip: "Save And Close Window",
 		},
 	},
+	mainediteditviewtoolbar_toolbar: {
+		deuiaction1: {
+			caption: "Save And Close",
+			tip: "Save And Close Window",
+		},
+	},
 	gridviewtoolbar_toolbar: {
 		deuiaction3_create: {
 			caption: "新建",
@@ -384,12 +406,6 @@ export default {
 		deuiaction1: {
 			caption: "Export",
 			tip: "Export {0} Data To Excel",
-		},
-	},
-	projectmainediteditviewtoolbar_toolbar: {
-		deuiaction1: {
-			caption: "Save And Close",
-			tip: "Save And Close Window",
 		},
 	},
 };
