@@ -21223,6 +21223,111 @@
  }
     ,
     {
+    "entity_name":"IBZ_PRODUCTSUM",
+    "logic_name":"产品汇总表",
+    "code_name":"ProductSum",
+    "table_name":"zt_product",
+    "system_id":"pms",
+    "system_name":"pms",
+    "fields":[
+    {
+    "fieldname":"ID" ,
+    "codename":"Id",
+    "field_logic_name":"主键标识",
+    "entity_name":"ProductSum",
+    "field_type":"ACID",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":20,
+    "key_field":1,
+    "major_field":0
+    },
+    {
+    "fieldname":"NAME" ,
+    "codename":"Name",
+    "field_logic_name":"产品名称",
+    "entity_name":"ProductSum",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":1
+    },
+    {
+    "fieldname":"PO" ,
+    "codename":"PO",
+    "field_logic_name":"产品负责人",
+    "entity_name":"ProductSum",
+    "field_type":"SSCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"PLAN" ,
+    "codename":"Plan",
+    "field_logic_name":"计划",
+    "entity_name":"ProductSum",
+    "field_type":"BIGINT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"BIGINT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BEGIN" ,
+    "codename":"Begin",
+    "field_logic_name":"开始日期",
+    "entity_name":"ProductSum",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"END" ,
+    "codename":"End",
+    "field_logic_name":"结束日期",
+    "entity_name":"ProductSum",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"WAITSTORYCNT" ,
+    "codename":"WaitStoryCnt",
+    "field_logic_name":"草稿",
+    "entity_name":"ProductSum",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    ],
+    "parentEntitys":[
+    ]
+ }
+    ,
+    {
     "entity_name":"ZT_PROJECT",
     "logic_name":"项目",
     "code_name":"Project",
