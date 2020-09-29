@@ -1,8 +1,9 @@
 <template>
   <div style="width: 100%;height:100%;display: flex;justify-content: space-between;">
+      
+      <div v-if="isNoData" class="chart-no-data"><i class="el-icon-data-analysis"></i> {{$t('app.commonWords.noData')}}</div>
       <!-- 图表 -->
-      <div style="width: 70%;">
-          <div v-if="isNoData" class="chart-no-data"><i class="el-icon-data-analysis"></i>{{$t('app.commonWords.noData')}}</div>
+      <div  style="width: 70%;">
           <div class="app-charts" :id="chartId" style="height: 100%;padding: 6px 0;"></div>
           <div class="app-charts" v-if="originId" :id="originId" style="width:0px;height:0px"></div>
       </div>
@@ -69,7 +70,7 @@ export default class ChartFormLegend extends Vue {
   public chartUserParams?: any;
 
   /**
-   * 图表自定义参数集合
+   * 原chartId
    *
    * @type {any}
    * @memberof ChartFormLegend
@@ -126,8 +127,8 @@ export default class ChartFormLegend extends Vue {
   public watchChartOption(newVal: any, oldVal: any) {
       if (newVal.dataset.length > 0) {
         // 绘制图表
-        this.drawCharts();
         this.isNoData = false;
+        this.drawCharts();
       } else {
         this.isNoData = true;
       }
@@ -199,7 +200,7 @@ export default class ChartFormLegend extends Vue {
           }
         });
       });
-      
+
       if (this.legendList.length > this.chartUserParams.color.length) {
         let colorIndex:number = -1;
         this.legendList.forEach((legend: any, legendIndex: any) => {
