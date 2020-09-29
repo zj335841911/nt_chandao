@@ -44,6 +44,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[GETWORKLOAD_UNASSIGN]-->
+	 <select id="searchGETWORKLOAD_UNASSIGN"  parameterType="cn.ibizlab.pms.core.ibiz.filter.EMPLOYEELOADSearchContext"  resultMap="EMPLOYEELOADResultMap">
+         select t1.* from (
+                <include refid="GETWORKLOAD_UNASSIGN" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
 		<![CDATA[ SELECT t1.`ASSIGNEDTO`, t1.`ID`, ０ AS `LEFT`, t1.`NAME`, t1.`PROJECT`, t11.`NAME` AS `PROJECTNAME`, ０ AS `TASKCNT`, ０ AS `TOTALLEFT`, ０ AS `TOTALTASKCNT`, ０ AS `WORKLOAD` FROM `ZT_TASK` t1  LEFT JOIN zt_project t11 ON t1.PROJECT = t11.ID  
@@ -57,7 +66,7 @@
     <!--数据查询[GETWORKLOAD_UNASSIGN]-->
     <sql id="GETWORKLOAD_UNASSIGN" databaseId="mysql">
 		<![CDATA[ select  t1.account as assignedTo,t2.`name` as projectname  from zt_team t1  LEFT JOIN zt_project t2 on t2.id = t1.root where t2.`status` not in ('cancel','closed','done','suspended')  and t1.type = 'project'  and t1.account not in (SELECT assignedTo from zt_task where project = t1.root and `status` not in ('cancel','closed','done','suspended') and assignedTo <> '' GROUP BY assignedTo) ORDER BY t1.ACCOUNT,t2.`name`
-					 WHERE 	where assign
+					 WHERE 	where #{assign} = 'noassign'
 			]]>
     </sql>
     <!--数据查询[View]-->

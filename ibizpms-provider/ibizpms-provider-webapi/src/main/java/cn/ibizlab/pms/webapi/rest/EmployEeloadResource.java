@@ -177,5 +177,26 @@ public class EmployEeloadResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(employeeloadMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-EMPLOYEELOAD-searchGETWORKLOAD_UNASSIGN-all')")
+	@ApiOperation(value = "获取员工负载(未指派)", tags = {"员工负载表" } ,notes = "获取员工负载(未指派)")
+    @RequestMapping(method= RequestMethod.GET , value="/employeeloads/fetchgetworkload_unassign")
+	public ResponseEntity<List<EmployEeloadDTO>> fetchGETWORKLOAD_UNASSIGN(EMPLOYEELOADSearchContext context) {
+        Page<EMPLOYEELOAD> domains = employeeloadService.searchGETWORKLOAD_UNASSIGN(context) ;
+        List<EmployEeloadDTO> list = employeeloadMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-EMPLOYEELOAD-searchGETWORKLOAD_UNASSIGN-all')")
+	@ApiOperation(value = "查询员工负载(未指派)", tags = {"员工负载表" } ,notes = "查询员工负载(未指派)")
+    @RequestMapping(method= RequestMethod.POST , value="/employeeloads/searchgetworkload_unassign")
+	public ResponseEntity<Page<EmployEeloadDTO>> searchGETWORKLOAD_UNASSIGN(@RequestBody EMPLOYEELOADSearchContext context) {
+        Page<EMPLOYEELOAD> domains = employeeloadService.searchGETWORKLOAD_UNASSIGN(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(employeeloadMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 

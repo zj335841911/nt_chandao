@@ -21,6 +21,7 @@ public interface EMPLOYEELOADMapper extends BaseMapper<EMPLOYEELOAD>{
 
     Page<EMPLOYEELOAD> searchDefault(IPage page, @Param("srf") EMPLOYEELOADSearchContext context, @Param("ew") Wrapper<EMPLOYEELOAD> wrapper) ;
     Page<EMPLOYEELOAD> searchGETWOERKLOAD(IPage page, @Param("srf") EMPLOYEELOADSearchContext context, @Param("ew") Wrapper<EMPLOYEELOAD> wrapper) ;
+    Page<EMPLOYEELOAD> searchGETWORKLOAD_UNASSIGN(IPage page, @Param("srf") EMPLOYEELOADSearchContext context, @Param("ew") Wrapper<EMPLOYEELOAD> wrapper) ;
     @Override
     EMPLOYEELOAD selectById(Serializable id);
     @Override
