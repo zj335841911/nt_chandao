@@ -1030,7 +1030,6 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
      *
      * @memberof Mob_Plan
      */
-    /**
     public mounted(){
       let list:any = this.$refs.mdctrl;
       let scroll:any = this.$refs.scroll;        

@@ -1063,7 +1063,6 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      *
      * @memberof FavoriteMOB
      */
-    /**
     public mounted(){
       let list:any = this.$refs.mdctrl;
       let scroll:any = this.$refs.scroll;        

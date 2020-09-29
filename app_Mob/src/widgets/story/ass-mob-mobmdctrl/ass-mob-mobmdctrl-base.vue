@@ -1195,7 +1195,6 @@ export default class AssMOBBase extends Vue implements ControlInterface {
      *
      * @memberof AssMOB
      */
-    /**
     public mounted(){
       let list:any = this.$refs.mdctrl;
       let scroll:any = this.$refs.scroll;        

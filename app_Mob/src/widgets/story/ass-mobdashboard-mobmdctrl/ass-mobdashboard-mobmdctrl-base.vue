@@ -1195,7 +1195,6 @@ export default class AssMOBDASHBOARDBase extends Vue implements ControlInterface
      *
      * @memberof AssMOBDASHBOARD
      */
-    /**
     public mounted(){
       let list:any = this.$refs.mdctrl;
       let scroll:any = this.$refs.scroll;        

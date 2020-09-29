@@ -993,7 +993,6 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
      *
      * @memberof TrendsMob
      */
-    /**
     public mounted(){
       let list:any = this.$refs.mdctrl;
       let scroll:any = this.$refs.scroll;        

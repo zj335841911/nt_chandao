@@ -1005,7 +1005,6 @@ export default class Mob_3817Base extends Vue implements ControlInterface {
      *
      * @memberof Mob_3817
      */
-    /**
     public mounted(){
       let list:any = this.$refs.mdctrl;
       let scroll:any = this.$refs.scroll;        
