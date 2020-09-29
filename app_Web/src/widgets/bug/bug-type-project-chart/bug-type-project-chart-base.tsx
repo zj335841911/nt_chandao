@@ -251,7 +251,7 @@ export class BugType_ProjectChartBase extends MainControlBase {
      * @memberof Dashboard_BugTypeProject_chartBase
      */   
     public chartUserParams:any ={
-        color:["#F500F7","#FF1744","#00A9FC","#FF5D5D",'#FDC137','#00DA88','#7ECFF','#8666B8','#BD7B46']
+        color:["#F500F7","#FF1744","#00A9FC","#FF5D5D",'#FDC137','#00DA88','#7EC5FF','#8666B8','#BD7B46']
     };
 
     /**
