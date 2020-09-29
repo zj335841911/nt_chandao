@@ -968,6 +968,7 @@
 |/bug/fetchbuildproducebugseverity_project|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bug/fetchbuildproducebugstatus_project|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bug/fetchbuildproducebugtype_project|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/bug/fetchcuruserresolve|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bug/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bug/fetchmyfavorites|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bug/fetchprojectbugs|GET|DEDataSetFetchContext Json对象|&nbsp;|
