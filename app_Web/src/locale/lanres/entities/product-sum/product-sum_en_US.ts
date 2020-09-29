@@ -62,7 +62,7 @@ export default {
 			rawitem1: "", 
 			formpage1: "常规条件", 
 			closed: "关闭产品", 
-			expired: "", 
+			expired: "过期计划", 
 		},
 		uiactions: {
 		},

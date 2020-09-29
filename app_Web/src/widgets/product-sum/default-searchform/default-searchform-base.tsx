@@ -92,7 +92,7 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
 , 
         closed: new FormItemModel({ caption: '关闭产品', detailType: 'FORMITEM', name: 'closed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        expired: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'expired', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        expired: new FormItemModel({ caption: '过期计划', detailType: 'FORMITEM', name: 'expired', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 }

@@ -8,12 +8,12 @@
                   
           <i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 2 }">
               <div class="" style="">
-              筛选条件：
+              <div style=" padding-top: 6px;  padding-left: 20px;"> 筛选条件： </div>
           </div>
           
           </i-col>
-          <i-col class="form-layout-container" v-show="detailsModel.closed.visible" :style="{}"  :lg="{ span: 2, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-              <app-form-item name='closed' :itemRules="this.rules.closed" class='' :caption="$t('entities.productsum.default_searchform.details.closed')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.closed.error" :isEmptyCaption="false" labelPos="RIGHT">
+          <i-col class="form-layout-container" v-show="detailsModel.closed.visible" :style="{}"  :lg="{ span: 3, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+              <app-form-item name='closed' :itemRules="this.rules.closed" class='' :caption="$t('entities.productsum.default_searchform.details.closed')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.closed.error" :isEmptyCaption="false" labelPos="LEFT">
               <div style="">
             <app-checkbox :value="this.data.closed" @change="($event)=>{this.data.closed = $event} " :disabled="detailsModel.closed.disabled"></app-checkbox>
           </div>
@@ -21,8 +21,8 @@
           </app-form-item>
           
           </i-col>
-          <i-col class="form-layout-container" v-show="detailsModel.expired.visible" :style="{}"  :lg="{ span: 2, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-              <app-form-item name='expired' :itemRules="this.rules.expired" class='' :caption="$t('entities.productsum.default_searchform.details.expired')" uiStyle="DEFAULT" :labelWidth="10" :isShowCaption="true" :error="detailsModel.expired.error" :isEmptyCaption="true" labelPos="LEFT">
+          <i-col class="form-layout-container" v-show="detailsModel.expired.visible" :style="{}"  :lg="{ span: 3, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+              <app-form-item name='expired' :itemRules="this.rules.expired" class='' :caption="$t('entities.productsum.default_searchform.details.expired')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.expired.error" :isEmptyCaption="false" labelPos="LEFT">
               <div style="">
             <app-checkbox :value="this.data.expired" @change="($event)=>{this.data.expired = $event} " :disabled="detailsModel.expired.disabled"></app-checkbox>
           </div>
