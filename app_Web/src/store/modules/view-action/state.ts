@@ -3042,8 +3042,18 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'cef6e71f89bb0007d341328d455f6da0',
+                'db750bbb894c25f38ca2741f234df3c6',
                 'e090d7f19211e8fbbab5d4442c6e58e8',
                 'bef7c08b651990569cd09ce805ebcfe3',
+            ],
+        },
+        {
+            viewtag: 'c862174c0f25d5077870c42115925fee',
+            viewmodule: 'zentao',
+            viewname: 'BugResolveChartView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -3370,6 +3380,16 @@ export const viewstate: any = {
                 '46517a803b2470cd0bef27aeda0dbcaf',
                 'c1e9611b6972b1877b75fa5d2c67aad6',
                 '122af527bf38b47ddc53c882847b490e',
+            ],
+        },
+        {
+            viewtag: 'db750bbb894c25f38ca2741f234df3c6',
+            viewmodule: 'ibiz',
+            viewname: 'UserYearWorkStatsEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'c862174c0f25d5077870c42115925fee',
             ],
         },
         {

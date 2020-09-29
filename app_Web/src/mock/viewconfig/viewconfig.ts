@@ -2663,6 +2663,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "IbzMyTerritoryStatsTabExpView",
             "viewtag": "c8171c13c1ba215f65c8587df1d98ba5"
         },
+        "bugresolvechartview": {
+            "title": "Bug图表视图（解决Bug）",
+            "caption": "解决Bug",
+            "viewtype": "DECHARTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugResolveChartView",
+            "viewtag": "c862174c0f25d5077870c42115925fee"
+        },
         "buggridview": {
             "title": "bug表格视图",
             "caption": "Bug",

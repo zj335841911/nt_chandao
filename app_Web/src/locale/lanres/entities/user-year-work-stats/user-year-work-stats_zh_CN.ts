@@ -36,6 +36,7 @@ export default {
 			grouppanel7: "产品经理", 
 			grouppanel8: "测试", 
 			grouppanel9: "基本信息", 
+			druipart1: "", 
 			grouppanel13: "研发", 
 			grouppanel16: "测试", 
 			grouppanel15: "产品经理", 

@@ -197,6 +197,10 @@ export default {
 			caption: "解决Bug",
       		title: "解决Bug",
 		},
+		resolvechartview: {
+			caption: "解决Bug",
+      		title: "Bug图表视图（解决Bug）",
+		},
 		gridview: {
 			caption: "Bug",
       		title: "bug表格视图",

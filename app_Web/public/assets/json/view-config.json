@@ -3319,6 +3319,16 @@
         "viewtag": "c8171c13c1ba215f65c8587df1d98ba5",
         "memo": ""
     },
+    "bugresolvechartview": {
+        "title": "Bug图表视图（解决Bug）",
+        "caption": "解决Bug",
+        "viewtype": "DECHARTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugResolveChartView",
+        "viewfilename": "bug-resolve-chart-view",
+        "viewtag": "c862174c0f25d5077870c42115925fee",
+        "memo": ""
+    },
     "buggridview": {
         "title": "bug表格视图",
         "caption": "Bug",
