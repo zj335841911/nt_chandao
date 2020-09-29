@@ -9,13 +9,14 @@
       </div>
 
       <!-- 图例 -->
-      <div class="legend" v-if="legendList.length > 0" style="width: 25%;">
+      <div class="legend" v-if="legendList.length > 0" style="width: 25%;padding-top:8px">
           <el-table
               :data="legendList"
               style="width: 100%;"
               :header-cell-style="{'text-align':'center'}"
               :cell-style="{'text-align':'center',padding:'0px'}"
               border
+              max-height="275"
               >
               <el-table-column
                   label="图例"
@@ -167,6 +168,7 @@ export default class ChartFormLegend extends Vue {
   public configChart(option:any) {
     let tempOption:any = {...option};
     tempOption.title.left = 'center'; // 配置标题位置
+    tempOption.title.subtextStyle = {fontSize: 20};
     tempOption.series[0].label.formatter = "{b}:{@srfcount}" // 配置标签显示值
     tempOption.series[0].avoidLabelOverlap = true; // 避免标签重叠
     tempOption.series[0].top = 50; // 避免标签和标题或图例重叠
