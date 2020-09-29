@@ -1,10 +1,10 @@
 <template>
   <div style="width: 100%;height:100%;display: flex;justify-content: space-between;">
       
-      <div v-if="isNoData" class="chart-no-data"><i class="el-icon-data-analysis"></i> {{$t('app.commonWords.noData')}}</div>
+      <div v-if="!itemName" class="chart-no-data"><i class="el-icon-data-analysis"></i> {{$t('app.commonWords.noData')}}</div>
       <!-- 图表 -->
-      <div  style="width: 70%;">
-          <div class="app-charts" :id="chartId" style="width: 100%;height: 100%;padding: 6px 0;display: flex;justify-content: center;"></div>
+      <div style="width: 70%;">
+          <div v-if="itemName" class="app-charts" :id="chartId" style="width: 100%;height: 300px;padding: 6px 0;display: flex;justify-content: center;"></div>
           <div class="app-charts" v-if="originId" :id="originId" style="width:0px;height:0px"></div>
       </div>
 
@@ -129,7 +129,7 @@ export default class ChartFormLegend extends Vue {
       if (newVal.dataset.length > 0) {
         // 绘制图表
         this.isNoData = false;
-        this.drawCharts();
+        this.$nextTick(() => {this.drawCharts();})
       } else {
         this.isNoData = true;
       }
