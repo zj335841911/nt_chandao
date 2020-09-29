@@ -48,15 +48,6 @@ export class GridControlBase extends MDControlBase {
     public isSingleSelect?: boolean;
 
     /**
-     * 是否为嵌入表格
-     *
-     * @type {boolean}
-     * @memberof GridControlBase
-     */
-    @Prop({default:false})
-    public isformDruipart?: boolean;
-
-    /**
      * 选中数据字符串
      *
      * @type {string}
