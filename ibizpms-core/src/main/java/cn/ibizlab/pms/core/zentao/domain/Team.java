@@ -44,7 +44,7 @@ public class Team extends EntityMP implements Serializable {
     /**
      * 最初预计
      */
-    @DEField(defaultValue = "0.00")
+    @DEField(defaultValue = "0")
     @TableField(value = "`estimate`")
     @JSONField(name = "estimate")
     @JsonProperty("estimate")
@@ -76,6 +76,7 @@ public class Team extends EntityMP implements Serializable {
     /**
      * 用户
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`account`")
     @JSONField(name = "account")
     @JsonProperty("account")
@@ -115,6 +116,7 @@ public class Team extends EntityMP implements Serializable {
     /**
      * 可用工日
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`days`")
     @JSONField(name = "days")
     @JsonProperty("days")
@@ -122,7 +124,6 @@ public class Team extends EntityMP implements Serializable {
     /**
      * 加盟日
      */
-    @DEField(defaultValue = "0000-00-00")
     @TableField(value = "`join`")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "join" , format="yyyy-MM-dd")
