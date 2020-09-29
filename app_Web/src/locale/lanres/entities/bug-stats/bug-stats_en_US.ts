@@ -82,6 +82,8 @@ export default {
 	},
 	default_searchform: {
 		details: {
+			grouppanel1: "分组面板", 
+			grouppanel2: "分组面板", 
 			formpage1: "常规条件", 
 			openeddatelt: "Bug创建时间", 
 			openeddategt: "至", 

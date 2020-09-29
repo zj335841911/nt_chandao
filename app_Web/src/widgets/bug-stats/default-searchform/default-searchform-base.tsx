@@ -88,6 +88,10 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
      * @memberof DefaultSearchFormBase
      */
     public detailsModel: any = {
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.bugstats.default_searchform', extractMode: 'ITEM', details: [] } })
+, 
+        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'entities.bugstats.default_searchform', extractMode: 'ITEM', details: [] } })
+, 
         formpage1: new FormPageModel({ caption: '常规条件', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
         openeddatelt: new FormItemModel({ caption: 'Bug创建时间', detailType: 'FORMITEM', name: 'openeddatelt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
