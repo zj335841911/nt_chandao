@@ -96,9 +96,9 @@ export class DingTalkService {
     private async dd_ready() {
         // 设置导航标题
         this.setNavBack();
-        let access_token: any = await this.getAccess_token();
+        // let access_token: any = await this.getAccess_token();
         // 鉴权
-        this.authentication(access_token.agentId, this.corpId, access_token.data.timeStamp, access_token.data.nonceStr, access_token.data.signature);
+        // this.authentication(access_token.agentId, this.corpId, access_token.data.timeStamp, access_token.data.nonceStr, access_token.data.signature);
     }
 
 
@@ -124,7 +124,8 @@ export class DingTalkService {
      * @memberof DingTalkService
      */
     public async login(): Promise<any> {
-        const access_token = await this.getAccess_token();
+        // const access_token = await this.getAccess_token();
+        const access_token :any= await this.get(`/uaa/open/dingtalk/access_token`);
         if (access_token.status == 200 && access_token.data && access_token.data.corp_id) {
             localStorage.setItem("access_token", JSON.stringify(Object.assign(access_token, new Date().getTime)));
             this.corpId = access_token.data.corp_id;
