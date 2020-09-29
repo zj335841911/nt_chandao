@@ -69,17 +69,17 @@
           </app-form-item>
           
           </i-col>
-          <i-col class="form-layout-container" v-show="detailsModel.n_assign_eq.visible" :style="{}"  :lg="{ span: 3, offset: 0 }" :xl="{ span: 3, offset: 0 }">
-              <app-form-item name='n_assign_eq' :itemRules="this.rules.n_assign_eq" class='' :caption="$t('entities.employeeload.workload_searchform.details.n_assign_eq')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.n_assign_eq.error" :isEmptyCaption="true" labelPos="LEFT">
+          <i-col class="form-layout-container" v-show="detailsModel.assign.visible" :style="{}"  :lg="{ span: 3, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+              <app-form-item name='assign' :itemRules="this.rules.assign" class='' :caption="$t('entities.employeeload.workload_searchform.details.assign')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.assign.error" :isEmptyCaption="true" labelPos="LEFT">
               
           <dropdown-list 
-              v-model="data.n_assign_eq"
+              v-model="data.assign"
               :data="data"
               :context="context"
               :viewparams="viewparams"
               :localContext ='{ }' 
               :localParam ='{ }' 
-              :disabled="detailsModel.n_assign_eq.disabled"
+              :disabled="detailsModel.assign.disabled"
               valueType="string"
               placeholder='请选择...'
               style="width:100px;"

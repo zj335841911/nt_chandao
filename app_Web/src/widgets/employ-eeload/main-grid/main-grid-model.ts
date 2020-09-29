@@ -110,8 +110,8 @@ export default class MainModel {
         prop: 'everydaytime',
       },
       {
-        name: 'n_assign_eq',
-        prop: 'n_assign_eq',
+        name: 'assign',
+        prop: 'assign',
         dataType: 'TEXT',
       },
 

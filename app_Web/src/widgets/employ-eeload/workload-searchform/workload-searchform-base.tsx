@@ -80,7 +80,7 @@ export class WorkloadSearchFormBase extends SearchFormControlBase {
         end: null,
         workday: null,
         everydaytime: null,
-        n_assign_eq: null,
+        assign: null,
     };
 
     /**
@@ -102,7 +102,7 @@ export class WorkloadSearchFormBase extends SearchFormControlBase {
 , 
         everydaytime: new FormItemModel({ caption: '每天工时', detailType: 'FORMITEM', name: 'everydaytime', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_assign_eq: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'n_assign_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        assign: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'assign', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 

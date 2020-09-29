@@ -65,7 +65,7 @@ export default {
 			end: "至", 
 			workday: "工作天数", 
 			everydaytime: "每天工时", 
-			n_assign_eq: "", 
+			assign: "", 
 		},
 		uiactions: {
 		},
