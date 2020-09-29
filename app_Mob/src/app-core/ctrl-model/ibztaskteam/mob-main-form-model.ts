@@ -71,11 +71,6 @@ export class MobMainModel {
                 dataType: 'ACID',
             },
             {
-                name: 'task',
-                prop: 'id',
-                dataType: 'FONTKEY',
-            },
-            {
                 name: 'ibztaskteam',
                 prop: 'id',
                 dataType: 'FONTKEY',

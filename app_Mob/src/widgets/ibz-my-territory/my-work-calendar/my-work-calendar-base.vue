@@ -715,8 +715,8 @@ export default class MyWorkBase extends Vue implements ControlInterface {
                     width: 0,  
                     title: '任务移动端编辑视图', 
                     placement: '',
-                    deResParameters: [{ pathName: 'stories', parameterName: 'story' }, ],
-                    parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'mobeditview', parameterName: 'mobeditview' } ],
+                    deResParameters: [],
+                    parameters: [{ pathName: 'subtasks', parameterName: 'subtask' }, { pathName: 'mobeditview', parameterName: 'mobeditview' } ],
                 };
                 break;
             case "bug": 
@@ -761,8 +761,8 @@ export default class MyWorkBase extends Vue implements ControlInterface {
                 view = this.getEditView("bug");
                 break;
             case "task":
-                _context.task = $event.task;
-                view = this.getEditView("task");
+                _context.subtask = $event.subtask;
+                view = this.getEditView("subtask");
                 break;
             case "todo":
                 _context.todo = $event.todo;

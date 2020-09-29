@@ -3,7 +3,7 @@ import user_en_US from '@locale/lanres/user/user_en_US';
 import ibzfavorites_en_US from '@locale/lanres/ibz-favorites/ibz-favorites_en_US';
 import projectteam_en_US from '@locale/lanres/project-team/project-team_en_US';
 import build_en_US from '@locale/lanres/build/build_en_US';
-import task_en_US from '@locale/lanres/task/task_en_US';
+import subtask_en_US from '@locale/lanres/sub-task/sub-task_en_US';
 import taskestimate_en_US from '@locale/lanres/task-estimate/task-estimate_en_US';
 import module_en_US from '@locale/lanres/module/module_en_US';
 import product_en_US from '@locale/lanres/product/product_en_US';
@@ -170,7 +170,7 @@ export default {
     ibzfavorites: ibzfavorites_en_US,
     projectteam: projectteam_en_US,
     build: build_en_US,
-    task: task_en_US,
+    subtask: subtask_en_US,
     taskestimate: taskestimate_en_US,
     module: module_en_US,
     product: product_en_US,

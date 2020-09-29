@@ -523,10 +523,7 @@ export default class TaskEstimateMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        let deResParameters: any[] = [];
-        deResParameters = [
-            { pathName: 'tasks', parameterName: 'task' },
-        ];
+        const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'taskestimates', parameterName: 'taskestimate' },
             { pathName: 'moboptionview', parameterName: 'moboptionview' },

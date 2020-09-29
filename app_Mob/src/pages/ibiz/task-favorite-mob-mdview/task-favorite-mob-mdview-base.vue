@@ -89,10 +89,10 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskService from '@/app-core/service/task/task-service';
+import SubTaskService from '@/app-core/service/sub-task/sub-task-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-import TaskUIService from '@/ui-service/task/task-ui-action';
+import SubTaskUIService from '@/ui-service/sub-task/sub-task-ui-action';
 
 @Component({
     components: {
@@ -111,18 +111,18 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {TaskService}
+     * @type {SubTaskService}
      * @memberof TaskFavoriteMobMDViewBase
      */
-    protected appEntityService: TaskService = new TaskService();
+    protected appEntityService: SubTaskService = new SubTaskService();
 
     /**
      * 实体UI服务对象
      *
-     * @type TaskUIService
+     * @type SubTaskUIService
      * @memberof TaskFavoriteMobMDViewBase
      */
-    public appUIService: TaskUIService = new TaskUIService(this.$store);
+    public appUIService: SubTaskUIService = new SubTaskUIService(this.$store);
 
     /**
      * 数据变化
@@ -225,10 +225,10 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
      */
     protected model: any = {
         srfTitle: '任务移动端多数据视图',
-        srfCaption: 'task.views.favoritemobmdview.caption',
+        srfCaption: 'subtask.views.favoritemobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'task.favoritemobmdview',
+        viewname:'subtask.favoritemobmdview',
         iconcls: '',
         icon: 'fa fa-tasks'
     }
@@ -377,7 +377,7 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
                 this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
             },
             searchform: this.$refs.searchform,
-            keyPSDEField: 'task',
+            keyPSDEField: 'subtask',
             majorPSDEField: 'name',
             isLoadDefault: true,
         });
@@ -580,26 +580,9 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-        if (context.project && true) {
-            deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-        }
-        if (context.story && true) {
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-
+        const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'subtasks', parameterName: 'subtask' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
@@ -640,26 +623,9 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        let deResParameters: any[] = [];
-        if (context.product && context.story && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-        if (context.project && true) {
-            deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-        }
-        if (context.story && true) {
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-
+        const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'subtasks', parameterName: 'subtask' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);

@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import TaskSTARTMobOptionViewBase from './task-startmob-option-view-base.vue';
 
-import view_form from '@widgets/task/mob-start-form-form/mob-start-form-form.vue';
+import view_form from '@widgets/sub-task/mob-start-form-form/mob-start-form-form.vue';
 @Component({
     components: {
         view_form, 

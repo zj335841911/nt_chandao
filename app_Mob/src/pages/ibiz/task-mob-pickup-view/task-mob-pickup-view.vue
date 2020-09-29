@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import TaskMobPickupViewBase from './task-mob-pickup-view-base.vue';
 
-import view_pickupviewpanel from '@widgets/task/mob-pickup-viewpickupviewpanel-pickupviewpanel/mob-pickup-viewpickupviewpanel-pickupviewpanel.vue';
+import view_pickupviewpanel from '@widgets/sub-task/mob-pickup-viewpickupviewpanel-pickupviewpanel/mob-pickup-viewpickupviewpanel-pickupviewpanel.vue';
 @Component({
     components: {
         view_pickupviewpanel, 

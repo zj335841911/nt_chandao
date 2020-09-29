@@ -60,11 +60,6 @@ export class MainModel {
       {
         name: 'left',
       },
-      {
-        name: 'task',
-        prop: 'id',
-        dataType: 'FONTKEY',
-      },
     ]
   }
 

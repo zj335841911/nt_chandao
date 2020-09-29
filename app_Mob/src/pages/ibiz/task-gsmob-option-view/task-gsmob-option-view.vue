@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import TaskGSMobOptionViewBase from './task-gsmob-option-view-base.vue';
 
-import view_form from '@widgets/task/estimate-mob-form/estimate-mob-form.vue';
+import view_form from '@widgets/sub-task/estimate-mob-form/estimate-mob-form.vue';
 @Component({
     components: {
         view_form, 

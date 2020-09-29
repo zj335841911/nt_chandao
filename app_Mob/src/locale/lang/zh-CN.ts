@@ -3,7 +3,7 @@ import user_zh_CN from '@locale/lanres/user/user_zh_CN';
 import ibzfavorites_zh_CN from '@locale/lanres/ibz-favorites/ibz-favorites_zh_CN';
 import projectteam_zh_CN from '@locale/lanres/project-team/project-team_zh_CN';
 import build_zh_CN from '@locale/lanres/build/build_zh_CN';
-import task_zh_CN from '@locale/lanres/task/task_zh_CN';
+import subtask_zh_CN from '@locale/lanres/sub-task/sub-task_zh_CN';
 import taskestimate_zh_CN from '@locale/lanres/task-estimate/task-estimate_zh_CN';
 import module_zh_CN from '@locale/lanres/module/module_zh_CN';
 import product_zh_CN from '@locale/lanres/product/product_zh_CN';
@@ -171,7 +171,7 @@ export default {
     ibzfavorites: ibzfavorites_zh_CN,
     projectteam: projectteam_zh_CN,
     build: build_zh_CN,
-    task: task_zh_CN,
+    subtask: subtask_zh_CN,
     taskestimate: taskestimate_zh_CN,
     module: module_zh_CN,
     product: product_zh_CN,

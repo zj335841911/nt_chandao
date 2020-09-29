@@ -55,10 +55,10 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskService from '@/app-core/service/task/task-service';
+import SubTaskService from '@/app-core/service/sub-task/sub-task-service';
 
 import MobOptionViewEngine from '@engine/view/mob-option-view-engine';
-import TaskUIService from '@/ui-service/task/task-ui-action';
+import SubTaskUIService from '@/ui-service/sub-task/sub-task-ui-action';
 
 @Component({
     components: {
@@ -77,18 +77,18 @@ export default class TaskCloseMobOptionViewBase extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {TaskService}
+     * @type {SubTaskService}
      * @memberof TaskCloseMobOptionViewBase
      */
-    protected appEntityService: TaskService = new TaskService();
+    protected appEntityService: SubTaskService = new SubTaskService();
 
     /**
      * 实体UI服务对象
      *
-     * @type TaskUIService
+     * @type SubTaskUIService
      * @memberof TaskCloseMobOptionViewBase
      */
-    public appUIService: TaskUIService = new TaskUIService(this.$store);
+    public appUIService: SubTaskUIService = new SubTaskUIService(this.$store);
 
     /**
      * 数据变化
@@ -191,10 +191,10 @@ export default class TaskCloseMobOptionViewBase extends Vue {
      */
     protected model: any = {
         srfTitle: '任务选项操作视图（关闭）',
-        srfCaption: 'task.views.closemoboptionview.caption',
+        srfCaption: 'subtask.views.closemoboptionview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'task.closemoboptionview',
+        viewname:'subtask.closemoboptionview',
         iconcls: '',
         icon: 'fa fa-tasks'
     }
@@ -320,7 +320,7 @@ export default class TaskCloseMobOptionViewBase extends Vue {
             view: this,
             form: this.$refs.form,
             p2k: '0',
-            keyPSDEField: 'task',
+            keyPSDEField: 'subtask',
             majorPSDEField: 'name',
             isLoadDefault: true,
         });

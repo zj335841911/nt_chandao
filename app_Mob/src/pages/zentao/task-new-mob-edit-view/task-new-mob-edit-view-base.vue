@@ -62,10 +62,10 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import TaskService from '@/app-core/service/task/task-service';
+import SubTaskService from '@/app-core/service/sub-task/sub-task-service';
 
 import MobEditViewEngine from '@engine/view/mob-edit-view-engine';
-import TaskUIService from '@/ui-service/task/task-ui-action';
+import SubTaskUIService from '@/ui-service/sub-task/sub-task-ui-action';
 
 @Component({
     components: {
@@ -84,18 +84,18 @@ export default class TaskNewMobEditViewBase extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {TaskService}
+     * @type {SubTaskService}
      * @memberof TaskNewMobEditViewBase
      */
-    protected appEntityService: TaskService = new TaskService();
+    protected appEntityService: SubTaskService = new SubTaskService();
 
     /**
      * 实体UI服务对象
      *
-     * @type TaskUIService
+     * @type SubTaskUIService
      * @memberof TaskNewMobEditViewBase
      */
-    public appUIService: TaskUIService = new TaskUIService(this.$store);
+    public appUIService: SubTaskUIService = new SubTaskUIService(this.$store);
 
     /**
      * 数据变化
@@ -198,10 +198,10 @@ export default class TaskNewMobEditViewBase extends Vue {
      */
     protected model: any = {
         srfTitle: '任务移动端编辑视图（新建）',
-        srfCaption: 'task.views.newmobeditview.caption',
+        srfCaption: 'subtask.views.newmobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'task.newmobeditview',
+        viewname:'subtask.newmobeditview',
         iconcls: '',
         icon: 'fa fa-tasks'
     }
@@ -387,7 +387,7 @@ export default class TaskNewMobEditViewBase extends Vue {
         this.engine.init({
             view: this,
             form: this.$refs.form,
-            keyPSDEField: 'task',
+            keyPSDEField: 'subtask',
             majorPSDEField: 'name',
             isLoadDefault: true,
         });

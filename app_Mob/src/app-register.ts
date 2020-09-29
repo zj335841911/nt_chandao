@@ -54,6 +54,10 @@ export const AppComponents = {
         v.component('app-mob-rate', () => import('@/components/app-mob-rate/app-mob-rate.vue'));
         v.component('app-mob-select-drop-down', () => import('@/components/app-mob-select-drop-down/app-mob-select-drop-down.vue'));
         v.component('app-mob-textarea',() => import('./components/app-mob-textarea/app-mob-textarea.vue'));
+        // 搜索表单2
+        v.component('app-form-item2', () => import('@/components/app-form-item2/app-form-item2.vue'));
+        // 搜索表单2编辑器
+        v.component('app-search-editor', () => import('@/components/app-search-editor/app-search-editor.vue'));
         // 日历组件
         v.component('app-calendar',() => import('@/components/app-calendar/app-calendar.vue'));
         v.component('app-vcalendar',() => import('@/components/app-vcalendar/app-vcalendar.vue'));

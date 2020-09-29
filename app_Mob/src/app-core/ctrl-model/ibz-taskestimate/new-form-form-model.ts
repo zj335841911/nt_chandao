@@ -71,11 +71,6 @@ export class NewFormModel {
                 dataType: 'ACID',
             },
             {
-                name: 'task',
-                prop: 'id',
-                dataType: 'FONTKEY',
-            },
-            {
                 name: 'ibztaskestimate',
                 prop: 'id',
                 dataType: 'FONTKEY',

@@ -318,7 +318,6 @@ export default class MainBase extends Vue implements ControlInterface {
      * @memberof Main
      */
     private deResParameters: any[] = [
-        { pathName: 'tasks', parameterName: 'task' },
     ];
 
     /**

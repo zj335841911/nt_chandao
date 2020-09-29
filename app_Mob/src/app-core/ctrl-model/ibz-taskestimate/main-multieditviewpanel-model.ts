@@ -39,11 +39,6 @@ export class MainModel {
       {
         name: 'dates',
       },
-      {
-        name: 'task',
-        prop: 'id',
-        dataType: 'FONTKEY',
-      },
     ]
   }
 

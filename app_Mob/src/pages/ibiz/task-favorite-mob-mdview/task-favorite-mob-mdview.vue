@@ -2,8 +2,8 @@
 import { Component } from 'vue-property-decorator';
 import TaskFavoriteMobMDViewBase from './task-favorite-mob-mdview-base.vue';
 
-import view_searchform from '@widgets/task/mob-def-searchform/mob-def-searchform.vue';
-import view_mdctrl from '@widgets/task/favorite-mobdas-mobmdctrl/favorite-mobdas-mobmdctrl.vue';
+import view_searchform from '@widgets/sub-task/mob-def-searchform/mob-def-searchform.vue';
+import view_mdctrl from '@widgets/sub-task/favorite-mobdas-mobmdctrl/favorite-mobdas-mobmdctrl.vue';
 @Component({
     components: {
         view_searchform, 

@@ -90,7 +90,7 @@ export class MyWorkService extends CalendarServiceBase {
             this.model.itemType = 'task';
             const _task_data = this.handleRequestData('', context, data);
             await this.onBeforeAction('', context, _task_data, isLoading);
-            const _task = await this.loadDEDataSet('FetchAssignedToMyTask', context, _task_data, 'task', 'task');
+            const _task = await this.loadDEDataSet('FetchAssignedToMyTask', context, _task_data, 'task', 'subtask');
             Object.assign(item, { task: _task });
 
             this.model.itemType = 'todo';

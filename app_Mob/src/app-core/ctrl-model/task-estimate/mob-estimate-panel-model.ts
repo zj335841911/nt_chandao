@@ -39,11 +39,6 @@ export class MobEstimateModel {
       {
         name: 'dates',
       },
-      {
-        name: 'task',
-        prop: 'id',
-        dataType: 'FONTKEY',
-      },
     ]
   }
 
