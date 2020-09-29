@@ -51,8 +51,8 @@ export default class MainModel {
         name: 'srfsourcekey',
       },
       {
-        name: 'visits',
-        prop: 'visits',
+        name: 'yearvisits',
+        prop: 'yearvisits',
         dataType: 'INT',
       },
       {
@@ -98,6 +98,11 @@ export default class MainModel {
       {
         name: 'role',
         prop: 'role',
+        dataType: 'TEXT',
+      },
+      {
+        name: 'judgerole',
+        prop: 'judgerole',
         dataType: 'TEXT',
       },
       {

@@ -5,10 +5,10 @@
     <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.useryearworkstats.main_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.visits.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='visits' :itemRules="this.rules.visits" class='' :caption="$t('entities.useryearworkstats.main_form.details.visits')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.visits.error" :isEmptyCaption="false" labelPos="LEFT">
+        <i-col class="form-layout-container" v-show="detailsModel.yearvisits.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='yearvisits' :itemRules="this.rules.yearvisits" class='' :caption="$t('entities.useryearworkstats.main_form.details.yearvisits')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.yearvisits.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-span name='visits' :value="data.visits" dataType="INT"     :precision="0"
+<app-span name='yearvisits' :value="data.yearvisits" dataType="INT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
 </app-span>
 
@@ -84,7 +84,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-group :model="detailsModel.grouppanel3" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.useryearworkstats.main_form.details.grouppanel3')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group :model="detailsModel.grouppanel3" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.useryearworkstats.main_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel3" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.yearproductcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">

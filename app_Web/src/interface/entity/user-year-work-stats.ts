@@ -117,4 +117,28 @@ export interface UserYearWorkStats {
      * @memberof UserYearWorkStats
      */
     yearestimatecnt?: any;
+
+    /**
+     * 判断角色
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    judgerole?: any;
+
+    /**
+     * 累计登录次数
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    yearvisits?: any;
+
+    /**
+     * 年度
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    curyear?: any;
 }

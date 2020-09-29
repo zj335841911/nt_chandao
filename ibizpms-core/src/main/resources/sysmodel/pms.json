@@ -30574,6 +30574,44 @@
     "data_type":"INT",
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"JUDGEROLE" ,
+    "codename":"Judgerole",
+    "field_logic_name":"判断角色",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"YEARVISITS" ,
+    "codename":"Yearvisits",
+    "field_logic_name":"累计登录次数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"CURYEAR" ,
+    "codename":"Curyear",
+    "field_logic_name":"年度",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[

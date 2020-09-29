@@ -81,7 +81,7 @@ export class MainEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        visits: null,
+        yearvisits: null,
         yearactioncnt: null,
         yearlogcnt: null,
         yearestimatecnt: null,
@@ -91,6 +91,7 @@ export class MainEditFormBase extends EditFormControlBase {
         yearplancnt: null,
         yearstorycnt: null,
         role: null,
+        judgerole: null,
         id: null,
         useryearworkstats:null,
     };
@@ -124,7 +125,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
         grouppanel2: new FormGroupPanelModel({ caption: '测试', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
 
-        grouppanel3: new FormGroupPanelModel({ caption: '产品经理', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: false, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel3: new FormGroupPanelModel({ caption: '产品经理', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
 
         group1: new FormGroupPanelModel({ caption: '基本数据信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
 
@@ -144,7 +145,7 @@ export class MainEditFormBase extends EditFormControlBase {
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
-        visits: new FormItemModel({ caption: '累计登录次数', detailType: 'FORMITEM', name: 'visits', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+        yearvisits: new FormItemModel({ caption: '累计登录次数', detailType: 'FORMITEM', name: 'yearvisits', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         yearactioncnt: new FormItemModel({ caption: '累计动态数', detailType: 'FORMITEM', name: 'yearactioncnt', visible: false, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -164,6 +165,8 @@ export class MainEditFormBase extends EditFormControlBase {
 
         role: new FormItemModel({ caption: '角色', detailType: 'FORMITEM', name: 'role', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        judgerole: new FormItemModel({ caption: '判断角色', detailType: 'FORMITEM', name: 'judgerole', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         id: new FormItemModel({ caption: '用户编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
     };
@@ -177,28 +180,28 @@ export class MainEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
-        if (Object.is(name, '') || Object.is(name, 'role')) {
+        if (Object.is(name, '') || Object.is(name, 'judgerole')) {
             let ret = false;
-            const _role = this.data.role;
-            if (this.$verify.testCond(_role, 'EQ', 'dev')) {
+            const _judgerole = this.data.judgerole;
+            if (this.$verify.testCond(_judgerole, 'EQ', 'dev')) {
                 ret = true;
             }
             this.detailsModel.grouppanel1.setVisible(ret);
         }
 
-        if (Object.is(name, '') || Object.is(name, 'role')) {
+        if (Object.is(name, '') || Object.is(name, 'judgerole')) {
             let ret = false;
-            const _role = this.data.role;
-            if (this.$verify.testCond(_role, 'EQ', 'qa')) {
+            const _judgerole = this.data.judgerole;
+            if (this.$verify.testCond(_judgerole, 'EQ', 'qa')) {
                 ret = true;
             }
             this.detailsModel.grouppanel2.setVisible(ret);
         }
 
-        if (Object.is(name, '') || Object.is(name, 'role')) {
+        if (Object.is(name, '') || Object.is(name, 'judgerole')) {
             let ret = false;
-            const _role = this.data.role;
-            if (this.$verify.testCond(_role, 'EQ', '')) {
+            const _judgerole = this.data.judgerole;
+            if (this.$verify.testCond(_judgerole, 'EQ', 'po')) {
                 ret = true;
             }
             this.detailsModel.grouppanel3.setVisible(ret);
@@ -214,14 +217,15 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
-        if (Object.is(name, '') || Object.is(name, 'role')) {
+        if (Object.is(name, '') || Object.is(name, 'judgerole')) {
             let ret = false;
-            const _role = this.data.role;
-            if (this.$verify.testCond(_role, 'NOTEQ', 'po')) {
+            const _judgerole = this.data.judgerole;
+            if (this.$verify.testCond(_judgerole, 'NOTEQ', 'po')) {
                 ret = true;
             }
             this.detailsModel.yearactioncnt.setVisible(ret);
         }
+
 
 
 

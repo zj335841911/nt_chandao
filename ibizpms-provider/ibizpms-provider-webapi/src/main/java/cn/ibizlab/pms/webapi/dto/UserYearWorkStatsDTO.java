@@ -146,6 +146,32 @@ public class UserYearWorkStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("yearestimatecnt")
     private Integer yearestimatecnt;
 
+    /**
+     * 属性 [JUDGEROLE]
+     *
+     */
+    @JSONField(name = "judgerole")
+    @JsonProperty("judgerole")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String judgerole;
+
+    /**
+     * 属性 [YEARVISITS]
+     *
+     */
+    @JSONField(name = "yearvisits")
+    @JsonProperty("yearvisits")
+    private Integer yearvisits;
+
+    /**
+     * 属性 [CURYEAR]
+     *
+     */
+    @JSONField(name = "curyear")
+    @JsonProperty("curyear")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String curyear;
+
 
     /**
      * 设置 [REALNAME]

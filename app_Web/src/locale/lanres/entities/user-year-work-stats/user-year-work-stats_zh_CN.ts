@@ -14,6 +14,9 @@ export default {
     yearcasecnt: "累计创建用例数",
     yearlogcnt: "累计日志数",
     yearestimatecnt: "累计工时数",
+    judgerole: "判断角色",
+    yearvisits: "累计登录次数",
+    curyear: "年度",
   },
 	views: {
 		editview: {
@@ -35,7 +38,7 @@ export default {
 			srfuf: "", 
 			srfdeid: "", 
 			srfsourcekey: "", 
-			visits: "累计登录次数", 
+			yearvisits: "累计登录次数", 
 			yearactioncnt: "累计动态数", 
 			yearlogcnt: "累计日志数", 
 			yearestimatecnt: "累计工时数", 
@@ -45,6 +48,7 @@ export default {
 			yearplancnt: "累计创建计划数", 
 			yearstorycnt: "累计创建需求数", 
 			role: "角色", 
+			judgerole: "判断角色", 
 			id: "用户编号", 
 		},
 		uiactions: {
