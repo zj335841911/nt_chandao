@@ -39,8 +39,8 @@
           </app-form-item>
           
           </i-col>
-          <i-col class="form-layout-container" v-show="detailsModel.workday.visible" :style="{}"  :lg="{ span: 3, offset: 0 }" :xl="{ span: 3, offset: 2 }">
-              <app-form-item name='workday' :itemRules="this.rules.workday" class='' :caption="$t('entities.employeeload.workload_searchform.details.workday')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.workday.error" :isEmptyCaption="false" labelPos="LEFT">
+          <i-col class="form-layout-container" v-show="detailsModel.workday.visible" :style="{}"  :lg="{ span: 3, offset: 0 }" :xl="{ span: 3, offset: 1 }">
+              <app-form-item name='workday' :itemRules="this.rules.workday" class='' :caption="$t('entities.employeeload.workload_searchform.details.workday')" uiStyle="DEFAULT" :labelWidth="55" :isShowCaption="true" :error="detailsModel.workday.error" :isEmptyCaption="false" labelPos="LEFT">
               <input-box 
             v-model="data.workday"  
             @enter="onEnter($event)"  
@@ -54,8 +54,8 @@
           </app-form-item>
           
           </i-col>
-          <i-col class="form-layout-container" v-show="detailsModel.everydaytime.visible" :style="{}"  :lg="{ span: 3, offset: 0 }" :xl="{ span: 3, offset: 1 }">
-              <app-form-item name='everydaytime' :itemRules="this.rules.everydaytime" class='' :caption="$t('entities.employeeload.workload_searchform.details.everydaytime')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.everydaytime.error" :isEmptyCaption="false" labelPos="LEFT">
+          <i-col class="form-layout-container" v-show="detailsModel.everydaytime.visible" :style="{}"  :lg="{ span: 3, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+              <app-form-item name='everydaytime' :itemRules="this.rules.everydaytime" class='' :caption="$t('entities.employeeload.workload_searchform.details.everydaytime')" uiStyle="DEFAULT" :labelWidth="55" :isShowCaption="true" :error="detailsModel.everydaytime.error" :isEmptyCaption="false" labelPos="LEFT">
               <input-box 
             v-model="data.everydaytime"  
             @enter="onEnter($event)"  
