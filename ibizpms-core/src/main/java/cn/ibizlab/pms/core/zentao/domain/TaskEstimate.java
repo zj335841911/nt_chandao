@@ -44,6 +44,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
     /**
      * 用户
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`account`")
     @JSONField(name = "account")
     @JsonProperty("account")
@@ -59,6 +60,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
     /**
      * 总计消耗
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`consumed`")
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
@@ -82,6 +84,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
     /**
      * work
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`work`")
     @JSONField(name = "work")
     @JsonProperty("work")
@@ -89,6 +92,7 @@ public class TaskEstimate extends EntityMP implements Serializable {
     /**
      * 任务
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`task`")
     @JSONField(name = "task")
     @JsonProperty("task")
