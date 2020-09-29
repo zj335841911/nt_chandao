@@ -17,13 +17,8 @@
     :disabled="detailsModel.n_title_like.disabled"  
     :error="detailsModel.n_title_like.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.n_title_like"
-    
-    :disabled="detailsModel.n_title_like.disabled" 
-    @change="($event)=>this.data.n_title_like = $event" />
+        <app-search-editor></app-search-editor>
+
 </app-form-item>
 
 
@@ -43,18 +38,8 @@
     :disabled="detailsModel.n_delta_eq.disabled"  
     :error="detailsModel.n_delta_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="Zt__delta"
-    codeListType="STATIC" 
-    :isCache="false" 
-    :disabled="detailsModel.n_delta_eq.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.n_delta_eq"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.n_delta_eq = $event" />
+        <app-search-editor></app-search-editor>
+
 </app-form-item>
 
 
@@ -74,11 +59,8 @@
     :disabled="detailsModel.n_begin_gtandeq.disabled"  
     :error="detailsModel.n_begin_gtandeq.error" 
     :isEmptyCaption="false">
-        <app-mob-datetime-picker 
-    class="app-form-item-datetime" 
-    :value="data.n_begin_gtandeq" 
-    :disabled="detailsModel.n_begin_gtandeq.disabled"
-    @change="($event)=>this.data.n_begin_gtandeq = $event"/>
+        <app-search-editor></app-search-editor>
+
 </app-form-item>
 
 
@@ -98,11 +80,8 @@
     :disabled="detailsModel.n_end_ltandeq.disabled"  
     :error="detailsModel.n_end_ltandeq.error" 
     :isEmptyCaption="false">
-        <app-mob-datetime-picker 
-    class="app-form-item-datetime" 
-    :value="data.n_end_ltandeq" 
-    :disabled="detailsModel.n_end_ltandeq.disabled"
-    @change="($event)=>this.data.n_end_ltandeq = $event"/>
+        <app-search-editor></app-search-editor>
+
 </app-form-item>
 
 

@@ -17,13 +17,8 @@
     :disabled="detailsModel.n_title_like.disabled"  
     :error="detailsModel.n_title_like.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.n_title_like"
-    
-    :disabled="detailsModel.n_title_like.disabled" 
-    @change="($event)=>this.data.n_title_like = $event" />
+        <app-search-editor></app-search-editor>
+
 </app-form-item>
 
 
@@ -43,18 +38,8 @@
     :disabled="detailsModel.n_status_eq.disabled"  
     :error="detailsModel.n_status_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="Story__status"
-    codeListType="STATIC" 
-    :isCache="false" 
-    :disabled="detailsModel.n_status_eq.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.n_status_eq"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.n_status_eq = $event" />
+        <app-search-editor></app-search-editor>
+
 </app-form-item>
 
 
@@ -74,18 +59,8 @@
     :disabled="detailsModel.n_type_eq.disabled"  
     :error="detailsModel.n_type_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="Story__type"
-    codeListType="STATIC" 
-    :isCache="false" 
-    :disabled="detailsModel.n_type_eq.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.n_type_eq"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.n_type_eq = $event" />
+        <app-search-editor></app-search-editor>
+
 </app-form-item>
 
 

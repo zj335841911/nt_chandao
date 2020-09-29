@@ -17,13 +17,8 @@
     :disabled="detailsModel.n_name_like.disabled"  
     :error="detailsModel.n_name_like.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.n_name_like"
-    
-    :disabled="detailsModel.n_name_like.disabled" 
-    @change="($event)=>this.data.n_name_like = $event" />
+        <app-search-editor></app-search-editor>
+
 </app-form-item>
 
 
@@ -43,13 +38,8 @@
     :disabled="detailsModel.n_productname_like.disabled"  
     :error="detailsModel.n_productname_like.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.n_productname_like"
-    
-    :disabled="detailsModel.n_productname_like.disabled" 
-    @change="($event)=>this.data.n_productname_like = $event" />
+        <app-search-editor></app-search-editor>
+
 </app-form-item>
 
 
@@ -69,11 +59,8 @@
     :disabled="detailsModel.n_date_ltandeq.disabled"  
     :error="detailsModel.n_date_ltandeq.error" 
     :isEmptyCaption="false">
-        <app-mob-datetime-picker 
-    class="app-form-item-datetime" 
-    :value="data.n_date_ltandeq" 
-    :disabled="detailsModel.n_date_ltandeq.disabled"
-    @change="($event)=>this.data.n_date_ltandeq = $event"/>
+        <app-search-editor></app-search-editor>
+
 </app-form-item>
 
 

@@ -30394,6 +30394,183 @@
  }
     ,
     {
+    "entity_name":"IBZ_USERYEARWORKSTATS",
+    "logic_name":"用户年度工作内容统计",
+    "code_name":"UserYearWorkStats",
+    "table_name":"zt_user",
+    "system_id":"pms",
+    "system_name":"pms",
+    "fields":[
+    {
+    "fieldname":"ID" ,
+    "codename":"Id",
+    "field_logic_name":"用户编号",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"ACID",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":20,
+    "key_field":1,
+    "major_field":0
+    },
+    {
+    "fieldname":"REALNAME" ,
+    "codename":"Realname",
+    "field_logic_name":"真实用户名",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":1
+    },
+    {
+    "fieldname":"ACCOUNT" ,
+    "codename":"Account",
+    "field_logic_name":"账号",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"ROLE" ,
+    "codename":"Role",
+    "field_logic_name":"角色",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"DEPT" ,
+    "codename":"Dept",
+    "field_logic_name":"部门编号",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"SSCODELIST",
+    "dict":"RealDept",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"VISITS" ,
+    "codename":"Visits",
+    "field_logic_name":"累计登录次数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"YEARPLANCNT" ,
+    "codename":"Yearplancnt",
+    "field_logic_name":"累计创建计划数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"YEARPRODUCTCNT" ,
+    "codename":"Yearproductcnt",
+    "field_logic_name":"累计参与产品数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"YEARSTORYCNT" ,
+    "codename":"Yearstorycnt",
+    "field_logic_name":"累计创建需求数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"YEARACTIONCNT" ,
+    "codename":"Yearactioncnt",
+    "field_logic_name":"累计动态数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"YEARBUGCNT" ,
+    "codename":"Yearbugcnt",
+    "field_logic_name":"累计创建Bug数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"YEARCASECNT" ,
+    "codename":"Yearcasecnt",
+    "field_logic_name":"累计创建用例数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"YEARLOGCNT" ,
+    "codename":"Yearlogcnt",
+    "field_logic_name":"累计日志数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    ],
+    "parentEntitys":[
+    ]
+ }
+    ,
+    {
     "entity_name":"ZT_WEBHOOK",
     "logic_name":"网页钩子",
     "code_name":"WebHook",

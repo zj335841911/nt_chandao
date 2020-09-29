@@ -17,13 +17,8 @@
     :disabled="detailsModel.n_name_like.disabled"  
     :error="detailsModel.n_name_like.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.n_name_like"
-    
-    :disabled="detailsModel.n_name_like.disabled" 
-    @change="($event)=>this.data.n_name_like = $event" />
+        <app-search-editor></app-search-editor>
+
 </app-form-item>
 
 
@@ -43,18 +38,8 @@
     :disabled="detailsModel.n_status_eq.disabled"  
     :error="detailsModel.n_status_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="Release__status"
-    codeListType="STATIC" 
-    :isCache="false" 
-    :disabled="detailsModel.n_status_eq.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.n_status_eq"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.n_status_eq = $event" />
+        <app-search-editor></app-search-editor>
+
 </app-form-item>
 
 
@@ -74,11 +59,8 @@
     :disabled="detailsModel.n_date_ltandeq.disabled"  
     :error="detailsModel.n_date_ltandeq.error" 
     :isEmptyCaption="false">
-        <app-mob-datetime-picker 
-    class="app-form-item-datetime" 
-    :value="data.n_date_ltandeq" 
-    :disabled="detailsModel.n_date_ltandeq.disabled"
-    @change="($event)=>this.data.n_date_ltandeq = $event"/>
+        <app-search-editor></app-search-editor>
+
 </app-form-item>
 
 
