@@ -196,7 +196,10 @@ export default class TaskEstimateUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let response: any = null;
-        const deResParameters: any[] = [];
+        let deResParameters: any[] = [];
+        deResParameters = [
+            { pathName: 'tasks', parameterName: 'task' },
+        ];
         const parameters: any[] = [
             { pathName: 'taskestimates', parameterName: 'taskestimate' },
             { pathName: 'moboptionview', parameterName: 'moboptionview' },

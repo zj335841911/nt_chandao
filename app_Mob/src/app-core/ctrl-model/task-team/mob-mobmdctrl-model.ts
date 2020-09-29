@@ -45,6 +45,11 @@ export class MobModel {
 				dataType: 'PICKUP',
 			},
 			{
+				name: 'task',
+				prop: 'id',
+                dataType: 'FONTKEY',
+			},
+			{
 				name: 'taskteam',
 				prop: 'id',
 				dataType: 'FONTKEY',

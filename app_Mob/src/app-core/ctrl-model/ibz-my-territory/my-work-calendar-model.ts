@@ -68,7 +68,7 @@ export class MyWorkModel {
                     [
                         ...dataItems,
                         {
-                            name: 'subtask',
+                            name: 'task',
                             prop: 'id'
                         },
                         {

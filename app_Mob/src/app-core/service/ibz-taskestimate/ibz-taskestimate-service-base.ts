@@ -49,6 +49,16 @@ export class IbzTaskestimateServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         // FetchDefault ---FETCH
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
     }
 
     /**
@@ -62,6 +72,16 @@ export class IbzTaskestimateServiceBase extends EntityService {
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         // FetchTempDefault ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return new HttpResponse(200,{});
+            }else{
+                return new HttpResponse(200,{});
+            } 
+        }else{
+            return new HttpResponse(200,{});
+        }
     }
 
     /**
@@ -75,6 +95,16 @@ export class IbzTaskestimateServiceBase extends EntityService {
      */
     public async FetchDefaults(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         // FetchDefaults ---FETCH
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
     }
 
     /**
@@ -88,5 +118,15 @@ export class IbzTaskestimateServiceBase extends EntityService {
      */
     public async FetchTempDefaults(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         // FetchTempDefaults ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return new HttpResponse(200,{});
+            }else{
+                return new HttpResponse(200,{});
+            } 
+        }else{
+            return new HttpResponse(200,{});
+        }
     }
 }

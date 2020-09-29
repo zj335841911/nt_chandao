@@ -34,10 +34,10 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import SubTaskService from '@/app-core/service/sub-task/sub-task-service';
+import TaskService from '@/app-core/service/task/task-service';
 
 import MobPickupMDViewEngine from '@engine/view/mob-pickup-mdview-engine';
-import SubTaskUIService from '@/ui-service/sub-task/sub-task-ui-action';
+import TaskUIService from '@/ui-service/task/task-ui-action';
 
 @Component({
     components: {
@@ -56,18 +56,18 @@ export default class TaskMobPickupMDViewBase extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {SubTaskService}
+     * @type {TaskService}
      * @memberof TaskMobPickupMDViewBase
      */
-    protected appEntityService: SubTaskService = new SubTaskService();
+    protected appEntityService: TaskService = new TaskService();
 
     /**
      * 实体UI服务对象
      *
-     * @type SubTaskUIService
+     * @type TaskUIService
      * @memberof TaskMobPickupMDViewBase
      */
-    public appUIService: SubTaskUIService = new SubTaskUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     /**
      * 数据变化
@@ -170,10 +170,10 @@ export default class TaskMobPickupMDViewBase extends Vue {
      */
     protected model: any = {
         srfTitle: '任务移动端选择多数据视图',
-        srfCaption: 'subtask.views.mobpickupmdview.caption',
+        srfCaption: 'task.views.mobpickupmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'subtask.mobpickupmdview',
+        viewname:'task.mobpickupmdview',
         iconcls: '',
         icon: 'fa fa-tasks'
     }
@@ -300,7 +300,7 @@ export default class TaskMobPickupMDViewBase extends Vue {
         this.engine.init({
             view: this,
             mdctrl: this.$refs.mdctrl,
-            keyPSDEField: 'subtask',
+            keyPSDEField: 'task',
             majorPSDEField: 'name',
             isLoadDefault: true,
         });

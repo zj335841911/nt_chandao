@@ -2,8 +2,8 @@
 import { Component } from 'vue-property-decorator';
 import TaskMobPickupMDViewBase from './task-mob-pickup-mdview-base.vue';
 
-import view_searchform from '@widgets/sub-task/mob-def-searchform/mob-def-searchform.vue';
-import view_mdctrl from '@widgets/sub-task/mob-3335-mobmdctrl/mob-3335-mobmdctrl.vue';
+import view_searchform from '@widgets/task/mob-def-searchform/mob-def-searchform.vue';
+import view_mdctrl from '@widgets/task/mob-3335-mobmdctrl/mob-3335-mobmdctrl.vue';
 @Component({
     components: {
         view_searchform, 

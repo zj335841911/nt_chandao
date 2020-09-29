@@ -121,10 +121,10 @@ import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorat
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import { CodeListService } from "@/ibiz-core";
-import SubTaskService from '@/app-core/service/sub-task/sub-task-service';
+import TaskService from '@/app-core/service/task/task-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
-import SubTaskUIService from '@/ui-service/sub-task/sub-task-ui-action';
+import TaskUIService from '@/ui-service/task/task-ui-action';
 
 @Component({
     components: {
@@ -143,18 +143,18 @@ export default class TaskMobMDViewBase extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {SubTaskService}
+     * @type {TaskService}
      * @memberof TaskMobMDViewBase
      */
-    protected appEntityService: SubTaskService = new SubTaskService();
+    protected appEntityService: TaskService = new TaskService();
 
     /**
      * 实体UI服务对象
      *
-     * @type SubTaskUIService
+     * @type TaskUIService
      * @memberof TaskMobMDViewBase
      */
-    public appUIService: SubTaskUIService = new SubTaskUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     /**
      * 数据变化
@@ -257,10 +257,10 @@ export default class TaskMobMDViewBase extends Vue {
      */
     protected model: any = {
         srfTitle: '任务移动端多数据视图',
-        srfCaption: 'subtask.views.mobmdview.caption',
+        srfCaption: 'task.views.mobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'subtask.mobmdview',
+        viewname:'task.mobmdview',
         iconcls: '',
         icon: 'fa fa-tasks'
     }
@@ -472,7 +472,7 @@ export default class TaskMobMDViewBase extends Vue {
                 this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
             },
             searchform: this.$refs.searchform,
-            keyPSDEField: 'subtask',
+            keyPSDEField: 'task',
             majorPSDEField: 'name',
             isLoadDefault: true,
         });
@@ -706,7 +706,7 @@ export default class TaskMobMDViewBase extends Vue {
             datas = [...xData.getDatas()];
         }
         // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('subtask_ui_action');
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
             curUIService.Task_CreateMob(datas, contextJO, paramJO, $event, xData, this);
         }
@@ -736,9 +736,26 @@ export default class TaskMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        const deResParameters: any[] = [];
+        let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+
         const parameters: any[] = [
-            { pathName: 'subtasks', parameterName: 'subtask' },
+            { pathName: 'tasks', parameterName: 'task' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);
@@ -779,9 +796,26 @@ export default class TaskMobMDViewBase extends Vue {
         let panelNavContext = { } ;
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
-        const deResParameters: any[] = [];
+        let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+
         const parameters: any[] = [
-            { pathName: 'subtasks', parameterName: 'subtask' },
+            { pathName: 'tasks', parameterName: 'task' },
             { pathName: 'mobeditview', parameterName: 'mobeditview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(_context, deResParameters, parameters, args, _params);

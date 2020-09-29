@@ -28,7 +28,7 @@ zuul:
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_task:
-      path: /subtasks/**
+      path: /tasks/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_taskestimate:

@@ -1,5 +1,5 @@
-import SubTaskMyFavoriteTask from '@/widgets/sub-task/my-favorite-task-portlet/my-favorite-task-portlet.vue';
-import SubTaskMyTaskMob from '@/widgets/sub-task/my-task-mob-portlet/my-task-mob-portlet.vue';
+import TaskMyFavoriteTask from '@/widgets/task/my-favorite-task-portlet/my-favorite-task-portlet.vue';
+import TaskMyTaskMob from '@/widgets/task/my-task-mob-portlet/my-task-mob-portlet.vue';
 import ProductProductStatusChartMob from '@/widgets/product/product-status-chart-mob-portlet/product-status-chart-mob-portlet.vue';
 import ActionAllTrendsMob from '@/widgets/action/all-trends-mob-portlet/all-trends-mob-portlet.vue';
 import ProjectProjectStatusBarMobB from '@/widgets/project/project-status-bar-mob-b-portlet/project-status-bar-mob-b-portlet.vue';
@@ -12,15 +12,15 @@ export const  PortletComponent = {
     install(v: any, opt: any) {
         v.component('app-product-product-status-chart-mob-portlet', ProductProductStatusChartMob);
         v.component('app-action-all-trends-mob-portlet', ActionAllTrendsMob);
-        v.component('app-sub-task-my-favorite-task-portlet', SubTaskMyFavoriteTask);
+        v.component('app-task-my-favorite-task-portlet', TaskMyFavoriteTask);
         v.component('app-story-mobmy-favorite-story-portlet', StoryMOBMyFavoriteStory);
         v.component('app-ibz-my-territory-my-work-portlet', IbzMyTerritoryMyWork);
         v.component('app-bug-my-bug-mob-portlet', BugMyBugMob);
-        v.component('app-sub-task-my-task-mob-portlet', SubTaskMyTaskMob);
+        v.component('app-task-my-task-mob-portlet', TaskMyTaskMob);
         v.component('app-story-my-story-portlet', StoryMyStory);
         v.component('app-project-project-status-bar-mob-b-portlet', ProjectProjectStatusBarMobB);
-        v.component('sub-task-my-favorite-task-portlet', SubTaskMyFavoriteTask);
-        v.component('sub-task-my-task-mob-portlet', SubTaskMyTaskMob);
+        v.component('task-my-favorite-task-portlet', TaskMyFavoriteTask);
+        v.component('task-my-task-mob-portlet', TaskMyTaskMob);
         v.component('product-product-status-chart-mob-portlet', ProductProductStatusChartMob);
         v.component('action-all-trends-mob-portlet', ActionAllTrendsMob);
         v.component('project-project-status-bar-mob-b-portlet', ProjectProjectStatusBarMobB);

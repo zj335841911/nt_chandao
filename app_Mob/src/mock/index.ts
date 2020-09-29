@@ -10,7 +10,7 @@ import './entity/users/users';
 import './entity/ibz-favoritess/ibz-favoritess';
 import './entity/project-teams/project-teams';
 import './entity/builds/builds';
-import './entity/sub-tasks/sub-tasks';
+import './entity/tasks/tasks';
 import './entity/task-estimates/task-estimates';
 import './entity/modules/modules';
 import './entity/products/products';

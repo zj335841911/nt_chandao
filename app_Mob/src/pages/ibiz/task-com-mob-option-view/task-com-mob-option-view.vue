@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import TaskComMobOptionViewBase from './task-com-mob-option-view-base.vue';
 
-import view_form from '@widgets/sub-task/complete-form-mob-form/complete-form-mob-form.vue';
+import view_form from '@widgets/task/complete-form-mob-form/complete-form-mob-form.vue';
 @Component({
     components: {
         view_form, 

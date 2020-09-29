@@ -60,6 +60,11 @@ export class MobModel {
       {
         name: 'left',
       },
+      {
+        name: 'task',
+        prop: 'id',
+        dataType: 'FONTKEY',
+      },
     ]
   }
 

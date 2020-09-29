@@ -2,7 +2,7 @@
 import { Component } from 'vue-property-decorator';
 import TaskNewMobEditViewBase from './task-new-mob-edit-view-base.vue';
 
-import view_form from '@widgets/sub-task/mob-new-from-form/mob-new-from-form.vue';
+import view_form from '@widgets/task/mob-new-from-form/mob-new-from-form.vue';
 @Component({
     components: {
         view_form, 

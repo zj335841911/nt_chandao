@@ -41,10 +41,10 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import SubTaskService from '@/app-core/service/sub-task/sub-task-service';
+import TaskService from '@/app-core/service/task/task-service';
 
 import MobPickupViewEngine from '@engine/view/mob-pickup-view-engine';
-import SubTaskUIService from '@/ui-service/sub-task/sub-task-ui-action';
+import TaskUIService from '@/ui-service/task/task-ui-action';
 
 @Component({
     components: {
@@ -63,18 +63,18 @@ export default class TaskMobPickupViewBase extends Vue {
     /**
      * 实体服务对象
      *
-     * @type {SubTaskService}
+     * @type {TaskService}
      * @memberof TaskMobPickupViewBase
      */
-    protected appEntityService: SubTaskService = new SubTaskService();
+    protected appEntityService: TaskService = new TaskService();
 
     /**
      * 实体UI服务对象
      *
-     * @type SubTaskUIService
+     * @type TaskUIService
      * @memberof TaskMobPickupViewBase
      */
-    public appUIService: SubTaskUIService = new SubTaskUIService(this.$store);
+    public appUIService: TaskUIService = new TaskUIService(this.$store);
 
     /**
      * 数据变化
@@ -177,10 +177,10 @@ export default class TaskMobPickupViewBase extends Vue {
      */
     protected model: any = {
         srfTitle: '任务移动端数据选择视图',
-        srfCaption: 'subtask.views.mobpickupview.caption',
+        srfCaption: 'task.views.mobpickupview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'subtask.mobpickupview',
+        viewname:'task.mobpickupview',
         iconcls: '',
         icon: 'fa fa-tasks'
     }
@@ -311,7 +311,7 @@ export default class TaskMobPickupViewBase extends Vue {
         this.engine.init({
             view: this,
             pickupviewpanel: this.$refs.pickupviewpanel,
-            keyPSDEField: 'subtask',
+            keyPSDEField: 'task',
             majorPSDEField: 'name',
             isLoadDefault: true,
         });

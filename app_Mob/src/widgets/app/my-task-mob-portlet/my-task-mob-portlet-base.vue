@@ -1,6 +1,6 @@
 <template>
     <ion-row>
-        <ion-list class='app-mob-portlet subtask-dashboard_sysportlet2 '>
+        <ion-list class='app-mob-portlet task-dashboard_sysportlet2 '>
             <ion-list-header class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
                 <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>我的任务</span></span>
@@ -24,11 +24,11 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import SubTaskService from '@/app-core/service/sub-task/sub-task-service';
-import MyTaskMobService from '@/app-core/ctrl-service/sub-task/my-task-mob-portlet-service';
+import TaskService from '@/app-core/service/task/task-service';
+import MyTaskMobService from '@/app-core/ctrl-service/task/my-task-mob-portlet-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
-import SubTaskUIService from '@/ui-service/sub-task/sub-task-ui-action';
+import TaskUIService from '@/ui-service/task/task-ui-action';
 
 
 
@@ -131,18 +131,18 @@ export default class MyTaskMobBase extends Vue implements ControlInterface {
     /**
      * 实体服务对象
      *
-     * @type {SubTaskService}
+     * @type {TaskService}
      * @memberof MyTaskMob
      */
-    protected appEntityService: SubTaskService = new SubTaskService();
+    protected appEntityService: TaskService = new TaskService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {SubTaskUIService}
+     * @type {TaskUIService}
      * @memberof MyTaskMobBase
      */  
-    public deUIService:SubTaskUIService = new SubTaskUIService(this.$store);
+    public deUIService:TaskUIService = new TaskUIService(this.$store);
     
 
     /**
@@ -170,7 +170,7 @@ export default class MyTaskMobBase extends Vue implements ControlInterface {
             datas = [..._this.getDatas()];
         }
         // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('subtask_ui_action');
+        const curUIService: any = await this.globaluiservice.getService('task_ui_action');
         if (curUIService) {
             curUIService.Task_MyAssMore(datas, contextJO, paramJO, $event, xData, this);
         }
