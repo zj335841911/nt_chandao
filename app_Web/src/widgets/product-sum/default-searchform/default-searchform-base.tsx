@@ -86,9 +86,11 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
      * @memberof DefaultSearchFormBase
      */
     public detailsModel: any = {
+        rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: true, isShowCaption: true, form: this })
+, 
         formpage1: new FormPageModel({ caption: '常规条件', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
-        closed: new FormItemModel({ caption: '筛选条件', detailType: 'FORMITEM', name: 'closed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        closed: new FormItemModel({ caption: '关闭产品', detailType: 'FORMITEM', name: 'closed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         expired: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'expired', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 

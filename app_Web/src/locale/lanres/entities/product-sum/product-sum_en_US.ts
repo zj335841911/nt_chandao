@@ -59,8 +59,9 @@ export default {
 	},
 	default_searchform: {
 		details: {
+			rawitem1: "", 
 			formpage1: "常规条件", 
-			closed: "筛选条件", 
+			closed: "关闭产品", 
 			expired: "", 
 		},
 		uiactions: {
