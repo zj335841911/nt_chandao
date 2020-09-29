@@ -45,7 +45,7 @@ export default class AppSearchEditor extends Vue {
     public itemClick(item: any) {
         if (this.activeItem.value == item.value) {
             this.activeItem = {};
-            this.change(null);
+            this.change({value:null});
             return
         }
         this.activeItem = item;
