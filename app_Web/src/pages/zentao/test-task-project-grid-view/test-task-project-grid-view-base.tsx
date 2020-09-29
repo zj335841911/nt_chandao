@@ -115,7 +115,7 @@ export class TestTaskProjectGridViewBase extends GridViewBase {
      * @memberof TestTaskProjectGridView
      */
     public toolBarModels: any = {
-        deuiaction3_testreport: { name: 'deuiaction3_testreport', caption: '测试报告', 'isShowCaption': true, 'isShowIcon': true, tooltip: '测试报告', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'TestReport', target: 'MULTIKEY', class: '' } },
+        deuiaction3_testreport: { name: 'deuiaction3_testreport', caption: '测试报告', 'isShowCaption': true, 'isShowIcon': true, tooltip: '测试报告', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__REPORT_CREATE_BUT', uiaction: { tag: 'TestReport', target: 'MULTIKEY', class: '' } },
 
         deuiaction3_reports: { name: 'deuiaction3_reports', caption: '报告列表', 'isShowCaption': true, 'isShowIcon': true, tooltip: '报告列表', iconcls: 'fa fa-flag', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROJECT_REPORT_BUT', uiaction: { tag: 'Reports', target: 'NONE', class: '' } },
 

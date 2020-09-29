@@ -185,8 +185,8 @@ export class MainGridBase extends GridControlBase {
      */  
     public ActionModel: any = {
         Edit: { name: 'Edit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
-        Edits: { name: 'Edits',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
-        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
+        Edits: { name: 'Edits',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__REPORT_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__REPORT_DELETE_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**

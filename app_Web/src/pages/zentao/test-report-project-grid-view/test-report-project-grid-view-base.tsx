@@ -119,7 +119,7 @@ export class TestReportProjectGridViewBase extends GridViewBase {
      * @memberof TestReportProjectGridView
      */
     public toolBarModels: any = {
-        deuiaction3_createproject: { name: 'deuiaction3_createproject', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'CreateProject', target: 'NONE', class: '' } },
+        deuiaction3_createproject: { name: 'deuiaction3_createproject', caption: '新建', 'isShowCaption': true, 'isShowIcon': true, tooltip: '新建', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__REPORT_CREATE_BUT', uiaction: { tag: 'CreateProject', target: 'NONE', class: '' } },
 
         deuiaction2: { name: 'deuiaction2', caption: '刷新', 'isShowCaption': true, 'isShowIcon': true, tooltip: '刷新', iconcls: 'fa fa-refresh', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'Refresh', target: '', class: '' } },
 
