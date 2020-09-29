@@ -224,10 +224,6 @@ export class ThirdPartyService {
         }
     }
 
-    public test() {
-        this.dd.test();
-    }
-
     /**
      * 第三方事件
      */
