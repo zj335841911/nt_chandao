@@ -54,7 +54,7 @@
           </app-form-item>
           
           </i-col>
-          <i-col class="form-layout-container" v-show="detailsModel.everydaytime.visible" :style="{}"  :lg="{ span: 3, offset: 10 }" :xl="{ span: 3, offset: 1 }">
+          <i-col class="form-layout-container" v-show="detailsModel.everydaytime.visible" :style="{}"  :lg="{ span: 3, offset: 5 }" :xl="{ span: 3, offset: 1 }">
               <app-form-item name='everydaytime' :itemRules="this.rules.everydaytime" class='' :caption="$t('entities.employeeload.workload_searchform.details.everydaytime')" uiStyle="DEFAULT" :labelWidth="60" :isShowCaption="true" :error="detailsModel.everydaytime.error" :isEmptyCaption="false" labelPos="LEFT">
               <input-box 
             v-model="data.everydaytime"  
