@@ -145,7 +145,7 @@ export class CaseResultPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '400px';
+            return 'auto';
         }
     }
 
