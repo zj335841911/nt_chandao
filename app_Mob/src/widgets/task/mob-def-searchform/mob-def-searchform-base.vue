@@ -7,7 +7,7 @@
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    itemType="searchEdtor"
+    itemType="MOBTEXT"
     ref="n_name_like_item"  
     :itemValue="this.data.n_name_like" 
     v-show="detailsModel.n_name_like.visible" 
@@ -34,7 +34,7 @@
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    itemType="searchEdtor"
+    itemType="MOBDROPDOWNLIST"
     ref="n_type_eq_item"  
     :itemValue="this.data.n_type_eq" 
     v-show="detailsModel.n_type_eq.visible" 
@@ -67,7 +67,7 @@
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    itemType="searchEdtor"
+    itemType="MOBDROPDOWNLIST"
     ref="n_status_eq_item"  
     :itemValue="this.data.n_status_eq" 
     v-show="detailsModel.n_status_eq.visible" 
@@ -100,7 +100,7 @@
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    itemType="searchEdtor"
+    itemType="MOBPICKER_DROPDOWNVIEW"
     ref="n_projectname_eq_item"  
     :itemValue="this.data.n_projectname_eq" 
     v-show="detailsModel.n_projectname_eq.visible" 
@@ -141,7 +141,7 @@
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    itemType="searchEdtor"
+    itemType="MOBDATE"
     ref="n_closeddate_ltandeq_item"  
     :itemValue="this.data.n_closeddate_ltandeq" 
     v-show="detailsModel.n_closeddate_ltandeq.visible" 
@@ -166,7 +166,7 @@
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    itemType="searchEdtor"
+    itemType="MOBDATE"
     ref="n_finisheddate_ltandeq_item"  
     :itemValue="this.data.n_finisheddate_ltandeq" 
     v-show="detailsModel.n_finisheddate_ltandeq.visible" 
