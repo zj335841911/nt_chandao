@@ -119,7 +119,7 @@
                     <template slot-scope="scope">
                         <div style="text-align: center;">
                           <a v-show="scope.row.ProjectEdits.visabled" :disabled="scope.row.ProjectEdits.disabled" @click="uiAction(scope.row, 'ProjectEdits', $event)" :title="$t('entities.testreport.projectmain_grid.uiactions.testreport_projectedits')">
-                            <i class=''></i>
+                            <i class='fa fa-edit'></i>
                             
                           </a>
                           <divider v-show="scope.row.Delete.visabled" type='vertical'></divider>
