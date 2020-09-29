@@ -3367,6 +3367,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        srfkey: "IsAssigned",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "assign",
+                label: "已指派",
+                text: "已指派",
+                "data":"",
+                "codename":"Assign",
+                value: "assign",
+                
+                disabled: false,
+            },
+            {
+                id: "noassign",
+                label: "未指派",
+                text: "未指派",
+                "data":"",
+                "codename":"Noassign",
+                value: "noassign",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Story__stage",
         emptytext: "未定义",
         "codelisttype":"static",

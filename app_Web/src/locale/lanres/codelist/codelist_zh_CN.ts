@@ -451,6 +451,11 @@ export default {
     UserRealNameProject: {
         "empty": "",
     },
+    IsAssigned: {
+        "assign": "已指派",
+        "noassign": "未指派",
+        "empty": "",
+    },
     Story__stage: {
         "wait": "未开始",
         "planned": "已计划",
