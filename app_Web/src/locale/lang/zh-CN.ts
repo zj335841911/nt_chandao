@@ -211,6 +211,7 @@ export default {
                 menuitem19: "产品",
                 menuitem21: "模块",
                 menuitem17: "需求",
+                menuitem23: "用户信息",
                 left_exp: "左侧分页导航",
                 menuitem4: "产品",
                 menuitem5: "项目",

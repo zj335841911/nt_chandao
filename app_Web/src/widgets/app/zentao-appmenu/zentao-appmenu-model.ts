@@ -310,6 +310,27 @@ export default class ZentaoModel {
                 	],
                 }
                 ,
+                		        {
+                	id: 'D848C79C-94DA-42CC-8E33-A44EE85679E6',
+                	name: 'menuitem23',
+                	text: '用户信息',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '用户信息',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: 'AppFunc2',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'user-infoedit-view',
+                	authtag:'Web-zentao-menuitem23',
+                }
+                ,
         	],
         }
         ,
@@ -655,6 +676,18 @@ export default class ZentaoModel {
             routepath: '/ibizpms/:ibizpms?/testportalview/:testportalview?',
             parameters: [
                 { pathName: 'testportalview', parameterName: 'testportalview' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc2',
+            appfuncyype: 'APPVIEW',
+            openmode: 'DRAWER_RIGHT',
+            codename: 'userinfoeditview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/users/:user?/infoeditview/:infoeditview?',
+            parameters: [
+                { pathName: 'users', parameterName: 'user' },
+                { pathName: 'infoeditview', parameterName: 'infoeditview' },
             ],
         },
         {

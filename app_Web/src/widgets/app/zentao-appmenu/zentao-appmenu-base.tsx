@@ -42,6 +42,8 @@ export class ZentaoBase extends Vue {
                     this.clickAuto10(item); break;
                 case 'Auto9': 
                     this.clickAuto9(item); break;
+                case 'AppFunc2': 
+                    this.clickAppFunc2(item); break;
                 case 'Auto11': 
                     this.clickAuto11(item); break;
                 case '_2': 
@@ -275,6 +277,32 @@ export class ZentaoBase extends Vue {
         this.$nextTick(function(){
             this.$router.push(path);
         })
+    }
+    
+    /**
+     * 用户信息
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickAppFunc2(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'users', parameterName: 'user' },
+        ];
+        const view: any = {
+            viewname: 'user-infoedit-view',
+            title: (this.$t('entities.user.views.infoeditview.title') as any),
+            height: 0,
+            width: 750,
+            placement: 'DRAWER_RIGHT'
+        };
+        const appdrawer = this.$appdrawer.openDrawer(view, JSON.parse(JSON.stringify(this.context)), viewparam);
+        appdrawer.subscribe((result: any) => {
+            console.log(result);
+        });
     }
     
     /**
