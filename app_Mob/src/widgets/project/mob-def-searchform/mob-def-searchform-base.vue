@@ -17,8 +17,13 @@
     :disabled="detailsModel.n_name_like.disabled"  
     :error="detailsModel.n_name_like.error" 
     :isEmptyCaption="false">
-        <app-search-editor></app-search-editor>
-
+        <app-mob-input 
+    class="app-form-item-input"  
+        type="text"  
+    :value="data.n_name_like"
+    
+    :disabled="detailsModel.n_name_like.disabled" 
+    @change="($event)=>this.data.n_name_like = $event" />
 </app-form-item>
 
 
@@ -38,8 +43,18 @@
     :disabled="detailsModel.n_status_eq.disabled"  
     :error="detailsModel.n_status_eq.error" 
     :isEmptyCaption="false">
-        <app-search-editor></app-search-editor>
-
+        <app-mob-select 
+    tag="Project__status"
+    codeListType="STATIC" 
+    :isCache="false" 
+    :disabled="detailsModel.n_status_eq.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.n_status_eq"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.n_status_eq = $event" />
 </app-form-item>
 
 
@@ -59,8 +74,18 @@
     :disabled="detailsModel.n_type_eq.disabled"  
     :error="detailsModel.n_type_eq.error" 
     :isEmptyCaption="false">
-        <app-search-editor></app-search-editor>
-
+        <app-mob-select 
+    tag="Project__type"
+    codeListType="STATIC" 
+    :isCache="false" 
+    :disabled="detailsModel.n_type_eq.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.n_type_eq"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.n_type_eq = $event" />
 </app-form-item>
 
 
