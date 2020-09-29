@@ -1,0 +1,133 @@
+<i-form :model="this.data" class='app-form info-form-mode' ref='form'  id='useryearworkstats_main' style="">
+    <input style="display:none;" />
+    <row >
+            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.useryearworkstats.main_form.details.group1')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col class="form-layout-container" v-show="detailsModel.visits.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='visits' :itemRules="this.rules.visits" class='' :caption="$t('entities.useryearworkstats.main_form.details.visits')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.visits.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='visits' :value="data.visits" dataType="INT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.yearactioncnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='yearactioncnt' :itemRules="this.rules.yearactioncnt" class='' :caption="$t('entities.useryearworkstats.main_form.details.yearactioncnt')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.yearactioncnt.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='yearactioncnt' :value="data.yearactioncnt" dataType="INT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.useryearworkstats.main_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col class="form-layout-container" v-show="detailsModel.yearlogcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='yearlogcnt' :itemRules="this.rules.yearlogcnt" class='' :caption="$t('entities.useryearworkstats.main_form.details.yearlogcnt')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.yearlogcnt.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='yearlogcnt' :value="data.yearlogcnt" dataType="INT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.yearestimatecnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='yearestimatecnt' :itemRules="this.rules.yearestimatecnt" class='' :caption="$t('entities.useryearworkstats.main_form.details.yearestimatecnt')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.yearestimatecnt.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='yearestimatecnt' :value="data.yearestimatecnt" dataType="INT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.useryearworkstats.main_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col class="form-layout-container" v-show="detailsModel.yearcasecnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='yearcasecnt' :itemRules="this.rules.yearcasecnt" class='' :caption="$t('entities.useryearworkstats.main_form.details.yearcasecnt')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.yearcasecnt.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='yearcasecnt' :value="data.yearcasecnt" dataType="INT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.yearbugcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='yearbugcnt' :itemRules="this.rules.yearbugcnt" class='' :caption="$t('entities.useryearworkstats.main_form.details.yearbugcnt')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.yearbugcnt.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='yearbugcnt' :value="data.yearbugcnt" dataType="INT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.grouppanel3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-group :model="detailsModel.grouppanel3" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.useryearworkstats.main_form.details.grouppanel3')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
+    <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel3" :data="data" :context="context" :viewparams="viewparams"/>
+    <row>
+        <i-col class="form-layout-container" v-show="detailsModel.yearproductcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='yearproductcnt' :itemRules="this.rules.yearproductcnt" class='' :caption="$t('entities.useryearworkstats.main_form.details.yearproductcnt')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.yearproductcnt.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='yearproductcnt' :value="data.yearproductcnt" dataType="INT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.yearplancnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='yearplancnt' :itemRules="this.rules.yearplancnt" class='' :caption="$t('entities.useryearworkstats.main_form.details.yearplancnt')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.yearplancnt.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='yearplancnt' :value="data.yearplancnt" dataType="INT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.yearstorycnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='yearstorycnt' :itemRules="this.rules.yearstorycnt" class='' :caption="$t('entities.useryearworkstats.main_form.details.yearstorycnt')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.yearstorycnt.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-span name='yearstorycnt' :value="data.yearstorycnt" dataType="INT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
+</app-form-item>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+    
+    </row>
+</app-form-group>
+
+</i-col>
+
+
+    </row>
+</i-form>

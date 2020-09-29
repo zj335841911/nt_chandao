@@ -276,7 +276,7 @@ export class BugSeverity_ProjectChartBase extends MainControlBase {
      */   
     public chartOption:any = {
         title:{
-            show:true ,
+            show:false ,
             text:'Bug严重级别分布_Project',
             subtext:'Bug严重级别分类'
         },

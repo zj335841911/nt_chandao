@@ -276,7 +276,7 @@ export class CaseTypeProjectChartBase extends MainControlBase {
      */   
     public chartOption:any = {
         title:{
-            show:true ,
+            show:false ,
             text:'按用例类型统计-项目',
             subtext:'按用例类型统计'
         },

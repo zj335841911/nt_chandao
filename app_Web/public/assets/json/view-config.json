@@ -3649,6 +3649,16 @@
         "viewtag": "d9cf190662d0781bee34acdfd9d1c6d2",
         "memo": ""
     },
+    "useryearworkstatseditview": {
+        "title": "用户年度工作内容统计编辑视图",
+        "caption": "用户年度工作内容统计",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "UserYearWorkStatsEditView",
+        "viewfilename": "user-year-work-stats-edit-view",
+        "viewtag": "db750bbb894c25f38ca2741f234df3c6",
+        "memo": ""
+    },
     "bugtestbugsgridview": {
         "title": "Bug表格视图(遗留的bug)",
         "caption": "Bug",
