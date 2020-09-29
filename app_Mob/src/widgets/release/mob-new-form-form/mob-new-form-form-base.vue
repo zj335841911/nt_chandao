@@ -585,96 +585,14 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
      * @memberof MobNewForm
      */
     protected rules: any = {
-        srforikey: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { type: 'number', message: 'ID 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: 'ID 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: 'ID 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: 'ID 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { type: 'string', message: '发布名称 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '发布名称 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '发布名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '发布名称 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        product: [
-            { type: 'number', message: '产品 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '产品 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '产品 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '产品 值不能为空', trigger: 'blur' },
-        ],
-        productname: [
-            { type: 'string', message: '产品名称 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '产品名称 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '产品名称 值不能为空', trigger: 'blur' },
-        ],
         name: [
-            { type: 'string', message: '发布名称 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '发布名称 值必须为字符串类型', trigger: 'blur' },
             { required: true, type: 'string', message: '发布名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '发布名称 值不能为空', trigger: 'blur' },
         ],
-        marker: [
-            { type: 'string', message: '里程碑 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '里程碑 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '里程碑 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '里程碑 值不能为空', trigger: 'blur' },
-        ],
-        buildname: [
-            { type: 'string', message: '版本 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '版本 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '版本 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '版本 值不能为空', trigger: 'blur' },
-        ],
         date: [
-            { type: 'string', message: '发布日期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '发布日期 值必须为字符串类型', trigger: 'blur' },
             { required: true, type: 'string', message: '发布日期 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '发布日期 值不能为空', trigger: 'blur' },
-            {validator:(rule:any, value:any)=>{return this.verifyDeRules("date").isPast},message: "", trigger: 'change' },
-        ],
-        desc: [
-            { type: 'string', message: '描述 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '描述 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '描述 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '描述 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { type: 'number', message: 'ID 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: 'ID 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: 'ID 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: 'ID 值不能为空', trigger: 'blur' },
+            {validator:(rule:any, value:any)=>{return this.verifyDeRules("date").isPast}}
         ],
     }
 

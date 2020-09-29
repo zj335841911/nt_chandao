@@ -501,77 +501,9 @@ export default class AssMobBase extends Vue implements ControlInterface {
      * @memberof AssMob
      */
     protected rules: any = {
-        srforikey: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { type: 'string', message: '待办名称 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '待办名称 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '待办名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '待办名称 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
         assignto: [
-            { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'blur' },
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
-        ],
-        date: [
-            { type: 'string', message: '日期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '日期 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '日期 值不能为空', trigger: 'blur' },
-        ],
-        begin: [
-            { type: 'number', message: '开始时间 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '开始时间 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '开始时间 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '开始时间 值不能为空', trigger: 'blur' },
-        ],
-        end: [
-            { type: 'number', message: '结束时间 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '结束时间 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '结束时间 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '结束时间 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
         ],
     }
 

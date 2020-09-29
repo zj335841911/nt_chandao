@@ -838,161 +838,21 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
      * @memberof MobNewFrom
      */
     protected rules: any = {
-        srfupdatedate: [
-            { type: 'string', message: '最后修改日期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '最后修改日期 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '最后修改日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '最后修改日期 值不能为空', trigger: 'blur' },
-        ],
-        srforikey: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
         projectname: [
-            { type: 'string', message: '所属项目 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '所属项目 值必须为字符串类型', trigger: 'blur' },
             { required: true, type: 'string', message: '所属项目 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '所属项目 值不能为空', trigger: 'blur' },
         ],
-        project: [
-            { type: 'number', message: '所属项目 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '所属项目 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '所属项目 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '所属项目 值不能为空', trigger: 'blur' },
-        ],
-        module: [
-            { type: 'number', message: 'id 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: 'id 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: 'id 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: 'id 值不能为空', trigger: 'blur' },
-        ],
         type: [
-            { type: 'string', message: '任务类型 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '任务类型 值必须为字符串类型', trigger: 'blur' },
             { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '任务类型 值不能为空', trigger: 'blur' },
         ],
-        modulename: [
-            { type: 'string', message: '所属模块 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '所属模块 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '所属模块 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '所属模块 值不能为空', trigger: 'blur' },
-        ],
-        allmodules: [
-            { type: 'string', message: '所有模块 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '所有模块 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '所有模块 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '所有模块 值不能为空', trigger: 'blur' },
-        ],
         assignedto: [
-            { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'blur' },
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
         ],
-        multiple: [
-            { type: 'string', message: '多人任务 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '多人任务 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'blur' },
-        ],
-        story: [
-            { type: 'number', message: '相关需求 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '相关需求 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '相关需求 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '相关需求 值不能为空', trigger: 'blur' },
-        ],
-        storyname: [
-            { type: 'string', message: '相关需求 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '相关需求 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '相关需求 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '相关需求 值不能为空', trigger: 'blur' },
-        ],
         name: [
-            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'blur' },
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
-        ],
-        pri: [
-            { type: 'number', message: '优先级 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '优先级 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '优先级 值不能为空', trigger: 'blur' },
-        ],
-        estimate: [
-            { type: 'number', message: '预计 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '预计 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '预计 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '预计 值不能为空', trigger: 'blur' },
-        ],
-        eststarted: [
-            { type: 'string', message: '预计开始 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '预计开始 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'blur' },
-        ],
-        deadline: [
-            { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'blur' },
-        ],
-        desc: [
-            { type: 'string', message: '任务描述 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '任务描述 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '任务描述 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务描述 值不能为空', trigger: 'blur' },
-        ],
-        mailto: [
-            { type: 'string', message: '抄送给 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '抄送给 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '抄送给 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '抄送给 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
         ],
     }
 
