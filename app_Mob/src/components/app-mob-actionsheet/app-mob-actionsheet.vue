@@ -4,7 +4,7 @@
       <div v-if="curValue== null || curValue==''" class="select-icon" @click="showSheet"></div>
       <!-- <ion-input :value="action" readonly @ionFocus="showSheet"></ion-input> -->
       <div @click="showSheet" class="text">{{action}}</div>
-      <van-action-sheet get-container="#app" v-model="show" :actions="actions" @open="load" @select="change" :cancel-text="$t('app.button.cancel')" @cancel="cancel"/>
+      <van-action-sheet get-container="#app" v-model="show" :actions="actions" @open="load" @select="change" :cancel-text="$t('app.button.cancel')" @cancel="cancel" close-on-click-action/>
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default class AppMobActionsheet extends Vue {
      * @type {CodeListService}
      * @memberof AppMobActionsheet
      */
-    public action:any;
+    public action:any = '';
   
     /**
      * 动作面板所需数据
@@ -117,9 +117,8 @@ export default class AppMobActionsheet extends Vue {
               }
             }
           }
-        }
+        }    
         this.$emit("change", devalue);
-        this.show = false;
     }
 
     /**
@@ -280,6 +279,7 @@ export default class AppMobActionsheet extends Vue {
         }
         this.handleActions();
     }
+
     /**
      * 清空值
      * @memberof AppMobActionsheet

@@ -1,5 +1,5 @@
 .app-mobile-actionsheet {
-  height: 40px;
+  height: 100%;
   width: 100%;
   .cancel-icon {
     width: 16px;
@@ -39,10 +39,20 @@
     width: 100%;
   }
   .text{
+    width: 100%;
+    max-width:100%;
     text-align: right;
     line-height: 40px;
-    width: 210px;
+    padding-right: 26px;
     height: 40px;
     color:#969696;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .app-mobile-actionsheet {
+    .text{
+      padding-right: 7px;
+    }
   }
 }

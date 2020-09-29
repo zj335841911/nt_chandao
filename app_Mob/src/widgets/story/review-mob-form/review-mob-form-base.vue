@@ -1275,6 +1275,9 @@ export default class ReviewMobBase extends Vue implements ControlInterface {
      */
     public validItem(property:string, data:any):Promise<any>{
         return new Promise((resolve, reject) => {
+            if(!property || !this.rules[property]){
+                resolve(true);
+            }
             Util.validateItem(property,data,this.rules[property]).then(()=>{
                 this.detailsModel[property].setError("");
                 resolve(true);
