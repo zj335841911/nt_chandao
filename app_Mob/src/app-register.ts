@@ -130,5 +130,7 @@ export const AppComponents = {
         v.component('app-mob-menu-sideslip-view',() => import('@/components/app-mob-menu-sideslip-view/app-mob-menu-sideslip-view.vue'));
         // 侧滑菜单组件头部信息
         v.component('app-mob-menu-sideslip-view-header',() => import('@/components/app-mob-menu-sideslip-view-header/app-mob-menu-sideslip-view-header.vue'));
+        // 动作面板
+        v.component('app-mob-actionsheet',() => import('@/components/app-mob-actionsheet/app-mob-actionsheet.vue'));
     },
 };
