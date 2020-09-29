@@ -114,6 +114,7 @@ final public class ZTTestReportHelper {
         ACTION_PARAMS_CREATE.put("product", 0);
         ACTION_PARAMS_CREATE.put("project", 0);
         ACTION_PARAMS_CREATE.put("tasks", 0);
+        ACTION_PARAMS_CREATE.put("owner", null);
         ACTION_PARAMS_CREATE.put("objectID", 0);
         ACTION_PARAMS_CREATE.put("objectType", null);
         ACTION_PARAMS_CREATE.put("members[]", null);
@@ -123,6 +124,7 @@ final public class ZTTestReportHelper {
         ACTION_PARAMS_CREATE.put("bugs[]", null);
         ACTION_PARAMS_CREATE.put("builds[]", null);
         ACTION_PARAMS_CREATE.put("cases[]", null);
+        ACTION_PARAMS_CREATE.put("stories[]", null);
 
         // EDIT
         ACTION_PARAMS_EDIT.put("begin", "0000-00-00");
@@ -138,6 +140,7 @@ final public class ZTTestReportHelper {
         ACTION_PARAMS_EDIT.put("bugs[]", null);
         ACTION_PARAMS_EDIT.put("builds[]", null);
         ACTION_PARAMS_EDIT.put("cases[]", null);
+        ACTION_PARAMS_EDIT.put("stories[]", null);
     }
 
     // ----------
