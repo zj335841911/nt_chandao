@@ -1,35 +1,41 @@
 <template>
-    <div  class="app-mobile-select">
+    <div  class="app-mobile-theme">
         <div class="activeoption" v-if="activeoption" :style="{'background':activeoption.background,'color':activeoption.color}">{{activeoption.text}}</div>
-        <ion-select v-show="false"  ref="themeselect" :value="curValue"  @ionChange="change" interface="action-sheet"  :cancel-text="$t('app.button.cancel')">
-                <ion-select-option  v-for="option of options" :key="option.value" :value="option.value" class="mob-select-text">{{option.text}}</ion-select-option>
-        </ion-select>
+        <van-action-sheet  get-container="#app"  v-model="show" :cancel-text="$t('app.button.cancel')"  close-on-click-action>
+            <div class = "theme">
+                <div @click="themeChange(item.value)" v-for="item in options" :key="item.value" class="theme_item" :style="{background:item.background,color:item.color}">{{item.text}}</div>
+            </div>
+        </van-action-sheet>
     </div>   
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop, Provide, Emit, Watch, } from "vue-property-decorator";
-
+import { themeGroup } from './config'
 @Component({
     components: {},
 })
-export default class AppSelect extends Vue {
-
+export default class AppSelectTheme extends Vue {
 
     /**
-     * 当前选中值
-     * @memberof AppSelect
+     * 显示状态
+     *
+     * @memberof AppSelectTheme
      */
-    get curValue(){
-        return  this.activeTheme;
-    }
-    
-    set curValue(value:any){
-        this.themeChange(value.detail.value);
-    }
+    public show = false;
 
+    /**
+     * 当前激活主题
+     *
+     * @memberof AppSelectTheme
+     */
     public activeoption:any = {};
 
+    /**
+     * 获取当前主题
+     *
+     * @memberof AppSelectTheme
+     */
     public getTheme(){
         if (this.$router.app.$store.state.selectTheme) {
             return this.$router.app.$store.state.selectTheme;
@@ -41,33 +47,17 @@ export default class AppSelect extends Vue {
     }
 
     /**
-     * change事件
-     *
-     * @memberof AppSelect
-     */
-    public change(value: any) {
-        this.themeChange(value.detail.value);
-    }
-
-    /**
      * 下拉数据数组
      *
      * @type {any[]}
-     * @memberof AppSelect
+     * @memberof AppSelectTheme
      */
-    public options: any[] = [
-        {value:"app-blue-theme",text:"魅力紫",background:"#705697",color:"#fff"},
-        {value:"app-dark-blue-theme",text:"经典蓝",background:"#5475ab",color:"#fff"},
-        {value:"app-class-black-theme",text:"极致黑",background:"#282829",color:"#FFF"},
-        {value:"app-light-green-theme",text:"浅葱绿",background:"#05D2C2",color:"#FFF"},
-        {value:"app-peach-pink-theme",text:"桃桃粉",background:"#FD84A3",color:"#FFF"},
-        {value:"app-star-purple-theme",text:"星辰紫",background:"#6937D9",color:"#FFF"},
-        {value:"app-summer-yellow-theme",text:"盛夏黄",background:"#FEE45A",color:"#000"},
-        {value:"app-vital-red-theme",text:"元气红",background:"#FE657A",color:"#FFF"},
-    ];
+    public options: any[] = themeGroup;
 
     /**
-     * mounted
+     * 声明周期钩子
+     * 
+     * @memberof AppSelectTheme
      */
     public mounted() {
         this.activeTheme = this.getTheme();
@@ -77,22 +67,21 @@ export default class AppSelect extends Vue {
     /**
      * 激活主题
      *
-     * @type {any[]}
-     * @memberof AppSelect
+     * @memberof AppSelectTheme
      */
     public activeTheme = "";
 
     /**
      * 设置
      *
-     * @type {any[]}
-     * @memberof AppSelect
+     * @memberof AppSelectTheme
      */
     public setActiveoption(){
         let index = this.options.findIndex((item:any)=>{
             return this.activeTheme == item.value;
         })
        this.activeoption =  index>-1? this.options[index]:null;
+       this.show = false;
     }
 
     /**
@@ -117,11 +106,9 @@ export default class AppSelect extends Vue {
      * @memberof AppTheme
      */
     public open(){
-        let select :any= this.$refs.themeselect;
-        if(select){
-            select.open();
-        }
+        this.show = true;
     }
+
 }
 </script>
 
