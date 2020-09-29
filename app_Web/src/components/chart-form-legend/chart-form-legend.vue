@@ -171,6 +171,9 @@ export default class ChartFormLegend extends Vue {
     tempOption.series[0].top = 50; // 避免标签和标题或图例重叠
     tempOption.series[0].startAngle = 180; // 同上
     tempOption.legend.show = false; // 不显示默认图例样式
+    if (tempOption.title.subtext) {
+      tempOption.title.text = '';
+    }
     return tempOption;
   }
 
