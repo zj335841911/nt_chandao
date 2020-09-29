@@ -121,13 +121,6 @@ public class EMPLOYEELOADServiceImpl extends ServiceImpl<EMPLOYEELOADMapper, EMP
     }
     @Override
     @Transactional
-    public EMPLOYEELOAD gETWORDKLOAD_UNASSIGN(EMPLOYEELOAD et) {
-        //自定义代码
-        return et;
-    }
-
-    @Override
-    @Transactional
     public boolean save(EMPLOYEELOAD et) {
         if(!saveOrUpdate(et))
             return false;

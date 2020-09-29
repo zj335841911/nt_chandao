@@ -34,7 +34,6 @@ public interface IEMPLOYEELOADService extends IService<EMPLOYEELOAD>{
     EMPLOYEELOAD get(Long key) ;
     EMPLOYEELOAD getDraft(EMPLOYEELOAD et) ;
     boolean checkKey(EMPLOYEELOAD et) ;
-    EMPLOYEELOAD gETWORDKLOAD_UNASSIGN(EMPLOYEELOAD et) ;
     boolean save(EMPLOYEELOAD et) ;
     void saveBatch(List<EMPLOYEELOAD> list) ;
     Page<EMPLOYEELOAD> searchDefault(EMPLOYEELOADSearchContext context) ;
