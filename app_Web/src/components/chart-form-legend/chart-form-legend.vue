@@ -199,6 +199,16 @@ export default class ChartFormLegend extends Vue {
           }
         });
       });
+      
+      if (this.legendList.length > this.chartUserParams.color.length) {
+        let colorIndex:number = -1;
+        this.legendList.forEach((legend: any, legendIndex: any) => {
+          if (!legend.color) {
+            colorIndex = colorIndex + 1;
+            legend.color = this.chartUserParams.color[colorIndex]
+          }
+        })
+      }
     }
   }
 
