@@ -130,5 +130,7 @@ export const AppComponents = {
         v.component('app-mob-menu-sideslip-view',() => import('@/components/app-mob-menu-sideslip-view/app-mob-menu-sideslip-view.vue'));
         // 动作面板
         v.component('app-mob-actionsheet',() => import('@/components/app-mob-actionsheet/app-mob-actionsheet.vue'));
+        // 更新日志列表组件
+        v.component('app-update-log-list',() => import('@/ibiz-core/components/app-update-log-list/app-update-log-list.vue'));
     },
 };
