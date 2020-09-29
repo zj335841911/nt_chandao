@@ -3,7 +3,6 @@
 @import "./layout/index.less";
 @import "./sysStyles.less";
 
-
 .ion-page.view-container {
   height: 100%;
   display: flex;
@@ -101,10 +100,10 @@ ion-action-sheet {
   --max-height: 60%;
 }
 // itme分割border颜色
-ion-item{
-  --border-color:#dadada;
+ion-item {
+  --border-color: #dadada;
 }
-ion-segment{
+ion-segment {
   width: 100%;
 }
 .header-ios ion-toolbar:last-of-type {
@@ -118,7 +117,7 @@ button.alert-button.ion-focusable.ion-activatable.secondary.sc-ion-alert-ios {
 // 默认主题颜色
 @default-active-color: @color-primary;
 @default-text-color: #fff;
-.theme(@default-active-color,@default-text-color);
+.theme(@default-active-color, @default-text-color);
 
 // 默认布局
 @default-form-text-align: right;
@@ -133,20 +132,26 @@ button.alert-button.ion-focusable.ion-activatable.secondary.sc-ion-alert-ios {
 //   --background: inherit;
 // }
 
-ion-toolbar{
+ion-toolbar {
   --padding-bottom: 0;
   --padding-end: 0;
   --padding-start: 0;
   --padding-top: 0;
 }
 
-
 .van-cell::after {
   border: 0;
 }
 // 搜索表单高度
-.searchform{
-  .searchform_content{
-     height: calc(100% - 90px);
+.searchform {
+  .searchform_content {
+    height: calc(100% - 100px);
+  }
+  .search-btn {
+    display: flex;
+    justify-content: center;
+    ion-button {
+      width: 50%;
+    }
   }
 }

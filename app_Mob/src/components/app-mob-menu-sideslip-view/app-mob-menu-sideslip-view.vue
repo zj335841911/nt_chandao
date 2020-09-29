@@ -3,7 +3,7 @@
       <van-popup v-model="showPopup" get-container="#app" position="left" :style="{ height: '100%',width: '75%' }" duration="0.2" :close-on-popstate="true">
         <v-touch v-on:swipeleft="onSwipeLeft" style="height:100%;">
               <div class="app-menu-plugin">
-                <app-mob-menu-sideslip-view-header></app-mob-menu-sideslip-view-header>
+                <Header></Header>
                 <div class="top">
                   <div class="title">Menu</div>
                   <template v-for="item in items"  >
@@ -27,7 +27,7 @@
       <v-touch v-on:swiperight="onSwipeRight" style="height:100%;">
         <template v-for="item in items">
                 <template v-if="!item.hidden">
-                        <component  :key="item.id" v-if="item.id == activeId" :is="item.componentname" viewDefaultUsage="indexView"></component>
+                        <component  :key="item.id" v-if="item.id == activeId" :is="item.componentname" viewDefaultUsage="indexView" @onSwipeRight="onSwipeRight"></component>
                 </template>
         </template>
       </v-touch>
@@ -37,8 +37,10 @@
 <script lang="ts">
 import { Vue, Component, Prop, Emit, Model, Provide } from 'vue-property-decorator';
 import { Environment } from '@/environments/environment';
+import Header from './app-mob-menu-sideslip-view-header/app-mob-menu-sideslip-view-header.vue';
 @Component({
     components: {
+      Header
     }
 })
 export default class AppMobMenuSideslipView extends Vue {

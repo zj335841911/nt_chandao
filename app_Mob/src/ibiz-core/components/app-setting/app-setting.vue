@@ -8,60 +8,62 @@
       </ion-toolbar>
     </ion-header>
     <div class="content">
-      <ion-list class="content-list content-list-top">
-        <template v-for="item in data.top">
-          <ion-item :key="item.name" v-if="item.isEnable" @click="onItemClick(item)">
-            <div class="content-list-item-content">
-              <div class="content-list-item-content-text">{{item.text}}</div>
-              <ion-icon
-                v-if="item.name !== 'theme' &&  item.name !== 'accountInformation'"
-                name="chevron-forward-outline"
-              ></ion-icon>
-              <app-mob-select-changeTheme v-if="item.name == 'theme'" ref="changeTheme"></app-mob-select-changeTheme>
-              <div
-                v-if="item.name == 'accountInformation'"
-                class="content-list-item-content-text"
-              >{{srfloginname}}</div>
-            </div>
-          </ion-item>
-        </template>
-      </ion-list>
-      <ion-list class="content-list content-list-center">
-        <template v-for="item in data.center">
-          <ion-item :key="item.name" v-if="item.isEnable" @click="onItemClick(item)">
-            <div class="content-list-item-content">
-              <div class="content-list-item-content-text">{{item.text}}</div>
-              <ion-icon
-                v-if="item.name !== 'theme' &&  item.name !== 'accountInformation'"
-                name="chevron-forward-outline"
-              ></ion-icon>
-              <app-mob-select-changeTheme v-if="item.name == 'theme'" ref="changeTheme"></app-mob-select-changeTheme>
-              <div
-                v-if="item.name == 'accountInformation'"
-                class="content-list-item-content-text"
-              >{{srfloginname}}</div>
-            </div>
-          </ion-item>
-        </template>
-      </ion-list>
-      <ion-list class="content-list content-list-bottom">
-        <template v-for="item in data.bottom">
-          <ion-item :key="item.name" v-if="item.isEnable" @click="onItemClick(item)">
-            <div class="content-list-item-content">
-              <div class="content-list-item-content-text">{{item.text}}</div>
-              <ion-icon
-                v-if="item.name !== 'theme' &&  item.name !== 'accountInformation'"
-                name="chevron-forward-outline"
-              ></ion-icon>
-              <app-mob-select-changeTheme v-if="item.name == 'theme'" ref="changeTheme"></app-mob-select-changeTheme>
-              <div
-                v-if="item.name == 'accountInformation'"
-                class="content-list-item-content-text"
-              >{{srfloginname}}</div>
-            </div>
-          </ion-item>
-        </template>
-      </ion-list>
+      <v-touch v-on:swiperight="onSwipeRight" style="height:100%;">
+        <ion-list class="content-list content-list-top">
+          <template v-for="item in data.top">
+            <ion-item :key="item.name" v-if="item.isEnable" @click="onItemClick(item)">
+              <div class="content-list-item-content">
+                <div class="content-list-item-content-text">{{item.text}}</div>
+                <ion-icon
+                  v-if="item.name !== 'theme' &&  item.name !== 'accountInformation'"
+                  name="chevron-forward-outline"
+                ></ion-icon>
+                <app-mob-select-changeTheme v-if="item.name == 'theme'" ref="changeTheme"></app-mob-select-changeTheme>
+                <div
+                  v-if="item.name == 'accountInformation'"
+                  class="content-list-item-content-text"
+                >{{srfloginname}}</div>
+              </div>
+            </ion-item>
+          </template>
+        </ion-list>
+        <ion-list class="content-list content-list-center">
+          <template v-for="item in data.center">
+            <ion-item :key="item.name" v-if="item.isEnable" @click="onItemClick(item)">
+              <div class="content-list-item-content">
+                <div class="content-list-item-content-text">{{item.text}}</div>
+                <ion-icon
+                  v-if="item.name !== 'theme' &&  item.name !== 'accountInformation'"
+                  name="chevron-forward-outline"
+                ></ion-icon>
+                <app-mob-select-changeTheme v-if="item.name == 'theme'" ref="changeTheme"></app-mob-select-changeTheme>
+                <div
+                  v-if="item.name == 'accountInformation'"
+                  class="content-list-item-content-text"
+                >{{srfloginname}}</div>
+              </div>
+            </ion-item>
+          </template>
+        </ion-list>
+        <ion-list class="content-list content-list-bottom">
+          <template v-for="item in data.bottom">
+            <ion-item :key="item.name" v-if="item.isEnable" @click="onItemClick(item)">
+              <div class="content-list-item-content">
+                <div class="content-list-item-content-text">{{item.text}}</div>
+                <ion-icon
+                  v-if="item.name !== 'theme' &&  item.name !== 'accountInformation'"
+                  name="chevron-forward-outline"
+                ></ion-icon>
+                <app-mob-select-changeTheme v-if="item.name == 'theme'" ref="changeTheme"></app-mob-select-changeTheme>
+                <div
+                  v-if="item.name == 'accountInformation'"
+                  class="content-list-item-content-text"
+                >{{srfloginname}}</div>
+              </div>
+            </ion-item>
+          </template>
+        </ion-list>
+      </v-touch>
     </div>
   </ion-page>
 </template>
@@ -271,6 +273,14 @@ export default class AppSetting extends Vue {
       }
     }
   }
+
+  /**
+   * 右滑打开侧滑菜单
+   */
+  public onSwipeRight(){
+    this.$emit('onSwipeRight');
+  }
+
 }
 </script>
 <style lang="less">
