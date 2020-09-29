@@ -123,7 +123,7 @@ export const AppComponents = {
         // 定制组件
         v.component('app-customize',() => import('@/ibiz-core/components/app-customize/app-customize.vue'));
         // 主题切换组件
-        v.component('app-mob-select-changeTheme',() => import('@/ibiz-core/components/app-mob-select-changeTheme/app-mob-select-changeTheme.vue'));
+        v.component('app-mob-select-theme',() => import('@/ibiz-core/components/app-mob-select-theme/app-mob-select-theme.vue'));
         // 锚点列表插件
         v.component('app-anchor-list',() => import('@/components/app-anchor-list/app-anchor-list.vue'));
         // 侧滑菜单组件
