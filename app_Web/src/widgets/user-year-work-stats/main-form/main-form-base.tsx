@@ -81,6 +81,7 @@ export class MainEditFormBase extends EditFormControlBase {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        role: null,
         yearvisits: null,
         yearactioncnt: null,
         yearlogcnt: null,
@@ -90,7 +91,6 @@ export class MainEditFormBase extends EditFormControlBase {
         yearproductcnt: null,
         yearplancnt: null,
         yearstorycnt: null,
-        role: null,
         judgerole: null,
         id: null,
         useryearworkstats:null,
@@ -129,6 +129,36 @@ export class MainEditFormBase extends EditFormControlBase {
 
         group1: new FormGroupPanelModel({ caption: '基本数据信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
 
+        grouppanel4: new FormGroupPanelModel({ caption: '参与项目概览', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel6: new FormGroupPanelModel({ caption: '项目列表', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel5: new FormGroupPanelModel({ caption: '研发', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel7: new FormGroupPanelModel({ caption: '产品经理', detailType: 'GROUPPANEL', name: 'grouppanel7', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel8: new FormGroupPanelModel({ caption: '测试', detailType: 'GROUPPANEL', name: 'grouppanel8', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel9: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'grouppanel9', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel13: new FormGroupPanelModel({ caption: '研发', detailType: 'GROUPPANEL', name: 'grouppanel13', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel16: new FormGroupPanelModel({ caption: '测试', detailType: 'GROUPPANEL', name: 'grouppanel16', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel15: new FormGroupPanelModel({ caption: '产品经理', detailType: 'GROUPPANEL', name: 'grouppanel15', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel11: new FormGroupPanelModel({ caption: '饼图', detailType: 'GROUPPANEL', name: 'grouppanel11', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel14: new FormGroupPanelModel({ caption: '研发', detailType: 'GROUPPANEL', name: 'grouppanel14', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel17: new FormGroupPanelModel({ caption: '测试', detailType: 'GROUPPANEL', name: 'grouppanel17', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel18: new FormGroupPanelModel({ caption: '产品经理', detailType: 'GROUPPANEL', name: 'grouppanel18', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel12: new FormGroupPanelModel({ caption: '月统计', detailType: 'GROUPPANEL', name: 'grouppanel12', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel10: new FormGroupPanelModel({ caption: '统计', detailType: 'GROUPPANEL', name: 'grouppanel10', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -144,6 +174,8 @@ export class MainEditFormBase extends EditFormControlBase {
         srfdeid: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfdeid', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        role: new FormItemModel({ caption: '角色', detailType: 'FORMITEM', name: 'role', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         yearvisits: new FormItemModel({ caption: '累计登录次数', detailType: 'FORMITEM', name: 'yearvisits', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -162,8 +194,6 @@ export class MainEditFormBase extends EditFormControlBase {
         yearplancnt: new FormItemModel({ caption: '累计创建计划数', detailType: 'FORMITEM', name: 'yearplancnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         yearstorycnt: new FormItemModel({ caption: '累计创建需求数', detailType: 'FORMITEM', name: 'yearstorycnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
-
-        role: new FormItemModel({ caption: '角色', detailType: 'FORMITEM', name: 'role', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         judgerole: new FormItemModel({ caption: '判断角色', detailType: 'FORMITEM', name: 'judgerole', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -210,6 +240,94 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'judgerole')) {
+            let ret = false;
+            const _judgerole = this.data.judgerole;
+            if (this.$verify.testCond(_judgerole, 'EQ', 'dev')) {
+                ret = true;
+            }
+            this.detailsModel.grouppanel5.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'judgerole')) {
+            let ret = false;
+            const _judgerole = this.data.judgerole;
+            if (this.$verify.testCond(_judgerole, 'EQ', 'po')) {
+                ret = true;
+            }
+            this.detailsModel.grouppanel7.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'judgerole')) {
+            let ret = false;
+            const _judgerole = this.data.judgerole;
+            if (this.$verify.testCond(_judgerole, 'EQ', 'qa')) {
+                ret = true;
+            }
+            this.detailsModel.grouppanel8.setVisible(ret);
+        }
+
+
+        if (Object.is(name, '') || Object.is(name, 'judgerole')) {
+            let ret = false;
+            const _judgerole = this.data.judgerole;
+            if (this.$verify.testCond(_judgerole, 'EQ', 'dev')) {
+                ret = true;
+            }
+            this.detailsModel.grouppanel13.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'judgerole')) {
+            let ret = false;
+            const _judgerole = this.data.judgerole;
+            if (this.$verify.testCond(_judgerole, 'EQ', 'qa')) {
+                ret = true;
+            }
+            this.detailsModel.grouppanel16.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'judgerole')) {
+            let ret = false;
+            const _judgerole = this.data.judgerole;
+            if (this.$verify.testCond(_judgerole, 'EQ', 'po')) {
+                ret = true;
+            }
+            this.detailsModel.grouppanel15.setVisible(ret);
+        }
+
+
+        if (Object.is(name, '') || Object.is(name, 'judgerole')) {
+            let ret = false;
+            const _judgerole = this.data.judgerole;
+            if (this.$verify.testCond(_judgerole, 'EQ', 'dev')) {
+                ret = true;
+            }
+            this.detailsModel.grouppanel14.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'judgerole')) {
+            let ret = false;
+            const _judgerole = this.data.judgerole;
+            if (this.$verify.testCond(_judgerole, 'EQ', 'qa')) {
+                ret = true;
+            }
+            this.detailsModel.grouppanel17.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'judgerole')) {
+            let ret = false;
+            const _judgerole = this.data.judgerole;
+            if (this.$verify.testCond(_judgerole, 'EQ', 'po')) {
+                ret = true;
+            }
+            this.detailsModel.grouppanel18.setVisible(ret);
+        }
+
+
+
+
+
+
 
 
 
@@ -225,7 +343,6 @@ export class MainEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.yearactioncnt.setVisible(ret);
         }
-
 
 
 
