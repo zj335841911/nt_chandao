@@ -681,7 +681,7 @@ export default class ZentaoModel {
         {
             appfunctag: 'AppFunc2',
             appfuncyype: 'APPVIEW',
-            openmode: 'DRAWER_RIGHT',
+            openmode: 'INDEXVIEWTAB',
             codename: 'userinfoeditview',
             deResParameters: [],
             routepath: '/ibizpms/:ibizpms?/users/:user?/infoeditview/:infoeditview?',

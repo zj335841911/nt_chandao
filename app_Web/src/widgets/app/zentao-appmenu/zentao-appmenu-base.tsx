@@ -291,18 +291,15 @@ export class ZentaoBase extends Vue {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'users', parameterName: 'user' },
+            { pathName: 'infoeditview', parameterName: 'infoeditview' },
         ];
-        const view: any = {
-            viewname: 'user-infoedit-view',
-            title: (this.$t('entities.user.views.infoeditview.title') as any),
-            height: 0,
-            width: 750,
-            placement: 'DRAWER_RIGHT'
-        };
-        const appdrawer = this.$appdrawer.openDrawer(view, JSON.parse(JSON.stringify(this.context)), viewparam);
-        appdrawer.subscribe((result: any) => {
-            console.log(result);
-        });
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
     }
     
     /**
