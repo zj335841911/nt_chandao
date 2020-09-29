@@ -6,6 +6,7 @@ import product_en_US from '@locale/lanres/entities/product/product_en_US';
 import taskteam_en_US from '@locale/lanres/entities/task-team/task-team_en_US';
 import file_en_US from '@locale/lanres/entities/file/file_en_US';
 import ibzprostorymodule_en_US from '@locale/lanres/entities/ibzpro-story-module/ibzpro-story-module_en_US';
+import productsum_en_US from '@locale/lanres/entities/product-sum/product-sum_en_US';
 import ibzlibcasesteps_en_US from '@locale/lanres/entities/ibz-lib-casesteps/ibz-lib-casesteps_en_US';
 import ibzlib_en_US from '@locale/lanres/entities/ibz-lib/ibz-lib_en_US';
 import suitecase_en_US from '@locale/lanres/entities/suite-case/suite-case_en_US';
@@ -330,6 +331,7 @@ export default {
         taskteam: taskteam_en_US,
         file: file_en_US,
         ibzprostorymodule: ibzprostorymodule_en_US,
+        productsum: productsum_en_US,
         ibzlibcasesteps: ibzlibcasesteps_en_US,
         ibzlib: ibzlib_en_US,
         suitecase: suitecase_en_US,

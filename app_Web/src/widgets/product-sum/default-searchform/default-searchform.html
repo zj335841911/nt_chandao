@@ -1,0 +1,28 @@
+<i-form :model="this.data" class='app-search-form' ref='searchform' style="">
+  <input style="display:none;"/>
+  <div class="search-button">
+    <i-button size="small" type="primary" ghost @click="onSearch.apply(_self, arguments)">{{$t('app.searchButton.search')}}</i-button>
+    <i-button size="small" type="default" ghost @click="onReset.apply(_self, arguments)">{{this.$t('app.searchButton.reset')}}</i-button>
+  </div>
+  <div class="form-content">
+                  
+          <i-col class="form-layout-container" v-show="detailsModel.closed.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+              <app-form-item name='closed' :itemRules="this.rules.closed" class='' :caption="$t('entities.productsum.default_searchform.details.closed')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.closed.error" :isEmptyCaption="false" labelPos="LEFT">
+              <div style="">
+            <app-checkbox :value="this.data.closed" @change="($event)=>{this.data.closed = $event} " :disabled="detailsModel.closed.disabled"></app-checkbox>
+          </div>
+          
+          </app-form-item>
+          
+          </i-col>
+          <i-col class="form-layout-container" v-show="detailsModel.expired.visible" :style="{}"  :lg="{ span: 3, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+              <app-form-item name='expired' :itemRules="this.rules.expired" class='' :caption="$t('entities.productsum.default_searchform.details.expired')" uiStyle="DEFAULT" :labelWidth="10" :isShowCaption="true" :error="detailsModel.expired.error" :isEmptyCaption="true" labelPos="LEFT">
+              <div style="">
+            <app-checkbox :value="this.data.expired" @change="($event)=>{this.data.expired = $event} " :disabled="detailsModel.expired.disabled"></app-checkbox>
+          </div>
+          
+          </app-form-item>
+          
+          </i-col>
+  </div>
+</i-form>

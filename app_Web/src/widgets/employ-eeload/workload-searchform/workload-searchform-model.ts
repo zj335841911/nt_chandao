@@ -46,6 +46,11 @@ export default class WorkloadModel {
       {
         name: 'everydaytime',
       },
+      {
+        name: 'n_assign_eq',
+        prop: 'assign',
+        dataType: 'TEXT',
+      },
     ]
   }
 

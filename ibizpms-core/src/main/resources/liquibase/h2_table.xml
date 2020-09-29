@@ -640,7 +640,7 @@
 
 
     <!--输出实体[IBZ_EMPLOYEELOAD]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_employeeload-54-19">
+    <changeSet author="zentao" id="tab-ibz_employeeload-63-19">
         <createTable tableName="ZT_TASK">
                 <column name="ID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZ_EMPLOYEELOAD_ID"/>
@@ -650,6 +650,8 @@
                 <column name="PROJECT" remarks="" type="BIGINT">
                 </column>
                 <column name="ASSIGNEDTO" remarks="" type="VARCHAR(100)">
+                </column>
+                <column name="ASSIGN" remarks="" type="VARCHAR(100)">
                 </column>
         </createTable>
     </changeSet>
@@ -1599,7 +1601,7 @@
 
 
     <!--输出实体[ZT_PRODUCTPLAN]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_productplan-409-59">
+    <changeSet author="zentao" id="tab-zt_productplan-412-59">
         <createTable tableName="zt_productplan">
                 <column name="TITLE" remarks="" type="VARCHAR(90)">
                 </column>
@@ -2523,7 +2525,7 @@
     </changeSet>
         <!--输出实体[DYNADASHBOARD]外键关系 -->
         <!--输出实体[IBZ_EMPLOYEELOAD]外键关系 -->
-    <changeSet author="zentao" id="fk-ibz_employeeload-54-137">
+    <changeSet author="zentao" id="fk-ibz_employeeload-63-137">
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="ZT_TASK" constraintName="DER1N_IBZ_EMPLOYEELOAD_ZT_PROJ" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_EFFORT]外键关系 -->
@@ -2611,13 +2613,13 @@
        <addForeignKeyConstraint baseColumnNames="ROOT" baseTableName="zt_module" constraintName="DER1N_IBZ_PRODUCTMODULE_ZT_PRO" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_PRODUCTPLAN]外键关系 -->
-    <changeSet author="zentao" id="fk-zt_productplan-409-154">
+    <changeSet author="zentao" id="fk-zt_productplan-412-154">
        <addForeignKeyConstraint baseColumnNames="BRANCH" baseTableName="zt_productplan" constraintName="DER1N_ZT_PRODUCTPLAN_ZT_BRANCH" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_branch" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_productplan-409-155">
+    <changeSet author="zentao" id="fk-zt_productplan-412-155">
        <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="zt_productplan" constraintName="DER1N_ZT_PRODUCTPLAN_ZT_PRODUC" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-zt_productplan-409-156">
+    <changeSet author="zentao" id="fk-zt_productplan-412-156">
        <addForeignKeyConstraint baseColumnNames="PARENT" baseTableName="zt_productplan" constraintName="DER1N__ZT_PRODUCTPLAN__ZT_PROD" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_productplan" validate="true"/>
     </changeSet>
         <!--输出实体[IBZ_PRODUCTSTATS]外键关系 -->

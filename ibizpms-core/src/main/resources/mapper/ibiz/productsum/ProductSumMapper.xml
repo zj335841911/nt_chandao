@@ -5,7 +5,7 @@
 
     <!--该方法用于重写mybatis中selectById方法，以实现查询逻辑属性-->
 	<select id="selectById"  resultMap="ProductSumResultMap" databaseId="mysql">
-        <![CDATA[select t1.* from (SELECT t1.`ID`, t1.`NAME`, 0 AS `PLAN`, t1.`PO`, 0 AS `WAITSTORYCNT` FROM `zt_product` t1  ) t1 where id=#{id}]]>
+        <![CDATA[select t1.* from (SELECT 0 AS `ACTIVESTORYCNT`, 0 AS `CHANGEDSTORYCNT`, 0 AS `CLOSEDSTORYCNT`, t1.`ID`, t1.`NAME`, 0 AS `PLAN`, t1.`PO`, 0 AS `STORYCNT`, 0 AS `WAITSTORYCNT` FROM `zt_product` t1  ) t1 where id=#{id}]]>
     </select>
 
     <!--通过mybatis将查询结果注入到entity中,通过配置autoMapping="true"由mybatis自动处理映射关系 -->
@@ -27,12 +27,12 @@
 
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
-		<![CDATA[ SELECT t1.`ID`, t1.`NAME`, 0 AS `PLAN`, t1.`PO`, 0 AS `WAITSTORYCNT` FROM `zt_product` t1  
+		<![CDATA[ select t1.* (select  t1.id,t1.`NAME`,t1.po,t1.PLAN, case when t1.`begin` = '2030-01-01' then '待定' else t1.`begin` end as `begin`,case when t1.`end` = '2030-01-01' then '待定' else t1.`end` end as `end`, 	sum( IF ( t1.`status` = 'draft', t1.rowcnt, 0 ) ) AS WAITSTORYCNT, 	SUM( IF ( t1.`status` = 'active', t1.rowcnt, 0 ) ) AS ACTIVESTORYCNT, 	SUM( IF ( t1.`status` = 'changed', t1.rowcnt, 0 ) ) AS CHANGEDSTORYCNT, 	SUM( IF ( t1.`status` = 'closed', t1.rowcnt, 0 ) ) AS CLOSEDSTORYCNT, 	sum(t1.rowcnt) as STORYCNT from ( SELECT 1 as rowcnt, case when t1.`PLAN` = 0 then '' else t1.plan end as plan, t31.`NAME` AS `NAME`, t1.`PRODUCT` as id, t1.`status`, t31.po, t41.`begin`, t41.`end` FROM `zt_story` t1  LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID  left join ZT_PRODUCTPLAN t41 on t41.id = t1.plan where t1.deleted = '0' and t1.product <> 0 and t1.product is not null and t1.product <> '' and (((t31.`status` = 'normal' ) or (t31.`status` = 'closed' and '1' = '1')) or ((t41.`end` >= now() and 1 is not null ) or (t41.`end` <= now() and 1 is null))) ) t1 GROUP BY t1.id,t1.`NAME`,t1.po,t1.PLAN,t1.`begin`,t1.`end`) t1
 			]]>
     </sql>
     <!--数据查询[View]-->
     <sql id="View" databaseId="mysql">
-		<![CDATA[ SELECT t1.`ID`, t1.`NAME`, 0 AS `PLAN`, t1.`PO`, 0 AS `WAITSTORYCNT` FROM `zt_product` t1  
+		<![CDATA[ SELECT 0 AS `ACTIVESTORYCNT`, 0 AS `CHANGEDSTORYCNT`, 0 AS `CLOSEDSTORYCNT`, t1.`ID`, t1.`NAME`, 0 AS `PLAN`, t1.`PO`, 0 AS `STORYCNT`, 0 AS `WAITSTORYCNT` FROM `zt_product` t1  
 			]]>
     </sql>
 </mapper>

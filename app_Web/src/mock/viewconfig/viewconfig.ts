@@ -727,6 +727,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectPlanAddEditView",
             "viewtag": "396ab8c5ef500f859d6591e77f094ecd"
         },
+        "productsumgridview": {
+            "title": "产品汇总表表格视图",
+            "caption": "产品汇总表",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProductSumGridView",
+            "viewtag": "3989c98a31e037a67b27cdf7acb1f7cd"
+        },
         "tasktodoeditview": {
             "title": "任务编辑视图",
             "caption": "待办转任务",
@@ -2327,6 +2335,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseStepMainGridView9_EditMode",
             "viewtag": "ac71a1cfaecb07640c14f75b8f202b1e"
         },
+        "productsumeditview": {
+            "title": "产品汇总表编辑视图",
+            "caption": "产品汇总表",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProductSumEditView",
+            "viewtag": "ada719b0d8722509d22b4b72bbb8cf26"
+        },
         "actionaddcommenthistorylistview": {
             "title": "历史记录",
             "caption": "系统日志",
@@ -2974,6 +2990,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "IbzCaseNewEditView",
             "viewtag": "e049cdde7095f179bf786984cb497fe5"
+        },
+        "ibzmyterritoryproductsumtreeexpview": {
+            "title": "我的地盘树导航视图（产品汇总表）",
+            "caption": "产品汇总表",
+            "viewtype": "DETREEEXPVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "IbzMyTerritoryProductSumTreeExpView",
+            "viewtag": "e090d7f19211e8fbbab5d4442c6e58e8"
         },
         "storycloseview": {
             "title": "需求关闭",

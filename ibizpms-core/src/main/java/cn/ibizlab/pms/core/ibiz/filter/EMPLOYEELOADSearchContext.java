@@ -87,6 +87,13 @@ public class EMPLOYEELOADSearchContext extends QueryWrapperContext<EMPLOYEELOAD>
             this.getSearchCond().eq("workday", n_workday_eq);
         }
     }
+	private String n_assign_eq;//[是否指派]
+	public void setN_assign_eq(String n_assign_eq) {
+        this.n_assign_eq = n_assign_eq;
+        if(!ObjectUtils.isEmpty(this.n_assign_eq)){
+            this.getSearchCond().eq("assign", n_assign_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

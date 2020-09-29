@@ -120,6 +120,17 @@ public class EmployEeloadResource {
         return  ResponseEntity.status(HttpStatus.OK).body(employeeloadService.checkKey(employeeloadMapping.toDomain(employeeloaddto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-EMPLOYEELOAD-GETWORDKLOAD_UNASSIGN-all')")
+    @ApiOperation(value = "工作负载(未指派)", tags = {"员工负载表" },  notes = "工作负载(未指派)")
+	@RequestMapping(method = RequestMethod.GET, value = "/employeeloads/{employeeload_id}/getwordkload_unassign")
+    public ResponseEntity<EmployEeloadDTO> gETWORDKLOAD_UNASSIGN(@PathVariable("employeeload_id") Long employeeload_id, @RequestBody EmployEeloadDTO employeeloaddto) {
+        EMPLOYEELOAD domain = employeeloadMapping.toDomain(employeeloaddto);
+        domain.setId(employeeload_id);
+        domain = employeeloadService.gETWORDKLOAD_UNASSIGN(domain);
+        employeeloaddto = employeeloadMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(employeeloaddto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-EMPLOYEELOAD-Save-all')")
     @ApiOperation(value = "保存员工负载表", tags = {"员工负载表" },  notes = "保存员工负载表")
 	@RequestMapping(method = RequestMethod.POST, value = "/employeeloads/save")

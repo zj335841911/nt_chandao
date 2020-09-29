@@ -14,6 +14,7 @@ export default {
     begin: "属性",
     end: "结束",
     workday: "工作日天数",
+    assign: "是否指派",
   },
 	views: {
 		editview: {
@@ -64,6 +65,7 @@ export default {
 			end: "至", 
 			workday: "工作天数", 
 			everydaytime: "每天工时", 
+			n_assign_eq: "", 
 		},
 		uiactions: {
 		},

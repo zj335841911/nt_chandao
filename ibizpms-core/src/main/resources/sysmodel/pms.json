@@ -5237,6 +5237,19 @@
     "data_type":"INT",
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"ASSIGN" ,
+    "codename":"Assign",
+    "field_logic_name":"是否指派",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -21312,6 +21325,54 @@
     "fieldname":"WAITSTORYCNT" ,
     "codename":"WaitStoryCnt",
     "field_logic_name":"草稿",
+    "entity_name":"ProductSum",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"ACTIVESTORYCNT" ,
+    "codename":"ActiveStoryCnt",
+    "field_logic_name":"激活",
+    "entity_name":"ProductSum",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"CHANGEDSTORYCNT" ,
+    "codename":"Changedstorycnt",
+    "field_logic_name":"已变更",
+    "entity_name":"ProductSum",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"CLOSEDSTORYCNT" ,
+    "codename":"ClosedStoryCnt",
+    "field_logic_name":"已关闭",
+    "entity_name":"ProductSum",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"STORYCNT" ,
+    "codename":"StoryCnt",
+    "field_logic_name":"总计",
     "entity_name":"ProductSum",
     "field_type":"INT",
     "nullable":1,

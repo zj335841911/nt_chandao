@@ -15,6 +15,7 @@ import './entity/products/products';
 import './entity/task-teams/task-teams';
 import './entity/files/files';
 import './entity/ibzpro-story-modules/ibzpro-story-modules';
+import './entity/product-sums/product-sums';
 import './entity/ibz-lib-casestepss/ibz-lib-casestepss';
 import './entity/ibz-libs/ibz-libs';
 import './entity/suite-cases/suite-cases';

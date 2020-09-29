@@ -1382,6 +1382,23 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "CloseProduct",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "关闭产品",
+                text: "关闭产品",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "BugModule",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -4924,6 +4941,23 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Item_0",
                 value: 0,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "ExpiredPlan",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "过期计划",
+                text: "过期计划",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
                 
                 disabled: false,
             },

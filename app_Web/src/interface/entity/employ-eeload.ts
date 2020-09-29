@@ -117,4 +117,12 @@ export interface EmployEeload {
      * @memberof EmployEeload
      */
     workday?: any;
+
+    /**
+     * 是否指派
+     *
+     * @returns {*}
+     * @memberof EmployEeload
+     */
+    assign?: any;
 }

@@ -39,6 +39,10 @@ zuul:
       path: /ibzprostorymodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_productsum:
+      path: /productsums/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_libcasesteps:
       path: /ibzlibcasesteps/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

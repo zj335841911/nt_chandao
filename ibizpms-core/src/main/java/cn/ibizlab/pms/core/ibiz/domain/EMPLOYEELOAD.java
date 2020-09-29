@@ -142,6 +142,13 @@ public class EMPLOYEELOAD extends EntityMP implements Serializable {
     @JSONField(name = "workday")
     @JsonProperty("workday")
     private Integer workday;
+    /**
+     * 是否指派
+     */
+    @TableField(value = "`assign`")
+    @JSONField(name = "assign")
+    @JsonProperty("assign")
+    private String assign;
 
     /**
      * 项目
@@ -175,6 +182,14 @@ public class EMPLOYEELOAD extends EntityMP implements Serializable {
     public void setAssignedto(String assignedto){
         this.assignedto = assignedto ;
         this.modify("assignedto",assignedto);
+    }
+
+    /**
+     * 设置 [是否指派]
+     */
+    public void setAssign(String assign){
+        this.assign = assign ;
+        this.modify("assign",assign);
     }
 
 

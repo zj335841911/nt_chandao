@@ -6,6 +6,7 @@ import product_zh_CN from '@locale/lanres/entities/product/product_zh_CN';
 import taskteam_zh_CN from '@locale/lanres/entities/task-team/task-team_zh_CN';
 import file_zh_CN from '@locale/lanres/entities/file/file_zh_CN';
 import ibzprostorymodule_zh_CN from '@locale/lanres/entities/ibzpro-story-module/ibzpro-story-module_zh_CN';
+import productsum_zh_CN from '@locale/lanres/entities/product-sum/product-sum_zh_CN';
 import ibzlibcasesteps_zh_CN from '@locale/lanres/entities/ibz-lib-casesteps/ibz-lib-casesteps_zh_CN';
 import ibzlib_zh_CN from '@locale/lanres/entities/ibz-lib/ibz-lib_zh_CN';
 import suitecase_zh_CN from '@locale/lanres/entities/suite-case/suite-case_zh_CN';
@@ -329,6 +330,7 @@ export default {
         taskteam: taskteam_zh_CN,
         file: file_zh_CN,
         ibzprostorymodule: ibzprostorymodule_zh_CN,
+        productsum: productsum_zh_CN,
         ibzlibcasesteps: ibzlibcasesteps_zh_CN,
         ibzlib: ibzlib_zh_CN,
         suitecase: suitecase_zh_CN,

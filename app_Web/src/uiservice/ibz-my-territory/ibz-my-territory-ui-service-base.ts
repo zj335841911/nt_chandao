@@ -95,6 +95,7 @@ export default class IbzMyTerritoryUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'statstabexpview',srfappde:'ibzmyterritories',component:'ibz-my-territory-stats-tab-exp-view'});
         this.allViewMap.set(':',{viewname:'employtreeexpview',srfappde:'ibzmyterritories',component:'ibz-my-territory-employ-tree-exp-view'});
         this.allViewMap.set(':',{viewname:'dashboardview',srfappde:'ibzmyterritories',component:'ibz-my-territory-dashboard-view'});
+        this.allViewMap.set(':',{viewname:'productsumtreeexpview',srfappde:'ibzmyterritories',component:'ibz-my-territory-product-sum-tree-exp-view'});
         this.allViewMap.set(':',{viewname:'listview',srfappde:'ibzmyterritories',component:'ibz-my-territory-list-view'});
         this.allViewMap.set(':',{viewname:'listview9',srfappde:'ibzmyterritories',component:'ibz-my-territory-list-view9'});
     }

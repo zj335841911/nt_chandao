@@ -73,7 +73,8 @@ export class StatsTabExpViewtabexppanelTabexppanelBase extends TabExpPanelContro
      * @memberof StatsTabExpViewtabexppanel
      */
     protected isInit: any = {
-        tabviewpanel:  true ,
+        tabviewpanel3:  true ,
+        tabviewpanel:  false ,
         tabviewpanel2:  false ,
     }
 
@@ -84,7 +85,7 @@ export class StatsTabExpViewtabexppanelTabexppanelBase extends TabExpPanelContro
      * @type {string}
      * @memberof StatsTabExpViewtabexppanel
      */
-    protected activatedTabViewPanel: string = 'tabviewpanel';
+    protected activatedTabViewPanel: string = 'tabviewpanel3';
 
     /**
      * 组件创建完毕

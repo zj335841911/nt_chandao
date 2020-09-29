@@ -821,6 +821,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '3989c98a31e037a67b27cdf7acb1f7cd',
+            viewmodule: 'ibiz',
+            viewname: 'ProductSumGridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ada719b0d8722509d22b4b72bbb8cf26',
+            ],
+        },
+        {
             viewtag: '3a8aaf8bc175455ca2be6ace38f821a1',
             viewmodule: 'zentao',
             viewname: 'TaskTodoEditView',
@@ -2654,6 +2664,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'ada719b0d8722509d22b4b72bbb8cf26',
+            viewmodule: 'ibiz',
+            viewname: 'ProductSumEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'aeee411b8bffcf0c30d65557a8deeeee',
             viewmodule: 'zentao',
             viewname: 'ActionAddCommentHistoryListView',
@@ -3023,6 +3042,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'cef6e71f89bb0007d341328d455f6da0',
+                'e090d7f19211e8fbbab5d4442c6e58e8',
                 'bef7c08b651990569cd09ce805ebcfe3',
             ],
         },
@@ -3411,6 +3431,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'cc94f92626c795b12a5598ae3bf3da39',
+            ],
+        },
+        {
+            viewtag: 'e090d7f19211e8fbbab5d4442c6e58e8',
+            viewmodule: 'ibiz',
+            viewname: 'IbzMyTerritoryProductSumTreeExpView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3989c98a31e037a67b27cdf7acb1f7cd',
             ],
         },
         {

@@ -91,6 +91,34 @@ public class ProductSum extends EntityMP implements Serializable {
     @JSONField(name = "waitstorycnt")
     @JsonProperty("waitstorycnt")
     private Integer waitstorycnt;
+    /**
+     * 激活
+     */
+    @TableField(exist = false)
+    @JSONField(name = "activestorycnt")
+    @JsonProperty("activestorycnt")
+    private Integer activestorycnt;
+    /**
+     * 已变更
+     */
+    @TableField(exist = false)
+    @JSONField(name = "changedstorycnt")
+    @JsonProperty("changedstorycnt")
+    private Integer changedstorycnt;
+    /**
+     * 已关闭
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closedstorycnt")
+    @JsonProperty("closedstorycnt")
+    private Integer closedstorycnt;
+    /**
+     * 总计
+     */
+    @TableField(exist = false)
+    @JSONField(name = "storycnt")
+    @JsonProperty("storycnt")
+    private Integer storycnt;
 
 
 

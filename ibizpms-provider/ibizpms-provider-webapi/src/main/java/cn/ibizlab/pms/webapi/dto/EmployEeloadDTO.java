@@ -150,6 +150,15 @@ public class EmployEeloadDTO extends DTOBase implements Serializable {
     @JsonProperty("workday")
     private Integer workday;
 
+    /**
+     * 属性 [ASSIGN]
+     *
+     */
+    @JSONField(name = "assign")
+    @JsonProperty("assign")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String assign;
+
 
     /**
      * 设置 [NAME]
@@ -173,6 +182,14 @@ public class EmployEeloadDTO extends DTOBase implements Serializable {
     public void setAssignedto(String  assignedto){
         this.assignedto = assignedto ;
         this.modify("assignedto",assignedto);
+    }
+
+    /**
+     * 设置 [ASSIGN]
+     */
+    public void setAssign(String  assign){
+        this.assign = assign ;
+        this.modify("assign",assign);
     }
 
 

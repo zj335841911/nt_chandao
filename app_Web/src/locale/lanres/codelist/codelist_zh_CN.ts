@@ -205,6 +205,10 @@ export default {
         "reject": "拒绝",
         "empty": "",
     },
+    CloseProduct: {
+        "1": "关闭产品",
+        "empty": "",
+    },
     BugModule: {
         "empty": "",
     },
@@ -665,6 +669,10 @@ export default {
     YesNo2: {
         "1": "是",
         "0": "否",
+        "empty": "",
+    },
+    ExpiredPlan: {
+        "1": "过期计划",
         "empty": "",
     },
     CodeList46: {

@@ -6,7 +6,7 @@
   </div>
   <div class="form-content">
                   
-          <i-col class="form-layout-container" v-show="detailsModel.dept.visible" :style="{}"  :lg="{ span: 7, offset: 0 }" :xl="{ span: 7, offset: 0 }">
+          <i-col class="form-layout-container" v-show="detailsModel.dept.visible" :style="{}"  :lg="{ span: 5, offset: 0 }" :xl="{ span: 5, offset: 0 }">
               <app-form-item name='dept' :itemRules="this.rules.dept" class='' :caption="$t('entities.employeeload.workload_searchform.details.dept')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.dept.error" :isEmptyCaption="false" labelPos="LEFT">
               
           <dropdown-list 
@@ -32,7 +32,7 @@
           </app-form-item>
           
           </i-col>
-          <i-col class="form-layout-container" v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 4, offset: 0 }" :xl="{ span: 4, offset: 0 }">
+          <i-col class="form-layout-container" v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 3, offset: 0 }" :xl="{ span: 3, offset: 0 }">
               <app-form-item name='end' :itemRules="this.rules.end" class='' :caption="$t('entities.employeeload.workload_searchform.details.end')" uiStyle="DEFAULT" :labelWidth="30" :isShowCaption="true" :error="detailsModel.end.error" :isEmptyCaption="false" labelPos="LEFT">
               <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.end" :disabled="detailsModel.end.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.end = val1 }"></date-picker>
           
@@ -66,6 +66,24 @@
             style="">
           </input-box>
           
+          </app-form-item>
+          
+          </i-col>
+          <i-col class="form-layout-container" v-show="detailsModel.n_assign_eq.visible" :style="{}"  :lg="{ span: 3, offset: 0 }" :xl="{ span: 3, offset: 0 }">
+              <app-form-item name='n_assign_eq' :itemRules="this.rules.n_assign_eq" class='' :caption="$t('entities.employeeload.workload_searchform.details.n_assign_eq')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.n_assign_eq.error" :isEmptyCaption="true" labelPos="LEFT">
+              
+          <dropdown-list 
+              v-model="data.n_assign_eq"
+              :data="data"
+              :context="context"
+              :viewparams="viewparams"
+              :localContext ='{ }' 
+              :localParam ='{ }' 
+              :disabled="detailsModel.n_assign_eq.disabled"
+              valueType="string"
+              placeholder='请选择...'
+              style="width:100px;"
+          />
           </app-form-item>
           
           </i-col>
