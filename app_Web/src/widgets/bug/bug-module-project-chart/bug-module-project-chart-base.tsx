@@ -276,7 +276,7 @@ export class BugModule_ProjectChartBase extends MainControlBase {
      */   
     public chartOption:any = {
         title:{
-            show:true ,
+            show:false ,
             text:'Bug模块分布_Project',
             subtext:'Bug模块分类'
         },

@@ -89,6 +89,7 @@ export default class UserYearWorkStatsUIServiceBase extends UIService {
      * @memberof  UserYearWorkStatsUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'useryearworkstats',component:'user-year-work-stats-edit-view'});
     }
 
     /**

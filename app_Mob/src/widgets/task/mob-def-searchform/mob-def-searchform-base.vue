@@ -2,7 +2,7 @@
     <div ref='searchform' class="app-form task-searchform ">
                 
 
-<app-form-item 
+<app-form-item2
     name='n_name_like' 
     class='' 
     uiStyle="DEFAULT"  
@@ -19,11 +19,11 @@
     :isEmptyCaption="false">
         <app-search-editor></app-search-editor>
 
-</app-form-item>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_type_eq' 
     class='' 
     uiStyle="DEFAULT"  
@@ -40,11 +40,11 @@
     :isEmptyCaption="false">
         <app-search-editor></app-search-editor>
 
-</app-form-item>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_status_eq' 
     class='' 
     uiStyle="DEFAULT"  
@@ -61,11 +61,11 @@
     :isEmptyCaption="false">
         <app-search-editor></app-search-editor>
 
-</app-form-item>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_projectname_eq' 
     class='' 
     uiStyle="DEFAULT"  
@@ -82,11 +82,11 @@
     :isEmptyCaption="false">
         <app-search-editor></app-search-editor>
 
-</app-form-item>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_closeddate_ltandeq' 
     class='' 
     uiStyle="DEFAULT"  
@@ -103,11 +103,11 @@
     :isEmptyCaption="false">
         <app-search-editor></app-search-editor>
 
-</app-form-item>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_finisheddate_ltandeq' 
     class='' 
     uiStyle="DEFAULT"  
@@ -124,7 +124,7 @@
     :isEmptyCaption="false">
         <app-search-editor></app-search-editor>
 
-</app-form-item>
+</app-form-item2>
 
 
 

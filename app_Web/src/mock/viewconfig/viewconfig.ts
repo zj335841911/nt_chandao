@@ -2927,6 +2927,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugProjectBugsGridView",
             "viewtag": "d9cf190662d0781bee34acdfd9d1c6d2"
         },
+        "useryearworkstatseditview": {
+            "title": "用户年度工作内容统计编辑视图",
+            "caption": "用户年度工作内容统计",
+            "viewtype": "DEEDITVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "UserYearWorkStatsEditView",
+            "viewtag": "db750bbb894c25f38ca2741f234df3c6"
+        },
         "bugtestbugsgridview": {
             "title": "Bug表格视图(遗留的bug)",
             "caption": "Bug",

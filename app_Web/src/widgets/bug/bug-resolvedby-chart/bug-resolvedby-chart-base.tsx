@@ -276,7 +276,7 @@ export class BugRESOLVEDBYChartBase extends MainControlBase {
      */   
     public chartOption:any = {
         title:{
-            show:true ,
+            show:false ,
             text:'Bug解决者分布',
             subtext:''
         },
