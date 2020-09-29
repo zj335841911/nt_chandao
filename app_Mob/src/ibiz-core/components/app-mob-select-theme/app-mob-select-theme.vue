@@ -108,7 +108,7 @@ export default class AppSelectTheme extends Vue {
     public open() {
         this.show = true;
     }
-    
+
     /**
      * 声明周期钩子
      * 
@@ -122,5 +122,5 @@ export default class AppSelectTheme extends Vue {
 </script>
 
 <style lang="less">
-@import './app-mob-select-changeTheme.less';
+@import './app-mob-select-theme.less';
 </style>
