@@ -3,12 +3,12 @@
       <!-- 图表 -->
       <div style="width: 70%;">
           <div v-if="isNoData" class="chart-no-data"><i class="el-icon-data-analysis"></i>{{$t('app.commonWords.noData')}}</div>
-          <div v-else class="app-charts" :id="chartId" style="height: 100%;padding: 6px 0;"></div>
+          <div class="app-charts" :id="chartId" style="height: 100%;padding: 6px 0;"></div>
           <div class="app-charts" v-if="originId" :id="originId" style="width:0px;height:0px"></div>
       </div>
 
       <!-- 图例 -->
-      <div v-if="legendList.length > 0" style="width: 25%;height: 100%;padding-left: 10px;overflow: hidden;">
+      <div class="legend" v-if="legendList.length > 0" style="width: 25%;">
           <el-table
               :data="legendList"
               style="width: 100%;"
@@ -29,11 +29,13 @@
               </el-table-column>
               <el-table-column
                   prop="srfcount"
-                  label="值">
+                  label="值"
+                  width="80">
               </el-table-column>
               <el-table-column
                   prop="percentage"
-                  label="百分比">
+                  label="百分比"
+                  width="80">
               </el-table-column>
           </el-table>
       </div>
@@ -114,7 +116,7 @@ export default class ChartFormLegend extends Vue {
    * @type {boolean}
    * @memberof Dashboard_sysportlet2_chartBase
    */
-  public isNoData: boolean = false;
+  public isNoData: boolean = true;
 
   /**
    * 图表配置参数值变化
