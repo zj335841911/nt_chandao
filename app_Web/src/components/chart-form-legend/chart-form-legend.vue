@@ -4,7 +4,7 @@
       <div v-if="isNoData" class="chart-no-data"><i class="el-icon-data-analysis"></i> {{$t('app.commonWords.noData')}}</div>
       <!-- 图表 -->
       <div  style="width: 70%;">
-          <div class="app-charts" :id="chartId" style="height: 100%;padding: 6px 0;"></div>
+          <div class="app-charts" :id="chartId" style="width: 100%;height: 100%;padding: 6px 0;display: flex;justify-content: center;"></div>
           <div class="app-charts" v-if="originId" :id="originId" style="width:0px;height:0px"></div>
       </div>
 
@@ -95,7 +95,7 @@ export default class ChartFormLegend extends Vue {
   public chartId: string = this.$util.createUUID();
 
   /**
-   * 图表div绑定的id
+   * 图表条目项
    *
    * @type {}
    * @memberof ChartFormLegend
@@ -178,6 +178,10 @@ export default class ChartFormLegend extends Vue {
     return tempOption;
   }
 
+  /**
+   * 计算百分比
+   * @memberof ChartFormLegend
+   */
   public calcPercent() {
     // 求和
     let sum: number = this.legendList.reduce((acc: any, cur: any) => {
@@ -191,6 +195,10 @@ export default class ChartFormLegend extends Vue {
     });
   }
 
+  /**
+   * 设置图例颜色
+   * @memberof ChartFormLegend
+   */
   public setLegendColor() {
     if (Object.keys(this.chartUserParams).length > 0) {
       this.legendList.forEach((legend: any, legendIndex: any) => {
@@ -213,6 +221,10 @@ export default class ChartFormLegend extends Vue {
     }
   }
 
+  /**
+   * 表格排序
+   * @memberof ChartFormLegend
+   */
   public sortBySrfcount() {
     this.legendList.sort((prev: any, next: any) => {
       const value1: number = prev.srfcount;
