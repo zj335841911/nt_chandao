@@ -42,6 +42,7 @@ import './entity/storys/storys';
 import './entity/todos/todos';
 import './entity/ibz-lib-modules/ibz-lib-modules';
 import './entity/sub-tasks/sub-tasks';
+import './entity/user-year-work-statss/user-year-work-statss';
 import './entity/ibz-lib-case-step-tmps/ibz-lib-case-step-tmps';
 import './entity/projects/projects';
 import './entity/historys/historys';

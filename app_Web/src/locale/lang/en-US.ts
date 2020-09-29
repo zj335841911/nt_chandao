@@ -33,6 +33,7 @@ import story_en_US from '@locale/lanres/entities/story/story_en_US';
 import todo_en_US from '@locale/lanres/entities/todo/todo_en_US';
 import ibzlibmodule_en_US from '@locale/lanres/entities/ibz-lib-module/ibz-lib-module_en_US';
 import subtask_en_US from '@locale/lanres/entities/sub-task/sub-task_en_US';
+import useryearworkstats_en_US from '@locale/lanres/entities/user-year-work-stats/user-year-work-stats_en_US';
 import ibzlibcasesteptmp_en_US from '@locale/lanres/entities/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp_en_US';
 import project_en_US from '@locale/lanres/entities/project/project_en_US';
 import history_en_US from '@locale/lanres/entities/history/history_en_US';
@@ -211,7 +212,6 @@ export default {
                 menuitem19: "产品",
                 menuitem21: "模块",
                 menuitem17: "需求",
-                menuitem23: "用户信息",
                 left_exp: "左侧分页导航",
                 menuitem4: "产品",
                 menuitem5: "项目",
@@ -359,6 +359,7 @@ export default {
         todo: todo_en_US,
         ibzlibmodule: ibzlibmodule_en_US,
         subtask: subtask_en_US,
+        useryearworkstats: useryearworkstats_en_US,
         ibzlibcasesteptmp: ibzlibcasesteptmp_en_US,
         project: project_en_US,
         history: history_en_US,

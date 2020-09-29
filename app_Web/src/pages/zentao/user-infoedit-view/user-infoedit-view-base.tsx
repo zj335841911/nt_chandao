@@ -65,9 +65,6 @@ export class UserINFOEditViewBase extends EditViewBase {
 	 * @memberof UserINFOEditViewBase
 	 */
     protected customViewNavContexts: any = {
-        'SRFKEY': { isRawValue: false, value: 'srfpersonid' },
-        'ID': { isRawValue: false, value: 'srfpersonid' },
-        'USER': { isRawValue: false, value: 'srfpersonid' },
         'DEPT': { isRawValue: false, value: 'dept' }
     };
 
@@ -79,10 +76,7 @@ export class UserINFOEditViewBase extends EditViewBase {
 	 * @memberof UserINFOEditViewBase
 	 */
     protected customViewParams: any = {
-        'id': { isRawValue: false, value: 'srfpersonid' },
-        'dept': { isRawValue: false, value: 'dept' },
-        'user': { isRawValue: false, value: 'srfpersonid' },
-        'srfkey': { isRawValue: false, value: 'srfpersonid' }
+        'dept': { isRawValue: false, value: 'dept' }
     };
 
     /**

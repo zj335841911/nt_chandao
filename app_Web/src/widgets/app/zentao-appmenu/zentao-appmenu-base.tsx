@@ -42,8 +42,6 @@ export class ZentaoBase extends Vue {
                     this.clickAuto10(item); break;
                 case 'Auto9': 
                     this.clickAuto9(item); break;
-                case 'AppFunc2': 
-                    this.clickAppFunc2(item); break;
                 case 'Auto11': 
                     this.clickAuto11(item); break;
                 case '_2': 
@@ -269,29 +267,6 @@ export class ZentaoBase extends Vue {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'testportalview', parameterName: 'testportalview' },
-        ];
-        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        if(Object.is(this.$route.fullPath,path)){
-            return;
-        }
-        this.$nextTick(function(){
-            this.$router.push(path);
-        })
-    }
-    
-    /**
-     * 用户信息
-     *
-     * @param {*} [item={}]
-     * @memberof Zentao
-     */
-    public clickAppFunc2(item: any = {}) {
-        const viewparam: any = {};
-        Object.assign(viewparam, {});
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'users', parameterName: 'user' },
-            { pathName: 'infoeditview', parameterName: 'infoeditview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         if(Object.is(this.$route.fullPath,path)){

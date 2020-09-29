@@ -30562,6 +30562,18 @@
     "data_type":"INT",
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"YEARESTIMATECNT" ,
+    "codename":"Yearestimatecnt",
+    "field_logic_name":"累计工时数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[
