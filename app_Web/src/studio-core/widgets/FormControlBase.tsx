@@ -586,32 +586,38 @@ export class FormControlBase extends MainControlBase {
                 falg.isPast = val;
             }
         }
-        rule[name].forEach((item: any) => {
+        for(let i=0;i<rule[name].length;i++){
+            let item:any = rule[name][i];
             let dataValue = item.deName ? this.data[this.service.getItemNameByDeName(item.deName)] : "";
             // 常规规则
             if (item.type == 'SIMPLE') {
                 startOp(!this.$verify.checkFieldSimpleRule(dataValue, item.condOP, item.paramValue, item.ruleInfo, item.paramType, this.data, item.isKeyCond));
                 falg.infoMessage = item.ruleInfo;
+                if(!falg.isPast) return falg;
             }
             // 数值范围
             if (item.type == 'VALUERANGE2') {
                 startOp(!this.$verify.checkFieldValueRangeRule(dataValue, item.minValue, item.isIncludeMinValue, item.maxValue, item.isIncludeMaxValue, item.ruleInfo, item.isKeyCond));
                 falg.infoMessage = item.ruleInfo;
+                if(!falg.isPast) return falg;
             }
             // 正则式
             if (item.type == "REGEX") {
                 startOp(!this.$verify.checkFieldRegExRule(dataValue, item.regExCode, item.ruleInfo, item.isKeyCond));
                 falg.infoMessage = item.ruleInfo;
+                if(!falg.isPast) return falg;
             }
             // 长度
             if (item.type == "STRINGLENGTH") {
                 startOp(!this.$verify.checkFieldStringLengthRule(dataValue, item.minValue, item.isIncludeMinValue, item.maxValue, item.isIncludeMaxValue, item.ruleInfo, item.isKeyCond));
                 falg.infoMessage = item.ruleInfo;
+                if(!falg.isPast) return falg;
             }
             // 系统值规则
             if (item.type == "SYSVALUERULE") {
                 startOp(!this.$verify.checkFieldSysValueRule(dataValue, item.sysRule.regExCode, item.ruleInfo, item.isKeyCond));
                 falg.infoMessage = item.ruleInfo;
+                if(!falg.isPast) return falg;
             }
             // 分组
             if (item.type == 'GROUP') {
@@ -619,9 +625,9 @@ export class FormControlBase extends MainControlBase {
                 if (item.isNotMode) {
                     falg.isPast = !falg.isPast;
                 }
+                if(!falg.isPast) return falg;
             }
-
-        });
+        }
         if (!falg.hasOwnProperty("isPast")) {
             falg.isPast = true;
         }
