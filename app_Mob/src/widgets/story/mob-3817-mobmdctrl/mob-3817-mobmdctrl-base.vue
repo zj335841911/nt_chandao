@@ -88,6 +88,7 @@
                 </template>
             </ion-list>
             <div class="no-data" v-if="items.length == 0">暂无数据</div>
+            <div class="scrollToTop" @click="scrollToTop" ref="scroll"> <van-icon name="back-top" /></div>            
         </div>
     </div>
 </template>
@@ -1004,12 +1005,19 @@ export default class Mob_3817Base extends Vue implements ControlInterface {
      *
      * @memberof Mob_3817
      */
+    /**
     public mounted(){
-      let list:any = this.$refs.mdctrl;      
+      let list:any = this.$refs.mdctrl;
+      let scroll:any = this.$refs.scroll;        
       if(list){
         list.addEventListener('touchend',()=>{
           this.$store.commit('setPopupStatus',true)
-        })
+        }, false)
+        list.addEventListener('scroll', (e:any) => {
+          if (scroll && list) {
+            scroll.style.opacity = list.scrollTop * 0.001;
+          }
+        }, false)
       }
     }
 
@@ -1194,6 +1202,27 @@ export default class Mob_3817Base extends Vue implements ControlInterface {
            }
         })
 
+    }
+
+     /**
+     * 滑回顶部
+     *
+    * @memberof Mob_3817Base
+     */
+    public scrollToTop(){
+      let mdctrl:any = this.$refs.mdctrl;
+      if (mdctrl) {  
+        requestAnimationFrame(function () {
+          let top:number = mdctrl.scrollTop;
+          let speed:number = top / 6;
+          if (top!= 0) {
+              mdctrl.scrollTop -= speed;
+          }
+        });
+        if (mdctrl.scrollTop != 0) {
+          requestAnimationFrame(this.scrollToTop);
+        }
+      }
     }
 }
 </script>
