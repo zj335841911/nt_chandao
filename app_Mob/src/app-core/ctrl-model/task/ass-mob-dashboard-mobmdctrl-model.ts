@@ -95,16 +95,6 @@ export class AssMobDASHBOARDModel {
                 prop: 'n_projectname_eq', 
                 dataType: 'PICKUPTEXT',
             },
-            {
-                name: 'n_closeddate_ltandeq',
-                prop: 'n_closeddate_ltandeq', 
-                dataType: 'DATETIME',
-            },
-            {
-                name: 'n_finisheddate_ltandeq',
-                prop: 'n_finisheddate_ltandeq', 
-                dataType: 'DATE',
-            },
 
 			{
 				name: 'size',
