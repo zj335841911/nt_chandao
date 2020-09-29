@@ -162,11 +162,6 @@ export default class SubTaskNewModel {
           isEditable:true
         },
         {
-          name: 'task',
-          prop: 'parent',
-          dataType: 'FONTKEY',
-        },
-        {
           name: 'subtask',
           prop: 'id',
         },

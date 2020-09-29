@@ -1463,9 +1463,11 @@ export default class TaskUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
-        deResParameters = [
+        if(context.task && true){
+            deResParameters = [
             { pathName: 'tasks', parameterName: 'task' },
-        ];
+            ]
+        }
         const parameters: any[] = [
             { pathName: 'subtasks', parameterName: 'subtask' },
         ];
@@ -1526,9 +1528,11 @@ export default class TaskUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
-        deResParameters = [
+        if(context.task && true){
+            deResParameters = [
             { pathName: 'tasks', parameterName: 'task' },
-        ];
+            ]
+        }
         const parameters: any[] = [
             { pathName: 'subtasks', parameterName: 'subtask' },
         ];
