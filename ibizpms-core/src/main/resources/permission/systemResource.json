@@ -33,6 +33,11 @@
        }
         ,
        {
+            "unirescode":"REPORT_DELETE_BUT",
+            "uniresname":"测试报告删除"
+       }
+        ,
+       {
             "unirescode":"PRODSTA_ADDPROD_BUT",
             "uniresname":"产品统计添加产品"
        }
@@ -45,6 +50,11 @@
        {
             "unirescode":"LIBM_OPEN_BUT",
             "uniresname":"用例库模块概况"
+       }
+        ,
+       {
+            "unirescode":"REPORT_EDIT_BUT",
+            "uniresname":"测试报告编辑"
        }
         ,
        {
@@ -335,6 +345,11 @@
        {
             "unirescode":"PROP_CHILD_BUT",
             "uniresname":"计划子计划"
+       }
+        ,
+       {
+            "unirescode":"REPORT_CREATE_BUT",
+            "uniresname":"测试报告新建"
        }
         ,
        {
