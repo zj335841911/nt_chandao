@@ -2,7 +2,7 @@
     <div ref='searchform' class="app-form task-searchform ">
                 
 
-<app-form-item 
+<app-form-item2
     name='n_name_like' 
     class='' 
     uiStyle="DEFAULT"  
@@ -17,18 +17,13 @@
     :disabled="detailsModel.n_name_like.disabled"  
     :error="detailsModel.n_name_like.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.n_name_like"
-    
-    :disabled="detailsModel.n_name_like.disabled" 
-    @change="($event)=>this.data.n_name_like = $event" />
-</app-form-item>
+        <app-search-editor></app-search-editor>
+
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_type_eq' 
     class='' 
     uiStyle="DEFAULT"  
@@ -43,23 +38,13 @@
     :disabled="detailsModel.n_type_eq.disabled"  
     :error="detailsModel.n_type_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="Task__type"
-    codeListType="STATIC" 
-    :isCache="false" 
-    :disabled="detailsModel.n_type_eq.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.n_type_eq"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.n_type_eq = $event" />
-</app-form-item>
+        <app-search-editor></app-search-editor>
+
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_status_eq' 
     class='' 
     uiStyle="DEFAULT"  
@@ -74,23 +59,13 @@
     :disabled="detailsModel.n_status_eq.disabled"  
     :error="detailsModel.n_status_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    tag="Task__status"
-    codeListType="STATIC" 
-    :isCache="false" 
-    :disabled="detailsModel.n_status_eq.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.n_status_eq"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.n_status_eq = $event" />
-</app-form-item>
+        <app-search-editor></app-search-editor>
+
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_projectname_eq' 
     class='' 
     uiStyle="DEFAULT"  
@@ -105,32 +80,13 @@
     :disabled="detailsModel.n_projectname_eq.disabled"  
     :error="detailsModel.n_projectname_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select-drop-down 
-    name='n_projectname_eq' 
-    deMajorField='name'
-    deKeyField='id'
-    valueitem='' 
-    style="" 
-    editortype="dropdown" 
-    :formState="formState"
-    :data="data"
-    :context="context"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    :viewparams="viewparams"
-    :itemParam='{ }' 
-    :disabled="detailsModel.n_projectname_eq.disabled"
-    :service="service"
-    :acParams="{ serviceName: 'project', interfaceName: 'FetchCurUser'}"
-    :value="data.n_projectname_eq" 
-    @formitemvaluechange="onFormItemValueChange"
-    @change="($event)=>this.data.n_projectname_eq = $event">
-</app-mob-select-drop-down>
-</app-form-item>
+        <app-search-editor></app-search-editor>
+
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_closeddate_ltandeq' 
     class='' 
     uiStyle="DEFAULT"  
@@ -145,16 +101,13 @@
     :disabled="detailsModel.n_closeddate_ltandeq.disabled"  
     :error="detailsModel.n_closeddate_ltandeq.error" 
     :isEmptyCaption="false">
-        <app-mob-datetime-picker 
-    class="app-form-item-datetime" 
-    :value="data.n_closeddate_ltandeq" 
-    :disabled="detailsModel.n_closeddate_ltandeq.disabled"
-    @change="($event)=>this.data.n_closeddate_ltandeq = $event"/>
-</app-form-item>
+        <app-search-editor></app-search-editor>
+
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_finisheddate_ltandeq' 
     class='' 
     uiStyle="DEFAULT"  
@@ -169,12 +122,9 @@
     :disabled="detailsModel.n_finisheddate_ltandeq.disabled"  
     :error="detailsModel.n_finisheddate_ltandeq.error" 
     :isEmptyCaption="false">
-        <app-mob-datetime-picker 
-    class="app-form-item-datetime" 
-    :value="data.n_finisheddate_ltandeq" 
-    :disabled="detailsModel.n_finisheddate_ltandeq.disabled"
-    @change="($event)=>this.data.n_finisheddate_ltandeq = $event"/>
-</app-form-item>
+        <app-search-editor></app-search-editor>
+
+</app-form-item2>
 
 
 
