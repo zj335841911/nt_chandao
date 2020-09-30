@@ -91,30 +91,31 @@ export class DingTalkService {
         }
         this.getAccess_token();
         const info: string = window.navigator.userAgent.toUpperCase();
-        if (info.indexOf('DINGTALK') !== -1) {
-            dd.ready(() => {
-                this.$isInit = true;
-                this.dd_ready();
-                this.getAccess_token();
-            });
-            dd.config({
-                agentId: this.access_token.agentId, // 必填，微应用ID
-                corpId: this.access_token.corpId,//必填，企业ID
-                timeStamp: this.access_token.timeStamp, // 必填，生成签名的时间戳
-                nonceStr: this.access_token.nonceStr, // 必填，生成签名的随机串
-                signature: this.access_token.signature, // 必填，签名
-                type: 0,   //选填。0表示微应用的jsapi,1表示服务窗的jsapi；不填默认为0。该参数从dingtalk.js的0.8.3版本开始支持
-                jsApiList: [
-                    'device.audio.startRecord',
-                    'device.audio.stopRecord',
-                    'device.audio.onRecordEnd',
-                    'device.audio.translateVoice'
-                ] // 必填，需要使用的jsapi列表，注意：不要带dd。
-            });
-            dd.error((err: any) => {
-                alert(`dd加载错误：${JSON.stringify(err)}`);
-            });
-        }
+        setTimeout(() => {
+            if (info.indexOf('DINGTALK') !== -1) {
+                dd.ready(() => {
+                    this.$isInit = true;
+                    this.dd_ready();
+                });
+                dd.config({
+                    agentId: this.access_token.agentId, // 必填，微应用ID
+                    corpId: this.access_token.corpId,//必填，企业ID
+                    timeStamp: this.access_token.timeStamp, // 必填，生成签名的时间戳
+                    nonceStr: this.access_token.nonceStr, // 必填，生成签名的随机串
+                    signature: this.access_token.signature, // 必填，签名
+                    type: 0,   //选填。0表示微应用的jsapi,1表示服务窗的jsapi；不填默认为0。该参数从dingtalk.js的0.8.3版本开始支持
+                    jsApiList: [
+                        'device.audio.startRecord',
+                        'device.audio.stopRecord',
+                        'device.audio.onRecordEnd',
+                        'device.audio.translateVoice'
+                    ] // 必填，需要使用的jsapi列表，注意：不要带dd。
+                });
+                dd.error((err: any) => {
+                    alert(`dd加载错误：${JSON.stringify(err)}`);
+                });
+            }
+        }, 1000);
     }
 
     /**
@@ -126,12 +127,7 @@ export class DingTalkService {
      * 钉钉初始化
      */
     private async dd_ready() {
-        // 设置导航标题
-        // let { issuccess } = await this.login();
         this.setNavBack();
-        // if(issuccess){
-            
-        // }
     }
 
 
@@ -168,7 +164,6 @@ export class DingTalkService {
             localStorage.setItem("access_token", JSON.stringify(Object.assign(access_token, new Date().getTime)));
             this.corpId = access_token.data.corp_id;
             const res: any = await dd.runtime.permission.requestAuthCode({ corpId: this.corpId });
-            this.doAuthentication();
             if (res && res.code) {
                 const userInfo: any = await this.get(`/uaa/open/dingtalk/auth/${res.code}`);
                 if (userInfo.status == 200 && userInfo.data.token && userInfo.data.user) {
