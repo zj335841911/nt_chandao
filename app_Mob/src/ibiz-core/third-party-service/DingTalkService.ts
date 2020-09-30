@@ -2,6 +2,7 @@ import axios from 'axios';
 import * as dd from 'dingtalk-jsapi';
 import { Util } from '@/ibiz-core/utils';
 import store from '@/store';
+import { Notice } from '../../utils/notice/notice';
 /**
  * 钉钉服务
  *
@@ -9,6 +10,15 @@ import store from '@/store';
  * @class DingTalkService
  */
 export class DingTalkService {
+
+    /**
+     * 提示工具类
+     *
+     * @protected
+     * @type {Notice}
+     * @memberof UIActionBase
+     */
+    protected notice: Notice = Notice.getInstance();
 
     /**
      * 唯一实例
@@ -96,9 +106,9 @@ export class DingTalkService {
     private async dd_ready() {
         // 设置导航标题
         this.setNavBack();
-        // let access_token: any = await this.getAccess_token();
-        // // 鉴权
-        // this.authentication(access_token.agentId, this.corpId, access_token.data.timeStamp, access_token.data.nonceStr, access_token.data.signature);
+        let access_token: any = await this.getAccess_token();
+        // 鉴权
+        this.authentication(access_token.agentId, this.corpId, access_token.data.timeStamp, access_token.data.nonceStr, access_token.data.signature);
     }
 
 
@@ -106,17 +116,21 @@ export class DingTalkService {
      * 获取access_token
      */
     public async getAccess_token() {
-        let access_token = localStorage.getItem("access_token");
-        if (access_token) {
-            let reAccess_token: any = JSON.parse(access_token);
-            // 鉴权信息2小时过期 设置一小时五十分钟
-            if (reAccess_token.time && !(new Date().getTime() - reAccess_token.tiem > 5400000)) {
-                return reAccess_token;
-            }
-        }
+        // let access_token = localStorage.getItem("access_token");
+        // if (access_token) {
+        //     let reAccess_token: any = JSON.parse(access_token);
+        //     // 鉴权信息2小时过期 设置一小时五十分钟
+        //     if (reAccess_token.time && !(new Date().getTime() - reAccess_token.tiem > 5400000)) {
+        //         return reAccess_token;
+        //     }
+        // }
         const reAccess_token: any = await this.get(`/uaa/dingtalk/jsapi/sign`);
+        if(reAccess_token.status == 200){
+            localStorage.setItem("access_token", JSON.stringify(Object.assign(reAccess_token, { time: new Date().getTime() })));
+        }else{
+            this.notice.error('获取dd签名失败')
+        }
         alert(JSON.stringify(reAccess_token));
-        localStorage.setItem("access_token", JSON.stringify(Object.assign(reAccess_token, { time: new Date().getTime() })));
         return reAccess_token;
     }
     /**
@@ -125,8 +139,8 @@ export class DingTalkService {
      * @memberof DingTalkService
      */
     public async login(): Promise<any> {
-        // const access_token = await this.getAccess_token();
-        const access_token :any= await this.get(`/uaa/open/dingtalk/access_token`);
+        const access_token = await this.getAccess_token();
+        // const access_token :any= await this.get(`/uaa/open/dingtalk/access_token`);
         if (access_token.status == 200 && access_token.data && access_token.data.corp_id) {
             localStorage.setItem("access_token", JSON.stringify(Object.assign(access_token, new Date().getTime)));
             this.corpId = access_token.data.corp_id;
@@ -136,9 +150,6 @@ export class DingTalkService {
                 if (userInfo.status == 200 && userInfo.data.token && userInfo.data.user) {
                     localStorage.setItem("token", userInfo.data.token);
                     localStorage.setItem("user", JSON.stringify(userInfo.data.user));
-                    let access_token: any = await this.getAccess_token();
-                    // 鉴权
-                    this.authentication(access_token.agentId, this.corpId, access_token.data.timeStamp, access_token.data.nonceStr, access_token.data.signature);
                     return { issuccess: true, message: "" };
                 } else if (userInfo.status == 400) {
                     return { issuccess: false, message: userInfo.data.message };
