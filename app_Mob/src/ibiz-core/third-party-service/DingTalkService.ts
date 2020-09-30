@@ -106,9 +106,6 @@ export class DingTalkService {
     private async dd_ready() {
         // 设置导航标题
         this.setNavBack();
-        let access_token: any = await this.getAccess_token();
-        // 鉴权
-        this.authentication(access_token.agentId, this.corpId, access_token.data.timeStamp, access_token.data.nonceStr, access_token.data.signature);
     }
 
 
@@ -116,21 +113,20 @@ export class DingTalkService {
      * 获取access_token
      */
     public async getAccess_token() {
-        // let access_token = localStorage.getItem("access_token");
-        // if (access_token) {
-        //     let reAccess_token: any = JSON.parse(access_token);
-        //     // 鉴权信息2小时过期 设置一小时五十分钟
-        //     if (reAccess_token.time && !(new Date().getTime() - reAccess_token.tiem > 5400000)) {
-        //         return reAccess_token;
-        //     }
-        // }
+        let access_token = localStorage.getItem("access_token");
+        if (access_token) {
+            let reAccess_token: any = JSON.parse(access_token);
+            // 鉴权信息2小时过期 设置一小时五十分钟
+            if (reAccess_token.time && !(new Date().getTime() - reAccess_token.tiem > 5400000)) {
+                return reAccess_token;
+            }
+        }
         const reAccess_token: any = await this.get(`/uaa/dingtalk/jsapi/sign`);
         if(reAccess_token.status == 200){
             localStorage.setItem("access_token", JSON.stringify(Object.assign(reAccess_token, { time: new Date().getTime() })));
         }else{
             this.notice.error('获取dd签名失败')
         }
-        alert(JSON.stringify(reAccess_token));
         return reAccess_token.data;
     }
     /**
@@ -139,8 +135,9 @@ export class DingTalkService {
      * @memberof DingTalkService
      */
     public async login(): Promise<any> {
-        // const access_token = await this.getAccess_token();
-        const access_token :any= await this.get(`/uaa/open/dingtalk/access_token`);
+        const access_token = await this.getAccess_token();
+        // 鉴权
+        this.authentication(access_token.agentId, this.corpId, access_token.data.timeStamp, access_token.data.nonceStr, access_token.data.signature);
         if (access_token.status == 200 && access_token.data && access_token.data.corp_id) {
             localStorage.setItem("access_token", JSON.stringify(Object.assign(access_token, new Date().getTime)));
             this.corpId = access_token.data.corp_id;
