@@ -38,6 +38,7 @@ public interface IBugStatsService extends IService<BugStats>{
     void saveBatch(List<BugStats> list) ;
     Page<BugStats> searchBugassignedTo(BugStatsSearchContext context) ;
     Page<BugStats> searchDefault(BugStatsSearchContext context) ;
+    Page<BugStats> searchProductCreateBug(BugStatsSearchContext context) ;
     List<BugStats> selectByProduct(Long id) ;
     void removeByProduct(Long id) ;
     /**

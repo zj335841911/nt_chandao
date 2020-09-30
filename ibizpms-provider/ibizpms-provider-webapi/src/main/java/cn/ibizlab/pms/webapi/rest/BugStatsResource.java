@@ -177,5 +177,26 @@ public class BugStatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchProductCreateBug-all')")
+	@ApiOperation(value = "获取产品创建bug占比", tags = {"Bug统计" } ,notes = "获取产品创建bug占比")
+    @RequestMapping(method= RequestMethod.GET , value="/bugstats/fetchproductcreatebug")
+	public ResponseEntity<List<BugStatsDTO>> fetchProductCreateBug(BugStatsSearchContext context) {
+        Page<BugStats> domains = bugstatsService.searchProductCreateBug(context) ;
+        List<BugStatsDTO> list = bugstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchProductCreateBug-all')")
+	@ApiOperation(value = "查询产品创建bug占比", tags = {"Bug统计" } ,notes = "查询产品创建bug占比")
+    @RequestMapping(method= RequestMethod.POST , value="/bugstats/searchproductcreatebug")
+	public ResponseEntity<Page<BugStatsDTO>> searchProductCreateBug(@RequestBody BugStatsSearchContext context) {
+        Page<BugStats> domains = bugstatsService.searchProductCreateBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 

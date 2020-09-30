@@ -1137,6 +1137,7 @@
 |/bugstats/save|POST|Bug统计 Json对象|&nbsp;|
 |/bugstats/fetchbugassignedto|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bugstats/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/bugstats/fetchproductcreatebug|GET|DEDataSetFetchContext Json对象|&nbsp;|
 ## 任务相关接口
 
 | 接口路径   | 请求方式   |    请求参数    | 备注 |

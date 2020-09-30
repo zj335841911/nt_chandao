@@ -28,6 +28,8 @@ export class DingTalkService {
      * @memberof DingTalkService
      */
     private static readonly instance = new DingTalkService(store);
+
+    public isAuthentication :any= false;
     /**
      * 用户信息缓存key
      *
@@ -143,9 +145,6 @@ export class DingTalkService {
             if (res && res.code) {
                 const userInfo: any = await this.get(`/uaa/open/dingtalk/auth/${res.code}`);
                 if (userInfo.status == 200 && userInfo.data.token && userInfo.data.user) {
-                    // 鉴权
-                    const reAccess_token = await this.getAccess_token();
-                    this.authentication(reAccess_token.agentId, reAccess_token.corpId, reAccess_token.data.timeStamp, reAccess_token.data.nonceStr, reAccess_token.data.signature);
                     localStorage.setItem("token", userInfo.data.token);
                     localStorage.setItem("user", JSON.stringify(userInfo.data.user));
                     return { issuccess: true, message: "" };
@@ -371,7 +370,13 @@ export class DingTalkService {
      * 
      *  @memberof DingTalkService
      */
-    public ddEvent(tag: string, arg: any) {
+    public async ddEvent(tag: string, arg: any) {
+        if(!this.isAuthentication){
+            const reAccess_token = await this.getAccess_token();
+            alert(JSON.stringify(reAccess_token));
+            this.authentication(reAccess_token.agentId, reAccess_token.corpId, reAccess_token.data.timeStamp, reAccess_token.data.nonceStr, reAccess_token.data.signature);
+            this.isAuthentication = true;
+        }
         if (Object.is(tag, 'startRecord')) {
             return this.startRecord();
         }
