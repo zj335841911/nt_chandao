@@ -96,9 +96,9 @@ export class DingTalkService {
     private async dd_ready() {
         // 设置导航标题
         this.setNavBack();
-        let access_token: any = await this.getAccess_token();
-        // 鉴权
-        this.authentication(access_token.agentId, this.corpId, access_token.data.timeStamp, access_token.data.nonceStr, access_token.data.signature);
+        // let access_token: any = await this.getAccess_token();
+        // // 鉴权
+        // this.authentication(access_token.agentId, this.corpId, access_token.data.timeStamp, access_token.data.nonceStr, access_token.data.signature);
     }
 
 
@@ -136,6 +136,9 @@ export class DingTalkService {
                 if (userInfo.status == 200 && userInfo.data.token && userInfo.data.user) {
                     localStorage.setItem("token", userInfo.data.token);
                     localStorage.setItem("user", JSON.stringify(userInfo.data.user));
+                    let access_token: any = await this.getAccess_token();
+                    // 鉴权
+                    this.authentication(access_token.agentId, this.corpId, access_token.data.timeStamp, access_token.data.nonceStr, access_token.data.signature);
                     return { issuccess: true, message: "" };
                 } else if (userInfo.status == 400) {
                     return { issuccess: false, message: userInfo.data.message };
