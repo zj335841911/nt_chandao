@@ -225,4 +225,25 @@
       border-color: @theme-color;
     }
   }
+
+  // 优先级工具栏
+  .mdview-tools{
+    .view-tool {
+        &-sorts {
+            &-item {
+                .active{
+                  display: flex;
+                  flex-grow: 1;
+                  font-size: 15px;
+                  color: @theme-color;
+              }
+                .sort-icon {
+                    .sort-select{
+                      color: @theme-color;
+                    }
+                }
+            }
+        }
+    }
+  }
 }
