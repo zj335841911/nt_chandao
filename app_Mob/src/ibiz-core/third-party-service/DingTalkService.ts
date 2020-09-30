@@ -106,9 +106,11 @@ export class DingTalkService {
      */
     private async dd_ready() {
         // 设置导航标题
-        this.login();
+        let { issuccess } = await this.login();
         this.setNavBack();
-        this.doAuthentication();
+        if(issuccess){
+            this.doAuthentication();
+        }
     }
 
 
@@ -372,7 +374,7 @@ export class DingTalkService {
     public async doAuthentication() {
         const reAccess_token = await this.getAccess_token();
         alert(JSON.stringify(reAccess_token));
-        this.authentication(reAccess_token.agentId, reAccess_token.corpid, reAccess_token.data.timeStamp, reAccess_token.data.nonceStr, reAccess_token.data.signature);
+        this.authentication(reAccess_token.agentId, this.corpId, reAccess_token.data.timeStamp, reAccess_token.data.nonceStr, reAccess_token.data.signature);
     }
 
     /**
