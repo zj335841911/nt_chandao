@@ -169,7 +169,7 @@ export class DingTalkService {
      * @memberof DingTalkService
      */
     private authentication(agentId: string, corpId: string, timeStamp: any, nonceStr: string, signature: any) {
-        this.dd.config({
+        dd.config({
             agentId: agentId, // 必填，微应用ID
             corpId: corpId,//必填，企业ID
             timeStamp: timeStamp, // 必填，生成签名的时间戳
@@ -182,9 +182,6 @@ export class DingTalkService {
                 'device.audio.onRecordEnd',
                 'device.audio.translateVoice'
             ] // 必填，需要使用的jsapi列表，注意：不要带dd。
-        });
-        this.dd.error((error: any) => {
-            // alert('dd error: ' + error);
         });
     }
 
