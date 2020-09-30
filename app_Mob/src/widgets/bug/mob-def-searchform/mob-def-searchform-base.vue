@@ -2,11 +2,12 @@
     <div ref='searchform' class="app-form bug-searchform ">
                 
 
-<app-form-item 
+<app-form-item2
     name='n_title_like' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBTEXT"
     ref="n_title_like_item"  
     :itemValue="this.data.n_title_like" 
     v-show="detailsModel.n_title_like.visible" 
@@ -24,15 +25,16 @@
     
     :disabled="detailsModel.n_title_like.disabled" 
     @change="($event)=>this.data.n_title_like = $event" />
-</app-form-item>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_status_eq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBDROPDOWNLIST"
     ref="n_status_eq_item"  
     :itemValue="this.data.n_status_eq" 
     v-show="detailsModel.n_status_eq.visible" 
@@ -43,7 +45,8 @@
     :disabled="detailsModel.n_status_eq.disabled"  
     :error="detailsModel.n_status_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        
+<app-search-editor
     tag="Bug__status"
     codeListType="STATIC" 
     :isCache="false" 
@@ -54,16 +57,17 @@
     :value="data.n_status_eq"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.n_status_eq = $event" />
-</app-form-item>
+    @change="($event)=>this.data.n_status_eq = $event"/>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_type_eq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBDROPDOWNLIST"
     ref="n_type_eq_item"  
     :itemValue="this.data.n_type_eq" 
     v-show="detailsModel.n_type_eq.visible" 
@@ -74,7 +78,8 @@
     :disabled="detailsModel.n_type_eq.disabled"  
     :error="detailsModel.n_type_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        
+<app-search-editor
     tag="Bug__type"
     codeListType="STATIC" 
     :isCache="false" 
@@ -85,16 +90,17 @@
     :value="data.n_type_eq"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.n_type_eq = $event" />
-</app-form-item>
+    @change="($event)=>this.data.n_type_eq = $event"/>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_openedby_eq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBDROPDOWNLIST"
     ref="n_openedby_eq_item"  
     :itemValue="this.data.n_openedby_eq" 
     v-show="detailsModel.n_openedby_eq.visible" 
@@ -105,7 +111,8 @@
     :disabled="detailsModel.n_openedby_eq.disabled"  
     :error="detailsModel.n_openedby_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        
+<app-search-editor
     tag="UserRealName"
     codeListType="DYNAMIC" 
     :isCache="false" 
@@ -116,16 +123,17 @@
     :value="data.n_openedby_eq"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.n_openedby_eq = $event" />
-</app-form-item>
+    @change="($event)=>this.data.n_openedby_eq = $event"/>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_severity_eq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBDROPDOWNLIST"
     ref="n_severity_eq_item"  
     :itemValue="this.data.n_severity_eq" 
     v-show="detailsModel.n_severity_eq.visible" 
@@ -136,7 +144,8 @@
     :disabled="detailsModel.n_severity_eq.disabled"  
     :error="detailsModel.n_severity_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        
+<app-search-editor
     tag="Bug__severity"
     codeListType="STATIC" 
     :isCache="false" 
@@ -147,16 +156,17 @@
     :value="data.n_severity_eq"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.n_severity_eq = $event" />
-</app-form-item>
+    @change="($event)=>this.data.n_severity_eq = $event"/>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_modulename_like' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBTEXT"
     ref="n_modulename_like_item"  
     :itemValue="this.data.n_modulename_like" 
     v-show="detailsModel.n_modulename_like.visible" 
@@ -174,7 +184,7 @@
     
     :disabled="detailsModel.n_modulename_like.disabled" 
     @change="($event)=>this.data.n_modulename_like = $event" />
-</app-form-item>
+</app-form-item2>
 
 
 

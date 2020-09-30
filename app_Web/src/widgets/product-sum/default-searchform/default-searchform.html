@@ -30,5 +30,45 @@
           </app-form-item>
           
           </i-col>
+          <i-col class="form-layout-container" v-show="detailsModel.n_id_eq.visible" :style="{}"  :lg="{ span: 6, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+              <app-form-item name='n_id_eq' :itemRules="this.rules.n_id_eq" class='' :caption="$t('entities.productsum.default_searchform.details.n_id_eq')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.n_id_eq.error" :isEmptyCaption="false" labelPos="LEFT">
+              
+          <dropdown-list 
+              v-model="data.n_id_eq"
+              :data="data"
+              :context="context"
+              :viewparams="viewparams"
+              :localContext ='{ }' 
+              :localParam ='{ }' 
+              :disabled="detailsModel.n_id_eq.disabled"
+              valueType="number"
+              tag='Product'
+              codelistType='DYNAMIC'
+              placeholder='请选择...'
+              
+          />
+          </app-form-item>
+          
+          </i-col>
+          <i-col class="form-layout-container" v-show="detailsModel.n_plan_eq.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
+              <app-form-item name='n_plan_eq' :itemRules="this.rules.n_plan_eq" class='' :caption="$t('entities.productsum.default_searchform.details.n_plan_eq')" uiStyle="DEFAULT" :labelWidth="50" :isShowCaption="true" :error="detailsModel.n_plan_eq.error" :isEmptyCaption="false" labelPos="LEFT">
+              
+          <dropdown-list 
+              v-model="data.n_plan_eq"
+              :data="data"
+              :context="context"
+              :viewparams="viewparams"
+              :localContext ='{ }' 
+              :localParam ='{ }' 
+              :disabled="detailsModel.n_plan_eq.disabled"
+              valueType="number"
+              tag='PlanCodeList'
+              codelistType='DYNAMIC'
+              placeholder='请选择...'
+              
+          />
+          </app-form-item>
+          
+          </i-col>
   </div>
 </i-form>

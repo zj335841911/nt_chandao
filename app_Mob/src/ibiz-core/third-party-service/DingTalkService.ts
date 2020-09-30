@@ -28,6 +28,7 @@ export class DingTalkService {
      * @memberof DingTalkService
      */
     private static readonly instance = new DingTalkService(store);
+
     /**
      * 用户信息缓存key
      *
@@ -88,27 +89,45 @@ export class DingTalkService {
         if (DingTalkService.instance) {
             return DingTalkService.instance;
         }
+        this.getAccess_token();
         const info: string = window.navigator.userAgent.toUpperCase();
-        if (info.indexOf('DINGTALK') !== -1) {
-            dd.ready(() => {
-                this.$isInit = true;
-                this.dd_ready();
-            });
-            dd.error((err: any) => {
-                alert(`dd加载错误：${JSON.stringify(err)}`);
-            });
-        }
+        setTimeout(() => {
+            if (info.indexOf('DINGTALK') !== -1) {
+                dd.ready(() => {
+                    this.$isInit = true;
+                    this.dd_ready();
+                });
+                dd.config({
+                    agentId: this.access_token.agentId, // 必填，微应用ID
+                    corpId: this.access_token.corpId,//必填，企业ID
+                    timeStamp: this.access_token.timeStamp, // 必填，生成签名的时间戳
+                    nonceStr: this.access_token.nonceStr, // 必填，生成签名的随机串
+                    signature: this.access_token.signature, // 必填，签名
+                    type: 0,   //选填。0表示微应用的jsapi,1表示服务窗的jsapi；不填默认为0。该参数从dingtalk.js的0.8.3版本开始支持
+                    jsApiList: [
+                        'device.audio.startRecord',
+                        'device.audio.stopRecord',
+                        'device.audio.onRecordEnd',
+                        'device.audio.translateVoice'
+                    ] // 必填，需要使用的jsapi列表，注意：不要带dd。
+                });
+                dd.error((err: any) => {
+                    alert(`dd加载错误：${JSON.stringify(err)}`);
+                });
+            }
+        }, 1000);
     }
+
+    /**
+     * access_token
+     */
+    public access_token:any = {}
 
     /**
      * 钉钉初始化
      */
     private async dd_ready() {
-        // 设置导航标题
         this.setNavBack();
-        let access_token: any = await this.getAccess_token();
-        // 鉴权
-        this.authentication(access_token.agentId, this.corpId, access_token.data.timeStamp, access_token.data.nonceStr, access_token.data.signature);
     }
 
 
@@ -116,22 +135,23 @@ export class DingTalkService {
      * 获取access_token
      */
     public async getAccess_token() {
-        // let access_token = localStorage.getItem("access_token");
-        // if (access_token) {
-        //     let reAccess_token: any = JSON.parse(access_token);
-        //     // 鉴权信息2小时过期 设置一小时五十分钟
-        //     if (reAccess_token.time && !(new Date().getTime() - reAccess_token.tiem > 5400000)) {
-        //         return reAccess_token;
-        //     }
-        // }
+        let access_token = localStorage.getItem("access_token");
+        if (access_token) {
+            let reAccess_token: any = JSON.parse(access_token);
+            // 鉴权信息2小时过期 设置一小时五十分钟
+            if (reAccess_token.time && !(new Date().getTime() - reAccess_token.tiem > 5400000)) {
+                this.access_token = reAccess_token;
+                return reAccess_token;
+            }
+        }
         const reAccess_token: any = await this.get(`/uaa/dingtalk/jsapi/sign`);
         if(reAccess_token.status == 200){
-            localStorage.setItem("access_token", JSON.stringify(Object.assign(reAccess_token, { time: new Date().getTime() })));
+            localStorage.setItem("access_token", JSON.stringify(Object.assign(reAccess_token.data, { time: new Date().getTime() })));
         }else{
             this.notice.error('获取dd签名失败')
         }
-        alert(JSON.stringify(reAccess_token));
-        return reAccess_token;
+        this.access_token = reAccess_token.data;
+        return reAccess_token.data;
     }
     /**
      * 钉钉登录
@@ -139,7 +159,6 @@ export class DingTalkService {
      * @memberof DingTalkService
      */
     public async login(): Promise<any> {
-        // const access_token = await this.getAccess_token();
         const access_token :any= await this.get(`/uaa/open/dingtalk/access_token`);
         if (access_token.status == 200 && access_token.data && access_token.data.corp_id) {
             localStorage.setItem("access_token", JSON.stringify(Object.assign(access_token, new Date().getTime)));
@@ -168,23 +187,7 @@ export class DingTalkService {
      * @memberof DingTalkService
      */
     private authentication(agentId: string, corpId: string, timeStamp: any, nonceStr: string, signature: any) {
-        this.dd.config({
-            agentId: agentId, // 必填，微应用ID
-            corpId: corpId,//必填，企业ID
-            timeStamp: timeStamp, // 必填，生成签名的时间戳
-            nonceStr: nonceStr, // 必填，生成签名的随机串
-            signature: signature, // 必填，签名
-            type: 0,   //选填。0表示微应用的jsapi,1表示服务窗的jsapi；不填默认为0。该参数从dingtalk.js的0.8.3版本开始支持
-            jsApiList: [
-                'device.audio.startRecord',
-                'device.audio.stopRecord',
-                'device.audio.onRecordEnd',
-                'device.audio.translateVoice'
-            ] // 必填，需要使用的jsapi列表，注意：不要带dd。
-        });
-        this.dd.error((error: any) => {
-            // alert('dd error: ' + error);
-        });
+
     }
 
     /**
@@ -369,11 +372,20 @@ export class DingTalkService {
     }
 
     /**
+     * 鉴权
+     */
+    public async doAuthentication() {
+        const reAccess_token = await this.getAccess_token();
+        alert(JSON.stringify(reAccess_token));
+        this.authentication(reAccess_token.agentId, this.corpId, reAccess_token.data.timeStamp, reAccess_token.data.nonceStr, reAccess_token.data.signature);
+    }
+
+    /**
      * 钉钉开放事件
      * 
      *  @memberof DingTalkService
      */
-    public ddEvent(tag: string, arg: any) {
+    public async ddEvent(tag: string, arg: any) {
         if (Object.is(tag, 'startRecord')) {
             return this.startRecord();
         }

@@ -2,11 +2,12 @@
     <div ref='searchform' class="app-form productplan-searchform ">
                 
 
-<app-form-item 
+<app-form-item2
     name='n_title_like' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBTEXT"
     ref="n_title_like_item"  
     :itemValue="this.data.n_title_like" 
     v-show="detailsModel.n_title_like.visible" 
@@ -24,15 +25,16 @@
     
     :disabled="detailsModel.n_title_like.disabled" 
     @change="($event)=>this.data.n_title_like = $event" />
-</app-form-item>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_delta_eq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBDROPDOWNLIST"
     ref="n_delta_eq_item"  
     :itemValue="this.data.n_delta_eq" 
     v-show="detailsModel.n_delta_eq.visible" 
@@ -43,7 +45,8 @@
     :disabled="detailsModel.n_delta_eq.disabled"  
     :error="detailsModel.n_delta_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        
+<app-search-editor
     tag="Zt__delta"
     codeListType="STATIC" 
     :isCache="false" 
@@ -54,16 +57,17 @@
     :value="data.n_delta_eq"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.n_delta_eq = $event" />
-</app-form-item>
+    @change="($event)=>this.data.n_delta_eq = $event"/>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_begin_gtandeq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBDATE"
     ref="n_begin_gtandeq_item"  
     :itemValue="this.data.n_begin_gtandeq" 
     v-show="detailsModel.n_begin_gtandeq.visible" 
@@ -79,15 +83,16 @@
     :value="data.n_begin_gtandeq" 
     :disabled="detailsModel.n_begin_gtandeq.disabled"
     @change="($event)=>this.data.n_begin_gtandeq = $event"/>
-</app-form-item>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_end_ltandeq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBDATE"
     ref="n_end_ltandeq_item"  
     :itemValue="this.data.n_end_ltandeq" 
     v-show="detailsModel.n_end_ltandeq.visible" 
@@ -103,7 +108,7 @@
     :value="data.n_end_ltandeq" 
     :disabled="detailsModel.n_end_ltandeq.disabled"
     @change="($event)=>this.data.n_end_ltandeq = $event"/>
-</app-form-item>
+</app-form-item2>
 
 
 

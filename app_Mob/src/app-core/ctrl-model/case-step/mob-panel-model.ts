@@ -49,6 +49,9 @@ export class MobModel {
         name: 'runid',
       },
       {
+        name: 'casestepid',
+      },
+      {
         name: 'case',
         prop: 'id',
         dataType: 'FONTKEY',

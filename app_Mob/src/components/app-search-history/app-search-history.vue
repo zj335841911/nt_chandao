@@ -10,7 +10,7 @@
             <van-tag type="primary" v-for="item in historyList" :key="item.index" round size="medium" color="#ededed" text-color="#333" @click="searchbarValueChange(item)">{{item}}</van-tag>
           </div>
         </div>
-        <div class="record" v-if="false" v-show="thirdPartyService.isInit && (searchbarIsFocus || isSpeaking)" >
+        <div class="record" v-show="thirdPartyService.isInit && (searchbarIsFocus || isSpeaking)" >
           <div class="record_icon" :class="{'speaking':isSpeaking}" >
             <ion-icon name="mic-outline"  @touchstart="gotouchstart"  @touchend="gotouchend" @gesturestart="gotouchstart" @gestureend="gotouchend"></ion-icon>
           </div>
@@ -235,9 +235,9 @@ export default class AppRoundList extends Vue {
      * @memberof AppSearchHistory
      */
     public searchbarBlur() {
-       setTimeout(() => {
+        setTimeout(() => {
             this.searchbarIsFocus = false;
-       }, 1000);
+        }, );
     }
 
     /**

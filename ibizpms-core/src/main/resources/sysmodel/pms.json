@@ -3444,6 +3444,18 @@
     "data_type":"INT",
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"CASESTEPID" ,
+    "codename":"Casestepid",
+    "field_logic_name":"用例步骤编号",
+    "entity_name":"CaseStep",
+    "field_type":"BIGINT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"BIGINT",
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -21289,6 +21301,7 @@
     "field_logic_name":"计划",
     "entity_name":"ProductSum",
     "field_type":"BIGINT",
+    "dict":"PlanCodeList",
     "nullable":1,
     "physical_field":0,
     "data_type":"BIGINT",

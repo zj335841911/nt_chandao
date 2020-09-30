@@ -56,7 +56,9 @@
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <span>{{row.plan}}</span>
+                        <template >
+            <codelist :value="row.plan" tag='PlanCodeList' codelistType='DYNAMIC' ></codelist>
+                        </template>
                     </template>
                 </el-table-column>
             </template>

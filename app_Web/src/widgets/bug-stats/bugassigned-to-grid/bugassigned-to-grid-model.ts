@@ -71,6 +71,17 @@ export default class BugassignedToModel {
           name: 'bugstats',
           prop: 'id',
         },
+      {
+        name: 'n_product_eq',
+        prop: 'n_product_eq',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'n_assignedto_eq',
+        prop: 'n_assignedto_eq',
+        dataType: 'SSCODELIST',
+      },
+
         {
           name:'size',
           prop:'size'

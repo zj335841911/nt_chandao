@@ -541,6 +541,7 @@
 |/productsum/checkkey|POST|产品汇总表 Json对象|&nbsp;|
 |/productsum/save|POST|产品汇总表 Json对象|&nbsp;|
 |/productsum/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/productsum/fetchproductcreatestory|GET|DEDataSetFetchContext Json对象|&nbsp;|
 ## 测试用例相关接口
 
 | 接口路径   | 请求方式   |    请求参数    | 备注 |
@@ -608,6 +609,7 @@
 |/productplan/fetchcurproductplan|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productplan/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productplan/fetchdefaultparent|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/productplan/fetchplancodelist|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productplan/fetchprojectplan|GET|DEDataSetFetchContext Json对象|&nbsp;|
 ## 产品计划相关接口
 
@@ -630,6 +632,7 @@
 |/productplan/fetchcurproductplan|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productplan/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productplan/fetchdefaultparent|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/productplan/fetchplancodelist|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productplan/fetchprojectplan|GET|DEDataSetFetchContext Json对象|&nbsp;|
 ## 用例库模块相关接口
 
@@ -1136,6 +1139,7 @@
 |/bugstats/save|POST|Bug统计 Json对象|&nbsp;|
 |/bugstats/fetchbugassignedto|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bugstats/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/bugstats/fetchproductcreatebug|GET|DEDataSetFetchContext Json对象|&nbsp;|
 ## 任务相关接口
 
 | 接口路径   | 请求方式   |    请求参数    | 备注 |

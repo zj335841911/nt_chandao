@@ -12,6 +12,7 @@ export default {
     steps: "测试结果",
     files: "附件",
     runid: "执行编号",
+    casestepid: "用例步骤编号",
   },
 	views: {
 		gridview9: {

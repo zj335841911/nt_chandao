@@ -21,6 +21,7 @@ public interface BugStatsMapper extends BaseMapper<BugStats>{
 
     Page<BugStats> searchBugassignedTo(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper) ;
     Page<BugStats> searchDefault(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper) ;
+    Page<BugStats> searchProductCreateBug(IPage page, @Param("srf") BugStatsSearchContext context, @Param("ew") Wrapper<BugStats> wrapper) ;
     @Override
     BugStats selectById(Serializable id);
     @Override

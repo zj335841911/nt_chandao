@@ -62,6 +62,8 @@ export default {
 			formpage1: "常规条件", 
 			closed: "关闭产品", 
 			expired: "过期计划", 
+			n_id_eq: "产品", 
+			n_plan_eq: "计划", 
 		},
 		uiactions: {
 		},

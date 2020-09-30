@@ -1,16 +1,16 @@
 /**
- * Default 部件模型
+ * AssignedTOBug 部件模型
  *
  * @export
- * @class DefaultModel
+ * @class AssignedTOBugModel
  */
-export default class DefaultModel {
+export default class AssignedTOBugModel {
 
   /**
   * 获取数据项集合
   *
   * @returns {any[]}
-  * @memberof DefaultModel
+  * @memberof AssignedTOBugModel
   */
   public getDataItems(): any[] {
     return [
@@ -26,25 +26,14 @@ export default class DefaultModel {
         dataType: 'TEXT',
       },
       {
-        name: 'closed',
+        name: 'n_product_eq',
+        prop: 'product',
+        dataType: 'PICKUP',
       },
       {
-        name: 'expired',
-      },
-      {
-        name: 'n_id_eq',
-        prop: 'id',
-        dataType: 'ACID',
-      },
-      {
-        name: 'n_plan_eq',
-        prop: 'plan',
-        dataType: 'BIGINT',
-      },
-      {
-        name: 'productsum',
-        prop: 'id',
-        dataType: 'FONTKEY',
+        name: 'n_assignedto_eq',
+        prop: 'assignedto',
+        dataType: 'SSCODELIST',
       },
     ]
   }

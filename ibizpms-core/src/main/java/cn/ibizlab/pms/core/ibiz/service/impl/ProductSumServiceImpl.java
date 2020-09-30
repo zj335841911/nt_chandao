@@ -151,6 +151,15 @@ public class ProductSumServiceImpl extends ServiceImpl<ProductSumMapper, Product
         return new PageImpl<ProductSum>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 产品创建需求占比
+     */
+    @Override
+    public Page<ProductSum> searchProductCreateStory(ProductSumSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductSum> pages=baseMapper.searchProductCreateStory(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProductSum>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 

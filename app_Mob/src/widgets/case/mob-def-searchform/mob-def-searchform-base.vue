@@ -2,11 +2,12 @@
     <div ref='searchform' class="app-form case-searchform ">
                 
 
-<app-form-item 
+<app-form-item2
     name='n_title_like' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBTEXT"
     ref="n_title_like_item"  
     :itemValue="this.data.n_title_like" 
     v-show="detailsModel.n_title_like.visible" 
@@ -24,15 +25,16 @@
     
     :disabled="detailsModel.n_title_like.disabled" 
     @change="($event)=>this.data.n_title_like = $event" />
-</app-form-item>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_type_eq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBDROPDOWNLIST"
     ref="n_type_eq_item"  
     :itemValue="this.data.n_type_eq" 
     v-show="detailsModel.n_type_eq.visible" 
@@ -43,7 +45,8 @@
     :disabled="detailsModel.n_type_eq.disabled"  
     :error="detailsModel.n_type_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        
+<app-search-editor
     tag="Testcase__type"
     codeListType="STATIC" 
     :isCache="false" 
@@ -54,16 +57,17 @@
     :value="data.n_type_eq"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.n_type_eq = $event" />
-</app-form-item>
+    @change="($event)=>this.data.n_type_eq = $event"/>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_status_eq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBDROPDOWNLIST"
     ref="n_status_eq_item"  
     :itemValue="this.data.n_status_eq" 
     v-show="detailsModel.n_status_eq.visible" 
@@ -74,7 +78,8 @@
     :disabled="detailsModel.n_status_eq.disabled"  
     :error="detailsModel.n_status_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        
+<app-search-editor
     tag="Testcase__status"
     codeListType="STATIC" 
     :isCache="false" 
@@ -85,16 +90,17 @@
     :value="data.n_status_eq"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.n_status_eq = $event" />
-</app-form-item>
+    @change="($event)=>this.data.n_status_eq = $event"/>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_modulename_eq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBPICKER_DROPDOWNVIEW"
     ref="n_modulename_eq_item"  
     :itemValue="this.data.n_modulename_eq" 
     v-show="detailsModel.n_modulename_eq.visible" 
@@ -126,7 +132,7 @@
     @formitemvaluechange="onFormItemValueChange"
     @change="($event)=>this.data.n_modulename_eq = $event">
 </app-mob-select-drop-down>
-</app-form-item>
+</app-form-item2>
 
 
 

@@ -59,10 +59,10 @@ export default {
     RealNameProjectM: {
         "empty": "",
     },
-    SQLBuild: {
+    ProjectCodeList: {
         "empty": "",
     },
-    ProjectCodeList: {
+    SQLBuild: {
         "empty": "",
     },
     Project__status: {
@@ -545,6 +545,9 @@ export default {
         "All": "所有",
         "active": "未解决",
         "empty": "",
+    },
+    PlanCodeList: {
+        "empty": "未计划",
     },
     CurProductPlan: {
         "empty": "",
