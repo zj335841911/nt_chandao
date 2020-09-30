@@ -2,12 +2,12 @@
   <van-overlay class="app-update-log" :show="show" @click="onClick">
     <div class="wrapper" @click.stop>
         <div class="title">
-            功能新增
+           V0.0.7.20200930 功能新增
         </div>
         <div class="content">
             <ol>
-                <li>测试报告</li>
-                <li>统计列表（匹配禅道开源版）</li>
+                <li>1.测试报告</li>
+                <li>2.统计列表（匹配禅道开源版）</li>
             </ol>
         </div>
     </div>
