@@ -199,4 +199,19 @@ export default class BugStatsServiceBase extends EntityService {
         let res:any = Http.getInstance().get(`/bugstats/fetchdefault`,tempData,isloading);
         return res;
     }
+
+    /**
+     * FetchProductCreateBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugStatsServiceBase
+     */
+    public async FetchProductCreateBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugstats/fetchproductcreatebug`,tempData,isloading);
+        return res;
+    }
 }

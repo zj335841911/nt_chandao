@@ -126,6 +126,15 @@ public class CaseStepDTO extends DTOBase implements Serializable {
     @JsonProperty("runid")
     private Integer runid;
 
+    /**
+     * 属性 [CASESTEPID]
+     *
+     */
+    @JSONField(name = "casestepid")
+    @JsonProperty("casestepid")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long casestepid;
+
 
     /**
      * 设置 [TYPE]
