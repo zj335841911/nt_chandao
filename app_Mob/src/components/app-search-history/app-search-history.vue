@@ -235,7 +235,9 @@ export default class AppRoundList extends Vue {
      * @memberof AppSearchHistory
      */
     public searchbarBlur() {
-        this.searchbarIsFocus = false;
+        setTimeout(() => {
+            this.searchbarIsFocus = false;
+        }, );
     }
 
     /**
