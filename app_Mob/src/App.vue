@@ -6,7 +6,6 @@
         <transition :name="fold" >
             <router-view v-if="!$route.meta.keepAlive"></router-view>
         </transition>
-        <app-update-log ></app-update-log>
 	</ion-app>
 </template>
 

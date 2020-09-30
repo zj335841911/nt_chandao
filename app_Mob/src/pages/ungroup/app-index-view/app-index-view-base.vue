@@ -17,6 +17,7 @@
     ref='appmenu' 
     @closeview="closeView($event)">
 </view_appmenu>
+    <app-update-log v-if="updateLogStatus"></app-update-log>
 </div>
 </template>
 
