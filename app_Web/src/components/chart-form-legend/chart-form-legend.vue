@@ -171,7 +171,7 @@ export default class ChartFormLegend extends Vue {
     tempOption.title.subtextStyle = {fontSize: 20};
     tempOption.series[0].label.formatter = "{b}:{@srfcount}" // 配置标签显示值
     tempOption.series[0].avoidLabelOverlap = true; // 避免标签重叠
-    tempOption.series[0].top = 50; // 避免标签和标题或图例重叠
+    tempOption.series[0].radius = "90%"; // 设置图表大小
     tempOption.series[0].startAngle = 180; // 同上
     tempOption.legend.show = false; // 不显示默认图例样式
     if (tempOption.title.subtext) {
