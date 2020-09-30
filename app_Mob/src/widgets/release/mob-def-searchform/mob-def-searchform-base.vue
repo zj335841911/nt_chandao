@@ -2,11 +2,12 @@
     <div ref='searchform' class="app-form release-searchform ">
                 
 
-<app-form-item 
+<app-form-item2
     name='n_name_like' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBTEXT"
     ref="n_name_like_item"  
     :itemValue="this.data.n_name_like" 
     v-show="detailsModel.n_name_like.visible" 
@@ -24,15 +25,16 @@
     
     :disabled="detailsModel.n_name_like.disabled" 
     @change="($event)=>this.data.n_name_like = $event" />
-</app-form-item>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_status_eq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBDROPDOWNLIST"
     ref="n_status_eq_item"  
     :itemValue="this.data.n_status_eq" 
     v-show="detailsModel.n_status_eq.visible" 
@@ -43,7 +45,8 @@
     :disabled="detailsModel.n_status_eq.disabled"  
     :error="detailsModel.n_status_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        
+<app-search-editor
     tag="Release__status"
     codeListType="STATIC" 
     :isCache="false" 
@@ -54,16 +57,17 @@
     :value="data.n_status_eq"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.n_status_eq = $event" />
-</app-form-item>
+    @change="($event)=>this.data.n_status_eq = $event"/>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_date_ltandeq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBDATE"
     ref="n_date_ltandeq_item"  
     :itemValue="this.data.n_date_ltandeq" 
     v-show="detailsModel.n_date_ltandeq.visible" 
@@ -79,7 +83,7 @@
     :value="data.n_date_ltandeq" 
     :disabled="detailsModel.n_date_ltandeq.disabled"
     @change="($event)=>this.data.n_date_ltandeq = $event"/>
-</app-form-item>
+</app-form-item2>
 
 
 
@@ -437,10 +441,10 @@ export default class MobDefBase extends Vue implements ControlInterface {
             { required: false, type: 'string', message: '发布名称 值不能为空', trigger: 'blur' },
         ],
         n_status_eq: [
-            { type: 'string', message: '状态(等于 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '状态(等于 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '状态(等于 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '状态(等于 值不能为空', trigger: 'blur' },
+            { type: 'string', message: '状态 值必须为字符串类型', trigger: 'change' },
+            { type: 'string', message: '状态 值必须为字符串类型', trigger: 'blur' },
+            { required: false, type: 'string', message: '状态 值不能为空', trigger: 'change' },
+            { required: false, type: 'string', message: '状态 值不能为空', trigger: 'blur' },
         ],
         n_date_ltandeq: [
             { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'change' },
@@ -461,7 +465,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
 , 
         n_name_like: new FormItemModel({ caption: '发布名称', detailType: 'FORMITEM', name: 'n_name_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        n_status_eq: new FormItemModel({ caption: '状态(等于', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        n_status_eq: new FormItemModel({ caption: '状态', detailType: 'FORMITEM', name: 'n_status_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         n_date_ltandeq: new FormItemModel({ caption: '截止日期', detailType: 'FORMITEM', name: 'n_date_ltandeq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 

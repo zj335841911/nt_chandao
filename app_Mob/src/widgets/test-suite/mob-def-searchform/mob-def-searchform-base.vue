@@ -2,11 +2,12 @@
     <div ref='searchform' class="app-form testsuite-searchform ">
                 
 
-<app-form-item 
+<app-form-item2
     name='n_name_like' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBTEXT"
     ref="n_name_like_item"  
     :itemValue="this.data.n_name_like" 
     v-show="detailsModel.n_name_like.visible" 
@@ -24,15 +25,16 @@
     
     :disabled="detailsModel.n_name_like.disabled" 
     @change="($event)=>this.data.n_name_like = $event" />
-</app-form-item>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_type_eq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBDROPDOWNLIST"
     ref="n_type_eq_item"  
     :itemValue="this.data.n_type_eq" 
     v-show="detailsModel.n_type_eq.visible" 
@@ -43,7 +45,8 @@
     :disabled="detailsModel.n_type_eq.disabled"  
     :error="detailsModel.n_type_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        
+<app-search-editor
     tag="Testsuite__type"
     codeListType="STATIC" 
     :isCache="false" 
@@ -54,8 +57,8 @@
     :value="data.n_type_eq"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.n_type_eq = $event" />
-</app-form-item>
+    @change="($event)=>this.data.n_type_eq = $event"/>
+</app-form-item2>
 
 
 

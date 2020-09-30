@@ -2,11 +2,12 @@
     <div ref='searchform' class="app-form build-searchform ">
                 
 
-<app-form-item 
+<app-form-item2
     name='n_name_like' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBTEXT"
     ref="n_name_like_item"  
     :itemValue="this.data.n_name_like" 
     v-show="detailsModel.n_name_like.visible" 
@@ -24,15 +25,16 @@
     
     :disabled="detailsModel.n_name_like.disabled" 
     @change="($event)=>this.data.n_name_like = $event" />
-</app-form-item>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_productname_like' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBTEXT"
     ref="n_productname_like_item"  
     :itemValue="this.data.n_productname_like" 
     v-show="detailsModel.n_productname_like.visible" 
@@ -50,15 +52,16 @@
     
     :disabled="detailsModel.n_productname_like.disabled" 
     @change="($event)=>this.data.n_productname_like = $event" />
-</app-form-item>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_date_ltandeq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBDATE"
     ref="n_date_ltandeq_item"  
     :itemValue="this.data.n_date_ltandeq" 
     v-show="detailsModel.n_date_ltandeq.visible" 
@@ -74,7 +77,7 @@
     :value="data.n_date_ltandeq" 
     :disabled="detailsModel.n_date_ltandeq.disabled"
     @change="($event)=>this.data.n_date_ltandeq = $event"/>
-</app-form-item>
+</app-form-item2>
 
 
 

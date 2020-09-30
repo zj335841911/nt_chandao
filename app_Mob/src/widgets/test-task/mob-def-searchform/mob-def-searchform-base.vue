@@ -2,11 +2,12 @@
     <div ref='searchform' class="app-form testtask-searchform ">
                 
 
-<app-form-item 
+<app-form-item2
     name='n_name_like' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBTEXT"
     ref="n_name_like_item"  
     :itemValue="this.data.n_name_like" 
     v-show="detailsModel.n_name_like.visible" 
@@ -24,15 +25,16 @@
     
     :disabled="detailsModel.n_name_like.disabled" 
     @change="($event)=>this.data.n_name_like = $event" />
-</app-form-item>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_status_eq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBDROPDOWNLIST"
     ref="n_status_eq_item"  
     :itemValue="this.data.n_status_eq" 
     v-show="detailsModel.n_status_eq.visible" 
@@ -43,7 +45,8 @@
     :disabled="detailsModel.n_status_eq.disabled"  
     :error="detailsModel.n_status_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        
+<app-search-editor
     tag="Testtask__status"
     codeListType="STATIC" 
     :isCache="false" 
@@ -54,16 +57,17 @@
     :value="data.n_status_eq"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.n_status_eq = $event" />
-</app-form-item>
+    @change="($event)=>this.data.n_status_eq = $event"/>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_buildname_eq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBPICKER_DROPDOWNVIEW"
     ref="n_buildname_eq_item"  
     :itemValue="this.data.n_buildname_eq" 
     v-show="detailsModel.n_buildname_eq.visible" 
@@ -95,7 +99,7 @@
     @formitemvaluechange="onFormItemValueChange"
     @change="($event)=>this.data.n_buildname_eq = $event">
 </app-mob-select-drop-down>
-</app-form-item>
+</app-form-item2>
 
 
 
