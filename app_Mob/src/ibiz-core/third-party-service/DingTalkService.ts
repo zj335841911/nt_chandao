@@ -131,7 +131,7 @@ export class DingTalkService {
             this.notice.error('获取dd签名失败')
         }
         alert(JSON.stringify(reAccess_token));
-        return reAccess_token;
+        return reAccess_token.data;
     }
     /**
      * 钉钉登录
