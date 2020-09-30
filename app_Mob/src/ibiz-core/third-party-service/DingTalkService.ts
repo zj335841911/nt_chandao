@@ -29,7 +29,6 @@ export class DingTalkService {
      */
     private static readonly instance = new DingTalkService(store);
 
-    public isAuthentication :any= false;
     /**
      * 用户信息缓存key
      *
@@ -107,7 +106,9 @@ export class DingTalkService {
      */
     private async dd_ready() {
         // 设置导航标题
+        this.login();
         this.setNavBack();
+        this.doAuthentication();
     }
 
 
@@ -366,17 +367,20 @@ export class DingTalkService {
     }
 
     /**
+     * 鉴权
+     */
+    public async doAuthentication() {
+        const reAccess_token = await this.getAccess_token();
+        alert(JSON.stringify(reAccess_token));
+        this.authentication(reAccess_token.agentId, reAccess_token.corpId, reAccess_token.data.timeStamp, reAccess_token.data.nonceStr, reAccess_token.data.signature);
+    }
+
+    /**
      * 钉钉开放事件
      * 
      *  @memberof DingTalkService
      */
     public async ddEvent(tag: string, arg: any) {
-        if(!this.isAuthentication){
-            const reAccess_token = await this.getAccess_token();
-            alert(JSON.stringify(reAccess_token));
-            this.authentication(reAccess_token.agentId, reAccess_token.corpId, reAccess_token.data.timeStamp, reAccess_token.data.nonceStr, reAccess_token.data.signature);
-            this.isAuthentication = true;
-        }
         if (Object.is(tag, 'startRecord')) {
             return this.startRecord();
         }
