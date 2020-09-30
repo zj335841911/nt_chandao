@@ -21,53 +21,61 @@
 
 
 //排序样式
-.story-mob-pickup-mdview-toolbar{
-    z-index:10;
-    .code-box{
-      overflow-x: auto;
-      .ibz-item{
-            --inner-border-width:0;
-            min-width: 50%;
-        }
-    }
-    .view-tool {
-        display: flex;
-        padding: 0 @padding-sm;
-        &-sorts {
-            display: flex;
-            flex-grow: 1;
-            &-item {
-                display: flex;
-                padding-right: @margin-sm;
-                height: 24px;
-                font-size: @font-size-md;
-                align-items: center;
-                .text {
-                    display: flex;
-                    flex-grow: 1;
-                }
-                .sort-icon {
-                    display: flex;
-                    flex-direction: column;
-                    width: 20px;
-                    padding-left: @padding-base;
-                    justify-content: center;
-                    ion-icon {
-                        font-size: @font-size-xs - 1;
-                    }
-                    .sort-select{
-                      color: #3880ff;;
-                    }
-                }
-            }
-        }
-        &-searchform {
-            display: flex;
-            width: 60px;
-            justify-content: flex-end;
-            align-items: center;
-        }
-    }
+.mdview-tools{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  .story-mob-pickup-mdview-toolbar{
+      width: 22%;
+      --padding-end: 0;
+      z-index:10;
+      .code-box{
+        overflow-x: auto;
+        .ibz-item{
+              --inner-border-width:0;
+              min-width: 50%;
+          }
+      }
+      .view-tool {
+          display: flex;
+          padding: 0 0 0 @padding-sm ;
+          &-sorts {
+              display: flex;
+              flex-grow: 1;
+              &-item {
+                  display: flex;
+                  padding-right: @margin-sm;
+                  height: 24px;
+                  font-size: @font-size-md;
+                  align-items: center;
+                  .text {
+                      display: flex;
+                      flex-grow: 1;
+                      font-size: 15px;
+                  }
+                  .sort-icon {
+                      display: flex;
+                      flex-direction: column;
+                      width: 20px;
+                      padding-left: @padding-base;
+                      justify-content: center;
+                      ion-icon {
+                          font-size: @font-size-xs - 1;
+                      }
+                      .sort-select{
+                        color: #3880ff;;
+                      }
+                  }
+              }
+          }
+          &-searchform {
+              display: flex;
+              width: 60px;
+              justify-content: flex-end;
+              align-items: center;
+          }
+      }
+  }
 }
 //搜索表单按钮
 .search-btn{

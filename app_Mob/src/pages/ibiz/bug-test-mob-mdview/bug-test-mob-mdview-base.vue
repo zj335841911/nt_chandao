@@ -5,23 +5,25 @@
         <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="true"></app-search-history>
 
     
-                    <ion-toolbar class="bug-test-mob-mdview-toolbar default-sort">
-                <div class="view-tool">
-                    <div class="view-tool-sorts">
-                        <div class="view-tool-sorts-item">
-                            <span class="text" @click="onSort('PRI')">优先级</span>
-                            <span class="sort-icon" @click="onSort('PRI')">
-                                <ion-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.asc == 'PRI'}" name="chevron-up-outline" ></ion-icon>
-                                <ion-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.desc == 'PRI'}" name="chevron-down-outline" ></ion-icon>
-                            </span>
+                    <div class="mdview-tools">
+                <ion-toolbar class="bug-test-mob-mdview-toolbar default-sort">
+                    <div class="view-tool">
+                        <div class="view-tool-sorts">
+                            <div class="view-tool-sorts-item">
+                                <span :class="{text:true,active:hasColor}" @click="onSort('PRI')">优先级</span>
+                                <span class="sort-icon" @click="onSort('PRI')">
+                                    <ion-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.asc == 'PRI'}" name="chevron-up-outline" ></ion-icon>
+                                    <ion-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.desc == 'PRI'}" name="chevron-down-outline" ></ion-icon>
+                                </span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </ion-toolbar>
+                </ion-toolbar>
                 <div style="display:flex;overflow: auto;">
                     <app-van-select  name="n_resolution_eq" title="解决方案" :items="[{value:'bydesign',label:'设计如此'},{value:'duplicate',label:'重复Bug'},{value:'external',label:'外部原因'},{value:'fixed',label:'已解决'},{value:'notrepro',label:'无法重现'},{value:'postponed',label:'延期处理'},{value:'willnotfix',label:'不予解决'},{value:'tostory',label:'转为需求'},]" @onConfirm="onCategory"></app-van-select>
                     <app-van-select  name="n_severity_eq" title="严重程度" :items="[{value:'1',label:'1'},{value:'2',label:'2'},{value:'3',label:'3'},{value:'4',label:'4'},]" @onConfirm="onCategory"></app-van-select>
                 </div>
+            </div>
     </ion-header>
 
     <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
@@ -1023,6 +1025,13 @@ export default class BugTestMobMDViewBase extends Vue {
     public sort: any = { asc: "", desc: "" };
 
     /**
+     * 点击优先级加主题色
+     *
+     * @memberof BugTestMobMDViewBase
+     */
+    public hasColor:boolean = false;
+
+    /**
      * 排序
      *
      * @param {*} field
@@ -1033,6 +1042,7 @@ export default class BugTestMobMDViewBase extends Vue {
             this.sort.desc = "";
             this.sortValue = {};
             this.onViewLoad();
+            this.hasColor = false; 
             return
         }
         if (this.sort.asc == field) {
@@ -1040,11 +1050,13 @@ export default class BugTestMobMDViewBase extends Vue {
             this.sort.desc = field;
             this.sortValue = { sort: field + ",desc" };
             this.onViewLoad();
+            this.hasColor = true;
         } else {
             this.sort.asc = field;
             this.sort.desc = "";
             this.sortValue = { sort: field + ",asc" };
             this.onViewLoad();
+            this.hasColor = true;
         }
     }
 
