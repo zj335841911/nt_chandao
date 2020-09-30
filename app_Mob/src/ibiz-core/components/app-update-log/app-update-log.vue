@@ -2,14 +2,12 @@
   <van-overlay class="app-update-log" :show="show" @click="onClick">
     <div class="wrapper" @click.stop>
         <div class="title">
-            Bug修复&功能新增
+            <!-- Bug修复&功能新增 -->
+            系统调试中,可能会遇到弹窗、报错等情况,敬请谅解。
         </div>
         <div class="content">
             <ol>
-                <li>修复钉钉下返回事件异常</li>
-                <li>修复多数据滑动事件样式异常</li>
-                <li>新增更新日志功能</li>
-                <li>新增搜索历史记录</li>
+                <!-- <li>调试中！！</li> -->
             </ol>
         </div>
     </div>

@@ -114,7 +114,7 @@
                 </template>
             </ion-list>
             <div class="no-data" v-if="items.length == 0">暂无数据</div>
-            <div class="scrollToTop" @click="scrollToTop" ref="scroll"> <van-icon name="back-top" /></div>            
+            <div class="scrollToTop" @click="scrollToTop" ref="scroll" v-show="isEnableScrollTop && showScrollButton"> <van-icon name="back-top" /></div>            
         </div>
     </div>
 </template>
@@ -1306,7 +1306,10 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
         }, false)
         list.addEventListener('scroll', (e:any) => {
           if (scroll && list) {
-            scroll.style.opacity = list.scrollTop * 0.001;
+            if (list.scrollTop >= 500) {
+              this.showScrollButton = true;
+            }
+            scroll.style.opacity = (list.scrollTop-200) * 0.001;
           }
         }, false)
       }
@@ -1520,10 +1523,26 @@ export default class AssMobDASHBOARDBase extends Vue implements ControlInterface
 
     }
 
-     /**
+    /**
+     * 是否开启置顶功能
+     *
+     * @type {GlobalUiService}
+     * @memberof AssMobDASHBOARDBase
+     */
+    public isEnableScrollTop:boolean = true;
+
+    /**
+     * 显示置顶按钮
+     *
+     * @type {GlobalUiService}
+     * @memberof AssMobDASHBOARDBase
+     */
+    public showScrollButton:boolean = false;
+
+    /**
      * 滑回顶部
      *
-    * @memberof AssMobDASHBOARDBase
+     * @memberof AssMobDASHBOARDBase
      */
     public scrollToTop(){
       let mdctrl:any = this.$refs.mdctrl;
