@@ -726,7 +726,6 @@ export default class BuildMobMDViewBase extends Vue {
      * @memberof BuildMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
-        alert(window.history.length);
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;

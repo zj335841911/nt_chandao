@@ -537,12 +537,15 @@ export default class TestSuiteMobEditViewBase extends Vue {
      * @memberof TestSuiteMobEditViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
-        alert(window.history.length);
                 let result = await this.cheackChange();
         if(result){
             if (this.viewDefaultUsage === "routerView") {
-                this.$store.commit("deletePage", this.$route.fullPath);
-                this.$router.go(-1);
+                if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                    this.quitFun();
+                }else{
+                    this.$store.commit("deletePage", this.$route.fullPath);
+                    this.$router.go(-1);
+                }
             } 
             if (this.viewDefaultUsage === "actionView") {
                 this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });

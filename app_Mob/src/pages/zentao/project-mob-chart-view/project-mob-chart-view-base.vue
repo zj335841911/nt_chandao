@@ -467,7 +467,6 @@ export default class ProjectMobChartViewBase extends Vue {
      * @memberof ProjectMobChartViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
-        alert(window.history.length);
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;

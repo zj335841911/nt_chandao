@@ -436,7 +436,6 @@ export default class AppPortalViewBase extends Vue {
      * @memberof AppPortalViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
-        alert(window.history.length);
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;
