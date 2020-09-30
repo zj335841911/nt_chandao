@@ -21301,6 +21301,7 @@
     "field_logic_name":"计划",
     "entity_name":"ProductSum",
     "field_type":"BIGINT",
+    "dict":"PlanCodeList",
     "nullable":1,
     "physical_field":0,
     "data_type":"BIGINT",

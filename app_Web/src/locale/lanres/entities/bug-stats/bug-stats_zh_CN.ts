@@ -79,6 +79,15 @@ export default {
 		uiactions: {
 		},
 	},
+	assignedtobug_searchform: {
+		details: {
+			formpage1: "表单分页", 
+			n_product_eq: "产品", 
+			n_assignedto_eq: "指派给", 
+		},
+		uiactions: {
+		},
+	},
 	default_searchform: {
 		details: {
 			grouppanel1: "分组面板", 

@@ -391,19 +391,19 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
-        "srfkey": "SQLBuild",
-        "emptytext": "未定义",
-        "codelisttype":"dynamic",
-        "appdataentity":"PSSystemDBCfg",
-        "appdedataset":"FetchBuild",
-        "items": []
-    },
-    {
         "srfkey": "ProjectCodeList",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"Project",
         "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
+        "srfkey": "SQLBuild",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"PSSystemDBCfg",
+        "appdedataset":"FetchBuild",
         "items": []
     },
     {
@@ -3962,6 +3962,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "PlanCodeList",
+        "emptytext": "未计划",
+        "codelisttype":"dynamic",
+        "appdataentity":"ProductPlan",
+        "appdedataset":"FetchPlanCodeList",
+        "items": []
     },
     {
         "srfkey": "CurProductPlan",

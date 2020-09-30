@@ -609,6 +609,7 @@
 |/productplan/fetchcurproductplan|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productplan/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productplan/fetchdefaultparent|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/productplan/fetchplancodelist|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productplan/fetchprojectplan|GET|DEDataSetFetchContext Json对象|&nbsp;|
 ## 产品计划相关接口
 
@@ -631,6 +632,7 @@
 |/productplan/fetchcurproductplan|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productplan/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productplan/fetchdefaultparent|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/productplan/fetchplancodelist|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productplan/fetchprojectplan|GET|DEDataSetFetchContext Json对象|&nbsp;|
 ## 用例库模块相关接口
 

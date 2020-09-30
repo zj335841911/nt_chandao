@@ -273,6 +273,14 @@ export class MainGridBase extends GridControlBase {
                 renderMode: 'string',
                 valueSeparator: ",",
             },
+            {
+                name: 'plan',
+                srfkey: 'PlanCodeList',
+                codelistType : 'DYNAMIC',
+                renderMode: 'other',
+                textSeparator: '、',
+                valueSeparator: ',',
+            },
         ]);
     }
 

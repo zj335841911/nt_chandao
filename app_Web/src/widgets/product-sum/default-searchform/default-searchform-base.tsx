@@ -77,6 +77,8 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
     public data: any = {
         closed: null,
         expired: null,
+        n_id_eq: null,
+        n_plan_eq: null,
     };
 
     /**
@@ -93,6 +95,10 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
         closed: new FormItemModel({ caption: '关闭产品', detailType: 'FORMITEM', name: 'closed', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         expired: new FormItemModel({ caption: '过期计划', detailType: 'FORMITEM', name: 'expired', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        n_id_eq: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'n_id_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        n_plan_eq: new FormItemModel({ caption: '计划', detailType: 'FORMITEM', name: 'n_plan_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 }

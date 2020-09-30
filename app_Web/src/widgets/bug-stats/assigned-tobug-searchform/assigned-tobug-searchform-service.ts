@@ -1,44 +1,44 @@
 import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
-import ProductSumService from '@/service/product-sum/product-sum-service';
-import DefaultModel from './default-searchform-model';
+import BugStatsService from '@/service/bug-stats/bug-stats-service';
+import AssignedTOBugModel from './assigned-tobug-searchform-model';
 
 
 /**
- * Default 部件服务对象
+ * AssignedTOBug 部件服务对象
  *
  * @export
- * @class DefaultService
+ * @class AssignedTOBugService
  */
-export default class DefaultService extends ControlService {
+export default class AssignedTOBugService extends ControlService {
 
     /**
-     * 产品汇总表服务对象
+     * Bug统计服务对象
      *
-     * @type {ProductSumService}
-     * @memberof DefaultService
+     * @type {BugStatsService}
+     * @memberof AssignedTOBugService
      */
-    public appEntityService: ProductSumService = new ProductSumService({ $store: this.getStore() });
+    public appEntityService: BugStatsService = new BugStatsService({ $store: this.getStore() });
 
     /**
      * 设置从数据模式
      *
      * @type {boolean}
-     * @memberof DefaultService
+     * @memberof AssignedTOBugService
      */
     public setTempMode(){
         this.isTempMode = false;
     }
 
     /**
-     * Creates an instance of DefaultService.
+     * Creates an instance of AssignedTOBugService.
      * 
      * @param {*} [opts={}]
-     * @memberof DefaultService
+     * @memberof AssignedTOBugService
      */
     constructor(opts: any = {}) {
         super(opts);
-        this.model = new DefaultModel();
+        this.model = new AssignedTOBugModel();
     }
 
     /**
@@ -47,7 +47,7 @@ export default class DefaultService extends ControlService {
      * @private
      * @param {Promise<any>} promise
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof AssignedTOBugService
      */
     private doItems(promise: Promise<any>, deKeyField: string, deName: string): Promise<any> {
         return new Promise((resolve, reject) => {
@@ -76,7 +76,7 @@ export default class DefaultService extends ControlService {
      * @param {*} data
      * @param {boolean} [isloading]
      * @returns {Promise<any[]>}
-     * @memberof  DefaultService
+     * @memberof  AssignedTOBugService
      */
     @Errorlog
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
@@ -95,7 +95,7 @@ export default class DefaultService extends ControlService {
      * @param {boolean} [isloading]
      * @param {*} [localdata]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof AssignedTOBugService
      */
     @Errorlog
     public wfstart(action: string,context: any = {},data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
@@ -127,7 +127,7 @@ export default class DefaultService extends ControlService {
      * @param {boolean} [isloading]
      * @param {*} [localdata]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof AssignedTOBugService
      */
     @Errorlog
     public wfsubmit(action: string,context: any = {}, data: any = {}, isloading?: boolean,localdata?:any): Promise<any> {
@@ -158,12 +158,11 @@ export default class DefaultService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof AssignedTOBugService
      */
     @Errorlog
     public add(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         const {data:Data,context:Context} = this.handleRequestData(action,context,data);
-        Object.assign(Data,{id: data.n_id_eq, srffrontuf: '1'});
         return new Promise((resolve: any, reject: any) => {
             let result: Promise<any>;
             const _appEntityService: any = this.appEntityService;
@@ -189,7 +188,7 @@ export default class DefaultService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof AssignedTOBugService
      */
     @Errorlog
     public delete(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -218,7 +217,7 @@ export default class DefaultService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof AssignedTOBugService
      */
     @Errorlog
     public update(action: string, context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -248,7 +247,7 @@ export default class DefaultService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof AssignedTOBugService
      */
     @Errorlog
     public get(action: string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -278,7 +277,7 @@ export default class DefaultService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof AssignedTOBugService
      */
     @Errorlog
     public loadDraft(action: string,context: any = {}, data: any = {}, isloading?: boolean): Promise<any> {
@@ -307,7 +306,7 @@ export default class DefaultService extends ControlService {
      * @param {*} [data={}]
      * @param {boolean} [isloading]
      * @returns {Promise<any>}
-     * @memberof DefaultService
+     * @memberof AssignedTOBugService
      */
     @Errorlog
     public frontLogic(action:string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
@@ -334,7 +333,7 @@ export default class DefaultService extends ControlService {
      * 
      * @param action 行为 
      * @param data 数据
-     * @memberof DefaultService
+     * @memberof AssignedTOBugService
      */
     public handleRequestData(action: string,context:any, data: any = {},isMerge:boolean = false){
         let mode: any = this.getMode();
@@ -369,7 +368,7 @@ export default class DefaultService extends ControlService {
      * 通过属性名称获取表单项名称
      * 
      * @param name 实体属性名称 
-     * @memberof DefaultService
+     * @memberof AssignedTOBugService
      */
     public getItemNameByDeName(name:string) :string{
         let itemName = name;
