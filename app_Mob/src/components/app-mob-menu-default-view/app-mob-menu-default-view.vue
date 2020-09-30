@@ -147,10 +147,7 @@ export default class AppMobMenuDefaultView extends Vue {
         }
         let count = 0;
         this.items.forEach((item:any,index:number) => {
-            if(item.hidden == false){
-                count++;
-            }
-            if(count == 1){
+            if(item.opendefault == true){
                 this.activeId = item.id;
             }
             let model = this.menuModels.find((model:any) => Object.is(model.appfunctag, item.appfunctag));
@@ -176,7 +173,12 @@ export default class AppMobMenuDefaultView extends Vue {
                     ionNav.select(item.name);
                 }
             })
-        } 
+        } else {
+            let item:any =  this.items.find((item: any) => Object.is(item.id, this.activeId));
+            if (ionNav && ionNav.select) {
+              ionNav.select(item.name);
+            }
+        }
     }
 
     /**
