@@ -397,6 +397,7 @@ export default class AppIndexViewBase extends Vue {
      * @memberof AppIndexViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        alert(window.history.length);
             this.quitFun();
         
     }

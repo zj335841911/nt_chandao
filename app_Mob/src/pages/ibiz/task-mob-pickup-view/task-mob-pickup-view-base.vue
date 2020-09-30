@@ -477,6 +477,7 @@ export default class TaskMobPickupViewBase extends Vue {
      * @memberof TaskMobPickupViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        alert(window.history.length);
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;

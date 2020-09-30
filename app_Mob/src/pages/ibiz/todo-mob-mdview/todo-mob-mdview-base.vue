@@ -713,6 +713,7 @@ export default class TodoMobMDViewBase extends Vue {
      * @memberof TodoMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        alert(window.history.length);
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;

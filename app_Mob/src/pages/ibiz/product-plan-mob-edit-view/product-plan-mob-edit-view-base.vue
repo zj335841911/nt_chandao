@@ -537,6 +537,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * @memberof ProductPlanMobEditViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        alert(window.history.length);
                 let result = await this.cheackChange();
         if(result){
             if (this.viewDefaultUsage === "routerView") {

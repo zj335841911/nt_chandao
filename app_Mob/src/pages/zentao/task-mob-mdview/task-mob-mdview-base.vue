@@ -863,6 +863,7 @@ export default class TaskMobMDViewBase extends Vue {
      * @memberof TaskMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        alert(window.history.length);
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;

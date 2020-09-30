@@ -477,6 +477,7 @@ export default class ReleaseMobPickupViewBase extends Vue {
      * @memberof ReleaseMobPickupViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        alert(window.history.length);
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;

@@ -711,6 +711,7 @@ export default class StoryAssMoreMobMDViewBase extends Vue {
      * @memberof StoryAssMoreMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        alert(window.history.length);
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;

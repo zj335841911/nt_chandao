@@ -497,6 +497,7 @@ export default class TaskComMobOptionViewBase extends Vue {
      * @memberof TaskComMobOptionViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        alert(window.history.length);
               let result = await this.cheackChange();
       if(result){
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){

@@ -733,6 +733,7 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
      * @memberof TaskFavoriteMoreMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        alert(window.history.length);
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;

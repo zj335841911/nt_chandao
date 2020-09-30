@@ -700,6 +700,7 @@ export default class ProductTestMobMDViewBase extends Vue {
      * @memberof ProductTestMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        alert(window.history.length);
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;

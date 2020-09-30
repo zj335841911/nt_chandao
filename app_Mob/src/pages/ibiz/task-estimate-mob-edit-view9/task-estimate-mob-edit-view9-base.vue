@@ -513,6 +513,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
      * @memberof TaskEstimateMobEditView9Base
      */
     protected async closeView(args: any[]): Promise<any> {
+        alert(window.history.length);
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;

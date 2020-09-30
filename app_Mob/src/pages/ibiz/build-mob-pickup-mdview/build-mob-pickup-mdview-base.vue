@@ -486,6 +486,7 @@ export default class BuildMobPickupMDViewBase extends Vue {
      * @memberof BuildMobPickupMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        alert(window.history.length);
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;

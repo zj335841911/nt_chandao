@@ -537,6 +537,7 @@ export default class TodoMobEditViewBase extends Vue {
      * @memberof TodoMobEditViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        alert(window.history.length);
                 let result = await this.cheackChange();
         if(result){
             if (this.viewDefaultUsage === "routerView") {

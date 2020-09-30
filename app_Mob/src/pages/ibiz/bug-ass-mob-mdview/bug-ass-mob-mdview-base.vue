@@ -702,6 +702,7 @@ export default class BugAssMobMDViewBase extends Vue {
      * @memberof BugAssMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        alert(window.history.length);
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;
