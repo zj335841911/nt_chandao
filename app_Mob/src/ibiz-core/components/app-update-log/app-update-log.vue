@@ -2,12 +2,12 @@
   <van-overlay class="app-update-log" :show="show" @click="onClick">
     <div class="wrapper" @click.stop>
         <div class="title">
-            <!-- Bug修复&功能新增 -->
-            系统调试中,可能会遇到弹窗、报错等情况,敬请谅解。
+            功能新增
         </div>
         <div class="content">
             <ol>
-                <!-- <li>调试中！！</li> -->
+                <li>测试报告</li>
+                <li>统计列表（匹配禅道开源版）</li>
             </ol>
         </div>
     </div>
