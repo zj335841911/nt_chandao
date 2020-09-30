@@ -156,5 +156,26 @@ public class ProductSumResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productsumMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductSum-searchProductCreateStory-all')")
+	@ApiOperation(value = "获取产品创建需求占比", tags = {"产品汇总表" } ,notes = "获取产品创建需求占比")
+    @RequestMapping(method= RequestMethod.GET , value="/productsums/fetchproductcreatestory")
+	public ResponseEntity<List<ProductSumDTO>> fetchProductCreateStory(ProductSumSearchContext context) {
+        Page<ProductSum> domains = productsumService.searchProductCreateStory(context) ;
+        List<ProductSumDTO> list = productsumMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductSum-searchProductCreateStory-all')")
+	@ApiOperation(value = "查询产品创建需求占比", tags = {"产品汇总表" } ,notes = "查询产品创建需求占比")
+    @RequestMapping(method= RequestMethod.POST , value="/productsums/searchproductcreatestory")
+	public ResponseEntity<Page<ProductSumDTO>> searchProductCreateStory(@RequestBody ProductSumSearchContext context) {
+        Page<ProductSum> domains = productsumService.searchProductCreateStory(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productsumMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 }
 

@@ -135,7 +135,7 @@ export class DingTalkService {
      * @memberof DingTalkService
      */
     public async login(): Promise<any> {
-        const access_token = await this.getAccess_token();
+        const access_token :any= await this.get(`/uaa/open/dingtalk/access_token`);
         if (access_token.status == 200 && access_token.data && access_token.data.corp_id) {
             localStorage.setItem("access_token", JSON.stringify(Object.assign(access_token, new Date().getTime)));
             this.corpId = access_token.data.corp_id;
@@ -144,7 +144,8 @@ export class DingTalkService {
                 const userInfo: any = await this.get(`/uaa/open/dingtalk/auth/${res.code}`);
                 if (userInfo.status == 200 && userInfo.data.token && userInfo.data.user) {
                     // 鉴权
-                    this.authentication(access_token.agentId, this.corpId, access_token.data.timeStamp, access_token.data.nonceStr, access_token.data.signature);
+                    const reAccess_token = await this.getAccess_token();
+                    this.authentication(reAccess_token.agentId, reAccess_token.corpId, reAccess_token.data.timeStamp, reAccess_token.data.nonceStr, reAccess_token.data.signature);
                     localStorage.setItem("token", userInfo.data.token);
                     localStorage.setItem("user", JSON.stringify(userInfo.data.user));
                     return { issuccess: true, message: "" };

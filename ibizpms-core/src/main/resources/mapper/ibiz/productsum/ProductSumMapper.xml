@@ -25,6 +25,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[ProductCreateStory]-->
+	 <select id="searchProductCreateStory"  parameterType="cn.ibizlab.pms.core.ibiz.filter.ProductSumSearchContext"  resultMap="ProductSumResultMap">
+         select t1.* from (
+                <include refid="ProductCreateStory" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据查询[Default]-->
     <sql id="Default" databaseId="mysql">
 		<![CDATA[ select t1.*  from(select  t1.id,t1.`NAME`,t1.po,t1.PLAN, case when t1.`begin` = '2030-01-01' then '待定' else t1.`begin` end as `begin`,case when t1.`end` = '2030-01-01' then '待定' else t1.`end` end as `end`, 	sum( IF ( t1.`status` = 'draft', t1.rowcnt, 0 ) ) AS WAITSTORYCNT, 	SUM( IF ( t1.`status` = 'active', t1.rowcnt, 0 ) ) AS ACTIVESTORYCNT, 	SUM( IF ( t1.`status` = 'changed', t1.rowcnt, 0 ) ) AS CHANGEDSTORYCNT, 	SUM( IF ( t1.`status` = 'closed', t1.rowcnt, 0 ) ) AS CLOSEDSTORYCNT, 	sum(t1.rowcnt) as STORYCNT from ( SELECT 1 as rowcnt, case when t1.`PLAN` = 0 then '' else t1.plan end as plan, t31.`NAME` AS `NAME`, t1.`PRODUCT` as id, t1.`status`, t31.po, t41.`begin`, t41.`end` FROM `zt_story` t1  LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID  left join ZT_PRODUCTPLAN t41 on t41.id = t1.plan where t1.deleted = '0' and t1.product <> 0 and t1.product is not null and t1.product <> '' and (((t31.`status` = 'normal' ) or (t31.`status` = 'closed' and #{srf.datacontext.closed} = '1')) or ((t41.`end` >= now() and #{srf.datacontext.expired} is not null ) or (t41.`end` <= now() and #{srf.datacontext.expired} is null))) ) t1 GROUP BY t1.id,t1.`NAME`,t1.po,t1.PLAN,t1.`begin`,t1.`end`) t1
@@ -32,7 +41,7 @@
     </sql>
     <!--数据查询[ProductCreateStory]-->
     <sql id="ProductCreateStory" databaseId="mysql">
-		<![CDATA[ 
+		<![CDATA[ select t1.*,t2.allstorycnt , CONCAT(ROUND(t1.storycnt/(case when t2.allstorycnt = 0 or t2.allstorycnt is null then 1 else t2.allstorycnt end)*100,1),'%') from (SELECT t1.openedBy,t1.productid,t1.productname,COUNT(1) as storycnt from ( SELECT t1.id,t1.openedBy,t2.id as productid ,t2.`name` as productname from zt_story t1 LEFT JOIN zt_product t2 on t2.id = t1.product) t1 GROUP BY t1.openedBy,t1.productid ) t1 LEFT JOIN (select t1.productid,t1.productname,COUNT(1) as allstorycnt from ( SELECT t1.id,t1.openedBy,t2.id as productid ,t2.`name` as productname from zt_story t1 LEFT JOIN zt_product t2 on t2.id = t1.product ) t1 GROUP BY t1.productid) t2 on t2.productid = t1.productid having t1.openedBy = #{srf.sessioncontext.srfloginname} 
 			]]>
     </sql>
     <!--数据查询[View]-->

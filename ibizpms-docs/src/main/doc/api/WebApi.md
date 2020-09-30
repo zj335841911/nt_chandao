@@ -541,6 +541,7 @@
 |/productsum/checkkey|POST|产品汇总表 Json对象|&nbsp;|
 |/productsum/save|POST|产品汇总表 Json对象|&nbsp;|
 |/productsum/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/productsum/fetchproductcreatestory|GET|DEDataSetFetchContext Json对象|&nbsp;|
 ## 测试用例相关接口
 
 | 接口路径   | 请求方式   |    请求参数    | 备注 |
