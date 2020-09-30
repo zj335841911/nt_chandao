@@ -126,7 +126,7 @@ export class DingTalkService {
         }
         const reAccess_token: any = await this.get(`/uaa/dingtalk/jsapi/sign`);
         if(reAccess_token.status == 200){
-            localStorage.setItem("access_token", JSON.stringify(Object.assign(reAccess_token, { time: new Date().getTime() })));
+            localStorage.setItem("access_token", JSON.stringify(Object.assign(reAccess_token.data, { time: new Date().getTime() })));
         }else{
             this.notice.error('获取dd签名失败')
         }
