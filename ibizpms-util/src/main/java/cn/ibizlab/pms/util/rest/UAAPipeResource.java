@@ -57,8 +57,11 @@ public class UAAPipeResource {
 
     @GetMapping(value = {"/uaa/open/dingtalk/access_token"})
     public ResponseEntity<JSONObject> getDingtalkAppId(@RequestParam(value = "id", required = false) String id) {
-        JSONObject resp = uaaFeignClient.getDingtalkAppId(StringUtils.isEmpty(id) ? getRefererURL() : id);
+        String openAccessId = StringUtils.isEmpty(id) ? getRefererURL() : id;
+        log.info("[UAAPipeResource.getDingtalkAppId] openAccessId: " + openAccessId);
+        JSONObject resp = uaaFeignClient.getDingtalkAppId(openAccessId);
         resp.put("regionid", resp.get("corp_id"));
+        log.info("[UAAPipeResource.getDingtalkAppId] response: " + resp);
         return ResponseEntity.ok(resp);
     }
 
@@ -71,13 +74,18 @@ public class UAAPipeResource {
     public ResponseEntity<JSONObject> getDingTalkJSSign(@RequestParam(value = "id", required = false) String id){
         String openAccessId = StringUtils.isEmpty(id) ? getRefererURL() : id;
         String url = getRequestUrl();
-        return ResponseEntity.ok(uaaFeignClient.getDingTalkJSSign(openAccessId, url));
+        log.info("[UAAPipeResource.getDingTalkJSSign] openAccessId: " + openAccessId + ", url: " + url);
+        JSONObject resp = uaaFeignClient.getDingTalkJSSign(openAccessId, url);
+        log.info("[UAAPipeResource.getDingTalkJSSign] response: " + resp);
+        return ResponseEntity.ok(resp);
     }
 
     @GetMapping(value = {"/uaa/open/dingtalk/auth/{code}"})
     public ResponseEntity<AuthenticationInfo> getUserByToken(@PathVariable(value = "code") String code, @RequestParam(value = "id", required = false) String id) {
-
-        AuthenticationInfo info = uaaFeignClient.getUserByToken(code, StringUtils.isEmpty(id) ? getRefererURL() : id);
+        String openAccessId = StringUtils.isEmpty(id) ? getRefererURL() : id;
+        log.info("[UAAPipeResource.getUserByToken] code: " + code + ", openAccessId: " + openAccessId);
+        AuthenticationInfo info = uaaFeignClient.getUserByToken(code, openAccessId);
+        log.info("[UAAPipeResource.getUserByToken] response: " + info);
         ztLogin(info);
         return ResponseEntity.ok(info);
 
