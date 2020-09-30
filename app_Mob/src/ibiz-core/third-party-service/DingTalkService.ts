@@ -372,7 +372,7 @@ export class DingTalkService {
     public async doAuthentication() {
         const reAccess_token = await this.getAccess_token();
         alert(JSON.stringify(reAccess_token));
-        this.authentication(reAccess_token.agentId, reAccess_token.corpId, reAccess_token.data.timeStamp, reAccess_token.data.nonceStr, reAccess_token.data.signature);
+        this.authentication(reAccess_token.agentId, reAccess_token.corpid, reAccess_token.data.timeStamp, reAccess_token.data.nonceStr, reAccess_token.data.signature);
     }
 
     /**
