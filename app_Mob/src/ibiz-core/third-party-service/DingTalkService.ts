@@ -106,11 +106,11 @@ export class DingTalkService {
      */
     private async dd_ready() {
         // 设置导航标题
-        let { issuccess } = await this.login();
+        // let { issuccess } = await this.login();
         this.setNavBack();
-        if(issuccess){
-            this.doAuthentication();
-        }
+        // if(issuccess){
+            
+        // }
     }
 
 
@@ -150,6 +150,7 @@ export class DingTalkService {
                 if (userInfo.status == 200 && userInfo.data.token && userInfo.data.user) {
                     localStorage.setItem("token", userInfo.data.token);
                     localStorage.setItem("user", JSON.stringify(userInfo.data.user));
+                    this.doAuthentication();
                     return { issuccess: true, message: "" };
                 } else if (userInfo.status == 400) {
                     return { issuccess: false, message: userInfo.data.message };
