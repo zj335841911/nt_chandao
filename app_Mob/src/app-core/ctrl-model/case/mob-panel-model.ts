@@ -180,6 +180,9 @@ export class MobModel {
       {
         name: 'lastrunresult1',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

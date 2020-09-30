@@ -22,8 +22,13 @@ export default {
     frontapplication: "系统应用",
     rebuild: "重新构建",
     releasetype: "运行模式",
+    builder: "构建者",
+    builddate: "打包日期",
   },
 	views: {
+		mobpickupview: {
+			caption: '发布',
+		},
 		mobeditview: {
 			caption: '发布',
 		},
@@ -31,6 +36,9 @@ export default {
 			caption: '发布',
 		},
 		newmobeditview: {
+			caption: '发布',
+		},
+		mobpickupmdview: {
 			caption: '发布',
 		},
 	},
@@ -76,6 +84,16 @@ export default {
 			marker: '里程碑', 
 			status: '状态', 
 			id: 'ID', 
+		},
+		uiactions: {
+		},
+	},
+	mobdef_searchform: {
+		details: {
+			formpage1: '常规条件', 
+			n_name_like: '发布名称', 
+			n_status_eq: '状态', 
+			n_date_ltandeq: '截止日期', 
 		},
 		uiactions: {
 		},

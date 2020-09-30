@@ -114,6 +114,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import IbzTaskestimateService from '@/app-core/service/ibz-taskestimate/ibz-taskestimate-service';
 import NewFormService from '@/app-core/ctrl-service/ibz-taskestimate/new-form-form-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import IbzTaskestimateUIService from '@/ui-service/ibz-taskestimate/ibz-taskestimate-ui-action';
 
@@ -452,84 +453,20 @@ export default class NewFormBase extends Vue implements ControlInterface {
     protected saveState:any ;
 
     /**
+      * 异常信息缓存
+      *
+      * @type {any}
+      * @memberof NewForm
+      */
+    public errorCache :any = {};
+
+    /**
      * 属性值规则
      *
      * @type {*}
      * @memberof NewForm
      */
     protected rules: any = {
-        srforikey: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        dates: [
-            { type: 'string', message: '日期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '日期 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '日期 值不能为空', trigger: 'blur' },
-        ],
-        consumed: [
-            { type: 'number', message: '工时 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '工时 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '工时 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '工时 值不能为空', trigger: 'blur' },
-        ],
-        left: [
-            { type: 'number', message: '剩余 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '剩余 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '剩余 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '剩余 值不能为空', trigger: 'blur' },
-        ],
-        work: [
-            { type: 'string', message: '备注 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '备注 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
     }
 
     /**
@@ -546,7 +483,7 @@ export default class NewFormBase extends Vue implements ControlInterface {
      *
      * @public
      * @param {{ name: string }} { name }
-     * @memberof NewFormBase
+     * @memberof MobNewFormBase
      */
     public verifyDeRules(name:string,rule:any = this.deRules,op:string = "AND") :{isPast:boolean,infoMessage:string}{
         let falg:any = {infoMessage:""};
@@ -571,25 +508,30 @@ export default class NewFormBase extends Vue implements ControlInterface {
             if(item.type == 'SIMPLE'){
                 startOp(!this.$verify.checkFieldSimpleRule(dataValue,item.condOP,item.paramValue,item.ruleInfo,item.paramType,this.data,item.isKeyCond));
                 falg.infoMessage = item.ruleInfo;
+                this.errorCache[item.deName] = item.ruleInfo;
             }
             // 数值范围
             if(item.type == 'VALUERANGE2'){
                 startOp( !this.$verify.checkFieldValueRangeRule(dataValue,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond));
+                this.errorCache[item.deName] = item.ruleInfo;
                 falg.infoMessage = item.ruleInfo;
             }
             // 正则式
             if (item.type == "REGEX") {
                 startOp(!this.$verify.checkFieldRegExRule(dataValue,item.regExCode,item.ruleInfo,item.isKeyCond));
+                this.errorCache[item.deName] = item.ruleInfo;
                 falg.infoMessage = item.ruleInfo;
             }
             // 长度
             if (item.type == "STRINGLENGTH") {
                 startOp(!this.$verify.checkFieldStringLengthRule(dataValue,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond)); 
+                this.errorCache[item.deName] = item.ruleInfo;
                 falg.infoMessage = item.ruleInfo;
             }
             // 系统值规则
             if(item.type == "SYSVALUERULE") {
                 startOp(!this.$verify.checkFieldSysValueRule(dataValue,item.sysRule.regExCode,item.ruleInfo,item.isKeyCond));
+                this.errorCache[item.deName] = item.ruleInfo;
                 falg.infoMessage = item.ruleInfo;
             }
             // 分组
@@ -847,11 +789,14 @@ export default class NewFormBase extends Vue implements ControlInterface {
      */
     public validItem(property:string, data:any):Promise<any>{
         return new Promise((resolve, reject) => {
+            if(!property || !this.rules[property]){
+                resolve(true);
+            }
             Util.validateItem(property,data,this.rules[property]).then(()=>{
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(errors[0].message);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
                 resolve(false);
             });
         });
@@ -1372,6 +1317,7 @@ export default class NewFormBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
+            AppCenterService.notifyMessage({name:"IbzTaskestimate",action:'appRefresh',data:data});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });
@@ -1413,6 +1359,7 @@ export default class NewFormBase extends Vue implements ControlInterface {
             this.$emit('remove', data);
             this.formState.next({ type: 'remove', data: data });
             this.data.ismodify = false;
+            AppCenterService.notifyMessage({name:"IbzTaskestimate",action:'appRefresh',data:data});
             this.$notice.success((data.srfmajortext ? data.srfmajortext : '') + '&nbsp;'+ this.$t('app.message.deleteSccess'));
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
@@ -1436,6 +1383,7 @@ export default class NewFormBase extends Vue implements ControlInterface {
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
             this.$notice.success('工作流启动成功');
+            AppCenterService.notifyMessage({name:"IbzTaskestimate",action:'appRefresh',data:data});
         } else if (response && response.status !== 401) {
             this.$notice.error('工作流启动失败, ' + response.error.message);
         }
@@ -1462,6 +1410,7 @@ export default class NewFormBase extends Vue implements ControlInterface {
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
             this.$notice.success('工作流提交成功');
+            AppCenterService.notifyMessage({name:"IbzTaskestimate",action:'appRefresh',data:data});
         } else if (response && response.status !== 401) {
             this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
@@ -1499,6 +1448,7 @@ export default class NewFormBase extends Vue implements ControlInterface {
             this.fillForm(_data, 'updateFormItem');
             this.formLogic({ name: '', newVal: null, oldVal: null });
             this.dataChang.next(JSON.stringify(this.data));
+            AppCenterService.notifyMessage({name:"IbzTaskestimate",action:'appRefresh',data:data});
             this.$nextTick(() => {
                 this.formState.next({ type: 'updateformitem', ufimode: arg.srfufimode, data: _data });
             });

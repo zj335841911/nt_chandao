@@ -16,7 +16,6 @@
     
     </ion-header>
 
-
     <ion-content>
         <ion-refresher 
             slot="fixed" 
@@ -169,6 +168,7 @@ export default class AppPortalViewBase extends Vue {
         srfCaption: 'app.views.appportalview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'app.views.appportalview',
         iconcls: '',
         icon: ''
     }
@@ -314,15 +314,6 @@ export default class AppPortalViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof AppPortalViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof AppPortalViewBase
@@ -345,6 +336,17 @@ export default class AppPortalViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof AppPortalViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)

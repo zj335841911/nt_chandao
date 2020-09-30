@@ -35,7 +35,7 @@ export default class MainEditRowModel {
         {
           name: 'estimate',
           prop: 'estimate',
-          dataType: 'DECIMAL',
+          dataType: 'FLOAT',
           isEditable:true
         },
         {

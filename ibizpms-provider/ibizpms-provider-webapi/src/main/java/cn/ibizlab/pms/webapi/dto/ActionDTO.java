@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.alibaba.fastjson.annotation.JSONField;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -51,6 +53,7 @@ public class ActionDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
 
     /**
@@ -104,7 +107,8 @@ public class ActionDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "objectid")
     @JsonProperty("objectid")
-    private Integer objectid;
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long objectid;
 
     /**
      * 属性 [ACTOR]
@@ -121,6 +125,7 @@ public class ActionDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "project")
     @JsonProperty("project")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long project;
 
     /**
@@ -147,7 +152,8 @@ public class ActionDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "isactorss")
     @JsonProperty("isactorss")
-    private Integer isactorss;
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long isactorss;
 
     /**
      * 属性 [DATE1]
@@ -210,7 +216,7 @@ public class ActionDTO extends DTOBase implements Serializable {
     /**
      * 设置 [OBJECTID]
      */
-    public void setObjectid(Integer  objectid){
+    public void setObjectid(Long  objectid){
         this.objectid = objectid ;
         this.modify("objectid",objectid);
     }

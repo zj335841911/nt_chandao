@@ -34,17 +34,17 @@ export default class MainModel {
         {
           name: 'estimate',
           prop: 'estimate',
-          dataType: 'DECIMAL',
+          dataType: 'FLOAT',
         },
         {
           name: 'consumed',
           prop: 'consumed',
-          dataType: 'DECIMAL',
+          dataType: 'FLOAT',
         },
         {
           name: 'left',
           prop: 'left',
-          dataType: 'DECIMAL',
+          dataType: 'FLOAT',
         },
         {
           name: 'root',

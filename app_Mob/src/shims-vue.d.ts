@@ -4,3 +4,5 @@ declare module '*.vue' {
 }
 declare module 'vue-quill-editor';
 declare module 'weixin-js-sdk';
+declare module 'v-calendar/lib/components/calendar.umd';
+declare module 'vue-touch';

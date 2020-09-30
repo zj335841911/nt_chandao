@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.alibaba.fastjson.annotation.JSONField;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -298,6 +300,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
 
     /**
@@ -422,6 +425,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "tostory")
     @JsonProperty("tostory")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long tostory;
 
     /**
@@ -430,6 +434,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "entry")
     @JsonProperty("entry")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long entry;
 
     /**
@@ -438,6 +443,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long product;
 
     /**
@@ -446,6 +452,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "totask")
     @JsonProperty("totask")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long totask;
 
     /**
@@ -454,6 +461,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "plan")
     @JsonProperty("plan")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long plan;
 
     /**
@@ -462,6 +470,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "module")
     @JsonProperty("module")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long module;
 
     /**
@@ -470,6 +479,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "branch")
     @JsonProperty("branch")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long branch;
 
     /**
@@ -478,6 +488,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "duplicatebug")
     @JsonProperty("duplicatebug")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long duplicatebug;
 
     /**
@@ -486,6 +497,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "repo")
     @JsonProperty("repo")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long repo;
 
     /**
@@ -494,6 +506,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "story")
     @JsonProperty("story")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long story;
 
     /**
@@ -502,6 +515,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long ibizcase;
 
     /**
@@ -510,6 +524,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "project")
     @JsonProperty("project")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long project;
 
     /**
@@ -518,6 +533,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "task")
     @JsonProperty("task")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long task;
 
     /**
@@ -526,6 +542,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "testtask")
     @JsonProperty("testtask")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long testtask;
 
     /**

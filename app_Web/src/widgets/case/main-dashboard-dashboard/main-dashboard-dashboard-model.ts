@@ -180,6 +180,9 @@ export default class MainDashboardModel {
       {
         name: 'lastrunresult1',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

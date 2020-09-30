@@ -130,7 +130,7 @@ export default class AppMobPicture extends Vue {
     public beforeRead(file: any, detail: any): boolean {
         this.dataProcess();
         if (file && Array.isArray(file)) {
-            this.$notify({ type: 'warning', message: `${this.$t('one_doc')}` });
+            this.$notice.warning(`${this.$t('one_doc')}`);
             return false;
         }
         return true;
@@ -152,7 +152,7 @@ export default class AppMobPicture extends Vue {
                 'Content-Type': 'multipart/form-data'
             }
         }
-
+        Loading.show();
         Axios.post(this.uploadUrl, params, config).then((response: any) => {
             Loading.hidden();
             if (response && response.data && response.status === 200) {
@@ -165,11 +165,10 @@ export default class AppMobPicture extends Vue {
                 this.onError(response, file, this.files);
             }
         }).catch((response: any) => {
-
+            Loading.hidden();
             this.onError(response, file, this.files);
         });
     }
-    // MOB LOGIC END
 
     /**
      * 是否支持多个上传
@@ -360,44 +359,6 @@ export default class AppMobPicture extends Vue {
     }
 
     /**
-     * vue 生命周期
-     *
-     * @memberof AppMobPicture
-     */
-    public created() {
-        this.platform = Capacitor.getPlatform();
-        if (this.formState) {
-            this.formStateEvent = this.formState.subscribe(($event: any) => {
-                // 表单加载完成
-                if (Object.is($event.type, 'load')) {
-                    if (this.value) {
-                        this.files = JSON.parse(this.value);
-                    }
-                    this.dataProcess();
-                }
-                // 表单保存完成 和 表单项更新
-                if (Object.is($event.type, "save") || Object.is($event.type, "updateformitem")) {
-                    this.dataProcess();
-                }
-            });
-        }
-    }
-
-    /**
-     * vue 生命周期
-     *
-     * @memberof AppMobPicture
-     */
-    public mounted() {
-        this.appData = this.$store.getters.getAppData();
-        if (this.value) {
-            this.files = JSON.parse(this.value);
-        }
-        this.dataProcess();
-        this.changeLabelStyle();
-    }
-
-    /**
      * 修改label默认样式
      * @memberof AppMobPicture
      */
@@ -475,7 +436,7 @@ export default class AppMobPicture extends Vue {
      * @memberof AppMobPicture
      */
     public onError(error: any, file: any, fileList: any) {
-        this.$notify({ type: 'danger', message: `${this.$t('upload_failed')}` });
+        this.$notice.error(`${this.$t('upload_failed')}`);
     }
 
     /**
@@ -526,6 +487,44 @@ export default class AppMobPicture extends Vue {
         });
         let base = image.base64String;
         this.$emit('formitemvaluechange', { name: this.name, value: this.files });
+    }
+    
+    /**
+     * vue 生命周期
+     *
+     * @memberof AppMobPicture
+     */
+    public created() {
+        this.platform = Capacitor.getPlatform();
+        if (this.formState) {
+            this.formStateEvent = this.formState.subscribe(($event: any) => {
+                // 表单加载完成
+                if (Object.is($event.type, 'load')) {
+                    if (this.value) {
+                        this.files = JSON.parse(this.value);
+                    }
+                    this.dataProcess();
+                }
+                // 表单保存完成 和 表单项更新
+                if (Object.is($event.type, "save") || Object.is($event.type, "updateformitem")) {
+                    this.dataProcess();
+                }
+            });
+        }
+    }
+    
+    /**
+     * vue 生命周期
+     *
+     * @memberof AppMobPicture
+     */
+    public mounted() {
+        this.appData = this.$store.getters.getAppData();
+        if (this.value) {
+            this.files = JSON.parse(this.value);
+        }
+        this.dataProcess();
+        this.changeLabelStyle();
     }
 }
 </script>

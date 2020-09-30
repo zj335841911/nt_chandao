@@ -47,6 +47,7 @@ public interface IReleaseService extends IService<Release>{
     Release terminate(Release et) ;
     Release unlinkBug(Release et) ;
     Page<Release> searchDefault(ReleaseSearchContext context) ;
+    Page<Release> searchReportRelease(ReleaseSearchContext context) ;
     List<Release> selectByBranch(Long id) ;
     void removeByBranch(Long id) ;
     List<Release> selectByBuild(Long id) ;

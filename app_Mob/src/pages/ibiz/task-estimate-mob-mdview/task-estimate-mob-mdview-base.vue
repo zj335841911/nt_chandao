@@ -11,13 +11,10 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
-        <ion-toolbar>
-            <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
-        </ion-toolbar>
+        <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="false"></app-search-history>
 
     
     </ion-header>
-
 
     <ion-content>
                 <view_mdctrl
@@ -54,7 +51,7 @@
         </ion-infinite-scroll-content>
         </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
         
     </ion-footer>
 </ion-page>
@@ -203,6 +200,7 @@ export default class TaskEstimateMobMDViewBase extends Vue {
         srfCaption: 'taskestimate.views.mobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'taskestimate.mobmdview',
         iconcls: '',
         icon: ''
     }
@@ -349,15 +347,6 @@ export default class TaskEstimateMobMDViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof TaskEstimateMobMDViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof TaskEstimateMobMDViewBase
@@ -380,6 +369,17 @@ export default class TaskEstimateMobMDViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof TaskEstimateMobMDViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)
@@ -769,7 +769,7 @@ export default class TaskEstimateMobMDViewBase extends Vue {
      * @memberof TaskEstimateMobMDViewBase
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

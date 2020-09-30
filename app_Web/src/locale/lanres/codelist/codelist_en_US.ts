@@ -59,6 +59,9 @@ export default {
     RealNameProjectM: {
         "empty": "",
     },
+    ProjectCodeList: {
+        "empty": "",
+    },
     SQLBuild: {
         "empty": "",
     },
@@ -200,6 +203,10 @@ export default {
         "revert": "撤销变更",
         "clarify": "有待明确",
         "reject": "拒绝",
+        "empty": ""
+    },
+    CloseProduct: {
+        "1": "关闭产品",
         "empty": ""
     },
     BugModule: {
@@ -444,6 +451,11 @@ export default {
     UserRealNameProject: {
         "empty": "",
     },
+    IsAssigned: {
+        "assign": "已指派",
+        "noassign": "未指派",
+        "empty": ""
+    },
     Story__stage: {
         "wait": "未开始",
         "planned": "已计划",
@@ -533,6 +545,9 @@ export default {
         "All": "所有",
         "active": "未解决",
         "empty": ""
+    },
+    PlanCodeList: {
+        "empty": "未计划",
     },
     CurProductPlan: {
         "empty": "",
@@ -662,6 +677,10 @@ export default {
     YesNo2: {
         "1": "是",
         "0": "否",
+        "empty": ""
+    },
+    ExpiredPlan: {
+        "1": "过期计划",
         "empty": ""
     },
     CodeList46: {

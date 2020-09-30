@@ -173,6 +173,7 @@ export default class ProjectMobPickupMDViewBase extends Vue {
         srfCaption: 'project.views.mobpickupmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'project.mobpickupmdview',
         iconcls: '',
         icon: ''
     }
@@ -313,15 +314,6 @@ export default class ProjectMobPickupMDViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof ProjectMobPickupMDViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof ProjectMobPickupMDViewBase
@@ -344,6 +336,17 @@ export default class ProjectMobPickupMDViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof ProjectMobPickupMDViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)

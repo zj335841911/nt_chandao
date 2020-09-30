@@ -32,7 +32,7 @@ public class DEFieldDefaultValueAspect
      * @param point
      * @throws Exception
      */
-    @Before(value = "execution(* cn.ibizlab.pms.core.*.service.*.create(..))")
+    @Before(value = "execution(* cn.ibizlab.pms.core.*.service.*.create(..)) || execution(* cn.ibizlab.pms.core.util.ibizzentao.helper.*.create(..))")
     public void BeforeCreate(JoinPoint point) throws Exception {
         fillDEFieldDefaultValue(point);
     }
@@ -46,7 +46,7 @@ public class DEFieldDefaultValueAspect
      * @param point
      * @throws Exception
      */
-    @Before(value = "execution(* cn.ibizlab.pms.core.*.service.*.update(..))")
+    @Before(value = "execution(* cn.ibizlab.pms.core.*.service.*.update(..)) || execution(* cn.ibizlab.pms.core.util.ibizzentao.helper.*.edit(..))")
     public void BeforeUpdate(JoinPoint point) throws Exception {
         fillDEFieldDefaultValue(point);
     }
@@ -119,7 +119,7 @@ public class DEFieldDefaultValueAspect
         if(deFields.size()==0)
             return ;
 
-        if(actionName.toLowerCase().startsWith("save")) {
+        if(actionName.toLowerCase().startsWith("save")||actionName.toLowerCase().startsWith("edit")) {
             if(ObjectUtils.isEmpty(et.get(keyField)))
                 actionName="create";
         }
@@ -136,7 +136,7 @@ public class DEFieldDefaultValueAspect
             DEPredefinedFieldType predefinedFieldType = fieldAnnotation.preType();
 
             //填充系统默认值
-            if(actionName.toLowerCase().startsWith("create") && ( deFieldType!= DEFieldDefaultValueType.NONE  ||  (!StringUtils.isEmpty(deFieldDefaultValue)) )){
+            if((actionName.toLowerCase().startsWith("create") || actionName.toLowerCase().startsWith("edit")) && ( deFieldType!= DEFieldDefaultValueType.NONE  ||  (!StringUtils.isEmpty(deFieldDefaultValue)) )){
                 fillFieldDefaultValue(fieldname,  deFieldType,  deFieldDefaultValue,  et , curUser) ;
             }
             //填充系统预置属性
@@ -194,7 +194,7 @@ public class DEFieldDefaultValueAspect
                         et.set(fieldname,curUser.getUserid());
                         break;
                     case OPERATORNAME:
-                        et.set(fieldname,curUser.getPersonname());
+                        et.set(fieldname,curUser.getLoginname());
                         break;
                     case CURTIME:
                         et.set(fieldname,new Timestamp(new Date().getTime()));
@@ -203,7 +203,10 @@ public class DEFieldDefaultValueAspect
                         //暂未实现
                         break;
                     case NONE:
-                        et.set(fieldname,deFieldDefaultValue);
+                        if(deFieldDefaultValue.equals("#EMPTY"))
+                            et.set(fieldname,"");
+                        else
+                            et.set(fieldname,deFieldDefaultValue);
                         break;
                 }
             }
@@ -222,13 +225,13 @@ public class DEFieldDefaultValueAspect
                     et.set(fieldname,curUser.getUserid());
                     break;
                 case CREATEMANNAME:
-                    et.set(fieldname,curUser.getPersonname());
+                    et.set(fieldname,curUser.getLoginname());
                     break;
                 case UPDATEMAN:
                     et.set(fieldname,curUser.getUserid());
                     break;
                 case UPDATEMANNAME:
-                    et.set(fieldname,curUser.getPersonname());
+                    et.set(fieldname,curUser.getLoginname());
                     break;
                 case CREATEDATE:
                     et.set(fieldname,new Timestamp(new Date().getTime()));

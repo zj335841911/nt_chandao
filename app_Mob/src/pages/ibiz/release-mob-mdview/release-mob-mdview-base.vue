@@ -2,14 +2,49 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'release-mob-mdview': true }">
     
     <ion-header>
-        <ion-toolbar>
-            <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
-        </ion-toolbar>
+        <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="true"></app-search-history>
 
     
     </ion-header>
 
-
+    <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
+        <ion-header>
+            <ion-toolbar translucent>
+                <ion-title>条件搜索</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <div class="searchform_content">
+            <view_searchform
+    :viewState="viewState"
+    viewName="ReleaseMobMDView"  
+    :viewparams="viewparams" 
+    :context="context" 
+     
+    :viewtag="viewtag"
+    :showBusyIndicator="true"
+    updateAction=""
+    removeAction=""
+    loaddraftAction="FilterGetDraft"
+    loadAction="FilterGet"
+    createAction=""
+    WFSubmitAction=""
+    WFStartAction=""
+    style='' 
+    name="searchform"  
+    ref='searchform' 
+    @search="searchform_search($event)"  
+    @load="searchform_load($event)"  
+    @closeview="closeView($event)">
+</view_searchform>
+        </div>
+        <ion-footer>
+        <div class="search-btn">
+            <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
+            <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
+        </div>
+        </ion-footer>
+    </van-popup>
+    <div id="searchformreleasemobmdview"></div>
     <ion-content>
         <ion-refresher 
             slot="fixed" 
@@ -59,7 +94,7 @@
         </ion-infinite-scroll-content>
         </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
                 <div v-show="!showCheack" class = "fab_container">
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
@@ -218,6 +253,7 @@ export default class ReleaseMobMDViewBase extends Vue {
         srfCaption: 'release.views.mobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'release.mobmdview',
         iconcls: '',
         icon: 'fa fa-flag-o'
     }
@@ -271,6 +307,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      * @memberof ReleaseMobMDViewBase
      */
     protected containerModel: any = {
+        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
         view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
@@ -291,6 +328,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      * @memberof ReleaseMobMDViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
 
@@ -426,6 +464,7 @@ export default class ReleaseMobMDViewBase extends Vue {
             newdata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
                 this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
             },
+            searchform: this.$refs.searchform,
             keyPSDEField: 'release',
             majorPSDEField: 'name',
             isLoadDefault: true,
@@ -439,15 +478,6 @@ export default class ReleaseMobMDViewBase extends Vue {
      */
     protected created() {
         this.afterCreated();
-    }
-
-    /**
-     * Vue声明周期
-     *
-     * @memberof ReleaseMobMDViewBase
-     */
-    public activated() {
-        this.afterMounted();
     }
 
     /**
@@ -473,6 +503,17 @@ export default class ReleaseMobMDViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof ReleaseMobMDViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)
@@ -534,6 +575,28 @@ export default class ReleaseMobMDViewBase extends Vue {
             });
         }
 
+    }
+
+    /**
+     * searchform 部件 search 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ReleaseMobMDViewBase
+     */
+    protected searchform_search($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('searchform', 'search', $event);
+    }
+
+    /**
+     * searchform 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof ReleaseMobMDViewBase
+     */
+    protected searchform_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('searchform', 'load', $event);
     }
 
     /**
@@ -808,6 +871,52 @@ export default class ReleaseMobMDViewBase extends Vue {
 
 
     /**
+     * 搜索表单状态
+     *
+     * @type {boolean}
+     * @memberof ReleaseMobMDViewBase
+     */
+    public searchformState: boolean = false;
+
+    /**
+     * 是否展开搜索表单
+     *
+     * @type {boolean}
+     * @memberof ReleaseMobMDViewBase
+     */
+    public isExpandSearchForm: boolean = false;
+
+    /**
+     * 执行搜索表单
+     *
+     * @memberof ReleaseMobMDViewBase
+     */
+    public onSearch(): void {
+        this.searchformState = false;
+        this.isExpandSearchForm = true;
+        const form: any = this.$refs.searchform;
+        if (form) {
+            form.onSearch();
+        }
+        this.closeSearchform();
+    }
+
+    /**
+     * 重置搜索表单
+     *
+     * @memberof ReleaseMobMDViewBase
+     */
+    public onReset(): void {
+        this.searchformState = false;
+        this.isExpandSearchForm = false;
+        const form: any = this.$refs.searchform;
+        if (form) {
+            form.onReset();
+        }
+        this.closeSearchform();
+    }
+
+    /**
      * 搜索值
      *
      * @type {string}
@@ -948,7 +1057,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      * @memberof ReleaseMobMDViewBase
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

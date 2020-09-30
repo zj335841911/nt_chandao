@@ -2,13 +2,10 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'todo-mob-mdview': true }">
     
     <ion-header>
-        <ion-toolbar>
-            <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
-        </ion-toolbar>
+        <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="false"></app-search-history>
 
     
     </ion-header>
-
 
     <ion-content>
                 <view_mdctrl
@@ -45,7 +42,7 @@
         </ion-infinite-scroll-content>
         </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
                 <div v-show="!showCheack" class = "fab_container">
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
@@ -204,6 +201,7 @@ export default class TodoMobMDViewBase extends Vue {
         srfCaption: 'todo.views.mobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'todo.mobmdview',
         iconcls: '',
         icon: ''
     }
@@ -411,15 +409,6 @@ export default class TodoMobMDViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof TodoMobMDViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof TodoMobMDViewBase
@@ -442,6 +431,17 @@ export default class TodoMobMDViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof TodoMobMDViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)
@@ -906,7 +906,7 @@ export default class TodoMobMDViewBase extends Vue {
      * @memberof TodoMobMDViewBase
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

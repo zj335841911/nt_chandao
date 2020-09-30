@@ -149,6 +149,10 @@ export default {
 			caption: "重现步骤",
       		title: "Bug编辑视图",
 		},
+		gridview9_storyformbug: {
+			caption: "来源Bug",
+      		title: "来源Bug",
+		},
 		confirmview: {
 			caption: "确认Bug",
       		title: "确认Bug",
@@ -193,6 +197,10 @@ export default {
 			caption: "解决Bug",
       		title: "解决Bug",
 		},
+		resolvechartview: {
+			caption: "解决Bug",
+      		title: "Bug图表视图（解决Bug）",
+		},
 		gridview: {
 			caption: "Bug",
       		title: "bug表格视图",
@@ -212,6 +220,14 @@ export default {
 		casetobugeditview: {
 			caption: "Bug",
       		title: "Bug",
+		},
+		projectbugsgridview: {
+			caption: "Bug",
+      		title: "Bug实体表格视图(项目遗留得Bug)",
+		},
+		testbugsgridview: {
+			caption: "Bug",
+      		title: "Bug表格视图(遗留的bug)",
 		},
 		closeview: {
 			caption: "关闭Bug",
@@ -802,6 +818,19 @@ export default {
         bug_mainedit: "编辑",
 		},
 	},
+	main_reportsub_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "Bug标题",
+			openedby: "创建",
+			resolvedby: "解决者",
+			resolveddate: "解决日期",
+			status: "Bug状态",
+		},
+		uiactions: {
+		},
+	},
 	storyrelated_grid: {
 		columns: {
 			id: "ID",
@@ -823,15 +852,22 @@ export default {
 		uiactions: {
 		},
 	},
-	main_reportsub_grid: {
+	main_dataexport_grid: {
 		columns: {
 			id: "ID",
 			pri: "P",
+			confirmed: "确认",
 			title: "Bug标题",
-			openedby: "创建",
-			resolvedby: "解决者",
-			resolveddate: "解决日期",
 			status: "Bug状态",
+			openedby: "由谁创建",
+			openeddate: "创建日期",
+			assignedto: "指派给",
+			resolution: "方案",
+			lastediteddate: "修改日期",
+			activateddate: "激活日期",
+			isfavorites: "是否收藏",
+			product: "所属产品",
+			projectname: "项目",
 		},
 		uiactions: {
 		},
@@ -868,6 +904,13 @@ export default {
 			pri: "级别",
 			title: "Bug标题",
 			status: "状态",
+		},
+		uiactions: {
+		},
+	},
+	default_searchform: {
+		details: {
+			formpage1: "常规条件", 
 		},
 		uiactions: {
 		},
@@ -952,6 +995,18 @@ export default {
 			tip: "提Bug",
 		},
 	},
+	testreportsubgridviewtoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
+		},
+	},
+	projectbugsgridviewtoolbar_toolbar: {
+	},
 	releasesubgridview_donetoolbar_toolbar: {
 		deuiaction1: {
 			caption: "关联bug",
@@ -969,16 +1024,6 @@ export default {
 			caption: "新建",
 			tip: "新建",
 		},
-		deuiaction2: {
-			caption: "刷新",
-			tip: "刷新",
-		},
-		deuiaction1: {
-			caption: "Export",
-			tip: "Export {0} Data To Excel",
-		},
-	},
-	testreportsubgridviewtoolbar_toolbar: {
 		deuiaction2: {
 			caption: "刷新",
 			tip: "刷新",

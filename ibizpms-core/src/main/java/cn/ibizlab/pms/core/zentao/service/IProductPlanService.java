@@ -45,6 +45,7 @@ public interface IProductPlanService extends IService<ProductPlan>{
     Page<ProductPlan> searchCurProductPlan(ProductPlanSearchContext context) ;
     Page<ProductPlan> searchDefault(ProductPlanSearchContext context) ;
     Page<ProductPlan> searchDefaultParent(ProductPlanSearchContext context) ;
+    Page<ProductPlan> searchPlanCodeList(ProductPlanSearchContext context) ;
     Page<ProductPlan> searchProjectPlan(ProductPlanSearchContext context) ;
     List<ProductPlan> selectByBranch(Long id) ;
     void removeByBranch(Long id) ;

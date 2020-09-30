@@ -1,8 +1,8 @@
 <template>
      <div class="app-mobile-select-drop-down">
-        <div class="cancel-icon" v-if="curvalue"><ion-icon name="close-circle-outline" @click="onClear"></ion-icon></div>
+        <div class="cancel-icon" v-if="curvalue"><ion-icon name="close-circle-outline" @click.stop="onClear"></ion-icon></div>
         <div v-if="curvalue== null || curvalue==''" class="ion-select-icon"></div>
-        <ion-input class="select_text" readonly="true" :value="curvalue" :ref="name+'input'" style="height: 43px;" @ionFocus="openSelect"/>
+        <div class="select_text" @click="openSelect" >{{curvalue}}</div>
         <ion-select :selected-text="selectValue" :ref="name+'select'" v-show="false" :disabled="disabled " @ionChange="change" interface="action-sheet" :cancel-text="$t('app.button.cancel')" @ionCancel="cancel">
             <ion-select-option  v-for="option of items" :key="option.value" :value="option.value">{{option.text}}</ion-select-option>
         </ion-select>
@@ -27,7 +27,7 @@ import { ViewOpenService } from '../../utils/view-open-service/view-open-service
                 associated_entity: 'Please configure the associated entity and data set in the corresponding entity properties!',
                 error_request: 'Error, request exception!',
                 error_system: 'Error, the system is abnormal!',
-                error_value: 'Error, abnormal value item!',                
+                error_value: 'Error, abnormal value item!',
             }
         }
     }
@@ -199,7 +199,7 @@ export default class AppSelectDropDown extends Vue {
       * @type {string}
       * @memberof AppSelectDropDown
       */
-    public selectValue :any= "";
+    public selectValue: any = "";
 
 
     /**
@@ -219,7 +219,7 @@ export default class AppSelectDropDown extends Vue {
      */
     get curvalue() {
         if (this.value && this.items.length > 0) { // 判断是否拿到表单传来的值、列表项是否加载完成
-            if (this.valueitem && this.items.every((item:any)=>{return item[this.deKeyField] != this.value })) {
+            if (this.valueitem && this.items.every((item: any) => { return item[this.deKeyField] != this.value })) {
                 return this.value;
             }
         }
@@ -246,8 +246,8 @@ export default class AppSelectDropDown extends Vue {
     @Watch('value')
     public onValueChange(newVal: any, oldVal: any) {
         if (oldVal && !newVal) {
-            this.$nextTick(()=>{
-                let select :any = this.$refs[this.name+'select'];
+            this.$nextTick(() => {
+                let select: any = this.$refs[this.name + 'select'];
                 if (select) {
                     select.value = null;
                 }
@@ -265,7 +265,7 @@ export default class AppSelectDropDown extends Vue {
                 this.items.push({ text: newVal, value: value });
             }
             this.onSearch(newVal, false);
-            this.$store.commit('setSelectStatus',true);
+            this.$store.commit('setSelectStatus', true);
         }
     }
 
@@ -276,7 +276,7 @@ export default class AppSelectDropDown extends Vue {
      */
     public mounted() {
         this.onSearch(null, true);
-        this.$store.commit('setSelectStatus',true);
+        this.$store.commit('setSelectStatus', true);
     }
 
     /**
@@ -287,7 +287,7 @@ export default class AppSelectDropDown extends Vue {
         this.open = flag;
         if (this.open) {
             this.onSearch(this.curvalue, true);
-            this.$store.commit('setSelectStatus',true);
+            this.$store.commit('setSelectStatus', true);
         }
     }
     /**
@@ -312,7 +312,7 @@ export default class AppSelectDropDown extends Vue {
         this.inputState = false;
         Object.assign(_param, { query: query });
         if (!this.acParams.serviceName || !this.acParams.interfaceName) {
-            this.$notice.error(`${this.$t('associated_entity')}` );
+            this.$notice.error(`${this.$t('associated_entity')}`);
             return;
         }
         const appEntityServiceConstructor = window.appEntityServiceConstructor;
@@ -323,7 +323,7 @@ export default class AppSelectDropDown extends Vue {
                 this.items = response.data;
                 this.result(this.items);
             } else {
-                this.$notice.error(`${this.$t('error_request')}` );
+                this.$notice.error(`${this.$t('error_request')}`);
             }
         }
     }
@@ -354,7 +354,7 @@ export default class AppSelectDropDown extends Vue {
         if (this.valueitem) {
             let tempvalue = item[this.deKeyField] ? item[this.deKeyField] : item.srfkey;
             this.$emit('formitemvaluechange', { name: this.valueitem, value: tempvalue });
-            
+
         }
         if (this.name) {
             let temptext = item[this.deMajorField] ? item[this.deMajorField] : item.srfmajortext;
@@ -369,7 +369,7 @@ export default class AppSelectDropDown extends Vue {
      * @memberof AppSelectDropDown
      */
     public onSelect(val: string) {
-        let index = this.items.findIndex((item) => {return item[this.deKeyField] == val} );
+        let index = this.items.findIndex((item) => { return item[this.deKeyField] == val });
         if (index >= 0) {
             this.onACSelect(this.items[index]);
         }
@@ -394,7 +394,7 @@ export default class AppSelectDropDown extends Vue {
             this.$emit('formitemvaluechange', { name: this.name, value: '' });
         }
         this.selectValue = null;
-        let select :any = this.$refs[this.name+'select'];
+        let select: any = this.$refs[this.name + 'select'];
         select.value = null;
         this.$forceUpdate();
     }
@@ -652,8 +652,8 @@ export default class AppSelectDropDown extends Vue {
             return false;
         }
         // 导航参数处理
-        const {context, param} = this.$viewTool.formatNavigateParam( this.navigateContext, this.navigateParam, this.context, this.viewparams, this.data );
-        arg.context =  context;
+        const { context, param } = this.$viewTool.formatNavigateParam(this.navigateContext, this.navigateParam, this.context, this.viewparams, this.data);
+        arg.context = context;
         arg.param = param;
         return true;
     }
@@ -764,8 +764,8 @@ export default class AppSelectDropDown extends Vue {
      * @memberof AppSelect
      */
     public change(value: any) {
-        this.$store.commit('setSelectStatus',true);
-        this.curvalue = value.detail.value;        
+        this.$store.commit('setSelectStatus', true);
+        this.curvalue = value.detail.value;
     }
 
     /**
@@ -774,8 +774,8 @@ export default class AppSelectDropDown extends Vue {
      * @type {*}
      * @memberof AppSelect
      */
-    public cancel(){
-      this.$store.commit('setSelectStatus',true);
+    public cancel() {
+        this.$store.commit('setSelectStatus', true);
     }
 
     /**
@@ -793,14 +793,14 @@ export default class AppSelectDropDown extends Vue {
      * @type {*}
      * @memberof AppSelectDropDown
      */
-    public openSelect(){
+    public openSelect() {
         this.onSearch(null);
-        this.$store.commit('setSelectStatus',true);
-        let select :any= this.$refs[this.name+'select'];
-        if(select){
+        this.$store.commit('setSelectStatus', true);
+        let select: any = this.$refs[this.name + 'select'];
+        if (select) {
             setTimeout(() => {
                 select.open();
-                this.$store.commit('setSelectStatus',false);
+                this.$store.commit('setSelectStatus', false);
             }, 1);
         }
     }

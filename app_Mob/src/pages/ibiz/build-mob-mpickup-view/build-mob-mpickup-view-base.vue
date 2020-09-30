@@ -6,11 +6,47 @@
     
               <ion-toolbar>
     <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
+    <ion-button class="filter-btn" size="small" slot="end"  @click="openSearchform"><ion-icon  slot="end" name="filter-outline"></ion-icon>过滤</ion-button>  
   </ion-toolbar>
 
     </ion-header>
 
-
+    <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
+        <ion-header>
+            <ion-toolbar translucent>
+                <ion-title>条件搜索</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <div class="searchform_content">
+            <view_searchform
+    :viewState="viewState"
+    viewName="BuildMobMPickupView"  
+    :viewparams="viewparams" 
+    :context="context" 
+     
+    :viewtag="viewtag"
+    :showBusyIndicator="true"
+    updateAction=""
+    removeAction=""
+    loaddraftAction="FilterGetDraft"
+    loadAction="FilterGet"
+    createAction=""
+    WFSubmitAction=""
+    WFStartAction=""
+    style='' 
+    name="searchform"  
+    ref='searchform' 
+    @closeview="closeView($event)">
+</view_searchform>
+        </div>
+        <ion-footer>
+        <div class="search-btn">
+            <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
+            <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
+        </div>
+        </ion-footer>
+    </van-popup>
+    <div id="searchformbuildmobmpickupview"></div>
     <ion-content>
                 <view_pickupviewpanel
             :viewState="viewState"
@@ -26,7 +62,7 @@
             @closeview="closeView($event)">
         </view_pickupviewpanel>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
         <ion-toolbar style="text-align: center;">
     <div class="mobpickupview_button">
       <ion-button class="pick-btn" @click="onClickCancel" color="medium">{{$t('app.button.cancel')}}</ion-button>
@@ -181,6 +217,7 @@ export default class BuildMobMPickupViewBase extends Vue {
         srfCaption: 'build.views.mobmpickupview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'build.mobmpickupview',
         iconcls: '',
         icon: 'fa fa-code-fork'
     }
@@ -234,6 +271,7 @@ export default class BuildMobMPickupViewBase extends Vue {
      * @memberof BuildMobMPickupViewBase
      */
     protected containerModel: any = {
+        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
         view_pickupviewpanel: { name: 'pickupviewpanel', type: 'PICKUPVIEWPANEL' },
         view_okbtn: { name: 'okbtn', type: 'button', text: '确定', disabled: true },
         view_cancelbtn: { name: 'cancelbtn', type: 'button', text: '取消', disabled: false },
@@ -259,6 +297,7 @@ export default class BuildMobMPickupViewBase extends Vue {
      * @memberof BuildMobMPickupViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
     /**
@@ -327,15 +366,6 @@ export default class BuildMobMPickupViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof BuildMobMPickupViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof BuildMobMPickupViewBase
@@ -358,6 +388,17 @@ export default class BuildMobMPickupViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof BuildMobMPickupViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)

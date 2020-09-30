@@ -586,6 +586,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import TaskService from '@/app-core/service/task/task-service';
 import MobMainService from '@/app-core/ctrl-service/task/mob-main-form-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import TaskUIService from '@/ui-service/task/task-ui-action';
 
@@ -941,186 +942,20 @@ export default class MobMainBase extends Vue implements ControlInterface {
     protected saveState:any ;
 
     /**
+      * 异常信息缓存
+      *
+      * @type {any}
+      * @memberof MobMain
+      */
+    public errorCache :any = {};
+
+    /**
      * 属性值规则
      *
      * @type {*}
      * @memberof MobMain
      */
     protected rules: any = {
-        srfupdatedate: [
-            { type: 'string', message: '最后修改日期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '最后修改日期 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '最后修改日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '最后修改日期 值不能为空', trigger: 'blur' },
-        ],
-        srforikey: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        projectname: [
-            { type: 'string', message: '所属项目 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '所属项目 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '所属项目 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '所属项目 值不能为空', trigger: 'blur' },
-        ],
-        modulename: [
-            { type: 'string', message: '所属模块 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '所属模块 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '所属模块 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '所属模块 值不能为空', trigger: 'blur' },
-        ],
-        name: [
-            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '任务名称 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
-        ],
-        type: [
-            { type: 'string', message: '任务类型 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '任务类型 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '任务类型 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务类型 值不能为空', trigger: 'blur' },
-        ],
-        assignedto: [
-            { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '指派给 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
-        ],
-        assigneddate: [
-            { type: 'string', message: '指派日期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '指派日期 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '指派日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '指派日期 值不能为空', trigger: 'blur' },
-        ],
-        multiple: [
-            { type: 'string', message: '多人任务 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '多人任务 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '多人任务 值不能为空', trigger: 'blur' },
-        ],
-        status: [
-            { type: 'string', message: '任务状态 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '任务状态 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '任务状态 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务状态 值不能为空', trigger: 'blur' },
-        ],
-        pri: [
-            { type: 'string', message: '优先级 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '优先级 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '优先级 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '优先级 值不能为空', trigger: 'blur' },
-        ],
-        estimate: [
-            { type: 'number', message: '最初预计 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '最初预计 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '最初预计 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '最初预计 值不能为空', trigger: 'blur' },
-        ],
-        consumed: [
-            { type: 'number', message: '总计消耗 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '总计消耗 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '总计消耗 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '总计消耗 值不能为空', trigger: 'blur' },
-        ],
-        left: [
-            { type: 'number', message: '预计剩余 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '预计剩余 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '预计剩余 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '预计剩余 值不能为空', trigger: 'blur' },
-        ],
-        eststarted: [
-            { type: 'string', message: '预计开始 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '预计开始 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '预计开始 值不能为空', trigger: 'blur' },
-        ],
-        realstarted: [
-            { type: 'string', message: '实际开始 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '实际开始 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '实际开始 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '实际开始 值不能为空', trigger: 'blur' },
-        ],
-        deadline: [
-            { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '截止日期 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '截止日期 值不能为空', trigger: 'blur' },
-        ],
-        finishedby: [
-            { type: 'string', message: '由谁完成 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '由谁完成 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '由谁完成 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '由谁完成 值不能为空', trigger: 'blur' },
-        ],
-        closedby: [
-            { type: 'string', message: '由谁关闭 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '由谁关闭 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '由谁关闭 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '由谁关闭 值不能为空', trigger: 'blur' },
-        ],
-        closeddate: [
-            { type: 'string', message: '关闭时间 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '关闭时间 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '关闭时间 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '关闭时间 值不能为空', trigger: 'blur' },
-        ],
-        closedreason: [
-            { type: 'string', message: '关闭原因 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '关闭原因 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '关闭原因 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '关闭原因 值不能为空', trigger: 'blur' },
-        ],
-        desc: [
-            { type: 'string', message: '任务描述 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '任务描述 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '任务描述 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '任务描述 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
     }
 
     /**
@@ -1137,7 +972,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      *
      * @public
      * @param {{ name: string }} { name }
-     * @memberof MobMainBase
+     * @memberof MobNewFormBase
      */
     public verifyDeRules(name:string,rule:any = this.deRules,op:string = "AND") :{isPast:boolean,infoMessage:string}{
         let falg:any = {infoMessage:""};
@@ -1162,25 +997,30 @@ export default class MobMainBase extends Vue implements ControlInterface {
             if(item.type == 'SIMPLE'){
                 startOp(!this.$verify.checkFieldSimpleRule(dataValue,item.condOP,item.paramValue,item.ruleInfo,item.paramType,this.data,item.isKeyCond));
                 falg.infoMessage = item.ruleInfo;
+                this.errorCache[item.deName] = item.ruleInfo;
             }
             // 数值范围
             if(item.type == 'VALUERANGE2'){
                 startOp( !this.$verify.checkFieldValueRangeRule(dataValue,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond));
+                this.errorCache[item.deName] = item.ruleInfo;
                 falg.infoMessage = item.ruleInfo;
             }
             // 正则式
             if (item.type == "REGEX") {
                 startOp(!this.$verify.checkFieldRegExRule(dataValue,item.regExCode,item.ruleInfo,item.isKeyCond));
+                this.errorCache[item.deName] = item.ruleInfo;
                 falg.infoMessage = item.ruleInfo;
             }
             // 长度
             if (item.type == "STRINGLENGTH") {
                 startOp(!this.$verify.checkFieldStringLengthRule(dataValue,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond)); 
+                this.errorCache[item.deName] = item.ruleInfo;
                 falg.infoMessage = item.ruleInfo;
             }
             // 系统值规则
             if(item.type == "SYSVALUERULE") {
                 startOp(!this.$verify.checkFieldSysValueRule(dataValue,item.sysRule.regExCode,item.ruleInfo,item.isKeyCond));
+                this.errorCache[item.deName] = item.ruleInfo;
                 falg.infoMessage = item.ruleInfo;
             }
             // 分组
@@ -1724,11 +1564,14 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     public validItem(property:string, data:any):Promise<any>{
         return new Promise((resolve, reject) => {
+            if(!property || !this.rules[property]){
+                resolve(true);
+            }
             Util.validateItem(property,data,this.rules[property]).then(()=>{
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(errors[0].message);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
                 resolve(false);
             });
         });
@@ -2249,6 +2092,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
+            AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:data});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });
@@ -2290,6 +2134,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.$emit('remove', data);
             this.formState.next({ type: 'remove', data: data });
             this.data.ismodify = false;
+            AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:data});
             this.$notice.success((data.srfmajortext ? data.srfmajortext : '') + '&nbsp;'+ this.$t('app.message.deleteSccess'));
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
@@ -2313,6 +2158,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
             this.$notice.success('工作流启动成功');
+            AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:data});
         } else if (response && response.status !== 401) {
             this.$notice.error('工作流启动失败, ' + response.error.message);
         }
@@ -2339,6 +2185,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
             this.$notice.success('工作流提交成功');
+            AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:data});
         } else if (response && response.status !== 401) {
             this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
@@ -2376,6 +2223,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
             this.fillForm(_data, 'updateFormItem');
             this.formLogic({ name: '', newVal: null, oldVal: null });
             this.dataChang.next(JSON.stringify(this.data));
+            AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:data});
             this.$nextTick(() => {
                 this.formState.next({ type: 'updateformitem', ufimode: arg.srfufimode, data: _data });
             });

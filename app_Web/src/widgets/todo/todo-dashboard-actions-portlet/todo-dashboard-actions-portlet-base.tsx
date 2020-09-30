@@ -5,6 +5,8 @@ import TodoService from '@/service/todo/todo-service';
 import TodoDashboardActionsService from './todo-dashboard-actions-portlet-service';
 import TodoUIService from '@/uiservice/todo/todo-ui-service';
 import { Environment } from '@/environments/environment';
+import UIService from '@/uiservice/ui-service';
+import { ViewTool } from '@/utils';
 
 
 /**
@@ -354,6 +356,31 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
     @Prop() public width?: number;
 
     /**
+     * 门户部件类型
+     *
+     * @type {number}
+     * @memberof TodoDashboardActionsBase
+     */
+    public portletType: string = 'actionbar';
+
+    /**
+     * 界面行为模型数据
+     *
+     * @memberof TodoDashboardActionsBase
+     */
+    public uiactionModel: any = {
+        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
+        edit1cz: {name: 'edit1cz', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'UPDATE', uiaction: { tag: 'edit1Cz', target: 'SINGLEKEY' } },
+        deletecz: {name: 'deletecz', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'DELETE', uiaction: { tag: 'deleteCz', target: 'SINGLEKEY' } },
+        assigntocz: {name: 'assigntocz', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'ASSIGNTO', uiaction: { tag: 'assignToCz', target: 'SINGLEKEY' } },
+        finishcz: {name: 'finishcz', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'FINISH', uiaction: { tag: 'finishCz', target: 'SINGLEKEY' } },
+        activatecz: {name: 'activatecz', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'ACTIVATE', uiaction: { tag: 'activateCz', target: 'SINGLEKEY' } },
+        closecz: {name: 'closecz', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'CLOSE', uiaction: { tag: 'closeCz', target: 'SINGLEKEY' } },
+        tobug: {name: 'tobug', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'TOBUG', uiaction: { tag: 'toBug', target: 'SINGLEKEY' } },
+        totask: {name: 'totask', actiontarget: 'SINGLEKEY',  disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'TOTASK', uiaction: { tag: 'toTask', target: 'SINGLEKEY' } },
+    }
+
+    /**
      * 操作栏模型数据
      *
      * @returns {any[]}
@@ -550,6 +577,9 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
     public afterCreated(){
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
+                if(Object.is(tag, "all-portlet") && Object.is(action,'loadmodel')){
+                   this.calcUIActionAuthState(data);
+                }
                 if (!Object.is(tag, this.name)) {
                     return;
                 }
@@ -578,6 +608,23 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
     public afterDestroy() {
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
+        }
+    }
+
+    /**
+     * 计算界面行为权限
+     *
+     * @memberof TodoDashboardActionsBase
+     */
+    public calcUIActionAuthState(data:any = {}) {
+        //  如果是操作栏，不计算权限
+        if(this.portletType && Object.is('actionbar', this.portletType)) {
+            return;
+        }
+        let _this: any = this;
+        let uiservice: any = _this.appUIService ? _this.appUIService : new UIService(_this.$store);
+        if(_this.uiactionModel){
+            ViewTool.calcActionItemAuthState(data,_this.uiactionModel,uiservice);
         }
     }
 

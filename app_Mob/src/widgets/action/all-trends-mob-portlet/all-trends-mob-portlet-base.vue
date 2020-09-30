@@ -4,7 +4,7 @@
             <ion-list-header class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
                 <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>动态</span></span>
-                <div class="portlet__header_right">
+                <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
                     <ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon>
                 </div>
             </ion-list-header>
@@ -26,6 +26,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ActionService from '@/app-core/service/action/action-service';
 import AllTrendsMobService from '@/app-core/ctrl-service/action/all-trends-mob-portlet-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import ActionUIService from '@/ui-service/action/action-ui-action';
 

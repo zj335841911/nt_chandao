@@ -6,12 +6,14 @@ import product_en_US from '@locale/lanres/entities/product/product_en_US';
 import taskteam_en_US from '@locale/lanres/entities/task-team/task-team_en_US';
 import file_en_US from '@locale/lanres/entities/file/file_en_US';
 import ibzprostorymodule_en_US from '@locale/lanres/entities/ibzpro-story-module/ibzpro-story-module_en_US';
+import productsum_en_US from '@locale/lanres/entities/product-sum/product-sum_en_US';
 import ibzlibcasesteps_en_US from '@locale/lanres/entities/ibz-lib-casesteps/ibz-lib-casesteps_en_US';
 import ibzlib_en_US from '@locale/lanres/entities/ibz-lib/ibz-lib_en_US';
 import suitecase_en_US from '@locale/lanres/entities/suite-case/suite-case_en_US';
 import burn_en_US from '@locale/lanres/entities/burn/burn_en_US';
 import substory_en_US from '@locale/lanres/entities/sub-story/sub-story_en_US';
 import subproductplan_en_US from '@locale/lanres/entities/sub-product-plan/sub-product-plan_en_US';
+import employeeload_en_US from '@locale/lanres/entities/employ-eeload/employ-eeload_en_US';
 import storyspec_en_US from '@locale/lanres/entities/story-spec/story-spec_en_US';
 import usertpl_en_US from '@locale/lanres/entities/user-tpl/user-tpl_en_US';
 import ibzfavorites_en_US from '@locale/lanres/entities/ibz-favorites/ibz-favorites_en_US';
@@ -19,6 +21,7 @@ import branch_en_US from '@locale/lanres/entities/branch/branch_en_US';
 import productstats_en_US from '@locale/lanres/entities/product-stats/product-stats_en_US';
 import ibzprojectmember_en_US from '@locale/lanres/entities/ibz-project-member/ibz-project-member_en_US';
 import action_en_US from '@locale/lanres/entities/action/action_en_US';
+import bugstats_en_US from '@locale/lanres/entities/bug-stats/bug-stats_en_US';
 import group_en_US from '@locale/lanres/entities/group/group_en_US';
 import ibzproproduct_en_US from '@locale/lanres/entities/ibzpro-product/ibzpro-product_en_US';
 import casestep_en_US from '@locale/lanres/entities/case-step/case-step_en_US';
@@ -30,6 +33,7 @@ import story_en_US from '@locale/lanres/entities/story/story_en_US';
 import todo_en_US from '@locale/lanres/entities/todo/todo_en_US';
 import ibzlibmodule_en_US from '@locale/lanres/entities/ibz-lib-module/ibz-lib-module_en_US';
 import subtask_en_US from '@locale/lanres/entities/sub-task/sub-task_en_US';
+import useryearworkstats_en_US from '@locale/lanres/entities/user-year-work-stats/user-year-work-stats_en_US';
 import ibzlibcasesteptmp_en_US from '@locale/lanres/entities/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp_en_US';
 import project_en_US from '@locale/lanres/entities/project/project_en_US';
 import history_en_US from '@locale/lanres/entities/history/history_en_US';
@@ -200,6 +204,7 @@ export default {
                 menuitem3: "产品主页",
                 menuitem2: "项目主页",
                 menuitem1: "测试主页",
+                menuitem22: "统计",
                 menuitem10: "用例库",
                 menuitem11: "用户",
                 menuitem7: "iBiz软件生产管理",
@@ -327,12 +332,14 @@ export default {
         taskteam: taskteam_en_US,
         file: file_en_US,
         ibzprostorymodule: ibzprostorymodule_en_US,
+        productsum: productsum_en_US,
         ibzlibcasesteps: ibzlibcasesteps_en_US,
         ibzlib: ibzlib_en_US,
         suitecase: suitecase_en_US,
         burn: burn_en_US,
         substory: substory_en_US,
         subproductplan: subproductplan_en_US,
+        employeeload: employeeload_en_US,
         storyspec: storyspec_en_US,
         usertpl: usertpl_en_US,
         ibzfavorites: ibzfavorites_en_US,
@@ -340,6 +347,7 @@ export default {
         productstats: productstats_en_US,
         ibzprojectmember: ibzprojectmember_en_US,
         action: action_en_US,
+        bugstats: bugstats_en_US,
         group: group_en_US,
         ibzproproduct: ibzproproduct_en_US,
         casestep: casestep_en_US,
@@ -351,6 +359,7 @@ export default {
         todo: todo_en_US,
         ibzlibmodule: ibzlibmodule_en_US,
         subtask: subtask_en_US,
+        useryearworkstats: useryearworkstats_en_US,
         ibzlibcasesteptmp: ibzlibcasesteptmp_en_US,
         project: project_en_US,
         history: history_en_US,

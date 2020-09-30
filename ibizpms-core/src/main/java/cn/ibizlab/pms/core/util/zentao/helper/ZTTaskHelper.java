@@ -263,6 +263,20 @@ final public class ZTTaskHelper {
         ACTION_PARAMS_CREATE.put("multiple", 0);
         ACTION_PARAMS_CREATE.put("status", "wait");
 
+        // BATCHCREATE
+        ACTION_PARAMS_BATCHCREATE.put("module[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("parent[]", 0);
+        ACTION_PARAMS_BATCHCREATE.put("story[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("name[]", 0);
+        ACTION_PARAMS_BATCHCREATE.put("color[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("type[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("assignedTo[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("estimate[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("estStarted", null);
+        ACTION_PARAMS_BATCHCREATE.put("deadline[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("desc[]", null);
+        ACTION_PARAMS_BATCHCREATE.put("pri[]", null);
+
         // EDIT
         ACTION_PARAMS_EDIT.put("project", 0);
         ACTION_PARAMS_EDIT.put("type", null);
@@ -351,6 +365,11 @@ final public class ZTTaskHelper {
         ACTION_URL_PARAMS_CREATE.add("module");
         ACTION_URL_PARAMS_CREATE.add("parent");
 
+        ACTION_URL_PARAMS_BATCHCREATE.add("project");
+        ACTION_URL_PARAMS_BATCHCREATE.add("story");
+        ACTION_URL_PARAMS_BATCHCREATE.add("module");
+        ACTION_URL_PARAMS_BATCHCREATE.add("parent");
+
         // EDIT
         ACTION_URL_PARAMS_EDIT.add("id");
 
@@ -432,6 +451,28 @@ final public class ZTTaskHelper {
         List<String> actionUrlParams = ACTION_URL_PARAMS_CREATE;
         String returnUrlRegexPrev = ACTION_RETURNURL_CREATE;
         List<ZTCheckItem> checkList = ACTION_CHECKLIST_CREATE;
+
+        return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
+    }
+
+    /**
+     * create 创建
+     *
+     * @param zentaoSid
+     * @param jo
+     * @param rst
+     * @return
+     */
+    public static boolean batchCreate(String zentaoSid, JSONObject jo, ZTResult rst) {
+        // 参数赋值
+        String moduleName = MODULE_NAME;
+        String urlExt = ZenTaoConstants.ZT_URL_EXT;
+        String actionName = ACTION_BATCHCREATE;
+        HttpMethod actionHttpMethod = ACTION_HTTPMETHOD_BATCHCREATE;
+        Map<String, Object> actionParams = ACTION_PARAMS_BATCHCREATE;
+        List<String> actionUrlParams = ACTION_URL_PARAMS_BATCHCREATE;
+        String returnUrlRegexPrev = ACTION_RETURNURL_BATCHCREATE;
+        List<ZTCheckItem> checkList = ACTION_CHECKLIST_BATCHCREATE;
 
         return ZenTaoHttpHelper.doZTRequest(jo, rst, zentaoSid, urlExt, actionHttpMethod, moduleName, actionName, actionUrlParams, actionParams, PARAMS_DATEFORMAT, returnUrlRegexPrev, checkList);
     }

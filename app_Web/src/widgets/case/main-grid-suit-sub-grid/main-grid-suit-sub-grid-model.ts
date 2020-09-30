@@ -136,6 +136,11 @@ export default class MainGrid_SuitSubModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
           name: 'case',
           prop: 'id',
         },

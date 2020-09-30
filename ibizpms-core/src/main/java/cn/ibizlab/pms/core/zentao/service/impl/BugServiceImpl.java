@@ -622,6 +622,15 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     }
 
     /**
+     * 查询集合 版本关联bug(遗留的)
+     */
+    @Override
+    public Page<Bug> searchBugsByBuild(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchBugsByBuild(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 版本关联Bug（已解决）
      */
     @Override
@@ -649,6 +658,123 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     }
 
     /**
+     * 查询集合 Build产生的Bug
+     */
+    @Override
+    public Page<Bug> searchBuildProduceBug(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchBuildProduceBug(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 Build产生的Bug
+     */
+    @Override
+    public Page<Bug> searchBuildProduceBugModule(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchBuildProduceBugModule(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 Build产生的Bug-创建者分布(项目)
+     */
+    @Override
+    public Page<Bug> searchBuildProduceBugModule_Project(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchBuildProduceBugModule_Project(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 Build产生的Bug-创建分类
+     */
+    @Override
+    public Page<Bug> searchBuildProduceBugOpenedBy(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchBuildProduceBugOpenedBy(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 Build产生的Bug-创建者分布(项目)
+     */
+    @Override
+    public Page<Bug> searchBuildProduceBugOpenedBy_Project(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchBuildProduceBugOpenedBy_Project(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 Build产生的Bug（已解决）
+     */
+    @Override
+    public Page<Bug> searchBuildProduceBugRES(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchBuildProduceBugRES(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 Build产生的Bug-解决者分布
+     */
+    @Override
+    public Page<Bug> searchBuildProduceBugRESOLVEDBY(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchBuildProduceBugRESOLVEDBY(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 Build产生的Bug-解决者分布(项目)
+     */
+    @Override
+    public Page<Bug> searchBuildProduceBugRESOLVEDBY_Project(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchBuildProduceBugRESOLVEDBY_Project(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 Build产生的Bug-解决方案分布(项目)
+     */
+    @Override
+    public Page<Bug> searchBuildProduceBugResolution_Project(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchBuildProduceBugResolution_Project(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 Build产生的Bug-严重程度分布(项目)
+     */
+    @Override
+    public Page<Bug> searchBuildProduceBugSeverity_Project(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchBuildProduceBugSeverity_Project(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 Build产生的Bug-状态分布(项目)
+     */
+    @Override
+    public Page<Bug> searchBuildProduceBugStatus_Project(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchBuildProduceBugStatus_Project(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 Build产生的Bug-类型分布(项目)
+     */
+    @Override
+    public Page<Bug> searchBuildProduceBugType_Project(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchBuildProduceBugType_Project(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 当前用户解决的Bug
+     */
+    @Override
+    public Page<Bug> searchCurUserResolve(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchCurUserResolve(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 DEFAULT
      */
     @Override
@@ -663,6 +789,15 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     @Override
     public Page<Bug> searchMyFavorites(BugSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchMyFavorites(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 遗留得Bug(项目)
+     */
+    @Override
+    public Page<Bug> searchProjectBugs(BugSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Bug> pages=baseMapper.searchProjectBugs(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Bug>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

@@ -641,7 +641,7 @@ export default class AppMobRecorder extends Vue {
      * @memberof AppMobRecorder
      */
     public onError(error: any, file: any, fileList: any) {
-        this.$notify({ type: 'danger', message: `${this.$t('uploadfailed')}` });
+        this.$notice.error(`${this.$t('uploadfailed')}`);
     }
 
     /**

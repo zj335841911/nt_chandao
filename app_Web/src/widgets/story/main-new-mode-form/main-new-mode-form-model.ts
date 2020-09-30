@@ -26,6 +26,11 @@ export default class Main_NewModeModel {
         dataType: 'TEXT',
       },
       {
+        name: 'srfupdatedate',
+        prop: 'lastediteddate',
+        dataType: 'DATETIME',
+      },
+      {
         name: 'srforikey',
       },
       {

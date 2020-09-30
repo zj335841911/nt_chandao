@@ -39,6 +39,10 @@ zuul:
       path: /ibzprostorymodules/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibz_productsum:
+      path: /productsums/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     ibz_libcasesteps:
       path: /ibzlibcasesteps/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -61,6 +65,10 @@ zuul:
       stripPrefix: false
     ibz_subproductplan:
       path: /subproductplans/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_employeeload:
+      path: /employeeloads/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_storyspec:
@@ -89,6 +97,10 @@ zuul:
       stripPrefix: false
     zt_action:
       path: /actions/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_bugstats:
+      path: /bugstats/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     zt_group:
@@ -133,6 +145,10 @@ zuul:
       stripPrefix: false
     ibz_subtask:
       path: /subtasks/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    ibz_useryearworkstats:
+      path: /useryearworkstats/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibz_libcasestepstmp:

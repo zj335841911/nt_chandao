@@ -81,6 +81,12 @@ export default class MainTabExpViewtabexppanelModel {
       {
         name: 'releasetype',
       },
+      {
+        name: 'builder',
+      },
+      {
+        name: 'builddate',
+      },
     ]
   }
 

@@ -266,6 +266,27 @@ public class ReleaseResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(releaseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-searchReportRelease-all')")
+	@ApiOperation(value = "获取测试报告关联发布", tags = {"发布" } ,notes = "获取测试报告关联发布")
+    @RequestMapping(method= RequestMethod.GET , value="/releases/fetchreportrelease")
+	public ResponseEntity<List<ReleaseDTO>> fetchReportRelease(ReleaseSearchContext context) {
+        Page<Release> domains = releaseService.searchReportRelease(context) ;
+        List<ReleaseDTO> list = releaseMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-searchReportRelease-all')")
+	@ApiOperation(value = "查询测试报告关联发布", tags = {"发布" } ,notes = "查询测试报告关联发布")
+    @RequestMapping(method= RequestMethod.POST , value="/releases/searchreportrelease")
+	public ResponseEntity<Page<ReleaseDTO>> searchReportRelease(@RequestBody ReleaseSearchContext context) {
+        Page<Release> domains = releaseService.searchReportRelease(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(releaseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Create-all')")
     @ApiOperation(value = "根据产品建立发布", tags = {"发布" },  notes = "根据产品建立发布")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases")
@@ -502,6 +523,29 @@ public class ReleaseResource {
 	public ResponseEntity<Page<ReleaseDTO>> searchReleaseDefaultByProduct(@PathVariable("product_id") Long product_id, @RequestBody ReleaseSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Release> domains = releaseService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(releaseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-searchReportRelease-all')")
+	@ApiOperation(value = "根据产品获取测试报告关联发布", tags = {"发布" } ,notes = "根据产品获取测试报告关联发布")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/releases/fetchreportrelease")
+	public ResponseEntity<List<ReleaseDTO>> fetchReleaseReportReleaseByProduct(@PathVariable("product_id") Long product_id,ReleaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Release> domains = releaseService.searchReportRelease(context) ;
+        List<ReleaseDTO> list = releaseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-searchReportRelease-all')")
+	@ApiOperation(value = "根据产品查询测试报告关联发布", tags = {"发布" } ,notes = "根据产品查询测试报告关联发布")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/releases/searchreportrelease")
+	public ResponseEntity<Page<ReleaseDTO>> searchReleaseReportReleaseByProduct(@PathVariable("product_id") Long product_id, @RequestBody ReleaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Release> domains = releaseService.searchReportRelease(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(releaseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

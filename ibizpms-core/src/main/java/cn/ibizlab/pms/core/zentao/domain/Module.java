@@ -45,7 +45,7 @@ public class Module extends EntityMP implements Serializable {
      * 所属根
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "root")
+    @TableField(value = "`root`")
     @JSONField(name = "root")
     @JsonProperty("root")
     private String root;
@@ -53,14 +53,14 @@ public class Module extends EntityMP implements Serializable {
      * 级别
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "grade")
+    @TableField(value = "`grade`")
     @JSONField(name = "grade")
     @JsonProperty("grade")
     private Integer grade;
     /**
      * 类型
      */
-    @TableField(value = "type")
+    @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
@@ -99,7 +99,7 @@ public class Module extends EntityMP implements Serializable {
      * 收藏者
      */
     @DEField(defaultValue = "/")
-    @TableField(value = "collector")
+    @TableField(value = "`collector`")
     @JSONField(name = "collector")
     @JsonProperty("collector")
     private String collector;
@@ -107,7 +107,7 @@ public class Module extends EntityMP implements Serializable {
      * 简称
      */
     @DEField(defaultValue = "/")
-    @TableField(value = "short")
+    @TableField(value = "`short`")
     @JSONField(name = "ibizshort")
     @JsonProperty("ibizshort")
     private String ibizshort;
@@ -115,7 +115,7 @@ public class Module extends EntityMP implements Serializable {
      * 路径
      */
     @DEField(defaultValue = "，")
-    @TableField(value = "path")
+    @TableField(value = "`path`")
     @JSONField(name = "path")
     @JsonProperty("path")
     private String path;
@@ -124,7 +124,7 @@ public class Module extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "deleted")
+    @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
@@ -139,14 +139,14 @@ public class Module extends EntityMP implements Serializable {
      * 平台/分支
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "branch")
+    @TableField(value = "`branch`")
     @JSONField(name = "branch")
     @JsonProperty("branch")
     private Long branch;
     /**
      * 上级模块
      */
-    @TableField(value = "parent")
+    @TableField(value = "`parent`")
     @JSONField(name = "parent")
     @JsonProperty("parent")
     private Long parent;
@@ -261,6 +261,18 @@ public class Module extends EntityMP implements Serializable {
     @Override
     public Serializable getDefaultKey(boolean gen) {
        return IdWorker.getId();
+    }
+    /**
+     * 复制当前对象数据到目标对象(粘贴重置)
+     * @param targetEntity 目标数据对象
+     * @param bIncEmpty  是否包括空值
+     * @param <T>
+     * @return
+     */
+    @Override
+    public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
+        this.reset("id");
+        return super.copyTo(targetEntity,bIncEmpty);
     }
 }
 

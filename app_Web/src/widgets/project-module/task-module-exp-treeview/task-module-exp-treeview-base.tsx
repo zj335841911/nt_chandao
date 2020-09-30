@@ -459,7 +459,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * @type {string}
      * @memberof TaskModuleExpBase
      */
-    @Prop() public selectedData?: string;
+    @Prop() public selectedData!: string;
 
     /**
      * 备份行为模型

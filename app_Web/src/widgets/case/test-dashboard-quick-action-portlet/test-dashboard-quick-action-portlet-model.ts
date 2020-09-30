@@ -180,6 +180,9 @@ export default class TestDashboardQuickActionModel {
       {
         name: 'lastrunresult1',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

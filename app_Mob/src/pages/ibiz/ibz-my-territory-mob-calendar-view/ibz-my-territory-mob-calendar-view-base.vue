@@ -6,7 +6,6 @@
     
     </ion-header>
 
-
     <ion-content>
                 <view_calendar
             :viewState="viewState"
@@ -22,7 +21,7 @@
             @closeview="closeView($event)">
         </view_calendar>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
         
     </ion-footer>
 </ion-page>
@@ -171,6 +170,7 @@ export default class IbzMyTerritoryMobCalendarViewBase extends Vue {
         srfCaption: 'ibzmyterritory.views.mobcalendarview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'ibzmyterritory.mobcalendarview',
         iconcls: '',
         icon: ''
     }
@@ -311,15 +311,6 @@ export default class IbzMyTerritoryMobCalendarViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof IbzMyTerritoryMobCalendarViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof IbzMyTerritoryMobCalendarViewBase
@@ -342,6 +333,17 @@ export default class IbzMyTerritoryMobCalendarViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof IbzMyTerritoryMobCalendarViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)

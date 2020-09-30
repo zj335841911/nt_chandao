@@ -71,6 +71,11 @@ export default class MainTestTaskModel {
         dataType: 'INT',
       },
       {
+        name: 'task',
+        prop: 'task',
+        dataType: 'TEXT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

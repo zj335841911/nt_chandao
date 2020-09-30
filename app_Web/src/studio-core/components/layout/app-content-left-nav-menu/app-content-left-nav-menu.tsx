@@ -242,6 +242,9 @@ export class AppContentLeftNavMenu extends Vue {
      */
     protected renderItems(items: any[]): any {
         return items.map((item: any) => {
+            if (item.hidden) {
+                return;
+            }
             if (item.items) {
                 return this.renderGroup(item);
             }

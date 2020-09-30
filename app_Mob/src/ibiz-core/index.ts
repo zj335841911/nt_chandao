@@ -48,7 +48,7 @@ import { counterServiceConstructor } from '@/app-core/counter/counter-service-co
 import { AppCommunicationsCenter } from './app-service/message-center/app-communications-center';
 import { authServiceConstructor } from '@/app-core/auth-service/auth-service-constructor'
 import { codeListServiceConstructor } from '@/app-core/code-list/code-list-service-constructor';
-import { utilServiceRegister } from '@/utilservice/util-service-register';
+import { utilServiceConstructor } from '@/app-core/util-service/util-service-constructor';
 // 全局挂载应用实体服务构造器
 window['appEntityServiceConstructor'] = appEntityServiceConstructor;
 // 全局挂载计数器服务构造器
@@ -59,7 +59,8 @@ window['authServiceConstructor'] = authServiceConstructor;
 window['codeListServiceConstructor'] = codeListServiceConstructor;
 // 全局挂载应用通讯中心
 window['acc'] = AppCommunicationsCenter.getInstance();
-window['utilServiceRegister'] = utilServiceRegister;
+// 全局挂载工具服务中心 
+window['utilServiceConstructor'] = utilServiceConstructor;
 /**
  * 注册组件
  */

@@ -212,7 +212,7 @@ export default class AppPicker extends Vue {
      * @type {*}
      * @memberof AppPicker
      */
-    @Model('change') public value?: any;
+    @Model('change') public value!: any;
 
     /**
      * 当前值

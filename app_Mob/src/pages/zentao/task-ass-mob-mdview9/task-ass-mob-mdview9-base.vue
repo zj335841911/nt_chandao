@@ -182,6 +182,7 @@ export default class TaskAssMobMDView9Base extends Vue {
         srfCaption: 'task.views.assmobmdview9.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'task.assmobmdview9',
         iconcls: '',
         icon: 'fa fa-tasks'
     }
@@ -235,6 +236,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * @memberof TaskAssMobMDView9Base
      */
     protected containerModel: any = {
+        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
     };
 
@@ -254,6 +256,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * @memberof TaskAssMobMDView9Base
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
 
@@ -343,15 +346,6 @@ export default class TaskAssMobMDView9Base extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof TaskAssMobMDView9Base
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof TaskAssMobMDView9Base
@@ -383,6 +377,17 @@ export default class TaskAssMobMDView9Base extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof TaskAssMobMDView9Base
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)
@@ -706,6 +711,52 @@ export default class TaskAssMobMDView9Base extends Vue {
     @Prop() public formDruipart !: Subject<ViewState>;
 
 
+    /**
+     * 搜索表单状态
+     *
+     * @type {boolean}
+     * @memberof TaskAssMobMDView9Base
+     */
+    public searchformState: boolean = false;
+
+    /**
+     * 是否展开搜索表单
+     *
+     * @type {boolean}
+     * @memberof TaskAssMobMDView9Base
+     */
+    public isExpandSearchForm: boolean = false;
+
+    /**
+     * 执行搜索表单
+     *
+     * @memberof TaskAssMobMDView9Base
+     */
+    public onSearch(): void {
+        this.searchformState = false;
+        this.isExpandSearchForm = true;
+        const form: any = this.$refs.searchform;
+        if (form) {
+            form.onSearch();
+        }
+        this.closeSearchform();
+    }
+
+    /**
+     * 重置搜索表单
+     *
+     * @memberof TaskAssMobMDView9Base
+     */
+    public onReset(): void {
+        this.searchformState = false;
+        this.isExpandSearchForm = false;
+        const form: any = this.$refs.searchform;
+        if (form) {
+            form.onReset();
+        }
+        this.closeSearchform();
+    }
+
    /**
      * 是否单选
      *
@@ -815,7 +866,7 @@ export default class TaskAssMobMDView9Base extends Vue {
      * @memberof TaskAssMobMDView9Base
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

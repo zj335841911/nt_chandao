@@ -26,6 +26,11 @@ export default class RelatedModel {
         dataType: 'TEXT',
       },
       {
+        name: 'srfupdatedate',
+        prop: 'lastediteddate',
+        dataType: 'DATETIME',
+      },
+      {
         name: 'srforikey',
       },
       {
@@ -54,6 +59,11 @@ export default class RelatedModel {
         name: 'linkstories',
         prop: 'linkstories',
         dataType: 'SMCODELIST',
+      },
+      {
+        name: 'frombug',
+        prop: 'frombug',
+        dataType: 'PICKUP',
       },
       {
         name: 'childstories',

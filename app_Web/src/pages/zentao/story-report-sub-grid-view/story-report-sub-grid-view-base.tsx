@@ -424,4 +424,13 @@ export class StoryReportSubGridViewBase extends GridViewBase {
         }
         xData.exportExcel($event.exportparms);
     }
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof StoryReportSubGridViewBase
+     */
+    protected isGridSingleSelect: boolean = true;
 }

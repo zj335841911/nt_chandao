@@ -5,6 +5,8 @@ import TestTaskService from '@/service/test-task/test-task-service';
 import ActionBarService from './action-bar-portlet-service';
 import TestTaskUIService from '@/uiservice/test-task/test-task-ui-service';
 import { Environment } from '@/environments/environment';
+import UIService from '@/uiservice/ui-service';
+import { ViewTool } from '@/utils';
 
 
 /**
@@ -242,6 +244,27 @@ export class ActionBarPortletBase extends MainControlBase {
     @Prop() public width?: number;
 
     /**
+     * 门户部件类型
+     *
+     * @type {number}
+     * @memberof ActionBarBase
+     */
+    public portletType: string = 'actionbar';
+
+    /**
+     * 界面行为模型数据
+     *
+     * @memberof ActionBarBase
+     */
+    public uiactionModel: any = {
+        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
+        activitedash: {name: 'activitedash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTT_ACTIVITE_BUT', uiaction: { tag: 'ActiviteDash', target: 'SINGLEKEY' } },
+        startdash: {name: 'startdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTT_START_BUT', uiaction: { tag: 'StartDash', target: 'SINGLEKEY' } },
+        closedash: {name: 'closedash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTT_CLOSED_BUT', uiaction: { tag: 'CloseDash', target: 'SINGLEKEY' } },
+        blockdash: {name: 'blockdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TESTT_BLOCK_BUT', uiaction: { tag: 'BlockDash', target: 'SINGLEKEY' } },
+    }
+
+    /**
      * 操作栏模型数据
      *
      * @returns {any[]}
@@ -386,6 +409,9 @@ export class ActionBarPortletBase extends MainControlBase {
     public afterCreated(){
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
+                if(Object.is(tag, "all-portlet") && Object.is(action,'loadmodel')){
+                   this.calcUIActionAuthState(data);
+                }
                 if (!Object.is(tag, this.name)) {
                     return;
                 }
@@ -414,6 +440,23 @@ export class ActionBarPortletBase extends MainControlBase {
     public afterDestroy() {
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
+        }
+    }
+
+    /**
+     * 计算界面行为权限
+     *
+     * @memberof ActionBarBase
+     */
+    public calcUIActionAuthState(data:any = {}) {
+        //  如果是操作栏，不计算权限
+        if(this.portletType && Object.is('actionbar', this.portletType)) {
+            return;
+        }
+        let _this: any = this;
+        let uiservice: any = _this.appUIService ? _this.appUIService : new UIService(_this.$store);
+        if(_this.uiactionModel){
+            ViewTool.calcActionItemAuthState(data,_this.uiactionModel,uiservice);
         }
     }
 

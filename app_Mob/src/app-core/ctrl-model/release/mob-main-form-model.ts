@@ -63,7 +63,7 @@ export class MobMainModel {
             {
                 name: 'marker',
                 prop: 'marker',
-                dataType: 'YESNO',
+                dataType: 'SSCODELIST',
             },
             {
                 name: 'status',

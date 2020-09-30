@@ -31,7 +31,6 @@
                     </ion-toolbar>
     </ion-header>
 
-
     <ion-content>
                 <view_tabexppanel
             :viewState="viewState"
@@ -194,6 +193,7 @@ export default class ProductMobTabExpViewBase extends Vue {
         srfCaption: 'product.views.mobtabexpview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'product.mobtabexpview',
         iconcls: '',
         icon: ''
     }
@@ -427,15 +427,6 @@ export default class ProductMobTabExpViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof ProductMobTabExpViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof ProductMobTabExpViewBase
@@ -459,6 +450,17 @@ export default class ProductMobTabExpViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof ProductMobTabExpViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)

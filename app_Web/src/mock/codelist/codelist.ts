@@ -391,6 +391,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        "srfkey": "ProjectCodeList",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Project",
+        "appdedataset":"FetchDefault",
+        "items": []
+    },
+    {
         "srfkey": "SQLBuild",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -1368,6 +1376,23 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Reject",
                 value: "reject",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "CloseProduct",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "关闭产品",
+                text: "关闭产品",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
                 
                 disabled: false,
             },
@@ -3342,6 +3367,33 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        srfkey: "IsAssigned",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "assign",
+                label: "已指派",
+                text: "已指派",
+                "data":"",
+                "codename":"Assign",
+                value: "assign",
+                
+                disabled: false,
+            },
+            {
+                id: "noassign",
+                label: "未指派",
+                text: "未指派",
+                "data":"",
+                "codename":"Noassign",
+                value: "noassign",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Story__stage",
         emptytext: "未定义",
         "codelisttype":"static",
@@ -3910,6 +3962,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 disabled: false,
             },
         ]
+    },
+    {
+        "srfkey": "PlanCodeList",
+        "emptytext": "未计划",
+        "codelisttype":"dynamic",
+        "appdataentity":"ProductPlan",
+        "appdedataset":"FetchPlanCodeList",
+        "items": []
     },
     {
         "srfkey": "CurProductPlan",
@@ -4916,6 +4976,23 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
                 "data":"",
                 "codename":"Item_0",
                 value: 0,
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: "ExpiredPlan",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "1",
+                label: "过期计划",
+                text: "过期计划",
+                "data":"",
+                "codename":"Item_1",
+                value: "1",
                 
                 disabled: false,
             },

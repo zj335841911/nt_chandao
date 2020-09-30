@@ -81,6 +81,15 @@ export default class MainTabExpViewtabexppanelModel {
       {
         name: 'comment',
       },
+      {
+        name: 'overviews',
+      },
+      {
+        name: 'files',
+      },
+      {
+        name: 'productcnt',
+      },
     ]
   }
 

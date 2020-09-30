@@ -15,7 +15,6 @@
     
     </ion-header>
 
-
     <ion-content>
                 <view_chart
             :viewState="viewState"
@@ -177,6 +176,7 @@ export default class ProductMobChartViewBase extends Vue {
         srfCaption: 'product.views.mobchartview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'product.mobchartview',
         iconcls: '',
         icon: ''
     }
@@ -317,15 +317,6 @@ export default class ProductMobChartViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof ProductMobChartViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof ProductMobChartViewBase
@@ -348,6 +339,17 @@ export default class ProductMobChartViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof ProductMobChartViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)

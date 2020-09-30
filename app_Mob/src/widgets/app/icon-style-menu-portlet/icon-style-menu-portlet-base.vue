@@ -4,7 +4,7 @@
             <ion-list-header class='app-mob-portlet__header'>
                 <ion-input v-if="isEditTitle" :value="editTitle" @ionChange="titleChange"></ion-input>
                 <span v-if="!isEditTitle"><span v-if="customizeTitle">{{customizeTitle}}</span><span v-else>图标</span></span>
-                <div class="portlet__header_right">
+                <div v-if="actionBarModelData && actionBarModelData.length> 0" class="portlet__header_right">
                     <ion-icon v-if="!isEditTitle" name="ellipsis-horizontal-outline" @click="open"></ion-icon>
                 </div>
             </ion-list-header>
@@ -15,7 +15,7 @@
     :viewparams="viewparams" 
     :context="context" 
     :showBusyIndicator="true" 
-    controlStyle="ICONVIEW"   
+    controlStyle="ICONVIEW"
     name="db_appmenu2_appmenu"  
     ref='db_appmenu2_appmenu' 
     @closeview="closeView($event)">

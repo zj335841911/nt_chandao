@@ -239,6 +239,38 @@ export default class TreeMainService extends ControlService {
         });
     }
 
+    /**
+     * 查询实体导出数据
+     *
+     * @param {string} action
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TreeMainService
+     */
+    @Errorlog
+    public searchDEExportData(action: string,context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        const {data:Data,context:Context} = this.handleRequestData(action,context,data,true);
+        return new Promise((resolve: any, reject: any) => {
+            const _appEntityService: any = this.appEntityService;
+            let result: Promise<any>;
+            if (_appEntityService[action] && _appEntityService[action] instanceof Function) {
+                result = _appEntityService[action](Context,Data, isloading);
+            }else{
+                result =_appEntityService.FetchDefault(Context,Data, isloading);
+            }
+            result.then((response) => {
+                let model: any = this.getMode();
+                model.isDEExport = true;
+                this.handleResponse(action, response);
+                model.isDEExport = false;
+                resolve(response);
+            }).catch(response => {
+                reject(response);
+            });      
+        });
+    }
 
     /**
      * 加载草稿

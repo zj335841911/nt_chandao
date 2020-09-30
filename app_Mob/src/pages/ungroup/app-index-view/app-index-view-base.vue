@@ -1,11 +1,13 @@
 <template>
-<view_appmenu
+
+<div class="indexView">
+    <view_appmenu
     :viewState="viewState"
     viewName="AppIndexView"  
     :viewparams="viewparams" 
     :context="context" 
     :showBusyIndicator="true" 
-    controlStyle=""   
+    controlStyle=""
     v-model="collapseChange"  
     :mode="mode"  
     :selectTheme="selectTheme"  
@@ -15,12 +17,16 @@
     ref='appmenu' 
     @closeview="closeView($event)">
 </view_appmenu>
+    <app-update-log v-if="updateLogStatus"></app-update-log>
+</div>
 </template>
 
 <script lang='ts'>
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
+
+import { Environment } from '@/environments/environment';
 
 
 @Component({
@@ -141,6 +147,7 @@ export default class AppIndexViewBase extends Vue {
         srfCaption: 'app.views.appindexview.caption',
         srfSubCaption: '工作台',
         dataInfo: '',
+        viewname:'app.views.appindexview',
         iconcls: '',
         icon: ''
     }
@@ -249,8 +256,6 @@ export default class AppIndexViewBase extends Vue {
     }
 
 
-
-
     /**
      * 引擎初始化
      *
@@ -269,15 +274,6 @@ export default class AppIndexViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof AppIndexViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof AppIndexViewBase
@@ -288,6 +284,7 @@ export default class AppIndexViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
+        this.updateLogStatus = Environment.useUpdateLog && !localStorage.getItem('updateLogStatus')?true:false;
 
     }
 
@@ -300,6 +297,17 @@ export default class AppIndexViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof AppIndexViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)
@@ -432,10 +440,10 @@ export default class AppIndexViewBase extends Vue {
      * 菜单位置
      *
      * @private
-     * @type {string}
+     * @type {boolean}
      * @memberof AppIndexViewBase
      */
-    private mode: string ='vertical';
+    private mode: boolean = false;
 
     /**
      * 当前主题
@@ -452,6 +460,14 @@ export default class AppIndexViewBase extends Vue {
             return 'app-default-theme';
         }
     }
+
+    /**
+     * 显示更新日志
+     *
+     * @readonly
+     * @memberof AppIndexViewBase
+     */
+    public updateLogStatus:boolean = true;
 
     /**
      * 当前字体

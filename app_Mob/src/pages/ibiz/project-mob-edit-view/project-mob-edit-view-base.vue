@@ -7,7 +7,6 @@
     
     </ion-header>
 
-
     <ion-content>
                 <view_form
             :viewState="viewState"
@@ -35,10 +34,10 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
                 <div  class = "fab_container">
-            <ion-button @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
-            <van-popup class="popup" v-model="showGrop" round position="bottom">
+            <ion-button v-if="getToolBarLimit" @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                 
         
@@ -226,6 +225,7 @@ export default class ProjectMobEditViewBase extends Vue {
         srfCaption: 'project.views.mobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'project.mobeditview',
         iconcls: '',
         icon: ''
     }
@@ -431,15 +431,6 @@ export default class ProjectMobEditViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof ProjectMobEditViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof ProjectMobEditViewBase
@@ -466,6 +457,17 @@ export default class ProjectMobEditViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof ProjectMobEditViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)
@@ -769,8 +771,12 @@ export default class ProjectMobEditViewBase extends Vue {
                 let result = await this.cheackChange();
         if(result){
             if (this.viewDefaultUsage === "routerView") {
-                this.$store.commit("deletePage", this.$route.fullPath);
-                this.$router.go(-1);
+                if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                    this.quitFun();
+                }else{
+                    this.$store.commit("deletePage", this.$route.fullPath);
+                    this.$router.go(-1);
+                }
             } 
             if (this.viewDefaultUsage === "actionView") {
                 this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
@@ -847,7 +853,7 @@ export default class ProjectMobEditViewBase extends Vue {
         if (view && view.viewdatachange) {
                 const title: any = this.$t('app.tabpage.sureclosetip.title');
                 const contant: any = this.$t('app.tabpage.sureclosetip.content');
-                const result = await this.$notice.confirm(title, contant, this.$store);
+                const result = await this.$notice.confirm(title, contant);
                 if (result) {
                     this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
                     return true;

@@ -85,6 +85,17 @@ export default {
 		uiactions: {
 		},
 	},
+	mobdef_searchform: {
+		details: {
+			formpage1: '常规条件', 
+			n_title_like: '名称', 
+			n_delta_eq: '周期', 
+			n_begin_gtandeq: '开始日期', 
+			n_end_ltandeq: '结束日期', 
+		},
+		uiactions: {
+		},
+	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: '保存',

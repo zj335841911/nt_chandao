@@ -1,5 +1,5 @@
 <template>
-<el-switch  v-model="curValue" :disabled ="disabled"></el-switch>
+<el-switch  v-model="curValue" :disabled ="disabled" inactive-color="var(--form-disable-editor-background-color)"></el-switch>
 </template>
 
 <script lang="ts">

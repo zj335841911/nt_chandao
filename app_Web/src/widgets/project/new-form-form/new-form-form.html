@@ -1,8 +1,7 @@
 <i-form :model="this.data" class='app-form' ref='form'  id='project_newform' style="">
     <input style="display:none;" />
     <row >
-            
-<i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :sm="{ span: 23, offset: 0 }" :md="{ span: 23, offset: 0 }" :lg="{ span: 23, offset: 0 }" :xl="{ span: 23, offset: 0 }">
+            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :sm="{ span: 23, offset: 0 }" :md="{ span: 23, offset: 0 }" :lg="{ span: 23, offset: 0 }" :xl="{ span: 23, offset: 0 }">
     <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.project.newform_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
@@ -139,7 +138,8 @@
             :context="context"
             :viewparams="viewparams"
             :localParam="{srfarray: '%srfarray%',products: '%products%',branchs: '%branchs%',plans: '%plans%',}"
-            :disabled="detailsModel.formitemex2.disabled"  
+            :disabled="detailsModel.formitemex2.disabled" 
+            valueType="string"
             tag='Product' 
             codelistType='DYNAMIC'
             placeholder="" style="flex-grow: 1;">
@@ -150,7 +150,8 @@
    :context="context"
    :viewparams="viewparams"
    :localParam="{srfarray: '%srfarray%',products: '%products%',branchs: '%branchs%',plans: '%plans%',}"
-   :disabled="detailsModel.formitemex2.disabled"  
+   :disabled="detailsModel.formitemex2.disabled" 
+   valueType="string"
    tag='ProductBranch' 
    codelistType='DYNAMIC'
    placeholder="" style="width: 100px;flex-shrink: 0;margin-left: 5px;">
@@ -166,7 +167,8 @@
             :context="context"
             :viewparams="viewparams"
             :localParam="{srfarray: '%srfarray%',products: '%products%',branchs: '%branchs%',plans: '%plans%',}"
-            :disabled="detailsModel.formitemex2.disabled"  
+            :disabled="detailsModel.formitemex2.disabled" 
+            valueType="string"
             tag='ProductPlan' 
             codelistType='DYNAMIC'
             placeholder="" style="flex-grow: 1;">

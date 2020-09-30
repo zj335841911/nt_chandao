@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.alibaba.fastjson.annotation.JSONField;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -88,6 +90,7 @@ public class ProjectDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
 
     /**
@@ -204,7 +207,8 @@ public class ProjectDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "iscat")
     @JsonProperty("iscat")
-    private Integer iscat;
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    private String iscat;
 
     /**
      * 属性 [OPENEDDATE]
@@ -310,6 +314,7 @@ public class ProjectDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "parent")
     @JsonProperty("parent")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long parent;
 
     /**
@@ -769,7 +774,7 @@ public class ProjectDTO extends DTOBase implements Serializable {
     /**
      * 设置 [ISCAT]
      */
-    public void setIscat(Integer  iscat){
+    public void setIscat(String  iscat){
         this.iscat = iscat ;
         this.modify("iscat",iscat);
     }

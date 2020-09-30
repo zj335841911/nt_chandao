@@ -1,8 +1,7 @@
 <i-form :model="this.data" class='app-form' ref='wizardpanel_form_AddStory'  id='product_wizardaddstory' style="">
     <input style="display:none;" />
     <row >
-            
-<i-col class="form-layout-container" v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 9, offset: 0 }" :xl="{ span: 9, offset: 0 }">
+            <i-col class="form-layout-container" v-show="detailsModel.formitem.visible" :style="{}"  :lg="{ span: 9, offset: 0 }" :xl="{ span: 9, offset: 0 }">
     <app-form-item name='formitem' :itemRules="this.rules.formitem" class='' :caption="$t('entities.product.wizardaddstory_form.details.formitem')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.formitem.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 

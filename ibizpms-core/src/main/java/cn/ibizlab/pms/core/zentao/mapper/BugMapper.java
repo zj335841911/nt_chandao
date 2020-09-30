@@ -20,11 +20,26 @@ import com.alibaba.fastjson.JSONObject;
 public interface BugMapper extends BaseMapper<Bug>{
 
     Page<Bug> searchAssignedToMyBug(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
+    Page<Bug> searchBugsByBuild(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
     Page<Bug> searchBuildBugs(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
     Page<Bug> searchBuildLinkResolvedBugs(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
     Page<Bug> searchBuildOpenBugs(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
+    Page<Bug> searchBuildProduceBug(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
+    Page<Bug> searchBuildProduceBugModule(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
+    Page<Bug> searchBuildProduceBugModule_Project(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
+    Page<Bug> searchBuildProduceBugOpenedBy(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
+    Page<Bug> searchBuildProduceBugOpenedBy_Project(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
+    Page<Bug> searchBuildProduceBugRES(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
+    Page<Bug> searchBuildProduceBugRESOLVEDBY(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
+    Page<Bug> searchBuildProduceBugRESOLVEDBY_Project(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
+    Page<Bug> searchBuildProduceBugResolution_Project(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
+    Page<Bug> searchBuildProduceBugSeverity_Project(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
+    Page<Bug> searchBuildProduceBugStatus_Project(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
+    Page<Bug> searchBuildProduceBugType_Project(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
+    Page<Bug> searchCurUserResolve(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
     Page<Bug> searchDefault(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
     Page<Bug> searchMyFavorites(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
+    Page<Bug> searchProjectBugs(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
     Page<Bug> searchReleaseBugs(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
     Page<Bug> searchReleaseLeftBugs(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;
     Page<Bug> searchReleaseLinkableLeftBug(IPage page, @Param("srf") BugSearchContext context, @Param("ew") Wrapper<Bug> wrapper) ;

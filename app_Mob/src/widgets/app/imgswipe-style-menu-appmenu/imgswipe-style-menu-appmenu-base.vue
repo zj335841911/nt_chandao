@@ -32,6 +32,18 @@
         v-else-if="controlStyle == 'SWIPERVIEW'">
     </app-mob-menu-swiper-view>
     <!-- 预置菜单样式：图片滑动视图 END -->
+    <!-- 侧滑菜单样式：默认样式 BEGIN -->
+    <app-mob-menu-sideslip-view 
+        class="" 
+        menuName="imgswipestylemenu" 
+        counterName="" 
+        :items="menus" 
+        :menuModels="menuMode.getAppFuncs()" 
+        v-model="defaultActive"
+        @select="select($event)" 
+        v-else-if="mode">
+    </app-mob-menu-sideslip-view>
+    <!-- 侧滑菜单样式：默认样式 END -->
     <!-- 预置菜单样式：默认样式 BEGIN -->
     <app-mob-menu-default-view 
         class="" 
@@ -234,7 +246,7 @@ export default class ImgswipeStyleMenuBase extends Vue implements ControlInterfa
     }
 
     /**
-     * 当前模式，菜单在顶部还是在底部
+     * 当前模式，菜单在左侧还是在底部，true为左侧
      *
      * @type {*}
      * @memberof ImgswipeStyleMenu
@@ -290,14 +302,6 @@ export default class ImgswipeStyleMenuBase extends Vue implements ControlInterfa
     @Provide() protected isCollapse: boolean = false;
 
     /**
-     * 触发方式，默认click
-     *
-     * @type {string}
-     * @memberof ImgswipeStyleMenu
-     */
-    @Provide() trigger: string = 'click';
-
-    /**
      * 计数器数据
      *
      * @type {*}
@@ -320,9 +324,6 @@ export default class ImgswipeStyleMenuBase extends Vue implements ControlInterfa
      *  @memberof ImgswipeStyleMenu
      */    
     protected afterCreated(){
-        if (Object.is(this.mode, 'horizontal')) {
-            this.trigger = 'hover';
-        }
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
                 if (!Object.is(tag, this.name)) {

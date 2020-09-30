@@ -1,7 +1,6 @@
 import { Http,Util } from '@/utils';
 import EntityService from '../entity-service';
 import GetCaseStepByIdVersionLogic from '@/service/case/get-case-step-by-id-version-logic';
-import HuaFavoriteLogic from '@/service/case/hua-favorite-logic';
 
 
 
@@ -557,6 +556,280 @@ export default class CaseServiceBase extends EntityService {
     }
 
     /**
+     * CaseFavorite接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async CaseFavorite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.case){
+            let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
+        let ibzcasestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
+            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+                ibzcasestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibzcasesteps = ibzcasestepsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casefavorite`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
+
+            return res;
+        }
+        if(context.story && context.case){
+            let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
+        let ibzcasestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
+            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+                ibzcasestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibzcasesteps = ibzcasestepsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/casefavorite`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
+
+            return res;
+        }
+        if(context.product && context.case){
+            let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
+        let ibzcasestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
+            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+                ibzcasestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibzcasesteps = ibzcasestepsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/casefavorite`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/cases/${context.case}/casefavorite`,data,isloading);
+            return res;
+    }
+
+    /**
+     * CaseNFavorite接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async CaseNFavorite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.case){
+            let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
+        let ibzcasestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
+            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+                ibzcasestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibzcasesteps = ibzcasestepsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casenfavorite`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
+
+            return res;
+        }
+        if(context.story && context.case){
+            let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
+        let ibzcasestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
+            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+                ibzcasestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibzcasesteps = ibzcasestepsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/${context.case}/casenfavorite`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
+
+            return res;
+        }
+        if(context.product && context.case){
+            let masterData:any = {};
+        let casestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
+            casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
+            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+                casestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.casesteps = casestepsData;
+        let ibzcasestepsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
+            ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+                ibzcasestepsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibzcasesteps = ibzcasestepsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/${context.case}/casenfavorite`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/cases/${context.case}/casenfavorite`,data,isloading);
+            return res;
+    }
+
+    /**
      * CheckKey接口方法
      *
      * @param {*} [context={}]
@@ -1003,21 +1276,6 @@ export default class CaseServiceBase extends EntityService {
             this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
 
             return res;
-    }
-
-    /**
-     * HuaFavorite接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof CaseServiceBase
-     */
-    public async HuaFavorite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let appLogic:HuaFavoriteLogic = new HuaFavoriteLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(data))});
-        const res = await appLogic.onExecute(context,data,isloading?true:false);
-        return {status:200,data:res};
     }
 
     /**
@@ -2685,6 +2943,126 @@ export default class CaseServiceBase extends EntityService {
     }
 
     /**
+     * FetchModuleRePortCase接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchModuleRePortCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchmodulereportcase`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchmodulereportcase`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchmodulereportcase`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/cases/fetchmodulereportcase`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchModuleRePortCaseEntry接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchModuleRePortCaseEntry(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchmodulereportcaseentry`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchmodulereportcaseentry`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchmodulereportcaseentry`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/cases/fetchmodulereportcaseentry`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchModuleRePortCase_Project接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchModuleRePortCase_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchmodulereportcase_project`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchmodulereportcase_project`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchmodulereportcase_project`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/cases/fetchmodulereportcase_project`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchMyFavorites接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchMyFavorites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchmyfavorites`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchmyfavorites`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchmyfavorites`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/cases/fetchmyfavorites`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchNotCurTestSuite接口方法
      *
      * @param {*} [context={}]
@@ -2741,6 +3119,276 @@ export default class CaseServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/cases/fetchnotcurtesttask`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchRePortCase接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchRePortCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchreportcase`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchreportcase`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchreportcase`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/cases/fetchreportcase`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchRePortCaseEntry接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchRePortCaseEntry(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchreportcaseentry`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchreportcaseentry`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchreportcaseentry`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/cases/fetchreportcaseentry`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchRePortCase_Project接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchRePortCase_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchreportcase_project`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchreportcase_project`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchreportcase_project`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/cases/fetchreportcase_project`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchRunERRePortCase接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchRunERRePortCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunerreportcase`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchrunerreportcase`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchrunerreportcase`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/cases/fetchrunerreportcase`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchRunERRePortCaseEntry接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchRunERRePortCaseEntry(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunerreportcaseentry`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchrunerreportcaseentry`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchrunerreportcaseentry`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/cases/fetchrunerreportcaseentry`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchRunERRePortCase_Project接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchRunERRePortCase_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunerreportcase_project`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchrunerreportcase_project`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchrunerreportcase_project`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/cases/fetchrunerreportcase_project`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchRunRePortCase接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchRunRePortCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunreportcase`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchrunreportcase`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchrunreportcase`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/cases/fetchrunreportcase`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchRunRePortCaseEntry接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchRunRePortCaseEntry(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunreportcaseentry`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchrunreportcaseentry`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchrunreportcaseentry`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/cases/fetchrunreportcaseentry`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchRunRePortCase_Project接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchRunRePortCase_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunreportcase_project`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchrunreportcase_project`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchrunreportcase_project`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/cases/fetchrunreportcase_project`,tempData,isloading);
         return res;
     }
 
@@ -2805,6 +3453,54 @@ export default class CaseServiceBase extends EntityService {
     }
 
     /**
+     * FetchTempModuleRePortCase接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempModuleRePortCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempModuleRePortCaseEntry接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempModuleRePortCaseEntry(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempModuleRePortCase_Project接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempModuleRePortCase_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempMyFavorites接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempMyFavorites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
      * FetchTempNotCurTestSuite接口方法
      *
      * @param {*} [context={}]
@@ -2826,5 +3522,113 @@ export default class CaseServiceBase extends EntityService {
      * @memberof CaseServiceBase
      */
     public async FetchTempNotCurTestTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempRePortCase接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempRePortCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempRePortCaseEntry接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempRePortCaseEntry(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempRePortCase_Project接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempRePortCase_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempRunERRePortCase接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempRunERRePortCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempRunERRePortCaseEntry接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempRunERRePortCaseEntry(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempRunERRePortCase_Project接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempRunERRePortCase_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempRunRePortCase接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempRunRePortCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempRunRePortCaseEntry接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempRunRePortCaseEntry(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempRunRePortCase_Project接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async FetchTempRunRePortCase_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 }

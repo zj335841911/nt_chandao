@@ -174,6 +174,7 @@ export default class TaskEstimateMobMEditView9Base extends Vue {
         srfCaption: 'ibztaskestimate.views.mobmeditview9.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'ibztaskestimate.mobmeditview9',
         iconcls: '',
         icon: ''
     }
@@ -314,15 +315,6 @@ export default class TaskEstimateMobMEditView9Base extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof TaskEstimateMobMEditView9Base
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof TaskEstimateMobMEditView9Base
@@ -345,6 +337,17 @@ export default class TaskEstimateMobMEditView9Base extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof TaskEstimateMobMEditView9Base
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)

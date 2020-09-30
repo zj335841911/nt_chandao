@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.alibaba.fastjson.annotation.JSONField;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -106,6 +108,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "begin" , format="yyyy-MM-dd")
     @JsonProperty("begin")
+    @NotNull(message = "[开始时间]不允许为空!")
     private Timestamp begin;
 
     /**
@@ -124,6 +127,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "end" , format="yyyy-MM-dd")
     @JsonProperty("end")
+    @NotNull(message = "[结束时间]不允许为空!")
     private Timestamp end;
 
     /**
@@ -159,6 +163,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
 
     /**
@@ -185,6 +190,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long product;
 
     /**
@@ -193,6 +199,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "project")
     @JsonProperty("project")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long project;
 
     /**
@@ -221,6 +228,32 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JsonProperty("comment")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
     private String comment;
+
+    /**
+     * 属性 [OVERVIEWS]
+     *
+     */
+    @JSONField(name = "overviews")
+    @JsonProperty("overviews")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String overviews;
+
+    /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
+    private String files;
+
+    /**
+     * 属性 [PRODUCTCNT]
+     *
+     */
+    @JSONField(name = "productcnt")
+    @JsonProperty("productcnt")
+    private Integer productcnt;
 
 
     /**

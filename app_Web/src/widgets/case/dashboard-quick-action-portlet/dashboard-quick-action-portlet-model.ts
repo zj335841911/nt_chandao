@@ -180,6 +180,9 @@ export default class DashboardQuickActionModel {
       {
         name: 'lastrunresult1',
       },
+      {
+        name: 'isfavorites',
+      },
     ]
   }
 

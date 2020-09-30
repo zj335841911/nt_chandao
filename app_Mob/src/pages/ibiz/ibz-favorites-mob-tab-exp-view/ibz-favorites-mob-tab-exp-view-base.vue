@@ -16,7 +16,6 @@
                     </ion-toolbar>
     </ion-header>
 
-
     <ion-content>
                 <view_tabexppanel
             :viewState="viewState"
@@ -179,6 +178,7 @@ export default class IbzFavoritesMobTabExpViewBase extends Vue {
         srfCaption: 'ibzfavorites.views.mobtabexpview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'ibzfavorites.mobtabexpview',
         iconcls: '',
         icon: ''
     }
@@ -410,15 +410,6 @@ export default class IbzFavoritesMobTabExpViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof IbzFavoritesMobTabExpViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof IbzFavoritesMobTabExpViewBase
@@ -442,6 +433,17 @@ export default class IbzFavoritesMobTabExpViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof IbzFavoritesMobTabExpViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)

@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.alibaba.fastjson.annotation.JSONField;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -42,7 +44,8 @@ public class ReleaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "marker")
     @JsonProperty("marker")
-    private Integer marker;
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    private String marker;
 
     /**
      * 属性 [ID]
@@ -50,6 +53,7 @@ public class ReleaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
 
     /**
@@ -140,6 +144,7 @@ public class ReleaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long product;
 
     /**
@@ -148,6 +153,7 @@ public class ReleaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "build")
     @JsonProperty("build")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long build;
 
     /**
@@ -156,6 +162,7 @@ public class ReleaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "branch")
     @JsonProperty("branch")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long branch;
 
     /**
@@ -220,6 +227,24 @@ public class ReleaseDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String releasetype;
 
+    /**
+     * 属性 [BUILDER]
+     *
+     */
+    @JSONField(name = "builder")
+    @JsonProperty("builder")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String builder;
+
+    /**
+     * 属性 [BUILDDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "builddate" , format="yyyy-MM-dd")
+    @JsonProperty("builddate")
+    private Timestamp builddate;
+
 
     /**
      * 设置 [STORIES]
@@ -232,7 +257,7 @@ public class ReleaseDTO extends DTOBase implements Serializable {
     /**
      * 设置 [MARKER]
      */
-    public void setMarker(Integer  marker){
+    public void setMarker(String  marker){
         this.marker = marker ;
         this.modify("marker",marker);
     }

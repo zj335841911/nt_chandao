@@ -173,6 +173,7 @@ export default class StoryLinkStoryMobPickupMDViewBase extends Vue {
         srfCaption: 'story.views.linkstorymobpickupmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'story.linkstorymobpickupmdview',
         iconcls: '',
         icon: 'fa fa-star-o'
     }
@@ -226,6 +227,7 @@ export default class StoryLinkStoryMobPickupMDViewBase extends Vue {
      * @memberof StoryLinkStoryMobPickupMDViewBase
      */
     protected containerModel: any = {
+        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
     };
 
@@ -245,6 +247,7 @@ export default class StoryLinkStoryMobPickupMDViewBase extends Vue {
      * @memberof StoryLinkStoryMobPickupMDViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
     /**
@@ -313,15 +316,6 @@ export default class StoryLinkStoryMobPickupMDViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof StoryLinkStoryMobPickupMDViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof StoryLinkStoryMobPickupMDViewBase
@@ -344,6 +338,17 @@ export default class StoryLinkStoryMobPickupMDViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof StoryLinkStoryMobPickupMDViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)

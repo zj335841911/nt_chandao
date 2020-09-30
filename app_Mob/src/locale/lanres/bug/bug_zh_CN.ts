@@ -331,6 +331,19 @@ export default {
 		uiactions: {
 		},
 	},
+	mobdef_searchform: {
+		details: {
+			formpage1: '常规条件', 
+			n_title_like: 'Bug标题', 
+			n_status_eq: 'Bug状态', 
+			n_type_eq: 'Bug类型', 
+			n_openedby_eq: '由谁创建', 
+			n_severity_eq: '严重程度', 
+			n_modulename_like: '模块名称', 
+		},
+		uiactions: {
+		},
+	},
 	colsemobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: '保存',

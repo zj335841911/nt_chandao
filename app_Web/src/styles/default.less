@@ -1,4 +1,5 @@
 @import '../../node_modules/font-awesome/less/font-awesome.less';
+@import '../theme/app-default.less';
 @import '../theme/app-blue-dark.less';
 @import '../theme/app-dark.less';
 @import '../theme/app-light.less';
@@ -63,7 +64,7 @@ div::-webkit-scrollbar-thumb {
 
     >.ivu-tabs-bar {
         margin-bottom: 0px;
-        border-bottom: 1px solid var(--app-dividing-line-color-tint);
+        // border-bottom: 1px solid var(--app-dividing-line-color-tint);
 
         >.ivu-tabs-nav-container {
 
@@ -978,11 +979,17 @@ div::-webkit-scrollbar-thumb {
 // 列表部件
 .app-list {
     height: 100%;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+
     .app-list-item {
         border-bottom: 1px solid var(--view-font-color-bright);
         padding: 5px 0;
         cursor: pointer;
+    }
+
+    .app-list-item.isSelect {
+        background: rgba(var(--view-background-color-active-rgb), 0.5);
     }
 }
 
@@ -1295,6 +1302,7 @@ div::-webkit-scrollbar-thumb {
                 margin-top: 6px;
                 line-height: normal;
                 padding: 1px 5px;
+                text-align: center;
             }
         }
     }
@@ -1408,6 +1416,21 @@ div::-webkit-scrollbar-thumb {
                 flex-direction: column;
             }
         }
+    }
+}
+
+// 实体选择树视图（部件视图）
+.depickuptreeview{
+    .search-contant {
+        height: 40px;
+        .ivu-input-wrapper {
+            max-width: 400px;
+            padding-top: 6px;
+        }
+    }
+    .tree-contant {   
+        margin:  0px 0px 16px 0;
+        overflow: auto;
     }
 }
 

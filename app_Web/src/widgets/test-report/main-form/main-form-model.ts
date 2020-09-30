@@ -71,11 +71,6 @@ export default class MainModel {
         dataType: 'PICKUPTEXT',
       },
       {
-        name: 'product',
-        prop: 'product',
-        dataType: 'PICKUP',
-      },
-      {
         name: 'begin',
         prop: 'begin',
         dataType: 'DATE',
@@ -86,7 +81,9 @@ export default class MainModel {
         dataType: 'DATE',
       },
       {
-        name: 'formitemex1',
+        name: 'product',
+        prop: 'product',
+        dataType: 'PICKUP',
       },
       {
         name: 'owner',
@@ -132,6 +129,11 @@ export default class MainModel {
         name: 'projectname',
         prop: 'projectname',
         dataType: 'PICKUPTEXT',
+      },
+      {
+        name: 'overviews',
+        prop: 'overviews',
+        dataType: 'HTMLTEXT',
       },
       {
         name: 'report',

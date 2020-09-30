@@ -120,6 +120,28 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(caseMapping.toDto(caseService.getDraft(new Case())));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-CaseFavorite-all')")
+    @ApiOperation(value = "行为", tags = {"测试用例" },  notes = "行为")
+	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/casefavorite")
+    public ResponseEntity<CaseDTO> caseFavorite(@PathVariable("case_id") Long case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setId(case_id);
+        domain = caseService.caseFavorite(domain);
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-CaseNFavorite-all')")
+    @ApiOperation(value = "CaseNFavorite", tags = {"测试用例" },  notes = "CaseNFavorite")
+	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/casenfavorite")
+    public ResponseEntity<CaseDTO> caseNFavorite(@PathVariable("case_id") Long case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setId(case_id);
+        domain = caseService.caseNFavorite(domain);
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
+    }
+
     @ApiOperation(value = "检查测试用例", tags = {"测试用例" },  notes = "检查测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody CaseDTO casedto) {
@@ -155,17 +177,6 @@ public class CaseResource {
         Case domain = caseMapping.toDomain(casedto);
         domain.setId(case_id);
         domain = caseService.getByTestTask(domain);
-        casedto = caseMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(casedto);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-HuaFavorite-all')")
-    @ApiOperation(value = "行为", tags = {"测试用例" },  notes = "行为")
-	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/huafavorite")
-    public ResponseEntity<CaseDTO> huaFavorite(@PathVariable("case_id") Long case_id, @RequestBody CaseDTO casedto) {
-        Case domain = caseMapping.toDomain(casedto);
-        domain.setId(case_id);
-        domain = caseService.huaFavorite(domain);
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
@@ -379,6 +390,90 @@ public class CaseResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCase-all')")
+	@ApiOperation(value = "获取测试报告关联用例", tags = {"测试用例" } ,notes = "获取测试报告关联用例")
+    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchmodulereportcase")
+	public ResponseEntity<List<CaseDTO>> fetchModuleRePortCase(CaseSearchContext context) {
+        Page<Case> domains = caseService.searchModuleRePortCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCase-all')")
+	@ApiOperation(value = "查询测试报告关联用例", tags = {"测试用例" } ,notes = "查询测试报告关联用例")
+    @RequestMapping(method= RequestMethod.POST , value="/cases/searchmodulereportcase")
+	public ResponseEntity<Page<CaseDTO>> searchModuleRePortCase(@RequestBody CaseSearchContext context) {
+        Page<Case> domains = caseService.searchModuleRePortCase(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCaseEntry-all')")
+	@ApiOperation(value = "获取测试报告关联-按模块-条目", tags = {"测试用例" } ,notes = "获取测试报告关联-按模块-条目")
+    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchmodulereportcaseentry")
+	public ResponseEntity<List<CaseDTO>> fetchModuleRePortCaseEntry(CaseSearchContext context) {
+        Page<Case> domains = caseService.searchModuleRePortCaseEntry(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCaseEntry-all')")
+	@ApiOperation(value = "查询测试报告关联-按模块-条目", tags = {"测试用例" } ,notes = "查询测试报告关联-按模块-条目")
+    @RequestMapping(method= RequestMethod.POST , value="/cases/searchmodulereportcaseentry")
+	public ResponseEntity<Page<CaseDTO>> searchModuleRePortCaseEntry(@RequestBody CaseSearchContext context) {
+        Page<Case> domains = caseService.searchModuleRePortCaseEntry(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCase_Project-all')")
+	@ApiOperation(value = "获取项目报告关联-按模块", tags = {"测试用例" } ,notes = "获取项目报告关联-按模块")
+    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchmodulereportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchModuleRePortCase_Project(CaseSearchContext context) {
+        Page<Case> domains = caseService.searchModuleRePortCase_Project(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCase_Project-all')")
+	@ApiOperation(value = "查询项目报告关联-按模块", tags = {"测试用例" } ,notes = "查询项目报告关联-按模块")
+    @RequestMapping(method= RequestMethod.POST , value="/cases/searchmodulereportcase_project")
+	public ResponseEntity<Page<CaseDTO>> searchModuleRePortCase_Project(@RequestBody CaseSearchContext context) {
+        Page<Case> domains = caseService.searchModuleRePortCase_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchMyFavorites-all')")
+	@ApiOperation(value = "获取我的收藏", tags = {"测试用例" } ,notes = "获取我的收藏")
+    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchmyfavorites")
+	public ResponseEntity<List<CaseDTO>> fetchMyFavorites(CaseSearchContext context) {
+        Page<Case> domains = caseService.searchMyFavorites(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchMyFavorites-all')")
+	@ApiOperation(value = "查询我的收藏", tags = {"测试用例" } ,notes = "查询我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/cases/searchmyfavorites")
+	public ResponseEntity<Page<CaseDTO>> searchMyFavorites(@RequestBody CaseSearchContext context) {
+        Page<Case> domains = caseService.searchMyFavorites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchNotCurTestSuite-all')")
 	@ApiOperation(value = "获取套件关联用例", tags = {"测试用例" } ,notes = "获取套件关联用例")
     @RequestMapping(method= RequestMethod.GET , value="/cases/fetchnotcurtestsuite")
@@ -418,6 +513,195 @@ public class CaseResource {
     @RequestMapping(method= RequestMethod.POST , value="/cases/searchnotcurtesttask")
 	public ResponseEntity<Page<CaseDTO>> searchNotCurTestTask(@RequestBody CaseSearchContext context) {
         Page<Case> domains = caseService.searchNotCurTestTask(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase-all')")
+	@ApiOperation(value = "获取测试报告关联用例", tags = {"测试用例" } ,notes = "获取测试报告关联用例")
+    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchreportcase")
+	public ResponseEntity<List<CaseDTO>> fetchRePortCase(CaseSearchContext context) {
+        Page<Case> domains = caseService.searchRePortCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase-all')")
+	@ApiOperation(value = "查询测试报告关联用例", tags = {"测试用例" } ,notes = "查询测试报告关联用例")
+    @RequestMapping(method= RequestMethod.POST , value="/cases/searchreportcase")
+	public ResponseEntity<Page<CaseDTO>> searchRePortCase(@RequestBody CaseSearchContext context) {
+        Page<Case> domains = caseService.searchRePortCase(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCaseEntry-all')")
+	@ApiOperation(value = "获取测试报告关联用例-条目", tags = {"测试用例" } ,notes = "获取测试报告关联用例-条目")
+    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchreportcaseentry")
+	public ResponseEntity<List<CaseDTO>> fetchRePortCaseEntry(CaseSearchContext context) {
+        Page<Case> domains = caseService.searchRePortCaseEntry(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCaseEntry-all')")
+	@ApiOperation(value = "查询测试报告关联用例-条目", tags = {"测试用例" } ,notes = "查询测试报告关联用例-条目")
+    @RequestMapping(method= RequestMethod.POST , value="/cases/searchreportcaseentry")
+	public ResponseEntity<Page<CaseDTO>> searchRePortCaseEntry(@RequestBody CaseSearchContext context) {
+        Page<Case> domains = caseService.searchRePortCaseEntry(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase_Project-all')")
+	@ApiOperation(value = "获取项目报告关联用例-关联用例", tags = {"测试用例" } ,notes = "获取项目报告关联用例-关联用例")
+    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchreportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchRePortCase_Project(CaseSearchContext context) {
+        Page<Case> domains = caseService.searchRePortCase_Project(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase_Project-all')")
+	@ApiOperation(value = "查询项目报告关联用例-关联用例", tags = {"测试用例" } ,notes = "查询项目报告关联用例-关联用例")
+    @RequestMapping(method= RequestMethod.POST , value="/cases/searchreportcase_project")
+	public ResponseEntity<Page<CaseDTO>> searchRePortCase_Project(@RequestBody CaseSearchContext context) {
+        Page<Case> domains = caseService.searchRePortCase_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCase-all')")
+	@ApiOperation(value = "获取测试报告关联-执行人", tags = {"测试用例" } ,notes = "获取测试报告关联-执行人")
+    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchrunerreportcase")
+	public ResponseEntity<List<CaseDTO>> fetchRunERRePortCase(CaseSearchContext context) {
+        Page<Case> domains = caseService.searchRunERRePortCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCase-all')")
+	@ApiOperation(value = "查询测试报告关联-执行人", tags = {"测试用例" } ,notes = "查询测试报告关联-执行人")
+    @RequestMapping(method= RequestMethod.POST , value="/cases/searchrunerreportcase")
+	public ResponseEntity<Page<CaseDTO>> searchRunERRePortCase(@RequestBody CaseSearchContext context) {
+        Page<Case> domains = caseService.searchRunERRePortCase(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCaseEntry-all')")
+	@ApiOperation(value = "获取测试报告关联-执行人-条目", tags = {"测试用例" } ,notes = "获取测试报告关联-执行人-条目")
+    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchrunerreportcaseentry")
+	public ResponseEntity<List<CaseDTO>> fetchRunERRePortCaseEntry(CaseSearchContext context) {
+        Page<Case> domains = caseService.searchRunERRePortCaseEntry(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCaseEntry-all')")
+	@ApiOperation(value = "查询测试报告关联-执行人-条目", tags = {"测试用例" } ,notes = "查询测试报告关联-执行人-条目")
+    @RequestMapping(method= RequestMethod.POST , value="/cases/searchrunerreportcaseentry")
+	public ResponseEntity<Page<CaseDTO>> searchRunERRePortCaseEntry(@RequestBody CaseSearchContext context) {
+        Page<Case> domains = caseService.searchRunERRePortCaseEntry(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCase_Project-all')")
+	@ApiOperation(value = "获取项目报告关联-执行人", tags = {"测试用例" } ,notes = "获取项目报告关联-执行人")
+    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchrunerreportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchRunERRePortCase_Project(CaseSearchContext context) {
+        Page<Case> domains = caseService.searchRunERRePortCase_Project(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCase_Project-all')")
+	@ApiOperation(value = "查询项目报告关联-执行人", tags = {"测试用例" } ,notes = "查询项目报告关联-执行人")
+    @RequestMapping(method= RequestMethod.POST , value="/cases/searchrunerreportcase_project")
+	public ResponseEntity<Page<CaseDTO>> searchRunERRePortCase_Project(@RequestBody CaseSearchContext context) {
+        Page<Case> domains = caseService.searchRunERRePortCase_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCase-all')")
+	@ApiOperation(value = "获取测试报告关联用例", tags = {"测试用例" } ,notes = "获取测试报告关联用例")
+    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchrunreportcase")
+	public ResponseEntity<List<CaseDTO>> fetchRunRePortCase(CaseSearchContext context) {
+        Page<Case> domains = caseService.searchRunRePortCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCase-all')")
+	@ApiOperation(value = "查询测试报告关联用例", tags = {"测试用例" } ,notes = "查询测试报告关联用例")
+    @RequestMapping(method= RequestMethod.POST , value="/cases/searchrunreportcase")
+	public ResponseEntity<Page<CaseDTO>> searchRunRePortCase(@RequestBody CaseSearchContext context) {
+        Page<Case> domains = caseService.searchRunRePortCase(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCaseEntry-all')")
+	@ApiOperation(value = "获取测试报告关联--执行结果条目", tags = {"测试用例" } ,notes = "获取测试报告关联--执行结果条目")
+    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchrunreportcaseentry")
+	public ResponseEntity<List<CaseDTO>> fetchRunRePortCaseEntry(CaseSearchContext context) {
+        Page<Case> domains = caseService.searchRunRePortCaseEntry(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCaseEntry-all')")
+	@ApiOperation(value = "查询测试报告关联--执行结果条目", tags = {"测试用例" } ,notes = "查询测试报告关联--执行结果条目")
+    @RequestMapping(method= RequestMethod.POST , value="/cases/searchrunreportcaseentry")
+	public ResponseEntity<Page<CaseDTO>> searchRunRePortCaseEntry(@RequestBody CaseSearchContext context) {
+        Page<Case> domains = caseService.searchRunRePortCaseEntry(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCase_Project-all')")
+	@ApiOperation(value = "获取项目报告关联-执行结果", tags = {"测试用例" } ,notes = "获取项目报告关联-执行结果")
+    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchrunreportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchRunRePortCase_Project(CaseSearchContext context) {
+        Page<Case> domains = caseService.searchRunRePortCase_Project(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCase_Project-all')")
+	@ApiOperation(value = "查询项目报告关联-执行结果", tags = {"测试用例" } ,notes = "查询项目报告关联-执行结果")
+    @RequestMapping(method= RequestMethod.POST , value="/cases/searchrunreportcase_project")
+	public ResponseEntity<Page<CaseDTO>> searchRunRePortCase_Project(@RequestBody CaseSearchContext context) {
+        Page<Case> domains = caseService.searchRunRePortCase_Project(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -500,6 +784,28 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(caseMapping.toDto(caseService.getDraft(domain)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-CaseFavorite-all')")
+    @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/casefavorite")
+    public ResponseEntity<CaseDTO> caseFavoriteByProduct(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setProduct(product_id);
+        domain = caseService.caseFavorite(domain) ;
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-CaseNFavorite-all')")
+    @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/casenfavorite")
+    public ResponseEntity<CaseDTO> caseNFavoriteByProduct(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setProduct(product_id);
+        domain = caseService.caseNFavorite(domain) ;
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
+    }
+
     @ApiOperation(value = "根据产品检查测试用例", tags = {"测试用例" },  notes = "根据产品检查测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/checkkey")
     public ResponseEntity<Boolean> checkKeyByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseDTO casedto) {
@@ -535,17 +841,6 @@ public class CaseResource {
         Case domain = caseMapping.toDomain(casedto);
         domain.setProduct(product_id);
         domain = caseService.getByTestTask(domain) ;
-        casedto = caseMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(casedto);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-HuaFavorite-all')")
-    @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/huafavorite")
-    public ResponseEntity<CaseDTO> huaFavoriteByProduct(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @RequestBody CaseDTO casedto) {
-        Case domain = caseMapping.toDomain(casedto);
-        domain.setProduct(product_id);
-        domain = caseService.huaFavorite(domain) ;
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
@@ -773,6 +1068,98 @@ public class CaseResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCase-all')")
+	@ApiOperation(value = "根据产品获取测试报告关联用例", tags = {"测试用例" } ,notes = "根据产品获取测试报告关联用例")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchmodulereportcase")
+	public ResponseEntity<List<CaseDTO>> fetchCaseModuleRePortCaseByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchModuleRePortCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCase-all')")
+	@ApiOperation(value = "根据产品查询测试报告关联用例", tags = {"测试用例" } ,notes = "根据产品查询测试报告关联用例")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/searchmodulereportcase")
+	public ResponseEntity<Page<CaseDTO>> searchCaseModuleRePortCaseByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchModuleRePortCase(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCaseEntry-all')")
+	@ApiOperation(value = "根据产品获取测试报告关联-按模块-条目", tags = {"测试用例" } ,notes = "根据产品获取测试报告关联-按模块-条目")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchmodulereportcaseentry")
+	public ResponseEntity<List<CaseDTO>> fetchCaseModuleRePortCaseEntryByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchModuleRePortCaseEntry(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCaseEntry-all')")
+	@ApiOperation(value = "根据产品查询测试报告关联-按模块-条目", tags = {"测试用例" } ,notes = "根据产品查询测试报告关联-按模块-条目")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/searchmodulereportcaseentry")
+	public ResponseEntity<Page<CaseDTO>> searchCaseModuleRePortCaseEntryByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchModuleRePortCaseEntry(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCase_Project-all')")
+	@ApiOperation(value = "根据产品获取项目报告关联-按模块", tags = {"测试用例" } ,notes = "根据产品获取项目报告关联-按模块")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchmodulereportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchCaseModuleRePortCase_ProjectByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchModuleRePortCase_Project(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCase_Project-all')")
+	@ApiOperation(value = "根据产品查询项目报告关联-按模块", tags = {"测试用例" } ,notes = "根据产品查询项目报告关联-按模块")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/searchmodulereportcase_project")
+	public ResponseEntity<Page<CaseDTO>> searchCaseModuleRePortCase_ProjectByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchModuleRePortCase_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchMyFavorites-all')")
+	@ApiOperation(value = "根据产品获取我的收藏", tags = {"测试用例" } ,notes = "根据产品获取我的收藏")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchmyfavorites")
+	public ResponseEntity<List<CaseDTO>> fetchCaseMyFavoritesByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchMyFavorites(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchMyFavorites-all')")
+	@ApiOperation(value = "根据产品查询我的收藏", tags = {"测试用例" } ,notes = "根据产品查询我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/searchmyfavorites")
+	public ResponseEntity<Page<CaseDTO>> searchCaseMyFavoritesByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchMyFavorites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchNotCurTestSuite-all')")
 	@ApiOperation(value = "根据产品获取套件关联用例", tags = {"测试用例" } ,notes = "根据产品获取套件关联用例")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchnotcurtestsuite")
@@ -816,6 +1203,213 @@ public class CaseResource {
 	public ResponseEntity<Page<CaseDTO>> searchCaseNotCurTestTaskByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Case> domains = caseService.searchNotCurTestTask(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase-all')")
+	@ApiOperation(value = "根据产品获取测试报告关联用例", tags = {"测试用例" } ,notes = "根据产品获取测试报告关联用例")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchreportcase")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCaseByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchRePortCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase-all')")
+	@ApiOperation(value = "根据产品查询测试报告关联用例", tags = {"测试用例" } ,notes = "根据产品查询测试报告关联用例")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/searchreportcase")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRePortCaseByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchRePortCase(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCaseEntry-all')")
+	@ApiOperation(value = "根据产品获取测试报告关联用例-条目", tags = {"测试用例" } ,notes = "根据产品获取测试报告关联用例-条目")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchreportcaseentry")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCaseEntryByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchRePortCaseEntry(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCaseEntry-all')")
+	@ApiOperation(value = "根据产品查询测试报告关联用例-条目", tags = {"测试用例" } ,notes = "根据产品查询测试报告关联用例-条目")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/searchreportcaseentry")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRePortCaseEntryByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchRePortCaseEntry(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase_Project-all')")
+	@ApiOperation(value = "根据产品获取项目报告关联用例-关联用例", tags = {"测试用例" } ,notes = "根据产品获取项目报告关联用例-关联用例")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchreportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCase_ProjectByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchRePortCase_Project(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase_Project-all')")
+	@ApiOperation(value = "根据产品查询项目报告关联用例-关联用例", tags = {"测试用例" } ,notes = "根据产品查询项目报告关联用例-关联用例")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/searchreportcase_project")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRePortCase_ProjectByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchRePortCase_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCase-all')")
+	@ApiOperation(value = "根据产品获取测试报告关联-执行人", tags = {"测试用例" } ,notes = "根据产品获取测试报告关联-执行人")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchrunerreportcase")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRunERRePortCaseByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchRunERRePortCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCase-all')")
+	@ApiOperation(value = "根据产品查询测试报告关联-执行人", tags = {"测试用例" } ,notes = "根据产品查询测试报告关联-执行人")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/searchrunerreportcase")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRunERRePortCaseByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchRunERRePortCase(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCaseEntry-all')")
+	@ApiOperation(value = "根据产品获取测试报告关联-执行人-条目", tags = {"测试用例" } ,notes = "根据产品获取测试报告关联-执行人-条目")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchrunerreportcaseentry")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRunERRePortCaseEntryByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchRunERRePortCaseEntry(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCaseEntry-all')")
+	@ApiOperation(value = "根据产品查询测试报告关联-执行人-条目", tags = {"测试用例" } ,notes = "根据产品查询测试报告关联-执行人-条目")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/searchrunerreportcaseentry")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRunERRePortCaseEntryByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchRunERRePortCaseEntry(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCase_Project-all')")
+	@ApiOperation(value = "根据产品获取项目报告关联-执行人", tags = {"测试用例" } ,notes = "根据产品获取项目报告关联-执行人")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchrunerreportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRunERRePortCase_ProjectByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchRunERRePortCase_Project(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCase_Project-all')")
+	@ApiOperation(value = "根据产品查询项目报告关联-执行人", tags = {"测试用例" } ,notes = "根据产品查询项目报告关联-执行人")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/searchrunerreportcase_project")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRunERRePortCase_ProjectByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchRunERRePortCase_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCase-all')")
+	@ApiOperation(value = "根据产品获取测试报告关联用例", tags = {"测试用例" } ,notes = "根据产品获取测试报告关联用例")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchrunreportcase")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRunRePortCaseByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchRunRePortCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCase-all')")
+	@ApiOperation(value = "根据产品查询测试报告关联用例", tags = {"测试用例" } ,notes = "根据产品查询测试报告关联用例")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/searchrunreportcase")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRunRePortCaseByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchRunRePortCase(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCaseEntry-all')")
+	@ApiOperation(value = "根据产品获取测试报告关联--执行结果条目", tags = {"测试用例" } ,notes = "根据产品获取测试报告关联--执行结果条目")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchrunreportcaseentry")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRunRePortCaseEntryByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchRunRePortCaseEntry(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCaseEntry-all')")
+	@ApiOperation(value = "根据产品查询测试报告关联--执行结果条目", tags = {"测试用例" } ,notes = "根据产品查询测试报告关联--执行结果条目")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/searchrunreportcaseentry")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRunRePortCaseEntryByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchRunRePortCaseEntry(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCase_Project-all')")
+	@ApiOperation(value = "根据产品获取项目报告关联-执行结果", tags = {"测试用例" } ,notes = "根据产品获取项目报告关联-执行结果")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchrunreportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRunRePortCase_ProjectByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchRunRePortCase_Project(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCase_Project-all')")
+	@ApiOperation(value = "根据产品查询项目报告关联-执行结果", tags = {"测试用例" } ,notes = "根据产品查询项目报告关联-执行结果")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/searchrunreportcase_project")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRunRePortCase_ProjectByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchRunRePortCase_Project(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -898,6 +1492,28 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(caseMapping.toDto(caseService.getDraft(domain)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-CaseFavorite-all')")
+    @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/casefavorite")
+    public ResponseEntity<CaseDTO> caseFavoriteByStory(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setStory(story_id);
+        domain = caseService.caseFavorite(domain) ;
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-CaseNFavorite-all')")
+    @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/casenfavorite")
+    public ResponseEntity<CaseDTO> caseNFavoriteByStory(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setStory(story_id);
+        domain = caseService.caseNFavorite(domain) ;
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
+    }
+
     @ApiOperation(value = "根据需求检查测试用例", tags = {"测试用例" },  notes = "根据需求检查测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/checkkey")
     public ResponseEntity<Boolean> checkKeyByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseDTO casedto) {
@@ -933,17 +1549,6 @@ public class CaseResource {
         Case domain = caseMapping.toDomain(casedto);
         domain.setStory(story_id);
         domain = caseService.getByTestTask(domain) ;
-        casedto = caseMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(casedto);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-HuaFavorite-all')")
-    @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/huafavorite")
-    public ResponseEntity<CaseDTO> huaFavoriteByStory(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseDTO casedto) {
-        Case domain = caseMapping.toDomain(casedto);
-        domain.setStory(story_id);
-        domain = caseService.huaFavorite(domain) ;
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
@@ -1171,6 +1776,98 @@ public class CaseResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCase-all')")
+	@ApiOperation(value = "根据需求获取测试报告关联用例", tags = {"测试用例" } ,notes = "根据需求获取测试报告关联用例")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchmodulereportcase")
+	public ResponseEntity<List<CaseDTO>> fetchCaseModuleRePortCaseByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchModuleRePortCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCase-all')")
+	@ApiOperation(value = "根据需求查询测试报告关联用例", tags = {"测试用例" } ,notes = "根据需求查询测试报告关联用例")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/searchmodulereportcase")
+	public ResponseEntity<Page<CaseDTO>> searchCaseModuleRePortCaseByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchModuleRePortCase(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCaseEntry-all')")
+	@ApiOperation(value = "根据需求获取测试报告关联-按模块-条目", tags = {"测试用例" } ,notes = "根据需求获取测试报告关联-按模块-条目")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchmodulereportcaseentry")
+	public ResponseEntity<List<CaseDTO>> fetchCaseModuleRePortCaseEntryByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchModuleRePortCaseEntry(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCaseEntry-all')")
+	@ApiOperation(value = "根据需求查询测试报告关联-按模块-条目", tags = {"测试用例" } ,notes = "根据需求查询测试报告关联-按模块-条目")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/searchmodulereportcaseentry")
+	public ResponseEntity<Page<CaseDTO>> searchCaseModuleRePortCaseEntryByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchModuleRePortCaseEntry(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCase_Project-all')")
+	@ApiOperation(value = "根据需求获取项目报告关联-按模块", tags = {"测试用例" } ,notes = "根据需求获取项目报告关联-按模块")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchmodulereportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchCaseModuleRePortCase_ProjectByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchModuleRePortCase_Project(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCase_Project-all')")
+	@ApiOperation(value = "根据需求查询项目报告关联-按模块", tags = {"测试用例" } ,notes = "根据需求查询项目报告关联-按模块")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/searchmodulereportcase_project")
+	public ResponseEntity<Page<CaseDTO>> searchCaseModuleRePortCase_ProjectByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchModuleRePortCase_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchMyFavorites-all')")
+	@ApiOperation(value = "根据需求获取我的收藏", tags = {"测试用例" } ,notes = "根据需求获取我的收藏")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchmyfavorites")
+	public ResponseEntity<List<CaseDTO>> fetchCaseMyFavoritesByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchMyFavorites(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchMyFavorites-all')")
+	@ApiOperation(value = "根据需求查询我的收藏", tags = {"测试用例" } ,notes = "根据需求查询我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/searchmyfavorites")
+	public ResponseEntity<Page<CaseDTO>> searchCaseMyFavoritesByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchMyFavorites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchNotCurTestSuite-all')")
 	@ApiOperation(value = "根据需求获取套件关联用例", tags = {"测试用例" } ,notes = "根据需求获取套件关联用例")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchnotcurtestsuite")
@@ -1214,6 +1911,213 @@ public class CaseResource {
 	public ResponseEntity<Page<CaseDTO>> searchCaseNotCurTestTaskByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchNotCurTestTask(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase-all')")
+	@ApiOperation(value = "根据需求获取测试报告关联用例", tags = {"测试用例" } ,notes = "根据需求获取测试报告关联用例")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchreportcase")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCaseByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRePortCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase-all')")
+	@ApiOperation(value = "根据需求查询测试报告关联用例", tags = {"测试用例" } ,notes = "根据需求查询测试报告关联用例")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/searchreportcase")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRePortCaseByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRePortCase(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCaseEntry-all')")
+	@ApiOperation(value = "根据需求获取测试报告关联用例-条目", tags = {"测试用例" } ,notes = "根据需求获取测试报告关联用例-条目")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchreportcaseentry")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCaseEntryByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRePortCaseEntry(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCaseEntry-all')")
+	@ApiOperation(value = "根据需求查询测试报告关联用例-条目", tags = {"测试用例" } ,notes = "根据需求查询测试报告关联用例-条目")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/searchreportcaseentry")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRePortCaseEntryByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRePortCaseEntry(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase_Project-all')")
+	@ApiOperation(value = "根据需求获取项目报告关联用例-关联用例", tags = {"测试用例" } ,notes = "根据需求获取项目报告关联用例-关联用例")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchreportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCase_ProjectByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRePortCase_Project(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase_Project-all')")
+	@ApiOperation(value = "根据需求查询项目报告关联用例-关联用例", tags = {"测试用例" } ,notes = "根据需求查询项目报告关联用例-关联用例")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/searchreportcase_project")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRePortCase_ProjectByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRePortCase_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCase-all')")
+	@ApiOperation(value = "根据需求获取测试报告关联-执行人", tags = {"测试用例" } ,notes = "根据需求获取测试报告关联-执行人")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchrunerreportcase")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRunERRePortCaseByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunERRePortCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCase-all')")
+	@ApiOperation(value = "根据需求查询测试报告关联-执行人", tags = {"测试用例" } ,notes = "根据需求查询测试报告关联-执行人")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/searchrunerreportcase")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRunERRePortCaseByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunERRePortCase(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCaseEntry-all')")
+	@ApiOperation(value = "根据需求获取测试报告关联-执行人-条目", tags = {"测试用例" } ,notes = "根据需求获取测试报告关联-执行人-条目")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchrunerreportcaseentry")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRunERRePortCaseEntryByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunERRePortCaseEntry(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCaseEntry-all')")
+	@ApiOperation(value = "根据需求查询测试报告关联-执行人-条目", tags = {"测试用例" } ,notes = "根据需求查询测试报告关联-执行人-条目")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/searchrunerreportcaseentry")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRunERRePortCaseEntryByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunERRePortCaseEntry(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCase_Project-all')")
+	@ApiOperation(value = "根据需求获取项目报告关联-执行人", tags = {"测试用例" } ,notes = "根据需求获取项目报告关联-执行人")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchrunerreportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRunERRePortCase_ProjectByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunERRePortCase_Project(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCase_Project-all')")
+	@ApiOperation(value = "根据需求查询项目报告关联-执行人", tags = {"测试用例" } ,notes = "根据需求查询项目报告关联-执行人")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/searchrunerreportcase_project")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRunERRePortCase_ProjectByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunERRePortCase_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCase-all')")
+	@ApiOperation(value = "根据需求获取测试报告关联用例", tags = {"测试用例" } ,notes = "根据需求获取测试报告关联用例")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchrunreportcase")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRunRePortCaseByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunRePortCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCase-all')")
+	@ApiOperation(value = "根据需求查询测试报告关联用例", tags = {"测试用例" } ,notes = "根据需求查询测试报告关联用例")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/searchrunreportcase")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRunRePortCaseByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunRePortCase(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCaseEntry-all')")
+	@ApiOperation(value = "根据需求获取测试报告关联--执行结果条目", tags = {"测试用例" } ,notes = "根据需求获取测试报告关联--执行结果条目")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchrunreportcaseentry")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRunRePortCaseEntryByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunRePortCaseEntry(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCaseEntry-all')")
+	@ApiOperation(value = "根据需求查询测试报告关联--执行结果条目", tags = {"测试用例" } ,notes = "根据需求查询测试报告关联--执行结果条目")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/searchrunreportcaseentry")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRunRePortCaseEntryByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunRePortCaseEntry(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCase_Project-all')")
+	@ApiOperation(value = "根据需求获取项目报告关联-执行结果", tags = {"测试用例" } ,notes = "根据需求获取项目报告关联-执行结果")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchrunreportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRunRePortCase_ProjectByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunRePortCase_Project(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCase_Project-all')")
+	@ApiOperation(value = "根据需求查询项目报告关联-执行结果", tags = {"测试用例" } ,notes = "根据需求查询项目报告关联-执行结果")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/searchrunreportcase_project")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRunRePortCase_ProjectByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunRePortCase_Project(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -1296,6 +2200,28 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(caseMapping.toDto(caseService.getDraft(domain)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-CaseFavorite-all')")
+    @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/casefavorite")
+    public ResponseEntity<CaseDTO> caseFavoriteByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setStory(story_id);
+        domain = caseService.caseFavorite(domain) ;
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-CaseNFavorite-all')")
+    @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/casenfavorite")
+    public ResponseEntity<CaseDTO> caseNFavoriteByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        domain.setStory(story_id);
+        domain = caseService.caseNFavorite(domain) ;
+        casedto = caseMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casedto);
+    }
+
     @ApiOperation(value = "根据产品需求检查测试用例", tags = {"测试用例" },  notes = "根据产品需求检查测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/checkkey")
     public ResponseEntity<Boolean> checkKeyByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseDTO casedto) {
@@ -1331,17 +2257,6 @@ public class CaseResource {
         Case domain = caseMapping.toDomain(casedto);
         domain.setStory(story_id);
         domain = caseService.getByTestTask(domain) ;
-        casedto = caseMapping.toDto(domain);
-        return ResponseEntity.status(HttpStatus.OK).body(casedto);
-    }
-
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-HuaFavorite-all')")
-    @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/huafavorite")
-    public ResponseEntity<CaseDTO> huaFavoriteByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody CaseDTO casedto) {
-        Case domain = caseMapping.toDomain(casedto);
-        domain.setStory(story_id);
-        domain = caseService.huaFavorite(domain) ;
         casedto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
@@ -1569,6 +2484,98 @@ public class CaseResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCase-all')")
+	@ApiOperation(value = "根据产品需求获取测试报告关联用例", tags = {"测试用例" } ,notes = "根据产品需求获取测试报告关联用例")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchmodulereportcase")
+	public ResponseEntity<List<CaseDTO>> fetchCaseModuleRePortCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchModuleRePortCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCase-all')")
+	@ApiOperation(value = "根据产品需求查询测试报告关联用例", tags = {"测试用例" } ,notes = "根据产品需求查询测试报告关联用例")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/searchmodulereportcase")
+	public ResponseEntity<Page<CaseDTO>> searchCaseModuleRePortCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchModuleRePortCase(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCaseEntry-all')")
+	@ApiOperation(value = "根据产品需求获取测试报告关联-按模块-条目", tags = {"测试用例" } ,notes = "根据产品需求获取测试报告关联-按模块-条目")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchmodulereportcaseentry")
+	public ResponseEntity<List<CaseDTO>> fetchCaseModuleRePortCaseEntryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchModuleRePortCaseEntry(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCaseEntry-all')")
+	@ApiOperation(value = "根据产品需求查询测试报告关联-按模块-条目", tags = {"测试用例" } ,notes = "根据产品需求查询测试报告关联-按模块-条目")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/searchmodulereportcaseentry")
+	public ResponseEntity<Page<CaseDTO>> searchCaseModuleRePortCaseEntryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchModuleRePortCaseEntry(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCase_Project-all')")
+	@ApiOperation(value = "根据产品需求获取项目报告关联-按模块", tags = {"测试用例" } ,notes = "根据产品需求获取项目报告关联-按模块")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchmodulereportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchCaseModuleRePortCase_ProjectByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchModuleRePortCase_Project(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchModuleRePortCase_Project-all')")
+	@ApiOperation(value = "根据产品需求查询项目报告关联-按模块", tags = {"测试用例" } ,notes = "根据产品需求查询项目报告关联-按模块")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/searchmodulereportcase_project")
+	public ResponseEntity<Page<CaseDTO>> searchCaseModuleRePortCase_ProjectByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchModuleRePortCase_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchMyFavorites-all')")
+	@ApiOperation(value = "根据产品需求获取我的收藏", tags = {"测试用例" } ,notes = "根据产品需求获取我的收藏")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchmyfavorites")
+	public ResponseEntity<List<CaseDTO>> fetchCaseMyFavoritesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchMyFavorites(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchMyFavorites-all')")
+	@ApiOperation(value = "根据产品需求查询我的收藏", tags = {"测试用例" } ,notes = "根据产品需求查询我的收藏")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/searchmyfavorites")
+	public ResponseEntity<Page<CaseDTO>> searchCaseMyFavoritesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchMyFavorites(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchNotCurTestSuite-all')")
 	@ApiOperation(value = "根据产品需求获取套件关联用例", tags = {"测试用例" } ,notes = "根据产品需求获取套件关联用例")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchnotcurtestsuite")
@@ -1612,6 +2619,213 @@ public class CaseResource {
 	public ResponseEntity<Page<CaseDTO>> searchCaseNotCurTestTaskByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchNotCurTestTask(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase-all')")
+	@ApiOperation(value = "根据产品需求获取测试报告关联用例", tags = {"测试用例" } ,notes = "根据产品需求获取测试报告关联用例")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchreportcase")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRePortCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase-all')")
+	@ApiOperation(value = "根据产品需求查询测试报告关联用例", tags = {"测试用例" } ,notes = "根据产品需求查询测试报告关联用例")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/searchreportcase")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRePortCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRePortCase(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCaseEntry-all')")
+	@ApiOperation(value = "根据产品需求获取测试报告关联用例-条目", tags = {"测试用例" } ,notes = "根据产品需求获取测试报告关联用例-条目")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchreportcaseentry")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCaseEntryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRePortCaseEntry(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCaseEntry-all')")
+	@ApiOperation(value = "根据产品需求查询测试报告关联用例-条目", tags = {"测试用例" } ,notes = "根据产品需求查询测试报告关联用例-条目")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/searchreportcaseentry")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRePortCaseEntryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRePortCaseEntry(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase_Project-all')")
+	@ApiOperation(value = "根据产品需求获取项目报告关联用例-关联用例", tags = {"测试用例" } ,notes = "根据产品需求获取项目报告关联用例-关联用例")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchreportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRePortCase_ProjectByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRePortCase_Project(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRePortCase_Project-all')")
+	@ApiOperation(value = "根据产品需求查询项目报告关联用例-关联用例", tags = {"测试用例" } ,notes = "根据产品需求查询项目报告关联用例-关联用例")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/searchreportcase_project")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRePortCase_ProjectByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRePortCase_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCase-all')")
+	@ApiOperation(value = "根据产品需求获取测试报告关联-执行人", tags = {"测试用例" } ,notes = "根据产品需求获取测试报告关联-执行人")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchrunerreportcase")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRunERRePortCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunERRePortCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCase-all')")
+	@ApiOperation(value = "根据产品需求查询测试报告关联-执行人", tags = {"测试用例" } ,notes = "根据产品需求查询测试报告关联-执行人")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/searchrunerreportcase")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRunERRePortCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunERRePortCase(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCaseEntry-all')")
+	@ApiOperation(value = "根据产品需求获取测试报告关联-执行人-条目", tags = {"测试用例" } ,notes = "根据产品需求获取测试报告关联-执行人-条目")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchrunerreportcaseentry")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRunERRePortCaseEntryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunERRePortCaseEntry(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCaseEntry-all')")
+	@ApiOperation(value = "根据产品需求查询测试报告关联-执行人-条目", tags = {"测试用例" } ,notes = "根据产品需求查询测试报告关联-执行人-条目")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/searchrunerreportcaseentry")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRunERRePortCaseEntryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunERRePortCaseEntry(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCase_Project-all')")
+	@ApiOperation(value = "根据产品需求获取项目报告关联-执行人", tags = {"测试用例" } ,notes = "根据产品需求获取项目报告关联-执行人")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchrunerreportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRunERRePortCase_ProjectByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunERRePortCase_Project(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunERRePortCase_Project-all')")
+	@ApiOperation(value = "根据产品需求查询项目报告关联-执行人", tags = {"测试用例" } ,notes = "根据产品需求查询项目报告关联-执行人")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/searchrunerreportcase_project")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRunERRePortCase_ProjectByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunERRePortCase_Project(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCase-all')")
+	@ApiOperation(value = "根据产品需求获取测试报告关联用例", tags = {"测试用例" } ,notes = "根据产品需求获取测试报告关联用例")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRunRePortCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunRePortCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCase-all')")
+	@ApiOperation(value = "根据产品需求查询测试报告关联用例", tags = {"测试用例" } ,notes = "根据产品需求查询测试报告关联用例")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/searchrunreportcase")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRunRePortCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunRePortCase(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCaseEntry-all')")
+	@ApiOperation(value = "根据产品需求获取测试报告关联--执行结果条目", tags = {"测试用例" } ,notes = "根据产品需求获取测试报告关联--执行结果条目")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchrunreportcaseentry")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRunRePortCaseEntryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunRePortCaseEntry(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCaseEntry-all')")
+	@ApiOperation(value = "根据产品需求查询测试报告关联--执行结果条目", tags = {"测试用例" } ,notes = "根据产品需求查询测试报告关联--执行结果条目")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/searchrunreportcaseentry")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRunRePortCaseEntryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunRePortCaseEntry(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCase_Project-all')")
+	@ApiOperation(value = "根据产品需求获取项目报告关联-执行结果", tags = {"测试用例" } ,notes = "根据产品需求获取项目报告关联-执行结果")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project")
+	public ResponseEntity<List<CaseDTO>> fetchCaseRunRePortCase_ProjectByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunRePortCase_Project(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchRunRePortCase_Project-all')")
+	@ApiOperation(value = "根据产品需求查询项目报告关联-执行结果", tags = {"测试用例" } ,notes = "根据产品需求查询项目报告关联-执行结果")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project")
+	public ResponseEntity<Page<CaseDTO>> searchCaseRunRePortCase_ProjectByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchRunRePortCase_Project(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

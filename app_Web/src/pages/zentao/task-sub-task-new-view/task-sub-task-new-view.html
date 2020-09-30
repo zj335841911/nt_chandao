@@ -5,7 +5,7 @@
     </template>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
-    <view_grid 
+        <view_grid 
         :viewState="viewState"  
         :viewparams="viewparams" 
         :context="context" 
@@ -19,7 +19,7 @@
         loaddraftAction="GetDraft"
         loadAction="Get"
         createAction="Create"
-        fetchAction="FetchDefaultRow"
+        fetchAction="FetchChildTask"
         :newdata="newdata.bind(_self)"
         :opendata="opendata.bind(_self)"
         name="grid"  

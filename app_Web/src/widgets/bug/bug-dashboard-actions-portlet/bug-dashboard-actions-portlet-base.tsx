@@ -5,6 +5,8 @@ import BugService from '@/service/bug/bug-service';
 import BugDashboardActionsService from './bug-dashboard-actions-portlet-service';
 import BugUIService from '@/uiservice/bug/bug-ui-service';
 import { Environment } from '@/environments/environment';
+import UIService from '@/uiservice/ui-service';
+import { ViewTool } from '@/utils';
 
 
 /**
@@ -382,6 +384,32 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
     @Prop() public width?: number;
 
     /**
+     * 门户部件类型
+     *
+     * @type {number}
+     * @memberof BugDashboardActionsBase
+     */
+    public portletType: string = 'actionbar';
+
+    /**
+     * 界面行为模型数据
+     *
+     * @memberof BugDashboardActionsBase
+     */
+    public uiactionModel: any = {
+        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
+        maineditdash: {name: 'maineditdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_EDIT_BUT', uiaction: { tag: 'MainEditDash', target: 'SINGLEKEY' } },
+        closebugdash: {name: 'closebugdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_CLOSE_BUT', uiaction: { tag: 'CloseBugDash', target: 'SINGLEKEY' } },
+        resolvebugdash: {name: 'resolvebugdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', uiaction: { tag: 'ResolveBugDash', target: 'SINGLEKEY' } },
+        assingtobugcz: {name: 'assingtobugcz', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_ASSIGNTO_BUT', uiaction: { tag: 'AssingToBugCz', target: 'SINGLEKEY' } },
+        confirmbugdash: {name: 'confirmbugdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_CONFIRM_BUT', uiaction: { tag: 'ConfirmBugDash', target: 'SINGLEKEY' } },
+        activation: {name: 'activation', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_ACTIVATE_BUT', uiaction: { tag: 'Activation', target: 'SINGLEKEY' } },
+        tostory: {name: 'tostory', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_TOSTORY_BUT', uiaction: { tag: 'toStory', target: 'SINGLEKEY' } },
+        buildusecase: {name: 'buildusecase', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_CREATECASE_BUT', uiaction: { tag: 'BuildUseCase', target: 'SINGLEKEY' } },
+        delete: {name: 'delete', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_DELETE_BUT', uiaction: { tag: 'delete', target: 'SINGLEKEY' } },
+    }
+
+    /**
      * 操作栏模型数据
      *
      * @returns {any[]}
@@ -591,6 +619,9 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
     public afterCreated(){
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
+                if(Object.is(tag, "all-portlet") && Object.is(action,'loadmodel')){
+                   this.calcUIActionAuthState(data);
+                }
                 if (!Object.is(tag, this.name)) {
                     return;
                 }
@@ -619,6 +650,23 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
     public afterDestroy() {
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
+        }
+    }
+
+    /**
+     * 计算界面行为权限
+     *
+     * @memberof BugDashboardActionsBase
+     */
+    public calcUIActionAuthState(data:any = {}) {
+        //  如果是操作栏，不计算权限
+        if(this.portletType && Object.is('actionbar', this.portletType)) {
+            return;
+        }
+        let _this: any = this;
+        let uiservice: any = _this.appUIService ? _this.appUIService : new UIService(_this.$store);
+        if(_this.uiactionModel){
+            ViewTool.calcActionItemAuthState(data,_this.uiactionModel,uiservice);
         }
     }
 

@@ -14,7 +14,8 @@
 
     .el-table.el-table--mini.el-table--fit {
 
-        >.el-table__header-wrapper, .el-table__fixed-header-wrapper {
+        >.el-table__header-wrapper,
+        .el-table__fixed-header-wrapper {
 
             >.el-table__header {
 
@@ -45,7 +46,8 @@
             }
         }
 
-        >.el-table__body-wrapper, .el-table__fixed-body-wrapper {
+        >.el-table__body-wrapper,
+        .el-table__fixed-body-wrapper {
 
             >.el-table__body {
 
@@ -113,7 +115,7 @@
 
                 >.ivu-tabs-bar {
                     margin-bottom: 0px;
-                    border-bottom: 1px solid var(--app-dividing-line-color-tint);
+                    // border-bottom: 1px solid var(--app-dividing-line-color-tint);
 
                     >.ivu-tabs-nav-container {
 
@@ -371,22 +373,23 @@
             }
         }
 
-        .portlet-container, .portlet-card {
+        .portlet-container,
+        .portlet-card {
 
             .portlet {
                 height: 100%;
                 border-radius: 5px;
-                padding: 8px;
+                padding: 8px 8px 0px 8px;
 
                 >.portlet-title {
                     height: 38px;
                     padding: 7px 8px;
                     font-size: 16px;
                     font-weight: 700;
-                    border-width: 1px 1px 0px 1px;
+                    border-width: 0 0 1px 0;
                     border-style: solid;
-                    border-color: var(--view-dividing-line-color-bright);
-                    color: var(--view-font-color-bright);
+                    border-color: rgba(var(--view-dividing-line-color-rgb), 0.3);
+                    color: var(--view-font-color);
                     border-radius: 5px 5px 0px 0px;
                     background: var(--view-background-color-bright);
 
@@ -404,14 +407,14 @@
                     height: calc(100% - 39px);
                     overflow: auto;
                     padding: 6px 8px;
-                    border: 1px solid var(--view-dividing-line-color-bright);
+                    border: 0;
                     border-radius: 0px 0px 5px 5px;
                     background: var(--view-background-color-bright);
                 }
 
                 >.portlet-without-title {
                     padding: 0px 8px;
-                    border: 1px solid var(--view-dividing-line-color-bright);
+                    border: 0;
                     border-radius: 5px;
                     background: var(--view-background-color-bright);
                 }
@@ -433,7 +436,7 @@
             height: 100%;
 
             .portlet {
-                .studio-view.view-container.appportalview9 >.view-content .portlet-container .portlet;
+                .studio-view.view-container.appportalview9>.view-content .portlet-container .portlet;
             }
         }
     }
@@ -513,14 +516,14 @@
                 overflow-y: auto;
                 overflow-x: hidden;
                 flex-grow: 1;
-                
+
                 >.app-list {
-    
+
                     .app-list-item.isSelect {
                         position: relative;
                         background-color: unset;
                     }
-    
+
                     .app-list-item.isSelect::before {
                         position: absolute;
                         left: 0;

@@ -87,19 +87,9 @@ export default class MainGridModel {
           dataType: 'ONE2MANYDATA',
         },
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'frombug',
           prop: 'frombug',
           dataType: 'PICKUP',
-        },
-        {
-          name: 'status',
-          prop: 'status',
-          dataType: 'SSCODELIST',
         },
         {
           name: 'srfmstag',
@@ -110,20 +100,15 @@ export default class MainGridModel {
           dataType: 'TEXT',
         },
         {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
-        },
-        {
           name: 'srfkey',
           prop: 'id',
           dataType: 'ACID',
           isEditable:true
         },
         {
-          name: 'product',
-          prop: 'product',
-          dataType: 'PICKUP',
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
         },
         {
           name: 'story',
@@ -131,8 +116,28 @@ export default class MainGridModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'lib',
-          prop: 'lib',
+          name: 'fromcaseid',
+          prop: 'fromcaseid',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'isfavorites',
+          prop: 'isfavorites',
+          dataType: 'TEXT',
+        },
+        {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'status',
+          prop: 'status',
+          dataType: 'SSCODELIST',
+        },
+        {
+          name: 'product',
+          prop: 'product',
           dataType: 'PICKUP',
         },
         {
@@ -141,13 +146,13 @@ export default class MainGridModel {
           dataType: 'SSCODELIST',
         },
         {
-          name: 'branch',
-          prop: 'branch',
+          name: 'lib',
+          prop: 'lib',
           dataType: 'PICKUP',
         },
         {
-          name: 'fromcaseid',
-          prop: 'fromcaseid',
+          name: 'branch',
+          prop: 'branch',
           dataType: 'PICKUP',
         },
         {

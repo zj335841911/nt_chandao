@@ -36,6 +36,10 @@ export default {
 			caption: "版本",
       		title: "版本表格视图",
 		},
+		testroundsgridview: {
+			caption: "轮次",
+      		title: "版本表格视图（轮次）",
+		},
 		mainview: {
 			caption: "版本",
       		title: "版本编辑视图",
@@ -167,6 +171,19 @@ export default {
         build_viewbugs: "查看Bug",
         build_editbuild: "编辑版本",
         build_delete: "删除",
+		},
+	},
+	testrounds_grid: {
+		columns: {
+			id: "ID",
+			productname: "产品名称",
+			name: "名称编号",
+			scmpath: "源代码地址",
+			filepath: "下载地址",
+			builder: "构建者",
+			date: "打包日期",
+		},
+		uiactions: {
 		},
 	},
 	default_searchform: {

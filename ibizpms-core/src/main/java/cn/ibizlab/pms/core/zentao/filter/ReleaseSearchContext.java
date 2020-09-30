@@ -27,8 +27,8 @@ import cn.ibizlab.pms.core.zentao.domain.Release;
 @Data
 public class ReleaseSearchContext extends QueryWrapperContext<Release> {
 
-	private Integer n_marker_eq;//[里程碑]
-	public void setN_marker_eq(Integer n_marker_eq) {
+	private String n_marker_eq;//[里程碑]
+	public void setN_marker_eq(String n_marker_eq) {
         this.n_marker_eq = n_marker_eq;
         if(!ObjectUtils.isEmpty(this.n_marker_eq)){
             this.getSearchCond().eq("marker", n_marker_eq);
@@ -39,6 +39,15 @@ public class ReleaseSearchContext extends QueryWrapperContext<Release> {
         this.n_name_like = n_name_like;
         if(!ObjectUtils.isEmpty(this.n_name_like)){
             this.getSearchCond().like("name", n_name_like);
+        }
+    }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_date_ltandeq;//[发布日期]
+	public void setN_date_ltandeq(Timestamp n_date_ltandeq) {
+        this.n_date_ltandeq = n_date_ltandeq;
+        if(!ObjectUtils.isEmpty(this.n_date_ltandeq)){
+            this.getSearchCond().le("date", n_date_ltandeq);
         }
     }
 	private String n_status_eq;//[状态]

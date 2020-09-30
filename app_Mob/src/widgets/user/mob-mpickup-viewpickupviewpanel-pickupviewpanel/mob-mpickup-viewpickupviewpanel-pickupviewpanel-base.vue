@@ -25,6 +25,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import UserService from '@/app-core/service/user/user-service';
 import MobMPickupViewpickupviewpanelService from '@/app-core/ctrl-service/user/mob-mpickup-viewpickupviewpanel-pickupviewpanel-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import UserUIService from '@/ui-service/user/user-ui-action';
 

@@ -19,10 +19,12 @@ export const Environment = {
     UploadFile: 'ibizutil/upload',
     // 是否为pc端应用
     isAppMode: true,
-    //统一地址
+    // 统一地址
     uniteAddress: "http://172.16.100.202:8114",
     // 是否开启权限认证
     enablePermissionValid: false,
+    // 菜单权限模式，可选值：RT(RT模式),RESOURCE(资源模式),MINIX(混合模式),默认MINIX
+    menuPermissionMode: 'MINIX',
     // 是否为开发模式
     devMode: true,
     // 项目模板地址
@@ -49,7 +51,11 @@ export const Environment = {
     debugOpenMode: 'mos',
     // 默认登录账户与密码
     defaultLogin: '',
-    defaultPwd: ''
+    defaultPwd: '',
+    // 是否启用主题
+    isEnableTheme: true,
+    // 界面导航条分隔符 
+    NavBarDelimiter: '/'
 };
 // 挂载外部配置文件
 if ((window as any).Environment) {

@@ -184,6 +184,7 @@ export default class TaskTeamMobEditView9Base extends Vue {
         srfCaption: 'ibztaskteam.views.mobeditview9.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'ibztaskteam.mobeditview9',
         iconcls: '',
         icon: ''
     }
@@ -338,15 +339,6 @@ export default class TaskTeamMobEditView9Base extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof TaskTeamMobEditView9Base
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof TaskTeamMobEditView9Base
@@ -381,6 +373,17 @@ export default class TaskTeamMobEditView9Base extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof TaskTeamMobEditView9Base
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)

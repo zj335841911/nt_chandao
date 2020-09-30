@@ -26,6 +26,11 @@ export default class ProjectPlanModel {
         dataType: 'TEXT',
       },
       {
+        name: 'srfupdatedate',
+        prop: 'lastediteddate',
+        dataType: 'DATETIME',
+      },
+      {
         name: 'srforikey',
       },
       {
@@ -58,7 +63,7 @@ export default class ProjectPlanModel {
       {
         name: 'project',
         prop: 'project',
-        dataType: 'TEXT',
+        dataType: 'BIGINT',
       },
       {
         name: 'plan',

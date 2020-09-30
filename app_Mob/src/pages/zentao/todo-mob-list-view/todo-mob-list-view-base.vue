@@ -17,13 +17,10 @@
                 </div>
             </ion-buttons>
         </ion-toolbar>
-        <ion-toolbar>
-            <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
-        </ion-toolbar>
+        <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="false"></app-search-history>
 
     
     </ion-header>
-
 
     <ion-content>
                 <div>列表视图已废弃，请选择多数据视图</div>
@@ -173,6 +170,7 @@ export default class TodoMobListViewBase extends Vue {
         srfCaption: 'todo.views.moblistview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'todo.moblistview',
         iconcls: '',
         icon: ''
     }
@@ -313,15 +311,6 @@ export default class TodoMobListViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof TodoMobListViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof TodoMobListViewBase
@@ -344,6 +333,17 @@ export default class TodoMobListViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof TodoMobListViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)

@@ -16,7 +16,6 @@
     
     </ion-header>
 
-
     <ion-content>
                 <view_form
             :viewState="viewState"
@@ -44,7 +43,7 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
                 <div  class = "fab_container">
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.tbitem1.disabled}" v-show="righttoolbarModels.tbitem1.visabled">
                 <ion-button :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" size="large">
@@ -202,6 +201,7 @@ export default class TaskNewMobEditViewBase extends Vue {
         srfCaption: 'task.views.newmobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'task.newmobeditview',
         iconcls: '',
         icon: 'fa fa-tasks'
     }
@@ -403,15 +403,6 @@ export default class TaskNewMobEditViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof TaskNewMobEditViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof TaskNewMobEditViewBase
@@ -438,6 +429,17 @@ export default class TaskNewMobEditViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof TaskNewMobEditViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)
@@ -633,8 +635,12 @@ export default class TaskNewMobEditViewBase extends Vue {
                 let result = await this.cheackChange();
         if(result){
             if (this.viewDefaultUsage === "routerView") {
-                this.$store.commit("deletePage", this.$route.fullPath);
-                this.$router.go(-1);
+                if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                    this.quitFun();
+                }else{
+                    this.$store.commit("deletePage", this.$route.fullPath);
+                    this.$router.go(-1);
+                }
             } 
             if (this.viewDefaultUsage === "actionView") {
                 this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
@@ -711,7 +717,7 @@ export default class TaskNewMobEditViewBase extends Vue {
         if (view && view.viewdatachange) {
                 const title: any = this.$t('app.tabpage.sureclosetip.title');
                 const contant: any = this.$t('app.tabpage.sureclosetip.content');
-                const result = await this.$notice.confirm(title, contant, this.$store);
+                const result = await this.$notice.confirm(title, contant);
                 if (result) {
                     this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
                     return true;

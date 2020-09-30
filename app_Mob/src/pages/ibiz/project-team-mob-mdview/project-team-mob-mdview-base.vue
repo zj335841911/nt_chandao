@@ -2,13 +2,10 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'project-team-mob-mdview': true }">
     
     <ion-header>
-        <ion-toolbar>
-            <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
-        </ion-toolbar>
+        <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="false"></app-search-history>
 
     
     </ion-header>
-
 
     <ion-content>
                 <view_mdctrl
@@ -45,7 +42,7 @@
         </ion-infinite-scroll-content>
         </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
         
     </ion-footer>
 </ion-page>
@@ -194,6 +191,7 @@ export default class ProjectTeamMobMDViewBase extends Vue {
         srfCaption: 'projectteam.views.mobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'projectteam.mobmdview',
         iconcls: '',
         icon: 'fa fa-users'
     }
@@ -348,15 +346,6 @@ export default class ProjectTeamMobMDViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof ProjectTeamMobMDViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof ProjectTeamMobMDViewBase
@@ -379,6 +368,17 @@ export default class ProjectTeamMobMDViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof ProjectTeamMobMDViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)
@@ -711,7 +711,7 @@ export default class ProjectTeamMobMDViewBase extends Vue {
      * @memberof ProjectTeamMobMDViewBase
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

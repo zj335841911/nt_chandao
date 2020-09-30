@@ -68,6 +68,9 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().get(`/subtasks/${context.subtask}/select`,isloading);
+            
+            return res;
     }
 
     /**
@@ -136,6 +139,18 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+        if(!data.srffrontuf || data.srffrontuf !== "1"){
+            data[this.APPDEKEY] = null;
+        }
+        if(data.srffrontuf){
+            delete data.srffrontuf;
+        }
+        let tempContext:any = JSON.parse(JSON.stringify(context));
+        let res:any = await Http.getInstance().post(`/subtasks`,data,isloading);
+        
+        return res;
     }
 
     /**
@@ -176,6 +191,11 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().put(`/subtasks/${context.subtask}`,data,isloading);
+            
+            return res;
     }
 
     /**
@@ -204,6 +224,8 @@ export default class SubTaskServiceBase extends EntityService {
             let res:any = Http.getInstance().delete(`/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
             return res;
         }
+            let res:any = Http.getInstance().delete(`/subtasks/${context.subtask}`,isloading);
+            return res;
     }
 
     /**
@@ -236,6 +258,9 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = await Http.getInstance().get(`/subtasks/${context.subtask}`,isloading);
+            
+            return res;
     }
 
     /**
@@ -272,6 +297,10 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+        let res:any = await  Http.getInstance().get(`/subtasks/getdraft`,isloading);
+        res.data.subtask = data.subtask;
+        
+        return res;
     }
 
     /**
@@ -312,6 +341,8 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/activate`,data,isloading);
+            return res;
     }
 
     /**
@@ -352,6 +383,8 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/assignto`,data,isloading);
+            return res;
     }
 
     /**
@@ -392,6 +425,8 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/cancel`,data,isloading);
+            return res;
     }
 
     /**
@@ -432,6 +467,8 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -472,6 +509,8 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/close`,data,isloading);
+            return res;
     }
 
     /**
@@ -512,6 +551,8 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/confirmstorychange`,data,isloading);
+            return res;
     }
 
     /**
@@ -552,6 +593,8 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/deleteestimate`,data,isloading);
+            return res;
     }
 
     /**
@@ -592,6 +635,8 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/editestimate`,data,isloading);
+            return res;
     }
 
     /**
@@ -632,6 +677,8 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/finish`,data,isloading);
+            return res;
     }
 
     /**
@@ -672,6 +719,8 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/pause`,data,isloading);
+            return res;
     }
 
     /**
@@ -712,6 +761,8 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/recordestimate`,data,isloading);
+            return res;
     }
 
     /**
@@ -752,6 +803,8 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/restart`,data,isloading);
+            return res;
     }
 
     /**
@@ -792,6 +845,11 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/subtasks/${context.subtask}/save`,data,isloading);
+            
+            return res;
     }
 
     /**
@@ -832,6 +890,8 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/sendmessage`,data,isloading);
+            return res;
     }
 
     /**
@@ -872,6 +932,8 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/sendmsgpreprocess`,data,isloading);
+            return res;
     }
 
     /**
@@ -912,6 +974,8 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/start`,data,isloading);
+            return res;
     }
 
     /**
@@ -952,6 +1016,8 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/taskfavorites`,data,isloading);
+            return res;
     }
 
     /**
@@ -992,6 +1058,8 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/tasknfavorites`,data,isloading);
+            return res;
     }
 
     /**
@@ -1024,6 +1092,9 @@ export default class SubTaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchassignedtomytask`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/subtasks/fetchassignedtomytask`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1056,6 +1127,44 @@ export default class SubTaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchbymodule`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/subtasks/fetchbymodule`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchChildTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async FetchChildTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
+            return res;
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
+            return res;
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
+            return res;
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/subtasks/fetchchildtask`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1088,6 +1197,9 @@ export default class SubTaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/subtasks/fetchdefault`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1120,6 +1232,9 @@ export default class SubTaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchdefaultrow`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/subtasks/fetchdefaultrow`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1152,6 +1267,9 @@ export default class SubTaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmyfavorites`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/subtasks/fetchmyfavorites`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1184,6 +1302,9 @@ export default class SubTaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchprojecttask`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/subtasks/fetchprojecttask`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1216,6 +1337,9 @@ export default class SubTaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchroottask`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/subtasks/fetchroottask`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1248,6 +1372,9 @@ export default class SubTaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchtypegroup`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/subtasks/fetchtypegroup`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -1260,18 +1387,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async CalcTime(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        if(context.product && context.story && context.task &&  true){
-            return Http.getInstance().post(`products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/calctime`,data,isloading);
-        }
-        if(context.project && context.task &&  true){
-            return Http.getInstance().post(`projects/${context.project}/tasks/${context.task}/subtasks/calctime`,data,isloading);
-        }
-        if(context.story && context.task &&  true){
-            return Http.getInstance().post(`stories/${context.story}/tasks/${context.task}/subtasks/calctime`,data,isloading);
-        }
-        if(context.task &&  true){
-            return Http.getInstance().post(`tasks/${context.task}/subtasks/calctime`,data,isloading);
-        }
     }
 
     /**
@@ -1284,17 +1399,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchTempAssignedToMyTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempAssignedToMyTask ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(result){
-                return {"status":200,"data":result};
-            }else{
-                return {"status":200,"data":[]};
-            } 
-        }else{
-            return {"status":200,"data":[]};
-        }
     }
 
     /**
@@ -1307,17 +1411,18 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchTempByModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempByModule ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(result){
-                return {"status":200,"data":result};
-            }else{
-                return {"status":200,"data":[]};
-            } 
-        }else{
-            return {"status":200,"data":[]};
-        }
+    }
+
+    /**
+     * FetchTempChildTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async FetchTempChildTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**
@@ -1330,17 +1435,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempDefault ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(result){
-                return {"status":200,"data":result};
-            }else{
-                return {"status":200,"data":[]};
-            } 
-        }else{
-            return {"status":200,"data":[]};
-        }
     }
 
     /**
@@ -1353,17 +1447,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchTempDefaultRow(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempDefaultRow ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(result){
-                return {"status":200,"data":result};
-            }else{
-                return {"status":200,"data":[]};
-            } 
-        }else{
-            return {"status":200,"data":[]};
-        }
     }
 
     /**
@@ -1376,17 +1459,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchTempMyFavorites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempMyFavorites ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(result){
-                return {"status":200,"data":result};
-            }else{
-                return {"status":200,"data":[]};
-            } 
-        }else{
-            return {"status":200,"data":[]};
-        }
     }
 
     /**
@@ -1399,17 +1471,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchTempProjectTASK(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempProjectTASK ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(result){
-                return {"status":200,"data":result};
-            }else{
-                return {"status":200,"data":[]};
-            } 
-        }else{
-            return {"status":200,"data":[]};
-        }
     }
 
     /**
@@ -1422,17 +1483,6 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchTempRootTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempRootTask ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(result){
-                return {"status":200,"data":result};
-            }else{
-                return {"status":200,"data":[]};
-            } 
-        }else{
-            return {"status":200,"data":[]};
-        }
     }
 
     /**
@@ -1445,16 +1495,5 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchTempTypeGroup(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempTypeGroup ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(result){
-                return {"status":200,"data":result};
-            }else{
-                return {"status":200,"data":[]};
-            } 
-        }else{
-            return {"status":200,"data":[]};
-        }
     }
 }

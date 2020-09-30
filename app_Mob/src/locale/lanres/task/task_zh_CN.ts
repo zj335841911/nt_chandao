@@ -303,6 +303,17 @@ export default {
 		uiactions: {
 		},
 	},
+	mobdef_searchform: {
+		details: {
+			formpage1: '常规条件', 
+			n_name_like: '任务名称', 
+			n_type_eq: '任务类型', 
+			n_status_eq: '任务状态', 
+			n_projectname_eq: '所属项目', 
+		},
+		uiactions: {
+		},
+	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: '保存',

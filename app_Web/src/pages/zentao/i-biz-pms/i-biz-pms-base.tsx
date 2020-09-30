@@ -2,11 +2,13 @@ import { Vue } from 'vue-property-decorator';
 import { FooterItemsService } from '@/studio-core/service/FooterItemsService';
 import { AppService } from '@/studio-core/service/app-service/AppService';
 import AppMenusModel from '@/widgets/app/zentao-appmenu/zentao-appmenu-model';
+import AuthService from '@/authservice/auth-service';
 
 /**
  * 应用首页基类
  */
 export class IBizPMSBase extends Vue {
+
   /**
    * 计数器服务对象集合
    *
@@ -14,6 +16,14 @@ export class IBizPMSBase extends Vue {
    * @memberof IBizPMSBase
    */
   protected counterServiceArray: any[] = [];
+
+  /**
+   * 建构权限服务对象
+   *
+   * @type {AuthService}
+   * @memberof IBizPMSBase
+   */
+  public authService:AuthService = new AuthService({ $store: this.$store });
 
   /**
    * 应用服务
@@ -294,7 +304,7 @@ export class IBizPMSBase extends Vue {
    */
   public computedEffectiveMenus(inputMenus: Array<any>) {
     inputMenus.forEach((_item: any) => {
-      if (!this.$store.getters['authresource/getAuthMenu'](_item)) {
+      if (!this.authService.getMenusPermission(_item)) {
         _item.hidden = true;
         if (_item.items && _item.items.length > 0) {
           this.computedEffectiveMenus(_item.items);
@@ -309,6 +319,7 @@ export class IBizPMSBase extends Vue {
    */
   public render(h: any): any {
     const styleMode = this.$uiState.layoutState.styleMode;
+    const isStyle2 = styleMode === 'STYLE2';
     let leftContent: any;
     switch (styleMode) {
       case 'DEFAULT':
@@ -342,9 +353,9 @@ export class IBizPMSBase extends Vue {
           </template> : null}
           {styleMode === 'DEFAULT' ? <tab-page-exp ref="tabExp"></tab-page-exp> : null}
           <div class="view-warp" on-click={() => this.contextMenuDragVisiable = false}>
-            <app-keep-alive routerList={this.appService.navHistory.historyList}>
+            {isStyle2 ? <router-view key='index-view'/> : <app-keep-alive routerList={this.appService.navHistory.historyList}>
               <router-view key={this.$route.fullPath}></router-view>
-            </app-keep-alive>
+            </app-keep-alive>}
           </div>
           {this.bottom_exp.items ? <template slot="content_bottom">
             <app-content-bottom-exp ref="bootomExp" ctrlName="zentao" menus={this.bottom_exp.items} />

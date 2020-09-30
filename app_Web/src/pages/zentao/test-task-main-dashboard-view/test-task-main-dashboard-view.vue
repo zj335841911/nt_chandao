@@ -27,6 +27,7 @@ export default class TestTaskMainDashboardView extends TestTaskMainDashboardView
      */
     public closeView($event: any) {
         this.$emit('closeview', $event)
+        super.closeView($event);
     }
 }
 </script>

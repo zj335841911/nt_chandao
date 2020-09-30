@@ -2,9 +2,11 @@
 import { Component } from 'vue-property-decorator';
 import StoryFavoriteMobMDViewBase from './story-favorite-mob-mdview-base.vue';
 
+import view_searchform from '@widgets/story/mob-def-searchform/mob-def-searchform.vue';
 import view_mdctrl from '@widgets/story/favorite-mobdas-mobmdctrl/favorite-mobdas-mobmdctrl.vue';
 @Component({
     components: {
+        view_searchform, 
         view_mdctrl, 
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {

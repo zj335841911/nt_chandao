@@ -6,7 +6,6 @@
     
     </ion-header>
 
-
     <ion-content>
                 <view_dashboard
             :viewState="viewState"
@@ -165,6 +164,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
         srfCaption: 'ibzmyterritory.views.mobdashboardview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'ibzmyterritory.mobdashboardview',
         iconcls: '',
         icon: ''
     }
@@ -346,15 +346,6 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof IbzMyTerritoryMobDashboardViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof IbzMyTerritoryMobDashboardViewBase
@@ -377,6 +368,17 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof IbzMyTerritoryMobDashboardViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)

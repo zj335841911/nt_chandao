@@ -1,5 +1,6 @@
 import { Vue, Emit, Prop, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
+import { Util } from '@/utils';
 
 /**
  * 视图基类
@@ -367,7 +368,7 @@ export class ViewBase extends Vue {
         if (this.viewUsage === 1 || this.viewUsage === 2) {
             this.$appService.viewStore.push(this);
         }
-        const secondtag = (this as any)._uid;
+        const secondtag = Util.generateAppMajorKey().toString();
         this.$store.commit('viewaction/createdView', { viewtag: this.viewtag, secondtag: secondtag });
         this.viewtag = secondtag;
         if (this.viewUsage === 1) {

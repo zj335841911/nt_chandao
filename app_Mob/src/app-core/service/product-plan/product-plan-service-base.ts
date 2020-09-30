@@ -412,6 +412,26 @@ export class ProductPlanServiceBase extends EntityService {
     }
 
     /**
+     * FetchPlanCodeList接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async FetchPlanCodeList(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchplancodelist`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productplans/fetchplancodelist`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchProjectPlan接口方法
      *
      * @param {*} [context={}]

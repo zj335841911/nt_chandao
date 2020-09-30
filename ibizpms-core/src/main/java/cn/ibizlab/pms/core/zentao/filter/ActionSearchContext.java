@@ -55,8 +55,8 @@ public class ActionSearchContext extends QueryWrapperContext<Action> {
             this.getSearchCond().eq("action", n_action_eq);
         }
     }
-	private Integer n_objectid_eq;//[对象ID]
-	public void setN_objectid_eq(Integer n_objectid_eq) {
+	private Long n_objectid_eq;//[对象ID]
+	public void setN_objectid_eq(Long n_objectid_eq) {
         this.n_objectid_eq = n_objectid_eq;
         if(!ObjectUtils.isEmpty(this.n_objectid_eq)){
             this.getSearchCond().eq("objectid", n_objectid_eq);

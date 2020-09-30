@@ -11,21 +11,18 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
-        <ion-toolbar>
-            <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
-            <ion-button class="filter-btn" size="small" slot="end"  @click="openSearchform"><ion-icon  slot="end" name="filter-outline"></ion-icon>过滤</ion-button>  
-        </ion-toolbar>
+        <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="true"></app-search-history>
 
     
     </ion-header>
 
-    <ion-menu side="start" content-id="searchformproductmobmdview" ref='searchformproductmobmdview'>
+    <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
         <ion-header>
             <ion-toolbar translucent>
-            <ion-title>条件搜索</ion-title>
+                <ion-title>条件搜索</ion-title>
             </ion-toolbar>
         </ion-header>
-        <ion-content>
+        <div class="searchform_content">
             <view_searchform
     :viewState="viewState"
     viewName="ProductMobMDView"  
@@ -48,16 +45,15 @@
     @load="searchform_load($event)"  
     @closeview="closeView($event)">
 </view_searchform>
-        </ion-content>
+        </div>
         <ion-footer>
         <div class="search-btn">
             <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
             <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
         </div>
         </ion-footer>
-    </ion-menu>
+    </van-popup>
     <div id="searchformproductmobmdview"></div>
-
     <ion-content>
         <ion-refresher 
             slot="fixed" 
@@ -107,7 +103,7 @@
         </ion-infinite-scroll-content>
         </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
                 <div v-show="!showCheack" class = "fab_container">
                 <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
@@ -266,6 +262,7 @@ export default class ProductMobMDViewBase extends Vue {
         srfCaption: 'product.views.mobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'product.mobmdview',
         iconcls: '',
         icon: ''
     }
@@ -493,15 +490,6 @@ export default class ProductMobMDViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof ProductMobMDViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof ProductMobMDViewBase
@@ -524,6 +512,17 @@ export default class ProductMobMDViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof ProductMobMDViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)
@@ -1056,7 +1055,7 @@ export default class ProductMobMDViewBase extends Vue {
      * @memberof ProductMobMDViewBase
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

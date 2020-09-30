@@ -1258,6 +1258,62 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'TaskStatusCK',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'wait',
+                label: '未开始',
+                text: '未开始',
+                value: 'wait',
+                disabled: false,
+            },
+            {
+                id: 'doing',
+                label: '进行中',
+                text: '进行中',
+                value: 'doing',
+                disabled: false,
+            },
+            {
+                id: 'done',
+                label: '已完成',
+                text: '已完成',
+                value: 'done',
+                disabled: false,
+            },
+            {
+                id: 'pause',
+                label: '已暂停',
+                text: '已暂停',
+                value: 'pause',
+                disabled: false,
+            },
+            {
+                id: 'cancel',
+                label: '已取消',
+                text: '已取消',
+                value: 'cancel',
+                disabled: false,
+            },
+            {
+                id: 'closed',
+                label: '已关闭',
+                text: '已关闭',
+                value: 'closed',
+                disabled: false,
+            },
+            {
+                id: 'storychange',
+                label: '需求变更',
+                text: '需求变更',
+                value: 'storychange',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Task__type',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -3349,6 +3405,41 @@ const datas: Array<any> = [
                 label: '其他',
                 text: '其他',
                 value: 'other',
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Testcase__status',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'wait',
+                label: '待评审',
+                text: '待评审',
+                value: 'wait',
+                disabled: false,
+            },
+            {
+                id: 'normal',
+                label: '正常',
+                text: '正常',
+                value: 'normal',
+                disabled: false,
+            },
+            {
+                id: 'blocked',
+                label: '被阻塞',
+                text: '被阻塞',
+                value: 'blocked',
+                disabled: false,
+            },
+            {
+                id: 'investigate',
+                label: '研究中',
+                text: '研究中',
+                value: 'investigate',
                 disabled: false,
             },
         ]

@@ -90,6 +90,9 @@ export class StudioViewBase extends Vue {
      */
     protected renderContent(): any {
         return [
+            this.$slots.topMessage ? <div class='view-top-messages'>
+                {this.$slots.topMessage}
+            </div> : null,
             this.isShowHeader ? <div class="view-header" key="view-header">
                 {this.$slots.title ? <div class="title">{this.$slots.title}</div> : null}
                 {this.$slots.toolbar ? <div class="toolbar">{this.$slots.toolbar}</div> : null}
@@ -108,6 +111,9 @@ export class StudioViewBase extends Vue {
                     {this.$slots.default}
                 </div>
             </div>,
+            this.$slots.bottomMessage ? <div class='view-bottom-messages'>
+                {this.$slots.bottomMessage}
+            </div> : null,
             this.$slots.footer ? <div class="view-footer" key="view-footer">
                 {this.$slots.footer}
             </div> : null

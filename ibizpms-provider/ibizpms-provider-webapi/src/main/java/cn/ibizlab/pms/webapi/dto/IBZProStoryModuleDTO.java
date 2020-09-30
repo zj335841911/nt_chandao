@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.alibaba.fastjson.annotation.JSONField;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -33,6 +35,7 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
 
     /**
@@ -51,6 +54,7 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "root")
     @JsonProperty("root")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long root;
 
     /**
@@ -103,6 +107,7 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "parent")
     @JsonProperty("parent")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long parent;
 
     /**

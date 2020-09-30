@@ -55,13 +55,29 @@ export default {
 			caption: "我的地盘",
       		title: "我的地盘",
 		},
+		testtreeexpview: {
+			caption: "测试统计",
+      		title: "我的地盘树导航视图（测试统计）",
+		},
 		mywork: {
 			caption: "我的工作",
       		title: "我的工作",
 		},
+		statstabexpview: {
+			caption: "统计",
+      		title: "我的地盘分页导航视图（统计）",
+		},
+		employtreeexpview: {
+			caption: "员工负载",
+      		title: "我的地盘树导航视图（员工负载计）",
+		},
 		dashboardview: {
 			caption: "首页",
       		title: "首页",
+		},
+		productsumtreeexpview: {
+			caption: "产品汇总表",
+      		title: "我的地盘树导航视图（产品汇总表）",
 		},
 		listview: {
 			caption: "欢迎",
@@ -70,6 +86,31 @@ export default {
 		listview9: {
 			caption: "我的工作",
       		title: "我的工作",
+		},
+	},
+	productsum_treeview: {
+		nodes: {
+			root: "默认根节点",
+			productsum: "产品汇总表",
+		},
+		uiactions: {
+		},
+	},
+	test_treeview: {
+		nodes: {
+			bugassignedto: "Bug指派表",
+			bugopenendby: "Bug创建表",
+			root: "默认根节点",
+		},
+		uiactions: {
+		},
+	},
+	employeeload_treeview: {
+		nodes: {
+			employeeload: "员工负载表",
+			root: "默认根节点",
+		},
+		uiactions: {
 		},
 	},
 };

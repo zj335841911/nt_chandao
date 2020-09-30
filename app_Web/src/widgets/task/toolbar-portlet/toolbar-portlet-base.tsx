@@ -5,6 +5,8 @@ import TaskService from '@/service/task/task-service';
 import ToolbarService from './toolbar-portlet-service';
 import TaskUIService from '@/uiservice/task/task-ui-service';
 import { Environment } from '@/environments/environment';
+import UIService from '@/uiservice/ui-service';
+import { ViewTool } from '@/utils';
 
 
 /**
@@ -466,6 +468,35 @@ export class ToolbarPortletBase extends MainControlBase {
     @Prop() public width?: number;
 
     /**
+     * 门户部件类型
+     *
+     * @type {number}
+     * @memberof ToolbarBase
+     */
+    public portletType: string = 'actionbar';
+
+    /**
+     * 界面行为模型数据
+     *
+     * @memberof ToolbarBase
+     */
+    public uiactionModel: any = {
+        exit: {name: 'exit', actiontarget: '', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'Exit', target: '' } },
+        newsubtaskdash: {name: 'newsubtaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_SUBTASKS_BUT', uiaction: { tag: 'NewSubTaskDash', target: 'SINGLEKEY' } },
+        assigntaskdash: {name: 'assigntaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', uiaction: { tag: 'AssignTaskDash', target: 'SINGLEKEY' } },
+        forwarddash: {name: 'forwarddash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_FORWARD_BUT', uiaction: { tag: 'ForwardDash', target: 'SINGLEKEY' } },
+        starttaskdash: {name: 'starttaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_START_BUT', uiaction: { tag: 'StartTaskDash', target: 'SINGLEKEY' } },
+        workhours: {name: 'workhours', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__CUTINTBEHAVIOR', uiaction: { tag: 'WorkHours', target: 'SINGLEKEY' } },
+        pausetaskdash: {name: 'pausetaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_PAUSE_BUT', uiaction: { tag: 'PauseTaskDash', target: 'SINGLEKEY' } },
+        activationdash: {name: 'activationdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_ACTIVATION_BUT', uiaction: { tag: 'ActivationDash', target: 'SINGLEKEY' } },
+        donetaskdash: {name: 'donetaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', uiaction: { tag: 'DoneTaskDash', target: 'SINGLEKEY' } },
+        canceltaskdash: {name: 'canceltaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_CANCEL_BUT', uiaction: { tag: 'CancelTaskDash', target: 'SINGLEKEY' } },
+        maineditdash: {name: 'maineditdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_EDIT_BUT', uiaction: { tag: 'MainEditDash', target: 'SINGLEKEY' } },
+        closetaskdash: {name: 'closetaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_CLOSE_BUT', uiaction: { tag: 'CloseTaskDash', target: 'SINGLEKEY' } },
+        delete: {name: 'delete', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__CUTINTBEHAVIOR', uiaction: { tag: 'delete', target: 'SINGLEKEY' } },
+    }
+
+    /**
      * 操作栏模型数据
      *
      * @returns {any[]}
@@ -714,6 +745,9 @@ export class ToolbarPortletBase extends MainControlBase {
     public afterCreated(){
         if (this.viewState) {
             this.viewStateEvent = this.viewState.subscribe(({ tag, action, data }) => {
+                if(Object.is(tag, "all-portlet") && Object.is(action,'loadmodel')){
+                   this.calcUIActionAuthState(data);
+                }
                 if (!Object.is(tag, this.name)) {
                     return;
                 }
@@ -742,6 +776,23 @@ export class ToolbarPortletBase extends MainControlBase {
     public afterDestroy() {
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
+        }
+    }
+
+    /**
+     * 计算界面行为权限
+     *
+     * @memberof ToolbarBase
+     */
+    public calcUIActionAuthState(data:any = {}) {
+        //  如果是操作栏，不计算权限
+        if(this.portletType && Object.is('actionbar', this.portletType)) {
+            return;
+        }
+        let _this: any = this;
+        let uiservice: any = _this.appUIService ? _this.appUIService : new UIService(_this.$store);
+        if(_this.uiactionModel){
+            ViewTool.calcActionItemAuthState(data,_this.uiactionModel,uiservice);
         }
     }
 

@@ -2,14 +2,68 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'bug-mob-mdview': true }">
     
     <ion-header>
-        <ion-toolbar>
-            <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
-        </ion-toolbar>
+        <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="true"></app-search-history>
 
     
+                    <div class="mdview-tools">
+                <ion-toolbar class="bug-mob-mdview-toolbar default-sort">
+                    <div class="view-tool">
+                        <div class="view-tool-sorts">
+                            <div class="view-tool-sorts-item">
+                                <span :class="{text:true,active:hasColor}" @click="onSort('PRI')">优先级</span>
+                                <span class="sort-icon" @click="onSort('PRI')">
+                                    <ion-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.asc == 'PRI'}" name="chevron-up-outline" ></ion-icon>
+                                    <ion-icon :class="{'ios' : true ,'hydrated': true ,'sort-select': sort.desc == 'PRI'}" name="chevron-down-outline" ></ion-icon>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </ion-toolbar>
+                <div style="display:flex;overflow: auto;">
+                    <app-van-select  name="n_resolution_eq" title="解决方案" :items="[{value:'bydesign',label:'设计如此'},{value:'duplicate',label:'重复Bug'},{value:'external',label:'外部原因'},{value:'fixed',label:'已解决'},{value:'notrepro',label:'无法重现'},{value:'postponed',label:'延期处理'},{value:'willnotfix',label:'不予解决'},{value:'tostory',label:'转为需求'},]" @onConfirm="onCategory"></app-van-select>
+                    <app-van-select  name="n_severity_eq" title="严重程度" :items="[{value:'1',label:'1'},{value:'2',label:'2'},{value:'3',label:'3'},{value:'4',label:'4'},]" @onConfirm="onCategory"></app-van-select>
+                </div>
+            </div>
     </ion-header>
 
-
+    <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
+        <ion-header>
+            <ion-toolbar translucent>
+                <ion-title>条件搜索</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <div class="searchform_content">
+            <view_searchform
+    :viewState="viewState"
+    viewName="BugMobMDView"  
+    :viewparams="viewparams" 
+    :context="context" 
+     
+    :viewtag="viewtag"
+    :showBusyIndicator="true"
+    updateAction=""
+    removeAction=""
+    loaddraftAction="FilterGetDraft"
+    loadAction="FilterGet"
+    createAction=""
+    WFSubmitAction=""
+    WFStartAction=""
+    style='' 
+    name="searchform"  
+    ref='searchform' 
+    @search="searchform_search($event)"  
+    @load="searchform_load($event)"  
+    @closeview="closeView($event)">
+</view_searchform>
+        </div>
+        <ion-footer>
+        <div class="search-btn">
+            <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
+            <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
+        </div>
+        </ion-footer>
+    </van-popup>
+    <div id="searchformbugmobmdview"></div>
     <ion-content>
         <ion-refresher 
             slot="fixed" 
@@ -59,7 +113,7 @@
         </ion-infinite-scroll-content>
         </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
         
     </ion-footer>
 </ion-page>
@@ -208,6 +262,7 @@ export default class BugMobMDViewBase extends Vue {
         srfCaption: 'bug.views.mobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'bug.mobmdview',
         iconcls: '',
         icon: 'fa fa-bug'
     }
@@ -261,6 +316,7 @@ export default class BugMobMDViewBase extends Vue {
      * @memberof BugMobMDViewBase
      */
     protected containerModel: any = {
+        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
         view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
@@ -281,6 +337,7 @@ export default class BugMobMDViewBase extends Vue {
      * @memberof BugMobMDViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
 
@@ -369,6 +426,7 @@ export default class BugMobMDViewBase extends Vue {
             newdata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
                 this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
             },
+            searchform: this.$refs.searchform,
             keyPSDEField: 'bug',
             majorPSDEField: 'title',
             isLoadDefault: true,
@@ -382,15 +440,6 @@ export default class BugMobMDViewBase extends Vue {
      */
     protected created() {
         this.afterCreated();
-    }
-
-    /**
-     * Vue声明周期
-     *
-     * @memberof BugMobMDViewBase
-     */
-    public activated() {
-        this.afterMounted();
     }
 
     /**
@@ -416,6 +465,17 @@ export default class BugMobMDViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof BugMobMDViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)
@@ -477,6 +537,28 @@ export default class BugMobMDViewBase extends Vue {
             });
         }
 
+    }
+
+    /**
+     * searchform 部件 search 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof BugMobMDViewBase
+     */
+    protected searchform_search($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('searchform', 'search', $event);
+    }
+
+    /**
+     * searchform 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof BugMobMDViewBase
+     */
+    protected searchform_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('searchform', 'load', $event);
     }
 
     /**
@@ -738,6 +820,52 @@ export default class BugMobMDViewBase extends Vue {
 
 
     /**
+     * 搜索表单状态
+     *
+     * @type {boolean}
+     * @memberof BugMobMDViewBase
+     */
+    public searchformState: boolean = false;
+
+    /**
+     * 是否展开搜索表单
+     *
+     * @type {boolean}
+     * @memberof BugMobMDViewBase
+     */
+    public isExpandSearchForm: boolean = false;
+
+    /**
+     * 执行搜索表单
+     *
+     * @memberof BugMobMDViewBase
+     */
+    public onSearch(): void {
+        this.searchformState = false;
+        this.isExpandSearchForm = true;
+        const form: any = this.$refs.searchform;
+        if (form) {
+            form.onSearch();
+        }
+        this.closeSearchform();
+    }
+
+    /**
+     * 重置搜索表单
+     *
+     * @memberof BugMobMDViewBase
+     */
+    public onReset(): void {
+        this.searchformState = false;
+        this.isExpandSearchForm = false;
+        const form: any = this.$refs.searchform;
+        if (form) {
+            form.onReset();
+        }
+        this.closeSearchform();
+    }
+
+    /**
      * 搜索值
      *
      * @type {string}
@@ -785,6 +913,50 @@ export default class BugMobMDViewBase extends Vue {
     @Prop({ default: true }) public isEnablePullUp?: boolean;
 
 
+
+    /**
+     * 排序对象
+     *
+     * @type {*}
+     * @memberof BugMobMDViewBase
+     */
+    public sort: any = { asc: "", desc: "" };
+
+    /**
+     * 点击优先级加主题色
+     *
+     * @memberof BugMobMDViewBase
+     */
+    public hasColor:boolean = false;
+
+    /**
+     * 排序
+     *
+     * @param {*} field
+     * @memberof BugMobMDViewBase
+     */
+    public onSort(field: any) {
+        if (this.sort.desc == field) {
+            this.sort.desc = "";
+            this.sortValue = {};
+            this.onViewLoad();
+            this.hasColor = false; 
+            return
+        }
+        if (this.sort.asc == field) {
+            this.sort.asc = "";
+            this.sort.desc = field;
+            this.sortValue = { sort: field + ",desc" };
+            this.onViewLoad();
+            this.hasColor = true;
+        } else {
+            this.sort.asc = field;
+            this.sort.desc = "";
+            this.sortValue = { sort: field + ",asc" };
+            this.onViewLoad();
+            this.hasColor = true;
+        }
+    }
 
     /**
      * 分类值
@@ -878,7 +1050,7 @@ export default class BugMobMDViewBase extends Vue {
      * @memberof BugMobMDViewBase
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

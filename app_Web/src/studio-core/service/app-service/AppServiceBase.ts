@@ -3,6 +3,7 @@ import { AppContextStore } from '../app-context-store/AppContextStore';
 import { AppViewStore } from '../app-view-store/AppViewStore';
 import { Environment } from '@/environments/environment';
 import { Util } from '@/utils';
+import { AppEvent } from '../../events/app-event';
 
 /**
  * 应用服务基类
@@ -37,21 +38,31 @@ export class AppServiceBase {
     public readonly viewStore: AppViewStore = new AppViewStore();
 
     /**
-     * 退出登录
+     * 应用事件
      *
      * @memberof AppServiceBase
      */
-    public logout(): void {
-        this.doLogin();
+    public readonly appEvent = AppEvent.getInstance();
+
+    /**
+     * 退出登录
+     *
+     * @param {string} [redirect]
+     * @memberof AppServiceBase
+     */
+    public logout(redirect?: string): void {
+        this.doLogin(null, redirect);
     }
 
     /**
      * 去登录
      *
      * @param {*} [data]
+     * @param {string} [redirect=location.href]
+     * @return {*}  {void}
      * @memberof AppServiceBase
      */
-    public doLogin(data?: any): void {
+    public doLogin(data?: any, redirect: string = location.href): void {
         const win: any = window;
         if (win.isDoLogin) {
             return;
@@ -76,11 +87,14 @@ export class AppServiceBase {
         } else {
             // 后期此处应调用后天退出，明确可以退出后才退出
             if (Environment.LoginMode === 'UAA') {
-                location.href = `${Environment.LoginUrl}?redirect=${encodeURIComponent(location.href)}`;
+                location.href = `${Environment.LoginUrl}?redirect=${encodeURIComponent(redirect)}`;
             } else if (Environment.LoginMode === 'CAS') {
-                location.href = `${Environment.CasUrl}/logout?service=${encodeURIComponent(`${Environment.CasUrl}/login?service=${encodeURIComponent(`${window.location.origin}${Environment.BaseUrl}/appdata?RU=${encodeURIComponent(location.href)}`)}`)}`;
+                location.href = `${Environment.CasUrl}/logout?service=${encodeURIComponent(`${Environment.CasUrl}/login?service=${encodeURIComponent(`${window.location.origin}${Environment.BaseUrl}/appdata?RU=${encodeURIComponent(redirect)}`)}`)}`;
             } else {
-                location.href = `${location.origin}${location.pathname}#/login?redirect=${encodeURIComponent(location.href)}`;
+                location.href = `${location.origin}${location.pathname}#/login?redirect=${encodeURIComponent(redirect)}`;
+                setTimeout(() => {
+                    location.reload();
+                }, 100);
             }
             const x = document.getElementById('app-loading-x');
             if (x) {
@@ -88,9 +102,6 @@ export class AppServiceBase {
             }
         }
         win.isDoLogin = true;
-        setTimeout(() => {
-            location.reload();
-        }, 100);
     }
 
     /**

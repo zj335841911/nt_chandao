@@ -21,6 +21,11 @@ export class ReviewMobModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'srfupdatedate',
+                prop: 'lastediteddate',
+                dataType: 'DATETIME',
+            },
+            {
                 name: 'srforikey',
             },
             {

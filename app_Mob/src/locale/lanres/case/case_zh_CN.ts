@@ -55,6 +55,7 @@ export default {
     task: "属性",
     libname: "用例库",
     lastrunresult1: "测试用例结果",
+    isfavorites: "是否收藏",
   },
 	views: {
 		mobmdview: {
@@ -83,6 +84,17 @@ export default {
 			id: '用例编号', 
 			version: '用例版本', 
 			keywords: '关键词', 
+		},
+		uiactions: {
+		},
+	},
+	mobdef_searchform: {
+		details: {
+			formpage1: '常规条件', 
+			n_title_like: '用例标题', 
+			n_type_eq: '用例类型', 
+			n_status_eq: '用例状态', 
+			n_modulename_eq: '模块名称', 
 		},
 		uiactions: {
 		},

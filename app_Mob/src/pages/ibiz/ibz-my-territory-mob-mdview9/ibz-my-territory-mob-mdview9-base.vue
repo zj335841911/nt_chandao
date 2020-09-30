@@ -184,6 +184,7 @@ export default class IbzMyTerritoryMobMDView9Base extends Vue {
         srfCaption: 'ibzmyterritory.views.mobmdview9.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'ibzmyterritory.mobmdview9',
         iconcls: '',
         icon: ''
     }
@@ -330,15 +331,6 @@ export default class IbzMyTerritoryMobMDView9Base extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof IbzMyTerritoryMobMDView9Base
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof IbzMyTerritoryMobMDView9Base
@@ -370,6 +362,17 @@ export default class IbzMyTerritoryMobMDView9Base extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof IbzMyTerritoryMobMDView9Base
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)
@@ -749,7 +752,7 @@ export default class IbzMyTerritoryMobMDView9Base extends Vue {
      * @memberof IbzMyTerritoryMobMDView9Base
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

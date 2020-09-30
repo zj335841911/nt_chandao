@@ -16,6 +16,10 @@ zuul:
       path: /uaa/open/dingtalk/access_token
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    dingtalkjsapisign:
+      path: /uaa/dingtalk/jsapi/sign
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     dingtalkauth:
       path:  /uaa/open/dingtalk/auth/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

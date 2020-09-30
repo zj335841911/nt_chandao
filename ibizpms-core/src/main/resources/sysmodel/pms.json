@@ -121,10 +121,10 @@
     "codename":"ObjectID",
     "field_logic_name":"对象ID",
     "entity_name":"Action",
-    "field_type":"INT",
+    "field_type":"BIGINT",
     "nullable":1,
     "physical_field":1,
-    "data_type":"INT",
+    "data_type":"BIGINT",
     "key_field":0,
     "major_field":0
     },
@@ -191,10 +191,10 @@
     "codename":"Isactorss",
     "field_logic_name":"当前用户",
     "entity_name":"Action",
-    "field_type":"INT",
+    "field_type":"BIGINT",
     "nullable":1,
     "physical_field":0,
-    "data_type":"INT",
+    "data_type":"BIGINT",
     "key_field":0,
     "major_field":0
     },
@@ -216,16 +216,16 @@
     {"name":"DER1N_ZT_HISTORY_ZT_ACTION_ACTION",
      "relation_type":"DER1N",
      "code_name":"Zt_action",
-     "entity_name":"ZT_ACTION",
-     "ref_entity_name":"ZT_HISTORY"
+     "entity_name":"ZT_HISTORY",
+     "ref_entity_name":"ZT_ACTION"
     }
     ],
     "parentEntitys":[
     {"name":"DER1N_ZT_ACTION_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"Zt_project",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_ACTION"
+     "entity_name":"ZT_ACTION",
+     "ref_entity_name":"ZT_PROJECT"
     }
     ]
  }
@@ -473,64 +473,64 @@
     {"name":"DER1N_ZT_BUG_ZT_BRANCH_BRANCH",
      "relation_type":"DER1N",
      "code_name":"ZTRranch",
-     "entity_name":"ZT_BRANCH",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_BRANCH"
     },
     {"name":"DER1N_ZT_BUILD_ZT_BRANCH_BRANCH",
      "relation_type":"DER1N",
      "code_name":"ZTBranch",
-     "entity_name":"ZT_BRANCH",
-     "ref_entity_name":"ZT_BUILD"
+     "entity_name":"ZT_BUILD",
+     "ref_entity_name":"ZT_BRANCH"
     },
     {"name":"DER1N_ZT_CASE_ZT_BRANCH_BRANCH",
      "relation_type":"DER1N",
      "code_name":"ZTBranch",
-     "entity_name":"ZT_BRANCH",
-     "ref_entity_name":"ZT_CASE"
+     "entity_name":"ZT_CASE",
+     "ref_entity_name":"ZT_BRANCH"
     },
     {"name":"DER1N_ZT_MODULE_ZT_BRANCH_BRANCH",
      "relation_type":"DER1N",
      "code_name":"Zt_branch_branch",
-     "entity_name":"ZT_BRANCH",
-     "ref_entity_name":"ZT_MODULE"
+     "entity_name":"ZT_MODULE",
+     "ref_entity_name":"ZT_BRANCH"
     },
     {"name":"DER1N_ZT_PRODUCTPLAN_ZT_BRANCH_BRANCH",
      "relation_type":"DER1N",
      "code_name":"ZTBranch",
-     "entity_name":"ZT_BRANCH",
-     "ref_entity_name":"ZT_PRODUCTPLAN"
+     "entity_name":"ZT_PRODUCTPLAN",
+     "ref_entity_name":"ZT_BRANCH"
     },
     {"name":"DER1N_ZT_PROJECTPRODUCT_ZT_BRANCH_BRANCH",
      "relation_type":"DER1N",
      "code_name":"ZTBranch",
-     "entity_name":"ZT_BRANCH",
-     "ref_entity_name":"ZT_PROJECTPRODUCT"
+     "entity_name":"ZT_PROJECTPRODUCT",
+     "ref_entity_name":"ZT_BRANCH"
     },
     {"name":"DER1N_ZT_RELEASE_ZT_BRANCH_BRANCH",
      "relation_type":"DER1N",
      "code_name":"ZTBranch",
-     "entity_name":"ZT_BRANCH",
-     "ref_entity_name":"ZT_RELEASE"
+     "entity_name":"ZT_RELEASE",
+     "ref_entity_name":"ZT_BRANCH"
     },
     {"name":"DER1N_ZT_STORYSTAGE_ZT_BRANCH_BRANCH",
      "relation_type":"DER1N",
      "code_name":"ZTBranch",
-     "entity_name":"ZT_BRANCH",
-     "ref_entity_name":"ZT_STORYSTAGE"
+     "entity_name":"ZT_STORYSTAGE",
+     "ref_entity_name":"ZT_BRANCH"
     },
     {"name":"DER1N_ZT_STORY_ZT_BRANCH_BRANCH",
      "relation_type":"DER1N",
      "code_name":"ZTBranch",
-     "entity_name":"ZT_BRANCH",
-     "ref_entity_name":"ZT_STORY"
+     "entity_name":"ZT_STORY",
+     "ref_entity_name":"ZT_BRANCH"
     }
     ],
     "parentEntitys":[
     {"name":"DER1N_ZT_BRANCH_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_BRANCH"
+     "entity_name":"ZT_BRANCH",
+     "ref_entity_name":"ZT_PRODUCT"
     }
     ]
  }
@@ -1565,34 +1565,34 @@
     {"name":"DER1N_ZT_CASE_ZT_BUG_FROMBUG",
      "relation_type":"DER1N",
      "code_name":"ZTFromBug",
-     "entity_name":"ZT_BUG",
-     "ref_entity_name":"ZT_CASE"
+     "entity_name":"ZT_CASE",
+     "ref_entity_name":"ZT_BUG"
     },
     {"name":"DER1N_ZT_STORY_ZT_BUG_FROMBUGID",
      "relation_type":"DER1N",
      "code_name":"ZTFROMBug",
-     "entity_name":"ZT_BUG",
-     "ref_entity_name":"ZT_STORY"
+     "entity_name":"ZT_STORY",
+     "ref_entity_name":"ZT_BUG"
     },
     {"name":"DER1N_ZT_STORY_ZT_BUG_TOBUGID",
      "relation_type":"DER1N",
      "code_name":"ZTToBug",
-     "entity_name":"ZT_BUG",
-     "ref_entity_name":"ZT_STORY"
+     "entity_name":"ZT_STORY",
+     "ref_entity_name":"ZT_BUG"
     },
     {"name":"DER1N_ZT_TASK_ZT_BUG_FROMBUG",
      "relation_type":"DER1N",
      "code_name":"ZTFromBug",
-     "entity_name":"ZT_BUG",
-     "ref_entity_name":"ZT_TASK"
+     "entity_name":"ZT_TASK",
+     "ref_entity_name":"ZT_BUG"
     }
     ],
     "parentEntitys":[
     {"name":"DER1N_ZT_BUG_ZT_BRANCH_BRANCH",
      "relation_type":"DER1N",
      "code_name":"ZTRranch",
-     "entity_name":"ZT_BRANCH",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_BRANCH"
     },
     {"name":"DER1N_ZT_BUG_ZT_BUG_DUPLICATEBUG",
      "relation_type":"DER1N",
@@ -1603,74 +1603,328 @@
     {"name":"DER1N_ZT_BUG_ZT_CASE_CASEID",
      "relation_type":"DER1N",
      "code_name":"ZTCase",
-     "entity_name":"ZT_CASE",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_CASE"
     },
     {"name":"DER1N_ZT_BUG_ZT_ENTRY_ENTRYID",
      "relation_type":"DER1N",
      "code_name":"ZTEntry",
-     "entity_name":"ZT_ENTRY",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_ENTRY"
     },
     {"name":"DER1N_ZT_BUG_ZT_MODULE_MODULE",
      "relation_type":"DER1N",
      "code_name":"ZTModule",
-     "entity_name":"ZT_MODULE",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_MODULE"
     },
     {"name":"DER1N_ZT_BUG_ZT_PRODUCTPLAN_PLAN",
      "relation_type":"DER1N",
      "code_name":"ZTProductPlan",
-     "entity_name":"ZT_PRODUCTPLAN",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_PRODUCTPLAN"
     },
     {"name":"DER1N_ZT_BUG_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_BUG_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_PROJECT"
     },
     {"name":"DER1N_ZT_BUG_ZT_REPO_REPO",
      "relation_type":"DER1N",
      "code_name":"ZTRepo",
-     "entity_name":"ZT_REPO",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_REPO"
     },
     {"name":"DER1N_ZT_BUG_ZT_STORY_STORY",
      "relation_type":"DER1N",
      "code_name":"ZTStory",
-     "entity_name":"ZT_STORY",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_STORY"
     },
     {"name":"DER1N_ZT_BUG_ZT_STORY_TOSTORY",
      "relation_type":"DER1N",
      "code_name":"ZTToStory",
-     "entity_name":"ZT_STORY",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_STORY"
     },
     {"name":"DER1N_ZT_BUG_ZT_TASK_TASK",
      "relation_type":"DER1N",
      "code_name":"ZTTask",
-     "entity_name":"ZT_TASK",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_TASK"
     },
     {"name":"DER1N_ZT_BUG_ZT_TASK_TOTASK",
      "relation_type":"DER1N",
      "code_name":"ZTTotask",
-     "entity_name":"ZT_TASK",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_TASK"
     },
     {"name":"DER1N_ZT_BUG_ZT_TESTTASK_TESTTASK",
      "relation_type":"DER1N",
      "code_name":"ZTTestTask",
-     "entity_name":"ZT_TESTTASK",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_TESTTASK"
+    }
+    ]
+ }
+    ,
+    {
+    "entity_name":"IBZ_BUGSTATS",
+    "logic_name":"Bug统计",
+    "code_name":"BugStats",
+    "table_name":"zt_bug",
+    "system_id":"pms",
+    "system_name":"pms",
+    "fields":[
+    {
+    "fieldname":"ID" ,
+    "codename":"Id",
+    "field_logic_name":"标识",
+    "entity_name":"BugStats",
+    "field_type":"ACID",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":20,
+    "key_field":1,
+    "major_field":0
+    },
+    {
+    "fieldname":"TITLE" ,
+    "codename":"Title",
+    "field_logic_name":"名称",
+    "entity_name":"BugStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":1
+    },
+    {
+    "fieldname":"OPENEDBY" ,
+    "codename":"OpenedBy",
+    "field_logic_name":"由谁创建",
+    "entity_name":"BugStats",
+    "field_type":"SSCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BUGWJJ" ,
+    "codename":"Bugwjj",
+    "field_logic_name":"未解决",
+    "entity_name":"BugStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BUGBYDESIGN" ,
+    "codename":"Bugbydesign",
+    "field_logic_name":"设计如此",
+    "entity_name":"BugStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BUGDUPLICATE" ,
+    "codename":"Bugduplicate",
+    "field_logic_name":"重复Bug",
+    "entity_name":"BugStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BUGEXTERNAL" ,
+    "codename":"Bugexternal",
+    "field_logic_name":"外部原因",
+    "entity_name":"BugStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BUGFIXED" ,
+    "codename":"Bugfixed",
+    "field_logic_name":"已解决",
+    "entity_name":"BugStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BUGNOTREPRO" ,
+    "codename":"Bugnotrepro",
+    "field_logic_name":"无法重现",
+    "entity_name":"BugStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BUGPOSTPONED" ,
+    "codename":"Bugpostponed",
+    "field_logic_name":"延期处理",
+    "entity_name":"BugStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BUGWILLNOTFIX" ,
+    "codename":"Bugwillnotfix",
+    "field_logic_name":"不予解决",
+    "entity_name":"BugStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BUGTOSTORY" ,
+    "codename":"Bugtostory",
+    "field_logic_name":"转为需求",
+    "entity_name":"BugStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BUGEFFICIENT" ,
+    "codename":"Bugefficient",
+    "field_logic_name":"有效率",
+    "entity_name":"BugStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BUGTOTAL" ,
+    "codename":"Bugtotal",
+    "field_logic_name":"总计",
+    "entity_name":"BugStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"PRODUCT" ,
+    "codename":"Product",
+    "field_logic_name":"编号",
+    "entity_name":"BugStats",
+    "ref_de":"ZT_PRODUCT",
+    "ref_field_name":"ID",
+    "relation_name":"DER1N_IBZ_BUGSTATS_ZT_PRODUCT_PRODUCT",
+    "relation_codename":"ZTProduct",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":8,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"PRODUCTNAME" ,
+    "codename":"ProductName",
+    "field_logic_name":"产品名称",
+    "entity_name":"BugStats",
+    "ref_de":"ZT_PRODUCT",
+    "ref_field_name":"NAME",
+    "relation_name":"DER1N_IBZ_BUGSTATS_ZT_PRODUCT_PRODUCT",
+    "relation_codename":"ZTProduct",
+    "field_type":"PICKUPTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":90,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BUGCNT" ,
+    "codename":"BugCnt",
+    "field_logic_name":"Bug",
+    "entity_name":"BugStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"ASSIGNEDTO" ,
+    "codename":"AssignedTo",
+    "field_logic_name":"指派给",
+    "entity_name":"BugStats",
+    "field_type":"SSCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    ],
+    "parentEntitys":[
+    {"name":"DER1N_IBZ_BUGSTATS_ZT_PRODUCT_PRODUCT",
+     "relation_type":"DER1N",
+     "code_name":"ZTProduct",
+     "entity_name":"IBZ_BUGSTATS",
+     "ref_entity_name":"ZT_PRODUCT"
     }
     ]
  }
@@ -1981,34 +2235,34 @@
     {"name":"DER1N_ZT_RELEASE_ZT_BUILD_BUILD",
      "relation_type":"DER1N",
      "code_name":"ZTBuild",
-     "entity_name":"ZT_BUILD",
-     "ref_entity_name":"ZT_RELEASE"
+     "entity_name":"ZT_RELEASE",
+     "ref_entity_name":"ZT_BUILD"
     },
     {"name":"DER1N_ZT_TESTTASK_ZT_BUILD_BUILD",
      "relation_type":"DER1N",
      "code_name":"ZTBuild",
-     "entity_name":"ZT_BUILD",
-     "ref_entity_name":"ZT_TESTTASK"
+     "entity_name":"ZT_TESTTASK",
+     "ref_entity_name":"ZT_BUILD"
     }
     ],
     "parentEntitys":[
     {"name":"DER1N_ZT_BUILD_ZT_BRANCH_BRANCH",
      "relation_type":"DER1N",
      "code_name":"ZTBranch",
-     "entity_name":"ZT_BRANCH",
-     "ref_entity_name":"ZT_BUILD"
+     "entity_name":"ZT_BUILD",
+     "ref_entity_name":"ZT_BRANCH"
     },
     {"name":"DER1N_ZT_BUILD_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_BUILD"
+     "entity_name":"ZT_BUILD",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_BUILD_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_BUILD"
+     "entity_name":"ZT_BUILD",
+     "ref_entity_name":"ZT_PROJECT"
     }
     ]
  }
@@ -2135,14 +2389,14 @@
     {"name":"DER1N_ZT_BURN_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_BURN"
+     "entity_name":"ZT_BURN",
+     "ref_entity_name":"ZT_PROJECT"
     },
     {"name":"DER1N_ZT_BURN_ZT_TASK_TASK",
      "relation_type":"DER1N",
      "code_name":"ZTTask",
-     "entity_name":"ZT_TASK",
-     "ref_entity_name":"ZT_BURN"
+     "entity_name":"ZT_BURN",
+     "ref_entity_name":"ZT_TASK"
     }
     ]
  }
@@ -2927,20 +3181,33 @@
     "data_length":200,
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"ISFAVORITES" ,
+    "codename":"Isfavorites",
+    "field_logic_name":"是否收藏",
+    "entity_name":"Case",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[
     {"name":"DER1N_ZT_BUG_ZT_CASE_CASEID",
      "relation_type":"DER1N",
      "code_name":"ZTCase",
-     "entity_name":"ZT_CASE",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_CASE"
     },
     {"name":"DER1N_ZT_CASESTEP_ZT_CASE_CASE",
      "relation_type":"DER1N",
      "code_name":"ZTCase",
-     "entity_name":"ZT_CASE",
-     "ref_entity_name":"ZT_CASESTEP"
+     "entity_name":"ZT_CASESTEP",
+     "ref_entity_name":"ZT_CASE"
     },
     {"name":"DER1N_ZT_CASE_ZT_CASE_FROMCAEID",
      "relation_type":"DER1N",
@@ -2951,34 +3218,34 @@
     {"name":"DER1N_ZT_SUITECASE_ZT_CASE_CASE",
      "relation_type":"DER1N",
      "code_name":"ZTCase",
-     "entity_name":"ZT_CASE",
-     "ref_entity_name":"ZT_SUITECASE"
+     "entity_name":"ZT_SUITECASE",
+     "ref_entity_name":"ZT_CASE"
     },
     {"name":"DER1N_ZT_TESTRESULT_ZT_CASE_CASE",
      "relation_type":"DER1N",
      "code_name":"ZTCase",
-     "entity_name":"ZT_CASE",
-     "ref_entity_name":"ZT_TESTRESULT"
+     "entity_name":"ZT_TESTRESULT",
+     "ref_entity_name":"ZT_CASE"
     },
     {"name":"DER1N_ZT_TESTRUN_ZT_CASE_CASE",
      "relation_type":"DER1N",
      "code_name":"ZTCase",
-     "entity_name":"ZT_CASE",
-     "ref_entity_name":"ZT_TESTRUN"
+     "entity_name":"ZT_TESTRUN",
+     "ref_entity_name":"ZT_CASE"
     }
     ],
     "parentEntitys":[
     {"name":"DER1N_ZT_CASE_ZT_BRANCH_BRANCH",
      "relation_type":"DER1N",
      "code_name":"ZTBranch",
-     "entity_name":"ZT_BRANCH",
-     "ref_entity_name":"ZT_CASE"
+     "entity_name":"ZT_CASE",
+     "ref_entity_name":"ZT_BRANCH"
     },
     {"name":"DER1N_ZT_CASE_ZT_BUG_FROMBUG",
      "relation_type":"DER1N",
      "code_name":"ZTFromBug",
-     "entity_name":"ZT_BUG",
-     "ref_entity_name":"ZT_CASE"
+     "entity_name":"ZT_CASE",
+     "ref_entity_name":"ZT_BUG"
     },
     {"name":"DER1N_ZT_CASE_ZT_CASE_FROMCAEID",
      "relation_type":"DER1N",
@@ -2989,26 +3256,26 @@
     {"name":"DER1N_ZT_CASE_ZT_MODULE_MODULE",
      "relation_type":"DER1N",
      "code_name":"ZTModule",
-     "entity_name":"ZT_MODULE",
-     "ref_entity_name":"ZT_CASE"
+     "entity_name":"ZT_CASE",
+     "ref_entity_name":"ZT_MODULE"
     },
     {"name":"DER1N_ZT_CASE_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_CASE"
+     "entity_name":"ZT_CASE",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_CASE_ZT_STORY_STORY",
      "relation_type":"DER1N",
      "code_name":"ZTStory",
-     "entity_name":"ZT_STORY",
-     "ref_entity_name":"ZT_CASE"
+     "entity_name":"ZT_CASE",
+     "ref_entity_name":"ZT_STORY"
     },
     {"name":"DER1N_ZT_CASE_ZT_TESTSUITE_LIB",
      "relation_type":"DER1N",
      "code_name":"ZTTestsuite",
-     "entity_name":"ZT_TESTSUITE",
-     "ref_entity_name":"ZT_CASE"
+     "entity_name":"ZT_CASE",
+     "ref_entity_name":"ZT_TESTSUITE"
     }
     ]
  }
@@ -3177,6 +3444,18 @@
     "data_type":"INT",
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"CASESTEPID" ,
+    "codename":"Casestepid",
+    "field_logic_name":"用例步骤编号",
+    "entity_name":"CaseStep",
+    "field_type":"BIGINT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"BIGINT",
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -3191,8 +3470,8 @@
     {"name":"DER1N_ZT_CASESTEP_ZT_CASE_CASE",
      "relation_type":"DER1N",
      "code_name":"ZTCase",
-     "entity_name":"ZT_CASE",
-     "ref_entity_name":"ZT_CASESTEP"
+     "entity_name":"ZT_CASESTEP",
+     "ref_entity_name":"ZT_CASE"
     },
     {"name":"DER1N__ZT_CASESTEP__ZT_CASESTEP__PARENT",
      "relation_type":"DER1N",
@@ -3540,8 +3819,8 @@
     {"name":"DER1N_ZT_TESTRESULT_ZT_COMPILE_COMPILE",
      "relation_type":"DER1N",
      "code_name":"ZTCompile",
-     "entity_name":"ZT_COMPILE",
-     "ref_entity_name":"ZT_TESTRESULT"
+     "entity_name":"ZT_TESTRESULT",
+     "ref_entity_name":"ZT_COMPILE"
     }
     ],
     "parentEntitys":[
@@ -4261,34 +4540,34 @@
     {"name":"DER1N_ZT_DOCCONTENT_ZT_DOC_DOC",
      "relation_type":"DER1N",
      "code_name":"Zt_doc",
-     "entity_name":"ZT_DOC",
-     "ref_entity_name":"ZT_DOCCONTENT"
+     "entity_name":"ZT_DOCCONTENT",
+     "ref_entity_name":"ZT_DOC"
     }
     ],
     "parentEntitys":[
     {"name":"DER1N_ZT_DOC_ZT_DOCLIB_LIB",
      "relation_type":"DER1N",
      "code_name":"Zt_doclib",
-     "entity_name":"ZT_DOCLIB",
-     "ref_entity_name":"ZT_DOC"
+     "entity_name":"ZT_DOC",
+     "ref_entity_name":"ZT_DOCLIB"
     },
     {"name":"DER1N_ZT_DOC_ZT_MODULE_MODULE",
      "relation_type":"DER1N",
      "code_name":"Zt_module",
-     "entity_name":"ZT_MODULE",
-     "ref_entity_name":"ZT_DOC"
+     "entity_name":"ZT_DOC",
+     "ref_entity_name":"ZT_MODULE"
     },
     {"name":"DER1N_ZT_DOC_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"Zt_product",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_DOC"
+     "entity_name":"ZT_DOC",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_DOC_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"Zt_project",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_DOC"
+     "entity_name":"ZT_DOC",
+     "ref_entity_name":"ZT_PROJECT"
     }
     ]
  }
@@ -4420,8 +4699,8 @@
     {"name":"DER1N_ZT_DOCCONTENT_ZT_DOC_DOC",
      "relation_type":"DER1N",
      "code_name":"Zt_doc",
-     "entity_name":"ZT_DOC",
-     "ref_entity_name":"ZT_DOCCONTENT"
+     "entity_name":"ZT_DOCCONTENT",
+     "ref_entity_name":"ZT_DOC"
     }
     ]
  }
@@ -4607,22 +4886,22 @@
     {"name":"DER1N_ZT_DOC_ZT_DOCLIB_LIB",
      "relation_type":"DER1N",
      "code_name":"Zt_doclib",
-     "entity_name":"ZT_DOCLIB",
-     "ref_entity_name":"ZT_DOC"
+     "entity_name":"ZT_DOC",
+     "ref_entity_name":"ZT_DOCLIB"
     }
     ],
     "parentEntitys":[
     {"name":"DER1N_ZT_DOCLIB_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"Zt_product",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_DOCLIB"
+     "entity_name":"ZT_DOCLIB",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_DOCLIB_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"Zt_project",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_DOCLIB"
+     "entity_name":"ZT_DOCLIB",
+     "ref_entity_name":"ZT_PROJECT"
     }
     ]
  }
@@ -4775,6 +5054,225 @@
     "subEntitys":[
     ],
     "parentEntitys":[
+    ]
+ }
+    ,
+    {
+    "entity_name":"IBZ_EMPLOYEELOAD",
+    "logic_name":"员工负载表",
+    "code_name":"EMPLOYEELOAD",
+    "table_name":"ZT_TASK",
+    "system_id":"pms",
+    "system_name":"pms",
+    "fields":[
+    {
+    "fieldname":"ID" ,
+    "codename":"Id",
+    "field_logic_name":"主键",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"ACID",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":20,
+    "key_field":1,
+    "major_field":0
+    },
+    {
+    "fieldname":"NAME" ,
+    "codename":"Name",
+    "field_logic_name":"任务名",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":1
+    },
+    {
+    "fieldname":"TASKCNT" ,
+    "codename":"TaskCnt",
+    "field_logic_name":"任务数",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"PROJECT" ,
+    "codename":"Project",
+    "field_logic_name":"项目编号",
+    "entity_name":"EMPLOYEELOAD",
+    "ref_de":"ZT_PROJECT",
+    "ref_field_name":"ID",
+    "relation_name":"DER1N_IBZ_EMPLOYEELOAD_ZT_PROJECT_PROJECT",
+    "relation_codename":"Ztproject",
+    "field_type":"PICKUP",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":8,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"PROJECTNAME" ,
+    "codename":"ProjectName",
+    "field_logic_name":"项目",
+    "entity_name":"EMPLOYEELOAD",
+    "ref_de":"ZT_PROJECT",
+    "ref_field_name":"NAME",
+    "relation_name":"DER1N_IBZ_EMPLOYEELOAD_ZT_PROJECT_PROJECT",
+    "relation_codename":"Ztproject",
+    "field_type":"PICKUPTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":90,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"TOTALTASKCNT" ,
+    "codename":"Totaltaskcnt",
+    "field_logic_name":"总任务数",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"TOTALLEFT" ,
+    "codename":"TotalLeft",
+    "field_logic_name":"总工时",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"LEFT" ,
+    "codename":"Left",
+    "field_logic_name":"剩余工时",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"WORKLOAD" ,
+    "codename":"Workload",
+    "field_logic_name":"工作负载",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"ASSIGNEDTO" ,
+    "codename":"AssignedTo",
+    "field_logic_name":"指派给",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"SSCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"DEPT" ,
+    "codename":"Dept",
+    "field_logic_name":"部门",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"SSCODELIST",
+    "dict":"RealDept",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BEGIN" ,
+    "codename":"Begin",
+    "field_logic_name":"属性",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"END" ,
+    "codename":"End",
+    "field_logic_name":"结束",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"WORKDAY" ,
+    "codename":"Workday",
+    "field_logic_name":"工作日天数",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"ASSIGN" ,
+    "codename":"Assign",
+    "field_logic_name":"是否指派",
+    "entity_name":"EMPLOYEELOAD",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    ],
+    "parentEntitys":[
+    {"name":"DER1N_IBZ_EMPLOYEELOAD_ZT_PROJECT_PROJECT",
+     "relation_type":"DER1N",
+     "code_name":"Ztproject",
+     "entity_name":"IBZ_EMPLOYEELOAD",
+     "ref_entity_name":"ZT_PROJECT"
+    }
     ]
  }
     ,
@@ -5127,8 +5625,8 @@
     {"name":"DER1N_ZT_BUG_ZT_ENTRY_ENTRYID",
      "relation_type":"DER1N",
      "code_name":"ZTEntry",
-     "entity_name":"ZT_ENTRY",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_ENTRY"
     }
     ],
     "parentEntitys":[
@@ -5511,8 +6009,8 @@
     {"name":"DER1N_IBZPRO_SYSTPL_ZT_FILE_FILE",
      "relation_type":"DER1N",
      "code_name":"ZT_FILE",
-     "entity_name":"ZT_FILE",
-     "ref_entity_name":"IBZPRO_SYSTPL"
+     "entity_name":"IBZPRO_SYSTPL",
+     "ref_entity_name":"ZT_FILE"
     }
     ],
     "parentEntitys":[
@@ -5761,8 +6259,8 @@
     {"name":"DER1N_ZT_HISTORY_ZT_ACTION_ACTION",
      "relation_type":"DER1N",
      "code_name":"Zt_action",
-     "entity_name":"ZT_ACTION",
-     "ref_entity_name":"ZT_HISTORY"
+     "entity_name":"ZT_HISTORY",
+     "ref_entity_name":"ZT_ACTION"
     }
     ]
  }
@@ -5832,14 +6330,14 @@
     {"name":"DER1N_IBZPRO_STORYMODULE_IBZPRO_PRODUCT_ROOT",
      "relation_type":"DER1N",
      "code_name":"IbzProProduct",
-     "entity_name":"IBZPRO_PRODUCT",
-     "ref_entity_name":"IBZPRO_STORYMODULE"
+     "entity_name":"IBZPRO_STORYMODULE",
+     "ref_entity_name":"IBZPRO_PRODUCT"
     },
     {"name":"DER1N_IBZPRO_STORY_IBZPRO_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"IbzProProduct",
-     "entity_name":"IBZPRO_PRODUCT",
-     "ref_entity_name":"IBZPRO_STORY"
+     "entity_name":"IBZPRO_STORY",
+     "ref_entity_name":"IBZPRO_PRODUCT"
     }
     ],
     "parentEntitys":[
@@ -6432,14 +6930,14 @@
     {"name":"DER1N_IBZPRO_STORY_IBZPRO_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"IbzProProduct",
-     "entity_name":"IBZPRO_PRODUCT",
-     "ref_entity_name":"IBZPRO_STORY"
+     "entity_name":"IBZPRO_STORY",
+     "ref_entity_name":"IBZPRO_PRODUCT"
     },
     {"name":"DER1N_IBZPRO_STORY_IBZPRO_STORYMODULE_MODULE",
      "relation_type":"DER1N",
      "code_name":"IbzProStoryModule",
-     "entity_name":"IBZPRO_STORYMODULE",
-     "ref_entity_name":"IBZPRO_STORY"
+     "entity_name":"IBZPRO_STORY",
+     "ref_entity_name":"IBZPRO_STORYMODULE"
     }
     ]
  }
@@ -6660,16 +7158,16 @@
     {"name":"DER1N_IBZPRO_STORY_IBZPRO_STORYMODULE_MODULE",
      "relation_type":"DER1N",
      "code_name":"IbzProStoryModule",
-     "entity_name":"IBZPRO_STORYMODULE",
-     "ref_entity_name":"IBZPRO_STORY"
+     "entity_name":"IBZPRO_STORY",
+     "ref_entity_name":"IBZPRO_STORYMODULE"
     }
     ],
     "parentEntitys":[
     {"name":"DER1N_IBZPRO_STORYMODULE_IBZPRO_PRODUCT_ROOT",
      "relation_type":"DER1N",
      "code_name":"IbzProProduct",
-     "entity_name":"IBZPRO_PRODUCT",
-     "ref_entity_name":"IBZPRO_STORYMODULE"
+     "entity_name":"IBZPRO_STORYMODULE",
+     "ref_entity_name":"IBZPRO_PRODUCT"
     },
     {"name":"DER1N_IBZPRO_STORYMODULE_IBZPRO_STORYMODULE_PARENT",
      "relation_type":"DER1N",
@@ -6850,8 +7348,8 @@
     {"name":"DER1N_IBZPRO_SYSTPL_ZT_FILE_FILE",
      "relation_type":"DER1N",
      "code_name":"ZT_FILE",
-     "entity_name":"ZT_FILE",
-     "ref_entity_name":"IBZPRO_SYSTPL"
+     "entity_name":"IBZPRO_SYSTPL",
+     "ref_entity_name":"ZT_FILE"
     }
     ]
  }
@@ -7636,22 +8134,22 @@
     {"name":"DER1N_IBZ_LIBCASESTEPS_IBZ_CASE_CASE",
      "relation_type":"DER1N",
      "code_name":"IbzCase",
-     "entity_name":"IBZ_CASE",
-     "ref_entity_name":"IBZ_LIBCASESTEPS"
+     "entity_name":"IBZ_LIBCASESTEPS",
+     "ref_entity_name":"IBZ_CASE"
     }
     ],
     "parentEntitys":[
     {"name":"DER1N_IBZ_CASE_IBZ_LIBMODULE_MODULE",
      "relation_type":"DER1N",
      "code_name":"LibModule",
-     "entity_name":"IBZ_LIBMODULE",
-     "ref_entity_name":"IBZ_CASE"
+     "entity_name":"IBZ_CASE",
+     "ref_entity_name":"IBZ_LIBMODULE"
     },
     {"name":"DER1N_IBZ_CASE_IBZ_LIB_LIB",
      "relation_type":"DER1N",
      "code_name":"CaseLib",
-     "entity_name":"IBZ_LIB",
-     "ref_entity_name":"IBZ_CASE"
+     "entity_name":"IBZ_CASE",
+     "ref_entity_name":"IBZ_LIB"
     }
     ]
  }
@@ -7927,14 +8425,14 @@
     {"name":"DER1N_IBZ_CASE_IBZ_LIB_LIB",
      "relation_type":"DER1N",
      "code_name":"CaseLib",
-     "entity_name":"IBZ_LIB",
-     "ref_entity_name":"IBZ_CASE"
+     "entity_name":"IBZ_CASE",
+     "ref_entity_name":"IBZ_LIB"
     },
     {"name":"DER1N_IBZ_LIBMODULE_IBZ_LIB_ROOT",
      "relation_type":"DER1N",
      "code_name":"Lib",
-     "entity_name":"IBZ_LIB",
-     "ref_entity_name":"IBZ_LIBMODULE"
+     "entity_name":"IBZ_LIBMODULE",
+     "ref_entity_name":"IBZ_LIB"
     }
     ],
     "parentEntitys":[
@@ -8186,8 +8684,8 @@
     {"name":"DER1N_IBZ_LIBCASESTEPS_IBZ_CASE_CASE",
      "relation_type":"DER1N",
      "code_name":"IbzCase",
-     "entity_name":"IBZ_CASE",
-     "ref_entity_name":"IBZ_LIBCASESTEPS"
+     "entity_name":"IBZ_LIBCASESTEPS",
+     "ref_entity_name":"IBZ_CASE"
     },
     {"name":"DER1N_IBZ_LIBCASESTEPS_IBZ_LIBCASESTEPS_PARENT",
      "relation_type":"DER1N",
@@ -8417,8 +8915,8 @@
     {"name":"DER1N_IBZ_CASE_IBZ_LIBMODULE_MODULE",
      "relation_type":"DER1N",
      "code_name":"LibModule",
-     "entity_name":"IBZ_LIBMODULE",
-     "ref_entity_name":"IBZ_CASE"
+     "entity_name":"IBZ_CASE",
+     "ref_entity_name":"IBZ_LIBMODULE"
     },
     {"name":"DER1N_IBZ_LIBMODULE_IBZ_LIBMODULE_PARENT",
      "relation_type":"DER1N",
@@ -8437,8 +8935,8 @@
     {"name":"DER1N_IBZ_LIBMODULE_IBZ_LIB_ROOT",
      "relation_type":"DER1N",
      "code_name":"Lib",
-     "entity_name":"IBZ_LIB",
-     "ref_entity_name":"IBZ_LIBMODULE"
+     "entity_name":"IBZ_LIBMODULE",
+     "ref_entity_name":"IBZ_LIB"
     }
     ]
  }
@@ -10824,8 +11322,8 @@
     {"name":"DER1N_ZT_TESTRESULT_ZT_JOB_JOB",
      "relation_type":"DER1N",
      "code_name":"ZTJob",
-     "entity_name":"ZT_JOB",
-     "ref_entity_name":"ZT_TESTRESULT"
+     "entity_name":"ZT_TESTRESULT",
+     "ref_entity_name":"ZT_JOB"
     }
     ],
     "parentEntitys":[
@@ -11272,26 +11770,26 @@
     {"name":"DER1N_ZT_BUG_ZT_MODULE_MODULE",
      "relation_type":"DER1N",
      "code_name":"ZTModule",
-     "entity_name":"ZT_MODULE",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_MODULE"
     },
     {"name":"DER1N_ZT_CASE_ZT_MODULE_MODULE",
      "relation_type":"DER1N",
      "code_name":"ZTModule",
-     "entity_name":"ZT_MODULE",
-     "ref_entity_name":"ZT_CASE"
+     "entity_name":"ZT_CASE",
+     "ref_entity_name":"ZT_MODULE"
     },
     {"name":"DER1N_ZT_DOC_ZT_MODULE_MODULE",
      "relation_type":"DER1N",
      "code_name":"Zt_module",
-     "entity_name":"ZT_MODULE",
-     "ref_entity_name":"ZT_DOC"
+     "entity_name":"ZT_DOC",
+     "ref_entity_name":"ZT_MODULE"
     },
     {"name":"DER1N_ZT_PRODUCT_ZT_MODULE_LINE",
      "relation_type":"DER1N",
      "code_name":"ModuleLine",
-     "entity_name":"ZT_MODULE",
-     "ref_entity_name":"ZT_PRODUCT"
+     "entity_name":"ZT_PRODUCT",
+     "ref_entity_name":"ZT_MODULE"
     },
     {"name":"DER1N__ZT_MODULE__ZT_MODULE__PARENT",
      "relation_type":"DER1N",
@@ -11304,8 +11802,8 @@
     {"name":"DER1N_ZT_MODULE_ZT_BRANCH_BRANCH",
      "relation_type":"DER1N",
      "code_name":"Zt_branch_branch",
-     "entity_name":"ZT_BRANCH",
-     "ref_entity_name":"ZT_MODULE"
+     "entity_name":"ZT_MODULE",
+     "ref_entity_name":"ZT_BRANCH"
     },
     {"name":"DER1N__ZT_MODULE__ZT_MODULE__PARENT",
      "relation_type":"DER1N",
@@ -12716,8 +13214,8 @@
     {"name":"DER1N_PSDEFIELD_PSDATAENTITY_PSDEID",
      "relation_type":"DER1N",
      "code_name":"PSDE",
-     "entity_name":"PSDATAENTITY",
-     "ref_entity_name":"PSDEFIELD"
+     "entity_name":"PSDEFIELD",
+     "ref_entity_name":"PSDATAENTITY"
     },
     {"name":"DER1N_PSDEFIELD_PSDEFIELD_DERPSDEFID",
      "relation_type":"DER1N",
@@ -13986,34 +14484,34 @@
     {"name":"DER1N_PSDEFIELD_PSDATAENTITY_PSDEID",
      "relation_type":"DER1N",
      "code_name":"PSDE",
-     "entity_name":"PSDATAENTITY",
-     "ref_entity_name":"PSDEFIELD"
+     "entity_name":"PSDEFIELD",
+     "ref_entity_name":"PSDATAENTITY"
     }
     ],
     "parentEntitys":[
     {"name":"DER1N_PSDATAENTITY_PSMODULE_PSMODULEID",
      "relation_type":"DER1N",
      "code_name":"PSModule",
-     "entity_name":"PSMODULE",
-     "ref_entity_name":"PSDATAENTITY"
+     "entity_name":"PSDATAENTITY",
+     "ref_entity_name":"PSMODULE"
     },
     {"name":"DER1N_PSDATAENTITY_PSSUBSYSSADE_PSSUBSYSSADEID",
      "relation_type":"DER1N",
      "code_name":"PSSubSysSADE",
-     "entity_name":"PSSUBSYSSADE",
-     "ref_entity_name":"PSDATAENTITY"
+     "entity_name":"PSDATAENTITY",
+     "ref_entity_name":"PSSUBSYSSADE"
     },
     {"name":"DER1N_PSDATAENTITY_PSSUBSYSSERVICEAPI_PSSUBSYSSERVICEAPIID",
      "relation_type":"DER1N",
      "code_name":"PSSubSysServiceAPI",
-     "entity_name":"PSSUBSYSSERVICEAPI",
-     "ref_entity_name":"PSDATAENTITY"
+     "entity_name":"PSDATAENTITY",
+     "ref_entity_name":"PSSUBSYSSERVICEAPI"
     },
     {"name":"DER1N_PSDATAENTITY_PSSYSREQITEM_PSSYSREQITEMID",
      "relation_type":"DER1N",
      "code_name":"PSSysReqItem",
-     "entity_name":"PSSYSREQITEM",
-     "ref_entity_name":"PSDATAENTITY"
+     "entity_name":"PSDATAENTITY",
+     "ref_entity_name":"PSSYSREQITEM"
     }
     ]
  }
@@ -14438,26 +14936,26 @@
     {"name":"DER1N_PSDATAENTITY_PSMODULE_PSMODULEID",
      "relation_type":"DER1N",
      "code_name":"PSModule",
-     "entity_name":"PSMODULE",
-     "ref_entity_name":"PSDATAENTITY"
+     "entity_name":"PSDATAENTITY",
+     "ref_entity_name":"PSMODULE"
     },
     {"name":"DER1N_PSSUBSYSSERVICEAPI_PSMODULE_PSMODULEID",
      "relation_type":"DER1N",
      "code_name":"PSModule",
-     "entity_name":"PSMODULE",
-     "ref_entity_name":"PSSUBSYSSERVICEAPI"
+     "entity_name":"PSSUBSYSSERVICEAPI",
+     "ref_entity_name":"PSMODULE"
     },
     {"name":"DER1N_PSSYSREQMODULE_PSMODULE_PSMODULEID",
      "relation_type":"DER1N",
      "code_name":"PSModule",
-     "entity_name":"PSMODULE",
-     "ref_entity_name":"PSSYSREQMODULE"
+     "entity_name":"PSSYSREQMODULE",
+     "ref_entity_name":"PSMODULE"
     },
     {"name":"DER1N_PSSYSSERVICEAPI_PSMODULE_PSMODULEID",
      "relation_type":"DER1N",
      "code_name":"PSModule",
-     "entity_name":"PSMODULE",
-     "ref_entity_name":"PSSYSSERVICEAPI"
+     "entity_name":"PSSYSSERVICEAPI",
+     "ref_entity_name":"PSMODULE"
     }
     ],
     "parentEntitys":[
@@ -14776,16 +15274,16 @@
     {"name":"DER1N_PSDATAENTITY_PSSUBSYSSADE_PSSUBSYSSADEID",
      "relation_type":"DER1N",
      "code_name":"PSSubSysSADE",
-     "entity_name":"PSSUBSYSSADE",
-     "ref_entity_name":"PSDATAENTITY"
+     "entity_name":"PSDATAENTITY",
+     "ref_entity_name":"PSSUBSYSSADE"
     }
     ],
     "parentEntitys":[
     {"name":"DER1N_PSSUBSYSSADE_PSSUBSYSSERVICEAPI_PSSUBSYSSERVICEAPIID",
      "relation_type":"DER1N",
      "code_name":"PSSubSysServiceAPI",
-     "entity_name":"PSSUBSYSSERVICEAPI",
-     "ref_entity_name":"PSSUBSYSSADE"
+     "entity_name":"PSSUBSYSSADE",
+     "ref_entity_name":"PSSUBSYSSERVICEAPI"
     }
     ]
  }
@@ -14981,28 +15479,28 @@
     {"name":"DER1N_PSDATAENTITY_PSSUBSYSSERVICEAPI_PSSUBSYSSERVICEAPIID",
      "relation_type":"DER1N",
      "code_name":"PSSubSysServiceAPI",
-     "entity_name":"PSSUBSYSSERVICEAPI",
-     "ref_entity_name":"PSDATAENTITY"
+     "entity_name":"PSDATAENTITY",
+     "ref_entity_name":"PSSUBSYSSERVICEAPI"
     },
     {"name":"DER1N_PSSUBSYSSADE_PSSUBSYSSERVICEAPI_PSSUBSYSSERVICEAPIID",
      "relation_type":"DER1N",
      "code_name":"PSSubSysServiceAPI",
-     "entity_name":"PSSUBSYSSERVICEAPI",
-     "ref_entity_name":"PSSUBSYSSADE"
+     "entity_name":"PSSUBSYSSADE",
+     "ref_entity_name":"PSSUBSYSSERVICEAPI"
     }
     ],
     "parentEntitys":[
     {"name":"DER1N_PSSUBSYSSERVICEAPI_PSMODULE_PSMODULEID",
      "relation_type":"DER1N",
      "code_name":"PSModule",
-     "entity_name":"PSMODULE",
-     "ref_entity_name":"PSSUBSYSSERVICEAPI"
+     "entity_name":"PSSUBSYSSERVICEAPI",
+     "ref_entity_name":"PSMODULE"
     },
     {"name":"DER1N_PSSUBSYSSERVICEAPI_PSSYSSERVICEAPI_PSSYSSERVICEAPIID",
      "relation_type":"DER1N",
      "code_name":"PSSysServiceAPI",
-     "entity_name":"PSSYSSERVICEAPI",
-     "ref_entity_name":"PSSUBSYSSERVICEAPI"
+     "entity_name":"PSSUBSYSSERVICEAPI",
+     "ref_entity_name":"PSSYSSERVICEAPI"
     }
     ]
  }
@@ -15821,22 +16319,22 @@
     {"name":"DER1N_PSSYSRUNSESSION_PSSYSAPP_PSSYSAPPID",
      "relation_type":"DER1N",
      "code_name":"PSSysApp",
-     "entity_name":"PSSYSAPP",
-     "ref_entity_name":"PSSYSRUNSESSION"
+     "entity_name":"PSSYSRUNSESSION",
+     "ref_entity_name":"PSSYSAPP"
     },
     {"name":"DER1N_PSSYSRUNSESSION_PSSYSAPP_PSSYSAPPID2",
      "relation_type":"DER1N",
      "code_name":"PSSysApp2",
-     "entity_name":"PSSYSAPP",
-     "ref_entity_name":"PSSYSRUNSESSION"
+     "entity_name":"PSSYSRUNSESSION",
+     "ref_entity_name":"PSSYSAPP"
     }
     ],
     "parentEntitys":[
     {"name":"DER1N_PSSYSAPP_PSSYSSERVICEAPI_PSSYSSERVICEAPIID",
      "relation_type":"DER1N",
      "code_name":"PSSysServiceAPI",
-     "entity_name":"PSSYSSERVICEAPI",
-     "ref_entity_name":"PSSYSAPP"
+     "entity_name":"PSSYSAPP",
+     "ref_entity_name":"PSSYSSERVICEAPI"
     }
     ]
  }
@@ -16252,8 +16750,8 @@
     {"name":"DER1N_PSDATAENTITY_PSSYSREQITEM_PSSYSREQITEMID",
      "relation_type":"DER1N",
      "code_name":"PSSysReqItem",
-     "entity_name":"PSSYSREQITEM",
-     "ref_entity_name":"PSDATAENTITY"
+     "entity_name":"PSDATAENTITY",
+     "ref_entity_name":"PSSYSREQITEM"
     },
     {"name":"DER1N_PSSYSREQITEM_PSSYSREQITEM_PPSSYSREQITEMID",
      "relation_type":"DER1N",
@@ -16272,8 +16770,8 @@
     {"name":"DER1N_PSSYSREQITEM_PSSYSREQMODULE_PSSYSREQMODULEID",
      "relation_type":"DER1N",
      "code_name":"PSSysReqModule",
-     "entity_name":"PSSYSREQMODULE",
-     "ref_entity_name":"PSSYSREQITEM"
+     "entity_name":"PSSYSREQITEM",
+     "ref_entity_name":"PSSYSREQMODULE"
     }
     ]
  }
@@ -16651,8 +17149,8 @@
     {"name":"DER1N_PSSYSREQITEM_PSSYSREQMODULE_PSSYSREQMODULEID",
      "relation_type":"DER1N",
      "code_name":"PSSysReqModule",
-     "entity_name":"PSSYSREQMODULE",
-     "ref_entity_name":"PSSYSREQITEM"
+     "entity_name":"PSSYSREQITEM",
+     "ref_entity_name":"PSSYSREQMODULE"
     },
     {"name":"DER1N_PSSYSREQMODULE_PSSYSREQMODULE_PPSSYSREQMODULEID",
      "relation_type":"DER1N",
@@ -16665,8 +17163,8 @@
     {"name":"DER1N_PSSYSREQMODULE_PSMODULE_PSMODULEID",
      "relation_type":"DER1N",
      "code_name":"PSModule",
-     "entity_name":"PSMODULE",
-     "ref_entity_name":"PSSYSREQMODULE"
+     "entity_name":"PSSYSREQMODULE",
+     "ref_entity_name":"PSMODULE"
     },
     {"name":"DER1N_PSSYSREQMODULE_PSSYSREQMODULE_PPSSYSREQMODULEID",
      "relation_type":"DER1N",
@@ -17184,20 +17682,20 @@
     {"name":"DER1N_PSSYSRUNSESSION_PSSYSAPP_PSSYSAPPID",
      "relation_type":"DER1N",
      "code_name":"PSSysApp",
-     "entity_name":"PSSYSAPP",
-     "ref_entity_name":"PSSYSRUNSESSION"
+     "entity_name":"PSSYSRUNSESSION",
+     "ref_entity_name":"PSSYSAPP"
     },
     {"name":"DER1N_PSSYSRUNSESSION_PSSYSAPP_PSSYSAPPID2",
      "relation_type":"DER1N",
      "code_name":"PSSysApp2",
-     "entity_name":"PSSYSAPP",
-     "ref_entity_name":"PSSYSRUNSESSION"
+     "entity_name":"PSSYSRUNSESSION",
+     "ref_entity_name":"PSSYSAPP"
     },
     {"name":"DER1N_PSSYSRUNSESSION_PSSYSSERVICEAPI_PSSYSSERVICEAPIID",
      "relation_type":"DER1N",
      "code_name":"PSSysServiceAPI",
-     "entity_name":"PSSYSSERVICEAPI",
-     "ref_entity_name":"PSSYSRUNSESSION"
+     "entity_name":"PSSYSRUNSESSION",
+     "ref_entity_name":"PSSYSSERVICEAPI"
     }
     ]
  }
@@ -18319,28 +18817,28 @@
     {"name":"DER1N_PSSUBSYSSERVICEAPI_PSSYSSERVICEAPI_PSSYSSERVICEAPIID",
      "relation_type":"DER1N",
      "code_name":"PSSysServiceAPI",
-     "entity_name":"PSSYSSERVICEAPI",
-     "ref_entity_name":"PSSUBSYSSERVICEAPI"
+     "entity_name":"PSSUBSYSSERVICEAPI",
+     "ref_entity_name":"PSSYSSERVICEAPI"
     },
     {"name":"DER1N_PSSYSAPP_PSSYSSERVICEAPI_PSSYSSERVICEAPIID",
      "relation_type":"DER1N",
      "code_name":"PSSysServiceAPI",
-     "entity_name":"PSSYSSERVICEAPI",
-     "ref_entity_name":"PSSYSAPP"
+     "entity_name":"PSSYSAPP",
+     "ref_entity_name":"PSSYSSERVICEAPI"
     },
     {"name":"DER1N_PSSYSRUNSESSION_PSSYSSERVICEAPI_PSSYSSERVICEAPIID",
      "relation_type":"DER1N",
      "code_name":"PSSysServiceAPI",
-     "entity_name":"PSSYSSERVICEAPI",
-     "ref_entity_name":"PSSYSRUNSESSION"
+     "entity_name":"PSSYSRUNSESSION",
+     "ref_entity_name":"PSSYSSERVICEAPI"
     }
     ],
     "parentEntitys":[
     {"name":"DER1N_PSSYSSERVICEAPI_PSMODULE_PSMODULEID",
      "relation_type":"DER1N",
      "code_name":"PSModule",
-     "entity_name":"PSMODULE",
-     "ref_entity_name":"PSSYSSERVICEAPI"
+     "entity_name":"PSSYSSERVICEAPI",
+     "ref_entity_name":"PSMODULE"
     }
     ]
  }
@@ -19332,115 +19830,121 @@
     }
     ],
     "subEntitys":[
+    {"name":"DER1N_IBZ_BUGSTATS_ZT_PRODUCT_PRODUCT",
+     "relation_type":"DER1N",
+     "code_name":"ZTProduct",
+     "entity_name":"IBZ_BUGSTATS",
+     "ref_entity_name":"ZT_PRODUCT"
+    },
     {"name":"DER1N_IBZ_PRODUCTMODULE_ZT_PRODUCT_ROOT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"IBZ_PRODUCTMODULE"
+     "entity_name":"IBZ_PRODUCTMODULE",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_IBZ_TESTMODULE_ZT_PRODUCT_ROOT",
      "relation_type":"DER1N",
      "code_name":"RootTest",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"IBZ_TESTMODULE"
+     "entity_name":"IBZ_TESTMODULE",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_BRANCH_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_BRANCH"
+     "entity_name":"ZT_BRANCH",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_BUG_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_BUILD_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_BUILD"
+     "entity_name":"ZT_BUILD",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_CASE_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_CASE"
+     "entity_name":"ZT_CASE",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_DOCLIB_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"Zt_product",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_DOCLIB"
+     "entity_name":"ZT_DOCLIB",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_DOC_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"Zt_product",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_DOC"
+     "entity_name":"ZT_DOC",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_PRODUCTPLAN_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_PRODUCTPLAN"
+     "entity_name":"ZT_PRODUCTPLAN",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_PROJECTPRODUCT_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_PROJECTPRODUCT"
+     "entity_name":"ZT_PROJECTPRODUCT",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_PROJECTSTORY_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_PROJECTSTORY"
+     "entity_name":"ZT_PROJECTSTORY",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_RELEASE_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_RELEASE"
+     "entity_name":"ZT_RELEASE",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_STORY_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_STORY"
+     "entity_name":"ZT_STORY",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_SUITECASE_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_SUITECASE"
+     "entity_name":"ZT_SUITECASE",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_TESTREPORT_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_TESTREPORT"
+     "entity_name":"ZT_TESTREPORT",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_TESTSUITE_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_TESTSUITE"
+     "entity_name":"ZT_TESTSUITE",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_TESTTASK_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_TESTTASK"
+     "entity_name":"ZT_TESTTASK",
+     "ref_entity_name":"ZT_PRODUCT"
     }
     ],
     "parentEntitys":[
     {"name":"DER1N_ZT_PRODUCT_ZT_MODULE_LINE",
      "relation_type":"DER1N",
      "code_name":"ModuleLine",
-     "entity_name":"ZT_MODULE",
-     "ref_entity_name":"ZT_PRODUCT"
+     "entity_name":"ZT_PRODUCT",
+     "ref_entity_name":"ZT_MODULE"
     }
     ]
  }
@@ -19987,8 +20491,8 @@
     {"name":"DER1N_ZT_STORY_IBZ_PRODUCTMODULE_MODULE",
      "relation_type":"DER1N",
      "code_name":"IBZProductModule",
-     "entity_name":"IBZ_PRODUCTMODULE",
-     "ref_entity_name":"ZT_STORY"
+     "entity_name":"ZT_STORY",
+     "ref_entity_name":"IBZ_PRODUCTMODULE"
     }
     ],
     "parentEntitys":[
@@ -20001,8 +20505,8 @@
     {"name":"DER1N_IBZ_PRODUCTMODULE_ZT_PRODUCT_ROOT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"IBZ_PRODUCTMODULE"
+     "entity_name":"IBZ_PRODUCTMODULE",
+     "ref_entity_name":"ZT_PRODUCT"
     }
     ]
  }
@@ -20307,14 +20811,14 @@
     {"name":"DER1N_ZT_BUG_ZT_PRODUCTPLAN_PLAN",
      "relation_type":"DER1N",
      "code_name":"ZTProductPlan",
-     "entity_name":"ZT_PRODUCTPLAN",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_PRODUCTPLAN"
     },
     {"name":"DER1N_ZT_PROJECTPRODUCT_ZT_PRODUCTPLAN_PLAN",
      "relation_type":"DER1N",
      "code_name":"ZTProductPlan",
-     "entity_name":"ZT_PRODUCTPLAN",
-     "ref_entity_name":"ZT_PROJECTPRODUCT"
+     "entity_name":"ZT_PROJECTPRODUCT",
+     "ref_entity_name":"ZT_PRODUCTPLAN"
     },
     {"name":"DER1N__ZT_PRODUCTPLAN__ZT_PRODUCTPLAN__PARENT",
      "relation_type":"DER1N",
@@ -20327,14 +20831,14 @@
     {"name":"DER1N_ZT_PRODUCTPLAN_ZT_BRANCH_BRANCH",
      "relation_type":"DER1N",
      "code_name":"ZTBranch",
-     "entity_name":"ZT_BRANCH",
-     "ref_entity_name":"ZT_PRODUCTPLAN"
+     "entity_name":"ZT_PRODUCTPLAN",
+     "ref_entity_name":"ZT_BRANCH"
     },
     {"name":"DER1N_ZT_PRODUCTPLAN_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_PRODUCTPLAN"
+     "entity_name":"ZT_PRODUCTPLAN",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N__ZT_PRODUCTPLAN__ZT_PRODUCTPLAN__PARENT",
      "relation_type":"DER1N",
@@ -20744,6 +21248,160 @@
  }
     ,
     {
+    "entity_name":"IBZ_PRODUCTSUM",
+    "logic_name":"产品汇总表",
+    "code_name":"ProductSum",
+    "table_name":"zt_product",
+    "system_id":"pms",
+    "system_name":"pms",
+    "fields":[
+    {
+    "fieldname":"ID" ,
+    "codename":"Id",
+    "field_logic_name":"主键标识",
+    "entity_name":"ProductSum",
+    "field_type":"ACID",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":20,
+    "key_field":1,
+    "major_field":0
+    },
+    {
+    "fieldname":"NAME" ,
+    "codename":"Name",
+    "field_logic_name":"产品名称",
+    "entity_name":"ProductSum",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":1
+    },
+    {
+    "fieldname":"PO" ,
+    "codename":"PO",
+    "field_logic_name":"产品负责人",
+    "entity_name":"ProductSum",
+    "field_type":"SSCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"PLAN" ,
+    "codename":"Plan",
+    "field_logic_name":"计划",
+    "entity_name":"ProductSum",
+    "field_type":"BIGINT",
+    "dict":"PlanCodeList",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"BIGINT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BEGIN" ,
+    "codename":"Begin",
+    "field_logic_name":"开始日期",
+    "entity_name":"ProductSum",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"END" ,
+    "codename":"End",
+    "field_logic_name":"结束日期",
+    "entity_name":"ProductSum",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"WAITSTORYCNT" ,
+    "codename":"WaitStoryCnt",
+    "field_logic_name":"草稿",
+    "entity_name":"ProductSum",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"ACTIVESTORYCNT" ,
+    "codename":"ActiveStoryCnt",
+    "field_logic_name":"激活",
+    "entity_name":"ProductSum",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"CHANGEDSTORYCNT" ,
+    "codename":"Changedstorycnt",
+    "field_logic_name":"已变更",
+    "entity_name":"ProductSum",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"CLOSEDSTORYCNT" ,
+    "codename":"ClosedStoryCnt",
+    "field_logic_name":"已关闭",
+    "entity_name":"ProductSum",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"STORYCNT" ,
+    "codename":"StoryCnt",
+    "field_logic_name":"总计",
+    "entity_name":"ProductSum",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    ],
+    "parentEntitys":[
+    ]
+ }
+    ,
+    {
     "entity_name":"ZT_PROJECT",
     "logic_name":"项目",
     "code_name":"Project",
@@ -21006,11 +21664,11 @@
     "codename":"IsCat",
     "field_logic_name":"isCat",
     "entity_name":"Project",
-    "field_type":"YESNO",
-    "dict":"YesNo3",
+    "field_type":"SSCODELIST",
+    "dict":"YesNo",
     "nullable":1,
     "physical_field":1,
-    "data_type":"INT",
+    "data_type":"VARCHAR",
     "data_length":1,
     "key_field":0,
     "major_field":0
@@ -21661,83 +22319,89 @@
     }
     ],
     "subEntitys":[
+    {"name":"DER1N_IBZ_EMPLOYEELOAD_ZT_PROJECT_PROJECT",
+     "relation_type":"DER1N",
+     "code_name":"Ztproject",
+     "entity_name":"IBZ_EMPLOYEELOAD",
+     "ref_entity_name":"ZT_PROJECT"
+    },
     {"name":"DER1N_IBZ_PROJECTMODULE_ZT_PROJECT_ROOT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"IBZ_PROJECTMODULE"
+     "entity_name":"IBZ_PROJECTMODULE",
+     "ref_entity_name":"ZT_PROJECT"
     },
     {"name":"DER1N_IBZ_PROJECTTEAM_ZT_PROJECT_ROOT",
      "relation_type":"DER1N",
      "code_name":"ProjectTeam",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"IBZ_PROJECTTEAM"
+     "entity_name":"IBZ_PROJECTTEAM",
+     "ref_entity_name":"ZT_PROJECT"
     },
     {"name":"DER1N_ZT_ACTION_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"Zt_project",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_ACTION"
+     "entity_name":"ZT_ACTION",
+     "ref_entity_name":"ZT_PROJECT"
     },
     {"name":"DER1N_ZT_BUG_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_PROJECT"
     },
     {"name":"DER1N_ZT_BUILD_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_BUILD"
+     "entity_name":"ZT_BUILD",
+     "ref_entity_name":"ZT_PROJECT"
     },
     {"name":"DER1N_ZT_BURN_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_BURN"
+     "entity_name":"ZT_BURN",
+     "ref_entity_name":"ZT_PROJECT"
     },
     {"name":"DER1N_ZT_DOCLIB_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"Zt_project",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_DOCLIB"
+     "entity_name":"ZT_DOCLIB",
+     "ref_entity_name":"ZT_PROJECT"
     },
     {"name":"DER1N_ZT_DOC_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"Zt_project",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_DOC"
+     "entity_name":"ZT_DOC",
+     "ref_entity_name":"ZT_PROJECT"
     },
     {"name":"DER1N_ZT_PROJECTPRODUCT_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_PROJECTPRODUCT"
+     "entity_name":"ZT_PROJECTPRODUCT",
+     "ref_entity_name":"ZT_PROJECT"
     },
     {"name":"DER1N_ZT_PROJECTSTORY_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_PROJECTSTORY"
+     "entity_name":"ZT_PROJECTSTORY",
+     "ref_entity_name":"ZT_PROJECT"
     },
     {"name":"DER1N_ZT_TASK_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_TASK"
+     "entity_name":"ZT_TASK",
+     "ref_entity_name":"ZT_PROJECT"
     },
     {"name":"DER1N_ZT_TESTREPORT_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_TESTREPORT"
+     "entity_name":"ZT_TESTREPORT",
+     "ref_entity_name":"ZT_PROJECT"
     },
     {"name":"DER1N_ZT_TESTTASK_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_TESTTASK"
+     "entity_name":"ZT_TESTTASK",
+     "ref_entity_name":"ZT_PROJECT"
     },
     {"name":"DER1N__ZT_PROJECT__ZT_PROJECT__PARENT",
      "relation_type":"DER1N",
@@ -21998,8 +22662,8 @@
     {"name":"DER1N_ZT_TASK_IBZ_PROJECTMODULE_MODULE",
      "relation_type":"DER1N",
      "code_name":"ProjectModule",
-     "entity_name":"IBZ_PROJECTMODULE",
-     "ref_entity_name":"ZT_TASK"
+     "entity_name":"ZT_TASK",
+     "ref_entity_name":"IBZ_PROJECTMODULE"
     }
     ],
     "parentEntitys":[
@@ -22012,8 +22676,8 @@
     {"name":"DER1N_IBZ_PROJECTMODULE_ZT_PROJECT_ROOT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"IBZ_PROJECTMODULE"
+     "entity_name":"IBZ_PROJECTMODULE",
+     "ref_entity_name":"ZT_PROJECT"
     }
     ]
  }
@@ -22165,26 +22829,26 @@
     {"name":"DER1N_ZT_PROJECTPRODUCT_ZT_BRANCH_BRANCH",
      "relation_type":"DER1N",
      "code_name":"ZTBranch",
-     "entity_name":"ZT_BRANCH",
-     "ref_entity_name":"ZT_PROJECTPRODUCT"
+     "entity_name":"ZT_PROJECTPRODUCT",
+     "ref_entity_name":"ZT_BRANCH"
     },
     {"name":"DER1N_ZT_PROJECTPRODUCT_ZT_PRODUCTPLAN_PLAN",
      "relation_type":"DER1N",
      "code_name":"ZTProductPlan",
-     "entity_name":"ZT_PRODUCTPLAN",
-     "ref_entity_name":"ZT_PROJECTPRODUCT"
+     "entity_name":"ZT_PROJECTPRODUCT",
+     "ref_entity_name":"ZT_PRODUCTPLAN"
     },
     {"name":"DER1N_ZT_PROJECTPRODUCT_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_PROJECTPRODUCT"
+     "entity_name":"ZT_PROJECTPRODUCT",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_PROJECTPRODUCT_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_PROJECTPRODUCT"
+     "entity_name":"ZT_PROJECTPRODUCT",
+     "ref_entity_name":"ZT_PROJECT"
     }
     ]
  }
@@ -22645,20 +23309,20 @@
     {"name":"DER1N_ZT_PROJECTSTORY_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_PROJECTSTORY"
+     "entity_name":"ZT_PROJECTSTORY",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_PROJECTSTORY_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_PROJECTSTORY"
+     "entity_name":"ZT_PROJECTSTORY",
+     "ref_entity_name":"ZT_PROJECT"
     },
     {"name":"DER1N_ZT_PROJECTSTORY_ZT_STORY_STORY",
      "relation_type":"DER1N",
      "code_name":"ZTStory",
-     "entity_name":"ZT_STORY",
-     "ref_entity_name":"ZT_PROJECTSTORY"
+     "entity_name":"ZT_PROJECTSTORY",
+     "ref_entity_name":"ZT_STORY"
     }
     ]
  }
@@ -22714,10 +23378,10 @@
     "codename":"Left",
     "field_logic_name":"预计剩余",
     "entity_name":"ProjectTeam",
-    "field_type":"DECIMAL",
+    "field_type":"FLOAT",
     "nullable":1,
     "physical_field":1,
-    "data_type":"DECIMAL",
+    "data_type":"FLOAT",
     "key_field":0,
     "major_field":0
     },
@@ -22752,10 +23416,10 @@
     "codename":"Consumed",
     "field_logic_name":"总计消耗",
     "entity_name":"ProjectTeam",
-    "field_type":"DECIMAL",
+    "field_type":"FLOAT",
     "nullable":1,
     "physical_field":1,
-    "data_type":"DECIMAL",
+    "data_type":"FLOAT",
     "key_field":0,
     "major_field":0
     },
@@ -22777,10 +23441,10 @@
     "codename":"Estimate",
     "field_logic_name":"最初预计",
     "entity_name":"ProjectTeam",
-    "field_type":"DECIMAL",
+    "field_type":"FLOAT",
     "nullable":1,
     "physical_field":1,
-    "data_type":"DECIMAL",
+    "data_type":"FLOAT",
     "key_field":0,
     "major_field":0
     },
@@ -22874,8 +23538,8 @@
     {"name":"DER1N_IBZ_PROJECTTEAM_ZT_PROJECT_ROOT",
      "relation_type":"DER1N",
      "code_name":"ProjectTeam",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"IBZ_PROJECTTEAM"
+     "entity_name":"IBZ_PROJECTTEAM",
+     "ref_entity_name":"ZT_PROJECT"
     }
     ]
  }
@@ -23071,11 +23735,11 @@
     "codename":"Marker",
     "field_logic_name":"里程碑",
     "entity_name":"Release",
-    "field_type":"YESNO",
-    "dict":"YesNo2",
+    "field_type":"SSCODELIST",
+    "dict":"YesNo",
     "nullable":1,
     "physical_field":1,
-    "data_type":"INT",
+    "data_type":"VARCHAR",
     "data_length":1,
     "key_field":0,
     "major_field":0
@@ -23364,6 +24028,40 @@
     "data_length":200,
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"BUILDER" ,
+    "codename":"Builder",
+    "field_logic_name":"构建者",
+    "entity_name":"Release",
+    "ref_de":"ZT_BUILD",
+    "ref_field_name":"BUILDER",
+    "relation_name":"DER1N_ZT_RELEASE_ZT_BUILD_BUILD",
+    "relation_codename":"ZTBuild",
+    "field_type":"PICKUPDATA",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":30,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"BUILDDATE" ,
+    "codename":"Builddate",
+    "field_logic_name":"打包日期",
+    "entity_name":"Release",
+    "ref_de":"ZT_BUILD",
+    "ref_field_name":"DATE",
+    "relation_name":"DER1N_ZT_RELEASE_ZT_BUILD_BUILD",
+    "relation_codename":"ZTBuild",
+    "field_type":"PICKUPDATA",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -23372,20 +24070,20 @@
     {"name":"DER1N_ZT_RELEASE_ZT_BRANCH_BRANCH",
      "relation_type":"DER1N",
      "code_name":"ZTBranch",
-     "entity_name":"ZT_BRANCH",
-     "ref_entity_name":"ZT_RELEASE"
+     "entity_name":"ZT_RELEASE",
+     "ref_entity_name":"ZT_BRANCH"
     },
     {"name":"DER1N_ZT_RELEASE_ZT_BUILD_BUILD",
      "relation_type":"DER1N",
      "code_name":"ZTBuild",
-     "entity_name":"ZT_BUILD",
-     "ref_entity_name":"ZT_RELEASE"
+     "entity_name":"ZT_RELEASE",
+     "ref_entity_name":"ZT_BUILD"
     },
     {"name":"DER1N_ZT_RELEASE_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_RELEASE"
+     "entity_name":"ZT_RELEASE",
+     "ref_entity_name":"ZT_PRODUCT"
     }
     ]
  }
@@ -23608,8 +24306,8 @@
     {"name":"DER1N_ZT_BUG_ZT_REPO_REPO",
      "relation_type":"DER1N",
      "code_name":"ZTRepo",
-     "entity_name":"ZT_REPO",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_REPO"
     }
     ],
     "parentEntitys":[
@@ -24372,6 +25070,7 @@
     "physical_field":1,
     "data_type":"VARCHAR",
     "data_length":200,
+    "predefined":"UPDATEMANNAME",
     "key_field":0,
     "major_field":0
     },
@@ -24438,6 +25137,7 @@
     "nullable":1,
     "physical_field":1,
     "data_type":"DATETIME",
+    "predefined":"UPDATEDATE",
     "key_field":0,
     "major_field":0
     },
@@ -24755,11 +25455,10 @@
     "codename":"Project",
     "field_logic_name":"项目",
     "entity_name":"Story",
-    "field_type":"TEXT",
+    "field_type":"BIGINT",
     "nullable":1,
     "physical_field":0,
-    "data_type":"VARCHAR",
-    "data_length":100,
+    "data_type":"BIGINT",
     "key_field":0,
     "major_field":0
     },
@@ -24820,38 +25519,38 @@
     {"name":"DER1N_ZT_BUG_ZT_STORY_STORY",
      "relation_type":"DER1N",
      "code_name":"ZTStory",
-     "entity_name":"ZT_STORY",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_STORY"
     },
     {"name":"DER1N_ZT_BUG_ZT_STORY_TOSTORY",
      "relation_type":"DER1N",
      "code_name":"ZTToStory",
-     "entity_name":"ZT_STORY",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_STORY"
     },
     {"name":"DER1N_ZT_CASE_ZT_STORY_STORY",
      "relation_type":"DER1N",
      "code_name":"ZTStory",
-     "entity_name":"ZT_STORY",
-     "ref_entity_name":"ZT_CASE"
+     "entity_name":"ZT_CASE",
+     "ref_entity_name":"ZT_STORY"
     },
     {"name":"DER1N_ZT_PROJECTSTORY_ZT_STORY_STORY",
      "relation_type":"DER1N",
      "code_name":"ZTStory",
-     "entity_name":"ZT_STORY",
-     "ref_entity_name":"ZT_PROJECTSTORY"
+     "entity_name":"ZT_PROJECTSTORY",
+     "ref_entity_name":"ZT_STORY"
     },
     {"name":"DER1N_ZT_STORYSPEC_ZT_STORY_STORY",
      "relation_type":"DER1N",
      "code_name":"ZTStory",
-     "entity_name":"ZT_STORY",
-     "ref_entity_name":"ZT_STORYSPEC"
+     "entity_name":"ZT_STORYSPEC",
+     "ref_entity_name":"ZT_STORY"
     },
     {"name":"DER1N_ZT_STORYSTAGE_ZT_STORY_STORY",
      "relation_type":"DER1N",
      "code_name":"ZTStory",
-     "entity_name":"ZT_STORY",
-     "ref_entity_name":"ZT_STORYSTAGE"
+     "entity_name":"ZT_STORYSTAGE",
+     "ref_entity_name":"ZT_STORY"
     },
     {"name":"DER1N_ZT_STORY_ZT_STORY_DUPLICATESTORY",
      "relation_type":"DER1N",
@@ -24862,8 +25561,8 @@
     {"name":"DER1N_ZT_TASK_ZT_STORY_STORY",
      "relation_type":"DER1N",
      "code_name":"ZTStory",
-     "entity_name":"ZT_STORY",
-     "ref_entity_name":"ZT_TASK"
+     "entity_name":"ZT_TASK",
+     "ref_entity_name":"ZT_STORY"
     },
     {"name":"DER1N__ZT_STORY__ZT_STORY__PARENT",
      "relation_type":"DER1N",
@@ -24876,32 +25575,32 @@
     {"name":"DER1N_ZT_STORY_IBZ_PRODUCTMODULE_MODULE",
      "relation_type":"DER1N",
      "code_name":"IBZProductModule",
-     "entity_name":"IBZ_PRODUCTMODULE",
-     "ref_entity_name":"ZT_STORY"
+     "entity_name":"ZT_STORY",
+     "ref_entity_name":"IBZ_PRODUCTMODULE"
     },
     {"name":"DER1N_ZT_STORY_ZT_BRANCH_BRANCH",
      "relation_type":"DER1N",
      "code_name":"ZTBranch",
-     "entity_name":"ZT_BRANCH",
-     "ref_entity_name":"ZT_STORY"
+     "entity_name":"ZT_STORY",
+     "ref_entity_name":"ZT_BRANCH"
     },
     {"name":"DER1N_ZT_STORY_ZT_BUG_FROMBUGID",
      "relation_type":"DER1N",
      "code_name":"ZTFROMBug",
-     "entity_name":"ZT_BUG",
-     "ref_entity_name":"ZT_STORY"
+     "entity_name":"ZT_STORY",
+     "ref_entity_name":"ZT_BUG"
     },
     {"name":"DER1N_ZT_STORY_ZT_BUG_TOBUGID",
      "relation_type":"DER1N",
      "code_name":"ZTToBug",
-     "entity_name":"ZT_BUG",
-     "ref_entity_name":"ZT_STORY"
+     "entity_name":"ZT_STORY",
+     "ref_entity_name":"ZT_BUG"
     },
     {"name":"DER1N_ZT_STORY_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_STORY"
+     "entity_name":"ZT_STORY",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_STORY_ZT_STORY_DUPLICATESTORY",
      "relation_type":"DER1N",
@@ -25023,8 +25722,8 @@
     {"name":"DER1N_ZT_STORYSPEC_ZT_STORY_STORY",
      "relation_type":"DER1N",
      "code_name":"ZTStory",
-     "entity_name":"ZT_STORY",
-     "ref_entity_name":"ZT_STORYSPEC"
+     "entity_name":"ZT_STORYSPEC",
+     "ref_entity_name":"ZT_STORY"
     }
     ]
  }
@@ -25127,14 +25826,14 @@
     {"name":"DER1N_ZT_STORYSTAGE_ZT_BRANCH_BRANCH",
      "relation_type":"DER1N",
      "code_name":"ZTBranch",
-     "entity_name":"ZT_BRANCH",
-     "ref_entity_name":"ZT_STORYSTAGE"
+     "entity_name":"ZT_STORYSTAGE",
+     "ref_entity_name":"ZT_BRANCH"
     },
     {"name":"DER1N_ZT_STORYSTAGE_ZT_STORY_STORY",
      "relation_type":"DER1N",
      "code_name":"ZTStory",
-     "entity_name":"ZT_STORY",
-     "ref_entity_name":"ZT_STORYSTAGE"
+     "entity_name":"ZT_STORYSTAGE",
+     "ref_entity_name":"ZT_STORY"
     }
     ]
  }
@@ -25236,20 +25935,20 @@
     {"name":"DER1N_ZT_SUITECASE_ZT_CASE_CASE",
      "relation_type":"DER1N",
      "code_name":"ZTCase",
-     "entity_name":"ZT_CASE",
-     "ref_entity_name":"ZT_SUITECASE"
+     "entity_name":"ZT_SUITECASE",
+     "ref_entity_name":"ZT_CASE"
     },
     {"name":"DER1N_ZT_SUITECASE_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_SUITECASE"
+     "entity_name":"ZT_SUITECASE",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_SUITECASE_ZT_TESTSUITE_SUITE",
      "relation_type":"DER1N",
      "code_name":"ZTTestSuite",
-     "entity_name":"ZT_TESTSUITE",
-     "ref_entity_name":"ZT_SUITECASE"
+     "entity_name":"ZT_SUITECASE",
+     "ref_entity_name":"ZT_TESTSUITE"
     }
     ]
  }
@@ -25458,6 +26157,7 @@
     "physical_field":1,
     "data_type":"VARCHAR",
     "data_length":30,
+    "predefined":"UPDATEMANNAME",
     "key_field":0,
     "major_field":0
     },
@@ -26051,32 +26751,32 @@
     {"name":"DER1N_IBZ_TASKTEAM_ZT_TASK_ROOT",
      "relation_type":"DER1N",
      "code_name":"TaskTeam",
-     "entity_name":"ZT_TASK",
-     "ref_entity_name":"IBZ_TASKTEAM"
+     "entity_name":"IBZ_TASKTEAM",
+     "ref_entity_name":"ZT_TASK"
     },
     {"name":"DER1N_ZT_BUG_ZT_TASK_TASK",
      "relation_type":"DER1N",
      "code_name":"ZTTask",
-     "entity_name":"ZT_TASK",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_TASK"
     },
     {"name":"DER1N_ZT_BUG_ZT_TASK_TOTASK",
      "relation_type":"DER1N",
      "code_name":"ZTTotask",
-     "entity_name":"ZT_TASK",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_TASK"
     },
     {"name":"DER1N_ZT_BURN_ZT_TASK_TASK",
      "relation_type":"DER1N",
      "code_name":"ZTTask",
-     "entity_name":"ZT_TASK",
-     "ref_entity_name":"ZT_BURN"
+     "entity_name":"ZT_BURN",
+     "ref_entity_name":"ZT_TASK"
     },
     {"name":"DER1N_ZT_TASKESTIMATE_ZT_TASK_TASK",
      "relation_type":"DER1N",
      "code_name":"ZTtask",
-     "entity_name":"ZT_TASK",
-     "ref_entity_name":"ZT_TASKESTIMATE"
+     "entity_name":"ZT_TASKESTIMATE",
+     "ref_entity_name":"ZT_TASK"
     },
     {"name":"DER1N__ZT_TASK__ZT_TASK__PARENT",
      "relation_type":"DER1N",
@@ -26089,26 +26789,26 @@
     {"name":"DER1N_ZT_TASK_IBZ_PROJECTMODULE_MODULE",
      "relation_type":"DER1N",
      "code_name":"ProjectModule",
-     "entity_name":"IBZ_PROJECTMODULE",
-     "ref_entity_name":"ZT_TASK"
+     "entity_name":"ZT_TASK",
+     "ref_entity_name":"IBZ_PROJECTMODULE"
     },
     {"name":"DER1N_ZT_TASK_ZT_BUG_FROMBUG",
      "relation_type":"DER1N",
      "code_name":"ZTFromBug",
-     "entity_name":"ZT_BUG",
-     "ref_entity_name":"ZT_TASK"
+     "entity_name":"ZT_TASK",
+     "ref_entity_name":"ZT_BUG"
     },
     {"name":"DER1N_ZT_TASK_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_TASK"
+     "entity_name":"ZT_TASK",
+     "ref_entity_name":"ZT_PROJECT"
     },
     {"name":"DER1N_ZT_TASK_ZT_STORY_STORY",
      "relation_type":"DER1N",
      "code_name":"ZTStory",
-     "entity_name":"ZT_STORY",
-     "ref_entity_name":"ZT_TASK"
+     "entity_name":"ZT_TASK",
+     "ref_entity_name":"ZT_STORY"
     },
     {"name":"DER1N__ZT_TASK__ZT_TASK__PARENT",
      "relation_type":"DER1N",
@@ -26237,8 +26937,8 @@
     {"name":"DER1N_ZT_TASKESTIMATE_ZT_TASK_TASK",
      "relation_type":"DER1N",
      "code_name":"ZTtask",
-     "entity_name":"ZT_TASK",
-     "ref_entity_name":"ZT_TASKESTIMATE"
+     "entity_name":"ZT_TASKESTIMATE",
+     "ref_entity_name":"ZT_TASK"
     }
     ]
  }
@@ -26556,10 +27256,10 @@
     "codename":"Estimate",
     "field_logic_name":"最初预计",
     "entity_name":"TaskTeam",
-    "field_type":"DECIMAL",
+    "field_type":"FLOAT",
     "nullable":1,
     "physical_field":1,
-    "data_type":"DECIMAL",
+    "data_type":"FLOAT",
     "key_field":0,
     "major_field":0
     },
@@ -26582,10 +27282,10 @@
     "codename":"Consumed",
     "field_logic_name":"总计消耗",
     "entity_name":"TaskTeam",
-    "field_type":"DECIMAL",
+    "field_type":"FLOAT",
     "nullable":1,
     "physical_field":1,
-    "data_type":"DECIMAL",
+    "data_type":"FLOAT",
     "key_field":0,
     "major_field":0
     },
@@ -26631,10 +27331,10 @@
     "codename":"Left",
     "field_logic_name":"预计剩余",
     "entity_name":"TaskTeam",
-    "field_type":"DECIMAL",
+    "field_type":"FLOAT",
     "nullable":1,
     "physical_field":1,
-    "data_type":"DECIMAL",
+    "data_type":"FLOAT",
     "key_field":0,
     "major_field":0
     }
@@ -26645,8 +27345,8 @@
     {"name":"DER1N_IBZ_TASKTEAM_ZT_TASK_ROOT",
      "relation_type":"DER1N",
      "code_name":"TaskTeam",
-     "entity_name":"ZT_TASK",
-     "ref_entity_name":"IBZ_TASKTEAM"
+     "entity_name":"IBZ_TASKTEAM",
+     "ref_entity_name":"ZT_TASK"
     }
     ]
  }
@@ -26664,10 +27364,10 @@
     "codename":"Estimate",
     "field_logic_name":"最初预计",
     "entity_name":"Team",
-    "field_type":"DECIMAL",
+    "field_type":"FLOAT",
     "nullable":1,
     "physical_field":1,
-    "data_type":"DECIMAL",
+    "data_type":"FLOAT",
     "key_field":0,
     "major_field":0
     },
@@ -26676,10 +27376,10 @@
     "codename":"Consumed",
     "field_logic_name":"总计消耗",
     "entity_name":"Team",
-    "field_type":"DECIMAL",
+    "field_type":"FLOAT",
     "nullable":1,
     "physical_field":1,
-    "data_type":"DECIMAL",
+    "data_type":"FLOAT",
     "key_field":0,
     "major_field":0
     },
@@ -26753,10 +27453,10 @@
     "codename":"Left",
     "field_logic_name":"预计剩余",
     "entity_name":"Team",
-    "field_type":"DECIMAL",
+    "field_type":"FLOAT",
     "nullable":1,
     "physical_field":1,
-    "data_type":"DECIMAL",
+    "data_type":"FLOAT",
     "key_field":0,
     "major_field":0
     },
@@ -26817,10 +27517,10 @@
     "codename":"Root",
     "field_logic_name":"关联编号",
     "entity_name":"Team",
-    "field_type":"INT",
+    "field_type":"BIGINT",
     "nullable":1,
     "physical_field":1,
-    "data_type":"INT",
+    "data_type":"BIGINT",
     "data_length":8,
     "key_field":0,
     "major_field":0
@@ -27082,8 +27782,8 @@
     {"name":"DER1N_IBZ_TESTMODULE_ZT_PRODUCT_ROOT",
      "relation_type":"DER1N",
      "code_name":"RootTest",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"IBZ_TESTMODULE"
+     "entity_name":"IBZ_TESTMODULE",
+     "ref_entity_name":"ZT_PRODUCT"
     }
     ]
  }
@@ -27209,7 +27909,7 @@
     "field_logic_name":"开始时间",
     "entity_name":"TestReport",
     "field_type":"DATE",
-    "nullable":1,
+    "nullable":0,
     "physical_field":1,
     "data_type":"DATETIME",
     "key_field":0,
@@ -27235,7 +27935,7 @@
     "field_logic_name":"结束时间",
     "entity_name":"TestReport",
     "field_type":"DATE",
-    "nullable":1,
+    "nullable":0,
     "physical_field":1,
     "data_type":"DATETIME",
     "key_field":0,
@@ -27401,6 +28101,44 @@
     "data_length":1048576,
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"OVERVIEWS" ,
+    "codename":"Overviews",
+    "field_logic_name":"概况",
+    "entity_name":"TestReport",
+    "field_type":"HTMLTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"FILES" ,
+    "codename":"Files",
+    "field_logic_name":"附件",
+    "entity_name":"TestReport",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":1000,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"PRODUCTCNT" ,
+    "codename":"Productcnt",
+    "field_logic_name":"项目报告产品数",
+    "entity_name":"TestReport",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[
@@ -27409,14 +28147,14 @@
     {"name":"DER1N_ZT_TESTREPORT_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_TESTREPORT"
+     "entity_name":"ZT_TESTREPORT",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_TESTREPORT_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_TESTREPORT"
+     "entity_name":"ZT_TESTREPORT",
+     "ref_entity_name":"ZT_PROJECT"
     }
     ]
  }
@@ -27708,26 +28446,26 @@
     {"name":"DER1N_ZT_TESTRESULT_ZT_CASE_CASE",
      "relation_type":"DER1N",
      "code_name":"ZTCase",
-     "entity_name":"ZT_CASE",
-     "ref_entity_name":"ZT_TESTRESULT"
+     "entity_name":"ZT_TESTRESULT",
+     "ref_entity_name":"ZT_CASE"
     },
     {"name":"DER1N_ZT_TESTRESULT_ZT_COMPILE_COMPILE",
      "relation_type":"DER1N",
      "code_name":"ZTCompile",
-     "entity_name":"ZT_COMPILE",
-     "ref_entity_name":"ZT_TESTRESULT"
+     "entity_name":"ZT_TESTRESULT",
+     "ref_entity_name":"ZT_COMPILE"
     },
     {"name":"DER1N_ZT_TESTRESULT_ZT_JOB_JOB",
      "relation_type":"DER1N",
      "code_name":"ZTJob",
-     "entity_name":"ZT_JOB",
-     "ref_entity_name":"ZT_TESTRESULT"
+     "entity_name":"ZT_TESTRESULT",
+     "ref_entity_name":"ZT_JOB"
     },
     {"name":"DER1N_ZT_TESTRESULT_ZT_TESTRUN_RUN",
      "relation_type":"DER1N",
      "code_name":"ZTTestRun",
-     "entity_name":"ZT_TESTRUN",
-     "ref_entity_name":"ZT_TESTRESULT"
+     "entity_name":"ZT_TESTRESULT",
+     "ref_entity_name":"ZT_TESTRUN"
     }
     ]
  }
@@ -27876,22 +28614,22 @@
     {"name":"DER1N_ZT_TESTRESULT_ZT_TESTRUN_RUN",
      "relation_type":"DER1N",
      "code_name":"ZTTestRun",
-     "entity_name":"ZT_TESTRUN",
-     "ref_entity_name":"ZT_TESTRESULT"
+     "entity_name":"ZT_TESTRESULT",
+     "ref_entity_name":"ZT_TESTRUN"
     }
     ],
     "parentEntitys":[
     {"name":"DER1N_ZT_TESTRUN_ZT_CASE_CASE",
      "relation_type":"DER1N",
      "code_name":"ZTCase",
-     "entity_name":"ZT_CASE",
-     "ref_entity_name":"ZT_TESTRUN"
+     "entity_name":"ZT_TESTRUN",
+     "ref_entity_name":"ZT_CASE"
     },
     {"name":"DER1N_ZT_TESTRUN_ZT_TESTTASK_TASK",
      "relation_type":"DER1N",
      "code_name":"ZTTestTask",
-     "entity_name":"ZT_TESTTASK",
-     "ref_entity_name":"ZT_TESTRUN"
+     "entity_name":"ZT_TESTRUN",
+     "ref_entity_name":"ZT_TESTTASK"
     }
     ]
  }
@@ -28047,22 +28785,22 @@
     {"name":"DER1N_ZT_CASE_ZT_TESTSUITE_LIB",
      "relation_type":"DER1N",
      "code_name":"ZTTestsuite",
-     "entity_name":"ZT_TESTSUITE",
-     "ref_entity_name":"ZT_CASE"
+     "entity_name":"ZT_CASE",
+     "ref_entity_name":"ZT_TESTSUITE"
     },
     {"name":"DER1N_ZT_SUITECASE_ZT_TESTSUITE_SUITE",
      "relation_type":"DER1N",
      "code_name":"ZTTestSuite",
-     "entity_name":"ZT_TESTSUITE",
-     "ref_entity_name":"ZT_SUITECASE"
+     "entity_name":"ZT_SUITECASE",
+     "ref_entity_name":"ZT_TESTSUITE"
     }
     ],
     "parentEntitys":[
     {"name":"DER1N_ZT_TESTSUITE_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_TESTSUITE"
+     "entity_name":"ZT_TESTSUITE",
+     "ref_entity_name":"ZT_PRODUCT"
     }
     ]
  }
@@ -28365,34 +29103,34 @@
     {"name":"DER1N_ZT_BUG_ZT_TESTTASK_TESTTASK",
      "relation_type":"DER1N",
      "code_name":"ZTTestTask",
-     "entity_name":"ZT_TESTTASK",
-     "ref_entity_name":"ZT_BUG"
+     "entity_name":"ZT_BUG",
+     "ref_entity_name":"ZT_TESTTASK"
     },
     {"name":"DER1N_ZT_TESTRUN_ZT_TESTTASK_TASK",
      "relation_type":"DER1N",
      "code_name":"ZTTestTask",
-     "entity_name":"ZT_TESTTASK",
-     "ref_entity_name":"ZT_TESTRUN"
+     "entity_name":"ZT_TESTRUN",
+     "ref_entity_name":"ZT_TESTTASK"
     }
     ],
     "parentEntitys":[
     {"name":"DER1N_ZT_TESTTASK_ZT_BUILD_BUILD",
      "relation_type":"DER1N",
      "code_name":"ZTBuild",
-     "entity_name":"ZT_BUILD",
-     "ref_entity_name":"ZT_TESTTASK"
+     "entity_name":"ZT_TESTTASK",
+     "ref_entity_name":"ZT_BUILD"
     },
     {"name":"DER1N_ZT_TESTTASK_ZT_PRODUCT_PRODUCT",
      "relation_type":"DER1N",
      "code_name":"ZTProduct",
-     "entity_name":"ZT_PRODUCT",
-     "ref_entity_name":"ZT_TESTTASK"
+     "entity_name":"ZT_TESTTASK",
+     "ref_entity_name":"ZT_PRODUCT"
     },
     {"name":"DER1N_ZT_TESTTASK_ZT_PROJECT_PROJECT",
      "relation_type":"DER1N",
      "code_name":"ZTProject",
-     "entity_name":"ZT_PROJECT",
-     "ref_entity_name":"ZT_TESTTASK"
+     "entity_name":"ZT_TESTTASK",
+     "ref_entity_name":"ZT_PROJECT"
     }
     ]
  }
@@ -29658,6 +30396,233 @@
     "physical_field":1,
     "data_type":"TEXT",
     "data_length":16777215,
+    "key_field":0,
+    "major_field":0
+    }
+    ],
+    "subEntitys":[
+    ],
+    "parentEntitys":[
+    ]
+ }
+    ,
+    {
+    "entity_name":"IBZ_USERYEARWORKSTATS",
+    "logic_name":"用户年度工作内容统计",
+    "code_name":"UserYearWorkStats",
+    "table_name":"zt_user",
+    "system_id":"pms",
+    "system_name":"pms",
+    "fields":[
+    {
+    "fieldname":"ID" ,
+    "codename":"Id",
+    "field_logic_name":"用户编号",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"ACID",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":20,
+    "key_field":1,
+    "major_field":0
+    },
+    {
+    "fieldname":"REALNAME" ,
+    "codename":"Realname",
+    "field_logic_name":"真实用户名",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":1
+    },
+    {
+    "fieldname":"ACCOUNT" ,
+    "codename":"Account",
+    "field_logic_name":"账号",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"ROLE" ,
+    "codename":"Role",
+    "field_logic_name":"角色",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"DEPT" ,
+    "codename":"Dept",
+    "field_logic_name":"部门编号",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"SSCODELIST",
+    "dict":"RealDept",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"VISITS" ,
+    "codename":"Visits",
+    "field_logic_name":"累计登录次数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"YEARPLANCNT" ,
+    "codename":"Yearplancnt",
+    "field_logic_name":"累计创建计划数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"YEARPRODUCTCNT" ,
+    "codename":"Yearproductcnt",
+    "field_logic_name":"累计参与产品数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"YEARSTORYCNT" ,
+    "codename":"Yearstorycnt",
+    "field_logic_name":"累计创建需求数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"YEARACTIONCNT" ,
+    "codename":"Yearactioncnt",
+    "field_logic_name":"累计动态数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"YEARBUGCNT" ,
+    "codename":"Yearbugcnt",
+    "field_logic_name":"累计创建Bug数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"YEARCASECNT" ,
+    "codename":"Yearcasecnt",
+    "field_logic_name":"累计创建用例数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"YEARLOGCNT" ,
+    "codename":"Yearlogcnt",
+    "field_logic_name":"累计日志数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"YEARESTIMATECNT" ,
+    "codename":"Yearestimatecnt",
+    "field_logic_name":"累计工时数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"JUDGEROLE" ,
+    "codename":"Judgerole",
+    "field_logic_name":"判断角色",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"YEARVISITS" ,
+    "codename":"Yearvisits",
+    "field_logic_name":"累计登录次数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"CURYEAR" ,
+    "codename":"Curyear",
+    "field_logic_name":"年度",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
     "key_field":0,
     "major_field":0
     }

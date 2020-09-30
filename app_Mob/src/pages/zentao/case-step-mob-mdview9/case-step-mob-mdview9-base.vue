@@ -187,6 +187,7 @@ export default class CaseStepMobMDView9Base extends Vue {
         srfCaption: 'casestep.views.mobmdview9.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'casestep.mobmdview9',
         iconcls: '',
         icon: ''
     }
@@ -333,15 +334,6 @@ export default class CaseStepMobMDView9Base extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof CaseStepMobMDView9Base
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof CaseStepMobMDView9Base
@@ -373,6 +365,17 @@ export default class CaseStepMobMDView9Base extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof CaseStepMobMDView9Base
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)
@@ -745,7 +748,7 @@ export default class CaseStepMobMDView9Base extends Vue {
      * @memberof CaseStepMobMDView9Base
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

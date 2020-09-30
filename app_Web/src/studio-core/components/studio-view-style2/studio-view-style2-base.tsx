@@ -52,6 +52,9 @@ export class StudioViewStyle2Base extends StudioViewBase {
                     {this.$slots.quickSearch}
                 </div> : null}
             </div> : null,
+            this.$slots.topMessage ? <div class='view-top-messages'>
+                {this.$slots.topMessage}
+            </div> : null,
             this.isShowHeader ? <div class={{ 'view-header': true, 'hidden-top': !this.$slots.toolbar }} key="view-header">
                 {this.$slots.title ? <div class="title">{this.$slots.title}</div> : null}
                 {this.$slots.dataPanel ? <div class="data-panel">{this.$slots.dataPanel}</div> : null}
@@ -76,6 +79,9 @@ export class StudioViewStyle2Base extends StudioViewBase {
                     {this.$slots.default}
                 </div>
             </div>,
+            this.$slots.bottomMessage ? <div class='view-bottom-messages'>
+                {this.$slots.bottomMessage}
+            </div> : null,
             this.$slots.footer ? <div class="view-footer" key="view-footer">
                 {this.$slots.footer}
             </div> : null

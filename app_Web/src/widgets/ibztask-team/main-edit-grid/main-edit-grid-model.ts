@@ -35,19 +35,19 @@ export default class MainEditModel {
         {
           name: 'estimate',
           prop: 'estimate',
-          dataType: 'DECIMAL',
+          dataType: 'FLOAT',
           isEditable:true
         },
         {
           name: 'consumed',
           prop: 'consumed',
-          dataType: 'DECIMAL',
+          dataType: 'FLOAT',
           isEditable:true
         },
         {
           name: 'left',
           prop: 'left',
-          dataType: 'DECIMAL',
+          dataType: 'FLOAT',
           isEditable:true
         },
         {

@@ -19,6 +19,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProductService from '@/app-core/service/product/product-service';
 import ProdMobTabExpViewtabviewpanel3Service from '@/app-core/ctrl-service/product/prod-mob-tab-exp-viewtabviewpanel3-tabviewpanel-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import ProductUIService from '@/ui-service/product/product-ui-action';
 

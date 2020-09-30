@@ -149,7 +149,7 @@ export class TreeLibExpTreeBase extends MainControlBase {
      * @type {string}
      * @memberof TreeLibExpBase
      */
-    @Prop() public selectedData?: string;
+    @Prop() public selectedData!: string;
 
     /**
      * 备份行为模型

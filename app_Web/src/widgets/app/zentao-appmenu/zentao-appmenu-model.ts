@@ -32,7 +32,6 @@ export default class ZentaoModel {
         	icon: '',
         	textcls: '',
         	appfunctag: '',
-        	resourcetag: '',
         	authtag:'Web-zentao-top_menus',
         	items: [
                 		        {
@@ -53,7 +52,6 @@ export default class ZentaoModel {
                 	appfunctag: '_2',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'ibz-favorites-tab-exp-view',
-                	resourcetag: '',
                 	authtag:'Web-zentao-menuitem12',
                 }
                 ,
@@ -75,7 +73,6 @@ export default class ZentaoModel {
                 	appfunctag: 'Auto10',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'ibz-my-territory-tab-exp-view',
-                	resourcetag: '',
                 	authtag:'Web-zentao-menuitem9',
                 }
                 ,
@@ -97,7 +94,6 @@ export default class ZentaoModel {
                 	appfunctag: 'Auto1',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'product-portal-view',
-                	resourcetag: '',
                 	authtag:'Web-zentao-menuitem3',
                 }
                 ,
@@ -119,7 +115,6 @@ export default class ZentaoModel {
                 	appfunctag: 'Auto6',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'project-portal-view',
-                	resourcetag: '',
                 	authtag:'Web-zentao-menuitem2',
                 }
                 ,
@@ -141,8 +136,28 @@ export default class ZentaoModel {
                 	appfunctag: 'Auto9',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'test-portal-view',
-                	resourcetag: '',
                 	authtag:'Web-zentao-menuitem1',
+                }
+                ,
+                		        {
+                	id: '832B4ECF-B32B-48DD-B1EE-CE25A5A11DD7',
+                	name: 'menuitem22',
+                	text: '统计',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '统计',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: 'AppFunc',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'ibz-my-territory-stats-tab-exp-view',
+                	authtag:'Web-zentao-menuitem22',
                 }
                 ,
                 		        {
@@ -207,7 +222,6 @@ export default class ZentaoModel {
                 	appfunctag: 'Auto8',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'product-html-view',
-                	resourcetag: '',
                 	authtag:'Web-zentao-menuitem7',
                 }
                 ,
@@ -248,7 +262,6 @@ export default class ZentaoModel {
                         	appfunctag: '_8',
                         	appfuncyype: 'APPVIEW',
                         	viewname: 'product-wizard-view',
-                        	resourcetag: '',
                         	authtag:'Web-zentao-menuitem19',
                         }
                         ,
@@ -270,7 +283,6 @@ export default class ZentaoModel {
                         	appfunctag: '_4',
                         	appfuncyype: 'APPVIEW',
                         	viewname: 'ibzpro-story-module-grid-view',
-                        	resourcetag: '',
                         	authtag:'Web-zentao-menuitem21',
                         }
                         ,
@@ -292,7 +304,6 @@ export default class ZentaoModel {
                         	appfunctag: '_3',
                         	appfuncyype: 'APPVIEW',
                         	viewname: 'ibzpro-story-grid-view',
-                        	resourcetag: '',
                         	authtag:'Web-zentao-menuitem17',
                         }
                         ,
@@ -318,7 +329,6 @@ export default class ZentaoModel {
         	icon: '',
         	textcls: '',
         	appfunctag: '',
-        	resourcetag: '',
         	authtag:'Web-zentao-left_exp',
         	items: [
                 		        {
@@ -361,7 +371,6 @@ export default class ZentaoModel {
                 	appfunctag: 'Auto5',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'project-left-sidebar-list-view',
-                	resourcetag: '',
                 	authtag:'Web-zentao-menuitem5',
                 }
                 ,
@@ -383,7 +392,6 @@ export default class ZentaoModel {
                 	appfunctag: 'Auto11',
                 	appfuncyype: 'APPVIEW',
                 	viewname: 'product-test-left-sidebar-list-view',
-                	resourcetag: '',
                 	authtag:'Web-zentao-menuitem6',
                 }
                 ,
@@ -406,7 +414,6 @@ export default class ZentaoModel {
         	icon: '',
         	textcls: '',
         	appfunctag: '',
-        	resourcetag: '',
         	authtag:'Web-zentao-bottom_exp',
         }
         ,
@@ -426,7 +433,6 @@ export default class ZentaoModel {
         	icon: '',
         	textcls: '',
         	appfunctag: '',
-        	resourcetag: '',
         	authtag:'Web-zentao-footer_center',
         }
         ,
@@ -448,7 +454,6 @@ export default class ZentaoModel {
         	appfunctag: '_5',
         	appfuncyype: 'APPVIEW',
         	viewname: 'bug-main-dashboard-view-link',
-        	resourcetag: '',
         	authtag:'Web-zentao-menuitem13',
         }
         ,
@@ -470,7 +475,6 @@ export default class ZentaoModel {
         	appfunctag: '_5',
         	appfuncyype: 'APPVIEW',
         	viewname: 'bug-main-dashboard-view-link',
-        	resourcetag: '',
         	authtag:'Web-zentao-menuitem14',
         }
         ,
@@ -492,7 +496,6 @@ export default class ZentaoModel {
         	appfunctag: '_6',
         	appfuncyype: 'APPVIEW',
         	viewname: 'task-main-dashboard-view-link',
-        	resourcetag: '',
         	authtag:'Web-zentao-menuitem15',
         }
         ,
@@ -514,7 +517,6 @@ export default class ZentaoModel {
         	appfunctag: '_7',
         	appfuncyype: 'APPVIEW',
         	viewname: 'todo-dashboard-view-link',
-        	resourcetag: '',
         	authtag:'Web-zentao-menuitem18',
         }
         ,
@@ -536,7 +538,6 @@ export default class ZentaoModel {
         	appfunctag: '_9',
         	appfuncyype: 'APPVIEW',
         	viewname: 'story-main-view-link',
-        	resourcetag: '',
         	authtag:'Web-zentao-menuitem20',
         }
         ,
@@ -550,6 +551,18 @@ export default class ZentaoModel {
 	 * @memberof ZentaoModel
 	 */
 	private funcs: any[] = [
+        {
+            appfunctag: 'AppFunc',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibzmyterritorystatstabexpview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibzmyterritories/:ibzmyterritory?/statstabexpview/:statstabexpview?',
+            parameters: [
+                { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                { pathName: 'statstabexpview', parameterName: 'statstabexpview' },
+            ],
+        },
         {
             appfunctag: 'Auto5',
             appfuncyype: 'APPVIEW',

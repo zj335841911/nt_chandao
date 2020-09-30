@@ -6,7 +6,44 @@
     
     </ion-header>
 
-
+    <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
+        <ion-header>
+            <ion-toolbar translucent>
+                <ion-title>条件搜索</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <div class="searchform_content">
+            <view_searchform
+    :viewState="viewState"
+    viewName="TaskAssMobMDView"  
+    :viewparams="viewparams" 
+    :context="context" 
+     
+    :viewtag="viewtag"
+    :showBusyIndicator="true"
+    updateAction=""
+    removeAction=""
+    loaddraftAction="FilterGetDraft"
+    loadAction="FilterGet"
+    createAction=""
+    WFSubmitAction=""
+    WFStartAction=""
+    style='' 
+    name="searchform"  
+    ref='searchform' 
+    @search="searchform_search($event)"  
+    @load="searchform_load($event)"  
+    @closeview="closeView($event)">
+</view_searchform>
+        </div>
+        <ion-footer>
+        <div class="search-btn">
+            <ion-button class="search-btn-item" shape="round" size="small" expand="full" color="light" @click="onReset">重置</ion-button>
+            <ion-button class="search-btn-item" shape="round" size="small" expand="full" @click="onSearch">搜索</ion-button>
+        </div>
+        </ion-footer>
+    </van-popup>
+    <div id="searchformtaskassmobmdview"></div>
     <ion-content>
                 <view_mdctrl
             :viewState="viewState"
@@ -42,7 +79,7 @@
         </ion-infinite-scroll-content>
         </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
         
     </ion-footer>
 </ion-page>
@@ -191,6 +228,7 @@ export default class TaskAssMobMDViewBase extends Vue {
         srfCaption: 'task.views.assmobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'task.assmobmdview',
         iconcls: '',
         icon: 'fa fa-tasks'
     }
@@ -244,6 +282,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      * @memberof TaskAssMobMDViewBase
      */
     protected containerModel: any = {
+        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
         view_righttoolbar: { name: 'righttoolbar', type: 'TOOLBAR' },
     };
@@ -264,6 +303,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      * @memberof TaskAssMobMDViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
 
@@ -352,6 +392,7 @@ export default class TaskAssMobMDViewBase extends Vue {
             newdata: (args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string) => {
                 this.newdata(args, contextJO, paramJO, $event, xData, container, srfParentDeName);
             },
+            searchform: this.$refs.searchform,
             keyPSDEField: 'task',
             majorPSDEField: 'name',
             isLoadDefault: true,
@@ -365,15 +406,6 @@ export default class TaskAssMobMDViewBase extends Vue {
      */
     protected created() {
         this.afterCreated();
-    }
-
-    /**
-     * Vue声明周期
-     *
-     * @memberof TaskAssMobMDViewBase
-     */
-    public activated() {
-        this.afterMounted();
     }
 
     /**
@@ -399,6 +431,17 @@ export default class TaskAssMobMDViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof TaskAssMobMDViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)
@@ -460,6 +503,28 @@ export default class TaskAssMobMDViewBase extends Vue {
             });
         }
 
+    }
+
+    /**
+     * searchform 部件 search 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TaskAssMobMDViewBase
+     */
+    protected searchform_search($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('searchform', 'search', $event);
+    }
+
+    /**
+     * searchform 部件 load 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TaskAssMobMDViewBase
+     */
+    protected searchform_load($event: any, $event2?: any) {
+        this.engine.onCtrlEvent('searchform', 'load', $event);
     }
 
     /**
@@ -787,6 +852,52 @@ export default class TaskAssMobMDViewBase extends Vue {
     }
 
 
+    /**
+     * 搜索表单状态
+     *
+     * @type {boolean}
+     * @memberof TaskAssMobMDViewBase
+     */
+    public searchformState: boolean = false;
+
+    /**
+     * 是否展开搜索表单
+     *
+     * @type {boolean}
+     * @memberof TaskAssMobMDViewBase
+     */
+    public isExpandSearchForm: boolean = false;
+
+    /**
+     * 执行搜索表单
+     *
+     * @memberof TaskAssMobMDViewBase
+     */
+    public onSearch(): void {
+        this.searchformState = false;
+        this.isExpandSearchForm = true;
+        const form: any = this.$refs.searchform;
+        if (form) {
+            form.onSearch();
+        }
+        this.closeSearchform();
+    }
+
+    /**
+     * 重置搜索表单
+     *
+     * @memberof TaskAssMobMDViewBase
+     */
+    public onReset(): void {
+        this.searchformState = false;
+        this.isExpandSearchForm = false;
+        const form: any = this.$refs.searchform;
+        if (form) {
+            form.onReset();
+        }
+        this.closeSearchform();
+    }
+
    /**
      * 是否单选
      *
@@ -897,7 +1008,7 @@ export default class TaskAssMobMDViewBase extends Vue {
      * @memberof TaskAssMobMDViewBase
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

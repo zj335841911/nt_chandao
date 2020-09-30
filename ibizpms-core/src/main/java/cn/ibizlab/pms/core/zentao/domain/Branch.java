@@ -44,7 +44,7 @@ public class Branch extends EntityMP implements Serializable {
     /**
      * 名称
      */
-    @TableField(value = "name")
+    @TableField(value = "`name`")
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
@@ -53,7 +53,7 @@ public class Branch extends EntityMP implements Serializable {
      */
     @DEField(defaultValue = "0" , preType = DEPredefinedFieldType.LOGICVALID, logicval = "0" , logicdelval="1")
     @TableLogic(value= "0",delval="1")
-    @TableField(value = "deleted")
+    @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
@@ -76,7 +76,8 @@ public class Branch extends EntityMP implements Serializable {
     /**
      * 所属产品
      */
-    @TableField(value = "product")
+    @DEField(defaultValue = "0")
+    @TableField(value = "`product`")
     @JSONField(name = "product")
     @JsonProperty("product")
     private Long product;
@@ -119,6 +120,18 @@ public class Branch extends EntityMP implements Serializable {
     @Override
     public Serializable getDefaultKey(boolean gen) {
        return IdWorker.getId();
+    }
+    /**
+     * 复制当前对象数据到目标对象(粘贴重置)
+     * @param targetEntity 目标数据对象
+     * @param bIncEmpty  是否包括空值
+     * @param <T>
+     * @return
+     */
+    @Override
+    public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
+        this.reset("id");
+        return super.copyTo(targetEntity,bIncEmpty);
     }
 }
 

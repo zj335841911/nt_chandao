@@ -1,14 +1,13 @@
 <i-form :model="this.data" class='app-form' ref='form'  id='action_main' style="">
     <input style="display:none;" />
     <row >
-            
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+            <i-col class="form-layout-container" v-show="detailsModel.grouppanel2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class=' form-padding' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.action.main_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.lastcomment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='lastcomment' :itemRules="this.rules.lastcomment" class='' :caption="$t('entities.action.main_form.details.lastcomment')" uiStyle="DEFAULT" :labelWidth="1" :isShowCaption="true" :error="detailsModel.lastcomment.error" :isEmptyCaption="true" labelPos="LEFT">
-    <app-rich-text-editor :formState="formState" :value="data.lastcomment" @change="(val) =>{this.data.lastcomment =val}" :disabled="detailsModel.lastcomment.disabled" :data="JSON.stringify(this.data)"  name="lastcomment" :context="context" :viewparams="viewparams" :uploadparams='{}' :exportparams='{}'  style=""></app-rich-text-editor>
+    <app-rich-text-editor :formState="formState" :value="data.lastcomment" @change="(val) =>{this.data.lastcomment =val}" :disabled="detailsModel.lastcomment.disabled" :data="JSON.stringify(this.data)"  name="lastcomment" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"%objecttype%",objectid: "%objectid%",version:"editor"}' :exportparams='{objecttype:"%objecttype%",objectid: "%objectid%",version:"editor"}'  style=""></app-rich-text-editor>
 
 </app-form-item>
 

@@ -439,7 +439,7 @@ export class UserMainGridViewBase extends GridViewBase {
             height: 0, 
             width: 750,  
             title: this.$t('entities.user.views.infoeditview.title'),
-            placement: 'DRAWER_RIGHT',
+            placement: 'DRAWER_LEFT',
         };
         openDrawer(view, data);
     }

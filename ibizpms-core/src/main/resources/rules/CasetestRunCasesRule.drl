@@ -3,6 +3,8 @@ import java.util.Map;
 import java.util.HashMap;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
+import org.springframework.util.ObjectUtils;
+import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 global cn.ibizlab.pms.core.zentao.domain.TestRun casetestruncasestestrun;
 global cn.ibizlab.pms.core.zentao.domain.Case casetestruncasesdefault;
 global cn.ibizlab.pms.core.zentao.service.ICaseService caseservice;
@@ -17,6 +19,7 @@ rule "prepareparam1"
 ruleflow-group "casetestruncasesprepareparam1"
     when
     then
+    casetestruncasesdefault.set("srfarray",casetestruncasesdefault.get("casestep"));
     casetestruncasesdefault.set("case",casetestruncasesdefault.get("id"));
     casetestruncasesdefault.set("version",casetestruncasesdefault.get("version"));
     casetestruncasesdefault.set("id",casetestruncasestestrun.get("id"));

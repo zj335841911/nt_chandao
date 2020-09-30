@@ -29,6 +29,16 @@
         "viewtag": "01384caaa1bc452610f056415c86aaf4",
         "memo": ""
     },
+    "bugstatseditview": {
+        "title": "Bug统计编辑视图",
+        "caption": "Bug统计",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "BugStatsEditView",
+        "viewfilename": "bug-stats-edit-view",
+        "viewtag": "0174d3383dadc0878991e5c90bd5eaa3",
+        "memo": ""
+    },
     "companydepttreeexpview": {
         "title": "组织部门树导航视图",
         "caption": "公司",
@@ -57,6 +67,16 @@
         "viewname": "IbzCaseNewEditEditView9",
         "viewfilename": "ibz-case-new-edit-edit-view9",
         "viewtag": "03840483160859a4e36e33e9f9471ed3",
+        "memo": ""
+    },
+    "testreportprojectgridview": {
+        "title": "测试报告表格视图",
+        "caption": "项目报告",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportProjectGridView",
+        "viewfilename": "test-report-project-grid-view",
+        "viewtag": "038fb7788a6add9cc268fe8dd67e6262",
         "memo": ""
     },
     "projectproductplanlistview9": {
@@ -189,6 +209,16 @@
         "viewtag": "0a43b5a8be540dcb1227223ae1c9adc9",
         "memo": ""
     },
+    "casemoduleentrygridview": {
+        "title": "测试用例表格视图（测试结果条目）",
+        "caption": "测试结果条目",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseModuleEntryGridView",
+        "viewfilename": "case-module-entry-grid-view",
+        "viewtag": "0abddf92966b6314d75cc71da4e7f7b8",
+        "memo": ""
+    },
     "productprojectgridview9": {
         "title": "产品表格视图（项目）",
         "caption": "项目",
@@ -257,6 +287,16 @@
         "viewname": "BugMPickupView4",
         "viewfilename": "bug-mpickup-view4",
         "viewtag": "0dc54afa855dec1037987a074b6bc8a3",
+        "memo": ""
+    },
+    "casecasefavorite": {
+        "title": "case我得收藏",
+        "caption": "测试用例",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseCaseFavorite",
+        "viewfilename": "case-case-favorite",
+        "viewtag": "0f0573a5043e9bd93a605e5f1d3ca334",
         "memo": ""
     },
     "ibzmyterritorytabexpview": {
@@ -439,6 +479,16 @@
         "viewtag": "19641dcdbd1f1973c9693859003e1f60",
         "memo": ""
     },
+    "casereportlinkgridview": {
+        "title": "测试用例表格视图（报告关联用例）",
+        "caption": "关联用例",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseReportLinkGridView",
+        "viewfilename": "case-report-link-grid-view",
+        "viewtag": "1b214bd727533f6662aa78368fb67e4b",
+        "memo": ""
+    },
     "testresultgridview9": {
         "title": "测试结果表格视图",
         "caption": "测试结果",
@@ -467,6 +517,16 @@
         "viewname": "BugPickupGridView4",
         "viewfilename": "bug-pickup-grid-view4",
         "viewtag": "1c4104beb7e8515d20d03262732ba4f8",
+        "memo": ""
+    },
+    "testreportprojectmaininfoview": {
+        "title": "测试报告编辑视图",
+        "caption": "测试报告",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportProjectMainInfoView",
+        "viewfilename": "test-report-project-main-info-view",
+        "viewtag": "1c92f5b1cba0fe541c16c54f45fb7317",
         "memo": ""
     },
     "testmodulepickupgridview": {
@@ -508,6 +568,16 @@
         "viewfilename": "i-biz-pms",
         "viewtag": "1ed8a475f4c185fc99c487900bbcf69e",
         "memo": "\"????\" \"????\""
+    },
+    "testreportmainediteditview": {
+        "title": "测试报告编辑视图",
+        "caption": "测试报告",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportMainEditEditView",
+        "viewfilename": "test-report-main-edit-edit-view",
+        "viewtag": "1f13f330cbca49433d11328f9e7d8ae2",
+        "memo": ""
     },
     "storymainview9_related": {
         "title": "需求编辑视图",
@@ -557,6 +627,16 @@
         "viewname": "ProjectTeamMainGridView",
         "viewfilename": "project-team-main-grid-view",
         "viewtag": "231eecf4805f0b378601ea1a7912077f",
+        "memo": ""
+    },
+    "casetypeentrygridview": {
+        "title": "测试用例表格视图（测试结果条目）",
+        "caption": "测试结果条目",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseTypeEntryGridView",
+        "viewfilename": "case-type-entry-grid-view",
+        "viewtag": "2398b174d972ff2a5aebe52946ef3a53",
         "memo": ""
     },
     "storympickupview3": {
@@ -749,6 +829,16 @@
         "viewtag": "3458603afa6fef36eda88e9f794840f5",
         "memo": ""
     },
+    "testreportprojecttabexpview": {
+        "title": "测试报告分页导航视图",
+        "caption": "项目报告",
+        "viewtype": "DETABEXPVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportProjectTabExpView",
+        "viewfilename": "test-report-project-tab-exp-view",
+        "viewtag": "34d99e271bca6539e707f467f9575044",
+        "memo": ""
+    },
     "tasksubtasknewview": {
         "title": "子任务",
         "caption": "子任务",
@@ -807,6 +897,16 @@
         "viewname": "ProjectPlanAddEditView",
         "viewfilename": "project-plan-add-edit-view",
         "viewtag": "396ab8c5ef500f859d6591e77f094ecd",
+        "memo": ""
+    },
+    "productsumgridview": {
+        "title": "产品汇总表表格视图",
+        "caption": "产品汇总表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProductSumGridView",
+        "viewfilename": "product-sum-grid-view",
+        "viewtag": "3989c98a31e037a67b27cdf7acb1f7cd",
         "memo": ""
     },
     "tasktodoeditview": {
@@ -957,6 +1057,16 @@
         "viewname": "StoryCurProjectWGridView",
         "viewfilename": "story-cur-project-wgrid-view",
         "viewtag": "427e28cc5267cfc2a6d6da6fde36ef9f",
+        "memo": ""
+    },
+    "testreportdashboardview": {
+        "title": "测试报告数据看板视图",
+        "caption": "测试报告",
+        "viewtype": "DEPORTALVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportDashboardView",
+        "viewfilename": "test-report-dashboard-view",
+        "viewtag": "42aa867a5dbd04d53462fa69b0e43296",
         "memo": ""
     },
     "todoassigntoview": {
@@ -1679,6 +1789,16 @@
         "viewtag": "6d466e003e0479fb8b1a16e49b889dc1",
         "memo": ""
     },
+    "testreportprojectmainediteditview": {
+        "title": "测试报告编辑视图",
+        "caption": "测试报告",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportProjectMainEditEditView",
+        "viewfilename": "test-report-project-main-edit-edit-view",
+        "viewtag": "6e5b23018b93f9f9fcea3afed7092e68",
+        "memo": ""
+    },
     "casemaindashboardview": {
         "title": "功能测试",
         "caption": "功能测试",
@@ -1707,6 +1827,16 @@
         "viewname": "TaskKanbanView",
         "viewfilename": "task-kanban-view",
         "viewtag": "7088260bcd6a0303378af2f8e207f479",
+        "memo": ""
+    },
+    "buggridview9_storyformbug": {
+        "title": "来源Bug",
+        "caption": "来源Bug",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "BugGridView9_StoryFormBug",
+        "viewfilename": "bug-grid-view9-story-form-bug",
+        "viewtag": "723d3aebb532563a44fb34172cd502f0",
         "memo": ""
     },
     "testtaskprojectgridview": {
@@ -2099,6 +2229,16 @@
         "viewtag": "85ee867b09a2d6303c061d91374ec975",
         "memo": ""
     },
+    "caseprojectreportlinkgridview": {
+        "title": "测试用例表格视图（报告关联用例）",
+        "caption": "关联用例",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseProjectReportLinkGridView",
+        "viewfilename": "case-project-report-link-grid-view",
+        "viewtag": "8761916619d520c6cca7053b358e3a40",
+        "memo": ""
+    },
     "storyreleasesubgridview": {
         "title": "story表格视图",
         "caption": "需求",
@@ -2117,6 +2257,36 @@
         "viewname": "IBZProStoryModuleOptionView",
         "viewfilename": "ibzpro-story-module-option-view",
         "viewtag": "87ca9109af86ed2745dcf7aa21294541",
+        "memo": ""
+    },
+    "casecasetypechartview9": {
+        "title": "测试用例图表视图（测试类型）",
+        "caption": "测试类型",
+        "viewtype": "DECHARTVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "CaseCaseTypeChartView9",
+        "viewfilename": "case-case-type-chart-view9",
+        "viewtag": "881c4bef100253cf5e6f67893b9a4294",
+        "memo": ""
+    },
+    "testreporteditview_r": {
+        "title": "测试报告编辑视图",
+        "caption": "测试报告",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportEditView_R",
+        "viewfilename": "test-report-edit-view-r",
+        "viewtag": "88b0a618836437a54b879dfb94ee0f3c",
+        "memo": ""
+    },
+    "testreporteditview_testtasks": {
+        "title": "测试报告编辑视图",
+        "caption": "测试报告",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportEditView_TestTasks",
+        "viewfilename": "test-report-edit-view-test-tasks",
+        "viewtag": "88de710e1590f4e2c17360c3c1612308",
         "memo": ""
     },
     "bugusr2gridview": {
@@ -2199,6 +2369,16 @@
         "viewtag": "8d53a973712c13f448efb8e2182ccc0b",
         "memo": ""
     },
+    "caseresultentrygridview": {
+        "title": "测试用例表格视图（测试结果条目）",
+        "caption": "测试结果条目",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseresultEntryGridView",
+        "viewfilename": "caseresult-entry-grid-view",
+        "viewtag": "8d9e694196a8c1abd56fd1632eed0173",
+        "memo": ""
+    },
     "casemaineditview": {
         "title": "测试用例",
         "caption": "测试用例",
@@ -2227,6 +2407,16 @@
         "viewname": "StoryPlanEditView",
         "viewfilename": "story-plan-edit-view",
         "viewtag": "901398a79547094cd0e9791cbe6e90ef",
+        "memo": ""
+    },
+    "caserunresultchartview9": {
+        "title": "测试用例图表视图（执行结果）",
+        "caption": "执行结果",
+        "viewtype": "DECHARTVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "CaseRunResultChartView9",
+        "viewfilename": "case-run-result-chart-view9",
+        "viewtag": "907d612f5ca588f2bb83116afc66e761",
         "memo": ""
     },
     "productplanprojectgridview9": {
@@ -2267,6 +2457,16 @@
         "viewname": "StoryReleaseSubEditView",
         "viewfilename": "story-release-sub-edit-view",
         "viewtag": "928e6614bcfbd67af3b596cf5dc5a46b",
+        "memo": ""
+    },
+    "casemodulechartview9": {
+        "title": "测试用例图表视图（模块）",
+        "caption": "模块",
+        "viewtype": "DECHARTVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "CaseModuleChartView9",
+        "viewfilename": "case-module-chart-view9",
+        "viewtag": "936e87b3f81060a933e5f9e2336e8ed7",
         "memo": ""
     },
     "testmodulegridviewmain": {
@@ -2377,6 +2577,16 @@
         "viewname": "IbzLibModuleCaseTreeExpView",
         "viewfilename": "ibz-lib-module-case-tree-exp-view",
         "viewtag": "99b83386d61eab84cd7d65a445def4ed",
+        "memo": ""
+    },
+    "buildtestroundsgridview": {
+        "title": "版本表格视图（轮次）",
+        "caption": "轮次",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BuildTestRoundsGridView",
+        "viewfilename": "build-test-rounds-grid-view",
+        "viewtag": "9a2fd7bf8e74f4b95bd5a24d8ffb1643",
         "memo": ""
     },
     "projecteditview_close": {
@@ -2699,6 +2909,16 @@
         "viewtag": "ac71a1cfaecb07640c14f75b8f202b1e",
         "memo": ""
     },
+    "productsumeditview": {
+        "title": "产品汇总表编辑视图",
+        "caption": "产品汇总表",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProductSumEditView",
+        "viewfilename": "product-sum-edit-view",
+        "viewtag": "ada719b0d8722509d22b4b72bbb8cf26",
+        "memo": ""
+    },
     "actionaddcommenthistorylistview": {
         "title": "历史记录",
         "caption": "系统日志",
@@ -2809,6 +3029,16 @@
         "viewtag": "b613f8c14c436a5c95be4e1b9e730e6d",
         "memo": ""
     },
+    "bugstatsgridview": {
+        "title": "Bug统计表格视图",
+        "caption": "Bug创建表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "BugStatsGridView",
+        "viewfilename": "bug-stats-grid-view",
+        "viewtag": "b7427fe34d292009905e126defc9fa22",
+        "memo": ""
+    },
     "storymyfavoritesgridview": {
         "title": "story表格视图",
         "caption": "需求",
@@ -2817,6 +3047,16 @@
         "viewname": "StoryMyFavoritesGridView",
         "viewfilename": "story-my-favorites-grid-view",
         "viewtag": "b7e6268db4bdeb10211fc15383de685d",
+        "memo": ""
+    },
+    "bugstatsassigntogridview": {
+        "title": "Bug统计表格视图（Bug指派表）",
+        "caption": "Bug指派表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "BugStatsAssigntoGridView",
+        "viewfilename": "bug-stats-assignto-grid-view",
+        "viewtag": "b90624360f51aadfbfaa92d563dc1410",
         "memo": ""
     },
     "productplanmaindataeditview": {
@@ -2847,6 +3087,16 @@
         "viewname": "StoryPlanSubGridView",
         "viewfilename": "story-plan-sub-grid-view",
         "viewtag": "b9e94e3713c82ebab002631bda872b94",
+        "memo": ""
+    },
+    "testreportactioneditview": {
+        "title": "测试报告编辑视图（历史记录）",
+        "caption": "历史记录",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportActionEditView",
+        "viewfilename": "test-report-action-edit-view",
+        "viewtag": "ba3ac5351ca273bb889ffcb52ec7217b",
         "memo": ""
     },
     "depteditview": {
@@ -2929,6 +3179,16 @@
         "viewtag": "bedf1f50199b74a65c2e17771144329c",
         "memo": ""
     },
+    "ibzmyterritorytesttreeexpview": {
+        "title": "我的地盘树导航视图（测试统计）",
+        "caption": "测试统计",
+        "viewtype": "DETREEEXPVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzMyTerritoryTestTreeExpView",
+        "viewfilename": "ibz-my-territory-test-tree-exp-view",
+        "viewtag": "bef7c08b651990569cd09ce805ebcfe3",
+        "memo": ""
+    },
     "productmainview_edit": {
         "title": "产品编辑视图",
         "caption": "产品基本信息",
@@ -2979,6 +3239,16 @@
         "viewtag": "c3f0a8956b863fa05a7d961df90a3975",
         "memo": ""
     },
+    "testreporteditview_tosumup": {
+        "title": "测试报告编辑视图",
+        "caption": "测试报告",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportEditView_tosumup",
+        "viewfilename": "test-report-edit-view-tosumup",
+        "viewtag": "c47c534ae15c1fd1a04b5ad78d174841",
+        "memo": ""
+    },
     "producttestlistexpview": {
         "title": "测试统计",
         "caption": "产品",
@@ -3017,6 +3287,46 @@
         "viewname": "IbzLibModuleGridView",
         "viewfilename": "ibz-lib-module-grid-view",
         "viewtag": "c5bf2f708034d7488fbb4aa848d15d1d",
+        "memo": ""
+    },
+    "caserunerentrygridview": {
+        "title": "测试用例表格视图（测试结果条目）",
+        "caption": "测试结果条目",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "CaseRUNEREntryGridView",
+        "viewfilename": "case-runerentry-grid-view",
+        "viewtag": "c778697bb0f4f35a37892853575e1145",
+        "memo": ""
+    },
+    "testreporteditview_report": {
+        "title": "测试报告编辑视图",
+        "caption": "测试报告",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportEditView_Report",
+        "viewfilename": "test-report-edit-view-report",
+        "viewtag": "c7e7e989793981f260c73513c2a4e18b",
+        "memo": ""
+    },
+    "ibzmyterritorystatstabexpview": {
+        "title": "我的地盘分页导航视图（统计）",
+        "caption": "统计",
+        "viewtype": "DETABEXPVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzMyTerritoryStatsTabExpView",
+        "viewfilename": "ibz-my-territory-stats-tab-exp-view",
+        "viewtag": "c8171c13c1ba215f65c8587df1d98ba5",
+        "memo": ""
+    },
+    "bugresolvechartview": {
+        "title": "Bug图表视图（解决Bug）",
+        "caption": "解决Bug",
+        "viewtype": "DECHARTVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugResolveChartView",
+        "viewfilename": "bug-resolve-chart-view",
+        "viewtag": "c862174c0f25d5077870c42115925fee",
         "memo": ""
     },
     "buggridview": {
@@ -3089,6 +3399,16 @@
         "viewtag": "cb6c278fd7205b3de3fc041816d15dd8",
         "memo": ""
     },
+    "testreporteditview_project": {
+        "title": "测试报告编辑视图",
+        "caption": "测试报告",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportEditView_Project",
+        "viewfilename": "test-report-edit-view-project",
+        "viewtag": "cbd1280e0ec2cd69ffa85cf60ece100d",
+        "memo": ""
+    },
     "projectportalview": {
         "title": "项目主页",
         "caption": "项目主页",
@@ -3119,6 +3439,16 @@
         "viewtag": "cd3d221ec6771bb755a0e482b8bcd171",
         "memo": ""
     },
+    "employeeloadeditview": {
+        "title": "员工负载表编辑视图",
+        "caption": "员工负载表",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "EMPLOYEELOADEditView",
+        "viewfilename": "employeeloadedit-view",
+        "viewtag": "cdb6ad5305bb1900e7349e9e057b3596",
+        "memo": ""
+    },
     "bugmainmygridview": {
         "title": "bug表格视图",
         "caption": "Bug",
@@ -3137,6 +3467,16 @@
         "viewname": "ReleaseMainTabExpView",
         "viewfilename": "release-main-tab-exp-view",
         "viewtag": "ceb630b252aac50781a373e0bef90eb2",
+        "memo": ""
+    },
+    "ibzmyterritoryemploytreeexpview": {
+        "title": "我的地盘树导航视图（员工负载计）",
+        "caption": "员工负载",
+        "viewtype": "DETREEEXPVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzMyTerritoryEmployTreeExpView",
+        "viewfilename": "ibz-my-territory-employ-tree-exp-view",
+        "viewtag": "cef6e71f89bb0007d341328d455f6da0",
         "memo": ""
     },
     "storymainview_link": {
@@ -3309,6 +3649,36 @@
         "viewtag": "d8df5ca51341d33ccc19208dde3f2cce",
         "memo": ""
     },
+    "bugprojectbugsgridview": {
+        "title": "Bug实体表格视图(项目遗留得Bug)",
+        "caption": "Bug",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugProjectBugsGridView",
+        "viewfilename": "bug-project-bugs-grid-view",
+        "viewtag": "d9cf190662d0781bee34acdfd9d1c6d2",
+        "memo": ""
+    },
+    "useryearworkstatseditview": {
+        "title": "用户年度工作内容统计编辑视图",
+        "caption": "用户年度工作内容统计",
+        "viewtype": "DEEDITVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "UserYearWorkStatsEditView",
+        "viewfilename": "user-year-work-stats-edit-view",
+        "viewtag": "db750bbb894c25f38ca2741f234df3c6",
+        "memo": ""
+    },
+    "bugtestbugsgridview": {
+        "title": "Bug表格视图(遗留的bug)",
+        "caption": "Bug",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "BugTestBugsGridView",
+        "viewfilename": "bug-test-bugs-grid-view",
+        "viewtag": "de3b10b3f9f11d67c6ea3418bc77f2b3",
+        "memo": ""
+    },
     "storymain2gridview": {
         "title": "story表格视图",
         "caption": "需求",
@@ -3349,6 +3719,16 @@
         "viewtag": "e00040c0d616f2f1c0ad4b36c9e920b5",
         "memo": ""
     },
+    "employeeloadgridview": {
+        "title": "员工负载表表格视图",
+        "caption": "员工负载表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "EMPLOYEELOADGridView",
+        "viewfilename": "employeeloadgrid-view",
+        "viewtag": "e008123fe4c3014fac07b33dd79f6b13",
+        "memo": ""
+    },
     "producteditview": {
         "title": "产品编辑视图",
         "caption": "产品",
@@ -3367,6 +3747,16 @@
         "viewname": "IbzCaseNewEditView",
         "viewfilename": "ibz-case-new-edit-view",
         "viewtag": "e049cdde7095f179bf786984cb497fe5",
+        "memo": ""
+    },
+    "ibzmyterritoryproductsumtreeexpview": {
+        "title": "我的地盘树导航视图（产品汇总表）",
+        "caption": "产品汇总表",
+        "viewtype": "DETREEEXPVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "IbzMyTerritoryProductSumTreeExpView",
+        "viewfilename": "ibz-my-territory-product-sum-tree-exp-view",
+        "viewtag": "e090d7f19211e8fbbab5d4442c6e58e8",
         "memo": ""
     },
     "storycloseview": {
@@ -3577,6 +3967,16 @@
         "viewname": "TestReportMainTabExpView",
         "viewfilename": "test-report-main-tab-exp-view",
         "viewtag": "ea7a4f0ccc237a45f39ffb2e3df7e9fd",
+        "memo": ""
+    },
+    "testreportprojectdashboardview": {
+        "title": "测试报告数据看板视图",
+        "caption": "项目报告",
+        "viewtype": "DEPORTALVIEW",
+        "viewmodule": "zentao",
+        "viewname": "TestReportprojectDashboardView",
+        "viewfilename": "test-reportproject-dashboard-view",
+        "viewtag": "ea7b1f6631cb623ea079455b374ef9d4",
         "memo": ""
     },
     "tododashboardview": {

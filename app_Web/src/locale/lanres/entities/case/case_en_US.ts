@@ -56,15 +56,32 @@ export default {
     task: "属性",
     libname: "用例库",
     lastrunresult1: "测试用例结果",
+    isfavorites: "是否收藏",
   },
 	views: {
 		editview: {
 			caption: "测试用例",
       		title: "功能测试编辑视图",
 		},
+		moduleentrygridview: {
+			caption: "测试结果条目",
+      		title: "测试用例表格视图（测试结果条目）",
+		},
+		casefavorite: {
+			caption: "测试用例",
+      		title: "case我得收藏",
+		},
 		linkcasegridview: {
 			caption: "关联用例",
       		title: "测试用例表格视图（关联用例）",
+		},
+		reportlinkgridview: {
+			caption: "关联用例",
+      		title: "测试用例表格视图（报告关联用例）",
+		},
+		typeentrygridview: {
+			caption: "测试结果条目",
+      		title: "测试用例表格视图（测试结果条目）",
 		},
 		optionview: {
 			caption: "执行",
@@ -134,9 +151,29 @@ export default {
 			caption: "测试用例",
       		title: "测试用例表格视图",
 		},
+		projectreportlinkgridview: {
+			caption: "关联用例",
+      		title: "测试用例表格视图（报告关联用例）",
+		},
+		casetypechartview9: {
+			caption: "测试类型",
+      		title: "测试用例图表视图（测试类型）",
+		},
+		resultentrygridview: {
+			caption: "测试结果条目",
+      		title: "测试用例表格视图（测试结果条目）",
+		},
 		maineditview: {
 			caption: "测试用例",
       		title: "测试用例",
+		},
+		runresultchartview9: {
+			caption: "执行结果",
+      		title: "测试用例图表视图（执行结果）",
+		},
+		modulechartview9: {
+			caption: "模块",
+      		title: "测试用例图表视图（模块）",
 		},
 		mainmynewgridview: {
 			caption: "功能测试",
@@ -149,6 +186,10 @@ export default {
 		gridview9_mecretae: {
 			caption: "测试用例",
       		title: "测试用例表格视图",
+		},
+		runerentrygridview: {
+			caption: "测试结果条目",
+      		title: "测试用例表格视图（测试结果条目）",
 		},
 		mainmygridview: {
 			caption: "功能测试",
@@ -414,6 +455,7 @@ export default {
 			precondition: "前置条件", 
 			resultcnt: "共执行", 
 			resultfalicnt: "失败", 
+			task: "属性", 
 			id: "用例编号", 
 		},
 		uiactions: {
@@ -507,6 +549,25 @@ export default {
 		uiactions: {
 		},
 	},
+	reportmaingrid_grid: {
+		columns: {
+			id: "id",
+			pri: "P",
+			title: "用例标题",
+			type: "用例类型",
+			openedby: "创建",
+			lastrunner: "执行人",
+			lastrundate: "执行时间",
+			lastrunresult: "结果",
+			status1: "状态",
+			tobugcnt: "B",
+			resultcnt: "R",
+			casesteps: "S",
+			lastrunresult1: "测试用例结果",
+		},
+		uiactions: {
+		},
+	},
 	maingrid_grid: {
 		columns: {
 			id: "id",
@@ -523,6 +584,24 @@ export default {
 			casesteps: "S",
 			uagridcolumn1: "操作",
 		},
+    exportColumns: {
+			id: "id",
+			pri: "P",
+			title: "用例标题",
+			type: "用例类型",
+			openedby: "创建",
+			lastrunner: "执行人",
+			lastrundate: "执行时间",
+			lastrunresult: "结果",
+			status: "状态",
+			status1: "状态",
+			tobugcnt: "B",
+			resultcnt: "R",
+			casesteps: "S",
+			lastrunresult1: "测试用例结果",
+			isfavorites: "是否收藏",
+			product: "所属产品",
+    },
 		uiactions: {
         case_confirmstorychange: "确认",
         case_opentestrunresultview: "结果",
@@ -530,7 +609,8 @@ export default {
         case_mainedit: "编辑",
         refresh: "刷新",
         case_newbugbycaseresult: "转Bug",
-        case_delete: "删除",
+        case_casefavorite: "收藏",
+        case_casenfavorite: "取消收藏",
 		},
 	},
 	batchnew_grid: {
@@ -560,6 +640,15 @@ export default {
         case_unlinksuitecase: "移除",
         case_opentestrunresultview: "结果",
         case_execute: "执行",
+		},
+	},
+	caseresultentry_grid: {
+		columns: {
+			lastrunresult1: "条目",
+			resultcnt: "值",
+			task: "百分比",
+		},
+		uiactions: {
 		},
 	},
 	main2_grid: {
@@ -653,6 +742,16 @@ export default {
 		deuiaction1_suitelinkcase: {
 			caption: "保存",
 			tip: "保存",
+		},
+	},
+	casefavoritetoolbar_toolbar: {
+		deuiaction2: {
+			caption: "刷新",
+			tip: "刷新",
+		},
+		deuiaction1: {
+			caption: "Export",
+			tip: "Export {0} Data To Excel",
 		},
 	},
 	gridviewtoolbar_toolbar: {

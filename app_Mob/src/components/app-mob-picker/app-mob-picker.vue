@@ -342,11 +342,11 @@ export default class AppPicker extends Vue {
         this.inputState = false;
         Object.assign(_param, { query: query });
         if (!this.service) {
-            this.$notify({ type: 'danger', message: this.$t("missingParameters") + 'service' })
+            this.$notice.error(this.$t("missingParameters") + 'service' )
         } else if (!this.acParams.serviceName) {
-            this.$notify({ type: 'danger', message: this.$t("missingParameters") + 'serviceName' })
+            this.$notice.error(this.$t("missingParameters") + 'serviceName' )
         } else if (!this.acParams.interfaceName) {
-            this.$notify({ type: 'danger', message: this.$t("missingParameters") + 'interfaceName' })
+            this.$notice.error(this.$t("missingParameters") + 'interfaceName')
         } else {
             let { serviceName: _serviceName, interfaceName: _interfaceName }: { serviceName: string, interfaceName: string } = this.acParams;
             const appEntityServiceConstructor = window.appEntityServiceConstructor;
@@ -354,7 +354,7 @@ export default class AppPicker extends Vue {
             if (entityService && entityService[_interfaceName] && entityService[_interfaceName] instanceof Function) {
                 entityService[_interfaceName](_context, _param).then((response: any) => {
                     if (!response) {
-                        this.$notify({ type: 'danger', message: `${this.$t("requestException")}` })
+                        this.$notice.error(`${this.$t("requestException")}`)
                     } else {
                         this.items = [...response.data];
                     }
@@ -551,7 +551,7 @@ export default class AppPicker extends Vue {
     private openRedirectView($event: any, view: any, data: any): void {
         this.$http.get(view.url, data).then((response: any) => {
             if (!response || response.status !== 200) {
-                this.$notify({ type: 'danger', message: `${this.$t("requestException")}`  });
+                this.$notice.error(`${this.$t("requestException")}`);
             }
             if (response.status === 401) {
                 return;
@@ -603,7 +603,7 @@ export default class AppPicker extends Vue {
             }
         }).catch((response: any) => {
             if (!response || !response.status || !response.data) {
-                this.$notify({ type: 'danger', message: `${this.$t('systemIsAbnormal')}` });
+                this.$notice.error(`${this.$t('systemIsAbnormal')}`);
                 return;
             }
             if (response.status === 401) {
@@ -622,7 +622,7 @@ export default class AppPicker extends Vue {
             return;
         }
         if (!this.data || !this.valueitem || !this.data[this.valueitem]) {
-            this.$notify({ type: 'danger', message: `${this.$t('valueItemIsAbnormal')}` });
+            this.$notice.error(`${this.$t('valueItemIsAbnormal')}`);
             return;
         }
         // 公共参数处理

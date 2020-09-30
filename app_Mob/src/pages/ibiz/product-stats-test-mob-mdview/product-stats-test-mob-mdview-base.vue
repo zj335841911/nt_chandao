@@ -22,13 +22,10 @@
                 </div>
             </ion-buttons>
         </ion-toolbar>
-        <ion-toolbar>
-            <ion-searchbar style="height: 36px; padding-bottom: 0px;" :placeholder="$t('app.fastsearch')" debounce="500" @ionChange="quickValueChange($event)" show-cancel-button="focus" :cancel-button-text="$t('app.button.cancel')"></ion-searchbar>
-        </ion-toolbar>
+        <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="false"></app-search-history>
 
     
     </ion-header>
-
 
     <ion-content>
                 <view_mdctrl
@@ -65,7 +62,7 @@
         </ion-infinite-scroll-content>
         </ion-infinite-scroll>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
         
     </ion-footer>
 </ion-page>
@@ -214,6 +211,7 @@ export default class ProductStatsTestMobMDViewBase extends Vue {
         srfCaption: 'productstats.views.testmobmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'productstats.testmobmdview',
         iconcls: '',
         icon: ''
     }
@@ -376,15 +374,6 @@ export default class ProductStatsTestMobMDViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof ProductStatsTestMobMDViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof ProductStatsTestMobMDViewBase
@@ -407,6 +396,17 @@ export default class ProductStatsTestMobMDViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof ProductStatsTestMobMDViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)
@@ -842,7 +842,7 @@ export default class ProductStatsTestMobMDViewBase extends Vue {
      * @memberof ProductStatsTestMobMDViewBase
      */
     public onCategory(value:any){
-        this.categoryValue = value;
+        Object.assign(this.categoryValue,value);
         this.onViewLoad();
     }
 

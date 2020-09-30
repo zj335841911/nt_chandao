@@ -173,6 +173,7 @@ export default class ProductMobPickupMDViewBase extends Vue {
         srfCaption: 'product.views.mobpickupmdview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'product.mobpickupmdview',
         iconcls: '',
         icon: ''
     }
@@ -226,6 +227,7 @@ export default class ProductMobPickupMDViewBase extends Vue {
      * @memberof ProductMobPickupMDViewBase
      */
     protected containerModel: any = {
+        view_searchform: { name: 'searchform', type: 'SEARCHFORM' },
         view_mdctrl: { name: 'mdctrl', type: 'MOBMDCTRL' },
     };
 
@@ -245,6 +247,7 @@ export default class ProductMobPickupMDViewBase extends Vue {
      * @memberof ProductMobPickupMDViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
+
 
 
     /**
@@ -313,15 +316,6 @@ export default class ProductMobPickupMDViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof ProductMobPickupMDViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof ProductMobPickupMDViewBase
@@ -344,6 +338,17 @@ export default class ProductMobPickupMDViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof ProductMobPickupMDViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)

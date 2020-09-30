@@ -1,13 +1,13 @@
 <template>
     <div  class="app-mob-mdctrl story-mdctrl ">
-        <div class="app-mob-mdctrl-mdctrl">
+        <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
             <ion-list class="items">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                    <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                    <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.StoryFavoritesMob.visabled" :disabled="item.StoryFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'ud9b7424', item)"><ion-icon v-if="item.StoryFavoritesMob.icon && item.StoryFavoritesMob.isShowIcon" :name="item.StoryFavoritesMob.icon"></ion-icon><ion-label v-if="item.StoryFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
                             <ion-item-option v-show="item.StoryNFavoritesMob.visabled" :disabled="item.StoryNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u7be164c', item)"><ion-icon v-if="item.StoryNFavoritesMob.icon && item.StoryNFavoritesMob.isShowIcon" :name="item.StoryNFavoritesMob.icon"></ion-icon><ion-label v-if="item.StoryNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
@@ -31,7 +31,7 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                      <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                      <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.StoryFavoritesMob.visabled" :disabled="item.StoryFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'ud9b7424', item)"><ion-icon v-if="item.StoryFavoritesMob.icon && item.StoryFavoritesMob.isShowIcon" :name="item.StoryFavoritesMob.icon"></ion-icon><ion-label v-if="item.StoryFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
                             <ion-item-option v-show="item.StoryNFavoritesMob.visabled" :disabled="item.StoryNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u7be164c', item)"><ion-icon v-if="item.StoryNFavoritesMob.icon && item.StoryNFavoritesMob.isShowIcon" :name="item.StoryNFavoritesMob.icon"></ion-icon><ion-label v-if="item.StoryNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
@@ -104,6 +104,7 @@
                 </template>
             </ion-list>
             <div class="no-data" v-if="items.length == 0">暂无数据</div>
+            <div class="scrollToTop" @click="scrollToTop" ref="scroll" v-show="isEnableScrollTop && showScrollButton"> <van-icon name="back-top" /></div>            
         </div>
     </div>
 </template>
@@ -117,6 +118,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import StoryService from '@/app-core/service/story/story-service';
 import AssMOBDASHBOARDService from '@/app-core/ctrl-service/story/ass-mobdashboard-mobmdctrl-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import StoryUIService from '@/ui-service/story/story-ui-action';
 
@@ -609,6 +611,15 @@ export default class AssMOBDASHBOARDBase extends Vue implements ControlInterface
     * @memberof AssMOBDASHBOARD
     */
     public group_data?:any = [];
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof AssMOBDASHBOARDBase
+     */
+    public appStateEvent: Subscription | undefined;
 
     /**
     * 分组标识
@@ -1158,6 +1169,62 @@ export default class AssMOBDASHBOARDBase extends Vue implements ControlInterface
                 }
             });
         }
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Story")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh')){
+                    this.refresh();
+                }
+            })
+        }
+    }
+
+    /**
+     * ion-item-sliding拖动事件
+     *
+     * @memberof AssMOBDASHBOARD
+     */
+    public ionDrag(){
+      this.$store.commit('setPopupStatus',false)
+    }
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof AssMOBDASHBOARD
+     */
+    public mounted(){
+      let list:any = this.$refs.mdctrl;
+      let scroll:any = this.$refs.scroll;        
+      if(list){
+        list.addEventListener('touchend',()=>{
+          this.$store.commit('setPopupStatus',true)
+        }, false)
+        list.addEventListener('scroll', (e:any) => {
+          if (scroll && list) {
+            if (list.scrollTop >= 500) {
+              this.showScrollButton = true;
+            }
+            scroll.style.opacity = (list.scrollTop-200) * 0.001;
+          }
+        }, false)
+      }
+    }
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof AssMOBDASHBOARD
+     */
+    public beforeDestroy(){
+      let list:any = this.$refs.mdctrl;
+      if(list){
+        list.removeEventListener('touchend',()=>{
+          this.$store.commit('setPopupStatus',true)
+        })
+      }
     }
 
     /**
@@ -1177,6 +1244,9 @@ export default class AssMOBDASHBOARDBase extends Vue implements ControlInterface
     protected afterDestroy() {
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
         window.removeEventListener('contextmenu',()=>{});
     }
@@ -1348,6 +1418,43 @@ export default class AssMOBDASHBOARDBase extends Vue implements ControlInterface
            }
         })
 
+    }
+
+    /**
+     * 是否开启置顶功能
+     *
+     * @type {GlobalUiService}
+     * @memberof AssMOBDASHBOARDBase
+     */
+    public isEnableScrollTop:boolean = true;
+
+    /**
+     * 显示置顶按钮
+     *
+     * @type {GlobalUiService}
+     * @memberof AssMOBDASHBOARDBase
+     */
+    public showScrollButton:boolean = false;
+
+    /**
+     * 滑回顶部
+     *
+     * @memberof AssMOBDASHBOARDBase
+     */
+    public scrollToTop(){
+      let mdctrl:any = this.$refs.mdctrl;
+      if (mdctrl) {  
+        requestAnimationFrame(function () {
+          let top:number = mdctrl.scrollTop;
+          let speed:number = top / 6;
+          if (top!= 0) {
+              mdctrl.scrollTop -= speed;
+          }
+        });
+        if (mdctrl.scrollTop != 0) {
+          requestAnimationFrame(this.scrollToTop);
+        }
+      }
     }
 }
 </script>

@@ -1266,6 +1266,41 @@ export class BugServiceBase extends EntityService {
     }
 
     /**
+     * FetchBugsByBuild接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchBugsByBuild(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbugsbybuild`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbugsbybuild`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbugsbybuild`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbugsbybuild`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchbugsbybuild`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchBuildBugs接口方法
      *
      * @param {*} [context={}]
@@ -1371,6 +1406,461 @@ export class BugServiceBase extends EntityService {
     }
 
     /**
+     * FetchBuildProduceBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchBuildProduceBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildproducebug`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildproducebug`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildproducebug`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildproducebug`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchbuildproducebug`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchBuildProduceBugModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchBuildProduceBugModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildproducebugmodule`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildproducebugmodule`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildproducebugmodule`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildproducebugmodule`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchbuildproducebugmodule`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchBuildProduceBugModule_Project接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchBuildProduceBugModule_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildproducebugmodule_project`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildproducebugmodule_project`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildproducebugmodule_project`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildproducebugmodule_project`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchbuildproducebugmodule_project`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchBuildProduceBugOpenedBy接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchBuildProduceBugOpenedBy(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildproducebugopenedby`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildproducebugopenedby`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildproducebugopenedby`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildproducebugopenedby`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchbuildproducebugopenedby`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchBuildProduceBugOpenedBy_Project接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchBuildProduceBugOpenedBy_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildproducebugopenedby_project`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildproducebugopenedby_project`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildproducebugopenedby_project`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildproducebugopenedby_project`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchbuildproducebugopenedby_project`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchBuildProduceBugRES接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchBuildProduceBugRES(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildproducebugres`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildproducebugres`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildproducebugres`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildproducebugres`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchbuildproducebugres`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchBuildProduceBugRESOLVEDBY接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchBuildProduceBugRESOLVEDBY(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildproducebugresolvedby`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildproducebugresolvedby`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildproducebugresolvedby`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildproducebugresolvedby`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchbuildproducebugresolvedby`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchBuildProduceBugRESOLVEDBY_Project接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchBuildProduceBugRESOLVEDBY_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildproducebugresolvedby_project`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildproducebugresolvedby_project`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildproducebugresolvedby_project`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildproducebugresolvedby_project`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchbuildproducebugresolvedby_project`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchBuildProduceBugResolution_Project接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchBuildProduceBugResolution_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildproducebugresolution_project`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildproducebugresolution_project`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildproducebugresolution_project`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildproducebugresolution_project`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchbuildproducebugresolution_project`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchBuildProduceBugSeverity_Project接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchBuildProduceBugSeverity_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildproducebugseverity_project`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildproducebugseverity_project`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildproducebugseverity_project`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildproducebugseverity_project`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchbuildproducebugseverity_project`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchBuildProduceBugStatus_Project接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchBuildProduceBugStatus_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildproducebugstatus_project`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildproducebugstatus_project`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildproducebugstatus_project`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildproducebugstatus_project`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchbuildproducebugstatus_project`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchBuildProduceBugType_Project接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchBuildProduceBugType_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchbuildproducebugtype_project`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchbuildproducebugtype_project`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchbuildproducebugtype_project`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchbuildproducebugtype_project`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchbuildproducebugtype_project`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchCurUserResolve接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchCurUserResolve(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchcuruserresolve`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchcuruserresolve`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchcuruserresolve`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchcuruserresolve`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchcuruserresolve`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -1437,6 +1927,41 @@ export class BugServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/bugs/fetchmyfavorites`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchProjectBugs接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchProjectBugs(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchprojectbugs`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchprojectbugs`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchprojectbugs`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchprojectbugs`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchprojectbugs`,tempData,isloading);
         return res;
     }
 

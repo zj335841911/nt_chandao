@@ -90,8 +90,12 @@ export default class IbzMyTerritoryUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'tabexpview',srfappde:'ibzmyterritories',component:'ibz-my-territory-tab-exp-view'});
+        this.allViewMap.set(':',{viewname:'testtreeexpview',srfappde:'ibzmyterritories',component:'ibz-my-territory-test-tree-exp-view'});
         this.allViewMap.set(':',{viewname:'mywork',srfappde:'ibzmyterritories',component:'ibz-my-territory-my-work'});
+        this.allViewMap.set(':',{viewname:'statstabexpview',srfappde:'ibzmyterritories',component:'ibz-my-territory-stats-tab-exp-view'});
+        this.allViewMap.set(':',{viewname:'employtreeexpview',srfappde:'ibzmyterritories',component:'ibz-my-territory-employ-tree-exp-view'});
         this.allViewMap.set(':',{viewname:'dashboardview',srfappde:'ibzmyterritories',component:'ibz-my-territory-dashboard-view'});
+        this.allViewMap.set(':',{viewname:'productsumtreeexpview',srfappde:'ibzmyterritories',component:'ibz-my-territory-product-sum-tree-exp-view'});
         this.allViewMap.set(':',{viewname:'listview',srfappde:'ibzmyterritories',component:'ibz-my-territory-list-view'});
         this.allViewMap.set(':',{viewname:'listview9',srfappde:'ibzmyterritories',component:'ibz-my-territory-list-view9'});
     }
@@ -201,18 +205,18 @@ export default class IbzMyTerritoryUIServiceBase extends UIService {
         if(this.mainStateFields.length === 0) return null;
 
         this.mainStateFields.forEach((singleMainField:any) =>{
-            if(!(singleMainField in curData)){
-                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
+            if (!(singleMainField in curData)) {
+                console.warn(`当前数据对象不包含属性「${singleMainField}」，根据「${singleMainField}」属性进行的主状态计算默认为空值`);
             }
         })
         for (let i = 0; i <= 1; i++) {
-            let strTag:string = (curData[this.mainStateFields[0]])?(i == 0) ? `${curData[this.mainStateFields[0]]}` : "":"";
+            let strTag:string = (curData[this.mainStateFields[0]] != null && curData[this.mainStateFields[0]] !== "")?(i == 0) ? `${curData[this.mainStateFields[0]]}` : "":"";
             if (this.mainStateFields.length >= 2) {
                 for (let j = 0; j <= 1; j++) {
-                    let strTag2:string = (curData[this.mainStateFields[1]])?`${strTag}__${(j == 0) ? `${curData[this.mainStateFields[1]]}` : ""}`:strTag;
+                    let strTag2:string = (curData[this.mainStateFields[1]] != null && curData[this.mainStateFields[1]] !== "")?`${strTag}__${(j == 0) ? `${curData[this.mainStateFields[1]]}` : ""}`:strTag;
                     if (this.mainStateFields.length >= 3) {
                         for (let k = 0; k <= 1; k++) {
-                            let strTag3:string = (curData[this.mainStateFields[2]])?`${strTag2}__${(k == 0) ? `${curData[this.mainStateFields[2]]}` : ""}`:strTag2;
+                            let strTag3:string = (curData[this.mainStateFields[2]] != null && curData[this.mainStateFields[2]] !== "")?`${strTag2}__${(k == 0) ? `${curData[this.mainStateFields[2]]}` : ""}`:strTag2;
                             // 判断是否存在
                             return this.allDeMainStateMap.get(strTag3);
                         }

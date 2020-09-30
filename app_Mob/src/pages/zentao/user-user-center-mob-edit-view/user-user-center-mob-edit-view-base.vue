@@ -16,7 +16,6 @@
     
     </ion-header>
 
-
     <ion-content>
                 <view_form
             :viewState="viewState"
@@ -190,6 +189,7 @@ export default class UserUserCenterMobEditViewBase extends Vue {
         srfCaption: 'user.views.usercentermobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'user.usercentermobeditview',
         iconcls: '',
         icon: ''
     }
@@ -330,15 +330,6 @@ export default class UserUserCenterMobEditViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof UserUserCenterMobEditViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof UserUserCenterMobEditViewBase
@@ -365,6 +356,17 @@ export default class UserUserCenterMobEditViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof UserUserCenterMobEditViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)
@@ -518,8 +520,12 @@ export default class UserUserCenterMobEditViewBase extends Vue {
                 let result = await this.cheackChange();
         if(result){
             if (this.viewDefaultUsage === "routerView") {
-                this.$store.commit("deletePage", this.$route.fullPath);
-                this.$router.go(-1);
+                if(window.history.length == 1 && this.$viewTool.getThirdPartyName()){
+                    this.quitFun();
+                }else{
+                    this.$store.commit("deletePage", this.$route.fullPath);
+                    this.$router.go(-1);
+                }
             } 
             if (this.viewDefaultUsage === "actionView") {
                 this.$emit("close", { status: "success", action: "close", data: args instanceof MouseEvent ? null : args });
@@ -596,7 +602,7 @@ export default class UserUserCenterMobEditViewBase extends Vue {
         if (view && view.viewdatachange) {
                 const title: any = this.$t('app.tabpage.sureclosetip.title');
                 const contant: any = this.$t('app.tabpage.sureclosetip.content');
-                const result = await this.$notice.confirm(title, contant, this.$store);
+                const result = await this.$notice.confirm(title, contant);
                 if (result) {
                     this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
                     return true;

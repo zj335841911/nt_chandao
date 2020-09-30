@@ -63,7 +63,7 @@ export class MobMainModel {
             {
                 name: 'estimate',
                 prop: 'estimate',
-                dataType: 'DECIMAL',
+                dataType: 'FLOAT',
             },
             {
                 name: 'id',

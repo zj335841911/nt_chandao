@@ -81,7 +81,11 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
 
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ICasehuaFavoriteLogic huafavoriteLogic;
+    protected cn.ibizlab.pms.core.zentao.service.logic.ICasecaseFavoriteLogic casefavoriteLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ICaseCaseNFavoriteLogic casenfavoriteLogic;
 
     @Autowired
     @Lazy
@@ -175,6 +179,20 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     }
 
     @Override
+    @Transactional
+    public Case caseFavorite(Case et) {
+        casefavoriteLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public Case caseNFavorite(Case et) {
+        casenfavoriteLogic.execute(et);
+         return et ;
+    }
+
+    @Override
     public boolean checkKey(Case et) {
         return (!ObjectUtils.isEmpty(et.getId()))&&(!Objects.isNull(this.getById(et.getId())));
     }
@@ -209,13 +227,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     public Case getByTestTask(Case et) {
         //自定义代码
         return et;
-    }
-
-    @Override
-    @Transactional
-    public Case huaFavorite(Case et) {
-        huafavoriteLogic.execute(et);
-         return et ;
     }
 
         @Override
@@ -464,6 +475,42 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     }
 
     /**
+     * 查询集合 测试报告关联用例
+     */
+    @Override
+    public Page<Case> searchModuleRePortCase(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchModuleRePortCase(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 测试报告关联-按模块-条目
+     */
+    @Override
+    public Page<Case> searchModuleRePortCaseEntry(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchModuleRePortCaseEntry(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目报告关联-按模块
+     */
+    @Override
+    public Page<Case> searchModuleRePortCase_Project(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchModuleRePortCase_Project(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我的收藏
+     */
+    @Override
+    public Page<Case> searchMyFavorites(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchMyFavorites(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 套件关联用例
      */
     @Override
@@ -478,6 +525,87 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Override
     public Page<Case> searchNotCurTestTask(CaseSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchNotCurTestTask(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 测试报告关联用例
+     */
+    @Override
+    public Page<Case> searchRePortCase(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchRePortCase(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 测试报告关联用例-条目
+     */
+    @Override
+    public Page<Case> searchRePortCaseEntry(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchRePortCaseEntry(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目报告关联用例-关联用例
+     */
+    @Override
+    public Page<Case> searchRePortCase_Project(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchRePortCase_Project(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 测试报告关联-执行人
+     */
+    @Override
+    public Page<Case> searchRunERRePortCase(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchRunERRePortCase(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 测试报告关联-执行人-条目
+     */
+    @Override
+    public Page<Case> searchRunERRePortCaseEntry(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchRunERRePortCaseEntry(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目报告关联-执行人
+     */
+    @Override
+    public Page<Case> searchRunERRePortCase_Project(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchRunERRePortCase_Project(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 测试报告关联用例
+     */
+    @Override
+    public Page<Case> searchRunRePortCase(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchRunRePortCase(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 测试报告关联--执行结果条目
+     */
+    @Override
+    public Page<Case> searchRunRePortCaseEntry(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchRunRePortCaseEntry(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目报告关联-执行结果
+     */
+    @Override
+    public Page<Case> searchRunRePortCase_Project(CaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Case> pages=baseMapper.searchRunRePortCase_Project(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Case>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

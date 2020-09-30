@@ -85,6 +85,22 @@ export class FavoriteMOBDasModel {
 				prop: 'id',
 				dataType: 'FONTKEY',
 			},
+            {
+                name: 'n_title_like',
+                prop: 'n_title_like', 
+                dataType: 'TEXT',
+            },
+            {
+                name: 'n_status_eq',
+                prop: 'n_status_eq', 
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'n_type_eq',
+                prop: 'n_type_eq', 
+                dataType: 'SSCODELIST',
+            },
+
 			{
 				name: 'size',
 				prop: 'size'

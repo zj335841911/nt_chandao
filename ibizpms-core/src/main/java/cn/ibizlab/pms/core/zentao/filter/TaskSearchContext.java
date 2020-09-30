@@ -120,6 +120,15 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
             this.getSearchCond().like("name", n_name_like);
         }
     }
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+	private Timestamp n_closeddate_ltandeq;//[关闭时间]
+	public void setN_closeddate_ltandeq(Timestamp n_closeddate_ltandeq) {
+        this.n_closeddate_ltandeq = n_closeddate_ltandeq;
+        if(!ObjectUtils.isEmpty(this.n_closeddate_ltandeq)){
+            this.getSearchCond().le("closeddate", n_closeddate_ltandeq);
+        }
+    }
 	private String n_type_eq;//[任务类型]
 	public void setN_type_eq(String n_type_eq) {
         this.n_type_eq = n_type_eq;

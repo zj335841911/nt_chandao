@@ -1,8 +1,7 @@
 <i-form :model="this.data" class='app-form' ref='form'  id='ibzcase_main' style="">
     <input style="display:none;" />
     <row >
-            
-<i-col class="form-layout-container" v-show="detailsModel.libname.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
+            <i-col class="form-layout-container" v-show="detailsModel.libname.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='libname' :itemRules="this.rules.libname" class='' :caption="$t('entities.ibzcase.main_form.details.libname')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.libname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker  

@@ -47,12 +47,14 @@ export class AuthServiceRegister {
         this.allAuthService.set('taskteam', () => import('@/authservice/task-team/task-team-auth-service'));
         this.allAuthService.set('file', () => import('@/authservice/file/file-auth-service'));
         this.allAuthService.set('ibzprostorymodule', () => import('@/authservice/ibzpro-story-module/ibzpro-story-module-auth-service'));
+        this.allAuthService.set('productsum', () => import('@/authservice/product-sum/product-sum-auth-service'));
         this.allAuthService.set('ibzlibcasesteps', () => import('@/authservice/ibz-lib-casesteps/ibz-lib-casesteps-auth-service'));
         this.allAuthService.set('ibzlib', () => import('@/authservice/ibz-lib/ibz-lib-auth-service'));
         this.allAuthService.set('suitecase', () => import('@/authservice/suite-case/suite-case-auth-service'));
         this.allAuthService.set('burn', () => import('@/authservice/burn/burn-auth-service'));
         this.allAuthService.set('substory', () => import('@/authservice/sub-story/sub-story-auth-service'));
         this.allAuthService.set('subproductplan', () => import('@/authservice/sub-product-plan/sub-product-plan-auth-service'));
+        this.allAuthService.set('employeeload', () => import('@/authservice/employ-eeload/employ-eeload-auth-service'));
         this.allAuthService.set('storyspec', () => import('@/authservice/story-spec/story-spec-auth-service'));
         this.allAuthService.set('usertpl', () => import('@/authservice/user-tpl/user-tpl-auth-service'));
         this.allAuthService.set('ibzfavorites', () => import('@/authservice/ibz-favorites/ibz-favorites-auth-service'));
@@ -60,6 +62,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('productstats', () => import('@/authservice/product-stats/product-stats-auth-service'));
         this.allAuthService.set('ibzprojectmember', () => import('@/authservice/ibz-project-member/ibz-project-member-auth-service'));
         this.allAuthService.set('action', () => import('@/authservice/action/action-auth-service'));
+        this.allAuthService.set('bugstats', () => import('@/authservice/bug-stats/bug-stats-auth-service'));
         this.allAuthService.set('group', () => import('@/authservice/group/group-auth-service'));
         this.allAuthService.set('ibzproproduct', () => import('@/authservice/ibzpro-product/ibzpro-product-auth-service'));
         this.allAuthService.set('casestep', () => import('@/authservice/case-step/case-step-auth-service'));
@@ -71,6 +74,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('todo', () => import('@/authservice/todo/todo-auth-service'));
         this.allAuthService.set('ibzlibmodule', () => import('@/authservice/ibz-lib-module/ibz-lib-module-auth-service'));
         this.allAuthService.set('subtask', () => import('@/authservice/sub-task/sub-task-auth-service'));
+        this.allAuthService.set('useryearworkstats', () => import('@/authservice/user-year-work-stats/user-year-work-stats-auth-service'));
         this.allAuthService.set('ibzlibcasesteptmp', () => import('@/authservice/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp-auth-service'));
         this.allAuthService.set('project', () => import('@/authservice/project/project-auth-service'));
         this.allAuthService.set('history', () => import('@/authservice/history/history-auth-service'));

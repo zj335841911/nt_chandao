@@ -1,6 +1,6 @@
 <template>
     <div  class="app-mob-mdctrl project-mdctrl ">
-        <div class="app-mob-mdctrl-mdctrl">
+        <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
                 <ion-list class="items">
                   <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                       <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
@@ -8,7 +8,7 @@
                   </template>
                 </ion-list>
                 <ion-list class="items">
-                  <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled">
+                  <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.EditMod.visabled" :disabled="item.EditMod.disabled" color="primary" @click="mdctrl_click($event, 'ueeac2b8', item)"><ion-icon v-if="item.EditMod.icon && item.EditMod.isShowIcon" :name="item.EditMod.icon"></ion-icon><ion-label v-if="item.EditMod.isShowCaption">详情</ion-label></ion-item-option>
                             <ion-item-option v-show="item.ProjectTop.visabled" :disabled="item.ProjectTop.disabled" color="primary" @click="mdctrl_click($event, 'u4186bd7', item)"><ion-icon v-if="item.ProjectTop.icon && item.ProjectTop.isShowIcon" :name="item.ProjectTop.icon"></ion-icon><ion-label v-if="item.ProjectTop.isShowCaption">置顶</ion-label></ion-item-option>
@@ -77,6 +77,7 @@
                 </ion-infinite-scroll>    
 
             <div class="no-data" v-if="items.length == 0">暂无数据</div>
+            <div class="scrollToTop" @click="scrollToTop" ref="scroll" v-show="isEnableScrollTop && showScrollButton"> <van-icon name="back-top" /></div>            
         </div>
     </div>
 </template>
@@ -90,6 +91,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ProjectService from '@/app-core/service/project/project-service';
 import MobService from '@/app-core/ctrl-service/project/mob-mobmdctrl-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import ProjectUIService from '@/ui-service/project/project-ui-action';
 
@@ -520,6 +522,15 @@ export default class MobBase extends Vue implements ControlInterface {
     * @memberof Mob
     */
     public group_data?:any = [];
+
+    /**
+     * 应用状态事件
+     *
+     * @public
+     * @type {(Subscription | undefined)}
+     * @memberof MobBase
+     */
+    public appStateEvent: Subscription | undefined;
 
     /**
     * 分组标识
@@ -1069,6 +1080,62 @@ export default class MobBase extends Vue implements ControlInterface {
                 }
             });
         }
+        if(AppCenterService && AppCenterService.getMessageCenter()){
+            this.appStateEvent = AppCenterService.getMessageCenter().subscribe(({ name, action, data }) =>{
+                if(!Object.is(name,"Project")){
+                    return;
+                }
+                if(Object.is(action,'appRefresh')){
+                    this.refresh();
+                }
+            })
+        }
+    }
+
+    /**
+     * ion-item-sliding拖动事件
+     *
+     * @memberof Mob
+     */
+    public ionDrag(){
+      this.$store.commit('setPopupStatus',false)
+    }
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof Mob
+     */
+    public mounted(){
+      let list:any = this.$refs.mdctrl;
+      let scroll:any = this.$refs.scroll;        
+      if(list){
+        list.addEventListener('touchend',()=>{
+          this.$store.commit('setPopupStatus',true)
+        }, false)
+        list.addEventListener('scroll', (e:any) => {
+          if (scroll && list) {
+            if (list.scrollTop >= 500) {
+              this.showScrollButton = true;
+            }
+            scroll.style.opacity = (list.scrollTop-200) * 0.001;
+          }
+        }, false)
+      }
+    }
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof Mob
+     */
+    public beforeDestroy(){
+      let list:any = this.$refs.mdctrl;
+      if(list){
+        list.removeEventListener('touchend',()=>{
+          this.$store.commit('setPopupStatus',true)
+        })
+      }
     }
 
     /**
@@ -1088,6 +1155,9 @@ export default class MobBase extends Vue implements ControlInterface {
     protected afterDestroy() {
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
+        }
+        if(this.appStateEvent){
+            this.appStateEvent.unsubscribe();
         }
         window.removeEventListener('contextmenu',()=>{});
     }
@@ -1252,6 +1322,43 @@ export default class MobBase extends Vue implements ControlInterface {
            }
         })
 
+    }
+
+    /**
+     * 是否开启置顶功能
+     *
+     * @type {GlobalUiService}
+     * @memberof MobBase
+     */
+    public isEnableScrollTop:boolean = true;
+
+    /**
+     * 显示置顶按钮
+     *
+     * @type {GlobalUiService}
+     * @memberof MobBase
+     */
+    public showScrollButton:boolean = false;
+
+    /**
+     * 滑回顶部
+     *
+     * @memberof MobBase
+     */
+    public scrollToTop(){
+      let mdctrl:any = this.$refs.mdctrl;
+      if (mdctrl) {  
+        requestAnimationFrame(function () {
+          let top:number = mdctrl.scrollTop;
+          let speed:number = top / 6;
+          if (top!= 0) {
+              mdctrl.scrollTop -= speed;
+          }
+        });
+        if (mdctrl.scrollTop != 0) {
+          requestAnimationFrame(this.scrollToTop);
+        }
+      }
     }
 }
 </script>

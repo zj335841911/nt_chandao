@@ -1,14 +1,13 @@
 <i-form :model="this.data" class='app-form' ref='form'  id='productstats_testmain2' style="">
     <input style="display:none;" />
     <row >
-            
-<i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
+            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
     <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.productstats.testmain2_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.formitemex1.visible" :style="{'height': '250px !important',}"  :lg="{ span: 24, offset: 0 }">
     <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.productstats.testmain2_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="NONE">
-    <circle-progress caption="所有" stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="circle" :total="this.data.custom1" :progress="this.data.custom2"/>
+    <circle-progress caption="所有" stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="circle" :total="this.data.custom1" :progress="this.data.custom2" style="min-width: 244px;"/>
 </app-form-item>
 
 </i-col>

@@ -6,12 +6,14 @@ import product_zh_CN from '@locale/lanres/entities/product/product_zh_CN';
 import taskteam_zh_CN from '@locale/lanres/entities/task-team/task-team_zh_CN';
 import file_zh_CN from '@locale/lanres/entities/file/file_zh_CN';
 import ibzprostorymodule_zh_CN from '@locale/lanres/entities/ibzpro-story-module/ibzpro-story-module_zh_CN';
+import productsum_zh_CN from '@locale/lanres/entities/product-sum/product-sum_zh_CN';
 import ibzlibcasesteps_zh_CN from '@locale/lanres/entities/ibz-lib-casesteps/ibz-lib-casesteps_zh_CN';
 import ibzlib_zh_CN from '@locale/lanres/entities/ibz-lib/ibz-lib_zh_CN';
 import suitecase_zh_CN from '@locale/lanres/entities/suite-case/suite-case_zh_CN';
 import burn_zh_CN from '@locale/lanres/entities/burn/burn_zh_CN';
 import substory_zh_CN from '@locale/lanres/entities/sub-story/sub-story_zh_CN';
 import subproductplan_zh_CN from '@locale/lanres/entities/sub-product-plan/sub-product-plan_zh_CN';
+import employeeload_zh_CN from '@locale/lanres/entities/employ-eeload/employ-eeload_zh_CN';
 import storyspec_zh_CN from '@locale/lanres/entities/story-spec/story-spec_zh_CN';
 import usertpl_zh_CN from '@locale/lanres/entities/user-tpl/user-tpl_zh_CN';
 import ibzfavorites_zh_CN from '@locale/lanres/entities/ibz-favorites/ibz-favorites_zh_CN';
@@ -19,6 +21,7 @@ import branch_zh_CN from '@locale/lanres/entities/branch/branch_zh_CN';
 import productstats_zh_CN from '@locale/lanres/entities/product-stats/product-stats_zh_CN';
 import ibzprojectmember_zh_CN from '@locale/lanres/entities/ibz-project-member/ibz-project-member_zh_CN';
 import action_zh_CN from '@locale/lanres/entities/action/action_zh_CN';
+import bugstats_zh_CN from '@locale/lanres/entities/bug-stats/bug-stats_zh_CN';
 import group_zh_CN from '@locale/lanres/entities/group/group_zh_CN';
 import ibzproproduct_zh_CN from '@locale/lanres/entities/ibzpro-product/ibzpro-product_zh_CN';
 import casestep_zh_CN from '@locale/lanres/entities/case-step/case-step_zh_CN';
@@ -30,6 +33,7 @@ import story_zh_CN from '@locale/lanres/entities/story/story_zh_CN';
 import todo_zh_CN from '@locale/lanres/entities/todo/todo_zh_CN';
 import ibzlibmodule_zh_CN from '@locale/lanres/entities/ibz-lib-module/ibz-lib-module_zh_CN';
 import subtask_zh_CN from '@locale/lanres/entities/sub-task/sub-task_zh_CN';
+import useryearworkstats_zh_CN from '@locale/lanres/entities/user-year-work-stats/user-year-work-stats_zh_CN';
 import ibzlibcasesteptmp_zh_CN from '@locale/lanres/entities/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp_zh_CN';
 import project_zh_CN from '@locale/lanres/entities/project/project_zh_CN';
 import history_zh_CN from '@locale/lanres/entities/history/history_zh_CN';
@@ -200,6 +204,7 @@ export default {
                 menuitem3: "产品主页",
                 menuitem2: "项目主页",
                 menuitem1: "测试主页",
+                menuitem22: "统计",
                 menuitem10: "用例库",
                 menuitem11: "用户",
                 menuitem7: "iBiz软件生产管理",
@@ -326,12 +331,14 @@ export default {
         taskteam: taskteam_zh_CN,
         file: file_zh_CN,
         ibzprostorymodule: ibzprostorymodule_zh_CN,
+        productsum: productsum_zh_CN,
         ibzlibcasesteps: ibzlibcasesteps_zh_CN,
         ibzlib: ibzlib_zh_CN,
         suitecase: suitecase_zh_CN,
         burn: burn_zh_CN,
         substory: substory_zh_CN,
         subproductplan: subproductplan_zh_CN,
+        employeeload: employeeload_zh_CN,
         storyspec: storyspec_zh_CN,
         usertpl: usertpl_zh_CN,
         ibzfavorites: ibzfavorites_zh_CN,
@@ -339,6 +346,7 @@ export default {
         productstats: productstats_zh_CN,
         ibzprojectmember: ibzprojectmember_zh_CN,
         action: action_zh_CN,
+        bugstats: bugstats_zh_CN,
         group: group_zh_CN,
         ibzproproduct: ibzproproduct_zh_CN,
         casestep: casestep_zh_CN,
@@ -350,6 +358,7 @@ export default {
         todo: todo_zh_CN,
         ibzlibmodule: ibzlibmodule_zh_CN,
         subtask: subtask_zh_CN,
+        useryearworkstats: useryearworkstats_zh_CN,
         ibzlibcasesteptmp: ibzlibcasesteptmp_zh_CN,
         project: project_zh_CN,
         history: history_zh_CN,

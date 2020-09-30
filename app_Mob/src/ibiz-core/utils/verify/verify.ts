@@ -270,12 +270,12 @@ export class Verify {
         }
         if (Object.is(paramType, 'ENTITYFIELD')) {
             value2 = value2 ? value2.toLowerCase() : '';
-            const _value2Field = form.findFormItem(value2);
+            const _value2Field = form[value2];
             if (!_value2Field) {
                 this.errorInfo = `表单项${value2}未配置`;
                 return true;
             }
-            value2 = _value2Field.getValue();
+            value2 = _value2Field;
         }
         if (Util.isEmpty(errorInfo)) {
             errorInfo = '内容必须符合值规则';

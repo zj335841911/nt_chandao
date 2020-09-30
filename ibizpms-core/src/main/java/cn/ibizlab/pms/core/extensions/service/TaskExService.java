@@ -117,6 +117,28 @@ public class TaskExService extends TaskServiceImpl {
     public Task pause(Task et) {
         return super.pause(et);
     }
+
+    @Override
+    public void saveBatch(List<Task> list) {
+        if (list.isEmpty() || list.size() == 0) {
+            return;
+        }
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        JSONObject jo = new JSONObject();
+        jo.put("project", list.get(0).getProject());
+        jo.put("story", 0);
+        jo.put("module", 0);
+        jo.put("parent", list.get(0).getParent());
+        jo.put("srfArray", list);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.batchCreate(zentaoSid, jo, rst);
+        if (bRst) {
+            log.error("子任务批量添加成功");
+        } else {
+            log.error("子任务批量添加失败");
+        }
+    }
+
     /**
      * 自定义行为[RecordEstimate]用户扩展
      * @param et
@@ -181,14 +203,14 @@ public class TaskExService extends TaskServiceImpl {
             List<TaskTeam> list = et.getTaskteam();
             if(!list.isEmpty() && list.size() > 0) {
                 jo.put("assignedTo", list.get(0).getAccount());
-                BigDecimal estimate = new BigDecimal(0.0);
+                double estimate = 0;
                 JSONArray team = new JSONArray();
                 JSONArray teamEstimate = new JSONArray();
                 for (TaskTeam taskTeam : list) {
                     team.add(taskTeam.getAccount());
                     teamEstimate.add(taskTeam.getEstimate());
                     if(taskTeam.getEstimate() != null) {
-                        estimate.add(taskTeam.getEstimate());
+                        estimate = estimate + taskTeam.getEstimate();
                     }
                 }
                 jo.put("estimate", df.format(estimate));

@@ -16,7 +16,6 @@
     
     </ion-header>
 
-
     <ion-content>
                 <view_form
             :viewState="viewState"
@@ -42,7 +41,7 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
         <div class="option-view-btnbox">
   <ion-button class="option-btn medium" color="medium" @click="back">返回</ion-button>
   <ion-button class="option-btn success" @click="save">保存</ion-button> 
@@ -195,6 +194,7 @@ export default class StoryACMobOptionViewBase extends Vue {
         srfCaption: 'story.views.acmoboptionview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'story.acmoboptionview',
         iconcls: '',
         icon: 'fa fa-star-o'
     }
@@ -336,15 +336,6 @@ export default class StoryACMobOptionViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof StoryACMobOptionViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof StoryACMobOptionViewBase
@@ -367,6 +358,17 @@ export default class StoryACMobOptionViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof StoryACMobOptionViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)
@@ -596,7 +598,7 @@ export default class StoryACMobOptionViewBase extends Vue {
         if (view && view.viewdatachange) {
                 const title: any = this.$t('app.tabpage.sureclosetip.title');
                 const contant: any = this.$t('app.tabpage.sureclosetip.content');
-                const result = await this.$notice.confirm(title, contant, this.$store);
+                const result = await this.$notice.confirm(title, contant);
                 if (result) {
                     this.$store.commit('viewaction/setViewDataChange', { viewtag: this.viewtag, viewdatachange: false });
                     return true;

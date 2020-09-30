@@ -44,38 +44,40 @@ public class Team extends EntityMP implements Serializable {
     /**
      * 最初预计
      */
-    @DEField(defaultValue = "0.00")
-    @TableField(value = "estimate")
+    @DEField(defaultValue = "0")
+    @TableField(value = "`estimate`")
     @JSONField(name = "estimate")
     @JsonProperty("estimate")
-    private BigDecimal estimate;
+    private Double estimate;
     /**
      * 总计消耗
      */
     @DEField(defaultValue = "0.00")
-    @TableField(value = "consumed")
+    @TableField(value = "`consumed`")
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
-    private BigDecimal consumed;
+    private Double consumed;
     /**
      * 可用工时/天
      */
     @DEField(defaultValue = "0.0")
-    @TableField(value = "hours")
+    @TableField(value = "`hours`")
     @JSONField(name = "hours")
     @JsonProperty("hours")
     private Double hours;
     /**
      * 角色
      */
-    @TableField(value = "role")
+    @DEField(defaultValue = "#EMPTY")
+    @TableField(value = "`role`")
     @JSONField(name = "role")
     @JsonProperty("role")
     private String role;
     /**
      * 用户
      */
-    @TableField(value = "account")
+    @DEField(defaultValue = "#EMPTY")
+    @TableField(value = "`account`")
     @JSONField(name = "account")
     @JsonProperty("account")
     private String account;
@@ -83,7 +85,7 @@ public class Team extends EntityMP implements Serializable {
      * 团队类型
      */
     @DEField(defaultValue = "project")
-    @TableField(value = "type")
+    @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
@@ -99,30 +101,30 @@ public class Team extends EntityMP implements Serializable {
      * 预计剩余
      */
     @DEField(defaultValue = "0.00")
-    @TableField(value = "left")
+    @TableField(value = "`left`")
     @JSONField(name = "left")
     @JsonProperty("left")
-    private BigDecimal left;
+    private Double left;
     /**
      * 排序
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "order")
+    @TableField(value = "`order`")
     @JSONField(name = "order")
     @JsonProperty("order")
     private Integer order;
     /**
      * 可用工日
      */
-    @TableField(value = "days")
+    @DEField(defaultValue = "0")
+    @TableField(value = "`days`")
     @JSONField(name = "days")
     @JsonProperty("days")
     private Integer days;
     /**
      * 加盟日
      */
-    @DEField(defaultValue = "0000-00-00")
-    @TableField(value = "join")
+    @TableField(value = "`join`")
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "join" , format="yyyy-MM-dd")
     @JsonProperty("join")
@@ -131,7 +133,7 @@ public class Team extends EntityMP implements Serializable {
      * 受限用户
      */
     @DEField(defaultValue = "no")
-    @TableField(value = "limited")
+    @TableField(value = "`limited`")
     @JSONField(name = "limited")
     @JsonProperty("limited")
     private String limited;
@@ -139,17 +141,17 @@ public class Team extends EntityMP implements Serializable {
      * 关联编号
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "root")
+    @TableField(value = "`root`")
     @JSONField(name = "root")
     @JsonProperty("root")
-    private Integer root;
+    private Long root;
 
 
 
     /**
      * 设置 [最初预计]
      */
-    public void setEstimate(BigDecimal estimate){
+    public void setEstimate(Double estimate){
         this.estimate = estimate ;
         this.modify("estimate",estimate);
     }
@@ -157,7 +159,7 @@ public class Team extends EntityMP implements Serializable {
     /**
      * 设置 [总计消耗]
      */
-    public void setConsumed(BigDecimal consumed){
+    public void setConsumed(Double consumed){
         this.consumed = consumed ;
         this.modify("consumed",consumed);
     }
@@ -197,7 +199,7 @@ public class Team extends EntityMP implements Serializable {
     /**
      * 设置 [预计剩余]
      */
-    public void setLeft(BigDecimal left){
+    public void setLeft(Double left){
         this.left = left ;
         this.modify("left",left);
     }
@@ -247,7 +249,7 @@ public class Team extends EntityMP implements Serializable {
     /**
      * 设置 [关联编号]
      */
-    public void setRoot(Integer root){
+    public void setRoot(Long root){
         this.root = root ;
         this.modify("root",root);
     }

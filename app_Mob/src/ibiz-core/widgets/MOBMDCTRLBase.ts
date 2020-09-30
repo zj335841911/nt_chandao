@@ -348,7 +348,7 @@ export class MOBMDCTRLBase extends ControlBase {
         Object.assign(data, parentdata);
         const response: any = await this.service.search(this.fetchAction, this.context, data, this.showBusyIndicator);
         if (!response || response.status !== 200) {
-            this.$notify({ type: 'danger', message: response.error.message });
+            this.$notice.error(response.error.message );
             return response;
         }
 

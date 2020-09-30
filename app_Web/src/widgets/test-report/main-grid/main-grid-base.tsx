@@ -68,12 +68,125 @@ export class MainGridBase extends GridControlBase {
     public appUIService:TestReportUIService = new TestReportUIService(this.$store);
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_title_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.Edit(datas, contextJO,paramJO,  $event, xData,this,"TestReport");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_ue7ba19d_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestReportUIService  = new TestReportUIService();
+        curUIService.TestReport_Edits(datas,contextJO, paramJO,  $event, xData,this,"TestReport");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_ufbe9383_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TestReportUIService  = new TestReportUIService();
+        curUIService.TestReport_Delete(datas,contextJO, paramJO,  $event, xData,this,"TestReport");
+    }
+
+    /**
+     * 编辑
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} contextJO 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @memberof TestReportGridViewBase
+     */
+    public Edit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+        if (args.length === 0) {
+            return;
+        }
+        const _this: any = this;
+        if (_this.opendata && _this.opendata instanceof Function) {
+            const data: any = { };
+            if (args.length > 0) {
+                Object.assign(data, { testreport: args[0].testreport })
+            }
+            _this.opendata([{ ...data }], params, $event, xData);
+        } else {
+            _this.$Notice.error({ title: '错误', desc: 'opendata 视图处理逻辑不存在，请添加!' });
+        }
+    }
+
+    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof MainBase
      */  
     public ActionModel: any = {
+        Edit: { name: 'Edit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'},
+        Edits: { name: 'Edits',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__REPORT_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        Delete: { name: 'Delete',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__REPORT_DELETE_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -156,6 +269,14 @@ export class MainGridBase extends GridControlBase {
             unit: 'PX',
             isEnableRowEdit: false,
         },
+        {
+            name: 'uagridcolumn1',
+            label: '操作',
+            langtag: 'entities.testreport.main_grid.columns.uagridcolumn1',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+        },
     ]
 
     /**
@@ -196,6 +317,7 @@ export class MainGridBase extends GridControlBase {
         'createddate':false,
         'projectname':false,
         'tasks':false,
+        'uagridcolumn1':false,
     };
 
     /**
@@ -240,6 +362,27 @@ export class MainGridBase extends GridControlBase {
         ]);
     }
 
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof MainGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('Edit', tag)) {
+            this.grid_title_click(row, tag, $event);
+        }
+        if(Object.is('Edits', tag)) {
+            this.grid_uagridcolumn1_ue7ba19d_click(row, tag, $event);
+        }
+        if(Object.is('Delete', tag)) {
+            this.grid_uagridcolumn1_ufbe9383_click(row, tag, $event);
+        }
+    }
 
 
 }

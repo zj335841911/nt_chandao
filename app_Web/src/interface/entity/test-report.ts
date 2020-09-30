@@ -181,4 +181,28 @@ export interface TestReport {
      * @memberof TestReport
      */
     comment?: any;
+
+    /**
+     * 概况
+     *
+     * @returns {*}
+     * @memberof TestReport
+     */
+    overviews?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof TestReport
+     */
+    files?: any;
+
+    /**
+     * 项目报告产品数
+     *
+     * @returns {*}
+     * @memberof TestReport
+     */
+    productcnt?: any;
 }

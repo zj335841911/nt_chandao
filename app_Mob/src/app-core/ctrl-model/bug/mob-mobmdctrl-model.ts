@@ -18,7 +18,12 @@ export class MobModel {
 				name: 'resolution',
 			},
 			{
-				name: 'pri',
+				name: 'pri1',
+				prop: 'pri',
+				dataType: 'NSCODELIST',
+			},
+			{
+				name: 'severity',
 			},
 			{
 				name: 'title',
@@ -117,6 +122,37 @@ export class MobModel {
 				prop: 'id',
 				dataType: 'FONTKEY',
 			},
+            {
+                name: 'n_title_like',
+                prop: 'n_title_like', 
+                dataType: 'TEXT',
+            },
+            {
+                name: 'n_status_eq',
+                prop: 'n_status_eq', 
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'n_type_eq',
+                prop: 'n_type_eq', 
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'n_openedby_eq',
+                prop: 'n_openedby_eq', 
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'n_severity_eq',
+                prop: 'n_severity_eq', 
+                dataType: 'NSCODELIST',
+            },
+            {
+                name: 'n_modulename_like',
+                prop: 'n_modulename_like', 
+                dataType: 'PICKUPTEXT',
+            },
+
 			{
 				name: 'size',
 				prop: 'size'

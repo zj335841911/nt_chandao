@@ -10,7 +10,6 @@
 
     </ion-header>
 
-
     <ion-content>
                 <view_pickupviewpanel
             :viewState="viewState"
@@ -26,7 +25,7 @@
             @closeview="closeView($event)">
         </view_pickupviewpanel>
     </ion-content>
-    <ion-footer class="view-footer" style="z-index:9999;">
+    <ion-footer class="view-footer">
         <ion-toolbar style="text-align: center;">
     <div class="mobpickupview_button">
       <ion-button class="pick-btn" @click="onClickCancel" color="medium">{{$t('app.button.cancel')}}</ion-button>
@@ -181,6 +180,7 @@ export default class ProductMobPickupViewBase extends Vue {
         srfCaption: 'product.views.mobpickupview.caption',
         srfSubCaption: '',
         dataInfo: '',
+        viewname:'product.mobpickupview',
         iconcls: '',
         icon: ''
     }
@@ -327,15 +327,6 @@ export default class ProductMobPickupViewBase extends Vue {
     }
 
     /**
-     * Vue声明周期
-     *
-     * @memberof ProductMobPickupViewBase
-     */
-    public activated() {
-        this.afterMounted();
-    }
-
-    /**
      * 执行created后的逻辑
      *
      * @memberof ProductMobPickupViewBase
@@ -358,6 +349,17 @@ export default class ProductMobPickupViewBase extends Vue {
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
     }
+
+    /**
+     * Vue声明周期
+     *
+     * @memberof ProductMobPickupViewBase
+     */
+    public activated() {
+        this.thirdPartyInit();
+    }
+
+
 
     /**
      * Vue声明周期(组件初始化完毕)

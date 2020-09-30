@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.alibaba.fastjson.annotation.JSONField;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -42,6 +44,7 @@ public class TaskTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "root")
     @JsonProperty("root")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long root;
 
     /**
@@ -101,7 +104,7 @@ public class TaskTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "estimate")
     @JsonProperty("estimate")
-    private BigDecimal estimate;
+    private Double estimate;
 
     /**
      * 属性 [ACCOUNT]
@@ -118,7 +121,7 @@ public class TaskTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
-    private BigDecimal consumed;
+    private Double consumed;
 
     /**
      * 属性 [ID]
@@ -126,6 +129,7 @@ public class TaskTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "id")
     @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
 
     /**
@@ -151,7 +155,7 @@ public class TaskTeamDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "left")
     @JsonProperty("left")
-    private BigDecimal left;
+    private Double left;
 
 
     /**
@@ -205,7 +209,7 @@ public class TaskTeamDTO extends DTOBase implements Serializable {
     /**
      * 设置 [ESTIMATE]
      */
-    public void setEstimate(BigDecimal  estimate){
+    public void setEstimate(Double  estimate){
         this.estimate = estimate ;
         this.modify("estimate",estimate);
     }
@@ -221,7 +225,7 @@ public class TaskTeamDTO extends DTOBase implements Serializable {
     /**
      * 设置 [CONSUMED]
      */
-    public void setConsumed(BigDecimal  consumed){
+    public void setConsumed(Double  consumed){
         this.consumed = consumed ;
         this.modify("consumed",consumed);
     }
@@ -245,7 +249,7 @@ public class TaskTeamDTO extends DTOBase implements Serializable {
     /**
      * 设置 [LEFT]
      */
-    public void setLeft(BigDecimal  left){
+    public void setLeft(Double  left){
         this.left = left ;
         this.modify("left",left);
     }

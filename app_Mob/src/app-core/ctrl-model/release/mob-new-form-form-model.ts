@@ -63,7 +63,7 @@ export class MobNewFormModel {
             {
                 name: 'marker',
                 prop: 'marker',
-                dataType: 'YESNO',
+                dataType: 'SSCODELIST',
             },
             {
                 name: 'buildname',

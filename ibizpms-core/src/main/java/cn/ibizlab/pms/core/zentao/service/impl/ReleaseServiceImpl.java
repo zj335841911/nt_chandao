@@ -338,6 +338,15 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
         return new PageImpl<Release>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 测试报告关联发布
+     */
+    @Override
+    public Page<Release> searchReportRelease(ReleaseSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Release> pages=baseMapper.searchReportRelease(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Release>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**
@@ -354,6 +363,8 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
                 ztbuild=majorEntity;
             }
             et.setBuildname(ztbuild.getName());
+            et.setBuilder(ztbuild.getBuilder());
+            et.setBuilddate(ztbuild.getDate());
         }
         //实体关系[DER1N_ZT_RELEASE_ZT_PRODUCT_PRODUCT]
         if(!ObjectUtils.isEmpty(et.getProduct())){

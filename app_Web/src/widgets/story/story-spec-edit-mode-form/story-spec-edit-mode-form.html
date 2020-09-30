@@ -1,8 +1,7 @@
 <i-form :model="this.data" class='app-form' ref='form'  id='story_storyspec_editmode' style="">
     <input style="display:none;" />
     <row >
-            
-<i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 16, offset: 4 }" :xl="{ span: 16, offset: 4 }">
+            <i-col class="form-layout-container" v-show="detailsModel.group1.visible" :style="{}"  :lg="{ span: 16, offset: 4 }" :xl="{ span: 16, offset: 4 }">
     <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.story.storyspec_editmode_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>

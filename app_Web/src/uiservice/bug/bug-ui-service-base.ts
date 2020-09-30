@@ -108,6 +108,7 @@ export default class BugUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'testreportsubgridview',srfappde:'bugs',component:'bug-test-report-sub-grid-view'});
         this.allViewMap.set(':',{viewname:'releasesubgridview_done',srfappde:'bugs',component:'bug-release-sub-grid-view-done'});
         this.allViewMap.set(':',{viewname:'stepsinfoeditview',srfappde:'bugs',component:'bug-steps-info-edit-view'});
+        this.allViewMap.set(':',{viewname:'gridview9_storyformbug',srfappde:'bugs',component:'bug-grid-view9-story-form-bug'});
         this.allViewMap.set(':',{viewname:'confirmview',srfappde:'bugs',component:'bug-confirm-view'});
         this.allViewMap.set(':',{viewname:'gridview9_assignedtome',srfappde:'bugs',component:'bug-grid-view9-assigned-to-me'});
         this.allViewMap.set(':',{viewname:'usr2gridview',srfappde:'bugs',component:'bug-usr2-grid-view'});
@@ -119,11 +120,14 @@ export default class BugUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'todoeditview',srfappde:'bugs',component:'bug-todo-edit-view'});
         this.allViewMap.set(':',{viewname:'pickupgridview5',srfappde:'bugs',component:'bug-pickup-grid-view5'});
         this.allViewMap.set(':',{viewname:'resolveview',srfappde:'bugs',component:'bug-resolve-view'});
+        this.allViewMap.set(':',{viewname:'resolvechartview',srfappde:'bugs',component:'bug-resolve-chart-view'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'bugs',component:'bug-grid-view'});
         this.allViewMap.set(':',{viewname:'gridview9_storyrelated',srfappde:'bugs',component:'bug-grid-view9-story-related'});
         this.allViewMap.set(':',{viewname:'gridview9_myassignedtome',srfappde:'bugs',component:'bug-grid-view9-my-assigned-to-me'});
         this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'bugs',component:'bug-main-my-grid-view'});
         this.allViewMap.set(':',{viewname:'casetobugeditview',srfappde:'bugs',component:'bug-case-to-bug-edit-view'});
+        this.allViewMap.set(':',{viewname:'projectbugsgridview',srfappde:'bugs',component:'bug-project-bugs-grid-view'});
+        this.allViewMap.set(':',{viewname:'testbugsgridview',srfappde:'bugs',component:'bug-test-bugs-grid-view'});
         this.allViewMap.set(':',{viewname:'closeview',srfappde:'bugs',component:'bug-close-view'});
         this.allViewMap.set(':',{viewname:'assingtoview',srfappde:'bugs',component:'bug-assing-to-view'});
         this.allViewMap.set(':',{viewname:'dashboardmaineditview9',srfappde:'bugs',component:'bug-dashboard-main-edit-view9'});
@@ -1957,18 +1961,18 @@ export default class BugUIServiceBase extends UIService {
         if(this.mainStateFields.length === 0) return null;
 
         this.mainStateFields.forEach((singleMainField:any) =>{
-            if(!(singleMainField in curData)){
-                console.warn(`当前数据对象不包含属性${singleMainField}，可能会发生错误`);
+            if (!(singleMainField in curData)) {
+                console.warn(`当前数据对象不包含属性「${singleMainField}」，根据「${singleMainField}」属性进行的主状态计算默认为空值`);
             }
         })
         for (let i = 0; i <= 1; i++) {
-            let strTag:string = (curData[this.mainStateFields[0]])?(i == 0) ? `${curData[this.mainStateFields[0]]}` : "":"";
+            let strTag:string = (curData[this.mainStateFields[0]] != null && curData[this.mainStateFields[0]] !== "")?(i == 0) ? `${curData[this.mainStateFields[0]]}` : "":"";
             if (this.mainStateFields.length >= 2) {
                 for (let j = 0; j <= 1; j++) {
-                    let strTag2:string = (curData[this.mainStateFields[1]])?`${strTag}__${(j == 0) ? `${curData[this.mainStateFields[1]]}` : ""}`:strTag;
+                    let strTag2:string = (curData[this.mainStateFields[1]] != null && curData[this.mainStateFields[1]] !== "")?`${strTag}__${(j == 0) ? `${curData[this.mainStateFields[1]]}` : ""}`:strTag;
                     if (this.mainStateFields.length >= 3) {
                         for (let k = 0; k <= 1; k++) {
-                            let strTag3:string = (curData[this.mainStateFields[2]])?`${strTag2}__${(k == 0) ? `${curData[this.mainStateFields[2]]}` : ""}`:strTag2;
+                            let strTag3:string = (curData[this.mainStateFields[2]] != null && curData[this.mainStateFields[2]] !== "")?`${strTag2}__${(k == 0) ? `${curData[this.mainStateFields[2]]}` : ""}`:strTag2;
                             // 判断是否存在
                             return this.allDeMainStateMap.get(strTag3);
                         }

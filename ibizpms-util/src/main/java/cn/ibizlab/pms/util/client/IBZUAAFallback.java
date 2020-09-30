@@ -44,4 +44,9 @@ public class IBZUAAFallback implements IBZUAAFeignClient {
     public AuthenticationInfo getUserByToken(String code, String id) {
         return null;
     }
+
+    @Override
+    public JSONObject getDingTalkJSSign(String openAccessId, String url) {
+        return null;
+    }
 }

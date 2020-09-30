@@ -2,9 +2,11 @@
 import { Component } from 'vue-property-decorator';
 import StoryLinkStoryMobMPickupViewBase from './story-link-story-mob-mpickup-view-base.vue';
 
+import view_searchform from '@widgets/story/mob-def-searchform/mob-def-searchform.vue';
 import view_pickupviewpanel from '@widgets/story/link-story-mob-mpickup-viewpickupviewpanel-pickupviewpanel/link-story-mob-mpickup-viewpickupviewpanel-pickupviewpanel.vue';
 @Component({
     components: {
+        view_searchform, 
         view_pickupviewpanel, 
     },
     beforeRouteEnter: (to: any, from: any, next: any) => {

@@ -269,6 +269,7 @@ import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import StoryService from '@/app-core/service/story/story-service';
 import MobChageFormService from '@/app-core/ctrl-service/story/mob-chage-form-form-service';
+import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import StoryUIService from '@/ui-service/story/story-ui-action';
 
@@ -567,6 +568,7 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
      * @memberof MobChageForm
      */
     protected data: any = {
+        srfupdatedate: null,
         srforikey: null,
         srfkey: null,
         srfmajortext: null,
@@ -613,119 +615,23 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
     protected saveState:any ;
 
     /**
+      * 异常信息缓存
+      *
+      * @type {any}
+      * @memberof MobChageForm
+      */
+    public errorCache :any = {};
+
+    /**
      * 属性值规则
      *
      * @type {*}
      * @memberof MobChageForm
      */
     protected rules: any = {
-        srforikey: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfkey: [
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        srfmajortext: [
-            { type: 'string', message: '需求名称 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '需求名称 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
-        ],
-        srftempmode: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfuf: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfdeid: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        srfsourcekey: [
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: ' 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: ' 值不能为空', trigger: 'blur' },
-        ],
-        id: [
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '编号 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '编号 值不能为空', trigger: 'blur' },
-        ],
-        status: [
-            { type: 'string', message: '当前状态 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '当前状态 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '当前状态 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '当前状态 值不能为空', trigger: 'blur' },
-        ],
-        version: [
-            { type: 'number', message: '版本# 值必须为数值类型', trigger: 'change' },
-            { type: 'number', message: '版本# 值必须为数值类型', trigger: 'blur' },
-            { required: false, type: 'number', message: '版本# 值不能为空', trigger: 'change' },
-            { required: false, type: 'number', message: '版本# 值不能为空', trigger: 'blur' },
-        ],
-        assignedto: [
-            { type: 'string', message: '由谁评审 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '由谁评审 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '由谁评审 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '由谁评审 值不能为空', trigger: 'blur' },
-        ],
-        reviewedby: [
-            { type: 'string', message: '由谁评审 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '由谁评审 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '由谁评审 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '由谁评审 值不能为空', trigger: 'blur' },
-        ],
-        neednotreview: [
-            { type: 'string', message: '需要评审 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '需要评审 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '需要评审 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '需要评审 值不能为空', trigger: 'blur' },
-        ],
         title: [
-            { type: 'string', message: '需求名称 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '需求名称 值必须为字符串类型', trigger: 'blur' },
             { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '需求名称 值不能为空', trigger: 'blur' },
-        ],
-        spec: [
-            { type: 'string', message: '需求描述 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '需求描述 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '需求描述 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '需求描述 值不能为空', trigger: 'blur' },
-        ],
-        verify: [
-            { type: 'string', message: '验收标准 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '验收标准 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '验收标准 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '验收标准 值不能为空', trigger: 'blur' },
-        ],
-        comment: [
-            { type: 'string', message: '备注 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '备注 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '备注 值不能为空', trigger: 'blur' },
-        ],
-        files: [
-            { type: 'string', message: '附件 值必须为字符串类型', trigger: 'change' },
-            { type: 'string', message: '附件 值必须为字符串类型', trigger: 'blur' },
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'change' },
-            { required: false, type: 'string', message: '附件 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -743,7 +649,7 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
      *
      * @public
      * @param {{ name: string }} { name }
-     * @memberof MobChageFormBase
+     * @memberof MobNewFormBase
      */
     public verifyDeRules(name:string,rule:any = this.deRules,op:string = "AND") :{isPast:boolean,infoMessage:string}{
         let falg:any = {infoMessage:""};
@@ -768,25 +674,30 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
             if(item.type == 'SIMPLE'){
                 startOp(!this.$verify.checkFieldSimpleRule(dataValue,item.condOP,item.paramValue,item.ruleInfo,item.paramType,this.data,item.isKeyCond));
                 falg.infoMessage = item.ruleInfo;
+                this.errorCache[item.deName] = item.ruleInfo;
             }
             // 数值范围
             if(item.type == 'VALUERANGE2'){
                 startOp( !this.$verify.checkFieldValueRangeRule(dataValue,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond));
+                this.errorCache[item.deName] = item.ruleInfo;
                 falg.infoMessage = item.ruleInfo;
             }
             // 正则式
             if (item.type == "REGEX") {
                 startOp(!this.$verify.checkFieldRegExRule(dataValue,item.regExCode,item.ruleInfo,item.isKeyCond));
+                this.errorCache[item.deName] = item.ruleInfo;
                 falg.infoMessage = item.ruleInfo;
             }
             // 长度
             if (item.type == "STRINGLENGTH") {
                 startOp(!this.$verify.checkFieldStringLengthRule(dataValue,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond)); 
+                this.errorCache[item.deName] = item.ruleInfo;
                 falg.infoMessage = item.ruleInfo;
             }
             // 系统值规则
             if(item.type == "SYSVALUERULE") {
                 startOp(!this.$verify.checkFieldSysValueRule(dataValue,item.sysRule.regExCode,item.ruleInfo,item.isKeyCond));
+                this.errorCache[item.deName] = item.ruleInfo;
                 falg.infoMessage = item.ruleInfo;
             }
             // 分组
@@ -820,6 +731,8 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
         group1: new FormGroupPanelModel({ caption: '需求描述信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'story.mobchageform_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
+, 
+        srfupdatedate: new FormItemModel({ caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -858,6 +771,18 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
         files: new FormItemModel({ caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
+
+    /**
+     * 监控表单属性 srfupdatedate 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobChageForm
+     */
+    @Watch('data.srfupdatedate')
+    onSrfupdatedateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'srfupdatedate', newVal: newVal, oldVal: oldVal });
+    }
 
     /**
      * 监控表单属性 srforikey 值
@@ -1132,6 +1057,7 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
 
 
 
+
         if (Object.is(name, '') || Object.is(name, 'neednotreview')) {
             let ret = false;
             const _neednotreview = this.data.neednotreview;
@@ -1175,11 +1101,14 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
      */
     public validItem(property:string, data:any):Promise<any>{
         return new Promise((resolve, reject) => {
+            if(!property || !this.rules[property]){
+                resolve(true);
+            }
             Util.validateItem(property,data,this.rules[property]).then(()=>{
                 this.detailsModel[property].setError("");
                 resolve(true);
             }).catch(({ errors, fields }) => {
-                this.detailsModel[property].setError(errors[0].message);
+                this.detailsModel[property].setError(this.errorCache[property]?this.errorCache[property]:errors[0].message);
                 resolve(false);
             });
         });
@@ -1700,6 +1629,7 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
+            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });
@@ -1741,6 +1671,7 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
             this.$emit('remove', data);
             this.formState.next({ type: 'remove', data: data });
             this.data.ismodify = false;
+            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
             this.$notice.success((data.srfmajortext ? data.srfmajortext : '') + '&nbsp;'+ this.$t('app.message.deleteSccess'));
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
@@ -1764,6 +1695,7 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
             this.$notice.success('工作流启动成功');
+            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
         } else if (response && response.status !== 401) {
             this.$notice.error('工作流启动失败, ' + response.error.message);
         }
@@ -1790,6 +1722,7 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
             this.$notice.success('工作流提交成功');
+            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
         } else if (response && response.status !== 401) {
             this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
@@ -1827,6 +1760,7 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
             this.fillForm(_data, 'updateFormItem');
             this.formLogic({ name: '', newVal: null, oldVal: null });
             this.dataChang.next(JSON.stringify(this.data));
+            AppCenterService.notifyMessage({name:"Story",action:'appRefresh',data:data});
             this.$nextTick(() => {
                 this.formState.next({ type: 'updateformitem', ufimode: arg.srfufimode, data: _data });
             });

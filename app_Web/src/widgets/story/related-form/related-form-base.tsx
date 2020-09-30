@@ -74,7 +74,7 @@ export class RelatedEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof RelatedEditFormBase
      */
-    protected drCount: number = 5;
+    protected drCount: number = 6;
 
     /**
      * 表单数据对象
@@ -83,6 +83,7 @@ export class RelatedEditFormBase extends EditFormControlBase {
      * @memberof RelatedEditFormBase
      */
     public data: any = {
+        srfupdatedate: null,
         srforikey: null,
         srfkey: null,
         srfmajortext: null,
@@ -91,6 +92,7 @@ export class RelatedEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         linkstories: null,
+        frombug: null,
         childstories: null,
         id: null,
         story:null,
@@ -131,6 +133,10 @@ export class RelatedEditFormBase extends EditFormControlBase {
 
         druipart5: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart5', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
+        druipart6: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart6', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        grouppanel3: new FormGroupPanelModel({ caption: '来源Bug', detailType: 'GROUPPANEL', name: 'grouppanel3', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.related_form', extractMode: 'ITEM', details: [] } }),
+
         druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         grouppanel1: new FormGroupPanelModel({ caption: '相关Bug', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.related_form', extractMode: 'ITEM', details: [] } }),
@@ -140,6 +146,8 @@ export class RelatedEditFormBase extends EditFormControlBase {
         grouppanel2: new FormGroupPanelModel({ caption: '相关用例', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.story.related_form', extractMode: 'ITEM', details: [] } }),
 
         formpage2: new FormPageModel({ caption: '相关信息', detailType: 'FORMPAGE', name: 'formpage2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        srfupdatedate: new FormItemModel({ caption: '最后修改日期', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -156,6 +164,8 @@ export class RelatedEditFormBase extends EditFormControlBase {
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         linkstories: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'linkstories', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        frombug: new FormItemModel({ caption: '来源Bug', detailType: 'FORMITEM', name: 'frombug', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         childstories: new FormItemModel({ caption: '细分需求', detailType: 'FORMITEM', name: 'childstories', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 

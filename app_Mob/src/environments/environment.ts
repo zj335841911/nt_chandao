@@ -45,7 +45,9 @@ export const Environment = {
     // 访客模式地址
     VisitorsUrl: '',
     // 默认菜单
-    useDefaultMenu:true
+    useDefaultMenu: true,
+    // 启用更新日志
+    useUpdateLog: false,
 };
 // 挂载外部配置文件
 if ((window as any).Environment) {

@@ -44,14 +44,14 @@ public class Action extends EntityMP implements Serializable {
     /**
      * 附加值
      */
-    @TableField(value = "extra")
+    @TableField(value = "`extra`")
     @JSONField(name = "extra")
     @JsonProperty("extra")
     private String extra;
     /**
      * 对象类型
      */
-    @TableField(value = "objecttype")
+    @TableField(value = "`objecttype`")
     @JSONField(name = "objecttype")
     @JsonProperty("objecttype")
     private String objecttype;
@@ -81,7 +81,7 @@ public class Action extends EntityMP implements Serializable {
     /**
      * 动作
      */
-    @TableField(value = "action")
+    @TableField(value = "`action`")
     @JSONField(name = "action")
     @JsonProperty("action")
     private String action;
@@ -89,7 +89,7 @@ public class Action extends EntityMP implements Serializable {
      * 日期
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "date" , fill = FieldFill.INSERT)
+    @TableField(value = "`date`" , fill = FieldFill.INSERT)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("date")
@@ -97,7 +97,7 @@ public class Action extends EntityMP implements Serializable {
     /**
      * 产品
      */
-    @TableField(value = "product")
+    @TableField(value = "`product`")
     @JSONField(name = "product")
     @JsonProperty("product")
     private String product;
@@ -105,21 +105,21 @@ public class Action extends EntityMP implements Serializable {
      * 对象ID
      */
     @DEField(defaultValue = "0")
-    @TableField(value = "objectid")
+    @TableField(value = "`objectid`")
     @JSONField(name = "objectid")
     @JsonProperty("objectid")
-    private Integer objectid;
+    private Long objectid;
     /**
      * 操作者
      */
-    @TableField(value = "actor")
+    @TableField(value = "`actor`")
     @JSONField(name = "actor")
     @JsonProperty("actor")
     private String actor;
     /**
      * 项目
      */
-    @TableField(value = "project")
+    @TableField(value = "`project`")
     @JSONField(name = "project")
     @JsonProperty("project")
     private Long project;
@@ -143,7 +143,7 @@ public class Action extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "isactorss")
     @JsonProperty("isactorss")
-    private Integer isactorss;
+    private Long isactorss;
     /**
      * 显示日期
      */
@@ -213,7 +213,7 @@ public class Action extends EntityMP implements Serializable {
     /**
      * 设置 [对象ID]
      */
-    public void setObjectid(Integer objectid){
+    public void setObjectid(Long objectid){
         this.objectid = objectid ;
         this.modify("objectid",objectid);
     }
@@ -238,6 +238,18 @@ public class Action extends EntityMP implements Serializable {
     @Override
     public Serializable getDefaultKey(boolean gen) {
        return IdWorker.getId();
+    }
+    /**
+     * 复制当前对象数据到目标对象(粘贴重置)
+     * @param targetEntity 目标数据对象
+     * @param bIncEmpty  是否包括空值
+     * @param <T>
+     * @return
+     */
+    @Override
+    public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
+        this.reset("id");
+        return super.copyTo(targetEntity,bIncEmpty);
     }
 }
 
