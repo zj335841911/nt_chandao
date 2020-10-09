@@ -74,7 +74,6 @@ export default class InvolvedProjectModel {
           name: 'project',
           prop: 'id',
         },
-
         {
           name:'size',
           prop:'size'

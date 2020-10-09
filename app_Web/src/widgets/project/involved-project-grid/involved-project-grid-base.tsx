@@ -94,6 +94,22 @@ export class InvolvedProjectGridBase extends GridControlBase {
     public isEnablePagingBar: boolean = false;
 
     /**
+     * 是否禁用排序
+     *
+     * @type {boolean}
+     * @memberof InvolvedProjectGridBase
+     */
+    public isNoSort: boolean = true;
+
+    /**
+     * 分页条数
+     *
+     * @type {number}
+     * @memberof InvolvedProjectGridBase
+     */
+    public limit: number = 100;
+
+    /**
      * 所有列成员
      *
      * @type {any[]}
@@ -105,7 +121,7 @@ export class InvolvedProjectGridBase extends GridControlBase {
             label: '项目名称',
             langtag: 'entities.project.involvedproject_grid.columns.name',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -113,7 +129,7 @@ export class InvolvedProjectGridBase extends GridControlBase {
             label: '需求总数',
             langtag: 'entities.project.involvedproject_grid.columns.storycnt',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -121,7 +137,7 @@ export class InvolvedProjectGridBase extends GridControlBase {
             label: '已完成任务数',
             langtag: 'entities.project.involvedproject_grid.columns.ycompletetaskcnt',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
         {
@@ -129,7 +145,7 @@ export class InvolvedProjectGridBase extends GridControlBase {
             label: 'Bug总数',
             langtag: 'entities.project.involvedproject_grid.columns.bugcnt',
             show: true,
-            unit: 'PX',
+            unit: 'STAR',
             isEnableRowEdit: false,
         },
     ]
