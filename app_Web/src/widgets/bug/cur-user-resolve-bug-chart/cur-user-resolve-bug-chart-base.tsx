@@ -276,12 +276,12 @@ export class CurUserResolveBugChartBase extends MainControlBase {
      */   
     public chartOption:any = {
         title:{
-            show:true ,
+            show:false ,
             text:'解决的Bug数',
             subtext:''
         },
         legend:{
-            show:true
+            show:false
         },
         tooltip:{
             show:true

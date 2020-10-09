@@ -152,19 +152,19 @@ export class MainEditFormBase extends EditFormControlBase {
 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        grouppanel13: new FormGroupPanelModel({ caption: '研发', detailType: 'GROUPPANEL', name: 'grouppanel13', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel13: new FormGroupPanelModel({ caption: '成任务数和解决Bug数', detailType: 'GROUPPANEL', name: 'grouppanel13', visible: false, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
 
-        grouppanel16: new FormGroupPanelModel({ caption: '测试', detailType: 'GROUPPANEL', name: 'grouppanel16', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel16: new FormGroupPanelModel({ caption: '累计创建Bug数和创建用例数', detailType: 'GROUPPANEL', name: 'grouppanel16', visible: false, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
 
-        grouppanel15: new FormGroupPanelModel({ caption: '产品经理', detailType: 'GROUPPANEL', name: 'grouppanel15', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel15: new FormGroupPanelModel({ caption: '所创建需求数和对应的优先级及状态', detailType: 'GROUPPANEL', name: 'grouppanel15', visible: false, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel11: new FormGroupPanelModel({ caption: '饼图', detailType: 'GROUPPANEL', name: 'grouppanel11', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
 
-        grouppanel14: new FormGroupPanelModel({ caption: '研发', detailType: 'GROUPPANEL', name: 'grouppanel14', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel14: new FormGroupPanelModel({ caption: '月完成任务数及累计工时和解决Bug数', detailType: 'GROUPPANEL', name: 'grouppanel14', visible: false, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
 
-        grouppanel17: new FormGroupPanelModel({ caption: '测试', detailType: 'GROUPPANEL', name: 'grouppanel17', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel17: new FormGroupPanelModel({ caption: '月创建Bug数和创建用例数', detailType: 'GROUPPANEL', name: 'grouppanel17', visible: false, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
 
-        grouppanel18: new FormGroupPanelModel({ caption: '产品经理', detailType: 'GROUPPANEL', name: 'grouppanel18', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel18: new FormGroupPanelModel({ caption: '月创建需求数', detailType: 'GROUPPANEL', name: 'grouppanel18', visible: false, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel12: new FormGroupPanelModel({ caption: '月统计', detailType: 'GROUPPANEL', name: 'grouppanel12', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
 
