@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { FinishTaskAndBugPortletBase } from './finish-task-and-bug-portlet-base';
-import view_dashboard_sysportlet5_chart from '@widgets/user-year-work-stats/month-bug-chart/month-bug-chart.vue';
+import view_dashboard_sysportlet5_chart from '@widgets/user-year-work-stats/month-finish-task-and-bug-chart/month-finish-task-and-bug-chart.vue';
  
 
 /**

@@ -396,25 +396,9 @@ export class MonthFinishTaskAndBugChartBase extends MainControlBase {
               gridIndex:0,
               position:"top",
               type:'value',
-              name:'解决Bug',
-              
-              
-        }
-        ,                    {
-              gridIndex:1,
-              position:"top",
-              type:'value',
-              name:'累计工时',
-              
-              
-        }
-        ,                    {
-              gridIndex:2,
-              position:"top",
-              type:'value',
-              name:'完成任务',
-              
-              
+              name:'数量',
+              min:0,
+              max:100,
         }
         ],
         tooltip:{
@@ -427,18 +411,18 @@ export class MonthFinishTaskAndBugChartBase extends MainControlBase {
             name:'解决Bug',
             type:'line',
             xAxisIndex:0,
-            yAxisIndex:2,
+            yAxisIndex:0,
             datasetIndex:0,
             encode: {
                 x: ['curmonth'],      
-                y: []
+                y: ['montresolvedbug']
             }}
         ,                     {
             id:'finishtask',
             name:'完成的任务',
             type:'line',
             xAxisIndex:0,
-            yAxisIndex:2,
+            yAxisIndex:0,
             datasetIndex:1,
             encode: {
                 x: ['curmonth'],      
@@ -449,11 +433,11 @@ export class MonthFinishTaskAndBugChartBase extends MainControlBase {
             name:'累计工时',
             type:'line',
             xAxisIndex:0,
-            yAxisIndex:2,
+            yAxisIndex:0,
             datasetIndex:2,
             encode: {
                 x: ['curmonth'],      
-                y: []
+                y: [' montestimate']
             }}
         ]
     };
