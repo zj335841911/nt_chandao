@@ -242,7 +242,7 @@ export default class Main_RowEdit_CarryOutGrid extends Main_RowEdit_CarryOutGrid
           parent: "0",
           query: null,
           reals: null,
-          runid: 238,
+          runid: null,
           size: null,
           sort: null,
           srfdataaccaction: "",
@@ -250,10 +250,10 @@ export default class Main_RowEdit_CarryOutGrid extends Main_RowEdit_CarryOutGrid
           srfkey: "",
           srfmajortext: "",
           srfparentdata: null,
-          srfuf: "1",
+          srfuf: "",
           steps: null,
           type: "step",
-          version: 1,
+          version: null,
         });
         this.gridItemsModel.push(this.getGridRowModel());
       } else {
