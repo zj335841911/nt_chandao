@@ -756,15 +756,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '3519739a278f4151b39580be3a276cbf',
-            viewmodule: 'ibiz',
-            viewname: 'UserYearWorkStatsInfoEditView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '35ba93bac795e0deb7297d2d471b7180',
             viewmodule: 'zentao',
             viewname: 'TaskSubTaskNewView',
@@ -2492,7 +2483,6 @@ export const viewstate: any = {
             refviews: [
                 '96d2f792bc2c38a37fe873a125cb57b6',
                 'a250e5baa5d560a9fa660ba3f1bc9f51',
-                '3519739a278f4151b39580be3a276cbf',
                 'c862174c0f25d5077870c42115925fee',
             ],
         },

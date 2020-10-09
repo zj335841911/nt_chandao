@@ -1,0 +1,24 @@
+<template src="./involved-project-portlet.html"/>
+<script lang='tsx'>
+import { Component } from 'vue-property-decorator';
+import { VueLifeCycleProcessing } from '@/studio-core';
+import { InvolvedProjectPortletBase } from './involved-project-portlet-base';
+import view_dashboard_sysportlet2_chart from '@widgets/project/involved-project-chart/involved-project-chart.vue';
+ 
+
+/**
+ * dashboard_sysportlet2部件
+ *
+ * @export
+ * @class InvolvedProjectPortlet
+ * @extends {InvolvedProjectPortletBase}
+ */
+@Component({
+    components: {
+        view_dashboard_sysportlet2_chart, 
+         
+    }
+})
+@VueLifeCycleProcessing()
+export default class InvolvedProjectPortlet extends InvolvedProjectPortletBase { }
+</script>

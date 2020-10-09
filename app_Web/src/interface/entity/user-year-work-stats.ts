@@ -149,4 +149,36 @@ export interface UserYearWorkStats {
      * @memberof UserYearWorkStats
      */
     title?: any;
+
+    /**
+     * 月完成任务数
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    monthfinishtask?: any;
+
+    /**
+     * 月累计工时
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    montestimate?: any;
+
+    /**
+     * 月解决Bug数
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    montresolvedbug?: any;
+
+    /**
+     * 当前月
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    curmonth?: any;
 }
