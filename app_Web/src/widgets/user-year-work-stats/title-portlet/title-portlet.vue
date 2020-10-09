@@ -6,7 +6,7 @@ import { TitlePortletBase } from './title-portlet-base';
  
 
 /**
- * dashboard_sysportlet2部件
+ * dashboard_sysportlet1部件
  *
  * @export
  * @class TitlePortlet
