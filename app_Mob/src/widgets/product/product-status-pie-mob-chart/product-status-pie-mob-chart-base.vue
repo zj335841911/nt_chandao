@@ -308,6 +308,7 @@ export default class ProductStatusPieMobBase extends Vue implements ControlInter
         }
     },
     ecObject:{
+        radius:['60%', '70%'],
     },
     seriesTemp:{
         type:'pie',

@@ -443,7 +443,7 @@ export default class AppIndexViewBase extends Vue {
      * @type {boolean}
      * @memberof AppIndexViewBase
      */
-    private mode: boolean = false;
+    private mode: boolean = true;
 
     /**
      * 当前主题
