@@ -234,6 +234,7 @@ export class CurUserResolveBugChartBase extends MainControlBase {
         }
     },
     ecObject:{
+        radius:['60%', '70%'],
     },
     seriesTemp:{
         type:'pie',
