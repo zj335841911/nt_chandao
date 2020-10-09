@@ -199,7 +199,7 @@ export class MonthFinishTaskAndBugChartBase extends MainControlBase {
     
     
     categorField:'curmonth',
-    categorCodeList:{type:'STATIC',tag:'DCodeList',emptycode:'empty',emptytext:'未定义'},
+    
     
     valueField:'montresolvedbug',
     seriesValues:[],
@@ -207,7 +207,7 @@ export class MonthFinishTaskAndBugChartBase extends MainControlBase {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"curmonth",codelist:{type:"STATIC",tag:"DCodeList",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"MONTH"},
+    {name:"curmonth",codelist:null,isGroupField:true,groupMode:"MONTH"},
     {name:"montresolvedbug",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
@@ -247,7 +247,7 @@ export class MonthFinishTaskAndBugChartBase extends MainControlBase {
     
     
     categorField:'curmonth',
-    categorCodeList:{type:'STATIC',tag:'DCodeList',emptycode:'empty',emptytext:'未定义'},
+    
     
     valueField:' monthfinishtask',
     seriesValues:[],
@@ -255,7 +255,7 @@ export class MonthFinishTaskAndBugChartBase extends MainControlBase {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"curmonth",codelist:{type:"STATIC",tag:"DCodeList",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"MONTH"},
+    {name:"curmonth",codelist:null,isGroupField:true,groupMode:"MONTH"},
     {name:" monthfinishtask",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
@@ -295,7 +295,7 @@ export class MonthFinishTaskAndBugChartBase extends MainControlBase {
     
     
     categorField:'curmonth',
-    categorCodeList:{type:'STATIC',tag:'DCodeList',emptycode:'empty',emptytext:'未定义'},
+    
     
     valueField:' montestimate',
     seriesValues:[],
@@ -303,7 +303,7 @@ export class MonthFinishTaskAndBugChartBase extends MainControlBase {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"curmonth",codelist:{type:"STATIC",tag:"DCodeList",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"MONTH"},
+    {name:"curmonth",codelist:null,isGroupField:true,groupMode:"MONTH"},
     {name:" montestimate",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
