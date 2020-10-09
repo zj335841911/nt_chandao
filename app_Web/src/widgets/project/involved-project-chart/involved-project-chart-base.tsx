@@ -199,7 +199,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
     
     
     categorField:'status',
-    categorCodeList:{type:'STATIC',tag:'Project__status',emptycode:'empty',emptytext:'未定义'},
+    
     
     valueField:' srfcount',
     seriesValues:[],
@@ -207,7 +207,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"status",codelist:{type:"STATIC",tag:"Project__status",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"CODELIST"},
+    {name:"status",codelist:null,isGroupField:true,groupMode:""},
     {name:" srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
