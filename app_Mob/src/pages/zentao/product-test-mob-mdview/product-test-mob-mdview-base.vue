@@ -239,7 +239,7 @@ export default class ProductTestMobMDViewBase extends Vue {
      * @type {*}
      * @memberof ProductTestMobMDViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'aa': 'aa' };
 
     /**
      * 视图模型数据
