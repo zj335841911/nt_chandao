@@ -92,6 +92,7 @@ export default class ProjectUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'storymeditview9',srfappde:'projects',component:'project-story-medit-view9'});
         this.allViewMap.set(':',{viewname:'tasktreeexpview',srfappde:'projects',component:'project-task-tree-exp-view'});
         this.allViewMap.set(':',{viewname:'mgeditview',srfappde:'projects',component:'project-mgedit-view'});
+        this.allViewMap.set(':',{viewname:'usr2gridview',srfappde:'projects',component:'project-usr2-grid-view'});
         this.allViewMap.set(':',{viewname:'testtabexpview',srfappde:'projects',component:'project-test-tab-exp-view'});
         this.allViewMap.set(':',{viewname:'editview_putoff',srfappde:'projects',component:'project-edit-view-putoff'});
         this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'projects',component:'project-main-my-grid-view'});

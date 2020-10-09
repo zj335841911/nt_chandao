@@ -469,6 +469,16 @@
         "viewtag": "1884d01229cee824d7577705da288043",
         "memo": ""
     },
+    "projectusr2gridview": {
+        "title": "项目实体表格视图(参与项目)",
+        "caption": "项目",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "zentao",
+        "viewname": "ProjectUsr2GridView",
+        "viewfilename": "project-usr2-grid-view",
+        "viewtag": "1956d68ebad0fcc688c189757a8601a6",
+        "memo": ""
+    },
     "projecttesttabexpview": {
         "title": "项目分页导航视图（测试）",
         "caption": "测试",

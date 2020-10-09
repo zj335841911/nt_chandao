@@ -383,6 +383,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProductTestDashboardView",
             "viewtag": "1884d01229cee824d7577705da288043"
         },
+        "projectusr2gridview": {
+            "title": "项目实体表格视图(参与项目)",
+            "caption": "项目",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "zentao",
+            "viewname": "ProjectUsr2GridView",
+            "viewtag": "1956d68ebad0fcc688c189757a8601a6"
+        },
         "projecttesttabexpview": {
             "title": "项目分页导航视图（测试）",
             "caption": "测试",

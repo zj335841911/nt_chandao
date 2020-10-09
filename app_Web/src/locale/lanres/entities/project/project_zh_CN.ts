@@ -84,6 +84,10 @@ export default {
 			caption: "团队管理",
       		title: "项目编辑视图（团队管理）",
 		},
+		usr2gridview: {
+			caption: "项目",
+      		title: "项目实体表格视图(参与项目)",
+		},
 		testtabexpview: {
 			caption: "测试",
       		title: "项目分页导航视图（测试）",
@@ -447,6 +451,16 @@ export default {
 		uiactions: {
 		},
 	},
+	involvedproject_grid: {
+		columns: {
+			name: "项目名称",
+			storycnt: "需求总数",
+			ycompletetaskcnt: "已完成任务数",
+			bugcnt: "Bug总数",
+		},
+		uiactions: {
+		},
+	},
 	main2_grid: {
 		columns: {
 			id: "ID",
@@ -544,6 +558,8 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+	},
+	usr2gridviewtoolbar_toolbar: {
 	},
 	leftsidebarlistviewtoolbar_toolbar: {
 		deuiaction3_manager: {
