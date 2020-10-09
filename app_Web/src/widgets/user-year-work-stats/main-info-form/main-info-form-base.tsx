@@ -131,6 +131,8 @@ export class MainInfoEditFormBase extends EditFormControlBase {
 
         grouppanel9: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'grouppanel9', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.maininfo_form', extractMode: 'ITEM', details: [] } }),
 
+        rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -208,6 +210,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.grouppanel3.setVisible(ret);
         }
+
 
 
 

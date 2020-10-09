@@ -66,6 +66,7 @@ export default {
 			grouppanel3: "产品经理", 
 			group1: "基本数据信息", 
 			grouppanel9: "基本信息", 
+			rawitem1: "", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "用户编号", 

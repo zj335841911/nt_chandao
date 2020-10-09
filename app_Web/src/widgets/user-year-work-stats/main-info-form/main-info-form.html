@@ -9,51 +9,11 @@
     <app-form-group :model="detailsModel.group1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.group1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.useryearworkstats.maininfo_form.details.group1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.yearvisits.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='yearvisits' :itemRules="this.rules.yearvisits" class='' :caption="$t('entities.useryearworkstats.maininfo_form.details.yearvisits')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.yearvisits.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='yearvisits' :value="data.yearvisits" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.yearactioncnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='yearactioncnt' :itemRules="this.rules.yearactioncnt" class='' :caption="$t('entities.useryearworkstats.maininfo_form.details.yearactioncnt')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.yearactioncnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='yearactioncnt' :value="data.yearactioncnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+        <i-col class="form-layout-container" v-show="detailsModel.grouppanel1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
     <app-form-group :model="detailsModel.grouppanel1" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.useryearworkstats.maininfo_form.details.grouppanel1')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.yearlogcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='yearlogcnt' :itemRules="this.rules.yearlogcnt" class='' :caption="$t('entities.useryearworkstats.maininfo_form.details.yearlogcnt')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.yearlogcnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='yearlogcnt' :value="data.yearlogcnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.yearestimatecnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='yearestimatecnt' :itemRules="this.rules.yearestimatecnt" class='' :caption="$t('entities.useryearworkstats.maininfo_form.details.yearestimatecnt')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.yearestimatecnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='yearestimatecnt' :value="data.yearestimatecnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-    
+            
     </row>
 </app-form-group>
 
@@ -134,6 +94,12 @@
     
     </row>
 </app-form-group>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <div class="" style="">
+    <div><ul id="block1List"><li>累计登录次数 <strong>{{data.yearvisits ? data.yearvisits: 0}}</strong></li><li>累计动态数 <strong>{{data.yearactioncnt ? data.yearactioncnt: 0}}</strong></li><li>累计日志数 <strong>{{data.yearlogcnt ? data.yearlogcnt: 0}}</strong></li><li>累计工时数 <strong>{{data.yearestimatecnt ? data.yearestimatecnt: 0}}</strong></li></ul></div>
+</div>
 
 </i-col>
 
