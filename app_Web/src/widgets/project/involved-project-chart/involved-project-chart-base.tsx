@@ -234,6 +234,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
         }
     },
     ecObject:{
+        radius:['60%', '70%'],
     },
     seriesTemp:{
         type:'pie',
@@ -251,6 +252,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * @memberof Dashboard_sysportlet6_chartBase
      */   
     public chartUserParams:any ={
+        color:["#0068B7","#1aa1e6","#81cef2","#FF5D5D",'#FDC137','#00DA88','#7ECFF','#8666B8','#BD7B46']
     };
 
     /**
