@@ -230,7 +230,7 @@ export default class ProductTestMobMDViewBase extends Vue {
      * @type {*}
      * @memberof ProductTestMobMDViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'aa': 'aa' };
 
     /**
      * 视图导航参数
@@ -239,7 +239,7 @@ export default class ProductTestMobMDViewBase extends Vue {
      * @type {*}
      * @memberof ProductTestMobMDViewBase
      */
-    protected navParam: any = { 'aa': 'aa' };
+    protected navParam: any = {};
 
     /**
      * 视图模型数据
