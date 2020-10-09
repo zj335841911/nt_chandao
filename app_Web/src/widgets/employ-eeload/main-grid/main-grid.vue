@@ -142,6 +142,7 @@ export default class MainGrid extends MainGridBase {
     @Watch("items")
     public itemsWatch(newVal:any, oldVal:any) {
         if (newVal) {
+            this.itemsRenderList.length = 0;
             this.itemsRenderList.push(...newVal)
             this.itemsRenderList.sort((prev:any, next:any) => {
                 if (prev['assignedto'] !== next['assignedto']) {

@@ -106,7 +106,7 @@ export default class BugassignedToGrid extends BugassignedToGridBase {
     @Watch("items")
     public itemsWatch(newVal:any, oldVal:any) {
         if (newVal) {
-            console.log("在这里~~~~",newVal)
+            this.itemsRenderList.length = 0;
             this.itemsRenderList.push(...newVal)
             this.itemsRenderList.sort((prev:any, next:any) => {
                 if (prev['assignedto'] !== next['assignedto']) {
