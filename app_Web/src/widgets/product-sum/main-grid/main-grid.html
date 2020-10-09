@@ -23,7 +23,7 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productsum.main_grid.columns.name')" :min-width="200"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productsum.main_grid.columns.name')" :min-width="180"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.productsum.main_grid.columns.name')}}
