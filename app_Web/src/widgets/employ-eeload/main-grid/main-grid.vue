@@ -1,7 +1,132 @@
-<template src="./main-grid.html"/>
+<template>
+    <div :class="{ 'grid': true, 'show-paging-bar': isEnablePagingBar, 'hidden-paging-bar': !isEnablePagingBar }">
+        <i-form>
+        <el-table v-if="isDisplay === true"
+            :span-method="rowSpanMethod"
+            :border="isDragendCol"
+            :highlight-current-row ="isSingleSelect"
+            :row-class-name="getRowClassName.bind(_self)"
+            :cell-class-name="getCellClassName.bind(_self)"
+            size="mini"
+            stripe
+            :height="tableHeight"
+            @row-click="rowClick($event)"  
+            @select-all="selectAll($event)"  
+            @select="select($event)"  
+            @row-class-name="onRowClassName($event)"  
+            @row-dblclick="rowDBLClick($event)"  
+            ref='multipleTable' :data="itemsRenderList" :show-header="!isHideHeader">
+                <template slot="empty">
+                    无数据 
+                    <span class="quick-toolbar">
+                    </span>
+                </template>
+                <template v-if="!isSingleSelect">
+                    <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
+                </template>
+                <template v-if="getColumnState('assignedto')">
+                    <el-table-column show-overflow-tooltip :prop="'assignedto'" :label="$t('entities.employeeload.main_grid.columns.assignedto')" :width="150"  :align="'center'">
+                        <template slot="header">
+                        <span class="column-header ">
+                            {{$t('entities.employeeload.main_grid.columns.assignedto')}}
+                        </span>
+                        </template>
+                        <template v-slot="{row}">
+                            <template >
+                <codelist :value="row.assignedto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+                            </template>
+                        </template>
+                    </el-table-column>
+                </template>
+                <template v-if="getColumnState('projectname')">
+                    <el-table-column show-overflow-tooltip :prop="'projectname'" :label="$t('entities.employeeload.main_grid.columns.projectname')" :min-width="100"  :align="'center'">
+                        <template slot="header">
+                        <span class="column-header ">
+                            {{$t('entities.employeeload.main_grid.columns.projectname')}}
+                        </span>
+                        </template>
+                        <template v-slot="{row}">
+                            <app-column-link deKeyField='project' :context="JSON.parse(JSON.stringify(context))" :viewparams="JSON.parse(JSON.stringify(viewparams))" :data="row" :linkview="{viewname: 'project-main-tab-exp-view', height: 0,width: 0,title: $t('entities.project.views.maintabexpview.title'),placement: '', isRedirectView: false,deResParameters: [
+                ]
+                ,parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'maintabexpview', parameterName: 'maintabexpview' }
+                ]}" valueitem="project">
+                                <span>{{row.projectname}}</span>
+                            </app-column-link >
+                        </template>
+                    </el-table-column>
+                </template>
+                <template v-if="getColumnState('taskcnt')">
+                    <el-table-column show-overflow-tooltip :prop="'taskcnt'" :label="$t('entities.employeeload.main_grid.columns.taskcnt')" :width="150"  :align="'center'">
+                        <template slot="header">
+                        <span class="column-header ">
+                            {{$t('entities.employeeload.main_grid.columns.taskcnt')}}
+                        </span>
+                        </template>
+                        <template v-slot="{row}">
+                            <span>{{row.taskcnt}}</span>
+                        </template>
+                    </el-table-column>
+                </template>
+                <template v-if="getColumnState('left')">
+                    <el-table-column show-overflow-tooltip :prop="'left'" :label="$t('entities.employeeload.main_grid.columns.left')" :width="150"  :align="'center'">
+                        <template slot="header">
+                        <span class="column-header ">
+                            {{$t('entities.employeeload.main_grid.columns.left')}}
+                        </span>
+                        </template>
+                        <template v-slot="{row}">
+                            <span>{{row.left}}</span>
+                        </template>
+                    </el-table-column>
+                </template>
+                <template v-if="getColumnState('totaltaskcnt')">
+                    <el-table-column show-overflow-tooltip :prop="'totaltaskcnt'" :label="$t('entities.employeeload.main_grid.columns.totaltaskcnt')" :width="150"  :align="'center'">
+                        <template slot="header">
+                        <span class="column-header ">
+                            {{$t('entities.employeeload.main_grid.columns.totaltaskcnt')}}
+                        </span>
+                        </template>
+                        <template v-slot="{row}">
+                            <span>{{row.totaltaskcnt}}</span>
+                        </template>
+                    </el-table-column>
+                </template>
+                <template v-if="getColumnState('totalleft')">
+                    <el-table-column show-overflow-tooltip :prop="'totalleft'" :label="$t('entities.employeeload.main_grid.columns.totalleft')" :width="150"  :align="'center'">
+                        <template slot="header">
+                        <span class="column-header ">
+                            {{$t('entities.employeeload.main_grid.columns.totalleft')}}
+                        </span>
+                        </template>
+                        <template v-slot="{row}">
+                            <span>{{row.totalleft}}</span>
+                        </template>
+                    </el-table-column>
+                </template>
+                <template v-if="getColumnState('workload')">
+                    <el-table-column show-overflow-tooltip :prop="'workload'" :label="$t('entities.employeeload.main_grid.columns.workload')" :width="150"  :align="'center'">
+                        <template slot="header">
+                        <span class="column-header ">
+                            {{$t('entities.employeeload.main_grid.columns.workload')}}
+                        </span>
+                        </template>
+                        <template v-slot="{row}">
+                            <span>{{row.workload}}</span>
+                        </template>
+                    </el-table-column>
+                </template>
+                <template v-if="adaptiveState">
+                    <el-table-column></el-table-column>
+                </template>
+        </el-table>
+    </i-form>
+    </div>
+</template>
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
-import { VueLifeCycleProcessing } from '@/studio-core';
+import { VueLifeCycleProcessing, Watch } from '@/studio-core';
 import { MainGridBase } from './main-grid-base';
  
 
@@ -18,5 +143,47 @@ import { MainGridBase } from './main-grid-base';
     }
 })
 @VueLifeCycleProcessing()
-export default class MainGrid extends MainGridBase { }
+export default class MainGrid extends MainGridBase { 
+    public infoList:Array<any> = [];
+    public itemsRenderList:Array<any> = [];
+
+    @Watch("items")
+    public itemsWatch(newVal:any, oldVal:any) {
+        if (newVal) {
+            this.itemsRenderList.push(...newVal)
+            this.itemsRenderList.sort((prev:any, next:any) => {
+                if (prev['assignedto'] !== next['assignedto']) {
+                    return prev['assignedto'].localeCompare(next['assignedto'])
+                }
+            })
+            let tempArray:Array<any> = [];
+            this.itemsRenderList.forEach((item:any) => {
+                let firstIndex:number = this.itemsRenderList.findIndex((curr:any) => {return curr.assignedto === item.assignedto;});
+                if (tempArray.findIndex((curr:any) => {return curr.firstIndex === firstIndex}) === -1) {
+                    tempArray.push({length:this.itemsRenderList.filter((curr:any) => {return curr.assignedto === item.assignedto}).length,firstIndex:firstIndex})
+                }
+            })
+            this.infoList = [...tempArray];
+        }
+    }
+
+    public rowSpanMethod({ row, column, rowIndex, columnIndex }) {
+        if (columnIndex === 0 || columnIndex === 4 || columnIndex === 5 || columnIndex === 6) {
+            let index = this.infoList.findIndex((item:any) => {
+                return item.firstIndex === rowIndex;
+            })
+            if (index > -1) {
+                return {
+                    rowspan: this.infoList[index].length,
+                    colspan: 1
+                }
+            } else {
+                return {
+                    rowspan: 0,
+                    colspan: 0
+                }
+            }
+        }
+    }
+}
 </script>
