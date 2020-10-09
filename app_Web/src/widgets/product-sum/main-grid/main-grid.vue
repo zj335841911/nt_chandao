@@ -2,19 +2,11 @@
     <div :class="{ 'grid': true, 'show-paging-bar': isEnablePagingBar, 'hidden-paging-bar': !isEnablePagingBar }">
         <i-form>
         <el-table v-if="isDisplay === true"
-            :border="isDragendCol"
-            :highlight-current-row ="isSingleSelect"
-            :row-class-name="getRowClassName.bind(_self)"
-            :cell-class-name="getCellClassName.bind(_self)"
             :span-method="rowSpanMethod"
+            :cell-style="{background:'#fff',borderBottom:'solid 1px #e8e8e8',borderRight:'solid 1px #e8e8e8'}"
             size="mini"
             stripe
             :height="tableHeight"
-            @row-click="rowClick($event)"  
-            @select-all="selectAll($event)"  
-            @select="select($event)"  
-            @row-class-name="onRowClassName($event)"  
-            @row-dblclick="rowDBLClick($event)"  
             ref='multipleTable' :data="itemsRenderList" :show-header="!isHideHeader">
                 <template slot="empty">
                     无数据 
@@ -182,6 +174,7 @@ export default class MainGrid extends MainGridBase {
     @Watch("items")
     public itemsWatch(newVal:any, oldVal:any) {
         if (newVal) {
+            this.itemsRenderList.length = 0;
             this.itemsRenderList.push(...newVal)
             this.itemsRenderList.sort((prev:any, next:any) => {
                 if (prev['name'] !== next['name']) {
