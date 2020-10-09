@@ -2,9 +2,9 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
-import ProjectService from '@/service/project/project-service';
-import InvolvedProjectService from './involved-project-chart-service';
-import ProjectUIService from '@/uiservice/project/project-ui-service';
+import UserYearWorkStatsService from '@/service/user-year-work-stats/user-year-work-stats-service';
+import MonthFinishTaskAndBugService from './month-finish-task-and-bug-chart-service';
+import UserYearWorkStatsUIService from '@/uiservice/user-year-work-stats/user-year-work-stats-ui-service';
 import echarts from 'echarts';
 import moment from "moment"; 
 import CodeListService from "@service/app/codelist-service";
@@ -12,70 +12,70 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
 
 
 /**
- * dashboard_sysportlet6_chart部件基类
+ * dashboard_sysportlet5_chart部件基类
  *
  * @export
  * @class MainControlBase
- * @extends {InvolvedProjectChartBase}
+ * @extends {MonthFinishTaskAndBugChartBase}
  */
-export class InvolvedProjectChartBase extends MainControlBase {
+export class MonthFinishTaskAndBugChartBase extends MainControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof InvolvedProjectChartBase
+     * @memberof MonthFinishTaskAndBugChartBase
      */
     protected controlType: string = 'CHART';
 
     /**
      * 建构部件服务对象
      *
-     * @type {InvolvedProjectService}
-     * @memberof InvolvedProjectChartBase
+     * @type {MonthFinishTaskAndBugService}
+     * @memberof MonthFinishTaskAndBugChartBase
      */
-    public service: InvolvedProjectService = new InvolvedProjectService({ $store: this.$store });
+    public service: MonthFinishTaskAndBugService = new MonthFinishTaskAndBugService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {ProjectService}
-     * @memberof InvolvedProjectChartBase
+     * @type {UserYearWorkStatsService}
+     * @memberof MonthFinishTaskAndBugChartBase
      */
-    public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
+    public appEntityService: UserYearWorkStatsService = new UserYearWorkStatsService({ $store: this.$store });
 
     /**
      * 应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof InvolvedProjectChartBase
+     * @memberof MonthFinishTaskAndBugChartBase
      */
-    protected appDeName: string = 'project';
+    protected appDeName: string = 'useryearworkstats';
 
     /**
      * 应用实体中文名称
      *
      * @protected
      * @type {string}
-     * @memberof InvolvedProjectChartBase
+     * @memberof MonthFinishTaskAndBugChartBase
      */
-    protected appDeLogicName: string = '项目';
+    protected appDeLogicName: string = '用户年度工作内容统计';
 
     /**
      * 界面UI服务对象
      *
-     * @type {ProjectUIService}
-     * @memberof InvolvedProjectBase
+     * @type {UserYearWorkStatsUIService}
+     * @memberof MonthFinishTaskAndBugBase
      */  
-    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+    public appUIService:UserYearWorkStatsUIService = new UserYearWorkStatsUIService(this.$store);
 
     /**
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof InvolvedProject
+     * @memberof MonthFinishTaskAndBugBase
      */
     public getDatas(): any[] {
         return [];
@@ -85,7 +85,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof InvolvedProject
+     * @memberof MonthFinishTaskAndBugBase
      */
     public getData(): any {
         return null;
@@ -95,7 +95,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof InvolvedProject
+     * @memberof MonthFinishTaskAndBugBase
      */
     @Prop({ default: true }) public showBusyIndicator!: boolean;
 
@@ -103,14 +103,14 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof InvolvedProject
+     * @memberof MonthFinishTaskAndBugBase
      */
     @Prop() public fetchAction!: string;  
 
     /**
     * Vue声明周期(组件初始化完毕)
     *
-    * @memberof InvolvedProject
+    * @memberof MonthFinishTaskAndBugBase
     */
     public created() {
          this.afterCreated();     
@@ -119,7 +119,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
     /**
     * 执行created后的逻辑
     *
-    * @memberof InvolvedProject
+    * @memberof MonthFinishTaskAndBugBase
     */
     public afterCreated(){
         if (this.viewState) {
@@ -137,7 +137,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof InvolvedProject
+     * @memberof MonthFinishTaskAndBugBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -146,7 +146,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof InvolvedProject
+     * @memberof MonthFinishTaskAndBugBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -159,7 +159,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      *
      * @public
      * @type {boolean}
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public isNoData: boolean  = false;
 
@@ -167,7 +167,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * 图表div绑定的id
      *
      * @type {}
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */   
     public chartId:string = this.$util.createUUID();
 
@@ -175,7 +175,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * echarts图表对象
      *
      * @type {}
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */   
     public myChart:any;
 
@@ -183,7 +183,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * 代码表服务对象
      *
      * @type {CodeListService}
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */  
     public codeListService:CodeListService = new CodeListService({ $store: this.$store });
 
@@ -191,32 +191,31 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * 序列模型
      *
      * @type {}
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public  seriesModel:any = {
-        involved:new ChartPieSeries({
-    name:'involved',
+        montresolvedbug:new ChartLineSeries({
+    name:'montresolvedbug',
     
     
-    categorField:'status',
-    categorCodeList:{type:'STATIC',tag:'Project__status',emptycode:'empty',emptytext:'未定义'},
+    categorField:'curmonth',
     
-    valueField:' srfcount',
+    
+    valueField:'montresolvedbug',
     seriesValues:[],
     seriesIndex:0,
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"status",codelist:{type:"STATIC",tag:"Project__status",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"CODELIST"},
-    {name:" srfcount",codelist:null,isGroupField:false,groupMode:""}
+    {name:"curmonth",codelist:null,isGroupField:true,groupMode:"MONTH"},
+    {name:"montresolvedbug",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
         label:{
             show: true,
-            position: 'outside',
+            position: 'inside'
         },
         labelLine:{
-            show: true,
             length: 10,
             lineStyle: {
                 width: 1,
@@ -236,19 +235,115 @@ export class InvolvedProjectChartBase extends MainControlBase {
     ecObject:{
     },
     seriesTemp:{
-        type:'pie',
+        type:'line',
     },
+    seriesLayoutBy:"column",
     baseOption:{
+    }
+    })  
+,
+        finishtask:new ChartLineSeries({
+    name:'finishtask',
+    
+    
+    categorField:'curmonth',
+    
+    
+    valueField:' monthfinishtask',
+    seriesValues:[],
+    seriesIndex:1,
+    data:[],
+    seriesMap:{},
+    dataSetFields:[
+    {name:"curmonth",codelist:null,isGroupField:true,groupMode:"MONTH"},
+    {name:" monthfinishtask",codelist:null,isGroupField:false,groupMode:""}
+    ],
+    ecxObject:{
+        label:{
+            show: true,
+            position: 'inside'
+        },
+        labelLine:{
+            length: 10,
+            lineStyle: {
+                width: 1,
+                type: 'solid'
+            }
+        },
+        itemStyle:{
+            borderColor: '#fff',
+            borderWidth: 1
+        },
+        emphasis:{
+            label: {
+                fontSize: 20
+            }
+        }
     },
-    seriesLayoutBy:"column"
-    })
+    ecObject:{
+    },
+    seriesTemp:{
+        type:'line',
+    },
+    seriesLayoutBy:"column",
+    baseOption:{
+    }
+    })  
+,
+        montestimate:new ChartLineSeries({
+    name:'montestimate',
+    
+    
+    categorField:'curmonth',
+    
+    
+    valueField:' montestimate',
+    seriesValues:[],
+    seriesIndex:2,
+    data:[],
+    seriesMap:{},
+    dataSetFields:[
+    {name:"curmonth",codelist:null,isGroupField:true,groupMode:"MONTH"},
+    {name:" montestimate",codelist:null,isGroupField:false,groupMode:""}
+    ],
+    ecxObject:{
+        label:{
+            show: true,
+            position: 'inside'
+        },
+        labelLine:{
+            length: 10,
+            lineStyle: {
+                width: 1,
+                type: 'solid'
+            }
+        },
+        itemStyle:{
+            borderColor: '#fff',
+            borderWidth: 1
+        },
+        emphasis:{
+            label: {
+                fontSize: 20
+            }
+        }
+    },
+    ecObject:{
+    },
+    seriesTemp:{
+        type:'line',
+    },
+    seriesLayoutBy:"column",
+    baseOption:{
+    }
+    })  
 
     };
 
     /**
      * 图表自定义参数集合
      *
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */   
     public chartUserParams:any ={
     };
@@ -256,14 +351,14 @@ export class InvolvedProjectChartBase extends MainControlBase {
     /**
      * 图表基础动态模型
      *
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */  
     public chartBaseOPtion:any = {};
 
     /**
      * 图表绘制最终参数
      *
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */ 
     public chartRenderOption:any = {};
 
@@ -271,7 +366,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * 初始化图表所需参数
      *
      * @type {}
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */   
     public chartOption:any = {
         title:{
@@ -282,21 +377,83 @@ export class InvolvedProjectChartBase extends MainControlBase {
         legend:{
             show:true
         },
+        grid:[
+                    {
+        }
+        ],
+        xAxis: [
+                    {
+              gridIndex:0,
+              position:"bottom",
+              type:'category',
+              name:'月',
+              
+              
+        }
+        ],
+        yAxis:[
+                    {
+              gridIndex:0,
+              position:"top",
+              type:'value',
+              name:'解决Bug',
+              
+              
+        }
+        ,                    {
+              gridIndex:1,
+              position:"top",
+              type:'value',
+              name:'累计工时',
+              
+              
+        }
+        ,                    {
+              gridIndex:2,
+              position:"top",
+              type:'value',
+              name:'完成任务',
+              
+              
+        }
+        ],
         tooltip:{
             show:true
         },
         dataset:[],
         series:[
                      {
-            id:'involved',
-            name:'',
-            type:'pie',
+            id:'montresolvedbug',
+            name:'解决Bug',
+            type:'line',
+            xAxisIndex:0,
+            yAxisIndex:2,
             datasetIndex:0,
-            
-            seriesLayoutBy:"column",
-            encode:{
-                itemName:"status",
-                value:" srfcount"
+            encode: {
+                x: ['curmonth'],      
+                y: []
+            }}
+        ,                     {
+            id:'finishtask',
+            name:'完成的任务',
+            type:'line',
+            xAxisIndex:0,
+            yAxisIndex:2,
+            datasetIndex:1,
+            encode: {
+                x: ['curmonth'],      
+                y: [' monthfinishtask']
+            }}
+        ,                     {
+            id:'montestimate',
+            name:'累计工时',
+            type:'line',
+            xAxisIndex:0,
+            yAxisIndex:2,
+            datasetIndex:2,
+            encode: {
+                x: ['curmonth'],      
+                y: []
             }}
         ]
     };
@@ -305,7 +462,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * 刷新
      *
      * @param {*} [opt={}]
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public refresh(opt: any = {}) {
         this.load(opt);
@@ -315,7 +472,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * 获取图表数据
      * 
      * @returns {*} 
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public load(opt?:any) {
         let _this = this;
@@ -337,7 +494,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * 绘制图表
      * 
      * @returns {*} 
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public drawCharts(codelist:any){
         if(!this.myChart){
@@ -353,7 +510,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
     /**
      * 处理图表参数
      * 
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public handleChartOPtion(allcodelist:any){
         let _chartOption:any = JSON.parse(JSON.stringify(this.chartOption));
@@ -422,7 +579,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * 
      * @param {*} data 实体数据集
      * @param {Function} callback 回调
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public async transformToBasicChartSetData(data:any,callback:Function){
         if(!data || !Array.isArray(data) || data.length === 0){
@@ -516,7 +673,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * @param {Array<any>} callback 回调
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public transformToChartSeriesDataSet(data:any,item:any,callback:Function,allCodeList:any):any{
         if(item.seriesIdField){
@@ -569,7 +726,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * @param {*} groupFieldModel 分组属性模型
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public groupAndAdd(groupField:Array<any>,seriesField:Array<any>,valueField:Array<any>,data:any,item:any,groupFieldModel:any,allCodeList:any){
         let tempMap:Map<string,any> = new Map();
@@ -662,7 +819,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
         }
         // 补全空白分类
         if(returnArray.length >0){
-            let emptyText = (groupFieldModel[0] && groupFieldModel[0].codeList)?groupFieldModel[0].codeList.emptytext:(this.$t('app.chart.undefined') as string);
+            let emptyText = (groupFieldModel[0] && groupFieldModel[0].codeList)?groupFieldModel[0].codeList.emptytext:"未定义";
             returnArray.forEach((item:any) =>{
                 if(!item[groupField[0]]){
                     item[groupField[0]] = emptyText;
@@ -697,7 +854,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * @param {*} groupField 分组属性
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public sortReturnArray(arr:Array<any>,groupField:any,allCodeList:any){
         let returnArray:Array<any> = [];
@@ -728,11 +885,11 @@ export class InvolvedProjectChartBase extends MainControlBase {
                     return Number(a[groupField[0].name]) - Number(b[groupField[0].name]);
                 });
             }else if(Object.is(groupField[0].groupMode,"QUARTER")){
-                returnArray = this.handleSortGroupData(arr,groupField,(this.$t('app.chart.quarter') as string));
+                returnArray = this.handleSortGroupData(arr,groupField,"季度");
             }else if(Object.is(groupField[0].groupMode,"MONTH")){
-                returnArray = this.handleSortGroupData(arr,groupField,(this.$t('app.calendar.month') as string));
+                returnArray = this.handleSortGroupData(arr,groupField,"月");
             }else if(Object.is(groupField[0].groupMode,"YEARWEEK")){
-                returnArray = this.handleSortGroupData(arr,groupField,(this.$t('app.calendar.week') as string));
+                returnArray = this.handleSortGroupData(arr,groupField,"周");
             }else if(Object.is(groupField[0].groupMode,"DAY")){
                 returnArray = arr.sort((a:any, b:any) => {
                     return moment(a[groupField[0].name]).unix() - moment(b[groupField[0].name]).unix();
@@ -764,7 +921,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * @param {Array<any>} groupField 分组属性
      * @param {Array<any>} label label标签
      * 
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public handleSortGroupData(arr:Array<any>,groupField:any,label:string){
         arr.forEach((item:any) =>{
@@ -798,7 +955,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * @param {Array<any>} item 单个序列
      * @param {Array<any>} allCodeList 所有的代码表
      * 
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public completeDataSet(data:any,item:any,allCodeList:any){
         // 分组属性
@@ -823,7 +980,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * 
      * @param {Array<any>} tempTimeArray 传入数据
      * 
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public  getRangeData(tempTimeArray:Array<any>){
         tempTimeArray.forEach((item:any) =>{
@@ -847,7 +1004,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * @param {Array<any>} allCodeList 所有的代码表
      * @param {Array<any>} groupField 分组属性
      * 
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public handleTimeData(data:any,item:any,allCodeList:any,groupField:any){
         let valueField = item.dataSetFields.find((datasetField:any) =>{
@@ -979,7 +1136,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * @param {Array<any>} item 单个序列
      * @param {Array<any>} allCodeList 所有的代码表
      * 
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public  completeCodeList(data:any,item:any,allCodeList:any){
         let groupField = item.dataSetFields.find((datasetField:any) =>{
@@ -1023,7 +1180,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * @param {*} allCodeList 所有代码表
      * @param {*} result 结果值
      * 
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public handleSingleDataSetField(input:any,field:any,allCodeList:any,result:any,groupField:any){
         let tempFieldObj:any = {};
@@ -1059,7 +1216,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
     /**
      * 获取图表所需代码表
      * 
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public getChartAllCodeList():Promise<any>{
         return new Promise((resolve:any,reject:any) =>{
@@ -1106,7 +1263,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
      * 获取代码表
      * 
      * @returns {Promise<any>} 
-     * @memberof Dashboard_sysportlet6_chartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public getCodeList(codeListObject:any):Promise<any>{
         return new Promise((resolve:any,reject:any) =>{
@@ -1126,6 +1283,4 @@ export class InvolvedProjectChartBase extends MainControlBase {
             }
         })
     }
-
-
 }

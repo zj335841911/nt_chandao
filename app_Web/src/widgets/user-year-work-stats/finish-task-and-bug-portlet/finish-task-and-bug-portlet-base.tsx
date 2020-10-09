@@ -1,79 +1,79 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
-import ProjectService from '@/service/project/project-service';
-import InvolvedProjectService from './involved-project-portlet-service';
-import ProjectUIService from '@/uiservice/project/project-ui-service';
+import UserYearWorkStatsService from '@/service/user-year-work-stats/user-year-work-stats-service';
+import FinishTaskAndBugService from './finish-task-and-bug-portlet-service';
+import UserYearWorkStatsUIService from '@/uiservice/user-year-work-stats/user-year-work-stats-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
 import { ViewTool } from '@/utils';
 
 
 /**
- * dashboard_sysportlet6部件基类
+ * dashboard_sysportlet5部件基类
  *
  * @export
  * @class MainControlBase
- * @extends {InvolvedProjectPortletBase}
+ * @extends {FinishTaskAndBugPortletBase}
  */
-export class InvolvedProjectPortletBase extends MainControlBase {
+export class FinishTaskAndBugPortletBase extends MainControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof InvolvedProjectPortletBase
+     * @memberof FinishTaskAndBugPortletBase
      */
     protected controlType: string = 'PORTLET';
 
     /**
      * 建构部件服务对象
      *
-     * @type {InvolvedProjectService}
-     * @memberof InvolvedProjectPortletBase
+     * @type {FinishTaskAndBugService}
+     * @memberof FinishTaskAndBugPortletBase
      */
-    public service: InvolvedProjectService = new InvolvedProjectService({ $store: this.$store });
+    public service: FinishTaskAndBugService = new FinishTaskAndBugService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {ProjectService}
-     * @memberof InvolvedProjectPortletBase
+     * @type {UserYearWorkStatsService}
+     * @memberof FinishTaskAndBugPortletBase
      */
-    public appEntityService: ProjectService = new ProjectService({ $store: this.$store });
+    public appEntityService: UserYearWorkStatsService = new UserYearWorkStatsService({ $store: this.$store });
 
     /**
      * 应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof InvolvedProjectPortletBase
+     * @memberof FinishTaskAndBugPortletBase
      */
-    protected appDeName: string = 'project';
+    protected appDeName: string = 'useryearworkstats';
 
     /**
      * 应用实体中文名称
      *
      * @protected
      * @type {string}
-     * @memberof InvolvedProjectPortletBase
+     * @memberof FinishTaskAndBugPortletBase
      */
-    protected appDeLogicName: string = '项目';
+    protected appDeLogicName: string = '用户年度工作内容统计';
 
     /**
      * 界面UI服务对象
      *
-     * @type {ProjectUIService}
-     * @memberof InvolvedProjectBase
+     * @type {UserYearWorkStatsUIService}
+     * @memberof FinishTaskAndBugBase
      */  
-    public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+    public appUIService:UserYearWorkStatsUIService = new UserYearWorkStatsUIService(this.$store);
 
     /**
      * 长度
      *
      * @type {number}
-     * @memberof InvolvedProject
+     * @memberof FinishTaskAndBug
      */
     @Prop() public height?: number;
 
@@ -81,7 +81,7 @@ export class InvolvedProjectPortletBase extends MainControlBase {
      * 宽度
      *
      * @type {number}
-     * @memberof InvolvedProject
+     * @memberof FinishTaskAndBug
      */
     @Prop() public width?: number;
 
@@ -89,14 +89,14 @@ export class InvolvedProjectPortletBase extends MainControlBase {
      * 门户部件类型
      *
      * @type {number}
-     * @memberof InvolvedProjectBase
+     * @memberof FinishTaskAndBugBase
      */
     public portletType: string = 'chart';
 
     /**
      * 界面行为模型数据
      *
-     * @memberof InvolvedProjectBase
+     * @memberof FinishTaskAndBugBase
      */
     public uiactionModel: any = {
     }
@@ -107,7 +107,7 @@ export class InvolvedProjectPortletBase extends MainControlBase {
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof InvolvedProjectBase
+     * @memberof FinishTaskAndBugBase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -115,7 +115,7 @@ export class InvolvedProjectPortletBase extends MainControlBase {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof InvolvedProjectBase
+     * @memberof FinishTaskAndBugBase
      */
     public getDatas(): any[] {
         return [];
@@ -125,7 +125,7 @@ export class InvolvedProjectPortletBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof InvolvedProjectBase
+     * @memberof FinishTaskAndBugBase
      */
     public getData(): any {
         return {};
@@ -135,7 +135,7 @@ export class InvolvedProjectPortletBase extends MainControlBase {
      * 获取高度
      *
      * @returns {any[]}
-     * @memberof InvolvedProjectBase
+     * @memberof FinishTaskAndBugBase
      */
     get getHeight(): any{
         if(!this.$util.isEmpty(this.height) && !this.$util.isNumberNaN(this.height)){
@@ -145,14 +145,14 @@ export class InvolvedProjectPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '280px';
+            return '300px';
         }
     }
 
     /**
      * vue 生命周期
      *
-     * @memberof InvolvedProjectBase
+     * @memberof FinishTaskAndBugBase
      */
     public created() {
         this.afterCreated();
@@ -161,7 +161,7 @@ export class InvolvedProjectPortletBase extends MainControlBase {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof InvolvedProjectBase
+     *  @memberof FinishTaskAndBugBase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -183,7 +183,7 @@ export class InvolvedProjectPortletBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof InvolvedProjectBase
+     * @memberof FinishTaskAndBugBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -192,7 +192,7 @@ export class InvolvedProjectPortletBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof InvolvedProjectBase
+     * @memberof FinishTaskAndBugBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -203,7 +203,7 @@ export class InvolvedProjectPortletBase extends MainControlBase {
     /**
      * 计算界面行为权限
      *
-     * @memberof InvolvedProjectBase
+     * @memberof FinishTaskAndBugBase
      */
     public calcUIActionAuthState(data:any = {}) {
         //  如果是操作栏，不计算权限

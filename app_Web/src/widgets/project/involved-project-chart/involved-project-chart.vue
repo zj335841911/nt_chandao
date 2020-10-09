@@ -6,7 +6,7 @@ import { InvolvedProjectChartBase } from './involved-project-chart-base';
  
 
 /**
- * dashboard_sysportlet2_chart部件
+ * dashboard_sysportlet6_chart部件
  *
  * @export
  * @class InvolvedProjectChart

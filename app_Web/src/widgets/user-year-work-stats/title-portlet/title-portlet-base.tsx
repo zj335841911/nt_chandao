@@ -10,7 +10,7 @@ import { ViewTool } from '@/utils';
 
 
 /**
- * dashboard_sysportlet1部件基类
+ * dashboard_sysportlet2部件基类
  *
  * @export
  * @class MainControlBase
@@ -145,7 +145,7 @@ export class TitlePortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '60px';
+            return '280px';
         }
     }
 

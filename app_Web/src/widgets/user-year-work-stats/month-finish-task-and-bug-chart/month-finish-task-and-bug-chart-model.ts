@@ -1,16 +1,16 @@
 /**
- * InvolvedProject 部件模型
+ * MonthFinishTaskAndBug 部件模型
  *
  * @export
- * @class InvolvedProjectModel
+ * @class MonthFinishTaskAndBugModel
  */
-export default class InvolvedProjectModel {
+export default class MonthFinishTaskAndBugModel {
 
 	/**
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof InvolvedProjectDashboard_sysportlet6_chartMode
+	 * @memberof MonthFinishTaskAndBugDashboard_sysportlet5_chartMode
 	 */
 	public getDataItems(): any[] {
 		return [

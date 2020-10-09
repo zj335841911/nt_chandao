@@ -3,11 +3,11 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { InvolvedProjectPortletBase } from './involved-project-portlet-base';
-import view_dashboard_sysportlet2_chart from '@widgets/project/involved-project-chart/involved-project-chart.vue';
+import view_dashboard_sysportlet6_chart from '@widgets/project/involved-project-chart/involved-project-chart.vue';
  
 
 /**
- * dashboard_sysportlet2部件
+ * dashboard_sysportlet6部件
  *
  * @export
  * @class InvolvedProjectPortlet
@@ -15,7 +15,7 @@ import view_dashboard_sysportlet2_chart from '@widgets/project/involved-project-
  */
 @Component({
     components: {
-        view_dashboard_sysportlet2_chart, 
+        view_dashboard_sysportlet6_chart, 
          
     }
 })
