@@ -145,7 +145,7 @@ export class InvolvedProject_StoryTaskBugPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '280px';
+            return '330px';
         }
     }
 
