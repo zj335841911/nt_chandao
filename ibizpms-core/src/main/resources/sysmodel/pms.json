@@ -30638,6 +30638,55 @@
     "data_length":200,
     "key_field":0,
     "major_field":1
+    },
+    {
+    "fieldname":"MONTHFINISHTASK" ,
+    "codename":"Monthfinishtask",
+    "field_logic_name":"月完成任务数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"MONTESTIMATE" ,
+    "codename":"Montestimate",
+    "field_logic_name":"月累计工时",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"MONTRESOLVEDBUG" ,
+    "codename":"Montresolvedbug",
+    "field_logic_name":"月解决Bug数",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"CURMONTH" ,
+    "codename":"Curmonth",
+    "field_logic_name":"当前月",
+    "entity_name":"UserYearWorkStats",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[

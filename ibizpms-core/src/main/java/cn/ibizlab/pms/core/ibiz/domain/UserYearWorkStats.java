@@ -169,6 +169,34 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     @JSONField(name = "title")
     @JsonProperty("title")
     private String title;
+    /**
+     * 月完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "monthfinishtask")
+    @JsonProperty("monthfinishtask")
+    private Integer monthfinishtask;
+    /**
+     * 月累计工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "montestimate")
+    @JsonProperty("montestimate")
+    private Integer montestimate;
+    /**
+     * 月解决Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "montresolvedbug")
+    @JsonProperty("montresolvedbug")
+    private Integer montresolvedbug;
+    /**
+     * 当前月
+     */
+    @TableField(exist = false)
+    @JSONField(name = "curmonth")
+    @JsonProperty("curmonth")
+    private String curmonth;
 
 
 

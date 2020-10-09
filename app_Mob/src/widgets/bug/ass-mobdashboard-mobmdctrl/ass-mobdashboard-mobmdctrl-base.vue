@@ -1265,8 +1265,12 @@ export default class AssMOBDASHBOARDBase extends Vue implements ControlInterface
         let ionlist:any = this.$refs.ionlist;
         if (ionlist.children) {
           ionlist.children.forEach((sliding:any) => {
-            sliding.close();
+            if(typeof sliding.close === 'function'){
+              sliding.close();
+            }
+            if(typeof sliding.closeOpened === 'function'){
             sliding.closeOpened();
+            }
           })
         }
     }

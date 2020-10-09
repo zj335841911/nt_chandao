@@ -1365,8 +1365,12 @@ export default class MobBase extends Vue implements ControlInterface {
         let ionlist:any = this.$refs.ionlist;
         if (ionlist.children) {
           ionlist.children.forEach((sliding:any) => {
-            sliding.close();
+            if(typeof sliding.close === 'function'){
+              sliding.close();
+            }
+            if(typeof sliding.closeOpened === 'function'){
             sliding.closeOpened();
+            }
           })
         }
     }
@@ -1453,7 +1457,7 @@ export default class MobBase extends Vue implements ControlInterface {
         finishMob: { name: 'finishMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'FINISH', target: 'SINGLEKEY',icon:'checkmark',isShowCaption:true,isShowIcon:true},
         deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DELETE', target: 'SINGLEKEY',icon:'remove',isShowCaption:true,isShowIcon:true},
         closeMob: { name: 'closeMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'CLOSE', target: 'SINGLEKEY',icon:'close',isShowCaption:true,isShowIcon:true},
-        editMob: { name: 'editMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'UPDATE', target: 'SINGLEKEY',icon:'edit (alias)',isShowCaption:true,isShowIcon:true}
+        editMob: { name: 'editMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'UPDATE', target: 'SINGLEKEY',icon:'edit',isShowCaption:true,isShowIcon:true}
     };
 
     

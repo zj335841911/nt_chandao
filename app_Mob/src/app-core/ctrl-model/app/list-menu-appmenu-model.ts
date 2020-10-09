@@ -152,7 +152,7 @@ export class ListMenuModel {
 	hidden: false,
 	hidesidebar: false,
 	opendefault: false,
-	iconcls: 'fa fa-pagelines',
+	iconcls: 'pagelines',
 	icon: '',
 	textcls: '',
 	appfunctag: '',

@@ -181,6 +181,39 @@ public class UserYearWorkStatsDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String title;
 
+    /**
+     * 属性 [MONTHFINISHTASK]
+     *
+     */
+    @JSONField(name = "monthfinishtask")
+    @JsonProperty("monthfinishtask")
+    private Integer monthfinishtask;
+
+    /**
+     * 属性 [MONTESTIMATE]
+     *
+     */
+    @JSONField(name = "montestimate")
+    @JsonProperty("montestimate")
+    private Integer montestimate;
+
+    /**
+     * 属性 [MONTRESOLVEDBUG]
+     *
+     */
+    @JSONField(name = "montresolvedbug")
+    @JsonProperty("montresolvedbug")
+    private Integer montresolvedbug;
+
+    /**
+     * 属性 [CURMONTH]
+     *
+     */
+    @JSONField(name = "curmonth")
+    @JsonProperty("curmonth")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String curmonth;
+
 
     /**
      * 设置 [REALNAME]

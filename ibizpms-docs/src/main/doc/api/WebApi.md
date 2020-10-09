@@ -320,6 +320,7 @@
 |/project/fetchcurproduct|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/project/fetchcuruser|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/project/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/project/fetchinvolvedproject|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/project/fetchmyproject|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/project/fetchprojectteam|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/project/fetchstoryproject|GET|DEDataSetFetchContext Json对象|&nbsp;|

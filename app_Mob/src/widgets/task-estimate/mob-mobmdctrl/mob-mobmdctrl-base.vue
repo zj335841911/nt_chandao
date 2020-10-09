@@ -1157,8 +1157,12 @@ export default class MobBase extends Vue implements ControlInterface {
         let ionlist:any = this.$refs.ionlist;
         if (ionlist.children) {
           ionlist.children.forEach((sliding:any) => {
-            sliding.close();
+            if(typeof sliding.close === 'function'){
+              sliding.close();
+            }
+            if(typeof sliding.closeOpened === 'function'){
             sliding.closeOpened();
+            }
           })
         }
     }
@@ -1240,8 +1244,8 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
-        EditMob: { name: 'EditMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'edit (alias)',isShowCaption:true,isShowIcon:true},
-        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'remove (alias)',isShowCaption:true,isShowIcon:true}
+        EditMob: { name: 'EditMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'edit',isShowCaption:true,isShowIcon:true},
+        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'remove',isShowCaption:true,isShowIcon:true}
     };
 
     
