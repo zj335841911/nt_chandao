@@ -125,7 +125,7 @@ export class ExpControlBase extends ControlBase {
      *
      * @type {CodeListService}
      * @memberof ExpControlBase
-     */  
+     */
     public codeListService: CodeListService = new CodeListService({ $store: this.$store });
 
     /**
@@ -133,54 +133,61 @@ export class ExpControlBase extends ControlBase {
      *
      * @memberof ExpControlBase
      */
-    public quickGroupData:any;
+    public quickGroupData: any;
 
     /**
      * 快速分组是否有抛值
      *
      * @memberof ExpControlBase
      */
-    public isEmitQuickGroupValue:boolean = false;
+    public isEmitQuickGroupValue: boolean = false;
 
     /**
      * 快速分组模型
      *
      * @memberof ExpControlBase
      */
-    public quickGroupModel:Array<any> = [];
+    public quickGroupModel: Array<any> = [];
+
+    /**
+     * 执行搜索
+     *
+     * @memberof ControlBase
+     */
+    public onSearch(args: any): void {
+        this.searchText = args;
+    }
 
     /**
      * 加载快速分组模型
      *
      * @memberof ExpControlBase
      */
-    public loadQuickGroupModel(){
-
-    }
+    public loadQuickGroupModel() { }
 
     /**
      * 处理快速分组模型动态数据部分(%xxx%)
      *
      * @memberof ExpControlBase
      */
-    public handleDynamicData(inputArray:Array<any>){
-        if(inputArray.length >0){
+    public handleDynamicData(inputArray: Array<any>) {
+        if (inputArray.length > 0) {
             inputArray[0].default = true;
-            inputArray.forEach((item:any) =>{
-               if(item.data && Object.keys(item.data).length >0){
-                   Object.keys(item.data).forEach((name:any) =>{
+            inputArray.forEach((item: any) => {
+                if (item.data && Object.keys(item.data).length > 0) {
+                    Object.keys(item.data).forEach((name: any) => {
                         let value: any = item.data[name];
-                        if (value && typeof(value)=='string' && value.startsWith('%') && value.endsWith('%')) {
+                        if (value && typeof (value) == 'string' && value.startsWith('%') && value.endsWith('%')) {
                             const key = (value.substring(1, value.length - 1)).toLowerCase();
                             if (this.context[key]) {
                                 value = this.context[key];
-                            } else if(this.viewparams[key]){
+                            } else if (this.viewparams[key]) {
                                 value = this.viewparams[key];
                             }
                         }
                         item.data[name] = value;
-                   })
-               }
+                    })
+                }
             })
         }
         return inputArray;
@@ -191,18 +198,18 @@ export class ExpControlBase extends ControlBase {
      *
      * @memberof ExpControlBase
      */
-    public quickGroupValueChange($event:any){
-        if($event && $event.data){
-            if(this.quickGroupData) {
-                for(let key in this.quickGroupData) {
+    public quickGroupValueChange($event: any) {
+        if ($event && $event.data) {
+            if (this.quickGroupData) {
+                for (let key in this.quickGroupData) {
                     delete this.viewparams[key];
                 }
             }
             this.quickGroupData = $event.data;
             Object.assign(this.viewparams, $event.data);
-        }else{
-            if(this.quickGroupData) {
-                for(let key in this.quickGroupData) {
+        } else {
+            if (this.quickGroupData) {
+                for (let key in this.quickGroupData) {
                     delete this.viewparams[key];
                 }
             }
@@ -227,7 +234,7 @@ export class ExpControlBase extends ControlBase {
      * @return {*} 
      * @memberof ExpControlBase
      */
-    public calcToolbarItemState(state: boolean, models?: any,uiService?:any) {
+    public calcToolbarItemState(state: boolean, models?: any, uiService?: any) {
         if (models) {
             for (const key in models) {
                 if (!models.hasOwnProperty(key)) {
@@ -242,7 +249,7 @@ export class ExpControlBase extends ControlBase {
                     _item.visabled = false;
                 }
             }
-            this.calcToolbarItemAuthState({},models,uiService);
+            this.calcToolbarItemAuthState({}, models, uiService);
         }
     }
 
@@ -256,36 +263,36 @@ export class ExpControlBase extends ControlBase {
      * @return {*} 
      * @memberof ExpControlBase
      */
-    public calcToolbarItemAuthState(data:any,ActionModel:any,UIService:any){
+    public calcToolbarItemAuthState(data: any, ActionModel: any, UIService: any) {
         let result: any[] = [];
         for (const key in ActionModel) {
             if (!ActionModel.hasOwnProperty(key)) {
                 return result;
             }
             const _item = ActionModel[key];
-            if(_item && _item['dataaccaction'] && UIService){
-                let dataActionResult:any;
-                if(_item['uiaction']){
-                    if(Object.is(_item['uiaction']['target'],"NONE") || Object.is(_item['uiaction']['target'],"")){
+            if (_item && _item['dataaccaction'] && UIService) {
+                let dataActionResult: any;
+                if (_item['uiaction']) {
+                    if (Object.is(_item['uiaction']['target'], "NONE") || Object.is(_item['uiaction']['target'], "")) {
                         dataActionResult = UIService.getResourceOPPrivs(_item['dataaccaction']);
-                    }else{
-                        if(data && Object.keys(data).length >0){
+                    } else {
+                        if (data && Object.keys(data).length > 0) {
                             dataActionResult = UIService.getAllOPPrivs(data)[_item['dataaccaction']];
                         }
                     }
                     // 无权限:0;有权限:1
-                    if(dataActionResult === 0){
+                    if (dataActionResult === 0) {
                         // 禁用:1;隐藏:2;隐藏且默认隐藏:6
-                        if(_item.noprivdisplaymode === 1){
+                        if (_item.noprivdisplaymode === 1) {
                             _item.disabled = true;
                         }
-                        if((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)){
+                        if ((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)) {
                             _item.visabled = false;
-                        }else{
+                        } else {
                             _item.visabled = true;
                         }
                     }
-                    if(dataActionResult === 1){
+                    if (dataActionResult === 1) {
                         _item.visabled = true;
                         _item.disabled = false;
                     }

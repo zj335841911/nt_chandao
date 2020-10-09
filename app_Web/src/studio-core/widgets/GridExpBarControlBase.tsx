@@ -1,4 +1,3 @@
-import { Prop } from 'vue-property-decorator';
 import { ExpControlBase } from './ExpControlBase';
 
 /**
@@ -42,6 +41,7 @@ export class GridExpBarControlBase extends ExpControlBase {
      * @memberof GridExpBarControlBase
      */
     public onSearch($event: any) {
+        super.onSearch($event);
         const grid: any = this.$refs.gridexpbar_grid;
         if (grid) {
             grid.load({ query: this.searchText });
