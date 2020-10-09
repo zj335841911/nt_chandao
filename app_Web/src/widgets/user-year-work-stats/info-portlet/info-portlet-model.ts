@@ -69,6 +69,18 @@ export default class InfoModel {
       {
         name: 'title',
       },
+      {
+        name: 'monthfinishtask',
+      },
+      {
+        name: 'montestimate',
+      },
+      {
+        name: 'montresolvedbug',
+      },
+      {
+        name: 'curmonth',
+      },
     ]
   }
 

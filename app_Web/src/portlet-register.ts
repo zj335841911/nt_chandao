@@ -40,10 +40,10 @@ import TodoTodoaction from '@/widgets/todo/todoaction-portlet/todoaction-portlet
 import TodoTodoBase from '@/widgets/todo/todo-base-portlet/todo-base-portlet.vue';
 import TodoTodoDesc from '@/widgets/todo/todo-desc-portlet/todo-desc-portlet.vue';
 import TodoTodoDashboardActions from '@/widgets/todo/todo-dashboard-actions-portlet/todo-dashboard-actions-portlet.vue';
+import UserYearWorkStatsInfo from '@/widgets/user-year-work-stats/info-portlet/info-portlet.vue';
 import UserYearWorkStatsFinishedbyTask from '@/widgets/user-year-work-stats/finishedby-task-portlet/finishedby-task-portlet.vue';
 import UserYearWorkStatsTitle from '@/widgets/user-year-work-stats/title-portlet/title-portlet.vue';
 import UserYearWorkStatsResolveBug from '@/widgets/user-year-work-stats/resolve-bug-portlet/resolve-bug-portlet.vue';
-import ProjectInvolvedProject from '@/widgets/project/involved-project-portlet/involved-project-portlet.vue';
 import ProjectUnClosedProject from '@/widgets/project/un-closed-project-portlet/un-closed-project-portlet.vue';
 import ProjectProjectMainToolbar from '@/widgets/project/project-main-toolbar-portlet/project-main-toolbar-portlet.vue';
 import ProjectDashBoradInfoView from '@/widgets/project/dash-borad-info-view-portlet/dash-borad-info-view-portlet.vue';
@@ -142,7 +142,7 @@ export const  PortletComponent = {
         v.component('app-project-project-main-toolbar-portlet', ProjectProjectMainToolbar);
         v.component('app-project-dash-borad-info-view-portlet', ProjectDashBoradInfoView);
         v.component('app-user-year-work-stats-title-portlet', UserYearWorkStatsTitle);
-        v.component('app-project-involved-project-portlet', ProjectInvolvedProject);
+        v.component('app-user-year-work-stats-info-portlet', UserYearWorkStatsInfo);
         v.component('app-user-year-work-stats-finishedby-task-portlet', UserYearWorkStatsFinishedbyTask);
         v.component('app-user-year-work-stats-resolve-bug-portlet', UserYearWorkStatsResolveBug);
         v.component('app-product-un-closed-product-portlet', ProductUnClosedProduct);
@@ -203,10 +203,10 @@ export const  PortletComponent = {
         v.component('todo-todo-base-portlet', TodoTodoBase);
         v.component('todo-todo-desc-portlet', TodoTodoDesc);
         v.component('todo-todo-dashboard-actions-portlet', TodoTodoDashboardActions);
+        v.component('user-year-work-stats-info-portlet', UserYearWorkStatsInfo);
         v.component('user-year-work-stats-finishedby-task-portlet', UserYearWorkStatsFinishedbyTask);
         v.component('user-year-work-stats-title-portlet', UserYearWorkStatsTitle);
         v.component('user-year-work-stats-resolve-bug-portlet', UserYearWorkStatsResolveBug);
-        v.component('project-involved-project-portlet', ProjectInvolvedProject);
         v.component('project-un-closed-project-portlet', ProjectUnClosedProject);
         v.component('project-project-main-toolbar-portlet', ProjectProjectMainToolbar);
         v.component('project-dash-borad-info-view-portlet', ProjectDashBoradInfoView);
