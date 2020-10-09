@@ -297,9 +297,5 @@ export default class Main_RowEdit_CarryOutGrid extends Main_RowEdit_CarryOutGrid
       });
     });
   }
-
-  public mounted() {
-    console.log("在这里~~", this.renderItems);
-  }
 }
 </script>
