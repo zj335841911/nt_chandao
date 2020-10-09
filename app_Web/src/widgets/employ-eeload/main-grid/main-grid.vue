@@ -199,7 +199,7 @@ export default class MainGrid extends MainGridBase {
      * @memberof MainGrid
      */
     public rowSpanMethod({ row, column, rowIndex, columnIndex }) {
-        if (columnIndex === 0) {
+        if (columnIndex === 0 || columnIndex === 4 || columnIndex === 5 || columnIndex === 6) {
             let index = this.infoList.findIndex((item:any) => {
                 return item.firstIndex === rowIndex;
             })
