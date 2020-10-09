@@ -23,7 +23,7 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.project.involvedproject_grid.columns.name')" :min-width="180"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.project.involvedproject_grid.columns.name')" :min-width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.project.involvedproject_grid.columns.name')}}
@@ -42,7 +42,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('storycnt')">
-                <el-table-column show-overflow-tooltip :prop="'storycnt'" :label="$t('entities.project.involvedproject_grid.columns.storycnt')" :min-width="180"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'storycnt'" :label="$t('entities.project.involvedproject_grid.columns.storycnt')" :min-width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.project.involvedproject_grid.columns.storycnt')}}
@@ -54,7 +54,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('ycompletetaskcnt')">
-                <el-table-column show-overflow-tooltip :prop="'ycompletetaskcnt'" :label="$t('entities.project.involvedproject_grid.columns.ycompletetaskcnt')" :min-width="180"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'ycompletetaskcnt'" :label="$t('entities.project.involvedproject_grid.columns.ycompletetaskcnt')" :min-width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.project.involvedproject_grid.columns.ycompletetaskcnt')}}
@@ -66,7 +66,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugcnt')">
-                <el-table-column show-overflow-tooltip :prop="'bugcnt'" :label="$t('entities.project.involvedproject_grid.columns.bugcnt')" :min-width="180"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'bugcnt'" :label="$t('entities.project.involvedproject_grid.columns.bugcnt')" :min-width="100"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.project.involvedproject_grid.columns.bugcnt')}}
