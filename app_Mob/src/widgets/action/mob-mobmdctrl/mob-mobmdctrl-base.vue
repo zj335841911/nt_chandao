@@ -994,11 +994,12 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mdctrl
      */
     public closeSlidings () {
-        let slidings:any = this.$refs.sliding; 
-        if (slidings) {
-            slidings.forEach((sliding:any) => {
-                sliding.close()
-            })     
+        let ionlist:any = this.$refs.ionlist;
+        if (ionlist.children) {
+          ionlist.children.forEach((sliding:any) => {
+            sliding.close();
+            sliding.closeOpened();
+          })
         }
     }
 

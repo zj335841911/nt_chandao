@@ -162,6 +162,13 @@ public class UserYearWorkStats extends EntityMP implements Serializable {
     @JSONField(name = "curyear")
     @JsonProperty("curyear")
     private String curyear;
+    /**
+     * 标题
+     */
+    @TableField(exist = false)
+    @JSONField(name = "title")
+    @JsonProperty("title")
+    private String title;
 
 
 

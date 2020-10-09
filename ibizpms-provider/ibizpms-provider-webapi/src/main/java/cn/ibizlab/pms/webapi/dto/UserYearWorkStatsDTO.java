@@ -172,6 +172,15 @@ public class UserYearWorkStatsDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String curyear;
 
+    /**
+     * 属性 [TITLE]
+     *
+     */
+    @JSONField(name = "title")
+    @JsonProperty("title")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String title;
+
 
     /**
      * 设置 [REALNAME]

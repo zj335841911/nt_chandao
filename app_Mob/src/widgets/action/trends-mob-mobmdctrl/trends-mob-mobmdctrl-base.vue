@@ -1,7 +1,7 @@
 <template>
     <div  class="app-mob-mdctrl action-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
-            <ion-list class="items">
+            <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
@@ -17,7 +17,7 @@
                     </ion-item-sliding>
                 </template>
             </ion-list>
-            <ion-list class="items">
+            <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
@@ -1078,11 +1078,12 @@ export default class TrendsMobBase extends Vue implements ControlInterface {
      * @memberof Mdctrl
      */
     public closeSlidings () {
-        let slidings:any = this.$refs.sliding; 
-        if (slidings) {
-            slidings.forEach((sliding:any) => {
-                sliding.close()
-            })     
+        let ionlist:any = this.$refs.ionlist;
+        if (ionlist.children) {
+          ionlist.children.forEach((sliding:any) => {
+            sliding.close();
+            sliding.closeOpened();
+          })
         }
     }
 
