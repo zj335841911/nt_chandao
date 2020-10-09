@@ -6,7 +6,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 12, offset: 6 }">
-    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.useryearworkstats.titleform_form.details.title')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.title.error" :isEmptyCaption="true" labelPos="NONE">
+    <app-form-item name='title' :itemRules="this.rules.title" class='panelitem-20px' :caption="$t('entities.useryearworkstats.titleform_form.details.title')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.title.error" :isEmptyCaption="true" labelPos="NONE">
     
 <app-span name='title' :value="data.title" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  

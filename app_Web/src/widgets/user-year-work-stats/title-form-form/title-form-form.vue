@@ -20,3 +20,6 @@ import { TitleFormEditFormBase } from './title-form-form-base';
 @VueLifeCycleProcessing()
 export default class TitleFormEditForm extends TitleFormEditFormBase { }
 </script>
+<style lang='less'>
+@import './title-form-form.less';
+</style>
