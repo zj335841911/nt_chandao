@@ -2440,6 +2440,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'a250e5baa5d560a9fa660ba3f1bc9f51',
+            viewmodule: 'zentao',
+            viewname: 'TaskChartView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'a2c585e16c82b5dec03db7146b9a6fa4',
             viewmodule: 'zentao',
             viewname: 'StoryMainGridView',
@@ -3399,6 +3408,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'a250e5baa5d560a9fa660ba3f1bc9f51',
                 'c862174c0f25d5077870c42115925fee',
             ],
         },

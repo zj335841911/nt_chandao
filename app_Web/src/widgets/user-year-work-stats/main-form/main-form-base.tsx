@@ -74,7 +74,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof MainEditFormBase
      */
-    protected drCount: number = 1;
+    protected drCount: number = 2;
 
     /**
      * 表单数据对象
@@ -149,6 +149,8 @@ export class MainEditFormBase extends EditFormControlBase {
         grouppanel8: new FormGroupPanelModel({ caption: '测试', detailType: 'GROUPPANEL', name: 'grouppanel8', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
 
         grouppanel9: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'grouppanel9', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.main_form', extractMode: 'ITEM', details: [] } }),
+
+        druipart2: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart2', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -277,6 +279,7 @@ export class MainEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.grouppanel8.setVisible(ret);
         }
+
 
 
 

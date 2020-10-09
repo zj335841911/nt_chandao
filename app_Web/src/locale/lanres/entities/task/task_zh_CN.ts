@@ -146,6 +146,10 @@ export default {
 			caption: "任务",
       		title: "task表格视图",
 		},
+		chartview9: {
+			caption: "任务",
+      		title: "任务图表视图",
+		},
 		maingridview: {
 			caption: "任务",
       		title: "task表格视图",

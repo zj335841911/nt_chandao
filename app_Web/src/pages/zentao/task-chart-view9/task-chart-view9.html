@@ -1,0 +1,18 @@
+<studio-embed-view viewName="taskchartview9" viewTitle="任务图表视图" class='dechartview9 task-chart-view9'>
+    <template slot='title'>
+    <span class='caption-image'><i class='    fa fa-tasks    '></i></span>
+    <span class='caption-info'>{{viewCaption}}</span>
+    </template>
+    <view_chart 
+        :viewState="viewState"  
+        :viewparams="viewparams" 
+        :context="context" 
+        fetchAction="FetchDefault"
+        :showBusyIndicator="true" 
+        name="chart"  
+        ref='chart' 
+        @beforeload="chart_beforeload($event)"  
+        @load="chart_load($event)"  
+        @closeview="closeView($event)">
+    </view_chart>
+</studio-embed-view>

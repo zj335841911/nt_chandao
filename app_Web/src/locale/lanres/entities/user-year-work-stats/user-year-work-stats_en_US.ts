@@ -37,6 +37,7 @@ export default {
 			grouppanel7: "产品经理", 
 			grouppanel8: "测试", 
 			grouppanel9: "基本信息", 
+			druipart2: "", 
 			druipart1: "", 
 			grouppanel13: "成任务数和解决Bug数", 
 			grouppanel16: "累计创建Bug数和创建用例数", 

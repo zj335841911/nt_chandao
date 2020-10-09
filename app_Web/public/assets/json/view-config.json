@@ -2669,6 +2669,16 @@
         "viewtag": "a0f93007d7102bd236dc8f50ac4042ea",
         "memo": "视图参数中指定了过滤条件"
     },
+    "taskchartview9": {
+        "title": "任务图表视图",
+        "caption": "任务",
+        "viewtype": "DECHARTVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "TaskChartView9",
+        "viewfilename": "task-chart-view9",
+        "viewtag": "a250e5baa5d560a9fa660ba3f1bc9f51",
+        "memo": ""
+    },
     "storymaingridview": {
         "title": "story表格视图",
         "caption": "需求",
