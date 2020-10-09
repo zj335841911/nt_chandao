@@ -559,8 +559,6 @@ export default {
 			tip: "导出",
 		},
 	},
-	usr2gridviewtoolbar_toolbar: {
-	},
 	leftsidebarlistviewtoolbar_toolbar: {
 		deuiaction3_manager: {
 			caption: "管理",

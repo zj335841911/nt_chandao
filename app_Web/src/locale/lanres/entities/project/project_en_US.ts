@@ -560,8 +560,6 @@ export default {
 			tip: "Export {0} Data To Excel",
 		},
 	},
-	usr2gridviewtoolbar_toolbar: {
-	},
 	leftsidebarlistviewtoolbar_toolbar: {
 		deuiaction3_manager: {
 			caption: "管理",

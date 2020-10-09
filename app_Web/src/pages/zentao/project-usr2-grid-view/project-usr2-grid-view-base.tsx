@@ -82,19 +82,8 @@ export class ProjectUsr2GridViewBase extends GridViewBase {
      * @memberof ProjectUsr2GridViewBase
      */
     protected containerModel: any = {
-        view_toolbar: { name: 'toolbar', type: 'TOOLBAR' },
         view_grid: { name: 'grid', type: 'GRID' },
     };
-
-    /**
-     * 工具栏模型
-     *
-     * @type {*}
-     * @memberof ProjectUsr2GridView
-     */
-    public toolBarModels: any = {
-    };
-
 
 
 	/**
