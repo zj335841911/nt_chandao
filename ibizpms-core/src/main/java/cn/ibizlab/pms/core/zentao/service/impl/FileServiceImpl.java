@@ -83,7 +83,12 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
         @Override
     @Transactional
     public boolean remove(Long key) {
-  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.FileHelper.class).delete(key);
+        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+        File et = this.get(key);
+        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTFileHelper.delete(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
+        et.set("ztrst", rst);
+        return bRst;
     }
 
     @Override
