@@ -177,7 +177,7 @@ export default class ZentaoModel {
                 	textcls: '',
                 	appfunctag: 'AppFunc2',
                 	appfuncyype: 'APPVIEW',
-                	viewname: 'user-year-work-stats-edit-view',
+                	viewname: 'user-year-work-stats-dashboard-view',
                 	authtag:'Web-zentao-menuitem23',
                 }
                 ,
@@ -659,12 +659,12 @@ export default class ZentaoModel {
             appfunctag: 'AppFunc2',
             appfuncyype: 'APPVIEW',
             openmode: 'DRAWER_TOP',
-            codename: 'useryearworkstatseditview',
+            codename: 'useryearworkstatsdashboardview',
             deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/useryearworkstats/:useryearworkstats?/editview/:editview?',
+            routepath: '/ibizpms/:ibizpms?/useryearworkstats/:useryearworkstats?/dashboardview/:dashboardview?',
             parameters: [
                 { pathName: 'useryearworkstats', parameterName: 'useryearworkstats' },
-                { pathName: 'editview', parameterName: 'editview' },
+                { pathName: 'dashboardview', parameterName: 'dashboardview' },
             ],
         },
         {

@@ -407,6 +407,123 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "items": []
     },
     {
+        srfkey: "CodeList81",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "2010",
+                label: "2010年",
+                text: "2010年",
+                "data":"",
+                "codename":"Item_2010",
+                value: "2010",
+                
+                disabled: false,
+            },
+            {
+                id: "2011",
+                label: "2011年",
+                text: "2011年",
+                "data":"",
+                "codename":"Item_2011",
+                value: "2011",
+                
+                disabled: false,
+            },
+            {
+                id: "2012",
+                label: "2012年",
+                text: "2012年",
+                "data":"",
+                "codename":"Item_2012",
+                value: "2012",
+                
+                disabled: false,
+            },
+            {
+                id: "2013",
+                label: "2013年",
+                text: "2013年",
+                "data":"",
+                "codename":"Item_2013",
+                value: "2013",
+                
+                disabled: false,
+            },
+            {
+                id: "2014",
+                label: "2014年",
+                text: "2014年",
+                "data":"",
+                "codename":"Item_2014",
+                value: "2014",
+                
+                disabled: false,
+            },
+            {
+                id: "2015",
+                label: "2015年",
+                text: "2015年",
+                "data":"",
+                "codename":"Item_2015",
+                value: "2015",
+                
+                disabled: false,
+            },
+            {
+                id: "2016",
+                label: "2016年",
+                text: "2016年",
+                "data":"",
+                "codename":"Item_2016",
+                value: "2016",
+                
+                disabled: false,
+            },
+            {
+                id: "2017",
+                label: "2017年",
+                text: "2017年",
+                "data":"",
+                "codename":"Item_2017",
+                value: "2017",
+                
+                disabled: false,
+            },
+            {
+                id: "2018",
+                label: "2018年",
+                text: "2018年",
+                "data":"",
+                "codename":"Item_2018",
+                value: "2018",
+                
+                disabled: false,
+            },
+            {
+                id: "2019",
+                label: "2019年",
+                text: "2019年",
+                "data":"",
+                "codename":"Item_2019",
+                value: "2019",
+                
+                disabled: false,
+            },
+            {
+                id: "2020",
+                label: "2020年",
+                text: "2020年",
+                "data":"",
+                "codename":"Item_2020",
+                value: "2020",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Project__status",
         emptytext: "未定义",
         "codelisttype":"static",

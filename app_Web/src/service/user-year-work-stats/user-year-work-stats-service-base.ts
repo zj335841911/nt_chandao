@@ -31,7 +31,7 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
         this.APPLYDEKEY ='useryearworkstats';
         this.APPDEKEY = 'id';
         this.APPDENAME = 'useryearworkstats';
-        this.APPDETEXT = 'realname';
+        this.APPDETEXT = 'title';
         this.APPNAME = 'web';
         this.SYSTEMNAME = 'pms';
     }

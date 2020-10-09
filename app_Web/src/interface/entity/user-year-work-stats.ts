@@ -141,4 +141,12 @@ export interface UserYearWorkStats {
      * @memberof UserYearWorkStats
      */
     curyear?: any;
+
+    /**
+     * 标题
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    title?: any;
 }

@@ -248,8 +248,8 @@ export class ZentaoBase extends Vue {
             { pathName: 'useryearworkstats', parameterName: 'useryearworkstats' },
         ];
         const view: any = {
-            viewname: 'user-year-work-stats-edit-view',
-            title: (this.$t('entities.useryearworkstats.views.editview.title') as any),
+            viewname: 'user-year-work-stats-dashboard-view',
+            title: (this.$t('entities.useryearworkstats.views.dashboardview.title') as any),
             height: 0,
             width: 0,
             placement: 'DRAWER_TOP'

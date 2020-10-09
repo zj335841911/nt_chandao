@@ -679,6 +679,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestReportProjectTabExpView",
             "viewtag": "34d99e271bca6539e707f467f9575044"
         },
+        "useryearworkstatsinfoeditview9": {
+            "title": "用户年度工作内容统计编辑视图（基础信息）",
+            "caption": "基础信息",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "UserYearWorkStatsInfoEditView9",
+            "viewtag": "3519739a278f4151b39580be3a276cbf"
+        },
         "tasksubtasknewview": {
             "title": "子任务",
             "caption": "子任务",
@@ -2015,6 +2023,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMainGridView_ByModule",
             "viewtag": "95d25c1556e049e220af04b99b06edeb"
         },
+        "useryearworkstatstitleeditview9": {
+            "title": "用户年度工作内容统计编辑视图（标题）",
+            "caption": "标题",
+            "viewtype": "DEEDITVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "UserYearWorkStatsTitleEditView9",
+            "viewtag": "96d2f792bc2c38a37fe873a125cb57b6"
+        },
         "actionprojecttrendslistview9": {
             "title": "产品动态",
             "caption": "系统日志",
@@ -2158,6 +2174,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "StoryMainGridView",
             "viewtag": "a2c585e16c82b5dec03db7146b9a6fa4"
+        },
+        "useryearworkstatsdashboardview": {
+            "title": "用户年度工作内容统计数据看板视图",
+            "caption": "用户年度工作内容统计",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "UserYearWorkStatsDashboardView",
+            "viewtag": "a300309f336ad917bb9fae375cd5620a"
         },
         "testsuitegridview": {
             "title": "测试套件表格视图",

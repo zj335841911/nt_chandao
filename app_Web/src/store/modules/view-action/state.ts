@@ -463,12 +463,12 @@ export const viewstate: any = {
                 'cfc7781789f7706e02b2d2504339de69',
                 '0bd16cd21ee2e8951fb8a86599ac1510',
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
-                'db750bbb894c25f38ca2741f234df3c6',
                 'c8171c13c1ba215f65c8587df1d98ba5',
                 '0f3dff62ef8bcb1662cc82e57a34c56b',
                 'f9dd61cc8713a81451f3cb410cf11bbb',
                 '0846a45e5ffdd4d8f857575cfa955dce',
                 '8c8adbf0a7db27078e01a8b32716fa71',
+                'a300309f336ad917bb9fae375cd5620a',
                 '3b4ab1882a49962f12900abeeddf60f0',
                 'CC49500F-030F-458F-82DF-F88F6973DF64',
                 'D1283E46-401A-4CFD-A7A1-BF5B90197463',
@@ -753,6 +753,15 @@ export const viewstate: any = {
                 'f810cda19770327ea00f51d89a003efe',
                 'ea7b1f6631cb623ea079455b374ef9d4',
                 '8761916619d520c6cca7053b358e3a40',
+            ],
+        },
+        {
+            viewtag: '3519739a278f4151b39580be3a276cbf',
+            viewmodule: 'ibiz',
+            viewname: 'UserYearWorkStatsInfoEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -2308,6 +2317,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '96d2f792bc2c38a37fe873a125cb57b6',
+            viewmodule: 'ibiz',
+            viewname: 'UserYearWorkStatsTitleEditView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '96ec3f978c1cc22acc532331d5dc2a41',
             viewmodule: 'zentao',
             viewname: 'ActionProjectTrendsListView9',
@@ -2463,6 +2481,19 @@ export const viewstate: any = {
                 'e0fbca7627cdd68765e173028b07f687',
                 'e54598b1e6d38d7c6ce8231b531b46bd',
                 '6cf95e90393715815492a7e5e6f2a6f3',
+            ],
+        },
+        {
+            viewtag: 'a300309f336ad917bb9fae375cd5620a',
+            viewmodule: 'ibiz',
+            viewname: 'UserYearWorkStatsDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '96d2f792bc2c38a37fe873a125cb57b6',
+                'a250e5baa5d560a9fa660ba3f1bc9f51',
+                '3519739a278f4151b39580be3a276cbf',
+                'c862174c0f25d5077870c42115925fee',
             ],
         },
         {
