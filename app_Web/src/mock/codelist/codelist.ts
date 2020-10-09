@@ -3618,6 +3618,43 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "Project_staus",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "doing",
+                label: "进行中",
+                text: "进行中",
+                "data":"",
+                "codename":"Doing",
+                value: "doing",
+                
+                disabled: false,
+            },
+            {
+                id: "suspended",
+                label: "已挂起",
+                text: "已挂起",
+                "data":"",
+                "codename":"Suspended",
+                value: "suspended",
+                
+                disabled: false,
+            },
+            {
+                id: "closed",
+                label: "已关闭",
+                text: "已关闭",
+                "data":"",
+                "codename":"Closed",
+                value: "closed",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "StoryStageKane",
         emptytext: "未定义",
         "codelisttype":"static",

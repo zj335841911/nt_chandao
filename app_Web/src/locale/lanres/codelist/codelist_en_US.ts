@@ -483,6 +483,12 @@ export default {
         "closed": "已关闭",
         "empty": ""
     },
+    Project_staus: {
+        "doing": "进行中",
+        "suspended": "已挂起",
+        "closed": "已关闭",
+        "empty": ""
+    },
     StoryStageKane: {
         "projected": "已立项",
         "developing": "研发中",
