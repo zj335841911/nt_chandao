@@ -282,7 +282,7 @@ export class CurUserResolveBugChartBase extends MainControlBase {
             subtext:''
         },
         legend:{
-            show:false
+            show:true
         },
         tooltip:{
             show:true
