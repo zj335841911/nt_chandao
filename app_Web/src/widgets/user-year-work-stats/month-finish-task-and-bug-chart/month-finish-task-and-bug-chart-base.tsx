@@ -370,8 +370,8 @@ export class MonthFinishTaskAndBugChartBase extends MainControlBase {
      */   
     public chartOption:any = {
         title:{
-            show:true ,
-            text:'',
+            show:false ,
+            text:'月完成任务数及累计工时和解决Bug数',
             subtext:''
         },
         legend:{

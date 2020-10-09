@@ -151,6 +151,15 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
         return new PageImpl<UserYearWorkStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 月完成任务数及累计工时和解决Bug数
+     */
+    @Override
+    public Page<UserYearWorkStats> searchMonthFinishTaskAndBug(UserYearWorkStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<UserYearWorkStats> pages=baseMapper.searchMonthFinishTaskAndBug(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<UserYearWorkStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
 

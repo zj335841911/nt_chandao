@@ -37,6 +37,7 @@ public interface IUserYearWorkStatsService extends IService<UserYearWorkStats>{
     boolean save(UserYearWorkStats et) ;
     void saveBatch(List<UserYearWorkStats> list) ;
     Page<UserYearWorkStats> searchDefault(UserYearWorkStatsSearchContext context) ;
+    Page<UserYearWorkStats> searchMonthFinishTaskAndBug(UserYearWorkStatsSearchContext context) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

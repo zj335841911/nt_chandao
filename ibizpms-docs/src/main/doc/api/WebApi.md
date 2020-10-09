@@ -289,6 +289,7 @@
 |/useryearworkstats/checkkey|POST|用户年度工作内容统计 Json对象|&nbsp;|
 |/useryearworkstats/save|POST|用户年度工作内容统计 Json对象|&nbsp;|
 |/useryearworkstats/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/useryearworkstats/fetchmonthfinishtaskandbug|GET|DEDataSetFetchContext Json对象|&nbsp;|
 ## 项目相关接口
 
 | 接口路径   | 请求方式   |    请求参数    | 备注 |
