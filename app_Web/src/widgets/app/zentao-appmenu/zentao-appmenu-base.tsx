@@ -38,6 +38,8 @@ export class ZentaoBase extends Vue {
                     this.clickAuto6(item); break;
                 case '_6': 
                     this.click_6(item); break;
+                case 'AppFunc2': 
+                    this.clickAppFunc2(item); break;
                 case 'Auto10': 
                     this.clickAuto10(item); break;
                 case 'Auto9': 
@@ -52,10 +54,10 @@ export class ZentaoBase extends Vue {
                     this.clickAuto15(item); break;
                 case '_4': 
                     this.click_4(item); break;
-                case 'Auto19': 
-                    this.clickAuto19(item); break;
                 case '_3': 
                     this.click_3(item); break;
+                case 'Auto19': 
+                    this.clickAuto19(item); break;
                 case '_9': 
                     this.click_9(item); break;
                 case 'Auto1': 
@@ -233,6 +235,32 @@ export class ZentaoBase extends Vue {
     }
     
     /**
+     * 员工年度统计
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickAppFunc2(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'useryearworkstats', parameterName: 'useryearworkstats' },
+        ];
+        const view: any = {
+            viewname: 'user-year-work-stats-edit-view',
+            title: (this.$t('entities.useryearworkstats.views.editview.title') as any),
+            height: 0,
+            width: 0,
+            placement: 'DRAWER_TOP'
+        };
+        const appdrawer = this.$appdrawer.openDrawer(view, JSON.parse(JSON.stringify(this.context)), viewparam);
+        appdrawer.subscribe((result: any) => {
+            console.log(result);
+        });
+    }
+    
+    /**
      * 我的地盘
      *
      * @param {*} [item={}]
@@ -396,29 +424,6 @@ export class ZentaoBase extends Vue {
     }
     
     /**
-     * 用户管理
-     *
-     * @param {*} [item={}]
-     * @memberof Zentao
-     */
-    public clickAuto19(item: any = {}) {
-        const viewparam: any = {};
-        Object.assign(viewparam, {});
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'users', parameterName: 'user' },
-            { pathName: 'treeexpview', parameterName: 'treeexpview' },
-        ];
-        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
-        if(Object.is(this.$route.fullPath,path)){
-            return;
-        }
-        this.$nextTick(function(){
-            this.$router.push(path);
-        })
-    }
-    
-    /**
      * Pro需求
      *
      * @param {*} [item={}]
@@ -431,6 +436,29 @@ export class ZentaoBase extends Vue {
         const parameters: any[] = [
             { pathName: 'ibzprostories', parameterName: 'ibzprostory' },
             { pathName: 'gridview', parameterName: 'gridview' },
+        ];
+        const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
+        if(Object.is(this.$route.fullPath,path)){
+            return;
+        }
+        this.$nextTick(function(){
+            this.$router.push(path);
+        })
+    }
+    
+    /**
+     * 用户管理
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickAuto19(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'users', parameterName: 'user' },
+            { pathName: 'treeexpview', parameterName: 'treeexpview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
         if(Object.is(this.$route.fullPath,path)){

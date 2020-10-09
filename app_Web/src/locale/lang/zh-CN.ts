@@ -205,6 +205,7 @@ export default {
                 menuitem2: "项目主页",
                 menuitem1: "测试主页",
                 menuitem22: "统计",
+                menuitem23: "年度总结",
                 menuitem10: "用例库",
                 menuitem11: "用户",
                 menuitem7: "iBiz软件生产管理",

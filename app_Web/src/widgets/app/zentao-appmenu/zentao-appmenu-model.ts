@@ -161,6 +161,27 @@ export default class ZentaoModel {
                 }
                 ,
                 		        {
+                	id: '165D711F-46D6-4FC4-BC0C-032E8A04EC61',
+                	name: 'menuitem23',
+                	text: '年度总结',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '年度总结',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: 'AppFunc2',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'user-year-work-stats-edit-view',
+                	authtag:'Web-zentao-menuitem23',
+                }
+                ,
+                		        {
                 	id: '28e753fc0b33a6fadf12f5f37150bb5a',
                 	name: 'menuitem10',
                 	text: '用例库',
@@ -635,6 +656,18 @@ export default class ZentaoModel {
             ],
         },
         {
+            appfunctag: 'AppFunc2',
+            appfuncyype: 'APPVIEW',
+            openmode: 'DRAWER_TOP',
+            codename: 'useryearworkstatseditview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/useryearworkstats/:useryearworkstats?/editview/:editview?',
+            parameters: [
+                { pathName: 'useryearworkstats', parameterName: 'useryearworkstats' },
+                { pathName: 'editview', parameterName: 'editview' },
+            ],
+        },
+        {
             appfunctag: 'Auto10',
             appfuncyype: 'APPVIEW',
             openmode: '',
@@ -718,18 +751,6 @@ export default class ZentaoModel {
             ],
         },
         {
-            appfunctag: 'Auto19',
-            appfuncyype: 'APPVIEW',
-            openmode: '',
-            codename: 'usertreeexpview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/users/:user?/treeexpview/:treeexpview?',
-            parameters: [
-                { pathName: 'users', parameterName: 'user' },
-                { pathName: 'treeexpview', parameterName: 'treeexpview' },
-            ],
-        },
-        {
             appfunctag: '_3',
             appfuncyype: 'APPVIEW',
             openmode: '',
@@ -739,6 +760,18 @@ export default class ZentaoModel {
             parameters: [
                 { pathName: 'ibzprostories', parameterName: 'ibzprostory' },
                 { pathName: 'gridview', parameterName: 'gridview' },
+            ],
+        },
+        {
+            appfunctag: 'Auto19',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'usertreeexpview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/users/:user?/treeexpview/:treeexpview?',
+            parameters: [
+                { pathName: 'users', parameterName: 'user' },
+                { pathName: 'treeexpview', parameterName: 'treeexpview' },
             ],
         },
         {
