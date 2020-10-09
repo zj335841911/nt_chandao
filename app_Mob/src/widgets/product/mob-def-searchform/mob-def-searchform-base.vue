@@ -45,35 +45,12 @@
     :disabled="detailsModel.n_status_eq.disabled"  
     :error="detailsModel.n_status_eq.error" 
     :isEmptyCaption="false">
-        !!!!模版产生代码错误:Syntax error in template "TEMPLCODE_en_US" in line 89, column 47:
-Encountered "\" \n    tag=\"", but was expecting one of:
-    ".."
-    <DOT_DOT_LESS>
-    "..*"
-    "}"
-    "."
-    "["
-    "("
-    "?"
-    "!"
-    <TERMINATING_EXCLAM>
-    "??"
-    "+"
-    "-"
-    "*"
-    "/"
-    "%"
-    "!="
-    "="
-    "=="
-    ">="
-    <ESCAPED_GTE>
-    ">"
-    <ESCAPED_GT>
-    <LESS_THAN_EQUALS>
-    <LESS_THAN>
-    <AND>
-    <OR>
+        <app-search-editor
+    codeListType="STATIC" 
+    tag="Product__status"
+    :value="data.n_status_eq"  
+    :disabled="detailsModel.n_status_eq.disabled" 
+    @change="($event)=>this.data.n_status_eq = $event"/>
 </app-form-item2>
 
 
