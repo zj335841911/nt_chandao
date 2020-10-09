@@ -45,6 +45,7 @@ import UserYearWorkStatsFinishedbyTask from '@/widgets/user-year-work-stats/fini
 import UserYearWorkStatsFinishTaskAndBug from '@/widgets/user-year-work-stats/finish-task-and-bug-portlet/finish-task-and-bug-portlet.vue';
 import UserYearWorkStatsTitle from '@/widgets/user-year-work-stats/title-portlet/title-portlet.vue';
 import UserYearWorkStatsResolveBug from '@/widgets/user-year-work-stats/resolve-bug-portlet/resolve-bug-portlet.vue';
+import UserYearWorkStatsInvolvedProject_StoryTaskBug from '@/widgets/user-year-work-stats/involved-project-story-task-bug-portlet/involved-project-story-task-bug-portlet.vue';
 import ProjectInvolvedProject from '@/widgets/project/involved-project-portlet/involved-project-portlet.vue';
 import ProjectUnClosedProject from '@/widgets/project/un-closed-project-portlet/un-closed-project-portlet.vue';
 import ProjectProjectMainToolbar from '@/widgets/project/project-main-toolbar-portlet/project-main-toolbar-portlet.vue';
@@ -146,6 +147,7 @@ export const  PortletComponent = {
         v.component('app-user-year-work-stats-title-portlet', UserYearWorkStatsTitle);
         v.component('app-user-year-work-stats-info-portlet', UserYearWorkStatsInfo);
         v.component('app-project-involved-project-portlet', ProjectInvolvedProject);
+        v.component('app-user-year-work-stats-involved-project-story-task-bug-portlet', UserYearWorkStatsInvolvedProject_StoryTaskBug);
         v.component('app-user-year-work-stats-finishedby-task-portlet', UserYearWorkStatsFinishedbyTask);
         v.component('app-user-year-work-stats-resolve-bug-portlet', UserYearWorkStatsResolveBug);
         v.component('app-user-year-work-stats-finish-task-and-bug-portlet', UserYearWorkStatsFinishTaskAndBug);
@@ -212,6 +214,7 @@ export const  PortletComponent = {
         v.component('user-year-work-stats-finish-task-and-bug-portlet', UserYearWorkStatsFinishTaskAndBug);
         v.component('user-year-work-stats-title-portlet', UserYearWorkStatsTitle);
         v.component('user-year-work-stats-resolve-bug-portlet', UserYearWorkStatsResolveBug);
+        v.component('user-year-work-stats-involved-project-story-task-bug-portlet', UserYearWorkStatsInvolvedProject_StoryTaskBug);
         v.component('project-involved-project-portlet', ProjectInvolvedProject);
         v.component('project-un-closed-project-portlet', ProjectUnClosedProject);
         v.component('project-project-main-toolbar-portlet', ProjectProjectMainToolbar);

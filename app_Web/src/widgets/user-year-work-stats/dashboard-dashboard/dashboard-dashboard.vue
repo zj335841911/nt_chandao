@@ -4,7 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { DashboardDashboardBase } from './dashboard-dashboard-base';
 import view_dashboard_sysportlet6 from '@widgets/project/involved-project-portlet/involved-project-portlet.vue';
-import view_dashboard_sysportlet7 from '@widgets/user-year-work-stats/dashboard-viewdashboard-sysportlet7-portlet/dashboard-viewdashboard-sysportlet7-portlet.vue';
+import view_dashboard_sysportlet7 from '@widgets/user-year-work-stats/involved-project-story-task-bug-portlet/involved-project-story-task-bug-portlet.vue';
 import view_dashboard_sysportlet4 from '@widgets/user-year-work-stats/resolve-bug-portlet/resolve-bug-portlet.vue';
 import view_dashboard_sysportlet5 from '@widgets/user-year-work-stats/finish-task-and-bug-portlet/finish-task-and-bug-portlet.vue';
 import view_dashboard_sysportlet2 from '@widgets/user-year-work-stats/info-portlet/info-portlet.vue';
