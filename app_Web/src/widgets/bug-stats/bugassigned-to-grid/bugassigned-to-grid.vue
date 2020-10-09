@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ 'grid': true, 'show-paging-bar': isEnablePagingBar, 'hidden-paging-bar': !isEnablePagingBar }">
+    <div :class="{ 'bug-assigned': true, 'grid': true, 'show-paging-bar': isEnablePagingBar, 'hidden-paging-bar': !isEnablePagingBar }">
         <i-form>
         <el-table v-if="isDisplay === true"
             :span-method="rowSpanMethod"
@@ -100,29 +100,68 @@ import { BugassignedToGridBase } from './bugassigned-to-grid-base';
 })
 @VueLifeCycleProcessing()
 export default class BugassignedToGrid extends BugassignedToGridBase { 
+    /**
+     * 数据项合并行规则数组
+     * @type {Array<any>}
+     * @memberof MainGrid
+     */
     public infoList:Array<any> = [];
+
+    /**
+     * 表格渲染所需数组
+     * @type {Array<any>}
+     * @memberof MainGrid
+     */
     public itemsRenderList:Array<any> = [];
 
+    /**
+     * 监听items
+     * @memberof MainGrid
+     */
     @Watch("items")
     public itemsWatch(newVal:any, oldVal:any) {
         if (newVal) {
+            // 重置渲染数组和规则数组
             this.itemsRenderList.length = 0;
-            this.itemsRenderList.push(...newVal)
-            this.itemsRenderList.sort((prev:any, next:any) => {
-                if (prev['assignedto'] !== next['assignedto']) {
-                    return prev['assignedto'].localeCompare(next['assignedto'])
-                }
-            })
-            let tempArray:Array<any> = [];
-            this.itemsRenderList.forEach((item:any) => {
-                let firstIndex:number = this.itemsRenderList.findIndex((curr:any) => {return curr.assignedto === item.assignedto;});
-                if (tempArray.findIndex((curr:any) => {return curr.firstIndex === firstIndex}) === -1) {
-                    tempArray.push({length:this.itemsRenderList.filter((curr:any) => {return curr.assignedto === item.assignedto}).length,firstIndex:firstIndex})
-                }
-            })
-            this.infoList = [...tempArray];
+            this.infoList.length = 0;
+            this.itemsRenderList.push(...newVal);
+            // 排序并合并设置合并行规则
+            this.listSort();
+            this.setRowSpanRule();
         }
     }
+    // assignedto
+    /**
+     * 根据需要合并的列排序
+     * @memberof MainGrid
+     */
+    public listSort() {
+        this.itemsRenderList.sort((prev:any, next:any) => {
+            if (prev['assignedto'] !== next['assignedto']) {
+                return prev['assignedto'].localeCompare(next['assignedto'])
+            }
+        })
+    }
+
+    /**
+     * 设置合并行规则
+     * @memberof MainGrid
+     */
+    public setRowSpanRule() {
+        let tempArray:Array<any> = [];
+        this.itemsRenderList.forEach((item:any) => {
+            let firstIndex:number = this.itemsRenderList.findIndex((curr:any) => {return curr.assignedto === item.assignedto;});
+            if (tempArray.findIndex((curr:any) => {return curr.firstIndex === firstIndex}) === -1) {
+                tempArray.push({length:this.itemsRenderList.filter((curr:any) => {return curr.assignedto === item.assignedto}).length,firstIndex:firstIndex})
+            }
+        })
+        this.infoList = [...tempArray];
+    }
+
+    /**
+     * Element合并单元格所需方法
+     * @memberof MainGrid
+     */
     public rowSpanMethod({ row, column, rowIndex, columnIndex }) {
         if (columnIndex === 0) {
             let index = this.infoList.findIndex((item:any) => {
@@ -143,3 +182,11 @@ export default class BugassignedToGrid extends BugassignedToGridBase {
     }
 }
 </script>
+
+<style lang="less">
+    .bug-assigned {
+        .el-table .cell.el-tooltip {
+            width: auto !important;
+        }
+    }  
+</style>
