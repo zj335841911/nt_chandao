@@ -1,11 +1,5 @@
 <div class='portlet involved-project-story-task-bug ' :style="{'height': isAdaptiveSize ? '100%' : getHeight,}">
-        <p class='portlet-title'>
-            <span>
-            
-            项目实体表格视图(参与项目)
-            </span>
-        </p>
-        <div class="portlet-with-title">
+        <div class="portlet-without-title">
         <project-usr2-grid-view :viewUsage="4" :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></project-usr2-grid-view>
         </div>
 </div>

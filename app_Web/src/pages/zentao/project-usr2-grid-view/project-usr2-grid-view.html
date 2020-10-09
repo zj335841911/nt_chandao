@@ -1,7 +1,4 @@
 <studio-view viewName="projectusr2gridview" viewTitle="项目实体表格视图(参与项目)" class='degridview project-usr2-grid-view'>
-    <template slot='title'>
-    <span class='caption-info'>{{viewCaption}}</span>
-    </template>
     <i-input slot='quickSearch' clearable  v-model="query" placeholder="项目编号,项目名称" search @on-search="onSearch($event)"/>
     <template slot="toolbar">
                 <view-toolbar :model="toolBarModels" @item-click="toolbar_click.apply(_self, arguments)"/>    </template>
