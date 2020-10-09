@@ -162,7 +162,7 @@ export default class BugassignedToGrid extends BugassignedToGridBase {
      * Element合并单元格所需方法
      * @memberof MainGrid
      */
-    public rowSpanMethod({ row, column, rowIndex, columnIndex }) {
+    public rowSpanMethod({ row, column, rowIndex, columnIndex }:{row:any, column:any, rowIndex:any, columnIndex:any}) {
         if (columnIndex === 0) {
             let index = this.infoList.findIndex((item:any) => {
                 return item.firstIndex === rowIndex;
