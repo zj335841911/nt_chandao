@@ -145,7 +145,7 @@ export class ProductPlancntAndStorycntPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '280px';
+            return '330px';
         }
     }
 
