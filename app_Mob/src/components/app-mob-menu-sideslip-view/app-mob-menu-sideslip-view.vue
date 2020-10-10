@@ -24,7 +24,7 @@
         </v-touch>
       </van-popup>
 
-      <v-touch v-on:panright="onSwipeRight" style="height:100%;">
+      <v-touch v-on:swiperight="onSwipeRight" style="height:100%;">
         <template v-for="item in items">
                 <template v-if="!item.hidden">
                         <component  :key="item.id" v-if="item.id == activeId" :is="item.componentname" viewDefaultUsage="indexView"></component>
