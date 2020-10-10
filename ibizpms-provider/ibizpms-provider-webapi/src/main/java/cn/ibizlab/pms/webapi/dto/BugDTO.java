@@ -917,14 +917,6 @@ public class BugDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [LASTEDITEDBY]
-     */
-    public void setLasteditedby(String  lasteditedby){
-        this.lasteditedby = lasteditedby ;
-        this.modify("lasteditedby",lasteditedby);
-    }
-
-    /**
      * 设置 [TITLE]
      */
     public void setTitle(String  title){

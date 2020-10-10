@@ -74,6 +74,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 指派给
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`assignedto`")
     @JSONField(name = "assignedto")
     @JsonProperty("assignedto")
@@ -104,6 +105,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 关键词
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`keywords`")
     @JSONField(name = "keywords")
     @JsonProperty("keywords")
@@ -111,6 +113,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 由谁关闭
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`closedby`")
     @JSONField(name = "closedby")
     @JsonProperty("closedby")
@@ -118,6 +121,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 浏览器
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`browser`")
     @JSONField(name = "browser")
     @JsonProperty("browser")
@@ -154,6 +158,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 激活次数
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`activatedcount`")
     @JSONField(name = "activatedcount")
     @JsonProperty("activatedcount")
@@ -178,6 +183,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 抄送给
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`mailto`")
     @JSONField(name = "mailto")
     @JsonProperty("mailto")
@@ -201,6 +207,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 标题颜色
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`color`")
     @JSONField(name = "color")
     @JsonProperty("color")
@@ -254,6 +261,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * lines
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`lines`")
     @JSONField(name = "lines")
     @JsonProperty("lines")
@@ -276,6 +284,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * found
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`found`")
     @JSONField(name = "found")
     @JsonProperty("found")
@@ -311,6 +320,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * hardware
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`hardware`")
     @JSONField(name = "hardware")
     @JsonProperty("hardware")
@@ -318,6 +328,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 最后修改者
      */
+    @DEField(preType = DEPredefinedFieldType.UPDATEMANNAME)
     @TableField(value = "`lasteditedby`")
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
@@ -375,6 +386,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 应用
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`entry`")
     @JSONField(name = "entry")
     @JsonProperty("entry")
@@ -412,6 +424,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 平台/分支
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`branch`")
     @JSONField(name = "branch")
     @JsonProperty("branch")
@@ -419,6 +432,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 重复ID
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`duplicatebug`")
     @JSONField(name = "duplicatebug")
     @JsonProperty("duplicatebug")
@@ -441,7 +455,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 相关用例
      */
-    @DEField(name = "case")
+    @DEField(defaultValue = "0")
     @TableField(value = "`case`")
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
@@ -979,14 +993,6 @@ public class Bug extends EntityMP implements Serializable {
     public void setHardware(String hardware){
         this.hardware = hardware ;
         this.modify("hardware",hardware);
-    }
-
-    /**
-     * 设置 [最后修改者]
-     */
-    public void setLasteditedby(String lasteditedby){
-        this.lasteditedby = lasteditedby ;
-        this.modify("lasteditedby",lasteditedby);
     }
 
     /**
