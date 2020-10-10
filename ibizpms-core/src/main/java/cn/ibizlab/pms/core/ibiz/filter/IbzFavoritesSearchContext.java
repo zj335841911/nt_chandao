@@ -34,6 +34,13 @@ public class IbzFavoritesSearchContext extends QueryWrapperContext<IbzFavorites>
             this.getSearchCond().like("ibz_favoritesname", n_ibz_favoritesname_like);
         }
     }
+	private Integer n_objectid_eq;//[数据对象标识]
+	public void setN_objectid_eq(Integer n_objectid_eq) {
+        this.n_objectid_eq = n_objectid_eq;
+        if(!ObjectUtils.isEmpty(this.n_objectid_eq)){
+            this.getSearchCond().eq("objectid", n_objectid_eq);
+        }
+    }
 	private String n_account_eq;//[收藏用户]
 	public void setN_account_eq(String n_account_eq) {
         this.n_account_eq = n_account_eq;
