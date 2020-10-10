@@ -82,6 +82,24 @@
                           <span>
                                           <div class='portlet-container podashboard-viewdashboard-container7 ' :style="{}">
                               <row>
+                                <i-col :md="{ span: 24, offset: 0 }">
+                                    <div class="portlet-without-title">
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                        <span>
+                                                        <view_dashboard_sysportlet3 
+                                          :viewState="viewState"  
+                                          :viewparams="viewparams" 
+                                          :context="context" 
+                                          :height="280"
+                                          :width="0"
+                                          name="dashboard_sysportlet3"  
+                                          ref='dashboard_sysportlet3' 
+                                          @closeview="closeView($event)">
+                                      </view_dashboard_sysportlet3>
+                                        </span>
+                                      </card>
+                                    </div>
+                                </i-col>
                               </row>
                           </div>
                           </span>
