@@ -292,13 +292,3 @@ export const setNavigationStyle = (state: any, val: any) => {
 export const setPopupStatus = (state: any, val: any) => {
   state.popupStatus = val;
 }
-
-/**
- * 搜索表单状态
- * 
- * @param state 
- * @param val 
- */
-export const setSearchformStatus = (state: any, val: any) => {
-  state.searchformStatus = val;
-}

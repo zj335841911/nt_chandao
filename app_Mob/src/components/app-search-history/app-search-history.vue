@@ -207,7 +207,6 @@ export default class AppRoundList extends Vue {
      * @memberof AppSearchHistory
      */
     public openSearchform() {
-        this.$store.commit('setSearchformStatus',true); 
         this.$emit("openSearchform");
     }
 
