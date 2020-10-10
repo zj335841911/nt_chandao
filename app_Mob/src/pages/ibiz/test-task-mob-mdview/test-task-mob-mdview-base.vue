@@ -2,7 +2,7 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'test-task-mob-mdview': true }">
     
     <ion-header>
-        <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="true"></app-search-history>
+        <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="true"></app-search-history>
 
     
     </ion-header>
@@ -727,6 +727,10 @@ export default class TestTaskMobMDViewBase extends Vue {
      * @memberof TestTaskMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;
@@ -779,13 +783,26 @@ export default class TestTaskMobMDViewBase extends Vue {
     }
 
 
+
     /**
      * 搜索表单状态
      *
-     * @type {boolean}
+     * @type {get}
      * @memberof TestTaskMobMDViewBase
      */
-    public searchformState: boolean = false;
+    get searchformState(){
+        return this.$store.state.searchformStatus;
+    }
+
+    /**
+     * 搜索表单状态
+     *
+     * @type {set}
+     * @memberof TestTaskMobMDViewBase
+     */
+    set searchformState(val:any){
+        this.$store.commit('setSearchformStatus',val); 
+    }
 
     /**
      * 是否展开搜索表单
@@ -801,7 +818,7 @@ export default class TestTaskMobMDViewBase extends Vue {
      * @memberof TestTaskMobMDViewBase
      */
     public onSearch(): void {
-        this.searchformState = false;
+        this.$store.commit('setSearchformStatus',false); 
         this.isExpandSearchForm = true;
         const form: any = this.$refs.searchform;
         if (form) {
@@ -816,7 +833,7 @@ export default class TestTaskMobMDViewBase extends Vue {
      * @memberof TestTaskMobMDViewBase
      */
     public onReset(): void {
-        this.searchformState = false;
+        this.$store.commit('setSearchformStatus',false); 
         this.isExpandSearchForm = false;
         const form: any = this.$refs.searchform;
         if (form) {

@@ -400,6 +400,10 @@ export default class AppIndexViewBase extends Vue {
      * @memberof AppIndexViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
             this.quitFun();
         
     }

@@ -703,6 +703,10 @@ export default class BugAssMobMDViewBase extends Vue {
      * @memberof BugAssMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;
@@ -755,13 +759,26 @@ export default class BugAssMobMDViewBase extends Vue {
     }
 
 
+
     /**
      * 搜索表单状态
      *
-     * @type {boolean}
+     * @type {get}
      * @memberof BugAssMobMDViewBase
      */
-    public searchformState: boolean = false;
+    get searchformState(){
+        return this.$store.state.searchformStatus;
+    }
+
+    /**
+     * 搜索表单状态
+     *
+     * @type {set}
+     * @memberof BugAssMobMDViewBase
+     */
+    set searchformState(val:any){
+        this.$store.commit('setSearchformStatus',val); 
+    }
 
     /**
      * 是否展开搜索表单
@@ -777,7 +794,7 @@ export default class BugAssMobMDViewBase extends Vue {
      * @memberof BugAssMobMDViewBase
      */
     public onSearch(): void {
-        this.searchformState = false;
+        this.$store.commit('setSearchformStatus',false); 
         this.isExpandSearchForm = true;
         const form: any = this.$refs.searchform;
         if (form) {
@@ -792,7 +809,7 @@ export default class BugAssMobMDViewBase extends Vue {
      * @memberof BugAssMobMDViewBase
      */
     public onReset(): void {
-        this.searchformState = false;
+        this.$store.commit('setSearchformStatus',false); 
         this.isExpandSearchForm = false;
         const form: any = this.$refs.searchform;
         if (form) {

@@ -708,6 +708,10 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
      * @memberof TaskFavoriteMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;
@@ -760,13 +764,26 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
     }
 
 
+
     /**
      * 搜索表单状态
      *
-     * @type {boolean}
+     * @type {get}
      * @memberof TaskFavoriteMobMDViewBase
      */
-    public searchformState: boolean = false;
+    get searchformState(){
+        return this.$store.state.searchformStatus;
+    }
+
+    /**
+     * 搜索表单状态
+     *
+     * @type {set}
+     * @memberof TaskFavoriteMobMDViewBase
+     */
+    set searchformState(val:any){
+        this.$store.commit('setSearchformStatus',val); 
+    }
 
     /**
      * 是否展开搜索表单
@@ -782,7 +799,7 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
      * @memberof TaskFavoriteMobMDViewBase
      */
     public onSearch(): void {
-        this.searchformState = false;
+        this.$store.commit('setSearchformStatus',false); 
         this.isExpandSearchForm = true;
         const form: any = this.$refs.searchform;
         if (form) {
@@ -797,7 +814,7 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
      * @memberof TaskFavoriteMobMDViewBase
      */
     public onReset(): void {
-        this.searchformState = false;
+        this.$store.commit('setSearchformStatus',false); 
         this.isExpandSearchForm = false;
         const form: any = this.$refs.searchform;
         if (form) {

@@ -2,7 +2,7 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'todo-mob-mdview': true }">
     
     <ion-header>
-        <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="false"></app-search-history>
+        <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="false"></app-search-history>
 
     
     </ion-header>
@@ -714,6 +714,10 @@ export default class TodoMobMDViewBase extends Vue {
      * @memberof TodoMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;

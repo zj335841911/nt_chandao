@@ -487,6 +487,10 @@ export default class ProductModuleMobPickupMDViewBase extends Vue {
      * @memberof ProductModuleMobPickupMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;

@@ -769,6 +769,10 @@ export default class ProjectMobEditViewBase extends Vue {
      * @memberof ProjectMobEditViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
                 let result = await this.cheackChange();
         if(result){
             if (this.viewDefaultUsage === "routerView") {
