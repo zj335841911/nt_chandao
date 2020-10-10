@@ -36,6 +36,14 @@ export default {
 			caption: "用户年度工作内容统计",
       		title: "用户年度工作内容统计数据看板视图",
 		},
+		qadashboardview: {
+			caption: "用户年度工作内容统计",
+      		title: "用户年度工作内容统计数据看板视图",
+		},
+		podashboardview: {
+			caption: "用户年度工作内容统计",
+      		title: "用户年度工作内容统计数据看板视图",
+		},
 		editview: {
 			caption: "用户年度工作内容统计",
       		title: "用户年度工作内容统计编辑视图",
@@ -67,6 +75,8 @@ export default {
 			group1: "基本数据信息", 
 			grouppanel9: "基本信息", 
 			rawitem1: "", 
+			rawitem2: "", 
+			rawitem3: "", 
 			formpage1: "基本信息", 
 			srforikey: "", 
 			srfkey: "用户编号", 

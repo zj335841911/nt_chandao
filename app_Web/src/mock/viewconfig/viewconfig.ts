@@ -2535,6 +2535,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "DeptEditView",
             "viewtag": "bae11f9447355ecc9e2cdff2490e6d11"
         },
+        "useryearworkstatsqadashboardview": {
+            "title": "用户年度工作内容统计数据看板视图",
+            "caption": "用户年度工作内容统计",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "UserYearWorkStatsQADashboardView",
+            "viewtag": "bb44ef7532c0933ed75b1da291dec073"
+        },
         "projectmoduletreeexpview": {
             "title": "任务模块树导航视图",
             "caption": "任务模块",
@@ -2638,6 +2646,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TodoGridView9",
             "viewtag": "c3f0a8956b863fa05a7d961df90a3975"
+        },
+        "useryearworkstatspodashboardview": {
+            "title": "用户年度工作内容统计数据看板视图",
+            "caption": "用户年度工作内容统计",
+            "viewtype": "DEPORTALVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "UserYearWorkStatsPODashboardView",
+            "viewtag": "c42384620820be3bce40b5b1dc8dcff2"
         },
         "testreporteditview_tosumup": {
             "title": "测试报告编辑视图",

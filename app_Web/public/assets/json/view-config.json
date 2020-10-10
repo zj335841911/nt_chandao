@@ -3159,6 +3159,16 @@
         "viewtag": "bae11f9447355ecc9e2cdff2490e6d11",
         "memo": ""
     },
+    "useryearworkstatsqadashboardview": {
+        "title": "用户年度工作内容统计数据看板视图",
+        "caption": "用户年度工作内容统计",
+        "viewtype": "DEPORTALVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "UserYearWorkStatsQADashboardView",
+        "viewfilename": "user-year-work-stats-qadashboard-view",
+        "viewtag": "bb44ef7532c0933ed75b1da291dec073",
+        "memo": ""
+    },
     "projectmoduletreeexpview": {
         "title": "任务模块树导航视图",
         "caption": "任务模块",
@@ -3287,6 +3297,16 @@
         "viewname": "TodoGridView9",
         "viewfilename": "todo-grid-view9",
         "viewtag": "c3f0a8956b863fa05a7d961df90a3975",
+        "memo": ""
+    },
+    "useryearworkstatspodashboardview": {
+        "title": "用户年度工作内容统计数据看板视图",
+        "caption": "用户年度工作内容统计",
+        "viewtype": "DEPORTALVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "UserYearWorkStatsPODashboardView",
+        "viewfilename": "user-year-work-stats-podashboard-view",
+        "viewtag": "c42384620820be3bce40b5b1dc8dcff2",
         "memo": ""
     },
     "testreporteditview_tosumup": {

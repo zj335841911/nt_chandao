@@ -36,10 +36,12 @@ export class ZentaoBase extends Vue {
                     this.click_7(item); break;
                 case 'Auto6': 
                     this.clickAuto6(item); break;
+                case 'QAAppFunc': 
+                    this.clickQAAppFunc(item); break;
                 case '_6': 
                     this.click_6(item); break;
-                case 'AppFunc2': 
-                    this.clickAppFunc2(item); break;
+                case 'DevAppFunc': 
+                    this.clickDevAppFunc(item); break;
                 case 'Auto10': 
                     this.clickAuto10(item); break;
                 case 'Auto9': 
@@ -50,14 +52,16 @@ export class ZentaoBase extends Vue {
                     this.click_2(item); break;
                 case '_8': 
                     this.click_8(item); break;
-                case 'Auto15': 
-                    this.clickAuto15(item); break;
                 case '_4': 
                     this.click_4(item); break;
+                case 'Auto15': 
+                    this.clickAuto15(item); break;
                 case '_3': 
                     this.click_3(item); break;
                 case 'Auto19': 
                     this.clickAuto19(item); break;
+                case 'POAppFunc': 
+                    this.clickPOAppFunc(item); break;
                 case '_9': 
                     this.click_9(item); break;
                 case 'Auto1': 
@@ -212,6 +216,32 @@ export class ZentaoBase extends Vue {
     }
     
     /**
+     * 员工年度统计（测试）
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickQAAppFunc(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'useryearworkstats', parameterName: 'useryearworkstats' },
+        ];
+        const view: any = {
+            viewname: 'user-year-work-stats-qadashboard-view',
+            title: (this.$t('entities.useryearworkstats.views.qadashboardview.title') as any),
+            height: 0,
+            width: 0,
+            placement: 'DRAWER_TOP'
+        };
+        const appdrawer = this.$appdrawer.openDrawer(view, JSON.parse(JSON.stringify(this.context)), viewparam);
+        appdrawer.subscribe((result: any) => {
+            console.log(result);
+        });
+    }
+    
+    /**
      * task主数据视图（链接）
      *
      * @param {*} [item={}]
@@ -235,12 +265,12 @@ export class ZentaoBase extends Vue {
     }
     
     /**
-     * 员工年度统计
+     * 员工年度统计（研发）
      *
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public clickAppFunc2(item: any = {}) {
+    public clickDevAppFunc(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
@@ -378,17 +408,17 @@ export class ZentaoBase extends Vue {
     }
     
     /**
-     * 用例库
+     * Pro模块
      *
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public clickAuto15(item: any = {}) {
+    public click_4(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'ibzlibs', parameterName: 'ibzlib' },
+            { pathName: 'ibzprostorymodules', parameterName: 'ibzprostorymodule' },
             { pathName: 'gridview', parameterName: 'gridview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
@@ -401,17 +431,17 @@ export class ZentaoBase extends Vue {
     }
     
     /**
-     * Pro模块
+     * 用例库
      *
      * @param {*} [item={}]
      * @memberof Zentao
      */
-    public click_4(item: any = {}) {
+    public clickAuto15(item: any = {}) {
         const viewparam: any = {};
         Object.assign(viewparam, {});
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'ibzprostorymodules', parameterName: 'ibzprostorymodule' },
+            { pathName: 'ibzlibs', parameterName: 'ibzlib' },
             { pathName: 'gridview', parameterName: 'gridview' },
         ];
         const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, deResParameters, parameters, [], viewparam);
@@ -467,6 +497,32 @@ export class ZentaoBase extends Vue {
         this.$nextTick(function(){
             this.$router.push(path);
         })
+    }
+    
+    /**
+     * 员工年度统计（产品经理）
+     *
+     * @param {*} [item={}]
+     * @memberof Zentao
+     */
+    public clickPOAppFunc(item: any = {}) {
+        const viewparam: any = {};
+        Object.assign(viewparam, {});
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'useryearworkstats', parameterName: 'useryearworkstats' },
+        ];
+        const view: any = {
+            viewname: 'user-year-work-stats-podashboard-view',
+            title: (this.$t('entities.useryearworkstats.views.podashboardview.title') as any),
+            height: 0,
+            width: 0,
+            placement: 'DRAWER_TOP'
+        };
+        const appdrawer = this.$appdrawer.openDrawer(view, JSON.parse(JSON.stringify(this.context)), viewparam);
+        appdrawer.subscribe((result: any) => {
+            console.log(result);
+        });
     }
     
     /**
