@@ -3,7 +3,7 @@ import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
 import ProductSumService from '@/service/product-sum/product-sum-service';
-import ProductBugcnt_QAService from './product-bugcnt-qa-chart-service';
+import ProductCreateStory_POService from './product-create-story-po-chart-service';
 import ProductSumUIService from '@/uiservice/product-sum/product-sum-ui-service';
 import echarts from 'echarts';
 import moment from "moment"; 
@@ -12,36 +12,36 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
 
 
 /**
- * dashboard_sysportlet1_chart部件基类
+ * dashboard_sysportlet3_chart部件基类
  *
  * @export
  * @class MainControlBase
- * @extends {ProductBugcnt_QAChartBase}
+ * @extends {ProductCreateStory_POChartBase}
  */
-export class ProductBugcnt_QAChartBase extends MainControlBase {
+export class ProductCreateStory_POChartBase extends MainControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof ProductBugcnt_QAChartBase
+     * @memberof ProductCreateStory_POChartBase
      */
     protected controlType: string = 'CHART';
 
     /**
      * 建构部件服务对象
      *
-     * @type {ProductBugcnt_QAService}
-     * @memberof ProductBugcnt_QAChartBase
+     * @type {ProductCreateStory_POService}
+     * @memberof ProductCreateStory_POChartBase
      */
-    public service: ProductBugcnt_QAService = new ProductBugcnt_QAService({ $store: this.$store });
+    public service: ProductCreateStory_POService = new ProductCreateStory_POService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
      * @type {ProductSumService}
-     * @memberof ProductBugcnt_QAChartBase
+     * @memberof ProductCreateStory_POChartBase
      */
     public appEntityService: ProductSumService = new ProductSumService({ $store: this.$store });
 
@@ -50,7 +50,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof ProductBugcnt_QAChartBase
+     * @memberof ProductCreateStory_POChartBase
      */
     protected appDeName: string = 'productsum';
 
@@ -59,7 +59,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      *
      * @protected
      * @type {string}
-     * @memberof ProductBugcnt_QAChartBase
+     * @memberof ProductCreateStory_POChartBase
      */
     protected appDeLogicName: string = '产品汇总表';
 
@@ -67,7 +67,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * 界面UI服务对象
      *
      * @type {ProductSumUIService}
-     * @memberof ProductBugcnt_QABase
+     * @memberof ProductCreateStory_POBase
      */  
     public appUIService:ProductSumUIService = new ProductSumUIService(this.$store);
 
@@ -75,7 +75,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ProductBugcnt_QA
+     * @memberof ProductCreateStory_PO
      */
     public getDatas(): any[] {
         return [];
@@ -85,7 +85,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ProductBugcnt_QA
+     * @memberof ProductCreateStory_PO
      */
     public getData(): any {
         return null;
@@ -95,7 +95,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof ProductBugcnt_QA
+     * @memberof ProductCreateStory_PO
      */
     @Prop({ default: true }) public showBusyIndicator!: boolean;
 
@@ -103,14 +103,14 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof ProductBugcnt_QA
+     * @memberof ProductCreateStory_PO
      */
     @Prop() public fetchAction!: string;  
 
     /**
     * Vue声明周期(组件初始化完毕)
     *
-    * @memberof ProductBugcnt_QA
+    * @memberof ProductCreateStory_PO
     */
     public created() {
          this.afterCreated();     
@@ -119,7 +119,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
     /**
     * 执行created后的逻辑
     *
-    * @memberof ProductBugcnt_QA
+    * @memberof ProductCreateStory_PO
     */
     public afterCreated(){
         if (this.viewState) {
@@ -137,7 +137,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof ProductBugcnt_QA
+     * @memberof ProductCreateStory_PO
      */
     public destroyed() {
         this.afterDestroy();
@@ -146,7 +146,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ProductBugcnt_QA
+     * @memberof ProductCreateStory_PO
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -159,7 +159,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      *
      * @public
      * @type {boolean}
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */
     public isNoData: boolean  = false;
 
@@ -167,7 +167,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * 图表div绑定的id
      *
      * @type {}
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */   
     public chartId:string = this.$util.createUUID();
 
@@ -175,7 +175,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * echarts图表对象
      *
      * @type {}
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */   
     public myChart:any;
 
@@ -183,7 +183,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * 代码表服务对象
      *
      * @type {CodeListService}
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */  
     public codeListService:CodeListService = new CodeListService({ $store: this.$store });
 
@@ -191,24 +191,24 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * 序列模型
      *
      * @type {}
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */
     public  seriesModel:any = {
-        bugcnt:new ChartPieSeries({
-    name:'bugcnt',
+        productcreatestory:new ChartPieSeries({
+    name:'productcreatestory',
     
     
     categorField:'name',
     
     
-    valueField:'bugcnt',
+    valueField:'storycnt',
     seriesValues:[],
     seriesIndex:0,
     data:[],
     seriesMap:{},
     dataSetFields:[
     {name:"name",codelist:null,isGroupField:true,groupMode:""},
-    {name:"bugcnt",codelist:null,isGroupField:false,groupMode:""}
+    {name:"storycnt",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
         label:{
@@ -249,7 +249,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
     /**
      * 图表自定义参数集合
      *
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */   
     public chartUserParams:any ={
         color:["#0068B7","#1aa1e6","#81cef2","#FF5D5D",'#FDC137','#00DA88','#7ECFF','#8666B8','#BD7B46']
@@ -258,14 +258,14 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
     /**
      * 图表基础动态模型
      *
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */  
     public chartBaseOPtion:any = {};
 
     /**
      * 图表绘制最终参数
      *
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */ 
     public chartRenderOption:any = {};
 
@@ -273,12 +273,12 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * 初始化图表所需参数
      *
      * @type {}
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */   
     public chartOption:any = {
         title:{
-            show:true ,
-            text:'产品创建bug数及占比_测试',
+            show:false ,
+            text:'产品需求数及占比_管理员',
             subtext:''
         },
         legend:{
@@ -290,7 +290,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
         dataset:[],
         series:[
                      {
-            id:'bugcnt',
+            id:'productcreatestory',
             name:'',
             type:'pie',
             datasetIndex:0,
@@ -298,7 +298,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
             seriesLayoutBy:"column",
             encode:{
                 itemName:"name",
-                value:"bugcnt"
+                value:"storycnt"
             }}
         ]
     };
@@ -307,7 +307,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * 刷新
      *
      * @param {*} [opt={}]
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */
     public refresh(opt: any = {}) {
         this.load(opt);
@@ -317,7 +317,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * 获取图表数据
      * 
      * @returns {*} 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */
     public load(opt?:any) {
         let _this = this;
@@ -339,7 +339,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * 绘制图表
      * 
      * @returns {*} 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */
     public drawCharts(codelist:any){
         if(!this.myChart){
@@ -355,7 +355,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
     /**
      * 处理图表参数
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */
     public handleChartOPtion(allcodelist:any){
         let _chartOption:any = JSON.parse(JSON.stringify(this.chartOption));
@@ -424,7 +424,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * 
      * @param {*} data 实体数据集
      * @param {Function} callback 回调
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */
     public async transformToBasicChartSetData(data:any,callback:Function){
         if(!data || !Array.isArray(data) || data.length === 0){
@@ -518,7 +518,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * @param {Array<any>} callback 回调
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */
     public transformToChartSeriesDataSet(data:any,item:any,callback:Function,allCodeList:any):any{
         if(item.seriesIdField){
@@ -571,7 +571,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * @param {*} groupFieldModel 分组属性模型
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */
     public groupAndAdd(groupField:Array<any>,seriesField:Array<any>,valueField:Array<any>,data:any,item:any,groupFieldModel:any,allCodeList:any){
         let tempMap:Map<string,any> = new Map();
@@ -699,7 +699,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * @param {*} groupField 分组属性
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */
     public sortReturnArray(arr:Array<any>,groupField:any,allCodeList:any){
         let returnArray:Array<any> = [];
@@ -766,7 +766,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * @param {Array<any>} groupField 分组属性
      * @param {Array<any>} label label标签
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */
     public handleSortGroupData(arr:Array<any>,groupField:any,label:string){
         arr.forEach((item:any) =>{
@@ -800,7 +800,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * @param {Array<any>} item 单个序列
      * @param {Array<any>} allCodeList 所有的代码表
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */
     public completeDataSet(data:any,item:any,allCodeList:any){
         // 分组属性
@@ -825,7 +825,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * 
      * @param {Array<any>} tempTimeArray 传入数据
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */
     public  getRangeData(tempTimeArray:Array<any>){
         tempTimeArray.forEach((item:any) =>{
@@ -849,7 +849,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * @param {Array<any>} allCodeList 所有的代码表
      * @param {Array<any>} groupField 分组属性
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */
     public handleTimeData(data:any,item:any,allCodeList:any,groupField:any){
         let valueField = item.dataSetFields.find((datasetField:any) =>{
@@ -981,7 +981,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * @param {Array<any>} item 单个序列
      * @param {Array<any>} allCodeList 所有的代码表
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */
     public  completeCodeList(data:any,item:any,allCodeList:any){
         let groupField = item.dataSetFields.find((datasetField:any) =>{
@@ -1025,7 +1025,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * @param {*} allCodeList 所有代码表
      * @param {*} result 结果值
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */
     public handleSingleDataSetField(input:any,field:any,allCodeList:any,result:any,groupField:any){
         let tempFieldObj:any = {};
@@ -1061,7 +1061,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
     /**
      * 获取图表所需代码表
      * 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */
     public getChartAllCodeList():Promise<any>{
         return new Promise((resolve:any,reject:any) =>{
@@ -1108,7 +1108,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      * 获取代码表
      * 
      * @returns {Promise<any>} 
-     * @memberof Dashboard_sysportlet1_chartBase
+     * @memberof Dashboard_sysportlet3_chartBase
      */
     public getCodeList(codeListObject:any):Promise<any>{
         return new Promise((resolve:any,reject:any) =>{

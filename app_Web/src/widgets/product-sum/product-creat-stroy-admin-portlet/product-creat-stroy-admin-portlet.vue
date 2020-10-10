@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductCreatStroy_adminPortletBase } from './product-creat-stroy-admin-portlet-base';
-import view_dashboard_sysportlet3_chart from '@widgets/product-sum/product-create-story-chart/product-create-story-chart.vue';
+import view_dashboard_sysportlet3_chart from '@widgets/product-sum/product-create-story-po-chart/product-create-story-po-chart.vue';
  
 
 /**
