@@ -1,5 +1,6 @@
 import { Http,Util } from '@/utils';
 import EntityService from '../entity-service';
+import GetProductsLogic from '@/service/user-year-work-stats/get-products-logic';
 
 
 
@@ -119,7 +120,10 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/useryearworkstats/${context.useryearworkstats}`,isloading);
-            
+                let getproducts:GetProductsLogic = new GetProductsLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res)).data});
+            let getproductsData:any = await getproducts.onExecute(context,res.data,isloading?true:false);
+            res ={status:200,data:getproductsData};
+
             return res;
     }
 
@@ -197,6 +201,21 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
     public async FetchMonthFinishTaskAndBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/useryearworkstats/fetchmonthfinishtaskandbug`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchMonthOpenedStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async FetchMonthOpenedStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/useryearworkstats/fetchmonthopenedstory`,tempData,isloading);
         return res;
     }
 }

@@ -8,8 +8,21 @@
         <tns:global identifier="useryearworkstatsgetproductsdefault" type="cn.ibizlab.pms.core.ibiz.domain.UserYearWorkStats" />
         </extensionElements>
      <startEvent id="begin" isInterrupting="true"/>
-     <endEvent id="begin_end" name="end"/>
-     <sequenceFlow id="begin_end_line" sourceRef="begin" targetRef="begin_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="useryearworkstatsgetproductsrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取产品数"/>
+     <endEvent id="rawsqlcall1_end" name="end"/>
+     <sequenceFlow id="rawsqlcall1_end_line" sourceRef="rawsqlcall1" targetRef="rawsqlcall1_end"/>
+     <sequenceFlow id="gateway-begin_rawsqlcall1" sourceRef="gateway-begin" targetRef="rawsqlcall1">
+            <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
+            $useryearworkstatsgetproductsdefault:UserYearWorkStats();
+            eval($useryearworkstatsgetproductsdefault==useryearworkstatsgetproductsdefault);
+                eval((RuleUtils.test($useryearworkstatsgetproductsdefault.get("JUDGEROLE"),"EQ","po")))
+                ]]>
+            </conditionExpression>
+     </sequenceFlow>
+    <exclusiveGateway id="gateway-begin" name="Gateway" gatewayDirection="Diverging" default="gateway-begin_end_line"></exclusiveGateway>
+    <sequenceFlow id="begin_gateway-begin_gatewayline" sourceRef="begin" targetRef="gateway-begin"></sequenceFlow>
+    <sequenceFlow id="gateway-begin_end_line" sourceRef="gateway-begin" targetRef="gateway-begin_end"/>
+    <endEvent id="gateway-begin_end" name="end"/>
     </process>
 </definitions>
 

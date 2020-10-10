@@ -38,6 +38,7 @@ public interface IProductSumService extends IService<ProductSum>{
     void saveBatch(List<ProductSum> list) ;
     Page<ProductSum> searchDefault(ProductSumSearchContext context) ;
     Page<ProductSum> searchProductCreateStory(ProductSumSearchContext context) ;
+    Page<ProductSum> searchProductStorycntAndPlancnt(ProductSumSearchContext context) ;
     /**
      *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

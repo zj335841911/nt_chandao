@@ -1917,6 +1917,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '7e9dfdd36617a43790494790f58117ec',
+            viewmodule: 'ibiz',
+            viewname: 'ProductSumUsr2GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ada719b0d8722509d22b4b72bbb8cf26',
+            ],
+        },
+        {
             viewtag: '807a419a917fbfdfa3378d2fac6a2785',
             viewmodule: 'zentao',
             viewname: 'TodoFinishView',
@@ -3067,6 +3077,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '96d2f792bc2c38a37fe873a125cb57b6',
+                '7e9dfdd36617a43790494790f58117ec',
                 '3519739a278f4151b39580be3a276cbf',
             ],
         },

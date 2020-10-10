@@ -44,6 +44,15 @@ export default {
 		uiactions: {
 		},
 	},
+	productplancntandstorycnt_grid: {
+		columns: {
+			name: "产品名称",
+			plan: "计划",
+			storycnt: "总计",
+		},
+		uiactions: {
+		},
+	},
 	main_grid: {
 		columns: {
 			name: "产品名称",
@@ -55,15 +64,6 @@ export default {
 			activestorycnt: "激活",
 			changedstorycnt: "已变更",
 			closedstorycnt: "已关闭",
-			storycnt: "总计",
-		},
-		uiactions: {
-		},
-	},
-	productplancntandstorycnt_grid: {
-		columns: {
-			name: "产品名称",
-			plan: "计划",
 			storycnt: "总计",
 		},
 		uiactions: {

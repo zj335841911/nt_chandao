@@ -1,0 +1,11 @@
+<div class='portlet product-plancnt-and-storycnt ' :style="{'height': isAdaptiveSize ? '100%' : getHeight,}">
+        <p class='portlet-title'>
+            <span>
+            
+            产品计划数和需求数看板部件
+            </span>
+        </p>
+        <div class="portlet-with-title">
+        <product-sum-usr2-grid-view :viewUsage="4" :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></product-sum-usr2-grid-view>
+        </div>
+</div>

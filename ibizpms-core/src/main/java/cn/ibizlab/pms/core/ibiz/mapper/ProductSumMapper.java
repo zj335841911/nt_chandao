@@ -21,6 +21,7 @@ public interface ProductSumMapper extends BaseMapper<ProductSum>{
 
     Page<ProductSum> searchDefault(IPage page, @Param("srf") ProductSumSearchContext context, @Param("ew") Wrapper<ProductSum> wrapper) ;
     Page<ProductSum> searchProductCreateStory(IPage page, @Param("srf") ProductSumSearchContext context, @Param("ew") Wrapper<ProductSum> wrapper) ;
+    Page<ProductSum> searchProductStorycntAndPlancnt(IPage page, @Param("srf") ProductSumSearchContext context, @Param("ew") Wrapper<ProductSum> wrapper) ;
     @Override
     ProductSum selectById(Serializable id);
     @Override

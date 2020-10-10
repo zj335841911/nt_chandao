@@ -41,6 +41,7 @@ import TodoTodoaction from '@/widgets/todo/todoaction-portlet/todoaction-portlet
 import TodoTodoBase from '@/widgets/todo/todo-base-portlet/todo-base-portlet.vue';
 import TodoTodoDesc from '@/widgets/todo/todo-desc-portlet/todo-desc-portlet.vue';
 import TodoTodoDashboardActions from '@/widgets/todo/todo-dashboard-actions-portlet/todo-dashboard-actions-portlet.vue';
+import UserYearWorkStatsProductPlancntAndStorycnt from '@/widgets/user-year-work-stats/product-plancnt-and-storycnt-portlet/product-plancnt-and-storycnt-portlet.vue';
 import UserYearWorkStatsInfo from '@/widgets/user-year-work-stats/info-portlet/info-portlet.vue';
 import UserYearWorkStatsFinishedbyTask from '@/widgets/user-year-work-stats/finishedby-task-portlet/finishedby-task-portlet.vue';
 import UserYearWorkStatsFinishTaskAndBug from '@/widgets/user-year-work-stats/finish-task-and-bug-portlet/finish-task-and-bug-portlet.vue';
@@ -163,6 +164,7 @@ export const  PortletComponent = {
         v.component('app-test-suite-test-suite-quick-action-portlet', TestSuiteTestSuiteQuickAction);
         v.component('app-test-suite-main-info-view-portlet', TestSuiteMainInfoView);
         v.component('app-product-sum-product-creat-stroy-admin-portlet', ProductSumProductCreatStroy_admin);
+        v.component('app-user-year-work-stats-product-plancnt-and-storycnt-portlet', UserYearWorkStatsProductPlancntAndStorycnt);
         v.component('app-project-un-closed-project-portlet', ProjectUnClosedProject);
         v.component('app-project-project-status-bar-portlet', ProjectProjectStatusBar);
         v.component('app-test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
@@ -212,6 +214,7 @@ export const  PortletComponent = {
         v.component('todo-todo-base-portlet', TodoTodoBase);
         v.component('todo-todo-desc-portlet', TodoTodoDesc);
         v.component('todo-todo-dashboard-actions-portlet', TodoTodoDashboardActions);
+        v.component('user-year-work-stats-product-plancnt-and-storycnt-portlet', UserYearWorkStatsProductPlancntAndStorycnt);
         v.component('user-year-work-stats-info-portlet', UserYearWorkStatsInfo);
         v.component('user-year-work-stats-finishedby-task-portlet', UserYearWorkStatsFinishedbyTask);
         v.component('user-year-work-stats-finish-task-and-bug-portlet', UserYearWorkStatsFinishTaskAndBug);
