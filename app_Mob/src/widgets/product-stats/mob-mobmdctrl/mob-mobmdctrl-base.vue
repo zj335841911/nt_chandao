@@ -905,16 +905,6 @@ export default class MobBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 阻止touchstart冒泡、默认点击
-     *
-     * @memberof Mob
-     */
-    public handleTouchStart (e:any) {
-      e.stopPropagation();
-      e.preventDefault();
-    }
-
-    /**
      * vue 生命周期
      *
      * @memberof Mob

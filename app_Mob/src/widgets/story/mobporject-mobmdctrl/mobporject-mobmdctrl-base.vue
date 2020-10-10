@@ -7,7 +7,7 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                    <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag" @touchstart.stop.prevent="handleTouchStart">
+                    <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.ProjectUnlinkStoryMob.visabled" :disabled="item.ProjectUnlinkStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u3a6091c', item)"><ion-icon v-if="item.ProjectUnlinkStoryMob.icon && item.ProjectUnlinkStoryMob.isShowIcon" :name="item.ProjectUnlinkStoryMob.icon"></ion-icon><ion-label v-if="item.ProjectUnlinkStoryMob.isShowCaption">移除</ion-label></ion-item-option>
                         </ion-item-options>
@@ -26,7 +26,7 @@
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
-                      <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag" @touchstart.stop.prevent="handleTouchStart">
+                      <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.ProjectUnlinkStoryMob.visabled" :disabled="item.ProjectUnlinkStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u3a6091c', item)"><ion-icon v-if="item.ProjectUnlinkStoryMob.icon && item.ProjectUnlinkStoryMob.isShowIcon" :name="item.ProjectUnlinkStoryMob.icon"></ion-icon><ion-label v-if="item.ProjectUnlinkStoryMob.isShowCaption">移除</ion-label></ion-item-option>
                         </ion-item-options>
@@ -1023,16 +1023,6 @@ export default class MOBPorjectBase extends Vue implements ControlInterface {
      */
     public ionDrag(){
       this.$store.commit('setPopupStatus',false)
-    }
-
-    /**
-     * 阻止touchstart冒泡、默认点击
-     *
-     * @memberof MOBPorject
-     */
-    public handleTouchStart (e:any) {
-      e.stopPropagation();
-      e.preventDefault();
     }
 
     /**
