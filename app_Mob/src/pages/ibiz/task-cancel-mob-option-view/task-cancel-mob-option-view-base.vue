@@ -498,6 +498,10 @@ export default class TaskCancelMobOptionViewBase extends Vue {
      * @memberof TaskCancelMobOptionViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.getters.getSearchformStatus()){
+            this.searchformState = false;
+            return
+        }
               let result = await this.cheackChange();
       if(result){
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){

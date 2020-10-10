@@ -491,6 +491,10 @@ export default class TaskEstimateMobOptionViewBase extends Vue {
      * @memberof TaskEstimateMobOptionViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.getters.getSearchformStatus()){
+            this.searchformState = false;
+            return
+        }
               let result = await this.cheackChange();
       if(result){
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){

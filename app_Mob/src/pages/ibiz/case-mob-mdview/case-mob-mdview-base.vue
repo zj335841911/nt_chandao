@@ -7,7 +7,7 @@
     
     </ion-header>
 
-    <van-popup get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
+    <van-popup @close="searchformClose" get-container="#app" :lazy-render="false" duration="0.2" v-model="searchformState" position="right" class="searchform" style="height: 100%; width: 85%;"  >
         <ion-header>
             <ion-toolbar translucent>
                 <ion-title>条件搜索</ion-title>
@@ -739,6 +739,10 @@ export default class CaseMobMDViewBase extends Vue {
      * @memberof CaseMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.getters.getSearchformStatus()){
+            this.searchformState = false;
+            return
+        }
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;
@@ -835,6 +839,15 @@ export default class CaseMobMDViewBase extends Vue {
             form.onReset();
         }
         this.closeSearchform();
+    }
+
+    /**
+     * 搜索表单关闭事件
+     *
+     * @memberof CaseMobMDViewBase
+     */
+    public searchformClose() {
+        this.$store.commit('setSearchformStatus',false); 
     }
 
     /**

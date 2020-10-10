@@ -633,6 +633,10 @@ export default class BugAssignToMobEditViewBase extends Vue {
      * @memberof BugAssignToMobEditViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.getters.getSearchformStatus()){
+            this.searchformState = false;
+            return
+        }
                 let result = await this.cheackChange();
         if(result){
             if (this.viewDefaultUsage === "routerView") {
