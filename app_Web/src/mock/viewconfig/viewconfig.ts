@@ -3359,6 +3359,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "CaseGridView",
             "viewtag": "f63aae9bc8cfe29654439743b465a942"
         },
+        "productsumusr3gridview": {
+            "title": "产品汇总表表格视图",
+            "caption": "产品汇总表",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProductSumUsr3GridView",
+            "viewtag": "f725c5c0e28669d9ef6b02ce237786a5"
+        },
         "productbugtreeexpview": {
             "title": "产品需求导航视图",
             "caption": "产品",

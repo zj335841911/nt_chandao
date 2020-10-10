@@ -4189,6 +4189,16 @@
         "viewtag": "f63aae9bc8cfe29654439743b465a942",
         "memo": ""
     },
+    "productsumusr3gridview": {
+        "title": "产品汇总表表格视图",
+        "caption": "产品汇总表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProductSumUsr3GridView",
+        "viewfilename": "product-sum-usr3-grid-view",
+        "viewtag": "f725c5c0e28669d9ef6b02ce237786a5",
+        "memo": ""
+    },
     "productbugtreeexpview": {
         "title": "产品需求导航视图",
         "caption": "产品",

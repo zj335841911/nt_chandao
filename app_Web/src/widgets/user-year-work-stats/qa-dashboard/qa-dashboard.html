@@ -84,6 +84,24 @@
                           <span>
                                           <div class='portlet-container qadashboard-viewdashboard-container8 ' :style="{}">
                               <row>
+                                <i-col :md="{ span: 24, offset: 0 }">
+                                    <div class="portlet-without-title">
+                                      <card class="portlet-card" :bordered="false" dis-hover :padding="0">
+                                        <span>
+                                                        <view_dashboard_sysportlet6 
+                                          :viewState="viewState"  
+                                          :viewparams="viewparams" 
+                                          :context="context" 
+                                          :height="330"
+                                          :width="0"
+                                          name="dashboard_sysportlet6"  
+                                          ref='dashboard_sysportlet6' 
+                                          @closeview="closeView($event)">
+                                      </view_dashboard_sysportlet6>
+                                        </span>
+                                      </card>
+                                    </div>
+                                </i-col>
                               </row>
                           </div>
                           </span>

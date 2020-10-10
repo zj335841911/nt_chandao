@@ -25,6 +25,10 @@ export default {
 			caption: "产品汇总表",
       		title: "产品汇总表编辑视图",
 		},
+		usr3gridview: {
+			caption: "产品汇总表",
+      		title: "产品汇总表表格视图",
+		},
 	},
 	main_form: {
 		details: {
@@ -65,6 +69,14 @@ export default {
 			changedstorycnt: "已变更",
 			closedstorycnt: "已关闭",
 			storycnt: "总计",
+		},
+		uiactions: {
+		},
+	},
+	productbugcnt_qa_grid: {
+		columns: {
+			name: "产品名称",
+			bugcnt: "创建bug数",
 		},
 		uiactions: {
 		},

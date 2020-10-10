@@ -3,11 +3,11 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductBugcnt_QaPortletBase } from './product-bugcnt-qa-portlet-base';
-import view_dashboard_sysportlet1_chart from '@widgets/product-sum/product-bugcnt-qa-chart/product-bugcnt-qa-chart.vue';
+import view_dashboard_sysportlet6_chart from '@widgets/product-sum/product-bugcnt-qa-chart/product-bugcnt-qa-chart.vue';
  
 
 /**
- * dashboard_sysportlet1部件
+ * dashboard_sysportlet6部件
  *
  * @export
  * @class ProductBugcnt_QaPortlet
@@ -15,7 +15,7 @@ import view_dashboard_sysportlet1_chart from '@widgets/product-sum/product-bugcn
  */
 @Component({
     components: {
-        view_dashboard_sysportlet1_chart, 
+        view_dashboard_sysportlet6_chart, 
          
     }
 })

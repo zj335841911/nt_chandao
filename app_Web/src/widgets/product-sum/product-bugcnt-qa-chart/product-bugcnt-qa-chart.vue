@@ -6,7 +6,7 @@ import { ProductBugcnt_QAChartBase } from './product-bugcnt-qa-chart-base';
  
 
 /**
- * dashboard_sysportlet1_chart部件
+ * dashboard_sysportlet6_chart部件
  *
  * @export
  * @class ProductBugcnt_QAChart
