@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { InvolvedProjectChartBase } from './involved-project-chart-base';
- 
+import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,ChartBarSeries,ChartRadarSeries} from '@/model/chart-detail';
 
 /**
  * dashboard_sysportlet6_chart部件
@@ -60,6 +60,60 @@ export default class InvolvedProjectChart extends InvolvedProjectChartBase {
                 value:"srfcount"
             }}
         ]
+    };
+
+    /**
+     * 序列模型
+     *
+     * @type {}
+     * @memberof Dashboard_sysportlet6_chartBase
+     */
+    public  seriesModel:any = {
+        involved:new ChartPieSeries({
+            name:'involved',
+            categorField:'status',
+            categorCodeList:{type:'STATIC',tag:'Project_staus',emptycode:'empty',emptytext:'未定义'},
+            valueField:'srfcount',
+            seriesValues:[],
+            seriesIndex:0,
+            data:[],
+            seriesMap:{},
+            dataSetFields:[
+                {name:"status",codelist:{type:"STATIC",tag:"Project_staus",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"CODELIST"},
+                {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
+            ],
+            ecxObject:{
+                label:{
+                    show: false,
+                    position: 'outside',
+                },
+                labelLine:{
+                    show: true,
+                    length: 10,
+                    lineStyle: {
+                        width: 1,
+                        type: 'solid'
+                    }
+                },
+                itemStyle:{
+                    borderColor: '#fff',
+                    borderWidth: 1
+                },
+                emphasis:{
+                    label: {
+                        fontSize: 20
+                    }
+                }
+            },
+            ecObject:{
+                radius:['60%', '70%'],
+            },
+            seriesTemp:{
+                type:'pie',
+            },
+            baseOption:{},
+            seriesLayoutBy:"column"
+        })
     };
 
     /**

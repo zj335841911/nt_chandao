@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { MyFinishedbyTaskChartBase } from './my-finishedby-task-chart-base';
- 
+import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,ChartBarSeries,ChartRadarSeries} from '@/model/chart-detail';
 
 /**
  * chart部件
@@ -59,6 +59,59 @@ export default class MyFinishedbyTaskChart extends MyFinishedbyTaskChartBase {
                 value:"srfcount"
             }}
         ]
+    };
+
+    /**
+     * 序列模型
+     *
+     * @type {}
+     * @memberof ChartBase
+     */
+    public  seriesModel:any = {
+        myfinishedbytask:new ChartPieSeries({
+            name:'myfinishedbytask',
+            categorField:'pri',
+            valueField:'srfcount',
+            seriesValues:[],
+            seriesIndex:0,
+            data:[],
+            seriesMap:{},
+            dataSetFields:[
+                {name:"pri",codelist:null,isGroupField:true,groupMode:""},
+                {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
+            ],
+            ecxObject:{
+                label:{
+                    show: false,
+                    position: 'outside',
+                },
+                labelLine:{
+                    show: true,
+                    length: 10,
+                    lineStyle: {
+                        width: 1,
+                        type: 'solid'
+                    }
+                },
+                itemStyle:{
+                    borderColor: '#fff',
+                    borderWidth: 1
+                },
+                emphasis:{
+                    label: {
+                        fontSize: 20
+                    }
+                }
+            },
+            ecObject:{
+                radius:['60%', '70%'],
+            },
+            seriesTemp:{
+                type:'pie',
+            },
+            baseOption:{},
+            seriesLayoutBy:"column"
+        })
     };
 
     /**
