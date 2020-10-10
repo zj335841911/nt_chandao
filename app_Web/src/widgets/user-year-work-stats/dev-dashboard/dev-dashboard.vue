@@ -9,7 +9,6 @@ import view_dashboard_sysportlet4 from '@widgets/user-year-work-stats/resolve-bu
 import view_dashboard_sysportlet5 from '@widgets/user-year-work-stats/finish-task-and-bug-portlet/finish-task-and-bug-portlet.vue';
 import view_dashboard_sysportlet2 from '@widgets/user-year-work-stats/info-portlet/info-portlet.vue';
 import view_dashboard_sysportlet3 from '@widgets/user-year-work-stats/finishedby-task-portlet/finishedby-task-portlet.vue';
-import view_dashboard_sysportlet1 from '@widgets/user-year-work-stats/title-portlet/title-portlet.vue';
  
 
 /**
@@ -27,7 +26,6 @@ import view_dashboard_sysportlet1 from '@widgets/user-year-work-stats/title-port
         view_dashboard_sysportlet5, 
         view_dashboard_sysportlet2, 
         view_dashboard_sysportlet3, 
-        view_dashboard_sysportlet1, 
          
     }
 })

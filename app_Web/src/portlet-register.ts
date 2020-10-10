@@ -50,7 +50,6 @@ import UserYearWorkStatsFinishedbyTask from '@/widgets/user-year-work-stats/fini
 import UserYearWorkStatsMonthOpenedBugAndCase from '@/widgets/user-year-work-stats/month-opened-bug-and-case-portlet/month-opened-bug-and-case-portlet.vue';
 import UserYearWorkStatsFinishTaskAndBug from '@/widgets/user-year-work-stats/finish-task-and-bug-portlet/finish-task-and-bug-portlet.vue';
 import UserYearWorkStatsMonthOpenedStory from '@/widgets/user-year-work-stats/month-opened-story-portlet/month-opened-story-portlet.vue';
-import UserYearWorkStatsTitle from '@/widgets/user-year-work-stats/title-portlet/title-portlet.vue';
 import UserYearWorkStatsResolveBug from '@/widgets/user-year-work-stats/resolve-bug-portlet/resolve-bug-portlet.vue';
 import UserYearWorkStatsInvolvedProject_StoryTaskBug from '@/widgets/user-year-work-stats/involved-project-story-task-bug-portlet/involved-project-story-task-bug-portlet.vue';
 import ProjectInvolvedProject from '@/widgets/project/involved-project-portlet/involved-project-portlet.vue';
@@ -152,7 +151,6 @@ export const  PortletComponent = {
         v.component('app-ibz-project-member-related-members-portlet', IbzProjectMemberRelatedMembers);
         v.component('app-project-project-main-toolbar-portlet', ProjectProjectMainToolbar);
         v.component('app-project-dash-borad-info-view-portlet', ProjectDashBoradInfoView);
-        v.component('app-user-year-work-stats-title-portlet', UserYearWorkStatsTitle);
         v.component('app-user-year-work-stats-info-portlet', UserYearWorkStatsInfo);
         v.component('app-project-involved-project-portlet', ProjectInvolvedProject);
         v.component('app-user-year-work-stats-involved-project-story-task-bug-portlet', UserYearWorkStatsInvolvedProject_StoryTaskBug);
@@ -235,7 +233,6 @@ export const  PortletComponent = {
         v.component('user-year-work-stats-month-opened-bug-and-case-portlet', UserYearWorkStatsMonthOpenedBugAndCase);
         v.component('user-year-work-stats-finish-task-and-bug-portlet', UserYearWorkStatsFinishTaskAndBug);
         v.component('user-year-work-stats-month-opened-story-portlet', UserYearWorkStatsMonthOpenedStory);
-        v.component('user-year-work-stats-title-portlet', UserYearWorkStatsTitle);
         v.component('user-year-work-stats-resolve-bug-portlet', UserYearWorkStatsResolveBug);
         v.component('user-year-work-stats-involved-project-story-task-bug-portlet', UserYearWorkStatsInvolvedProject_StoryTaskBug);
         v.component('project-involved-project-portlet', ProjectInvolvedProject);

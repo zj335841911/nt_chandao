@@ -49,24 +49,6 @@ export default {
       		title: "用户年度工作内容统计编辑视图",
 		},
 	},
-	titleform_form: {
-		details: {
-			group1: "用户年度工作内容统计基本信息", 
-			formpage1: "基本信息", 
-			srforikey: "", 
-			srfkey: "用户编号", 
-			srfmajortext: "标题", 
-			srftempmode: "", 
-			srfuf: "", 
-			srfdeid: "", 
-			srfsourcekey: "", 
-			title: "", 
-			curyear: "年度", 
-			id: "用户编号", 
-		},
-		uiactions: {
-		},
-	},
 	maininfo_form: {
 		details: {
 			grouppanel1: "研发", 
@@ -121,6 +103,24 @@ export default {
 			title: "", 
 			curyear: "年度", 
 			judgerole: "判断角色", 
+			id: "用户编号", 
+		},
+		uiactions: {
+		},
+	},
+	titleform_form: {
+		details: {
+			group1: "用户年度工作内容统计基本信息", 
+			formpage1: "基本信息", 
+			srforikey: "", 
+			srfkey: "用户编号", 
+			srfmajortext: "标题", 
+			srftempmode: "", 
+			srfuf: "", 
+			srfdeid: "", 
+			srfsourcekey: "", 
+			title: "", 
+			curyear: "年度", 
 			id: "用户编号", 
 		},
 		uiactions: {

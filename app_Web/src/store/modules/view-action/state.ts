@@ -2339,15 +2339,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '96d2f792bc2c38a37fe873a125cb57b6',
-            viewmodule: 'ibiz',
-            viewname: 'UserYearWorkStatsTitleEditView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '96ec3f978c1cc22acc532331d5dc2a41',
             viewmodule: 'zentao',
             viewname: 'ActionProjectTrendsListView9',
@@ -2513,7 +2504,6 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '1956d68ebad0fcc688c189757a8601a6',
-                '96d2f792bc2c38a37fe873a125cb57b6',
                 'a250e5baa5d560a9fa660ba3f1bc9f51',
                 '3519739a278f4151b39580be3a276cbf',
                 'c862174c0f25d5077870c42115925fee',
@@ -2943,7 +2933,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '96d2f792bc2c38a37fe873a125cb57b6',
                 '3519739a278f4151b39580be3a276cbf',
             ],
         },
@@ -3076,7 +3065,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '96d2f792bc2c38a37fe873a125cb57b6',
                 '7e9dfdd36617a43790494790f58117ec',
                 '3519739a278f4151b39580be3a276cbf',
             ],

@@ -9,7 +9,6 @@ import view_dashboard_sysportlet4 from '@widgets/user-year-work-stats/product-pl
 import view_dashboard_sysportlet5 from '@widgets/user-year-work-stats/month-opened-story-portlet/month-opened-story-portlet.vue';
 import view_dashboard_sysportlet2 from '@widgets/user-year-work-stats/info-portlet/info-portlet.vue';
 import view_dashboard_sysportlet3 from '@widgets/product-sum/product-creat-stroy-admin-portlet/product-creat-stroy-admin-portlet.vue';
-import view_dashboard_sysportlet1 from '@widgets/user-year-work-stats/title-portlet/title-portlet.vue';
  
 
 /**
@@ -27,7 +26,6 @@ import view_dashboard_sysportlet1 from '@widgets/user-year-work-stats/title-port
         view_dashboard_sysportlet5, 
         view_dashboard_sysportlet2, 
         view_dashboard_sysportlet3, 
-        view_dashboard_sysportlet1, 
          
     }
 })
