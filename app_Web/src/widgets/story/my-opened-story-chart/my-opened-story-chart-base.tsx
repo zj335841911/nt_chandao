@@ -2,9 +2,9 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
-import ProductSumService from '@/service/product-sum/product-sum-service';
-import ProductCreateStoryService from './product-create-story-chart-service';
-import ProductSumUIService from '@/uiservice/product-sum/product-sum-ui-service';
+import StoryService from '@/service/story/story-service';
+import MyOpenedStoryService from './my-opened-story-chart-service';
+import StoryUIService from '@/uiservice/story/story-ui-service';
 import echarts from 'echarts';
 import moment from "moment"; 
 import CodeListService from "@service/app/codelist-service";
@@ -12,70 +12,70 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
 
 
 /**
- * dashboard_sysportlet3_chart部件基类
+ * dashboard_sysportlet6_chart部件基类
  *
  * @export
  * @class MainControlBase
- * @extends {ProductCreateStoryChartBase}
+ * @extends {MyOpenedStoryChartBase}
  */
-export class ProductCreateStoryChartBase extends MainControlBase {
+export class MyOpenedStoryChartBase extends MainControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof ProductCreateStoryChartBase
+     * @memberof MyOpenedStoryChartBase
      */
     protected controlType: string = 'CHART';
 
     /**
      * 建构部件服务对象
      *
-     * @type {ProductCreateStoryService}
-     * @memberof ProductCreateStoryChartBase
+     * @type {MyOpenedStoryService}
+     * @memberof MyOpenedStoryChartBase
      */
-    public service: ProductCreateStoryService = new ProductCreateStoryService({ $store: this.$store });
+    public service: MyOpenedStoryService = new MyOpenedStoryService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {ProductSumService}
-     * @memberof ProductCreateStoryChartBase
+     * @type {StoryService}
+     * @memberof MyOpenedStoryChartBase
      */
-    public appEntityService: ProductSumService = new ProductSumService({ $store: this.$store });
+    public appEntityService: StoryService = new StoryService({ $store: this.$store });
 
     /**
      * 应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof ProductCreateStoryChartBase
+     * @memberof MyOpenedStoryChartBase
      */
-    protected appDeName: string = 'productsum';
+    protected appDeName: string = 'story';
 
     /**
      * 应用实体中文名称
      *
      * @protected
      * @type {string}
-     * @memberof ProductCreateStoryChartBase
+     * @memberof MyOpenedStoryChartBase
      */
-    protected appDeLogicName: string = '产品汇总表';
+    protected appDeLogicName: string = '需求';
 
     /**
      * 界面UI服务对象
      *
-     * @type {ProductSumUIService}
-     * @memberof ProductCreateStoryBase
+     * @type {StoryUIService}
+     * @memberof MyOpenedStoryBase
      */  
-    public appUIService:ProductSumUIService = new ProductSumUIService(this.$store);
+    public appUIService:StoryUIService = new StoryUIService(this.$store);
 
     /**
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ProductCreateStoryBase
+     * @memberof MyOpenedStoryBase
      */
     public getDatas(): any[] {
         return [];
@@ -85,7 +85,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ProductCreateStoryBase
+     * @memberof MyOpenedStoryBase
      */
     public getData(): any {
         return null;
@@ -95,7 +95,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof ProductCreateStoryBase
+     * @memberof MyOpenedStoryBase
      */
     @Prop({ default: true }) public showBusyIndicator!: boolean;
 
@@ -103,14 +103,14 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof ProductCreateStoryBase
+     * @memberof MyOpenedStoryBase
      */
     @Prop() public fetchAction!: string;  
 
     /**
     * Vue声明周期(组件初始化完毕)
     *
-    * @memberof ProductCreateStoryBase
+    * @memberof MyOpenedStoryBase
     */
     public created() {
          this.afterCreated();     
@@ -119,7 +119,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
     /**
     * 执行created后的逻辑
     *
-    * @memberof ProductCreateStoryBase
+    * @memberof MyOpenedStoryBase
     */
     public afterCreated(){
         if (this.viewState) {
@@ -137,7 +137,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof ProductCreateStoryBase
+     * @memberof MyOpenedStoryBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -146,7 +146,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ProductCreateStoryBase
+     * @memberof MyOpenedStoryBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -159,7 +159,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      *
      * @public
      * @type {boolean}
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */
     public isNoData: boolean  = false;
 
@@ -167,7 +167,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * 图表div绑定的id
      *
      * @type {}
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */   
     public chartId:string = this.$util.createUUID();
 
@@ -175,7 +175,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * echarts图表对象
      *
      * @type {}
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */   
     public myChart:any;
 
@@ -183,7 +183,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * 代码表服务对象
      *
      * @type {CodeListService}
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */  
     public codeListService:CodeListService = new CodeListService({ $store: this.$store });
 
@@ -191,24 +191,24 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * 序列模型
      *
      * @type {}
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */
     public  seriesModel:any = {
-        productcreatestory:new ChartPieSeries({
-    name:'productcreatestory',
+        pri:new ChartPieSeries({
+    name:'pri',
     
     
-    categorField:'name',
+    categorField:'pri',
+    categorCodeList:{type:'STATIC',tag:'Story__pri',emptycode:'empty',emptytext:'未定义'},
     
-    
-    valueField:'storycnt',
+    valueField:'srfcount',
     seriesValues:[],
     seriesIndex:0,
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"name",codelist:null,isGroupField:true,groupMode:""},
-    {name:"storycnt",codelist:null,isGroupField:false,groupMode:""}
+    {name:"pri",codelist:{type:"STATIC",tag:"Story__pri",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:""},
+    {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
         label:{
@@ -249,23 +249,23 @@ export class ProductCreateStoryChartBase extends MainControlBase {
     /**
      * 图表自定义参数集合
      *
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */   
     public chartUserParams:any ={
-        color:["#0068B7","#1aa1e6","#81cef2","#FF5D5D",'#FDC137','#00DA88','#7ECFF','#8666B8','#BD7B46']
+        color:["#CAAC32","#0075A9","#22AC38","#2B4D6D",'#FF9100','#FF3D00','#F57F17','#00E5FF','#00B0FF','#2979FF','#3D5AFE','#651FFF','#D500F9']
     };
 
     /**
      * 图表基础动态模型
      *
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */  
     public chartBaseOPtion:any = {};
 
     /**
      * 图表绘制最终参数
      *
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */ 
     public chartRenderOption:any = {};
 
@@ -273,12 +273,12 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * 初始化图表所需参数
      *
      * @type {}
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */   
     public chartOption:any = {
         title:{
             show:false ,
-            text:'产品需求数及占比',
+            text:'',
             subtext:''
         },
         legend:{
@@ -290,15 +290,15 @@ export class ProductCreateStoryChartBase extends MainControlBase {
         dataset:[],
         series:[
                      {
-            id:'productcreatestory',
+            id:'pri',
             name:'',
             type:'pie',
             datasetIndex:0,
             
             seriesLayoutBy:"column",
             encode:{
-                itemName:"name",
-                value:"storycnt"
+                itemName:"pri",
+                value:"srfcount"
             }}
         ]
     };
@@ -307,7 +307,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * 刷新
      *
      * @param {*} [opt={}]
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */
     public refresh(opt: any = {}) {
         this.load(opt);
@@ -317,7 +317,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * 获取图表数据
      * 
      * @returns {*} 
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */
     public load(opt?:any) {
         let _this = this;
@@ -339,7 +339,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * 绘制图表
      * 
      * @returns {*} 
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */
     public drawCharts(codelist:any){
         if(!this.myChart){
@@ -355,7 +355,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
     /**
      * 处理图表参数
      * 
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */
     public handleChartOPtion(allcodelist:any){
         let _chartOption:any = JSON.parse(JSON.stringify(this.chartOption));
@@ -424,7 +424,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * 
      * @param {*} data 实体数据集
      * @param {Function} callback 回调
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */
     public async transformToBasicChartSetData(data:any,callback:Function){
         if(!data || !Array.isArray(data) || data.length === 0){
@@ -518,7 +518,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * @param {Array<any>} callback 回调
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */
     public transformToChartSeriesDataSet(data:any,item:any,callback:Function,allCodeList:any):any{
         if(item.seriesIdField){
@@ -571,7 +571,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * @param {*} groupFieldModel 分组属性模型
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */
     public groupAndAdd(groupField:Array<any>,seriesField:Array<any>,valueField:Array<any>,data:any,item:any,groupFieldModel:any,allCodeList:any){
         let tempMap:Map<string,any> = new Map();
@@ -699,7 +699,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * @param {*} groupField 分组属性
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */
     public sortReturnArray(arr:Array<any>,groupField:any,allCodeList:any){
         let returnArray:Array<any> = [];
@@ -766,7 +766,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * @param {Array<any>} groupField 分组属性
      * @param {Array<any>} label label标签
      * 
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */
     public handleSortGroupData(arr:Array<any>,groupField:any,label:string){
         arr.forEach((item:any) =>{
@@ -800,7 +800,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * @param {Array<any>} item 单个序列
      * @param {Array<any>} allCodeList 所有的代码表
      * 
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */
     public completeDataSet(data:any,item:any,allCodeList:any){
         // 分组属性
@@ -825,7 +825,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * 
      * @param {Array<any>} tempTimeArray 传入数据
      * 
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */
     public  getRangeData(tempTimeArray:Array<any>){
         tempTimeArray.forEach((item:any) =>{
@@ -849,7 +849,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * @param {Array<any>} allCodeList 所有的代码表
      * @param {Array<any>} groupField 分组属性
      * 
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */
     public handleTimeData(data:any,item:any,allCodeList:any,groupField:any){
         let valueField = item.dataSetFields.find((datasetField:any) =>{
@@ -981,7 +981,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * @param {Array<any>} item 单个序列
      * @param {Array<any>} allCodeList 所有的代码表
      * 
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */
     public  completeCodeList(data:any,item:any,allCodeList:any){
         let groupField = item.dataSetFields.find((datasetField:any) =>{
@@ -1025,7 +1025,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * @param {*} allCodeList 所有代码表
      * @param {*} result 结果值
      * 
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */
     public handleSingleDataSetField(input:any,field:any,allCodeList:any,result:any,groupField:any){
         let tempFieldObj:any = {};
@@ -1061,7 +1061,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
     /**
      * 获取图表所需代码表
      * 
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */
     public getChartAllCodeList():Promise<any>{
         return new Promise((resolve:any,reject:any) =>{
@@ -1108,7 +1108,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * 获取代码表
      * 
      * @returns {Promise<any>} 
-     * @memberof Dashboard_sysportlet3_chartBase
+     * @memberof Dashboard_sysportlet6_chartBase
      */
     public getCodeList(codeListObject:any):Promise<any>{
         return new Promise((resolve:any,reject:any) =>{

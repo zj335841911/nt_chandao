@@ -118,7 +118,7 @@ export class ProductPlancntAndStorycntGridBase extends GridControlBase {
         },
         {
             name: 'plan',
-            label: '计划',
+            label: '计划数',
             langtag: 'entities.productsum.productplancntandstorycnt_grid.columns.plan',
             show: true,
             unit: 'PX',
@@ -126,7 +126,7 @@ export class ProductPlancntAndStorycntGridBase extends GridControlBase {
         },
         {
             name: 'storycnt',
-            label: '总计',
+            label: '需求数',
             langtag: 'entities.productsum.productplancntandstorycnt_grid.columns.storycnt',
             show: true,
             unit: 'PX',

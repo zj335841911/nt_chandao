@@ -2090,7 +2090,7 @@
         "memo": ""
     },
     "productsumusr2gridview": {
-        "title": "产品计划数和需求书实体表格视图",
+        "title": "产品计划数和需求数实体表格视图",
         "caption": "产品汇总表",
         "viewtype": "DEGRIDVIEW",
         "viewmodule": "ibiz",

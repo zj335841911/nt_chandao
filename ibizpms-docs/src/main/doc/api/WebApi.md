@@ -521,6 +521,7 @@
 |/story/fetchbymodule|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchgetproductstories|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/story/fetchmycuropenedstory|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchmyfavorites|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchparentdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchprojectlinkstory|GET|DEDataSetFetchContext Json对象|&nbsp;|
@@ -784,6 +785,7 @@
 |/story/fetchbymodule|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchgetproductstories|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/story/fetchmycuropenedstory|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchmyfavorites|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchparentdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchprojectlinkstory|GET|DEDataSetFetchContext Json对象|&nbsp;|

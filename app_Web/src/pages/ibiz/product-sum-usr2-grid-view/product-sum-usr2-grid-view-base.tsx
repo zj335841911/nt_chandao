@@ -10,7 +10,7 @@ import CodeListService from "@service/app/codelist-service";
 
 
 /**
- * 产品计划数和需求书实体表格视图视图基类
+ * 产品计划数和需求数实体表格视图视图基类
  *
  * @export
  * @class ProductSumUsr2GridViewBase
@@ -264,4 +264,13 @@ export class ProductSumUsr2GridViewBase extends GridViewBase {
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof ProductSumUsr2GridViewBase
+     */
+    protected isGridSingleSelect: boolean = true;
 }

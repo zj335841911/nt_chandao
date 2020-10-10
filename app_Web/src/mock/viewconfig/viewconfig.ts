@@ -1680,7 +1680,7 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewtag": "7e14015af219d302f7d81ff40cdcc418"
         },
         "productsumusr2gridview": {
-            "title": "产品计划数和需求书实体表格视图",
+            "title": "产品计划数和需求数实体表格视图",
             "caption": "产品汇总表",
             "viewtype": "DEGRIDVIEW",
             "viewmodule": "ibiz",

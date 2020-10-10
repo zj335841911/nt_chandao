@@ -19,7 +19,7 @@ export default {
 		},
 		usr2gridview: {
 			caption: "产品汇总表",
-      		title: "产品计划数和需求书实体表格视图",
+      		title: "产品计划数和需求数实体表格视图",
 		},
 		editview: {
 			caption: "产品汇总表",
@@ -47,8 +47,8 @@ export default {
 	productplancntandstorycnt_grid: {
 		columns: {
 			name: "产品名称",
-			plan: "计划",
-			storycnt: "总计",
+			plan: "计划数",
+			storycnt: "需求数",
 		},
 		uiactions: {
 		},

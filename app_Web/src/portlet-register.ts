@@ -33,6 +33,8 @@ import ActionActionHistory from '@/widgets/action/action-history-portlet/action-
 import ActionProjectTrendsTimeline from '@/widgets/action/project-trends-timeline-portlet/project-trends-timeline-portlet.vue';
 import ActionProductTrendsTimeline from '@/widgets/action/product-trends-timeline-portlet/product-trends-timeline-portlet.vue';
 import StoryBaseInfo from '@/widgets/story/base-info-portlet/base-info-portlet.vue';
+import StoryMyOpenedStory from '@/widgets/story/my-opened-story-portlet/my-opened-story-portlet.vue';
+import StoryMyOpenedStoryStage from '@/widgets/story/my-opened-story-stage-portlet/my-opened-story-stage-portlet.vue';
 import StoryAssignedToMeStory from '@/widgets/story/assigned-to-me-story-portlet/assigned-to-me-story-portlet.vue';
 import StoryMainToolbar from '@/widgets/story/main-toolbar-portlet/main-toolbar-portlet.vue';
 import StoryStoryRelated from '@/widgets/story/story-related-portlet/story-related-portlet.vue';
@@ -45,6 +47,7 @@ import UserYearWorkStatsProductPlancntAndStorycnt from '@/widgets/user-year-work
 import UserYearWorkStatsInfo from '@/widgets/user-year-work-stats/info-portlet/info-portlet.vue';
 import UserYearWorkStatsFinishedbyTask from '@/widgets/user-year-work-stats/finishedby-task-portlet/finishedby-task-portlet.vue';
 import UserYearWorkStatsFinishTaskAndBug from '@/widgets/user-year-work-stats/finish-task-and-bug-portlet/finish-task-and-bug-portlet.vue';
+import UserYearWorkStatsMonthOpenedStory from '@/widgets/user-year-work-stats/month-opened-story-portlet/month-opened-story-portlet.vue';
 import UserYearWorkStatsTitle from '@/widgets/user-year-work-stats/title-portlet/title-portlet.vue';
 import UserYearWorkStatsResolveBug from '@/widgets/user-year-work-stats/resolve-bug-portlet/resolve-bug-portlet.vue';
 import UserYearWorkStatsInvolvedProject_StoryTaskBug from '@/widgets/user-year-work-stats/involved-project-story-task-bug-portlet/involved-project-story-task-bug-portlet.vue';
@@ -165,6 +168,9 @@ export const  PortletComponent = {
         v.component('app-test-suite-main-info-view-portlet', TestSuiteMainInfoView);
         v.component('app-product-sum-product-creat-stroy-admin-portlet', ProductSumProductCreatStroy_admin);
         v.component('app-user-year-work-stats-product-plancnt-and-storycnt-portlet', UserYearWorkStatsProductPlancntAndStorycnt);
+        v.component('app-story-my-opened-story-portlet', StoryMyOpenedStory);
+        v.component('app-story-my-opened-story-stage-portlet', StoryMyOpenedStoryStage);
+        v.component('app-user-year-work-stats-month-opened-story-portlet', UserYearWorkStatsMonthOpenedStory);
         v.component('app-project-un-closed-project-portlet', ProjectUnClosedProject);
         v.component('app-project-project-status-bar-portlet', ProjectProjectStatusBar);
         v.component('app-test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
@@ -206,6 +212,8 @@ export const  PortletComponent = {
         v.component('action-project-trends-timeline-portlet', ActionProjectTrendsTimeline);
         v.component('action-product-trends-timeline-portlet', ActionProductTrendsTimeline);
         v.component('story-base-info-portlet', StoryBaseInfo);
+        v.component('story-my-opened-story-portlet', StoryMyOpenedStory);
+        v.component('story-my-opened-story-stage-portlet', StoryMyOpenedStoryStage);
         v.component('story-assigned-to-me-story-portlet', StoryAssignedToMeStory);
         v.component('story-main-toolbar-portlet', StoryMainToolbar);
         v.component('story-story-related-portlet', StoryStoryRelated);
@@ -218,6 +226,7 @@ export const  PortletComponent = {
         v.component('user-year-work-stats-info-portlet', UserYearWorkStatsInfo);
         v.component('user-year-work-stats-finishedby-task-portlet', UserYearWorkStatsFinishedbyTask);
         v.component('user-year-work-stats-finish-task-and-bug-portlet', UserYearWorkStatsFinishTaskAndBug);
+        v.component('user-year-work-stats-month-opened-story-portlet', UserYearWorkStatsMonthOpenedStory);
         v.component('user-year-work-stats-title-portlet', UserYearWorkStatsTitle);
         v.component('user-year-work-stats-resolve-bug-portlet', UserYearWorkStatsResolveBug);
         v.component('user-year-work-stats-involved-project-story-task-bug-portlet', UserYearWorkStatsInvolvedProject_StoryTaskBug);
