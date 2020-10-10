@@ -33,12 +33,17 @@ export default class ProductPlancntAndStorycntModel {
         },
         {
           name: 'plan',
-          prop: 'plan',
-          dataType: 'BIGINT',
+          prop: 'waitstorycnt',
+          dataType: 'INT',
         },
         {
           name: 'storycnt',
           prop: 'storycnt',
+          dataType: 'INT',
+        },
+        {
+          name: 'waitstorycnt',
+          prop: 'waitstorycnt',
           dataType: 'INT',
         },
         {

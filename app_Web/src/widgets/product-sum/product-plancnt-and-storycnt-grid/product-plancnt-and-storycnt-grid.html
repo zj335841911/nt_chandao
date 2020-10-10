@@ -37,16 +37,14 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('plan')">
-                <el-table-column show-overflow-tooltip :prop="'plan'" :label="$t('entities.productsum.productplancntandstorycnt_grid.columns.plan')" :width="140"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'plan'" :label="$t('entities.productsum.productplancntandstorycnt_grid.columns.plan')" :width="100"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.productsum.productplancntandstorycnt_grid.columns.plan')}}
                       </span>
                     </template>
                     <template v-slot="{row,column,$index}">
-                        <template >
-            <codelist :value="row.plan" tag='PlanCodeList' codelistType='DYNAMIC' ></codelist>
-                        </template>
+                        <span>{{row.plan}}</span>
                     </template>
                 </el-table-column>
             </template>
