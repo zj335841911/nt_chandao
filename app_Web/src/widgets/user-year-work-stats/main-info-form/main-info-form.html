@@ -97,8 +97,8 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <div class="" style="">
-    <div><ul id="block1List" style="list-style-type:none;margin: 16px 36px 0 32px; padding: 0; left: 25px;top: 128px;width: 366px;height: 256px;"><li style="line-height: 40px;width: 294px;height: 46px;padding-left: 23px; position: relative;margin-bottom: 10px; background-image:url(../../../assets/img/statsinfo.png);">累计登录次数 <strong  style=" position: absolute;right: 18px;top: 2px;font-size: 20px;color: #B5E8FF;">{{data.yearvisits ? data.yearvisits: 0}}</strong></li><li style="line-height: 40px;width: 294px;height: 46px;padding-left: 23px; position: relative;margin-bottom: 10px; background-image: url(../../../assets/img/statsinfo.png);">累计动态数 <strong  style=" position: absolute;right: 18px;top: 2px;font-size: 20px;color: #B5E8FF;">{{data.yearactioncnt ? data.yearactioncnt: 0}}</strong></li><li style="line-height: 40px;width: 294px;height: 46px;padding-left: 23px; position: relative;margin-bottom: 10px; background-image: url(../../../assets/img/statsinfo.png);">累计日志数 <strong  style=" position: absolute;right: 18px;top: 2px;font-size: 20px;color: #B5E8FF;">{{data.yearlogcnt ? data.yearlogcnt: 0}}</strong></li><li style="line-height: 40px;width: 294px;height: 46px;padding-left: 23px; position: relative;margin-bottom: 10px; background-image: url(../../../assets/img/statsinfo.png);">累计工时数 <strong  style=" position: absolute;right: 18px;top: 2px;font-size: 20px;color: #B5E8FF;">{{data.yearestimatecnt ? data.yearestimatecnt: 0}}</strong></li></ul></div>
+    <div class="year-stats-info-css" style="">
+    <div><ul ><li>累计登录次数 <strong>{{data.yearvisits ? data.yearvisits: 0}}</strong></li><li >累计动态数 <strong  >{{data.yearactioncnt ? data.yearactioncnt: 0}}</strong></li><li>累计日志数 <strong>{{data.yearlogcnt ? data.yearlogcnt: 0}}</strong></li><li >累计工时数 <strong>{{data.yearestimatecnt ? data.yearestimatecnt: 0}}</strong></li></ul></div>
 </div>
 
 </i-col>
