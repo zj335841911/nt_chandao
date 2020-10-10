@@ -75,7 +75,7 @@ export class ProductCreateStory_POChartBase extends MainControlBase {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ProductCreateStory_PO
+     * @memberof ProductCreateStory_POBase
      */
     public getDatas(): any[] {
         return [];
@@ -85,7 +85,7 @@ export class ProductCreateStory_POChartBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ProductCreateStory_PO
+     * @memberof ProductCreateStory_POBase
      */
     public getData(): any {
         return null;
@@ -95,7 +95,7 @@ export class ProductCreateStory_POChartBase extends MainControlBase {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof ProductCreateStory_PO
+     * @memberof ProductCreateStory_POBase
      */
     @Prop({ default: true }) public showBusyIndicator!: boolean;
 
@@ -103,14 +103,14 @@ export class ProductCreateStory_POChartBase extends MainControlBase {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof ProductCreateStory_PO
+     * @memberof ProductCreateStory_POBase
      */
     @Prop() public fetchAction!: string;  
 
     /**
     * Vue声明周期(组件初始化完毕)
     *
-    * @memberof ProductCreateStory_PO
+    * @memberof ProductCreateStory_POBase
     */
     public created() {
          this.afterCreated();     
@@ -119,7 +119,7 @@ export class ProductCreateStory_POChartBase extends MainControlBase {
     /**
     * 执行created后的逻辑
     *
-    * @memberof ProductCreateStory_PO
+    * @memberof ProductCreateStory_POBase
     */
     public afterCreated(){
         if (this.viewState) {
@@ -137,7 +137,7 @@ export class ProductCreateStory_POChartBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof ProductCreateStory_PO
+     * @memberof ProductCreateStory_POBase
      */
     public destroyed() {
         this.afterDestroy();
@@ -146,7 +146,7 @@ export class ProductCreateStory_POChartBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ProductCreateStory_PO
+     * @memberof ProductCreateStory_POBase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -664,7 +664,7 @@ export class ProductCreateStory_POChartBase extends MainControlBase {
         }
         // 补全空白分类
         if(returnArray.length >0){
-            let emptyText = (groupFieldModel[0] && groupFieldModel[0].codeList)?groupFieldModel[0].codeList.emptytext:(this.$t('app.chart.undefined') as string);
+            let emptyText = (groupFieldModel[0] && groupFieldModel[0].codeList)?groupFieldModel[0].codeList.emptytext:"未定义";
             returnArray.forEach((item:any) =>{
                 if(!item[groupField[0]]){
                     item[groupField[0]] = emptyText;
@@ -730,11 +730,11 @@ export class ProductCreateStory_POChartBase extends MainControlBase {
                     return Number(a[groupField[0].name]) - Number(b[groupField[0].name]);
                 });
             }else if(Object.is(groupField[0].groupMode,"QUARTER")){
-                returnArray = this.handleSortGroupData(arr,groupField,(this.$t('app.chart.quarter') as string));
+                returnArray = this.handleSortGroupData(arr,groupField,"季度");
             }else if(Object.is(groupField[0].groupMode,"MONTH")){
-                returnArray = this.handleSortGroupData(arr,groupField,(this.$t('app.calendar.month') as string));
+                returnArray = this.handleSortGroupData(arr,groupField,"月");
             }else if(Object.is(groupField[0].groupMode,"YEARWEEK")){
-                returnArray = this.handleSortGroupData(arr,groupField,(this.$t('app.calendar.week') as string));
+                returnArray = this.handleSortGroupData(arr,groupField,"周");
             }else if(Object.is(groupField[0].groupMode,"DAY")){
                 returnArray = arr.sort((a:any, b:any) => {
                     return moment(a[groupField[0].name]).unix() - moment(b[groupField[0].name]).unix();
@@ -1128,6 +1128,4 @@ export class ProductCreateStory_POChartBase extends MainControlBase {
             }
         })
     }
-
-
 }
