@@ -8251,10 +8251,10 @@
     "codename":"ObjectID",
     "field_logic_name":"数据对象标识",
     "entity_name":"IbzFavorites",
-    "field_type":"INT",
+    "field_type":"BIGINT",
     "nullable":1,
     "physical_field":1,
-    "data_type":"INT",
+    "data_type":"BIGINT",
     "key_field":0,
     "major_field":0
     },

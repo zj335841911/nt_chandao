@@ -97,7 +97,7 @@ public class IbzFavorites extends EntityMP implements Serializable {
     @TableField(value = "`objectid`")
     @JSONField(name = "objectid")
     @JsonProperty("objectid")
-    private Integer objectid;
+    private Long objectid;
     /**
      * 收藏用户
      */
@@ -126,7 +126,7 @@ public class IbzFavorites extends EntityMP implements Serializable {
     /**
      * 设置 [数据对象标识]
      */
-    public void setObjectid(Integer objectid){
+    public void setObjectid(Long objectid){
         this.objectid = objectid ;
         this.modify("objectid",objectid);
     }

@@ -1067,7 +1067,7 @@
                 </column>
                 <column name="UPDATEDATE" remarks="" type="DATETIME">
                 </column>
-                <column name="OBJECTID" remarks="" type="INT">
+                <column name="OBJECTID" remarks="" type="BIGINT">
                 </column>
                 <column name="ACCOUNT" remarks="" type="VARCHAR(60)">
                 </column>
