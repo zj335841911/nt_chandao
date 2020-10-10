@@ -399,6 +399,7 @@ export default class StoryFavoriteMoreMobMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

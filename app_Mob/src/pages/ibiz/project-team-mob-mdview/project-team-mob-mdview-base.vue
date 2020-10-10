@@ -357,6 +357,7 @@ export default class ProjectTeamMobMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

@@ -358,6 +358,7 @@ export default class TaskEstimateMobMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

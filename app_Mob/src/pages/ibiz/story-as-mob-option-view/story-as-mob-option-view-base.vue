@@ -347,6 +347,7 @@ export default class StoryAsMobOptionViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

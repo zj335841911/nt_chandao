@@ -347,6 +347,7 @@ export default class TaskMobOptionViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

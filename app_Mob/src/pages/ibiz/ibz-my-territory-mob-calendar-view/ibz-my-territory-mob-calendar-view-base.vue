@@ -322,6 +322,7 @@ export default class IbzMyTerritoryMobCalendarViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

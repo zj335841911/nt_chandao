@@ -328,6 +328,7 @@ export default class ProductMobChartViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

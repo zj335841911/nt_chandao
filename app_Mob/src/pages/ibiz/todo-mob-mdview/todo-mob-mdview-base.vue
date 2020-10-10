@@ -420,6 +420,7 @@ export default class TodoMobMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

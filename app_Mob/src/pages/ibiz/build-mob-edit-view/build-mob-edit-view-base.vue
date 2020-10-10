@@ -365,6 +365,7 @@ export default class BuildMobEditViewBase extends Vue {
             Object.assign(this.viewparams,bainfo);
         }
 
+
     }
 
 

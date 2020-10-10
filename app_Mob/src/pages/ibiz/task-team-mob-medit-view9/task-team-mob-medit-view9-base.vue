@@ -326,6 +326,7 @@ export default class TaskTeamMobMEditView9Base extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

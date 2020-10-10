@@ -347,6 +347,7 @@ export default class BugCMobOptionViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

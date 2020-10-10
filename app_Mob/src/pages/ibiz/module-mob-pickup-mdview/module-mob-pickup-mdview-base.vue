@@ -325,6 +325,7 @@ export default class ModuleMobPickupMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

@@ -418,6 +418,7 @@ export default class TaskNewMobEditViewBase extends Vue {
             Object.assign(this.viewparams,bainfo);
         }
 
+
     }
 
 

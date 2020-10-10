@@ -418,6 +418,7 @@ export default class TodoNewMobEditViewBase extends Vue {
             Object.assign(this.viewparams,bainfo);
         }
 
+
     }
 
 

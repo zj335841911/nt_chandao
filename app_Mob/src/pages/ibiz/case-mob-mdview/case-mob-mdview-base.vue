@@ -435,6 +435,7 @@ export default class CaseMobMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

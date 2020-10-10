@@ -389,6 +389,7 @@ export default class StoryAssMobMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

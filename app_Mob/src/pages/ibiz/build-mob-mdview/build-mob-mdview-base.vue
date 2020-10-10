@@ -435,6 +435,7 @@ export default class BuildMobMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

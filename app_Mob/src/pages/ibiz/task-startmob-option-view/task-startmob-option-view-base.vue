@@ -347,6 +347,7 @@ export default class TaskSTARTMobOptionViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

@@ -492,6 +492,7 @@ export default class ReleaseMobMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

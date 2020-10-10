@@ -347,6 +347,7 @@ export default class TaskCloseMobOptionViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

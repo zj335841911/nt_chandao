@@ -418,6 +418,7 @@ export default class ReleaseNewMobEditViewBase extends Vue {
             Object.assign(this.viewparams,bainfo);
         }
 
+
     }
 
 

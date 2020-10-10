@@ -365,6 +365,7 @@ export default class CaseMobEditViewBase extends Vue {
             Object.assign(this.viewparams,bainfo);
         }
 
+
     }
 
 

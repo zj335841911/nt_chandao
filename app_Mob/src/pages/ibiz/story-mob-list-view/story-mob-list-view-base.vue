@@ -293,6 +293,7 @@ export default class StoryMobListViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

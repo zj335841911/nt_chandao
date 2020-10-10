@@ -286,6 +286,8 @@ export default class AppIndexViewBase extends Vue {
         this.setViewTitleStatus();
         this.updateLogStatus = Environment.useUpdateLog && !localStorage.getItem('updateLogStatus')?true:false;
 
+        localStorage.setItem('lanArray',JSON.stringify(["ZH-CN","EN-US"]));
+
     }
 
 

@@ -377,6 +377,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

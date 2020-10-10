@@ -501,6 +501,7 @@ export default class ProductMobMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

@@ -325,6 +325,7 @@ export default class AppPortalViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

@@ -338,6 +338,7 @@ export default class TaskMobPickupViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

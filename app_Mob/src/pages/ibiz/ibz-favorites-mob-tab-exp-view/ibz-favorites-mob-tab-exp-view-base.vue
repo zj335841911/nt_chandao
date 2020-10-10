@@ -422,6 +422,7 @@ export default class IbzFavoritesMobTabExpViewBase extends Vue {
         this.setViewTitleStatus();
         this.getLocalStorage();
 
+
     }
 
 

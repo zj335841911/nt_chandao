@@ -365,6 +365,7 @@ export default class TestSuiteMobEditViewBase extends Vue {
             Object.assign(this.viewparams,bainfo);
         }
 
+
     }
 
 

@@ -443,6 +443,7 @@ export default class ProjectMobTabExpViewBase extends Vue {
         this.setViewTitleStatus();
         this.getLocalStorage();
 
+
     }
 
 

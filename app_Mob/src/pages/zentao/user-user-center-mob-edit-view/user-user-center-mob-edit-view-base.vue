@@ -345,6 +345,7 @@ export default class UserUserCenterMobEditViewBase extends Vue {
             Object.assign(this.viewparams,bainfo);
         }
 
+
     }
 
 

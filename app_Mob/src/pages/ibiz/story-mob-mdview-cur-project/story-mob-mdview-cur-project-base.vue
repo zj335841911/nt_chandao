@@ -482,6 +482,7 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

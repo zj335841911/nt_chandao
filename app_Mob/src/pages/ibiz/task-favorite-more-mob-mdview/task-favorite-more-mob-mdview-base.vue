@@ -430,6 +430,7 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

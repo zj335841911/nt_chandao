@@ -435,6 +435,7 @@ export default class TestTaskMobMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

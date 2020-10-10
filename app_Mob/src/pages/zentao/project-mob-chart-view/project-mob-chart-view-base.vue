@@ -328,6 +328,7 @@ export default class ProjectMobChartViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

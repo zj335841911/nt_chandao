@@ -338,6 +338,7 @@ export default class StoryMobPickupViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

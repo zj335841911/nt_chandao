@@ -338,6 +338,7 @@ export default class ProductModuleMobPickupViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

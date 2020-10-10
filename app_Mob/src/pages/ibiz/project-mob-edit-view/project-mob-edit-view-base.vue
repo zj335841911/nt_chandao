@@ -446,6 +446,7 @@ export default class ProjectMobEditViewBase extends Vue {
             Object.assign(this.viewparams,bainfo);
         }
 
+
     }
 
 

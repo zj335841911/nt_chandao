@@ -439,6 +439,7 @@ export default class ProductProdMobTabExpViewBase extends Vue {
         this.setViewTitleStatus();
         this.getLocalStorage();
 
+
     }
 
 

@@ -347,6 +347,7 @@ export default class UserMobMPickupViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

@@ -357,6 +357,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

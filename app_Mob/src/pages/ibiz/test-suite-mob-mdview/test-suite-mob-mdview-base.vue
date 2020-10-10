@@ -435,6 +435,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

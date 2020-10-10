@@ -418,6 +418,7 @@ export default class StoryNewMobEditViewBase extends Vue {
             Object.assign(this.viewparams,bainfo);
         }
 
+
     }
 
 

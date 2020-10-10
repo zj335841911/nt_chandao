@@ -347,6 +347,7 @@ export default class BugCloseMobOptionViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

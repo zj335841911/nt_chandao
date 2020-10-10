@@ -500,6 +500,7 @@ export default class TaskMobMDViewBase extends Vue {
         this.setViewTitleStatus();
         this.loadQuickGroupModel();
 
+
     }
 
        /**

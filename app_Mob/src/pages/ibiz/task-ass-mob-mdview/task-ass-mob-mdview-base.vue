@@ -420,6 +420,7 @@ export default class TaskAssMobMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

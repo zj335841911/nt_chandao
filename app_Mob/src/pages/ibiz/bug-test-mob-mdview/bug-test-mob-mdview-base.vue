@@ -511,6 +511,7 @@ export default class BugTestMobMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

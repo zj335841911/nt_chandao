@@ -435,6 +435,7 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
         this.setViewTitleStatus();
         this.getLocalStorage();
 
+
     }
 
 

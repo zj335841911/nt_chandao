@@ -418,6 +418,7 @@ export default class BugActivationMobEditViewBase extends Vue {
             Object.assign(this.viewparams,bainfo);
         }
 
+
     }
 
 

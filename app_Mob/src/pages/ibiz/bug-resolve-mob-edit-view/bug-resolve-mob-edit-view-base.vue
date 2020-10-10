@@ -418,6 +418,7 @@ export default class BugResolveMobEditViewBase extends Vue {
             Object.assign(this.viewparams,bainfo);
         }
 
+
     }
 
 

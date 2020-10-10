@@ -430,6 +430,7 @@ export default class BugAssMoreMobMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 

@@ -418,6 +418,7 @@ export default class ProductPlanNewMobEditViewBase extends Vue {
             Object.assign(this.viewparams,bainfo);
         }
 
+
     }
 
 

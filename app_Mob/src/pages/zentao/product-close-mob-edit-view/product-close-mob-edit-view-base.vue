@@ -418,6 +418,7 @@ export default class ProductCloseMobEditViewBase extends Vue {
             Object.assign(this.viewparams,bainfo);
         }
 
+
     }
 
 

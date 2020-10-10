@@ -347,6 +347,7 @@ export default class TodoMobOptionViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 
