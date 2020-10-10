@@ -277,7 +277,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      */   
     public chartOption:any = {
         title:{
-            show:true ,
+            show:false ,
             text:'产品创建bug数及占比_测试',
             subtext:''
         },
