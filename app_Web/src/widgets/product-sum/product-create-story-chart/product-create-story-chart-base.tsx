@@ -75,7 +75,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ProductCreateStoryBase
+     * @memberof ProductCreateStory
      */
     public getDatas(): any[] {
         return [];
@@ -85,7 +85,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ProductCreateStoryBase
+     * @memberof ProductCreateStory
      */
     public getData(): any {
         return null;
@@ -95,7 +95,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof ProductCreateStoryBase
+     * @memberof ProductCreateStory
      */
     @Prop({ default: true }) public showBusyIndicator!: boolean;
 
@@ -103,14 +103,14 @@ export class ProductCreateStoryChartBase extends MainControlBase {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof ProductCreateStoryBase
+     * @memberof ProductCreateStory
      */
     @Prop() public fetchAction!: string;  
 
     /**
     * Vue声明周期(组件初始化完毕)
     *
-    * @memberof ProductCreateStoryBase
+    * @memberof ProductCreateStory
     */
     public created() {
          this.afterCreated();     
@@ -119,7 +119,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
     /**
     * 执行created后的逻辑
     *
-    * @memberof ProductCreateStoryBase
+    * @memberof ProductCreateStory
     */
     public afterCreated(){
         if (this.viewState) {
@@ -137,7 +137,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof ProductCreateStoryBase
+     * @memberof ProductCreateStory
      */
     public destroyed() {
         this.afterDestroy();
@@ -146,7 +146,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ProductCreateStoryBase
+     * @memberof ProductCreateStory
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -664,7 +664,7 @@ export class ProductCreateStoryChartBase extends MainControlBase {
         }
         // 补全空白分类
         if(returnArray.length >0){
-            let emptyText = (groupFieldModel[0] && groupFieldModel[0].codeList)?groupFieldModel[0].codeList.emptytext:"未定义";
+            let emptyText = (groupFieldModel[0] && groupFieldModel[0].codeList)?groupFieldModel[0].codeList.emptytext:(this.$t('app.chart.undefined') as string);
             returnArray.forEach((item:any) =>{
                 if(!item[groupField[0]]){
                     item[groupField[0]] = emptyText;
@@ -730,11 +730,11 @@ export class ProductCreateStoryChartBase extends MainControlBase {
                     return Number(a[groupField[0].name]) - Number(b[groupField[0].name]);
                 });
             }else if(Object.is(groupField[0].groupMode,"QUARTER")){
-                returnArray = this.handleSortGroupData(arr,groupField,"季度");
+                returnArray = this.handleSortGroupData(arr,groupField,(this.$t('app.chart.quarter') as string));
             }else if(Object.is(groupField[0].groupMode,"MONTH")){
-                returnArray = this.handleSortGroupData(arr,groupField,"月");
+                returnArray = this.handleSortGroupData(arr,groupField,(this.$t('app.calendar.month') as string));
             }else if(Object.is(groupField[0].groupMode,"YEARWEEK")){
-                returnArray = this.handleSortGroupData(arr,groupField,"周");
+                returnArray = this.handleSortGroupData(arr,groupField,(this.$t('app.calendar.week') as string));
             }else if(Object.is(groupField[0].groupMode,"DAY")){
                 returnArray = arr.sort((a:any, b:any) => {
                     return moment(a[groupField[0].name]).unix() - moment(b[groupField[0].name]).unix();
@@ -1128,4 +1128,6 @@ export class ProductCreateStoryChartBase extends MainControlBase {
             }
         })
     }
+
+
 }
