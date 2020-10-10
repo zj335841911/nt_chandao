@@ -346,6 +346,7 @@ export class MonthFinishTaskAndBugChartBase extends MainControlBase {
      * @memberof Dashboard_sysportlet5_chartBase
      */   
     public chartUserParams:any ={
+        color:["#76FF03","#2979FF","#00B0FF","#2B4D6D",'#FF9100','#FF3D00','#F57F17','#00E5FF','#00B0FF','#2979FF','#3D5AFE','#651FFF','#D500F9']
     };
 
     /**

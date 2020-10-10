@@ -278,7 +278,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
     public chartOption:any = {
         title:{
             show:false ,
-            text:'',
+            text:'参与项目(年度总结)',
             subtext:''
         },
         legend:{
