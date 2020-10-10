@@ -41,7 +41,8 @@ export default class InvolvedProjectChart extends InvolvedProjectChartBase {
             }
         },
         legend:{
-            show:true
+            show:true,
+            type: 'scroll',
         },
         tooltip:{
             show:true
