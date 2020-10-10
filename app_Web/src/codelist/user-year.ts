@@ -108,10 +108,10 @@ export default class UserYEAR {
         let _items: any[] = [];
         items.forEach((item: any) => {
             let itemdata:any = {};
-            Object.assign(itemdata,{id:item.date});
-            Object.assign(itemdata,{value:item.date});
-            Object.assign(itemdata,{text:item.date});
-            Object.assign(itemdata,{label:item.date});
+            Object.assign(itemdata,{id:item.date1});
+            Object.assign(itemdata,{value:item.date1});
+            Object.assign(itemdata,{text:item.date1});
+            Object.assign(itemdata,{label:item.date1});
             
             _items.push(itemdata);
         });
