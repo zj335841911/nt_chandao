@@ -57,6 +57,28 @@ export class UserYearWorkStatsQADashboardViewBase extends DashboardViewBase {
      */
     public appUIService: UserYearWorkStatsUIService = new UserYearWorkStatsUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof UserYearWorkStatsQADashboardViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'CURYEAR': { isRawValue: false, value: 'curyear' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof UserYearWorkStatsQADashboardViewBase
+	 */
+    protected customViewParams: any = {
+        'curyear': { isRawValue: false, value: 'curyear' }
+    };
+
     /**
      * 是否显示信息栏
      *

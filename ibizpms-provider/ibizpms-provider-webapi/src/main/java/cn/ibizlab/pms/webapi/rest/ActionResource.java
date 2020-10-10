@@ -241,6 +241,27 @@ public class ActionResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(actionMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-searchQueryUserYEAR-all')")
+	@ApiOperation(value = "获取查询用户使用年", tags = {"系统日志" } ,notes = "获取查询用户使用年")
+    @RequestMapping(method= RequestMethod.GET , value="/actions/fetchqueryuseryear")
+	public ResponseEntity<List<ActionDTO>> fetchQueryUserYEAR(ActionSearchContext context) {
+        Page<Action> domains = actionService.searchQueryUserYEAR(context) ;
+        List<ActionDTO> list = actionMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-searchQueryUserYEAR-all')")
+	@ApiOperation(value = "查询查询用户使用年", tags = {"系统日志" } ,notes = "查询查询用户使用年")
+    @RequestMapping(method= RequestMethod.POST , value="/actions/searchqueryuseryear")
+	public ResponseEntity<Page<ActionDTO>> searchQueryUserYEAR(@RequestBody ActionSearchContext context) {
+        Page<Action> domains = actionService.searchQueryUserYEAR(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(actionMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-searchType-all')")
 	@ApiOperation(value = "获取Type", tags = {"系统日志" } ,notes = "获取Type")
     @RequestMapping(method= RequestMethod.GET , value="/actions/fetchtype")

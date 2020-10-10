@@ -25,6 +25,7 @@ import CaseCurUserOpenedCase from '@/widgets/case/cur-user-opened-case-portlet/c
 import ProductProductMainToolbar from '@/widgets/product/product-main-toolbar-portlet/product-main-toolbar-portlet.vue';
 import ProductProductInfo from '@/widgets/product/product-info-portlet/product-info-portlet.vue';
 import ProductUnClosedProduct from '@/widgets/product/un-closed-product-portlet/un-closed-product-portlet.vue';
+import ProductSumProductBugcnt_Qa from '@/widgets/product-sum/product-bugcnt-qa-portlet/product-bugcnt-qa-portlet.vue';
 import ProductSumProductCreatStroy_admin from '@/widgets/product-sum/product-creat-stroy-admin-portlet/product-creat-stroy-admin-portlet.vue';
 import IbzLibIbzLibMain from '@/widgets/ibz-lib/ibz-lib-main-portlet/ibz-lib-main-portlet.vue';
 import IbzLibIbzLibCz from '@/widgets/ibz-lib/ibz-lib-cz-portlet/ibz-lib-cz-portlet.vue';
@@ -160,6 +161,7 @@ export const  PortletComponent = {
         v.component('app-product-un-closed-product-portlet', ProductUnClosedProduct);
         v.component('app-product-product-status-chart-portlet', ProductProductStatusChart);
         v.component('app-story-assigned-to-me-story-portlet', StoryAssignedToMeStory);
+        v.component('app-product-sum-product-bugcnt-qa-portlet', ProductSumProductBugcnt_Qa);
         v.component('app-bug-cur-user-opened-bug-portlet', BugCurUserOpenedBug);
         v.component('app-case-cur-user-opened-case-portlet', CaseCurUserOpenedCase);
         v.component('app-user-year-work-stats-month-opened-bug-and-case-portlet', UserYearWorkStatsMonthOpenedBugAndCase);
@@ -208,6 +210,7 @@ export const  PortletComponent = {
         v.component('product-product-main-toolbar-portlet', ProductProductMainToolbar);
         v.component('product-product-info-portlet', ProductProductInfo);
         v.component('product-un-closed-product-portlet', ProductUnClosedProduct);
+        v.component('product-sum-product-bugcnt-qa-portlet', ProductSumProductBugcnt_Qa);
         v.component('product-sum-product-creat-stroy-admin-portlet', ProductSumProductCreatStroy_admin);
         v.component('ibz-lib-ibz-lib-main-portlet', IbzLibIbzLibMain);
         v.component('ibz-lib-ibz-lib-cz-portlet', IbzLibIbzLibCz);

@@ -547,6 +547,7 @@
 |/productsum/checkkey|POST|产品汇总表 Json对象|&nbsp;|
 |/productsum/save|POST|产品汇总表 Json对象|&nbsp;|
 |/productsum/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/productsum/fetchproductbugcnt_qa|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productsum/fetchproductcreatestory|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productsum/fetchproductstorycntandplancnt|GET|DEDataSetFetchContext Json对象|&nbsp;|
 ## 测试用例相关接口
@@ -688,6 +689,7 @@
 |/action/fetchmobtype|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/action/fetchproducttrends|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/action/fetchprojecttrends|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/action/fetchqueryuseryear|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/action/fetchtype|GET|DEDataSetFetchContext Json对象|&nbsp;|
 ## 系统应用相关接口
 

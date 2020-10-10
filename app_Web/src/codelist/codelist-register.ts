@@ -69,6 +69,7 @@ export class CodeListRegister {
         this.allCodeList.set('Product', () => import('@/codelist/product'));
         this.allCodeList.set('RealDept', () => import('@/codelist/real-dept'));
         this.allCodeList.set('CurProductProject', () => import('@/codelist/cur-product-project'));
+        this.allCodeList.set('UserYEAR', () => import('@/codelist/user-year'));
         this.allCodeList.set('CurStory', () => import('@/codelist/cur-story'));
     }
 

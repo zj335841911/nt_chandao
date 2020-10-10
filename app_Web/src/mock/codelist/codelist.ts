@@ -6723,6 +6723,14 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        "srfkey": "UserYEAR",
+        "emptytext": "",
+        "codelisttype":"dynamic",
+        "appdataentity":"Action",
+        "appdedataset":"FetchQueryUserYEAR",
+        "items": []
+    },
+    {
         srfkey: "Private_choose",
         emptytext: "未定义",
         "codelisttype":"static",

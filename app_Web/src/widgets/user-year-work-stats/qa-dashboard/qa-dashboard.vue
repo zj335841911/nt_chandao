@@ -7,6 +7,7 @@ import view_dashboard_sysportlet4 from '@widgets/bug/cur-user-opened-bug-portlet
 import view_dashboard_sysportlet5 from '@widgets/case/cur-user-opened-case-portlet/cur-user-opened-case-portlet.vue';
 import view_dashboard_sysportlet2 from '@widgets/user-year-work-stats/info-portlet/info-portlet.vue';
 import view_dashboard_sysportlet3 from '@widgets/user-year-work-stats/month-opened-bug-and-case-portlet/month-opened-bug-and-case-portlet.vue';
+import view_dashboard_sysportlet1 from '@widgets/product-sum/product-bugcnt-qa-portlet/product-bugcnt-qa-portlet.vue';
  
 
 /**
@@ -22,6 +23,7 @@ import view_dashboard_sysportlet3 from '@widgets/user-year-work-stats/month-open
         view_dashboard_sysportlet5, 
         view_dashboard_sysportlet2, 
         view_dashboard_sysportlet3, 
+        view_dashboard_sysportlet1, 
          
     }
 })

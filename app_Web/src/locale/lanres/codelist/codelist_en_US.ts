@@ -910,6 +910,9 @@ export default {
         "blocked": "被阻塞",
         "empty": ""
     },
+    UserYEAR: {
+        "empty": "",
+    },
     Private_choose: {
         "1": "是",
         "empty": ""

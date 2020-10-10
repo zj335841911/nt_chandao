@@ -1,0 +1,21 @@
+<div class='portlet product-bugcnt-qa ' :style="{'height': isAdaptiveSize ? '100%' : getHeight,}">
+        <p class='portlet-title'>
+            <span>
+            
+            产品创建bug数及占比_QA
+            </span>
+        </p>
+        <div class="portlet-with-title">
+        <!-- 测试 -->
+              <view_dashboard_sysportlet1_chart 
+          :viewState="viewState"  
+          :viewparams="viewparams" 
+          :context="context" 
+          fetchAction="FetchProductBugcnt_QA"
+          :showBusyIndicator="true" 
+          name="dashboard_sysportlet1_chart"  
+          ref='dashboard_sysportlet1_chart' 
+          @closeview="closeView($event)">
+      </view_dashboard_sysportlet1_chart>
+        </div>
+</div>

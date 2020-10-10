@@ -27,8 +27,8 @@
     :localParam ='{ }' 
     :disabled="detailsModel.curyear.disabled"
     valueType="string"
-    tag='CodeList81'
-    codelistType='STATIC'
+    tag='UserYEAR'
+    codelistType='DYNAMIC'
     placeholder='请选择...'
     
 />
@@ -55,12 +55,12 @@
     ]"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{}'
-    :localParam ='{}'
+    :localContext ='{CURYEAR:"%curyear%"}'
+    :localParam ='{curyear:"%curyear%"}'
     parameterName='useryearworkstats'
     parentName="UserYearWorkStats"  
     refviewtype='DEPORTALVIEW' 
-    refreshitems='' 
+    refreshitems='curyear' 
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='user-year-work-stats-dashboard-view' 
     :data="JSON.stringify(this.data)" 
@@ -89,12 +89,12 @@
     ]"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{}'
-    :localParam ='{}'
+    :localContext ='{CURYEAR:"%curyear%"}'
+    :localParam ='{curyear:"%curyear%"}'
     parameterName='useryearworkstats'
     parentName="UserYearWorkStats"  
     refviewtype='DEPORTALVIEW' 
-    refreshitems='' 
+    refreshitems='curyear' 
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='user-year-work-stats-qadashboard-view' 
     :data="JSON.stringify(this.data)" 
@@ -123,12 +123,12 @@
     ]"
     :context="context"
     :viewparams="viewparams"
-    :localContext ='{}'
-    :localParam ='{}'
+    :localContext ='{CURYEAR:"%curyear%"}'
+    :localParam ='{curyear:"%curyear%"}'
     parameterName='useryearworkstats'
     parentName="UserYearWorkStats"  
     refviewtype='DEPORTALVIEW' 
-    refreshitems='' 
+    refreshitems='curyear' 
     :ignorefieldvaluechange="ignorefieldvaluechange"
     viewname='user-year-work-stats-podashboard-view' 
     :data="JSON.stringify(this.data)" 
