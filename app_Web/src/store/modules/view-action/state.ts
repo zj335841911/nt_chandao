@@ -473,15 +473,13 @@ export const viewstate: any = {
                 'cfc7781789f7706e02b2d2504339de69',
                 '0bd16cd21ee2e8951fb8a86599ac1510',
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
-                'bb44ef7532c0933ed75b1da291dec073',
                 'db750bbb894c25f38ca2741f234df3c6',
                 'c8171c13c1ba215f65c8587df1d98ba5',
-                'f9dd61cc8713a81451f3cb410cf11bbb',
                 '0f3dff62ef8bcb1662cc82e57a34c56b',
+                'f9dd61cc8713a81451f3cb410cf11bbb',
                 '0846a45e5ffdd4d8f857575cfa955dce',
                 '8c8adbf0a7db27078e01a8b32716fa71',
                 '3b4ab1882a49962f12900abeeddf60f0',
-                'a300309f336ad917bb9fae375cd5620a',
                 'CC49500F-030F-458F-82DF-F88F6973DF64',
                 'D1283E46-401A-4CFD-A7A1-BF5B90197463',
                 '4fcd2a15ff88a97425e1ab1cadc5eb9f',
@@ -2933,6 +2931,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'f725c5c0e28669d9ef6b02ce237786a5',
                 '3519739a278f4151b39580be3a276cbf',
             ],
         },
@@ -3882,6 +3881,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'f725c5c0e28669d9ef6b02ce237786a5',
+            viewmodule: 'ibiz',
+            viewname: 'ProductSumUsr3GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ada719b0d8722509d22b4b72bbb8cf26',
             ],
         },
         {

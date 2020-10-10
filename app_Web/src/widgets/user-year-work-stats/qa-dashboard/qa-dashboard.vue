@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { QADashboardBase } from './qa-dashboard-base';
-import view_dashboard_sysportlet6 from '@widgets/product-sum/product-bugcnt-qa-portlet/product-bugcnt-qa-portlet.vue';
+import view_dashboard_sysportlet6 from '@widgets/user-year-work-stats/product-bugcnt-qa-portlet/product-bugcnt-qa-portlet.vue';
 import view_dashboard_sysportlet4 from '@widgets/bug/cur-user-opened-bug-portlet/cur-user-opened-bug-portlet.vue';
 import view_dashboard_sysportlet5 from '@widgets/case/cur-user-opened-case-portlet/cur-user-opened-case-portlet.vue';
 import view_dashboard_sysportlet2 from '@widgets/user-year-work-stats/info-portlet/info-portlet.vue';

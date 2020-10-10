@@ -49,6 +49,14 @@ export default {
 		uiactions: {
 		},
 	},
+	productbugcnt_qa_grid: {
+		columns: {
+			name: "产品名称",
+			bugcnt: "创建bug数",
+		},
+		uiactions: {
+		},
+	},
 	productplancntandstorycnt_grid: {
 		columns: {
 			name: "产品名称",
@@ -70,14 +78,6 @@ export default {
 			changedstorycnt: "已变更",
 			closedstorycnt: "已关闭",
 			storycnt: "总计",
-		},
-		uiactions: {
-		},
-	},
-	productbugcnt_qa_grid: {
-		columns: {
-			name: "产品名称",
-			bugcnt: "创建bug数",
 		},
 		uiactions: {
 		},

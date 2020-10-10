@@ -1,79 +1,79 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
 import { Watch, MainControlBase } from '@/studio-core';
-import ProductSumService from '@/service/product-sum/product-sum-service';
-import ProductBugcnt_QaService from './product-bugcnt-qa-portlet-service';
-import ProductSumUIService from '@/uiservice/product-sum/product-sum-ui-service';
+import UserYearWorkStatsService from '@/service/user-year-work-stats/user-year-work-stats-service';
+import ProductBugcnt_QAService from './product-bugcnt-qa-portlet-service';
+import UserYearWorkStatsUIService from '@/uiservice/user-year-work-stats/user-year-work-stats-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
 import { ViewTool } from '@/utils';
 
 
 /**
- * dashboard_sysportlet1部件基类
+ * dashboard_sysportlet6部件基类
  *
  * @export
  * @class MainControlBase
- * @extends {ProductBugcnt_QaPortletBase}
+ * @extends {ProductBugcnt_QAPortletBase}
  */
-export class ProductBugcnt_QaPortletBase extends MainControlBase {
+export class ProductBugcnt_QAPortletBase extends MainControlBase {
 
     /**
      * 获取部件类型
      *
      * @protected
      * @type {string}
-     * @memberof ProductBugcnt_QaPortletBase
+     * @memberof ProductBugcnt_QAPortletBase
      */
     protected controlType: string = 'PORTLET';
 
     /**
      * 建构部件服务对象
      *
-     * @type {ProductBugcnt_QaService}
-     * @memberof ProductBugcnt_QaPortletBase
+     * @type {ProductBugcnt_QAService}
+     * @memberof ProductBugcnt_QAPortletBase
      */
-    public service: ProductBugcnt_QaService = new ProductBugcnt_QaService({ $store: this.$store });
+    public service: ProductBugcnt_QAService = new ProductBugcnt_QAService({ $store: this.$store });
 
     /**
      * 实体服务对象
      *
-     * @type {ProductSumService}
-     * @memberof ProductBugcnt_QaPortletBase
+     * @type {UserYearWorkStatsService}
+     * @memberof ProductBugcnt_QAPortletBase
      */
-    public appEntityService: ProductSumService = new ProductSumService({ $store: this.$store });
+    public appEntityService: UserYearWorkStatsService = new UserYearWorkStatsService({ $store: this.$store });
 
     /**
      * 应用实体名称
      *
      * @protected
      * @type {string}
-     * @memberof ProductBugcnt_QaPortletBase
+     * @memberof ProductBugcnt_QAPortletBase
      */
-    protected appDeName: string = 'productsum';
+    protected appDeName: string = 'useryearworkstats';
 
     /**
      * 应用实体中文名称
      *
      * @protected
      * @type {string}
-     * @memberof ProductBugcnt_QaPortletBase
+     * @memberof ProductBugcnt_QAPortletBase
      */
-    protected appDeLogicName: string = '产品汇总表';
+    protected appDeLogicName: string = '用户年度工作内容统计';
 
     /**
      * 界面UI服务对象
      *
-     * @type {ProductSumUIService}
-     * @memberof ProductBugcnt_QaBase
+     * @type {UserYearWorkStatsUIService}
+     * @memberof ProductBugcnt_QABase
      */  
-    public appUIService:ProductSumUIService = new ProductSumUIService(this.$store);
+    public appUIService:UserYearWorkStatsUIService = new UserYearWorkStatsUIService(this.$store);
 
     /**
      * 长度
      *
      * @type {number}
-     * @memberof ProductBugcnt_Qa
+     * @memberof ProductBugcnt_QA
      */
     @Prop() public height?: number;
 
@@ -81,7 +81,7 @@ export class ProductBugcnt_QaPortletBase extends MainControlBase {
      * 宽度
      *
      * @type {number}
-     * @memberof ProductBugcnt_Qa
+     * @memberof ProductBugcnt_QA
      */
     @Prop() public width?: number;
 
@@ -89,14 +89,14 @@ export class ProductBugcnt_QaPortletBase extends MainControlBase {
      * 门户部件类型
      *
      * @type {number}
-     * @memberof ProductBugcnt_QaBase
+     * @memberof ProductBugcnt_QABase
      */
-    public portletType: string = 'chart';
+    public portletType: string = 'view';
 
     /**
      * 界面行为模型数据
      *
-     * @memberof ProductBugcnt_QaBase
+     * @memberof ProductBugcnt_QABase
      */
     public uiactionModel: any = {
     }
@@ -107,7 +107,7 @@ export class ProductBugcnt_QaPortletBase extends MainControlBase {
      * 是否自适应大小
      *
      * @returns {boolean}
-     * @memberof ProductBugcnt_QaBase
+     * @memberof ProductBugcnt_QABase
      */
     @Prop({default: false})public isAdaptiveSize!: boolean;
 
@@ -115,7 +115,7 @@ export class ProductBugcnt_QaPortletBase extends MainControlBase {
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof ProductBugcnt_QaBase
+     * @memberof ProductBugcnt_QABase
      */
     public getDatas(): any[] {
         return [];
@@ -125,7 +125,7 @@ export class ProductBugcnt_QaPortletBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof ProductBugcnt_QaBase
+     * @memberof ProductBugcnt_QABase
      */
     public getData(): any {
         return {};
@@ -135,7 +135,7 @@ export class ProductBugcnt_QaPortletBase extends MainControlBase {
      * 获取高度
      *
      * @returns {any[]}
-     * @memberof ProductBugcnt_QaBase
+     * @memberof ProductBugcnt_QABase
      */
     get getHeight(): any{
         if(!this.$util.isEmpty(this.height) && !this.$util.isNumberNaN(this.height)){
@@ -145,14 +145,14 @@ export class ProductBugcnt_QaPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '280px';
+            return '330px';
         }
     }
 
     /**
      * vue 生命周期
      *
-     * @memberof ProductBugcnt_QaBase
+     * @memberof ProductBugcnt_QABase
      */
     public created() {
         this.afterCreated();
@@ -161,7 +161,7 @@ export class ProductBugcnt_QaPortletBase extends MainControlBase {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof ProductBugcnt_QaBase
+     *  @memberof ProductBugcnt_QABase
      */    
     public afterCreated(){
         if (this.viewState) {
@@ -183,7 +183,7 @@ export class ProductBugcnt_QaPortletBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof ProductBugcnt_QaBase
+     * @memberof ProductBugcnt_QABase
      */
     public destroyed() {
         this.afterDestroy();
@@ -192,7 +192,7 @@ export class ProductBugcnt_QaPortletBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof ProductBugcnt_QaBase
+     * @memberof ProductBugcnt_QABase
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -203,7 +203,7 @@ export class ProductBugcnt_QaPortletBase extends MainControlBase {
     /**
      * 计算界面行为权限
      *
-     * @memberof ProductBugcnt_QaBase
+     * @memberof ProductBugcnt_QABase
      */
     public calcUIActionAuthState(data:any = {}) {
         //  如果是操作栏，不计算权限

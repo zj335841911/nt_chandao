@@ -1,0 +1,11 @@
+<div class='portlet product-bugcnt-qa ' :style="{'height': isAdaptiveSize ? '100%' : getHeight,}">
+        <p class='portlet-title'>
+            <span>
+            
+            产品创建bug数看板部件_测试
+            </span>
+        </p>
+        <div class="portlet-with-title">
+        <product-sum-usr3-grid-view :viewUsage="4" :viewdata="JSON.stringify(context)" :viewDefaultUsage="false" ></product-sum-usr3-grid-view>
+        </div>
+</div>
