@@ -3306,6 +3306,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/product-project-grid-view9/product-project-grid-view9.vue'),
                 },
                 {
+                    path: 'useryearworkstats/:useryearworkstats?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.useryearworkstats.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'useryearworkstats', parameterName: 'useryearworkstats' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/user-year-work-stats-edit-view/user-year-work-stats-edit-view.vue'),
+                },
+                {
                     path: 'productsums/:productsum?/gridview/:gridview?',
                     meta: {
                         caption: 'entities.productsum.views.gridview.caption',
@@ -7159,20 +7173,6 @@ const router = new Router({
                     component: () => import('@pages/zentao/todo-grid-view9/todo-grid-view9.vue'),
                 },
                 {
-                    path: 'productsums/:productsum?/usr2gridview/:usr2gridview?',
-                    meta: {
-                        caption: 'entities.productsum.views.usr2gridview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'productsums', parameterName: 'productsum' },
-                            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/product-sum-usr2-grid-view/product-sum-usr2-grid-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/gridview9_assignedtome/:gridview9_assignedtome?',
                     meta: {
                         caption: 'entities.bug.views.gridview9_assignedtome.caption',
@@ -7270,6 +7270,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/project-main-dashboard-view/project-main-dashboard-view.vue'),
+                },
+                {
+                    path: 'productsums/:productsum?/usr2gridview/:usr2gridview?',
+                    meta: {
+                        caption: 'entities.productsum.views.usr2gridview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'productsums', parameterName: 'productsum' },
+                            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/product-sum-usr2-grid-view/product-sum-usr2-grid-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/assigntoview/:assigntoview?',

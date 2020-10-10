@@ -64,11 +64,7 @@ export default class GetProductsLogicBase {
      * @param params 传入参数
      */
     public compute0Cond(params:any):boolean{
-        if(Verify.testCond(params.judgerole, 'EQ', 'po')){
-           return true;
-        }else{
-            return false;
-        }
+        return true;
     }
 
     /**

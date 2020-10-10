@@ -195,7 +195,7 @@ export default class ZentaoModel {
                         	textcls: '',
                         	appfunctag: 'POAppFunc',
                         	appfuncyype: 'APPVIEW',
-                        	viewname: 'user-year-work-stats-podashboard-view',
+                        	viewname: 'user-year-work-stats-edit-view',
                         	authtag:'Web-zentao-menuitem25',
                         }
                         ,
@@ -853,12 +853,12 @@ export default class ZentaoModel {
             appfunctag: 'POAppFunc',
             appfuncyype: 'APPVIEW',
             openmode: 'DRAWER_TOP',
-            codename: 'useryearworkstatspodashboardview',
+            codename: 'useryearworkstatseditview',
             deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/useryearworkstats/:useryearworkstats?/podashboardview/:podashboardview?',
+            routepath: '/ibizpms/:ibizpms?/useryearworkstats/:useryearworkstats?/editview/:editview?',
             parameters: [
                 { pathName: 'useryearworkstats', parameterName: 'useryearworkstats' },
-                { pathName: 'podashboardview', parameterName: 'podashboardview' },
+                { pathName: 'editview', parameterName: 'editview' },
             ],
         },
         {
