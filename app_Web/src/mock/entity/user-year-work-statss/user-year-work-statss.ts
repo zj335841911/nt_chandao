@@ -359,6 +359,50 @@ mock.onGet(new RegExp(/^\/useryearworkstats\/fetchmonthfinishtaskandbug(\?[\w-./
     return [status, records ?  records : []];
 });
     
+// FetchMonthOpenedBugAndCase
+mock.onGet(new RegExp(/^\/useryearworkstats\/fetchmonthopenedbugandcase$/)).reply((config: any) => {
+    console.groupCollapsed("实体:useryearworkstats 方法: FetchMonthOpenedBugAndCase");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchMonthOpenedBugAndCase
+mock.onGet(new RegExp(/^\/useryearworkstats\/fetchmonthopenedbugandcase(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:useryearworkstats 方法: FetchMonthOpenedBugAndCase");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
 // FetchMonthOpenedStory
 mock.onGet(new RegExp(/^\/useryearworkstats\/fetchmonthopenedstory$/)).reply((config: any) => {
     console.groupCollapsed("实体:useryearworkstats 方法: FetchMonthOpenedStory");

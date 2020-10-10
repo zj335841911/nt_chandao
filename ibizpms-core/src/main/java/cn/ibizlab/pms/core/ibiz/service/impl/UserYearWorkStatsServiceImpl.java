@@ -168,6 +168,15 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
     }
 
     /**
+     * 查询集合 月创建Bug数和创建用例数
+     */
+    @Override
+    public Page<UserYearWorkStats> searchMonthOpenedBugAndCase(UserYearWorkStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<UserYearWorkStats> pages=baseMapper.searchMonthOpenedBugAndCase(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<UserYearWorkStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 月创建需求数
      */
     @Override

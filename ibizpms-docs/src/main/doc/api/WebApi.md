@@ -290,6 +290,7 @@
 |/useryearworkstats/save|POST|用户年度工作内容统计 Json对象|&nbsp;|
 |/useryearworkstats/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/useryearworkstats/fetchmonthfinishtaskandbug|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/useryearworkstats/fetchmonthopenedbugandcase|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/useryearworkstats/fetchmonthopenedstory|GET|DEDataSetFetchContext Json对象|&nbsp;|
 ## 项目相关接口
 
@@ -576,6 +577,7 @@
 |/case/unlinksuitecase|POST|测试用例 Json对象|&nbsp;|
 |/case/unlinksuitecases|POST|测试用例 Json对象|&nbsp;|
 |/case/fetchbatchnew|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/case/fetchcuropenedcase|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/case/fetchcursuite|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/case/fetchcurtesttask|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/case/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
@@ -981,6 +983,7 @@
 |/bug/fetchbuildproducebugtype_project|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bug/fetchcuruserresolve|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bug/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/bug/fetchmycuropenedbug|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bug/fetchmyfavorites|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bug/fetchprojectbugs|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bug/fetchreleasebugs|GET|DEDataSetFetchContext Json对象|&nbsp;|
