@@ -486,10 +486,6 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      * @memberof IbzMyTerritoryMobDashboardViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
-        if(this.$store.getters.getSearchformStatus()){
-            this.searchformState = false;
-            return
-        }
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;

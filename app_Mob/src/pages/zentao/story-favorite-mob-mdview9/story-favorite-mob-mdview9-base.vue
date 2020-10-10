@@ -614,10 +614,6 @@ export default class StoryFavoriteMobMDView9Base extends Vue {
      * @memberof StoryFavoriteMobMDView9Base
      */
     protected async closeView(args: any[]): Promise<any> {
-        if(this.$store.getters.getSearchformStatus()){
-            this.searchformState = false;
-            return
-        }
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;
@@ -723,15 +719,6 @@ export default class StoryFavoriteMobMDView9Base extends Vue {
             form.onReset();
         }
         this.closeSearchform();
-    }
-
-    /**
-     * 搜索表单关闭事件
-     *
-     * @memberof StoryFavoriteMobMDView9Base
-     */
-    public searchformClose() {
-        this.$store.commit('setSearchformStatus',false); 
     }
 
    /**
