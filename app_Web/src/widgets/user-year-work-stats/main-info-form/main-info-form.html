@@ -22,27 +22,7 @@
     <app-form-group :model="detailsModel.grouppanel2" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.useryearworkstats.maininfo_form.details.grouppanel2')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.yearcasecnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='yearcasecnt' :itemRules="this.rules.yearcasecnt" class='' :caption="$t('entities.useryearworkstats.maininfo_form.details.yearcasecnt')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.yearcasecnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='yearcasecnt' :value="data.yearcasecnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.yearbugcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='yearbugcnt' :itemRules="this.rules.yearbugcnt" class='' :caption="$t('entities.useryearworkstats.maininfo_form.details.yearbugcnt')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.yearbugcnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='yearbugcnt' :value="data.yearbugcnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-    
+            
     </row>
 </app-form-group>
 
@@ -51,37 +31,7 @@
     <app-form-group :model="detailsModel.grouppanel3" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel3.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.useryearworkstats.maininfo_form.details.grouppanel3')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="true" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel3" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-        <i-col class="form-layout-container" v-show="detailsModel.yearproductcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='yearproductcnt' :itemRules="this.rules.yearproductcnt" class='' :caption="$t('entities.useryearworkstats.maininfo_form.details.yearproductcnt')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.yearproductcnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='yearproductcnt' :value="data.yearproductcnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.yearplancnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='yearplancnt' :itemRules="this.rules.yearplancnt" class='' :caption="$t('entities.useryearworkstats.maininfo_form.details.yearplancnt')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.yearplancnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='yearplancnt' :value="data.yearplancnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-<i-col class="form-layout-container" v-show="detailsModel.yearstorycnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='yearstorycnt' :itemRules="this.rules.yearstorycnt" class='' :caption="$t('entities.useryearworkstats.maininfo_form.details.yearstorycnt')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.yearstorycnt.error" :isEmptyCaption="false" labelPos="LEFT">
-    
-<app-span name='yearstorycnt' :value="data.yearstorycnt" dataType="INT"     :precision="0"
-:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
-</app-span>
-
-</app-form-item>
-
-</i-col>
-    
+            
     </row>
 </app-form-group>
 
