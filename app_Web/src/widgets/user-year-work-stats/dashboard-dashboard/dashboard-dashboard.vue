@@ -34,6 +34,3 @@ import view_dashboard_sysportlet1 from '@widgets/user-year-work-stats/title-port
 @VueLifeCycleProcessing()
 export default class DashboardDashboard extends DashboardDashboardBase { }
 </script>
-<style lang='less'>
-@import './dashboard-dashboard.less';
-</style>
