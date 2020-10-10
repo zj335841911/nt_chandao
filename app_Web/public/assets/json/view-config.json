@@ -2089,6 +2089,16 @@
         "viewtag": "7e14015af219d302f7d81ff40cdcc418",
         "memo": ""
     },
+    "productsumusr2gridview": {
+        "title": "产品计划数和需求书实体表格视图",
+        "caption": "产品汇总表",
+        "viewtype": "DEGRIDVIEW",
+        "viewmodule": "ibiz",
+        "viewname": "ProductSumUsr2GridView",
+        "viewfilename": "product-sum-usr2-grid-view",
+        "viewtag": "7e9dfdd36617a43790494790f58117ec",
+        "memo": ""
+    },
     "taskwheditview": {
         "title": "工时",
         "caption": "工时",

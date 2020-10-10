@@ -1679,6 +1679,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "StoryMainView_EditMode",
             "viewtag": "7e14015af219d302f7d81ff40cdcc418"
         },
+        "productsumusr2gridview": {
+            "title": "产品计划数和需求书实体表格视图",
+            "caption": "产品汇总表",
+            "viewtype": "DEGRIDVIEW",
+            "viewmodule": "ibiz",
+            "viewname": "ProductSumUsr2GridView",
+            "viewtag": "7e9dfdd36617a43790494790f58117ec"
+        },
         "taskwheditview": {
             "title": "工时",
             "caption": "工时",
