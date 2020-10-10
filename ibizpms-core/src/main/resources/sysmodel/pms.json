@@ -739,6 +739,7 @@
     "physical_field":1,
     "data_type":"VARCHAR",
     "data_length":200,
+    "predefined":"CREATEMANNAME",
     "key_field":0,
     "major_field":0
     },

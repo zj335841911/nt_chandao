@@ -757,14 +757,6 @@ public class BugDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [OPENEDBY]
-     */
-    public void setOpenedby(String  openedby){
-        this.openedby = openedby ;
-        this.modify("openedby",openedby);
-    }
-
-    /**
      * 设置 [ACTIVATEDCOUNT]
      */
     public void setActivatedcount(Integer  activatedcount){
