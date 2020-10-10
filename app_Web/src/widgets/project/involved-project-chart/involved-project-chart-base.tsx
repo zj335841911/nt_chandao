@@ -201,14 +201,14 @@ export class InvolvedProjectChartBase extends MainControlBase {
     categorField:'status',
     categorCodeList:{type:'STATIC',tag:'Project_staus',emptycode:'empty',emptytext:'未定义'},
     
-    valueField:' srfcount',
+    valueField:'srfcount',
     seriesValues:[],
     seriesIndex:0,
     data:[],
     seriesMap:{},
     dataSetFields:[
     {name:"status",codelist:{type:"STATIC",tag:"Project_staus",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:"CODELIST"},
-    {name:" srfcount",codelist:null,isGroupField:false,groupMode:""}
+    {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
         label:{
@@ -298,7 +298,7 @@ export class InvolvedProjectChartBase extends MainControlBase {
             seriesLayoutBy:"column",
             encode:{
                 itemName:"status",
-                value:" srfcount"
+                value:"srfcount"
             }}
         ]
     };

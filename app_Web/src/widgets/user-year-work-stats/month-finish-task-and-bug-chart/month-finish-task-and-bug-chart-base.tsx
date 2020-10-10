@@ -249,14 +249,14 @@ export class MonthFinishTaskAndBugChartBase extends MainControlBase {
     categorField:'curmonth',
     
     
-    valueField:' monthfinishtask',
+    valueField:'monthfinishtask',
     seriesValues:[],
     seriesIndex:1,
     data:[],
     seriesMap:{},
     dataSetFields:[
     {name:"curmonth",codelist:null,isGroupField:true,groupMode:"MONTH"},
-    {name:" monthfinishtask",codelist:null,isGroupField:false,groupMode:""}
+    {name:"monthfinishtask",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
         label:{
@@ -297,14 +297,14 @@ export class MonthFinishTaskAndBugChartBase extends MainControlBase {
     categorField:'curmonth',
     
     
-    valueField:' montestimate',
+    valueField:'montestimate',
     seriesValues:[],
     seriesIndex:2,
     data:[],
     seriesMap:{},
     dataSetFields:[
     {name:"curmonth",codelist:null,isGroupField:true,groupMode:"MONTH"},
-    {name:" montestimate",codelist:null,isGroupField:false,groupMode:""}
+    {name:"montestimate",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
         label:{
@@ -427,7 +427,7 @@ export class MonthFinishTaskAndBugChartBase extends MainControlBase {
             datasetIndex:1,
             encode: {
                 x: ['curmonth'],      
-                y: [' monthfinishtask']
+                y: ['monthfinishtask']
             }}
         ,                     {
             id:'montestimate',
@@ -438,7 +438,7 @@ export class MonthFinishTaskAndBugChartBase extends MainControlBase {
             datasetIndex:2,
             encode: {
                 x: ['curmonth'],      
-                y: [' montestimate']
+                y: ['montestimate']
             }}
         ]
     };
