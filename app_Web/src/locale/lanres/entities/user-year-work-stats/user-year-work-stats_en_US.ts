@@ -103,6 +103,7 @@ export default {
 			srfsourcekey: "", 
 			title: "", 
 			curyear: "年度", 
+			realname: "真实用户名", 
 			judgerole: "判断角色", 
 			id: "用户编号", 
 		},

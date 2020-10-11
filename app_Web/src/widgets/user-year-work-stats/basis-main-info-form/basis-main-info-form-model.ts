@@ -61,6 +61,11 @@ export default class BasisMainInfoModel {
         dataType: 'TEXT',
       },
       {
+        name: 'realname',
+        prop: 'realname',
+        dataType: 'TEXT',
+      },
+      {
         name: 'judgerole',
         prop: 'judgerole',
         dataType: 'TEXT',

@@ -92,6 +92,7 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         title: null,
         curyear: null,
+        realname: null,
         judgerole: null,
         id: null,
         useryearworkstats:null,
@@ -156,6 +157,8 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
 
         curyear: new FormItemModel({ caption: '年度', detailType: 'FORMITEM', name: 'curyear', visible: true, isShowCaption: false, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        realname: new FormItemModel({ caption: '真实用户名', detailType: 'FORMITEM', name: 'realname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         judgerole: new FormItemModel({ caption: '判断角色', detailType: 'FORMITEM', name: 'judgerole', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: '用户编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -201,6 +204,7 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.grouppanel3.setVisible(ret);
         }
+
 
 
 

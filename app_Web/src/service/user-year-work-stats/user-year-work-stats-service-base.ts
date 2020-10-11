@@ -167,7 +167,7 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
      * @memberof UserYearWorkStatsServiceBase
      */
     public async GetUserYearAction(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().put(`/useryearworkstats/${context.useryearworkstats}/getuseryearaction`,isloading);
+            let res:any = Http.getInstance().put(`/useryearworkstats/${context.useryearworkstats}/getuseryearaction`,data,isloading);
             return res;
     }
 
