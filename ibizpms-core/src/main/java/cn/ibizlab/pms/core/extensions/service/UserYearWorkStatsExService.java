@@ -29,6 +29,9 @@ public class UserYearWorkStatsExService extends UserYearWorkStatsServiceImpl {
     @Override
     @Transactional
     public UserYearWorkStats getUserYearAction(UserYearWorkStats et) {
+        if(et.getCuryear() == null) {
+            et = this.get(et.getId());
+        }
         return super.getUserYearAction(et);
     }
     /**
@@ -39,6 +42,7 @@ public class UserYearWorkStatsExService extends UserYearWorkStatsServiceImpl {
     @Override
     @Transactional
     public UserYearWorkStats updateTitleByYear(UserYearWorkStats et) {
+        et.setTitle(String.format("%1$s年工作内容统计一览表 —— %2$s",et.getCuryear(),et.getRealname()));
         return super.updateTitleByYear(et);
     }
 }
