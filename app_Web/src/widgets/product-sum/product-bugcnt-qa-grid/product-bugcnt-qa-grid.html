@@ -23,7 +23,7 @@
                 <el-table-column align="center" type='selection' :width="checkboxColWidth"></el-table-column>
             </template>
             <template v-if="getColumnState('name')">
-                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productsum.productbugcnt_qa_grid.columns.name')" :min-width="400"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'name'" :label="$t('entities.productsum.productbugcnt_qa_grid.columns.name')" :min-width="200"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.productsum.productbugcnt_qa_grid.columns.name')}}
@@ -35,7 +35,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('bugcnt')">
-                <el-table-column show-overflow-tooltip :prop="'bugcnt'" :label="$t('entities.productsum.productbugcnt_qa_grid.columns.bugcnt')" :width="200"  :align="'left'">
+                <el-table-column show-overflow-tooltip :prop="'bugcnt'" :label="$t('entities.productsum.productbugcnt_qa_grid.columns.bugcnt')" :width="150"  :align="'left'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.productsum.productbugcnt_qa_grid.columns.bugcnt')}}

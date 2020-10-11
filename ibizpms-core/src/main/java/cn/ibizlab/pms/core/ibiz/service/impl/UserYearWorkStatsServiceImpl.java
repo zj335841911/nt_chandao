@@ -120,6 +120,13 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
     }
     @Override
     @Transactional
+    public UserYearWorkStats getUserYearAction(UserYearWorkStats et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(UserYearWorkStats et) {
         if(!saveOrUpdate(et))
             return false;
@@ -145,6 +152,13 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
     @Override
     public void saveBatch(List<UserYearWorkStats> list) {
         saveOrUpdateBatch(list,batchSize);
+    }
+
+    @Override
+    @Transactional
+    public UserYearWorkStats updateTitleByYear(UserYearWorkStats et) {
+        //自定义代码
+        return et;
     }
 
 

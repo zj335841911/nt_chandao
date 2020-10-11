@@ -287,7 +287,9 @@
 |/useryearworkstats|GET|用户年度工作内容统计标识|&nbsp;|
 |/useryearworkstats/getdraft|GET|用户年度工作内容统计 Json对象|&nbsp;|
 |/useryearworkstats/checkkey|POST|用户年度工作内容统计 Json对象|&nbsp;|
+|/useryearworkstats/getuseryearaction|PUT|用户年度工作内容统计 Json对象|&nbsp;|
 |/useryearworkstats/save|POST|用户年度工作内容统计 Json对象|&nbsp;|
+|/useryearworkstats/updatetitlebyyear|PUT|用户年度工作内容统计 Json对象|&nbsp;|
 |/useryearworkstats/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/useryearworkstats/fetchmonthfinishtaskandbug|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/useryearworkstats/fetchmonthopenedbugandcase|GET|DEDataSetFetchContext Json对象|&nbsp;|

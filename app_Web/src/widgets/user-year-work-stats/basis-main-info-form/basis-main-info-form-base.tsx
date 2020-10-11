@@ -214,5 +214,9 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, 'curyear')) {
+            const details: string[] = ['title'];
+            this.updateFormItems('UpdateTitleByYear', this.data, details, true);
+        }
     }
 }

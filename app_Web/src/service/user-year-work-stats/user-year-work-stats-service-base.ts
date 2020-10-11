@@ -158,6 +158,20 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
     }
 
     /**
+     * GetUserYearAction接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async GetUserYearAction(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().put(`/useryearworkstats/${context.useryearworkstats}/getuseryearaction`,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]
@@ -171,6 +185,20 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/useryearworkstats/${context.useryearworkstats}/save`,data,isloading);
             
+            return res;
+    }
+
+    /**
+     * UpdateTitleByYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async UpdateTitleByYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().put(`/useryearworkstats/${context.useryearworkstats}/updatetitlebyyear`,data,isloading);
             return res;
     }
 

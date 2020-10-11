@@ -120,6 +120,17 @@ public class UserYearWorkStatsResource {
         return  ResponseEntity.status(HttpStatus.OK).body(useryearworkstatsService.checkKey(useryearworkstatsMapping.toDomain(useryearworkstatsdto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-GetUserYearAction-all')")
+    @ApiOperation(value = "获取用户所选年度的动作", tags = {"用户年度工作内容统计" },  notes = "获取用户所选年度的动作")
+	@RequestMapping(method = RequestMethod.PUT, value = "/useryearworkstats/{useryearworkstats_id}/getuseryearaction")
+    public ResponseEntity<UserYearWorkStatsDTO> getUserYearAction(@PathVariable("useryearworkstats_id") Long useryearworkstats_id, @RequestBody UserYearWorkStatsDTO useryearworkstatsdto) {
+        UserYearWorkStats domain = useryearworkstatsMapping.toDomain(useryearworkstatsdto);
+        domain.setId(useryearworkstats_id);
+        domain = useryearworkstatsService.getUserYearAction(domain);
+        useryearworkstatsdto = useryearworkstatsMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(useryearworkstatsdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-Save-all')")
     @ApiOperation(value = "保存用户年度工作内容统计", tags = {"用户年度工作内容统计" },  notes = "保存用户年度工作内容统计")
 	@RequestMapping(method = RequestMethod.POST, value = "/useryearworkstats/save")
@@ -133,6 +144,17 @@ public class UserYearWorkStatsResource {
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<UserYearWorkStatsDTO> useryearworkstatsdtos) {
         useryearworkstatsService.saveBatch(useryearworkstatsMapping.toDomain(useryearworkstatsdtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-UpdateTitleByYear-all')")
+    @ApiOperation(value = "更新标题", tags = {"用户年度工作内容统计" },  notes = "更新标题")
+	@RequestMapping(method = RequestMethod.PUT, value = "/useryearworkstats/{useryearworkstats_id}/updatetitlebyyear")
+    public ResponseEntity<UserYearWorkStatsDTO> updateTitleByYear(@PathVariable("useryearworkstats_id") Long useryearworkstats_id, @RequestBody UserYearWorkStatsDTO useryearworkstatsdto) {
+        UserYearWorkStats domain = useryearworkstatsMapping.toDomain(useryearworkstatsdto);
+        domain.setId(useryearworkstats_id);
+        domain = useryearworkstatsService.updateTitleByYear(domain);
+        useryearworkstatsdto = useryearworkstatsMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(useryearworkstatsdto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-searchDefault-all')")

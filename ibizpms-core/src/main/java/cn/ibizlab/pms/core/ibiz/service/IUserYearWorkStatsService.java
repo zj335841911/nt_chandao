@@ -34,8 +34,10 @@ public interface IUserYearWorkStatsService extends IService<UserYearWorkStats>{
     UserYearWorkStats get(Long key) ;
     UserYearWorkStats getDraft(UserYearWorkStats et) ;
     boolean checkKey(UserYearWorkStats et) ;
+    UserYearWorkStats getUserYearAction(UserYearWorkStats et) ;
     boolean save(UserYearWorkStats et) ;
     void saveBatch(List<UserYearWorkStats> list) ;
+    UserYearWorkStats updateTitleByYear(UserYearWorkStats et) ;
     Page<UserYearWorkStats> searchDefault(UserYearWorkStatsSearchContext context) ;
     Page<UserYearWorkStats> searchMonthFinishTaskAndBug(UserYearWorkStatsSearchContext context) ;
     Page<UserYearWorkStats> searchMonthOpenedBugAndCase(UserYearWorkStatsSearchContext context) ;
