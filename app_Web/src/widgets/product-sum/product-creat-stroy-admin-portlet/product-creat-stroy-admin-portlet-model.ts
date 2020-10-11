@@ -48,6 +48,9 @@ export default class ProductCreatStroy_adminModel {
       {
         name: 'storycnt',
       },
+      {
+        name: 'bugcnt',
+      },
     ]
   }
 

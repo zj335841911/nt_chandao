@@ -264,4 +264,13 @@ export class ProductSumUsr3GridViewBase extends GridViewBase {
     }
 
 
+
+    /**
+     * 是否单选
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof ProductSumUsr3GridViewBase
+     */
+    protected isGridSingleSelect: boolean = true;
 }

@@ -48,6 +48,9 @@ export default class ProductBugcnt_QaModel {
       {
         name: 'storycnt',
       },
+      {
+        name: 'bugcnt',
+      },
     ]
   }
 

@@ -12,6 +12,7 @@ export default {
     changedstorycnt: "已变更",
     closedstorycnt: "已关闭",
     storycnt: "总计",
+    bugcnt: "Bug数",
   },
 	views: {
 		gridview: {
