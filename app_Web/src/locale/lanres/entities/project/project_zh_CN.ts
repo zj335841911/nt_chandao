@@ -152,6 +152,10 @@ export default {
 			caption: "项目",
       		title: "项目",
 		},
+		gridview9: {
+			caption: "项目",
+      		title: "项目表格视图",
+		},
 		gridview9_unclosed: {
 			caption: "未关闭的项目",
       		title: "项目表格视图",

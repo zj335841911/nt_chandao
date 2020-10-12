@@ -476,6 +476,20 @@ const router = new Router({
                     component: () => import('@pages/zentao/action-project-trends-list-view/action-project-trends-list-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/gridview9/:gridview9?',
+                    meta: {
+                        caption: 'entities.project.views.gridview9.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'gridview9', parameterName: 'gridview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/project-grid-view9/project-grid-view9.vue'),
+                },
+                {
                     path: 'ibzlibs/:ibzlib?/ibzlibmodules/:ibzlibmodule?/editview/:editview?',
                     meta: {
                         caption: 'entities.ibzlibmodule.views.editview.caption',
@@ -7570,20 +7584,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/story-project-plan-view/story-project-plan-view.vue'),
-                },
-                {
-                    path: 'projects/:project?/usr2gridview/:usr2gridview?',
-                    meta: {
-                        caption: 'entities.project.views.usr2gridview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'usr2gridview', parameterName: 'usr2gridview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/project-usr2-grid-view/project-usr2-grid-view.vue'),
                 },
                 {
                     path: 'projects/:project?/curproductgridview/:curproductgridview?',

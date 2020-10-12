@@ -109,6 +109,7 @@ export default class ProjectUIServiceBase extends UIService {
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'projects',component:'project-grid-view'});
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'projects',component:'project-main-dashboard-view'});
         this.allViewMap.set(':',{viewname:'editview_close',srfappde:'projects',component:'project-edit-view-close'});
+        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'projects',component:'project-grid-view9'});
         this.allViewMap.set(':',{viewname:'gridview9_unclosed',srfappde:'projects',component:'project-grid-view9-un-closed'});
         this.allViewMap.set(':',{viewname:'editview_suspend',srfappde:'projects',component:'project-edit-view-suspend'});
         this.allViewMap.set(':',{viewname:'dashboardinfoview',srfappde:'projects',component:'project-dashboard-info-view'});

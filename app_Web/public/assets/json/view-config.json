@@ -2779,6 +2779,16 @@
         "viewtag": "a46256cb1bcfceabf09ad93f33e766a1",
         "memo": "临时充当主信息展示页面"
     },
+    "projectgridview9": {
+        "title": "项目表格视图",
+        "caption": "项目",
+        "viewtype": "DEGRIDVIEW9",
+        "viewmodule": "zentao",
+        "viewname": "ProjectGridView9",
+        "viewfilename": "project-grid-view9",
+        "viewtag": "a4941294aa97081cc5197c07292905af",
+        "memo": ""
+    },
     "productportalview": {
         "title": "产品主页",
         "caption": "产品主页",

@@ -382,16 +382,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '1956d68ebad0fcc688c189757a8601a6',
-            viewmodule: 'zentao',
-            viewname: 'ProjectUsr2GridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'f83dac873b9215483c4bb91673284b41',
-            ],
-        },
-        {
             viewtag: '19641dcdbd1f1973c9693859003e1f60',
             viewmodule: 'zentao',
             viewname: 'ProjectTestTabExpView',
@@ -2492,8 +2482,8 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '1956d68ebad0fcc688c189757a8601a6',
                 '3519739a278f4151b39580be3a276cbf',
+                'a4941294aa97081cc5197c07292905af',
             ],
         },
         {
@@ -2515,6 +2505,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'a4941294aa97081cc5197c07292905af',
+            viewmodule: 'zentao',
+            viewname: 'ProjectGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f83dac873b9215483c4bb91673284b41',
             ],
         },
         {
