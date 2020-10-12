@@ -44,6 +44,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 修改日期
      */
+    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`lastediteddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
@@ -60,6 +61,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 标题颜色
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`color`")
     @JSONField(name = "color")
     @JsonProperty("color")
@@ -84,6 +86,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 结果
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`lastrunresult`")
     @JSONField(name = "lastrunresult")
     @JsonProperty("lastrunresult")
@@ -91,6 +94,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 相关用例
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`linkcase`")
     @JSONField(name = "linkcase")
     @JsonProperty("linkcase")
@@ -106,6 +110,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * howRun
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`howrun`")
     @JSONField(name = "howrun")
     @JsonProperty("howrun")
@@ -121,6 +126,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * scriptedBy
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`scriptedby`")
     @JSONField(name = "scriptedby")
     @JsonProperty("scriptedby")
@@ -175,6 +181,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 最后修改者
      */
+    @DEField(preType = DEPredefinedFieldType.UPDATEMANNAME)
     @TableField(value = "`lasteditedby`")
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
@@ -182,6 +189,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 由谁评审
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`reviewedby`")
     @JSONField(name = "reviewedby")
     @JsonProperty("reviewedby")
@@ -214,6 +222,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 适用阶段
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`stage`")
     @JSONField(name = "stage")
     @JsonProperty("stage")
@@ -221,6 +230,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * scriptLocation
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`scriptlocation`")
     @JSONField(name = "scriptlocation")
     @JsonProperty("scriptlocation")
@@ -236,6 +246,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 关键词
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`keywords`")
     @JSONField(name = "keywords")
     @JsonProperty("keywords")
@@ -243,6 +254,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * scriptStatus
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`scriptstatus`")
     @JSONField(name = "scriptstatus")
     @JsonProperty("scriptstatus")
@@ -250,6 +262,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 工具/框架
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`frame`")
     @JSONField(name = "frame")
     @JsonProperty("frame")
@@ -257,6 +270,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 子状态
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`substatus`")
     @JSONField(name = "substatus")
     @JsonProperty("substatus")
@@ -272,6 +286,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 前置条件
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`precondition`")
     @JSONField(name = "precondition")
     @JsonProperty("precondition")
@@ -279,6 +294,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 执行人
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`lastrunner`")
     @JSONField(name = "lastrunner")
     @JsonProperty("lastrunner")
@@ -301,6 +317,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 来源用例
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`fromcaseid`")
     @JSONField(name = "fromcaseid")
     @JsonProperty("fromcaseid")
@@ -308,6 +325,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 平台/分支
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`branch`")
     @JSONField(name = "branch")
     @JsonProperty("branch")
@@ -315,6 +333,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 来源Bug
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`frombug`")
     @JSONField(name = "frombug")
     @JsonProperty("frombug")
@@ -322,6 +341,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 相关需求
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`story`")
     @JSONField(name = "story")
     @JsonProperty("story")
@@ -329,6 +349,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 所属产品
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`product`")
     @JSONField(name = "product")
     @JsonProperty("product")
@@ -336,6 +357,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 所属库
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`lib`")
     @JSONField(name = "lib")
     @JsonProperty("lib")
@@ -343,6 +365,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 所属模块
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`module`")
     @JSONField(name = "module")
     @JsonProperty("module")
@@ -513,24 +536,6 @@ public class Case extends EntityMP implements Serializable {
 
 
     /**
-     * 设置 [修改日期]
-     */
-    public void setLastediteddate(Timestamp lastediteddate){
-        this.lastediteddate = lastediteddate ;
-        this.modify("lastediteddate",lastediteddate);
-    }
-
-    /**
-     * 格式化日期 [修改日期]
-     */
-    public String formatLastediteddate(){
-        if (this.lastediteddate == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return sdf.format(lastediteddate);
-    }
-    /**
      * 设置 [scriptedDate]
      */
     public void setScripteddate(Timestamp scripteddate){
@@ -650,14 +655,6 @@ public class Case extends EntityMP implements Serializable {
     public void setTitle(String title){
         this.title = title ;
         this.modify("title",title);
-    }
-
-    /**
-     * 设置 [最后修改者]
-     */
-    public void setLasteditedby(String lasteditedby){
-        this.lasteditedby = lasteditedby ;
-        this.modify("lasteditedby",lasteditedby);
     }
 
     /**
