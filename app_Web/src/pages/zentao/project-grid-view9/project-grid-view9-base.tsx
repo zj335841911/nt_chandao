@@ -60,6 +60,28 @@ export class ProjectGridView9Base extends GridView9Base {
      */
     public appUIService: ProjectUIService = new ProjectUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof ProjectGridView9Base
+	 */
+    protected customViewNavContexts: any = {
+        'CURYEAR': { isRawValue: false, value: 'curyear' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof ProjectGridView9Base
+	 */
+    protected customViewParams: any = {
+        'curyear': { isRawValue: false, value: 'curyear' }
+    };
+
     /**
      * 视图模型数据
      *

@@ -756,15 +756,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '3519739a278f4151b39580be3a276cbf',
-            viewmodule: 'ibiz',
-            viewname: 'UserYearWorkStatsInfoEditView9',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-            ],
-        },
-        {
             viewtag: '35ba93bac795e0deb7297d2d471b7180',
             viewmodule: 'zentao',
             viewname: 'TaskSubTaskNewView',
@@ -888,6 +879,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '9ed41cee96088630f3d4b0a91e705930',
+            ],
+        },
+        {
+            viewtag: '3e8a8e6a89e8550bc64a2a8bbae01f15',
+            viewmodule: 'zentao',
+            viewname: 'ProjectChartView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1905,16 +1905,6 @@ export const viewstate: any = {
             ],
         },
         {
-            viewtag: '7e9dfdd36617a43790494790f58117ec',
-            viewmodule: 'ibiz',
-            viewname: 'ProductSumUsr2GridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'ada719b0d8722509d22b4b72bbb8cf26',
-            ],
-        },
-        {
             viewtag: '807a419a917fbfdfa3378d2fac6a2785',
             viewmodule: 'zentao',
             viewname: 'TodoFinishView',
@@ -2482,8 +2472,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '3519739a278f4151b39580be3a276cbf',
-                'a4941294aa97081cc5197c07292905af',
             ],
         },
         {
@@ -2920,8 +2908,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'f725c5c0e28669d9ef6b02ce237786a5',
-                '3519739a278f4151b39580be3a276cbf',
             ],
         },
         {
@@ -3053,8 +3039,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                '7e9dfdd36617a43790494790f58117ec',
-                '3519739a278f4151b39580be3a276cbf',
             ],
         },
         {
@@ -3453,7 +3437,9 @@ export const viewstate: any = {
             refviews: [
                 'a300309f336ad917bb9fae375cd5620a',
                 'c42384620820be3bce40b5b1dc8dcff2',
+                '3e8a8e6a89e8550bc64a2a8bbae01f15',
                 'bb44ef7532c0933ed75b1da291dec073',
+                'a4941294aa97081cc5197c07292905af',
             ],
         },
         {
@@ -3861,16 +3847,6 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-            ],
-        },
-        {
-            viewtag: 'f725c5c0e28669d9ef6b02ce237786a5',
-            viewmodule: 'ibiz',
-            viewname: 'ProductSumUsr3GridView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
-                'ada719b0d8722509d22b4b72bbb8cf26',
             ],
         },
         {

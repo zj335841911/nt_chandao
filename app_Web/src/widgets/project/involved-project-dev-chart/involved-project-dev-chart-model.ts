@@ -10,7 +10,7 @@ export default class InvolvedProject_devModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof InvolvedProject_devDashboard_sysportlet6_chartMode
+	 * @memberof InvolvedProject_devChartMode
 	 */
 	public getDataItems(): any[] {
 		return [

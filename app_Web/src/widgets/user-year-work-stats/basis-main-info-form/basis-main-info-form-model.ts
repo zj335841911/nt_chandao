@@ -71,6 +71,56 @@ export default class BasisMainInfoModel {
         dataType: 'TEXT',
       },
       {
+        name: 'visits',
+        prop: 'visits',
+        dataType: 'INT',
+      },
+      {
+        name: 'yearactioncnt',
+        prop: 'yearactioncnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'yearbugcnt',
+        prop: 'yearbugcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'yearlogcnt',
+        prop: 'yearlogcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'yearcasecnt',
+        prop: 'yearcasecnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'yearvisits',
+        prop: 'yearvisits',
+        dataType: 'INT',
+      },
+      {
+        name: 'yearstorycnt',
+        prop: 'yearstorycnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'yearproductcnt',
+        prop: 'yearproductcnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'yearplancnt',
+        prop: 'yearplancnt',
+        dataType: 'INT',
+      },
+      {
+        name: 'yearestimatecnt',
+        prop: 'yearestimatecnt',
+        dataType: 'INT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

@@ -74,7 +74,7 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
      * @type {number}
      * @memberof BasisMainInfoEditFormBase
      */
-    protected drCount: number = 3;
+    protected drCount: number = 5;
 
     /**
      * 表单数据对象
@@ -94,6 +94,16 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
         curyear: null,
         realname: null,
         judgerole: null,
+        visits: null,
+        yearactioncnt: null,
+        yearbugcnt: null,
+        yearlogcnt: null,
+        yearcasecnt: null,
+        yearvisits: null,
+        yearstorycnt: null,
+        yearproductcnt: null,
+        yearplancnt: null,
+        yearestimatecnt: null,
         id: null,
         useryearworkstats:null,
     };
@@ -124,6 +134,24 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
      */
     public detailsModel: any = {
         group1: new FormGroupPanelModel({ caption: '用户年度工作内容统计基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.basismaininfo_form', extractMode: 'ITEM', details: [] } }),
+
+        rawitem1: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem1', visible: false, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        rawitem2: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem2', visible: false, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        rawitem3: new FormRowItemModel({ caption: '', detailType: 'RAWITEM', name: 'rawitem3', visible: false, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        grouppanel5: new FormGroupPanelModel({ caption: '基本数据信息', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.basismaininfo_form', extractMode: 'ITEM', details: [] } }),
+
+        druipart4: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart4', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        grouppanel6: new FormGroupPanelModel({ caption: '参与项目概览', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.basismaininfo_form', extractMode: 'ITEM', details: [] } }),
+
+        druipart5: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart5', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        grouppanel7: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel7', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.basismaininfo_form', extractMode: 'ITEM', details: [] } }),
+
+        grouppanel4: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel4', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.basismaininfo_form', extractMode: 'ITEM', details: [] } }),
 
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -161,6 +189,26 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
 
         judgerole: new FormItemModel({ caption: '判断角色', detailType: 'FORMITEM', name: 'judgerole', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        visits: new FormItemModel({ caption: '累计登录次数', detailType: 'FORMITEM', name: 'visits', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        yearactioncnt: new FormItemModel({ caption: '累计动态数', detailType: 'FORMITEM', name: 'yearactioncnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        yearbugcnt: new FormItemModel({ caption: '累计创建Bug数', detailType: 'FORMITEM', name: 'yearbugcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        yearlogcnt: new FormItemModel({ caption: '累计日志数', detailType: 'FORMITEM', name: 'yearlogcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        yearcasecnt: new FormItemModel({ caption: '累计创建用例数', detailType: 'FORMITEM', name: 'yearcasecnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        yearvisits: new FormItemModel({ caption: '累计登录次数', detailType: 'FORMITEM', name: 'yearvisits', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        yearstorycnt: new FormItemModel({ caption: '累计创建需求数', detailType: 'FORMITEM', name: 'yearstorycnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        yearproductcnt: new FormItemModel({ caption: '累计参与产品数', detailType: 'FORMITEM', name: 'yearproductcnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        yearplancnt: new FormItemModel({ caption: '累计创建计划数', detailType: 'FORMITEM', name: 'yearplancnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        yearestimatecnt: new FormItemModel({ caption: '累计工时数', detailType: 'FORMITEM', name: 'yearestimatecnt', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         id: new FormItemModel({ caption: '用户编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
     };
@@ -174,6 +222,39 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
      */
     public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
                 
+
+        if (Object.is(name, '') || Object.is(name, 'judgerole')) {
+            let ret = false;
+            const _judgerole = this.data.judgerole;
+            if (this.$verify.testCond(_judgerole, 'EQ', 'dev')) {
+                ret = true;
+            }
+            this.detailsModel.rawitem1.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'judgerole')) {
+            let ret = false;
+            const _judgerole = this.data.judgerole;
+            if (this.$verify.testCond(_judgerole, 'EQ', 'po')) {
+                ret = true;
+            }
+            this.detailsModel.rawitem2.setVisible(ret);
+        }
+
+        if (Object.is(name, '') || Object.is(name, 'judgerole')) {
+            let ret = false;
+            const _judgerole = this.data.judgerole;
+            if (this.$verify.testCond(_judgerole, 'EQ', 'qa')) {
+                ret = true;
+            }
+            this.detailsModel.rawitem3.setVisible(ret);
+        }
+
+
+
+
+
+
 
 
         if (Object.is(name, '') || Object.is(name, 'judgerole')) {
@@ -204,6 +285,16 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.grouppanel3.setVisible(ret);
         }
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { UserYearWorkStatsQADashboardViewBase } from './user-year-work-stats-qadashboard-view-base';
-import view_dashboard from '@widgets/user-year-work-stats/qa-dashboard/qa-dashboard.vue';
+import view_dashboard from '@widgets/user-year-work-stats/qay-dashboard/qay-dashboard.vue';
 
 /**
  * 用户年度工作内容统计数据看板视图视图

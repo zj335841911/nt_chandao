@@ -117,6 +117,10 @@ export default {
 			caption: "项目",
       		title: "项目选择表格视图",
 		},
+		chartview9: {
+			caption: "项目",
+      		title: "项目图表视图",
+		},
 		editview_activate: {
 			caption: "项目",
       		title: "项目",

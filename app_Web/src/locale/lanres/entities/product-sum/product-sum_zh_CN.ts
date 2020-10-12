@@ -49,10 +49,18 @@ export default {
 		uiactions: {
 		},
 	},
-	productbugcnt_qa_grid: {
+	main_grid: {
 		columns: {
 			name: "产品名称",
-			bugcnt: "创建bug数",
+			po: "产品负责人",
+			plan: "计划",
+			begin: "开始日期",
+			end: "结束日期",
+			waitstorycnt: "草稿",
+			activestorycnt: "激活",
+			changedstorycnt: "已变更",
+			closedstorycnt: "已关闭",
+			storycnt: "总计",
 		},
 		uiactions: {
 		},
@@ -66,18 +74,10 @@ export default {
 		uiactions: {
 		},
 	},
-	main_grid: {
+	productbugcnt_qa_grid: {
 		columns: {
 			name: "产品名称",
-			po: "产品负责人",
-			plan: "计划",
-			begin: "开始日期",
-			end: "结束日期",
-			waitstorycnt: "草稿",
-			activestorycnt: "激活",
-			changedstorycnt: "已变更",
-			closedstorycnt: "已关闭",
-			storycnt: "总计",
+			bugcnt: "创建bug数",
 		},
 		uiactions: {
 		},

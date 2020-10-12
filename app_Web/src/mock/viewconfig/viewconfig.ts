@@ -815,6 +815,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ModuleTreeExpView",
             "viewtag": "3e2436a62be2ed493eda83693261274e"
         },
+        "projectchartview9": {
+            "title": "项目图表视图",
+            "caption": "项目",
+            "viewtype": "DECHARTVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "ProjectChartView9",
+            "viewtag": "3e8a8e6a89e8550bc64a2a8bbae01f15"
+        },
         "testmodulegridview": {
             "title": "测试模块表格视图",
             "caption": "测试模块",
