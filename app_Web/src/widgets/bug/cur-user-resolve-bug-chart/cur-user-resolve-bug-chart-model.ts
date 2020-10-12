@@ -10,7 +10,7 @@ export default class CurUserResolveBugModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof CurUserResolveBugChartMode
+	 * @memberof CurUserResolveBugDashboard_sysportlet4_chartMode
 	 */
 	public getDataItems(): any[] {
 		return [

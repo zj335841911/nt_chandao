@@ -1503,14 +1503,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TaskKanbanView",
             "viewtag": "7088260bcd6a0303378af2f8e207f479"
         },
-        "useryearworkstatsfinishtaskandbugchartview9": {
-            "title": "用户年度工作内容统计图表视图（月完成任务和解决的Bug）",
-            "caption": "月完成任务和解决的Bug",
-            "viewtype": "DECHARTVIEW9",
-            "viewmodule": "ibiz",
-            "viewname": "UserYearWorkStatsFinishTaskAndBugChartView9",
-            "viewtag": "70d4072d3f73428c77959e942643ad0a"
-        },
         "buggridview9_storyformbug": {
             "title": "来源Bug",
             "caption": "来源Bug",
@@ -2511,14 +2503,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugStatsGridView",
             "viewtag": "b7427fe34d292009905e126defc9fa22"
         },
-        "useryearworkstatsopenedstorychartview9": {
-            "title": "用户年度工作内容统计图表视图（月创建需求）",
-            "caption": "月创建需求",
-            "viewtype": "DECHARTVIEW9",
-            "viewmodule": "ibiz",
-            "viewname": "UserYearWorkStatsOpenedStoryChartView9",
-            "viewtag": "b79f36daa5841b7f281d411e05adff94"
-        },
         "storymyfavoritesgridview": {
             "title": "story表格视图",
             "caption": "需求",
@@ -2734,14 +2718,6 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "IbzLibModuleGridView",
             "viewtag": "c5bf2f708034d7488fbb4aa848d15d1d"
-        },
-        "useryearworkstatsopenedbugandcasechartview9": {
-            "title": "用户年度工作内容统计图表视图（月创建Bug和用例）",
-            "caption": "月创建Bug和用例",
-            "viewtype": "DECHARTVIEW9",
-            "viewmodule": "ibiz",
-            "viewname": "UserYearWorkStatsOpenedBugAndCaseChartView9",
-            "viewtag": "c5ee7eea51260672701189b6d1875d2c"
         },
         "storystagechartview9": {
             "title": "需求图表视图（累计创建需求-阶段）",

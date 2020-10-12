@@ -10,7 +10,7 @@ export default class MyFinishedbyTaskModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof MyFinishedbyTaskChartMode
+	 * @memberof MyFinishedbyTaskDashboard_sysportlet3_chartMode
 	 */
 	public getDataItems(): any[] {
 		return [

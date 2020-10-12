@@ -29,10 +29,6 @@ export default {
 			caption: "基础信息",
       		title: "用户年度工作内容统计编辑视图（基础信息）",
 		},
-		finishtaskandbugchartview9: {
-			caption: "月完成任务和解决的Bug",
-      		title: "用户年度工作内容统计图表视图（月完成任务和解决的Bug）",
-		},
 		titleeditview9: {
 			caption: "标题",
       		title: "用户年度工作内容统计编辑视图（标题）",
@@ -41,10 +37,6 @@ export default {
 			caption: "用户年度工作内容统计",
       		title: "用户年度工作内容统计数据看板视图",
 		},
-		openedstorychartview9: {
-			caption: "月创建需求",
-      		title: "用户年度工作内容统计图表视图（月创建需求）",
-		},
 		qadashboardview: {
 			caption: "用户年度工作内容统计",
       		title: "用户年度工作内容统计数据看板视图",
@@ -52,10 +44,6 @@ export default {
 		podashboardview: {
 			caption: "用户年度工作内容统计",
       		title: "用户年度工作内容统计数据看板视图",
-		},
-		openedbugandcasechartview9: {
-			caption: "月创建Bug和用例",
-      		title: "用户年度工作内容统计图表视图（月创建Bug和用例）",
 		},
 		editview: {
 			caption: "用户年度工作内容统计",

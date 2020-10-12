@@ -90,13 +90,10 @@ export default class UserYearWorkStatsUIServiceBase extends UIService {
      */  
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'infoeditview9',srfappde:'useryearworkstats',component:'user-year-work-stats-info-edit-view9'});
-        this.allViewMap.set(':',{viewname:'finishtaskandbugchartview9',srfappde:'useryearworkstats',component:'user-year-work-stats-finish-task-and-bug-chart-view9'});
         this.allViewMap.set(':',{viewname:'titleeditview9',srfappde:'useryearworkstats',component:'user-year-work-stats-title-edit-view9'});
         this.allViewMap.set(':',{viewname:'dashboardview',srfappde:'useryearworkstats',component:'user-year-work-stats-dashboard-view'});
-        this.allViewMap.set(':',{viewname:'openedstorychartview9',srfappde:'useryearworkstats',component:'user-year-work-stats-opened-story-chart-view9'});
         this.allViewMap.set(':',{viewname:'qadashboardview',srfappde:'useryearworkstats',component:'user-year-work-stats-qadashboard-view'});
         this.allViewMap.set(':',{viewname:'podashboardview',srfappde:'useryearworkstats',component:'user-year-work-stats-podashboard-view'});
-        this.allViewMap.set(':',{viewname:'openedbugandcasechartview9',srfappde:'useryearworkstats',component:'user-year-work-stats-opened-bug-and-case-chart-view9'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'useryearworkstats',component:'user-year-work-stats-edit-view'});
     }
 

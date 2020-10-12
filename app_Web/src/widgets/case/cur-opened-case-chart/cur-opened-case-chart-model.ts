@@ -10,7 +10,7 @@ export default class CurOpenedCaseModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof CurOpenedCaseChartMode
+	 * @memberof CurOpenedCaseDashboard_sysportlet5_chartMode
 	 */
 	public getDataItems(): any[] {
 		return [

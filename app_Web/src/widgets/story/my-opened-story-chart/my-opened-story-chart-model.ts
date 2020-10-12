@@ -10,7 +10,7 @@ export default class MyOpenedStoryModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof MyOpenedStoryChartMode
+	 * @memberof MyOpenedStoryDashboard_sysportlet6_chartMode
 	 */
 	public getDataItems(): any[] {
 		return [

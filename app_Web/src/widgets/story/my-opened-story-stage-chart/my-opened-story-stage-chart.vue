@@ -6,7 +6,7 @@ import { MyOpenedStory_StageChartBase } from './my-opened-story-stage-chart-base
  
 
 /**
- * chart部件
+ * dashboard_sysportlet7_chart部件
  *
  * @export
  * @class MyOpenedStory_StageChart

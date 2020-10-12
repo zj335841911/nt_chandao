@@ -3,8 +3,8 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { PODashboardBase } from './po-dashboard-base';
-import view_dashboard_sysportlet6 from '@widgets/user-year-work-stats/total-opened-story-pri-portlet/total-opened-story-pri-portlet.vue';
-import view_dashboard_sysportlet7 from '@widgets/user-year-work-stats/total-opened-story-stage-portlet/total-opened-story-stage-portlet.vue';
+import view_dashboard_sysportlet6 from '@widgets/story/total-cur-opened-story-pri-portlet/total-cur-opened-story-pri-portlet.vue';
+import view_dashboard_sysportlet7 from '@widgets/story/total-cur-opened-story-stage-portlet/total-cur-opened-story-stage-portlet.vue';
 import view_dashboard_sysportlet4 from '@widgets/user-year-work-stats/product-plancnt-and-storycnt-portlet/product-plancnt-and-storycnt-portlet.vue';
 import view_dashboard_sysportlet5 from '@widgets/user-year-work-stats/month-opened-story-portlet/month-opened-story-portlet.vue';
 import view_dashboard_sysportlet2 from '@widgets/user-year-work-stats/info-portlet/info-portlet.vue';

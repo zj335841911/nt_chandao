@@ -1869,16 +1869,6 @@
         "viewtag": "7088260bcd6a0303378af2f8e207f479",
         "memo": ""
     },
-    "useryearworkstatsfinishtaskandbugchartview9": {
-        "title": "用户年度工作内容统计图表视图（月完成任务和解决的Bug）",
-        "caption": "月完成任务和解决的Bug",
-        "viewtype": "DECHARTVIEW9",
-        "viewmodule": "ibiz",
-        "viewname": "UserYearWorkStatsFinishTaskAndBugChartView9",
-        "viewfilename": "user-year-work-stats-finish-task-and-bug-chart-view9",
-        "viewtag": "70d4072d3f73428c77959e942643ad0a",
-        "memo": ""
-    },
     "buggridview9_storyformbug": {
         "title": "来源Bug",
         "caption": "来源Bug",
@@ -3129,16 +3119,6 @@
         "viewtag": "b7427fe34d292009905e126defc9fa22",
         "memo": ""
     },
-    "useryearworkstatsopenedstorychartview9": {
-        "title": "用户年度工作内容统计图表视图（月创建需求）",
-        "caption": "月创建需求",
-        "viewtype": "DECHARTVIEW9",
-        "viewmodule": "ibiz",
-        "viewname": "UserYearWorkStatsOpenedStoryChartView9",
-        "viewfilename": "user-year-work-stats-opened-story-chart-view9",
-        "viewtag": "b79f36daa5841b7f281d411e05adff94",
-        "memo": ""
-    },
     "storymyfavoritesgridview": {
         "title": "story表格视图",
         "caption": "需求",
@@ -3407,16 +3387,6 @@
         "viewname": "IbzLibModuleGridView",
         "viewfilename": "ibz-lib-module-grid-view",
         "viewtag": "c5bf2f708034d7488fbb4aa848d15d1d",
-        "memo": ""
-    },
-    "useryearworkstatsopenedbugandcasechartview9": {
-        "title": "用户年度工作内容统计图表视图（月创建Bug和用例）",
-        "caption": "月创建Bug和用例",
-        "viewtype": "DECHARTVIEW9",
-        "viewmodule": "ibiz",
-        "viewname": "UserYearWorkStatsOpenedBugAndCaseChartView9",
-        "viewfilename": "user-year-work-stats-opened-bug-and-case-chart-view9",
-        "viewtag": "c5ee7eea51260672701189b6d1875d2c",
         "memo": ""
     },
     "storystagechartview9": {
