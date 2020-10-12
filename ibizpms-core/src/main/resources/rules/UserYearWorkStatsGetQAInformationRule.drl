@@ -57,6 +57,25 @@ ruleflow-group "useryearworkstatsgetqainformationrawsqlcall1"
     update(useryearworkstatsgetqainformationdefault);//更新fact中变量值
     end
 
+//逻辑处理节点[获取登录次数]
+rule "rawsqlcall4"
+ruleflow-group "useryearworkstatsgetqainformationrawsqlcall4"
+    when
+    then
+    Map param =new HashMap();
+    param.put("param0",useryearworkstatsgetqainformationdefault.get("account"));
+    param.put("param1",useryearworkstatsgetqainformationdefault.get("curyear"));
+    String strSql="select count(1) as `YEARVISITS` from zt_action t where t.actor = #{et.param0} and t.action = 'login' and DATE_FORMAT(t.date,'%Y') = #{et.param1} ";
+    java.util.List<JSONObject> entities=iBzSysUseryearworkstatsDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        for (Map.Entry entry : entity.entrySet()) {
+            useryearworkstatsgetqainformationdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+        }
+    }
+    update(useryearworkstatsgetqainformationdefault);//更新fact中变量值
+    end
+
 //逻辑处理节点[获取创建用例数]
 rule "rawsqlcall3"
 ruleflow-group "useryearworkstatsgetqainformationrawsqlcall3"

@@ -81,6 +81,90 @@ export default class MonthOpenedStoryModel {
       {
         name: 'curmonth',
       },
+      {
+        name: 'slack',
+      },
+      {
+        name: 'skype',
+      },
+      {
+        name: 'score',
+      },
+      {
+        name: 'weixin',
+      },
+      {
+        name: 'join',
+      },
+      {
+        name: 'phone',
+      },
+      {
+        name: 'fails',
+      },
+      {
+        name: 'email',
+      },
+      {
+        name: 'clientlang',
+      },
+      {
+        name: 'deleted',
+      },
+      {
+        name: 'ranzhi',
+      },
+      {
+        name: 'avatar',
+      },
+      {
+        name: 'commiter',
+      },
+      {
+        name: 'gender',
+      },
+      {
+        name: 'qq',
+      },
+      {
+        name: 'birthday',
+      },
+      {
+        name: 'locked',
+      },
+      {
+        name: 'dingding',
+      },
+      {
+        name: 'ip',
+      },
+      {
+        name: 'whatsapp',
+      },
+      {
+        name: 'zipcode',
+      },
+      {
+        name: 'password',
+      },
+      {
+        name: 'nickname',
+      },
+      {
+        name: 'clientstatus',
+      },
+      {
+        name: 'scorelevel',
+      },
+      {
+        name: 'mobile',
+      },
+      {
+        name: 'last',
+      },
+      {
+        name: 'address',
+      },
     ]
   }
 
