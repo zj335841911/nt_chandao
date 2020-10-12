@@ -8,7 +8,7 @@ import view_dashboard_sysportlet7 from '@widgets/story/my-opened-story-stage-por
 import view_dashboard_sysportlet4 from '@widgets/user-year-work-stats/product-plancnt-and-storycnt-portlet/product-plancnt-and-storycnt-portlet.vue';
 import view_dashboard_sysportlet5 from '@widgets/user-year-work-stats/month-opened-story-portlet/month-opened-story-portlet.vue';
 import view_dashboard_sysportlet2 from '@widgets/user-year-work-stats/info-portlet/info-portlet.vue';
-import view_dashboard_sysportlet3 from '@widgets/product-sum/product-creat-stroy-admin-portlet/product-creat-stroy-admin-portlet.vue';
+import view_dashboard_sysportlet3 from '@widgets/product-sum/product-creat-stroy-po-portlet/product-creat-stroy-po-portlet.vue';
  
 
 /**

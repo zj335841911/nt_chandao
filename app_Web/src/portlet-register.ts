@@ -26,7 +26,7 @@ import ProductProductMainToolbar from '@/widgets/product/product-main-toolbar-po
 import ProductProductInfo from '@/widgets/product/product-info-portlet/product-info-portlet.vue';
 import ProductUnClosedProduct from '@/widgets/product/un-closed-product-portlet/un-closed-product-portlet.vue';
 import ProductSumProductBugcnt_Qa from '@/widgets/product-sum/product-bugcnt-qa-portlet/product-bugcnt-qa-portlet.vue';
-import ProductSumProductCreatStroy_admin from '@/widgets/product-sum/product-creat-stroy-admin-portlet/product-creat-stroy-admin-portlet.vue';
+import ProductSumProductCreatStroy_PO from '@/widgets/product-sum/product-creat-stroy-po-portlet/product-creat-stroy-po-portlet.vue';
 import IbzLibIbzLibMain from '@/widgets/ibz-lib/ibz-lib-main-portlet/ibz-lib-main-portlet.vue';
 import IbzLibIbzLibCz from '@/widgets/ibz-lib/ibz-lib-cz-portlet/ibz-lib-cz-portlet.vue';
 import BurnBurnDownChart from '@/widgets/burn/burn-down-chart-portlet/burn-down-chart-portlet.vue';
@@ -174,7 +174,7 @@ export const  PortletComponent = {
         v.component('app-test-suite-cur-suit-case-grid-view-portlet', TestSuiteCurSuitCaseGridView);
         v.component('app-test-suite-test-suite-quick-action-portlet', TestSuiteTestSuiteQuickAction);
         v.component('app-test-suite-main-info-view-portlet', TestSuiteMainInfoView);
-        v.component('app-product-sum-product-creat-stroy-admin-portlet', ProductSumProductCreatStroy_admin);
+        v.component('app-product-sum-product-creat-stroy-po-portlet', ProductSumProductCreatStroy_PO);
         v.component('app-user-year-work-stats-product-plancnt-and-storycnt-portlet', UserYearWorkStatsProductPlancntAndStorycnt);
         v.component('app-story-my-opened-story-portlet', StoryMyOpenedStory);
         v.component('app-story-my-opened-story-stage-portlet', StoryMyOpenedStoryStage);
@@ -213,7 +213,7 @@ export const  PortletComponent = {
         v.component('product-product-info-portlet', ProductProductInfo);
         v.component('product-un-closed-product-portlet', ProductUnClosedProduct);
         v.component('product-sum-product-bugcnt-qa-portlet', ProductSumProductBugcnt_Qa);
-        v.component('product-sum-product-creat-stroy-admin-portlet', ProductSumProductCreatStroy_admin);
+        v.component('product-sum-product-creat-stroy-po-portlet', ProductSumProductCreatStroy_PO);
         v.component('ibz-lib-ibz-lib-main-portlet', IbzLibIbzLibMain);
         v.component('ibz-lib-ibz-lib-cz-portlet', IbzLibIbzLibCz);
         v.component('burn-burn-down-chart-portlet', BurnBurnDownChart);

@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { InvolvedProjectPortletBase } from './involved-project-portlet-base';
-import view_dashboard_sysportlet6_chart from '@widgets/project/involved-project-chart/involved-project-chart.vue';
+import view_dashboard_sysportlet6_chart from '@widgets/project/involved-project-dev-chart/involved-project-dev-chart.vue';
  
 
 /**

@@ -58,7 +58,7 @@ export default {
 		uiactions: {
 		},
 	},
-	productplancntandstorycnt_grid: {
+	productplancntandstorycnt_po_grid: {
 		columns: {
 			name: "产品名称",
 			plan: "计划数",

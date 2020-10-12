@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { ProductSumUsr2GridViewBase } from './product-sum-usr2-grid-view-base';
-import view_grid from '@widgets/product-sum/product-plancnt-and-storycnt-grid/product-plancnt-and-storycnt-grid.vue';
+import view_grid from '@widgets/product-sum/product-plancnt-and-storycnt-po-grid/product-plancnt-and-storycnt-po-grid.vue';
 
 /**
  * 产品计划数和需求数实体表格视图视图
