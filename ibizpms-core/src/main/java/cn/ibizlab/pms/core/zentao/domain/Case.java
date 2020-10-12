@@ -118,7 +118,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 用例版本
      */
-    @DEField(defaultValue = "0")
+    @DEField(defaultValue = "1")
     @TableField(value = "`version`")
     @JSONField(name = "version")
     @JsonProperty("version")
