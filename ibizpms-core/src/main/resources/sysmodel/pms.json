@@ -29369,7 +29369,7 @@
     "field_logic_name":"待办名称",
     "entity_name":"Todo",
     "field_type":"TEXT",
-    "nullable":0,
+    "nullable":1,
     "physical_field":1,
     "data_type":"VARCHAR",
     "data_length":150,

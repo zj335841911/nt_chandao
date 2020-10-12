@@ -87,6 +87,7 @@ export default {
 			srfsourcekey: "", 
 			title: "", 
 			curyear: "年度", 
+			account: "账号", 
 			realname: "真实用户名", 
 			judgerole: "判断角色", 
 			visits: "累计登录次数", 

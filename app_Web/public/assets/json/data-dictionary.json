@@ -3645,6 +3645,17 @@
                 "disabled": false,
                 "default": false
             }
+            , {
+                "id": "cycle",
+                "label": "周期",
+                "text": "周期",
+                "data":"",
+                "codename":"Cycle",
+                "value": "cycle",
+                
+                "disabled": false,
+                "default": false
+            }
         ]
     }, 
     {

@@ -52,7 +52,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 所有者
      */
-    @DEField(defaultValue = "#EMPTY" , preType = DEPredefinedFieldType.CREATEMANNAME)
+    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
     @TableField(value = "`account`")
     @JSONField(name = "account")
     @JsonProperty("account")
@@ -193,7 +193,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 私人事务
      */
-    @DEField(name = "private")
+    @DEField(defaultValue = "0")
     @TableField(value = "`private`")
     @JSONField(name = "ibizprivate")
     @JsonProperty("ibizprivate")
