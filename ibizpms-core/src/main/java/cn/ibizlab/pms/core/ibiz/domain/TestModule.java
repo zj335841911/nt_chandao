@@ -138,6 +138,7 @@ public class TestModule extends EntityMP implements Serializable {
     /**
      * id
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`parent`")
     @JSONField(name = "parent")
     @JsonProperty("parent")
@@ -152,6 +153,7 @@ public class TestModule extends EntityMP implements Serializable {
     /**
      * 编号
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`root`")
     @JSONField(name = "root")
     @JsonProperty("root")

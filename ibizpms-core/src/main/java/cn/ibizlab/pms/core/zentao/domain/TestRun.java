@@ -44,6 +44,7 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 结果
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`lastrunresult`")
     @JSONField(name = "lastrunresult")
     @JsonProperty("lastrunresult")
@@ -59,6 +60,7 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 指派给
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`assignedto`")
     @JSONField(name = "assignedto")
     @JsonProperty("assignedto")
@@ -66,6 +68,7 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 最后执行人
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`lastrunner`")
     @JSONField(name = "lastrunner")
     @JsonProperty("lastrunner")
@@ -73,6 +76,7 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 当前状态
      */
+    @DEField(defaultValue = "wait")
     @TableField(value = "`status`")
     @JSONField(name = "status")
     @JsonProperty("status")
@@ -96,7 +100,7 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 测试用例
      */
-    @DEField(name = "case")
+    @DEField(defaultValue = "0")
     @TableField(value = "`case`")
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
@@ -104,6 +108,7 @@ public class TestRun extends EntityMP implements Serializable {
     /**
      * 测试单
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`task`")
     @JSONField(name = "task")
     @JsonProperty("task")
