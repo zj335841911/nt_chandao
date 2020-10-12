@@ -1,8 +1,5 @@
 import { Http,Util } from '@/utils';
 import EntityService from '../entity-service';
-import GetDevInfomationLogic from '@/service/user-year-work-stats/get-dev-infomation-logic';
-import GetPOInfomationLogic from '@/service/user-year-work-stats/get-poinfomation-logic';
-import GetQAInformationLogic from '@/service/user-year-work-stats/get-qainformation-logic';
 
 
 
@@ -153,6 +150,51 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = Http.getInstance().post(`/useryearworkstats/${context.useryearworkstats}/checkkey`,data,isloading);
+            return res;
+    }
+
+    /**
+     * GetDevInfomation接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async GetDevInfomation(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/useryearworkstats/${context.useryearworkstats}/getdevinfomation`,isloading);
+            
+            return res;
+    }
+
+    /**
+     * GetPoInfomation接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async GetPoInfomation(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/useryearworkstats/${context.useryearworkstats}/getpoinfomation`,isloading);
+            
+            return res;
+    }
+
+    /**
+     * GetQaInfomation接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async GetQaInfomation(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/useryearworkstats/${context.useryearworkstats}/getqainfomation`,isloading);
+            
             return res;
     }
 

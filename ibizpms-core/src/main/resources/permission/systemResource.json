@@ -1059,7 +1059,7 @@
     "delogicname":"用户年度工作内容统计",
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
     "dedataset":[{"id":"Default" , "name":"数据集"},{"id":"MonthFinishTaskAndBug" , "name":"月完成任务数及累计工时和解决Bug数"},{"id":"MonthOpenedBugAndCase" , "name":"月创建Bug数和创建用例数"},{"id":"MonthOpenedStory" , "name":"月创建需求数"}],
-    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"GetUserYearAction" , "name":"获取用户所选年度的动作" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"UpdateTitleByYear" , "name":"更新标题" , "type":"USERCUSTOM" }],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"GetDevInfomation" , "name":"获取研发人员相关数据" , "type":"DELOGIC" },{"id":"GetPoInfomation" , "name":"获取产品经理相关数据" , "type":"DELOGIC" },{"id":"GetQaInfomation" , "name":"获取测试人员相关数据" , "type":"DELOGIC" },{"id":"GetUserYearAction" , "name":"获取用户所选年度的动作" , "type":"USERCUSTOM" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" },{"id":"UpdateTitleByYear" , "name":"更新标题" , "type":"USERCUSTOM" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }
     ,    {

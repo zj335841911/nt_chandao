@@ -120,6 +120,39 @@ public class UserYearWorkStatsResource {
         return  ResponseEntity.status(HttpStatus.OK).body(useryearworkstatsService.checkKey(useryearworkstatsMapping.toDomain(useryearworkstatsdto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-GetDevInfomation-all')")
+    @ApiOperation(value = "获取研发人员相关数据", tags = {"用户年度工作内容统计" },  notes = "获取研发人员相关数据")
+	@RequestMapping(method = RequestMethod.GET, value = "/useryearworkstats/{useryearworkstats_id}/getdevinfomation")
+    public ResponseEntity<UserYearWorkStatsDTO> getDevInfomation(@PathVariable("useryearworkstats_id") Long useryearworkstats_id, @RequestBody UserYearWorkStatsDTO useryearworkstatsdto) {
+        UserYearWorkStats domain = useryearworkstatsMapping.toDomain(useryearworkstatsdto);
+        domain.setId(useryearworkstats_id);
+        domain = useryearworkstatsService.getDevInfomation(domain);
+        useryearworkstatsdto = useryearworkstatsMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(useryearworkstatsdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-GetPoInfomation-all')")
+    @ApiOperation(value = "获取产品经理相关数据", tags = {"用户年度工作内容统计" },  notes = "获取产品经理相关数据")
+	@RequestMapping(method = RequestMethod.GET, value = "/useryearworkstats/{useryearworkstats_id}/getpoinfomation")
+    public ResponseEntity<UserYearWorkStatsDTO> getPoInfomation(@PathVariable("useryearworkstats_id") Long useryearworkstats_id, @RequestBody UserYearWorkStatsDTO useryearworkstatsdto) {
+        UserYearWorkStats domain = useryearworkstatsMapping.toDomain(useryearworkstatsdto);
+        domain.setId(useryearworkstats_id);
+        domain = useryearworkstatsService.getPoInfomation(domain);
+        useryearworkstatsdto = useryearworkstatsMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(useryearworkstatsdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-GetQaInfomation-all')")
+    @ApiOperation(value = "获取测试人员相关数据", tags = {"用户年度工作内容统计" },  notes = "获取测试人员相关数据")
+	@RequestMapping(method = RequestMethod.GET, value = "/useryearworkstats/{useryearworkstats_id}/getqainfomation")
+    public ResponseEntity<UserYearWorkStatsDTO> getQaInfomation(@PathVariable("useryearworkstats_id") Long useryearworkstats_id, @RequestBody UserYearWorkStatsDTO useryearworkstatsdto) {
+        UserYearWorkStats domain = useryearworkstatsMapping.toDomain(useryearworkstatsdto);
+        domain.setId(useryearworkstats_id);
+        domain = useryearworkstatsService.getQaInfomation(domain);
+        useryearworkstatsdto = useryearworkstatsMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(useryearworkstatsdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-GetUserYearAction-all')")
     @ApiOperation(value = "获取用户所选年度的动作", tags = {"用户年度工作内容统计" },  notes = "获取用户所选年度的动作")
 	@RequestMapping(method = RequestMethod.PUT, value = "/useryearworkstats/{useryearworkstats_id}/getuseryearaction")

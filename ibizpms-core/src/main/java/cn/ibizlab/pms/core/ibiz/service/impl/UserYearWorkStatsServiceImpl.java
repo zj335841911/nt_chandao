@@ -47,6 +47,26 @@ import org.springframework.util.StringUtils;
 public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsMapper, UserYearWorkStats> implements IUserYearWorkStatsService {
 
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsGetDevInfomationLogic getdevinfomationLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsGetPOInfomationLogic getpoinfomationLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsGetQAInformationLogic getqainformationLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsGetInfoLogic getinfoLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsUpdateInfoLogic updateinfoLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -113,8 +133,30 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
     }
     @Override
     @Transactional
+    public UserYearWorkStats getDevInfomation(UserYearWorkStats et) {
+        getdevinfomationLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public UserYearWorkStats getPoInfomation(UserYearWorkStats et) {
+        getpoinfomationLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public UserYearWorkStats getQaInfomation(UserYearWorkStats et) {
+        getqainformationLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
     public UserYearWorkStats getUserYearAction(UserYearWorkStats et) {
         //自定义代码
+        getinfoLogic.execute(et);
         return et;
     }
 
@@ -151,6 +193,7 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
     @Transactional
     public UserYearWorkStats updateTitleByYear(UserYearWorkStats et) {
         //自定义代码
+        updateinfoLogic.execute(et);
         return et;
     }
 
