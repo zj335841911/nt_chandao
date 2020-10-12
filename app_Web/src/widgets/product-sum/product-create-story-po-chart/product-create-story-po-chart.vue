@@ -6,7 +6,7 @@ import { ProductCreateStory_POChartBase } from './product-create-story-po-chart-
  
 
 /**
- * dashboard_sysportlet3_chart部件
+ * chart部件
  *
  * @export
  * @class ProductCreateStory_POChart

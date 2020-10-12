@@ -10,7 +10,7 @@ export default class ProductBugcnt_QAModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof ProductBugcnt_QADashboard_sysportlet1_chartMode
+	 * @memberof ProductBugcnt_QAChartMode
 	 */
 	public getDataItems(): any[] {
 		return [

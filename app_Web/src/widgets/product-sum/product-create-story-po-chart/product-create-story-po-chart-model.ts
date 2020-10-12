@@ -10,7 +10,7 @@ export default class ProductCreateStory_POModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof ProductCreateStory_PODashboard_sysportlet3_chartMode
+	 * @memberof ProductCreateStory_POChartMode
 	 */
 	public getDataItems(): any[] {
 		return [

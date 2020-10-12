@@ -108,7 +108,32 @@
     <app-form-group :model="detailsModel.grouppanel10" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel10.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.useryearworkstats.basismaininfo_form.details.grouppanel10')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel10" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-            
+        <i-col class="form-layout-container" v-show="detailsModel.druipart6.visible" :style="{'height': '300px !important',}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='useryearworkstats' 
+    :parentdata='{"srfparentdename":"IBZ_USERYEARWORKSTATS","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{CURYEAR:"%curyear%"}'
+    :localParam ='{curyear:"%curyear%"}'
+    parameterName='useryearworkstats'
+    parentName="UserYearWorkStats"  
+    refviewtype='DECHARTVIEW9' 
+    refreshitems='curyear' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='product-sum-po-chart-view9' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style="height:300px;overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
     </row>
 </app-form-group>
 
@@ -117,7 +142,32 @@
     <app-form-group :model="detailsModel.grouppanel11" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel11.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.useryearworkstats.basismaininfo_form.details.grouppanel11')" :isShowCaption="true" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel11" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-            
+        <i-col class="form-layout-container" v-show="detailsModel.druipart7.visible" :style="{'height': '300px !important',}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='useryearworkstats' 
+    :parentdata='{"srfparentdename":"IBZ_USERYEARWORKSTATS","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{CURYEAR:"%curyear%"}'
+    :localParam ='{curyear:"%curyear%"}'
+    parameterName='useryearworkstats'
+    parentName="UserYearWorkStats"  
+    refviewtype='DECHARTVIEW9' 
+    refreshitems='curyear' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='product-sum-qa-chart-view9' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style="height:300px;overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
     </row>
 </app-form-group>
 
@@ -174,7 +224,32 @@
     <app-form-group :model="detailsModel.grouppanel12" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel12.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.useryearworkstats.basismaininfo_form.details.grouppanel12')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel12" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-            
+        <i-col class="form-layout-container" v-show="detailsModel.druipart8.visible" :style="{'height': '300px !important',}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='useryearworkstats' 
+    :parentdata='{"srfparentdename":"IBZ_USERYEARWORKSTATS","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{CURYEAR:"%curyear%"}'
+    :localParam ='{curyear:"%curyear%"}'
+    parameterName='useryearworkstats'
+    parentName="UserYearWorkStats"  
+    refviewtype='DEGRIDVIEW' 
+    refreshitems='curyear' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='product-sum-usr2-grid-view' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style="height:300px;overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
     </row>
 </app-form-group>
 
@@ -183,7 +258,32 @@
     <app-form-group :model="detailsModel.grouppanel13" layoutType="TABLE_24COL" titleStyle="" class='' :uiActionGroup="detailsModel.grouppanel13.uiActionGroup" @groupuiactionclick="groupUIActionClick($event)" :caption="$t('entities.useryearworkstats.basismaininfo_form.details.grouppanel13')" :isShowCaption="false" uiStyle="DEFAULT" :titleBarCloseMode="0" :isInfoGroupMode="false" >    
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel13" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
-            
+        <i-col class="form-layout-container" v-show="detailsModel.druipart9.visible" :style="{'height': '300px !important',}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-druipart
+    
+    :formState="formState"
+    :isForbidLoad="this.data.srfuf === '0'"
+    paramItem='useryearworkstats' 
+    :parentdata='{"srfparentdename":"IBZ_USERYEARWORKSTATS","SRFPARENTTYPE":"CUSTOM"}'
+    :parameters="[
+    ]"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{CURYEAR:"%curyear%"}'
+    :localParam ='{curyear:"%curyear%"}'
+    parameterName='useryearworkstats'
+    parentName="UserYearWorkStats"  
+    refviewtype='DEGRIDVIEW' 
+    refreshitems='curyear' 
+    :ignorefieldvaluechange="ignorefieldvaluechange"
+    viewname='product-sum-usr3-grid-view' 
+    :data="JSON.stringify(this.data)" 
+    @drdatasaved="drdatasaved($event)"
+    style="height:300px;overflow: auto;">
+</app-form-druipart>
+
+</i-col>
+    
     </row>
 </app-form-group>
 

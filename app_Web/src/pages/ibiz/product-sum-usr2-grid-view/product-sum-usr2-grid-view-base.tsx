@@ -60,6 +60,28 @@ export class ProductSumUsr2GridViewBase extends GridViewBase {
      */
     public appUIService: ProductSumUIService = new ProductSumUIService(this.$store);
 
+	/**
+	 * 自定义视图导航上下文集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof ProductSumUsr2GridViewBase
+	 */
+    protected customViewNavContexts: any = {
+        'CURYEAR': { isRawValue: false, value: 'curyear' }
+    };
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof ProductSumUsr2GridViewBase
+	 */
+    protected customViewParams: any = {
+        'curyear': { isRawValue: false, value: 'curyear' }
+    };
+
     /**
      * 视图模型数据
      *
