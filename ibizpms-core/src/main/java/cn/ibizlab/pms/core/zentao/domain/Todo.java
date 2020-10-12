@@ -52,7 +52,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 所有者
      */
-    @DEField(defaultValue = "#EMPTY")
+    @DEField(defaultValue = "#EMPTY" , preType = DEPredefinedFieldType.CREATEMANNAME)
     @TableField(value = "`account`")
     @JSONField(name = "account")
     @JsonProperty("account")
@@ -286,14 +286,6 @@ public class Todo extends EntityMP implements Serializable {
     private String dateDisable;
 
 
-
-    /**
-     * 设置 [所有者]
-     */
-    public void setAccount(String account){
-        this.account = account ;
-        this.modify("account",account);
-    }
 
     /**
      * 设置 [关闭时间]

@@ -312,14 +312,6 @@ public class TodoDTO extends DTOBase implements Serializable {
 
 
     /**
-     * 设置 [ACCOUNT]
-     */
-    public void setAccount(String  account){
-        this.account = account ;
-        this.modify("account",account);
-    }
-
-    /**
      * 设置 [CLOSEDDATE]
      */
     public void setCloseddate(Timestamp  closeddate){
