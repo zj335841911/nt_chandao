@@ -159,7 +159,7 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
 
         druipart5: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart5', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
-        grouppanel7: new FormGroupPanelModel({ caption: '研发', detailType: 'GROUPPANEL', name: 'grouppanel7', visible: true, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.basismaininfo_form', extractMode: 'ITEM', details: [] } }),
+        grouppanel7: new FormGroupPanelModel({ caption: '研发', detailType: 'GROUPPANEL', name: 'grouppanel7', visible: false, isShowCaption: false, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.basismaininfo_form', extractMode: 'ITEM', details: [] } }),
 
         druipart8: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart8', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
@@ -303,12 +303,20 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, '') || Object.is(name, 'judgerole')) {
+            let ret = false;
+            const _judgerole = this.data.judgerole;
+            if (this.$verify.testCond(_judgerole, 'EQ', 'dev')) {
+                ret = true;
+            }
+            this.detailsModel.grouppanel7.setVisible(ret);
+        }
 
 
         if (Object.is(name, '') || Object.is(name, 'judgerole')) {
             let ret = false;
             const _judgerole = this.data.judgerole;
-            if (this.$verify.testCond(_judgerole, 'EQ', 'dev')) {
+            if (this.$verify.testCond(_judgerole, 'EQ', 'po')) {
                 ret = true;
             }
             this.detailsModel.grouppanel12.setVisible(ret);
