@@ -14,6 +14,10 @@ export default {
     bugcnt: "Bug数",
   },
 	views: {
+		pochartview9: {
+			caption: "产品汇总表",
+      		title: "产品汇总表图表视图",
+		},
 		gridview: {
 			caption: "产品汇总表",
       		title: "产品汇总表表格视图",
@@ -25,6 +29,10 @@ export default {
 		editview: {
 			caption: "产品汇总表",
       		title: "产品汇总表编辑视图",
+		},
+		qachartview9: {
+			caption: "产品汇总表",
+      		title: "产品汇总表图表视图",
 		},
 		usr3gridview: {
 			caption: "产品汇总表",

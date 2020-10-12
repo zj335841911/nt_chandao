@@ -583,6 +583,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectEditView_Putoff",
             "viewtag": "28557f7c31a387e1deb552076d51f9f1"
         },
+        "productsumpochartview9": {
+            "title": "产品汇总表图表视图",
+            "caption": "产品汇总表",
+            "viewtype": "DECHARTVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "ProductSumPoChartView9",
+            "viewtag": "2889bd5a8f15aadc0f60686124720c0d"
+        },
         "ibzcaseopencaseview": {
             "title": "用例库用例数据看板视图",
             "caption": "测试用例",
@@ -3230,6 +3238,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "IbzLibGridView",
             "viewtag": "e698418f007d36b627d6af23c1042f31"
+        },
+        "productsumqachartview9": {
+            "title": "产品汇总表图表视图",
+            "caption": "产品汇总表",
+            "viewtype": "DECHARTVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "ProductSumQaChartView9",
+            "viewtag": "e842d6d727d88c2c78b59c033fa27f34"
         },
         "testtaskeditview_edit": {
             "title": "测试单编辑视图",

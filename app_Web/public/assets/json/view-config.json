@@ -719,6 +719,16 @@
         "viewtag": "28557f7c31a387e1deb552076d51f9f1",
         "memo": ""
     },
+    "productsumpochartview9": {
+        "title": "产品汇总表图表视图",
+        "caption": "产品汇总表",
+        "viewtype": "DECHARTVIEW9",
+        "viewmodule": "ibiz",
+        "viewname": "ProductSumPoChartView9",
+        "viewfilename": "product-sum-po-chart-view9",
+        "viewtag": "2889bd5a8f15aadc0f60686124720c0d",
+        "memo": ""
+    },
     "ibzcaseopencaseview": {
         "title": "用例库用例数据看板视图",
         "caption": "测试用例",
@@ -4027,6 +4037,16 @@
         "viewname": "IbzLibGridView",
         "viewfilename": "ibz-lib-grid-view",
         "viewtag": "e698418f007d36b627d6af23c1042f31",
+        "memo": ""
+    },
+    "productsumqachartview9": {
+        "title": "产品汇总表图表视图",
+        "caption": "产品汇总表",
+        "viewtype": "DECHARTVIEW9",
+        "viewmodule": "ibiz",
+        "viewname": "ProductSumQaChartView9",
+        "viewfilename": "product-sum-qa-chart-view9",
+        "viewtag": "e842d6d727d88c2c78b59c033fa27f34",
         "memo": ""
     },
     "testtaskeditview_edit": {
