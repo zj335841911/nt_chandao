@@ -83,6 +83,7 @@ public class Todo extends EntityMP implements Serializable {
     /**
      * 结束
      */
+    @DEField(defaultValue = "1800")
     @TableField(value = "`end`")
     @JSONField(name = "end")
     @JsonProperty("end")

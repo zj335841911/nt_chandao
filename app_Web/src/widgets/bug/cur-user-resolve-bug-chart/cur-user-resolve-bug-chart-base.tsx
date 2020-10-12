@@ -198,8 +198,8 @@ export class CurUserResolveBugChartBase extends MainControlBase {
     name:'resolvebug',
     
     
-    categorField:'severity',
-    categorCodeList:{type:'STATIC',tag:'Bug__severity',emptycode:'empty',emptytext:'未定义'},
+    categorField:'pri',
+    
     
     valueField:'srfcount',
     seriesValues:[],
@@ -207,7 +207,7 @@ export class CurUserResolveBugChartBase extends MainControlBase {
     data:[],
     seriesMap:{},
     dataSetFields:[
-    {name:"severity",codelist:{type:"STATIC",tag:"Bug__severity",emptycode:'empty',emptytext:'未定义'},isGroupField:true,groupMode:""},
+    {name:"pri",codelist:null,isGroupField:true,groupMode:""},
     {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
@@ -297,7 +297,7 @@ export class CurUserResolveBugChartBase extends MainControlBase {
             
             seriesLayoutBy:"column",
             encode:{
-                itemName:"severity",
+                itemName:"pri",
                 value:"srfcount"
             }}
         ]
