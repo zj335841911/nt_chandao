@@ -965,6 +965,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '42657e87da91a994bd2bb5ba97bed31d',
+            viewmodule: 'zentao',
+            viewname: 'CaseTotalOpenedCaseChartView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '427e28cc5267cfc2a6d6da6fde36ef9f',
             viewmodule: 'zentao',
             viewname: 'StoryCurProjectWGridView',
@@ -1649,6 +1658,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '6f3efb6b753b451cd9956a9e0157c6d2',
+            viewmodule: 'zentao',
+            viewname: 'StoryPriChartView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '6f78b25e86923ab600a2141d50fe49fd',
             viewmodule: 'zentao',
             viewname: 'CaseMainDashboardView',
@@ -1688,6 +1706,15 @@ export const viewstate: any = {
                 'abca63015fc84466991c6479f955f6d0',
                 'ea141fddc78fd1af4d06e494baf12cc1',
                 '507c506d62dc910a814332e6ae242266',
+            ],
+        },
+        {
+            viewtag: '70d4072d3f73428c77959e942643ad0a',
+            viewmodule: 'ibiz',
+            viewname: 'UserYearWorkStatsFinishTaskAndBugChartView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -2502,6 +2529,7 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '1956d68ebad0fcc688c189757a8601a6',
+                '70d4072d3f73428c77959e942643ad0a',
                 'a250e5baa5d560a9fa660ba3f1bc9f51',
                 '3519739a278f4151b39580be3a276cbf',
                 'c862174c0f25d5077870c42115925fee',
@@ -2840,6 +2868,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'b79f36daa5841b7f281d411e05adff94',
+            viewmodule: 'ibiz',
+            viewname: 'UserYearWorkStatsOpenedStoryChartView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'b7e6268db4bdeb10211fc15383de685d',
             viewmodule: 'Ungroup',
             viewname: 'StoryMyFavoritesGridView',
@@ -2931,8 +2968,11 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '42657e87da91a994bd2bb5ba97bed31d',
+                'db5a77bee9407127a5f28f7fa183270b',
                 'f725c5c0e28669d9ef6b02ce237786a5',
                 '3519739a278f4151b39580be3a276cbf',
+                'c5ee7eea51260672701189b6d1875d2c',
             ],
         },
         {
@@ -3064,8 +3104,11 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '6f3efb6b753b451cd9956a9e0157c6d2',
                 '7e9dfdd36617a43790494790f58117ec',
                 '3519739a278f4151b39580be3a276cbf',
+                'b79f36daa5841b7f281d411e05adff94',
+                'c625d6f8de3cb53021bb8d3064ac7863',
             ],
         },
         {
@@ -3115,6 +3158,24 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'c5630df2f9e4729be1d7ba4048064774',
+            ],
+        },
+        {
+            viewtag: 'c5ee7eea51260672701189b6d1875d2c',
+            viewmodule: 'ibiz',
+            viewname: 'UserYearWorkStatsOpenedBugAndCaseChartView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
+            viewtag: 'c625d6f8de3cb53021bb8d3064ac7863',
+            viewmodule: 'zentao',
+            viewname: 'StoryStageChartView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -3462,6 +3523,15 @@ export const viewstate: any = {
                 '46517a803b2470cd0bef27aeda0dbcaf',
                 'c1e9611b6972b1877b75fa5d2c67aad6',
                 '122af527bf38b47ddc53c882847b490e',
+            ],
+        },
+        {
+            viewtag: 'db5a77bee9407127a5f28f7fa183270b',
+            viewmodule: 'zentao',
+            viewname: 'BugTotalOpenedChartView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

@@ -10,7 +10,7 @@ export default class MonthFinishTaskAndBugModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof MonthFinishTaskAndBugDashboard_sysportlet5_chartMode
+	 * @memberof MonthFinishTaskAndBugChartMode
 	 */
 	public getDataItems(): any[] {
 		return [

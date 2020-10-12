@@ -106,6 +106,10 @@ export default {
 			caption: "功能测试",
       		title: "功能测试",
 		},
+		totalopenedcasechartview9: {
+			caption: "累计创建用例",
+      		title: "测试用例图表视图（累计创建用例）",
+		},
 		testmaindashboardview: {
 			caption: "功能测试",
       		title: "功能测试",

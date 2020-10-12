@@ -6,7 +6,7 @@ import { MyOpenedStoryChartBase } from './my-opened-story-chart-base';
  
 
 /**
- * dashboard_sysportlet6_chart部件
+ * chart部件
  *
  * @export
  * @class MyOpenedStoryChart

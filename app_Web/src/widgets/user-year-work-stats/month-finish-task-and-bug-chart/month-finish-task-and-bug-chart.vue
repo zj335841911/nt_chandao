@@ -6,7 +6,7 @@ import { MonthFinishTaskAndBugChartBase } from './month-finish-task-and-bug-char
  
 
 /**
- * dashboard_sysportlet5_chart部件
+ * chart部件
  *
  * @export
  * @class MonthFinishTaskAndBugChart

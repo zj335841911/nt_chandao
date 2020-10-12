@@ -6,7 +6,7 @@ import { CurOpenedCaseChartBase } from './cur-opened-case-chart-base';
  
 
 /**
- * dashboard_sysportlet5_chart部件
+ * chart部件
  *
  * @export
  * @class CurOpenedCaseChart

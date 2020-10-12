@@ -10,7 +10,7 @@ export default class MyOpenedStory_StageModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof MyOpenedStory_StageDashboard_sysportlet7_chartMode
+	 * @memberof MyOpenedStory_StageChartMode
 	 */
 	public getDataItems(): any[] {
 		return [

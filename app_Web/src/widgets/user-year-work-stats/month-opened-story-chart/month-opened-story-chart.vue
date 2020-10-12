@@ -6,7 +6,7 @@ import { MonthOpenedStoryChartBase } from './month-opened-story-chart-base';
  
 
 /**
- * dashboard_sysportlet5_chart部件
+ * chart部件
  *
  * @export
  * @class MonthOpenedStoryChart

@@ -6,7 +6,7 @@ import { CurUserOpenedBugChartBase } from './cur-user-opened-bug-chart-base';
  
 
 /**
- * dashboard_sysportlet4_chart部件
+ * chart部件
  *
  * @export
  * @class CurUserOpenedBugChart

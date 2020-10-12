@@ -863,6 +863,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "ProjectModuleMainGridView",
             "viewtag": "41dab4e36aef71df5c66acca4db7d045"
         },
+        "casetotalopenedcasechartview9": {
+            "title": "测试用例图表视图（累计创建用例）",
+            "caption": "累计创建用例",
+            "viewtype": "DECHARTVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "CaseTotalOpenedCaseChartView9",
+            "viewtag": "42657e87da91a994bd2bb5ba97bed31d"
+        },
         "storycurprojectwgridview": {
             "title": "story表格视图",
             "caption": "需求",
@@ -1463,6 +1471,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestReportProjectMainEditEditView",
             "viewtag": "6e5b23018b93f9f9fcea3afed7092e68"
         },
+        "storyprichartview9": {
+            "title": "需求图表视图（累计创建需求-优先级）",
+            "caption": "累计创建需求-优先级",
+            "viewtype": "DECHARTVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "StoryPriChartView9",
+            "viewtag": "6f3efb6b753b451cd9956a9e0157c6d2"
+        },
         "casemaindashboardview": {
             "title": "功能测试",
             "caption": "功能测试",
@@ -1486,6 +1502,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "TaskKanbanView",
             "viewtag": "7088260bcd6a0303378af2f8e207f479"
+        },
+        "useryearworkstatsfinishtaskandbugchartview9": {
+            "title": "用户年度工作内容统计图表视图（月完成任务和解决的Bug）",
+            "caption": "月完成任务和解决的Bug",
+            "viewtype": "DECHARTVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "UserYearWorkStatsFinishTaskAndBugChartView9",
+            "viewtag": "70d4072d3f73428c77959e942643ad0a"
         },
         "buggridview9_storyformbug": {
             "title": "来源Bug",
@@ -2487,6 +2511,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "BugStatsGridView",
             "viewtag": "b7427fe34d292009905e126defc9fa22"
         },
+        "useryearworkstatsopenedstorychartview9": {
+            "title": "用户年度工作内容统计图表视图（月创建需求）",
+            "caption": "月创建需求",
+            "viewtype": "DECHARTVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "UserYearWorkStatsOpenedStoryChartView9",
+            "viewtag": "b79f36daa5841b7f281d411e05adff94"
+        },
         "storymyfavoritesgridview": {
             "title": "story表格视图",
             "caption": "需求",
@@ -2702,6 +2734,22 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "ibiz",
             "viewname": "IbzLibModuleGridView",
             "viewtag": "c5bf2f708034d7488fbb4aa848d15d1d"
+        },
+        "useryearworkstatsopenedbugandcasechartview9": {
+            "title": "用户年度工作内容统计图表视图（月创建Bug和用例）",
+            "caption": "月创建Bug和用例",
+            "viewtype": "DECHARTVIEW9",
+            "viewmodule": "ibiz",
+            "viewname": "UserYearWorkStatsOpenedBugAndCaseChartView9",
+            "viewtag": "c5ee7eea51260672701189b6d1875d2c"
+        },
+        "storystagechartview9": {
+            "title": "需求图表视图（累计创建需求-阶段）",
+            "caption": "累计创建需求-阶段",
+            "viewtype": "DECHARTVIEW9",
+            "viewmodule": "zentao",
+            "viewname": "StoryStageChartView9",
+            "viewtag": "c625d6f8de3cb53021bb8d3064ac7863"
         },
         "caserunerentrygridview": {
             "title": "测试用例表格视图（测试结果条目）",
@@ -2998,6 +3046,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewmodule": "zentao",
             "viewname": "BugProjectBugsGridView",
             "viewtag": "d9cf190662d0781bee34acdfd9d1c6d2"
+        },
+        "bugtotalopenedchartview": {
+            "title": "Bug图表视图（累计创建Bug）",
+            "caption": "累计创建Bug",
+            "viewtype": "DECHARTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "BugTotalOpenedChartView",
+            "viewtag": "db5a77bee9407127a5f28f7fa183270b"
         },
         "useryearworkstatseditview": {
             "title": "用户年度工作内容统计编辑视图",

@@ -130,6 +130,10 @@ export default {
 			caption: "关联需求",
       		title: "关联需求",
 		},
+		prichartview9: {
+			caption: "累计创建需求-优先级",
+      		title: "需求图表视图（累计创建需求-优先级）",
+		},
 		tabexpview: {
 			caption: "需求",
       		title: "需求分页导航视图",
@@ -213,6 +217,10 @@ export default {
 		projectplanview: {
 			caption: "按照计划关联",
       		title: "按照计划关联",
+		},
+		stagechartview9: {
+			caption: "累计创建需求-阶段",
+      		title: "需求图表视图（累计创建需求-阶段）",
 		},
 		projecteditview: {
 			caption: "需求",

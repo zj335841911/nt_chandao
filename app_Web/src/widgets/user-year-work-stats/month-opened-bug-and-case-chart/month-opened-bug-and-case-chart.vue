@@ -6,7 +6,7 @@ import { MonthOpenedBugAndCaseChartBase } from './month-opened-bug-and-case-char
  
 
 /**
- * dashboard_sysportlet3_chart部件
+ * chart部件
  *
  * @export
  * @class MonthOpenedBugAndCaseChart

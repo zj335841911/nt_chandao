@@ -225,6 +225,10 @@ export default {
 			caption: "Bug",
       		title: "Bug实体表格视图(项目遗留得Bug)",
 		},
+		totalopenedchartview: {
+			caption: "累计创建Bug",
+      		title: "Bug图表视图（累计创建Bug）",
+		},
 		testbugsgridview: {
 			caption: "Bug",
       		title: "Bug表格视图(遗留的bug)",
