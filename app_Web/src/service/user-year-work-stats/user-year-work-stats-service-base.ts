@@ -1,7 +1,7 @@
 import { Http,Util } from '@/utils';
 import EntityService from '../entity-service';
-import GetProductsLogic from '@/service/user-year-work-stats/get-products-logic';
-import GetProjectsLogic from '@/service/user-year-work-stats/get-projects-logic';
+import GetDevInfomationLogic from '@/service/user-year-work-stats/get-dev-infomation-logic';
+import GetPOInfomationLogic from '@/service/user-year-work-stats/get-poinfomation-logic';
 import GetQAInformationLogic from '@/service/user-year-work-stats/get-qainformation-logic';
 
 
