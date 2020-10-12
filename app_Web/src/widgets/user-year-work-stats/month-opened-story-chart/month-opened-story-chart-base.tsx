@@ -12,7 +12,7 @@ import { ChartDataSetField,ChartLineSeries,ChartFunnelSeries,ChartPieSeries,Char
 
 
 /**
- * chart部件基类
+ * dashboard_sysportlet5_chart部件基类
  *
  * @export
  * @class MainControlBase
@@ -159,7 +159,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      *
      * @public
      * @type {boolean}
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public isNoData: boolean  = false;
 
@@ -167,7 +167,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * 图表div绑定的id
      *
      * @type {}
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */   
     public chartId:string = this.$util.createUUID();
 
@@ -175,7 +175,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * echarts图表对象
      *
      * @type {}
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */   
     public myChart:any;
 
@@ -183,7 +183,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * 代码表服务对象
      *
      * @type {CodeListService}
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */  
     public codeListService:CodeListService = new CodeListService({ $store: this.$store });
 
@@ -191,7 +191,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * 序列模型
      *
      * @type {}
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public  seriesModel:any = {
         storycnt:new ChartLineSeries({
@@ -247,7 +247,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
     /**
      * 图表自定义参数集合
      *
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */   
     public chartUserParams:any ={
         color:["#76FF03","#2979FF","#00B0FF","#2B4D6D",'#FF9100','#FF3D00','#F57F17','#00E5FF','#00B0FF','#2979FF','#3D5AFE','#651FFF','#D500F9']
@@ -256,14 +256,14 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
     /**
      * 图表基础动态模型
      *
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */  
     public chartBaseOPtion:any = {};
 
     /**
      * 图表绘制最终参数
      *
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */ 
     public chartRenderOption:any = {};
 
@@ -271,7 +271,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * 初始化图表所需参数
      *
      * @type {}
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */   
     public chartOption:any = {
         title:{
@@ -329,7 +329,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * 刷新
      *
      * @param {*} [opt={}]
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public refresh(opt: any = {}) {
         this.load(opt);
@@ -339,7 +339,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * 获取图表数据
      * 
      * @returns {*} 
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public load(opt?:any) {
         let _this = this;
@@ -361,7 +361,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * 绘制图表
      * 
      * @returns {*} 
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public drawCharts(codelist:any){
         if(!this.myChart){
@@ -377,7 +377,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
     /**
      * 处理图表参数
      * 
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public handleChartOPtion(allcodelist:any){
         let _chartOption:any = JSON.parse(JSON.stringify(this.chartOption));
@@ -446,7 +446,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * 
      * @param {*} data 实体数据集
      * @param {Function} callback 回调
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public async transformToBasicChartSetData(data:any,callback:Function){
         if(!data || !Array.isArray(data) || data.length === 0){
@@ -540,7 +540,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * @param {Array<any>} callback 回调
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public transformToChartSeriesDataSet(data:any,item:any,callback:Function,allCodeList:any):any{
         if(item.seriesIdField){
@@ -593,7 +593,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * @param {*} groupFieldModel 分组属性模型
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public groupAndAdd(groupField:Array<any>,seriesField:Array<any>,valueField:Array<any>,data:any,item:any,groupFieldModel:any,allCodeList:any){
         let tempMap:Map<string,any> = new Map();
@@ -721,7 +721,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * @param {*} groupField 分组属性
      * @param {*} allCodeList 所有代码表
      * 
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public sortReturnArray(arr:Array<any>,groupField:any,allCodeList:any){
         let returnArray:Array<any> = [];
@@ -788,7 +788,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * @param {Array<any>} groupField 分组属性
      * @param {Array<any>} label label标签
      * 
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public handleSortGroupData(arr:Array<any>,groupField:any,label:string){
         arr.forEach((item:any) =>{
@@ -822,7 +822,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * @param {Array<any>} item 单个序列
      * @param {Array<any>} allCodeList 所有的代码表
      * 
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public completeDataSet(data:any,item:any,allCodeList:any){
         // 分组属性
@@ -847,7 +847,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * 
      * @param {Array<any>} tempTimeArray 传入数据
      * 
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public  getRangeData(tempTimeArray:Array<any>){
         tempTimeArray.forEach((item:any) =>{
@@ -871,7 +871,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * @param {Array<any>} allCodeList 所有的代码表
      * @param {Array<any>} groupField 分组属性
      * 
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public handleTimeData(data:any,item:any,allCodeList:any,groupField:any){
         let valueField = item.dataSetFields.find((datasetField:any) =>{
@@ -1003,7 +1003,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * @param {Array<any>} item 单个序列
      * @param {Array<any>} allCodeList 所有的代码表
      * 
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public  completeCodeList(data:any,item:any,allCodeList:any){
         let groupField = item.dataSetFields.find((datasetField:any) =>{
@@ -1047,7 +1047,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * @param {*} allCodeList 所有代码表
      * @param {*} result 结果值
      * 
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public handleSingleDataSetField(input:any,field:any,allCodeList:any,result:any,groupField:any){
         let tempFieldObj:any = {};
@@ -1083,7 +1083,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
     /**
      * 获取图表所需代码表
      * 
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public getChartAllCodeList():Promise<any>{
         return new Promise((resolve:any,reject:any) =>{
@@ -1130,7 +1130,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      * 获取代码表
      * 
      * @returns {Promise<any>} 
-     * @memberof ChartBase
+     * @memberof Dashboard_sysportlet5_chartBase
      */
     public getCodeList(codeListObject:any):Promise<any>{
         return new Promise((resolve:any,reject:any) =>{

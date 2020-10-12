@@ -46,9 +46,9 @@ import UserYearWorkStatsProductBugcnt_QA from '@/widgets/user-year-work-stats/pr
 import UserYearWorkStatsProductPlancntAndStorycnt from '@/widgets/user-year-work-stats/product-plancnt-and-storycnt-portlet/product-plancnt-and-storycnt-portlet.vue';
 import UserYearWorkStatsInfo from '@/widgets/user-year-work-stats/info-portlet/info-portlet.vue';
 import UserYearWorkStatsFinishedbyTask from '@/widgets/user-year-work-stats/finishedby-task-portlet/finishedby-task-portlet.vue';
-import UserYearWorkStatsMonthOpenedBugAndCaseV from '@/widgets/user-year-work-stats/month-opened-bug-and-case-v-portlet/month-opened-bug-and-case-v-portlet.vue';
-import UserYearWorkStatsMonthFinishTaskAndBug from '@/widgets/user-year-work-stats/month-finish-task-and-bug-portlet/month-finish-task-and-bug-portlet.vue';
-import UserYearWorkStatsMonthOpenedStoryV from '@/widgets/user-year-work-stats/month-opened-story-v-portlet/month-opened-story-v-portlet.vue';
+import UserYearWorkStatsMonthOpenedBugAndCase from '@/widgets/user-year-work-stats/month-opened-bug-and-case-portlet/month-opened-bug-and-case-portlet.vue';
+import UserYearWorkStatsFinishTaskAndBug from '@/widgets/user-year-work-stats/finish-task-and-bug-portlet/finish-task-and-bug-portlet.vue';
+import UserYearWorkStatsMonthOpenedStory from '@/widgets/user-year-work-stats/month-opened-story-portlet/month-opened-story-portlet.vue';
 import UserYearWorkStatsTotalOpenedCase from '@/widgets/user-year-work-stats/total-opened-case-portlet/total-opened-case-portlet.vue';
 import UserYearWorkStatsTotalOpenedBug from '@/widgets/user-year-work-stats/total-opened-bug-portlet/total-opened-bug-portlet.vue';
 import UserYearWorkStatsTotalOpenedStoryStage from '@/widgets/user-year-work-stats/total-opened-story-stage-portlet/total-opened-story-stage-portlet.vue';
@@ -158,7 +158,7 @@ export const  PortletComponent = {
         v.component('app-user-year-work-stats-involved-project-story-task-bug-portlet', UserYearWorkStatsInvolvedProject_StoryTaskBug);
         v.component('app-user-year-work-stats-finishedby-task-portlet', UserYearWorkStatsFinishedbyTask);
         v.component('app-user-year-work-stats-resolve-bug-portlet', UserYearWorkStatsResolveBug);
-        v.component('app-user-year-work-stats-month-finish-task-and-bug-portlet', UserYearWorkStatsMonthFinishTaskAndBug);
+        v.component('app-user-year-work-stats-finish-task-and-bug-portlet', UserYearWorkStatsFinishTaskAndBug);
         v.component('app-product-un-closed-product-portlet', ProductUnClosedProduct);
         v.component('app-product-product-status-chart-portlet', ProductProductStatusChart);
         v.component('app-story-assigned-to-me-story-portlet', StoryAssignedToMeStory);
@@ -166,7 +166,7 @@ export const  PortletComponent = {
         v.component('app-user-year-work-stats-product-bugcnt-qa-portlet', UserYearWorkStatsProductBugcnt_QA);
         v.component('app-user-year-work-stats-total-opened-bug-portlet', UserYearWorkStatsTotalOpenedBug);
         v.component('app-user-year-work-stats-total-opened-case-portlet', UserYearWorkStatsTotalOpenedCase);
-        v.component('app-user-year-work-stats-month-opened-bug-and-case-v-portlet', UserYearWorkStatsMonthOpenedBugAndCaseV);
+        v.component('app-user-year-work-stats-month-opened-bug-and-case-portlet', UserYearWorkStatsMonthOpenedBugAndCase);
         v.component('app-product-life-get-roadmaps-portlet', ProductLifeGetRoadmaps);
         v.component('app-action-product-trends-timeline-portlet', ActionProductTrendsTimeline);
         v.component('app-product-product-main-toolbar-portlet', ProductProductMainToolbar);
@@ -178,7 +178,7 @@ export const  PortletComponent = {
         v.component('app-user-year-work-stats-product-plancnt-and-storycnt-portlet', UserYearWorkStatsProductPlancntAndStorycnt);
         v.component('app-user-year-work-stats-total-opened-story-pri-portlet', UserYearWorkStatsTotalOpenedStoryPri);
         v.component('app-user-year-work-stats-total-opened-story-stage-portlet', UserYearWorkStatsTotalOpenedStoryStage);
-        v.component('app-user-year-work-stats-month-opened-story-v-portlet', UserYearWorkStatsMonthOpenedStoryV);
+        v.component('app-user-year-work-stats-month-opened-story-portlet', UserYearWorkStatsMonthOpenedStory);
         v.component('app-project-un-closed-project-portlet', ProjectUnClosedProject);
         v.component('app-project-project-status-bar-portlet', ProjectProjectStatusBar);
         v.component('app-test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
@@ -233,9 +233,9 @@ export const  PortletComponent = {
         v.component('user-year-work-stats-product-plancnt-and-storycnt-portlet', UserYearWorkStatsProductPlancntAndStorycnt);
         v.component('user-year-work-stats-info-portlet', UserYearWorkStatsInfo);
         v.component('user-year-work-stats-finishedby-task-portlet', UserYearWorkStatsFinishedbyTask);
-        v.component('user-year-work-stats-month-opened-bug-and-case-v-portlet', UserYearWorkStatsMonthOpenedBugAndCaseV);
-        v.component('user-year-work-stats-month-finish-task-and-bug-portlet', UserYearWorkStatsMonthFinishTaskAndBug);
-        v.component('user-year-work-stats-month-opened-story-v-portlet', UserYearWorkStatsMonthOpenedStoryV);
+        v.component('user-year-work-stats-month-opened-bug-and-case-portlet', UserYearWorkStatsMonthOpenedBugAndCase);
+        v.component('user-year-work-stats-finish-task-and-bug-portlet', UserYearWorkStatsFinishTaskAndBug);
+        v.component('user-year-work-stats-month-opened-story-portlet', UserYearWorkStatsMonthOpenedStory);
         v.component('user-year-work-stats-total-opened-case-portlet', UserYearWorkStatsTotalOpenedCase);
         v.component('user-year-work-stats-total-opened-bug-portlet', UserYearWorkStatsTotalOpenedBug);
         v.component('user-year-work-stats-total-opened-story-stage-portlet', UserYearWorkStatsTotalOpenedStoryStage);

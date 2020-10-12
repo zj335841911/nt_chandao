@@ -10,7 +10,7 @@ export default class MonthOpenedBugAndCaseModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof MonthOpenedBugAndCaseChartMode
+	 * @memberof MonthOpenedBugAndCaseDashboard_sysportlet3_chartMode
 	 */
 	public getDataItems(): any[] {
 		return [

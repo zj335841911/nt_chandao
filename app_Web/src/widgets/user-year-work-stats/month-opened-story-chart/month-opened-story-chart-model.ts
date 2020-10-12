@@ -10,7 +10,7 @@ export default class MonthOpenedStoryModel {
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof MonthOpenedStoryChartMode
+	 * @memberof MonthOpenedStoryDashboard_sysportlet5_chartMode
 	 */
 	public getDataItems(): any[] {
 		return [
