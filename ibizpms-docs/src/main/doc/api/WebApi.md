@@ -221,6 +221,7 @@
 |/task/fetchassignedtomytask|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchbymodule|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchchildtask|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/task/fetchcurfinishtask|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchdefaultrow|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchmyfavorites|GET|DEDataSetFetchContext Json对象|&nbsp;|
@@ -1185,6 +1186,7 @@
 |/task/fetchassignedtomytask|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchbymodule|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchchildtask|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/task/fetchcurfinishtask|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchdefaultrow|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchmyfavorites|GET|DEDataSetFetchContext Json对象|&nbsp;|
