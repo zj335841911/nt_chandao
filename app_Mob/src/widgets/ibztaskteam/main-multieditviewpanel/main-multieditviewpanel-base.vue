@@ -3,10 +3,6 @@
 <div class="app-medit-view-panel">
     <div v-for="(item,index) in items" :key="index" class="app-medit-view-panel-card">
         <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>{{item.title}}</ion-card-subtitle>
-            <ion-icon class="meditviewpanel_delete_icon" @click="deleteItem(item)" name="close-circle-outline"></ion-icon>
-          </ion-card-header>
           <ion-card-content>
             <task-team-mob-edit-view9 
               class="viewcontainer2"

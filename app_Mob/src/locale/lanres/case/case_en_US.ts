@@ -70,6 +70,7 @@ export default {
 			druipart1: '', 
 			group1: '测试用例基本信息', 
 			formpage1: '基本信息', 
+			srfupdatedate: '修改日期', 
 			srforikey: '', 
 			srfkey: '用例编号', 
 			srfmajortext: '用例标题', 
