@@ -67,6 +67,7 @@ export class UserYearWorkStatsInfoEditView9Base extends EditView9Base {
     protected customViewNavContexts: any = {
         'SRFKEY': { isRawValue: false, value: 'srfpersonid' },
         'ID': { isRawValue: false, value: 'srfpersonid' },
+        'CURYEAR': { isRawValue: false, value: 'curyear' },
         'USERYEARWORKSTATS': { isRawValue: false, value: 'srfpersonid' }
     };
 
@@ -79,6 +80,7 @@ export class UserYearWorkStatsInfoEditView9Base extends EditView9Base {
 	 */
     protected customViewParams: any = {
         'id': { isRawValue: false, value: 'srfpersonid' },
+        'curyear': { isRawValue: false, value: 'curyear' },
         'useryearworkstats': { isRawValue: false, value: 'srfpersonid' },
         'srfkey': { isRawValue: false, value: 'srfpersonid' }
     };
