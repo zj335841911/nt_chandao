@@ -13,15 +13,15 @@ import org.springframework.stereotype.Service;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.KieContainer;
 
-import cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsGetProductsLogic;
+import cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsGetProjectsLogic;
 import cn.ibizlab.pms.core.ibiz.domain.UserYearWorkStats;
 
 /**
- * 关系型数据实体[GetProducts] 对象
+ * 关系型数据实体[GetProjects] 对象
  */
 @Slf4j
 @Service
-public class UserYearWorkStatsGetProductsLogicImpl implements IUserYearWorkStatsGetProductsLogic{
+public class UserYearWorkStatsGetProjectsLogicImpl implements IUserYearWorkStatsGetProjectsLogic{
 
     @Autowired
     private KieContainer kieContainer;
@@ -40,13 +40,13 @@ public class UserYearWorkStatsGetProductsLogicImpl implements IUserYearWorkStats
         try{
            kieSession=kieContainer.newKieSession();
            kieSession.insert(et); 
-           kieSession.setGlobal("useryearworkstatsgetproductsdefault",et);
+           kieSession.setGlobal("useryearworkstatsgetprojectsdefault",et);
            kieSession.setGlobal("iBzSysUseryearworkstatsDefaultService",iBzSysDefaultService);
            kieSession.setGlobal("curuser", cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser());
-           kieSession.startProcess("cn.ibizlab.pms.core.ibiz.service.logic.useryearworkstatsgetproducts");
+           kieSession.startProcess("cn.ibizlab.pms.core.ibiz.service.logic.useryearworkstatsgetprojects");
 
         }catch(Exception e){
-            throw new RuntimeException("执行[获取产品经理相关数据]处理逻辑发生异常"+e);
+            throw new RuntimeException("执行[获取研发人员相关数据]处理逻辑发生异常"+e);
         }finally {
             if(kieSession!=null)
             kieSession.destroy();

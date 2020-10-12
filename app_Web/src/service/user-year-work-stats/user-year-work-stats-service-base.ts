@@ -1,6 +1,8 @@
 import { Http,Util } from '@/utils';
 import EntityService from '../entity-service';
 import GetProductsLogic from '@/service/user-year-work-stats/get-products-logic';
+import GetProjectsLogic from '@/service/user-year-work-stats/get-projects-logic';
+import GetQAInformationLogic from '@/service/user-year-work-stats/get-qainformation-logic';
 
 
 
@@ -120,10 +122,7 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
      */
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().get(`/useryearworkstats/${context.useryearworkstats}`,isloading);
-                let getproducts:GetProductsLogic = new GetProductsLogic({context:JSON.parse(JSON.stringify(context)),data:JSON.parse(JSON.stringify(res)).data});
-            let getproductsData:any = await getproducts.onExecute(context,res.data,isloading?true:false);
-            res ={status:200,data:getproductsData};
-
+            
             return res;
     }
 

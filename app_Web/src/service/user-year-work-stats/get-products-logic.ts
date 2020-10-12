@@ -2,7 +2,7 @@ import { Http,Util } from '@/utils';
 import GetProductsLogicBase from './get-products-logic-base';
 
 /**
- * 获取参与的产品数
+ * 获取产品经理相关数据
  *
  * @export
  * @class GetProductsLogic

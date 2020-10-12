@@ -47,10 +47,6 @@ import org.springframework.util.StringUtils;
 public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsMapper, UserYearWorkStats> implements IUserYearWorkStatsService {
 
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsGetProductsLogic getproductsLogic;
-
     protected int batchSize = 500;
 
     @Override
@@ -96,8 +92,6 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
     @Override
     @Transactional
     public UserYearWorkStats get(Long key) {
-        UserYearWorkStats tempET=new UserYearWorkStats();
-        tempET.set("id",key);
         UserYearWorkStats et = getById(key);
         if(et==null){
             et=new UserYearWorkStats();
@@ -105,7 +99,6 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
         }
         else{
         }
-        getproductsLogic.execute(et);
         return et;
     }
 

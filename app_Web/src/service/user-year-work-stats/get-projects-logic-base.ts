@@ -2,46 +2,46 @@ import { Verify } from '@/utils/verify/verify';
 
 
 /**
- * 获取产品经理相关数据
+ * 获取研发人员相关数据
  *
  * @export
- * @class GetProductsLogicBase
+ * @class GetProjectsLogicBase
  */
-export default class GetProductsLogicBase {
+export default class GetProjectsLogicBase {
 
     /**
      * 名称
      * 
-     * @memberof  GetProductsLogicBase
+     * @memberof  GetProjectsLogicBase
      */
-    private name:string ="GetProducts";
+    private name:string ="GetProjects";
 
     /**
      * 唯一标识
      * 
-     * @memberof  GetProductsLogicBase
+     * @memberof  GetProjectsLogicBase
      */
-    private id:string = "7ECD3387-72C3-434D-9F32-49B7ABB59092";
+    private id:string = "3E25C347-78E5-4DF0-8D94-BB1616B6CA88";
 
     /**
      * 默认参数名称
      * 
-     * @memberof  GetProductsLogicBase
+     * @memberof  GetProjectsLogicBase
      */
     private defaultParamName:string = "Default";
 
     /**
      * 参数集合
      * 
-     * @memberof  GetProductsLogicBase
+     * @memberof  GetProjectsLogicBase
      */
     private paramsMap:Map<string,any> = new Map();
 
     /**
-     * Creates an instance of  GetProductsLogicBase.
+     * Creates an instance of  GetProjectsLogicBase.
      * 
      * @param {*} [opts={}]
-     * @memberof  GetProductsLogicBase
+     * @memberof  GetProjectsLogicBase
      */
     constructor(opts: any = {}) {
         this.initParams(opts);
@@ -51,7 +51,7 @@ export default class GetProductsLogicBase {
      * 初始化参数集合
      * 
      * @param {*} [opts={}]
-     * @memberof  GetProductsLogicBase
+     * @memberof  GetProjectsLogicBase
      */
     public initParams(opts:any){
         this.paramsMap.set('Default',opts);
@@ -97,6 +97,18 @@ export default class GetProductsLogicBase {
 
 
     /**
+    * 获取日志数
+    * 
+    * @param context 应用上下文
+    * @param params 传入参数
+    */
+    private async executeRawsqlcall2(context:any,params:any,isloading:boolean){
+        // RAWSQLCALL暂未支持
+        console.log("RAWSQLCALL暂未支持");
+        return this.paramsMap.get(this.defaultParamName).data;
+    }
+
+    /**
     * 开始
     * 
     * @param params 传入参数
@@ -109,7 +121,7 @@ export default class GetProductsLogicBase {
     }
 
     /**
-    * 获取需求数
+    * 获取工时数
     * 
     * @param context 应用上下文
     * @param params 传入参数
@@ -121,24 +133,12 @@ export default class GetProductsLogicBase {
     }
 
     /**
-    * 获取产品数
+    * 获取动态数
     * 
     * @param context 应用上下文
     * @param params 传入参数
     */
     private async executeRawsqlcall1(context:any,params:any,isloading:boolean){
-        // RAWSQLCALL暂未支持
-        console.log("RAWSQLCALL暂未支持");
-        return this.paramsMap.get(this.defaultParamName).data;
-    }
-
-    /**
-    * 获取计划数
-    * 
-    * @param context 应用上下文
-    * @param params 传入参数
-    */
-    private async executeRawsqlcall2(context:any,params:any,isloading:boolean){
         // RAWSQLCALL暂未支持
         console.log("RAWSQLCALL暂未支持");
         return this.paramsMap.get(this.defaultParamName).data;
