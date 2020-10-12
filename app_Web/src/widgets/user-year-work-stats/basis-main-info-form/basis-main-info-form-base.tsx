@@ -143,8 +143,6 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
 
         grouppanel5: new FormGroupPanelModel({ caption: '基本数据信息', detailType: 'GROUPPANEL', name: 'grouppanel5', visible: true, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.basismaininfo_form', extractMode: 'ITEM', details: [] } }),
 
-        druipart4: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart4', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
-
         druipart6: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart6', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         grouppanel10: new FormGroupPanelModel({ caption: '产品创建需求数及占比', detailType: 'GROUPPANEL', name: 'grouppanel10', visible: false, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.basismaininfo_form', extractMode: 'ITEM', details: [] } }),
@@ -152,6 +150,8 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
         druipart7: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart7', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         grouppanel11: new FormGroupPanelModel({ caption: '产品创建Bug数及占比', detailType: 'GROUPPANEL', name: 'grouppanel11', visible: false, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.basismaininfo_form', extractMode: 'ITEM', details: [] } }),
+
+        druipart4: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart4', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         grouppanel6: new FormGroupPanelModel({ caption: '参与项目概览', detailType: 'GROUPPANEL', name: 'grouppanel6', visible: false, isShowCaption: true, form: this, showMoreMode: 0, uiActionGroup: { caption: '', langbase: 'entities.useryearworkstats.basismaininfo_form', extractMode: 'ITEM', details: [] } }),
 
@@ -272,7 +272,6 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
 
 
 
-
         if (Object.is(name, '') || Object.is(name, 'judgerole')) {
             let ret = false;
             const _judgerole = this.data.judgerole;
@@ -291,6 +290,7 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.grouppanel11.setVisible(ret);
         }
+
 
         if (Object.is(name, '') || Object.is(name, 'judgerole')) {
             let ret = false;
