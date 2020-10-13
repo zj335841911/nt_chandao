@@ -1,14 +1,15 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
-import cn.ibizlab.pms.core.zentao.domain.ProjectStory;
-import cn.ibizlab.pms.core.zentao.mapper.ProjectStoryMapper;
+import cn.ibizlab.pms.core.zentao.domain.ProjectProduct;
+import cn.ibizlab.pms.core.zentao.mapper.ProjectProductMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ProjectStoryHelper extends ZTBaseHelper<ProjectStoryMapper, ProjectStory> {
+public class ProjectProductHelper extends ZTBaseHelper<ProjectProductMapper, ProjectProduct> {
+
     @Override
     public boolean hasId() {
-        return false;
+        return false ;
     }
 
     @Override

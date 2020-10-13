@@ -20,10 +20,7 @@ public class FileHelper extends ZTBaseHelper<FileMapper, File> {
      */
     @Transactional
     public boolean edit(File et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()), et);
-        return true;
+        return this.internalUpdate(et);
     }
 
 
@@ -40,18 +37,17 @@ public class FileHelper extends ZTBaseHelper<FileMapper, File> {
         log.info("autoDelete：未实现");
     }
 
-    public String pasteImage(String data, Long uid)
-    {
+    public String pasteImage(String data, Long uid) {
         log.info("pasteImage：未实现");
         return "";
     }
 
-    public String saveUpload(String objectType, Long objectID , String extra, String filesName , String labelsName ){
+    public String saveUpload(String objectType, Long objectID, String extra, String filesName, String labelsName) {
         log.info("saveUpload：未实现");
         return "";
     }
 
-    public String saveUploadFile(String file, Long uid){
+    public String saveUploadFile(String file, Long uid) {
         log.info("saveUploadFile：未实现");
         return "";
     }

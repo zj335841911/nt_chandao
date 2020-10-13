@@ -20,17 +20,12 @@ public class MessageHelper extends ZTBaseHelper<Im_messageMapper, Im_message> {
      */
     @Transactional
     public boolean edit(Im_message et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()), et);
-        return true;
+        return this.internalUpdate(et);
     }
 
 
-
     @Transactional
-    public void send(String objectType, Long objectID, String actionType, Long actionID, String actor )
-    {
+    public void send(String objectType, Long objectID, String actionType, Long actionID, String actor) {
         //全局配置
         JSONObject setting = new JSONObject();
         log.info("发送消息：未实现。");

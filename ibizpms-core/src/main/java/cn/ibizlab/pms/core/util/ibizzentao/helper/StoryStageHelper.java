@@ -9,11 +9,11 @@ public class StoryStageHelper extends ZTBaseHelper<StorySpecMapper, StorySpec> {
 
     @Override
     public boolean hasDeleted() {
-        return false ;
+        return false;
     }
 
     @Override
     public boolean hasId() {
-        return false ;
+        return false;
     }
 }

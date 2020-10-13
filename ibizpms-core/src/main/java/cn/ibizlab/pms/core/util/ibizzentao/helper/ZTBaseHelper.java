@@ -10,8 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 public class ZTBaseHelper<M extends BaseMapper<T>, T extends EntityMP> extends ServiceImpl<M , T> {
 
-
-
     public T get(Long key){
         T et = getById(key);
         if (et == null) {
@@ -44,6 +42,11 @@ public class ZTBaseHelper<M extends BaseMapper<T>, T extends EntityMP> extends S
     }
 
     @Transactional
+    public boolean edit(T et ){
+       return internalUpdate(et);
+    }
+
+    @Transactional
     public boolean delete(Long key){
         if(hasId()){
             if(hasDeleted()){
@@ -64,5 +67,12 @@ public class ZTBaseHelper<M extends BaseMapper<T>, T extends EntityMP> extends S
 
     public boolean hasDeleted(){
         return true ;
+    }
+
+    public <T> T get (Object value,T t){
+        if(value==null){
+            return t;
+        }
+        return (T)value;
     }
 }
