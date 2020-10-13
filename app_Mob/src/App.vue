@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { Component, Vue, Watch } from "vue-property-decorator";
-
+import { appConfig } from '@/config/appConfig'
 @Component({})
 export default class App extends Vue { 
 
@@ -27,7 +27,7 @@ export default class App extends Vue {
         } else if (localStorage.getItem('theme-class')) {
             return localStorage.getItem('theme-class');
         } else {
-            return 'app-dark-blue-theme';
+            return appConfig.defaultTheme;
         }
 	}
 

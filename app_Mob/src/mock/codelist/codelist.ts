@@ -3280,6 +3280,13 @@ const datas: Array<any> = [
                 value: 'story',
                 disabled: false,
             },
+            {
+                id: 'cycle',
+                label: '周期',
+                text: '周期',
+                value: 'cycle',
+                disabled: false,
+            },
         ]
     },
     {
