@@ -175,7 +175,7 @@ export default class BuildMobPickupMDViewBase extends Vue {
         dataInfo: '',
         viewname:'build.mobpickupmdview',
         iconcls: '',
-        icon: 'fa fa-code-fork'
+        icon: 'code-fork'
     }
 
     /**

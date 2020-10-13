@@ -1523,6 +1523,74 @@ const router = new Router({
                     component: () => import('@pages/zentao/project-team-main-grid-view-edit-row/project-team-main-grid-view-edit-row.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/restarttaskview/:restarttaskview?',
+                    meta: {
+                        caption: 'entities.task.views.restarttaskview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'restarttaskview', parameterName: 'restarttaskview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-restart-task-view/task-restart-task-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/restarttaskview/:restarttaskview?',
+                    meta: {
+                        caption: 'entities.task.views.restarttaskview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'restarttaskview', parameterName: 'restarttaskview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-restart-task-view/task-restart-task-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/restarttaskview/:restarttaskview?',
+                    meta: {
+                        caption: 'entities.task.views.restarttaskview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'restarttaskview', parameterName: 'restarttaskview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-restart-task-view/task-restart-task-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/restarttaskview/:restarttaskview?',
+                    meta: {
+                        caption: 'entities.task.views.restarttaskview.caption',
+                        info:'',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'restarttaskview', parameterName: 'restarttaskview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-restart-task-view/task-restart-task-view.vue'),
+                },
+                {
                     path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/maineditview9/:maineditview9?',
                     meta: {
                         caption: 'entities.ibzcase.views.maineditview9.caption',

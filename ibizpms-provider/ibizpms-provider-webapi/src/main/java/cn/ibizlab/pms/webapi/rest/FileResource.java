@@ -156,6 +156,7 @@ public class FileResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(fileMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-searchType-all')")
 	@ApiOperation(value = "获取动态(根据类型过滤)", tags = {"附件" } ,notes = "获取动态(根据类型过滤)")
     @RequestMapping(method= RequestMethod.GET , value="/files/fetchtype")
@@ -177,5 +178,7 @@ public class FileResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(fileMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

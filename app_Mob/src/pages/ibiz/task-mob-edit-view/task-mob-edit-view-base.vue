@@ -271,7 +271,7 @@ export default class TaskMobEditViewBase extends Vue {
         dataInfo: '',
         viewname:'task.mobeditview',
         iconcls: '',
-        icon: 'fa fa-tasks'
+        icon: 'tasks'
     }
 
     /**

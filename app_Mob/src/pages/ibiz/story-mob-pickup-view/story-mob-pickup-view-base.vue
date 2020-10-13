@@ -182,7 +182,7 @@ export default class StoryMobPickupViewBase extends Vue {
         dataInfo: '',
         viewname:'story.mobpickupview',
         iconcls: '',
-        icon: 'fa fa-star-o'
+        icon: 'star-o'
     }
 
     /**

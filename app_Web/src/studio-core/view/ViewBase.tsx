@@ -435,9 +435,7 @@ export class ViewBase extends Vue {
      * @memberof ViewBase
      */
     public destroyed(): void {
-        if (this.viewUsage === 1 || this.viewUsage === 2) {
-            this.$appService.viewStore.pop();
-        }
+        this.$appService.viewStore.pop(this);
         if (this.viewDefaultUsage) {
             const regExp = new RegExp(`^${this.context.srfsessionid}_(.*)`);
             for (const key in localStorage) {

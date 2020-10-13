@@ -25,6 +25,11 @@ export default class TaskKanBanModel {
 				dataType: 'LONGTEXT',
 			},
 			{
+				name: 'frombug',
+				prop: 'frombug',
+				dataType: 'PICKUP',
+			},
+			{
 				name: 'status',
 				prop: 'status',
 				dataType: 'SSCODELIST',
@@ -38,6 +43,9 @@ export default class TaskKanBanModel {
 				name: 'type',
 				prop: 'type',
 				dataType: 'SSCODELIST',
+			},
+			{
+				name: 'srfmstag',
 			},
 			{
 				name: 'estimate',

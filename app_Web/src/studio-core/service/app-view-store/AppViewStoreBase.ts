@@ -42,6 +42,27 @@ export class AppViewStoreBase {
     }
 
     /**
+     * 根据缓存下标跳转位置
+     *
+     * @param {number} index
+     * @memberof AppViewStoreBase
+     */
+    public jumpByIndex(index: number): void {
+        if (index > -1) {
+            this.viewList.splice(index, this.viewList.length - 1);
+        }
+    }
+
+    /**
+     * 重置路由缓存
+     *
+     * @memberof AppViewStoreBase
+     */
+    public reset(): void {
+        this.viewList.clearAll();
+    }
+
+    /**
      * 根据视图标识查找
      *
      * @param {string} tag

@@ -245,7 +245,7 @@ export default class BuildMobMDViewBase extends Vue {
         dataInfo: '',
         viewname:'build.mobmdview',
         iconcls: '',
-        icon: 'fa fa-code-fork'
+        icon: 'code-fork'
     }
 
     /**

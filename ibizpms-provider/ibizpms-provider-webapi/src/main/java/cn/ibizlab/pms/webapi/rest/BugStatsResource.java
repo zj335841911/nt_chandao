@@ -156,6 +156,7 @@ public class BugStatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchDefault-all')")
 	@ApiOperation(value = "获取数据集", tags = {"Bug统计" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/bugstats/fetchdefault")
@@ -177,6 +178,7 @@ public class BugStatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-searchProductCreateBug-all')")
 	@ApiOperation(value = "获取产品创建bug占比", tags = {"Bug统计" } ,notes = "获取产品创建bug占比")
     @RequestMapping(method= RequestMethod.GET , value="/bugstats/fetchproductcreatebug")
@@ -198,5 +200,7 @@ public class BugStatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

@@ -156,6 +156,7 @@ public class EmployEeloadResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(employeeloadMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-EMPLOYEELOAD-searchGETWOERKLOAD-all')")
 	@ApiOperation(value = "获取获取员工负载表", tags = {"员工负载表" } ,notes = "获取获取员工负载表")
     @RequestMapping(method= RequestMethod.GET , value="/employeeloads/fetchgetwoerkload")
@@ -177,5 +178,7 @@ public class EmployEeloadResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(employeeloadMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

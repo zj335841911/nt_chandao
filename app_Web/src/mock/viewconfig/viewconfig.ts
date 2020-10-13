@@ -743,6 +743,14 @@ mock.onGet('./assets/json/view-config.json').reply((config: any) => {
             "viewname": "TestTaskBlockOptionView",
             "viewtag": "383716f2bcf137ecae2d212f2380246a"
         },
+        "taskrestarttaskview": {
+            "title": "继续任务",
+            "caption": "继续任务",
+            "viewtype": "DEOPTVIEW",
+            "viewmodule": "zentao",
+            "viewname": "TaskRestartTaskView",
+            "viewtag": "38d08f54d32902165fb9e3b679810d55"
+        },
         "projectplanaddeditview": {
             "title": "项目编辑视图（计划添加）",
             "caption": "项目",

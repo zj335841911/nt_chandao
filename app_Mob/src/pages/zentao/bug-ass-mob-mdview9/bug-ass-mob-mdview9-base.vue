@@ -184,7 +184,7 @@ export default class BugAssMobMDView9Base extends Vue {
         dataInfo: '',
         viewname:'bug.assmobmdview9',
         iconcls: '',
-        icon: 'fa fa-bug'
+        icon: 'bug'
     }
 
     /**

@@ -196,7 +196,7 @@ export default class TaskGSMobOptionViewBase extends Vue {
         dataInfo: '',
         viewname:'task.gsmoboptionview',
         iconcls: '',
-        icon: 'fa fa-tasks'
+        icon: 'tasks'
     }
 
     /**

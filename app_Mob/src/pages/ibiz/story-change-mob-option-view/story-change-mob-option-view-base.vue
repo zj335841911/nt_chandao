@@ -196,7 +196,7 @@ export default class StoryChangeMobOptionViewBase extends Vue {
         dataInfo: '',
         viewname:'story.changemoboptionview',
         iconcls: '',
-        icon: 'fa fa-star-o'
+        icon: 'star-o'
     }
 
     /**

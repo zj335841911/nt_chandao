@@ -56,6 +56,7 @@ export default {
     isfavorites: "是否收藏",
     status1: "任务状态",
     tasktype: "任务类型",
+    files: "附件",
   },
 	views: {
 		mobmdview: {

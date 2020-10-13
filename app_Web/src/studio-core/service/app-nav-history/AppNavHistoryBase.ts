@@ -227,7 +227,7 @@ export class AppNavHistoryBase {
                 meta: JSON.parse(JSON.stringify(to.meta)),
                 tag: '',
                 context: {},
-                title: i18n.t(to.meta.caption).toString()
+                title: isExistAndNotEmpty(to.meta.title) ? i18n.t(to.meta.title).toString() : ''
             });
         }
     }
@@ -270,7 +270,6 @@ export class AppNavHistoryBase {
             }
             if (isExistAndNotEmpty(info)) {
                 item.meta.info = info;
-                item.title = `${i18n.t(item.meta.caption)} - ${info}`;
             }
             this.appEvent.emit('navHistoryItemChange', item);
         }

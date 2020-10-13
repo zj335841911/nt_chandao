@@ -196,7 +196,7 @@ export default class TaskMobOptionViewBase extends Vue {
         dataInfo: '',
         viewname:'task.moboptionview',
         iconcls: '',
-        icon: 'fa fa-tasks'
+        icon: 'tasks'
     }
 
     /**

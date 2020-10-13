@@ -192,7 +192,7 @@ export default class BugPlanMobMDView9Base extends Vue {
         dataInfo: '',
         viewname:'bug.planmobmdview9',
         iconcls: '',
-        icon: 'fa fa-bug'
+        icon: 'bug'
     }
 
     /**

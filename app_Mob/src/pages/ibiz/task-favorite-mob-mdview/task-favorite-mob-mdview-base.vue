@@ -230,7 +230,7 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
         dataInfo: '',
         viewname:'task.favoritemobmdview',
         iconcls: '',
-        icon: 'fa fa-tasks'
+        icon: 'tasks'
     }
 
     /**

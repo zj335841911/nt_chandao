@@ -156,5 +156,7 @@ public class GroupResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(groupMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

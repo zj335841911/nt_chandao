@@ -211,6 +211,7 @@ public class UserYearWorkStatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(useryearworkstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-searchMonthFinishTaskAndBug-all')")
 	@ApiOperation(value = "获取月完成任务数及累计工时和解决Bug数", tags = {"用户年度工作内容统计" } ,notes = "获取月完成任务数及累计工时和解决Bug数")
     @RequestMapping(method= RequestMethod.GET , value="/useryearworkstats/fetchmonthfinishtaskandbug")
@@ -232,6 +233,7 @@ public class UserYearWorkStatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(useryearworkstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-searchMonthOpenedBugAndCase-all')")
 	@ApiOperation(value = "获取月创建Bug数和创建用例数", tags = {"用户年度工作内容统计" } ,notes = "获取月创建Bug数和创建用例数")
     @RequestMapping(method= RequestMethod.GET , value="/useryearworkstats/fetchmonthopenedbugandcase")
@@ -253,6 +255,7 @@ public class UserYearWorkStatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(useryearworkstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-searchMonthOpenedStory-all')")
 	@ApiOperation(value = "获取月创建需求数", tags = {"用户年度工作内容统计" } ,notes = "获取月创建需求数")
     @RequestMapping(method= RequestMethod.GET , value="/useryearworkstats/fetchmonthopenedstory")
@@ -274,5 +277,7 @@ public class UserYearWorkStatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(useryearworkstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

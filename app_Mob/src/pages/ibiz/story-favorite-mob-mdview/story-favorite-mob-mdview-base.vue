@@ -230,7 +230,7 @@ export default class StoryFavoriteMobMDViewBase extends Vue {
         dataInfo: '',
         viewname:'story.favoritemobmdview',
         iconcls: '',
-        icon: 'fa fa-star-o'
+        icon: 'star-o'
     }
 
     /**

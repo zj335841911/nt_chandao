@@ -146,6 +146,7 @@ public class PSSysAppResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(pssysappMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 	@ApiOperation(value = "获取数据集", tags = {"系统应用" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/pssysapps/fetchdefault")
 	public ResponseEntity<List<PSSysAppDTO>> fetchDefault(PSSysAppSearchContext context) {
@@ -165,5 +166,7 @@ public class PSSysAppResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(pssysappMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

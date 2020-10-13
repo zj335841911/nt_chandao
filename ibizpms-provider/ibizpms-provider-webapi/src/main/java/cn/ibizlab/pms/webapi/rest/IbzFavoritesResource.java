@@ -157,5 +157,7 @@ public class IbzFavoritesResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzfavoritesMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

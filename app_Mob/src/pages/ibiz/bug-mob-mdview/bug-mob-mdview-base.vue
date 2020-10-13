@@ -264,7 +264,7 @@ export default class BugMobMDViewBase extends Vue {
         dataInfo: '',
         viewname:'bug.mobmdview',
         iconcls: '',
-        icon: 'fa fa-bug'
+        icon: 'bug'
     }
 
     /**

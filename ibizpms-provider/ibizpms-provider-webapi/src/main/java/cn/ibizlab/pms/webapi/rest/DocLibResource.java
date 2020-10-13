@@ -156,5 +156,7 @@ public class DocLibResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

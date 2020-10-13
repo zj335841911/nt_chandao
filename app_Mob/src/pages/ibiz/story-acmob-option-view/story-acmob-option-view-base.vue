@@ -196,7 +196,7 @@ export default class StoryACMobOptionViewBase extends Vue {
         dataInfo: '',
         viewname:'story.acmoboptionview',
         iconcls: '',
-        icon: 'fa fa-star-o'
+        icon: 'star-o'
     }
 
     /**

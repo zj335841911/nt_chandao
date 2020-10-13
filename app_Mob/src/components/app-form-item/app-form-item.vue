@@ -1,12 +1,12 @@
 <template>
   <ion-item :class="[classes,labelPos.toLowerCase()]" :disabled="disabled">
         <template v-if="uiStyle == 'STYLE2'">
-            <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated" :class="required?'app-form-item-label-required':'app-form-item-label-notRequired'" :style="{minWidth:labelWidth+'px'}" position="floating" v-if="isShowCaption && labelWidth > 0">{{isEmptyCaption ? '' : caption}}</ion-label>
+            <ion-label :class="classes" :style="{minWidth:labelWidth+'px'}" position="floating" v-if="isShowCaption && labelWidth > 0">{{isEmptyCaption ? '' : caption}}</ion-label>
             <slot></slot>
         </template>
         <template v-else>
             <template v-if="labelPos == 'LEFT'">
-                <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated" :class="required?'app-form-item-label-required':'app-form-item-label-notRequired'" :style="{minWidth:labelWidth+'px'}" v-if="isShowCaption && labelWidth > 0">{{isEmptyCaption ? '' : caption}}</ion-label>
+                <ion-label  :class="classes" :style="{minWidth:labelWidth+'px'}" v-if="isShowCaption && labelWidth > 0">{{isEmptyCaption ? '' : caption}}</ion-label>
                 <div :style="contentStyle" style="display: flex;align-items: center;">
                     <slot></slot>
                 </div>
@@ -14,8 +14,7 @@
             </template>
             <template v-if="labelPos == 'TOP'">
                 <ion-label
-                class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated"
-                :class="required?'app-form-item-label-required':'app-form-item-label-notRequired'"
+                :class="classes"
                 :style="{minWidth:labelWidth+'px'}"
                 position="floating"
                 v-if="isShowCaption && labelWidth > 0">
@@ -27,7 +26,7 @@
             <template v-if="labelPos == 'RIGHT' ">
                 <slot></slot>
                 <div class="prompt_text_right">{{error}}</div>
-                <ion-label class="sc-ion-label-ios-h sc-ion-label-ios-s ios hydrated" :class="required?'app-form-item-label-required':'app-form-item-label-notRequired'" :style="{minWidth:labelWidth+'px'}" v-if="isShowCaption && labelWidth > 0">{{isEmptyCaption ? '' : caption}}</ion-label>
+                <ion-label :class="classes" :style="{minWidth:labelWidth+'px'}" v-if="isShowCaption && labelWidth > 0">{{isEmptyCaption ? '' : caption}}</ion-label>
             </template>
             <template v-if="labelPos == 'NONE'" >
                 <slot></slot>
@@ -38,21 +37,9 @@
 
 <script lang="ts">
 import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
-import {  Util } from '@/ibiz-core/utils';
+import { Util } from '@/ibiz-core/utils';
 @Component({})
 export default class AppFormItem extends Vue {
-    /**
-     * 内容样式
-     *
-     * @readonly
-     * @memberof AppFormItem
-     */
-    get contentStyle() {
-        return {
-            width: this.isShowCaption && this.labelWidth > 0 ? `calc(100% - ${this.labelWidth}px)` : '100%',
-        }
-    }
-
     /**
      * 名称
      *
@@ -80,21 +67,10 @@ export default class AppFormItem extends Vue {
     /**
      * 表单项值
      *
-     * @type {string}
+     * @type {any}
      * @memberof AppFormItem
      */
     @Prop() public itemValue?: any;
-
-    /**
-     * 校验值规则
-     *
-     * @type {string}
-     * @memberof AppFormItem
-     */
-    @Watch('itemValue')
-    onItemValueChange() {
-        // this.validateRules();
-    }
 
     /**
      * 错误信息
@@ -163,7 +139,7 @@ export default class AppFormItem extends Vue {
     /**
      * 表单项值规则
      *
-     * @type {string}
+     * @type {any}
      * @memberof AppFormItem
      */
     @Prop() public itemRules!: any;
@@ -199,7 +175,6 @@ export default class AppFormItem extends Vue {
         this.computeRequired(newVal);
     }
 
-
     /**
      * 计算样式
      *
@@ -210,32 +185,19 @@ export default class AppFormItem extends Vue {
     get classes(): string[] {
         return [
             'app-form-item',
-            Object.is(this.labelPos, 'TOP') ? 'app-form-item-label-top' : ''
+            Object.is(this.labelPos, 'TOP') ? 'app-form-item-label-top' : '', this.required ? 'app-form-item-label-required' : 'app-form-item-label-notRequired', this.itemValue ? "item-has-value" : "", 'sc-ion-label-ios-h', 'sc-ion-label-ios-s ', 'ios', ' hydrated'
         ];
     }
 
     /**
-     * label样式
+     * 内容样式
      *
      * @readonly
-     * @type {string[]}
-     * @memberof IBizMDControl
-     */
-    get labelclasses(): string[] {
-        return [
-            this.required ? 'app-form-item-label-required' : '',
-            this.labelStyle ? this.labelStyle : ''
-        ];
-    }
-
-    /**
-     * vue 生命周期
-     *
      * @memberof AppFormItem
      */
-    public mounted() {
-        if (this.itemRules) {
-            this.computeRequired(this.itemRules);
+    get contentStyle() {
+        return {
+            width: this.isShowCaption && this.labelWidth > 0 ? `calc(100% - ${this.labelWidth}px)` : '100%',
         }
     }
 
@@ -268,7 +230,7 @@ export default class AppFormItem extends Vue {
      * @memberof AppFormItem
      */
     public async validateRules(): Promise<boolean> {
-        return await this.validate(name,this.itemValue);
+        return await this.validate(name, this.itemValue);
     }
 
     /**
@@ -277,9 +239,9 @@ export default class AppFormItem extends Vue {
      * @returns {boolean}
      * @memberof AppFormItem
      */
-    public validate(property:string, data:any):Promise<any>{
+    public validate(property: string, data: any): Promise<any> {
         return new Promise((resolve, reject) => {
-            Util.validateItem(property,data,this.rules).then(()=>{
+            Util.validateItem(property, data, this.rules).then(() => {
                 this.errorText = "";
                 resolve(true);
             }).catch(({ errors, fields }) => {
@@ -287,6 +249,18 @@ export default class AppFormItem extends Vue {
                 resolve(false);
             });
         });
+
+    }
+
+    /**
+     * vue 生命周期
+     *
+     * @memberof AppFormItem
+     */
+    public mounted() {
+        if (this.itemRules) {
+            this.computeRequired(this.itemRules);
+        }
     }
 
 }

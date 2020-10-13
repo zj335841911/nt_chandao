@@ -69,5 +69,6 @@ public class IBZ_LOGINResource {
         return ResponseEntity.status(HttpStatus.OK).body(ibz_logindto);
     }
 
+
 }
 

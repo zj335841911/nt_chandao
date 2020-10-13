@@ -156,6 +156,7 @@ public class TestResultResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testresultMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"测试结果" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/testresults/fetchdefault")
@@ -177,6 +178,8 @@ public class TestResultResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testresultMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Create-all')")
     @ApiOperation(value = "根据测试用例建立测试结果", tags = {"测试结果" },  notes = "根据测试用例建立测试结果")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/testresults")

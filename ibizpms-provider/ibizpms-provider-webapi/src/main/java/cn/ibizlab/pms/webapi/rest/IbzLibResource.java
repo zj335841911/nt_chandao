@@ -156,5 +156,7 @@ public class IbzLibResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzlibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

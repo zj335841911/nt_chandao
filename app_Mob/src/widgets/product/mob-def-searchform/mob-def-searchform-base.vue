@@ -48,6 +48,9 @@
         <app-search-editor
     codeListType="STATIC" 
     tag="Product__status"
+    :navigateContext="{}"
+    :navigateParam="{}"
+    :context="{}"
     :value="data.n_status_eq"  
     :disabled="detailsModel.n_status_eq.disabled" 
     @change="($event)=>this.data.n_status_eq = $event"/>

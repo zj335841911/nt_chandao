@@ -197,7 +197,7 @@ export default class TestTaskMobEditViewBase extends Vue {
         dataInfo: '',
         viewname:'testtask.mobeditview',
         iconcls: '',
-        icon: 'fa fa-clipboard'
+        icon: 'clipboard'
     }
 
     /**

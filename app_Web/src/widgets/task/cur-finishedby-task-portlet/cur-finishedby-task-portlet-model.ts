@@ -183,6 +183,9 @@ export default class CurFinishedbyTaskModel {
       {
         name: 'tasktype',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

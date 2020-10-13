@@ -138,24 +138,30 @@ export class ExpControlLayout extends Vue {
      */
     protected renderSplit(): any {
         let showHeader = false;
-        if (this.$slots.title || this.$slots.toolbar || this.$slots.quickSearch) {
+        if (this.$slots.title || this.$slots.quickGroupSearch || (!this.$slots.toolbar && this.$slots.quickSearch)) {
             showHeader = true;
         }
         return <split class={{ 'exp-control-layout': true, 'animation': this.showAnimation }} v-model={this.split} mode={this.mode} min={(this.ctrlHeight > 0 || this.ctrlWidth > 0) ? this.defaultSplit : null}>
             <template slot={this.mode === 'horizontal' ? 'left' : 'top'}>
                 <div class="exp-control-layout-exp">
-                    {showHeader ? <div class="exp-header">
-                        {this.$slots.title ? <div class="exp-header-title">
-                            {this.$slots.title}
-                        </div> : null}
-                        {this.$slots.toolbar ? <div class="exp-toolbar">
-                            {this.$slots.toolbar}
-                        </div> : null}
+                    {this.$slots.toolbar ? <div key='exp-top' class='exp-top'>
+                        {this.$slots.toolbar ? <div class="exp-toolbar">{this.$slots.toolbar}</div> : null}
                         {this.$slots.quickSearch ? <div class="exp-quick-search">
                             {this.$slots.quickSearch}
                         </div> : null}
                     </div> : null}
-                    <div class={{ 'exp-content': true, 'hidden-header': !showHeader }}>
+                    {showHeader ? <div key='exp-header' class="exp-header">
+                        {this.$slots.title ? <div class="exp-header-title">
+                            {this.$slots.title}
+                        </div> : null}
+                        {this.$slots.quickGroupSearch ? <div key='exp-quick-group-search' class='exp-quick-group-search'>
+                            {this.$slots.quickGroupSearch}
+                        </div> : null}
+                        {!this.$slots.toolbar && this.$slots.quickSearch ? <div class="exp-quick-search">
+                            {this.$slots.quickSearch}
+                        </div> : null}
+                    </div> : null}
+                    <div key='exp-content' class={{ 'exp-content': true, 'hidden-header': !showHeader }}>
                         {this.$slots.expContent}
                     </div>
                 </div>

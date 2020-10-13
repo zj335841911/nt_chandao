@@ -196,7 +196,7 @@ export default class BugRMobOptionViewBase extends Vue {
         dataInfo: '',
         viewname:'bug.rmoboptionview',
         iconcls: '',
-        icon: 'fa fa-bug'
+        icon: 'bug'
     }
 
     /**

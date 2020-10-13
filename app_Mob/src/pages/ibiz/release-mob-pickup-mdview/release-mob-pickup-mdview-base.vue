@@ -175,7 +175,7 @@ export default class ReleaseMobPickupMDViewBase extends Vue {
         dataInfo: '',
         viewname:'release.mobpickupmdview',
         iconcls: '',
-        icon: 'fa fa-flag-o'
+        icon: 'flag-o'
     }
 
     /**

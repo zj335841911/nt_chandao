@@ -5871,10 +5871,10 @@
     "codename":"ObjectID",
     "field_logic_name":"对象ID",
     "entity_name":"File",
-    "field_type":"INT",
+    "field_type":"BIGINT",
     "nullable":1,
     "physical_field":1,
-    "data_type":"INT",
+    "data_type":"BIGINT",
     "key_field":0,
     "major_field":0
     },
@@ -26760,6 +26760,19 @@
     "physical_field":0,
     "data_type":"VARCHAR",
     "data_length":200,
+    "key_field":0,
+    "major_field":0
+    },
+    {
+    "fieldname":"FILES" ,
+    "codename":"Files",
+    "field_logic_name":"附件",
+    "entity_name":"Task",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":1000,
     "key_field":0,
     "major_field":0
     }

@@ -27,8 +27,8 @@ import cn.ibizlab.pms.core.zentao.domain.File;
 @Data
 public class FileSearchContext extends QueryWrapperContext<File> {
 
-	private Integer n_objectid_eq;//[对象ID]
-	public void setN_objectid_eq(Integer n_objectid_eq) {
+	private Long n_objectid_eq;//[对象ID]
+	public void setN_objectid_eq(Long n_objectid_eq) {
         this.n_objectid_eq = n_objectid_eq;
         if(!ObjectUtils.isEmpty(this.n_objectid_eq)){
             this.getSearchCond().eq("objectid", n_objectid_eq);

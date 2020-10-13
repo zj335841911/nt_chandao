@@ -203,7 +203,7 @@ export default class BugColseMobEditViewBase extends Vue {
         dataInfo: '',
         viewname:'bug.colsemobeditview',
         iconcls: '',
-        icon: 'fa fa-bug'
+        icon: 'bug'
     }
 
     /**

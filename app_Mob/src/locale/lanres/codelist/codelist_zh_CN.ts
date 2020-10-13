@@ -568,6 +568,7 @@ export default {
         'bug': 'Bug',
         'task': '项目任务',
         'story': '项目需求',
+        'cycle': '周期',
         empty: '',
     },
     Task__closed_reason: {

@@ -196,7 +196,7 @@ export default class TaskCancelMobOptionViewBase extends Vue {
         dataInfo: '',
         viewname:'task.cancelmoboptionview',
         iconcls: '',
-        icon: 'fa fa-tasks'
+        icon: 'tasks'
     }
 
     /**

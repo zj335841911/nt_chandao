@@ -156,5 +156,7 @@ public class UserTplResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(usertplMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

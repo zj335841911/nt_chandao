@@ -260,6 +260,10 @@ export default class ExpService extends ControlService {
             let treeNode: any = {};
             Object.assign(treeNode, { text: i18n.t('entities.productmodule.exp_treeview.nodes.all') });
             Object.assign(treeNode, { isUseLangRes: true });
+            if(filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")){
+                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.getSrfnodefilter().toUpperCase())==-1)
+                    return Promise.reject();
+            }
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
             let strNodeId: string = 'ALL';
@@ -340,6 +344,7 @@ export default class ExpService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
@@ -486,6 +491,10 @@ export default class ExpService extends ControlService {
             let treeNode: any = {};
             Object.assign(treeNode, { text: i18n.t('entities.productmodule.exp_treeview.nodes.branch') });
             Object.assign(treeNode, { isUseLangRes: true });
+            if(filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")){
+                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.getSrfnodefilter().toUpperCase())==-1)
+                    return Promise.reject();
+            }
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
             let strNodeId: string = 'BRANCH';
@@ -557,6 +566,10 @@ export default class ExpService extends ControlService {
             let treeNode: any = {};
             Object.assign(treeNode, { text: i18n.t('entities.productmodule.exp_treeview.nodes.root') });
             Object.assign(treeNode, { isUseLangRes: true });
+            if(filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")){
+                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.getSrfnodefilter().toUpperCase())==-1)
+                    return Promise.reject();
+            }
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
             let strNodeId: string = 'ROOT';
@@ -629,6 +642,7 @@ export default class ExpService extends ControlService {
             }
 
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
@@ -793,6 +807,7 @@ export default class ExpService extends ControlService {
             }
 
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
@@ -945,6 +960,7 @@ export default class ExpService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
