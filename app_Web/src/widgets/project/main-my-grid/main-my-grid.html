@@ -130,7 +130,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('hours')">
-                <el-table-column show-overflow-tooltip :prop="'hours'" :label="$t('entities.project.mainmy_grid.columns.hours')" :width="100"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'hours'" :label="$t('entities.project.mainmy_grid.columns.hours')" :width="130"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.project.mainmy_grid.columns.hours')}}
