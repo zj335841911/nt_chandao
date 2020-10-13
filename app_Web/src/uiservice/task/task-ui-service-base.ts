@@ -94,6 +94,7 @@ export default class TaskUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'tasks',component:'task-main-my-grid-view'});
         this.allViewMap.set(':',{viewname:'maingridview9_child',srfappde:'tasks',component:'task-main-grid-view9-child'});
         this.allViewMap.set(':',{viewname:'maininfoview9',srfappde:'tasks',component:'task-main-info-view9'});
+        this.allViewMap.set(':',{viewname:'restarttaskview',srfappde:'tasks',component:'task-restart-task-view'});
         this.allViewMap.set(':',{viewname:'todoeditview',srfappde:'tasks',component:'task-todo-edit-view'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'tasks',component:'task-grid-view'});
         this.allViewMap.set(':',{viewname:'maindashboardview_link',srfappde:'tasks',component:'task-main-dashboard-view-link'});
@@ -774,6 +775,72 @@ export default class TaskUIServiceBase extends UIService {
                 height: 600, 
                 width: 800,  
                 title: actionContext.$t('entities.task.views.closetaskview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * 继续
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Task_ReStartTask(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { task: '%task%' });
+        Object.assign(params, { id: '%task%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.story && true){
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'task-restart-task-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.task.views.restarttaskview.title'),
             };
             openPopupModal(view, data);
     }

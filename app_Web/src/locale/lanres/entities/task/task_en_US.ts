@@ -79,6 +79,10 @@ export default {
 			caption: "任务",
       		title: "任务编辑视图",
 		},
+		restarttaskview: {
+			caption: "继续任务",
+      		title: "继续任务",
+		},
 		todoeditview: {
 			caption: "待办转任务",
       		title: "任务编辑视图",
