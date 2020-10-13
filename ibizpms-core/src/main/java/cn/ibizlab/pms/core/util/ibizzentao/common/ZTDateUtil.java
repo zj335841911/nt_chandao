@@ -11,15 +11,21 @@ import java.util.Calendar;
 @Slf4j
 public class ZTDateUtil {
 
+    private static ZTDateUtil instance = new ZTDateUtil();
+
     public static Timestamp nul(){
-        Story story = new Story() ;
-        story.set("closeddate","0001-01-01");
-        return new Timestamp(story.getCloseddate().getTime()) ;
+       return null;
     }
 
     public static  Timestamp now(){
         return new Timestamp(System.currentTimeMillis()) ;
     }
+
+    public static ZTDateUtil getInstance(){
+        return instance;
+    }
+
+
 
 
 }

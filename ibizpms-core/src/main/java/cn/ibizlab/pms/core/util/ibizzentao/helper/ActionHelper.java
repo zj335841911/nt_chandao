@@ -57,17 +57,25 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
      */
     @Transactional
     public boolean edit(Action et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId())))
-            return false;
-        CachedBeanCopier.copy(get(et.getId()), et);
-        return true;
+        return internalUpdate(et);
     }
 
 
+    /**
+     *
+     * @param objectType
+     * @param objectID
+     * @param actionType
+     * @param comment
+     * @param extra
+     * @param actor
+     * @param autoDelete
+     * @return
+     */
     @Transactional
     public Action create(String objectType, Long objectID, String actionType, String comment, String extra, String actor, boolean autoDelete) {
         Action et = new Action();
-        if(actor==null)
+        if (actor == null)
             actor = AuthenticationUser.getAuthenticationUser().getUsername();
         objectType = objectType.replace("`", "");
         et.setObjecttype(objectType.toLowerCase());
@@ -121,9 +129,10 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
     }
 
     @Transactional
-    public boolean editComment(Action et){
+    public Action editComment(Action et) {
         et.setDate(ZTDateUtil.now());
-        return this.internalUpdate(et);
+        this.internalUpdate(et);
+        return et;
     }
 
 
