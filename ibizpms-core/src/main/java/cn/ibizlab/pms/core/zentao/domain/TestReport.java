@@ -44,6 +44,7 @@ public class TestReport extends EntityMP implements Serializable {
     /**
      * 所属对象
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`objectid`")
     @JSONField(name = "objectid")
     @JsonProperty("objectid")
@@ -51,6 +52,7 @@ public class TestReport extends EntityMP implements Serializable {
     /**
      * 用例
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`cases`")
     @JSONField(name = "cases")
     @JsonProperty("cases")
@@ -58,6 +60,7 @@ public class TestReport extends EntityMP implements Serializable {
     /**
      * 参与人员
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`members`")
     @JSONField(name = "members")
     @JsonProperty("members")
@@ -65,6 +68,7 @@ public class TestReport extends EntityMP implements Serializable {
     /**
      * 测试的Bug
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`bugs`")
     @JSONField(name = "bugs")
     @JsonProperty("bugs")
@@ -80,6 +84,7 @@ public class TestReport extends EntityMP implements Serializable {
     /**
      * 测试的需求
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`stories`")
     @JSONField(name = "stories")
     @JsonProperty("stories")
@@ -87,6 +92,7 @@ public class TestReport extends EntityMP implements Serializable {
     /**
      * 测试单
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`tasks`")
     @JSONField(name = "tasks")
     @JsonProperty("tasks")
@@ -109,6 +115,7 @@ public class TestReport extends EntityMP implements Serializable {
     /**
      * 对象类型
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`objecttype`")
     @JSONField(name = "objecttype")
     @JsonProperty("objecttype")
@@ -124,6 +131,7 @@ public class TestReport extends EntityMP implements Serializable {
     /**
      * 版本信息
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`builds`")
     @JSONField(name = "builds")
     @JsonProperty("builds")
@@ -140,6 +148,7 @@ public class TestReport extends EntityMP implements Serializable {
     /**
      * 总结
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`report`")
     @JSONField(name = "report")
     @JsonProperty("report")
@@ -155,6 +164,7 @@ public class TestReport extends EntityMP implements Serializable {
     /**
      * 负责人
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`owner`")
     @JSONField(name = "owner")
     @JsonProperty("owner")
@@ -171,6 +181,7 @@ public class TestReport extends EntityMP implements Serializable {
     /**
      * 所属产品
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`product`")
     @JSONField(name = "product")
     @JsonProperty("product")
@@ -178,6 +189,7 @@ public class TestReport extends EntityMP implements Serializable {
     /**
      * 所属项目
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`project`")
     @JSONField(name = "project")
     @JsonProperty("project")

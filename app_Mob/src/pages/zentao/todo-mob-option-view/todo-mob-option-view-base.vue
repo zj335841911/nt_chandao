@@ -347,6 +347,7 @@ export default class TodoMobOptionViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 
@@ -497,6 +498,10 @@ export default class TodoMobOptionViewBase extends Vue {
      * @memberof TodoMobOptionViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
               let result = await this.cheackChange();
       if(result){
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){

@@ -52,6 +52,7 @@ public interface ICaseService extends IService<Case>{
     Case unlinkSuiteCase(Case et) ;
     Case unlinkSuiteCases(Case et) ;
     Page<Case> searchBatchNew(CaseSearchContext context) ;
+    Page<Case> searchCurOpenedCase(CaseSearchContext context) ;
     Page<Case> searchCurSuite(CaseSearchContext context) ;
     Page<Case> searchCurTestTask(CaseSearchContext context) ;
     Page<Case> searchDefault(CaseSearchContext context) ;

@@ -82,7 +82,7 @@
         
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.disabled}" v-show="righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1_openbaseinfoeditviewmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_openbaseinfoeditviewmob' }, $event)" size="large">
-                    <ion-icon name="edit (alias)"></ion-icon>
+                    <ion-icon name="edit"></ion-icon>
                 <span class="btn-inner-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_openbaseinfoeditviewmob.caption')}}</span>
                 </ion-button>
                 <span class="btn-out-text">{{$t('story.mobeditviewrighttoolbar_toolbar.deuiaction1_openbaseinfoeditviewmob.caption')}}</span>
@@ -472,6 +472,7 @@ export default class StoryMobEditViewBase extends Vue {
             const bainfo:any = JSON.parse(this.$route.query.bsinfo as string);
             Object.assign(this.viewparams,bainfo);
         }
+
 
     }
 
@@ -865,6 +866,10 @@ export default class StoryMobEditViewBase extends Vue {
      * @memberof StoryMobEditViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
                 let result = await this.cheackChange();
         if(result){
             if (this.viewDefaultUsage === "routerView") {

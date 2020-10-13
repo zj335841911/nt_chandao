@@ -120,6 +120,50 @@ public class UserYearWorkStatsResource {
         return  ResponseEntity.status(HttpStatus.OK).body(useryearworkstatsService.checkKey(useryearworkstatsMapping.toDomain(useryearworkstatsdto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-GetDevInfomation-all')")
+    @ApiOperation(value = "获取研发人员相关数据", tags = {"用户年度工作内容统计" },  notes = "获取研发人员相关数据")
+	@RequestMapping(method = RequestMethod.GET, value = "/useryearworkstats/{useryearworkstats_id}/getdevinfomation")
+    public ResponseEntity<UserYearWorkStatsDTO> getDevInfomation(@PathVariable("useryearworkstats_id") Long useryearworkstats_id, @RequestBody UserYearWorkStatsDTO useryearworkstatsdto) {
+        UserYearWorkStats domain = useryearworkstatsMapping.toDomain(useryearworkstatsdto);
+        domain.setId(useryearworkstats_id);
+        domain = useryearworkstatsService.getDevInfomation(domain);
+        useryearworkstatsdto = useryearworkstatsMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(useryearworkstatsdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-GetPoInfomation-all')")
+    @ApiOperation(value = "获取产品经理相关数据", tags = {"用户年度工作内容统计" },  notes = "获取产品经理相关数据")
+	@RequestMapping(method = RequestMethod.GET, value = "/useryearworkstats/{useryearworkstats_id}/getpoinfomation")
+    public ResponseEntity<UserYearWorkStatsDTO> getPoInfomation(@PathVariable("useryearworkstats_id") Long useryearworkstats_id, @RequestBody UserYearWorkStatsDTO useryearworkstatsdto) {
+        UserYearWorkStats domain = useryearworkstatsMapping.toDomain(useryearworkstatsdto);
+        domain.setId(useryearworkstats_id);
+        domain = useryearworkstatsService.getPoInfomation(domain);
+        useryearworkstatsdto = useryearworkstatsMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(useryearworkstatsdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-GetQaInfomation-all')")
+    @ApiOperation(value = "获取测试人员相关数据", tags = {"用户年度工作内容统计" },  notes = "获取测试人员相关数据")
+	@RequestMapping(method = RequestMethod.GET, value = "/useryearworkstats/{useryearworkstats_id}/getqainfomation")
+    public ResponseEntity<UserYearWorkStatsDTO> getQaInfomation(@PathVariable("useryearworkstats_id") Long useryearworkstats_id, @RequestBody UserYearWorkStatsDTO useryearworkstatsdto) {
+        UserYearWorkStats domain = useryearworkstatsMapping.toDomain(useryearworkstatsdto);
+        domain.setId(useryearworkstats_id);
+        domain = useryearworkstatsService.getQaInfomation(domain);
+        useryearworkstatsdto = useryearworkstatsMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(useryearworkstatsdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-GetUserYearAction-all')")
+    @ApiOperation(value = "获取用户所选年度的动作", tags = {"用户年度工作内容统计" },  notes = "获取用户所选年度的动作")
+	@RequestMapping(method = RequestMethod.PUT, value = "/useryearworkstats/{useryearworkstats_id}/getuseryearaction")
+    public ResponseEntity<UserYearWorkStatsDTO> getUserYearAction(@PathVariable("useryearworkstats_id") Long useryearworkstats_id, @RequestBody UserYearWorkStatsDTO useryearworkstatsdto) {
+        UserYearWorkStats domain = useryearworkstatsMapping.toDomain(useryearworkstatsdto);
+        domain.setId(useryearworkstats_id);
+        domain = useryearworkstatsService.getUserYearAction(domain);
+        useryearworkstatsdto = useryearworkstatsMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(useryearworkstatsdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-Save-all')")
     @ApiOperation(value = "保存用户年度工作内容统计", tags = {"用户年度工作内容统计" },  notes = "保存用户年度工作内容统计")
 	@RequestMapping(method = RequestMethod.POST, value = "/useryearworkstats/save")
@@ -133,6 +177,17 @@ public class UserYearWorkStatsResource {
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<UserYearWorkStatsDTO> useryearworkstatsdtos) {
         useryearworkstatsService.saveBatch(useryearworkstatsMapping.toDomain(useryearworkstatsdtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-UpdateTitleByYear-all')")
+    @ApiOperation(value = "更新标题", tags = {"用户年度工作内容统计" },  notes = "更新标题")
+	@RequestMapping(method = RequestMethod.PUT, value = "/useryearworkstats/{useryearworkstats_id}/updatetitlebyyear")
+    public ResponseEntity<UserYearWorkStatsDTO> updateTitleByYear(@PathVariable("useryearworkstats_id") Long useryearworkstats_id, @RequestBody UserYearWorkStatsDTO useryearworkstatsdto) {
+        UserYearWorkStats domain = useryearworkstatsMapping.toDomain(useryearworkstatsdto);
+        domain.setId(useryearworkstats_id);
+        domain = useryearworkstatsService.updateTitleByYear(domain);
+        useryearworkstatsdto = useryearworkstatsMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(useryearworkstatsdto);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-searchDefault-all')")
@@ -153,6 +208,69 @@ public class UserYearWorkStatsResource {
     @RequestMapping(method= RequestMethod.POST , value="/useryearworkstats/searchdefault")
 	public ResponseEntity<Page<UserYearWorkStatsDTO>> searchDefault(@RequestBody UserYearWorkStatsSearchContext context) {
         Page<UserYearWorkStats> domains = useryearworkstatsService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(useryearworkstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-searchMonthFinishTaskAndBug-all')")
+	@ApiOperation(value = "获取月完成任务数及累计工时和解决Bug数", tags = {"用户年度工作内容统计" } ,notes = "获取月完成任务数及累计工时和解决Bug数")
+    @RequestMapping(method= RequestMethod.GET , value="/useryearworkstats/fetchmonthfinishtaskandbug")
+	public ResponseEntity<List<UserYearWorkStatsDTO>> fetchMonthFinishTaskAndBug(UserYearWorkStatsSearchContext context) {
+        Page<UserYearWorkStats> domains = useryearworkstatsService.searchMonthFinishTaskAndBug(context) ;
+        List<UserYearWorkStatsDTO> list = useryearworkstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-searchMonthFinishTaskAndBug-all')")
+	@ApiOperation(value = "查询月完成任务数及累计工时和解决Bug数", tags = {"用户年度工作内容统计" } ,notes = "查询月完成任务数及累计工时和解决Bug数")
+    @RequestMapping(method= RequestMethod.POST , value="/useryearworkstats/searchmonthfinishtaskandbug")
+	public ResponseEntity<Page<UserYearWorkStatsDTO>> searchMonthFinishTaskAndBug(@RequestBody UserYearWorkStatsSearchContext context) {
+        Page<UserYearWorkStats> domains = useryearworkstatsService.searchMonthFinishTaskAndBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(useryearworkstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-searchMonthOpenedBugAndCase-all')")
+	@ApiOperation(value = "获取月创建Bug数和创建用例数", tags = {"用户年度工作内容统计" } ,notes = "获取月创建Bug数和创建用例数")
+    @RequestMapping(method= RequestMethod.GET , value="/useryearworkstats/fetchmonthopenedbugandcase")
+	public ResponseEntity<List<UserYearWorkStatsDTO>> fetchMonthOpenedBugAndCase(UserYearWorkStatsSearchContext context) {
+        Page<UserYearWorkStats> domains = useryearworkstatsService.searchMonthOpenedBugAndCase(context) ;
+        List<UserYearWorkStatsDTO> list = useryearworkstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-searchMonthOpenedBugAndCase-all')")
+	@ApiOperation(value = "查询月创建Bug数和创建用例数", tags = {"用户年度工作内容统计" } ,notes = "查询月创建Bug数和创建用例数")
+    @RequestMapping(method= RequestMethod.POST , value="/useryearworkstats/searchmonthopenedbugandcase")
+	public ResponseEntity<Page<UserYearWorkStatsDTO>> searchMonthOpenedBugAndCase(@RequestBody UserYearWorkStatsSearchContext context) {
+        Page<UserYearWorkStats> domains = useryearworkstatsService.searchMonthOpenedBugAndCase(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(useryearworkstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-searchMonthOpenedStory-all')")
+	@ApiOperation(value = "获取月创建需求数", tags = {"用户年度工作内容统计" } ,notes = "获取月创建需求数")
+    @RequestMapping(method= RequestMethod.GET , value="/useryearworkstats/fetchmonthopenedstory")
+	public ResponseEntity<List<UserYearWorkStatsDTO>> fetchMonthOpenedStory(UserYearWorkStatsSearchContext context) {
+        Page<UserYearWorkStats> domains = useryearworkstatsService.searchMonthOpenedStory(context) ;
+        List<UserYearWorkStatsDTO> list = useryearworkstatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserYearWorkStats-searchMonthOpenedStory-all')")
+	@ApiOperation(value = "查询月创建需求数", tags = {"用户年度工作内容统计" } ,notes = "查询月创建需求数")
+    @RequestMapping(method= RequestMethod.POST , value="/useryearworkstats/searchmonthopenedstory")
+	public ResponseEntity<Page<UserYearWorkStatsDTO>> searchMonthOpenedStory(@RequestBody UserYearWorkStatsSearchContext context) {
+        Page<UserYearWorkStats> domains = useryearworkstatsService.searchMonthOpenedStory(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(useryearworkstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

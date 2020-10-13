@@ -93,4 +93,12 @@ export interface ProductSum {
      * @memberof ProductSum
      */
     storycnt?: any;
+
+    /**
+     * Bug数
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    bugcnt?: any;
 }

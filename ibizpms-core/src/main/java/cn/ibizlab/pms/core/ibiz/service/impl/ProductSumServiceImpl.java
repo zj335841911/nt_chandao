@@ -152,11 +152,29 @@ public class ProductSumServiceImpl extends ServiceImpl<ProductSumMapper, Product
     }
 
     /**
+     * 查询集合 产品创建bug数及占比
+     */
+    @Override
+    public Page<ProductSum> searchProductBugcnt_QA(ProductSumSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductSum> pages=baseMapper.searchProductBugcnt_QA(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProductSum>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 产品创建需求占比
      */
     @Override
     public Page<ProductSum> searchProductCreateStory(ProductSumSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductSum> pages=baseMapper.searchProductCreateStory(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProductSum>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 产品计划数和需求数
+     */
+    @Override
+    public Page<ProductSum> searchProductStorycntAndPlancnt(ProductSumSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductSum> pages=baseMapper.searchProductStorycntAndPlancnt(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProductSum>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

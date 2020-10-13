@@ -60,6 +60,7 @@ public class CaseStep extends EntityMP implements Serializable {
     /**
      * 步骤
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
@@ -67,6 +68,7 @@ public class CaseStep extends EntityMP implements Serializable {
     /**
      * 预期
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`expect`")
     @JSONField(name = "expect")
     @JsonProperty("expect")
@@ -82,7 +84,7 @@ public class CaseStep extends EntityMP implements Serializable {
     /**
      * 用例
      */
-    @DEField(name = "case")
+    @DEField(defaultValue = "0")
     @TableField(value = "`case`")
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")

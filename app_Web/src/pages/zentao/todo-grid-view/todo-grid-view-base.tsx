@@ -60,28 +60,6 @@ export class TodoGridViewBase extends GridViewBase {
      */
     public appUIService: TodoUIService = new TodoUIService(this.$store);
 
-	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TodoGridViewBase
-	 */
-    protected customViewNavContexts: any = {
-        'N_ACCOUNT_EQ': { isRawValue: false, value: 'srfloginname' }
-    };
-
-	/**
-	 * 自定义视图导航参数集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TodoGridViewBase
-	 */
-    protected customViewParams: any = {
-        'n_account_eq': { isRawValue: false, value: 'srfloginname' }
-    };
-
     /**
      * 视图模型数据
      *

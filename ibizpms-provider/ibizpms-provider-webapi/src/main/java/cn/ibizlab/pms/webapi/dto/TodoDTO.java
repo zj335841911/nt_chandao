@@ -166,7 +166,6 @@ public class TodoDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "name")
     @JsonProperty("name")
-    @NotBlank(message = "[待办名称]不允许为空!")
     @Size(min = 0, max = 150, message = "内容长度必须小于等于[150]")
     private String name;
 
@@ -310,14 +309,6 @@ public class TodoDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String dateDisable;
 
-
-    /**
-     * 设置 [ACCOUNT]
-     */
-    public void setAccount(String  account){
-        this.account = account ;
-        this.modify("account",account);
-    }
 
     /**
      * 设置 [CLOSEDDATE]

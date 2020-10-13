@@ -46,7 +46,7 @@
     :error="detailsModel.n_status_eq.error" 
     :isEmptyCaption="false">
         <app-search-editor
-    type="static" 
+    codeListType="STATIC" 
     tag="Product__status"
     :value="data.n_status_eq"  
     :disabled="detailsModel.n_status_eq.disabled" 

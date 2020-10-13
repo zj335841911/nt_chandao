@@ -1,13 +1,13 @@
 <template>
     <div  class="app-mob-mdctrl project-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
-                <ion-list class="items">
+                <ion-list class="items" ref="ionlist">
                   <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                       <app-list-index-text :item="item" :index="item.id" @clickItem="item_click"></app-list-index-text>
                       <ion-button v-if="!isTempMode && !allLoaded && needLoadMore" class="loadmore_btn"   @click="loadBottom">{{$t('app.button.loadmore')}}</ion-button>
                   </template>
                 </ion-list>
-                <ion-list class="items">
+                <ion-list class="items" ref="ionlist">
                   <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
                             <ion-item-option v-show="item.EditMod.visabled" :disabled="item.EditMod.disabled" color="primary" @click="mdctrl_click($event, 'ueeac2b8', item)"><ion-icon v-if="item.EditMod.icon && item.EditMod.isShowIcon" :name="item.EditMod.icon"></ion-icon><ion-label v-if="item.EditMod.isShowCaption">详情</ion-label></ion-item-option>
@@ -1203,11 +1203,16 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mdctrl
      */
     public closeSlidings () {
-        let slidings:any = this.$refs.sliding; 
-        if (slidings) {
-            slidings.forEach((sliding:any) => {
-                sliding.close()
-            })     
+        let ionlist:any = this.$refs.ionlist;
+        if (ionlist.children) {
+          ionlist.children.forEach((sliding:any) => {
+            if(typeof sliding.close === 'function'){
+              sliding.close();
+            }
+            if(typeof sliding.closeOpened === 'function'){
+            sliding.closeOpened();
+            }
+          })
         }
     }
 

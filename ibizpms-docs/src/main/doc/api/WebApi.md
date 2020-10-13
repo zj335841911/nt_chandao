@@ -221,6 +221,7 @@
 |/task/fetchassignedtomytask|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchbymodule|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchchildtask|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/task/fetchcurfinishtask|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchdefaultrow|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchmyfavorites|GET|DEDataSetFetchContext Json对象|&nbsp;|
@@ -287,8 +288,16 @@
 |/useryearworkstats|GET|用户年度工作内容统计标识|&nbsp;|
 |/useryearworkstats/getdraft|GET|用户年度工作内容统计 Json对象|&nbsp;|
 |/useryearworkstats/checkkey|POST|用户年度工作内容统计 Json对象|&nbsp;|
+|/useryearworkstats/getdevinfomation|GET|用户年度工作内容统计 Json对象|&nbsp;|
+|/useryearworkstats/getpoinfomation|GET|用户年度工作内容统计 Json对象|&nbsp;|
+|/useryearworkstats/getqainfomation|GET|用户年度工作内容统计 Json对象|&nbsp;|
+|/useryearworkstats/getuseryearaction|PUT|用户年度工作内容统计 Json对象|&nbsp;|
 |/useryearworkstats/save|POST|用户年度工作内容统计 Json对象|&nbsp;|
+|/useryearworkstats/updatetitlebyyear|PUT|用户年度工作内容统计 Json对象|&nbsp;|
 |/useryearworkstats/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/useryearworkstats/fetchmonthfinishtaskandbug|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/useryearworkstats/fetchmonthopenedbugandcase|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/useryearworkstats/fetchmonthopenedstory|GET|DEDataSetFetchContext Json对象|&nbsp;|
 ## 项目相关接口
 
 | 接口路径   | 请求方式   |    请求参数    | 备注 |
@@ -320,6 +329,8 @@
 |/project/fetchcurproduct|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/project/fetchcuruser|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/project/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/project/fetchinvolvedproject|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/project/fetchinvolvedproject_storytaskbug|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/project/fetchmyproject|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/project/fetchprojectteam|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/project/fetchstoryproject|GET|DEDataSetFetchContext Json对象|&nbsp;|
@@ -517,6 +528,7 @@
 |/story/fetchbymodule|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchgetproductstories|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/story/fetchmycuropenedstory|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchmyfavorites|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchparentdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchprojectlinkstory|GET|DEDataSetFetchContext Json对象|&nbsp;|
@@ -541,7 +553,9 @@
 |/productsum/checkkey|POST|产品汇总表 Json对象|&nbsp;|
 |/productsum/save|POST|产品汇总表 Json对象|&nbsp;|
 |/productsum/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/productsum/fetchproductbugcnt_qa|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productsum/fetchproductcreatestory|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/productsum/fetchproductstorycntandplancnt|GET|DEDataSetFetchContext Json对象|&nbsp;|
 ## 测试用例相关接口
 
 | 接口路径   | 请求方式   |    请求参数    | 备注 |
@@ -570,6 +584,7 @@
 |/case/unlinksuitecase|POST|测试用例 Json对象|&nbsp;|
 |/case/unlinksuitecases|POST|测试用例 Json对象|&nbsp;|
 |/case/fetchbatchnew|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/case/fetchcuropenedcase|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/case/fetchcursuite|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/case/fetchcurtesttask|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/case/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
@@ -680,6 +695,7 @@
 |/action/fetchmobtype|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/action/fetchproducttrends|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/action/fetchprojecttrends|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/action/fetchqueryuseryear|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/action/fetchtype|GET|DEDataSetFetchContext Json对象|&nbsp;|
 ## 系统应用相关接口
 
@@ -779,6 +795,7 @@
 |/story/fetchbymodule|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchgetproductstories|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/story/fetchmycuropenedstory|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchmyfavorites|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchparentdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchprojectlinkstory|GET|DEDataSetFetchContext Json对象|&nbsp;|
@@ -974,6 +991,7 @@
 |/bug/fetchbuildproducebugtype_project|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bug/fetchcuruserresolve|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bug/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/bug/fetchmycuropenedbug|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bug/fetchmyfavorites|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bug/fetchprojectbugs|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bug/fetchreleasebugs|GET|DEDataSetFetchContext Json对象|&nbsp;|
@@ -1171,6 +1189,7 @@
 |/task/fetchassignedtomytask|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchbymodule|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchchildtask|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/task/fetchcurfinishtask|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchdefaultrow|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchmyfavorites|GET|DEDataSetFetchContext Json对象|&nbsp;|

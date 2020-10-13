@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { Vue, Component, Prop, Provide, Emit, Watch, } from "vue-property-decorator";
-import { themeGroup } from './config'
+import { appConfig } from '@/config/appConfig'
 @Component({
     i18n: {
         messages: {
@@ -52,7 +52,7 @@ export default class AppSelectTheme extends Vue {
         } else if (localStorage.getItem('theme-class')) {
             return localStorage.getItem('theme-class');
         } else {
-            return 'app-dark-blue-theme';
+            return appConfig.defaultTheme;
         }
     }
 
@@ -62,7 +62,7 @@ export default class AppSelectTheme extends Vue {
      * @type {any[]}
      * @memberof AppSelectTheme
      */
-    public options: any[] = themeGroup;
+    public options: any[] = appConfig.themes;
 
     /**
      * 激活主题

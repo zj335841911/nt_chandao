@@ -161,6 +161,27 @@ export default class ZentaoModel {
                 }
                 ,
                 		        {
+                	id: '2A5D7A95-FD8A-46D2-829A-B297A1CE6207',
+                	name: 'menuitem25',
+                	text: '年度统计',
+                	type: 'MENUITEM',
+                	counterid: '',
+                	tooltip: '年度统计',
+                	expanded: false,
+                	separator: false,
+                	hidden: false,
+                	hidesidebar: false,
+                	opendefault: false,
+                	iconcls: '',
+                	icon: '',
+                	textcls: '',
+                	appfunctag: 'POAppFunc',
+                	appfuncyype: 'APPVIEW',
+                	viewname: 'user-year-work-stats-edit-view',
+                	authtag:'Web-zentao-menuitem25',
+                }
+                ,
+                		        {
                 	id: '28e753fc0b33a6fadf12f5f37150bb5a',
                 	name: 'menuitem10',
                 	text: '用例库',
@@ -718,6 +739,18 @@ export default class ZentaoModel {
             ],
         },
         {
+            appfunctag: '_3',
+            appfuncyype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibzprostorygridview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibzprostories/:ibzprostory?/gridview/:gridview?',
+            parameters: [
+                { pathName: 'ibzprostories', parameterName: 'ibzprostory' },
+                { pathName: 'gridview', parameterName: 'gridview' },
+            ],
+        },
+        {
             appfunctag: 'Auto19',
             appfuncyype: 'APPVIEW',
             openmode: '',
@@ -730,15 +763,15 @@ export default class ZentaoModel {
             ],
         },
         {
-            appfunctag: '_3',
+            appfunctag: 'POAppFunc',
             appfuncyype: 'APPVIEW',
-            openmode: '',
-            codename: 'ibzprostorygridview',
+            openmode: 'DRAWER_TOP',
+            codename: 'useryearworkstatseditview',
             deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/ibzprostories/:ibzprostory?/gridview/:gridview?',
+            routepath: '/ibizpms/:ibizpms?/useryearworkstats/:useryearworkstats?/editview/:editview?',
             parameters: [
-                { pathName: 'ibzprostories', parameterName: 'ibzprostory' },
-                { pathName: 'gridview', parameterName: 'gridview' },
+                { pathName: 'useryearworkstats', parameterName: 'useryearworkstats' },
+                { pathName: 'editview', parameterName: 'editview' },
             ],
         },
         {

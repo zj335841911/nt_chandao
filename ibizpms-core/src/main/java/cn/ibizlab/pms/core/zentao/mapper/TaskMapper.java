@@ -22,6 +22,7 @@ public interface TaskMapper extends BaseMapper<Task>{
     Page<Task> searchAssignedToMyTask(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper) ;
     Page<Task> searchByModule(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper) ;
     Page<Task> searchChildTask(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper) ;
+    Page<Task> searchCurFinishTask(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper) ;
     Page<Task> searchDefault(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper) ;
     Page<Task> searchDefaultRow(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper) ;
     Page<Task> searchMyFavorites(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper) ;

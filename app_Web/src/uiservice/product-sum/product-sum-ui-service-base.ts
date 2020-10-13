@@ -89,8 +89,12 @@ export default class ProductSumUIServiceBase extends UIService {
      * @memberof  ProductSumUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'pochartview9',srfappde:'productsums',component:'product-sum-po-chart-view9'});
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'productsums',component:'product-sum-grid-view'});
+        this.allViewMap.set(':',{viewname:'usr2gridview',srfappde:'productsums',component:'product-sum-usr2-grid-view'});
         this.allViewMap.set('EDITVIEW:',{viewname:'editview',srfappde:'productsums',component:'product-sum-edit-view'});
+        this.allViewMap.set(':',{viewname:'qachartview9',srfappde:'productsums',component:'product-sum-qa-chart-view9'});
+        this.allViewMap.set(':',{viewname:'usr3gridview',srfappde:'productsums',component:'product-sum-usr3-grid-view'});
     }
 
     /**

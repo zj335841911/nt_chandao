@@ -1,14 +1,19 @@
 package cn.ibizlab.pms.core.extensions.service;
 
 import cn.ibizlab.pms.core.ibiz.domain.TaskTeam;
+import cn.ibizlab.pms.core.ibiz.filter.IbzFavoritesSearchContext;
+import cn.ibizlab.pms.core.ibiz.service.IIbzFavoritesService;
+import cn.ibizlab.pms.core.ibiz.service.impl.IbzFavoritesServiceImpl;
 import cn.ibizlab.pms.core.util.message.SendMessage;
 import cn.ibizlab.pms.core.zentao.domain.TaskEstimate;
 import cn.ibizlab.pms.core.zentao.filter.TaskSearchContext;
 import cn.ibizlab.pms.core.zentao.service.impl.TaskServiceImpl;
+import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Task;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
@@ -27,6 +32,11 @@ import java.util.*;
 @Primary
 @Service("TaskExService")
 public class TaskExService extends TaskServiceImpl {
+
+
+
+    @Autowired
+    IIbzFavoritesService iIbzFavoritesService;
 
     @Override
     protected Class currentModelClass() {
@@ -306,6 +316,13 @@ public class TaskExService extends TaskServiceImpl {
         else{
             et.setTaskteam(taskteamService.selectByRoot(key));
             // et.setTaskestimate(taskestimateService.selectByTask(key));
+        }
+        IbzFavoritesSearchContext ibzFavoritesSearchContext = new IbzFavoritesSearchContext();
+        ibzFavoritesSearchContext.setN_type_eq("task");
+        ibzFavoritesSearchContext.setN_objectid_eq(key);
+        ibzFavoritesSearchContext.setN_account_eq(cn.ibizlab.pms.util.security.AuthenticationUser.getAuthenticationUser().getLoginname());
+        if(iIbzFavoritesService.searchDefault(ibzFavoritesSearchContext).getContent().size() > 0) {
+            et.setIsfavorites("1");
         }
         return et;
     }

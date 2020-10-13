@@ -89,7 +89,8 @@ public class IbzFavoritesDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "objectid")
     @JsonProperty("objectid")
-    private Integer objectid;
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long objectid;
 
     /**
      * 属性 [ACCOUNT]
@@ -121,7 +122,7 @@ public class IbzFavoritesDTO extends DTOBase implements Serializable {
     /**
      * 设置 [OBJECTID]
      */
-    public void setObjectid(Integer  objectid){
+    public void setObjectid(Long  objectid){
         this.objectid = objectid ;
         this.modify("objectid",objectid);
     }

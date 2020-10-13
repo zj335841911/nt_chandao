@@ -141,4 +141,268 @@ export interface UserYearWorkStats {
      * @memberof UserYearWorkStats
      */
     curyear?: any;
+
+    /**
+     * 标题
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    title?: any;
+
+    /**
+     * 月完成任务数
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    monthfinishtask?: any;
+
+    /**
+     * 月累计工时
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    montestimate?: any;
+
+    /**
+     * 月解决Bug数
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    montresolvedbug?: any;
+
+    /**
+     * 当前月
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    curmonth?: any;
+
+    /**
+     * slack
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    slack?: any;
+
+    /**
+     * skype
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    skype?: any;
+
+    /**
+     * score
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    score?: any;
+
+    /**
+     * 微信
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    weixin?: any;
+
+    /**
+     * 入职日期
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    join?: any;
+
+    /**
+     * 电话
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    phone?: any;
+
+    /**
+     * fails
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    fails?: any;
+
+    /**
+     * 邮箱
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    email?: any;
+
+    /**
+     * clientLang
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    clientlang?: any;
+
+    /**
+     * 逻辑删除标志
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    deleted?: any;
+
+    /**
+     * ranzhi
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    ranzhi?: any;
+
+    /**
+     * avatar
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    avatar?: any;
+
+    /**
+     * 源代码账户
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    commiter?: any;
+
+    /**
+     * 性别
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    gender?: any;
+
+    /**
+     * QQ
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    qq?: any;
+
+    /**
+     * birthday
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    birthday?: any;
+
+    /**
+     * locked
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    locked?: any;
+
+    /**
+     * 钉钉
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    dingding?: any;
+
+    /**
+     * ip
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    ip?: any;
+
+    /**
+     * whatsapp
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    whatsapp?: any;
+
+    /**
+     * zipcode
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    zipcode?: any;
+
+    /**
+     * 密码
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    password?: any;
+
+    /**
+     * nickname
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    nickname?: any;
+
+    /**
+     * clientStatus
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    clientstatus?: any;
+
+    /**
+     * scoreLevel
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    scorelevel?: any;
+
+    /**
+     * 手机
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    mobile?: any;
+
+    /**
+     * 最后登录
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    last?: any;
+
+    /**
+     * 通讯地址
+     *
+     * @returns {*}
+     * @memberof UserYearWorkStats
+     */
+    address?: any;
 }

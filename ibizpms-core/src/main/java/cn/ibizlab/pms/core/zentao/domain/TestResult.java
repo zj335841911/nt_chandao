@@ -51,6 +51,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 步骤结果
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`stepresults`")
     @JSONField(name = "stepresults")
     @JsonProperty("stepresults")
@@ -58,6 +59,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 测试结果
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`caseresult`")
     @JSONField(name = "caseresult")
     @JsonProperty("caseresult")
@@ -65,6 +67,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 结果文件
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`xml`")
     @JSONField(name = "xml")
     @JsonProperty("xml")
@@ -72,6 +75,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 持续时间
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`duration`")
     @JSONField(name = "duration")
     @JsonProperty("duration")
@@ -102,6 +106,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 构建任务
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`job`")
     @JSONField(name = "job")
     @JsonProperty("job")
@@ -109,7 +114,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 用例
      */
-    @DEField(name = "case")
+    @DEField(defaultValue = "0")
     @TableField(value = "`case`")
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
@@ -117,6 +122,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 测试执行
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`run`")
     @JSONField(name = "run")
     @JsonProperty("run")
@@ -124,6 +130,7 @@ public class TestResult extends EntityMP implements Serializable {
     /**
      * 代码编译
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`compile`")
     @JSONField(name = "compile")
     @JsonProperty("compile")

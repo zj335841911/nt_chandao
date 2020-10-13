@@ -755,6 +755,27 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyCurOpenedBug-all')")
+	@ApiOperation(value = "获取累计创建的Bug数", tags = {"Bug" } ,notes = "获取累计创建的Bug数")
+    @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchmycuropenedbug")
+	public ResponseEntity<List<BugDTO>> fetchMyCurOpenedBug(BugSearchContext context) {
+        Page<Bug> domains = bugService.searchMyCurOpenedBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyCurOpenedBug-all')")
+	@ApiOperation(value = "查询累计创建的Bug数", tags = {"Bug" } ,notes = "查询累计创建的Bug数")
+    @RequestMapping(method= RequestMethod.POST , value="/bugs/searchmycuropenedbug")
+	public ResponseEntity<Page<BugDTO>> searchMyCurOpenedBug(@RequestBody BugSearchContext context) {
+        Page<Bug> domains = bugService.searchMyCurOpenedBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
 	@ApiOperation(value = "获取我的收藏", tags = {"Bug" } ,notes = "获取我的收藏")
     @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchmyfavorites")
@@ -1663,6 +1684,29 @@ public class BugResource {
 	public ResponseEntity<Page<BugDTO>> searchBugDefaultByProduct(@PathVariable("product_id") Long product_id, @RequestBody BugSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Bug> domains = bugService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyCurOpenedBug-all')")
+	@ApiOperation(value = "根据产品获取累计创建的Bug数", tags = {"Bug" } ,notes = "根据产品获取累计创建的Bug数")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/bugs/fetchmycuropenedbug")
+	public ResponseEntity<List<BugDTO>> fetchBugMyCurOpenedBugByProduct(@PathVariable("product_id") Long product_id,BugSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Bug> domains = bugService.searchMyCurOpenedBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyCurOpenedBug-all')")
+	@ApiOperation(value = "根据产品查询累计创建的Bug数", tags = {"Bug" } ,notes = "根据产品查询累计创建的Bug数")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/bugs/searchmycuropenedbug")
+	public ResponseEntity<Page<BugDTO>> searchBugMyCurOpenedBugByProduct(@PathVariable("product_id") Long product_id, @RequestBody BugSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Bug> domains = bugService.searchMyCurOpenedBug(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -2591,6 +2635,29 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyCurOpenedBug-all')")
+	@ApiOperation(value = "根据需求获取累计创建的Bug数", tags = {"Bug" } ,notes = "根据需求获取累计创建的Bug数")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/bugs/fetchmycuropenedbug")
+	public ResponseEntity<List<BugDTO>> fetchBugMyCurOpenedBugByStory(@PathVariable("story_id") Long story_id,BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchMyCurOpenedBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyCurOpenedBug-all')")
+	@ApiOperation(value = "根据需求查询累计创建的Bug数", tags = {"Bug" } ,notes = "根据需求查询累计创建的Bug数")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/bugs/searchmycuropenedbug")
+	public ResponseEntity<Page<BugDTO>> searchBugMyCurOpenedBugByStory(@PathVariable("story_id") Long story_id, @RequestBody BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchMyCurOpenedBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
 	@ApiOperation(value = "根据需求获取我的收藏", tags = {"Bug" } ,notes = "根据需求获取我的收藏")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/bugs/fetchmyfavorites")
@@ -3516,6 +3583,29 @@ public class BugResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyCurOpenedBug-all')")
+	@ApiOperation(value = "根据项目获取累计创建的Bug数", tags = {"Bug" } ,notes = "根据项目获取累计创建的Bug数")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/bugs/fetchmycuropenedbug")
+	public ResponseEntity<List<BugDTO>> fetchBugMyCurOpenedBugByProject(@PathVariable("project_id") Long project_id,BugSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Bug> domains = bugService.searchMyCurOpenedBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyCurOpenedBug-all')")
+	@ApiOperation(value = "根据项目查询累计创建的Bug数", tags = {"Bug" } ,notes = "根据项目查询累计创建的Bug数")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/bugs/searchmycuropenedbug")
+	public ResponseEntity<Page<BugDTO>> searchBugMyCurOpenedBugByProject(@PathVariable("project_id") Long project_id, @RequestBody BugSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Bug> domains = bugService.searchMyCurOpenedBug(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyFavorites-all')")
 	@ApiOperation(value = "根据项目获取我的收藏", tags = {"Bug" } ,notes = "根据项目获取我的收藏")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/bugs/fetchmyfavorites")
@@ -4438,6 +4528,29 @@ public class BugResource {
 	public ResponseEntity<Page<BugDTO>> searchBugDefaultByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody BugSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Bug> domains = bugService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyCurOpenedBug-all')")
+	@ApiOperation(value = "根据产品需求获取累计创建的Bug数", tags = {"Bug" } ,notes = "根据产品需求获取累计创建的Bug数")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/bugs/fetchmycuropenedbug")
+	public ResponseEntity<List<BugDTO>> fetchBugMyCurOpenedBugByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchMyCurOpenedBug(context) ;
+        List<BugDTO> list = bugMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchMyCurOpenedBug-all')")
+	@ApiOperation(value = "根据产品需求查询累计创建的Bug数", tags = {"Bug" } ,notes = "根据产品需求查询累计创建的Bug数")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/bugs/searchmycuropenedbug")
+	public ResponseEntity<Page<BugDTO>> searchBugMyCurOpenedBugByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody BugSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Bug> domains = bugService.searchMyCurOpenedBug(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

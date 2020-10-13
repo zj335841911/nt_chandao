@@ -463,6 +463,7 @@ export const viewstate: any = {
                 'cfc7781789f7706e02b2d2504339de69',
                 '0bd16cd21ee2e8951fb8a86599ac1510',
                 'A49E5FD9-FC90-434B-9E13-192873F6F2AC',
+                'db750bbb894c25f38ca2741f234df3c6',
                 'c8171c13c1ba215f65c8587df1d98ba5',
                 '0f3dff62ef8bcb1662cc82e57a34c56b',
                 'f9dd61cc8713a81451f3cb410cf11bbb',
@@ -624,6 +625,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '770a170098d148e438a7666b248e6519',
+            ],
+        },
+        {
+            viewtag: '2889bd5a8f15aadc0f60686124720c0d',
+            viewmodule: 'ibiz',
+            viewname: 'ProductSumPoChartView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -878,6 +888,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '9ed41cee96088630f3d4b0a91e705930',
+            ],
+        },
+        {
+            viewtag: '3e8a8e6a89e8550bc64a2a8bbae01f15',
+            viewmodule: 'zentao',
+            viewname: 'ProjectChartView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -1895,6 +1914,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '7e9dfdd36617a43790494790f58117ec',
+            viewmodule: 'ibiz',
+            viewname: 'ProductSumUsr2GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ada719b0d8722509d22b4b72bbb8cf26',
+            ],
+        },
+        {
             viewtag: '807a419a917fbfdfa3378d2fac6a2785',
             viewmodule: 'zentao',
             viewname: 'TodoFinishView',
@@ -2456,6 +2485,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'a300309f336ad917bb9fae375cd5620a',
+            viewmodule: 'ibiz',
+            viewname: 'UserYearWorkStatsDashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'a3bd82ec712d2e3ad12e716655e960fc',
             viewmodule: 'zentao',
             viewname: 'TestSuiteGridView',
@@ -2474,6 +2512,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'a4941294aa97081cc5197c07292905af',
+            viewmodule: 'zentao',
+            viewname: 'ProjectGridView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'f83dac873b9215483c4bb91673284b41',
             ],
         },
         {
@@ -2873,6 +2921,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'bb44ef7532c0933ed75b1da291dec073',
+            viewmodule: 'ibiz',
+            viewname: 'UserYearWorkStatsQADashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'bb8860972029d9947daa3652a4b5d291',
             viewmodule: 'ibiz',
             viewname: 'ProjectModuleTreeExpView',
@@ -2995,6 +3052,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'c42384620820be3bce40b5b1dc8dcff2',
+            viewmodule: 'ibiz',
+            viewname: 'UserYearWorkStatsPODashboardView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'c47c534ae15c1fd1a04b5ad78d174841',
             viewmodule: 'zentao',
             viewname: 'TestReportEditView_tosumup',
@@ -3051,18 +3117,8 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 'cef6e71f89bb0007d341328d455f6da0',
-                'db750bbb894c25f38ca2741f234df3c6',
                 'e090d7f19211e8fbbab5d4442c6e58e8',
                 'bef7c08b651990569cd09ce805ebcfe3',
-            ],
-        },
-        {
-            viewtag: 'c862174c0f25d5077870c42115925fee',
-            viewmodule: 'zentao',
-            viewname: 'BugResolveChartView',
-            viewaction: '',
-            viewdatachange: false,
-            refviews: [
             ],
         },
         {
@@ -3398,7 +3454,15 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
-                'c862174c0f25d5077870c42115925fee',
+                'a300309f336ad917bb9fae375cd5620a',
+                '2889bd5a8f15aadc0f60686124720c0d',
+                'c42384620820be3bce40b5b1dc8dcff2',
+                '3e8a8e6a89e8550bc64a2a8bbae01f15',
+                'bb44ef7532c0933ed75b1da291dec073',
+                'f725c5c0e28669d9ef6b02ce237786a5',
+                'e842d6d727d88c2c78b59c033fa27f34',
+                '7e9dfdd36617a43790494790f58117ec',
+                'a4941294aa97081cc5197c07292905af',
             ],
         },
         {
@@ -3590,6 +3654,15 @@ export const viewstate: any = {
             refviews: [
                 'ebf8f4c62f92ff24ff740558f12f7303',
                 '76f07b59aab6db4512723cd3d24ee84e',
+            ],
+        },
+        {
+            viewtag: 'e842d6d727d88c2c78b59c033fa27f34',
+            viewmodule: 'ibiz',
+            viewname: 'ProductSumQaChartView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
@@ -3806,6 +3879,16 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'f725c5c0e28669d9ef6b02ce237786a5',
+            viewmodule: 'ibiz',
+            viewname: 'ProductSumUsr3GridView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'ada719b0d8722509d22b4b72bbb8cf26',
             ],
         },
         {

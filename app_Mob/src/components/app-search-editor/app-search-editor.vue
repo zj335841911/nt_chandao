@@ -1,5 +1,5 @@
 <template>
-  <div class="app-search-editor">
+  <div :style="{ height: setHeight }" class="app-search-editor">
     <div class="app-search-editor-item" :class="{'app-search-editor-item-active':selectValue.value == item.value}" @click="itemClick(item)" v-for="item in options " :key="item.id">{{item.text}}</div>
   </div>
 </template>
@@ -269,6 +269,13 @@ export default class AppSearchEditor extends Vue {
         arg.context = context;
         arg.param = param;
         return true;
+    }
+
+    /**
+     * setHeight
+     */
+    get setHeight() {
+       return this.options.length>3?"105px":"aotu"
     }
 
     /**

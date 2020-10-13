@@ -119,6 +119,13 @@ public class ProductSum extends EntityMP implements Serializable {
     @JSONField(name = "storycnt")
     @JsonProperty("storycnt")
     private Integer storycnt;
+    /**
+     * Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugcnt")
+    @JsonProperty("bugcnt")
+    private Integer bugcnt;
 
 
 

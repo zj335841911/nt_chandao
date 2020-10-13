@@ -327,6 +327,7 @@ export default class StoryLinkStoryMobPickupMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 
@@ -488,6 +489,10 @@ export default class StoryLinkStoryMobPickupMDViewBase extends Vue {
      * @memberof StoryLinkStoryMobPickupMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;

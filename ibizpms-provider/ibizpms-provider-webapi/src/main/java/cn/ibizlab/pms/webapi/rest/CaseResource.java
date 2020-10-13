@@ -71,6 +71,7 @@ public class CaseResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @VersionCheck(entity = "case" , versionfield = "lastediteddate")
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Update-all')")
     @ApiOperation(value = "更新测试用例", tags = {"测试用例" },  notes = "更新测试用例")
 	@RequestMapping(method = RequestMethod.PUT, value = "/cases/{case_id}")
@@ -324,6 +325,27 @@ public class CaseResource {
     @RequestMapping(method= RequestMethod.POST , value="/cases/searchbatchnew")
 	public ResponseEntity<Page<CaseDTO>> searchBatchNew(@RequestBody CaseSearchContext context) {
         Page<Case> domains = caseService.searchBatchNew(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurOpenedCase-all')")
+	@ApiOperation(value = "获取累计创建的用例", tags = {"测试用例" } ,notes = "获取累计创建的用例")
+    @RequestMapping(method= RequestMethod.GET , value="/cases/fetchcuropenedcase")
+	public ResponseEntity<List<CaseDTO>> fetchCurOpenedCase(CaseSearchContext context) {
+        Page<Case> domains = caseService.searchCurOpenedCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurOpenedCase-all')")
+	@ApiOperation(value = "查询累计创建的用例", tags = {"测试用例" } ,notes = "查询累计创建的用例")
+    @RequestMapping(method= RequestMethod.POST , value="/cases/searchcuropenedcase")
+	public ResponseEntity<Page<CaseDTO>> searchCurOpenedCase(@RequestBody CaseSearchContext context) {
+        Page<Case> domains = caseService.searchCurOpenedCase(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -728,6 +750,7 @@ public class CaseResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @VersionCheck(entity = "case" , versionfield = "lastediteddate")
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Update-all')")
     @ApiOperation(value = "根据产品更新测试用例", tags = {"测试用例" },  notes = "根据产品更新测试用例")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/cases/{case_id}")
@@ -996,6 +1019,29 @@ public class CaseResource {
 	public ResponseEntity<Page<CaseDTO>> searchCaseBatchNewByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseSearchContext context) {
         context.setN_product_eq(product_id);
         Page<Case> domains = caseService.searchBatchNew(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurOpenedCase-all')")
+	@ApiOperation(value = "根据产品获取累计创建的用例", tags = {"测试用例" } ,notes = "根据产品获取累计创建的用例")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/cases/fetchcuropenedcase")
+	public ResponseEntity<List<CaseDTO>> fetchCaseCurOpenedCaseByProduct(@PathVariable("product_id") Long product_id,CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchCurOpenedCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurOpenedCase-all')")
+	@ApiOperation(value = "根据产品查询累计创建的用例", tags = {"测试用例" } ,notes = "根据产品查询累计创建的用例")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/cases/searchcuropenedcase")
+	public ResponseEntity<Page<CaseDTO>> searchCaseCurOpenedCaseByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseSearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Case> domains = caseService.searchCurOpenedCase(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -1436,6 +1482,7 @@ public class CaseResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @VersionCheck(entity = "case" , versionfield = "lastediteddate")
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Update-all')")
     @ApiOperation(value = "根据需求更新测试用例", tags = {"测试用例" },  notes = "根据需求更新测试用例")
 	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/cases/{case_id}")
@@ -1704,6 +1751,29 @@ public class CaseResource {
 	public ResponseEntity<Page<CaseDTO>> searchCaseBatchNewByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchBatchNew(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurOpenedCase-all')")
+	@ApiOperation(value = "根据需求获取累计创建的用例", tags = {"测试用例" } ,notes = "根据需求获取累计创建的用例")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/cases/fetchcuropenedcase")
+	public ResponseEntity<List<CaseDTO>> fetchCaseCurOpenedCaseByStory(@PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchCurOpenedCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurOpenedCase-all')")
+	@ApiOperation(value = "根据需求查询累计创建的用例", tags = {"测试用例" } ,notes = "根据需求查询累计创建的用例")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/cases/searchcuropenedcase")
+	public ResponseEntity<Page<CaseDTO>> searchCaseCurOpenedCaseByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchCurOpenedCase(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -2144,6 +2214,7 @@ public class CaseResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @VersionCheck(entity = "case" , versionfield = "lastediteddate")
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Update-all')")
     @ApiOperation(value = "根据产品需求更新测试用例", tags = {"测试用例" },  notes = "根据产品需求更新测试用例")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}")
@@ -2412,6 +2483,29 @@ public class CaseResource {
 	public ResponseEntity<Page<CaseDTO>> searchCaseBatchNewByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
         context.setN_story_eq(story_id);
         Page<Case> domains = caseService.searchBatchNew(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurOpenedCase-all')")
+	@ApiOperation(value = "根据产品需求获取累计创建的用例", tags = {"测试用例" } ,notes = "根据产品需求获取累计创建的用例")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/cases/fetchcuropenedcase")
+	public ResponseEntity<List<CaseDTO>> fetchCaseCurOpenedCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchCurOpenedCase(context) ;
+        List<CaseDTO> list = caseMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-searchCurOpenedCase-all')")
+	@ApiOperation(value = "根据产品需求查询累计创建的用例", tags = {"测试用例" } ,notes = "根据产品需求查询累计创建的用例")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/cases/searchcuropenedcase")
+	public ResponseEntity<Page<CaseDTO>> searchCaseCurOpenedCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Case> domains = caseService.searchCurOpenedCase(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(caseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

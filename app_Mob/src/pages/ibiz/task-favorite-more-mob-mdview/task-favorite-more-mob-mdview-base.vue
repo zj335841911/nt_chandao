@@ -11,7 +11,7 @@
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
         </ion-toolbar>
-        <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="true"></app-search-history>
+        <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="true"></app-search-history>
 
     
     </ion-header>
@@ -430,6 +430,7 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 
@@ -733,6 +734,10 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
      * @memberof TaskFavoriteMoreMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;
@@ -785,13 +790,26 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
     }
 
 
+
     /**
      * 搜索表单状态
      *
-     * @type {boolean}
+     * @type {get}
      * @memberof TaskFavoriteMoreMobMDViewBase
      */
-    public searchformState: boolean = false;
+    get searchformState(){
+        return this.$store.state.searchformStatus;
+    }
+
+    /**
+     * 搜索表单状态
+     *
+     * @type {set}
+     * @memberof TaskFavoriteMoreMobMDViewBase
+     */
+    set searchformState(val:any){
+        this.$store.commit('setSearchformStatus',val); 
+    }
 
     /**
      * 是否展开搜索表单
@@ -807,7 +825,7 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
      * @memberof TaskFavoriteMoreMobMDViewBase
      */
     public onSearch(): void {
-        this.searchformState = false;
+        this.$store.commit('setSearchformStatus',false); 
         this.isExpandSearchForm = true;
         const form: any = this.$refs.searchform;
         if (form) {
@@ -822,7 +840,7 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
      * @memberof TaskFavoriteMoreMobMDViewBase
      */
     public onReset(): void {
-        this.searchformState = false;
+        this.$store.commit('setSearchformStatus',false); 
         this.isExpandSearchForm = false;
         const form: any = this.$refs.searchform;
         if (form) {

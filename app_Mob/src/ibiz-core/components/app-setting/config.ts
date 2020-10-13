@@ -6,6 +6,7 @@ export const settingConfig = {
       text: "账号信息",
       position: "top",
       sort: "100",
+      entext:'Account information',
     },
     {
       name: "mobilePhoneNumber",
@@ -13,6 +14,7 @@ export const settingConfig = {
       text: "手机号码",
       position: "top",
       sort: "200",
+      entext:'Cellphone number',
     },
     {
       name: "theme",
@@ -20,6 +22,7 @@ export const settingConfig = {
       text: "主题",
       position: "top",
       sort: "300",
+      entext:'Theme',
     },
     {
       name: "layoutStyle",
@@ -28,6 +31,7 @@ export const settingConfig = {
       position: "top",
       sort: "400",
       viewName: "app-mob-select-changeStyle",
+      entext:'Style',
     },
     {
       name: "notification",
@@ -35,6 +39,7 @@ export const settingConfig = {
       text: "消息通知",
       position: "center",
       sort: "100",
+      entext:'Notification',
     },
     {
       name: "privacy",
@@ -42,6 +47,7 @@ export const settingConfig = {
       text: "隐私",
       position: "center",
       sort: "200",
+      entext:'Privacy',
     },
     {
       name: "universal",
@@ -49,6 +55,7 @@ export const settingConfig = {
       text: "通用",
       position: "center",
       sort: "300",
+      entext:'Universal',
     },
     {
       name: "accessibility",
@@ -56,6 +63,7 @@ export const settingConfig = {
       text: "辅助功能",
       position: "center",
       sort: "400",
+      entext:'Accessibility',
     },
     {
       name: "about",
@@ -64,6 +72,7 @@ export const settingConfig = {
       position: "center",
       sort: "500",
       viewName: "app-update-log-list",
+      entext:'About',
     },
     {
       name: "logout",
@@ -71,6 +80,7 @@ export const settingConfig = {
       text: "退出登录",
       position: "bottom",
       sort: "100",
+      entext:'Sign out',
     },
     {
       name: "clear",
@@ -78,6 +88,15 @@ export const settingConfig = {
       text: "清除缓存",
       position: "bottom",
       sort: "200",
+      entext:'Clear cache',
+    },
+    {
+      name: "language",
+      isEnable: true,
+      text: "切换语言",
+      position: "bottom",
+      sort: "200",
+      entext:'Switch language',
     },
   ],
   // 个人中心视图（需用户手动配置）

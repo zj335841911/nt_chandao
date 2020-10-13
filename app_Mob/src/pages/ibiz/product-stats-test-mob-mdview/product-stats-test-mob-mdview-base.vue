@@ -22,7 +22,7 @@
                 </div>
             </ion-buttons>
         </ion-toolbar>
-        <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="false"></app-search-history>
+        <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="false"></app-search-history>
 
     
     </ion-header>
@@ -385,6 +385,7 @@ export default class ProductStatsTestMobMDViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 
@@ -649,6 +650,10 @@ export default class ProductStatsTestMobMDViewBase extends Vue {
      * @memberof ProductStatsTestMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;

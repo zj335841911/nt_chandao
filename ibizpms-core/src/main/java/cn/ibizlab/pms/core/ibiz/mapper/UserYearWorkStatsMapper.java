@@ -20,6 +20,9 @@ import com.alibaba.fastjson.JSONObject;
 public interface UserYearWorkStatsMapper extends BaseMapper<UserYearWorkStats>{
 
     Page<UserYearWorkStats> searchDefault(IPage page, @Param("srf") UserYearWorkStatsSearchContext context, @Param("ew") Wrapper<UserYearWorkStats> wrapper) ;
+    Page<UserYearWorkStats> searchMonthFinishTaskAndBug(IPage page, @Param("srf") UserYearWorkStatsSearchContext context, @Param("ew") Wrapper<UserYearWorkStats> wrapper) ;
+    Page<UserYearWorkStats> searchMonthOpenedBugAndCase(IPage page, @Param("srf") UserYearWorkStatsSearchContext context, @Param("ew") Wrapper<UserYearWorkStats> wrapper) ;
+    Page<UserYearWorkStats> searchMonthOpenedStory(IPage page, @Param("srf") UserYearWorkStatsSearchContext context, @Param("ew") Wrapper<UserYearWorkStats> wrapper) ;
     @Override
     UserYearWorkStats selectById(Serializable id);
     @Override

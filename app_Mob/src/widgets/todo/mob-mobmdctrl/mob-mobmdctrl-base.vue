@@ -1,7 +1,7 @@
 <template>
     <div  class="app-mob-mdctrl todo-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
-            <ion-list class="items">
+            <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
@@ -25,7 +25,7 @@
                     </ion-item-sliding>
                 </template>
             </ion-list>
-            <ion-list class="items">
+            <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
@@ -1362,11 +1362,16 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mdctrl
      */
     public closeSlidings () {
-        let slidings:any = this.$refs.sliding; 
-        if (slidings) {
-            slidings.forEach((sliding:any) => {
-                sliding.close()
-            })     
+        let ionlist:any = this.$refs.ionlist;
+        if (ionlist.children) {
+          ionlist.children.forEach((sliding:any) => {
+            if(typeof sliding.close === 'function'){
+              sliding.close();
+            }
+            if(typeof sliding.closeOpened === 'function'){
+            sliding.closeOpened();
+            }
+          })
         }
     }
 
@@ -1447,12 +1452,12 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
-        assignToMob: { name: 'assignToMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'ASSIGNTO', target: 'SINGLEKEY',icon:'hand',isShowCaption:true,isShowIcon:true},
+        assignToMob: { name: 'assignToMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'ASSIGNTO', target: 'SINGLEKEY',icon:'hand-right-outline',isShowCaption:true,isShowIcon:true},
         activateMob: { name: 'activateMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'ACTIVATE', target: 'SINGLEKEY',icon:'color-wand',isShowCaption:true,isShowIcon:true},
         finishMob: { name: 'finishMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'FINISH', target: 'SINGLEKEY',icon:'checkmark',isShowCaption:true,isShowIcon:true},
         deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DELETE', target: 'SINGLEKEY',icon:'remove',isShowCaption:true,isShowIcon:true},
         closeMob: { name: 'closeMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'CLOSE', target: 'SINGLEKEY',icon:'close',isShowCaption:true,isShowIcon:true},
-        editMob: { name: 'editMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'UPDATE', target: 'SINGLEKEY',icon:'edit (alias)',isShowCaption:true,isShowIcon:true}
+        editMob: { name: 'editMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'UPDATE', target: 'SINGLEKEY',icon:'edit',isShowCaption:true,isShowIcon:true}
     };
 
     

@@ -60,6 +60,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 抄送给
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`mailto`")
     @JSONField(name = "mailto")
     @JsonProperty("mailto")
@@ -67,6 +68,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 优先级
      */
+    @DEField(defaultValue = "3")
     @TableField(value = "`pri`")
     @JSONField(name = "pri")
     @JsonProperty("pri")
@@ -74,6 +76,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 子状态
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`substatus`")
     @JSONField(name = "substatus")
     @JsonProperty("substatus")
@@ -81,6 +84,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * report
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`report`")
     @JSONField(name = "report")
     @JsonProperty("report")
@@ -88,6 +92,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 描述
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
@@ -111,6 +116,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 负责人
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`owner`")
     @JSONField(name = "owner")
     @JsonProperty("owner")
@@ -142,6 +148,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 所属产品
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`product`")
     @JSONField(name = "product")
     @JsonProperty("product")
@@ -149,6 +156,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 版本
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`build`")
     @JSONField(name = "build")
     @JsonProperty("build")
@@ -156,6 +164,7 @@ public class TestTask extends EntityMP implements Serializable {
     /**
      * 所属项目
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`project`")
     @JSONField(name = "project")
     @JsonProperty("project")

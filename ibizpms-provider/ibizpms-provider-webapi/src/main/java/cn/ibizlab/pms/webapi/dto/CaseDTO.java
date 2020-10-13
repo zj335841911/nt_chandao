@@ -517,14 +517,6 @@ public class CaseDTO extends DTOBase implements Serializable {
 
 
     /**
-     * 设置 [LASTEDITEDDATE]
-     */
-    public void setLastediteddate(Timestamp  lastediteddate){
-        this.lastediteddate = lastediteddate ;
-        this.modify("lastediteddate",lastediteddate);
-    }
-
-    /**
      * 设置 [SCRIPTEDDATE]
      */
     public void setScripteddate(Timestamp  scripteddate){
@@ -634,14 +626,6 @@ public class CaseDTO extends DTOBase implements Serializable {
     public void setTitle(String  title){
         this.title = title ;
         this.modify("title",title);
-    }
-
-    /**
-     * 设置 [LASTEDITEDBY]
-     */
-    public void setLasteditedby(String  lasteditedby){
-        this.lasteditedby = lasteditedby ;
-        this.modify("lasteditedby",lasteditedby);
     }
 
     /**

@@ -286,6 +286,8 @@ export default class AppIndexViewBase extends Vue {
         this.setViewTitleStatus();
         this.updateLogStatus = Environment.useUpdateLog && !localStorage.getItem('updateLogStatus')?true:false;
 
+        localStorage.setItem('lanArray',JSON.stringify(["ZH-CN","EN-US"]));
+
     }
 
 
@@ -398,6 +400,10 @@ export default class AppIndexViewBase extends Vue {
      * @memberof AppIndexViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
             this.quitFun();
         
     }
@@ -443,7 +449,7 @@ export default class AppIndexViewBase extends Vue {
      * @type {boolean}
      * @memberof AppIndexViewBase
      */
-    private mode: boolean = false;
+    private mode: boolean = true;
 
     /**
      * 当前主题

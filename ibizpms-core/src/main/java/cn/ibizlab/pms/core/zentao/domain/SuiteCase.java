@@ -59,6 +59,7 @@ public class SuiteCase extends EntityMP implements Serializable {
     /**
      * 测试套件
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`suite`")
     @JSONField(name = "suite")
     @JsonProperty("suite")
@@ -66,7 +67,7 @@ public class SuiteCase extends EntityMP implements Serializable {
     /**
      * 用例
      */
-    @DEField(name = "case")
+    @DEField(defaultValue = "0")
     @TableField(value = "`case`")
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
@@ -74,6 +75,7 @@ public class SuiteCase extends EntityMP implements Serializable {
     /**
      * 所属产品
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`product`")
     @JSONField(name = "product")
     @JsonProperty("product")

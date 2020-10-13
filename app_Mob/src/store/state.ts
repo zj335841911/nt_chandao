@@ -18,4 +18,5 @@ export const rootstate: any = {
     selectTextAlign:'',
     selectNaviStyle:'',
     popupStatus:true,
+    searchformStatus:false
 }

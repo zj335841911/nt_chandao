@@ -21,6 +21,7 @@ import CaseTestDashboardQuickAction from '@/widgets/case/test-dashboard-quick-ac
 import CaseDashboardQuickAction from '@/widgets/case/dashboard-quick-action-portlet/dashboard-quick-action-portlet.vue';
 import CaseCaseResultProject from '@/widgets/case/case-result-project-portlet/case-result-project-portlet.vue';
 import CaseMainInfo from '@/widgets/case/main-info-portlet/main-info-portlet.vue';
+import CaseTotalCurOpenedCase from '@/widgets/case/total-cur-opened-case-portlet/total-cur-opened-case-portlet.vue';
 import ProductProductMainToolbar from '@/widgets/product/product-main-toolbar-portlet/product-main-toolbar-portlet.vue';
 import ProductProductInfo from '@/widgets/product/product-info-portlet/product-info-portlet.vue';
 import ProductUnClosedProduct from '@/widgets/product/un-closed-product-portlet/un-closed-product-portlet.vue';
@@ -33,6 +34,8 @@ import ActionProjectTrendsTimeline from '@/widgets/action/project-trends-timelin
 import ActionProductTrendsTimeline from '@/widgets/action/product-trends-timeline-portlet/product-trends-timeline-portlet.vue';
 import StoryBaseInfo from '@/widgets/story/base-info-portlet/base-info-portlet.vue';
 import StoryAssignedToMeStory from '@/widgets/story/assigned-to-me-story-portlet/assigned-to-me-story-portlet.vue';
+import StoryTotalCurOpenedStoryStage from '@/widgets/story/total-cur-opened-story-stage-portlet/total-cur-opened-story-stage-portlet.vue';
+import StoryTotalCurOpenedStoryPri from '@/widgets/story/total-cur-opened-story-pri-portlet/total-cur-opened-story-pri-portlet.vue';
 import StoryMainToolbar from '@/widgets/story/main-toolbar-portlet/main-toolbar-portlet.vue';
 import StoryStoryRelated from '@/widgets/story/story-related-portlet/story-related-portlet.vue';
 import StoryStoryspec from '@/widgets/story/storyspec-portlet/storyspec-portlet.vue';
@@ -40,6 +43,9 @@ import TodoTodoaction from '@/widgets/todo/todoaction-portlet/todoaction-portlet
 import TodoTodoBase from '@/widgets/todo/todo-base-portlet/todo-base-portlet.vue';
 import TodoTodoDesc from '@/widgets/todo/todo-desc-portlet/todo-desc-portlet.vue';
 import TodoTodoDashboardActions from '@/widgets/todo/todo-dashboard-actions-portlet/todo-dashboard-actions-portlet.vue';
+import UserYearWorkStatsMonthOpenedBugAndCase from '@/widgets/user-year-work-stats/month-opened-bug-and-case-portlet/month-opened-bug-and-case-portlet.vue';
+import UserYearWorkStatsFinishTaskAndBug from '@/widgets/user-year-work-stats/finish-task-and-bug-portlet/finish-task-and-bug-portlet.vue';
+import UserYearWorkStatsMonthOpenedStory from '@/widgets/user-year-work-stats/month-opened-story-portlet/month-opened-story-portlet.vue';
 import ProjectUnClosedProject from '@/widgets/project/un-closed-project-portlet/un-closed-project-portlet.vue';
 import ProjectProjectMainToolbar from '@/widgets/project/project-main-toolbar-portlet/project-main-toolbar-portlet.vue';
 import ProjectDashBoradInfoView from '@/widgets/project/dash-borad-info-view-portlet/dash-borad-info-view-portlet.vue';
@@ -49,6 +55,7 @@ import TaskToolbar from '@/widgets/task/toolbar-portlet/toolbar-portlet.vue';
 import TaskMainInfo from '@/widgets/task/main-info-portlet/main-info-portlet.vue';
 import TaskWorkInfo from '@/widgets/task/work-info-portlet/work-info-portlet.vue';
 import TaskMainDetail from '@/widgets/task/main-detail-portlet/main-detail-portlet.vue';
+import TaskCurFinishedbyTask from '@/widgets/task/cur-finishedby-task-portlet/cur-finishedby-task-portlet.vue';
 import TestSuiteCurSuitCaseGridView from '@/widgets/test-suite/cur-suit-case-grid-view-portlet/cur-suit-case-grid-view-portlet.vue';
 import TestSuiteMainInfoView from '@/widgets/test-suite/main-info-view-portlet/main-info-view-portlet.vue';
 import TestSuiteTestSuiteQuickAction from '@/widgets/test-suite/test-suite-quick-action-portlet/test-suite-quick-action-portlet.vue';
@@ -74,6 +81,8 @@ import BugBugResolvedBy_Project from '@/widgets/bug/bug-resolved-by-project-port
 import BugActionHistoryList from '@/widgets/bug/action-history-list-portlet/action-history-list-portlet.vue';
 import BugDashboardBugMain from '@/widgets/bug/dashboard-bug-main-portlet/dashboard-bug-main-portlet.vue';
 import BugBugDashboardActions from '@/widgets/bug/bug-dashboard-actions-portlet/bug-dashboard-actions-portlet.vue';
+import BugTotalCurOpenedBug from '@/widgets/bug/total-cur-opened-bug-portlet/total-cur-opened-bug-portlet.vue';
+import BugCurUserResolveBug from '@/widgets/bug/cur-user-resolve-bug-portlet/cur-user-resolve-bug-portlet.vue';
 import BugStepsInfo from '@/widgets/bug/steps-info-portlet/steps-info-portlet.vue';
 import IbzCaseCaseMain from '@/widgets/ibz-case/case-main-portlet/case-main-portlet.vue';
 import IbzCaseCaseNewEdit from '@/widgets/ibz-case/case-new-edit-portlet/case-new-edit-portlet.vue';
@@ -137,9 +146,15 @@ export const  PortletComponent = {
         v.component('app-ibz-project-member-related-members-portlet', IbzProjectMemberRelatedMembers);
         v.component('app-project-project-main-toolbar-portlet', ProjectProjectMainToolbar);
         v.component('app-project-dash-borad-info-view-portlet', ProjectDashBoradInfoView);
+        v.component('app-task-cur-finishedby-task-portlet', TaskCurFinishedbyTask);
+        v.component('app-bug-cur-user-resolve-bug-portlet', BugCurUserResolveBug);
+        v.component('app-user-year-work-stats-finish-task-and-bug-portlet', UserYearWorkStatsFinishTaskAndBug);
         v.component('app-product-un-closed-product-portlet', ProductUnClosedProduct);
         v.component('app-product-product-status-chart-portlet', ProductProductStatusChart);
         v.component('app-story-assigned-to-me-story-portlet', StoryAssignedToMeStory);
+        v.component('app-bug-total-cur-opened-bug-portlet', BugTotalCurOpenedBug);
+        v.component('app-case-total-cur-opened-case-portlet', CaseTotalCurOpenedCase);
+        v.component('app-user-year-work-stats-month-opened-bug-and-case-portlet', UserYearWorkStatsMonthOpenedBugAndCase);
         v.component('app-product-life-get-roadmaps-portlet', ProductLifeGetRoadmaps);
         v.component('app-action-product-trends-timeline-portlet', ActionProductTrendsTimeline);
         v.component('app-product-product-main-toolbar-portlet', ProductProductMainToolbar);
@@ -147,6 +162,9 @@ export const  PortletComponent = {
         v.component('app-test-suite-cur-suit-case-grid-view-portlet', TestSuiteCurSuitCaseGridView);
         v.component('app-test-suite-test-suite-quick-action-portlet', TestSuiteTestSuiteQuickAction);
         v.component('app-test-suite-main-info-view-portlet', TestSuiteMainInfoView);
+        v.component('app-story-total-cur-opened-story-pri-portlet', StoryTotalCurOpenedStoryPri);
+        v.component('app-story-total-cur-opened-story-stage-portlet', StoryTotalCurOpenedStoryStage);
+        v.component('app-user-year-work-stats-month-opened-story-portlet', UserYearWorkStatsMonthOpenedStory);
         v.component('app-project-un-closed-project-portlet', ProjectUnClosedProject);
         v.component('app-project-project-status-bar-portlet', ProjectProjectStatusBar);
         v.component('app-test-task-to-test-test-task-portlet', TestTaskToTestTestTask);
@@ -176,6 +194,7 @@ export const  PortletComponent = {
         v.component('case-dashboard-quick-action-portlet', CaseDashboardQuickAction);
         v.component('case-case-result-project-portlet', CaseCaseResultProject);
         v.component('case-main-info-portlet', CaseMainInfo);
+        v.component('case-total-cur-opened-case-portlet', CaseTotalCurOpenedCase);
         v.component('product-product-main-toolbar-portlet', ProductProductMainToolbar);
         v.component('product-product-info-portlet', ProductProductInfo);
         v.component('product-un-closed-product-portlet', ProductUnClosedProduct);
@@ -188,6 +207,8 @@ export const  PortletComponent = {
         v.component('action-product-trends-timeline-portlet', ActionProductTrendsTimeline);
         v.component('story-base-info-portlet', StoryBaseInfo);
         v.component('story-assigned-to-me-story-portlet', StoryAssignedToMeStory);
+        v.component('story-total-cur-opened-story-stage-portlet', StoryTotalCurOpenedStoryStage);
+        v.component('story-total-cur-opened-story-pri-portlet', StoryTotalCurOpenedStoryPri);
         v.component('story-main-toolbar-portlet', StoryMainToolbar);
         v.component('story-story-related-portlet', StoryStoryRelated);
         v.component('story-storyspec-portlet', StoryStoryspec);
@@ -195,6 +216,9 @@ export const  PortletComponent = {
         v.component('todo-todo-base-portlet', TodoTodoBase);
         v.component('todo-todo-desc-portlet', TodoTodoDesc);
         v.component('todo-todo-dashboard-actions-portlet', TodoTodoDashboardActions);
+        v.component('user-year-work-stats-month-opened-bug-and-case-portlet', UserYearWorkStatsMonthOpenedBugAndCase);
+        v.component('user-year-work-stats-finish-task-and-bug-portlet', UserYearWorkStatsFinishTaskAndBug);
+        v.component('user-year-work-stats-month-opened-story-portlet', UserYearWorkStatsMonthOpenedStory);
         v.component('project-un-closed-project-portlet', ProjectUnClosedProject);
         v.component('project-project-main-toolbar-portlet', ProjectProjectMainToolbar);
         v.component('project-dash-borad-info-view-portlet', ProjectDashBoradInfoView);
@@ -204,6 +228,7 @@ export const  PortletComponent = {
         v.component('task-main-info-portlet', TaskMainInfo);
         v.component('task-work-info-portlet', TaskWorkInfo);
         v.component('task-main-detail-portlet', TaskMainDetail);
+        v.component('task-cur-finishedby-task-portlet', TaskCurFinishedbyTask);
         v.component('test-suite-cur-suit-case-grid-view-portlet', TestSuiteCurSuitCaseGridView);
         v.component('test-suite-main-info-view-portlet', TestSuiteMainInfoView);
         v.component('test-suite-test-suite-quick-action-portlet', TestSuiteTestSuiteQuickAction);
@@ -229,6 +254,8 @@ export const  PortletComponent = {
         v.component('bug-action-history-list-portlet', BugActionHistoryList);
         v.component('bug-dashboard-bug-main-portlet', BugDashboardBugMain);
         v.component('bug-bug-dashboard-actions-portlet', BugBugDashboardActions);
+        v.component('bug-total-cur-opened-bug-portlet', BugTotalCurOpenedBug);
+        v.component('bug-cur-user-resolve-bug-portlet', BugCurUserResolveBug);
         v.component('bug-steps-info-portlet', BugStepsInfo);
         v.component('ibz-case-case-main-portlet', IbzCaseCaseMain);
         v.component('ibz-case-case-new-edit-portlet', IbzCaseCaseNewEdit);
