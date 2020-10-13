@@ -183,6 +183,9 @@ export default class AssignToMeModel {
       {
         name: 'tasktype',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

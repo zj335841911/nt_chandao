@@ -183,6 +183,9 @@ export default class WorkInfoModel {
       {
         name: 'tasktype',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

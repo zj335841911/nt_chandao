@@ -453,4 +453,12 @@ export interface Task {
      * @memberof Task
      */
     tasktype?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    files?: any;
 }

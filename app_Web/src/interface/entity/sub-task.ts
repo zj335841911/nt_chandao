@@ -453,4 +453,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     tasktype?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    files?: any;
 }
