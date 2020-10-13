@@ -935,14 +935,9 @@ export class GridControlBase extends MDControlBase {
         }
         const refs: any = this.$refs;
         if (refs.multipleTable) {
-            if (this.isSingleSelect) {
-                refs.multipleTable.clearSelection();
-                refs.multipleTable.setCurrentRow($event);
-            } else {
-                refs.multipleTable.toggleRowSelection($event);
-            }
+            refs.multipleTable.clearSelection();
+            refs.multipleTable.toggleRowSelection($event);
         }
-
         this.$emit('selectionchange', this.selections);
     }
 

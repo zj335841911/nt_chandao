@@ -222,14 +222,6 @@ export class ExpControlBase extends ControlBase {
      *
      * @param {boolean} state
      * @param {*} models
-     * @return {*} 
-     * @memberof ExpControlBase
-     */
-    /**
-     * 设置导航区工具栏禁用状态
-     *
-     * @param {boolean} state
-     * @param {*} models
      * @param {*} uiService
      * @return {*} 
      * @memberof ExpControlBase
@@ -270,14 +262,14 @@ export class ExpControlBase extends ControlBase {
                 return result;
             }
             const _item = ActionModel[key];
-            if (_item && _item['dataaccaction'] && UIService) {
+            if (_item && _item.dataaccaction && UIService) {
                 let dataActionResult: any;
-                if (_item['uiaction']) {
-                    if (Object.is(_item['uiaction']['target'], "NONE") || Object.is(_item['uiaction']['target'], "")) {
-                        dataActionResult = UIService.getResourceOPPrivs(_item['dataaccaction']);
+                if (_item.uiaction) {
+                    if (Object.is(_item.uiaction.target, "NONE") || Object.is(_item.uiaction.target, "")) {
+                        dataActionResult = UIService.getResourceOPPrivs(_item.dataaccaction);
                     } else {
                         if (data && Object.keys(data).length > 0) {
-                            dataActionResult = UIService.getAllOPPrivs(data)[_item['dataaccaction']];
+                            dataActionResult = UIService.getAllOPPrivs(data)[_item.dataaccaction];
                         }
                     }
                     // 无权限:0;有权限:1

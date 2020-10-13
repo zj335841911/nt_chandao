@@ -353,9 +353,9 @@ export class IBizPMSBase extends Vue {
           </template> : null}
           {styleMode === 'DEFAULT' ? <tab-page-exp ref="tabExp"></tab-page-exp> : null}
           <div class="view-warp" on-click={() => this.contextMenuDragVisiable = false}>
-            {isStyle2 ? <router-view key='index-view'/> : <app-keep-alive routerList={this.appService.navHistory.historyList}>
+            <app-keep-alive routerList={this.appService.navHistory.historyList}>
               <router-view key={this.$route.fullPath}></router-view>
-            </app-keep-alive>}
+            </app-keep-alive>
           </div>
           {this.bottom_exp.items ? <template slot="content_bottom">
             <app-content-bottom-exp ref="bootomExp" ctrlName="zentao" menus={this.bottom_exp.items} />

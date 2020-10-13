@@ -61,9 +61,9 @@ export class ExpViewBase extends ViewBase {
                     data[this.appDeName] = data[this.appDeKey];
                     this.$appService.contextStore.setContextData(this.context, this.appDeName, { data });
                     Object.assign(this.model, { dataInfo: data[this.appDeMajor] });
-                    if (this.$route) {
-                        this.$route.meta.info = this.model.dataInfo;
-                    }
+                    // if (this.$route) {
+                    //     this.$route.meta.info = this.model.dataInfo;
+                    // }
                     this.$appService.navHistory.setCaption({ tag: this.viewtag, info: this.model.dataInfo });
                     this.$emit(events.view.MODEL_LOADED, data);
                 }

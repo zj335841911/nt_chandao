@@ -13,6 +13,18 @@ Object.defineProperty(Object.prototype, 'clearAll', {
         }
     }
 });
+// 扩展Array方法，删除所有元素不改变内存地址
+Object.defineProperty(Array.prototype, 'clearAll', {
+    writable: false,
+    enumerable: false,
+    configurable: true,
+    value: function() {
+        if (this.length) {
+            this.splice(0, this.length);
+        }
+    }
+});
+
 // 扩展window方法 Start
 
 /**

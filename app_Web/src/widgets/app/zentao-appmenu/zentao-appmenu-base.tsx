@@ -70,6 +70,7 @@ export class ZentaoBase extends Vue {
             }
             if (judge && this.$uiState.isStyle2()) {
                 this.$appService.navHistory.reset();
+                this.$appService.viewStore.reset();
             }
         }
     }
