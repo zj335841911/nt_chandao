@@ -157,5 +157,7 @@ public class IbzTopResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibztopMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

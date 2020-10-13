@@ -156,5 +156,7 @@ public class CompanyResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(companyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

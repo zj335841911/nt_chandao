@@ -146,6 +146,7 @@ public class PSSystemDBCfgResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(pssystemdbcfgMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 	@ApiOperation(value = "获取数据集", tags = {"系统数据库" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/pssystemdbcfgs/fetchdefault")
 	public ResponseEntity<List<PSSystemDBCfgDTO>> fetchDefault(PSSystemDBCfgSearchContext context) {
@@ -165,5 +166,7 @@ public class PSSystemDBCfgResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(pssystemdbcfgMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

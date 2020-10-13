@@ -146,6 +146,7 @@ public class PSSysSFPubResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(pssyssfpubMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 	@ApiOperation(value = "获取数据集", tags = {"后台服务架构" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/pssyssfpubs/fetchdefault")
 	public ResponseEntity<List<PSSysSFPubDTO>> fetchDefault(PSSysSFPubSearchContext context) {
@@ -165,5 +166,7 @@ public class PSSysSFPubResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(pssyssfpubMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

@@ -156,5 +156,7 @@ public class IBZProProductResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzproproductMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

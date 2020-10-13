@@ -156,6 +156,7 @@ public class ProductSumResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productsumMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductSum-searchProductBugcnt_QA-all')")
 	@ApiOperation(value = "获取产品创建bug数及占比", tags = {"产品汇总表" } ,notes = "获取产品创建bug数及占比")
     @RequestMapping(method= RequestMethod.GET , value="/productsums/fetchproductbugcnt_qa")
@@ -177,6 +178,7 @@ public class ProductSumResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productsumMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductSum-searchProductCreateStory-all')")
 	@ApiOperation(value = "获取产品创建需求占比", tags = {"产品汇总表" } ,notes = "获取产品创建需求占比")
     @RequestMapping(method= RequestMethod.GET , value="/productsums/fetchproductcreatestory")
@@ -198,6 +200,7 @@ public class ProductSumResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productsumMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductSum-searchProductStorycntAndPlancnt-all')")
 	@ApiOperation(value = "获取产品计划数和需求数", tags = {"产品汇总表" } ,notes = "获取产品计划数和需求数")
     @RequestMapping(method= RequestMethod.GET , value="/productsums/fetchproductstorycntandplancnt")
@@ -219,5 +222,7 @@ public class ProductSumResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productsumMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 
