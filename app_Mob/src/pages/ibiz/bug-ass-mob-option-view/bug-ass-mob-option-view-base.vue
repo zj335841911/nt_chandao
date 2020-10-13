@@ -196,7 +196,7 @@ export default class BugAssMobOptionViewBase extends Vue {
         dataInfo: '',
         viewname:'bug.assmoboptionview',
         iconcls: '',
-        icon: 'fa fa-bug'
+        icon: 'bug'
     }
 
     /**

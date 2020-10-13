@@ -203,7 +203,7 @@ export default class StoryNewMobEditViewBase extends Vue {
         dataInfo: '',
         viewname:'story.newmobeditview',
         iconcls: '',
-        icon: 'fa fa-star-o'
+        icon: 'star-o'
     }
 
     /**

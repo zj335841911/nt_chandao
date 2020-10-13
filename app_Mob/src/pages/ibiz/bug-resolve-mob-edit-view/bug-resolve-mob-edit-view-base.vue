@@ -203,7 +203,7 @@ export default class BugResolveMobEditViewBase extends Vue {
         dataInfo: '',
         viewname:'bug.resolvemobeditview',
         iconcls: '',
-        icon: 'fa fa-bug'
+        icon: 'bug'
     }
 
     /**

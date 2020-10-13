@@ -245,7 +245,7 @@ export default class TestTaskMobMDViewBase extends Vue {
         dataInfo: '',
         viewname:'testtask.mobmdview',
         iconcls: '',
-        icon: 'fa fa-clipboard'
+        icon: 'clipboard'
     }
 
     /**

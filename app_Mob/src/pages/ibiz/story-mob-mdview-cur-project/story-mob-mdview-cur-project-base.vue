@@ -247,7 +247,7 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
         dataInfo: '',
         viewname:'story.mobmdviewcurproject',
         iconcls: '',
-        icon: 'fa fa-star-o'
+        icon: 'star-o'
     }
 
     /**

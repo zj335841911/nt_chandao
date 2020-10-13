@@ -193,7 +193,7 @@ export default class ProjectTeamMobMDViewBase extends Vue {
         dataInfo: '',
         viewname:'projectteam.mobmdview',
         iconcls: '',
-        icon: 'fa fa-users'
+        icon: 'users'
     }
 
     /**

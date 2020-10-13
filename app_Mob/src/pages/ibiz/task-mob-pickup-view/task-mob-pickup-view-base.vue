@@ -182,7 +182,7 @@ export default class TaskMobPickupViewBase extends Vue {
         dataInfo: '',
         viewname:'task.mobpickupview',
         iconcls: '',
-        icon: 'fa fa-tasks'
+        icon: 'tasks'
     }
 
     /**

@@ -196,7 +196,7 @@ export default class BugCMobOptionViewBase extends Vue {
         dataInfo: '',
         viewname:'bug.cmoboptionview',
         iconcls: '',
-        icon: 'fa fa-bug'
+        icon: 'bug'
     }
 
     /**

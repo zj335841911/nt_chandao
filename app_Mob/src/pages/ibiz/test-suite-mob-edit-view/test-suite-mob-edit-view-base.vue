@@ -197,7 +197,7 @@ export default class TestSuiteMobEditViewBase extends Vue {
         dataInfo: '',
         viewname:'testsuite.mobeditview',
         iconcls: '',
-        icon: 'fa fa-suitcase'
+        icon: 'suitcase'
     }
 
     /**

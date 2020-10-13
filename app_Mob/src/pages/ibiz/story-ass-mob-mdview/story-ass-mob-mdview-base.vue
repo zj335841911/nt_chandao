@@ -230,7 +230,7 @@ export default class StoryAssMobMDViewBase extends Vue {
         dataInfo: '',
         viewname:'story.assmobmdview',
         iconcls: '',
-        icon: 'fa fa-star-o'
+        icon: 'star-o'
     }
 
     /**

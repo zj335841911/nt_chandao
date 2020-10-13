@@ -254,7 +254,7 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
         dataInfo: '',
         viewname:'task.favoritemoremobmdview',
         iconcls: '',
-        icon: 'fa fa-tasks'
+        icon: 'tasks'
     }
 
     /**

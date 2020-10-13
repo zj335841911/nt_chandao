@@ -196,7 +196,7 @@ export default class StoryRMobOptionViewBase extends Vue {
         dataInfo: '',
         viewname:'story.rmoboptionview',
         iconcls: '',
-        icon: 'fa fa-star-o'
+        icon: 'star-o'
     }
 
     /**

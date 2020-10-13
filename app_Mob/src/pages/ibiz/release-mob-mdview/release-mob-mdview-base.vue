@@ -255,7 +255,7 @@ export default class ReleaseMobMDViewBase extends Vue {
         dataInfo: '',
         viewname:'release.mobmdview',
         iconcls: '',
-        icon: 'fa fa-flag-o'
+        icon: 'flag-o'
     }
 
     /**

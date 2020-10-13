@@ -203,7 +203,7 @@ export default class BugConfirmMobEditViewBase extends Vue {
         dataInfo: '',
         viewname:'bug.confirmmobeditview',
         iconcls: '',
-        icon: 'fa fa-bug'
+        icon: 'bug'
     }
 
     /**

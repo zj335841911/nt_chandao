@@ -196,7 +196,7 @@ export default class StoryCMobOptionViewBase extends Vue {
         dataInfo: '',
         viewname:'story.cmoboptionview',
         iconcls: '',
-        icon: 'fa fa-star-o'
+        icon: 'star-o'
     }
 
     /**

@@ -203,7 +203,7 @@ export default class BugAssignToMobEditViewBase extends Vue {
         dataInfo: '',
         viewname:'bug.assigntomobeditview',
         iconcls: '',
-        icon: 'fa fa-bug'
+        icon: 'bug'
     }
 
     /**

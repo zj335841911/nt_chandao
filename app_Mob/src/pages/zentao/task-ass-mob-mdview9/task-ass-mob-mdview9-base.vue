@@ -184,7 +184,7 @@ export default class TaskAssMobMDView9Base extends Vue {
         dataInfo: '',
         viewname:'task.assmobmdview9',
         iconcls: '',
-        icon: 'fa fa-tasks'
+        icon: 'tasks'
     }
 
     /**

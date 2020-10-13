@@ -262,7 +262,7 @@ export default class TaskMobMDViewBase extends Vue {
         dataInfo: '',
         viewname:'task.mobmdview',
         iconcls: '',
-        icon: 'fa fa-tasks'
+        icon: 'tasks'
     }
 
     /**

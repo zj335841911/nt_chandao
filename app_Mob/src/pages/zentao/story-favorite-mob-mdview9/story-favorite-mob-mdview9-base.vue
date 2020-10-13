@@ -184,7 +184,7 @@ export default class StoryFavoriteMobMDView9Base extends Vue {
         dataInfo: '',
         viewname:'story.favoritemobmdview9',
         iconcls: '',
-        icon: 'fa fa-star-o'
+        icon: 'star-o'
     }
 
     /**

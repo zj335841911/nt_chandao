@@ -196,7 +196,7 @@ export default class TaskStopMobOptionViewBase extends Vue {
         dataInfo: '',
         viewname:'task.stopmoboptionview',
         iconcls: '',
-        icon: 'fa fa-tasks'
+        icon: 'tasks'
     }
 
     /**
