@@ -183,6 +183,9 @@ export class MobModel {
       {
         name: 'tasktype',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

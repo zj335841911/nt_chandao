@@ -183,6 +183,9 @@ export class MyFavoriteTaskModel {
       {
         name: 'tasktype',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

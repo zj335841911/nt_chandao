@@ -183,6 +183,9 @@ export class MyTaskMobModel {
       {
         name: 'tasktype',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 
