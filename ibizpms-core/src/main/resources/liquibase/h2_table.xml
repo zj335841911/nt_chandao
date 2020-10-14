@@ -64,7 +64,7 @@
 
 
     <!--输出实体[ZT_BRANCH]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_branch-88-3">
+    <changeSet author="zentao" id="tab-zt_branch-90-3">
         <createTable tableName="zt_branch">
                 <column name="NAME" remarks="" type="VARCHAR(255)">
                 </column>
@@ -2398,7 +2398,7 @@
     </changeSet>
         <!--输出实体[ZT_BLOCK]外键关系 -->
         <!--输出实体[ZT_BRANCH]外键关系 -->
-    <changeSet author="zentao" id="fk-zt_branch-88-100">
+    <changeSet author="zentao" id="fk-zt_branch-90-100">
        <addForeignKeyConstraint baseColumnNames="PRODUCT" baseTableName="zt_branch" constraintName="DER1N_ZT_BRANCH_ZT_PRODUCT_PRO" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_BUG]外键关系 -->
