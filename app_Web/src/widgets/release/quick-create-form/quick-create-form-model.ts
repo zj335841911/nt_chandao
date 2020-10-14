@@ -86,6 +86,11 @@ export default class QuickCreateModel {
         dataType: 'LONGTEXT',
       },
       {
+        name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',
