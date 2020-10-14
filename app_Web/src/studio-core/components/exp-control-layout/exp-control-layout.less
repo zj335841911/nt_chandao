@@ -43,6 +43,19 @@
         .exp-content {
             flex-grow: 1;
             padding: 0 8px;
+            height: calc(100% - 91px);
+        }
+
+        .exp-content.hidden-header {
+            height: calc(100% - 40px);
+        }
+
+        .exp-content.hidden-top {
+            height: calc(100% - 51px);
+        }
+
+        .exp-content.hidden-header.hidden-top {
+            height: 100%;
         }
 
         .exp-header-title,

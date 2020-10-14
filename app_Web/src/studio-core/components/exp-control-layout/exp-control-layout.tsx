@@ -161,7 +161,7 @@ export class ExpControlLayout extends Vue {
                             {this.$slots.quickSearch}
                         </div> : null}
                     </div> : null}
-                    <div key='exp-content' class={{ 'exp-content': true, 'hidden-header': !showHeader }}>
+                    <div key='exp-content' class={{ 'exp-content': true, 'hidden-header': !showHeader, 'hidden-top': !this.$slots.toolbar }}>
                         {this.$slots.expContent}
                     </div>
                 </div>
