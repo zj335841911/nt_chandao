@@ -1272,8 +1272,8 @@ export default class BugUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{RELEASE:"%srfparentkey%",PRODUCT:"%product%"});
-        Object.assign(params,{product:"%product%",release:"%srfparentkey%"});
+        Object.assign(context,{BUG:"0",RELEASE:"%srfparentkey%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",bug:"0",release:"%srfparentkey%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         if(_this.context){
@@ -1745,8 +1745,8 @@ export default class BugUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{RELEASE:"%srfparentkey%",PRODUCT:"%product%"});
-        Object.assign(params,{product:"%product%",release:"%srfparentkey%"});
+        Object.assign(context,{BUG:"0",RELEASE:"%srfparentkey%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",bug:"0",release:"%srfparentkey%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         if(_this.context){
