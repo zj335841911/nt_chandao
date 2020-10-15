@@ -479,6 +479,7 @@ export class ToolbarPortletBase extends MainControlBase {
     }
 
 
+
     /**
      * 长度
      *

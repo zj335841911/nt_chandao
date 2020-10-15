@@ -30,6 +30,7 @@ export class TestPortalView_dbDashboardBase extends MainControlBase {
      * @memberof TestPortalView_dbDashboardBase
      */
     public service: TestPortalView_dbService = new TestPortalView_dbService({ $store: this.$store });
+
     /**
      * 是否支持看板定制
      *

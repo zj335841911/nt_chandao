@@ -66,6 +66,7 @@ export class MainDashboardTestDashboardBase extends MainControlBase {
      * @memberof MainDashboardTestBase
      */  
     public appUIService:CaseUIService = new CaseUIService(this.$store);
+
     /**
      * 是否支持看板定制
      *

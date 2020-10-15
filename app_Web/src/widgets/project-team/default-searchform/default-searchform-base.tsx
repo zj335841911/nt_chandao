@@ -68,6 +68,7 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
      */  
     public appUIService:ProjectTeamUIService = new ProjectTeamUIService(this.$store);
 
+
     /**
      * 表单数据对象
      *
@@ -93,4 +94,11 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
         teams: new FormItemModel({ caption: '复制团队', detailType: 'FORMITEM', name: 'teams', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
+
+    /**
+     * 新建默认值
+     * @memberof DefaultBase
+     */
+    public createDefault(){                    
+    }
 }

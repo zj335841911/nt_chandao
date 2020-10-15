@@ -69,6 +69,7 @@ export class CaseNewEditPortletBase extends MainControlBase {
      */  
     public appUIService:IbzCaseUIService = new IbzCaseUIService(this.$store);
 
+
     /**
      * 长度
      *

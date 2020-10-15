@@ -66,6 +66,7 @@ export class ExpListBase extends ListControlBase {
      */  
     public appUIService:ProjectUIService = new ProjectUIService(this.$store);
 
+
     /**
      * 排序方向
      *

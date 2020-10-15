@@ -66,6 +66,7 @@ export class ProjectTabExpViewtabviewpanel2TabviewpanelBase extends MainControlB
      */  
     public appUIService:TestReportUIService = new TestReportUIService(this.$store);
 
+
     /**
      * 导航模式下项是否激活
      *

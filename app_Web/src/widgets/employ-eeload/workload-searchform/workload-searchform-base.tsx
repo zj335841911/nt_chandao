@@ -68,6 +68,7 @@ export class WorkloadSearchFormBase extends SearchFormControlBase {
      */  
     public appUIService:EmployEeloadUIService = new EmployEeloadUIService(this.$store);
 
+
     /**
      * 表单数据对象
      *
@@ -128,6 +129,19 @@ export class WorkloadSearchFormBase extends SearchFormControlBase {
         if (Object.is(name, 'end')) {
             const details: string[] = ['workday'];
             this.updateFormItems('UpdateTime', this.data, details, true);
+        }
+    }
+
+    /**
+     * 新建默认值
+     * @memberof WorkloadBase
+     */
+    public createDefault(){                    
+        if (this.data.hasOwnProperty('workday')) {
+          this.data['workday'] = 6;
+        }
+        if (this.data.hasOwnProperty('everydaytime')) {
+          this.data['everydaytime'] = '7';
         }
     }
 }

@@ -67,6 +67,7 @@ export class MainEditFormBase extends EditFormControlBase {
      */  
     public appUIService:BuildUIService = new BuildUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *

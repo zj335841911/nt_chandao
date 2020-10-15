@@ -69,6 +69,7 @@ export class CurUserResolveBugPortletBase extends MainControlBase {
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
 
+
     /**
      * 长度
      *

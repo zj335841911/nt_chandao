@@ -67,6 +67,7 @@ export class SycFromIbzEditFormBase extends EditFormControlBase {
      */  
     public appUIService:IBZProStoryModuleUIService = new IBZProStoryModuleUIService(this.$store);
 
+
     /**
      * 表单数据对象
      *

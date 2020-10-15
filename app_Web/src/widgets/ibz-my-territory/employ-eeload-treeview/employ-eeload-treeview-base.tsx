@@ -67,6 +67,7 @@ export class EmployEeloadTreeBase extends MainControlBase {
      */  
     public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
+
     /**
      * 获取多项数据
      *

@@ -67,6 +67,7 @@ export class GetRoadmapYearSListBase extends MainControlBase {
      */  
     public appUIService:ProductLifeUIService = new ProductLifeUIService(this.$store);
 
+
     /**
      * 建构部件服务对象
      *

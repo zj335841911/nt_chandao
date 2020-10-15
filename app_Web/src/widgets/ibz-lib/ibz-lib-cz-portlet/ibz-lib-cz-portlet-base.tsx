@@ -171,6 +171,7 @@ export class IbzLibCzPortletBase extends MainControlBase {
     }
 
 
+
     /**
      * 长度
      *

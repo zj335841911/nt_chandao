@@ -95,6 +95,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
         curUIService.Bug_unlinkBug_build(datas,contextJO, paramJO,  $event, xData,this,"Bug");
     }
 
+
     /**
      * 界面行为模型
      *
@@ -325,6 +326,41 @@ export class Main_BuildSub2GridBase extends GridControlBase {
         $event.stopPropagation();
         if(Object.is('unlinkBug_build', tag)) {
             this.grid_uagridcolumn1_u82990f2_click(row, tag, $event);
+        }
+    }
+
+    /**
+     * 更新默认值
+     * @param {*}  row 行数据
+     * @memberof Main_BuildSub2Base
+     */
+    public updateDefault(row: any){                    
+    }
+
+    /**
+     * 计算数据对象类型的默认值
+     * @param {string}  action 行为
+     * @param {string}  param 默认值参数
+     * @param {*}  data 当前行数据
+     * @memberof Main_BuildSub2Base
+     */
+    public computeDefaultValueWithParam(action:string,param:string,data:any){
+        if(Object.is(action,"UPDATE")){
+            const nativeData:any = this.service.getCopynativeData();
+            if(nativeData && (nativeData instanceof Array) && nativeData.length >0){
+                let targetData:any = nativeData.find((item:any) =>{
+                    return item.id === data.srfkey;
+                })
+                if(targetData){
+                    return targetData[param]?targetData[param]:null;
+                }else{
+                    return null;
+                }
+            }else{
+                return null;
+            }
+        }else{
+           return this.service.getRemoteCopyData()[param]?this.service.getRemoteCopyData()[param]:null;
         }
     }
 

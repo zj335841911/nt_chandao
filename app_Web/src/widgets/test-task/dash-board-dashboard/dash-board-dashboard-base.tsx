@@ -66,6 +66,7 @@ export class DashboardDashboardBase extends MainControlBase {
      * @memberof DashboardBase
      */  
     public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
+
     /**
      * 是否支持看板定制
      *

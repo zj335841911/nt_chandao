@@ -67,6 +67,7 @@ export class MainGridBase extends GridControlBase {
      */  
     public appUIService:IbzLibCaseStepTmpUIService = new IbzLibCaseStepTmpUIService(this.$store);
 
+
     /**
      * 本地缓存标识
      *

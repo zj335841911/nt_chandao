@@ -66,6 +66,7 @@ export class MyWorkListBase extends ListControlBase {
      */  
     public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
+
     /**
      * 分页条数
      *

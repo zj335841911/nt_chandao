@@ -69,6 +69,7 @@ export class MyWorkPortletBase extends MainControlBase {
      */  
     public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
+
     /**
      * 长度
      *

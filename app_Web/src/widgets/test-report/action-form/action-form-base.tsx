@@ -67,6 +67,7 @@ export class ActionEditFormBase extends EditFormControlBase {
      */  
     public appUIService:TestReportUIService = new TestReportUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *

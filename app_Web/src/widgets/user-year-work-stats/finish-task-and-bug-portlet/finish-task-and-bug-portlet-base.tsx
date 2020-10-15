@@ -69,6 +69,7 @@ export class FinishTaskAndBugPortletBase extends MainControlBase {
      */  
     public appUIService:UserYearWorkStatsUIService = new UserYearWorkStatsUIService(this.$store);
 
+
     /**
      * 长度
      *

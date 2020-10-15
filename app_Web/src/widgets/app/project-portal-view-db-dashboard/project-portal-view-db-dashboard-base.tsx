@@ -30,6 +30,7 @@ export class ProjectPortalView_dbDashboardBase extends MainControlBase {
      * @memberof ProjectPortalView_dbDashboardBase
      */
     public service: ProjectPortalView_dbService = new ProjectPortalView_dbService({ $store: this.$store });
+
     /**
      * 是否支持看板定制
      *

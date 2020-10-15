@@ -1077,7 +1077,7 @@ export default class StoryUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Story_releaseUnlinkBug(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Story_releaseUnlinkStory(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
@@ -1085,7 +1085,7 @@ export default class StoryUIServiceBase extends UIService {
         Object.assign(context,{RELEASE:"%srfparentkey%"});
         Object.assign(params,{release:"%srfparentkey%"});
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'MULTIKEY';
+        const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { story: '%story%' });
         Object.assign(params, { id: '%story%' });
         Object.assign(params, { title: '%title%' });
@@ -2395,14 +2395,15 @@ export default class StoryUIServiceBase extends UIService {
 			}
 			return 'EDITVIEW:'+objFormValue;
         }
+        const stateTag = this.getDEMainStateTag(curData);
 		if(!Environment.isAppMode){
-            if(this.getDEMainStateTag(curData)){
-                return `MOBEDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
+            if (stateTag) {
+                return `MOBEDITVIEW:MSTAG:${stateTag}`;
             }
 			return 'MOBEDITVIEW:';
         }
-        if(this.getDEMainStateTag(curData)){
-            return `EDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
+        if(stateTag){
+            return `EDITVIEW:MSTAG:${stateTag}`;
         }
 		return 'EDITVIEW:';
     }
@@ -2449,13 +2450,14 @@ export default class StoryUIServiceBase extends UIService {
     * @param data 当前数据
     * @memberof  StoryUIServiceBase
     */  
-   public getDEMainStateOPPrivs(data:any){
-        if(this.getDEMainStateTag(data)){
-            return this.allDeMainStateOPPrivsMap.get((this.getDEMainStateTag(data) as string));
-        }else{
+    public getDEMainStateOPPrivs(data:any){
+        const stateTag = this.getDEMainStateTag(data);
+        if (stateTag) {
+            return this.allDeMainStateOPPrivsMap.get(stateTag);
+        } else {
             return null;
         }
-   }
+    }
 
     /**
     * 获取数据对象所有的操作标识

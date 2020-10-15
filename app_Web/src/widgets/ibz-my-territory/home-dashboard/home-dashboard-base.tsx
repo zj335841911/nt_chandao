@@ -66,6 +66,7 @@ export class HomeDashboardBase extends MainControlBase {
      * @memberof HomeBase
      */  
     public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+
     /**
      * 是否支持看板定制
      *

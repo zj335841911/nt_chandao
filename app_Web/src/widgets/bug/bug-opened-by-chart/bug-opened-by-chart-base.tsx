@@ -71,6 +71,8 @@ export class BugOpenedByChartBase extends MainControlBase {
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
 
+    
+
     /**
      * 获取多项数据
      *

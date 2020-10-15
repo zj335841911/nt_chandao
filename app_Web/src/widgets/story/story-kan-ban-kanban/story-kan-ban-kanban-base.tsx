@@ -66,6 +66,7 @@ export class StoryKanBanKanbanBase extends MainControlBase {
      * @memberof StoryKanBanBase
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
+
     /**
      * 获取多项数据
      *

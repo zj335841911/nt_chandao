@@ -67,6 +67,7 @@ export class TreeLibExpTreeBase extends MainControlBase {
      */  
     public appUIService:IbzLibModuleUIService = new IbzLibModuleUIService(this.$store);
 
+
     /**
      * 获取多项数据
      *

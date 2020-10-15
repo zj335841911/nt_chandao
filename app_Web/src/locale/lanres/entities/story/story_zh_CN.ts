@@ -906,7 +906,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-			story_releaseunlinkbug: "移除关联",
+			story_releaseunlinkstory: "移除关联",
 		},
 	},
 	myfavoritemain_grid: {

@@ -67,6 +67,7 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
 
+
     /**
      * 表单数据对象
      *

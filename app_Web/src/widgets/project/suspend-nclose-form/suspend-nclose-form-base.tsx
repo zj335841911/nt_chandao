@@ -67,6 +67,7 @@ export class SuspendNCloseEditFormBase extends EditFormControlBase {
      */  
     public appUIService:ProjectUIService = new ProjectUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *

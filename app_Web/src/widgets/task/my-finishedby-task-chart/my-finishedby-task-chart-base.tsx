@@ -71,6 +71,7 @@ export class MyFinishedbyTaskChartBase extends MainControlBase {
      */  
     public appUIService:TaskUIService = new TaskUIService(this.$store);
 
+
     /**
      * 获取多项数据
      *

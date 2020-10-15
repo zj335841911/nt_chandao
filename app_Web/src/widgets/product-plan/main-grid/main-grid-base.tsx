@@ -235,6 +235,7 @@ export class MainGridBase extends GridControlBase {
         curUIService.ProductPlan_Delete(datas,contextJO, paramJO,  $event, xData,this,"ProductPlan");
     }
 
+
     /**
      * 界面行为模型
      *

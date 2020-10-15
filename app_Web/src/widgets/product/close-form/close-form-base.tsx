@@ -67,6 +67,7 @@ export class CloseEditFormBase extends EditFormControlBase {
      */  
     public appUIService:ProductUIService = new ProductUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *

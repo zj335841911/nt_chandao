@@ -65,6 +65,7 @@ export class MainTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @memberof MainTabExpViewtabexppanelBase
      */  
     public appUIService:ProjectUIService = new ProjectUIService(this.$store);
+
     /**
      * 是否初始化
      *

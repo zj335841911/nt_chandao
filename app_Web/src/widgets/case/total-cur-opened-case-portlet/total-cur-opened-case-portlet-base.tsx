@@ -69,6 +69,7 @@ export class TotalCurOpenedCasePortletBase extends MainControlBase {
      */  
     public appUIService:CaseUIService = new CaseUIService(this.$store);
 
+
     /**
      * 长度
      *

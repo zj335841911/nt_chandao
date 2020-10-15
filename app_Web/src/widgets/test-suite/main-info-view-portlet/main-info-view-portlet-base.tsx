@@ -69,6 +69,7 @@ export class MainInfoViewPortletBase extends MainControlBase {
      */  
     public appUIService:TestSuiteUIService = new TestSuiteUIService(this.$store);
 
+
     /**
      * 长度
      *

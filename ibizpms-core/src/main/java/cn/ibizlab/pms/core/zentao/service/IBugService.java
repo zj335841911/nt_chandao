@@ -48,6 +48,7 @@ public interface IBugService extends IService<Bug>{
     Bug releaaseBatchUnlinkBug(Bug et) ;
     Bug releaseLinkBugbyBug(Bug et) ;
     Bug releaseLinkBugbyLeftBug(Bug et) ;
+    Bug releaseUnLinkBugbyLeftBug(Bug et) ;
     Bug releaseUnlinkBug(Bug et) ;
     Bug resolve(Bug et) ;
     boolean save(Bug et) ;

@@ -278,6 +278,7 @@ export default class AppGroupPicker extends Vue {
   width: 100%;
   height: 100%;
   .ibiz-group-container {
+      min-height: 700px;
       display: flex;
       height: calc(100% - 65px);
       .ibiz-group-tree {

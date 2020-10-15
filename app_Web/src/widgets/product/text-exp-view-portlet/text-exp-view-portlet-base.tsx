@@ -69,6 +69,7 @@ export class TextExpViewPortletBase extends MainControlBase {
      */  
     public appUIService:ProductUIService = new ProductUIService(this.$store);
 
+
     /**
      * 长度
      *

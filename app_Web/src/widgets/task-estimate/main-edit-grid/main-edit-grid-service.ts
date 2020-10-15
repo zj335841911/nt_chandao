@@ -41,6 +41,22 @@ export default class MainEditService extends ControlService {
         this.model = new MainEditModel();
     }
 
+    /**
+     * 备份原生数据
+     *
+     * @type {*}
+     * @memberof MainEditService
+     */
+    private copynativeData:any;
+
+    /**
+     * 远端数据
+     *
+     * @type {*}
+     * @memberof MainEditService
+     */
+    private remoteCopyData:any = {};
+
 
     /**
      * 处理数据
@@ -232,6 +248,7 @@ export default class MainEditService extends ControlService {
                 result =_appEntityService.FetchDefault(Context,Data, isloading);
             }
             result.then((response) => {
+                this.setCopynativeData(response.data);
                 this.handleResponse(action, response);
                 resolve(response);
             }).catch(response => {
@@ -267,6 +284,7 @@ export default class MainEditService extends ControlService {
                 if(response.data){
                     Object.assign(response.data,{srfuf:'0'});
                 }
+                this.setRemoteCopyData(response);
                 this.handleResponse(action, response, true);
                 resolve(response);
             }).catch(response => {
@@ -340,5 +358,43 @@ export default class MainEditService extends ControlService {
         }
         return {context:tempContext,data:requestData};
     }
-    
+    /**
+     * 设置远端数据
+     * 
+     * @param result 远端请求结果 
+     * @memberof MainEditService
+     */
+    public setRemoteCopyData(result:any){
+        if (result && result.status === 200) {
+            this.remoteCopyData = Util.deepCopy(result.data);
+        }
+    }
+
+    /**
+     * 获取远端数据
+     * 
+     * @memberof MainEditService
+     */
+    public getRemoteCopyData(){
+        return this.remoteCopyData;
+    }
+
+    /**
+     * 设置备份原生数据
+     * 
+     * @param data 远端请求结果 
+     * @memberof MainEditService
+     */
+    public setCopynativeData(data:any){
+        this.copynativeData = Util.deepCopy(data);
+    }
+
+    /**
+     * 获取备份原生数据
+     * 
+     * @memberof MainEditService
+     */
+    public getCopynativeData(){
+        return this.copynativeData;
+    }    
 }

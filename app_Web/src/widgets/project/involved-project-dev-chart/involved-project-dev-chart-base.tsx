@@ -71,6 +71,7 @@ export class InvolvedProject_devChartBase extends MainControlBase {
      */  
     public appUIService:ProjectUIService = new ProjectUIService(this.$store);
 
+
     /**
      * 获取多项数据
      *

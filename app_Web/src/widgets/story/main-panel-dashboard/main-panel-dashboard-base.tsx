@@ -66,6 +66,7 @@ export class MainPanelDashboardBase extends MainControlBase {
      * @memberof MainPanelBase
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
+
     /**
      * 是否支持看板定制
      *

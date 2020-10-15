@@ -67,6 +67,7 @@ export class MainDataEditFormBase extends EditFormControlBase {
      */  
     public appUIService:ProductPlanUIService = new ProductPlanUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *

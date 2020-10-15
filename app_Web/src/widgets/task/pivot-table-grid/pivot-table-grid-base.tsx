@@ -68,6 +68,7 @@ export class PivotTableGridBase extends MainControlBase {
      */  
     public appUIService:TaskUIService = new TaskUIService(this.$store);
 
+
     /**
      * 代码表服务对象
      *

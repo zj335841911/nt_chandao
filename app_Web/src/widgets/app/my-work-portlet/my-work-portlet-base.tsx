@@ -33,6 +33,7 @@ export class MyWorkPortletBase extends MainControlBase {
      */
     public service: MyWorkService = new MyWorkService({ $store: this.$store });
 
+
     /**
      * 长度
      *

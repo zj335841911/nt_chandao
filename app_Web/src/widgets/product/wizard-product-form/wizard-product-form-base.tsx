@@ -67,6 +67,7 @@ export class WizardProductEditFormBase extends EditFormControlBase {
      */  
     public appUIService:ProductUIService = new ProductUIService(this.$store);
 
+
     /**
      * 表单数据对象
      *

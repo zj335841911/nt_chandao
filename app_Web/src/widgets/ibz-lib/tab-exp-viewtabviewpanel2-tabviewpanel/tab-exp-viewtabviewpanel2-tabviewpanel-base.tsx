@@ -66,6 +66,7 @@ export class TabExpViewtabviewpanel2TabviewpanelBase extends MainControlBase {
      */  
     public appUIService:IbzLibUIService = new IbzLibUIService(this.$store);
 
+
     /**
      * 导航模式下项是否激活
      *

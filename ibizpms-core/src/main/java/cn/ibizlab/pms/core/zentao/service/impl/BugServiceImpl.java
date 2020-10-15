@@ -250,6 +250,12 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
 
         @Override
     @Transactional
+    public Bug releaseUnLinkBugbyLeftBug(Bug et) {
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).releaseUnLinkBugbyLeftBug(et);
+    }
+
+        @Override
+    @Transactional
     public Bug releaseUnlinkBug(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).releaseUnlinkBug(et);
     }

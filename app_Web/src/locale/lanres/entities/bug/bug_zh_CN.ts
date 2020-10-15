@@ -843,6 +843,21 @@ export default {
 		uiactions: {
 		},
 	},
+	main_releasesubr_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "Bug标题",
+			status: "Bug状态",
+			openedby: "由谁创建",
+			openeddate: "创建日期",
+			assignedto: "指派给",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			bug_releaseunlinkbug: "移除bug",
+		},
+	},
 	main_releasesub_grid: {
 		columns: {
 			id: "ID",
@@ -852,8 +867,10 @@ export default {
 			openedby: "由谁创建",
 			openeddate: "创建日期",
 			assignedto: "指派给",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+			bug_releaseunlinkbugbyleftbug: "移除bug",
 		},
 	},
 	main_dataexport_grid: {

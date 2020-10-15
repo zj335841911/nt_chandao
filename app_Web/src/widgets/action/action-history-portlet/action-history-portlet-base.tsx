@@ -69,6 +69,7 @@ export class ActionHistoryPortletBase extends MainControlBase {
      */  
     public appUIService:ActionUIService = new ActionUIService(this.$store);
 
+
     /**
      * 长度
      *

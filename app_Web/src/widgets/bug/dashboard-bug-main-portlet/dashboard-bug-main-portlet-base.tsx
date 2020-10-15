@@ -69,6 +69,7 @@ export class DashboardBugMainPortletBase extends MainControlBase {
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
 
+
     /**
      * 长度
      *

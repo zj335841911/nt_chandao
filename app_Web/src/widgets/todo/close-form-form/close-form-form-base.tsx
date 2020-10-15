@@ -67,6 +67,7 @@ export class CloseFormEditFormBase extends EditFormControlBase {
      */  
     public appUIService:TodoUIService = new TodoUIService(this.$store);
 
+
     /**
      * 表单数据对象
      *

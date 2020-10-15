@@ -71,7 +71,7 @@
                 </el-table-column>
             </template>
             <template v-if="getColumnState('modulename')">
-                <el-table-column show-overflow-tooltip :prop="'modulename'" :label="$t('entities.story.main_releasesub_grid.columns.modulename')" :width="150"  :align="'left'" :sortable="'custom'">
+                <el-table-column show-overflow-tooltip :prop="'modulename'" :label="$t('entities.story.main_releasesub_grid.columns.modulename')" :width="200"  :align="'left'" :sortable="'custom'">
                     <template v-slot:header="{column}">
                       <span class="column-header ">
                         {{$t('entities.story.main_releasesub_grid.columns.modulename')}}
@@ -91,7 +91,7 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.releaseUnlinkBug.visabled" :disabled="scope.row.releaseUnlinkBug.disabled" @click="uiAction(scope.row, 'releaseUnlinkBug', $event)" :title="$t('entities.story.main_releasesub_grid.uiactions.story_releaseunlinkbug')">
+                          <a v-show="scope.row.releaseUnlinkStory.visabled" :disabled="scope.row.releaseUnlinkStory.disabled" @click="uiAction(scope.row, 'releaseUnlinkStory', $event)" :title="$t('entities.story.main_releasesub_grid.uiactions.story_releaseunlinkstory')">
                             <i class='fa fa-unlink'></i>
                             
                           </a>

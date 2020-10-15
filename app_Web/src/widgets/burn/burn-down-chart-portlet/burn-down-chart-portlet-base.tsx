@@ -69,6 +69,7 @@ export class BurnDownChartPortletBase extends MainControlBase {
      */  
     public appUIService:BurnUIService = new BurnUIService(this.$store);
 
+
     /**
      * 长度
      *

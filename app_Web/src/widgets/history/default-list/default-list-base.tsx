@@ -66,6 +66,7 @@ export class DEFAULTListBase extends ListControlBase {
      */  
     public appUIService:HistoryUIService = new HistoryUIService(this.$store);
 
+
     /**
      * 分页条数
      *
