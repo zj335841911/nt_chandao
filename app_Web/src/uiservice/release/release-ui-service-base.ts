@@ -629,7 +629,20 @@ export default class ReleaseUIServiceBase extends UIService {
                 return response;
             });
         };
-        backend();
+        const view: any = {
+            viewname: 'story-usr2-mpickup-view',
+            title: actionContext.$t('entities.story.views.usr2mpickupview.title'),
+            height: 0,
+            width: 0,
+            placement: 'DRAWER_TOP'
+        };
+        const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
+        appdrawer.subscribe((result: any) => {
+            if (result && Object.is(result.ret, 'OK')) {
+                Object.assign(data, { srfactionparam: result.datas });
+                backend();
+            }
+        });
     }
 
 
