@@ -564,6 +564,8 @@ export default class ReleaseUIServiceBase extends UIService {
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{RELEASE:"%release%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",release:"%release%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { release: '%release%' });
