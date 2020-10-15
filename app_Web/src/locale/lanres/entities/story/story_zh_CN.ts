@@ -944,6 +944,34 @@ export default {
 		uiactions: {
 		},
 	},
+	mygroupmain_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			prodoctname: "产品名称",
+			title: "需求名称",
+			plan: "计划",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			modulename: "所属模块名称",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			exit: "返回",
+			story_activitedash: "激活",
+			story_changestorydetaildash: "变更",
+			story_reviewstorydash: "评审",
+			story_assigntodash: "指派",
+			story_closestorydash: "关闭",
+			story_substorycz: "细分",
+			story_openbaseinfoc: "编辑",
+			story_delete: "删除",
+			story_returnedit: "退出",
+		},
+	},
 	main_grid: {
 		columns: {
 			id: "ID",
