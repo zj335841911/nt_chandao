@@ -167,7 +167,7 @@ export default {
 		},
 	},
 	maindataeditviewtoolbar_toolbar: {
-		deuiaction1_newsubplan: {
+		deuiaction1_newsubplancz: {
 			caption: "子计划",
 			tip: "子计划",
 		},
