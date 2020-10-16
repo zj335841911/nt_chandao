@@ -96,7 +96,7 @@ export default class AppSetting extends Vue {
    */
   public created() {
     let appdata = this.$store.state.appdata;
-    this.srfloginname = appdata.context.srfloginname;
+    this.srfloginname = appdata && appdata.context && appdata.context.srfloginname?appdata.context.srfloginname:"" ;
     this.$viewTool.setViewTitleOfThirdParty("设置");
     this.setViewTitleStatus();
     this.initializeData();

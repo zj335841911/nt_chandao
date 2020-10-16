@@ -6,6 +6,12 @@
                 <span :class="titleClass" class="group-title"><ion-icon class="group-title-icon" v-if="iconName" :name="iconName"></ion-icon>{{caption}}</span>
             </ion-label>
             <ion-icon v-show="titleBarCloseMode !== 0" class="group-collapse" :name="collapseContant ? 'chevron-back-outline' : 'chevron-down-outline'"></ion-icon>
+            <div :class="{'actiongroup':true,'closemode':titleBarCloseMode !== 0}" v-show="isHaveUiActionGroup">
+              <div class="groupbox" v-for="item in uiActionGroup.details" :key="item.index" @click="doUIAction($event,item.name)">
+                <ion-icon :name="item.icon" v-show="item.isShowIcon && item.visabled"/>
+                <van-button plain type="info" v-show="item.isShowCaption && item.visabled">{{item.caption}}</van-button>
+              </div>  
+            </div>
         </ion-item-divider>
         <ion-row ref="group" v-show="!collapseContant" class="form-group-content">
             <slot></slot>
@@ -16,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 
 @Component({})
 export default class AppFormGroup extends Vue {
@@ -76,6 +82,28 @@ export default class AppFormGroup extends Vue {
      * @memberof AppFormGroup
      */
     @Prop() public uiActionGroup?: any;
+
+    /**
+     * 是否有界面行为组
+     *
+     * @type {*}
+     * @memberof AppFormGroup
+     */
+    get isHaveUiActionGroup(){
+      if (this.uiActionGroup.details.length > 0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    /**
+     * 界面行为组标题
+     *
+     * @type {*}
+     * @memberof AppFormGroup
+     */
+    @Prop() public groupUiAction?:string;    
 
     /**
      * 图标名称
@@ -153,13 +181,17 @@ export default class AppFormGroup extends Vue {
     }
 
     /**
-     * 执行界面行
+     * 执行界面行为
      *
      * @param {*} $event
      * @memberof AppFormGroup
      */
     public doUIAction($event: any, item: any): void {
-        this.$emit('groupuiactionclick', { event: $event, item: item });
+      this.uiActionGroup.details.map((detail: any, i: number) => {
+        if (item == detail.name) {
+          this.$emit('groupuiactionclick', { event: $event, item: detail });
+        }
+      })
     }
 
     /**
@@ -184,6 +216,77 @@ export default class AppFormGroup extends Vue {
             }
         }
     }
+
+    /**
+     * 注入的UI服务
+     *
+     * @type {*}
+     * @memberof AppFormGroup
+     */
+    @Prop() public uiService!: any;
+
+    /**
+     * 注入数据
+     *
+     * @type {*}
+     * @memberof AppFormGroup
+     */
+    @Prop() public data!: any;
+
+    /**
+     * 监听值变化
+     *
+     * @memberof AppFormGroup
+     */
+    @Watch('data',{ deep: true })
+    onDataChange(newVal: any, oldVal: any) {
+        if((newVal !== oldVal) && this.uiActionGroup.details.length >0){
+            this.calcActionItemAuthState(newVal,this.uiActionGroup.details,this.uiService);
+        }
+    }
+
+    /**
+     * 计算界面行为项权限状态
+     *
+     * @param {*} [data] 传入数据
+     * @param {*} [ActionModel] 界面行为模型
+     * @param {*} [UIService] 界面行为服务
+     * @memberof AppFormGroup
+     */
+    public calcActionItemAuthState(data:any,ActionModel:any,UIService:any){
+        for (const key in ActionModel) {
+            if (!ActionModel.hasOwnProperty(key)) {
+                return;
+            }
+            const _item = ActionModel[key];
+            if(_item && _item['dataaccaction'] && UIService){
+                let dataActionResult:any;
+                if(Object.is(_item['actiontarget'],"NONE") || Object.is(_item['actiontarget'],"")){
+                    dataActionResult = UIService.getResourceOPPrivs(_item['dataaccaction']);
+                }else{
+                    if(data && Object.keys(data).length >0){
+                        dataActionResult = UIService.getAllOPPrivs(data)[_item['dataaccaction']];
+                    }
+                }
+                // 无权限:0;有权限:1
+                if(dataActionResult === 0){
+                    // 禁用:1;隐藏:2;隐藏且默认隐藏:6
+                    if(_item.noprivdisplaymode === 1){
+                        _item.disabled = true;
+                    }
+                    if((_item.noprivdisplaymode === 2) || (_item.noprivdisplaymode === 6)){
+                        _item.visabled = false;
+                    }else{
+                        _item.visabled = true;
+                    }
+                }
+                if(dataActionResult === 1){
+                    _item.visabled = true;
+                    _item.disabled = false;
+                }
+            }
+        }
+    } 
 }
 </script>
 <style lang='less'>

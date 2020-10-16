@@ -207,7 +207,7 @@ export default class NewFormBase extends Vue implements ControlInterface {
     public transformData(args: any) {
         let _this: any = this;
         if(_this.service && _this.service.handleRequestData instanceof Function && _this.service.handleRequestData('transform',_this.context,args)){
-            return _this.service.handleRequestData('transform',_this.context,args)['data'];
+            return _this.service.handleRequestData('transform',_this.context,args);
         }
     }
 
@@ -946,24 +946,6 @@ export default class NewFormBase extends Vue implements ControlInterface {
                 formItem.setError(error.message);
             });
         });
-    }
-
-    /**
-     * 表单校验状态
-     *
-     * @returns {boolean} 
-     * @memberof NewForm
-     */
-    protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['dates_item', 'consumed_item', 'left_item', 'work_item', ];
-        let falg = true;
-        for (let item = 0; item < refArr.length; item++) {
-            const element = refArr[item];
-            if (this.$refs[element] && (this.$refs[element] as any).validateRules &&  !await(this.$refs[element] as any).validateRules()) {
-                falg = false;
-            }
-        }
-        return falg;
     }
 
     /**

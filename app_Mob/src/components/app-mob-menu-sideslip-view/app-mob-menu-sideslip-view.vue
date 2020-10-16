@@ -189,6 +189,12 @@ export default class AppMobMenuSideslipView extends Vue {
         this.items.forEach((item:any,index:number) => {
             if(item.opendefault == true){
                 this.activeId = item.id;
+            } else if(item.hidden == false){
+              // 没有默认打开的话
+                count++;
+                if (count == this.items.length) {
+                  this.activeId = this.items[0].id;
+                }
             }
             let model = this.menuModels.find((model:any) => Object.is(model.appfunctag, item.appfunctag));
             if (model) {
