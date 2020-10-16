@@ -65,6 +65,7 @@ export class MainMultieditviewpanelBase extends MainControlBase {
      * @memberof MainBase
      */  
     public appUIService:TestResultUIService = new TestResultUIService(this.$store);
+
     /**
      * 获取多项数据
      *

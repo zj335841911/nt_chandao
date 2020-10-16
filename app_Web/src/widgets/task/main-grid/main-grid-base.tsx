@@ -319,6 +319,7 @@ export class MainGridBase extends GridControlBase {
         curUIService.Task_TaskNFavorites(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
+
     /**
      * 界面行为模型
      *

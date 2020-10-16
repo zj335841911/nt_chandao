@@ -965,6 +965,7 @@
 |/bug/releaasebatchunlinkbug|POST|Bug Json对象|&nbsp;|
 |/bug/releaselinkbugbybug|POST|Bug Json对象|&nbsp;|
 |/bug/releaselinkbugbyleftbug|POST|Bug Json对象|&nbsp;|
+|/bug/releaseunlinkbugbyleftbug|POST|Bug Json对象|&nbsp;|
 |/bug/releaseunlinkbug|POST|Bug Json对象|&nbsp;|
 |/bug/resolve|POST|Bug Json对象|&nbsp;|
 |/bug/save|POST|Bug Json对象|&nbsp;|

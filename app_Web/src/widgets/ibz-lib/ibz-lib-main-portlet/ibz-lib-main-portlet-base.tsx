@@ -69,6 +69,7 @@ export class IbzLibMainPortletBase extends MainControlBase {
      */  
     public appUIService:IbzLibUIService = new IbzLibUIService(this.$store);
 
+
     /**
      * 长度
      *

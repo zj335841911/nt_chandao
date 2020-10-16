@@ -67,6 +67,7 @@ export class DescEditFormBase extends EditFormControlBase {
      */  
     public appUIService:IbzLibUIService = new IbzLibUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *

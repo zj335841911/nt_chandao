@@ -70,6 +70,7 @@ export class MyWork2PanelBase extends PanelControlBase {
      */  
     public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
+
     /**
      * 详情模型集合
      *

@@ -66,6 +66,7 @@ export class ProjectMainDashboardBase extends MainControlBase {
      * @memberof ProjectMainBase
      */  
     public appUIService:TestReportUIService = new TestReportUIService(this.$store);
+
     /**
      * 是否支持看板定制
      *

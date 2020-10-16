@@ -66,6 +66,7 @@ export class TaskKanBanKanbanBase extends MainControlBase {
      * @memberof TaskKanBanBase
      */  
     public appUIService:TaskUIService = new TaskUIService(this.$store);
+
     /**
      * 获取多项数据
      *

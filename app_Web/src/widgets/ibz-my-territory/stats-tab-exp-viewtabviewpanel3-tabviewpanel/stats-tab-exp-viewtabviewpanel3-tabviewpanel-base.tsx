@@ -66,6 +66,7 @@ export class StatsTabExpViewtabviewpanel3TabviewpanelBase extends MainControlBas
      */  
     public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
+
     /**
      * 导航模式下项是否激活
      *

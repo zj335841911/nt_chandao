@@ -140,6 +140,20 @@ export class SidebarListBase extends ListControlBase {
         curUIService.Project_CancelProjectTop(datas,contextJO, paramJO,  $event, xData,this,"Project");
     }
 
+        /**
+     * 项行为触发
+     *
+     * @param {*} $event
+     * @param {*} $event2
+     * @memberof SidebarListBase
+     */
+    public itemActionClick($event: any, $event2: any) {
+        this.handleClick($event2);
+        if(this.list_quicktoolbar_click && this.list_quicktoolbar_click instanceof Function) {
+            this.list_quicktoolbar_click($event, $event2);
+        }
+    }
+
     /**
      * 分页条数
      *

@@ -67,6 +67,7 @@ export class StartEditFormBase extends EditFormControlBase {
      */  
     public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *

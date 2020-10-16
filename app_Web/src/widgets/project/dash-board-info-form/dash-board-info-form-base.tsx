@@ -67,6 +67,7 @@ export class DashBoardInfoEditFormBase extends EditFormControlBase {
      */  
     public appUIService:ProjectUIService = new ProjectUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *

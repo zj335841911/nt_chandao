@@ -66,6 +66,7 @@ export class QAYDashboardBase extends MainControlBase {
      * @memberof QAYBase
      */  
     public appUIService:UserYearWorkStatsUIService = new UserYearWorkStatsUIService(this.$store);
+
     /**
      * 是否支持看板定制
      *

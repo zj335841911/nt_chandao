@@ -275,6 +275,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         }
     }
 
+
     /**
      * 长度
      *

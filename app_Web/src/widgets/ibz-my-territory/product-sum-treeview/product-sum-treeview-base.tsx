@@ -67,6 +67,7 @@ export class ProductSumTreeBase extends MainControlBase {
      */  
     public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
+
     /**
      * 获取多项数据
      *

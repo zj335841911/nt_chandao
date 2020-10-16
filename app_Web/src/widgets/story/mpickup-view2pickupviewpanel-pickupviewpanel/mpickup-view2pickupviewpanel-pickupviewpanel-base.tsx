@@ -68,6 +68,7 @@ export class MPickupView2pickupviewpanelPickupviewpanelBase extends MainControlB
     public appUIService:StoryUIService = new StoryUIService(this.$store);
 
 
+
     /**
      * 选中数据字符串
      *

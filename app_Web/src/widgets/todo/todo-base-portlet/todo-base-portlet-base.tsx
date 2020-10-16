@@ -69,6 +69,7 @@ export class TodoBasePortletBase extends MainControlBase {
      */  
     public appUIService:TodoUIService = new TodoUIService(this.$store);
 
+
     /**
      * 长度
      *

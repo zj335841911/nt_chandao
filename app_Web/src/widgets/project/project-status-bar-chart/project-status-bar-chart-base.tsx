@@ -71,6 +71,7 @@ export class ProjectStatusBarChartBase extends MainControlBase {
      */  
     public appUIService:ProjectUIService = new ProjectUIService(this.$store);
 
+
     /**
      * 获取多项数据
      *

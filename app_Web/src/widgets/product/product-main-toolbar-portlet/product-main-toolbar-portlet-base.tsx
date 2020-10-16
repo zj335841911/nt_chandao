@@ -153,6 +153,7 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
         curUIService.Product_delete(datas,contextJO, paramJO,  $event, xData,this,"Product");
     }
 
+
     /**
      * 长度
      *

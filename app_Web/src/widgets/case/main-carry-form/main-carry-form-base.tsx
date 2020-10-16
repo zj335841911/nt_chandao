@@ -67,6 +67,7 @@ export class MainCarryEditFormBase extends EditFormControlBase {
      */  
     public appUIService:CaseUIService = new CaseUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *

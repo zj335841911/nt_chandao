@@ -236,14 +236,15 @@ export default class ModuleUIServiceBase extends UIService {
 			}
 			return 'EDITVIEW:'+objFormValue;
         }
+        const stateTag = this.getDEMainStateTag(curData);
 		if(!Environment.isAppMode){
-            if(this.getDEMainStateTag(curData)){
-                return `MOBEDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
+            if (stateTag) {
+                return `MOBEDITVIEW:MSTAG:${stateTag}`;
             }
 			return 'MOBEDITVIEW:';
         }
-        if(this.getDEMainStateTag(curData)){
-            return `EDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
+        if(stateTag){
+            return `EDITVIEW:MSTAG:${stateTag}`;
         }
 		return 'EDITVIEW:';
     }
@@ -290,13 +291,14 @@ export default class ModuleUIServiceBase extends UIService {
     * @param data 当前数据
     * @memberof  ModuleUIServiceBase
     */  
-   public getDEMainStateOPPrivs(data:any){
-        if(this.getDEMainStateTag(data)){
-            return this.allDeMainStateOPPrivsMap.get((this.getDEMainStateTag(data) as string));
-        }else{
+    public getDEMainStateOPPrivs(data:any){
+        const stateTag = this.getDEMainStateTag(data);
+        if (stateTag) {
+            return this.allDeMainStateOPPrivsMap.get(stateTag);
+        } else {
             return null;
         }
-   }
+    }
 
     /**
     * 获取数据对象所有的操作标识

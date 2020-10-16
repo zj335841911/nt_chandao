@@ -68,6 +68,7 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
      */  
     public appUIService:BugStatsUIService = new BugStatsUIService(this.$store);
 
+
     /**
      * 表单数据对象
      *
@@ -103,4 +104,11 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
         projecteq: new FormItemModel({ caption: '项目', detailType: 'FORMITEM', name: 'projecteq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
+
+    /**
+     * 新建默认值
+     * @memberof DefaultBase
+     */
+    public createDefault(){                    
+    }
 }

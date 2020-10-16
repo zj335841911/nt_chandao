@@ -68,6 +68,7 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
      */  
     public appUIService:ProductUIService = new ProductUIService(this.$store);
 
+
     /**
      * 表单数据对象
      *
@@ -102,4 +103,11 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
         n_name_like: new FormItemModel({ caption: '产品名称(文本包含(%))', detailType: 'FORMITEM', name: 'n_name_like', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
+
+    /**
+     * 新建默认值
+     * @memberof DefaultBase
+     */
+    public createDefault(){                    
+    }
 }

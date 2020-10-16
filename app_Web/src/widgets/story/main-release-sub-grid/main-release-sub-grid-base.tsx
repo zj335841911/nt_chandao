@@ -92,8 +92,9 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_releaseUnlinkBug(datas,contextJO, paramJO,  $event, xData,this,"Story");
+        curUIService.Story_releaseUnlinkStory(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
+
 
     /**
      * 界面行为模型
@@ -102,7 +103,7 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
      * @memberof Main_ReleaseSubBase
      */  
     public ActionModel: any = {
-        releaseUnlinkBug: { name: 'releaseUnlinkBug',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', actiontarget: 'MULTIKEY'}
+        releaseUnlinkStory: { name: 'releaseUnlinkStory',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_UNLP_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -263,8 +264,43 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
-        if(Object.is('releaseUnlinkBug', tag)) {
+        if(Object.is('releaseUnlinkStory', tag)) {
             this.grid_uagridcolumn1_ue198e4c_click(row, tag, $event);
+        }
+    }
+
+    /**
+     * 更新默认值
+     * @param {*}  row 行数据
+     * @memberof Main_ReleaseSubBase
+     */
+    public updateDefault(row: any){                    
+    }
+
+    /**
+     * 计算数据对象类型的默认值
+     * @param {string}  action 行为
+     * @param {string}  param 默认值参数
+     * @param {*}  data 当前行数据
+     * @memberof Main_ReleaseSubBase
+     */
+    public computeDefaultValueWithParam(action:string,param:string,data:any){
+        if(Object.is(action,"UPDATE")){
+            const nativeData:any = this.service.getCopynativeData();
+            if(nativeData && (nativeData instanceof Array) && nativeData.length >0){
+                let targetData:any = nativeData.find((item:any) =>{
+                    return item.id === data.srfkey;
+                })
+                if(targetData){
+                    return targetData[param]?targetData[param]:null;
+                }else{
+                    return null;
+                }
+            }else{
+                return null;
+            }
+        }else{
+           return this.service.getRemoteCopyData()[param]?this.service.getRemoteCopyData()[param]:null;
         }
     }
 

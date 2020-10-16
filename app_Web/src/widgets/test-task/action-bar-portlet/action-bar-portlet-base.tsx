@@ -227,6 +227,7 @@ export class ActionBarPortletBase extends MainControlBase {
     }
 
 
+
     /**
      * 长度
      *

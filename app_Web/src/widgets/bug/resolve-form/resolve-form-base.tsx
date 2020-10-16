@@ -67,6 +67,7 @@ export class ResolveEditFormBase extends EditFormControlBase {
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *
@@ -327,8 +328,5 @@ export class ResolveEditFormBase extends EditFormControlBase {
      * @memberof ResolveEditFormBase
      */
     public updateDefault(){                    
-        if (this.data.hasOwnProperty('resolveddate') && !this.data.resolveddate) {
-            this.data['resolveddate'] = '';
-        }
     }
 }

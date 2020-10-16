@@ -69,6 +69,7 @@ export class ProjectExpViewPortletBase extends MainControlBase {
      */  
     public appUIService:ProjectUIService = new ProjectUIService(this.$store);
 
+
     /**
      * 长度
      *

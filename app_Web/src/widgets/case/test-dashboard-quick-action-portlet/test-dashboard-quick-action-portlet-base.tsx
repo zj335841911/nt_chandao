@@ -247,6 +247,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         }
     }
 
+
     /**
      * 长度
      *

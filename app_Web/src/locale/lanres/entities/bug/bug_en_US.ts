@@ -844,6 +844,21 @@ export default {
 		uiactions: {
 		},
 	},
+	main_releasesubr_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			title: "Bug标题",
+			status: "Bug状态",
+			openedby: "由谁创建",
+			openeddate: "创建日期",
+			assignedto: "指派给",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+        bug_releaseunlinkbug: "移除bug",
+		},
+	},
 	main_releasesub_grid: {
 		columns: {
 			id: "ID",
@@ -853,8 +868,10 @@ export default {
 			openedby: "由谁创建",
 			openeddate: "创建日期",
 			assignedto: "指派给",
+			uagridcolumn1: "操作",
 		},
 		uiactions: {
+        bug_releaseunlinkbugbyleftbug: "移除bug",
 		},
 	},
 	main_dataexport_grid: {
@@ -911,6 +928,32 @@ export default {
 			status: "状态",
 		},
 		uiactions: {
+		},
+	},
+	mygroupmain_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			confirmed: "确认",
+			productname: "产品",
+			projectname: "项目",
+			title: "Bug标题",
+			status: "Bug状态",
+			openedby: "由谁创建",
+			openeddate: "创建日期",
+			assignedto: "指派给",
+			resolution: "方案",
+			uagridcolumn1: "操作",
+			isfavorites: "是否收藏",
+		},
+		uiactions: {
+        bug_confirmbug: "确认",
+        bug_resolvebug: "解决",
+        bug_closebug: "关闭",
+        bug_mainedit: "编辑",
+        copy: "Copy",
+        bug_bugfavorites: "收藏",
+        bug_bugnfavorites: "取消收藏",
 		},
 	},
 	default_searchform: {

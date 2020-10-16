@@ -71,6 +71,7 @@ export class MyOpenedStory_StageChartBase extends MainControlBase {
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
 
+
     /**
      * 获取多项数据
      *

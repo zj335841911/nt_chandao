@@ -199,6 +199,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
     }
 
 
+
     /**
      * 长度
      *

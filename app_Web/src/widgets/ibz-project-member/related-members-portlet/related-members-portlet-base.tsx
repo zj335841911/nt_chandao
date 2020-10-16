@@ -69,6 +69,7 @@ export class RelatedMembersPortletBase extends MainControlBase {
      */  
     public appUIService:IbzProjectMemberUIService = new IbzProjectMemberUIService(this.$store);
 
+
     /**
      * 长度
      *

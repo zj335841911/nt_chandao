@@ -367,6 +367,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
     }
 
 
+
     /**
      * 长度
      *

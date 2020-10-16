@@ -71,6 +71,7 @@ export class MonthOpenedStoryChartBase extends MainControlBase {
      */  
     public appUIService:UserYearWorkStatsUIService = new UserYearWorkStatsUIService(this.$store);
 
+
     /**
      * 获取多项数据
      *

@@ -90,6 +90,7 @@ export class ListExpViewlistexpbarListexpbarBase extends ListViewExpBarControlBa
         this.listexpbar_load($event, 'listexpbar_list', $event2);
     }
 
+
     /**
      * 导航视图名称
      *

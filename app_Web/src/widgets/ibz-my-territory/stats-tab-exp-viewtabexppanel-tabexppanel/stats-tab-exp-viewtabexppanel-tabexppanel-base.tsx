@@ -65,6 +65,7 @@ export class StatsTabExpViewtabexppanelTabexppanelBase extends TabExpPanelContro
      * @memberof StatsTabExpViewtabexppanelBase
      */  
     public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
+
     /**
      * 是否初始化
      *

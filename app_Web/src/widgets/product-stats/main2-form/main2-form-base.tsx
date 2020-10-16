@@ -207,6 +207,7 @@ export class Main2EditFormBase extends EditFormControlBase {
         curUIService.ProductStats_OpenReleasedCreateView(datas,contextJO, paramJO,  $event, xData,this,"ProductStats");
     }
 
+
     /**
      * 表单数据对象
      *

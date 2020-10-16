@@ -71,6 +71,7 @@ export class ProductBugcnt_QAChartBase extends MainControlBase {
      */  
     public appUIService:ProductSumUIService = new ProductSumUIService(this.$store);
 
+
     /**
      * 获取多项数据
      *

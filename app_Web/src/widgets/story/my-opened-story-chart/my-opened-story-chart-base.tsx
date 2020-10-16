@@ -71,6 +71,7 @@ export class MyOpenedStoryChartBase extends MainControlBase {
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
 
+
     /**
      * 获取多项数据
      *

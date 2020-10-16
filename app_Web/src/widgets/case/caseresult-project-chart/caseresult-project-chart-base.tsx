@@ -71,6 +71,8 @@ export class CaseresultProjectChartBase extends MainControlBase {
      */  
     public appUIService:CaseUIService = new CaseUIService(this.$store);
 
+    
+
     /**
      * 获取多项数据
      *

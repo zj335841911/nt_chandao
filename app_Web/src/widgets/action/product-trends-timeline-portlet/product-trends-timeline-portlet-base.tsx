@@ -69,6 +69,7 @@ export class ProductTrendsTimelinePortletBase extends MainControlBase {
      */  
     public appUIService:ActionUIService = new ActionUIService(this.$store);
 
+
     /**
      * 长度
      *

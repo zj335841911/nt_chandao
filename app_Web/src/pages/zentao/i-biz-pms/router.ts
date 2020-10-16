@@ -3390,6 +3390,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/user-infoedit-view/user-infoedit-view.vue'),
                 },
                 {
+                    path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/newediteditview9/:newediteditview9?',
+                    meta: {
+                        caption: 'entities.ibzcase.views.newediteditview9.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzlibs', parameterName: 'ibzlib' },
+                            { pathName: 'ibzcases', parameterName: 'ibzcase' },
+                            { pathName: 'newediteditview9', parameterName: 'newediteditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-case-new-edit-edit-view9/ibz-case-new-edit-edit-view9.vue'),
+                },
+                {
+                    path: 'ibzcases/:ibzcase?/newediteditview9/:newediteditview9?',
+                    meta: {
+                        caption: 'entities.ibzcase.views.newediteditview9.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'ibzcases', parameterName: 'ibzcase' },
+                            { pathName: 'newediteditview9', parameterName: 'newediteditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/ibz-case-new-edit-edit-view9/ibz-case-new-edit-edit-view9.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/bugs/:bug?/mpickupview4/:mpickupview4?',
                     meta: {
                         caption: 'entities.bug.views.mpickupview4.caption',
@@ -3473,35 +3502,6 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/zentao/bug-mpickup-view4/bug-mpickup-view4.vue'),
-                },
-                {
-                    path: 'ibzlibs/:ibzlib?/ibzcases/:ibzcase?/newediteditview9/:newediteditview9?',
-                    meta: {
-                        caption: 'entities.ibzcase.views.newediteditview9.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzlibs', parameterName: 'ibzlib' },
-                            { pathName: 'ibzcases', parameterName: 'ibzcase' },
-                            { pathName: 'newediteditview9', parameterName: 'newediteditview9' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/ibz-case-new-edit-edit-view9/ibz-case-new-edit-edit-view9.vue'),
-                },
-                {
-                    path: 'ibzcases/:ibzcase?/newediteditview9/:newediteditview9?',
-                    meta: {
-                        caption: 'entities.ibzcase.views.newediteditview9.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'ibzcases', parameterName: 'ibzcase' },
-                            { pathName: 'newediteditview9', parameterName: 'newediteditview9' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/ibz-case-new-edit-edit-view9/ibz-case-new-edit-edit-view9.vue'),
                 },
                 {
                     path: 'ibzlibs/:ibzlib?/editview9/:editview9?',

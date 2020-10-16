@@ -123,6 +123,7 @@ export class ProjectStoryGridBase extends GridControlBase {
         curUIService.Story_ProjectUnlinkStory(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
+
     /**
      * 界面行为模型
      *

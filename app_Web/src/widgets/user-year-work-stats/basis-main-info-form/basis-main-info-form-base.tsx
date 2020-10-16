@@ -67,6 +67,7 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
      */  
     public appUIService:UserYearWorkStatsUIService = new UserYearWorkStatsUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *

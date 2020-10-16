@@ -66,6 +66,7 @@ export class DEVYDashboardBase extends MainControlBase {
      * @memberof DEVYBase
      */  
     public appUIService:UserYearWorkStatsUIService = new UserYearWorkStatsUIService(this.$store);
+
     /**
      * 是否支持看板定制
      *

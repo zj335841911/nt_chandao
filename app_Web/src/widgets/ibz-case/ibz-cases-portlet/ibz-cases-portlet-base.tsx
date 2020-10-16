@@ -171,6 +171,7 @@ export class IbzCasesPortletBase extends MainControlBase {
     }
 
 
+
     /**
      * 长度
      *

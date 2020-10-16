@@ -69,6 +69,7 @@ export class BaseInfoPortletBase extends MainControlBase {
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
 
+
     /**
      * 长度
      *

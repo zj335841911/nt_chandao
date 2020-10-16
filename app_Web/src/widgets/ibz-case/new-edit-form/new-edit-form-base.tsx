@@ -67,6 +67,7 @@ export class NewEditEditFormBase extends EditFormControlBase {
      */  
     public appUIService:IbzCaseUIService = new IbzCaseUIService(this.$store);
 
+
     /**
      * 表单数据对象
      *

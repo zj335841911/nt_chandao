@@ -66,6 +66,7 @@ export class TabExpViewtabviewpanel7TabviewpanelBase extends MainControlBase {
      */  
     public appUIService:IbzMyTerritoryUIService = new IbzMyTerritoryUIService(this.$store);
 
+
     /**
      * 导航模式下项是否激活
      *

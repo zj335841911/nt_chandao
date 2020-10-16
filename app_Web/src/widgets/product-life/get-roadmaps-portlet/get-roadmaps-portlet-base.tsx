@@ -69,6 +69,7 @@ export class GetRoadmapsPortletBase extends MainControlBase {
      */  
     public appUIService:ProductLifeUIService = new ProductLifeUIService(this.$store);
 
+
     /**
      * 长度
      *

@@ -98,6 +98,7 @@ export class TaskKanBanPanelBase extends PanelControlBase {
         curUIService.Task_AssignTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
     }
 
+
     /**
      * 详情模型集合
      *
