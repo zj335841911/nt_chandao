@@ -13,6 +13,8 @@
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
+    :data="transformData(data)"
+    :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
@@ -50,6 +52,8 @@
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
+    :data="transformData(data)"
+    :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
@@ -118,6 +122,8 @@
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
+    :data="transformData(data)"
+    :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
@@ -223,6 +229,8 @@
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
+    :data="transformData(data)"
+    :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
@@ -480,7 +488,7 @@ export default class ReviewMobBase extends Vue implements ControlInterface {
     public transformData(args: any) {
         let _this: any = this;
         if(_this.service && _this.service.handleRequestData instanceof Function && _this.service.handleRequestData('transform',_this.context,args)){
-            return _this.service.handleRequestData('transform',_this.context,args)['data'];
+            return _this.service.handleRequestData('transform',_this.context,args);
         }
     }
 
@@ -1432,24 +1440,6 @@ export default class ReviewMobBase extends Vue implements ControlInterface {
                 formItem.setError(error.message);
             });
         });
-    }
-
-    /**
-     * 表单校验状态
-     *
-     * @returns {boolean} 
-     * @memberof ReviewMob
-     */
-    protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['title_item', 'revieweddate_item', 'result_item', 'pri_item', 'estimate_item', 'preversion_item', 'closedreason_item', 'assignedto_item', 'reviewedby_item', 'comment_item', ];
-        let falg = true;
-        for (let item = 0; item < refArr.length; item++) {
-            const element = refArr[item];
-            if (this.$refs[element] && (this.$refs[element] as any).validateRules &&  !await(this.$refs[element] as any).validateRules()) {
-                falg = false;
-            }
-        }
-        return falg;
     }
 
     /**

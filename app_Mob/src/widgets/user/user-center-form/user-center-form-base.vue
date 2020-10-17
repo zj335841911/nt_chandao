@@ -13,6 +13,8 @@
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="true" 
+    :data="transformData(data)"
+    :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
@@ -369,7 +371,7 @@ export default class UserCenterBase extends Vue implements ControlInterface {
     public transformData(args: any) {
         let _this: any = this;
         if(_this.service && _this.service.handleRequestData instanceof Function && _this.service.handleRequestData('transform',_this.context,args)){
-            return _this.service.handleRequestData('transform',_this.context,args)['data'];
+            return _this.service.handleRequestData('transform',_this.context,args);
         }
     }
 
@@ -1207,24 +1209,6 @@ export default class UserCenterBase extends Vue implements ControlInterface {
                 formItem.setError(error.message);
             });
         });
-    }
-
-    /**
-     * 表单校验状态
-     *
-     * @returns {boolean} 
-     * @memberof UserCenter
-     */
-    protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['realname_item', 'gender_item', 'account_item', 'address_item', 'dingding_item', 'phone_item', 'mobile_item', 'role_item', 'qq_item', 'weixin_item', ];
-        let falg = true;
-        for (let item = 0; item < refArr.length; item++) {
-            const element = refArr[item];
-            if (this.$refs[element] && (this.$refs[element] as any).validateRules &&  !await(this.$refs[element] as any).validateRules()) {
-                falg = false;
-            }
-        }
-        return falg;
     }
 
     /**

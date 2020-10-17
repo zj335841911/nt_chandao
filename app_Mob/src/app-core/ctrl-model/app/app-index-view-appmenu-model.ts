@@ -87,7 +87,7 @@ export class AppIndexViewModel {
 	resourcetag: '',
 },
         {
-	id: 'B46864D2-69CB-4432-A520-12632D097F30',
+	id: '1c0f7d8bb0f18d1e0596c623d739fbe7',
 	name: 'menuitem6',
 	text: '个人中心',
 	type: 'MENUITEM',
@@ -105,7 +105,7 @@ export class AppIndexViewModel {
 	resourcetag: '',
 },
         {
-	id: 'FA0E885A-486D-47C0-8459-4AC00BF64922',
+	id: '1b6e83d604e5bca3af9f3a905e60f440',
 	name: 'menuitem7',
 	text: '用户选择',
 	type: 'MENUITEM',
