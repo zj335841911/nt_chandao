@@ -904,6 +904,10 @@ export default {
 			pri: "P",
 			title: "需求名称",
 			modulename: "所属模块名称",
+			openedby: "创建",
+			estimate: "预计",
+			status: "当前状态",
+			stage: "所处阶段",
 			uagridcolumn1: "操作",
 		},
 		uiactions: {

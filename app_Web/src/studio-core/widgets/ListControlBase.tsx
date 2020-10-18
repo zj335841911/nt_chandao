@@ -78,13 +78,13 @@ export class ListControlBase extends MDControlBase {
     /**
      * 刷新
      *
-     * @param {*} [opt={}]
+     * @param {*} [args]
      * @memberof ListControlBase
      */
-    public refresh(opt: any = {}) {
+    public refresh(args?: any) {
         this.curPage = 1;
         this.items = [];
-        this.load(opt);
+        this.load(args);
     }
 
     /**

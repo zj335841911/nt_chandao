@@ -231,10 +231,10 @@ export class GridControlBase extends MDControlBase {
     /**
      * 部件刷新
      *
-     * @param {any[]} args
+     * @param {*} args
      * @memberof GridControlBase
      */
-    public refresh(args?: any[]): void {
+    public refresh(args?: any): void {
         this.load();
     }
 
@@ -543,30 +543,30 @@ export class GridControlBase extends MDControlBase {
         }
         let dataInfo = '';
         arr.forEach((record: any, index: number) => {
-            // let srfmajortext = record.${ctrl.getPSAppDataEntity().getMajorPSAppDEField().getCodeName()?lower_case};
-            // if (index < 5) {
-            //     if (!Object.is(dataInfo, '')) {
-            //         dataInfo += '、';
-            //     }
-            //     dataInfo += srfmajortext;
-            // } else {
-            //     return false;
-            // }
+            let srfmajortext = record.srfmajortext;
+            if (index < 5) {
+                if (!Object.is(dataInfo, '')) {
+                    dataInfo += '、';
+                }
+                dataInfo += srfmajortext;
+            } else {
+                return false;
+            }
         });
 
         if (arr.length < 5) {
             dataInfo = dataInfo + ' ' + (this.$t('app.gridpage.totle') as string) + arr.length + (this.$t('app.gridpage.records') as string) + (this.$t('app.gridpage.data') as string);
         } else {
-            dataInfo = dataInfo + '...' + ' ' + (this.$t('app.gridpage.totle') as string) + arr.length + (this.$t('app.gridpage.desc2') as string);
+            dataInfo = dataInfo + '... 等' + (this.$t('app.gridpage.totle') as string) + arr.length + '条';
         }
 
         const removeData = () => {
-            let keys: any[] = [];
+            const keys: any[] = [];
             arr.forEach((data: any) => {
                 keys.push(data.srfkey);
             });
-            let _removeAction = keys.length > 1 ? 'removeBatch' : this.removeAction;
-            let _keys = keys.length > 1 ? keys : keys[0];
+            const _removeAction = keys.length > 1 ? 'removeBatch' : this.removeAction;
+            const _keys = keys.length > 1 ? keys : keys[0];
             const context: any = JSON.parse(JSON.stringify(this.context));
             const post: Promise<any> = this.service.delete(_removeAction, Object.assign(context, { [this.appDeName]: _keys }), Object.assign({ [this.appDeName]: _keys }, { viewparams: this.viewparams }), this.showBusyIndicator);
             return new Promise((resolve: any, reject: any) => {
@@ -921,22 +921,24 @@ export class GridControlBase extends MDControlBase {
             this.stopRowClick = false;
             return;
         }
-        if (this.isSingleSelect) {
-            this.selections = [];
-        }
+        this.selections = [];
         // 已选中则删除，没选中则添加
         let selectIndex = this.selections.findIndex((item: any) => {
             return Object.is(item[this.appDeName], $event[this.appDeName]);
         });
         if (Object.is(selectIndex, -1)) {
             this.selections.push(JSON.parse(JSON.stringify($event)));
+            const refs: any = this.$refs;
+            if (refs.multipleTable) {
+                refs.multipleTable.clearSelection();
+                refs.multipleTable.toggleRowSelection($event);
+            }
         } else {
             this.selections.splice(selectIndex, 1);
-        }
-        const refs: any = this.$refs;
-        if (refs.multipleTable) {
-            refs.multipleTable.clearSelection();
-            refs.multipleTable.toggleRowSelection($event);
+            const refs: any = this.$refs;
+            if (refs.multipleTable) {
+                refs.multipleTable.clearSelection();
+            }
         }
         this.$emit('selectionchange', this.selections);
     }

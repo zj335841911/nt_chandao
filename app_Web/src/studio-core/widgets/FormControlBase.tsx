@@ -430,11 +430,11 @@ export class FormControlBase extends MainControlBase {
     /**
      * 部件刷新
      *
-     * @param {any[]} [args]
+     * @param {*} [args]
      * @returns {void}
      * @memberof FormControlBase
      */
-    public refresh(args?: any[]): void {
+    public refresh(args?: any): void {
         const arg: any = {};
         if (args && args.length > 0) {
             Object.assign(arg, args[0]);

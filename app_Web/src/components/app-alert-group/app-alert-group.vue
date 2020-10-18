@@ -4,6 +4,8 @@
             <app-alert
                 :key="index"
                 :tag="item.tag"
+                :context="context"
+                :viewparam="viewparam" 
                 :position="item.position"
                 :infoGroup="infoGroup"
                 :viewname="viewname"/>
@@ -33,6 +35,22 @@ export default class AppAlertGroup extends Vue {
      * @memberof AppAlertGroup
      */
     @Prop() infoGroup: any;
+
+    /**
+     * 应用上下文
+     * 
+     * @type {any}
+     * @memberof AppAlertGroup
+     */
+    @Prop() context: any;
+
+    /**
+     * 视图参数
+     * 
+     * @type {any}
+     * @memberof AppAlertGroup
+     */
+    @Prop() viewparam: any;
 
     /**
      * 视图消息组显示位置
