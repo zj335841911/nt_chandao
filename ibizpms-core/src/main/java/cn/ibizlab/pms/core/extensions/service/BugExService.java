@@ -2,14 +2,21 @@ package cn.ibizlab.pms.core.extensions.service;
 
 import cn.ibizlab.pms.core.util.message.DingTalkMsgService;
 import cn.ibizlab.pms.core.util.message.SendMessage;
+import cn.ibizlab.pms.core.zentao.domain.File;
+import cn.ibizlab.pms.core.zentao.service.IFileService;
 import cn.ibizlab.pms.core.zentao.service.impl.BugServiceImpl;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Bug;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 实体[Bug] 自定义服务对象
@@ -18,6 +25,9 @@ import org.springframework.context.annotation.Primary;
 @Primary
 @Service("BugExService")
 public class BugExService extends BugServiceImpl {
+
+    @Autowired
+    IFileService iFileService;
 
     @Override
     protected Class currentModelClass() {
@@ -197,7 +207,23 @@ public class BugExService extends BugServiceImpl {
     @Transactional
 //    @SendMessage
     public boolean create(Bug et){
-        return  super.create(et);
+        String files = et.getFiles();
+        boolean flag = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).create(et);
+        if(flag && et.getId() != null && files != null) {
+            JSONArray jsonArray = JSONArray.parseArray(files);
+            List<File> list = new ArrayList<>();
+            for (int i = 0; i < jsonArray.size(); i ++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                File file = new File();
+                file.setId(jsonObject.getLongValue("id"));
+                file.setObjectid(et.getId());
+                file.setAddedby(et.getOpenedby());
+                file.setAddeddate(et.getOpeneddate());
+                list.add(file);
+            }
+            iFileService.updateBatch(list);
+        }
+        return flag;
     }
 
     @Override
