@@ -46,6 +46,15 @@ export class StoryKanbanViewBase extends KanBanViewBase {
     protected appDeMajor: string = 'title';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryKanbanViewBase
+     */ 
+    protected dataControl:string = "kanban";
+
+    /**
      * 实体服务对象
      *
      * @type {StoryService}

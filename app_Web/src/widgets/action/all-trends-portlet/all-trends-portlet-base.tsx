@@ -219,4 +219,13 @@ export class AllTrendsPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof AllTrendsBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'ActionMyAllTrendsListView', action: 'refresh', data: args });
+    }
+
 }

@@ -45,6 +45,15 @@ export class StoryCurProjectWGridViewBase extends GridViewBase {
     protected appDeMajor: string = 'title';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryCurProjectWGridViewBase
+     */ 
+    protected dataControl:string = "grid";
+
+    /**
      * 实体服务对象
      *
      * @type {StoryService}

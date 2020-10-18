@@ -219,4 +219,13 @@ export class DashBoradInfoViewPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof DashBoradInfoViewBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'ProjectDashboardInfoView', action: 'refresh', data: args });
+    }
+
 }

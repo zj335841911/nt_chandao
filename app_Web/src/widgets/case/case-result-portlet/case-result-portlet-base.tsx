@@ -219,4 +219,13 @@ export class CaseResultPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof CaseResultBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'dashboard_sysportlet1_chart', action: 'refresh', data: args });
+    }
+
 }

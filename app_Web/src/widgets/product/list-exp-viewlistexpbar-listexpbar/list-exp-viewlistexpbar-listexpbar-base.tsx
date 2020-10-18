@@ -100,6 +100,19 @@ export class ListExpViewlistexpbarListexpbarBase extends ListViewExpBarControlBa
     public navViewName: string = 'product-stats-edit-view9';
 
     /**
+    * 刷新
+    *
+    * @memberof ListExpViewlistexpbarBase
+    */
+    public refresh(args?: any): void {
+        const refs: any = this.$refs;
+        if (refs && refs.listexpbar_list) {
+            refs.listexpbar_list.refresh();
+        }
+    }
+
+
+    /**
      * 呈现模式，可选值：horizontal或者vertical
      * 
      * @public

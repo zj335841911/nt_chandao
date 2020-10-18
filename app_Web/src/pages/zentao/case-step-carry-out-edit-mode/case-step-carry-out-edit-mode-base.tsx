@@ -45,6 +45,15 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
     protected appDeMajor: string = 'expect';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseStepCarryOutEditModeBase
+     */ 
+    protected dataControl:string = "grid";
+
+    /**
      * 实体服务对象
      *
      * @type {IBZCaseStepService}

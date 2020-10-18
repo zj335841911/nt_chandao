@@ -219,4 +219,13 @@ export class BurnDownChartPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof BurnDownChartBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'dashboard_sysportlet1_chart', action: 'refresh', data: args });
+    }
+
 }

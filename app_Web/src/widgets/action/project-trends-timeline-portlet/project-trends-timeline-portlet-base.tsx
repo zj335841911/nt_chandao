@@ -219,4 +219,13 @@ export class ProjectTrendsTimelinePortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof ProjectTrendsTimelineBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'ActionProjectTrendsListView9', action: 'refresh', data: args });
+    }
+
 }

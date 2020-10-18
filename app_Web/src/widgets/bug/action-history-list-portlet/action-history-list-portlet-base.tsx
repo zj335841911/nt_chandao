@@ -219,4 +219,13 @@ export class ActionHistoryListPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof ActionHistoryListBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'ActionAddCommentHistoryListView', action: 'refresh', data: args });
+    }
+
 }

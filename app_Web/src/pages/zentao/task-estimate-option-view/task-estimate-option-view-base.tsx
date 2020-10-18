@@ -42,6 +42,15 @@ export class TaskEstimateOptionViewBase extends OptionViewBase {
     protected appDeMajor: string = 'id';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskEstimateOptionViewBase
+     */ 
+    protected dataControl:string = "form";
+
+    /**
      * 实体服务对象
      *
      * @type {TaskEstimateService}

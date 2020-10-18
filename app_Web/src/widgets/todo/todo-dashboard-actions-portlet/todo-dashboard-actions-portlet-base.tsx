@@ -630,4 +630,12 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof TodoDashboardActionsBase
+     */
+    public refresh(args?: any) {
+    }
+
 }

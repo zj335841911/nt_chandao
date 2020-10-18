@@ -361,4 +361,12 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof ProductMainToolbarBase
+     */
+    public refresh(args?: any) {
+    }
+
 }

@@ -1,5 +1,5 @@
 import { Vue, Emit, Prop, Watch } from 'vue-property-decorator';
-import { Subject } from 'rxjs';
+import { Subject,Subscription } from 'rxjs';
 import { Util } from '@/utils';
 
 /**
@@ -68,6 +68,15 @@ export class ViewBase extends Vue {
     protected appDeMajor: string = '';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */ 
+    protected dataControl:string = "";
+
+    /**
      * 视图模型数据
      *
      * @protected
@@ -101,6 +110,24 @@ export class ViewBase extends Vue {
     public viewDatasChange(val: any): any {
         return val;
     }
+
+    /**
+     * 门户部件状态对象
+     *
+     * @type {*}
+     * @memberof ViewBase
+     */
+    @Prop() 
+    public portletState?: any;
+
+   /**
+   * 门户部件状态事件
+   *
+   * @public
+   * @type {(Subscription | undefined)}
+   * @memberof ViewBase
+   */
+    public portletStateEvent: Subscription | undefined;
 
     /**
      * 传入视图上下文
@@ -389,6 +416,16 @@ export class ViewBase extends Vue {
                 this.model.srfSubTitle = this.$t(this.model.srfSubTitle);
             }
         }
+        if(this.portletState){
+            this.portletStateEvent = this.portletState.subscribe((res:any) =>{
+                if(!Object.is(res.name,'calendar-view9')){
+                    return;
+                }
+                if(Object.is(res.action,'refresh') && this.refresh && this.refresh instanceof Function){
+                    this.refresh();
+                }
+            })
+        }
         this.viewCreated();
     }
 
@@ -454,6 +491,9 @@ export class ViewBase extends Vue {
                     item.destroyCounter();
                 }
             })
+        }
+        if(this.portletStateEvent){
+            this.portletStateEvent.unsubscribe();
         }
     }
 
@@ -623,5 +663,10 @@ export class ViewBase extends Vue {
      *
      * @memberof ViewBase
      */
-    public refresh() { };
+    public refresh(args?: any): void {
+        const refs: any = this.$refs;
+        if (refs && this.dataControl && refs[this.dataControl]) {
+            refs[this.dataControl].refresh();
+        }
+    }
 }

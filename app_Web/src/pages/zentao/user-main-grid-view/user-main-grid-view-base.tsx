@@ -45,6 +45,15 @@ export class UserMainGridViewBase extends GridViewBase {
     protected appDeMajor: string = 'realname';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof UserMainGridViewBase
+     */ 
+    protected dataControl:string = "grid";
+
+    /**
      * 实体服务对象
      *
      * @type {UserService}

@@ -219,4 +219,13 @@ export class BugSeverityPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof BugSeverityBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'dashboard_sysportlet9_chart', action: 'refresh', data: args });
+    }
+
 }

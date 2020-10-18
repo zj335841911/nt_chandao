@@ -45,6 +45,15 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
     protected appDeMajor: string = 'name';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectCurProductGridViewBase
+     */ 
+    protected dataControl:string = "grid";
+
+    /**
      * 实体服务对象
      *
      * @type {ProjectService}

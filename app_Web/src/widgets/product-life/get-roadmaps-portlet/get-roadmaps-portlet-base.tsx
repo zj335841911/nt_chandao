@@ -219,4 +219,13 @@ export class GetRoadmapsPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof GetRoadmapsBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'ProductLifeRoadMapSListView9', action: 'refresh', data: args });
+    }
+
 }

@@ -219,4 +219,13 @@ export class ProjectExpViewPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof ProjectExpViewBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'ProjectListExpView', action: 'refresh', data: args });
+    }
+
 }

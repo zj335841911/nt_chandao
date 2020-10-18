@@ -219,4 +219,13 @@ export class ProjectStatusBarPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof ProjectStatusBarBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'db_projectstatusportlet_chart', action: 'refresh', data: args });
+    }
+
 }

@@ -42,6 +42,15 @@ export class BugPickupGridView4Base extends PickupGridViewBase {
     protected appDeMajor: string = 'title';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugPickupGridView4Base
+     */ 
+    protected dataControl:string = "grid";
+
+    /**
      * 实体服务对象
      *
      * @type {BugService}

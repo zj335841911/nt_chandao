@@ -219,4 +219,13 @@ export class UnClosedProductPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof UnClosedProductBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'ProductStatsGridView9', action: 'refresh', data: args });
+    }
+
 }

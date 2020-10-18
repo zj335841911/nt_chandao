@@ -840,4 +840,12 @@ export class ToolbarPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof ToolbarBase
+     */
+    public refresh(args?: any) {
+    }
+
 }

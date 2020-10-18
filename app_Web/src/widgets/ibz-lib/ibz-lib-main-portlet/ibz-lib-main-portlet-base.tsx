@@ -219,4 +219,13 @@ export class IbzLibMainPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof IbzLibMainBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'IbzLibEditView9', action: 'refresh', data: args });
+    }
+
 }

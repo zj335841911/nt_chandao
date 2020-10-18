@@ -219,4 +219,13 @@ export class RelatedMembersPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof RelatedMembersBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'IbzProjectMemberEditView9', action: 'refresh', data: args });
+    }
+
 }

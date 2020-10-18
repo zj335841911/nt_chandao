@@ -219,4 +219,13 @@ export class CaseMainPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof CaseMainBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'IbzCaseMainEditView9', action: 'refresh', data: args });
+    }
+
 }

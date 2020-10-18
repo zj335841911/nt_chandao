@@ -219,4 +219,13 @@ export class TextExpViewPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof TextExpViewBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'ProductTestListExpView', action: 'refresh', data: args });
+    }
+
 }

@@ -219,4 +219,13 @@ export class StoryRelatedPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof StoryRelatedBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'StoryMainView9_Related', action: 'refresh', data: args });
+    }
+
 }

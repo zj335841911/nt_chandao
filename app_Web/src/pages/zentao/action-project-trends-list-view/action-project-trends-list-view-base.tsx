@@ -45,6 +45,15 @@ export class ActionProjectTrendsListViewBase extends ListViewBase {
     protected appDeMajor: string = 'comment';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionProjectTrendsListViewBase
+     */ 
+    protected dataControl:string = "list";
+
+    /**
      * 实体服务对象
      *
      * @type {ActionService}

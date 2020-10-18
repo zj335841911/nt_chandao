@@ -219,4 +219,13 @@ export class TotalCurOpenedBugPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof TotalCurOpenedBugBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'dashboard_sysportlet4_chart', action: 'refresh', data: args });
+    }
+
 }

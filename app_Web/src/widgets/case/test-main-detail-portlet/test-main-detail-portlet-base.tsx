@@ -219,4 +219,13 @@ export class TestMainDetailPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof TestMainDetailBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'CaseTestMainDetailEditView9', action: 'refresh', data: args });
+    }
+
 }

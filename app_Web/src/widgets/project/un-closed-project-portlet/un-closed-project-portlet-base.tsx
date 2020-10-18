@@ -219,4 +219,13 @@ export class UnClosedProjectPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof UnClosedProjectBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'ProjectStatsGridView9', action: 'refresh', data: args });
+    }
+
 }

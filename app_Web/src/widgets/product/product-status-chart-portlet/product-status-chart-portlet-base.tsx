@@ -219,4 +219,13 @@ export class ProductStatusChartPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof ProductStatusChartBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'db_productstatusportlet_chart', action: 'refresh', data: args });
+    }
+
 }

@@ -219,4 +219,13 @@ export class BugOpenedBy_ProjectPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof BugOpenedBy_ProjectBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'dashboard_sysportlet13_chart', action: 'refresh', data: args });
+    }
+
 }

@@ -672,4 +672,12 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof BugDashboardActionsBase
+     */
+    public refresh(args?: any) {
+    }
+
 }

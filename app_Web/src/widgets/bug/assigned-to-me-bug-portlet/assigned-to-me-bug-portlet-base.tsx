@@ -219,4 +219,13 @@ export class AssignedToMeBugPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof AssignedToMeBugBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'BugGridView9_AssignedToMe', action: 'refresh', data: args });
+    }
+
 }
