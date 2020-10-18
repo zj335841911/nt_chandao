@@ -628,6 +628,11 @@
        }
         ,
        {
+            "unirescode":"TASK_CONSUM_BUT",
+            "uniresname":"任务工时"
+       }
+        ,
+       {
             "unirescode":"TESTSU_CREATE_BUT",
             "uniresname":"测试套件新建"
        }
