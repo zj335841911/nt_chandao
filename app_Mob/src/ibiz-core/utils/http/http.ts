@@ -227,10 +227,13 @@ export class Http {
             if (response.status === 200) {
                 return new HttpResponse(200, response.data, undefined, response.headers);
             }
-            this.notice.error(response.data.message ? response.data.message : HttpResponse.getStatusMessage(response.status));
+            // 无权限时不报错
+            if(response.status != 401){
+                this.notice.error(response.data.message ? response.data.message : HttpResponse.getStatusMessage(response.status));
+            }
             return new HttpResponse(response.status, response.data, { code: 101, message: HttpResponse.getStatusMessage(response.status) }, response.headers)
         }
-        this.notice.error(HttpResponse.getStatusMessage(response.status));
+        this.notice.error('请求发生异常，无返回结果!');
         return new HttpResponse(500, null, { code: 100, message: '请求发生异常，无返回结果!' }, response.headers);
     }
 
