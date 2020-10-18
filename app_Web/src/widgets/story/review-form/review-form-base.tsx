@@ -76,7 +76,6 @@ export class ReviewEditFormBase extends EditFormControlBase {
      * @memberof ReviewEditFormBase
      */
     protected drCount: number = 3;
-
     /**
      * 表单数据对象
      *

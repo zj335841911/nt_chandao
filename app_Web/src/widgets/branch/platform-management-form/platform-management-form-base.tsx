@@ -67,7 +67,6 @@ export class PlatformManagementEditFormBase extends EditFormControlBase {
      */  
     public appUIService:BranchUIService = new BranchUIService(this.$store);
 
-
     /**
      * 表单数据对象
      *

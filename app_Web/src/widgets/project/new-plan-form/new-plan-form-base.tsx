@@ -67,7 +67,6 @@ export class NewPlanEditFormBase extends EditFormControlBase {
      */  
     public appUIService:ProjectUIService = new ProjectUIService(this.$store);
 
-
     /**
      * 表单数据对象
      *

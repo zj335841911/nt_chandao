@@ -76,7 +76,6 @@ export class InfoEditEditFormBase extends EditFormControlBase {
      * @memberof InfoEditEditFormBase
      */
     protected drCount: number = 2;
-
     /**
      * 表单数据对象
      *

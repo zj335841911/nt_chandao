@@ -76,7 +76,6 @@ export class AssignToEditFormBase extends EditFormControlBase {
      * @memberof AssignToEditFormBase
      */
     protected drCount: number = 1;
-
     /**
      * 表单数据对象
      *

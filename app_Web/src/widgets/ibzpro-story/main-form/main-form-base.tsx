@@ -69,6 +69,14 @@ export class MainEditFormBase extends EditFormControlBase {
 
 
     /**
+     * 主键表单项名称
+     *
+     * @protected
+     * @type {number}
+     * @memberof MainEditFormBase
+     */
+    protected formKeyItemName: string = 'id';
+    /**
      * 表单数据对象
      *
      * @type {*}

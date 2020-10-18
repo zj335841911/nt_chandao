@@ -76,7 +76,6 @@ export class ResolveEditFormBase extends EditFormControlBase {
      * @memberof ResolveEditFormBase
      */
     protected drCount: number = 1;
-
     /**
      * 表单数据对象
      *

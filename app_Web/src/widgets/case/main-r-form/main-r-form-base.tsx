@@ -76,7 +76,6 @@ export class MainREditFormBase extends EditFormControlBase {
      * @memberof MainREditFormBase
      */
     protected drCount: number = 1;
-
     /**
      * 表单数据对象
      *

@@ -76,7 +76,6 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
      * @memberof MainTestTaskEditFormBase
      */
     protected drCount: number = 2;
-
     /**
      * 表单数据对象
      *

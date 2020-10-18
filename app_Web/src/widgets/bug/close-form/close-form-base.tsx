@@ -76,7 +76,6 @@ export class CloseEditFormBase extends EditFormControlBase {
      * @memberof CloseEditFormBase
      */
     protected drCount: number = 1;
-
     /**
      * 表单数据对象
      *

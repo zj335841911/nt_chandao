@@ -95,7 +95,6 @@ export class MainEditFormBase extends EditFormControlBase {
         curUIService.IbzProjectMember_TeamManagement(datas,contextJO, paramJO,  $event, xData,this,"IbzProjectMember");
     }
 
-
     /**
      * 表单数据对象
      *

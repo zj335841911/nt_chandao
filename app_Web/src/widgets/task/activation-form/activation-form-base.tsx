@@ -76,7 +76,6 @@ export class ActivationEditFormBase extends EditFormControlBase {
      * @memberof ActivationEditFormBase
      */
     protected drCount: number = 1;
-
     /**
      * 表单数据对象
      *
