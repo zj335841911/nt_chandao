@@ -186,7 +186,7 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 - iBizPMS快速上手指南（待开放）
 - iBizPMS移动端快速上手指南（待开放）
 - [iBizPMS开发手册](https://gitee.com/ibizlab/iBizPMS/wikis/iBizPMS开发手册)
-- [iBizPMS部署手册](https://gitee.com/ibizlab/iBizPMS/wikis/Docker-Compose 一键部署)
+- [iBizPMS部署手册](https://gitee.com/ibizlab/iBizPMS/wikis/Docker-Compose一键部署)
 
 ## 系统地址
 
