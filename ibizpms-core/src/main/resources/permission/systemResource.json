@@ -558,6 +558,11 @@
        }
         ,
        {
+            "unirescode":"TASK_DELETE_BUT",
+            "uniresname":"任务删除"
+       }
+        ,
+       {
             "unirescode":"STORY_CREATE_BUT",
             "uniresname":"需求新建"
        }
