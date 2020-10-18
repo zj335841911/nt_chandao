@@ -85,7 +85,7 @@ public class IBZZTFileService implements IIBZZTFileService {
                 cn.ibizlab.pms.core.zentao.domain.File ztFile = new cn.ibizlab.pms.core.zentao.domain.File();
 
                 String objectType = params.getString("objecttype");
-                Integer objectId = params.getInteger("objectid");
+                Long objectId = params.getLong("objectid");
                 String version = params.getString("version");
                 String extra = params.getString("extra");
 
@@ -163,7 +163,7 @@ public class IBZZTFileService implements IIBZZTFileService {
                 cn.ibizlab.pms.core.zentao.domain.File ztFile = new cn.ibizlab.pms.core.zentao.domain.File();
 
                 String objectType = params.getString("objecttype");
-                Integer objectId = params.getInteger("objectid");
+                Long objectId = params.getLong("objectid");
                 String version = params.getString("version");
                 String extra = params.getString("extra");
 
