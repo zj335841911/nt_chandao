@@ -3,9 +3,13 @@ package cn.ibizlab.pms.core.util.ibizzentao.helper;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
+import cn.ibizlab.pms.core.zentao.filter.StoryStageSearchContext;
 import cn.ibizlab.pms.core.zentao.mapper.StoryMapper;
+import cn.ibizlab.pms.core.zentao.service.IStoryService;
+import cn.ibizlab.pms.core.zentao.service.IStoryStageService;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
@@ -15,9 +19,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Component
 @Slf4j
@@ -33,6 +39,12 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
     StorySpecHelper storySpecHelper;
 
     @Autowired
+    StoryStageHelper storyStageHelper;
+
+    @Autowired
+    IStoryStageService iStoryStageService;
+
+    @Autowired
     ProjectStoryHelper projectStoryHelper;
 
     @Autowired
@@ -46,6 +58,12 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
 
     @Autowired
     BugHelper bugHelper;
+
+    @Autowired
+    ReleaseHelper releaseHelper;
+
+    @Autowired
+    IStoryService iStoryService;
 
     @Transactional
     public boolean create(Story et) {
@@ -268,25 +286,30 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         }
 
 
-        et.setVersion(old.getVersion() + 1);
+        if(!old.getTitle().equals(et.getTitle()) || ((et.getSpec() == null && old.getSpec() != null) || (et.getSpec() != null && !et.getSpec().equals(old.getSpec()))) || ((et.getVerify() == null && old.getVerify() != null) || (et.getVerify() != null && !et.getVerify().equals(old.getVerify())))) {
+            et.setVersion(oldStorySpec != null ? oldStorySpec.getVersion() + 1 : et.getVersion() + 1);
 
-
-        //相关 spec 处理
-        oldStorySpec.setStory(et.getId());
-        oldStorySpec.setTitle(et.getTitle());
-        oldStorySpec.setVerify(et.getVerify());
-        oldStorySpec.setSpec(et.getSpec());
-        oldStorySpec.setVersion(et.getVersion());
-        storySpecHelper.create(oldStorySpec);
+            //相关 spec 处理
+            oldStorySpec.setStory(et.getId());
+            oldStorySpec.setTitle(et.getTitle());
+            oldStorySpec.setVerify(et.getVerify());
+            oldStorySpec.setSpec(et.getSpec());
+            oldStorySpec.setVersion(et.getVersion());
+            storySpecHelper.create(oldStorySpec);
+            if((et.getNeednotreview() == null || "".equals(et.getNeednotreview())) && "active".equals(et.getStatus())) {
+                et.setStatus("changed");
+            }
+        }
 
         //
-        this.internalUpdate(et);
+        et.setAssignedto((et.getAssignedto() == null || "".equals(et.getAssignedto()))? old.getAssignedto() : et.getAssignedto());
 
+        this.internalUpdate(et);
         et.setTitle(oldStorySpec.getTitle());
         et.setSpec(oldStorySpec.getSpec());
         et.setVerify(oldStorySpec.getVerify());
-
         List<History> changes = ChangeUtil.diff(old, et, new String[]{"lasteditedby", "lastediteddate", "versionc"}, null, new String[]{"title", "spec", "verify"});
+
         if (StringUtils.isNotBlank(comment) || changes.size() > 0) {
             String strAction = changes.size() > 0 ? "Changed" : "Commented";
             Action action = actionHelper.create("story", et.getId(), strAction,
@@ -383,6 +406,11 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
         }
+        if("reject".equals(result)) {
+
+            this.setStage(et);
+
+        }
         return et;
     }
 
@@ -413,8 +441,11 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
     public Story unlinkStory(Story et) {
         //et = this.get(et.getId());
 
+        if(et.getPlan() == null &&  et.get("productplan") == null) return et;
+
         ProductPlan productPlan = new ProductPlan();
-        productPlan.setId(Long.parseLong(et.getPlan()));
+
+        productPlan.setId(Long.parseLong(et.getPlan() == null ? et.get("productplan").toString(): et.getPlan()));
         productPlan = productPlanHelper.get(productPlan.getId());
         productPlan.setOrder(productPlan.getOrder().replace(et.getId() + ",", ""));
         productPlanHelper.internalUpdate(productPlan);
@@ -465,12 +496,37 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
 
     @Transactional
     public Story releaseLinkStory(Story et) {
-        throw new RuntimeException("未实现");
+        if(et.get("release") == null)
+            return et;
+        Release release = new Release();
+        release.setId(Long.parseLong(et.get("release").toString()));
+        release.set("srfactionparam",et.get("srfactionparam"));
+        cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ReleaseHelper.class).linkStory(release);
+        return et;
+//        throw new RuntimeException("未实现");
     }
 
     @Transactional
     public Story releaseUnlinkStory(Story et) {
-        throw new RuntimeException("未实现");
+        //et = this.get(et.getId());
+        if(et.getId() == null &&  et.get("release") == null) return et;
+        Release release = releaseHelper.get(Long.parseLong(et.get("release").toString()));
+        Release releaseUpdate = new Release();
+        releaseUpdate.setId(release.getId());
+        String stories = release.getStories();
+        stories = ("," + stories + ",").replace("," + String.valueOf(et.getId()) + ",", ",");
+        String regex = "^,*|,*$";
+        stories = stories.replaceAll(regex, "");
+        releaseUpdate.setStories(stories);
+        releaseHelper.internalUpdate(releaseUpdate);
+        actionHelper.create("story", et.getId(), "unlinkedfromrelease",
+                "",
+                et.get("release").toString(),
+                AuthenticationUser.getAuthenticationUser().getLoginname(),
+                false);
+        this.setStage(et);
+        return et;
+//        throw new RuntimeException("未实现");
     }
 
     @Transactional
@@ -524,13 +580,232 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
     @Transactional
     public Story setStage(Story et) {
         log.info("setStage：未实现");
+//        StoryStageSearchContext context = new StoryStageSearchContext();
+//        context.setN_story_eq(et.getId());
+//        List<StoryStage> oldStages = iStoryStageService.searchDefault(context).getContent();
+        iStoryStageService.removeByStory(et.getId());
+
+        et = this.get(et.getId());
+        if(et.getStagedby() != null && !"".equals(et.getStagedby())) return et;
+
+        Product product = et.getZtproduct();
+        boolean hasBranch = (!"normal".equals(product.getType()) && (et.getBranch() == null || et.getBranch() == 0));
+
+        String releaseSql = String.format("select DISTINCT branch,'released' as stage from zt_release where deleted = '0' and CONCAT(',', stories, ',') like %1$s ","CONCAT('%,'," + et.getId() + ",',%')");
+        List<JSONObject> releaseList = iStoryStageService.select(releaseSql, null);
+        if(releaseList.size() > 0) {
+            if(hasBranch) {
+                for(JSONObject jsonObject : releaseList) {
+                    StoryStage storyStage = new StoryStage();
+                    storyStage.setStory(et.getId());
+                    storyStage.setBranch(jsonObject.getLongValue("branch"));
+                    storyStage.setStage("released");
+                    storyStageHelper.create(storyStage);
+                }
+            }else {
+                Story story = new Story();
+                story.setStage("released");
+                story.setId(et.getId());
+                this.internalUpdate(story);
+            }
+            return et;
+        }
+
+        String projectSql = String.format("select DISTINCT t1.project,t3.branch from zt_projectstory t1 left join zt_project t2 on t1.project = t2.id left join zt_projectproduct t3 on t1.project = t3.project where t1.story = %1$s and t2.deleted = '0'", et.getId());
+        List<JSONObject> objectList = iStoryService.select(projectSql, null);
+        String projectids = "";
+        for(JSONObject jsonObject : objectList) {
+            if(!"".equals(projectids)) {
+                projectids += ",";
+            }
+            projectids += jsonObject.get("project");
+        }
+
+        String taskSql = String.format("select DISTINCT t1.project,t3.branch,case when t1.develdone = t1.devel and t1.devel > 0 and t1.testdone = t1.test and t1.test > 0 then 'tested' when (t1.develwait > 0 or t1.develdoing > 0) and t1.testdone = t1.test and t1.test > 0 then 'testing' when t1.testdoing > 0 then 'testing' when t1.develdone = t1.devel and t1.devel > 0 and t1.testwait > 0 and t1.testdone > 0 then 'testing' when t1.develdone = t1.devel and t1.devel > 0 and t1.testwait = t1.test then 'developed' when t1.develwait > 0 and t1.develdone > 0 and t1.testwait = t1.test then 'developing' when t1.develdoing > 0 and t1.testwait = t1.test then 'developing' else 'projected' end as stage from (SELECT t.project, sum( IF ( t.type = 'devel' AND t.`status` = 'wait', t.ss, 0 ) ) AS develwait, sum( IF ( t.type = 'devel' AND t.`status` = 'done', t.ss, 0 ) ) AS develdone,sum( IF ( t.type = 'devel' AND t.`status` = 'doing', t.ss, 0 ) ) AS develdoing, sum( IF ( t.type = 'devel' AND t.`status` = 'pause', t.ss, 0 ) ) AS develpause, sum( IF ( t.type = 'test' AND t.`status` = 'wait', t.ss, 0 ) ) AS testwait, sum( IF ( t.type = 'test' AND t.`status` = 'done', t.ss, 0 ) ) AS testdone, sum( IF ( t.type = 'test' AND t.`status` = 'doing', t.ss, 0 ) ) AS testdoing, sum( IF ( t.type = 'test' AND t.`status` = 'pause', t.ss, 0 ) ) AS testpause, sum( IF ( t.type = 'test', t.ss, 0 ) ) AS test, sum( IF ( t.type = 'devel', t.ss, 0 ) ) AS devel FROM ( SELECT type,project,CASE WHEN `status` IS NULL OR `status` = '' THEN 'wait'  WHEN `status` = 'closed' THEN 'done' ELSE `status`  END `status`, 1 ss  FROM zt_task  WHERE story = %1$s  AND type IN ( 'devel', 'test' )  AND `status` <> 'cancel'  AND closedReason <> 'cancel'  AND deleted = '0'  AND FIND_IN_SET(project,%2$s)  ) t  GROUP BY t.project) t1 left JOIN zt_projectproduct t3 on t3.project=t1.project", et.getId(), projectids);
+        List<JSONObject> taskList = iStoryService.select(taskSql, null);
+
+        if((taskList.isEmpty() || taskList.size() == 0) && objectList.size() > 0) {
+           if(hasBranch) {
+               for(JSONObject jsonObject : objectList) {
+                   // 插入需求阶段
+                   StoryStage storyStage = new StoryStage();
+                   storyStage.setStory(et.getId());
+                   storyStage.setBranch(jsonObject.getLongValue("branch"));
+                   storyStage.setStage("projected");
+                   storyStageHelper.create(storyStage);
+               }
+           }
+
+            Story story = new Story();
+            story.setStage("projected");
+            story.setId(et.getId());
+            this.internalUpdate(story);
+        }else if(taskList.size() > 0){
+            if(hasBranch) {
+                for(JSONObject jsonObject : taskList) {
+                    // 插入需求阶段
+                    StoryStage storyStage = new StoryStage();
+                    storyStage.setStory(et.getId());
+                    storyStage.setBranch(jsonObject.getLongValue("branch"));
+                    storyStage.setStage(jsonObject.getString("stage"));
+                    storyStageHelper.create(storyStage);
+                }
+
+            }
+            Story story = new Story();
+            story.setStage(taskList.get(0).getString("stage"));
+            story.setId(et.getId());
+            this.internalUpdate(story);
+            return et;
+        }
+
+        Map<Long,String> stages = new HashMap<>();
+
+        if(hasBranch && (et.getPlan() != null  || !"".equals(et.getPlan()))) {
+            String planSql = String.format("select DISTINCT branch from zt_productplan where FIND_IN_SET(id, %1$s) ", et.getPlan());
+            List<JSONObject> planList = iStoryService.select(planSql, null);
+            for(JSONObject jsonObject : planList) {
+                stages.put(jsonObject.getLongValue("branch"), "planned");
+            }
+        }
+        if(objectList.size() > 0) {
+            if(et.getPlan() == null || "".equals(et.getPlan())) {
+                Story story = new Story();
+                story.setStage("wait");
+                story.setId(et.getId());
+                this.internalUpdate(story);
+            }else if("0".equals(et.getPlan())){
+                Story story = new Story();
+                story.setStage("planned");
+                story.setId(et.getId());
+                this.internalUpdate(story);
+            }
+            if(hasBranch) {
+                iStoryStageService.removeByStory(et.getId());
+                for (Long branch : stages.keySet()) {
+                    String stage = stages.get(branch);
+
+                    StoryStage storyStage = new StoryStage();
+                    storyStage.setStory(et.getId());
+                    storyStage.setBranch(branch);
+                    storyStage.setStage(stage);
+                    storyStageHelper.create(storyStage);
+                }
+            }
+        }
         return et;
     }
 
     @Transactional
     public void updateParentStatus(Story story, Story parentStory, boolean changed) {
         log.info("updateParentStatus：未实现");
-        if (parentStory == null) return;
+
+        if (parentStory == null) parentStory = this.get(story.getParent());
+
+        if(parentStory == null) {
+            Story story1 = new Story();
+            story1.setParent(0l);
+            story1.setId(story.getId());
+            this.internalUpdate(story1);
+            return;
+        }
+        if(parentStory.getParent() != -1 ) {
+            Story parentStory1 = new Story();
+            parentStory1.setId(parentStory.getId());
+            parentStory1.setParent(-1l);
+            this.internalUpdate(parentStory1);
+            parentStory.setParent(-1l);
+        }
+        computeEstimate(parentStory.getId());
+        String sql = String.format("select id,`status` from zt_story where parent = %1$s and deleted = '0'", parentStory.getId());
+        List<JSONObject> childrenStatus = iStoryService.select(sql, null);
+        if(childrenStatus.size() == 0) {
+            Story parentStory1 = new Story();
+            parentStory1.setId(parentStory.getId());
+            parentStory1.setParent(-1l);
+            this.internalUpdate(parentStory1);
+            return ;
+        }
+        String parentStatus = parentStory.getStatus();
+        if(childrenStatus.size() == 1 && !"changed".equals(parentStatus)) {
+            parentStatus = childrenStatus.get(0).getString("status");
+            if("draft".equals(parentStatus) || "changed".equals(parentStatus))
+                parentStatus = "active";
+        }else if(childrenStatus.size() > 1 && "closed".equals(parentStatus)) {
+            parentStatus = "active";
+        }
+
+        if(parentStatus != null && parentStatus.equals(parentStory.getStatus())) {
+            Story story1 = new Story();
+            Timestamp timestamp = ZTDateUtil.now();
+            story1.setStatus(parentStatus);
+            story1.setStage("wait");
+            if("active".equals(parentStatus)) {
+                story1.setAssignedto(parentStory.getOpenedby());
+                story1.setAssigneddate(timestamp);
+                story1.setClosedby("");
+                story1.setClosedreason("");
+                story1.set("Closeddate","0000-00-00");
+                story1.setReviewedby("");
+                story1.set("reviewedDate","0000-00-00");
+            }
+            else if("closed".equals(parentStatus)) {
+                story1.setAssignedto("closed");
+                story1.setAssigneddate(timestamp);
+                story1.setClosedby(AuthenticationUser.getAuthenticationUser().getLoginname());
+                story1.setClosedreason("done");
+                story1.setCloseddate(timestamp);
+            }
+            story1.setLasteditedby(AuthenticationUser.getAuthenticationUser().getLoginname());
+            story1.setLastediteddate(timestamp);
+            story1.setParent(-1L);
+            story1.setId(parentStory.getId());
+            if(!this.internalUpdate(story1)) {
+                if (changed)
+                    return ;
+                Story newParentStory = this.get(parentStory.getId());
+                List<History> changes = ChangeUtil.diff(parentStory, newParentStory);
+                if (changes.size() > 0) {
+                    String actionType = "active".equals(parentStatus) ? "Activated" : "closed".equals(parentStatus) ? "Closed" : "";
+                    Action action = actionHelper.create("story", parentStory.getId(), actionType,
+                            "", "", null, true);
+                    if (changes.size() > 0)
+                        actionHelper.logHistory(action.getId(), changes);
+                }
+            }
+        }else {
+            if (changed)
+                return ;
+            Story newParentStory = this.get(parentStory.getId());
+            List<History> changes = ChangeUtil.diff(parentStory, newParentStory);
+            if (changes.size() > 0) {
+                Action action = actionHelper.create("story", parentStory.getId(), "Edited",
+                        "", "", null, true);
+                if (changes.size() > 0)
+                    actionHelper.logHistory(action.getId(), changes);
+            }
+        }
+    }
+
+    /**
+     *
+     * @param parentStoryId
+     */
+    @Transactional
+    public void computeEstimate(Long parentStoryId) {
+        String sql =String.format( "select `id`,`estimate`,`status` from zt_story where deleted = '0' and parent = %1$s ", parentStoryId) ;
+
+        List<JSONObject> list = iStoryService.select(sql, null);
+        if(list.size() == 0) return;
+
+        double estimate = 0d;
+        for(JSONObject jsonObject : list) {
+            estimate += jsonObject.getDoubleValue("estimate");
+        }
+        Story parentStory = new Story();
+        parentStory.setId(parentStoryId);
+        parentStory.setEstimate(estimate);
+        this.internalUpdate(parentStory);
     }
 
 }

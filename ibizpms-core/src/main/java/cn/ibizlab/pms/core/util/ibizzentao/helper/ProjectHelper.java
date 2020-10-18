@@ -48,6 +48,8 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
     @Autowired
     TeamHelper teamHelper;
 
+    String[] diffAttrs = {"desc"};
+
     @Override
     @Transactional
     public boolean create(Project et) {
@@ -138,7 +140,7 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
 
         //Team 处理
 
-        List<History> changes = ChangeUtil.diff(old, et);
+        List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
         if (changes.size() > 0) {
             Action action = actionHelper.create("project", et.getId(), "edited", comment, "", null, true);
             actionHelper.logHistory(action.getId(), changes);

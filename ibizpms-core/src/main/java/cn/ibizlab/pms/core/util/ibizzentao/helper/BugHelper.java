@@ -37,6 +37,8 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
     @Autowired
     FileHelper fileHelper;
 
+    String[] diffAttrs = {"steps"};
+
     @Override
     @Transactional
     public boolean create(Bug et) {
@@ -46,6 +48,34 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
         }
         actionHelper.create("bug", et.getId(), "opened", "", "", null, true);
 
+        return true;
+    }
+    /**
+     * edit 编辑
+     *
+     * @return
+     */
+    @Transactional
+    public boolean edit(Bug et) {
+        Bug old = new Bug();
+        CachedBeanCopier.copy(this.get(et.getId()), old);
+
+        String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
+
+        fileHelper.processImgURL(et, null, null);
+        this.internalUpdate(et);
+        fileHelper.updateObjectID(et.getId(), null, null);
+        List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
+        if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
+            String strAction = "Edited";
+            if (changes.size() == 0) {
+                strAction = "Commented";
+            }
+            Action action = actionHelper.create("bug", et.getId(), strAction,
+                    comment, "", null, true);
+            if (changes.size() > 0)
+                actionHelper.logHistory(action.getId(), changes);
+        }
         return true;
     }
 
@@ -279,6 +309,9 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
             return et;
         if (et.get("ids") == null)
             return et;
+        if("trunk".equals(et.get("builds").toString().split(",")[0]))
+            return et;
+
         Build build = new Build();
         build.setId(Long.parseLong(et.get("builds").toString().split(",")[0]));
         build.set("bugs", et.get("ids"));
@@ -306,17 +339,66 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
 
     @Transactional
     public Bug releaseUnlinkBug(Bug et) {
-        throw new RuntimeException("未实现");
+        if(et.getId() == null &&  et.get("release") == null) return et;
+        Release release = releaseHelper.get(Long.parseLong(et.get("release").toString()));
+        Release releaseUpdate = new Release();
+        releaseUpdate.setId(release.getId());
+        String bugs = release.getBugs();
+        bugs = ("," + bugs + ",").replace("," + String.valueOf(et.getId()) + ",", ",");
+        String regex = "^,*|,*$";
+        bugs = bugs.replaceAll(regex, "");
+        releaseUpdate.setBugs(bugs);
+        releaseHelper.internalUpdate(releaseUpdate);
+        actionHelper.create("bug", et.getId(), "unlinkedfromrelease",
+                "",
+                et.get("release").toString(),
+                AuthenticationUser.getAuthenticationUser().getUsername(),
+                false);
+
+        return et;
+    }
+
+    @Transactional
+    public Bug releaseUnLinkBugbyLeftBug(Bug et) {
+        if(et.getId() == null &&  et.get("release") == null) return et;
+        Release release = releaseHelper.get(Long.parseLong(et.get("release").toString()));
+        Release releaseUpdate = new Release();
+        releaseUpdate.setId(release.getId());
+        String leftbugs = release.getLeftbugs();
+        leftbugs = ("," + leftbugs + ",").replace("," + String.valueOf(et.getId()) + ",", ",");
+        String regex = "^,*|,*$";
+        leftbugs = leftbugs.replaceAll(regex, "");
+        releaseUpdate.setLeftbugs(leftbugs);
+        releaseHelper.internalUpdate(releaseUpdate);
+        actionHelper.create("bug", et.getId(), "unlinkedfromrelease",
+                "",
+                et.get("release").toString(),
+                AuthenticationUser.getAuthenticationUser().getUsername(),
+                false);
+
+        return et;
     }
 
     @Transactional
     public Bug releaseLinkBugbyBug(Bug et) {
-        throw new RuntimeException("未实现");
+        if(et.get("release") == null)
+            return et;
+        Release release = new Release();
+        release.setId(Long.parseLong(et.get("release").toString()));
+        release.set("srfactionparam",et.get("srfactionparam"));
+        cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ReleaseHelper.class).linkBug(release);
+        return  et;
     }
 
     @Transactional
     public Bug releaseLinkBugbyLeftBug(Bug et) {
-        throw new RuntimeException("未实现");
+        if(et.get("release") == null)
+            return et;
+        Release release = new Release();
+        release.setId(Long.parseLong(et.get("release").toString()));
+        release.set("srfactionparam",et.get("srfactionparam"));
+        cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ReleaseHelper.class).linkBugbyLeftBug(release);
+        return  et;
     }
 
     @Transactional

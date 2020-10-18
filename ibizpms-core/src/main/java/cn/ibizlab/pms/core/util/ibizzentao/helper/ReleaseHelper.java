@@ -2,10 +2,7 @@ package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
-import cn.ibizlab.pms.core.zentao.domain.Action;
-import cn.ibizlab.pms.core.zentao.domain.Build;
-import cn.ibizlab.pms.core.zentao.domain.History;
-import cn.ibizlab.pms.core.zentao.domain.Release;
+import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.ReleaseMapper;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
@@ -15,7 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
@@ -28,6 +28,18 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
 
     @Autowired
     BuildHelper buildHelper;
+
+    @Autowired
+    BugHelper bugHelper;
+
+    @Autowired
+    StoryHelper storyHelper;
+
+    @Autowired
+    StoryStageHelper storyStageHelper;
+
+    @Autowired
+    ProductHelper productHelper;
 
     @Override
     @Transactional
@@ -70,7 +82,7 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
             return false;
         fileHelper.updateObjectID(null, et.getId(), "release");
 
-        List<History> changes = ChangeUtil.diff(old, et);
+        List<History> changes = ChangeUtil.diff(old, et,null,null,new String[]{"desc"});
         if (changes.size() > 0) {
             Action action = actionHelper.create("release", et.getId(), "Edited", "", "", null, true);
             actionHelper.logHistory(action.getId(), changes);
@@ -109,7 +121,27 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
 
     @Transactional
     public Release linkBug(Release et) {
-        throw new RuntimeException("未实现");
+        if (et.getId() == null || et.get("srfactionparam") == null)
+            return et;
+        String bugs = "";
+        ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+        for (Map data : list) {
+            if (bugs.length() > 0)
+                bugs += ",";
+            bugs += data.get("id");
+        }
+        et = this.get(et.getId());
+        Release release = new Release();
+        release.setId(et.getId());
+        release.setBugs(bugs);
+        Product product = productHelper.get(et.getProduct());
+        internalUpdate(release);
+
+        for(String bug : bugs.split(",")) {
+            actionHelper.create("bug", Long.parseLong(bug), "linked2release",
+                    "", String.valueOf(et.getId()), null, true);
+        }
+        return et;
     }
 
     @Transactional
@@ -129,7 +161,27 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
 
     @Transactional
     public Release linkBugbyLeftBug(Release et) {
-        throw new RuntimeException("未实现");
+        if (et.getId() == null || et.get("srfactionparam") == null)
+            return et;
+        String bugs = "";
+        ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+        for (Map data : list) {
+            if (bugs.length() > 0)
+                bugs += ",";
+            bugs += data.get("id");
+        }
+        et = this.get(et.getId());
+        Release release = new Release();
+        release.setId(et.getId());
+        release.setLeftbugs(bugs);
+        Product product = productHelper.get(et.getProduct());
+        internalUpdate(release);
+
+        for(String bug : bugs.split(",")) {
+            actionHelper.create("bug", Long.parseLong(bug), "linked2release",
+                    "", String.valueOf(et.getId()), null, true);
+        }
+        return et;
     }
 
     @Transactional
@@ -139,7 +191,45 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
 
     @Transactional
     public Release linkStory(Release et) {
-        throw new RuntimeException("未实现");
+
+        if (et.getId() == null || et.get("srfactionparam") == null)
+            return et;
+        String stories = "";
+        ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
+        for (Map data : list) {
+            if (stories.length() > 0)
+                stories += ",";
+            stories += data.get("id");
+        }
+        et = this.get(et.getId());
+        Release release = new Release();
+        release.setId(et.getId());
+        release.setStories(stories);
+        Product product = productHelper.get(et.getProduct());
+        internalUpdate(release);
+
+        for(String story : stories.split(",")) {
+            if("".equals(story)) {
+                continue;
+            }
+            Story story1 = new Story();
+            story1.setId(Long.parseLong(story));
+            story1.setStagedby("");
+            storyHelper.internalUpdate(story1);
+            if(!"normal".equals(product.getType())) {
+                StoryStage storyStage = new StoryStage();
+                storyStage.setStagedby("");
+                Map<String,Object> param = new HashMap<>();
+                param.put("story",story);
+                param.put("branch",et.getBranch());
+                storyStageHelper.update(storyStage, (Wrapper)storyStage.getUpdateWrapper(true).allEq(param));
+            }
+            storyHelper.setStage(story1);
+            actionHelper.create("story", Long.parseLong(story), "linked2release",
+                    "", String.valueOf(et.getId()), null, true);
+        }
+        return et;
+        // throw new RuntimeException("未实现");
     }
 
 }
