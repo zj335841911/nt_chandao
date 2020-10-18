@@ -38,10 +38,6 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 项目实时动态可参照[附录-里程碑](#里程碑)信息。
 
-> 体验iBiz的开发模式，了解iBiz的开发模式：
->
-> **[iBiz开源社区](https://www.ibizlab.cn/)** 
-
 ## PMS流程
 
 ![flow1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow1_v2.png)
@@ -161,6 +157,7 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 - 个人开发者也可以使用iBizPMS进行二次开发，加快完成开发任务。
 - 欢迎各位小伙伴了解和体验iBiz的开发模式：**[iBiz开源社区](https://www.ibizlab.cn/)** 。
+- 深度开发内测申请：**[iBiz建模平台内测申请通道](https://gitee.com/ibizlab/iBizEHR/wikis/建模平台内测须知?sort_id=2992220)**。 
 - 欢迎加入iBizPMS交流QQ群：1067434627
 
 ![QQ](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/QQ.png)
