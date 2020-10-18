@@ -45,6 +45,15 @@ export class ProductLifeRoadMapListViewBase extends ListViewBase {
     protected appDeMajor: string = 'ibz_productlifename';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductLifeRoadMapListViewBase
+     */ 
+    protected dataControl:string = "list";
+
+    /**
      * 实体服务对象
      *
      * @type {ProductLifeService}

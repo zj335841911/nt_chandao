@@ -69,6 +69,7 @@ export class TodoBasePortletBase extends MainControlBase {
      */  
     public appUIService:TodoUIService = new TodoUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class TodoBasePortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof TodoBaseBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'TodoBaseEditView9', action: 'refresh', data: args });
+    }
 
 }

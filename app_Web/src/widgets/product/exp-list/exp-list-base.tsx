@@ -128,6 +128,7 @@ export class ExpListBase extends ListControlBase {
         }
     }
 
+
     /**
      * 排序方向
      *
@@ -143,7 +144,6 @@ export class ExpListBase extends ListControlBase {
      * @memberof ExpListBase
      */
     public minorSortPSDEF: string = 'id';
-
 
 
 }

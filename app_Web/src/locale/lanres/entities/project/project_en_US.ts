@@ -85,6 +85,10 @@ export default {
 			caption: "团队管理",
       		title: "项目编辑视图（团队管理）",
 		},
+		usr2gridview: {
+			caption: "项目",
+      		title: "项目实体表格视图(参与项目)",
+		},
 		testtabexpview: {
 			caption: "测试",
       		title: "项目分页导航视图（测试）",
@@ -112,6 +116,10 @@ export default {
 		pickupgridview: {
 			caption: "项目",
       		title: "项目选择表格视图",
+		},
+		chartview9: {
+			caption: "项目",
+      		title: "项目图表视图",
 		},
 		editview_activate: {
 			caption: "项目",
@@ -148,6 +156,10 @@ export default {
 		editview_close: {
 			caption: "项目",
       		title: "项目",
+		},
+		gridview9: {
+			caption: "项目",
+      		title: "项目表格视图",
 		},
 		gridview9_unclosed: {
 			caption: "未关闭的项目",
@@ -444,6 +456,16 @@ export default {
 			role: "角色",
 			join: "加盟日",
 			hours: "可用工时/天",
+		},
+		uiactions: {
+		},
+	},
+	involvedproject_grid: {
+		columns: {
+			name: "项目名称",
+			storycnt: "需求总数",
+			ycompletetaskcnt: "已完成任务数",
+			bugcnt: "Bug总数",
 		},
 		uiactions: {
 		},

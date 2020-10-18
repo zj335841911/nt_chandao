@@ -219,7 +219,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
         dataInfo: '',
         viewname:'story.linkstorymobmpickupview',
         iconcls: '',
-        icon: 'fa fa-star-o'
+        icon: 'star-o'
     }
 
     /**
@@ -377,6 +377,7 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
         this.parseViewParam();
         this.setViewTitleStatus();
 
+
     }
 
 
@@ -516,6 +517,10 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
      * @memberof StoryLinkStoryMobMPickupViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;

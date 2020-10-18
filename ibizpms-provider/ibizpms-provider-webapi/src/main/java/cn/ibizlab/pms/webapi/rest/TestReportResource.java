@@ -244,6 +244,8 @@ public class TestReportResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testreportMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestReport-GetInfoTestTask-all')")
     @ApiOperation(value = "根据产品测试报告", tags = {"测试报告" },  notes = "根据产品测试报告")
 	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/testreports/{testreport_id}/getinfotesttask")

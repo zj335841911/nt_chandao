@@ -266,6 +266,7 @@ public class ReleaseResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(releaseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-searchReportRelease-all')")
 	@ApiOperation(value = "获取测试报告关联发布", tags = {"发布" } ,notes = "获取测试报告关联发布")
     @RequestMapping(method= RequestMethod.GET , value="/releases/fetchreportrelease")
@@ -287,6 +288,8 @@ public class ReleaseResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(releaseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Release-Create-all')")
     @ApiOperation(value = "根据产品建立发布", tags = {"发布" },  notes = "根据产品建立发布")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/releases")

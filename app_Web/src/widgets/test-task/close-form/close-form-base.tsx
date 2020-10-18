@@ -67,6 +67,7 @@ export class CloseEditFormBase extends EditFormControlBase {
      */  
     public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *
@@ -76,6 +77,14 @@ export class CloseEditFormBase extends EditFormControlBase {
      */
     protected drCount: number = 1;
 
+    /**
+     * 主键表单项名称
+     *
+     * @protected
+     * @type {number}
+     * @memberof CloseEditFormBase
+     */
+    protected formKeyItemName: string = 'id';
     /**
      * 表单数据对象
      *

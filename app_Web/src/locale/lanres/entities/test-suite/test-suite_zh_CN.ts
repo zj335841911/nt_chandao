@@ -33,6 +33,7 @@ export default {
 		details: {
 			group1: "testsuite基本信息", 
 			formpage1: "基本信息", 
+			srfupdatedate: "最后编辑时间", 
 			srforikey: "", 
 			srfkey: "编号", 
 			srfmajortext: "名称", 
@@ -52,6 +53,7 @@ export default {
 		details: {
 			group1: "基本信息", 
 			formpage1: "基本信息", 
+			srfupdatedate: "最后编辑时间", 
 			srforikey: "", 
 			srfkey: "编号", 
 			srfmajortext: "名称", 

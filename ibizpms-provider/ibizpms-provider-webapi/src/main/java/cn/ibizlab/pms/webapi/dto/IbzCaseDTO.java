@@ -400,14 +400,6 @@ public class IbzCaseDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [OPENEDBY]
-     */
-    public void setOpenedby(String  openedby){
-        this.openedby = openedby ;
-        this.modify("openedby",openedby);
-    }
-
-    /**
      * 设置 [LASTEDITEDBY]
      */
     public void setLasteditedby(String  lasteditedby){

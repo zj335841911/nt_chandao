@@ -272,6 +272,34 @@ export class ToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public dashboard_sysportlet2_u8e364bf_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:TaskUIService  = new TaskUIService();
+        curUIService.Task_ReStartTask(datas,contextJO, paramJO,  $event, xData,this,"Task");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public dashboard_sysportlet2_u4b8cbc4_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
@@ -451,6 +479,7 @@ export class ToolbarPortletBase extends MainControlBase {
     }
 
 
+
     /**
      * 长度
      *
@@ -486,14 +515,15 @@ export class ToolbarPortletBase extends MainControlBase {
         assigntaskdash: {name: 'assigntaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', uiaction: { tag: 'AssignTaskDash', target: 'SINGLEKEY' } },
         forwarddash: {name: 'forwarddash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_FORWARD_BUT', uiaction: { tag: 'ForwardDash', target: 'SINGLEKEY' } },
         starttaskdash: {name: 'starttaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_START_BUT', uiaction: { tag: 'StartTaskDash', target: 'SINGLEKEY' } },
-        workhours: {name: 'workhours', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__CUTINTBEHAVIOR', uiaction: { tag: 'WorkHours', target: 'SINGLEKEY' } },
+        workhours: {name: 'workhours', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_CONSUM_BUT', uiaction: { tag: 'WorkHours', target: 'SINGLEKEY' } },
         pausetaskdash: {name: 'pausetaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_PAUSE_BUT', uiaction: { tag: 'PauseTaskDash', target: 'SINGLEKEY' } },
+        restarttask: {name: 'restarttask', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_PROCEED_BUT', uiaction: { tag: 'ReStartTask', target: 'SINGLEKEY' } },
         activationdash: {name: 'activationdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_ACTIVATION_BUT', uiaction: { tag: 'ActivationDash', target: 'SINGLEKEY' } },
         donetaskdash: {name: 'donetaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', uiaction: { tag: 'DoneTaskDash', target: 'SINGLEKEY' } },
         canceltaskdash: {name: 'canceltaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_CANCEL_BUT', uiaction: { tag: 'CancelTaskDash', target: 'SINGLEKEY' } },
         maineditdash: {name: 'maineditdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_EDIT_BUT', uiaction: { tag: 'MainEditDash', target: 'SINGLEKEY' } },
         closetaskdash: {name: 'closetaskdash', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_CLOSE_BUT', uiaction: { tag: 'CloseTaskDash', target: 'SINGLEKEY' } },
-        delete: {name: 'delete', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__CUTINTBEHAVIOR', uiaction: { tag: 'delete', target: 'SINGLEKEY' } },
+        delete: {name: 'delete', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visabled: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__TASK_DELETE_BUT', uiaction: { tag: 'delete', target: 'SINGLEKEY' } },
     }
 
     /**
@@ -557,7 +587,7 @@ export class ToolbarPortletBase extends MainControlBase {
         iconcls: null,
         icon: null,
         noprivdisplaymode: 2,
-        dataaccaction:'SRFUR__CUTINTBEHAVIOR',
+        dataaccaction:'SRFUR__TASK_CONSUM_BUT',
         actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
@@ -568,6 +598,16 @@ export class ToolbarPortletBase extends MainControlBase {
         icon: "",
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__TASK_PAUSE_BUT',
+        actiontarget:'SINGLEKEY',
+        visabled:true,
+        disabled:false
+        },
+        { viewlogicname:"dashboard_sysportlet2_u8e364bf_click",
+        text: "继续",
+        iconcls: "fa fa-step-forward",
+        icon: "",
+        noprivdisplaymode: 2,
+        dataaccaction:'SRFUR__TASK_PROCEED_BUT',
         actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
@@ -627,7 +667,7 @@ export class ToolbarPortletBase extends MainControlBase {
         iconcls: null,
         icon: null,
         noprivdisplaymode: 2,
-        dataaccaction:'SRFUR__CUTINTBEHAVIOR',
+        dataaccaction:'SRFUR__TASK_DELETE_BUT',
         actiontarget:'SINGLEKEY',
         visabled:true,
         disabled:false
@@ -660,6 +700,9 @@ export class ToolbarPortletBase extends MainControlBase {
         }
         if(Object.is($event,'dashboard_sysportlet2_u8c69bef_click')){
             this.dashboard_sysportlet2_u8c69bef_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet2_u8e364bf_click')){
+            this.dashboard_sysportlet2_u8e364bf_click(null);
         }
         if(Object.is($event,'dashboard_sysportlet2_u4b8cbc4_click')){
             this.dashboard_sysportlet2_u4b8cbc4_click(null);
@@ -796,5 +839,13 @@ export class ToolbarPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof ToolbarBase
+     */
+    public refresh(args?: any) {
+    }
 
 }

@@ -157,5 +157,7 @@ public class DynaDashboardResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(dynadashboardMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

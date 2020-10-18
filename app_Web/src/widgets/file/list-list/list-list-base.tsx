@@ -66,6 +66,8 @@ export class ListListBase extends ListControlBase {
      */  
     public appUIService:FileUIService = new FileUIService(this.$store);
 
+    
+
     /**
      * 分页条数
      *
@@ -81,8 +83,6 @@ export class ListListBase extends ListControlBase {
      * @memberof ListListBase
      */
     public minorSortDir: string = '';
-
-
 
 
 }

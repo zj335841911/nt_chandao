@@ -45,6 +45,15 @@ export class TestReportProjectGridViewBase extends GridViewBase {
     protected appDeMajor: string = 'title';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestReportProjectGridViewBase
+     */ 
+    protected dataControl:string = "grid";
+
+    /**
      * 实体服务对象
      *
      * @type {TestReportService}

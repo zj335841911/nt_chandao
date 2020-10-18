@@ -42,6 +42,15 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
     protected appDeMajor: string = 'title';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductPlanMainDataEditViewBase
+     */ 
+    protected dataControl:string = "form";
+
+    /**
      * 实体服务对象
      *
      * @type {ProductPlanService}
@@ -109,7 +118,7 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      * @memberof ProductPlanMainDataEditView
      */
     public toolBarModels: any = {
-        deuiaction1_newsubplan: { name: 'deuiaction1_newsubplan', caption: '子计划', 'isShowCaption': true, 'isShowIcon': true, tooltip: '子计划', iconcls: 'fa fa-sitemap', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_CHILD_BUT', uiaction: { tag: 'NewSubPlan', target: 'SINGLEKEY', class: '' } },
+        deuiaction1_newsubplancz: { name: 'deuiaction1_newsubplancz', caption: '子计划', 'isShowCaption': true, 'isShowIcon': true, tooltip: '子计划', iconcls: 'fa fa-sitemap', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROP_CHILD_BUT', uiaction: { tag: 'NewSubPlanCz', target: 'SINGLEKEY', class: '' } },
 
         deuiaction1_mainedit: { name: 'deuiaction1_mainedit', caption: '编辑', 'isShowCaption': true, 'isShowIcon': true, tooltip: '编辑', iconcls: 'fa fa-edit', icon: '', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__PROP_EDIT_BUT', uiaction: { tag: 'MainEdit', target: 'SINGLEKEY', class: '' } },
 
@@ -172,8 +181,8 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      * @memberof ProductPlanMainDataEditViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'deuiaction1_newsubplan')) {
-            this.toolbar_deuiaction1_newsubplan_click(null, '', $event2);
+        if (Object.is($event.tag, 'deuiaction1_newsubplancz')) {
+            this.toolbar_deuiaction1_newsubplancz_click(null, '', $event2);
         }
         if (Object.is($event.tag, 'deuiaction1_mainedit')) {
             this.toolbar_deuiaction1_mainedit_click(null, '', $event2);
@@ -224,7 +233,7 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_deuiaction1_newsubplan_click(params: any = {}, tag?: any, $event?: any) {
+    public toolbar_deuiaction1_newsubplancz_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -242,7 +251,7 @@ export class ProductPlanMainDataEditViewBase extends EditViewBase {
         }
         // 界面行为
         const curUIService:ProductPlanUIService  = new ProductPlanUIService();
-        curUIService.ProductPlan_NewSubPlan(datas,contextJO, paramJO,  $event, xData,this,"ProductPlan");
+        curUIService.ProductPlan_NewSubPlanCz(datas,contextJO, paramJO,  $event, xData,this,"ProductPlan");
     }
 
     /**

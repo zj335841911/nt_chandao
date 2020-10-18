@@ -1,6 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
 import qs from 'qs';
 import { HttpResponse } from './http-response';
+import { Notice } from '@/utils/notice/notice';
 import { Loading } from '../loading/loading';
 /**
  * Http net 对象
@@ -23,6 +24,15 @@ export class Http {
         }
         return this.Http;
     }
+
+    /**
+     * 提示工具类
+     *
+     * @protected
+     * @type {Notice}
+     * @memberof UIActionBase
+     */
+    private notice: Notice = Notice.getInstance();
 
     /**
      * 单例变量声明
@@ -106,36 +116,36 @@ export class Http {
      * @returns {Promise<any>}
      * @memberof Http
      */
-    public get(url: string,params: any = {}, isloading?: boolean, serialnumber?: number): Promise<any> {
+    public get(url: string, params: any = {}, isloading?: boolean, serialnumber?: number): Promise<any> {
         params = this.handleRequestData(params);
-        if(params.srfparentdata){
-            Object.assign(params,params.srfparentdata);
+        if (params.srfparentdata) {
+            Object.assign(params, params.srfparentdata);
             delete params.srfparentdata;
         }
-        if((Object.keys(params)).length>0){
-            let tempParam:any = {};
-            let sort:any = null;
-            Object.keys(params).forEach((item:any) =>{
-                if( params[item] || Object.is(params[item],0) ){
-                    if (Object.is(item,'sort')){
-                      sort = params[item];
-                    }else{
-                      tempParam[item] = params[item];
+        if ((Object.keys(params)).length > 0) {
+            let tempParam: any = {};
+            let sort: any = null;
+            Object.keys(params).forEach((item: any) => {
+                if (params[item] || Object.is(params[item], 0)) {
+                    if (Object.is(item, 'sort')) {
+                        sort = params[item];
+                    } else {
+                        tempParam[item] = params[item];
                     }
                 }
             })
             url += `?${qs.stringify(tempParam)}`;
-            if(sort){
-                url += '&sort='+sort;
+            if (sort) {
+                url += '&sort=' + sort;
             }
-        }  
+        }
         if (isloading) {
             this.beginLoading();
         }
         return new Promise((resolve: any, reject: any) => {
             axios.get(url).then((response: AxiosResponse) => {
                 resolve(this.doResponseRresult(response, resolve, isloading, serialnumber));
-                
+
             }).catch((response: AxiosResponse) => {
                 reject(this.doResponseRresult(response, reject, isloading, serialnumber));
             });
@@ -151,19 +161,19 @@ export class Http {
      * @returns {Promise<any>}
      * @memberof Http
      */
-    public delete(url: string, isloading?: boolean,data?:any, serialnumber?: number): Promise<any> {
+    public delete(url: string, isloading?: boolean, data?: any, serialnumber?: number): Promise<any> {
         if (isloading) {
             this.beginLoading();
         }
         return new Promise((resolve: any, reject: any) => {
-            if(!data){
+            if (!data) {
                 axios.delete(url).then((response: any) => {
                     resolve(this.doResponseRresult(response, resolve, isloading, serialnumber));
                 }).catch((response: any) => {
                     reject(this.doResponseRresult(response, reject, isloading, serialnumber));
                 });
-            }else{
-                axios.delete(url,{data:data}).then((response: any) => {
+            } else {
+                axios.delete(url, { data: data }).then((response: any) => {
                     resolve(this.doResponseRresult(response, resolve, isloading, serialnumber));
                 }).catch((response: any) => {
                     reject(this.doResponseRresult(response, reject, isloading, serialnumber));
@@ -217,8 +227,13 @@ export class Http {
             if (response.status === 200) {
                 return new HttpResponse(200, response.data, undefined, response.headers);
             }
+            // 无权限时不报错
+            if(response.status != 401){
+                this.notice.error(response.data.message ? response.data.message : HttpResponse.getStatusMessage(response.status));
+            }
             return new HttpResponse(response.status, response.data, { code: 101, message: HttpResponse.getStatusMessage(response.status) }, response.headers)
         }
+        this.notice.error('请求发生异常，无返回结果!');
         return new HttpResponse(500, null, { code: 100, message: '请求发生异常，无返回结果!' }, response.headers);
     }
 
@@ -245,8 +260,8 @@ export class Http {
         }
         setTimeout(() => {
             if (this.loadingCount === 0) {
-               // todo 停止加载
-               Loading.hidden();
+                // todo 停止加载
+                Loading.hidden();
             }
         }, 500);
     }
@@ -258,11 +273,11 @@ export class Http {
      * @param data 
      * @memberof Http
      */
-    private handleRequestData(data:any){
-        if(data.srfsessionkey){
+    private handleRequestData(data: any) {
+        if (data.srfsessionkey) {
             delete data.srfsessionkey;
         }
-        if(data.srfsessionid){
+        if (data.srfsessionid) {
             delete data.srfsessionid;
         }
         return data;

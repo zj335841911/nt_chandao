@@ -65,6 +65,7 @@ export class TestTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @memberof TestTabExpViewtabexppanelBase
      */  
     public appUIService:ProductUIService = new ProductUIService(this.$store);
+
     /**
      * 是否初始化
      *

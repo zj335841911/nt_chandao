@@ -156,6 +156,7 @@ public class DeptResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(deptMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-searchRoot-all')")
 	@ApiOperation(value = "获取根部门", tags = {"部门" } ,notes = "获取根部门")
     @RequestMapping(method= RequestMethod.GET , value="/depts/fetchroot")
@@ -177,5 +178,7 @@ public class DeptResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(deptMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

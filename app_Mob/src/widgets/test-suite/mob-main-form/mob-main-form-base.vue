@@ -13,6 +13,8 @@
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="true" 
+    :data="transformData(data)"
+    :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
@@ -276,7 +278,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
     public transformData(args: any) {
         let _this: any = this;
         if(_this.service && _this.service.handleRequestData instanceof Function && _this.service.handleRequestData('transform',_this.context,args)){
-            return _this.service.handleRequestData('transform',_this.context,args)['data'];
+            return _this.service.handleRequestData('transform',_this.context,args);
         }
     }
 
@@ -482,6 +484,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
      * @memberof MobMain
      */
     protected data: any = {
+        srfupdatedate: null,
         srforikey: null,
         srfkey: null,
         srfmajortext: null,
@@ -631,6 +634,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
+        srfupdatedate: new FormItemModel({ caption: '最后编辑时间', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         srfkey: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
@@ -660,6 +665,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
     };
+
+    /**
+     * 监控表单属性 srfupdatedate 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.srfupdatedate')
+    onSrfupdatedateChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'srfupdatedate', newVal: newVal, oldVal: oldVal });
+    }
 
     /**
      * 监控表单属性 srforikey 值
@@ -881,6 +898,7 @@ export default class MobMainBase extends Vue implements ControlInterface {
 
 
 
+
     }
 
 
@@ -1050,24 +1068,6 @@ export default class MobMainBase extends Vue implements ControlInterface {
                 formItem.setError(error.message);
             });
         });
-    }
-
-    /**
-     * 表单校验状态
-     *
-     * @returns {boolean} 
-     * @memberof MobMain
-     */
-    protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['name_item', 'type_item', 'addedby_item', 'addeddate_item', 'lasteditedby_item', 'lastediteddate_item', ];
-        let falg = true;
-        for (let item = 0; item < refArr.length; item++) {
-            const element = refArr[item];
-            if (this.$refs[element] && (this.$refs[element] as any).validateRules &&  !await(this.$refs[element] as any).validateRules()) {
-                falg = false;
-            }
-        }
-        return falg;
     }
 
     /**

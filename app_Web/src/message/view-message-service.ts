@@ -201,7 +201,7 @@ export default class ViewMessageService {
     public async getViewMessageByTag(tag:string,context:any = {},viewparam:any = {}){
         let messageService:any = await this.getService(tag);
         if(messageService.dynamicMode && Object.is(messageService.dynamicMode,"STATIC")){
-            return messageService.getStaticViewMessage();
+            return messageService.getStaticViewMessage(context,viewparam);
         }else{
             return messageService.getDynamicViewMessage(tag,messageService,context,viewparam);
         }
@@ -212,7 +212,7 @@ export default class ViewMessageService {
      * 
      * @memberof ViewMessageService
      */
-    public translateMessageTemp(target:any,item?:any){
+    public translateMessageTemp(target:any,context:any,viewparam:any,item?:any){
         
     }
 
@@ -221,7 +221,7 @@ export default class ViewMessageService {
      * 
      * @memberof ViewMessageService
      */
-    public getStaticViewMessage():Array<ViewMessage>{
+    public getStaticViewMessage(context:any,viewparam:any):Array<ViewMessage>{
         let returnViewMessage:ViewMessage ={
             id:this.id,
             name:this.name,
@@ -236,7 +236,7 @@ export default class ViewMessageService {
             dynamicMode:this.dynamicMode,
             messageType:this.messageType
         };
-        this.translateMessageTemp(returnViewMessage);
+        this.translateMessageTemp(returnViewMessage,context,viewparam);
         return [returnViewMessage];
     }
 
@@ -259,10 +259,11 @@ export default class ViewMessageService {
             // 启用缓存
             if(isEnableCache){
                 const callback:Function = (context:any ={},data:any ={},tag:string,promise:Promise<any>) =>{
+                    const callbackKey:string = `${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`;
                     promise.then((result:any) =>{
                         if(result.length > 0){
-                            ViewMessageService.messageCached.set(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`,{items:result});
-                            ViewMessageService.messageCache.delete(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`);
+                            ViewMessageService.messageCached.set(callbackKey,{items:result});
+                            ViewMessageService.messageCache.delete(callbackKey);
                             return resolve(result);
                         }else{
                             return resolve([]);
@@ -271,9 +272,10 @@ export default class ViewMessageService {
                         return reject(result);
                     })
                 }
+                const key:string = `${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`;
                 // 加载完成,从本地缓存获取
-                if(ViewMessageService.messageCached.get(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`)){
-                    let items:any = ViewMessageService.messageCached.get(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`).items;
+                if(ViewMessageService.messageCached.get(key)){
+                    let items:any = ViewMessageService.messageCached.get(key).items;
                     if(items.length >0){
                         if(new Date().getTime() <= messageService.getExpirationTime()){
                             return resolve(items); 
@@ -282,11 +284,11 @@ export default class ViewMessageService {
                 }
                 if (messageService) {
                     // 加载中，UI又需要数据，解决连续加载同一代码表问题
-                    if(ViewMessageService.messageCache.get(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`)){
-                        callback(context,data,tag,ViewMessageService.messageCache.get(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`));
+                    if(ViewMessageService.messageCache.get(key)){
+                        callback(context,data,tag,ViewMessageService.messageCache.get(key));
                     }else{
                         let result:Promise<any> = messageService.getItems(context,data,isloading);
-                        ViewMessageService.messageCache.set(`${JSON.stringify(context)}-${JSON.stringify(data)}-${tag}`,result);
+                        ViewMessageService.messageCache.set(key,result);
                         messageService.setExpirationTime(new Date().getTime() + cacheTimeout);
                         callback(context,data,tag,result);
                     }

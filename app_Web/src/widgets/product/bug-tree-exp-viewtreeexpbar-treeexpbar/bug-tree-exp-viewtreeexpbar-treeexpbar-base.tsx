@@ -88,6 +88,7 @@ export class BugTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBas
         this.treeexpbar_load($event, 'treeexpbar_tree', $event2);
     }
 
+
     /**
      * 控件宽度
      *

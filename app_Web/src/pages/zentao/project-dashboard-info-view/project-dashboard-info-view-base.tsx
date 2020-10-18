@@ -42,6 +42,15 @@ export class ProjectDashboardInfoViewBase extends EditView9Base {
     protected appDeMajor: string = 'name';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectDashboardInfoViewBase
+     */ 
+    protected dataControl:string = "form";
+
+    /**
      * 实体服务对象
      *
      * @type {ProjectService}

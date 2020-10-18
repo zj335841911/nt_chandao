@@ -183,6 +183,9 @@ export default class MainModel {
       {
         name: 'tasktype',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

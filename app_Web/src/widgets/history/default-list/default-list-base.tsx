@@ -66,6 +66,7 @@ export class DEFAULTListBase extends ListControlBase {
      */  
     public appUIService:HistoryUIService = new HistoryUIService(this.$store);
 
+
     /**
      * 分页条数
      *
@@ -89,7 +90,6 @@ export class DEFAULTListBase extends ListControlBase {
      * @memberof DEFAULTListBase
      */
     public minorSortPSDEF: string = 'id';
-
 
 
 }

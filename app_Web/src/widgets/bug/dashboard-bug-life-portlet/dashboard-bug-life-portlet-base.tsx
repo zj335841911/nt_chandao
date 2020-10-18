@@ -69,6 +69,7 @@ export class DashboardBugLifePortletBase extends MainControlBase {
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class DashboardBugLifePortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof DashboardBugLifeBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'BugBugLifeEditView9', action: 'refresh', data: args });
+    }
 
 }

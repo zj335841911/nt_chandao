@@ -69,6 +69,7 @@ export class TextExpViewPortletBase extends MainControlBase {
      */  
     public appUIService:ProductUIService = new ProductUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class TextExpViewPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof TextExpViewBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'ProductTestListExpView', action: 'refresh', data: args });
+    }
 
 }

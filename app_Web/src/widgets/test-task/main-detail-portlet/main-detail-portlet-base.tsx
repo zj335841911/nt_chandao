@@ -69,6 +69,7 @@ export class MainDetailPortletBase extends MainControlBase {
      */  
     public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class MainDetailPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof MainDetailBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'TestTaskEditView9_Detail', action: 'refresh', data: args });
+    }
 
 }

@@ -69,6 +69,7 @@ export class ProductInfoPortletBase extends MainControlBase {
      */  
     public appUIService:ProductUIService = new ProductUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class ProductInfoPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof ProductInfoBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'ProductDashboardInfoMainView9', action: 'refresh', data: args });
+    }
 
 }

@@ -196,9 +196,9 @@ export default class EditViewEngine extends ViewEngine {
     public setTabCaption(info: string, isNew: boolean): void {
         let viewdata: any = this.view.model;
         if (viewdata && info && !Object.is(info, '')) {
-            if (this.view.$route) {
-                this.view.$route.meta.info = info;
-            }
+            // if (this.view.$route) {
+            //     this.view.$route.meta.info = info;
+            // }
             this.view.$emit('viewModelChange', this.view.viewCaption);
             if (this.view.viewUsage === 1 || this.view.viewUsage === 7) {
                 this.view.$appService.navHistory.setCaption({ tag: this.view.viewtag, info: viewdata.dataInfo });

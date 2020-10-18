@@ -69,6 +69,7 @@ export class BugResolutionPortletBase extends MainControlBase {
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class BugResolutionPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof BugResolutionBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'dashboard_sysportlet12_chart', action: 'refresh', data: args });
+    }
 
 }

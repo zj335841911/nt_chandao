@@ -129,6 +129,10 @@ export default {
 			caption: "关联需求",
       		title: "关联需求",
 		},
+		prichartview9: {
+			caption: "累计创建需求-优先级",
+      		title: "需求图表视图（累计创建需求-优先级）",
+		},
 		tabexpview: {
 			caption: "需求",
       		title: "需求分页导航视图",
@@ -212,6 +216,10 @@ export default {
 		projectplanview: {
 			caption: "按照计划关联",
       		title: "按照计划关联",
+		},
+		stagechartview9: {
+			caption: "累计创建需求-阶段",
+      		title: "需求图表视图（累计创建需求-阶段）",
 		},
 		projecteditview: {
 			caption: "需求",
@@ -463,6 +471,7 @@ export default {
 			estimate: "预计", 
 			spec: "需求描述", 
 			verify: "验收标准", 
+			files: "附件", 
 			mailto: "抄送给", 
 			keywords: "关键词", 
 			id: "编号", 
@@ -642,6 +651,7 @@ export default {
 			estimate: "预计", 
 			spec: "需求描述", 
 			verify: "验收标准", 
+			files: "附件", 
 			mailto: "抄送给", 
 			keywords: "关键词", 
 			id: "编号", 
@@ -677,6 +687,7 @@ export default {
 			estimate: "预计", 
 			spec: "需求描述", 
 			verify: "验收标准", 
+			files: "附件", 
 			mailto: "抄送给", 
 			keywords: "关键词", 
 			id: "编号", 
@@ -892,10 +903,14 @@ export default {
 			pri: "P",
 			title: "需求名称",
 			modulename: "所属模块名称",
+			openedby: "创建",
+			estimate: "预计",
+			status: "当前状态",
+			stage: "所处阶段",
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-			story_releaseunlinkbug: "移除关联",
+			story_releaseunlinkstory: "移除关联",
 		},
 	},
 	myfavoritemain_grid: {
@@ -931,6 +946,34 @@ export default {
 			status: "状态",
 		},
 		uiactions: {
+		},
+	},
+	mygroupmain_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			prodoctname: "产品名称",
+			title: "需求名称",
+			plan: "计划",
+			openedby: "创建",
+			assignedto: "指派",
+			estimate: "预计",
+			status: "状态",
+			stage: "阶段",
+			modulename: "所属模块名称",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+			exit: "返回",
+			story_activitedash: "激活",
+			story_changestorydetaildash: "变更",
+			story_reviewstorydash: "评审",
+			story_assigntodash: "指派",
+			story_closestorydash: "关闭",
+			story_substorycz: "细分",
+			story_openbaseinfoc: "编辑",
+			story_delete: "删除",
+			story_returnedit: "退出",
 		},
 	},
 	main_grid: {

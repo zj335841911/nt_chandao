@@ -39,7 +39,16 @@ export class UserYearWorkStatsEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof UserYearWorkStatsEditViewBase
      */
-    protected appDeMajor: string = 'realname';
+    protected appDeMajor: string = 'title';
+
+    /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof UserYearWorkStatsEditViewBase
+     */ 
+    protected dataControl:string = "form";
 
     /**
      * 实体服务对象
@@ -156,7 +165,7 @@ export class UserYearWorkStatsEditViewBase extends EditViewBase {
             form: this.$refs.form,
             p2k: '0',
             keyPSDEField: 'useryearworkstats',
-            majorPSDEField: 'realname',
+            majorPSDEField: 'title',
             isLoadDefault: true,
         });
     }

@@ -136,6 +136,14 @@ export class IBizPMSBase extends Vue {
   public contextMenuDragVisiable: boolean = false;
 
   /**
+   * 底部绘制
+   *
+   * @private
+   * @memberof AppCenterBase
+   */
+  private footerRenders: { remove: () => boolean }[] = [];
+
+  /**
    * 注册底部项
    *
    * @memberof IBizPMSBase
@@ -146,32 +154,32 @@ export class IBizPMSBase extends Vue {
     const rightItems: any = this.appMenuModel.getMenuGroup('footer_right');
     if (leftItems && leftItems.items) {
       leftItems.items.forEach((item: any) => {
-        this.footerItemsService.registerLeftItem((h: any) => {
+        this.footerRenders.push(this.footerItemsService.registerLeftItem((h: any) => {
           return <div class='action-item' title={item.tooltip} on-click={() => this.click(item)}>
             <menu-icon item={item}/>
             {item.text}
           </div>;
-        });
+        }));
       });
     }
     if (centerItems && centerItems.items) {
       centerItems.items.forEach((item: any) => {
-        this.footerItemsService.registerCenterItem((h: any) => {
+        this.footerRenders.push(this.footerItemsService.registerCenterItem((h: any) => {
           return <div class='action-item' title={item.tooltip} on-click={() => this.click(item)}>
             <menu-icon item={item}/>
             {item.text}
           </div>;
-        });
+        }));
       });
     }
     if (rightItems && rightItems.items) {
       rightItems.items.forEach((item: any) => {
-        this.footerItemsService.registerRightItem((h: any) => {
+        this.footerRenders.push(this.footerItemsService.registerRightItem((h: any) => {
           return <div class='action-item' title={item.tooltip} on-click={() => this.click(item)}>
             <menu-icon item={item}/>
             {item.text}
           </div>;
-        });
+        }));
       });
     }
   }
@@ -220,6 +228,7 @@ export class IBizPMSBase extends Vue {
    */
   protected beforeDestroy() {
     this.$store.commit("viewaction/removeView", this.viewtag);
+    this.footerRenders.forEach(item => item.remove());
   }
 
   /**
@@ -353,9 +362,9 @@ export class IBizPMSBase extends Vue {
           </template> : null}
           {styleMode === 'DEFAULT' ? <tab-page-exp ref="tabExp"></tab-page-exp> : null}
           <div class="view-warp" on-click={() => this.contextMenuDragVisiable = false}>
-            {isStyle2 ? <router-view key='index-view'/> : <app-keep-alive routerList={this.appService.navHistory.historyList}>
+            <app-keep-alive routerList={this.appService.navHistory.historyList}>
               <router-view key={this.$route.fullPath}></router-view>
-            </app-keep-alive>}
+            </app-keep-alive>
           </div>
           {this.bottom_exp.items ? <template slot="content_bottom">
             <app-content-bottom-exp ref="bootomExp" ctrlName="zentao" menus={this.bottom_exp.items} />

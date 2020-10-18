@@ -237,6 +237,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         curUIService.Project_delete(datas,contextJO, paramJO,  $event, xData,this,"Project");
     }
 
+
     /**
      * 长度
      *
@@ -485,5 +486,13 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof ProjectMainToolbarBase
+     */
+    public refresh(args?: any) {
+    }
 
 }

@@ -69,6 +69,7 @@ export class CurSuitCaseGridViewPortletBase extends MainControlBase {
      */  
     public appUIService:TestSuiteUIService = new TestSuiteUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class CurSuitCaseGridViewPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof CurSuitCaseGridViewBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'CaseCurSuitGridView', action: 'refresh', data: args });
+    }
 
 }

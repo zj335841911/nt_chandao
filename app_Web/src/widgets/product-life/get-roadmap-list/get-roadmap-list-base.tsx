@@ -66,6 +66,7 @@ export class GetRoadmapListBase extends ListControlBase {
      */  
     public appUIService:ProductLifeUIService = new ProductLifeUIService(this.$store);
 
+
     /**
      * 分页条数
      *
@@ -89,7 +90,6 @@ export class GetRoadmapListBase extends ListControlBase {
      * @memberof GetRoadmapListBase
      */
     public minorSortPSDEF: string = 'end';
-
 
 
 }

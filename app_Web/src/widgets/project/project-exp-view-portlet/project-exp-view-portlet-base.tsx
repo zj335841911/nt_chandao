@@ -69,6 +69,7 @@ export class ProjectExpViewPortletBase extends MainControlBase {
      */  
     public appUIService:ProjectUIService = new ProjectUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class ProjectExpViewPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof ProjectExpViewBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'ProjectListExpView', action: 'refresh', data: args });
+    }
 
 }

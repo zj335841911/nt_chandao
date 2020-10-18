@@ -69,6 +69,7 @@ export class ToTestTestTaskPortletBase extends MainControlBase {
      */  
     public appUIService:TestTaskUIService = new TestTaskUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class ToTestTestTaskPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof ToTestTestTaskBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'TestTaskGridView9_UnTested', action: 'refresh', data: args });
+    }
 
 }

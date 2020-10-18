@@ -13,6 +13,8 @@
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
+    :data="transformData(data)"
+    :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-group 
@@ -26,6 +28,8 @@
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
+    :data="transformData(data)"
+    :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
@@ -38,7 +42,7 @@
     v-show="detailsModel.resolvedbuild.visible" 
     :itemRules="this.rules.resolvedbuild" 
     :caption="$t('bug.activationmob_form.details.resolvedbuild')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.resolvedbuild.disabled"
     :error="detailsModel.resolvedbuild.error" 
@@ -68,7 +72,7 @@
     v-show="detailsModel.assignedto.visible" 
     :itemRules="this.rules.assignedto" 
     :caption="$t('bug.activationmob_form.details.assignedto')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.assignedto.disabled"
     :error="detailsModel.assignedto.error" 
@@ -136,7 +140,7 @@
     v-show="detailsModel.comment.visible" 
     :itemRules="this.rules.comment" 
     :caption="$t('bug.activationmob_form.details.comment')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :error="detailsModel.comment.error" 
     :isEmptyCaption="false">
@@ -157,6 +161,8 @@
     :isShowCaption="true" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
+    :data="transformData(data)"
+    :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-druipart
@@ -295,7 +301,7 @@ export default class ActivationMobBase extends Vue implements ControlInterface {
     public transformData(args: any) {
         let _this: any = this;
         if(_this.service && _this.service.handleRequestData instanceof Function && _this.service.handleRequestData('transform',_this.context,args)){
-            return _this.service.handleRequestData('transform',_this.context,args)['data'];
+            return _this.service.handleRequestData('transform',_this.context,args);
         }
     }
 
@@ -1094,24 +1100,6 @@ export default class ActivationMobBase extends Vue implements ControlInterface {
                 formItem.setError(error.message);
             });
         });
-    }
-
-    /**
-     * 表单校验状态
-     *
-     * @returns {boolean} 
-     * @memberof ActivationMob
-     */
-    protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['resolvedbuild_item', 'assignedto_item', 'files_item', 'comment_item', ];
-        let falg = true;
-        for (let item = 0; item < refArr.length; item++) {
-            const element = refArr[item];
-            if (this.$refs[element] && (this.$refs[element] as any).validateRules &&  !await(this.$refs[element] as any).validateRules()) {
-                falg = false;
-            }
-        }
-        return falg;
     }
 
     /**

@@ -67,6 +67,7 @@ export class RelatedEditFormBase extends EditFormControlBase {
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *
@@ -75,7 +76,6 @@ export class RelatedEditFormBase extends EditFormControlBase {
      * @memberof RelatedEditFormBase
      */
     protected drCount: number = 6;
-
     /**
      * 表单数据对象
      *

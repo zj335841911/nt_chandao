@@ -69,6 +69,7 @@ export class AssignToMePortletBase extends MainControlBase {
      */  
     public appUIService:TaskUIService = new TaskUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class AssignToMePortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof AssignToMeBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'TaskGridView9_AssignedToMe', action: 'refresh', data: args });
+    }
 
 }

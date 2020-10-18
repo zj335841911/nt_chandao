@@ -1,7 +1,7 @@
 <template>
     <div  class="app-mob-mdctrl task-mdctrl ">
         <div class="app-mob-mdctrl-mdctrl" ref="mdctrl">
-            <ion-list class="items">
+            <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
@@ -29,7 +29,7 @@
                     </ion-item-sliding>
                 </template>
             </ion-list>
-            <ion-list class="items">
+            <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                     <div class="selectall">
                         <ion-checkbox :checked="selectAllIschecked"  v-show="showCheack"  @ionChange="checkboxAll"></ion-checkbox>
@@ -216,7 +216,7 @@ export default class MobBase extends Vue implements ControlInterface {
     public transformData(args: any) {
         let _this: any = this;
         if(_this.service && _this.service.handleRequestData instanceof Function && _this.service.handleRequestData('transform',_this.context,args)){
-            return _this.service.handleRequestData('transform',_this.context,args)['data'];
+            return _this.service.handleRequestData('transform',_this.context,args);
         }
     }
 
@@ -1443,11 +1443,16 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mdctrl
      */
     public closeSlidings () {
-        let slidings:any = this.$refs.sliding; 
-        if (slidings) {
-            slidings.forEach((sliding:any) => {
-                sliding.close()
-            })     
+        let ionlist:any = this.$refs.ionlist;
+        if (ionlist.children) {
+          ionlist.children.forEach((sliding:any) => {
+            if(typeof sliding.close === 'function'){
+              sliding.close();
+            }
+            if(typeof sliding.closeOpened === 'function'){
+            sliding.closeOpened();
+            }
+          })
         }
     }
 
@@ -1537,7 +1542,7 @@ export default class MobBase extends Vue implements ControlInterface {
         PauseTaskMob: { name: 'PauseTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_PAUSE_BUT', target: 'SINGLEKEY',icon:'pause',isShowCaption:false,isShowIcon:true},
         CancelTaskMob: { name: 'CancelTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CANCEL_BUT', target: 'SINGLEKEY',icon:'power',isShowCaption:false,isShowIcon:true},
         CloseTaskMob: { name: 'CloseTaskMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CLOSE_BUT', target: 'SINGLEKEY',icon:'backspace',isShowCaption:false,isShowIcon:true},
-        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CUTINTBEHAVIOR', target: 'SINGLEKEY',icon:'remove',isShowCaption:false,isShowIcon:true}
+        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_DELETE_BUT', target: 'SINGLEKEY',icon:'remove',isShowCaption:false,isShowIcon:true}
     };
 
     

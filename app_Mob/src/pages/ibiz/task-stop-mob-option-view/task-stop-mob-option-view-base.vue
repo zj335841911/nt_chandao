@@ -196,7 +196,7 @@ export default class TaskStopMobOptionViewBase extends Vue {
         dataInfo: '',
         viewname:'task.stopmoboptionview',
         iconcls: '',
-        icon: 'fa fa-tasks'
+        icon: 'tasks'
     }
 
     /**
@@ -346,6 +346,7 @@ export default class TaskStopMobOptionViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
+
 
     }
 
@@ -497,6 +498,10 @@ export default class TaskStopMobOptionViewBase extends Vue {
      * @memberof TaskStopMobOptionViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
               let result = await this.cheackChange();
       if(result){
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){

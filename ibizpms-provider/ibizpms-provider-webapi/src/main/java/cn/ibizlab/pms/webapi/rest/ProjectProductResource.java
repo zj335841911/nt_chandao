@@ -156,6 +156,7 @@ public class ProjectProductResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectproductMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-searchRelationPlan-all')")
 	@ApiOperation(value = "获取关联计划", tags = {"项目产品" } ,notes = "获取关联计划")
     @RequestMapping(method= RequestMethod.GET , value="/projectproducts/fetchrelationplan")
@@ -177,6 +178,8 @@ public class ProjectProductResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectproductMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Create-all')")
     @ApiOperation(value = "根据产品建立项目产品", tags = {"项目产品" },  notes = "根据产品建立项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/projectproducts")

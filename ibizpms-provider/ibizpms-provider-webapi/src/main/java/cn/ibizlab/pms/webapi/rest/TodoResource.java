@@ -222,6 +222,7 @@ public class TodoResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(todoMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-searchMyTodo-all')")
 	@ApiOperation(value = "获取我的待办", tags = {"待办事宜表" } ,notes = "获取我的待办")
     @RequestMapping(method= RequestMethod.GET , value="/todos/fetchmytodo")
@@ -243,6 +244,7 @@ public class TodoResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(todoMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Todo-searchMyUpcoming-all')")
 	@ApiOperation(value = "获取MyUpcoming", tags = {"待办事宜表" } ,notes = "获取MyUpcoming")
     @RequestMapping(method= RequestMethod.GET , value="/todos/fetchmyupcoming")
@@ -264,5 +266,7 @@ public class TodoResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(todoMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

@@ -33,6 +33,7 @@ export class MyWorkPortletBase extends MainControlBase {
      */
     public service: MyWorkService = new MyWorkService({ $store: this.$store });
 
+
     /**
      * 长度
      *
@@ -181,5 +182,14 @@ export class MyWorkPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof MyWorkBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'IbzMyTerritoryListView9', action: 'refresh', data: args });
+    }
 
 }

@@ -69,6 +69,7 @@ export class BugSeverity_ProjectPortletBase extends MainControlBase {
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class BugSeverity_ProjectPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof BugSeverity_ProjectBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'dashboard_BugSeverity_chart', action: 'refresh', data: args });
+    }
 
 }

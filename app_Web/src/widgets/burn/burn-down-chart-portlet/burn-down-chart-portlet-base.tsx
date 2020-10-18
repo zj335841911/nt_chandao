@@ -69,6 +69,7 @@ export class BurnDownChartPortletBase extends MainControlBase {
      */  
     public appUIService:BurnUIService = new BurnUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class BurnDownChartPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof BurnDownChartBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'dashboard_sysportlet1_chart', action: 'refresh', data: args });
+    }
 
 }

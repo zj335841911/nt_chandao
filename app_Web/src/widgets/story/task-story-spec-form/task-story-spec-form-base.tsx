@@ -67,6 +67,7 @@ export class TaskStorySpecEditFormBase extends EditFormControlBase {
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *
@@ -75,7 +76,6 @@ export class TaskStorySpecEditFormBase extends EditFormControlBase {
      * @memberof TaskStorySpecEditFormBase
      */
     protected drCount: number = 2;
-
     /**
      * 表单数据对象
      *

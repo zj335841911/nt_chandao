@@ -6,10 +6,6 @@
     row-key="id"
     default-expand-all
     ref="multipleTable"
-    :default-sort="{
-      prop: minorSortPSDEF,
-      order: Object.is(minorSortDir, 'ASC')? 'ascending': Object.is(minorSortDir, 'DESC')? 'descending': '',
-    }"
     :border="isDragendCol"
     :highlight-current-row="isSingleSelect"
     :row-class-name="getRowClassName.bind(_self)"
@@ -18,17 +14,19 @@
     :data="renderItems"
     :tree-props="{ children: 'children' }"
     :show-header="!isHideHeader"
-    @sort-change="onSortChange($event)"
     @row-click="rowClick($event)"
     @select-all="selectAll($event)"
     @select="select($event)"
     @row-class-name="onRowClassName($event)"
     @row-dblclick="rowDBLClick($event)"
   >
-    <template slot="empty">
+    <!-- <template slot="empty">
       无数据
       <span class="quick-toolbar"> </span>
-    </template>
+    </template> -->
+
+    <el-table-column label="编号" type="index" align="center" width="50">
+    </el-table-column>
 
     <template v-if="!isSingleSelect">
       <el-table-column
@@ -42,12 +40,17 @@
       <el-table-column
         show-overflow-tooltip
         :prop="'desc'"
-        :label="$t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.desc')"
+        :label="
+          $t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.desc')
+        "
         :width="150"
-        :align="'left'">
+        :align="'left'"
+      >
         <template slot="header">
           <span class="column-header">
-            {{$t("entities.ibzcasestep.main_rowedit_carryout_grid.columns.desc")}}
+            {{
+              $t("entities.ibzcasestep.main_rowedit_carryout_grid.columns.desc")
+            }}
           </span>
         </template>
         <template v-slot="{ row }">
@@ -60,12 +63,19 @@
       <el-table-column
         show-overflow-tooltip
         :prop="'expect'"
-        :label="$t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.expect')"
+        :label="
+          $t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.expect')
+        "
         :min-width="0"
-        :align="'left'">
+        :align="'left'"
+      >
         <template slot="header">
           <span class="column-header">
-            {{$t("entities.ibzcasestep.main_rowedit_carryout_grid.columns.expect")}}
+            {{
+              $t(
+                "entities.ibzcasestep.main_rowedit_carryout_grid.columns.expect"
+              )
+            }}
           </span>
         </template>
         <template v-slot="{ row }">
@@ -75,68 +85,118 @@
     </template>
 
     <template v-if="getColumnState('steps')">
-        <el-table-column show-overflow-tooltip :prop="'steps'" :label="$t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.steps')" :width="150"  :align="'left'" :sortable="'custom'">
-            <template slot="header">
-                <span class="column-header ">
-                {{$t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.steps')}}
-                </span>
-            </template>
-            <template v-slot="{row,column,$index}">
-                <template v-if="actualIsOpenEdit">
-                    <app-form-item :error="gridItemsModel[$index][column.property].error">                                
-                        <dropdown-list 
-                        v-show="(row.type != 'group')"
-                        v-model="row[column.property]" 
-                        :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
-                        :data="row" 
-                        :context="context"
-                        :viewparams="viewparams" 
-                        :localContext ='{ }' 
-                        :localParam ='{ }' 
-                        tag='Testresult__result' 
-                        codelistType='STATIC'
-                        placeholder='请选择...' 
-                        style="" 
-                        @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
-                        </dropdown-list>
-                    </app-form-item>
-                </template>
-                <template v-if="!actualIsOpenEdit">
-                    <codelist :value="row.steps" tag='Testresult__result' codelistType='STATIC' ></codelist>
-                </template>
-            </template>
-        </el-table-column>
+      <el-table-column
+        show-overflow-tooltip
+        :prop="'steps'"
+        :label="
+          $t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.steps')
+        "
+        :width="150"
+        :align="'left'"
+        :sortable="'custom'"
+      >
+        <template slot="header">
+          <span class="column-header">
+            {{
+              $t(
+                "entities.ibzcasestep.main_rowedit_carryout_grid.columns.steps"
+              )
+            }}
+          </span>
+        </template>
+        <template v-slot="{ row, column, $index }">
+          <template v-if="actualIsOpenEdit">
+            <app-form-item
+              :error="gridItemsModel[$index][column.property].error"
+            >
+              <dropdown-list
+                v-show="row.type != 'group'"
+                v-model="row[column.property]"
+                :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1"
+                :data="row"
+                :context="context"
+                :viewparams="viewparams"
+                :localContext="{}"
+                :localParam="{}"
+                tag="Testresult__result"
+                codelistType="STATIC"
+                placeholder="请选择..."
+                style=""
+                @change="
+                  ($event) => {
+                    gridEditItemChange(row, column.property, $event, $index);
+                  }
+                "
+              >
+              </dropdown-list>
+            </app-form-item>
+          </template>
+          <template v-if="!actualIsOpenEdit">
+            <codelist
+              :value="row.steps"
+              tag="Testresult__result"
+              codelistType="STATIC"
+            ></codelist>
+          </template>
+        </template>
+      </el-table-column>
     </template>
-    
+
     <template v-if="getColumnState('reals')">
-        <el-table-column show-overflow-tooltip :prop="'reals'" :label="$t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.reals')" :width="200"  :align="'left'" :sortable="'custom'">
-            <template slot="header">
-                <span class="column-header ">
-                {{$t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.reals')}}
-                </span>
-            </template>
-            <template v-slot="{row,column,$index}">
-                <template v-if="actualIsOpenEdit">
-                    <app-form-item :error="gridItemsModel[$index][column.property].error">
-                        <input-box 
-                            v-show="(row.type != 'group')"
-                            :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1" 
-                            v-model="row[column.property]" 
-                            style=""
-                            type="text"
-                            @change="($event)=>{gridEditItemChange(row, column.property, $event, $index)}">
-                        </input-box>
-                    </app-form-item>
-                </template>
-                <template v-if="!actualIsOpenEdit">
-                    <app-span name='reals' editorType="TEXTBOX" :value="row.reals" dataType="TEXT" precision="0" ></app-span>
-                </template>
-            </template>
-        </el-table-column>
+      <el-table-column
+        show-overflow-tooltip
+        :prop="'reals'"
+        :label="
+          $t('entities.ibzcasestep.main_rowedit_carryout_grid.columns.reals')
+        "
+        :width="200"
+        :align="'left'"
+        :sortable="'custom'"
+      >
+        <template slot="header">
+          <span class="column-header">
+            {{
+              $t(
+                "entities.ibzcasestep.main_rowedit_carryout_grid.columns.reals"
+              )
+            }}
+          </span>
+        </template>
+        <template v-slot="{ row, column, $index }">
+          <template v-if="actualIsOpenEdit">
+            <app-form-item
+              :error="gridItemsModel[$index][column.property].error"
+            >
+              <input-box
+                v-show="row.type != 'group'"
+                :disabled="row.srfuf === 1 ? (3 & 2) !== 2 : (3 & 1) !== 1"
+                v-model="row[column.property]"
+                style=""
+                type="text"
+                @change="
+                  ($event) => {
+                    gridEditItemChange(row, column.property, $event, $index);
+                  }
+                "
+              >
+              </input-box>
+            </app-form-item>
+          </template>
+          <template v-if="!actualIsOpenEdit">
+            <app-span
+              name="reals"
+              editorType="TEXTBOX"
+              :value="row.reals"
+              dataType="TEXT"
+              precision="0"
+            ></app-span>
+          </template>
+        </template>
+      </el-table-column>
     </template>
 
     <template v-if="adaptiveState">
-        <el-table-column></el-table-column>
+      <el-table-column></el-table-column>
     </template>
   </el-table>
 </template>
@@ -168,10 +228,40 @@ export default class Main_RowEdit_CarryOutGrid extends Main_RowEdit_CarryOutGrid
   @Watch("items")
   public itemsWatch(newVal: any, oldVal: any) {
     if (newVal) {
-      // 初始化展示数组
-      this.setRenderItems(newVal);
-      // 处理子项
-      this.handleChildren(newVal);
+      this.renderItems.length = 0;
+      if (newVal.length === 0) {
+        this.renderItems.push({
+          case: "",
+          desc: "",
+          expect: "",
+          files: null,
+          filter: null,
+          ibzcasestep: "",
+          id: "",
+          page: null,
+          parent: "0",
+          query: null,
+          reals: null,
+          runid: null,
+          size: null,
+          sort: null,
+          srfdataaccaction: "",
+          srffrontuf: null,
+          srfkey: "",
+          srfmajortext: "",
+          srfparentdata: null,
+          srfuf: "",
+          steps: null,
+          type: "step",
+          version: null,
+        });
+        this.gridItemsModel.push(this.getGridRowModel());
+      } else {
+        // 初始化展示数组
+        this.setRenderItems(newVal);
+        // 处理子项
+        this.handleChildren(newVal);
+      }
     }
   }
 

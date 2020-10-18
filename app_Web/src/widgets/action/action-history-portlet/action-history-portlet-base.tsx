@@ -69,6 +69,7 @@ export class ActionHistoryPortletBase extends MainControlBase {
      */  
     public appUIService:ActionUIService = new ActionUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class ActionHistoryPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof ActionHistoryBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'ActionAddCommentHistoryListView', action: 'refresh', data: args });
+    }
 
 }

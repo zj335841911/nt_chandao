@@ -67,6 +67,7 @@ export class CloseEditFormBase extends EditFormControlBase {
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *
@@ -75,7 +76,6 @@ export class CloseEditFormBase extends EditFormControlBase {
      * @memberof CloseEditFormBase
      */
     protected drCount: number = 1;
-
     /**
      * 表单数据对象
      *

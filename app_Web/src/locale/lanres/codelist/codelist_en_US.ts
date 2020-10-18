@@ -65,6 +65,20 @@ export default {
     SQLBuild: {
         "empty": "",
     },
+    CodeList81: {
+        "2010": "2010年",
+        "2011": "2011年",
+        "2012": "2012年",
+        "2013": "2013年",
+        "2014": "2014年",
+        "2015": "2015年",
+        "2016": "2016年",
+        "2017": "2017年",
+        "2018": "2018年",
+        "2019": "2019年",
+        "2020": "2020年",
+        "empty": ""
+    },
     Project__status: {
         "wait": "未开始",
         "doing": "进行中",
@@ -430,6 +444,7 @@ export default {
         "bug": "Bug",
         "task": "项目任务",
         "story": "项目需求",
+        "cycle": "周期",
         "empty": ""
     },
     TodoQuickpacketMy: {
@@ -466,6 +481,12 @@ export default {
         "tested": "测试完毕",
         "verified": "已验收",
         "released": "已发布",
+        "closed": "已关闭",
+        "empty": ""
+    },
+    Project_staus: {
+        "doing": "进行中",
+        "suspended": "已挂起",
         "closed": "已关闭",
         "empty": ""
     },

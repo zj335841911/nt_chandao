@@ -67,6 +67,7 @@ export class Main_RowEditGridBase extends GridControlBase {
      */  
     public appUIService:IBZCaseStepUIService = new IBZCaseStepUIService(this.$store);
 
+
     /**
      * 本地缓存标识
      *

@@ -934,6 +934,48 @@ export default class BugServiceBase extends EntityService {
     }
 
     /**
+     * ReleaseUnLinkBugbyLeftBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async ReleaseUnLinkBugbyLeftBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/bugs/${context.bug}/releaseunlinkbugbyleftbug`,data,isloading);
+            
+            return res;
+        }
+        if(context.project && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/bugs/${context.bug}/releaseunlinkbugbyleftbug`,data,isloading);
+            
+            return res;
+        }
+        if(context.story && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugs/${context.bug}/releaseunlinkbugbyleftbug`,data,isloading);
+            
+            return res;
+        }
+        if(context.product && context.bug){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/bugs/${context.bug}/releaseunlinkbugbyleftbug`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/bugs/${context.bug}/releaseunlinkbugbyleftbug`,data,isloading);
+            return res;
+    }
+
+    /**
      * ReleaseUnlinkBug接口方法
      *
      * @param {*} [context={}]
@@ -1892,6 +1934,41 @@ export default class BugServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/bugs/fetchdefault`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchMyCurOpenedBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BugServiceBase
+     */
+    public async FetchMyCurOpenedBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/fetchmycuropenedbug`,tempData,isloading);
+            return res;
+        }
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/bugs/fetchmycuropenedbug`,tempData,isloading);
+            return res;
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/bugs/fetchmycuropenedbug`,tempData,isloading);
+            return res;
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/bugs/fetchmycuropenedbug`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/bugs/fetchmycuropenedbug`,tempData,isloading);
         return res;
     }
 

@@ -41,6 +41,22 @@ export default class Main_ReportSubService extends ControlService {
         this.model = new Main_ReportSubModel();
     }
 
+    /**
+     * 备份原生数据
+     *
+     * @type {*}
+     * @memberof Main_ReportSubService
+     */
+    private copynativeData:any;
+
+    /**
+     * 远端数据
+     *
+     * @type {*}
+     * @memberof Main_ReportSubService
+     */
+    private remoteCopyData:any = {};
+
 
     /**
      * 处理数据
@@ -231,6 +247,7 @@ export default class Main_ReportSubService extends ControlService {
                 result =_appEntityService.FetchDefault(Context,Data, isloading);
             }
             result.then((response) => {
+                this.setCopynativeData(response.data);
                 this.handleResponse(action, response);
                 resolve(response);
             }).catch(response => {
@@ -268,6 +285,7 @@ export default class Main_ReportSubService extends ControlService {
                     //仿真主键数据
                     response.data.id = Util.createUUID();
                 }
+                this.setRemoteCopyData(response);
                 this.handleResponse(action, response, true);
                 resolve(response);
             }).catch(response => {
@@ -341,5 +359,43 @@ export default class Main_ReportSubService extends ControlService {
         }
         return {context:tempContext,data:requestData};
     }
-    
+    /**
+     * 设置远端数据
+     * 
+     * @param result 远端请求结果 
+     * @memberof Main_ReportSubService
+     */
+    public setRemoteCopyData(result:any){
+        if (result && result.status === 200) {
+            this.remoteCopyData = Util.deepCopy(result.data);
+        }
+    }
+
+    /**
+     * 获取远端数据
+     * 
+     * @memberof Main_ReportSubService
+     */
+    public getRemoteCopyData(){
+        return this.remoteCopyData;
+    }
+
+    /**
+     * 设置备份原生数据
+     * 
+     * @param data 远端请求结果 
+     * @memberof Main_ReportSubService
+     */
+    public setCopynativeData(data:any){
+        this.copynativeData = Util.deepCopy(data);
+    }
+
+    /**
+     * 获取备份原生数据
+     * 
+     * @memberof Main_ReportSubService
+     */
+    public getCopynativeData(){
+        return this.copynativeData;
+    }    
 }

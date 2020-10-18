@@ -271,7 +271,7 @@ export default class TaskMobEditViewBase extends Vue {
         dataInfo: '',
         viewname:'task.mobeditview',
         iconcls: '',
-        icon: 'fa fa-tasks'
+        icon: 'tasks'
     }
 
     /**
@@ -359,7 +359,7 @@ export default class TaskMobEditViewBase extends Vue {
 
             deuiaction1_assigntaskmob: { name: 'deuiaction1_assigntaskmob', caption: '指派', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', uiaction: { tag: 'AssignTaskMob', target: 'SINGLEKEY' } },
 
-            deuiaction1_workhoursmob: { name: 'deuiaction1_workhoursmob', caption: '工时', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CUTINTBEHAVIOR', uiaction: { tag: 'WorkHoursMob', target: 'SINGLEKEY' } },
+            deuiaction1_workhoursmob: { name: 'deuiaction1_workhoursmob', caption: '工时', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CONSUM_BUT', uiaction: { tag: 'WorkHoursMob', target: 'SINGLEKEY' } },
 
             deuiaction1_donetaskmob: { name: 'deuiaction1_donetaskmob', caption: '完成', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', uiaction: { tag: 'DoneTaskMob', target: 'SINGLEKEY' } },
 
@@ -369,7 +369,7 @@ export default class TaskMobEditViewBase extends Vue {
 
             deuiaction1_closetaskmob: { name: 'deuiaction1_closetaskmob', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CLOSE_BUT', uiaction: { tag: 'CloseTaskMob', target: 'SINGLEKEY' } },
 
-            deuiaction1_deletemob: { name: 'deuiaction1_deletemob', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CUTINTBEHAVIOR', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
+            deuiaction1_deletemob: { name: 'deuiaction1_deletemob', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
 
     };
 
@@ -501,6 +501,7 @@ export default class TaskMobEditViewBase extends Vue {
             const bainfo:any = JSON.parse(this.$route.query.bsinfo as string);
             Object.assign(this.viewparams,bainfo);
         }
+
 
     }
 
@@ -999,6 +1000,10 @@ export default class TaskMobEditViewBase extends Vue {
      * @memberof TaskMobEditViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
                 let result = await this.cheackChange();
         if(result){
             if (this.viewDefaultUsage === "routerView") {

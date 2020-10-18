@@ -67,6 +67,7 @@ export class MainEditRowGridBase extends GridControlBase {
      */  
     public appUIService:IBZTaskTeamUIService = new IBZTaskTeamUIService(this.$store);
 
+
     /**
      * 本地缓存标识
      *

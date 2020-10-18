@@ -167,5 +167,7 @@ public class IBZProStoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzprostoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

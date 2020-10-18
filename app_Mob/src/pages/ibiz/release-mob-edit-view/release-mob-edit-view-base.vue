@@ -197,7 +197,7 @@ export default class ReleaseMobEditViewBase extends Vue {
         dataInfo: '',
         viewname:'release.mobeditview',
         iconcls: '',
-        icon: 'fa fa-flag-o'
+        icon: 'flag-o'
     }
 
     /**
@@ -364,6 +364,7 @@ export default class ReleaseMobEditViewBase extends Vue {
             const bainfo:any = JSON.parse(this.$route.query.bsinfo as string);
             Object.assign(this.viewparams,bainfo);
         }
+
 
     }
 
@@ -537,6 +538,10 @@ export default class ReleaseMobEditViewBase extends Vue {
      * @memberof ReleaseMobEditViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
                 let result = await this.cheackChange();
         if(result){
             if (this.viewDefaultUsage === "routerView") {

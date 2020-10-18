@@ -110,10 +110,6 @@ export class EditFormEditFormBase extends EditFormControlBase {
      * @memberof EditFormEditFormBase
      */
     public rules: any = {
-        name: [
-            { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'blur' },
-        ],
     }
 
     /**

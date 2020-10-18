@@ -66,6 +66,7 @@ export class MainTabExpViewtabviewpanel2TabviewpanelBase extends MainControlBase
      */  
     public appUIService:ReleaseUIService = new ReleaseUIService(this.$store);
 
+
     /**
      * 导航模式下项是否激活
      *

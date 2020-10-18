@@ -11,15 +11,32 @@ export default {
     changedstorycnt: "已变更",
     closedstorycnt: "已关闭",
     storycnt: "总计",
+    bugcnt: "Bug数",
   },
 	views: {
+		pochartview9: {
+			caption: "产品汇总表",
+      		title: "产品汇总表图表视图",
+		},
 		gridview: {
 			caption: "产品汇总表",
       		title: "产品汇总表表格视图",
 		},
+		usr2gridview: {
+			caption: "产品汇总表",
+      		title: "产品计划数和需求数实体表格视图",
+		},
 		editview: {
 			caption: "产品汇总表",
       		title: "产品汇总表编辑视图",
+		},
+		qachartview9: {
+			caption: "产品汇总表",
+      		title: "产品汇总表图表视图",
+		},
+		usr3gridview: {
+			caption: "产品汇总表",
+      		title: "产品汇总表表格视图",
 		},
 	},
 	main_form: {
@@ -36,6 +53,23 @@ export default {
 			srfdeid: "", 
 			srfsourcekey: "", 
 			id: "主键标识", 
+		},
+		uiactions: {
+		},
+	},
+	productplancntandstorycnt_po_grid: {
+		columns: {
+			name: "产品名称",
+			plan: "计划数",
+			storycnt: "需求数",
+		},
+		uiactions: {
+		},
+	},
+	productbugcnt_qa_grid: {
+		columns: {
+			name: "产品名称",
+			bugcnt: "创建bug数",
 		},
 		uiactions: {
 		},

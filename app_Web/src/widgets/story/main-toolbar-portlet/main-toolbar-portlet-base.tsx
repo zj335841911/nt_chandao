@@ -339,6 +339,7 @@ export class MainToolbarPortletBase extends MainControlBase {
     }
 
 
+
     /**
      * 长度
      *
@@ -628,5 +629,13 @@ export class MainToolbarPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof MainToolbarBase
+     */
+    public refresh(args?: any) {
+    }
 
 }

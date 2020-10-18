@@ -69,6 +69,7 @@ export class ProjectStatusBarPortletBase extends MainControlBase {
      */  
     public appUIService:ProjectUIService = new ProjectUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class ProjectStatusBarPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof ProjectStatusBarBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'db_projectstatusportlet_chart', action: 'refresh', data: args });
+    }
 
 }

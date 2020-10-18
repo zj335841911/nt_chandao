@@ -69,6 +69,7 @@ export class CaseInfoPortletBase extends MainControlBase {
      */  
     public appUIService:IbzCaseUIService = new IbzCaseUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class CaseInfoPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof CaseInfoBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'IbzCaseInfoEditView9', action: 'refresh', data: args });
+    }
 
 }

@@ -178,6 +178,7 @@ public class ProductModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"需求模块" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/productmodules/fetchdefault")
@@ -199,6 +200,7 @@ public class ProductModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchRoot-all')")
 	@ApiOperation(value = "获取根模块", tags = {"需求模块" } ,notes = "获取根模块")
     @RequestMapping(method= RequestMethod.GET , value="/productmodules/fetchroot")
@@ -220,6 +222,7 @@ public class ProductModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchRoot_NoBranch-all')")
 	@ApiOperation(value = "获取根模块_无分支", tags = {"需求模块" } ,notes = "获取根模块_无分支")
     @RequestMapping(method= RequestMethod.GET , value="/productmodules/fetchroot_nobranch")
@@ -241,6 +244,7 @@ public class ProductModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchStoryModule-all')")
 	@ApiOperation(value = "获取StoryModule", tags = {"需求模块" } ,notes = "获取StoryModule")
     @RequestMapping(method= RequestMethod.GET , value="/productmodules/fetchstorymodule")
@@ -262,6 +266,8 @@ public class ProductModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Create-all')")
     @ApiOperation(value = "根据产品建立需求模块", tags = {"需求模块" },  notes = "根据产品建立需求模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productmodules")

@@ -156,6 +156,7 @@ public class ProjectStatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchNoOpenProduct-all')")
 	@ApiOperation(value = "获取未关闭产品", tags = {"项目统计" } ,notes = "获取未关闭产品")
     @RequestMapping(method= RequestMethod.GET , value="/projectstats/fetchnoopenproduct")
@@ -177,6 +178,7 @@ public class ProjectStatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectStats-searchTaskTime-all')")
 	@ApiOperation(value = "获取任务工时消耗剩余查询", tags = {"项目统计" } ,notes = "获取任务工时消耗剩余查询")
     @RequestMapping(method= RequestMethod.GET , value="/projectstats/fetchtasktime")
@@ -198,5 +200,7 @@ public class ProjectStatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

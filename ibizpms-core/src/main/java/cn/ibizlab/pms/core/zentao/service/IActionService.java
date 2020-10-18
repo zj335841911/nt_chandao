@@ -42,6 +42,7 @@ public interface IActionService extends IService<Action>{
     Page<Action> searchMobType(ActionSearchContext context) ;
     Page<Action> searchProductTrends(ActionSearchContext context) ;
     Page<Action> searchProjectTrends(ActionSearchContext context) ;
+    Page<Action> searchQueryUserYEAR(ActionSearchContext context) ;
     Page<Action> searchType(ActionSearchContext context) ;
     List<Action> selectByProject(Long id) ;
     void removeByProject(Long id) ;

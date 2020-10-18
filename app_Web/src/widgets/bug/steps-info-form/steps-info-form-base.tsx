@@ -67,6 +67,7 @@ export class StepsInfoEditFormBase extends EditFormControlBase {
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *
@@ -76,6 +77,14 @@ export class StepsInfoEditFormBase extends EditFormControlBase {
      */
     protected drCount: number = 1;
 
+    /**
+     * 主键表单项名称
+     *
+     * @protected
+     * @type {number}
+     * @memberof StepsInfoEditFormBase
+     */
+    protected formKeyItemName: string = 'id';
     /**
      * 表单数据对象
      *

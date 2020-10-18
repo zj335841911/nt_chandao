@@ -57,6 +57,7 @@ export default {
     isfavorites: "是否收藏",
     status1: "任务状态",
     tasktype: "任务类型",
+    files: "附件",
   },
 	views: {
 		assigntaskview: {
@@ -78,6 +79,10 @@ export default {
 		maininfoview9: {
 			caption: "任务",
       		title: "任务编辑视图",
+		},
+		restarttaskview: {
+			caption: "继续任务",
+      		title: "继续任务",
 		},
 		todoeditview: {
 			caption: "待办转任务",
@@ -147,6 +152,10 @@ export default {
 			caption: "任务",
       		title: "task表格视图",
 		},
+		chartview9: {
+			caption: "任务",
+      		title: "任务图表视图",
+		},
 		maingridview: {
 			caption: "任务",
       		title: "task表格视图",
@@ -208,6 +217,7 @@ export default {
 			pri: "优先级", 
 			estimate: "预计", 
 			desc: "任务描述", 
+			files: "附件", 
 			estsarted: "预计开始", 
 			deadline: "截止日期", 
 			formitemex1: "日程规划", 
@@ -656,6 +666,34 @@ export default {
 		},
 	},
 	myfavoritemain_grid: {
+		columns: {
+			id: "ID",
+			pri: "P",
+			productname: "产品",
+			projectname: "所属项目",
+			name: "任务名称",
+			status1: "任务状态",
+			assignedto: "指派给",
+			finishedby: "完成者",
+			estimate: "预计",
+			consumed: "消耗",
+			left: "剩余",
+			deadline: "截止日期",
+			uagridcolumn1: "操作",
+		},
+		uiactions: {
+        task_assigntask: "指派",
+        task_confirmstorychange: "确认",
+        task_starttask: "开始",
+        task_closetask: "关闭",
+        task_donetask: "完成",
+        task_mainedit: "编辑",
+        task_newsubtask: "子任务",
+        task_taskfavorites: "收藏",
+        task_tasknfavorites: "取消收藏",
+		},
+	},
+	mygroupmain_grid: {
 		columns: {
 			id: "ID",
 			pri: "P",

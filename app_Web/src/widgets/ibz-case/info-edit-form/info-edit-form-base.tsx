@@ -67,6 +67,7 @@ export class InfoEditEditFormBase extends EditFormControlBase {
      */  
     public appUIService:IbzCaseUIService = new IbzCaseUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *
@@ -75,7 +76,6 @@ export class InfoEditEditFormBase extends EditFormControlBase {
      * @memberof InfoEditEditFormBase
      */
     protected drCount: number = 2;
-
     /**
      * 表单数据对象
      *

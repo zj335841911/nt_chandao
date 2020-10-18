@@ -66,6 +66,8 @@ export class GroupTrendsListBase extends ListControlBase {
      */  
     public appUIService:ActionUIService = new ActionUIService(this.$store);
 
+    
+
     /**
      * 分页条数
      *
@@ -89,8 +91,6 @@ export class GroupTrendsListBase extends ListControlBase {
      * @memberof GroupTrendsListBase
      */
     public minorSortPSDEF: string = 'date';
-
-
 
 
 }

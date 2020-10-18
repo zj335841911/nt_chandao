@@ -68,6 +68,7 @@ export class MPickupViewpickupviewpanelPickupviewpanelBase extends MainControlBa
     public appUIService:BugUIService = new BugUIService(this.$store);
 
 
+
     /**
      * 选中数据字符串
      *

@@ -154,6 +154,7 @@ export class ProductWizardWizardPanelBase extends MainControlBase {
         this.wizardpanel_formload($event, 'wizardpanel_form_CreateStory', $event2);
     }
 
+
     /**
      * 部件行为--init
      *

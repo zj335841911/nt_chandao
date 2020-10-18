@@ -67,6 +67,7 @@ export class StorySpecEditFormBase extends EditFormControlBase {
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *
@@ -76,6 +77,14 @@ export class StorySpecEditFormBase extends EditFormControlBase {
      */
     protected drCount: number = 2;
 
+    /**
+     * 主键表单项名称
+     *
+     * @protected
+     * @type {number}
+     * @memberof StorySpecEditFormBase
+     */
+    protected formKeyItemName: string = 'id';
     /**
      * 表单数据对象
      *

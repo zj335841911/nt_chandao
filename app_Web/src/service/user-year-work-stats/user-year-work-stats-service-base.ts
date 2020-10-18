@@ -31,7 +31,7 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
         this.APPLYDEKEY ='useryearworkstats';
         this.APPDEKEY = 'id';
         this.APPDENAME = 'useryearworkstats';
-        this.APPDETEXT = 'realname';
+        this.APPDETEXT = 'title';
         this.APPNAME = 'web';
         this.SYSTEMNAME = 'pms';
     }
@@ -154,6 +154,65 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
     }
 
     /**
+     * GetDevInfomation接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async GetDevInfomation(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/useryearworkstats/${context.useryearworkstats}/getdevinfomation`,isloading);
+            
+            return res;
+    }
+
+    /**
+     * GetPoInfomation接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async GetPoInfomation(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/useryearworkstats/${context.useryearworkstats}/getpoinfomation`,isloading);
+            
+            return res;
+    }
+
+    /**
+     * GetQaInfomation接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async GetQaInfomation(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().get(`/useryearworkstats/${context.useryearworkstats}/getqainfomation`,isloading);
+            
+            return res;
+    }
+
+    /**
+     * GetUserYearAction接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async GetUserYearAction(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().put(`/useryearworkstats/${context.useryearworkstats}/getuseryearaction`,data,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]
@@ -171,6 +230,20 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
     }
 
     /**
+     * UpdateTitleByYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async UpdateTitleByYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().put(`/useryearworkstats/${context.useryearworkstats}/updatetitlebyyear`,data,isloading);
+            return res;
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -182,6 +255,51 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/useryearworkstats/fetchdefault`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchMonthFinishTaskAndBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async FetchMonthFinishTaskAndBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/useryearworkstats/fetchmonthfinishtaskandbug`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchMonthOpenedBugAndCase接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async FetchMonthOpenedBugAndCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/useryearworkstats/fetchmonthopenedbugandcase`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchMonthOpenedStory接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async FetchMonthOpenedStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/useryearworkstats/fetchmonthopenedstory`,tempData,isloading);
         return res;
     }
 }

@@ -67,6 +67,7 @@ export class DashBoardInfoEditFormBase extends EditFormControlBase {
      */  
     public appUIService:ProjectUIService = new ProjectUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *
@@ -76,6 +77,14 @@ export class DashBoardInfoEditFormBase extends EditFormControlBase {
      */
     protected drCount: number = 2;
 
+    /**
+     * 主键表单项名称
+     *
+     * @protected
+     * @type {number}
+     * @memberof DashBoardInfoEditFormBase
+     */
+    protected formKeyItemName: string = 'id';
     /**
      * 表单数据对象
      *

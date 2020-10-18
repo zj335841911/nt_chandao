@@ -45,6 +45,15 @@ export class TaskTeamGridView9_LookBase extends GridView9Base {
     protected appDeMajor: string = 'account';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskTeamGridView9_LookBase
+     */ 
+    protected dataControl:string = "grid";
+
+    /**
      * 实体服务对象
      *
      * @type {TaskTeamService}

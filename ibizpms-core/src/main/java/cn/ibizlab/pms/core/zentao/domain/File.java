@@ -54,7 +54,7 @@ public class File extends EntityMP implements Serializable {
     @TableField(value = "`objectid`")
     @JSONField(name = "objectid")
     @JsonProperty("objectid")
-    private Integer objectid;
+    private Long objectid;
     /**
      * 已删除
      */
@@ -147,7 +147,7 @@ public class File extends EntityMP implements Serializable {
     /**
      * 设置 [对象ID]
      */
-    public void setObjectid(Integer objectid){
+    public void setObjectid(Long objectid){
         this.objectid = objectid ;
         this.modify("objectid",objectid);
     }

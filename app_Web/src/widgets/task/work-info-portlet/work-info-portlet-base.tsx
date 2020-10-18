@@ -69,6 +69,7 @@ export class WorkInfoPortletBase extends MainControlBase {
      */  
     public appUIService:TaskUIService = new TaskUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class WorkInfoPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof WorkInfoBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'TaskWorkInfoEditView9', action: 'refresh', data: args });
+    }
 
 }

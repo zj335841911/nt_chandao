@@ -45,6 +45,15 @@ export class TaskEstimateGridView9Base extends GridView9Base {
     protected appDeMajor: string = 'id';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskEstimateGridView9Base
+     */ 
+    protected dataControl:string = "grid";
+
+    /**
      * 实体服务对象
      *
      * @type {IBZTaskEstimateService}

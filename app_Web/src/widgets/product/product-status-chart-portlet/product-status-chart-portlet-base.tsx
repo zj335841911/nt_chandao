@@ -69,6 +69,7 @@ export class ProductStatusChartPortletBase extends MainControlBase {
      */  
     public appUIService:ProductUIService = new ProductUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class ProductStatusChartPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof ProductStatusChartBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'db_productstatusportlet_chart', action: 'refresh', data: args });
+    }
 
 }

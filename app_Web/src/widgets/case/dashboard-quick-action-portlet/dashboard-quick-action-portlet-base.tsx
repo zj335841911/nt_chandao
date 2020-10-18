@@ -275,6 +275,7 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         }
     }
 
+
     /**
      * 长度
      *
@@ -522,5 +523,13 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof DashboardQuickActionBase
+     */
+    public refresh(args?: any) {
+    }
 
 }

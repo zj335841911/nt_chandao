@@ -67,6 +67,15 @@ export class MainEditFormBase extends EditFormControlBase {
      */  
     public appUIService:IBZProStoryUIService = new IBZProStoryUIService(this.$store);
 
+
+    /**
+     * 主键表单项名称
+     *
+     * @protected
+     * @type {number}
+     * @memberof MainEditFormBase
+     */
+    protected formKeyItemName: string = 'id';
     /**
      * 表单数据对象
      *

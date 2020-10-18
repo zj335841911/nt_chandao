@@ -50,7 +50,7 @@ public class UserYearWorkStatsSearchContext extends QueryWrapperContext<UserYear
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
-                     wrapper.like("realname", query)   
+                     wrapper.like("title", query)   
             );
 		 }
 	}

@@ -65,6 +65,7 @@ export class MainTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      * @memberof MainTabExpViewtabexppanelBase
      */  
     public appUIService:BuildUIService = new BuildUIService(this.$store);
+
     /**
      * 是否初始化
      *

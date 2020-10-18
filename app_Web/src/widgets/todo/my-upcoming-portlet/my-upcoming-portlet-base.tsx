@@ -69,6 +69,7 @@ export class MyUpcomingPortletBase extends MainControlBase {
      */  
     public appUIService:TodoUIService = new TodoUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class MyUpcomingPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof MyUpcomingBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'TodoGridView9', action: 'refresh', data: args });
+    }
 
 }

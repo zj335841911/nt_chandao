@@ -197,7 +197,7 @@ export default class BuildMobEditViewBase extends Vue {
         dataInfo: '',
         viewname:'build.mobeditview',
         iconcls: '',
-        icon: 'fa fa-code-fork'
+        icon: 'code-fork'
     }
 
     /**
@@ -364,6 +364,7 @@ export default class BuildMobEditViewBase extends Vue {
             const bainfo:any = JSON.parse(this.$route.query.bsinfo as string);
             Object.assign(this.viewparams,bainfo);
         }
+
 
     }
 
@@ -537,6 +538,10 @@ export default class BuildMobEditViewBase extends Vue {
      * @memberof BuildMobEditViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
                 let result = await this.cheackChange();
         if(result){
             if (this.viewDefaultUsage === "routerView") {

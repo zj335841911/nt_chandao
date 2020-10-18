@@ -145,7 +145,7 @@ export default class AppIndexViewBase extends Vue {
     protected model: any = {
         srfTitle: 'iBiz软件生产管理',
         srfCaption: 'app.views.appindexview.caption',
-        srfSubCaption: '工作台',
+        srfSubCaption: '工作太',
         dataInfo: '',
         viewname:'app.views.appindexview',
         iconcls: '',
@@ -286,6 +286,8 @@ export default class AppIndexViewBase extends Vue {
         this.setViewTitleStatus();
         this.updateLogStatus = Environment.useUpdateLog && !localStorage.getItem('updateLogStatus')?true:false;
 
+        localStorage.setItem('lanArray',JSON.stringify(["ZH-CN","EN-US"]));
+
     }
 
 
@@ -398,6 +400,10 @@ export default class AppIndexViewBase extends Vue {
      * @memberof AppIndexViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
             this.quitFun();
         
     }

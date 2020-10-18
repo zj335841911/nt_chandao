@@ -69,6 +69,7 @@ export class StoryspecPortletBase extends MainControlBase {
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class StoryspecPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof StoryspecBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'StoryMainView9_StorySpec', action: 'refresh', data: args });
+    }
 
 }

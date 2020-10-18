@@ -183,6 +183,9 @@ export default class ToolbarModel {
       {
         name: 'tasktype',
       },
+      {
+        name: 'files',
+      },
     ]
   }
 

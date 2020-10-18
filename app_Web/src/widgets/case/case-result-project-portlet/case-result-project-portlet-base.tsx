@@ -69,6 +69,7 @@ export class CaseResultProjectPortletBase extends MainControlBase {
      */  
     public appUIService:CaseUIService = new CaseUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class CaseResultProjectPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof CaseResultProjectBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'dashboard_sysportlet1_chart', action: 'refresh', data: args });
+    }
 
 }

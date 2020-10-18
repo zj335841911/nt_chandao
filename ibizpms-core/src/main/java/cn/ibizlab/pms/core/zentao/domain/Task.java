@@ -457,6 +457,13 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(name = "tasktype")
     @JsonProperty("tasktype")
     private String tasktype;
+    /**
+     * 附件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
 
     /**
      * 

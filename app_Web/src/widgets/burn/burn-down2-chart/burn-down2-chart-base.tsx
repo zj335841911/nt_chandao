@@ -71,6 +71,7 @@ export class BurnDown2ChartBase extends MainControlBase {
      */  
     public appUIService:BurnUIService = new BurnUIService(this.$store);
 
+
     /**
      * 获取多项数据
      *

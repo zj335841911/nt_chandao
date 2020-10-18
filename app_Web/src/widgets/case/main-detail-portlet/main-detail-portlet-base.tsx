@@ -69,6 +69,7 @@ export class MainDetailPortletBase extends MainControlBase {
      */  
     public appUIService:CaseUIService = new CaseUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class MainDetailPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof MainDetailBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'CaseMainDetailEditView9', action: 'refresh', data: args });
+    }
 
 }

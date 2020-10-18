@@ -156,5 +156,7 @@ public class SuiteCaseResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(suitecaseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

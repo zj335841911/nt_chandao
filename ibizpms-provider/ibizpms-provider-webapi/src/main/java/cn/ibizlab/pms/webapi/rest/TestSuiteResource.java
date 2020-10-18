@@ -65,6 +65,7 @@ public class TestSuiteResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @VersionCheck(entity = "testsuite" , versionfield = "lastediteddate")
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Update-all')")
     @ApiOperation(value = "更新测试套件", tags = {"测试套件" },  notes = "更新测试套件")
 	@RequestMapping(method = RequestMethod.PUT, value = "/testsuites/{testsuite_id}")
@@ -156,6 +157,7 @@ public class TestSuiteResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testsuiteMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-searchPublicTestSuite-all')")
 	@ApiOperation(value = "获取公开套件", tags = {"测试套件" } ,notes = "获取公开套件")
     @RequestMapping(method= RequestMethod.GET , value="/testsuites/fetchpublictestsuite")
@@ -177,5 +179,7 @@ public class TestSuiteResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testsuiteMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
 }
 

@@ -52,6 +52,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * howRun
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`howrun`")
     @JSONField(name = "howrun")
     @JsonProperty("howrun")
@@ -59,6 +60,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * scriptedBy
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`scriptedby`")
     @JSONField(name = "scriptedby")
     @JsonProperty("scriptedby")
@@ -66,7 +68,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * path
      */
-    @DEField(defaultValue = "0")
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`path`")
     @JSONField(name = "path")
     @JsonProperty("path")
@@ -129,6 +131,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * scriptLocation
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`scriptlocation`")
     @JSONField(name = "scriptlocation")
     @JsonProperty("scriptlocation")
@@ -136,6 +139,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * scriptStatus
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`scriptstatus`")
     @JSONField(name = "scriptstatus")
     @JsonProperty("scriptstatus")
@@ -143,6 +147,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 关键词
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`keywords`")
     @JSONField(name = "keywords")
     @JsonProperty("keywords")
@@ -158,6 +163,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 前置条件
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`precondition`")
     @JSONField(name = "precondition")
     @JsonProperty("precondition")
@@ -165,6 +171,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 优先级
      */
+    @DEField(defaultValue = "3")
     @TableField(value = "`pri`")
     @JSONField(name = "pri")
     @JsonProperty("pri")
@@ -172,6 +179,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 用例类型
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
@@ -179,6 +187,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 状态
      */
+    @DEField(defaultValue = "wait")
     @TableField(value = "`status`")
     @JSONField(name = "status")
     @JsonProperty("status")
@@ -186,6 +195,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 适用阶段
      */
+    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`stage`")
     @JSONField(name = "stage")
     @JsonProperty("stage")
@@ -193,6 +203,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 由谁创建
      */
+    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
     @TableField(value = "`openedby`")
     @JSONField(name = "openedby")
     @JsonProperty("openedby")
@@ -207,6 +218,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 编号
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`lib`")
     @JSONField(name = "lib")
     @JsonProperty("lib")
@@ -214,6 +226,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * id
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`module`")
     @JSONField(name = "module")
     @JsonProperty("module")
@@ -235,6 +248,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 用例版本
      */
+    @DEField(defaultValue = "0")
     @TableField(value = "`version`")
     @JSONField(name = "version")
     @JsonProperty("version")
@@ -412,14 +426,6 @@ public class IbzCase extends EntityMP implements Serializable {
     public void setStage(String stage){
         this.stage = stage ;
         this.modify("stage",stage);
-    }
-
-    /**
-     * 设置 [由谁创建]
-     */
-    public void setOpenedby(String openedby){
-        this.openedby = openedby ;
-        this.modify("openedby",openedby);
     }
 
     /**

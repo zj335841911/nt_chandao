@@ -199,6 +199,7 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
     }
 
 
+
     /**
      * 长度
      *
@@ -418,5 +419,13 @@ export class TestSuiteQuickActionPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof TestSuiteQuickActionBase
+     */
+    public refresh(args?: any) {
+    }
 
 }

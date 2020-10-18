@@ -227,6 +227,7 @@ export class ActionBarPortletBase extends MainControlBase {
     }
 
 
+
     /**
      * 长度
      *
@@ -460,5 +461,13 @@ export class ActionBarPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof ActionBarBase
+     */
+    public refresh(args?: any) {
+    }
 
 }

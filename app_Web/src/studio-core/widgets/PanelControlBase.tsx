@@ -295,12 +295,12 @@ export class PanelControlBase extends ControlBase {
     /**
      * 刷新
      *
-     * @param {*} [opt={}]
+     * @param {*} [args]
      * @memberof PanelControlBase
      */
-    public refresh(opt: any = {}) {
+    public refresh(args?:any) {
         if (this.parentRef.refresh && this.parentRef.refresh instanceof Function) {
-            this.parentRef.refresh(opt);
+            this.parentRef.refresh(args);
         }
     }
 
@@ -349,22 +349,23 @@ export class PanelControlBase extends ControlBase {
     /**
      * 计算面板按钮权限状态
      *
-     * @param {*} [data] 传入数据
-     * @memberof ${srfclassname('${ctrl.codeName}')}
+     * @param {*} data
+     * @memberof PanelControlBase
      */
-    public computeButtonState(data:any){
+    public computeButtonState(data: any) {
         // 若为项布局面板，存在parentRef
-        if(this.parentRef){
-            let targetData:any = this.parentRef.transformData(data);
-            if(this.detailsModel && Object.keys(this.detailsModel).length >0){
-                Object.keys(this.detailsModel).forEach((name:any) =>{
-                    if(this.detailsModel[name] && this.detailsModel[name].uiaction && this.detailsModel[name].uiaction.dataaccaction && Object.is(this.detailsModel[name].itemType,"BUTTON")){
-                        this.detailsModel[name].isPower = true;
-                        let tempUIAction:any = JSON.parse(JSON.stringify(this.detailsModel[name].uiaction));
-                        let result: any[] = ViewTool.calcActionItemAuthState(targetData,[tempUIAction],this.appUIService?this.appUIService:null);
-                        this.detailsModel[name].visible = tempUIAction.visabled;
-                        this.detailsModel[name].disabled = tempUIAction.disabled;
-                        this.detailsModel[name].isPower = result[0] === 1 ? true : false;
+        if (this.parentRef) {
+            const targetData: any = this.parentRef.transformData(data);
+            if (this.detailsModel && Object.keys(this.detailsModel).length > 0) {
+                Object.keys(this.detailsModel).forEach((name: any) => {
+                    const model = this.detailsModel[name];
+                    if (model && model.uiaction && model.uiaction.dataaccaction && Object.is(model.itemType, "BUTTON")) {
+                        model.isPower = true;
+                        const tempUIAction: any = JSON.parse(JSON.stringify(model.uiaction));
+                        const result: any[] = ViewTool.calcActionItemAuthState(targetData, [tempUIAction], this.appUIService ? this.appUIService : null);
+                        model.visible = tempUIAction.visabled;
+                        model.disabled = tempUIAction.disabled;
+                        model.isPower = result[0] === 1 ? true : false;
                     }
                 })
             }

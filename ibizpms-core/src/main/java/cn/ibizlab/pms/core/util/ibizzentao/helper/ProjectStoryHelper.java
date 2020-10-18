@@ -6,9 +6,18 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProjectStoryHelper extends ZTBaseHelper<ProjectStoryMapper, ProjectStory> {
+    @Override
+    public boolean hasId() {
+        return false;
+    }
 
     @Override
     public boolean hasDeleted() {
         return false;
+    }
+
+    @Override
+    public boolean delete(Long key) {
+        return super.delete(key);
     }
 }

@@ -92,6 +92,7 @@ export default class ProjectUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'storymeditview9',srfappde:'projects',component:'project-story-medit-view9'});
         this.allViewMap.set(':',{viewname:'tasktreeexpview',srfappde:'projects',component:'project-task-tree-exp-view'});
         this.allViewMap.set(':',{viewname:'mgeditview',srfappde:'projects',component:'project-mgedit-view'});
+        this.allViewMap.set(':',{viewname:'usr2gridview',srfappde:'projects',component:'project-usr2-grid-view'});
         this.allViewMap.set(':',{viewname:'testtabexpview',srfappde:'projects',component:'project-test-tab-exp-view'});
         this.allViewMap.set(':',{viewname:'editview_putoff',srfappde:'projects',component:'project-edit-view-putoff'});
         this.allViewMap.set(':',{viewname:'mainmygridview',srfappde:'projects',component:'project-main-my-grid-view'});
@@ -99,6 +100,7 @@ export default class ProjectUIServiceBase extends UIService {
         this.allViewMap.set(':',{viewname:'burndownchartview',srfappde:'projects',component:'project-burn-down-chart-view'});
         this.allViewMap.set(':',{viewname:'listexpview',srfappde:'projects',component:'project-list-exp-view'});
         this.allViewMap.set(':',{viewname:'pickupgridview',srfappde:'projects',component:'project-pickup-grid-view'});
+        this.allViewMap.set(':',{viewname:'chartview9',srfappde:'projects',component:'project-chart-view9'});
         this.allViewMap.set(':',{viewname:'editview_activate',srfappde:'projects',component:'project-edit-view-activate'});
         this.allViewMap.set(':',{viewname:'curproductgridview',srfappde:'projects',component:'project-cur-product-grid-view'});
         this.allViewMap.set('PICKUPVIEW:',{viewname:'pickupview',srfappde:'projects',component:'project-pickup-view'});
@@ -108,6 +110,7 @@ export default class ProjectUIServiceBase extends UIService {
         this.allViewMap.set('MDATAVIEW:',{viewname:'gridview',srfappde:'projects',component:'project-grid-view'});
         this.allViewMap.set(':',{viewname:'maindashboardview',srfappde:'projects',component:'project-main-dashboard-view'});
         this.allViewMap.set(':',{viewname:'editview_close',srfappde:'projects',component:'project-edit-view-close'});
+        this.allViewMap.set(':',{viewname:'gridview9',srfappde:'projects',component:'project-grid-view9'});
         this.allViewMap.set(':',{viewname:'gridview9_unclosed',srfappde:'projects',component:'project-grid-view9-un-closed'});
         this.allViewMap.set(':',{viewname:'editview_suspend',srfappde:'projects',component:'project-edit-view-suspend'});
         this.allViewMap.set(':',{viewname:'dashboardinfoview',srfappde:'projects',component:'project-dashboard-info-view'});
@@ -890,14 +893,15 @@ export default class ProjectUIServiceBase extends UIService {
 			}
 			return 'EDITVIEW:'+objFormValue;
         }
+        const stateTag = this.getDEMainStateTag(curData);
 		if(!Environment.isAppMode){
-            if(this.getDEMainStateTag(curData)){
-                return `MOBEDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
+            if (stateTag) {
+                return `MOBEDITVIEW:MSTAG:${stateTag}`;
             }
 			return 'MOBEDITVIEW:';
         }
-        if(this.getDEMainStateTag(curData)){
-            return `EDITVIEW:MSTAG:${ this.getDEMainStateTag(curData)}`;
+        if(stateTag){
+            return `EDITVIEW:MSTAG:${stateTag}`;
         }
 		return 'EDITVIEW:';
     }
@@ -944,13 +948,14 @@ export default class ProjectUIServiceBase extends UIService {
     * @param data 当前数据
     * @memberof  ProjectUIServiceBase
     */  
-   public getDEMainStateOPPrivs(data:any){
-        if(this.getDEMainStateTag(data)){
-            return this.allDeMainStateOPPrivsMap.get((this.getDEMainStateTag(data) as string));
-        }else{
+    public getDEMainStateOPPrivs(data:any){
+        const stateTag = this.getDEMainStateTag(data);
+        if (stateTag) {
+            return this.allDeMainStateOPPrivsMap.get(stateTag);
+        } else {
             return null;
         }
-   }
+    }
 
     /**
     * 获取数据对象所有的操作标识

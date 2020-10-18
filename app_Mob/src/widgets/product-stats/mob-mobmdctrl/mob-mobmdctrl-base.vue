@@ -108,7 +108,7 @@ export default class MobBase extends Vue implements ControlInterface {
     public transformData(args: any) {
         let _this: any = this;
         if(_this.service && _this.service.handleRequestData instanceof Function && _this.service.handleRequestData('transform',_this.context,args)){
-            return _this.service.handleRequestData('transform',_this.context,args)['data'];
+            return _this.service.handleRequestData('transform',_this.context,args);
         }
     }
 
@@ -994,11 +994,16 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof Mdctrl
      */
     public closeSlidings () {
-        let slidings:any = this.$refs.sliding; 
-        if (slidings) {
-            slidings.forEach((sliding:any) => {
-                sliding.close()
-            })     
+        let ionlist:any = this.$refs.ionlist;
+        if (ionlist.children) {
+          ionlist.children.forEach((sliding:any) => {
+            if(typeof sliding.close === 'function'){
+              sliding.close();
+            }
+            if(typeof sliding.closeOpened === 'function'){
+            sliding.closeOpened();
+            }
+          })
         }
     }
 

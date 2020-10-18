@@ -2,11 +2,11 @@
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobmdview': true, 'bug-mob-mdview': true }">
     
     <ion-header>
-        <app-search-history @quickValueChange="quickValueChange" @openSearchform="()=>{this.searchformState=true;}" :model="model" :showfilter="true"></app-search-history>
+        <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="true"></app-search-history>
 
     
                     <div class="mdview-tools">
-                <ion-toolbar class="bug-mob-mdview-toolbar default-sort">
+                <div class="bug-mob-mdview-toolbar default-sort">
                     <div class="view-tool">
                         <div class="view-tool-sorts">
                             <div class="view-tool-sorts-item">
@@ -18,7 +18,7 @@
                             </div>
                         </div>
                     </div>
-                </ion-toolbar>
+                </div>
                 <div style="display:flex;overflow: auto;">
                     <app-van-select  name="n_resolution_eq" title="解决方案" :items="[{value:'bydesign',label:'设计如此'},{value:'duplicate',label:'重复Bug'},{value:'external',label:'外部原因'},{value:'fixed',label:'已解决'},{value:'notrepro',label:'无法重现'},{value:'postponed',label:'延期处理'},{value:'willnotfix',label:'不予解决'},{value:'tostory',label:'转为需求'},]" @onConfirm="onCategory"></app-van-select>
                     <app-van-select  name="n_severity_eq" title="严重程度" :items="[{value:'1',label:'1'},{value:'2',label:'2'},{value:'3',label:'3'},{value:'4',label:'4'},]" @onConfirm="onCategory"></app-van-select>
@@ -264,7 +264,7 @@ export default class BugMobMDViewBase extends Vue {
         dataInfo: '',
         viewname:'bug.mobmdview',
         iconcls: '',
-        icon: 'fa fa-bug'
+        icon: 'bug'
     }
 
     /**
@@ -453,6 +453,7 @@ export default class BugMobMDViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
+
 
     }
 
@@ -767,6 +768,10 @@ export default class BugMobMDViewBase extends Vue {
      * @memberof BugMobMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;
@@ -819,13 +824,26 @@ export default class BugMobMDViewBase extends Vue {
     }
 
 
+
     /**
      * 搜索表单状态
      *
-     * @type {boolean}
+     * @type {get}
      * @memberof BugMobMDViewBase
      */
-    public searchformState: boolean = false;
+    get searchformState(){
+        return this.$store.state.searchformStatus;
+    }
+
+    /**
+     * 搜索表单状态
+     *
+     * @type {set}
+     * @memberof BugMobMDViewBase
+     */
+    set searchformState(val:any){
+        this.$store.commit('setSearchformStatus',val); 
+    }
 
     /**
      * 是否展开搜索表单
@@ -841,7 +859,7 @@ export default class BugMobMDViewBase extends Vue {
      * @memberof BugMobMDViewBase
      */
     public onSearch(): void {
-        this.searchformState = false;
+        this.$store.commit('setSearchformStatus',false); 
         this.isExpandSearchForm = true;
         const form: any = this.$refs.searchform;
         if (form) {
@@ -856,7 +874,7 @@ export default class BugMobMDViewBase extends Vue {
      * @memberof BugMobMDViewBase
      */
     public onReset(): void {
-        this.searchformState = false;
+        this.$store.commit('setSearchformStatus',false); 
         this.isExpandSearchForm = false;
         const form: any = this.$refs.searchform;
         if (form) {

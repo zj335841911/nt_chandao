@@ -69,6 +69,7 @@ export class MeCreateCasePortletBase extends MainControlBase {
      */  
     public appUIService:CaseUIService = new CaseUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class MeCreateCasePortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof MeCreateCaseBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'CaseGridView9_MeCretae', action: 'refresh', data: args });
+    }
 
 }

@@ -67,6 +67,7 @@ export class CaseExpTreeBase extends MainControlBase {
      */  
     public appUIService:ProductModuleUIService = new ProductModuleUIService(this.$store);
 
+
     /**
      * 获取多项数据
      *

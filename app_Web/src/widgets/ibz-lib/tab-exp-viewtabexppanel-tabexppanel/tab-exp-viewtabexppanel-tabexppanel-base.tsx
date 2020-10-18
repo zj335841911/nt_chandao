@@ -65,6 +65,7 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      * @memberof TabExpViewtabexppanelBase
      */  
     public appUIService:IbzLibUIService = new IbzLibUIService(this.$store);
+
     /**
      * 是否初始化
      *

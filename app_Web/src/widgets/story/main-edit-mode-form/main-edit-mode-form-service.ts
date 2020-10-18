@@ -60,6 +60,14 @@ export default class Main_EditModeService extends ControlService {
     public productmoduleService: ProductModuleService = new ProductModuleService();
 
     /**
+     * 远端数据
+     *
+     * @type {*}
+     * @memberof Main_EditModeService
+     */
+    private remoteCopyData:any = {};
+
+    /**
      * 处理数据
      *
      * @private
@@ -289,6 +297,7 @@ export default class Main_EditModeService extends ControlService {
                 result = this.appEntityService.Get(Context,Data, isloading);
             }
             result.then((response) => {
+                this.setRemoteCopyData(response);
                 this.handleResponse(action, response);
                 resolve(response);
             }).catch(response => {
@@ -323,6 +332,7 @@ export default class Main_EditModeService extends ControlService {
                 result = this.appEntityService.GetDraft(Context,Data, isloading);
             }
             result.then((response) => {
+                this.setRemoteCopyData(response);
                 response.data.id = PrimaryKey;
                 this.handleResponse(action, response, true);
                 resolve(response);
@@ -416,6 +426,27 @@ export default class Main_EditModeService extends ControlService {
             }
         });
         return itemName.trim();
+    }
+
+    /**
+     * 设置远端数据
+     * 
+     * @param result 远端请求结果 
+     * @memberof Main_EditModeService
+     */
+    public setRemoteCopyData(result:any){
+        if (result && result.status === 200) {
+            this.remoteCopyData = Util.deepCopy(result.data);
+        }
+    }
+
+    /**
+     * 获取远端数据
+     * 
+     * @memberof Main_EditModeService
+     */
+    public getRemoteCopyData(){
+        return this.remoteCopyData;
     }
 
 }

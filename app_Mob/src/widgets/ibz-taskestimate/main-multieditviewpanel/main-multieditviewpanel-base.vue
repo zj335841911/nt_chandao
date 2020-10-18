@@ -3,10 +3,6 @@
 <div class="app-medit-view-panel">
     <div v-for="(item,index) in items" :key="index" class="app-medit-view-panel-card">
         <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>{{item.title}}</ion-card-subtitle>
-            <ion-icon class="meditviewpanel_delete_icon" @click="deleteItem(item)" name="close-circle-outline"></ion-icon>
-          </ion-card-header>
           <ion-card-content>
             <task-estimate-mob-edit-view9 
               class="viewcontainer2"
@@ -126,7 +122,7 @@ export default class MainBase extends Vue implements ControlInterface {
     public transformData(args: any) {
         let _this: any = this;
         if(_this.service && _this.service.handleRequestData instanceof Function && _this.service.handleRequestData('transform',_this.context,args)){
-            return _this.service.handleRequestData('transform',_this.context,args)['data'];
+            return _this.service.handleRequestData('transform',_this.context,args);
         }
     }
 

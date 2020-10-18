@@ -203,7 +203,7 @@ export default class StoryNewMobEditViewBase extends Vue {
         dataInfo: '',
         viewname:'story.newmobeditview',
         iconcls: '',
-        icon: 'fa fa-star-o'
+        icon: 'star-o'
     }
 
     /**
@@ -417,6 +417,7 @@ export default class StoryNewMobEditViewBase extends Vue {
             const bainfo:any = JSON.parse(this.$route.query.bsinfo as string);
             Object.assign(this.viewparams,bainfo);
         }
+
 
     }
 
@@ -632,6 +633,10 @@ export default class StoryNewMobEditViewBase extends Vue {
      * @memberof StoryNewMobEditViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
                 let result = await this.cheackChange();
         if(result){
             if (this.viewDefaultUsage === "routerView") {

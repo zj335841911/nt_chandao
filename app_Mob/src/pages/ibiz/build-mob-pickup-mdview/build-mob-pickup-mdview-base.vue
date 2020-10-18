@@ -175,7 +175,7 @@ export default class BuildMobPickupMDViewBase extends Vue {
         dataInfo: '',
         viewname:'build.mobpickupmdview',
         iconcls: '',
-        icon: 'fa fa-code-fork'
+        icon: 'code-fork'
     }
 
     /**
@@ -324,6 +324,7 @@ export default class BuildMobPickupMDViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
+
 
     }
 
@@ -486,6 +487,10 @@ export default class BuildMobPickupMDViewBase extends Vue {
      * @memberof BuildMobPickupMDViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){
             this.quitFun();
             return;

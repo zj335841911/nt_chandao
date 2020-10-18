@@ -67,6 +67,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      */  
     public appUIService:IbzCaseUIService = new IbzCaseUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *
@@ -76,6 +77,14 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      */
     protected drCount: number = 2;
 
+    /**
+     * 主键表单项名称
+     *
+     * @protected
+     * @type {number}
+     * @memberof MainInfoEditFormBase
+     */
+    protected formKeyItemName: string = 'id';
     /**
      * 表单数据对象
      *

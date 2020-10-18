@@ -4,7 +4,18 @@
       <img src="assets/images/logo.png" class="ibizLogo"/>
       <div class="title">账号信息：{{srfloginname}}</div>
       <div class="text">{{text}}</div>
-      <div class="notice" @click="toNotice"><ion-icon name="megaphone-outline"></ion-icon> #论坛地址——{{notice}}</div>
+      <van-notice-bar left-icon="volume-o" :scrollable="false">
+        <van-swipe
+          vertical
+          class="notice-swipe"
+          :autoplay="3000"
+          :show-indicators="false"
+        >
+          <van-swipe-item @click="toNotice">#论坛地址——{{notice1}}</van-swipe-item>
+          <van-swipe-item>#开放平台——{{notice2}}</van-swipe-item>
+          <van-swipe-item>#统一地址——{{notice3}}</van-swipe-item>
+        </van-swipe>
+      </van-notice-bar>
     </div>
   </div>
 </template>
@@ -35,12 +46,14 @@ export default class AppMobMenuSideslipView extends Vue {
   public text?:string;
 
   /**
-    * 论坛信息
+    * 信息
     *
     * @type {string}
     * @memberof AppMobMenuSideslipViewHeader
     */
-  public notice?:string;
+  public notice1?:string;
+  public notice2?:string;
+  public notice3?:string;
 
   /**
     * 生命周期
@@ -49,7 +62,9 @@ export default class AppMobMenuSideslipView extends Vue {
     */
   public created(){
     this.text = Environment.AppTitle;
-    this.notice = Environment.ibizbbstUrl;
+    this.notice1 = Environment.ibizbbstUrl;
+    this.notice2 = Environment.ibizlabtUrl;
+    this.notice3 = Environment.uniteAddress;
     let appdata = this.$store.state.appdata;
     this.srfloginname = appdata.context.srfloginname;
   }

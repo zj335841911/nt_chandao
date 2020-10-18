@@ -42,6 +42,15 @@ export class StoryMainView9_RelatedBase extends EditView9Base {
     protected appDeMajor: string = 'title';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryMainView9_RelatedBase
+     */ 
+    protected dataControl:string = "form";
+
+    /**
      * 实体服务对象
      *
      * @type {StoryService}

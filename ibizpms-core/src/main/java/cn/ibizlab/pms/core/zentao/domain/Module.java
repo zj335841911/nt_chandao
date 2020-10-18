@@ -114,7 +114,7 @@ public class Module extends EntityMP implements Serializable {
     /**
      * 路径
      */
-    @DEField(defaultValue = "，")
+    @DEField(defaultValue = ",")
     @TableField(value = "`path`")
     @JSONField(name = "path")
     @JsonProperty("path")

@@ -128,6 +128,7 @@ export class TestExpListBase extends ListControlBase {
         }
     }
 
+
     /**
      * 排序方向
      *
@@ -143,7 +144,6 @@ export class TestExpListBase extends ListControlBase {
      * @memberof TestExpListBase
      */
     public minorSortPSDEF: string = 'id';
-
 
 
 }

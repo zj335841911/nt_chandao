@@ -69,6 +69,7 @@ export class MainInfoPortletBase extends MainControlBase {
      */  
     public appUIService:TaskUIService = new TaskUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class MainInfoPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof MainInfoBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'TaskMainInfoView9', action: 'refresh', data: args });
+    }
 
 }

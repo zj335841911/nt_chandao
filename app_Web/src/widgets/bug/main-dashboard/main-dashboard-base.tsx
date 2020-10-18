@@ -66,6 +66,7 @@ export class MainDashboardBase extends MainControlBase {
      * @memberof MainBase
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
+
     /**
      * 是否支持看板定制
      *

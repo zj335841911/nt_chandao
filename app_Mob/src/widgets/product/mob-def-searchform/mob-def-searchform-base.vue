@@ -2,11 +2,12 @@
     <div ref='searchform' class="app-form product-searchform ">
                 
 
-<app-form-item 
+<app-form-item2
     name='n_name_like' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBTEXT"
     ref="n_name_like_item"  
     :itemValue="this.data.n_name_like" 
     v-show="detailsModel.n_name_like.visible" 
@@ -24,15 +25,16 @@
     
     :disabled="detailsModel.n_name_like.disabled" 
     @change="($event)=>this.data.n_name_like = $event" />
-</app-form-item>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_status_eq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBRADIOLIST"
     ref="n_status_eq_item"  
     :itemValue="this.data.n_status_eq" 
     v-show="detailsModel.n_status_eq.visible" 
@@ -43,22 +45,25 @@
     :disabled="detailsModel.n_status_eq.disabled"  
     :error="detailsModel.n_status_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-radio-list 
-    style="width: 100%;" 
-        type="static" 
+        <app-search-editor
+    codeListType="STATIC" 
     tag="Product__status"
+    :navigateContext="{}"
+    :navigateParam="{}"
+    :context="{}"
     :value="data.n_status_eq"  
     :disabled="detailsModel.n_status_eq.disabled" 
     @change="($event)=>this.data.n_status_eq = $event"/>
-</app-form-item>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_type_eq' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBDROPDOWNLIST"
     ref="n_type_eq_item"  
     :itemValue="this.data.n_type_eq" 
     v-show="detailsModel.n_type_eq.visible" 
@@ -69,7 +74,8 @@
     :disabled="detailsModel.n_type_eq.disabled"  
     :error="detailsModel.n_type_eq.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        
+<app-search-editor
     tag="Product__type"
     codeListType="STATIC" 
     :isCache="false" 
@@ -80,16 +86,17 @@
     :value="data.n_type_eq"  
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.n_type_eq = $event" />
-</app-form-item>
+    @change="($event)=>this.data.n_type_eq = $event"/>
+</app-form-item2>
 
 
 
-<app-form-item 
+<app-form-item2
     name='n_linename_like' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
+    itemType="MOBTEXT"
     ref="n_linename_like_item"  
     :itemValue="this.data.n_linename_like" 
     v-show="detailsModel.n_linename_like.visible" 
@@ -107,7 +114,7 @@
     
     :disabled="detailsModel.n_linename_like.disabled" 
     @change="($event)=>this.data.n_linename_like = $event" />
-</app-form-item>
+</app-form-item2>
 
 
 
@@ -215,7 +222,7 @@ export default class MobDefBase extends Vue implements ControlInterface {
     public transformData(args: any) {
         let _this: any = this;
         if(_this.service && _this.service.handleRequestData instanceof Function && _this.service.handleRequestData('transform',_this.context,args)){
-            return _this.service.handleRequestData('transform',_this.context,args)['data'];
+            return _this.service.handleRequestData('transform',_this.context,args);
         }
     }
 

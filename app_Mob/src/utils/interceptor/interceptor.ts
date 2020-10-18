@@ -3,7 +3,6 @@ import axios from 'axios';
 import Router from 'vue-router';
 import i18n from '@/locale';
 import ignoreProxyMap from './ignore-proxy';
-import { Loading } from '@/ibiz-core/utils';
 /**
  * 拦截器
  *
@@ -30,7 +29,7 @@ export class Interceptors {
      */
     private store: Store<any> | any;
 
-    
+
 
     /**
      *  单列对象
@@ -87,8 +86,8 @@ export class Interceptors {
                 const token = window.localStorage.getItem('token');
                 config.headers.Authorization = `Bearer ${token}`;
             }
-            config.headers['Accept-Language'] =  i18n.locale;
-            
+            config.headers['Accept-Language'] = i18n.locale;
+
             // 混合 app 代理处理
             if (Object.is(process.env.VUE_APP_CURRENTMODE, 'hybridapp') && !config.url.startsWith('https://') && !config.url.startsWith('http://')) {
                 if (!ignoreProxyMap.has(config.url)) {
@@ -104,22 +103,17 @@ export class Interceptors {
             return response;
         }, (error: any) => {
             error = error ? error : { response: {} };
-            // tslint:disable-next-line:prefer-const
             let { response: res } = error;
             let { data: _data } = res;
 
             if (res.status === 401) {
-                // Loading.hidden();
                 this.doNoLogin(_data.data);
             }
             if (res.status === 404) {
-                // Loading.hidden();
                 this.router.push({ path: '/404' });
             } else if (res.status === 500) {
-                // Loading.hidden();
                 this.router.push({ path: '/500' });
             }
-
             return Promise.reject(res);
         });
     }

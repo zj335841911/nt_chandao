@@ -171,6 +171,7 @@ export class IbzLibCzPortletBase extends MainControlBase {
     }
 
 
+
     /**
      * 长度
      *
@@ -376,5 +377,13 @@ export class IbzLibCzPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof IbzLibCzBase
+     */
+    public refresh(args?: any) {
+    }
 
 }

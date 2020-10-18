@@ -291,6 +291,7 @@ export class TreeMainGridBase extends GridControlBase {
         curUIService.Story_StoryNFavorites(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
+
     /**
      * 界面行为模型
      *

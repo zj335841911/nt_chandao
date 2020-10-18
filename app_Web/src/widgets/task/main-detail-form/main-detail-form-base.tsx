@@ -67,6 +67,7 @@ export class MainDetailEditFormBase extends EditFormControlBase {
      */  
     public appUIService:TaskUIService = new TaskUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *
@@ -76,6 +77,14 @@ export class MainDetailEditFormBase extends EditFormControlBase {
      */
     protected drCount: number = 3;
 
+    /**
+     * 主键表单项名称
+     *
+     * @protected
+     * @type {number}
+     * @memberof MainDetailEditFormBase
+     */
+    protected formKeyItemName: string = 'id';
     /**
      * 表单数据对象
      *

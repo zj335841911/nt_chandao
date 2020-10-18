@@ -45,7 +45,7 @@ export interface HistoryItem {
      * @type {string}
      * @memberof HistoryItem
      */
-    title?: string;
+    caption?: string;
 }
 
 /**
@@ -222,13 +222,15 @@ export class AppNavHistoryBase {
             if (this.uiStateService.layoutState.styleMode === 'DEFAULT' && to?.matched?.length === 1) {
                 return;
             }
-            this.historyList.push({
+            const item: any = {
                 to,
                 meta: JSON.parse(JSON.stringify(to.meta)),
                 tag: '',
-                context: {},
-                title: i18n.t(to.meta.caption).toString()
-            });
+                context: {}
+            };
+            const { caption, info } = item.meta;
+            item.caption = i18n.t(caption) + (info ? (' - ' + info) : '');
+            this.historyList.push(item);
         }
     }
 
@@ -265,12 +267,13 @@ export class AppNavHistoryBase {
     public setCaption({ tag, caption, info }: { tag: string, caption?: string, info?: string }): boolean {
         const item: HistoryItem = this.findHistoryByTag(tag);
         if (item) {
+            const meta = item.meta;
             if (caption) {
-                item.meta.caption = caption;
+                meta.caption = caption;
             }
             if (isExistAndNotEmpty(info)) {
-                item.meta.info = info;
-                item.title = `${i18n.t(item.meta.caption)} - ${info}`;
+                meta.info = info;
+                item.caption = i18n.t(meta.caption) + (info ? (' - ' + info) : '');
             }
             this.appEvent.emit('navHistoryItemChange', item);
         }

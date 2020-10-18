@@ -156,6 +156,7 @@ public class StorySpecResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(storyspecMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-searchVersion-all')")
 	@ApiOperation(value = "获取版本", tags = {"需求描述" } ,notes = "获取版本")
     @RequestMapping(method= RequestMethod.GET , value="/storyspecs/fetchversion")
@@ -177,6 +178,8 @@ public class StorySpecResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(storyspecMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Create-all')")
     @ApiOperation(value = "根据需求建立需求描述", tags = {"需求描述" },  notes = "根据需求建立需求描述")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/storyspecs")

@@ -15,24 +15,41 @@ export default class StoryKanBanModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'id',
+				name: 'module',
+				prop: 'module',
+				dataType: 'PICKUP',
 			},
 			{
-				name: 'title',
-				prop: 'title',
-				dataType: 'TEXT',
-			},
-			{
-				name: 'pri',
+				name: 'frombug',
+				prop: 'frombug',
+				dataType: 'PICKUP',
 			},
 			{
 				name: 'status',
 			},
 			{
-				name: 'estimate',
+				name: 'parent',
+				prop: 'parent',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'srfmstag',
 			},
 			{
 				name: 'stage',
+			},
+			{
+				name: 'estimate',
+			},
+			{
+				name: 'tobug',
+				prop: 'tobug',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'srfkey',
+				prop: 'id',
+				dataType: 'ACID',
 			},
 			{
 				name: 'srfmajortext',
@@ -40,9 +57,30 @@ export default class StoryKanBanModel {
 				dataType: 'TEXT',
 			},
 			{
-				name: 'srfkey',
-				prop: 'id',
-				dataType: 'ACID',
+				name: 'id',
+			},
+			{
+				name: 'product',
+				prop: 'product',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'pri',
+			},
+			{
+				name: 'title',
+				prop: 'title',
+				dataType: 'TEXT',
+			},
+			{
+				name: 'branch',
+				prop: 'branch',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'duplicatestory',
+				prop: 'duplicatestory',
+				dataType: 'PICKUP',
 			},
 
 			{

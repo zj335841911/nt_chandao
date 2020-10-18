@@ -68,6 +68,7 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
      */  
     public appUIService:ProductSumUIService = new ProductSumUIService(this.$store);
 
+
     /**
      * 表单数据对象
      *
@@ -101,4 +102,11 @@ export class DefaultSearchFormBase extends SearchFormControlBase {
         n_plan_eq: new FormItemModel({ caption: '计划', detailType: 'FORMITEM', name: 'n_plan_eq', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
+
+    /**
+     * 新建默认值
+     * @memberof DefaultBase
+     */
+    public createDefault(){                    
+    }
 }

@@ -123,6 +123,14 @@ public class ProductSumDTO extends DTOBase implements Serializable {
     @JsonProperty("storycnt")
     private Integer storycnt;
 
+    /**
+     * 属性 [BUGCNT]
+     *
+     */
+    @JSONField(name = "bugcnt")
+    @JsonProperty("bugcnt")
+    private Integer bugcnt;
+
 
     /**
      * 设置 [NAME]

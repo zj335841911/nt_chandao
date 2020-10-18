@@ -42,6 +42,15 @@ export class UserINFOEditViewBase extends EditViewBase {
     protected appDeMajor: string = 'realname';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof UserINFOEditViewBase
+     */ 
+    protected dataControl:string = "form";
+
+    /**
      * 实体服务对象
      *
      * @type {UserService}

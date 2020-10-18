@@ -45,6 +45,15 @@ export class TodoGridView9Base extends GridView9Base {
     protected appDeMajor: string = 'name';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TodoGridView9Base
+     */ 
+    protected dataControl:string = "grid";
+
+    /**
      * 实体服务对象
      *
      * @type {TodoService}
@@ -61,17 +70,6 @@ export class TodoGridView9Base extends GridView9Base {
     public appUIService: TodoUIService = new TodoUIService(this.$store);
 
 	/**
-	 * 自定义视图导航上下文集合
-	 *
-     * @protected
-	 * @type {*}
-	 * @memberof TodoGridView9Base
-	 */
-    protected customViewNavContexts: any = {
-        'N_ACCOUNT_EQ': { isRawValue: false, value: 'srfloginname' }
-    };
-
-	/**
 	 * 自定义视图导航参数集合
 	 *
      * @protected
@@ -81,7 +79,6 @@ export class TodoGridView9Base extends GridView9Base {
     protected customViewParams: any = {
         'n_status_noteq': { isRawValue: true, value: 'done' },
         'n_date_noteq': { isRawValue: true, value: '2030-01-01' },
-        'n_account_eq': { isRawValue: false, value: 'srfloginname' },
         'n_cycle_eq': { isRawValue: true, value: '0' }
     };
 

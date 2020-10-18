@@ -13,7 +13,7 @@
                         <div class="text">
                           <ion-label v-if="item.appfunctag != 'settings'">{{$t(`app.menus.${menuName}.${item.name}`)}}</ion-label>
                           <ion-label v-else>{{item.text}}</ion-label>
-                          <van-tag round type="primary" size="medium" v-if="counterServide && counterServide.counterData && counterServide.counterData[item.counterid]">{{counterServide.counterData[item.counterid]}}</van-tag>
+                          <van-tag round type="danger" size="medium" v-if="counterServide && counterServide.counterData && counterServide.counterData[item.counterid]">{{counterServide.counterData[item.counterid]}}</van-tag>
                           <!-- <ion-badge color="danger" v-if="counterServide && counterServide.counterData && counterServide.counterData[item.counterid]"><ion-label>{{counterServide.counterData[item.counterid]}}</ion-label></ion-badge> -->
                         </div>
                       </div>
@@ -189,6 +189,12 @@ export default class AppMobMenuSideslipView extends Vue {
         this.items.forEach((item:any,index:number) => {
             if(item.opendefault == true){
                 this.activeId = item.id;
+            } else if(item.hidden == false){
+              // 没有默认打开的话
+                count++;
+                if (count == this.items.length) {
+                  this.activeId = this.items[0].id;
+                }
             }
             let model = this.menuModels.find((model:any) => Object.is(model.appfunctag, item.appfunctag));
             if (model) {

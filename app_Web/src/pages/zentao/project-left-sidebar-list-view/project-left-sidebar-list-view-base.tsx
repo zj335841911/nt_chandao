@@ -45,6 +45,15 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
     protected appDeMajor: string = 'name';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectLeftSidebarListViewBase
+     */ 
+    protected dataControl:string = "list";
+
+    /**
      * 实体服务对象
      *
      * @type {ProjectService}

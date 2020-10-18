@@ -13,6 +13,8 @@
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
+    :data="transformData(data)"
+    :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-group 
@@ -26,6 +28,8 @@
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
+    :data="transformData(data)"
+    :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
@@ -38,7 +42,7 @@
     v-show="detailsModel.productname.visible" 
     :itemRules="this.rules.productname" 
     :caption="$t('bug.mobnewfrom_form.details.productname')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.productname.disabled"
     :error="detailsModel.productname.error" 
@@ -78,7 +82,7 @@
     v-show="detailsModel.branch.visible" 
     :itemRules="this.rules.branch" 
     :caption="$t('bug.mobnewfrom_form.details.branch')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.branch.disabled"
     :error="detailsModel.branch.error" 
@@ -109,7 +113,7 @@
     v-show="detailsModel.modulename.visible" 
     :itemRules="this.rules.modulename" 
     :caption="$t('bug.mobnewfrom_form.details.modulename')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.modulename.disabled"
     :error="detailsModel.modulename.error" 
@@ -149,7 +153,7 @@
     v-show="detailsModel.projectname.visible" 
     :itemRules="this.rules.projectname" 
     :caption="$t('bug.mobnewfrom_form.details.projectname')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.projectname.disabled"
     :error="detailsModel.projectname.error" 
@@ -189,7 +193,7 @@
     v-show="detailsModel.openedbuild.visible" 
     :itemRules="this.rules.openedbuild" 
     :caption="$t('bug.mobnewfrom_form.details.openedbuild')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.openedbuild.disabled"
     :error="detailsModel.openedbuild.error" 
@@ -219,7 +223,7 @@
     v-show="detailsModel.assignedto.visible" 
     :itemRules="this.rules.assignedto" 
     :caption="$t('bug.mobnewfrom_form.details.assignedto')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.assignedto.disabled"
     :error="detailsModel.assignedto.error" 
@@ -250,7 +254,7 @@
     v-show="detailsModel.deadline.visible" 
     :itemRules="this.rules.deadline" 
     :caption="$t('bug.mobnewfrom_form.details.deadline')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.deadline.disabled"
     :error="detailsModel.deadline.error" 
@@ -275,7 +279,7 @@
     v-show="detailsModel.type.visible" 
     :itemRules="this.rules.type" 
     :caption="$t('bug.mobnewfrom_form.details.type')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.type.disabled"
     :error="detailsModel.type.error" 
@@ -306,7 +310,7 @@
     v-show="detailsModel.os.visible" 
     :itemRules="this.rules.os" 
     :caption="$t('bug.mobnewfrom_form.details.os')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.os.disabled"
     :error="detailsModel.os.error" 
@@ -337,7 +341,7 @@
     v-show="detailsModel.browser.visible" 
     :itemRules="this.rules.browser" 
     :caption="$t('bug.mobnewfrom_form.details.browser')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.browser.disabled"
     :error="detailsModel.browser.error" 
@@ -372,7 +376,7 @@
     v-show="detailsModel.title.visible" 
     :itemRules="this.rules.title" 
     :caption="$t('bug.mobnewfrom_form.details.title')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.title.disabled"
     :error="detailsModel.title.error" 
@@ -398,7 +402,7 @@
     v-show="detailsModel.severity.visible" 
     :itemRules="this.rules.severity" 
     :caption="$t('bug.mobnewfrom_form.details.severity')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.severity.disabled"
     :error="detailsModel.severity.error" 
@@ -429,7 +433,7 @@
     v-show="detailsModel.pri.visible" 
     :itemRules="this.rules.pri" 
     :caption="$t('bug.mobnewfrom_form.details.pri')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.pri.disabled"
     :error="detailsModel.pri.error" 
@@ -460,7 +464,7 @@
     v-show="detailsModel.steps.visible" 
     :itemRules="this.rules.steps" 
     :caption="$t('bug.mobnewfrom_form.details.steps')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :error="detailsModel.steps.error" 
     :isEmptyCaption="false">
@@ -481,6 +485,8 @@
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
+    :data="transformData(data)"
+    :uiService="deUIService"
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
@@ -493,7 +499,7 @@
     v-show="detailsModel.storyname.visible" 
     :itemRules="this.rules.storyname" 
     :caption="$t('bug.mobnewfrom_form.details.storyname')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.storyname.disabled"
     :error="detailsModel.storyname.error" 
@@ -533,7 +539,7 @@
     v-show="detailsModel.taskname.visible" 
     :itemRules="this.rules.taskname" 
     :caption="$t('bug.mobnewfrom_form.details.taskname')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.taskname.disabled"
     :error="detailsModel.taskname.error" 
@@ -573,7 +579,7 @@
     v-show="detailsModel.mailto.visible" 
     :itemRules="this.rules.mailto" 
     :caption="$t('bug.mobnewfrom_form.details.mailto')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.mailto.disabled"
     :error="detailsModel.mailto.error" 
@@ -606,7 +612,7 @@
     v-show="detailsModel.keywords.visible" 
     :itemRules="this.rules.keywords" 
     :caption="$t('bug.mobnewfrom_form.details.keywords')"  
-    :labelWidth="100"  
+    :labelWidth="130"  
     :isShowCaption="true"
     :disabled="detailsModel.keywords.disabled"
     :error="detailsModel.keywords.error" 
@@ -734,7 +740,7 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
     public transformData(args: any) {
         let _this: any = this;
         if(_this.service && _this.service.handleRequestData instanceof Function && _this.service.handleRequestData('transform',_this.context,args)){
-            return _this.service.handleRequestData('transform',_this.context,args)['data'];
+            return _this.service.handleRequestData('transform',_this.context,args);
         }
     }
 
@@ -1831,24 +1837,6 @@ export default class MobNewFROMBase extends Vue implements ControlInterface {
                 formItem.setError(error.message);
             });
         });
-    }
-
-    /**
-     * 表单校验状态
-     *
-     * @returns {boolean} 
-     * @memberof MobNewFROM
-     */
-    protected async formValidateStatus(): Promise<boolean> {
-        const refArr: Array<string> = ['productname_item', 'branch_item', 'modulename_item', 'projectname_item', 'openedbuild_item', 'assignedto_item', 'deadline_item', 'type_item', 'os_item', 'browser_item', 'title_item', 'severity_item', 'pri_item', 'steps_item', 'storyname_item', 'taskname_item', 'mailto_item', 'keywords_item', ];
-        let falg = true;
-        for (let item = 0; item < refArr.length; item++) {
-            const element = refArr[item];
-            if (this.$refs[element] && (this.$refs[element] as any).validateRules &&  !await(this.$refs[element] as any).validateRules()) {
-                falg = false;
-            }
-        }
-        return falg;
     }
 
     /**

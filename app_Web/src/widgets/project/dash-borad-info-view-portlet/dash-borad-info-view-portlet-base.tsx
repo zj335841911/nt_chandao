@@ -69,6 +69,7 @@ export class DashBoradInfoViewPortletBase extends MainControlBase {
      */  
     public appUIService:ProjectUIService = new ProjectUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class DashBoradInfoViewPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof DashBoradInfoViewBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'ProjectDashboardInfoView', action: 'refresh', data: args });
+    }
 
 }

@@ -197,7 +197,7 @@ export default class CaseMobEditViewBase extends Vue {
         dataInfo: '',
         viewname:'case.mobeditview',
         iconcls: '',
-        icon: 'fa fa-star-o'
+        icon: 'star-o'
     }
 
     /**
@@ -364,6 +364,7 @@ export default class CaseMobEditViewBase extends Vue {
             const bainfo:any = JSON.parse(this.$route.query.bsinfo as string);
             Object.assign(this.viewparams,bainfo);
         }
+
 
     }
 
@@ -537,6 +538,10 @@ export default class CaseMobEditViewBase extends Vue {
      * @memberof CaseMobEditViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
                 let result = await this.cheackChange();
         if(result){
             if (this.viewDefaultUsage === "routerView") {

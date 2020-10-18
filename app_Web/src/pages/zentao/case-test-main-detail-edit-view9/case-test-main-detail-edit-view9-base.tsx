@@ -42,6 +42,15 @@ export class CaseTestMainDetailEditView9Base extends EditView9Base {
     protected appDeMajor: string = 'title';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseTestMainDetailEditView9Base
+     */ 
+    protected dataControl:string = "form";
+
+    /**
      * 实体服务对象
      *
      * @type {CaseService}

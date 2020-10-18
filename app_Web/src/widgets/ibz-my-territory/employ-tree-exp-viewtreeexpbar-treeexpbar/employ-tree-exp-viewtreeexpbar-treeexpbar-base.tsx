@@ -88,6 +88,7 @@ export class EmployTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControl
         this.treeexpbar_load($event, 'treeexpbar_tree', $event2);
     }
 
+
     /**
      * 控件宽度
      *

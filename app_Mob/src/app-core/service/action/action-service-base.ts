@@ -259,6 +259,21 @@ export class ActionServiceBase extends EntityService {
     }
 
     /**
+     * FetchQueryUserYEAR接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ActionServiceBase
+     */
+    public async FetchQueryUserYEAR(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/actions/fetchqueryuseryear`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchType接口方法
      *
      * @param {*} [context={}]

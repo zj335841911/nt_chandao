@@ -69,6 +69,7 @@ export class AssignedToMeBugPortletBase extends MainControlBase {
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class AssignedToMeBugPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof AssignedToMeBugBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'BugGridView9_AssignedToMe', action: 'refresh', data: args });
+    }
 
 }

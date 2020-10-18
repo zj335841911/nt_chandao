@@ -104,6 +104,13 @@ import { NotificationSignal } from './directives/notification-signal/notificatio
 // 注册Vue插件
 export const StudioCore = {
     install(v: any, opt: any) {
+        // 在非开发模式下，禁止console输出内容。
+        if (!(process?.env?.NODE_ENV === 'development')) {
+            console.log = function () { };
+            console.error = function () { };
+            console.warn = function () { };
+            console.info = function () { };
+        }
         // 注册服务
         v.prototype.$acc = acc;
         v.prototype.$appService = new AppService();

@@ -2,9 +2,9 @@
 
 iBizPMS（iBiz Production Management System 软件生产管理）是iBiz对于软件生产管理的思考与探索所建立的项目，是iBiz软件生产体系的重要组成部分（管理模块）。它覆盖了软件生产从开始到结束，再到新的开始，往复循环，为软件生产提供有效的管理途径以及协调各阶段内、各阶段之间的信息与资源。它可以说是整个软件生产过程的“协调者”和“管理者”。
 
-iBizPMS集成了 **[禅道]( https://www.zentao.net/ )**（开源版 ）的特性与功能，在提供传统的项目管理软件的管理能力（产品、项目、质量、文档等等）的同时，通过结合各自企业或个人的生产体系，将实际生产过程以及落地的内容（软件设计，软件研发，软件测试，文档制作，生产部署，生产发布等等）管理起来，补足了传统项目管理中缺失的那一块，做到真正意义上的一体化管理。
+iBizPMS参照并增强[禅道]( https://www.zentao.net/)的项目管理业务模型的基础上使用iBiz生产模式重新开发的一套软件生产管理工具，提供全新的界面风格、现代化软件架构（采取中台模式、SpringBoot+VUE前后台分离架构），增强/增加了服务化特性（微服务功能分解--不同功能交给更专业的系统/服务去完成、与其它系统功能协同）、定制化能力（流程定制、表单定制、界面定制等）、移动端办公（钉钉H5微应用、钉钉待办与消息等）。
 
-iBizPMS采取微服务架构，将核心能力服务化，打造出软件生产管理软件中台，并与生产运行系统群（统一用户、统一认证、统一工作流等成熟软件）、商业套件系统群（OA、CRM、EAM、EHR等成熟商业软件）进行连通，实现一体化软件生态系统。
+iBizPMS与iBiz生产运行系统群（统一用户、统一认证、统一工作流等）、商业套件系统群（OA、CRM、EAM、EHR等）进行连通，实现一体化软件生态系统。
 
 ## 介绍
 
@@ -30,7 +30,7 @@ iBiz以模型驱动开发，模型数据（需求数据、设计数据、开发�
 
 牛顿曾经说过：“站在巨人的肩膀上，你能看得更远！”。
 
-市面上已经有很多很成熟的项目管理软件，例如国外的JIRA、国内的禅道等等。他们在项目管理上面有着丰富的经验以及见解，iBiz在结合自己软件生产理念（模型驱动）、自身开源理念、国人使用习惯等等方面的原因，决定以 **[禅道]( https://www.zentao.net/ )**（开源版 ） 的为基础，结合各自企业或个人的生产体系，生产出一个更为完善的软件生产管理的软件，也就是iBizPMS。
+市面上已经有很多很成熟的项目管理软件，例如国外的JIRA、国内的禅道等等。他们在项目管理上面有着丰富的经验以及见解，iBiz在结合自己软件生产理念（模型驱动）、自身开源理念、国人使用习惯等等方面的原因，决定以 禅道（开源版 ） 的为基础，结合各自企业或个人的生产体系，生产出一个更为完善的软件生产管理的软件，也就是iBizPMS。
 
 四、邀请
 
@@ -38,55 +38,69 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 项目实时动态可参照[附录-里程碑](#里程碑)信息。
 
-> 体验iBiz的开发模式，了解iBiz的开发模式：
->
-> **[iBiz开源社区](https://www.ibizlab.cn/)** 
+## PMS流程
 
-## PMS系统工作流程
+![flow1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow1_v2.png)
 
-![flow](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow.png)
+## PMS与禅道
 
-## 与禅道关系
+![flow2](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow2_v3.png)
 
-![flow2](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow2_v2.png)
+## PMS运行
 
-## 与系统群关系
+![flow3](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow3_v2.png)
 
-![flow3](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow3.png)
+## PMS生态
 
-## 增强特性
+![flow4](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/flow4_v3.png)
 
-- VSCode风格界面表现。
+## 特性
 
-- 丰富的UI组件。
+### 项目管理功能
 
-- 丰富的工具集。
+- 参照禅道的项目管理模型重新开发，全面代码重写，数据库兼容
+- 增强禅道原有模型，扩展禅道数据库
 
-- 移动端支持（独立应用、钉钉集成、企业微信集成等）。
+### 移动办公
 
-- 采用中台模式，微服务架构，核心能力服务化，快速响应和迭代。
+- 钉钉H5微应用
+- 待办、日程、消息集成至钉钉
+- 拥有PC端全部功能
 
-- 标准的Restful风格的接口，接口层次更明晰、使用更方便。
+### 数据可视化
 
-- 增强项目管理功能，例如引入单点认证、甘特图、日历、报表、工作流等。
+- 面板
+- 甘特图
+- 透视图
+- 燃尽图
+- 数据图表
+- 报表
+- 操作历史
 
-- 支持接入生产体系（系统）数据，自动完成日常管理数据填充。
+### 便捷高效
 
-- 支持接入其它生产运行系统，例如统一认证、统一用户、统一权限、统一工作流等。
+- 消息提醒：钉钉接收待办、消息提醒。
 
-- 在保留原有禅道功能基础上，iBizPMS Plus（增强服务）提供了更强的定制化功能，使得PMS更为符合自身（企业）的需求。
+### 服务集成
 
-  ![ywt](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/ywt_v2.png)
+- 各应用关联数据：与iBizSys关联，代码（仓库）、文档等生产物自动关联；与iBiz商业套件中OA、EHR等系统搭配，日常办公数据自动关联
+- 各阶段关联数据：关联数据不同阶段保持一致。
+- iBizPMS自身系统微服务提供，为Plus应用（例如iBizTodo）提供相关能力
+- [iBizRuntime（微服务运行时）](https://gitee.com/ibizlab/ibizlab-runtime)提供了基础运行的微服务（统一认证授权微服务、组织人事管理微服务、 通知微服务等）
 
-## 开源参与
+### 全面定制
 
-- 个人开发者也可以使用iBizPMS进行二次开发，加快完成开发任务。
+- 流程定制：需求流程、任务流程、缺陷流程、测试流程等
+- 表单定制：动态表单项等
+- 界面定制：表现表述、表现样式、布局等
+- 代码定制：技术选型等
+- 业务定制：业务模型的扩展等
 
-- 欢迎各位小伙伴了解和体验iBiz的开发模式：**[iBiz开源社区](https://www.ibizlab.cn/)** 。
+### 采用主流框架技术
 
-- 欢迎加入iBizPMS交流QQ群：1067434627
+- 后台：Spring Boot、Spring Cloud
 
-  <img src="https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/QQ.jpg" alt="QQ" style="zoom: 50%;" />
+- 前端：Vue
 
 ## 技术框架
 
@@ -135,6 +149,19 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 - 引入组件： `echarts ^4.6.0`，`ibiz-mobile-components`
 - 代码风格检测：`tslint`
 
+##  开源说明
+
+本系统100%开源，遵守MIT协议。
+
+## 开源参与
+
+- 个人开发者也可以使用iBizPMS进行二次开发，加快完成开发任务。
+- 欢迎各位小伙伴了解和体验iBiz的开发模式：**[iBiz开源社区](https://www.ibizlab.cn/)** 。
+- 深度开发内测申请：**[iBiz建模平台内测申请通道](https://gitee.com/ibizlab/iBizEHR/wikis/建模平台内测须知?sort_id=2992220)**。 
+- 欢迎加入iBizPMS交流QQ群：1067434627
+
+![QQ](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/QQ.png)
+
 ## 开发环境
 
 - [禅道 12.3.1]( https://www.zentao.net/download/zentaopms12.3.1-80220.html ) （开源版）：版本尽量保持一致，避免数据结构以及功能上存在差异
@@ -145,10 +172,6 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 - Yarn
 - Vue Cli
 
-##  开源说明
-
-本系统100%开源，遵守MIT协议。
-
 ##  官方网站
 
 > 待开放。
@@ -157,17 +180,13 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 
 > 系统的说明文档与操作手册逐步完善中。
 >
-> 快速上手指南与开发手册目前内部版完成了初版，有兴趣的小伙伴可以进群找群管咨询。
->
-> 部署手册可以参照iBizPMS的wiki内容。
+> 部署手册、开发手册可以参照iBizPMS的wiki内容。
 
 - iBizPMS介绍（待开放）
 - iBizPMS快速上手指南（待开放）
 - iBizPMS移动端快速上手指南（待开放）
-- iBizPMS进阶指南（待开放）
-- iBizPMS开发手册（待开放）
-- iBizPMS部署手册（待开放）
-- iBizPMS定制开发（待开放）
+- [iBizPMS开发手册](https://gitee.com/ibizlab/iBizPMS/wikis/iBizPMS开发手册)
+- [iBizPMS部署手册](https://gitee.com/ibizlab/iBizPMS/wikis/Docker-Compose 一键部署)
 
 ## 系统地址
 
@@ -339,16 +358,21 @@ iBizPMS是一个刚刚起步的项目，它与其它项目有所不同的是，�
 | 10   | 2020-08-30 | V0.0.5.20200830        | 新增：<br>1. 我的收藏                                        |
 | 10   | 2020-09-20 | V0.0.6.20200920        | 新增：<br>1. 与iBiz生产系统连接：需求、代码发布、系统部署<br>2. 移动端首页定制化（个人仪表盘）<br>3. 移动端个人办公日历（任务、BUG、待办）<br>4. 移动端主题<br>5. 钉钉待办、消息集成 |
 | 11   | 2020-09-30 | V0.0.7.20200930        | 新增：<br>1. 测试报告<br>2. 统计列表（匹配禅道开源版）       |
+| 12   | 2020-10-18 | V0.0.8.20201018        | 新增：<br>1. 禅道接口替换为iBizPMS自有逻辑。<br>2. 统计视图（年度统计） |
 
 > **10月会持续优化系统，与生产系统（日常工作数据）更紧密联系，丰富统计与报表。**
 >
-> **系统文档与相关手册也在逐步完善中。**、
+> **系统文档与相关手册也在逐步完善中。**
 
-### 即将到来
+### 基于PMS的轻应用
 
-iBizPMS Todo：基于iBizPMS服务打造出的Plus应用系统，专注于轻量级任务管理，更高效地任务安排与相关进度管理。
+#### iBizTODO
 
-iBizPMS Todo抢鲜看：
+基于iBizPMS服务打造出的Plus应用系统，专注于轻量级任务管理，更高效地任务安排与相关进度管理。
+
+演示Demo地址： http://todo.ibizlab.cn/ 
+
+账号密码： ibzadmin/123456 
 
 ![comingsoon1](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/comingsoon1.png)
 
@@ -388,7 +412,7 @@ iBizPMS使用的是微服务架构模式，因此在项目运行中，存在一�
 
 iBizPMS使用了 [埃毕致开源商业套件](https://gitee.com/ibizlab)下  [iBizRuntime（微服务运行时）](https://gitee.com/ibizlab/ibizlab-runtime)的相关运行支撑服务。
 
-目前使用到的微服务有
+目前使用到的微服务：
 
 | 序号 | 微服务     | 说明                                 | iBizPMS应用说明          |
 | ---- | ---------- | ------------------------------------ | ------------------------ |
@@ -400,4 +424,4 @@ iBizPMS使用了 [埃毕致开源商业套件](https://gitee.com/ibizlab)下  [i
 
 最后对以下参与的小伙伴发出衷心的感谢。
 
-@Unidentified、@Yuzuriha_Inori、@crimson777、@huwei_031588 、@nancygitee 、前端模板团队、后端模板团队、CI/CD团队
+@Unidentified、@Yuzuriha_Inori、@crimson777、@huwei_031588 、@nancygitee 、@xignzi、前端模板团队、后端模板团队、CI/CD团队

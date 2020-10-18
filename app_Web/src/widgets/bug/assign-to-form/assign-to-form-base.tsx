@@ -67,6 +67,7 @@ export class AssignToEditFormBase extends EditFormControlBase {
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *
@@ -75,7 +76,6 @@ export class AssignToEditFormBase extends EditFormControlBase {
      * @memberof AssignToEditFormBase
      */
     protected drCount: number = 1;
-
     /**
      * 表单数据对象
      *

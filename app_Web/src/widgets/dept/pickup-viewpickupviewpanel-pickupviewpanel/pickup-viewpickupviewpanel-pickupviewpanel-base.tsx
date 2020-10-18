@@ -68,6 +68,7 @@ export class PickupViewpickupviewpanelPickupviewpanelBase extends MainControlBas
     public appUIService:DeptUIService = new DeptUIService(this.$store);
 
 
+
     /**
      * 选中数据字符串
      *

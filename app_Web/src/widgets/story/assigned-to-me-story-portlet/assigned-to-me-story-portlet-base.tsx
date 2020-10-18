@@ -69,6 +69,7 @@ export class AssignedToMeStoryPortletBase extends MainControlBase {
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class AssignedToMeStoryPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof AssignedToMeStoryBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'StoryGridView9_AssignedToMe', action: 'refresh', data: args });
+    }
 
 }

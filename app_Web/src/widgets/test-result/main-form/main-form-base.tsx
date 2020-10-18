@@ -95,6 +95,7 @@ export class MainEditFormBase extends EditFormControlBase {
         curUIService.TestResult_ToBug(datas,contextJO, paramJO,  $event, xData,this,"TestResult");
     }
 
+
     /**
      * 关系界面数量
      *
@@ -104,6 +105,14 @@ export class MainEditFormBase extends EditFormControlBase {
      */
     protected drCount: number = 1;
 
+    /**
+     * 主键表单项名称
+     *
+     * @protected
+     * @type {number}
+     * @memberof MainEditFormBase
+     */
+    protected formKeyItemName: string = 'id';
     /**
      * 表单数据对象
      *

@@ -69,6 +69,7 @@ export class BugStatus_ProjectPortletBase extends MainControlBase {
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class BugStatus_ProjectPortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof BugStatus_ProjectBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'dashboard_BugStatusProject_chart', action: 'refresh', data: args });
+    }
 
 }

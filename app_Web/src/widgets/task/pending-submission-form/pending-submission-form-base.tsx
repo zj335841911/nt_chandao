@@ -67,6 +67,7 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
      */  
     public appUIService:TaskUIService = new TaskUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *
@@ -75,7 +76,6 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
      * @memberof PendingSubmissionEditFormBase
      */
     protected drCount: number = 1;
-
     /**
      * 表单数据对象
      *

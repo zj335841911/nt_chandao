@@ -47,6 +47,26 @@ import org.springframework.util.StringUtils;
 public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsMapper, UserYearWorkStats> implements IUserYearWorkStatsService {
 
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsGetDevInfomationLogic getdevinfomationLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsGetPOInfomationLogic getpoinfomationLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsGetQAInformationLogic getqainformationLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsGetInfoLogic getinfoLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsUpdateInfoLogic updateinfoLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -113,6 +133,35 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
     }
     @Override
     @Transactional
+    public UserYearWorkStats getDevInfomation(UserYearWorkStats et) {
+        getdevinfomationLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public UserYearWorkStats getPoInfomation(UserYearWorkStats et) {
+        getpoinfomationLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public UserYearWorkStats getQaInfomation(UserYearWorkStats et) {
+        getqainformationLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public UserYearWorkStats getUserYearAction(UserYearWorkStats et) {
+        //自定义代码
+        getinfoLogic.execute(et);
+        return et;
+    }
+
+    @Override
+    @Transactional
     public boolean save(UserYearWorkStats et) {
         if(!saveOrUpdate(et))
             return false;
@@ -140,6 +189,14 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
         saveOrUpdateBatch(list,batchSize);
     }
 
+    @Override
+    @Transactional
+    public UserYearWorkStats updateTitleByYear(UserYearWorkStats et) {
+        //自定义代码
+        updateinfoLogic.execute(et);
+        return et;
+    }
+
 
 
     /**
@@ -148,6 +205,33 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
     @Override
     public Page<UserYearWorkStats> searchDefault(UserYearWorkStatsSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<UserYearWorkStats> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<UserYearWorkStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 月完成任务数及累计工时和解决Bug数
+     */
+    @Override
+    public Page<UserYearWorkStats> searchMonthFinishTaskAndBug(UserYearWorkStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<UserYearWorkStats> pages=baseMapper.searchMonthFinishTaskAndBug(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<UserYearWorkStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 月创建Bug数和创建用例数
+     */
+    @Override
+    public Page<UserYearWorkStats> searchMonthOpenedBugAndCase(UserYearWorkStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<UserYearWorkStats> pages=baseMapper.searchMonthOpenedBugAndCase(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<UserYearWorkStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 月创建需求数
+     */
+    @Override
+    public Page<UserYearWorkStats> searchMonthOpenedStory(UserYearWorkStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<UserYearWorkStats> pages=baseMapper.searchMonthOpenedStory(context.getPages(),context,context.getSelectCond());
         return new PageImpl<UserYearWorkStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

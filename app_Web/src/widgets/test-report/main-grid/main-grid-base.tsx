@@ -177,6 +177,7 @@ export class MainGridBase extends GridControlBase {
         }
     }
 
+
     /**
      * 界面行为模型
      *
@@ -381,6 +382,41 @@ export class MainGridBase extends GridControlBase {
         }
         if(Object.is('Delete', tag)) {
             this.grid_uagridcolumn1_ufbe9383_click(row, tag, $event);
+        }
+    }
+
+    /**
+     * 更新默认值
+     * @param {*}  row 行数据
+     * @memberof MainBase
+     */
+    public updateDefault(row: any){                    
+    }
+
+    /**
+     * 计算数据对象类型的默认值
+     * @param {string}  action 行为
+     * @param {string}  param 默认值参数
+     * @param {*}  data 当前行数据
+     * @memberof MainBase
+     */
+    public computeDefaultValueWithParam(action:string,param:string,data:any){
+        if(Object.is(action,"UPDATE")){
+            const nativeData:any = this.service.getCopynativeData();
+            if(nativeData && (nativeData instanceof Array) && nativeData.length >0){
+                let targetData:any = nativeData.find((item:any) =>{
+                    return item.id === data.srfkey;
+                })
+                if(targetData){
+                    return targetData[param]?targetData[param]:null;
+                }else{
+                    return null;
+                }
+            }else{
+                return null;
+            }
+        }else{
+           return this.service.getRemoteCopyData()[param]?this.service.getRemoteCopyData()[param]:null;
         }
     }
 

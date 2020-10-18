@@ -98,6 +98,7 @@ export class StoryKanBanPanelBase extends PanelControlBase {
         curUIService.Story_ProjectUnlinkStory(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
+
     /**
      * 详情模型集合
      *

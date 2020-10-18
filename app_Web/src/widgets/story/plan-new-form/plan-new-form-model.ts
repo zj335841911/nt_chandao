@@ -136,6 +136,11 @@ export default class PlanNewModel {
         dataType: 'TEXT',
       },
       {
+        name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
+      },
+      {
         name: 'mailto',
         prop: 'mailto',
         dataType: 'SMCODELIST',

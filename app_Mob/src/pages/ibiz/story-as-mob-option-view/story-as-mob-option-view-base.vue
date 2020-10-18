@@ -196,7 +196,7 @@ export default class StoryAsMobOptionViewBase extends Vue {
         dataInfo: '',
         viewname:'story.asmoboptionview',
         iconcls: '',
-        icon: 'fa fa-star-o'
+        icon: 'star-o'
     }
 
     /**
@@ -346,6 +346,7 @@ export default class StoryAsMobOptionViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
+
 
     }
 
@@ -497,6 +498,10 @@ export default class StoryAsMobOptionViewBase extends Vue {
      * @memberof StoryAsMobOptionViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
+        if(this.$store.state.searchformStatus){
+             this.$store.commit('setSearchformStatus',false);
+             return
+        }
               let result = await this.cheackChange();
       if(result){
         if(this.viewDefaultUsage==="indexView" && this.$route.path === '/appindexview'){

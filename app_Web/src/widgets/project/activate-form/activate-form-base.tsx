@@ -67,6 +67,7 @@ export class ActivateEditFormBase extends EditFormControlBase {
      */  
     public appUIService:ProjectUIService = new ProjectUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *
@@ -75,7 +76,6 @@ export class ActivateEditFormBase extends EditFormControlBase {
      * @memberof ActivateEditFormBase
      */
     protected drCount: number = 1;
-
     /**
      * 表单数据对象
      *

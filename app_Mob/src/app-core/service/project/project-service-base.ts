@@ -500,6 +500,36 @@ export class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * FetchInvolvedProject接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async FetchInvolvedProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/projects/fetchinvolvedproject`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchInvolvedProject_StoryTaskBug接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async FetchInvolvedProject_StoryTaskBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/projects/fetchinvolvedproject_storytaskbug`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchMyProject接口方法
      *
      * @param {*} [context={}]

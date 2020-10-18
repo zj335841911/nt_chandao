@@ -80,12 +80,12 @@ export class StudioActionController {
                     this.showToolChange();
                 }
             });
+            const f = new FooterItemsService();
+            f.registerRightItem((h) => {
+                return <div on-click={() => this.showToolChange()}>{this.isShowTool ? '关闭' : '显示'}Debug栏</div>;;
+            });
+            f.tick();
         }
-        const f = new FooterItemsService();
-        f.registerRightItem((h) => {
-            return <div on-click={() => this.showToolChange()}>{this.isShowTool ? '关闭' : '显示'}Debug栏</div>;;
-        });
-        f.tick();
     }
 
     /**

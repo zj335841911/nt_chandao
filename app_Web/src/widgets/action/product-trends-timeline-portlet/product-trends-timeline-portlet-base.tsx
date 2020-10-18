@@ -69,6 +69,7 @@ export class ProductTrendsTimelinePortletBase extends MainControlBase {
      */  
     public appUIService:ActionUIService = new ActionUIService(this.$store);
 
+
     /**
      * 长度
      *
@@ -217,5 +218,14 @@ export class ProductTrendsTimelinePortletBase extends MainControlBase {
         }
     }
 
+
+    /**
+     * 刷新
+     *
+     * @memberof ProductTrendsTimelineBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'ActionProductTrendsListView9', action: 'refresh', data: args });
+    }
 
 }

@@ -71,6 +71,7 @@ export class ProductStatusChartBase extends MainControlBase {
      */  
     public appUIService:ProductUIService = new ProductUIService(this.$store);
 
+
     /**
      * 获取多项数据
      *

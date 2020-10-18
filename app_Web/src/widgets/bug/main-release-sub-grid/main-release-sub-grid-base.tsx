@@ -68,12 +68,42 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
     public appUIService:BugUIService = new BugUIService(this.$store);
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_uc0d3ab5_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_releaseUnlinkBugByLeftBug(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
+
+    /**
      * 界面行为模型
      *
      * @type {*}
      * @memberof Main_ReleaseSubBase
      */  
     public ActionModel: any = {
+        releaseUnlinkBugByLeftBug: { name: 'releaseUnlinkBugByLeftBug',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__BUG_UNLINK_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -164,6 +194,14 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
             unit: 'PX',
             isEnableRowEdit: false,
         },
+        {
+            name: 'uagridcolumn1',
+            label: '操作',
+            langtag: 'entities.bug.main_releasesub_grid.columns.uagridcolumn1',
+            show: true,
+            unit: 'PX',
+            isEnableRowEdit: false,
+        },
     ]
 
     /**
@@ -205,6 +243,7 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
         'openedby':false,
         'openeddate':false,
         'assignedto':false,
+        'uagridcolumn1':false,
     };
 
     /**
@@ -265,6 +304,56 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
         ]);
     }
 
+
+    /**
+     * 界面行为
+     *
+     * @param {*} row
+     * @param {*} tag
+     * @param {*} $event
+     * @memberof Main_ReleaseSubGridBase
+     */
+	public uiAction(row: any, tag: any, $event: any): void {
+        $event.stopPropagation();
+        if(Object.is('releaseUnlinkBugByLeftBug', tag)) {
+            this.grid_uagridcolumn1_uc0d3ab5_click(row, tag, $event);
+        }
+    }
+
+    /**
+     * 更新默认值
+     * @param {*}  row 行数据
+     * @memberof Main_ReleaseSubBase
+     */
+    public updateDefault(row: any){                    
+    }
+
+    /**
+     * 计算数据对象类型的默认值
+     * @param {string}  action 行为
+     * @param {string}  param 默认值参数
+     * @param {*}  data 当前行数据
+     * @memberof Main_ReleaseSubBase
+     */
+    public computeDefaultValueWithParam(action:string,param:string,data:any){
+        if(Object.is(action,"UPDATE")){
+            const nativeData:any = this.service.getCopynativeData();
+            if(nativeData && (nativeData instanceof Array) && nativeData.length >0){
+                let targetData:any = nativeData.find((item:any) =>{
+                    return item.id === data.srfkey;
+                })
+                if(targetData){
+                    return targetData[param]?targetData[param]:null;
+                }else{
+                    return null;
+                }
+            }else{
+                return null;
+            }
+        }else{
+           return this.service.getRemoteCopyData()[param]?this.service.getRemoteCopyData()[param]:null;
+        }
+    }
 
 
 }

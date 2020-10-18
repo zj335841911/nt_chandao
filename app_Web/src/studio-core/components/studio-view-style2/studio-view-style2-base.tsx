@@ -61,10 +61,10 @@ export class StudioViewStyle2Base extends StudioViewBase {
                 {this.$slots.quickGroupSearch ? <div class="quick-group-search">
                     {this.$slots.quickGroupSearch}
                 </div> : null}
+                {this.$slots.quickSearchForm ? <div class="quick-search-form">{this.$slots.quickSearchForm}</div> : null}
                 {!this.$slots.toolbar && this.$slots.quickSearch ? <div class="quick-search">
                     {this.$slots.quickSearch}
                 </div> : null}
-                {this.$slots.quickSearchForm ? <div class="quick-search-form">{this.$slots.quickSearchForm}</div> : null}
             </div> : null,
             this.$slots.quickGroupTab ? <div class='quick-group-tab'>
                 {this.$slots.quickGroupTab}

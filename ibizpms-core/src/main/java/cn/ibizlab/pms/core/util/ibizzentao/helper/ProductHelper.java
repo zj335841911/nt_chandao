@@ -21,7 +21,7 @@ import java.util.List;
 public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
 
     @Autowired
-    ActionHelper actionHelper ;
+    ActionHelper actionHelper;
 
     @Autowired
     FileHelper fileHelper;
@@ -29,18 +29,20 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
     @Autowired
     DocLibHelper docLibHelper;
 
+    String[] diffAttrs = {"desc"};
+
     @Transactional
     public boolean create(Product et) {
 
-        fileHelper.processImgURL(et,null,null);
+        fileHelper.processImgURL(et, null, null);
         if (!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()), et);
-        fileHelper.updateObjectID(null,et.getId(),"product");
+        fileHelper.updateObjectID(null, et.getId(), "product");
 
         //更新order
-        et.setOrder(et.getId().intValue()*5);
-        internalUpdate(et) ;
+        et.setOrder(et.getId().intValue() * 5);
+        internalUpdate(et);
 
         //DocLib
         DocLib docLib = new DocLib();
@@ -52,7 +54,7 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
         docLibHelper.create(docLib);
 
         //Action
-        actionHelper.create("product",et.getId(),"opened","","",null,true);
+        actionHelper.create("product", et.getId(), "opened", "", "", null, true);
 
         return true;
     }
@@ -65,18 +67,18 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
      */
     @Transactional
     public boolean edit(Product et) {
-        Product old = this.get(et.getId());
+        Product old = new Product();
+        CachedBeanCopier.copy(this.get(et.getId()), old);
 
-        fileHelper.processImgURL(et,null,null);
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId())))
+        fileHelper.processImgURL(et, null, null);
+        if (!this.internalUpdate(et))
             return false;
-        CachedBeanCopier.copy(get(et.getId()), et);
-        fileHelper.updateObjectID(null,et.getId(),"product");
+        fileHelper.updateObjectID(null, et.getId(), "product");
 
-        List<History> changes = ChangeUtil.diff(old,et) ;
-        if(changes.size()>0){
-            Action action = actionHelper.create("product",et.getId(),"edited","","",null,true);
-            actionHelper.logHistory(action.getId(),changes);
+        List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
+        if (changes.size() > 0) {
+            Action action = actionHelper.create("product", et.getId(), "edited", "", "", null, true);
+            actionHelper.logHistory(action.getId(), changes);
         }
         return true;
     }
@@ -92,7 +94,7 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
         boolean result = removeById(key);
 
         //删除doclib
-        docLibHelper.remove(new QueryWrapper<DocLib>().eq("product",key));
+        docLibHelper.remove(new QueryWrapper<DocLib>().eq("product", key));
 
         return result;
     }
@@ -105,14 +107,17 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
      */
     @Transactional
     public Product close(Product et) {
+        String comment = et.getComment();
         Product old = this.get(et.getId());
 
         et.setStatus("closed");
         this.internalUpdate(et);
-        List<History> changes = ChangeUtil.diff(old,et);
-        if(StringUtils.isNotBlank(et.getComment()) || changes.size()>0){
-            Action action = actionHelper.create("product",et.getId(),"closed",StringUtils.isNotBlank(et.getComment())?et.getComment():"","", null,true);
-            actionHelper.logHistory(action.getId(),changes);
+        List<History> changes = ChangeUtil.diff(old, et);
+        if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
+            Action action = actionHelper.create("product", et.getId(), "closed",
+                    comment, "", null, true);
+            if (changes.size() > 0)
+                actionHelper.logHistory(action.getId(), changes);
         }
 
         return et;

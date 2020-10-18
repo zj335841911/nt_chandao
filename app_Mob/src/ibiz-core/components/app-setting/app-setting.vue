@@ -12,7 +12,7 @@
         <template v-for="item in data.top">
           <ion-item :key="item.name" v-if="item.isEnable" @click="onItemClick(item)">
             <div class="content-list-item-content">
-              <div class="content-list-item-content-text">{{item.text}}</div>
+              <div class="content-list-item-content-text">{{item.showtext}}</div>
               <ion-icon
                 v-if="item.name !== 'theme' &&  item.name !== 'accountInformation'"
                 name="chevron-forward-outline"
@@ -30,7 +30,7 @@
         <template v-for="item in data.center">
           <ion-item :key="item.name" v-if="item.isEnable" @click="onItemClick(item)">
             <div class="content-list-item-content">
-              <div class="content-list-item-content-text">{{item.text}}</div>
+              <div class="content-list-item-content-text">{{item.showtext}}</div>
               <ion-icon
                 v-if="item.name !== 'theme' &&  item.name !== 'accountInformation'"
                 name="chevron-forward-outline"
@@ -48,7 +48,7 @@
         <template v-for="item in data.bottom">
           <ion-item :key="item.name" v-if="item.isEnable" @click="onItemClick(item)">
             <div class="content-list-item-content">
-              <div class="content-list-item-content-text">{{item.text}}</div>
+              <div class="content-list-item-content-text">{{item.showtext}}</div>
               <ion-icon
                 v-if="item.name !== 'theme' &&  item.name !== 'accountInformation'"
                 name="chevron-forward-outline"
@@ -75,6 +75,7 @@ import {
   Watch,
 } from "vue-property-decorator";
 import { settingConfig } from "./config";
+import i18n from '@/locale'
 @Component({
   components: {},
 })
@@ -95,7 +96,7 @@ export default class AppSetting extends Vue {
    */
   public created() {
     let appdata = this.$store.state.appdata;
-    this.srfloginname = appdata.context.srfloginname;
+    this.srfloginname = appdata && appdata.context && appdata.context.srfloginname?appdata.context.srfloginname:"" ;
     this.$viewTool.setViewTitleOfThirdParty("设置");
     this.setViewTitleStatus();
     this.initializeData();
@@ -127,6 +128,14 @@ export default class AppSetting extends Vue {
       }
       if (item.position == "bottom") {
         this.data.bottom.push(item);
+      }
+      // 多语言处理
+      if (item.entext) {
+        if (i18n.locale == "ZH-CN") {
+          item.showtext = item.text;
+        } else if (i18n.locale == "EN-US"){
+          item.showtext = item.entext;
+        }
       }
     });
     // 排序规则
@@ -250,6 +259,44 @@ export default class AppSetting extends Vue {
   }
 
   /**
+   * 语言列表
+   *
+   */
+  public lanArray:any;
+
+  /**
+   * 切换语言
+   *
+   */
+  public changeLanguage(){
+    let lanarr:any = localStorage.getItem('lanArray');
+    this.lanArray = JSON.parse(lanarr); 
+    this.lanArray = this.lanArray.map( (language:any) => language.indexOf("ZH-CN") > -1 ? language.replace("ZH-CN","EN-US") : language.replace("EN-US","ZH-CN"));
+    i18n.locale = this.lanArray[0];
+    localStorage.setItem('local',this.lanArray[0]);
+    localStorage.setItem('lanArray',JSON.stringify(this.lanArray)) ;
+    // 提示框
+    if (this.lanArray[0] === "ZH-CN") {
+      this.$notice.success('已切换为中文！');
+    } else if (this.lanArray[0] === "EN-US"){
+      this.$notice.success('已切换为英文！');
+    }
+    Object.keys(this.data).forEach((items: any) => {
+      // 多语言处理
+      this.data[items].forEach((item:any)=>{
+        if (item.entext) {
+          if (i18n.locale == "ZH-CN") {
+            item.showtext = item.text;
+          } else if (i18n.locale == "EN-US"){
+            item.showtext = item.entext;
+          }
+        }
+      })
+    });
+    this.$forceUpdate();
+  }
+
+  /**
    * item点击事件
    */
   public onItemClick(item: any) {
@@ -264,6 +311,8 @@ export default class AppSetting extends Vue {
       this.logout();
     } else if (item.name == "clear") {
       this.clear();
+    } else if (item.name == "language"){
+      this.changeLanguage();
     } else {
       // 自定义功能
       if (item.viewName) {

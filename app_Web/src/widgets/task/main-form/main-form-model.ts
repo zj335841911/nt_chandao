@@ -126,6 +126,11 @@ export default class MainModel {
         dataType: 'LONGTEXT',
       },
       {
+        name: 'files',
+        prop: 'files',
+        dataType: 'TEXT',
+      },
+      {
         name: 'estsarted',
         prop: 'eststarted',
         dataType: 'DATE',

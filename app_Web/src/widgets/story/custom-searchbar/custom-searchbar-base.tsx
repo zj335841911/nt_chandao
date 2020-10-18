@@ -67,6 +67,7 @@ export class CustomSearchbarBase extends MainControlBase {
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
 
+
     /**
      * 过滤属性集合
      *

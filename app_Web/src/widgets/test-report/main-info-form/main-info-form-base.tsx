@@ -67,6 +67,7 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      */  
     public appUIService:TestReportUIService = new TestReportUIService(this.$store);
 
+
     /**
      * 关系界面数量
      *
@@ -75,7 +76,6 @@ export class MainInfoEditFormBase extends EditFormControlBase {
      * @memberof MainInfoEditFormBase
      */
     protected drCount: number = 1;
-
     /**
      * 表单数据对象
      *

@@ -77,3 +77,12 @@ export const getThirdPartyName = (state: any) =>() => {
 export const getZIndex = (state: any) => () => {
     return state.zIndex;
 }
+/**
+ * 获取搜索表单状态
+ * 
+ * @param state 
+ * @param val 
+ */
+export const getSearchformStatus = (state: any) => {
+    return state.searchformStatus;
+  }
