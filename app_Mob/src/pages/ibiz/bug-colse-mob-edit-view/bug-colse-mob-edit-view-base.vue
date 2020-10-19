@@ -329,8 +329,8 @@ export default class BugColseMobEditViewBase extends Vue {
      * @type {boolean}
      * @memberof BugColseMobEditView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     

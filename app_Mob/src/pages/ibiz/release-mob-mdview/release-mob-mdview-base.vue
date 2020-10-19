@@ -384,8 +384,8 @@ export default class ReleaseMobMDViewBase extends Vue {
      * @type {boolean}
      * @memberof ReleaseMobMDView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     

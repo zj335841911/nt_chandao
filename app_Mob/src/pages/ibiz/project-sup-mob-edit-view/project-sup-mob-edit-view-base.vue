@@ -329,8 +329,8 @@ export default class ProjectSupMobEditViewBase extends Vue {
      * @type {boolean}
      * @memberof ProjectSupMobEditView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     

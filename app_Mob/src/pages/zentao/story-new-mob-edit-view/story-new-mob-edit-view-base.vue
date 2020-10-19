@@ -329,8 +329,8 @@ export default class StoryNewMobEditViewBase extends Vue {
      * @type {boolean}
      * @memberof StoryNewMobEditView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     

@@ -329,8 +329,8 @@ export default class ReleaseNewMobEditViewBase extends Vue {
      * @type {boolean}
      * @memberof ReleaseNewMobEditView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     

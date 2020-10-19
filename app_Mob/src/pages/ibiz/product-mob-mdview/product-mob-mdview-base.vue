@@ -393,8 +393,8 @@ export default class ProductMobMDViewBase extends Vue {
      * @type {boolean}
      * @memberof ProductMobMDView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     

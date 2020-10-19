@@ -403,8 +403,8 @@ export default class BugTestMobMDViewBase extends Vue {
      * @type {boolean}
      * @memberof BugTestMobMDView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     
