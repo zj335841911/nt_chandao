@@ -37,11 +37,19 @@ public class BugHelper extends ZTBaseHelper<BugMapper, Bug> {
     @Autowired
     FileHelper fileHelper;
 
+    @Autowired
+    StoryHelper storyHelper;
+
+    @Autowired
+    CaseHelper caseHelper;
+
     String[] diffAttrs = {"steps"};
 
     @Override
     @Transactional
     public boolean create(Bug et) {
+        et.setStoryversion(et.getStory() != null && et.getStory() != null ? storyHelper.get(et.getStory()).getVersion() : 1);
+        et.setCaseversion(et.getIbizcase() != null && et.getIbizcase() != 0 ? caseHelper.get(et.getIbizcase()).getVersion() : 1);
         boolean bOk = super.create(et);
         if (!bOk) {
             return bOk;
