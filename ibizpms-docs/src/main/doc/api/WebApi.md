@@ -219,6 +219,7 @@
 |/task/taskfavorites|POST|任务 Json对象|&nbsp;|
 |/task/tasknfavorites|POST|任务 Json对象|&nbsp;|
 |/task/fetchassignedtomytask|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/task/fetchbugtask|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchbymodule|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchchildtask|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchcurfinishtask|GET|DEDataSetFetchContext Json对象|&nbsp;|
@@ -526,6 +527,7 @@
 |/story/fetchbuildlinkablestories|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchbuildstories|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchbymodule|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/story/fetchcasestory|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchgetproductstories|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchmycuropenedstory|GET|DEDataSetFetchContext Json对象|&nbsp;|
@@ -793,6 +795,7 @@
 |/story/fetchbuildlinkablestories|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchbuildstories|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchbymodule|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/story/fetchcasestory|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchgetproductstories|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/story/fetchmycuropenedstory|GET|DEDataSetFetchContext Json对象|&nbsp;|
@@ -1189,6 +1192,7 @@
 |/task/taskfavorites|POST|任务 Json对象|&nbsp;|
 |/task/tasknfavorites|POST|任务 Json对象|&nbsp;|
 |/task/fetchassignedtomytask|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/task/fetchbugtask|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchbymodule|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchchildtask|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/task/fetchcurfinishtask|GET|DEDataSetFetchContext Json对象|&nbsp;|

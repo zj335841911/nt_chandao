@@ -123,8 +123,8 @@ export default class MainEditService extends ControlService {
         if (Object.is(serviceName, 'ModuleService') && Object.is(interfaceName, 'FetchBugModule')) {
             return this.doItems(this.moduleService.FetchBugModule(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'module');
         }
-        if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.storyService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');
+        if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchCaseStory')) {
+            return this.doItems(this.storyService.FetchCaseStory(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');
         }
 
         return Promise.reject([])

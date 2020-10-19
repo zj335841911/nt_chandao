@@ -686,6 +686,28 @@ public class StoryResource {
                 .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchCaseStory-all')")
+	@ApiOperation(value = "获取相关用例需求", tags = {"需求" } ,notes = "获取相关用例需求")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/fetchcasestory")
+	public ResponseEntity<List<StoryDTO>> fetchCaseStory(StorySearchContext context) {
+        Page<Story> domains = storyService.searchCaseStory(context) ;
+        List<StoryDTO> list = storyMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchCaseStory-all')")
+	@ApiOperation(value = "查询相关用例需求", tags = {"需求" } ,notes = "查询相关用例需求")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/searchcasestory")
+	public ResponseEntity<Page<StoryDTO>> searchCaseStory(@RequestBody StorySearchContext context) {
+        Page<Story> domains = storyService.searchCaseStory(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchDefault-all')")
 	@ApiOperation(value = "获取DEFAULT", tags = {"需求" } ,notes = "获取DEFAULT")
     @RequestMapping(method= RequestMethod.GET , value="/stories/fetchdefault")
@@ -1655,6 +1677,29 @@ public class StoryResource {
 	public ResponseEntity<Page<StoryDTO>> searchStoryByModuleByProduct(@PathVariable("product_id") Long product_id, @RequestBody StorySearchContext context) {
         context.setN_product_eq(product_id);
         Page<Story> domains = storyService.searchByModule(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchCaseStory-all')")
+	@ApiOperation(value = "根据产品获取相关用例需求", tags = {"需求" } ,notes = "根据产品获取相关用例需求")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/fetchcasestory")
+	public ResponseEntity<List<StoryDTO>> fetchStoryCaseStoryByProduct(@PathVariable("product_id") Long product_id,StorySearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Story> domains = storyService.searchCaseStory(context) ;
+        List<StoryDTO> list = storyMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchCaseStory-all')")
+	@ApiOperation(value = "根据产品查询相关用例需求", tags = {"需求" } ,notes = "根据产品查询相关用例需求")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/searchcasestory")
+	public ResponseEntity<Page<StoryDTO>> searchStoryCaseStoryByProduct(@PathVariable("product_id") Long product_id, @RequestBody StorySearchContext context) {
+        context.setN_product_eq(product_id);
+        Page<Story> domains = storyService.searchCaseStory(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(storyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
