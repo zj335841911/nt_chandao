@@ -103,7 +103,7 @@ export default class DashboardBugLifeModel {
       {
         name: 'casename',
         prop: 'casename',
-        dataType: 'TEXT',
+        dataType: 'PICKUPTEXT',
       },
       {
         name: 'id',

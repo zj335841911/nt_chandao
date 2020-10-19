@@ -767,6 +767,7 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
                 ztcase=majorEntity;
             }
             et.setCaseversion(ztcase.getVersion());
+            et.setCasename(ztcase.getTitle());
         }
         //实体关系[DER1N_ZT_BUG_ZT_MODULE_MODULE]
         if(!ObjectUtils.isEmpty(et.getModule())){

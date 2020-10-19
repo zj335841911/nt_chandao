@@ -195,8 +195,6 @@
                 </column>
                 <column name="TESTTASK" remarks="" type="BIGINT">
                 </column>
-                <column name="CASENAME" remarks="" type="VARCHAR(100)">
-                </column>
         </createTable>
     </changeSet>
 

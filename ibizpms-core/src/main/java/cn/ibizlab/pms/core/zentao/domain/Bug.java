@@ -590,7 +590,7 @@ public class Bug extends EntityMP implements Serializable {
     /**
      * 相关用例
      */
-    @TableField(value = "`casename`")
+    @TableField(exist = false)
     @JSONField(name = "casename")
     @JsonProperty("casename")
     private String casename;
@@ -1149,14 +1149,6 @@ public class Bug extends EntityMP implements Serializable {
     public void setTesttask(Long testtask){
         this.testtask = testtask ;
         this.modify("testtask",testtask);
-    }
-
-    /**
-     * 设置 [相关用例]
-     */
-    public void setCasename(String casename){
-        this.casename = casename ;
-        this.modify("casename",casename);
     }
 
 
