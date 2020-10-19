@@ -329,8 +329,8 @@ export default class ProductCloseMobEditViewBase extends Vue {
      * @type {boolean}
      * @memberof ProductCloseMobEditView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     

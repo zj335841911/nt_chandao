@@ -393,8 +393,8 @@ export default class ProjectMobMDViewBase extends Vue {
      * @type {boolean}
      * @memberof ProjectMobMDView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     

@@ -329,8 +329,8 @@ export default class BugResolveMobEditViewBase extends Vue {
      * @type {boolean}
      * @memberof BugResolveMobEditView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     

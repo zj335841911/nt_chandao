@@ -329,8 +329,8 @@ export default class ProjectCloseMobEditViewBase extends Vue {
      * @type {boolean}
      * @memberof ProjectCloseMobEditView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     

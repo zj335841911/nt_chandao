@@ -329,8 +329,8 @@ export default class TodoNewMobEditViewBase extends Vue {
      * @type {boolean}
      * @memberof TodoNewMobEditView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     

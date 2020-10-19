@@ -329,8 +329,8 @@ export default class TaskNewMobEditViewBase extends Vue {
      * @type {boolean}
      * @memberof TaskNewMobEditView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     
