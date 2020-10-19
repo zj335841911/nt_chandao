@@ -357,6 +357,7 @@ export default class ReleaseMobPickupViewBase extends Vue {
      * @memberof ReleaseMobPickupViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

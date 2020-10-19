@@ -384,6 +384,7 @@ export default class CaseMobEditViewBase extends Vue {
      * @memberof CaseMobEditViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

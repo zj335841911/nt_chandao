@@ -454,6 +454,7 @@ export default class IbzMyTerritoryMobTabExpViewBase extends Vue {
      * @memberof IbzMyTerritoryMobTabExpViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

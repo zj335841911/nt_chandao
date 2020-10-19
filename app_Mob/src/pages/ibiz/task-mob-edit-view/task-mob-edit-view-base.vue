@@ -373,6 +373,7 @@ export default class TaskMobEditViewBase extends Vue {
 
     };
 
+
     /**
      * 工具栏显示状态
      *
@@ -521,6 +522,7 @@ export default class TaskMobEditViewBase extends Vue {
      * @memberof TaskMobEditViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

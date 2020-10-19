@@ -370,6 +370,7 @@ export default class IbzMyTerritoryMobMDView9Base extends Vue {
      * @memberof IbzMyTerritoryMobMDView9Base
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

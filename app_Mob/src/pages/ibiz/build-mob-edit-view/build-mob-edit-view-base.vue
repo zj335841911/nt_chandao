@@ -384,6 +384,7 @@ export default class BuildMobEditViewBase extends Vue {
      * @memberof BuildMobEditViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

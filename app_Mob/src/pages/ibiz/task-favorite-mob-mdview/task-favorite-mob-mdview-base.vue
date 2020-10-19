@@ -423,6 +423,7 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
      * @memberof TaskFavoriteMobMDViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

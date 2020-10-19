@@ -392,6 +392,7 @@ export default class BugPlanMobMDView9Base extends Vue {
      * @memberof BugPlanMobMDView9Base
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

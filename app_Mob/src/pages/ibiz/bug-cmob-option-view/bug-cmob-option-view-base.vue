@@ -366,6 +366,7 @@ export default class BugCMobOptionViewBase extends Vue {
      * @memberof BugCMobOptionViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

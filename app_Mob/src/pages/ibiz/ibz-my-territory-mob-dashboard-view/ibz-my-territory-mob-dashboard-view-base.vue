@@ -376,6 +376,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
      * @memberof IbzMyTerritoryMobDashboardViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

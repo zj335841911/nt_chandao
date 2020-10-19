@@ -366,6 +366,7 @@ export default class TaskCancelMobOptionViewBase extends Vue {
      * @memberof TaskCancelMobOptionViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

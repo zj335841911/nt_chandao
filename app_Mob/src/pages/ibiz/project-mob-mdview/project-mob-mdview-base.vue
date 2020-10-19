@@ -352,6 +352,7 @@ export default class ProjectMobMDViewBase extends Vue {
 
     };
 
+
     /**
      * 工具栏显示状态
      *
@@ -520,6 +521,7 @@ export default class ProjectMobMDViewBase extends Vue {
      * @memberof ProjectMobMDViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

@@ -408,6 +408,7 @@ export default class StoryFavoriteMobMDViewBase extends Vue {
      * @memberof StoryFavoriteMobMDViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

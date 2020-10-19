@@ -473,6 +473,7 @@ export default class BugMobMDViewBase extends Vue {
      * @memberof BugMobMDViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

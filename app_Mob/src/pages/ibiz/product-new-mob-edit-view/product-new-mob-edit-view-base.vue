@@ -289,6 +289,7 @@ export default class ProductNewMobEditViewBase extends Vue {
 
     };
 
+
     /**
      * 工具栏显示状态
      *
@@ -437,6 +438,7 @@ export default class ProductNewMobEditViewBase extends Vue {
      * @memberof ProductNewMobEditViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

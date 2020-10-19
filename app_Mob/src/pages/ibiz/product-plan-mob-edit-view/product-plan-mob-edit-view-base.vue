@@ -384,6 +384,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * @memberof ProductPlanMobEditViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

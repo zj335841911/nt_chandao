@@ -344,6 +344,7 @@ export default class AppPortalViewBase extends Vue {
      * @memberof AppPortalViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

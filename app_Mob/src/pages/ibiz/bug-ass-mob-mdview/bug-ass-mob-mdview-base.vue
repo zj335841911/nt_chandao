@@ -408,6 +408,7 @@ export default class BugAssMobMDViewBase extends Vue {
      * @memberof BugAssMobMDViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

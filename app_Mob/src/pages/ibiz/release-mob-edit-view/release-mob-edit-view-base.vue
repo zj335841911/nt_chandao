@@ -384,6 +384,7 @@ export default class ReleaseMobEditViewBase extends Vue {
      * @memberof ReleaseMobEditViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

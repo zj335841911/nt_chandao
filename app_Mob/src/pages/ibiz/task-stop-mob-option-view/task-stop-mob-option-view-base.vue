@@ -366,6 +366,7 @@ export default class TaskStopMobOptionViewBase extends Vue {
      * @memberof TaskStopMobOptionViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

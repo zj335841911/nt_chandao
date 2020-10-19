@@ -404,6 +404,7 @@ export default class ProductStatsMobMDViewBase extends Vue {
      * @memberof ProductStatsMobMDViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

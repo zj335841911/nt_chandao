@@ -289,6 +289,7 @@ export default class ProductCloseMobEditViewBase extends Vue {
 
     };
 
+
     /**
      * 工具栏显示状态
      *
@@ -437,6 +438,7 @@ export default class ProductCloseMobEditViewBase extends Vue {
      * @memberof ProductCloseMobEditViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

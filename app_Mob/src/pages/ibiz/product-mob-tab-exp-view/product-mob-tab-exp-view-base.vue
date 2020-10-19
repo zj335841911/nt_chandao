@@ -458,6 +458,7 @@ export default class ProductMobTabExpViewBase extends Vue {
      * @memberof ProductMobTabExpViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

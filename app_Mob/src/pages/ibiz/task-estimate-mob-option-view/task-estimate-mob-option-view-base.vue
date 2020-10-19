@@ -366,6 +366,7 @@ export default class TaskEstimateMobOptionViewBase extends Vue {
      * @memberof TaskEstimateMobOptionViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

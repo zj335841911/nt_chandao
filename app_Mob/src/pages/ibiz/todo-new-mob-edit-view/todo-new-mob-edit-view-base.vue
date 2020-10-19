@@ -289,6 +289,7 @@ export default class TodoNewMobEditViewBase extends Vue {
 
     };
 
+
     /**
      * 工具栏显示状态
      *
@@ -437,6 +438,7 @@ export default class TodoNewMobEditViewBase extends Vue {
      * @memberof TodoNewMobEditViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

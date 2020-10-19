@@ -343,6 +343,7 @@ export default class StoryMobMDViewBase extends Vue {
 
     };
 
+
     /**
      * 工具栏显示状态
      *
@@ -511,6 +512,7 @@ export default class StoryMobMDViewBase extends Vue {
      * @memberof StoryMobMDViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

@@ -343,6 +343,7 @@ export default class ReleaseMobMDViewBase extends Vue {
 
     };
 
+
     /**
      * 工具栏显示状态
      *
@@ -511,6 +512,7 @@ export default class ReleaseMobMDViewBase extends Vue {
      * @memberof ReleaseMobMDViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

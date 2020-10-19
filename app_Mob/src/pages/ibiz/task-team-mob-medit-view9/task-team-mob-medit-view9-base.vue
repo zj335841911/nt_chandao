@@ -345,6 +345,7 @@ export default class TaskTeamMobMEditView9Base extends Vue {
      * @memberof TaskTeamMobMEditView9Base
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

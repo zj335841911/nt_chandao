@@ -362,6 +362,7 @@ export default class BugTestMobMDViewBase extends Vue {
 
     };
 
+
     /**
      * 工具栏显示状态
      *
@@ -530,6 +531,7 @@ export default class BugTestMobMDViewBase extends Vue {
      * @memberof BugTestMobMDViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

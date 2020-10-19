@@ -352,6 +352,7 @@ export default class ProductMobMDViewBase extends Vue {
 
     };
 
+
     /**
      * 工具栏显示状态
      *
@@ -520,6 +521,7 @@ export default class ProductMobMDViewBase extends Vue {
      * @memberof ProductMobMDViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

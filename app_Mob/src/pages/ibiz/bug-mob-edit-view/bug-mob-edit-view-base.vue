@@ -334,6 +334,7 @@ export default class BugMobEditViewBase extends Vue {
 
     };
 
+
     /**
      * 工具栏显示状态
      *
@@ -482,6 +483,7 @@ export default class BugMobEditViewBase extends Vue {
      * @memberof BugMobEditViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

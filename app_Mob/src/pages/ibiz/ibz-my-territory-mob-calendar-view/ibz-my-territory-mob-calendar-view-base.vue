@@ -341,6 +341,7 @@ export default class IbzMyTerritoryMobCalendarViewBase extends Vue {
      * @memberof IbzMyTerritoryMobCalendarViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

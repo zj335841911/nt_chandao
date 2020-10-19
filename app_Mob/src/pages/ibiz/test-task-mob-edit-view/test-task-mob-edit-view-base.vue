@@ -384,6 +384,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * @memberof TestTaskMobEditViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

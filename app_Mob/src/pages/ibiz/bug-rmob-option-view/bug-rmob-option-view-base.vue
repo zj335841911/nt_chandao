@@ -366,6 +366,7 @@ export default class BugRMobOptionViewBase extends Vue {
      * @memberof BugRMobOptionViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

@@ -364,6 +364,7 @@ export default class UserUserCenterMobEditViewBase extends Vue {
      * @memberof UserUserCenterMobEditViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

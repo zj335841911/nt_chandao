@@ -347,6 +347,7 @@ export default class ProductMobChartViewBase extends Vue {
      * @memberof ProductMobChartViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 

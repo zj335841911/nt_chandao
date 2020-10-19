@@ -312,6 +312,7 @@ export default class StoryMobListViewBase extends Vue {
      * @memberof StoryMobListViewBase
      */
     public activated() {
+
         this.thirdPartyInit();
     }
 
