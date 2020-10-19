@@ -24,6 +24,7 @@
     refreshitems='' 
     viewname='task-estimate-mob-mdview9' 
     v-show="detailsModel.druipart2.visible" 
+    :caption="$t('task.estimatemob_form.details.druipart2')"  
     paramItem='task' 
     style="" 
     :formState="formState" 
@@ -53,6 +54,7 @@
     refreshitems='' 
     viewname='task-estimate-mob-medit-view9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('task.estimatemob_form.details.druipart1')"  
     paramItem='task' 
     style="" 
     :formState="formState" 

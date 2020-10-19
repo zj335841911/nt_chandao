@@ -100,6 +100,7 @@
     refreshitems='' 
     viewname='action-mob-mdview9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('product.mobclose_form.details.druipart1')"  
     paramItem='product' 
     style="" 
     :formState="formState" 

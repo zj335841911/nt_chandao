@@ -286,8 +286,6 @@ export default class AppSearchEditor extends Vue {
     public mounted() {
         if (Object.is(this.codeListType, "STATIC")) {
             this.options = this.$store.getters.getCodeListItems(this.tag);
-            console.log(this.options);
-
         } else {
             if (this.curValue) {
                 this.load();

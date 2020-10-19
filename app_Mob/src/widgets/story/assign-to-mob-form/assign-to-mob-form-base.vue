@@ -90,6 +90,7 @@
     refreshitems='' 
     viewname='action-mob-mdview9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('story.assigntomob_form.details.druipart1')"  
     paramItem='story' 
     style="" 
     :formState="formState" 

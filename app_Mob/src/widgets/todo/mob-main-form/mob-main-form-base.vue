@@ -320,6 +320,7 @@
     refreshitems='' 
     viewname='action-mob-mdview9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('todo.mobmain_form.details.druipart1')"  
     paramItem='todo' 
     style="" 
     :formState="formState" 

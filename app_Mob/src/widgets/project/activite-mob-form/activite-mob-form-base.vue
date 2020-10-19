@@ -144,6 +144,7 @@
     refreshitems='' 
     viewname='action-mob-mdview9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('project.activitemob_form.details.druipart1')"  
     paramItem='project' 
     style="" 
     :formState="formState" 
