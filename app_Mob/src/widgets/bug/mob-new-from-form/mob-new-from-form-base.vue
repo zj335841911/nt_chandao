@@ -560,7 +560,7 @@
     :itemParam='{ }' 
     :disabled="detailsModel.taskname.disabled"
     :service="service"
-    :acParams="{ serviceName: 'task', interfaceName: 'FetchDefault'}"
+    :acParams="{ serviceName: 'task', interfaceName: 'FetchBugTask'}"
     :value="data.taskname" 
     @formitemvaluechange="onFormItemValueChange"
     @change="($event)=>this.data.taskname = $event">

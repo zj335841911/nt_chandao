@@ -225,6 +225,9 @@ export class MobModel {
       {
         name: 'overduebugs',
       },
+      {
+        name: 'casename',
+      },
     ]
   }
 

@@ -20,7 +20,7 @@
         </ion-item>
       </template>
     </ion-list>
-    <div class="form-druipart-text">{{caption}}</div>
+    <div v-show="!blockUI" class="form-druipart-text">{{caption}}</div>
     <div v-show="!blockUI">
       <component
         class="viewcontainer2"

@@ -225,6 +225,9 @@ export class MyBugMobModel {
       {
         name: 'overduebugs',
       },
+      {
+        name: 'casename',
+      },
     ]
   }
 
