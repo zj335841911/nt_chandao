@@ -127,6 +127,42 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         return true;
     }
 
+    public boolean batchCreate(List<Story> stories) {
+        boolean flag = true;
+
+        Long branch = 0l;
+        Long product = stories.get(0).getProduct();
+        Timestamp nowDate = ZTDateUtil.now();
+        Long module = 0l;
+        String plan = "0";
+        int pri = 0;
+        String source = "";
+        List<Story> storyList = new ArrayList<>();
+        for(Story story : stories) {
+            if(story.getTitle() == null || "".equals(story.getTitle())) continue;
+            story.setModule(story.getModule() != null ? story.getModule() : module);
+            story.setPlan(story.getPath() != null ? story.getPath() : plan);
+            story.setType("story");
+            story.setSource(story.getSource() != null ? story.getSource() : source);
+            story.setPri(story.getPri() != null ? story.getPri() : pri);
+            story.setStatus(story.getNeednotreview() != null && "0".equals(story.getNeednotreview()) ? "active" : "draft");
+            story.setOpenedby(AuthenticationUser.getAuthenticationUser().getLoginname());
+            story.setOpeneddate(nowDate);
+            story.setBranch(story.getBranch() != null ? story.getBranch() : branch);
+            story.setVersion(1);
+            storyList.add(story);
+        }
+
+        for(Story story : storyList) {
+            if(!super.create(story)) {
+                continue;
+            }
+        }
+
+
+        return flag;
+    }
+
 
     /**
      * edit 编辑
@@ -589,7 +625,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         if(et.getStagedby() != null && !"".equals(et.getStagedby())) return et;
 
         Product product = et.getZtproduct();
-        boolean hasBranch = (!"normal".equals(product.getType()) && (et.getBranch() == null || et.getBranch() == 0));
+        boolean hasBranch = (!"normal".equals(product.getType()) && (et.getBranch() == null));
 
         String releaseSql = String.format("select DISTINCT branch,'released' as stage from zt_release where deleted = '0' and CONCAT(',', stories, ',') like %1$s ","CONCAT('%,'," + et.getId() + ",',%')");
         List<JSONObject> releaseList = iStoryStageService.select(releaseSql, null);
@@ -613,7 +649,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
 
         String projectSql = String.format("select DISTINCT t1.project,t3.branch from zt_projectstory t1 left join zt_project t2 on t1.project = t2.id left join zt_projectproduct t3 on t1.project = t3.project where t1.story = %1$s and t2.deleted = '0'", et.getId());
         List<JSONObject> objectList = iStoryService.select(projectSql, null);
-        String projectids = "";
+        String projectids = "0";
         for(JSONObject jsonObject : objectList) {
             if(!"".equals(projectids)) {
                 projectids += ",";
@@ -674,7 +710,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
                 story.setStage("wait");
                 story.setId(et.getId());
                 this.internalUpdate(story);
-            }else if("0".equals(et.getPlan())){
+            }else if(!"0".equals(et.getPlan())){
                 Story story = new Story();
                 story.setStage("planned");
                 story.setId(et.getId());
@@ -691,6 +727,13 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
                     storyStage.setStage(stage);
                     storyStageHelper.create(storyStage);
                 }
+            }
+        }else {
+            if(et.getPlan() != null && !"".equals(et.getPlan()) && !"0".equals(et.getPlan())){
+                Story story = new Story();
+                story.setStage("planned");
+                story.setId(et.getId());
+                this.internalUpdate(story);
             }
         }
         return et;
