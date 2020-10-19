@@ -371,6 +371,14 @@ export default class StoryMobEditViewBase extends Vue {
     }
 
     /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof StoryMobEditView 
+     */
+    public showGrop = false;
+
+    /**
      * 工具栏分组是否显示的方法
      *
      * @type {boolean}
@@ -483,7 +491,6 @@ export default class StoryMobEditViewBase extends Vue {
      * @memberof StoryMobEditViewBase
      */
     public activated() {
-        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -913,14 +920,6 @@ export default class StoryMobEditViewBase extends Vue {
         }
     }
 
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof StoryMobEditView 
-     */
-    public showGrop = false;
-    
 
     /**
      * 保存

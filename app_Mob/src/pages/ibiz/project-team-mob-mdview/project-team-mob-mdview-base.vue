@@ -574,14 +574,6 @@ export default class ProjectTeamMobMDViewBase extends Vue {
         }
     }
 
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof ProjectTeamMobMDView 
-     */
-    public showGrop = false;
-    
 
     /**
      * 搜索值

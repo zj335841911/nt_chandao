@@ -441,14 +441,6 @@ export default class AppIndexViewBase extends Vue {
         }
     }
 
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof AppIndexView 
-     */
-    public showGrop = false;
-    
 
     /**
      * 菜单位置

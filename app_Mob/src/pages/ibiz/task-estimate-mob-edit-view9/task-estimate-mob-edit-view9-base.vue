@@ -569,14 +569,6 @@ export default class TaskEstimateMobEditView9Base extends Vue {
         }
     }
 
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof TaskEstimateMobEditView9 
-     */
-    public showGrop = false;
-    
 
     /**
      * 面板定于对象

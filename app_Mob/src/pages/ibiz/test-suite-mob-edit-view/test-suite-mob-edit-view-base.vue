@@ -383,7 +383,6 @@ export default class TestSuiteMobEditViewBase extends Vue {
      * @memberof TestSuiteMobEditViewBase
      */
     public activated() {
-        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -593,14 +592,6 @@ export default class TestSuiteMobEditViewBase extends Vue {
         }
     }
 
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof TestSuiteMobEditView 
-     */
-    public showGrop = false;
-    
 
     /**
      * 保存

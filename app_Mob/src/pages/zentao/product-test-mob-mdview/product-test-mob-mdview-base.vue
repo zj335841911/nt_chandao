@@ -756,14 +756,6 @@ export default class ProductTestMobMDViewBase extends Vue {
         }
     }
 
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof ProductTestMobMDView 
-     */
-    public showGrop = false;
-    
 
 
     /**

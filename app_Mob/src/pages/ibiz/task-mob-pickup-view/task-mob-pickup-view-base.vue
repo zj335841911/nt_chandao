@@ -533,14 +533,6 @@ export default class TaskMobPickupViewBase extends Vue {
         }
     }
 
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof TaskMobPickupView 
-     */
-    public showGrop = false;
-    
 
     /**
      * 视图选中数据

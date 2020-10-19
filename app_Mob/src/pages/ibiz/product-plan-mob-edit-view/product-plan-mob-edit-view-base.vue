@@ -383,7 +383,6 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * @memberof ProductPlanMobEditViewBase
      */
     public activated() {
-        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -593,14 +592,6 @@ export default class ProductPlanMobEditViewBase extends Vue {
         }
     }
 
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof ProductPlanMobEditView 
-     */
-    public showGrop = false;
-    
 
     /**
      * 保存

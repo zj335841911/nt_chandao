@@ -726,14 +726,6 @@ export default class StoryAssMobMDViewBase extends Vue {
         }
     }
 
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof StoryAssMobMDView 
-     */
-    public showGrop = false;
-    
 
 
     /**

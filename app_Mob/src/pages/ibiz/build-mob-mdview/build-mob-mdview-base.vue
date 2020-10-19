@@ -782,14 +782,6 @@ export default class BuildMobMDViewBase extends Vue {
         }
     }
 
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof BuildMobMDView 
-     */
-    public showGrop = false;
-    
 
 
     /**

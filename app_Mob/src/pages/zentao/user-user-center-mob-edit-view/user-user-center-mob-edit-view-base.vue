@@ -363,7 +363,6 @@ export default class UserUserCenterMobEditViewBase extends Vue {
      * @memberof UserUserCenterMobEditViewBase
      */
     public activated() {
-        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -573,14 +572,6 @@ export default class UserUserCenterMobEditViewBase extends Vue {
         }
     }
 
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof UserUserCenterMobEditView 
-     */
-    public showGrop = false;
-    
 
     /**
      * 保存

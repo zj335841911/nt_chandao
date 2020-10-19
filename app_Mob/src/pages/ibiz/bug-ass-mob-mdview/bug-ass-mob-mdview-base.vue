@@ -758,14 +758,6 @@ export default class BugAssMobMDViewBase extends Vue {
         }
     }
 
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof BugAssMobMDView 
-     */
-    public showGrop = false;
-    
 
 
     /**

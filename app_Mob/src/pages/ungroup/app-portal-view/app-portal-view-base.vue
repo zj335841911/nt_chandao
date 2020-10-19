@@ -492,14 +492,6 @@ export default class AppPortalViewBase extends Vue {
         }
     }
 
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof AppPortalView 
-     */
-    public showGrop = false;
-    
 
     /**
      * 应用起始页面

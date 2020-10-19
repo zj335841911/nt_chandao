@@ -581,14 +581,6 @@ export default class TodoMobListViewBase extends Vue {
         }
     }
 
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof TodoMobListView 
-     */
-    public showGrop = false;
-    
 
 }
 </script>

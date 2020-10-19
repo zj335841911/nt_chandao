@@ -541,14 +541,6 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
         }
     }
 
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof IbzMyTerritoryMobDashboardView 
-     */
-    public showGrop = false;
-    
 
 }
 </script>

@@ -789,14 +789,6 @@ export default class TaskAssMoreMobMDViewBase extends Vue {
         }
     }
 
-    /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof TaskAssMoreMobMDView 
-     */
-    public showGrop = false;
-    
 
 
     /**
