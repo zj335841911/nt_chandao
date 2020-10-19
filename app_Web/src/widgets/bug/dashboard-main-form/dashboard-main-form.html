@@ -235,6 +235,56 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-item>
 
 </i-col>
+<i-col class="form-layout-container" v-show="detailsModel.storyname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='storyname' :itemRules="this.rules.storyname" class='' :caption="$t('entities.bug.dashboardmain_form.details.storyname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.storyname.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-picker 
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ ZT_PRODUCT:"%product%" }' 
+  :localParam ='{ n_product_eq:"%product%" }' 
+  :disabled="detailsModel.storyname.disabled"
+  name='storyname'
+  deMajorField='title'
+  deKeyField='story'
+  valueitem='story' 
+  :value="data.storyname"  
+  editortype="linkonly" 
+  :linkview="{ viewname: 'StoryMainView', title: $t('entities.story.views.mainview.title'), deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'stories', parameterName: 'story' }, { pathName: 'mainview', parameterName: 'mainview' } ], width: 0, height: 0, placement: 'DRAWER_TOP', isRedirectView: false }" 
+  style=""  
+  @formitemvaluechange="onFormItemValueChange">
+</app-picker>
+
+</app-form-item>
+
+</i-col>
+<i-col class="form-layout-container" v-show="detailsModel.taskname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='taskname' :itemRules="this.rules.taskname" class='' :caption="$t('entities.bug.dashboardmain_form.details.taskname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.taskname.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-picker 
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ ZT_PROJECT:"%project%" }' 
+  :localParam ='{ n_project_eq:"%project%" }' 
+  :disabled="detailsModel.taskname.disabled"
+  name='taskname'
+  deMajorField='name'
+  deKeyField='task'
+  valueitem='task' 
+  :value="data.taskname"  
+  editortype="linkonly" 
+  :linkview="{ viewname: 'TaskMainDashboardView', title: $t('entities.task.views.maindashboardview.title'), deResParameters: [{ pathName: 'stories', parameterName: 'story' }, ], parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'maindashboardview', parameterName: 'maindashboardview' } ], width: 1360, height: 0, placement: 'DRAWER_TOP', isRedirectView: false }" 
+  style=""  
+  @formitemvaluechange="onFormItemValueChange">
+</app-picker>
+
+</app-form-item>
+
+</i-col>
     
     </row>
 </app-form-group>

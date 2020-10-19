@@ -104,6 +104,8 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
         project: null,
         projectname: null,
         story: null,
+        storyname: null,
+        taskname: null,
         task: null,
         id: null,
         bug:null,
@@ -202,6 +204,10 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
 
         story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        storyname: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'storyname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        taskname: new FormItemModel({ caption: '相关任务', detailType: 'FORMITEM', name: 'taskname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         task: new FormItemModel({ caption: '相关任务', detailType: 'FORMITEM', name: 'task', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
@@ -218,6 +224,14 @@ export class DashboardMainEditFormBase extends EditFormControlBase {
     public resetFormData({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): void {
         if (Object.is(name, 'product')) {
             this.onFormItemValueChange({ name: 'story', value: null });
+        }
+        if (Object.is(name, 'product')) {
+            this.onFormItemValueChange({ name: 'storyname', value: null });
+            this.onFormItemValueChange({ name: 'story', value: null });
+        }
+        if (Object.is(name, 'project')) {
+            this.onFormItemValueChange({ name: 'taskname', value: null });
+            this.onFormItemValueChange({ name: 'task', value: null });
         }
         if (Object.is(name, 'project')) {
             this.onFormItemValueChange({ name: 'task', value: null });

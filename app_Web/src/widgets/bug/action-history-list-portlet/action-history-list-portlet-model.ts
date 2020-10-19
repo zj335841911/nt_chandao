@@ -225,6 +225,9 @@ export default class ActionHistoryListModel {
       {
         name: 'overduebugs',
       },
+      {
+        name: 'casename',
+      },
     ]
   }
 

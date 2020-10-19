@@ -1555,6 +1555,19 @@
     "data_type":"INT",
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"CASENAME" ,
+    "codename":"Casename",
+    "field_logic_name":"相关用例",
+    "entity_name":"Bug",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[

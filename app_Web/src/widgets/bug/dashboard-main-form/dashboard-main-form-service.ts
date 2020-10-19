@@ -4,6 +4,8 @@ import BugService from '@/service/bug/bug-service';
 import DashboardMainModel from './dashboard-main-form-model';
 import ProductService from '@/service/product/product-service';
 import ProjectService from '@/service/project/project-service';
+import StoryService from '@/service/story/story-service';
+import TaskService from '@/service/task/task-service';
 
 
 /**
@@ -60,6 +62,22 @@ export default class DashboardMainService extends ControlService {
     public projectService: ProjectService = new ProjectService();
 
     /**
+     * 需求服务对象
+     *
+     * @type {StoryService}
+     * @memberof DashboardMainService
+     */
+    public storyService: StoryService = new StoryService();
+
+    /**
+     * 任务服务对象
+     *
+     * @type {TaskService}
+     * @memberof DashboardMainService
+     */
+    public taskService: TaskService = new TaskService();
+
+    /**
      * 远端数据
      *
      * @type {*}
@@ -113,6 +131,12 @@ export default class DashboardMainService extends ControlService {
         }
         if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchBugProject')) {
             return this.doItems(this.projectService.FetchBugProject(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');
+        }
+        if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchBugStory')) {
+            return this.doItems(this.storyService.FetchBugStory(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');
+        }
+        if (Object.is(serviceName, 'TaskService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.taskService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'task');
         }
 
         return Promise.reject([])

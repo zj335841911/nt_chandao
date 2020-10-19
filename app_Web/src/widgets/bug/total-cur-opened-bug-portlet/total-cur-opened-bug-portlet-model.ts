@@ -225,6 +225,9 @@ export default class TotalCurOpenedBugModel {
       {
         name: 'overduebugs',
       },
+      {
+        name: 'casename',
+      },
     ]
   }
 

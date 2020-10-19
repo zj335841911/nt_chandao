@@ -651,6 +651,15 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonProperty("overduebugs")
     private Integer overduebugs;
 
+    /**
+     * 属性 [CASENAME]
+     *
+     */
+    @JSONField(name = "casename")
+    @JsonProperty("casename")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String casename;
+
 
     /**
      * 设置 [SEVERITY]
@@ -1042,6 +1051,14 @@ public class BugDTO extends DTOBase implements Serializable {
     public void setTesttask(Long  testtask){
         this.testtask = testtask ;
         this.modify("testtask",testtask);
+    }
+
+    /**
+     * 设置 [CASENAME]
+     */
+    public void setCasename(String  casename){
+        this.casename = casename ;
+        this.modify("casename",casename);
     }
 
 

@@ -96,6 +96,16 @@ export default class DashboardBugLifeModel {
         dataType: 'TEXT',
       },
       {
+        name: 'case',
+        prop: 'ibizcase',
+        dataType: 'PICKUP',
+      },
+      {
+        name: 'casename',
+        prop: 'casename',
+        dataType: 'TEXT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

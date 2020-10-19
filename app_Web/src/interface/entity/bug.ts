@@ -565,4 +565,12 @@ export interface Bug {
      * @memberof Bug
      */
     overduebugs?: any;
+
+    /**
+     * 相关用例
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    casename?: any;
 }

@@ -70,6 +70,7 @@ export default {
     buildproject: "版本项目",
     createbuild: "创建版本",
     overduebugs: "过期天数",
+    casename: "相关用例",
   },
 	views: {
 		plansubgridview: {
@@ -629,6 +630,8 @@ export default {
 			project: "所属项目", 
 			projectname: "项目", 
 			story: "相关需求", 
+			storyname: "相关需求", 
+			taskname: "相关任务", 
 			task: "相关任务", 
 			id: "Bug编号", 
 		},
@@ -657,6 +660,8 @@ export default {
 			closedby: "由谁关闭", 
 			lasteditedby: "最后修改者", 
 			linkbug: "相关Bug", 
+			case: "相关用例", 
+			casename: "相关用例", 
 			id: "Bug编号", 
 		},
 		uiactions: {
