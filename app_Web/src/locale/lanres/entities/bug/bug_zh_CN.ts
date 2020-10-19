@@ -542,6 +542,8 @@ export default {
 			mailto: "抄送给", 
 			keywords: "关键词", 
 			story: "相关需求", 
+			caseversion: "用例版本", 
+			case: "相关用例", 
 			id: "Bug编号", 
 			task: "相关任务", 
 		},

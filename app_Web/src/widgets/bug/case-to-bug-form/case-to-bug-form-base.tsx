@@ -104,6 +104,8 @@ export class CaseToBugEditFormBase extends EditFormControlBase {
         mailto: null,
         keywords: null,
         story: null,
+        caseversion: null,
+        case: null,
         id: null,
         task: null,
         bug:null,
@@ -210,6 +212,10 @@ export class CaseToBugEditFormBase extends EditFormControlBase {
 
         story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        caseversion: new FormItemModel({ caption: '用例版本', detailType: 'FORMITEM', name: 'caseversion', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        case: new FormItemModel({ caption: '相关用例', detailType: 'FORMITEM', name: 'case', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         id: new FormItemModel({ caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
         task: new FormItemModel({ caption: '相关任务', detailType: 'FORMITEM', name: 'task', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -265,6 +271,9 @@ export class CaseToBugEditFormBase extends EditFormControlBase {
         }
         if (this.data.hasOwnProperty('story')) {
             this.data['story'] = this.viewparams['story'];
+        }
+        if (this.data.hasOwnProperty('case')) {
+            this.data['case'] = this.viewparams['case'];
         }
     }
 }
