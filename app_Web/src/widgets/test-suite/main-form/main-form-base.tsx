@@ -67,7 +67,6 @@ export class MainEditFormBase extends EditFormControlBase {
      */  
     public appUIService:TestSuiteUIService = new TestSuiteUIService(this.$store);
 
-
     /**
      * 表单数据对象
      *

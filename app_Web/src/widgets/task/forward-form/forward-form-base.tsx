@@ -76,7 +76,6 @@ export class ForwardEditFormBase extends EditFormControlBase {
      * @memberof ForwardEditFormBase
      */
     protected drCount: number = 1;
-
     /**
      * 表单数据对象
      *

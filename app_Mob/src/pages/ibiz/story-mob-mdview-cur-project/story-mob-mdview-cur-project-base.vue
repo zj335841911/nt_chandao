@@ -501,6 +501,7 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
      * @memberof StoryMobMDViewCurProjectBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

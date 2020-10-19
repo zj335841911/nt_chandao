@@ -1,4 +1,3 @@
-
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'bug-mob-edit-view': true }">
     
@@ -482,6 +481,7 @@ export default class BugMobEditViewBase extends Vue {
      * @memberof BugMobEditViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

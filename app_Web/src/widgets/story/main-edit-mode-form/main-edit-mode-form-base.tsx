@@ -185,6 +185,14 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
     protected drCount: number = 3;
 
     /**
+     * 主键表单项名称
+     *
+     * @protected
+     * @type {number}
+     * @memberof Main_EditModeEditFormBase
+     */
+    protected formKeyItemName: string = 'id';
+    /**
      * 表单数据对象
      *
      * @type {*}

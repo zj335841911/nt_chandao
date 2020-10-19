@@ -449,7 +449,7 @@ export default class AppIndexViewBase extends Vue {
      * @type {boolean}
      * @memberof AppIndexViewBase
      */
-    private mode: boolean = true;
+    private mode: boolean = false;
 
     /**
      * 当前主题

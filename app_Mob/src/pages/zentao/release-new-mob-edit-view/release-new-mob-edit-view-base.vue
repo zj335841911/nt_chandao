@@ -1,4 +1,3 @@
-
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'release-new-mob-edit-view': true }">
     
@@ -437,6 +436,7 @@ export default class ReleaseNewMobEditViewBase extends Vue {
      * @memberof ReleaseNewMobEditViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

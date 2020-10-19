@@ -76,7 +76,6 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
      * @memberof PendingSubmissionEditFormBase
      */
     protected drCount: number = 1;
-
     /**
      * 表单数据对象
      *

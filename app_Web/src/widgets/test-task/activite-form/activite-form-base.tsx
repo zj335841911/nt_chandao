@@ -78,6 +78,14 @@ export class ActiviteEditFormBase extends EditFormControlBase {
     protected drCount: number = 1;
 
     /**
+     * 主键表单项名称
+     *
+     * @protected
+     * @type {number}
+     * @memberof ActiviteEditFormBase
+     */
+    protected formKeyItemName: string = 'id';
+    /**
      * 表单数据对象
      *
      * @type {*}

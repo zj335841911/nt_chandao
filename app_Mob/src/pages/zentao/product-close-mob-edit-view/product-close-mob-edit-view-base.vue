@@ -1,4 +1,3 @@
-
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'product-close-mob-edit-view': true }">
     
@@ -437,6 +436,7 @@ export default class ProductCloseMobEditViewBase extends Vue {
      * @memberof ProductCloseMobEditViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

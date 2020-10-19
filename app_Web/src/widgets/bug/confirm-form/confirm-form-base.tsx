@@ -76,7 +76,6 @@ export class ConfirmEditFormBase extends EditFormControlBase {
      * @memberof ConfirmEditFormBase
      */
     protected drCount: number = 1;
-
     /**
      * 表单数据对象
      *

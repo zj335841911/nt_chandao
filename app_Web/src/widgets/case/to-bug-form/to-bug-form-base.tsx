@@ -76,7 +76,6 @@ export class ToBugEditFormBase extends EditFormControlBase {
      * @memberof ToBugEditFormBase
      */
     protected drCount: number = 1;
-
     /**
      * 表单数据对象
      *

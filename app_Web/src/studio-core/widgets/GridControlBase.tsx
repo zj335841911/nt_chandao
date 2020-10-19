@@ -415,7 +415,7 @@ export class GridControlBase extends MDControlBase {
             this.$Notice.success({ title: '', desc: (this.$t('app.commonWords.saveSuccess') as string) });
         } else {
             errorItems.forEach((item: any, index: number) => {
-                this.$Notice.error({ title: (this.$t('app.commonWords.saveFailed') as string), desc: item.majorentityname + (this.$t('app.commonWords.saveFailed') as string) + '!' });
+                this.$Notice.error({ title: (this.$t('app.commonWords.saveFailed') as string), desc: item.srfmajortext?item.srfmajortext:"" + (this.$t('app.commonWords.saveFailed') as string) + '!' });
                 console.error(errorMessage[index]);
             });
         }
@@ -930,8 +930,12 @@ export class GridControlBase extends MDControlBase {
             this.selections.push(JSON.parse(JSON.stringify($event)));
             const refs: any = this.$refs;
             if (refs.multipleTable) {
-                refs.multipleTable.clearSelection();
-                refs.multipleTable.toggleRowSelection($event);
+                if(this.isSingleSelect){
+                    refs.multipleTable.clearSelection();
+                    refs.multipleTable.setCurrentRow($event);
+                }else{
+                    refs.multipleTable.toggleRowSelection($event); 
+                }
             }
         } else {
             this.selections.splice(selectIndex, 1);
@@ -1068,7 +1072,9 @@ export class GridControlBase extends MDControlBase {
             this.createDefault(data);
             data.rowDataState = "create";
             Object.assign(data, this.getActionState(data));
-            this.items.push(data);
+            let tempItems: any[] = [];
+            tempItems.push(data);
+            this.items = tempItems.concat(this.items);
             this.gridItemsModel.push(this.getGridRowModel());
         }).catch((response: any) => {
             if (response && response.status === 401) {

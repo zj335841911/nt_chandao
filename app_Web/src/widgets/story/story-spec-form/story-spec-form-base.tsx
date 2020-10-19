@@ -78,6 +78,14 @@ export class StorySpecEditFormBase extends EditFormControlBase {
     protected drCount: number = 2;
 
     /**
+     * 主键表单项名称
+     *
+     * @protected
+     * @type {number}
+     * @memberof StorySpecEditFormBase
+     */
+    protected formKeyItemName: string = 'id';
+    /**
      * 表单数据对象
      *
      * @type {*}
