@@ -520,7 +520,6 @@ export default class ProductMobMDViewBase extends Vue {
      * @memberof ProductMobMDViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

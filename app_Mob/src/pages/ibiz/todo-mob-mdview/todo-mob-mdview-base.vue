@@ -439,7 +439,6 @@ export default class TodoMobMDViewBase extends Vue {
      * @memberof TodoMobMDViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

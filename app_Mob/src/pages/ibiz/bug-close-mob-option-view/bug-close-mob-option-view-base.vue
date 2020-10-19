@@ -366,7 +366,6 @@ export default class BugCloseMobOptionViewBase extends Vue {
      * @memberof BugCloseMobOptionViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

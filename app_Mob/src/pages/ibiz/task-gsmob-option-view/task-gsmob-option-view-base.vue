@@ -366,7 +366,6 @@ export default class TaskGSMobOptionViewBase extends Vue {
      * @memberof TaskGSMobOptionViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

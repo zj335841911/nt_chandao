@@ -370,7 +370,6 @@ export default class TaskTeamMobMDView9Base extends Vue {
      * @memberof TaskTeamMobMDView9Base
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

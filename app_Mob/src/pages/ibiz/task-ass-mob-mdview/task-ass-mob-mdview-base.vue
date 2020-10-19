@@ -439,7 +439,6 @@ export default class TaskAssMobMDViewBase extends Vue {
      * @memberof TaskAssMobMDViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

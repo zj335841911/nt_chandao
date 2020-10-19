@@ -366,7 +366,6 @@ export default class TaskSTARTMobOptionViewBase extends Vue {
      * @memberof TaskSTARTMobOptionViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

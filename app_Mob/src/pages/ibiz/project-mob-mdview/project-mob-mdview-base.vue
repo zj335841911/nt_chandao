@@ -520,7 +520,6 @@ export default class ProjectMobMDViewBase extends Vue {
      * @memberof ProjectMobMDViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

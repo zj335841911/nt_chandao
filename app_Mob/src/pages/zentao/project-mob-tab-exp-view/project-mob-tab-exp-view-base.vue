@@ -462,7 +462,6 @@ export default class ProjectMobTabExpViewBase extends Vue {
      * @memberof ProjectMobTabExpViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

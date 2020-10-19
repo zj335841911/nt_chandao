@@ -346,7 +346,6 @@ export default class TaskMobPickupMDViewBase extends Vue {
      * @memberof TaskMobPickupMDViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

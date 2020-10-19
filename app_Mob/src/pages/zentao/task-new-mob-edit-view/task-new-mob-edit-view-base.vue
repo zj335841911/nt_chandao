@@ -436,7 +436,7 @@ export default class TaskNewMobEditViewBase extends Vue {
      * @memberof TaskNewMobEditViewBase
      */
     public activated() {
-
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

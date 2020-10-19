@@ -306,7 +306,6 @@ export default class AppIndexViewBase extends Vue {
      * @memberof AppIndexViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

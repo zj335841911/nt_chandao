@@ -454,7 +454,6 @@ export default class BuildMobMDViewBase extends Vue {
      * @memberof BuildMobMDViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

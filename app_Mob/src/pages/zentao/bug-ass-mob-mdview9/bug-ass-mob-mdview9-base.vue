@@ -370,7 +370,6 @@ export default class BugAssMobMDView9Base extends Vue {
      * @memberof BugAssMobMDView9Base
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

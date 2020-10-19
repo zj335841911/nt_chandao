@@ -357,7 +357,6 @@ export default class ProjectModuleMobPickupViewBase extends Vue {
      * @memberof ProjectModuleMobPickupViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

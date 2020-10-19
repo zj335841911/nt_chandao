@@ -366,7 +366,6 @@ export default class TaskComMobOptionViewBase extends Vue {
      * @memberof TaskComMobOptionViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

@@ -373,7 +373,6 @@ export default class CaseStepMobMDView9Base extends Vue {
      * @memberof CaseStepMobMDView9Base
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

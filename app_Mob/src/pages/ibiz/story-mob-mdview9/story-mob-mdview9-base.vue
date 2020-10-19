@@ -372,7 +372,6 @@ export default class StoryMobMDView9Base extends Vue {
      * @memberof StoryMobMDView9Base
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

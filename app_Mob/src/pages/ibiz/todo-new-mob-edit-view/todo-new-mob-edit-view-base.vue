@@ -436,7 +436,7 @@ export default class TodoNewMobEditViewBase extends Vue {
      * @memberof TodoNewMobEditViewBase
      */
     public activated() {
-
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

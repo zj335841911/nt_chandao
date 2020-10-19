@@ -366,7 +366,6 @@ export default class StoryRMobOptionViewBase extends Vue {
      * @memberof StoryRMobOptionViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

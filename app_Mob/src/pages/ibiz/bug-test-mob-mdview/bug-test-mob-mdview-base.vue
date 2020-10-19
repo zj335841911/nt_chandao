@@ -530,7 +530,6 @@ export default class BugTestMobMDViewBase extends Vue {
      * @memberof BugTestMobMDViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

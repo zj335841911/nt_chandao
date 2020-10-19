@@ -408,7 +408,6 @@ export default class StoryAssMobMDViewBase extends Vue {
      * @memberof StoryAssMobMDViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

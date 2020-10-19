@@ -441,7 +441,6 @@ export default class IbzFavoritesMobTabExpViewBase extends Vue {
      * @memberof IbzFavoritesMobTabExpViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

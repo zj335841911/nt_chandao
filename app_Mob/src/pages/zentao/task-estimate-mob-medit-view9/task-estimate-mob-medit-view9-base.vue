@@ -345,7 +345,6 @@ export default class TaskEstimateMobMEditView9Base extends Vue {
      * @memberof TaskEstimateMobMEditView9Base
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

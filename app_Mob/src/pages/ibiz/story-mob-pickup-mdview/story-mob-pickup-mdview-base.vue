@@ -346,7 +346,6 @@ export default class StoryMobPickupMDViewBase extends Vue {
      * @memberof StoryMobPickupMDViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

@@ -363,7 +363,7 @@ export default class UserUserCenterMobEditViewBase extends Vue {
      * @memberof UserUserCenterMobEditViewBase
      */
     public activated() {
-
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

@@ -436,7 +436,7 @@ export default class BugConfirmMobEditViewBase extends Vue {
      * @memberof BugConfirmMobEditViewBase
      */
     public activated() {
-
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

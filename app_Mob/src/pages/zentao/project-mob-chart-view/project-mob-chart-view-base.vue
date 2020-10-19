@@ -347,7 +347,6 @@ export default class ProjectMobChartViewBase extends Vue {
      * @memberof ProjectMobChartViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

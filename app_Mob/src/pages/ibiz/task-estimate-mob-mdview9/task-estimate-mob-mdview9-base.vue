@@ -370,7 +370,6 @@ export default class TaskEstimateMobMDView9Base extends Vue {
      * @memberof TaskEstimateMobMDView9Base
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

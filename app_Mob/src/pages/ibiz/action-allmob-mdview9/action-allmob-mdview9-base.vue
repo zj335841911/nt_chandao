@@ -370,7 +370,6 @@ export default class ActionALLMobMDView9Base extends Vue {
      * @memberof ActionALLMobMDView9Base
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

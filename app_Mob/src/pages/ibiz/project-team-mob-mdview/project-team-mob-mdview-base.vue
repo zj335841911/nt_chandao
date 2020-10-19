@@ -376,7 +376,6 @@ export default class ProjectTeamMobMDViewBase extends Vue {
      * @memberof ProjectTeamMobMDViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

@@ -436,7 +436,7 @@ export default class ProjectCloseMobEditViewBase extends Vue {
      * @memberof ProjectCloseMobEditViewBase
      */
     public activated() {
-
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

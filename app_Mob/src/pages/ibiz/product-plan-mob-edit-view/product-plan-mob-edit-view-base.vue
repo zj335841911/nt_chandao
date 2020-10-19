@@ -383,7 +383,7 @@ export default class ProductPlanMobEditViewBase extends Vue {
      * @memberof ProductPlanMobEditViewBase
      */
     public activated() {
-
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

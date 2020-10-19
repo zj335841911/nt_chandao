@@ -366,7 +366,6 @@ export default class TaskCloseMobOptionViewBase extends Vue {
      * @memberof TaskCloseMobOptionViewBase
      */
     public activated() {
-
         this.thirdPartyInit();
     }
 

@@ -436,7 +436,7 @@ export default class StoryNewMobEditViewBase extends Vue {
      * @memberof StoryNewMobEditViewBase
      */
     public activated() {
-
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

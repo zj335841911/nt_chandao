@@ -436,7 +436,7 @@ export default class ProductNewMobEditViewBase extends Vue {
      * @memberof ProductNewMobEditViewBase
      */
     public activated() {
-
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

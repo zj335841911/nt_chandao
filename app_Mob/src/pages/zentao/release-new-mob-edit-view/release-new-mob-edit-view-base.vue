@@ -436,7 +436,7 @@ export default class ReleaseNewMobEditViewBase extends Vue {
      * @memberof ReleaseNewMobEditViewBase
      */
     public activated() {
-
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 
