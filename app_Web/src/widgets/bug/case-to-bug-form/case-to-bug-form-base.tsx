@@ -263,6 +263,12 @@ export class CaseToBugEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('project')) {
             this.data['project'] = this.viewparams['project'];
         }
+        if (this.data.hasOwnProperty('assignedto')) {
+            this.data['assignedto'] = this.viewparams['srfloginname'];
+        }
+        if (this.data.hasOwnProperty('type')) {
+            this.data['type'] = 'codeerror';
+        }
         if (this.data.hasOwnProperty('title')) {
             this.data['title'] = this.viewparams['title'];
         }

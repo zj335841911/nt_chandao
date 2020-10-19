@@ -973,6 +973,7 @@
 |/bug/sendmsgpreprocess|POST|Bug Json对象|&nbsp;|
 |/bug/tostory|POST|Bug Json对象|&nbsp;|
 |/bug/unlinkbug|POST|Bug Json对象|&nbsp;|
+|/bug/updatestoryversion|PUT|Bug Json对象|&nbsp;|
 |/bug/fetchassignedtomybug|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bug/fetchbugsbybuild|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/bug/fetchbuildbugs|GET|DEDataSetFetchContext Json对象|&nbsp;|

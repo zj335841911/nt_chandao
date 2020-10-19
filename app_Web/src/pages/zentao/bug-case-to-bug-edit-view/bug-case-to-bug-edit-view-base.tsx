@@ -95,6 +95,7 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
         'module': { isRawValue: false, value: 'module' },
         'precondition': { isRawValue: false, value: 'precondition' },
         'title': { isRawValue: false, value: 'title' },
+        'srflonginname': { isRawValue: false, value: 'srflonginname' },
         'case': { isRawValue: false, value: 'case' }
     };
 

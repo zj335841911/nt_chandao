@@ -308,6 +308,7 @@ export default {
 			plan: "所属计划", 
 			type: "Bug类型", 
 			severity: "严重程度", 
+			storyversion: "需求版本", 
 			pri: "优先级", 
 			status: "Bug状态", 
 			activatedcount: "激活次数", 
@@ -320,6 +321,7 @@ export default {
 			keywords: "关键词", 
 			mailto: "抄送给", 
 			project: "所属项目", 
+			story: "相关需求", 
 			projectname: "项目", 
 			storyname: "相关需求", 
 			taskname: "相关任务", 
@@ -330,7 +332,6 @@ export default {
 			resolvedbuild: "解决版本", 
 			closedby: "由谁关闭", 
 			lasteditedby: "最后修改者", 
-			story: "相关需求", 
 			task: "相关任务", 
 		},
 		uiactions: {

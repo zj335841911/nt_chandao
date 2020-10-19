@@ -102,6 +102,10 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IBugBugNFavoritesLogic bugnfavoritesLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.IBugUpdateStoryVersionLogic updatestoryversionLogic;
+
     protected int batchSize = 500;
 
         @Override
@@ -343,6 +347,13 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     @Transactional
     public Bug unlinkBug(Bug et) {
   			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.BugHelper.class).unlinkBug(et);
+    }
+
+    @Override
+    @Transactional
+    public Bug updateStoryVersion(Bug et) {
+        updatestoryversionLogic.execute(et);
+         return et ;
     }
 
 

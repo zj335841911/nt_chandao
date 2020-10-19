@@ -105,6 +105,7 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
         plan: null,
         type: null,
         severity: null,
+        storyversion: null,
         pri: null,
         status: null,
         activatedcount: null,
@@ -117,6 +118,7 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
         keywords: null,
         mailto: null,
         project: null,
+        story: null,
         projectname: null,
         storyname: null,
         taskname: null,
@@ -127,7 +129,6 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
         resolvedbuild: null,
         closedby: null,
         lasteditedby: null,
-        story: null,
         task: null,
         bug:null,
     };
@@ -227,6 +228,8 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
 
         severity: new FormItemModel({ caption: '严重程度', detailType: 'FORMITEM', name: 'severity', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        storyversion: new FormItemModel({ caption: '需求版本', detailType: 'FORMITEM', name: 'storyversion', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         status: new FormItemModel({ caption: 'Bug状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -251,6 +254,8 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
 
         project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         projectname: new FormItemModel({ caption: '项目', detailType: 'FORMITEM', name: 'projectname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         storyname: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'storyname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -270,8 +275,6 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
         closedby: new FormItemModel({ caption: '由谁关闭', detailType: 'FORMITEM', name: 'closedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         lasteditedby: new FormItemModel({ caption: '最后修改者', detailType: 'FORMITEM', name: 'lasteditedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
-
-        story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         task: new FormItemModel({ caption: '相关任务', detailType: 'FORMITEM', name: 'task', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -294,6 +297,9 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
         if (Object.is(name, 'productname')) {
             this.onFormItemValueChange({ name: 'plan', value: null });
         }
+        if (Object.is(name, 'product')) {
+            this.onFormItemValueChange({ name: 'story', value: null });
+        }
         if (Object.is(name, 'productname')) {
             this.onFormItemValueChange({ name: 'projectname', value: null });
             this.onFormItemValueChange({ name: 'project', value: null });
@@ -306,11 +312,79 @@ export class DashboardMainEditEditFormBase extends EditFormControlBase {
             this.onFormItemValueChange({ name: 'taskname', value: null });
             this.onFormItemValueChange({ name: 'task', value: null });
         }
-        if (Object.is(name, 'product')) {
-            this.onFormItemValueChange({ name: 'story', value: null });
-        }
         if (Object.is(name, 'project')) {
             this.onFormItemValueChange({ name: 'task', value: null });
+        }
+    }
+
+    /**
+     * 表单项逻辑
+     *
+     * @param {{ name: string, newVal: any, oldVal: any }} { name, newVal, oldVal }
+     * @returns {Promise<void>}
+     * @memberof DashboardMainEditEditFormBase
+     */
+    public async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }): Promise<void> {
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        if (Object.is(name, 'storyname')) {
+            const details: string[] = ['storyversion'];
+            this.updateFormItems('UpdateStoryVersion', this.data, details, true);
         }
     }
 }
