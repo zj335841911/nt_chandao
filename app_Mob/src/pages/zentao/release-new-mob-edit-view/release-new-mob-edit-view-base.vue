@@ -1,4 +1,3 @@
-
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'release-new-mob-edit-view': true }">
     
@@ -288,7 +287,6 @@ export default class ReleaseNewMobEditViewBase extends Vue {
             tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '' } },
 
     };
-
 
     /**
      * 工具栏显示状态

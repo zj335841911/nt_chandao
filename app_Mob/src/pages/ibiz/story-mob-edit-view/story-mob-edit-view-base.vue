@@ -1,4 +1,3 @@
-
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'story-mob-edit-view': true }">
     
@@ -343,7 +342,6 @@ export default class StoryMobEditViewBase extends Vue {
             deuiaction1_deletemob: { name: 'deuiaction1_deletemob', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
 
     };
-
 
     /**
      * 工具栏显示状态

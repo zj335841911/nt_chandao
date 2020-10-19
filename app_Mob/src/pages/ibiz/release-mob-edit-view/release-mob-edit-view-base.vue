@@ -1,4 +1,3 @@
-
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'release-mob-edit-view': true }">
     

@@ -333,7 +333,6 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
     public righttoolbarModels: any = {
     };
 
-
     /**
      * 工具栏显示状态
      *

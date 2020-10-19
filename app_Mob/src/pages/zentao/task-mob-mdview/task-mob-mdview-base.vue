@@ -350,7 +350,6 @@ export default class TaskMobMDViewBase extends Vue {
 
     };
 
-
     /**
      * 工具栏显示状态
      *

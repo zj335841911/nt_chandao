@@ -352,7 +352,6 @@ export default class ProjectMobMDViewBase extends Vue {
 
     };
 
-
     /**
      * 工具栏显示状态
      *

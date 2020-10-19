@@ -1,4 +1,3 @@
-
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'bug-mob-edit-view': true }">
     
@@ -333,7 +332,6 @@ export default class BugMobEditViewBase extends Vue {
             deuiaction1_closebugmob: { name: 'deuiaction1_closebugmob', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CLOSE_BUT', uiaction: { tag: 'CloseBugMob', target: 'SINGLEKEY' } },
 
     };
-
 
     /**
      * 工具栏显示状态

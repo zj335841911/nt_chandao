@@ -289,7 +289,6 @@ export default class TodoMobMDViewBase extends Vue {
 
     };
 
-
     /**
      * 工具栏显示状态
      *

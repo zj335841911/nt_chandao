@@ -1,4 +1,3 @@
-
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'product-mob-edit-view': true }">
     
@@ -296,7 +295,6 @@ export default class ProductMobEditViewBase extends Vue {
           deuiaction2: { name: 'deuiaction2', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
 
     };
-
 
     /**
      * 工具栏显示状态

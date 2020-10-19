@@ -352,7 +352,6 @@ export default class ProductMobMDViewBase extends Vue {
 
     };
 
-
     /**
      * 工具栏显示状态
      *
