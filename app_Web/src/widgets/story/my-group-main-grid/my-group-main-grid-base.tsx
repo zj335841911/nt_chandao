@@ -75,34 +75,7 @@ export class MyGroupMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u797d4ad_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.Exit(datas, contextJO,paramJO,  $event, xData,this,"Story");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u60e659f_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u7b97712_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -119,7 +92,7 @@ export class MyGroupMainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_ActiviteDash(datas,contextJO, paramJO,  $event, xData,this,"Story");
+        curUIService.Story_ChangeStoryDetail(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
     /**
@@ -130,7 +103,7 @@ export class MyGroupMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u65218c9_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_uc74c61c_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -147,7 +120,7 @@ export class MyGroupMainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_ChangeStoryDetailDash(datas,contextJO, paramJO,  $event, xData,this,"Story");
+        curUIService.Story_ReviewStory(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
     /**
@@ -158,7 +131,7 @@ export class MyGroupMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u09da395_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u824d7d6_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -175,7 +148,7 @@ export class MyGroupMainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_ReviewStoryDash(datas,contextJO, paramJO,  $event, xData,this,"Story");
+        curUIService.Story_CloseStory(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
     /**
@@ -186,7 +159,7 @@ export class MyGroupMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u92abbe0_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u7480d3d_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -203,7 +176,7 @@ export class MyGroupMainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_AssignToDash(datas,contextJO, paramJO,  $event, xData,this,"Story");
+        curUIService.Story_OpenBaseInfoEditView(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
     /**
@@ -214,7 +187,7 @@ export class MyGroupMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_uf8a8e0c_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u5aaa4ae_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -231,7 +204,7 @@ export class MyGroupMainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_CloseStoryDash(datas,contextJO, paramJO,  $event, xData,this,"Story");
+        curUIService.Story_OpenCaseCreateView(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
     /**
@@ -242,7 +215,7 @@ export class MyGroupMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ub9b8ba7_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u1c090d0_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -259,7 +232,7 @@ export class MyGroupMainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_SubStoryCz(datas,contextJO, paramJO,  $event, xData,this,"Story");
+        curUIService.Story_SubStory(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
     /**
@@ -270,7 +243,7 @@ export class MyGroupMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u2eccee8_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_ucfd61f1_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -287,7 +260,7 @@ export class MyGroupMainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_OpenBaseInfoC(datas,contextJO, paramJO,  $event, xData,this,"Story");
+        curUIService.Story_StoryFavorites(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
 
     /**
@@ -298,7 +271,7 @@ export class MyGroupMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_uab5fac9_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u0ac3876_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -315,27 +288,8 @@ export class MyGroupMainGridBase extends GridControlBase {
         }
         // 界面行为
         const curUIService:StoryUIService  = new StoryUIService();
-        curUIService.Story_delete(datas,contextJO, paramJO,  $event, xData,this,"Story");
+        curUIService.Story_StoryNFavorites(datas,contextJO, paramJO,  $event, xData,this,"Story");
     }
-
-    /**
-     * 返回
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof StoryMainMyGridViewBase
-     */
-    public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        this.closeView(args);
-        if(window.parent){
-            window.parent.postMessage([{ ...args }],'*');
-        }
-    }
-
 
 
     /**
@@ -345,16 +299,14 @@ export class MyGroupMainGridBase extends GridControlBase {
      * @memberof MyGroupMainBase
      */  
     public ActionModel: any = {
-        Exit: { name: 'Exit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: ''},
-        ActiviteDash: { name: 'ActiviteDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_ACTIVE_BUT', actiontarget: 'SINGLEKEY'},
-        ChangeStoryDetailDash: { name: 'ChangeStoryDetailDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', actiontarget: 'SINGLEKEY'},
-        ReviewStoryDash: { name: 'ReviewStoryDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', actiontarget: 'SINGLEKEY'},
-        AssignToDash: { name: 'AssignToDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_ASS_BUT', actiontarget: 'SINGLEKEY'},
-        CloseStoryDash: { name: 'CloseStoryDash',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', actiontarget: 'SINGLEKEY'},
-        SubStoryCz: { name: 'SubStoryCz',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_XQXF_BUT', actiontarget: 'SINGLEKEY'},
-        OpenBaseInfoC: { name: 'OpenBaseInfoC',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_EDIT_BUT', actiontarget: 'SINGLEKEY'},
-        delete: { name: 'delete',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_DELETE_BUT', actiontarget: 'SINGLEKEY'},
-        ReturnEdit: { name: 'ReturnEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: 'SINGLEKEY'}
+        ChangeStoryDetail: { name: 'ChangeStoryDetail',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CHANGED_BUT', actiontarget: 'SINGLEKEY'},
+        ReviewStory: { name: 'ReviewStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_REVIEW_BUT', actiontarget: 'SINGLEKEY'},
+        CloseStory: { name: 'CloseStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CLOSED_BUT', actiontarget: 'SINGLEKEY'},
+        OpenBaseInfoEditView: { name: 'OpenBaseInfoEditView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_EDIT_BUT', actiontarget: 'SINGLEKEY'},
+        OpenCaseCreateView: { name: 'OpenCaseCreateView',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_CCASE_BUT', actiontarget: 'SINGLEKEY'},
+        SubStory: { name: 'SubStory',disabled: false, visabled: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__STORY_XQXF_BUT', actiontarget: 'SINGLEKEY'},
+        StoryFavorites: { name: 'StoryFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_NFAVOR_BUT', actiontarget: 'SINGLEKEY'},
+        StoryNFavorites: { name: 'StoryNFavorites',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__STORY_FAVOR_BUT', actiontarget: 'SINGLEKEY'}
     };
 
     /**
@@ -618,32 +570,29 @@ export class MyGroupMainGridBase extends GridControlBase {
      */
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
-        if(Object.is('Exit', tag)) {
-            this.grid_uagridcolumn1_u797d4ad_click(row, tag, $event);
+        if(Object.is('ChangeStoryDetail', tag)) {
+            this.grid_uagridcolumn1_u7b97712_click(row, tag, $event);
         }
-        if(Object.is('ActiviteDash', tag)) {
-            this.grid_uagridcolumn1_u60e659f_click(row, tag, $event);
+        if(Object.is('ReviewStory', tag)) {
+            this.grid_uagridcolumn1_uc74c61c_click(row, tag, $event);
         }
-        if(Object.is('ChangeStoryDetailDash', tag)) {
-            this.grid_uagridcolumn1_u65218c9_click(row, tag, $event);
+        if(Object.is('CloseStory', tag)) {
+            this.grid_uagridcolumn1_u824d7d6_click(row, tag, $event);
         }
-        if(Object.is('ReviewStoryDash', tag)) {
-            this.grid_uagridcolumn1_u09da395_click(row, tag, $event);
+        if(Object.is('OpenBaseInfoEditView', tag)) {
+            this.grid_uagridcolumn1_u7480d3d_click(row, tag, $event);
         }
-        if(Object.is('AssignToDash', tag)) {
-            this.grid_uagridcolumn1_u92abbe0_click(row, tag, $event);
+        if(Object.is('OpenCaseCreateView', tag)) {
+            this.grid_uagridcolumn1_u5aaa4ae_click(row, tag, $event);
         }
-        if(Object.is('CloseStoryDash', tag)) {
-            this.grid_uagridcolumn1_uf8a8e0c_click(row, tag, $event);
+        if(Object.is('SubStory', tag)) {
+            this.grid_uagridcolumn1_u1c090d0_click(row, tag, $event);
         }
-        if(Object.is('SubStoryCz', tag)) {
-            this.grid_uagridcolumn1_ub9b8ba7_click(row, tag, $event);
+        if(Object.is('StoryFavorites', tag)) {
+            this.grid_uagridcolumn1_ucfd61f1_click(row, tag, $event);
         }
-        if(Object.is('OpenBaseInfoC', tag)) {
-            this.grid_uagridcolumn1_u2eccee8_click(row, tag, $event);
-        }
-        if(Object.is('delete', tag)) {
-            this.grid_uagridcolumn1_uab5fac9_click(row, tag, $event);
+        if(Object.is('StoryNFavorites', tag)) {
+            this.grid_uagridcolumn1_u0ac3876_click(row, tag, $event);
         }
     }
 
