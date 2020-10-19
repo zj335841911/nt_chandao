@@ -573,6 +573,14 @@ export default class StoryLinkStoryMobMPickupViewBase extends Vue {
     }
 
     /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof StoryLinkStoryMobMPickupView 
+     */
+    public showGrop = false;
+    
+    /**
      * 视图选中数据
      *
      * @type {any[]}

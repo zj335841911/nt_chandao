@@ -573,6 +573,14 @@ export default class BuildMobMPickupViewBase extends Vue {
     }
 
     /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof BuildMobMPickupView 
+     */
+    public showGrop = false;
+    
+    /**
      * 视图选中数据
      *
      * @type {any[]}

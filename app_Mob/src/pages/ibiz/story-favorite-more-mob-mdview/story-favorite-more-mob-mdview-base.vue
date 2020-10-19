@@ -736,6 +736,14 @@ export default class StoryFavoriteMoreMobMDViewBase extends Vue {
         }
     }
 
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof StoryFavoriteMoreMobMDView 
+     */
+    public showGrop = false;
+    
 
 
     /**

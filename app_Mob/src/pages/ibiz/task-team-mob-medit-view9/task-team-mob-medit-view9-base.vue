@@ -587,6 +587,14 @@ if(this.formDruipart){
     }
 
     /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof TaskTeamMobMEditView9 
+     */
+    public showGrop = false;
+    
+    /**
     * 界面关系通讯对象
     *
     * @type {Subject<ViewState>}

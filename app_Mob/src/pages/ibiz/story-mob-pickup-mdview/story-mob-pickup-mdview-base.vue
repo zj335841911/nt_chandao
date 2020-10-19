@@ -544,6 +544,14 @@ export default class StoryMobPickupMDViewBase extends Vue {
         }
     }
 
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof StoryMobPickupMDView 
+     */
+    public showGrop = false;
+    
 
    /**
      * 是否单选

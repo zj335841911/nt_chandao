@@ -317,14 +317,6 @@ export default class TodoMobMDViewBase extends Vue {
     }
 
     /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof TodoMobMDView 
-     */
-    public showGrop = false;
-
-    /**
      * 工具栏分组是否显示的方法
      *
      * @type {boolean}
@@ -769,6 +761,14 @@ export default class TodoMobMDViewBase extends Vue {
         }
     }
 
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof TodoMobMDView 
+     */
+    public showGrop = false;
+    
 
     /**
      * 搜索值

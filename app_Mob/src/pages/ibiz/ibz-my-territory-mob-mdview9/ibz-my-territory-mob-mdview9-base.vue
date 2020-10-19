@@ -607,6 +607,14 @@ export default class IbzMyTerritoryMobMDView9Base extends Vue {
         }
     }
 
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof IbzMyTerritoryMobMDView9 
+     */
+    public showGrop = false;
+    
 
     /**
      *  app-form-druipart 组件订阅对象

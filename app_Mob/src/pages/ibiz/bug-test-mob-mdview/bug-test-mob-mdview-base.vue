@@ -390,14 +390,6 @@ export default class BugTestMobMDViewBase extends Vue {
     }
 
     /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof BugTestMobMDView 
-     */
-    public showGrop = false;
-
-    /**
      * 工具栏分组是否显示的方法
      *
      * @type {boolean}
@@ -925,6 +917,14 @@ export default class BugTestMobMDViewBase extends Vue {
         }
     }
 
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof BugTestMobMDView 
+     */
+    public showGrop = false;
+    
 
 
     /**

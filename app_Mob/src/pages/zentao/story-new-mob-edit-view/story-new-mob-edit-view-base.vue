@@ -316,14 +316,6 @@ export default class StoryNewMobEditViewBase extends Vue {
     }
 
     /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof StoryNewMobEditView 
-     */
-    public showGrop = false;
-
-    /**
      * 工具栏分组是否显示的方法
      *
      * @type {boolean}
@@ -688,6 +680,14 @@ export default class StoryNewMobEditViewBase extends Vue {
         }
     }
 
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof StoryNewMobEditView 
+     */
+    public showGrop = false;
+    
 
     /**
      * 保存

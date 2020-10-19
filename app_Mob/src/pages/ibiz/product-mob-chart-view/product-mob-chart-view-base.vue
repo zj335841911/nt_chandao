@@ -523,6 +523,14 @@ export default class ProductMobChartViewBase extends Vue {
         }
     }
 
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof ProductMobChartView 
+     */
+    public showGrop = false;
+    
 
     /**
      * 搜索值

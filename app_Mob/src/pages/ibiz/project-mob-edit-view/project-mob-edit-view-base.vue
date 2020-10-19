@@ -344,14 +344,6 @@ export default class ProjectMobEditViewBase extends Vue {
     }
 
     /**
-     * 工具栏分组是否显示的条件
-     *
-     * @type {boolean}
-     * @memberof ProjectMobEditView 
-     */
-    public showGrop = false;
-
-    /**
      * 工具栏分组是否显示的方法
      *
      * @type {boolean}
@@ -824,6 +816,14 @@ export default class ProjectMobEditViewBase extends Vue {
         }
     }
 
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof ProjectMobEditView 
+     */
+    public showGrop = false;
+    
 
     /**
      * 保存

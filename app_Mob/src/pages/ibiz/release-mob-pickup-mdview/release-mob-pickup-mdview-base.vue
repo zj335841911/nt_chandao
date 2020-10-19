@@ -542,6 +542,14 @@ export default class ReleaseMobPickupMDViewBase extends Vue {
         }
     }
 
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof ReleaseMobPickupMDView 
+     */
+    public showGrop = false;
+    
 
    /**
      * 是否单选

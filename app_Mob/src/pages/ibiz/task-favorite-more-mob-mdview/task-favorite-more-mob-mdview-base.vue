@@ -789,6 +789,14 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
         }
     }
 
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof TaskFavoriteMoreMobMDView 
+     */
+    public showGrop = false;
+    
 
 
     /**

@@ -542,6 +542,14 @@ export default class IbzMyTerritoryMobCalendarViewBase extends Vue {
         }
     }
 
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof IbzMyTerritoryMobCalendarView 
+     */
+    public showGrop = false;
+    
 
     /**
      * 多选状态改变事件
