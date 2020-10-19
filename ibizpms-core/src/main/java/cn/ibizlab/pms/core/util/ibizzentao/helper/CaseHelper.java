@@ -1,18 +1,23 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
+import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.CaseMapper;
 import cn.ibizlab.pms.core.zentao.service.IStoryService;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
+import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.phprpc.util.PHPSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
@@ -45,6 +50,9 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
     @Autowired
     SuiteCaseHelper suiteCaseHelper;
 
+    @Autowired
+    TestResultHelper testResultHelper;
+
     @Override
     @Transactional
     public boolean create(Case et) {
@@ -53,22 +61,35 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
             Case cas = caseHelper.get(et.getFromcaseid());
             et.setFromcaseversion(cas.getVersion());
         }
-
+        if(et.getStory() != null && et.getStory() != 0)
+            et.setStoryversion(storyHelper.get(et.getStory()).getVersion());
         boolean bOk = super.create(et);
         if (!bOk)
             return bOk;
-
+        createCaseStep(et,caseSteps);
         actionHelper.create("case",et.getId(),"opened","","",null,true);
+
+        return bOk;
+    }
+
+    public void createCaseStep(Case et, List<CaseStep> caseSteps) {
         if (caseSteps != null) {
+            Long parent = 0l;
             for (CaseStep caseStep : caseSteps) {
-//                if(StringUtils.isBlank(caseStep.getDesc()))
-//                    continue;
+                if(StringUtils.isBlank(caseStep.getDesc()))
+                    continue;
+                caseStep.setType(caseStep.getType() != null && "item".equals(caseStep.getType()) && parent == 0 ? "step" : caseStep.getType());
+                String type = caseStep.getType();
+                if("item".equals(type)) {
+                    caseStep.setParent(parent);
+                }
                 caseStep.setIbizcase(et.getId());
                 caseStep.setVersion(et.getVersion());
                 caseStepHelper.create(caseStep);
+                if("group".equals(type)) parent = caseStep.getId();
+                if("step".equals(type)) parent = 0l;
             }
         }
-        return bOk;
     }
 
     @Override
@@ -84,15 +105,7 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         if (!bOk)
             return bOk;
 
-        if (caseSteps != null) {
-            for (CaseStep caseStep : caseSteps) {
-//                if(StringUtils.isBlank(caseStep.getDesc()))
-//                    continue;
-                caseStep.setIbizcase(et.getId());
-                caseStep.setVersion(et.getVersion());
-                caseStepHelper.create(caseStep);
-            }
-        }
+        createCaseStep(et,caseSteps);
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0) {
@@ -128,11 +141,68 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
 
     @Transactional
     public Case runCase(Case et) {
-        Case old = new Case();
-        CachedBeanCopier.copy(get(et.getId()),old);
-
+//        Case old = new Case();
+//        CachedBeanCopier.copy(get(et.getId()),old);
+        createResult(et);
 
         return et;
+    }
+
+    public void createResult(Case et) {
+        Long caseId = Long.parseLong(et.get("case").toString());
+        if(caseId == null || caseId == 0l) return;
+        Long runId = et.getId();
+
+        Map<Integer,Map<String,String>> stepResults = new HashMap<>();
+        List<CaseStep> caseSteps = et.getCasestep();
+        et = this.get(caseId);
+        String caseResult = "pass";
+
+        if(caseSteps != null) {
+            for(CaseStep caseStep : caseSteps) {
+                if(!"n/a".equals(caseStep.getSteps()) && !"pass".equals(caseStep.getSteps())) {
+                    caseResult = caseStep.getSteps();
+                    break;
+                }
+            }
+            for(CaseStep caseStep : caseSteps) {
+                Map<String, String> results = new HashMap<>();
+                results.put("result",caseStep.getSteps());
+                results.put("real",caseStep.getReals());
+                stepResults.put(Integer.parseInt(String.valueOf(caseStep.getId())), results);
+            }
+        }
+        PHPSerializer phpSerializer = new PHPSerializer();
+        String ss = "";
+        try {
+            ss = new String(phpSerializer.serialize(stepResults),"UTF-8");
+       } catch (Exception e) {
+            e.printStackTrace();
+        }
+        TestResult testResult = new TestResult();
+        testResult.setRun(runId);
+        testResult.setCaseresult(caseResult);
+        testResult.setStepresults(ss);
+        testResult.setIbizcase(caseId);
+        testResult.setVersion(et.getVersion());
+        testResult.setLastrunner(AuthenticationUser.getAuthenticationUser().getUsername());
+        testResult.setDate(ZTDateUtil.now());
+        testResultHelper.create(testResult);
+        Case cases = new Case();
+        cases.setId(caseId);
+        cases.setLastrunner(AuthenticationUser.getAuthenticationUser().getUsername());
+        cases.setLastrundate(ZTDateUtil.now());
+        cases.setLastrunresult(caseResult);
+        this.internalUpdate(cases);
+        if(runId != null && runId != 0) {
+            TestRun testRun = new TestRun();
+            testRun.setId(runId);
+            testRun.setStatus("blocked".equals(caseResult) ? "blocked" : "done");
+            testRun.setLastrundate(ZTDateUtil.now());
+            testRun.setLastrunner(AuthenticationUser.getAuthenticationUser().getUsername());
+            testRun.setLastrunresult(caseResult);
+            testRunHelper.internalUpdate(testRun);
+        }
     }
 
     @Transactional
@@ -143,7 +213,9 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
 
     @Transactional
     public Case testRunCase(Case et) {
-        throw new RuntimeException("未实现");
+//        throw new RuntimeException("未实现");
+        createResult(et);
+        return et;
     }
 
     @Transactional

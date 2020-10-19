@@ -70,6 +70,10 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         String strSpec = et.getSpec();
         String strVerify = et.getVerify();
         fileHelper.processImgURL(et, null, null);
+        et.setVersion(1);
+        et.setAssigneddate(et.getAssignedto() != null ? ZTDateUtil.now() : ZTDateUtil.nul());
+        et.setStatus((et.getNeednotreview() == null || "".equals(et.getNeednotreview()) || "1".equals(et.getNeednotreview())) ? "draft" : "active");
+        et.setStage(et.getProject() != null && et.getProject() > 0 ? "projected" : et.getPlan() != null && !"".equals(et.getPlan()) && !"0".equals(et.getPlan()) ? "planned" : "wait");
         super.create(et);
         fileHelper.updateObjectID(null, et.getId(), "story");
         fileHelper.saveUpload("story", et.getId(), "", "", "");
@@ -131,36 +135,64 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         boolean flag = true;
 
         Long branch = 0l;
-        Long product = stories.get(0).getProduct();
+        Long product = stories.get(0).getProduct() == 0 ? this.get(stories.get(0).getParent()).getProduct() : stories.get(0).getProduct();
         Timestamp nowDate = ZTDateUtil.now();
         Long module = 0l;
         String plan = "0";
         int pri = 0;
         String source = "";
+        Long storyId = stories.get(0).getParent();
         List<Story> storyList = new ArrayList<>();
         for(Story story : stories) {
             if(story.getTitle() == null || "".equals(story.getTitle())) continue;
             story.setModule(story.getModule() != null ? story.getModule() : module);
-            story.setPlan(story.getPath() != null ? story.getPath() : plan);
+            story.setPlan(story.getPlan() != null ? story.getPlan() : plan);
             story.setType("story");
+            story.setProduct(product);
             story.setSource(story.getSource() != null ? story.getSource() : source);
             story.setPri(story.getPri() != null ? story.getPri() : pri);
             story.setStatus(story.getNeednotreview() != null && "0".equals(story.getNeednotreview()) ? "active" : "draft");
+            story.setReviewedby(story.getNeednotreview() != null && "0".equals(story.getNeednotreview()) ? "" : AuthenticationUser.getAuthenticationUser().getLoginname());
             story.setOpenedby(AuthenticationUser.getAuthenticationUser().getLoginname());
+            story.setAssignedto(story.getAssignedto());
             story.setOpeneddate(nowDate);
             story.setBranch(story.getBranch() != null ? story.getBranch() : branch);
             story.setVersion(1);
             storyList.add(story);
         }
+        String storyIds = "";
 
         for(Story story : storyList) {
-            if(!super.create(story)) {
+            if(!this.create(story)) {
                 continue;
             }
+            if(!"".equals(storyIds))  storyIds += ",";
+
+            storyIds += story.getId();
+        }
+        if(!"".equals(storyIds) && storyId != null) subdivide(storyId,storyIds);
+        return flag;
+    }
+
+    public void subdivide(Long storyId, String stories) {
+        Timestamp nowDate = ZTDateUtil.now();
+        Story story = this.get(storyId);
+        computeEstimate(storyId);
+        Story newStory = new Story();
+        newStory.setParent(-1l);
+        newStory.setPlan("0");
+        newStory.setLastediteddate(nowDate);
+        newStory.setLasteditedby(AuthenticationUser.getAuthenticationUser().getLoginname());
+        newStory.setId(storyId);
+        newStory.setChildstories(story.getChildstories() != null && !"".equals(story.getChildstories()) ? story.getChildstories() + "," + stories : stories);
+        this.internalUpdate(newStory);
+        List<History> changes = ChangeUtil.diff(story, newStory);
+        if(changes.size() > 0) {
+            Action action = actionHelper.create("story", story.getId(), "createChildrenStory",
+                    "" , stories, AuthenticationUser.getAuthenticationUser().getUsername(), true);
+            actionHelper.logHistory(action.getId(), changes);
         }
 
-
-        return flag;
     }
 
 
@@ -203,7 +235,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         boolean changed = et.getParent() != old.getParent();
         if (old.getParent() > 0) {
 
-            updateParentStatus(et, null, changed);
+            updateParentStatus(et, this.get(old.getParent()), changed);
 
             if (changed) {
                 Story oldParentStory = this.get(old.getParent());
@@ -300,6 +332,8 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             et.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
         this.internalUpdate(et);
         setStage(et);
+        if(et.getParent() > 0)
+            updateParentStatus(et, this.get(et.getParent()), false);
 
         List<History> changes = ChangeUtil.diff(old, et, null, new String[]{"status", "stage", "assignedto", "closedby", "closedreason", "closeddate"}, null);
         if (changes.size() > 0) {
@@ -314,7 +348,6 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         String comment = et.getComment() == null ? "" : et.getComment();
         Story old = new Story();
         CachedBeanCopier.copy(this.get(et.getId()), old);
-
         StorySpec oldStorySpec = storySpecHelper.getOne(new QueryWrapper<StorySpec>().eq("story", old.getId()).eq("version", old.getVersion()));
         if (oldStorySpec != null) {
             old.setSpec(oldStorySpec.getSpec());
@@ -370,7 +403,8 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         et.setAssigneddate(ZTDateUtil.now());
 
         internalUpdate(et);
-
+        if(et.getParent() > 0)
+            updateParentStatus(et, this.get(et.getParent()), false);
         List<History> changes = ChangeUtil.diff(old, et, null, new String[]{"status", "stage", "assignedto", "closedby", "closedreason", "closeddate"}, null);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create("story", et.getId(), "Closed",
@@ -657,7 +691,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             projectids += jsonObject.get("project");
         }
 
-        String taskSql = String.format("select DISTINCT t1.project,t3.branch,case when t1.develdone = t1.devel and t1.devel > 0 and t1.testdone = t1.test and t1.test > 0 then 'tested' when (t1.develwait > 0 or t1.develdoing > 0) and t1.testdone = t1.test and t1.test > 0 then 'testing' when t1.testdoing > 0 then 'testing' when t1.develdone = t1.devel and t1.devel > 0 and t1.testwait > 0 and t1.testdone > 0 then 'testing' when t1.develdone = t1.devel and t1.devel > 0 and t1.testwait = t1.test then 'developed' when t1.develwait > 0 and t1.develdone > 0 and t1.testwait = t1.test then 'developing' when t1.develdoing > 0 and t1.testwait = t1.test then 'developing' else 'projected' end as stage from (SELECT t.project, sum( IF ( t.type = 'devel' AND t.`status` = 'wait', t.ss, 0 ) ) AS develwait, sum( IF ( t.type = 'devel' AND t.`status` = 'done', t.ss, 0 ) ) AS develdone,sum( IF ( t.type = 'devel' AND t.`status` = 'doing', t.ss, 0 ) ) AS develdoing, sum( IF ( t.type = 'devel' AND t.`status` = 'pause', t.ss, 0 ) ) AS develpause, sum( IF ( t.type = 'test' AND t.`status` = 'wait', t.ss, 0 ) ) AS testwait, sum( IF ( t.type = 'test' AND t.`status` = 'done', t.ss, 0 ) ) AS testdone, sum( IF ( t.type = 'test' AND t.`status` = 'doing', t.ss, 0 ) ) AS testdoing, sum( IF ( t.type = 'test' AND t.`status` = 'pause', t.ss, 0 ) ) AS testpause, sum( IF ( t.type = 'test', t.ss, 0 ) ) AS test, sum( IF ( t.type = 'devel', t.ss, 0 ) ) AS devel FROM ( SELECT type,project,CASE WHEN `status` IS NULL OR `status` = '' THEN 'wait'  WHEN `status` = 'closed' THEN 'done' ELSE `status`  END `status`, 1 ss  FROM zt_task  WHERE story = %1$s  AND type IN ( 'devel', 'test' )  AND `status` <> 'cancel'  AND closedReason <> 'cancel'  AND deleted = '0'  AND FIND_IN_SET(project,%2$s)  ) t  GROUP BY t.project) t1 left JOIN zt_projectproduct t3 on t3.project=t1.project", et.getId(), projectids);
+        String taskSql = String.format("select DISTINCT t1.project,t3.branch,case when t1.develdone = t1.devel and t1.devel > 0 and t1.testdone = t1.test and t1.test > 0 then 'tested' when (t1.develwait > 0 or t1.develdoing > 0) and t1.testdone = t1.test and t1.test > 0 then 'testing' when t1.testdoing > 0 then 'testing' when t1.develdone = t1.devel and t1.devel > 0 and t1.testwait > 0 and t1.testdone > 0 then 'testing' when t1.develdone = t1.devel and t1.devel > 0 and t1.testwait = t1.test then 'developed' when t1.develwait > 0 and t1.develdone > 0 and t1.testwait = t1.test then 'developing' when t1.develdoing > 0 and t1.testwait = t1.test then 'developing' else 'projected' end as stage from (SELECT t.project, sum( IF ( t.type = 'devel' AND t.`status` = 'wait', t.ss, 0 ) ) AS develwait, sum( IF ( t.type = 'devel' AND t.`status` = 'done', t.ss, 0 ) ) AS develdone,sum( IF ( t.type = 'devel' AND t.`status` = 'doing', t.ss, 0 ) ) AS develdoing, sum( IF ( t.type = 'devel' AND t.`status` = 'pause', t.ss, 0 ) ) AS develpause, sum( IF ( t.type = 'test' AND t.`status` = 'wait', t.ss, 0 ) ) AS testwait, sum( IF ( t.type = 'test' AND t.`status` = 'done', t.ss, 0 ) ) AS testdone, sum( IF ( t.type = 'test' AND t.`status` = 'doing', t.ss, 0 ) ) AS testdoing, sum( IF ( t.type = 'test' AND t.`status` = 'pause', t.ss, 0 ) ) AS testpause, sum( IF ( t.type = 'test', t.ss, 0 ) ) AS test, sum( IF ( t.type = 'devel', t.ss, 0 ) ) AS devel FROM ( SELECT type,project,CASE WHEN `status` IS NULL OR `status` = '' THEN 'wait'  WHEN `status` = 'closed' THEN 'done' ELSE `status`  END `status`, 1 ss  FROM zt_task  WHERE story = %1$s  AND type IN ( 'devel', 'test' )  AND `status` <> 'cancel'  AND closedReason <> 'cancel'  AND deleted = '0'  AND FIND_IN_SET(project,'%2$s')  ) t  GROUP BY t.project) t1 left JOIN zt_projectproduct t3 on t3.project=t1.project", et.getId(), projectids);
         List<JSONObject> taskList = iStoryService.select(taskSql, null);
 
         if((taskList.isEmpty() || taskList.size() == 0) && objectList.size() > 0) {
@@ -767,6 +801,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             parentStory1.setId(parentStory.getId());
             parentStory1.setParent(-1l);
             this.internalUpdate(parentStory1);
+
             return ;
         }
         String parentStatus = parentStory.getStatus();
