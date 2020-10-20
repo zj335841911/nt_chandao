@@ -48,17 +48,12 @@ export default class TrendsModel {
 				name: 'date',
 			},
 			{
-				name: 'objecttype',
-			},
-			{
 				name: 'srfkey',
 				prop: 'id',
 				dataType: 'ACID',
 			},
 			{
-				name: 'srfmajortext',
-				prop: 'comment',
-				dataType: 'LONGTEXT',
+				name: 'objecttype',
 			},
 			{
 				name: 'action',
