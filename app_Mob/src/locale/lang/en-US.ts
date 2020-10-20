@@ -82,7 +82,7 @@ export default {
             },
             appindexview: {
                 menuitem1: '产品',
-                menuitem2: '项目1',
+                menuitem2: '项目',
                 menuitem3: '测试',
                 menuitem4: '我的',
                 menuitem6: '个人中心',
