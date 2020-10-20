@@ -270,7 +270,7 @@ export class MyOpenedStory_StageChartBase extends MainControlBase {
      */   
     public chartOption:any = {
         title:{
-            show:false ,
+            show:true ,
             text:'需求阶段',
             subtext:''
         },

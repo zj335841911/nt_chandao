@@ -78,9 +78,6 @@ export default class ProductTrendsTimelineModel {
       {
         name: 'lastmonth',
       },
-      {
-        name: 'srfkey',
-      },
     ]
   }
 

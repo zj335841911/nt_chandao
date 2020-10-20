@@ -173,12 +173,4 @@ export interface Action {
      * @memberof Action
      */
     lastmonth?: any;
-
-    /**
-     * 属性
-     *
-     * @returns {*}
-     * @memberof Action
-     */
-    srfkey?: any;
 }

@@ -218,15 +218,6 @@ public class ActionDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String lastmonth;
 
-    /**
-     * 属性 [SRFKEY]
-     *
-     */
-    @JSONField(name = "srfkey")
-    @JsonProperty("srfkey")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long srfkey;
-
 
     /**
      * 设置 [EXTRA]

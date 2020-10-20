@@ -78,9 +78,6 @@ export default class ActionHistoryModel {
       {
         name: 'lastmonth',
       },
-      {
-        name: 'srfkey',
-      },
     ]
   }
 

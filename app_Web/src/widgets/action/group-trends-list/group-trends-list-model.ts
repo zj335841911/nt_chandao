@@ -36,8 +36,8 @@ export default class GroupTrendsModel {
 			},
 			{
 				name: 'srfkey',
-				prop: 'srfkey',
-				dataType: 'BIGINT',
+				prop: 'id',
+				dataType: 'ACID',
 			},
 			{
 				name: 'id',
@@ -51,6 +51,11 @@ export default class GroupTrendsModel {
 			},
 			{
 				name: 'objecttype',
+			},
+			{
+				name: 'action',
+				prop: 'id',
+				dataType: 'FONTKEY',
 			},
       {
         name:'size',
