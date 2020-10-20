@@ -3,7 +3,7 @@
       
       <div v-if="!itemName" class="chart-no-data"><i class="el-icon-data-analysis"></i> {{$t('app.commonWords.noData')}}</div>
       <!-- 图表 -->
-      <div style="width: 41%;">
+      <div style="width: 39%;">
           <div v-if="itemName" class="app-charts" :id="chartId" style="width: 100%;height: 300px;padding: 6px 0;display: flex;justify-content: center;"></div>
           <div class="app-charts" v-if="originId" :id="originId" style="width:0px;height:0px"></div>
       </div>
