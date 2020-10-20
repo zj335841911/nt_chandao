@@ -31,10 +31,10 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
             {
 	id: '62d00b8a490cf4b6ef758c0aa3814494',
 	name: 'menuitem2',
-	text: '项目',
+	text: '项目1',
 	type: 'MENUITEM',
 	counterid: 'PROJECTS',
-	tooltip: '项目',
+	tooltip: '项目1',
 	expanded: false,
 	separator: false,
 	hidden: false,
