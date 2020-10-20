@@ -9,7 +9,7 @@
       </div>
 
       <!-- 图例 -->
-      <div class="legend" v-if="legendList.length > 0" style="width: 59%;padding-top:8px">
+      <div class="legend" v-if="legendList.length > 0" style="width: 65%;padding-top:8px">
           <el-table
               :data="legendList"
               style="width: 100%;"
