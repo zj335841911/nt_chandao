@@ -4,6 +4,7 @@ import cn.ibizlab.pms.core.ibiz.domain.TaskTeam;
 import cn.ibizlab.pms.core.ibiz.service.impl.TaskTeamServiceImpl;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
+import cn.ibizlab.pms.core.util.zentao.helper.ZTTodoHelper;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.TaskMapper;
 import cn.ibizlab.pms.core.zentao.service.IProjectService;
@@ -15,6 +16,7 @@ import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.druid.util.lang.Consumer;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import javafx.scene.shape.FillRule;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -108,7 +110,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     @Transactional
     public boolean edit(Task et) {
         String multiple = et.getMultiple();
-        List<TaskTeam> taskTeams = et.getTaskteam();
+        List<TaskTeam> teams = et.getTaskteam();
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Task old =new Task();
         CachedBeanCopier.copy(this.get(et.getId()), old);
@@ -157,7 +159,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
             teamHelper.remove(new QueryWrapper<Team>().eq("root", et.getId()).eq("type", "task"));
             int i = 0;
-            for (TaskTeam taskTeam : taskTeams) {
+            for (TaskTeam taskTeam : teams) {
                 Team team = new Team();
                 team.setType("task");
                 team.setRoot(et.getId());
@@ -170,7 +172,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 team.setOrder(i);
                 if (StringUtils.compare(et.getStatus(), "done") == 0)
                     team.setLeft(0.0);
-                teamHelper.create(team);
+//                teamHelper.create(team);
 
                 if (StringUtils.isNotBlank(et.getAssignedto())) {
                     et.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
@@ -179,7 +181,39 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 i++;
             }
         }
-        computeHours4Multiple(old, et, taskTeams, false);
+
+        teamHelper.remove(new QueryWrapper<Team>().eq("root", et.getId()).eq("type", "task"));
+        if (teams != null){
+            for (TaskTeam team : teams) {
+                taskTeamHelper.create(team);
+            }
+            this.computeHours4Multiple(old,et,null,false);
+            if (et.getStatus().equals("wait")){
+                et.setAssignedto(teams.get(0).getAccount());
+            }
+        }
+        if (!et.getStatus().equals("cancel") && (et.getName() == null || et.getType() == null)) throw new RuntimeException("非取消状态，任务名和类型不能为空！");
+        if (et.getStatus().equals("wait") || et.getStatus().equals("doing")){
+            et.setFinishedby("");
+            et.setFinisheddate(null);
+            et.setCanceledby("");
+            et.setCanceleddate(null);
+            et.setClosedby("");
+            et.setCloseddate(null);
+            et.setClosedreason("");
+        }
+        if (et.getStatus().equals("done") && (et.getConsumed() == null)) throw new RuntimeException("任务完成状态消耗不能为空");
+        if (et.getStatus().equals("done")){
+            et.setCanceledby("");
+            et.setCanceleddate(null);
+        }
+        if (et.getStatus().equals("cancel")){
+            et.setFinisheddate(null);
+            et.setFinishedby("");
+        }
+
+
+//        computeHours4Multiple(old, et, teams, false);
 
         this.internalUpdate(et);
         boolean changeParent = false;
@@ -259,102 +293,89 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
     public void computeHours4Multiple(Task old, Task task, List<TaskTeam> teams, boolean auto) {
         if (old == null) return;
-        List<JSONObject> teamList = teamService.select(String.format("select * from zt_team where root = %1$s and type = 'task' order by order",old.getId()),null);
-        if (teamList.size() != 0){
-            Timestamp now = Timestamp.valueOf(LocalDateTime.now());
+        if (teams == null) {
+            teams = taskTeamHelper.list(new QueryWrapper<TaskTeam>().eq("root", old.getId()).eq("type", "task").orderByAsc("`order`"));
+        }
+        if (teams != null && teams.size() != 0) {
+            Timestamp now = ZTDateUtil.now();
             Task currentTask = task != null ? task : new Task();
             if (currentTask.getStatus() == null) currentTask.setStatus(old.getStatus());
             currentTask.setAssignedto(old.getAssignedto());
-            if (old.getAssignedto() == null){
-                Team firstMember = JSONObject.toJavaObject(teamList.get(0),Team.class);
+            if (old.getAssignedto() == null) {
+                TaskTeam firstMember = teams.get(0);
                 currentTask.setAssignedto(firstMember.getAccount());
                 currentTask.setAssigneddate(now);
+            } else {
+                for (TaskTeam team : teams) {
+                    if (team.getAccount() != null && team.getAccount().equals(old.getAssignedto()) && team.getLeft() == 0 && team.getConsumed() != 0) {
+                        if (!old.getAssignedto().equals(teams.get(teams.size() - 1).getAccount())) {
+                            currentTask.setAssignedto(this.getNextUser(teams,old));
+                        }
+                    }
+                }
             }
-//            else {
-//                List<String> teams = new ArrayList<>();
-//                for (JSONObject t : teamList) {
-//                    teams.add(t.getString("account"));
-//                }
-//                for (JSONObject team : teamList) {
-//                    if (team.getString("account").equals(old.getAssignedto()) && team.getDoubleValue("left") == 0 && team.getDoubleValue("comsumed") != 0){
-//                        for (String account : teams) {
-//                            if (!account.equals(old.getAssignedto())) {
-//                                //getNextUser($users, $current)
-//                                if (old.getAssignedto() != null || !teams.contains(old.getAssignedto())) {
-//                                    currentTask.setAssignedto(teamList.get(0).getString("account"));
-//                                }
-//                                for (JSONObject t : teamList) {
-//                                    if (t.getString("account").equals(old.getAssignedto())){
-//                                        currentTask.setAssignedto();
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-            //               }
-            //          }
-            currentTask.setEstimate((double)0);
-            currentTask.setConsumed((double) 0);
-            currentTask.setLeft((double)0);
-            for (JSONObject member : teamList) {
-                currentTask.setEstimate(currentTask.getEstimate() + member.getDoubleValue("estimate"));
-                currentTask.setConsumed(currentTask.getConsumed() + member.getDoubleValue("consumed"));
-                currentTask.setLeft(currentTask.getLeft() + member.getDoubleValue("left"));
+
+            currentTask.setEstimate(0d);
+            currentTask.setConsumed(0d);
+            currentTask.setLeft(0d);
+            for (TaskTeam member : teams) {
+                currentTask.setEstimate(currentTask.getEstimate() + (member.getEstimate() == null ? 0 : member.getEstimate()));
+                currentTask.setConsumed(currentTask.getConsumed() + (member.getConsumed() == null ? 0 : member.getConsumed()));
+                currentTask.setLeft(currentTask.getLeft() + (member.getLeft() == null ? 0 : member.getLeft() ));
             }
-            if (task != null){
-                if (currentTask.getConsumed() == 0){
+            if (task != null) {
+                if (currentTask.getConsumed() == 0) {
                     if (task.getStatus() == null) currentTask.setStatus("wait");
                     currentTask.setFinishedby("");
                     currentTask.setFinisheddate(null);
                 }
-                if (currentTask.getConsumed() > 0 && currentTask.getLeft() > 0){
+                if (currentTask.getConsumed() > 0 && currentTask.getLeft() > 0) {
                     currentTask.setStatus("doing");
                     currentTask.setFinishedby("");
                     currentTask.setFinisheddate(null);
                 }
-                if (currentTask.getConsumed() > 0 && currentTask.getLeft() == 0){
+                if (currentTask.getConsumed() > 0 && currentTask.getLeft() == 0) {
                     boolean flag = false;
-                    for (JSONObject team : teamList) {
-                        if (team.getString("account").equals(currentTask.getAssignedto())){
+                    for (TaskTeam team : teams) {
+                        if (team.getAccount().equals(currentTask.getAssignedto())) {
                             flag = true;
                             break;
                         }
                     }
                     boolean flag1 = true;
-                    for (JSONObject team : teamList) {
-                        if (team.getString("account").equals(old.getAssignedto())){
+                    for (TaskTeam team : teams) {
+                        if (team.getAccount().equals(old.getAssignedto())) {
                             flag1 = false;
                             break;
                         }
                     }
 
-                    if (flag && flag1){
+                    if (flag && flag1) {
                         currentTask.setStatus("doing");
                         currentTask.setFinishedby("");
                         currentTask.setFinisheddate(null);
-                    }
-                    else if (!flag1){
+                    } else if (!flag1) {
                         currentTask.setStatus("done");
                         currentTask.setFinishedby(AuthenticationUser.getAuthenticationUser().getUsername());
                         currentTask.setFinisheddate(now);
                     }
                 }
-                if (!old.getAssignedto().equals(currentTask.getAssignedto()) || currentTask.getStatus().equals("done")){
+                if (!old.getAssignedto().equals(currentTask.getAssignedto()) || currentTask.getStatus().equals("done")) {
                     String login = AuthenticationUser.getAuthenticationUser().getUsername();
                     boolean flag = false;
                     double left = 0;
-                    for (JSONObject team : teamList) {
-                        if (team.getString("account").equals(login)){
+                    for (TaskTeam team : teams) {
+                        if (team.getAccount().equals(login)) {
                             flag = true;
-                            left = team.getDoubleValue("left");
+                            left = team.getLeft();
                             break;
                         }
                     }
-                    if (flag && left == 0 && !old.getFinishedlist().contains(login)){
-                        currentTask.setFinishedlist(old.getFinishedlist()+","+login);
+                    if (flag && left == 0 && !old.getFinishedlist().contains(login)) {
+                        currentTask.setFinishedlist(old.getFinishedlist() + "," + login);
                     }
-                    if (old.getStatus().equals("done") || old.getStatus().equals("closed") && currentTask.getStatus().equals("doing") && old.getStatus() != null){
-                        currentTask.setFinishedlist(old.getFinishedlist().substring(0,old.getFinishedlist().indexOf(login)));
+                    if (old.getStatus().equals("done") || old.getStatus().equals("closed") && currentTask.getStatus().equals("doing") && old.getStatus() != null) {
+                        currentTask.setFinishedlist(old.getFinishedlist().substring(0, old.getFinishedlist().indexOf(old.getAssignedto())));
                     }
                 }
             }
@@ -362,7 +383,31 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             this.internalUpdate(currentTask);
 
         }
+    }
 
+    public String getNextUser(List<TaskTeam> teams,Task old){
+        List<String> accounts = new ArrayList<>();
+        for (TaskTeam team : teams) {
+            accounts.add(team.getAccount());
+        }
+        int index = -1;
+        for (int i = 0; i < teams.size(); i++) {
+            if (teams.get(i).getAccount().equals(old.getAssignedto())){
+                index = i;
+                break;
+            }
+        }
+        if (old == null || !accounts.contains(old.getAssignedto()) || index == teams.size()-1){
+            return teams.get(0).getAccount();
+        }
+        String next = "";
+        for (int i = 0; i < teams.size(); i++) {
+            if (teams.get(i).getAccount().equals(old.getAssignedto()) && i != teams.size()-1){
+                next = teams.get(i+1).getAccount();
+                break;
+            }
+        }
+        return next;
     }
 
     public void computeBeginAndEnd(Task et) {
@@ -501,7 +546,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 task.setClosedreason("done");
             }else if("doing".equals(status) || "wait".equals(status)) {
                 if("closed".equals(oldParentTask.getAssignedto())) {
-                    task.setAssignedto(task.getAssignedto());
+                    task.setAssignedto(childTask.getAssignedto());
                     task.setCanceleddate(nowdate);
                 }
                 task.setFinishedby("");
@@ -685,7 +730,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
 
         if (old.getParent() > 0)
-            updateParentStatus(et, old.getId(), true);
+            updateParentStatus(et, old.getParent(), true);
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
@@ -757,7 +802,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         this.internalUpdate(et);
 
         if (old.getParent() > 0)
-            updateParentStatus(et, old.getId(), true);
+            updateParentStatus(et, old.getParent(), true);
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
@@ -850,7 +895,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         this.internalUpdate(et);
 
         if (old.getParent() > 0)
-            updateParentStatus(et, old.getId(), true);
+            updateParentStatus(et, old.getParent(), true);
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
@@ -1026,6 +1071,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             }
 
             super.create(task);
+
             childTasks += task.getId() + ",";
             actionHelper.create("task",task.getId(),"opened","","",null,true);
             if(task.getStory() != null && task.getStory() != 0l) {
