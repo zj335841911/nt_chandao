@@ -190,6 +190,28 @@ public class TestModuleResource {
                 .body(new PageImpl(testmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchParentModule-all')")
+	@ApiOperation(value = "获取父模块", tags = {"测试模块" } ,notes = "获取父模块")
+    @RequestMapping(method= RequestMethod.GET , value="/testmodules/fetchparentmodule")
+	public ResponseEntity<List<TestModuleDTO>> fetchParentModule(TestModuleSearchContext context) {
+        Page<TestModule> domains = testmoduleService.searchParentModule(context) ;
+        List<TestModuleDTO> list = testmoduleMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchParentModule-all')")
+	@ApiOperation(value = "查询父模块", tags = {"测试模块" } ,notes = "查询父模块")
+    @RequestMapping(method= RequestMethod.POST , value="/testmodules/searchparentmodule")
+	public ResponseEntity<Page<TestModuleDTO>> searchParentModule(@RequestBody TestModuleSearchContext context) {
+        Page<TestModule> domains = testmoduleService.searchParentModule(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchRoot-all')")
 	@ApiOperation(value = "获取根模块", tags = {"测试模块" } ,notes = "获取根模块")
     @RequestMapping(method= RequestMethod.GET , value="/testmodules/fetchroot")
@@ -417,6 +439,29 @@ public class TestModuleResource {
 	public ResponseEntity<Page<TestModuleDTO>> searchTestModuleDefaultByProduct(@PathVariable("product_id") Long product_id, @RequestBody TestModuleSearchContext context) {
         context.setN_root_eq(product_id);
         Page<TestModule> domains = testmoduleService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(testmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchParentModule-all')")
+	@ApiOperation(value = "根据产品获取父模块", tags = {"测试模块" } ,notes = "根据产品获取父模块")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/testmodules/fetchparentmodule")
+	public ResponseEntity<List<TestModuleDTO>> fetchTestModuleParentModuleByProduct(@PathVariable("product_id") Long product_id,TestModuleSearchContext context) {
+        context.setN_root_eq(product_id);
+        Page<TestModule> domains = testmoduleService.searchParentModule(context) ;
+        List<TestModuleDTO> list = testmoduleMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-searchParentModule-all')")
+	@ApiOperation(value = "根据产品查询父模块", tags = {"测试模块" } ,notes = "根据产品查询父模块")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/testmodules/searchparentmodule")
+	public ResponseEntity<Page<TestModuleDTO>> searchTestModuleParentModuleByProduct(@PathVariable("product_id") Long product_id, @RequestBody TestModuleSearchContext context) {
+        context.setN_root_eq(product_id);
+        Page<TestModule> domains = testmoduleService.searchParentModule(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

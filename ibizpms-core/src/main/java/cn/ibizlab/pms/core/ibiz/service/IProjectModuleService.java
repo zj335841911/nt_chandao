@@ -39,6 +39,7 @@ public interface IProjectModuleService extends IService<ProjectModule>{
     void saveBatch(List<ProjectModule> list) ;
     Page<ProjectModule> searchByPath(ProjectModuleSearchContext context) ;
     Page<ProjectModule> searchDefault(ProjectModuleSearchContext context) ;
+    Page<ProjectModule> searchParentModule(ProjectModuleSearchContext context) ;
     Page<ProjectModule> searchRoot(ProjectModuleSearchContext context) ;
     Page<ProjectModule> searchRoot_NoBranch(ProjectModuleSearchContext context) ;
     Page<ProjectModule> searchRoot_Task(ProjectModuleSearchContext context) ;

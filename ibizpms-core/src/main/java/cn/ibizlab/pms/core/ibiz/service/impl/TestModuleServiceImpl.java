@@ -206,6 +206,15 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
     }
 
     /**
+     * 查询集合 父模块
+     */
+    @Override
+    public Page<TestModule> searchParentModule(TestModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestModule> pages=baseMapper.searchParentModule(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<TestModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 根模块
      */
     @Override

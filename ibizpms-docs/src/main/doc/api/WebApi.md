@@ -1020,6 +1020,7 @@
 |/testmodule/save|POST|测试模块 Json对象|&nbsp;|
 |/testmodule/fetchbypath|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/testmodule/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/testmodule/fetchparentmodule|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/testmodule/fetchroot|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/testmodule/fetchroot_nobranch|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/testmodule/fetchtestmodule|GET|DEDataSetFetchContext Json对象|&nbsp;|
@@ -1051,6 +1052,7 @@
 |/projectmodule/save|POST|任务模块 Json对象|&nbsp;|
 |/projectmodule/fetchbypath|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/projectmodule/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/projectmodule/fetchparentmodule|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/projectmodule/fetchroot|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/projectmodule/fetchroot_nobranch|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/projectmodule/fetchroot_task|GET|DEDataSetFetchContext Json对象|&nbsp;|
