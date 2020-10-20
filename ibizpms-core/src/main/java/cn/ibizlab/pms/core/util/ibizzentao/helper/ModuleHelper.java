@@ -45,6 +45,8 @@ public class ModuleHelper extends ZTBaseHelper<ModuleMapper, Module> {
     @Override
     @Transactional
     public boolean edit(Module et) {
+        if(et.getParent() == null)
+            et.setParent(0l);
         boolean bOk = super.edit(et);
         if (!bOk)
             return bOk;
@@ -61,6 +63,7 @@ public class ModuleHelper extends ZTBaseHelper<ModuleMapper, Module> {
         }else{
             et.setOrder(maxModule.getOrder()+10);
         }
+
 
 
         this.internalUpdate(et);
