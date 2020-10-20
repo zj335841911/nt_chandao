@@ -78,6 +78,9 @@ export class Mob_6080Model {
       {
         name: 'lastmonth',
       },
+      {
+        name: 'srfkey',
+      },
     ]
   }
 
