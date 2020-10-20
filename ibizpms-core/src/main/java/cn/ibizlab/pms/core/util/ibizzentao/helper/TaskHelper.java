@@ -178,8 +178,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 }
                 i++;
             }
+            computeHours4Multiple(old, et, taskTeams, false);
         }
-        computeHours4Multiple(old, et, taskTeams, false);
+
 
         this.internalUpdate(et);
         boolean changeParent = false;
@@ -259,7 +260,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
     public void computeHours4Multiple(Task old, Task task, List<TaskTeam> teams, boolean auto) {
         if (old == null) return;
-        List<JSONObject> teamList = teamService.select(String.format("select * from zt_team where root = %1$s and type = 'task' order by order",old.getId()),null);
+        List<JSONObject> teamList = teamService.select(String.format("select * from zt_team where root = %1$s and type = 'task' order by `order`",old.getId()),null);
         if (teamList.size() != 0){
             Timestamp now = Timestamp.valueOf(LocalDateTime.now());
             Task currentTask = task != null ? task : new Task();
