@@ -162,7 +162,7 @@ export default class ChartFormLegend extends Vue {
     let tempOption:any = {...option};
     tempOption.title.x = 'center';
     tempOption.title.y = 'center';
-    tempOption.title.textStyle = {fontSize: 20};
+    tempOption.title.textStyle = {fontSize: 17};
     tempOption.title.subtextStyle = {fontSize: 15};
     let sum: number = this.legendList.reduce((acc: any, cur: any) => {
       acc = acc + cur.srfcount;
