@@ -71,12 +71,13 @@ export class MyOpenedStory_StageChartBase extends MainControlBase {
      */  
     public appUIService:StoryUIService = new StoryUIService(this.$store);
 
+    
 
     /**
      * 获取多项数据
      *
      * @returns {any[]}
-     * @memberof MyOpenedStory_StageBase
+     * @memberof MyOpenedStory_Stage
      */
     public getDatas(): any[] {
         return [];
@@ -86,7 +87,7 @@ export class MyOpenedStory_StageChartBase extends MainControlBase {
      * 获取单项树
      *
      * @returns {*}
-     * @memberof MyOpenedStory_StageBase
+     * @memberof MyOpenedStory_Stage
      */
     public getData(): any {
         return null;
@@ -96,7 +97,7 @@ export class MyOpenedStory_StageChartBase extends MainControlBase {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof MyOpenedStory_StageBase
+     * @memberof MyOpenedStory_Stage
      */
     @Prop({ default: true }) public showBusyIndicator!: boolean;
 
@@ -104,14 +105,14 @@ export class MyOpenedStory_StageChartBase extends MainControlBase {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof MyOpenedStory_StageBase
+     * @memberof MyOpenedStory_Stage
      */
     @Prop() public fetchAction!: string;  
 
     /**
     * Vue声明周期(组件初始化完毕)
     *
-    * @memberof MyOpenedStory_StageBase
+    * @memberof MyOpenedStory_Stage
     */
     public created() {
          this.afterCreated();     
@@ -120,7 +121,7 @@ export class MyOpenedStory_StageChartBase extends MainControlBase {
     /**
     * 执行created后的逻辑
     *
-    * @memberof MyOpenedStory_StageBase
+    * @memberof MyOpenedStory_Stage
     */
     public afterCreated(){
         if (this.viewState) {
@@ -138,7 +139,7 @@ export class MyOpenedStory_StageChartBase extends MainControlBase {
     /**
      * vue 生命周期
      *
-     * @memberof MyOpenedStory_StageBase
+     * @memberof MyOpenedStory_Stage
      */
     public destroyed() {
         this.afterDestroy();
@@ -147,7 +148,7 @@ export class MyOpenedStory_StageChartBase extends MainControlBase {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof MyOpenedStory_StageBase
+     * @memberof MyOpenedStory_Stage
      */
     public afterDestroy() {
         if (this.viewStateEvent) {
@@ -212,18 +213,8 @@ export class MyOpenedStory_StageChartBase extends MainControlBase {
     {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
-        label:{
-            show: true,
-            position: 'outside',
-        },
-        labelLine:{
-            show: true,
-            length: 10,
-            lineStyle: {
-                width: 1,
-                type: 'solid'
-            }
-        },
+        label:{show:false},
+        labelLine:{show:false},
         itemStyle:{
             borderColor: '#fff',
             borderWidth: 1
@@ -253,6 +244,7 @@ export class MyOpenedStory_StageChartBase extends MainControlBase {
      * @memberof Dashboard_sysportlet7_chartBase
      */   
     public chartUserParams:any ={
+        legend:{show:false},
         color:["#CAAC32","#0075A9","#22AC38","#2B4D6D",'#FF9100','#FF3D00','#F57F17','#00E5FF','#00B0FF','#2979FF','#3D5AFE','#651FFF','#D500F9']
     };
 
@@ -665,7 +657,7 @@ export class MyOpenedStory_StageChartBase extends MainControlBase {
         }
         // 补全空白分类
         if(returnArray.length >0){
-            let emptyText = (groupFieldModel[0] && groupFieldModel[0].codeList)?groupFieldModel[0].codeList.emptytext:"未定义";
+            let emptyText = (groupFieldModel[0] && groupFieldModel[0].codeList)?groupFieldModel[0].codeList.emptytext:(this.$t('app.chart.undefined') as string);
             returnArray.forEach((item:any) =>{
                 if(!item[groupField[0]]){
                     item[groupField[0]] = emptyText;
@@ -731,11 +723,11 @@ export class MyOpenedStory_StageChartBase extends MainControlBase {
                     return Number(a[groupField[0].name]) - Number(b[groupField[0].name]);
                 });
             }else if(Object.is(groupField[0].groupMode,"QUARTER")){
-                returnArray = this.handleSortGroupData(arr,groupField,"季度");
+                returnArray = this.handleSortGroupData(arr,groupField,(this.$t('app.chart.quarter') as string));
             }else if(Object.is(groupField[0].groupMode,"MONTH")){
-                returnArray = this.handleSortGroupData(arr,groupField,"月");
+                returnArray = this.handleSortGroupData(arr,groupField,(this.$t('app.calendar.month') as string));
             }else if(Object.is(groupField[0].groupMode,"YEARWEEK")){
-                returnArray = this.handleSortGroupData(arr,groupField,"周");
+                returnArray = this.handleSortGroupData(arr,groupField,(this.$t('app.calendar.week') as string));
             }else if(Object.is(groupField[0].groupMode,"DAY")){
                 returnArray = arr.sort((a:any, b:any) => {
                     return moment(a[groupField[0].name]).unix() - moment(b[groupField[0].name]).unix();
@@ -1129,4 +1121,6 @@ export class MyOpenedStory_StageChartBase extends MainControlBase {
             }
         })
     }
+
+
 }
