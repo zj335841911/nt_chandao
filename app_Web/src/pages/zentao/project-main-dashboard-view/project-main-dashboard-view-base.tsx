@@ -95,9 +95,18 @@ export class ProjectMainDashboardViewBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectMainDashboardViewBase
      */
 	protected viewtag: string = '85ee867b09a2d6303c061d91374ec975';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectMainDashboardViewBase
+     */ 
+    protected viewName:string = "ProjectMainDashboardView";
 
 
     /**

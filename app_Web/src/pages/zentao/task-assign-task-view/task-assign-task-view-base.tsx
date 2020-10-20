@@ -122,9 +122,18 @@ export class TaskAssignTaskViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskAssignTaskViewBase
      */
 	protected viewtag: string = '12661bdb476cd339554799b417c6ea48';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskAssignTaskViewBase
+     */ 
+    protected viewName:string = "TaskAssignTaskView";
 
 
     /**

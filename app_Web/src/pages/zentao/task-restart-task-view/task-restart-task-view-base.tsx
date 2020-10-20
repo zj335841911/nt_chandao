@@ -122,9 +122,18 @@ export class TaskRestartTaskViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskRestartTaskViewBase
      */
 	protected viewtag: string = '38d08f54d32902165fb9e3b679810d55';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskRestartTaskViewBase
+     */ 
+    protected viewName:string = "TaskRestartTaskView";
 
 
     /**

@@ -115,9 +115,18 @@ export class BranchPMInfoEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BranchPMInfoEditViewBase
      */
 	protected viewtag: string = 'e1a0e6c29939260ead53dcd3beb8b736';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BranchPMInfoEditViewBase
+     */ 
+    protected viewName:string = "BranchPMInfoEditView";
 
 
     /**

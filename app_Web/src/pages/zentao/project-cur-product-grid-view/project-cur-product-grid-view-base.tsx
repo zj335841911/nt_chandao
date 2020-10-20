@@ -138,9 +138,18 @@ export class ProjectCurProductGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectCurProductGridViewBase
      */
 	protected viewtag: string = '522b28992d16207a0fc47340589bb2cf';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectCurProductGridViewBase
+     */ 
+    protected viewName:string = "ProjectCurProductGridView";
 
 
     /**

@@ -120,9 +120,18 @@ export class IBZProStoryGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IBZProStoryGridViewBase
      */
 	protected viewtag: string = '077af636991c5ae68e1bc260baffc10f';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IBZProStoryGridViewBase
+     */ 
+    protected viewName:string = "IBZProStoryGridView";
 
 
     /**

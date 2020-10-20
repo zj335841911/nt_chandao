@@ -111,9 +111,18 @@ export class ProductGridView_UnClosedBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductGridView_UnClosedBase
      */
 	protected viewtag: string = '52e850ef857c81c2a96f5db0a84836f8';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductGridView_UnClosedBase
+     */ 
+    protected viewName:string = "ProductGridView_UnClosed";
 
 
     /**

@@ -78,6 +78,14 @@ export class PickupGirdGridBase extends GridControlBase {
     };
 
     /**
+     * 主信息表格列
+     *
+     * @type {string}
+     * @memberof PickupGirdBase
+     */  
+    public majorInfoColName:string = "title";
+
+    /**
      * 本地缓存标识
      *
      * @protected

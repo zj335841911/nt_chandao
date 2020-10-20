@@ -143,9 +143,18 @@ export class TaskEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskEditViewBase
      */
 	protected viewtag: string = 'ea141fddc78fd1af4d06e494baf12cc1';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskEditViewBase
+     */ 
+    protected viewName:string = "TaskEditView";
 
 
     /**

@@ -107,9 +107,18 @@ export class BugMainDashboardViewBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugMainDashboardViewBase
      */
 	protected viewtag: string = '1540523a668e920d831510cfbec2c5e2';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugMainDashboardViewBase
+     */ 
+    protected viewName:string = "BugMainDashboardView";
 
 
     /**

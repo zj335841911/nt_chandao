@@ -95,9 +95,18 @@ export class IbzMyTerritoryDashboardViewBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzMyTerritoryDashboardViewBase
      */
 	protected viewtag: string = 'd8df5ca51341d33ccc19208dde3f2cce';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzMyTerritoryDashboardViewBase
+     */ 
+    protected viewName:string = "IbzMyTerritoryDashboardView";
 
 
     /**

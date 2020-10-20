@@ -122,9 +122,18 @@ export class BugResolveViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugResolveViewBase
      */
 	protected viewtag: string = 'c1e9611b6972b1877b75fa5d2c67aad6';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugResolveViewBase
+     */ 
+    protected viewName:string = "BugResolveView";
 
 
     /**

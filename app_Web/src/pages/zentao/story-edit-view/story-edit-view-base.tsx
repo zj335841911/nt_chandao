@@ -144,9 +144,18 @@ export class StoryEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryEditViewBase
      */
 	protected viewtag: string = '4863a523ac490ebce771717756f0c6a8';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryEditViewBase
+     */ 
+    protected viewName:string = "StoryEditView";
 
 
     /**

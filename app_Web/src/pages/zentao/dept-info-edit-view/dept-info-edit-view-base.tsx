@@ -115,9 +115,18 @@ export class DeptInfoEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof DeptInfoEditViewBase
      */
 	protected viewtag: string = 'a52f8b23a989b8526e4c98c49d73a3d0';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DeptInfoEditViewBase
+     */ 
+    protected viewName:string = "DeptInfoEditView";
 
 
     /**

@@ -131,9 +131,18 @@ export class ProjectLeftSidebarListViewBase extends ListViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectLeftSidebarListViewBase
      */
 	protected viewtag: string = '7c79a923d0cdd1a5bc41a34367809077';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectLeftSidebarListViewBase
+     */ 
+    protected viewName:string = "ProjectLeftSidebarListView";
 
 
     /**

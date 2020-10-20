@@ -100,9 +100,18 @@ export class CaseReportLinkGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseReportLinkGridViewBase
      */
 	protected viewtag: string = '1b214bd727533f6662aa78368fb67e4b';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseReportLinkGridViewBase
+     */ 
+    protected viewName:string = "CaseReportLinkGridView";
 
 
     /**

@@ -122,9 +122,18 @@ export class TaskCloseTaskViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskCloseTaskViewBase
      */
 	protected viewtag: string = '507c506d62dc910a814332e6ae242266';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskCloseTaskViewBase
+     */ 
+    protected viewName:string = "TaskCloseTaskView";
 
 
     /**

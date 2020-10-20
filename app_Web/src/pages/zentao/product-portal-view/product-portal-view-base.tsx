@@ -42,9 +42,18 @@ export class ProductPortalViewBase extends PortalViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductPortalViewBase
      */
 	protected viewtag: string = 'A49E5FD9-FC90-434B-9E13-192873F6F2AC';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductPortalViewBase
+     */ 
+    protected viewName:string = "ProductPortalView";
 
 
 

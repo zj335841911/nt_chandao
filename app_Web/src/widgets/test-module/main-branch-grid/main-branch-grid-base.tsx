@@ -107,6 +107,14 @@ export class MainBranchGridBase extends GridControlBase {
     };
 
     /**
+     * 主信息表格列
+     *
+     * @type {string}
+     * @memberof MainBranchBase
+     */  
+    public majorInfoColName:string = "name";
+
+    /**
      * 本地缓存标识
      *
      * @protected

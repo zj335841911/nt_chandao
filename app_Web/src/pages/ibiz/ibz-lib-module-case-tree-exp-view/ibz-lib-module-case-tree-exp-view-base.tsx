@@ -95,9 +95,18 @@ export class IbzLibModuleCaseTreeExpViewBase extends TreeExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzLibModuleCaseTreeExpViewBase
      */
 	protected viewtag: string = '99b83386d61eab84cd7d65a445def4ed';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzLibModuleCaseTreeExpViewBase
+     */ 
+    protected viewName:string = "IbzLibModuleCaseTreeExpView";
 
 
     /**

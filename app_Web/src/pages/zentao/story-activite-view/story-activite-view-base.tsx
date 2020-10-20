@@ -122,9 +122,18 @@ export class StoryActiviteViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryActiviteViewBase
      */
 	protected viewtag: string = 'e6797f4a1585954f5bb2f682880fa9d6';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryActiviteViewBase
+     */ 
+    protected viewName:string = "StoryActiviteView";
 
 
     /**

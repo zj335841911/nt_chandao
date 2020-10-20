@@ -117,9 +117,18 @@ export class ProjectEditView_CloseBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectEditView_CloseBase
      */
 	protected viewtag: string = '9a8c28c2365d7dc8bb5619f39576b558';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectEditView_CloseBase
+     */ 
+    protected viewName:string = "ProjectEditView_Close";
 
 
     /**

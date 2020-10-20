@@ -128,9 +128,18 @@ export class TestModuleGridViewMainBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestModuleGridViewMainBase
      */
 	protected viewtag: string = '9396442ba87e188748229e6bc6927156';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestModuleGridViewMainBase
+     */ 
+    protected viewName:string = "TestModuleGridViewMain";
 
 
     /**

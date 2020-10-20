@@ -115,9 +115,18 @@ export class BugMyFavoriteGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugMyFavoriteGridViewBase
      */
 	protected viewtag: string = '14f00c25c80cfa8ec6c94ad76e82cf16';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugMyFavoriteGridViewBase
+     */ 
+    protected viewName:string = "BugMyFavoriteGridView";
 
 
     /**

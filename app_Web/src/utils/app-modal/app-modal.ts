@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { Subject } from 'rxjs';
-import store from '../../store';
+import store from '@/store';
 import i18n from '@/locale';
 import { ViewTool } from '../view-tool/view-tool';
 import AppModalCompponent from "./app-modal.vue";

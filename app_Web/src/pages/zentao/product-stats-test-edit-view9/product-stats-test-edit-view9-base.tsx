@@ -119,9 +119,18 @@ export class ProductStatsTestEditView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductStatsTestEditView9Base
      */
 	protected viewtag: string = '2ae3586b0dd0f70c261ba6f24adb99df';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductStatsTestEditView9Base
+     */ 
+    protected viewName:string = "ProductStatsTestEditView9";
 
 
     /**

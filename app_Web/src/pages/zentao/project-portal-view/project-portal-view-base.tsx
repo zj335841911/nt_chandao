@@ -42,9 +42,18 @@ export class ProjectPortalViewBase extends PortalViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectPortalViewBase
      */
 	protected viewtag: string = 'CC49500F-030F-458F-82DF-F88F6973DF64';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectPortalViewBase
+     */ 
+    protected viewName:string = "ProjectPortalView";
 
 
 

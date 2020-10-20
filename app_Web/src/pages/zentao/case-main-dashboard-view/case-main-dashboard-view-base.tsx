@@ -107,9 +107,18 @@ export class CaseMainDashboardViewBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseMainDashboardViewBase
      */
 	protected viewtag: string = '6f78b25e86923ab600a2141d50fe49fd';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseMainDashboardViewBase
+     */ 
+    protected viewName:string = "CaseMainDashboardView";
 
 
     /**

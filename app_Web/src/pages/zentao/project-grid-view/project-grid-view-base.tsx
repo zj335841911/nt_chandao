@@ -117,9 +117,18 @@ export class ProjectGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectGridViewBase
      */
 	protected viewtag: string = '846ddf8e555650608d4f75c4595c1270';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectGridViewBase
+     */ 
+    protected viewName:string = "ProjectGridView";
 
 
     /**

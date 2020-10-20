@@ -139,9 +139,18 @@ export class UserEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof UserEditViewBase
      */
 	protected viewtag: string = '83b1f6c353e9383e36b8d58eec845267';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof UserEditViewBase
+     */ 
+    protected viewName:string = "UserEditView";
 
 
     /**

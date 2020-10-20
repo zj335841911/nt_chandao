@@ -100,9 +100,18 @@ export class CaseGridView9_StoryRelatedBase extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseGridView9_StoryRelatedBase
      */
 	protected viewtag: string = '5d3b1d4c90b8b3a2013ccd3f3a9d5f17';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseGridView9_StoryRelatedBase
+     */ 
+    protected viewName:string = "CaseGridView9_StoryRelated";
 
 
     /**

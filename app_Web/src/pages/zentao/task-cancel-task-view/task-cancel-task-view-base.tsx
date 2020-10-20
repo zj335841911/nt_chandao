@@ -122,9 +122,18 @@ export class TaskCancelTaskViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskCancelTaskViewBase
      */
 	protected viewtag: string = 'a97ff9ae4f22d5974b51af2c0fae1aa2';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskCancelTaskViewBase
+     */ 
+    protected viewName:string = "TaskCancelTaskView";
 
 
     /**

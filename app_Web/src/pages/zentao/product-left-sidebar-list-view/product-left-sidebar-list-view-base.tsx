@@ -131,9 +131,18 @@ export class ProductLeftSidebarListViewBase extends ListViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductLeftSidebarListViewBase
      */
 	protected viewtag: string = '8ca39819b87c5e3e8669fcd7409cf9a2';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductLeftSidebarListViewBase
+     */ 
+    protected viewName:string = "ProductLeftSidebarListView";
 
 
     /**

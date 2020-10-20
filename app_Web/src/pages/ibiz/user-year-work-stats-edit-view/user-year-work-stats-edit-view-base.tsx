@@ -130,9 +130,18 @@ export class UserYearWorkStatsEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof UserYearWorkStatsEditViewBase
      */
 	protected viewtag: string = 'db750bbb894c25f38ca2741f234df3c6';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof UserYearWorkStatsEditViewBase
+     */ 
+    protected viewName:string = "UserYearWorkStatsEditView";
 
 
     /**

@@ -141,9 +141,18 @@ export class ProductModuleGridViewBranchBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductModuleGridViewBranchBase
      */
 	protected viewtag: string = '01384caaa1bc452610f056415c86aaf4';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductModuleGridViewBranchBase
+     */ 
+    protected viewName:string = "ProductModuleGridViewBranch";
 
 
     /**

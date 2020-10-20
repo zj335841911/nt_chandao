@@ -104,9 +104,18 @@ export class TestReportEditView_tosumupBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestReportEditView_tosumupBase
      */
 	protected viewtag: string = 'c47c534ae15c1fd1a04b5ad78d174841';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestReportEditView_tosumupBase
+     */ 
+    protected viewName:string = "TestReportEditView_tosumup";
 
 
     /**

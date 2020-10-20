@@ -115,9 +115,18 @@ export class TaskMyFavoriteGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskMyFavoriteGridViewBase
      */
 	protected viewtag: string = '82b045705ced7d1c938a0df4a58046ca';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskMyFavoriteGridViewBase
+     */ 
+    protected viewName:string = "TaskMyFavoriteGridView";
 
 
     /**

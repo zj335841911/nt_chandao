@@ -101,9 +101,18 @@ export class EMPLOYEELOADGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof EMPLOYEELOADGridViewBase
      */
 	protected viewtag: string = 'e008123fe4c3014fac07b33dd79f6b13';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof EMPLOYEELOADGridViewBase
+     */ 
+    protected viewName:string = "EMPLOYEELOADGridView";
 
 
     /**

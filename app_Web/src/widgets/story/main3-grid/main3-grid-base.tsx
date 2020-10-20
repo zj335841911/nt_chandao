@@ -310,6 +310,14 @@ export class Main3GridBase extends GridControlBase {
     };
 
     /**
+     * 主信息表格列
+     *
+     * @type {string}
+     * @memberof Main3Base
+     */  
+    public majorInfoColName:string = "title";
+
+    /**
      * 本地缓存标识
      *
      * @protected

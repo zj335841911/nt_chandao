@@ -136,6 +136,14 @@ export class PlatformManagementGridBase extends GridControlBase {
     };
 
     /**
+     * 主信息表格列
+     *
+     * @type {string}
+     * @memberof PlatformManagementBase
+     */  
+    public majorInfoColName:string = "name";
+
+    /**
      * 本地缓存标识
      *
      * @protected

@@ -110,9 +110,18 @@ export class StoryPickupGridView4Base extends PickupGridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryPickupGridView4Base
      */
 	protected viewtag: string = '0681bc3d1ffa8e147640ab0dd005d3b5';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryPickupGridView4Base
+     */ 
+    protected viewName:string = "StoryPickupGridView4";
 
 
     /**

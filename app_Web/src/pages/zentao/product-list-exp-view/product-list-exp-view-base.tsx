@@ -107,9 +107,18 @@ export class ProductListExpViewBase extends ListExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductListExpViewBase
      */
 	protected viewtag: string = 'e396b6f39451e3bf963aec602106adf0';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductListExpViewBase
+     */ 
+    protected viewName:string = "ProductListExpView";
 
 
     /**

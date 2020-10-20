@@ -139,9 +139,18 @@ export class TodoTodoCreateViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TodoTodoCreateViewBase
      */
 	protected viewtag: string = '927d6e92ed15eeb2397da22824122b27';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TodoTodoCreateViewBase
+     */ 
+    protected viewName:string = "TodoTodoCreateView";
 
 
     /**

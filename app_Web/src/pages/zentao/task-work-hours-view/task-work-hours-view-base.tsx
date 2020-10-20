@@ -122,9 +122,18 @@ export class TaskWorkHoursViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskWorkHoursViewBase
      */
 	protected viewtag: string = '5f063c226812206f8262566387a0b6a5';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskWorkHoursViewBase
+     */ 
+    protected viewName:string = "TaskWorkHoursView";
 
 
     /**

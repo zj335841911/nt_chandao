@@ -95,9 +95,18 @@ export class ProductTestTabExpViewBase extends TabExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductTestTabExpViewBase
      */
 	protected viewtag: string = '005b0ba30f9e9e982e087961bd50c681';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductTestTabExpViewBase
+     */ 
+    protected viewName:string = "ProductTestTabExpView";
 
 
     /**

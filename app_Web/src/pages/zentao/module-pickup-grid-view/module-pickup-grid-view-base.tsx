@@ -98,9 +98,18 @@ export class ModulePickupGridViewBase extends PickupGridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ModulePickupGridViewBase
      */
 	protected viewtag: string = 'bda78773fabbeee54079951afb35f954';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ModulePickupGridViewBase
+     */ 
+    protected viewName:string = "ModulePickupGridView";
 
 
     /**

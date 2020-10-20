@@ -95,9 +95,18 @@ export class IbzMyTerritoryTestTreeExpViewBase extends TreeExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzMyTerritoryTestTreeExpViewBase
      */
 	protected viewtag: string = 'bef7c08b651990569cd09ce805ebcfe3';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzMyTerritoryTestTreeExpViewBase
+     */ 
+    protected viewName:string = "IbzMyTerritoryTestTreeExpView";
 
 
     /**

@@ -115,9 +115,18 @@ export class BugTestReportSubGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugTestReportSubGridViewBase
      */
 	protected viewtag: string = '51b05c15dcd26cd675a6e340f0023977';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugTestReportSubGridViewBase
+     */ 
+    protected viewName:string = "BugTestReportSubGridView";
 
 
     /**

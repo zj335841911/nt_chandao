@@ -113,9 +113,18 @@ export class BugReleaseSubGridView_UndoneBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugReleaseSubGridView_UndoneBase
      */
 	protected viewtag: string = 'b507b8efc20db47d7b01d67561638cd6';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugReleaseSubGridView_UndoneBase
+     */ 
+    protected viewName:string = "BugReleaseSubGridView_Undone";
 
 
     /**

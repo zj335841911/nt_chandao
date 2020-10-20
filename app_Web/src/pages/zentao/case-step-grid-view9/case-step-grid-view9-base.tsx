@@ -122,9 +122,18 @@ export class CaseStepGridView9Base extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseStepGridView9Base
      */
 	protected viewtag: string = '41bfd828761fc42ef9a7acdd4f4babcf';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseStepGridView9Base
+     */ 
+    protected viewName:string = "CaseStepGridView9";
 
 
     /**

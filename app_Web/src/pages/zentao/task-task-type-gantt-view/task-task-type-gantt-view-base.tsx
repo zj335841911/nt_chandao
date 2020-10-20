@@ -96,9 +96,18 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskTaskTypeGanttViewBase
      */
 	protected viewtag: string = '5ef23f01b2cffa48351b3272dfeeaf14';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskTaskTypeGanttViewBase
+     */ 
+    protected viewName:string = "TaskTaskTypeGanttView";
 
 
 

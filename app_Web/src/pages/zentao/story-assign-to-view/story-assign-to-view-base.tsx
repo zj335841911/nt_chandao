@@ -122,9 +122,18 @@ export class StoryAssignToViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryAssignToViewBase
      */
 	protected viewtag: string = '90d6a9dc6032a7a7e19fee6ac22fccc0';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryAssignToViewBase
+     */ 
+    protected viewName:string = "StoryAssignToView";
 
 
     /**

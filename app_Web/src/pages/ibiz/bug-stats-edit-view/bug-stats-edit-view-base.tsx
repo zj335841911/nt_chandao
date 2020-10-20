@@ -123,9 +123,18 @@ export class BugStatsEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugStatsEditViewBase
      */
 	protected viewtag: string = '0174d3383dadc0878991e5c90bd5eaa3';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugStatsEditViewBase
+     */ 
+    protected viewName:string = "BugStatsEditView";
 
 
     /**

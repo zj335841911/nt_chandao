@@ -140,9 +140,18 @@ export class TaskMainGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskMainGridViewBase
      */
 	protected viewtag: string = 'a4af2d93ae66c9877ee99bfe7b93d22c';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskMainGridViewBase
+     */ 
+    protected viewName:string = "TaskMainGridView";
 
 
     /**

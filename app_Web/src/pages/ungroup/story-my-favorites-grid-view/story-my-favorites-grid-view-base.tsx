@@ -127,9 +127,18 @@ export class StoryMyFavoritesGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryMyFavoritesGridViewBase
      */
 	protected viewtag: string = 'b7e6268db4bdeb10211fc15383de685d';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryMyFavoritesGridViewBase
+     */ 
+    protected viewName:string = "StoryMyFavoritesGridView";
 
 
     /**

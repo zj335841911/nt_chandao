@@ -135,9 +135,18 @@ export class TaskTeamGridView9_EditBase extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskTeamGridView9_EditBase
      */
 	protected viewtag: string = 'aac141e4259ff75a6bca1542777b9a01';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskTeamGridView9_EditBase
+     */ 
+    protected viewName:string = "TaskTeamGridView9_Edit";
 
 
     /**

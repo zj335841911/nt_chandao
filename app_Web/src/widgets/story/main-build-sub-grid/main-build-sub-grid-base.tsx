@@ -107,6 +107,14 @@ export class Main_BuildSubGridBase extends GridControlBase {
     };
 
     /**
+     * 主信息表格列
+     *
+     * @type {string}
+     * @memberof Main_BuildSubBase
+     */  
+    public majorInfoColName:string = "title";
+
+    /**
      * 本地缓存标识
      *
      * @protected

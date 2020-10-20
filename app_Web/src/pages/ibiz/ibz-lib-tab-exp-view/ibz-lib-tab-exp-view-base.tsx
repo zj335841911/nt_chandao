@@ -95,9 +95,18 @@ export class IbzLibTabExpViewBase extends TabExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzLibTabExpViewBase
      */
 	protected viewtag: string = 'ebf8f4c62f92ff24ff740558f12f7303';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzLibTabExpViewBase
+     */ 
+    protected viewName:string = "IbzLibTabExpView";
 
 
     /**

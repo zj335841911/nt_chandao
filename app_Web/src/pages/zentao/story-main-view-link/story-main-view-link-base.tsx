@@ -107,9 +107,18 @@ export class StoryMainView_LinkBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryMainView_LinkBase
      */
 	protected viewtag: string = 'cfc7781789f7706e02b2d2504339de69';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryMainView_LinkBase
+     */ 
+    protected viewName:string = "StoryMainView_Link";
 
 
     /**

@@ -106,9 +106,18 @@ export class TestModuleTreeExpViewBase extends TreeExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestModuleTreeExpViewBase
      */
 	protected viewtag: string = 'a4c56767e9b34cd619d79b676fa2ccd9';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestModuleTreeExpViewBase
+     */ 
+    protected viewName:string = "TestModuleTreeExpView";
 
 
     /**

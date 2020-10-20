@@ -100,9 +100,18 @@ export class ProductProjectGridView9Base extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductProjectGridView9Base
      */
 	protected viewtag: string = '0b1b51910ca13751bfd6d356dcadbbce';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductProjectGridView9Base
+     */ 
+    protected viewName:string = "ProductProjectGridView9";
 
 
     /**

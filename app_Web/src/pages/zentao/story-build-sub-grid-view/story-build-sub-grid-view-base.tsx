@@ -137,9 +137,18 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryBuildSubGridViewBase
      */
 	protected viewtag: string = '5b1056f95f9015cdb45901308a758e25';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryBuildSubGridViewBase
+     */ 
+    protected viewName:string = "StoryBuildSubGridView";
 
 
     /**

@@ -128,9 +128,18 @@ export class StoryReleaseSubEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryReleaseSubEditViewBase
      */
 	protected viewtag: string = '928e6614bcfbd67af3b596cf5dc5a46b';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryReleaseSubEditViewBase
+     */ 
+    protected viewName:string = "StoryReleaseSubEditView";
 
 
     /**

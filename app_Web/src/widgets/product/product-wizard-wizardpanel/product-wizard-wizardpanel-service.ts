@@ -1,4 +1,5 @@
-import { Http,Util,Errorlog } from '@/utils';
+import { Http } from '@/utils';
+import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import ProductService from '@/service/product/product-service';
 import ProductWizardModel from './product-wizard-wizardpanel-model';

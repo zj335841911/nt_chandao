@@ -107,9 +107,18 @@ export class IbzCaseDashboardViewBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzCaseDashboardViewBase
      */
 	protected viewtag: string = 'd211890c5a2b8d62649bc26c32ef40ec';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzCaseDashboardViewBase
+     */ 
+    protected viewName:string = "IbzCaseDashboardView";
 
 
     /**

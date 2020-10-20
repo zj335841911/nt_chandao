@@ -117,9 +117,18 @@ export class ProductPlanGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductPlanGridViewBase
      */
 	protected viewtag: string = '81b0cee2fedff8f4902c0d735714e5af';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductPlanGridViewBase
+     */ 
+    protected viewName:string = "ProductPlanGridView";
 
 
     /**

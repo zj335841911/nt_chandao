@@ -122,9 +122,18 @@ export class StoryCloseViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryCloseViewBase
      */
 	protected viewtag: string = 'e0fbca7627cdd68765e173028b07f687';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryCloseViewBase
+     */ 
+    protected viewName:string = "StoryCloseView";
 
 
     /**

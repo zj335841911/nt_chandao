@@ -115,9 +115,18 @@ export class TaskTodoEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskTodoEditViewBase
      */
 	protected viewtag: string = '3a8aaf8bc175455ca2be6ace38f821a1';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskTodoEditViewBase
+     */ 
+    protected viewName:string = "TaskTodoEditView";
 
 
     /**

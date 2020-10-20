@@ -117,9 +117,18 @@ export class TestReportMainEditEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestReportMainEditEditViewBase
      */
 	protected viewtag: string = '1f13f330cbca49433d11328f9e7d8ae2';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestReportMainEditEditViewBase
+     */ 
+    protected viewName:string = "TestReportMainEditEditView";
 
 
     /**

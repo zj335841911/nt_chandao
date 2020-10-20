@@ -111,9 +111,18 @@ export class IbzMyTerritoryListView9Base extends ListView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzMyTerritoryListView9Base
      */
 	protected viewtag: string = 'e9f72c81d94c56a08c355c2ba2e20d07';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzMyTerritoryListView9Base
+     */ 
+    protected viewName:string = "IbzMyTerritoryListView9";
 
 
     /**

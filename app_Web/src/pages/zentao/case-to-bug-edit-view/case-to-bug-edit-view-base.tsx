@@ -126,9 +126,18 @@ export class CaseToBugEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseToBugEditViewBase
      */
 	protected viewtag: string = '3a9645e5ad29ed73b59ccd2f548d602c';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseToBugEditViewBase
+     */ 
+    protected viewName:string = "CaseToBugEditView";
 
 
     /**

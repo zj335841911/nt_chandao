@@ -95,9 +95,18 @@ export class IbzMyTerritoryProductSumTreeExpViewBase extends TreeExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzMyTerritoryProductSumTreeExpViewBase
      */
 	protected viewtag: string = 'e090d7f19211e8fbbab5d4442c6e58e8';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzMyTerritoryProductSumTreeExpViewBase
+     */ 
+    protected viewName:string = "IbzMyTerritoryProductSumTreeExpView";
 
 
     /**

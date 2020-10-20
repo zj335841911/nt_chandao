@@ -97,9 +97,18 @@ export class TodoBaseEditView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TodoBaseEditView9Base
      */
 	protected viewtag: string = '10ec8362fe511f35dcf896a048770011';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TodoBaseEditView9Base
+     */ 
+    protected viewName:string = "TodoBaseEditView9";
 
 
     /**

@@ -143,9 +143,18 @@ export class StoryCurProjectWGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryCurProjectWGridViewBase
      */
 	protected viewtag: string = '427e28cc5267cfc2a6d6da6fde36ef9f';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryCurProjectWGridViewBase
+     */ 
+    protected viewName:string = "StoryCurProjectWGridView";
 
 
     /**

@@ -78,6 +78,14 @@ export class ProductPlancntAndStorycnt_POGridBase extends GridControlBase {
     };
 
     /**
+     * 主信息表格列
+     *
+     * @type {string}
+     * @memberof ProductPlancntAndStorycnt_POBase
+     */  
+    public majorInfoColName:string = "name";
+
+    /**
      * 本地缓存标识
      *
      * @protected

@@ -118,9 +118,18 @@ export class IbzCaseGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzCaseGridViewBase
      */
 	protected viewtag: string = '0da13bc2f5883c69742cac5e4e866e2a';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzCaseGridViewBase
+     */ 
+    protected viewName:string = "IbzCaseGridView";
 
 
     /**

@@ -107,9 +107,18 @@ export class IbzLibOpenLibViewBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzLibOpenLibViewBase
      */
 	protected viewtag: string = '4a9b92e583e055d7081125b3e19079a6';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzLibOpenLibViewBase
+     */ 
+    protected viewName:string = "IbzLibOpenLibView";
 
 
     /**

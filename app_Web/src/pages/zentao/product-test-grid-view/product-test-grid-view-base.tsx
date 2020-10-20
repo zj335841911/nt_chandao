@@ -112,9 +112,18 @@ export class ProductTestGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductTestGridViewBase
      */
 	protected viewtag: string = '1d697dd8e47a4781be8f690bcc5f7800';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductTestGridViewBase
+     */ 
+    protected viewName:string = "ProductTestGridView";
 
 
     /**

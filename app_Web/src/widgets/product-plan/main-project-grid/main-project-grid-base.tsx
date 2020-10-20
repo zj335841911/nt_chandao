@@ -78,6 +78,14 @@ export class MainProjectGridBase extends GridControlBase {
     };
 
     /**
+     * 主信息表格列
+     *
+     * @type {string}
+     * @memberof MainProjectBase
+     */  
+    public majorInfoColName:string = "title";
+
+    /**
      * 本地缓存标识
      *
      * @protected

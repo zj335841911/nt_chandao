@@ -100,9 +100,18 @@ export class BuildTestRoundsGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BuildTestRoundsGridViewBase
      */
 	protected viewtag: string = '9a2fd7bf8e74f4b95bd5a24d8ffb1643';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BuildTestRoundsGridViewBase
+     */ 
+    protected viewName:string = "BuildTestRoundsGridView";
 
 
     /**

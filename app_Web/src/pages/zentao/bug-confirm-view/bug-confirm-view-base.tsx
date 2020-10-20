@@ -122,9 +122,18 @@ export class BugConfirmViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugConfirmViewBase
      */
 	protected viewtag: string = '7c6956b0c4bcc773697adb506d3ce5e9';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugConfirmViewBase
+     */ 
+    protected viewName:string = "BugConfirmView";
 
 
     /**

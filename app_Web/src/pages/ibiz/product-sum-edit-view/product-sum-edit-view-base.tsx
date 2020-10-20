@@ -123,9 +123,18 @@ export class ProductSumEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductSumEditViewBase
      */
 	protected viewtag: string = 'ada719b0d8722509d22b4b72bbb8cf26';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductSumEditViewBase
+     */ 
+    protected viewName:string = "ProductSumEditView";
 
 
     /**

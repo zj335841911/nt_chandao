@@ -97,9 +97,18 @@ export class BugPickupGridView4Base extends PickupGridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugPickupGridView4Base
      */
 	protected viewtag: string = '1c4104beb7e8515d20d03262732ba4f8';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugPickupGridView4Base
+     */ 
+    protected viewName:string = "BugPickupGridView4";
 
 
     /**

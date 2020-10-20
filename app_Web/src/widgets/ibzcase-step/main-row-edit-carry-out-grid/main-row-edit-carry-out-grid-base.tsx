@@ -78,6 +78,14 @@ export class Main_RowEdit_CarryOutGridBase extends GridControlBase {
     };
 
     /**
+     * 主信息表格列
+     *
+     * @type {string}
+     * @memberof Main_RowEdit_CarryOutBase
+     */  
+    public majorInfoColName:string = "expect";
+
+    /**
      * 本地缓存标识
      *
      * @protected

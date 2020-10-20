@@ -139,9 +139,18 @@ export class BugPlanSubGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugPlanSubGridViewBase
      */
 	protected viewtag: string = '07004de8a7d23e97b76460f888c8b290';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugPlanSubGridViewBase
+     */ 
+    protected viewName:string = "BugPlanSubGridView";
 
 
     /**

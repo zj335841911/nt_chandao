@@ -155,6 +155,14 @@ export class MainEditGridBase extends GridControlBase {
     };
 
     /**
+     * 主信息表格列
+     *
+     * @type {string}
+     * @memberof MainEditBase
+     */  
+    public majorInfoColName:string = "id";
+
+    /**
      * 本地缓存标识
      *
      * @protected

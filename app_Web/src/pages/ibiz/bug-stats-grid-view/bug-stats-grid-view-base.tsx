@@ -101,9 +101,18 @@ export class BugStatsGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugStatsGridViewBase
      */
 	protected viewtag: string = 'b7427fe34d292009905e126defc9fa22';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugStatsGridViewBase
+     */ 
+    protected viewName:string = "BugStatsGridView";
 
 
     /**

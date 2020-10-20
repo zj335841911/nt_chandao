@@ -139,9 +139,18 @@ export class TestReportEditView_ProjectBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestReportEditView_ProjectBase
      */
 	protected viewtag: string = 'cbd1280e0ec2cd69ffa85cf60ece100d';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestReportEditView_ProjectBase
+     */ 
+    protected viewName:string = "TestReportEditView_Project";
 
 
     /**

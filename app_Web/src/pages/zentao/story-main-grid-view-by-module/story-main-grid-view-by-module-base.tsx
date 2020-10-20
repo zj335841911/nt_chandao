@@ -127,9 +127,18 @@ export class StoryMainGridView_ByModuleBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryMainGridView_ByModuleBase
      */
 	protected viewtag: string = '95d25c1556e049e220af04b99b06edeb';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryMainGridView_ByModuleBase
+     */ 
+    protected viewName:string = "StoryMainGridView_ByModule";
 
 
     /**

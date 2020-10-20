@@ -119,9 +119,18 @@ export class UserMainGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof UserMainGridViewBase
      */
 	protected viewtag: string = 'd364bfbf7092ee45cd0acae49fac77ab';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof UserMainGridViewBase
+     */ 
+    protected viewName:string = "UserMainGridView";
 
 
     /**

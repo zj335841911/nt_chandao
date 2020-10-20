@@ -95,9 +95,18 @@ export class StoryTabExpViewBase extends TabExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryTabExpViewBase
      */
 	protected viewtag: string = '76bd64e6d21e10838e42517992e58c65';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryTabExpViewBase
+     */ 
+    protected viewName:string = "StoryTabExpView";
 
 
     /**

@@ -1,4 +1,5 @@
-import { Http,Util,Errorlog } from '@/utils';
+import { Http } from '@/utils';
+import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import BugStatsService from '@/service/bug-stats/bug-stats-service';
 import AssignedTOBugModel from './assigned-tobug-searchform-model';

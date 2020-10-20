@@ -78,6 +78,13 @@ export class AppContentLeftNavMenu extends Vue {
     public menuClick(item: any): any { }
 
     /**
+     * 底部绘制实例
+     *
+     * @memberof AppContentLeftNavMenu
+     */
+    public footerRenderItem!: { remove: () => boolean };
+
+    /**
      * 组件创建完毕
      *
      * @memberof AppContentLeftNavMenu
@@ -86,9 +93,18 @@ export class AppContentLeftNavMenu extends Vue {
         if (this.$route && this.$route.matched.length === 1) {
             this.openDefault();
         }
-        this.$footerRenderService.registerLeftItem((h: any) => {
+        this.footerRenderItem = this.$footerRenderService.registerLeftItem((h: any) => {
             return <icon title={this.uiState.layoutState.leftNavMenuCollapse ? '展开菜单' : '收起菜单'} type="md-menu" style="font-size: 20px;vertical-align: -3px;" on-click={() => this.uiState.leftNavMenuCollapseChange()} />;
         }, 0);
+    }
+
+    /**
+     * 组件销毁
+     *
+     * @memberof AppContentLeftNavMenu
+     */
+    public destroyed(): void {
+        this.footerRenderItem?.remove();
     }
 
     /**

@@ -100,9 +100,18 @@ export class TaskGridView9_StoryRelatedBase extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskGridView9_StoryRelatedBase
      */
 	protected viewtag: string = '5895951b7f1045198682c8d51cd85482';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskGridView9_StoryRelatedBase
+     */ 
+    protected viewName:string = "TaskGridView9_StoryRelated";
 
 
     /**

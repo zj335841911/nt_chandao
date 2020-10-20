@@ -120,9 +120,18 @@ export class StoryKanbanViewBase extends KanBanViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryKanbanViewBase
      */
 	protected viewtag: string = '300e4e1f02be8e316e1e76b49c5c5ccc';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryKanbanViewBase
+     */ 
+    protected viewName:string = "StoryKanbanView";
 
 
     /**
@@ -495,4 +504,3 @@ export class StoryKanbanViewBase extends KanBanViewBase {
      */
     protected viewUID: string = 'zentao-story-kanban-view';
 }
-

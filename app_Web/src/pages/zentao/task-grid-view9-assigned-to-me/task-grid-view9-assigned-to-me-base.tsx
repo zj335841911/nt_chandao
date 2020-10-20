@@ -111,9 +111,18 @@ export class TaskGridView9_AssignedToMeBase extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskGridView9_AssignedToMeBase
      */
 	protected viewtag: string = '79b3a14f0431747becc48f5b9f3aa990';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskGridView9_AssignedToMeBase
+     */ 
+    protected viewName:string = "TaskGridView9_AssignedToMe";
 
 
     /**

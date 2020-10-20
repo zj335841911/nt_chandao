@@ -117,9 +117,18 @@ export class ModuleEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ModuleEditViewBase
      */
 	protected viewtag: string = '2671388d4c12a6f139e6fd806c524dc7';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ModuleEditViewBase
+     */ 
+    protected viewName:string = "ModuleEditView";
 
 
     /**

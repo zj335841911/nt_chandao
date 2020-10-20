@@ -117,9 +117,18 @@ export class ReleaseEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ReleaseEditViewBase
      */
 	protected viewtag: string = '9ddace1c12afee8da3f0254a05ba141a';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ReleaseEditViewBase
+     */ 
+    protected viewName:string = "ReleaseEditView";
 
 
     /**

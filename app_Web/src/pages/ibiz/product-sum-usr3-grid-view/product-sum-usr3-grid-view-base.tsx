@@ -122,9 +122,18 @@ export class ProductSumUsr3GridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductSumUsr3GridViewBase
      */
 	protected viewtag: string = 'f725c5c0e28669d9ef6b02ce237786a5';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductSumUsr3GridViewBase
+     */ 
+    protected viewName:string = "ProductSumUsr3GridView";
 
 
     /**

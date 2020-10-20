@@ -1,4 +1,5 @@
-import { Http,Util,Errorlog } from '@/utils';
+import { Http } from '@/utils';
+import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import IbzCaseService from '@/service/ibz-case/ibz-case-service';
 import MainInfoModel from './main-info-form-model';

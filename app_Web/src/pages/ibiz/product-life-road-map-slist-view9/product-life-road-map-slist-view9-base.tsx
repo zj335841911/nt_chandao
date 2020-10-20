@@ -112,9 +112,18 @@ export class ProductLifeRoadMapSListView9Base extends ListView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductLifeRoadMapSListView9Base
      */
 	protected viewtag: string = 'fae08b50e13943a0678a96d852e8808d';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductLifeRoadMapSListView9Base
+     */ 
+    protected viewName:string = "ProductLifeRoadMapSListView9";
 
 
     /**

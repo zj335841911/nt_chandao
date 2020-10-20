@@ -131,9 +131,18 @@ export class TestTaskEditView_commitTestBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestTaskEditView_commitTestBase
      */
 	protected viewtag: string = '4d32793fc57ec1ae930a18608526d00e';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskEditView_commitTestBase
+     */ 
+    protected viewName:string = "TestTaskEditView_commitTest";
 
 
     /**

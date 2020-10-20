@@ -121,9 +121,18 @@ export class IbzProjectMemberEditView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzProjectMemberEditView9Base
      */
 	protected viewtag: string = '24f12a249a654cadf0a0f9e132221c10';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzProjectMemberEditView9Base
+     */ 
+    protected viewName:string = "IbzProjectMemberEditView9";
 
 
     /**

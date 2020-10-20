@@ -118,9 +118,18 @@ export class ProductStatsALLGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductStatsALLGridViewBase
      */
 	protected viewtag: string = '1381e29846ae321ca2d06d71bbe3082d';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductStatsALLGridViewBase
+     */ 
+    protected viewName:string = "ProductStatsALLGridView";
 
 
     /**

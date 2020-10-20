@@ -117,9 +117,18 @@ export class ProjectEditView_PutoffBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectEditView_PutoffBase
      */
 	protected viewtag: string = '28557f7c31a387e1deb552076d51f9f1';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectEditView_PutoffBase
+     */ 
+    protected viewName:string = "ProjectEditView_Putoff";
 
 
     /**
