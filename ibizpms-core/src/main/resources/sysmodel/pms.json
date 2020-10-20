@@ -288,6 +288,18 @@
     "data_length":200,
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"SRFKEY" ,
+    "codename":"Srfkey",
+    "field_logic_name":"属性",
+    "entity_name":"Action",
+    "field_type":"BIGINT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"BIGINT",
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[

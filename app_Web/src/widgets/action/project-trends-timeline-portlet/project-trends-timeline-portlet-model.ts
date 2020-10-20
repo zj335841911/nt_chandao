@@ -78,6 +78,9 @@ export default class ProjectTrendsTimelineModel {
       {
         name: 'lastmonth',
       },
+      {
+        name: 'srfkey',
+      },
     ]
   }
 

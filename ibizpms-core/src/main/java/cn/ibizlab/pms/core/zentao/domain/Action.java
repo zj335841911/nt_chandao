@@ -193,6 +193,13 @@ public class Action extends EntityMP implements Serializable {
     @JSONField(name = "lastmonth")
     @JsonProperty("lastmonth")
     private String lastmonth;
+    /**
+     * 属性
+     */
+    @TableField(exist = false)
+    @JSONField(name = "srfkey")
+    @JsonProperty("srfkey")
+    private Long srfkey;
 
     /**
      * 项目
