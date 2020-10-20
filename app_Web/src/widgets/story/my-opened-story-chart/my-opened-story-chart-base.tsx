@@ -270,8 +270,8 @@ export class MyOpenedStoryChartBase extends MainControlBase {
      */   
     public chartOption:any = {
         title:{
-            show:false ,
-            text:'',
+            show:true ,
+            text:'需求优先级',
             subtext:''
         },
         legend:{
