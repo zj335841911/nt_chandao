@@ -227,7 +227,6 @@ export class ProductCreateStory_POChartBase extends MainControlBase {
     },
     ecObject:{
         radius:['60%', '70%'],
-        title:{x:'center',y:'center',textStyle: {fontSize: 20},subtextStyle: {fontSize:15}},
         legend:{show:false},
     },
     seriesTemp:{
