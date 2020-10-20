@@ -621,7 +621,7 @@
                 "value": "All",
                 
                 "disabled": false,
-                "default": true
+                "default": false
             }
             , {
                 "id": "today",
@@ -632,7 +632,7 @@
                 "value": "today",
                 
                 "disabled": false,
-                "default": false
+                "default": true
             }
             , {
                 "id": "yesterday",

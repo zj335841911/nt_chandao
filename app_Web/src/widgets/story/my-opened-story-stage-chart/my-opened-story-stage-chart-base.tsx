@@ -213,8 +213,18 @@ export class MyOpenedStory_StageChartBase extends MainControlBase {
     {name:"srfcount",codelist:null,isGroupField:false,groupMode:""}
     ],
     ecxObject:{
-        label:{show:false},
-        labelLine:{show:false},
+        label:{
+            show: true,
+            position: 'outside',
+        },
+        labelLine:{
+            show: true,
+            length: 10,
+            lineStyle: {
+                width: 1,
+                type: 'solid'
+            }
+        },
         itemStyle:{
             borderColor: '#fff',
             borderWidth: 1
@@ -244,7 +254,6 @@ export class MyOpenedStory_StageChartBase extends MainControlBase {
      * @memberof Dashboard_sysportlet7_chartBase
      */   
     public chartUserParams:any ={
-        legend:{show:false},
         color:["#CAAC32","#0075A9","#22AC38","#2B4D6D",'#FF9100','#FF3D00','#F57F17','#00E5FF','#00B0FF','#2979FF','#3D5AFE','#651FFF','#D500F9']
     };
 
