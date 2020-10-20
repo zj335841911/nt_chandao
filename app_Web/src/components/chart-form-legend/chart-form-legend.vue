@@ -3,13 +3,13 @@
       
       <div v-if="!itemName" class="chart-no-data"><i class="el-icon-data-analysis"></i> {{$t('app.commonWords.noData')}}</div>
       <!-- 图表 -->
-      <div style="width: 48%;">
+      <div style="width: 41%;">
           <div v-if="itemName" class="app-charts" :id="chartId" style="width: 100%;height: 300px;padding: 6px 0;display: flex;justify-content: center;"></div>
           <div class="app-charts" v-if="originId" :id="originId" style="width:0px;height:0px"></div>
       </div>
 
       <!-- 图例 -->
-      <div class="legend" v-if="legendList.length > 0" style="width: 52%;padding-top:8px">
+      <div class="legend" v-if="legendList.length > 0" style="width: 59%;padding-top:8px">
           <el-table
               :data="legendList"
               style="width: 100%;"
