@@ -86,6 +86,16 @@ export default {
         "closed": "已关闭",
         "empty": ""
     },
+    ProductActionQuickpacket: {
+        "All": "所有",
+        "today": "今天",
+        "yesterday": "昨天",
+        "thisweek": "本周",
+        "lastweek": "上周",
+        "thismonth": "本月",
+        "lastmonth": "上月",
+        "empty": ""
+    },
     Pri: {
         "1": "一般",
         "2": "最高",
