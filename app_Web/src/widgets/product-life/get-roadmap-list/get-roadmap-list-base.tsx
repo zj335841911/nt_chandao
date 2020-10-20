@@ -92,5 +92,4 @@ export class GetRoadmapListBase extends ListControlBase {
     public minorSortPSDEF: string = 'end';
 
 
-
 }

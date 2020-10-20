@@ -214,6 +214,7 @@
     refreshitems='' 
     viewname='task-team-mob-medit-view9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('task.mobnewfrom_form.details.druipart1')"  
     paramItem='task' 
     style="" 
     :formState="formState" 

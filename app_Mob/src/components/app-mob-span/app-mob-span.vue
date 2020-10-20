@@ -1,6 +1,5 @@
 <template>
     <div class="app-mob-span" oncontextmenu="return false;">
-        <ion-icon v-if="currentItem && currentItem.iconcls" :name="currentItem.iconcls"></ion-icon>
         <ion-input v-if="!codeListType" readonly :value="text" ></ion-input>
         <ion-input v-if="codeListType == 'DYNAMIC'" readonly :value="($t('userCustom.'+tag+'.'+value)!== ('userCustom.'+tag+'.'+value))?$t('userCustom.'+tag+'.'+value) : text" ></ion-input>
         <ion-input :style="{color:currentItem && currentItem.color?currentItem.color:''}" :class="currentItem && currentItem.className?currentItem.className:''" v-if="codeListType == 'STATIC'" readonly :value="($t('codelist.'+tag+'.'+value)!== ('codelist.'+tag+'.'+value))?$t('codelist.'+tag+'.'+value) : text" ></ion-input>
@@ -13,7 +12,7 @@ import { Vue, Component, Prop, Provide, Emit, Watch, } from "vue-property-decora
 import { CodeListService } from "@/ibiz-core";
 import { Loading } from '@/ibiz-core/utils';
 @Component({
-  components: {}
+    components: {}
 })
 export default class AppSpan extends Vue {
 
@@ -58,13 +57,6 @@ export default class AppSpan extends Vue {
      */
     public queryParam: any;
 
-
-    /**
-     * 当前选中值
-     * @memberof AppSpan
-     */
-    public curValue:any = this.value
-
     /**
      * 代码表
      *
@@ -78,30 +70,14 @@ export default class AppSpan extends Vue {
      * @type {*}
      * @memberof AppSpan
      */
-    public text:any = '';
+    public text: any = '';
 
     /**
-     * vue  生命周期
-     *
-     * @memberof AppSpan
-     */
-    public created() {
-        if (Object.is(this.codeListType, "STATIC")) {
-            this.items = this.$store.getters.getCodeListItems(this.tag);
-            this.setText();
-        } else if(Object.is(this.codeListType, "DYNAMIC")) {
-            this.load();
-        }else{
-            this.setText();
-        }
-    }
-
-  /**
-     * 是否缓存
-     *
-     * @type {*}
-     * @memberof AppSelect
-     */
+       * 是否缓存
+       *
+       * @type {*}
+       * @memberof AppSelect
+       */
     @Prop({ default: true }) protected isCache?: boolean;
 
     /**
@@ -112,21 +88,21 @@ export default class AppSpan extends Vue {
      */
     public isCached: boolean = false;
 
-   /**
-     * 应用上下文
-     *
-     * @type {*}
-     * @memberof AppSpan
-     */
+    /**
+      * 应用上下文
+      *
+      * @type {*}
+      * @memberof AppSpan
+      */
     @Prop({ default: {} }) protected context?: any;
 
-   /**
-     * 当前值项
-     *
-     * @type {*}
-     * @memberof AppSpan
-     */
-    public currentItem :any = {};
+    /**
+      * 当前值项
+      *
+      * @type {*}
+      * @memberof AppSpan
+      */
+    public currentItem: any = {};
 
 
     /**
@@ -135,10 +111,10 @@ export default class AppSpan extends Vue {
      * @memberof AppSpan
      */
     @Watch('value')
-    public itemChange(){
-        if(this.tag && Object.is(this.codeListType,"DYNAMIC")){
+    public itemChange() {
+        if (this.tag && Object.is(this.codeListType, "DYNAMIC")) {
             this.load();
-        }else{
+        } else {
             this.setText();
         }
     }
@@ -148,14 +124,14 @@ export default class AppSpan extends Vue {
      * 
      * @memberof AppSpan
      */
-    public async load(): Promise<any>{
+    public async load(): Promise<any> {
         if (Object.is(this.codeListType, "STATIC")) {
             return;
         }
         if (!this.isCached) {
             // Loading.show(this.$t('app.loadding'));
         }
-        let response: any = await  this.codeListService.getItems(this.tag,  { ...this.context }, this.queryParam);
+        let response: any = await this.codeListService.getItems(this.tag, { ...this.context }, this.queryParam);
         if (!this.isCached) {
             // Loading.hidden();
         }
@@ -174,7 +150,7 @@ export default class AppSpan extends Vue {
      * 设置显示值
      * @memberof AppSpan
      */
-    public setText(){
+    public setText() {
         if (!this.value) {  // 新建等没有值的情况
             this.text = "";
         }
@@ -207,6 +183,21 @@ export default class AppSpan extends Vue {
         }
     }
 
+    /**
+     * vue  生命周期
+     *
+     * @memberof AppSpan
+     */
+    public created() {
+        if (Object.is(this.codeListType, "STATIC")) {
+            this.items = this.$store.getters.getCodeListItems(this.tag);
+            this.setText();
+        } else if (Object.is(this.codeListType, "DYNAMIC")) {
+            this.load();
+        } else {
+            this.setText();
+        }
+    }
 }
 </script>
 <style lang="less">

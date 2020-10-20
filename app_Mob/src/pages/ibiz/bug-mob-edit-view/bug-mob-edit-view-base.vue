@@ -1,4 +1,3 @@
-
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'bug-mob-edit-view': true }">
     
@@ -45,7 +44,7 @@
     </ion-content>
     <ion-footer class="view-footer">
                 <div  class = "fab_container">
-            <ion-button v-if="getToolBarLimit" @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <ion-button v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_assingtobugmob.disabled}" v-show="righttoolbarModels.deuiaction1_assingtobugmob.visabled">
@@ -375,8 +374,8 @@ export default class BugMobEditViewBase extends Vue {
      * @type {boolean}
      * @memberof BugMobEditView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     
@@ -482,6 +481,7 @@ export default class BugMobEditViewBase extends Vue {
      * @memberof BugMobEditViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

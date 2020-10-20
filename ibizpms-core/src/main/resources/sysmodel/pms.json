@@ -1555,6 +1555,23 @@
     "data_type":"INT",
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"CASENAME" ,
+    "codename":"Casename",
+    "field_logic_name":"相关用例",
+    "entity_name":"Bug",
+    "ref_de":"ZT_CASE",
+    "ref_field_name":"TITLE",
+    "relation_name":"DER1N_ZT_BUG_ZT_CASE_CASEID",
+    "relation_codename":"ZTCase",
+    "field_type":"PICKUPTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":255,
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[

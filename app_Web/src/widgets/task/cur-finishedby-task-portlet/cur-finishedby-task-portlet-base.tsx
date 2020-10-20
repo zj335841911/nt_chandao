@@ -219,4 +219,13 @@ export class CurFinishedbyTaskPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof CurFinishedbyTaskBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'dashboard_sysportlet3_chart', action: 'refresh', data: args });
+    }
+
 }

@@ -45,6 +45,15 @@ export class TaskMainGridView9_ChildBase extends GridView9Base {
     protected appDeMajor: string = 'name';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskMainGridView9_ChildBase
+     */ 
+    protected dataControl:string = "grid";
+
+    /**
      * 实体服务对象
      *
      * @type {TaskService}

@@ -219,4 +219,13 @@ export class MainInfoViewPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof MainInfoViewBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'TestSuiteEditView9', action: 'refresh', data: args });
+    }
+
 }

@@ -219,4 +219,13 @@ export class CurSuitCaseGridViewPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof CurSuitCaseGridViewBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'CaseCurSuitGridView', action: 'refresh', data: args });
+    }
+
 }

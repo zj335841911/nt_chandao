@@ -651,6 +651,15 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonProperty("overduebugs")
     private Integer overduebugs;
 
+    /**
+     * 属性 [CASENAME]
+     *
+     */
+    @JSONField(name = "casename")
+    @JsonProperty("casename")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    private String casename;
+
 
     /**
      * 设置 [SEVERITY]

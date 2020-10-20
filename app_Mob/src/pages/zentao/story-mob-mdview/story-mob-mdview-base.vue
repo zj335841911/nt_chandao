@@ -384,8 +384,8 @@ export default class StoryMobMDViewBase extends Vue {
      * @type {boolean}
      * @memberof StoryMobMDView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     
@@ -511,6 +511,7 @@ export default class StoryMobMDViewBase extends Vue {
      * @memberof StoryMobMDViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

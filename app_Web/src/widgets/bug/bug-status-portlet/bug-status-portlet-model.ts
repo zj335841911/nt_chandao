@@ -225,6 +225,9 @@ export default class BugStatusModel {
       {
         name: 'overduebugs',
       },
+      {
+        name: 'casename',
+      },
     ]
   }
 

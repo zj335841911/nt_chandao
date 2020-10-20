@@ -308,14 +308,14 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ ZT_PROJECT:"%project%" }' 
-  :localParam ='{ n_project_eq:"%project%" }' 
+  :localContext ='{ ZT_PROJECT:"%project%", PROJECT:"%project%" }' 
+  :localParam ='{ project:"%project%", n_project_eq:"%project%" }' 
   :disabled="detailsModel.taskname.disabled"
   name='taskname'
   deMajorField='name'
   deKeyField='task'
   :service="service"
-  :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchDefault'}"
+  :acParams="{ serviceName: 'TaskService', interfaceName: 'FetchBugTask'}"
   valueitem='task' 
   :value="data.taskname" 
   editortype="dropdown"

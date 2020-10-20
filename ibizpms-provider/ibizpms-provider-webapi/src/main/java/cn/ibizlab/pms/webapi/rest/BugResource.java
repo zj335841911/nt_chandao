@@ -367,6 +367,17 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
+    @ApiOperation(value = "更新需求版本", tags = {"Bug" },  notes = "更新需求版本")
+	@RequestMapping(method = RequestMethod.PUT, value = "/bugs/{bug_id}/updatestoryversion")
+    public ResponseEntity<BugDTO> updateStoryVersion(@PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setId(bug_id);
+        domain = bugService.updateStoryVersion(domain);
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBug-all')")
 	@ApiOperation(value = "获取指派给我Bug", tags = {"Bug" } ,notes = "获取指派给我Bug")
     @RequestMapping(method= RequestMethod.GET , value="/bugs/fetchassignedtomybug")
@@ -1296,6 +1307,17 @@ public class BugResource {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
         domain = bugService.unlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/bugs/{bug_id}/updatestoryversion")
+    public ResponseEntity<BugDTO> updateStoryVersionByProduct(@PathVariable("product_id") Long product_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setProduct(product_id);
+        domain = bugService.updateStoryVersion(domain) ;
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
@@ -2259,6 +2281,17 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/bugs/{bug_id}/updatestoryversion")
+    public ResponseEntity<BugDTO> updateStoryVersionByStory(@PathVariable("story_id") Long story_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setStory(story_id);
+        domain = bugService.updateStoryVersion(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBug-all')")
 	@ApiOperation(value = "根据需求获取指派给我Bug", tags = {"Bug" } ,notes = "根据需求获取指派给我Bug")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/bugs/fetchassignedtomybug")
@@ -3218,6 +3251,17 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/bugs/{bug_id}/updatestoryversion")
+    public ResponseEntity<BugDTO> updateStoryVersionByProject(@PathVariable("project_id") Long project_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setProject(project_id);
+        domain = bugService.updateStoryVersion(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-searchAssignedToMyBug-all')")
 	@ApiOperation(value = "根据项目获取指派给我Bug", tags = {"Bug" } ,notes = "根据项目获取指派给我Bug")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/bugs/fetchassignedtomybug")
@@ -4173,6 +4217,17 @@ public class BugResource {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
         domain = bugService.unlinkBug(domain) ;
+        bugdto = bugMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/updatestoryversion")
+    public ResponseEntity<BugDTO> updateStoryVersionByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("bug_id") Long bug_id, @RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        domain.setStory(story_id);
+        domain = bugService.updateStoryVersion(domain) ;
         bugdto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }

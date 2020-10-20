@@ -42,6 +42,15 @@ export class StoryActiviteViewBase extends OptionViewBase {
     protected appDeMajor: string = 'title';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryActiviteViewBase
+     */ 
+    protected dataControl:string = "form";
+
+    /**
      * 实体服务对象
      *
      * @type {StoryService}

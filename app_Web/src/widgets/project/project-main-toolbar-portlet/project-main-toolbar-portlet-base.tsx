@@ -487,4 +487,12 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof ProjectMainToolbarBase
+     */
+    public refresh(args?: any) {
+    }
+
 }

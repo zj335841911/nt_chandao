@@ -46,6 +46,15 @@ export class TaskKanbanViewBase extends KanBanViewBase {
     protected appDeMajor: string = 'name';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskKanbanViewBase
+     */ 
+    protected dataControl:string = "kanban";
+
+    /**
      * 实体服务对象
      *
      * @type {TaskService}

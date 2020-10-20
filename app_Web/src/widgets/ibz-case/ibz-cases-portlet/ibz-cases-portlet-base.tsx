@@ -378,4 +378,12 @@ export class IbzCasesPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof IbzCasesBase
+     */
+    public refresh(args?: any) {
+    }
+
 }

@@ -219,4 +219,13 @@ export class TodoactionPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof TodoactionBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'ActionHistoryListView', action: 'refresh', data: args });
+    }
+
 }

@@ -42,6 +42,15 @@ export class TaskPauseTaskViewBase extends OptionViewBase {
     protected appDeMajor: string = 'name';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskPauseTaskViewBase
+     */ 
+    protected dataControl:string = "form";
+
+    /**
      * 实体服务对象
      *
      * @type {TaskService}

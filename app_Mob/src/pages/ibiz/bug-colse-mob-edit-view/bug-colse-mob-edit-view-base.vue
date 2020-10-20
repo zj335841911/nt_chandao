@@ -1,4 +1,3 @@
-
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'bug-colse-mob-edit-view': true }">
     
@@ -330,8 +329,8 @@ export default class BugColseMobEditViewBase extends Vue {
      * @type {boolean}
      * @memberof BugColseMobEditView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     
@@ -437,6 +436,7 @@ export default class BugColseMobEditViewBase extends Vue {
      * @memberof BugColseMobEditViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

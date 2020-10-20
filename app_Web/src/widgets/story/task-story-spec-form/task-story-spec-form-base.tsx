@@ -76,7 +76,6 @@ export class TaskStorySpecEditFormBase extends EditFormControlBase {
      * @memberof TaskStorySpecEditFormBase
      */
     protected drCount: number = 2;
-
     /**
      * 表单数据对象
      *

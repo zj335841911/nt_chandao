@@ -225,6 +225,9 @@ export default class BugModuleModel {
       {
         name: 'overduebugs',
       },
+      {
+        name: 'casename',
+      },
     ]
   }
 

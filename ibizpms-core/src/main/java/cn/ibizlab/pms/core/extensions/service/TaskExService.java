@@ -5,8 +5,11 @@ import cn.ibizlab.pms.core.ibiz.filter.IbzFavoritesSearchContext;
 import cn.ibizlab.pms.core.ibiz.service.IIbzFavoritesService;
 import cn.ibizlab.pms.core.ibiz.service.impl.IbzFavoritesServiceImpl;
 import cn.ibizlab.pms.core.util.message.SendMessage;
+import cn.ibizlab.pms.core.util.zentao.service.IIBZZTFileService;
+import cn.ibizlab.pms.core.zentao.domain.File;
 import cn.ibizlab.pms.core.zentao.domain.TaskEstimate;
 import cn.ibizlab.pms.core.zentao.filter.TaskSearchContext;
+import cn.ibizlab.pms.core.zentao.service.IFileService;
 import cn.ibizlab.pms.core.zentao.service.impl.TaskServiceImpl;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONArray;
@@ -33,6 +36,8 @@ import java.util.*;
 @Service("TaskExService")
 public class TaskExService extends TaskServiceImpl {
 
+    @Autowired
+    IFileService iFileService;
 
 
     @Autowired
@@ -41,6 +46,27 @@ public class TaskExService extends TaskServiceImpl {
     @Override
     protected Class currentModelClass() {
         return com.baomidou.mybatisplus.core.toolkit.ReflectionKit.getSuperClassGenericType(this.getClass().getSuperclass(), 1);
+    }
+
+    @Override
+    public boolean create(Task et) {
+        String files = et.getFiles();
+        boolean flag = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).create(et);
+        if(flag && et.getId() != null && files != null) {
+            JSONArray jsonArray = JSONArray.parseArray(files);
+            List<File> list = new ArrayList<>();
+            for (int i = 0; i < jsonArray.size(); i ++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                File file = new File();
+                file.setId(jsonObject.getLongValue("id"));
+                file.setObjectid(et.getId());
+                file.setAddedby(et.getOpenedby());
+                file.setAddeddate(et.getOpeneddate());
+                list.add(file);
+            }
+            iFileService.updateBatch(list);
+        }
+        return flag;
     }
 
     /**
@@ -133,52 +159,56 @@ public class TaskExService extends TaskServiceImpl {
         if (list.isEmpty() || list.size() == 0) {
             return;
         }
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        JSONObject jo = new JSONObject();
-        jo.put("project", list.get(0).getProject());
-        jo.put("story", 0);
-        jo.put("module", 0);
-        jo.put("parent", list.get(0).getParent());
-        jo.put("srfArray", list);
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.batchCreate(zentaoSid, jo, rst);
-        if (bRst) {
+        boolean flag = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).batchCreate(list);
+//        for(Task task : list) {
+//            task
+//        }
+//        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+//        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+//        JSONObject jo = new JSONObject();
+//        jo.put("project", list.get(0).getProject());
+//        jo.put("story", 0);
+//        jo.put("module", 0);
+//        jo.put("parent", list.get(0).getParent());
+//        jo.put("srfArray", list);
+//        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.batchCreate(zentaoSid, jo, rst);
+        if (flag) {
             log.error("子任务批量添加成功");
         } else {
             log.error("子任务批量添加失败");
         }
     }
 
-    /**
-     * 自定义行为[RecordEstimate]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public Task recordEstimate(Task et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        JSONObject jo = (JSONObject) JSONObject.toJSON(et);
-        List<TaskEstimate> list = et.getTaskestimate();
-        int i = 1;
-        JSONArray jsonArray = new JSONArray();
-        for(TaskEstimate taskEstimate : list) {
-            if(taskEstimate.getId() == null) {
-                taskEstimate.setId(Long.parseLong(String.valueOf(i)));
-                JSONObject jsonObject = (JSONObject) JSONObject.toJSON(taskEstimate);
-                i ++;
-                jsonArray.add(jsonObject);
-            }
-        }
-        jo.put("srfarray", jsonArray);
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.recordEstimate(zentaoSid, jo, rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-        et.set("ztrst", rst);
-        return et;
-    }
+//    /**
+//     * 自定义行为[RecordEstimate]用户扩展
+//     * @param et
+//     * @return
+//     */
+//    @Override
+//    @Transactional
+//    public Task recordEstimate(Task et) {
+//        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+//        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+//        JSONObject jo = (JSONObject) JSONObject.toJSON(et);
+//        List<TaskEstimate> list = et.getTaskestimate();
+//        int i = 1;
+//        JSONArray jsonArray = new JSONArray();
+//        for(TaskEstimate taskEstimate : list) {
+//            if(taskEstimate.getId() == null) {
+//                taskEstimate.setId(Long.parseLong(String.valueOf(i)));
+//                JSONObject jsonObject = (JSONObject) JSONObject.toJSON(taskEstimate);
+//                i ++;
+//                jsonArray.add(jsonObject);
+//            }
+//        }
+//        jo.put("srfarray", jsonArray);
+//        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.recordEstimate(zentaoSid, jo, rst);
+//        if (bRst && rst.getEtId() != null) {
+//            et = this.get(rst.getEtId());
+//        }
+//        et.set("ztrst", rst);
+//        return et;
+//    }
     /**
      * 自定义行为[Restart]用户扩展
      * @param et
@@ -201,74 +231,74 @@ public class TaskExService extends TaskServiceImpl {
         return super.start(et);
     }
 
-    @Override
-    @Transactional
-//    @SendMessage
-    public boolean create(Task et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
-        DecimalFormat df = new DecimalFormat("#.00");
-        if(et.getMultiple() != null && "1".equals(et.getMultiple())) {
-            List<TaskTeam> list = et.getTaskteam();
-            if(!list.isEmpty() && list.size() > 0) {
-                jo.put("assignedTo", list.get(0).getAccount());
-                double estimate = 0;
-                JSONArray team = new JSONArray();
-                JSONArray teamEstimate = new JSONArray();
-                for (TaskTeam taskTeam : list) {
-                    team.add(taskTeam.getAccount());
-                    teamEstimate.add(taskTeam.getEstimate());
-                    if(taskTeam.getEstimate() != null) {
-                        estimate = estimate + taskTeam.getEstimate();
-                    }
-                }
-                jo.put("estimate", df.format(estimate));
-                jo.put("team", team);
-                jo.put("teamEstimate", teamEstimate);
-            }
-        }
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.create(zentaoSid, jo, rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-        et.set("ztrst", rst);
-        return bRst;
-    }
+//    @Override
+//    @Transactional
+////    @SendMessage
+//    public boolean create(Task et) {
+//        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+//        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+//        JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
+//        DecimalFormat df = new DecimalFormat("#.00");
+//        if(et.getMultiple() != null && "1".equals(et.getMultiple())) {
+//            List<TaskTeam> list = et.getTaskteam();
+//            if(!list.isEmpty() && list.size() > 0) {
+//                jo.put("assignedTo", list.get(0).getAccount());
+//                double estimate = 0;
+//                JSONArray team = new JSONArray();
+//                JSONArray teamEstimate = new JSONArray();
+//                for (TaskTeam taskTeam : list) {
+//                    team.add(taskTeam.getAccount());
+//                    teamEstimate.add(taskTeam.getEstimate());
+//                    if(taskTeam.getEstimate() != null) {
+//                        estimate = estimate + taskTeam.getEstimate();
+//                    }
+//                }
+//                jo.put("estimate", df.format(estimate));
+//                jo.put("team", team);
+//                jo.put("teamEstimate", teamEstimate);
+//            }
+//        }
+//        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.create(zentaoSid, jo, rst);
+//        if (bRst && rst.getEtId() != null) {
+//            et = this.get(rst.getEtId());
+//        }
+//        et.set("ztrst", rst);
+//        return bRst;
+//    }
 
-    @Override
-    @Transactional
-    @SendMessage
-    public boolean update(Task et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
-        if(et.getMultiple() != null && "1".equals(et.getMultiple())) {
-            List<TaskTeam> list = et.getTaskteam();
-            if(!list.isEmpty() && list.size() > 0) {
-                JSONArray team = new JSONArray();
-                JSONArray teamEstimate = new JSONArray();
-                JSONArray teamLeft = new JSONArray();
-                JSONArray teamConsumed = new JSONArray();
-                for (TaskTeam taskTeam : list) {
-                    team.add(taskTeam.getAccount());
-                    teamEstimate.add(taskTeam.getEstimate());
-                    teamLeft.add(taskTeam.getLeft());
-                    teamConsumed.add(taskTeam.getConsumed());
-                }
-                jo.put("team", team);
-                jo.put("teamEstimate", teamEstimate);
-                jo.put("teamLeft", teamLeft);
-                jo.put("teamConsumed", teamConsumed);
-            }
-        }
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.edit(zentaoSid, jo, rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-        et.set("ztrst", rst);
-        return bRst;
-    }
+//    @Override
+//    @Transactional
+//    @SendMessage
+//    public boolean update(Task et) {
+//        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
+//        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
+//        JSONObject jo =  (JSONObject) JSONObject.toJSON(et);
+//        if(et.getMultiple() != null && "1".equals(et.getMultiple())) {
+//            List<TaskTeam> list = et.getTaskteam();
+//            if(!list.isEmpty() && list.size() > 0) {
+//                JSONArray team = new JSONArray();
+//                JSONArray teamEstimate = new JSONArray();
+//                JSONArray teamLeft = new JSONArray();
+//                JSONArray teamConsumed = new JSONArray();
+//                for (TaskTeam taskTeam : list) {
+//                    team.add(taskTeam.getAccount());
+//                    teamEstimate.add(taskTeam.getEstimate());
+//                    teamLeft.add(taskTeam.getLeft());
+//                    teamConsumed.add(taskTeam.getConsumed());
+//                }
+//                jo.put("team", team);
+//                jo.put("teamEstimate", teamEstimate);
+//                jo.put("teamLeft", teamLeft);
+//                jo.put("teamConsumed", teamConsumed);
+//            }
+//        }
+//        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTTaskHelper.edit(zentaoSid, jo, rst);
+//        if (bRst && rst.getEtId() != null) {
+//            et = this.get(rst.getEtId());
+//        }
+//        et.set("ztrst", rst);
+//        return bRst;
+//    }
 
     /**
      * 查询集合 通过模块查询

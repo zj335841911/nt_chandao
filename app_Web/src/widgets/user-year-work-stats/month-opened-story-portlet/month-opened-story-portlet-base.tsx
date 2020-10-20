@@ -219,4 +219,13 @@ export class MonthOpenedStoryPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof MonthOpenedStoryBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'dashboard_sysportlet5_chart', action: 'refresh', data: args });
+    }
+
 }

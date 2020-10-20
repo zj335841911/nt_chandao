@@ -147,8 +147,8 @@ export default class CaseToBugService extends ControlService {
         if (Object.is(serviceName, 'StoryService') && Object.is(interfaceName, 'FetchBugStory')) {
             return this.doItems(this.storyService.FetchBugStory(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'story');
         }
-        if (Object.is(serviceName, 'TaskService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.taskService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'task');
+        if (Object.is(serviceName, 'TaskService') && Object.is(interfaceName, 'FetchBugTask')) {
+            return this.doItems(this.taskService.FetchBugTask(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'task');
         }
 
         return Promise.reject([])

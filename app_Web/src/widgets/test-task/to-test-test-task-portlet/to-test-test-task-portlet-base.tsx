@@ -219,4 +219,13 @@ export class ToTestTestTaskPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof ToTestTestTaskBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'TestTaskGridView9_UnTested', action: 'refresh', data: args });
+    }
+
 }

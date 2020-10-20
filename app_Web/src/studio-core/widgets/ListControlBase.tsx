@@ -78,13 +78,13 @@ export class ListControlBase extends MDControlBase {
     /**
      * 刷新
      *
-     * @param {*} [opt={}]
+     * @param {*} [args]
      * @memberof ListControlBase
      */
-    public refresh(opt: any = {}) {
+    public refresh(args?: any) {
         this.curPage = 1;
         this.items = [];
-        this.load(opt);
+        this.load(args);
     }
 
     /**
@@ -141,7 +141,16 @@ export class ListControlBase extends MDControlBase {
             this.isAddBehind = false;
             this.$emit('load', this.items);
             if (this.isSelectFirstDefault) {
-                this.handleClick(this.items[0]);
+                if(this.selections && this.selections.length > 0){
+                    this.selections.forEach((select: any)=>{
+                        const index = this.items.findIndex((item:any) => Object.is(item.srfkey,select.srfkey));
+                        if(index != -1){
+                            this.handleClick(this.items[index]);
+                        }
+                    })
+                }else{
+                    this.handleClick(this.items[0]);
+                }
             }
         }, (response: any) => {
             if (response && response.status === 401) {

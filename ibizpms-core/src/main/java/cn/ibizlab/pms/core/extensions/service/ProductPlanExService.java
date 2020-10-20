@@ -49,60 +49,6 @@ public class ProductPlanExService extends ProductPlanServiceImpl {
         return super.batchUnlinkStory(et);
     }
     /**
-     * 自定义行为[LinkBug]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public ProductPlan linkBug(ProductPlan et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        JSONObject jo = (JSONObject) JSONObject.toJSON(et);
-        if(et.get("srfactionparam") != null) {
-            ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
-            JSONArray jsonArray = new JSONArray();
-            for(Map map : list) {
-                if (map.get("id") != null) {
-                    jsonArray.add(map.get("id"));
-                }
-            }
-            jo.put("bugs",jsonArray);
-        }
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductPlanHelper.linkBug(zentaoSid, jo, rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-        return et;
-    }
-    /**
-     * 自定义行为[LinkStory]用户扩展
-     * @param et
-     * @return
-     */
-    @Override
-    @Transactional
-    public ProductPlan linkStory(ProductPlan et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        JSONObject jo = (JSONObject) JSONObject.toJSON(et);
-        if(et.get("srfactionparam") != null) {
-            ArrayList<Map> list = (ArrayList) et.get("srfactionparam");
-            JSONArray jsonArray = new JSONArray();
-            for(Map map : list) {
-                if (map.get("id") != null) {
-                    jsonArray.add(map.get("id"));
-                }
-            }
-            jo.put("stories",jsonArray);
-        }
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTProductPlanHelper.linkStory(zentaoSid, jo, rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-        return et;
-    }
-    /**
      * 自定义行为[UnlinkBug]用户扩展
      * @param et
      * @return

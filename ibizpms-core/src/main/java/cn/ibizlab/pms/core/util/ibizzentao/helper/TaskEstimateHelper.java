@@ -1,13 +1,23 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
-import cn.ibizlab.pms.core.zentao.domain.Task;
-import cn.ibizlab.pms.core.zentao.domain.TaskEstimate;
+import cn.ibizlab.pms.core.ibiz.domain.TaskTeam;
+import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
+import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.TaskEstimateMapper;
+import cn.ibizlab.pms.core.zentao.service.*;
+import cn.ibizlab.pms.util.security.AuthenticationUser;
+import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.sql.Timestamp;
+import java.sql.Wrapper;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Component
 @Slf4j
@@ -18,6 +28,23 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
 
     @Autowired
     TaskHelper taskHelper;
+    @Autowired
+    TeamHelper teamHelper;
+
+    @Autowired
+    ITaskEstimateService taskEstimateService;
+    @Autowired
+    ITeamService teamService;
+    @Autowired
+    ITaskService taskService;
+
+    @Autowired
+    ICaseService caseService;
+    @Autowired
+    IStoryService storyService;
+
+    @Autowired
+    StoryHelper storyHelper;
 
     @Override
     public boolean hasDeleted() {
@@ -41,34 +68,161 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
     }
 
 
+
     @Transactional
     public boolean edit(TaskEstimate et) {
         boolean bOk = false;
-        bOk = super.create(et);
+
+        TaskEstimate oldEstimate = taskEstimateService.getById(et.getId());
+        Task task = taskService.getById(oldEstimate.getTask());
+
+        et.setAccount(AuthenticationUser.getAuthenticationUser().getUsername());
+        this.internalUpdate(et);
+        double consumed = task.getConsumed()+et.getConsumed() - oldEstimate.getConsumed();
+        List<JSONObject> lastEstimate = taskEstimateService.select(String.format("select * from zt_TaskEstimate where task = %1$s ORDER BY id desc",task.getId()),null);
+        double left = (lastEstimate.size() != 0 && et.getId() == lastEstimate.get(0).getLongValue("id") ) ? et.getLeft() : task.getLeft();
+        LocalDateTime now = LocalDateTime.now();
+        Task data = new Task();
+        data.setConsumed(consumed);
+        data.setLeft(left);
+        data.setStatus((left == 0) ? "done" : task.getStatus());
+        data.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
+        data.setLastediteddate(Timestamp.valueOf(now));
+        data.setId(task.getId());
+        if (left == 0){
+            data.setFinishedby(AuthenticationUser.getAuthenticationUser().getUsername());
+            data.setFinisheddate(Timestamp.valueOf(now));
+            data.setAssignedto(task.getOpenedby());
+        }
+
+
+        List<JSONObject> teamLists = teamService.select(String.format("select * from zt_team where root = %1$s and type = 'task' order by 'order'",oldEstimate.getTask()),null);
+        if (teamLists.size() != 0){
+            double oldConsumed = 0;
+            for (JSONObject team : teamLists) {
+                if (team.getString("account").equals(oldEstimate.getAccount())) oldConsumed = team.getDoubleValue("consumed");
+            }
+            Team newTeamInfo = new Team();
+            newTeamInfo.setConsumed(oldConsumed+et.getConsumed() - oldEstimate.getConsumed());
+            newTeamInfo.setLeft(left);
+            Map<String,Object> param = new HashMap<>();
+            param.put("root",oldEstimate.getTask());
+            param.put("type","task");
+            param.put("account",oldEstimate.getAccount());
+            teamHelper.update(newTeamInfo,(QueryWrapper<Team>) newTeamInfo.getUpdateWrapper(true).allEq(param));
+            //data = computeHours4Multiple(task,data);
+        }
+        taskHelper.internalUpdate(data);
+
+
+        if (task.getParent() > 0) {  //编辑的任务是子任务
+            taskHelper.updateParentStatus(task, task.getParent(),false);
+        }
+
+        //     * Set stage of a story.
+        if (task.getStory() != 0){
+            long storyID = task.getStory();
+            Story story = storyService.getById(storyID);
+            storyHelper.setStage(story);
+        }
+
+        Task oldTask = new Task();
+        oldTask.setConsumed(task.getConsumed());
+        oldTask.setLeft(task.getLeft());
+        oldTask.setStatus(task.getStatus());
+
+        Task newTask = new Task();
+        newTask.setConsumed(data.getConsumed());
+        newTask.setLeft(data.getLeft());
+        newTask.setStatus(data.getStatus());
+        List<History> changes = ChangeUtil.diff(oldTask,newTask);
+        Action action1 = actionHelper.create("task",et.getTask(),"EditEstimate",et.getWork(),"",null,true);
+        actionHelper.logHistory(action1.getId(),changes);
+
+
+        //bOk = super.create(et);
         if (!bOk)
             return bOk;
 
         //task 处理
         log.info("TaskEstimate 更新Task：未处理");
 
-        actionHelper.create("task", et.getTask(), "EditEstimate", et.getWork(), "", null, true);
+        //actionHelper.create("task", et.getTask(), "EditEstimate", et.getWork(), "", null, true);
 
         return bOk;
     }
+
 
     @Override
     @Transactional
     public boolean delete(Long key) {
         boolean bOk = false;
-        TaskEstimate old = this.get(key);
-        Task et = taskHelper.get(old.getTask());
-        bOk = super.delete(key);
+        TaskEstimate taskEstimate = this.get(key);
+        Task task = taskHelper.get(taskEstimate.getTask());
+        this.remove(new QueryWrapper<TaskEstimate>().eq("id",key));
+        List<JSONObject> estimateLists = taskEstimateService.select(String.format("select * from zt_TASKESTIMATE where task = %1$s order by date desc,id desc limit 0,1",taskEstimate.getTask()),null);
+        TaskEstimate lastEstimate = null;
+        if (estimateLists.size() != 0){
+            lastEstimate = JSONObject.toJavaObject(estimateLists.get(0),TaskEstimate.class);
+        }
+        double consumed = task.getConsumed() - taskEstimate.getConsumed();
+        double left = lastEstimate != null && lastEstimate.getLeft() != 0 ? lastEstimate.getLeft() : taskEstimate.getLeft();
+        Task data = new Task();
+        data.setConsumed(consumed);
+        data.setLeft(left);
+        data.setStatus((left == 0 && consumed != 0) ? "done" : task.getStatus());
 
+        List<JSONObject> teamList = teamService.select(String.format("select t1.* from zt_team t1 LEFT JOIN zt_task t2 on t1.root = t2.id and t1.TYPE = 'task' where  t1.root = %1$s ",task.getId()),null);
+        if (teamList.size() != 0){
+            double oldConsumed = 0;
+            for (JSONObject team : teamList) {
+                if (team.getString("account").equals(taskEstimate.getAccount())){
+                    oldConsumed = team.getDoubleValue("consumed");
+                }
+            }
+            Team newTeamInfo = new Team();
+            newTeamInfo.setConsumed(oldConsumed - taskEstimate.getConsumed());
+            newTeamInfo.setLeft(left);
+            Map<String,Object> param = new HashMap<>();
+            param.put("root",taskEstimate.getTask());
+            param.put("type","task");
+            param.put("account",taskEstimate.getAccount());
+            teamHelper.update(newTeamInfo,(QueryWrapper<Team>) newTeamInfo.getUpdateWrapper(true).allEq(param));
+            // data = this.computeHours4Multiple(task,data);
+        }
+        data.setId(taskEstimate.getTask());
+        taskHelper.internalUpdate(data);
+
+        if (task.getParent() > 0) taskHelper.updateParentStatus(task, task.getParent(), false);
+
+        if (task.getStory() != 0) {
+            Story et = storyHelper.getById(task.getStory());
+            storyHelper.setStage(et);
+        }
+        Task oldTask = new Task();
+        oldTask.setConsumed(task.getConsumed());
+        oldTask.setLeft(left);
+        oldTask.setStatus(task.getStatus());
+
+        Task newTask = new Task();
+        newTask.setConsumed(data.getConsumed());
+        newTask.setLeft(data.getLeft());
+        newTask.setStatus(data.getStatus());
+
+        List<History> changes = ChangeUtil.diff(oldTask,newTask);
+        if (changes.size() > 0) {
+            Action action = actionHelper.create("task", task.getId(), "DeleteEstimate", "", "", null, true);
+            if (changes.size() > 0){
+                actionHelper.logHistory(action.getId(),changes);
+            }
+        }
+
+
+        // bOk = super.delete(key);
 
         //task 处理
-        log.info("TaskEstimate 更新Task：未处理");
+        //log.info("TaskEstimate 更新Task：未处理");
 
-        actionHelper.create("task", et.getId(), "DeleteEstimate", "", "", null, true);
         if (!bOk)
             return bOk;
 

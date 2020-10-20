@@ -45,6 +45,15 @@ export class TaskTeamGridView9_EditBase extends GridView9Base {
     protected appDeMajor: string = 'account';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskTeamGridView9_EditBase
+     */ 
+    protected dataControl:string = "grid";
+
+    /**
      * 实体服务对象
      *
      * @type {IBZTaskTeamService}

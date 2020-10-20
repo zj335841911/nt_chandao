@@ -2,6 +2,7 @@ import { Http,Util,Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import BugService from '@/service/bug/bug-service';
 import DashboardBugLifeModel from './dashboard-bug-life-form-model';
+import CaseService from '@/service/case/case-service';
 
 
 /**
@@ -40,6 +41,14 @@ export default class DashboardBugLifeService extends ControlService {
         super(opts);
         this.model = new DashboardBugLifeModel();
     }
+
+    /**
+     * 测试用例服务对象
+     *
+     * @type {CaseService}
+     * @memberof DashboardBugLifeService
+     */
+    public caseService: CaseService = new CaseService();
 
     /**
      * 远端数据
@@ -90,6 +99,9 @@ export default class DashboardBugLifeService extends ControlService {
     public getItems(serviceName: string, interfaceName: string, context: any = {}, data: any, isloading?: boolean): Promise<any[]> {
         data.page = data.page ? data.page : 0;
         data.size = data.size ? data.size : 1000;
+        if (Object.is(serviceName, 'CaseService') && Object.is(interfaceName, 'FetchDefault')) {
+            return this.doItems(this.caseService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'case');
+        }
 
         return Promise.reject([])
     }

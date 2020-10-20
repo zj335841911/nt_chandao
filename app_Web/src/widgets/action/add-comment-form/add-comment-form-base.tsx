@@ -67,7 +67,6 @@ export class AddCommentEditFormBase extends EditFormControlBase {
      */  
     public appUIService:ActionUIService = new ActionUIService(this.$store);
 
-
     /**
      * 表单数据对象
      *

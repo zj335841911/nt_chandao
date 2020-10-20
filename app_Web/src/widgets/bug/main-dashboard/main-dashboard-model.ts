@@ -225,6 +225,9 @@ export default class MainModel {
       {
         name: 'overduebugs',
       },
+      {
+        name: 'casename',
+      },
     ]
   }
 

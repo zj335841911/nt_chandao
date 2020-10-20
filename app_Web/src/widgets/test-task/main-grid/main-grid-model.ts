@@ -47,9 +47,9 @@ export default class MainModel {
           dataType: 'PICKUPTEXT',
         },
         {
-          name: 'build',
-          prop: 'build',
-          dataType: 'PICKUP',
+          name: 'buildname',
+          prop: 'buildname',
+          dataType: 'PICKUPTEXT',
         },
         {
           name: 'owner',
@@ -70,6 +70,11 @@ export default class MainModel {
           name: 'status',
           prop: 'status',
           dataType: 'SSCODELIST',
+        },
+        {
+          name: 'build',
+          prop: 'build',
+          dataType: 'PICKUP',
         },
         {
           name: 'srfmstag',

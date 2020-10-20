@@ -225,6 +225,9 @@ export default class BugOpenedByModel {
       {
         name: 'overduebugs',
       },
+      {
+        name: 'casename',
+      },
     ]
   }
 

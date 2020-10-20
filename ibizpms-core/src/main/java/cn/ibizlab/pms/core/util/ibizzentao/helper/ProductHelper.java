@@ -29,6 +29,8 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
     @Autowired
     DocLibHelper docLibHelper;
 
+    String[] diffAttrs = {"desc"};
+
     @Transactional
     public boolean create(Product et) {
 
@@ -73,7 +75,7 @@ public class ProductHelper extends ZTBaseHelper<ProductMapper, Product> {
             return false;
         fileHelper.updateObjectID(null, et.getId(), "product");
 
-        List<History> changes = ChangeUtil.diff(old, et);
+        List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
         if (changes.size() > 0) {
             Action action = actionHelper.create("product", et.getId(), "edited", "", "", null, true);
             actionHelper.logHistory(action.getId(), changes);

@@ -6,7 +6,9 @@ import cn.ibizlab.pms.core.ibizsysmodel.domain.PSSysRunSession;
 import cn.ibizlab.pms.core.ibizsysmodel.service.IPSSysRunSessionService;
 import cn.ibizlab.pms.core.zentao.domain.Build;
 import cn.ibizlab.pms.core.zentao.service.IBuildService;
+import cn.ibizlab.pms.core.zentao.service.IFileService;
 import cn.ibizlab.pms.core.zentao.service.impl.ReleaseServiceImpl;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Release;
@@ -30,10 +32,33 @@ public class ReleaseExService extends ReleaseServiceImpl {
     @Autowired
     IIBZProProductService iibzProProductService;
 
+    @Autowired
+    private IFileService fileService;
+
 
     @Override
     protected Class currentModelClass() {
         return com.baomidou.mybatisplus.core.toolkit.ReflectionKit.getSuperClassGenericType(this.getClass().getSuperclass(), 1);
+    }
+
+    @Override
+    @Transactional
+    public boolean create(Release et) {
+        String files = et.getFiles();
+        boolean flag = super.create(et);
+        if(flag && et.getId() != null && files != null) {
+            JSONArray jsonArray = JSONArray.parseArray(files);
+            List<cn.ibizlab.pms.core.zentao.domain.File> list = new ArrayList<>();
+            for (int i = 0; i < jsonArray.size(); i ++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                cn.ibizlab.pms.core.zentao.domain.File file = new cn.ibizlab.pms.core.zentao.domain.File();
+                file.setId(jsonObject.getLongValue("id"));
+                file.setObjectid(et.getId());
+                list.add(file);
+            }
+            fileService.updateBatch(list);
+        }
+        return flag;
     }
 
     /**

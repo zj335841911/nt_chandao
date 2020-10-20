@@ -225,6 +225,9 @@ export default class BugResolvedByModel {
       {
         name: 'overduebugs',
       },
+      {
+        name: 'casename',
+      },
     ]
   }
 

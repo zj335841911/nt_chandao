@@ -219,4 +219,13 @@ export class StepsInfoPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof StepsInfoBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'BugStepsInfoEditView', action: 'refresh', data: args });
+    }
+
 }

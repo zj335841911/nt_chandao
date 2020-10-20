@@ -71,6 +71,7 @@ export default {
     buildproject: "版本项目",
     createbuild: "创建版本",
     overduebugs: "过期天数",
+    casename: "相关用例",
   },
 	views: {
 		plansubgridview: {
@@ -308,6 +309,7 @@ export default {
 			plan: "所属计划", 
 			type: "Bug类型", 
 			severity: "严重程度", 
+			storyversion: "需求版本", 
 			pri: "优先级", 
 			status: "Bug状态", 
 			activatedcount: "激活次数", 
@@ -320,6 +322,7 @@ export default {
 			keywords: "关键词", 
 			mailto: "抄送给", 
 			project: "所属项目", 
+			story: "相关需求", 
 			projectname: "项目", 
 			storyname: "相关需求", 
 			taskname: "相关任务", 
@@ -330,7 +333,6 @@ export default {
 			resolvedbuild: "解决版本", 
 			closedby: "由谁关闭", 
 			lasteditedby: "最后修改者", 
-			story: "相关需求", 
 			task: "相关任务", 
 		},
 		uiactions: {
@@ -543,6 +545,8 @@ export default {
 			mailto: "抄送给", 
 			keywords: "关键词", 
 			story: "相关需求", 
+			caseversion: "用例版本", 
+			case: "相关用例", 
 			id: "Bug编号", 
 			task: "相关任务", 
 		},
@@ -627,6 +631,8 @@ export default {
 			project: "所属项目", 
 			projectname: "项目", 
 			story: "相关需求", 
+			storyname: "相关需求", 
+			taskname: "相关任务", 
 			task: "相关任务", 
 			id: "Bug编号", 
 		},
@@ -655,6 +661,8 @@ export default {
 			closedby: "由谁关闭", 
 			lasteditedby: "最后修改者", 
 			linkbug: "相关Bug", 
+			case: "相关用例", 
+			casename: "相关用例", 
 			id: "Bug编号", 
 		},
 		uiactions: {

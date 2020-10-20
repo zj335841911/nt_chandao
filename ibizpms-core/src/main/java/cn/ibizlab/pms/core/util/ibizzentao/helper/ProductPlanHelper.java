@@ -2,7 +2,9 @@ package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
+import cn.ibizlab.pms.core.zentao.filter.ProductPlanSearchContext;
 import cn.ibizlab.pms.core.zentao.mapper.ProductPlanMapper;
+import cn.ibizlab.pms.core.zentao.service.IProductPlanService;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.SpringContextHolder;
 import com.alibaba.fastjson.JSONArray;
@@ -31,8 +33,18 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
     @Autowired
     StoryHelper storyHelper;
 
+    @Autowired
+    IProductPlanService productPlanService;
+
     @Transactional
     public boolean create(ProductPlan et) {
+        if(et.getParent() != null && et.getParent() > 0) {
+            Long parent = et.getParent();
+            ProductPlan productPlan = this.get(parent);
+            et.setProduct(productPlan.getProduct());
+            productPlan.setParent(-1l);
+            this.edit(productPlan);
+        }
         fileHelper.processImgURL(et, null, null);
         if (!this.retBool(this.baseMapper.insert(et)))
             return false;
@@ -73,10 +85,28 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
     public boolean delete(Long key) {
         boolean bOk = super.delete(key);
 
-        //changeParentField
+        changeParentField(key);
 
 
         return bOk;
+    }
+    public void changeParentField(Long key) {
+        ProductPlan plan = this.get(key);
+        if(plan == null && plan.getParent() <= 0) return;
+        ProductPlanSearchContext planSearchContext = new ProductPlanSearchContext();
+        planSearchContext.setN_parent_eq(plan.getParent());
+        planSearchContext.setN_product_eq(plan.getProduct());
+        long parent = productPlanService.searchDefault(planSearchContext).getContent().size() > 0 ? -1l : 0l;
+        ProductPlan parentPlan = this.get(plan.getParent());
+        if(parentPlan != null) {
+            if(parentPlan.getDeleted().equals("0")) {
+                parentPlan.setParent(parent);
+                this.internalUpdate(parentPlan);
+            }else {
+                parentPlan.setParent(0l);
+                this.internalUpdate(parentPlan);
+            }
+        }
     }
 
     @Transactional
@@ -119,7 +149,9 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
 
     @Transactional
     public ProductPlan unlinkStory(ProductPlan et) {
-        throw new RuntimeException("未实现");
+
+        return et;
+//        throw new RuntimeException("未实现");
     }
 
     @Transactional

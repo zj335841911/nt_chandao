@@ -226,6 +226,7 @@
     refreshitems='' 
     viewname='action-mob-mdview9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('task.completeformmob_form.details.druipart1')"  
     paramItem='task' 
     style="" 
     :formState="formState" 

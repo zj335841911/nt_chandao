@@ -587,6 +587,13 @@ public class Bug extends EntityMP implements Serializable {
     @JSONField(name = "overduebugs")
     @JsonProperty("overduebugs")
     private Integer overduebugs;
+    /**
+     * 相关用例
+     */
+    @TableField(exist = false)
+    @JSONField(name = "casename")
+    @JsonProperty("casename")
+    private String casename;
 
     /**
      * 

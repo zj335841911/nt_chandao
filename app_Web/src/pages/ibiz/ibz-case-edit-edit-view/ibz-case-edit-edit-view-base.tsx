@@ -42,6 +42,15 @@ export class IbzCaseEditEditViewBase extends EditViewBase {
     protected appDeMajor: string = 'title';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzCaseEditEditViewBase
+     */ 
+    protected dataControl:string = "form";
+
+    /**
      * 实体服务对象
      *
      * @type {IbzCaseService}

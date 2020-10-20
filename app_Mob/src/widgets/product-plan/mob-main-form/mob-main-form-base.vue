@@ -135,6 +135,7 @@
     refreshitems='' 
     viewname='story-mob-mdview9' 
     v-show="detailsModel.druipart2.visible" 
+    :caption="$t('productplan.mobmain_form.details.druipart2')"  
     paramItem='productplan' 
     style="" 
     :formState="formState" 
@@ -203,6 +204,7 @@
     refreshitems='' 
     viewname='bug-plan-mob-mdview9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('productplan.mobmain_form.details.druipart1')"  
     paramItem='productplan' 
     style="" 
     :formState="formState" 

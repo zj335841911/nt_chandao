@@ -45,6 +45,15 @@ export class ProjectGridView9Base extends GridView9Base {
     protected appDeMajor: string = 'name';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectGridView9Base
+     */ 
+    protected dataControl:string = "grid";
+
+    /**
      * 实体服务对象
      *
      * @type {ProjectService}

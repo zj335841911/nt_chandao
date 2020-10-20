@@ -37,6 +37,23 @@ export default class AppAlert extends Vue {
     @Prop() tag: any;
 
     /**
+     * 应用上下文
+     * 
+     * @type {any}
+     * @memberof AppAlert
+     */
+    @Prop() context: any;
+
+    /**
+     * 视图参数
+     * 
+     * @type {any}
+     * @memberof AppAlert
+     */
+    @Prop() viewparam: any;
+
+
+    /**
      * 显示位置
      * 
      * @type {any}
@@ -95,7 +112,7 @@ export default class AppAlert extends Vue {
      * @memberof AppAlert
      */
     public async getData() {
-        let response: any = await this.viewMessageService.getViewMessageByTag(this.tag, null, null)
+        let response: any = await this.viewMessageService.getViewMessageByTag(this.tag, this.context, this.viewparam);
         if(response && response.length > 0) {
             response.forEach((item: any) => {
                 let tempData: any = JSON.parse(JSON.stringify(item));

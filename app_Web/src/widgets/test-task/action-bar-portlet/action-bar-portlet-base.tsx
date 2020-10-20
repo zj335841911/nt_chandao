@@ -462,4 +462,12 @@ export class ActionBarPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof ActionBarBase
+     */
+    public refresh(args?: any) {
+    }
+
 }

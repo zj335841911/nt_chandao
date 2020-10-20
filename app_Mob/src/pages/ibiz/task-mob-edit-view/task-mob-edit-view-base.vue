@@ -1,4 +1,3 @@
-
 <template>
 <ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'task-mob-edit-view': true }">
     
@@ -45,7 +44,7 @@
     </ion-content>
     <ion-footer class="view-footer">
                 <div  class = "fab_container">
-            <ion-button v-if="getToolBarLimit" @click="popUpGroup" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <ion-button v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_confirmstorychangecz.disabled}" v-show="righttoolbarModels.deuiaction1_confirmstorychangecz.visabled">
@@ -359,7 +358,7 @@ export default class TaskMobEditViewBase extends Vue {
 
             deuiaction1_assigntaskmob: { name: 'deuiaction1_assigntaskmob', caption: '指派', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_ASSIGN_BUT', uiaction: { tag: 'AssignTaskMob', target: 'SINGLEKEY' } },
 
-            deuiaction1_workhoursmob: { name: 'deuiaction1_workhoursmob', caption: '工时', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CUTINTBEHAVIOR', uiaction: { tag: 'WorkHoursMob', target: 'SINGLEKEY' } },
+            deuiaction1_workhoursmob: { name: 'deuiaction1_workhoursmob', caption: '工时', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CONSUM_BUT', uiaction: { tag: 'WorkHoursMob', target: 'SINGLEKEY' } },
 
             deuiaction1_donetaskmob: { name: 'deuiaction1_donetaskmob', caption: '完成', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_COMPLETE_BUT', uiaction: { tag: 'DoneTaskMob', target: 'SINGLEKEY' } },
 
@@ -369,7 +368,7 @@ export default class TaskMobEditViewBase extends Vue {
 
             deuiaction1_closetaskmob: { name: 'deuiaction1_closetaskmob', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_CLOSE_BUT', uiaction: { tag: 'CloseTaskMob', target: 'SINGLEKEY' } },
 
-            deuiaction1_deletemob: { name: 'deuiaction1_deletemob', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__CUTINTBEHAVIOR', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
+            deuiaction1_deletemob: { name: 'deuiaction1_deletemob', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TASK_DELETE_BUT', uiaction: { tag: 'deleteMob', target: 'SINGLEKEY' } },
 
     };
 
@@ -414,8 +413,8 @@ export default class TaskMobEditViewBase extends Vue {
      * @type {boolean}
      * @memberof TaskMobEditView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     
@@ -521,6 +520,7 @@ export default class TaskMobEditViewBase extends Vue {
      * @memberof TaskMobEditViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

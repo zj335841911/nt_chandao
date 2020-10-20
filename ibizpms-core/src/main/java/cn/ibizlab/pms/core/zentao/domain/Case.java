@@ -150,7 +150,7 @@ public class Case extends EntityMP implements Serializable {
     /**
      * 用例状态
      */
-    @DEField(defaultValue = "wait")
+    @DEField(defaultValue = "normal")
     @TableField(value = "`status`")
     @JSONField(name = "status")
     @JsonProperty("status")

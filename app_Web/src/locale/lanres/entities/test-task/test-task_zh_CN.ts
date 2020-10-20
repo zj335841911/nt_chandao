@@ -344,7 +344,7 @@ export default {
 			name: "名称",
 			productname: "产品",
 			projecttname: "项目",
-			build: "版本",
+			buildname: "版本",
 			owner: "负责人",
 			begin: "开始日期",
 			end: "结束日期",

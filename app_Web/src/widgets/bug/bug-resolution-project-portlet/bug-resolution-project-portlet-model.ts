@@ -225,6 +225,9 @@ export default class BugResolution_ProjectModel {
       {
         name: 'overduebugs',
       },
+      {
+        name: 'casename',
+      },
     ]
   }
 

@@ -225,6 +225,9 @@ export default class CurUserResolveBugModel {
       {
         name: 'overduebugs',
       },
+      {
+        name: 'casename',
+      },
     ]
   }
 

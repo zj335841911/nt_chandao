@@ -225,6 +225,9 @@ export default class DashboardBugMainModel {
       {
         name: 'overduebugs',
       },
+      {
+        name: 'casename',
+      },
     ]
   }
 

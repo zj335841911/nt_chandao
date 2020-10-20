@@ -153,6 +153,7 @@
     refreshitems='version' 
     viewname='case-step-mob-mdview9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('case.mobmain_form.details.druipart1')"  
     paramItem='case' 
     style="" 
     :formState="formState" 

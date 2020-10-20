@@ -76,7 +76,6 @@ export class SuspendNCloseEditFormBase extends EditFormControlBase {
      * @memberof SuspendNCloseEditFormBase
      */
     protected drCount: number = 1;
-
     /**
      * 表单数据对象
      *

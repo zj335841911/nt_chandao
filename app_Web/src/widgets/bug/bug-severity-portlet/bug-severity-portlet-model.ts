@@ -225,6 +225,9 @@ export default class BugSeverityModel {
       {
         name: 'overduebugs',
       },
+      {
+        name: 'casename',
+      },
     ]
   }
 

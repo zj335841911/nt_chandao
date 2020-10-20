@@ -20,7 +20,7 @@ public class ZTFileItem implements Serializable {
     private long size;
     private String ext;
     private String objecttype;
-    private Integer objectid;
+    private Long objectid;
     private String extra;
     private String version;
 }

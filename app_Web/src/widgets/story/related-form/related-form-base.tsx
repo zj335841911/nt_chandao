@@ -76,7 +76,6 @@ export class RelatedEditFormBase extends EditFormControlBase {
      * @memberof RelatedEditFormBase
      */
     protected drCount: number = 6;
-
     /**
      * 表单数据对象
      *

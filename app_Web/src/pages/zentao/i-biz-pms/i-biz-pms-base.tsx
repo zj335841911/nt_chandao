@@ -136,6 +136,14 @@ export class IBizPMSBase extends Vue {
   public contextMenuDragVisiable: boolean = false;
 
   /**
+   * 底部绘制
+   *
+   * @private
+   * @memberof AppCenterBase
+   */
+  private footerRenders: { remove: () => boolean }[] = [];
+
+  /**
    * 注册底部项
    *
    * @memberof IBizPMSBase
@@ -146,32 +154,32 @@ export class IBizPMSBase extends Vue {
     const rightItems: any = this.appMenuModel.getMenuGroup('footer_right');
     if (leftItems && leftItems.items) {
       leftItems.items.forEach((item: any) => {
-        this.footerItemsService.registerLeftItem((h: any) => {
+        this.footerRenders.push(this.footerItemsService.registerLeftItem((h: any) => {
           return <div class='action-item' title={item.tooltip} on-click={() => this.click(item)}>
             <menu-icon item={item}/>
             {item.text}
           </div>;
-        });
+        }));
       });
     }
     if (centerItems && centerItems.items) {
       centerItems.items.forEach((item: any) => {
-        this.footerItemsService.registerCenterItem((h: any) => {
+        this.footerRenders.push(this.footerItemsService.registerCenterItem((h: any) => {
           return <div class='action-item' title={item.tooltip} on-click={() => this.click(item)}>
             <menu-icon item={item}/>
             {item.text}
           </div>;
-        });
+        }));
       });
     }
     if (rightItems && rightItems.items) {
       rightItems.items.forEach((item: any) => {
-        this.footerItemsService.registerRightItem((h: any) => {
+        this.footerRenders.push(this.footerItemsService.registerRightItem((h: any) => {
           return <div class='action-item' title={item.tooltip} on-click={() => this.click(item)}>
             <menu-icon item={item}/>
             {item.text}
           </div>;
-        });
+        }));
       });
     }
   }
@@ -220,6 +228,7 @@ export class IBizPMSBase extends Vue {
    */
   protected beforeDestroy() {
     this.$store.commit("viewaction/removeView", this.viewtag);
+    this.footerRenders.forEach(item => item.remove());
   }
 
   /**

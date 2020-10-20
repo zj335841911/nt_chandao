@@ -42,6 +42,15 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
     protected appDeMajor: string = 'title';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugCaseToBugEditViewBase
+     */ 
+    protected dataControl:string = "form";
+
+    /**
      * 实体服务对象
      *
      * @type {BugService}
@@ -86,6 +95,7 @@ export class BugCaseToBugEditViewBase extends EditViewBase {
         'module': { isRawValue: false, value: 'module' },
         'precondition': { isRawValue: false, value: 'precondition' },
         'title': { isRawValue: false, value: 'title' },
+        'srfloginname': { isRawValue: false, value: 'srfloginname' },
         'case': { isRawValue: false, value: 'case' }
     };
 

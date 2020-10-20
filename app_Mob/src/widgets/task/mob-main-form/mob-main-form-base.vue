@@ -189,6 +189,7 @@
     refreshitems='' 
     viewname='task-team-mob-mdview9' 
     v-show="detailsModel.druipart1.visible" 
+    :caption="$t('task.mobmain_form.details.druipart1')"  
     paramItem='task' 
     style="" 
     :formState="formState" 
@@ -556,6 +557,7 @@
     refreshitems='' 
     viewname='action-mob-mdview9' 
     v-show="detailsModel.druipart2.visible" 
+    :caption="$t('task.mobmain_form.details.druipart2')"  
     paramItem='task' 
     style="" 
     :formState="formState" 

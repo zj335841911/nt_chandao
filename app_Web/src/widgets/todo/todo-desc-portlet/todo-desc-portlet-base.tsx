@@ -219,4 +219,13 @@ export class TodoDescPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof TodoDescBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'TodoDescEditView9', action: 'refresh', data: args });
+    }
+
 }

@@ -482,4 +482,12 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof TestDashboardQuickActionBase
+     */
+    public refresh(args?: any) {
+    }
+
 }

@@ -166,6 +166,16 @@ export default class CaseToBugModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'caseversion',
+        prop: 'caseversion',
+        dataType: 'PICKUPDATA',
+      },
+      {
+        name: 'case',
+        prop: 'ibizcase',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

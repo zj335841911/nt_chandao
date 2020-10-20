@@ -45,6 +45,15 @@ export class ProjectTeamMainGridView_EditRowBase extends GridViewBase {
     protected appDeMajor: string = 'account';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectTeamMainGridView_EditRowBase
+     */ 
+    protected dataControl:string = "grid";
+
+    /**
      * 实体服务对象
      *
      * @type {ProjectTeamService}

@@ -384,8 +384,8 @@ export default class ProductPlanMobMDViewBase extends Vue {
      * @type {boolean}
      * @memberof ProductPlanMobMDView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     
@@ -511,6 +511,7 @@ export default class ProductPlanMobMDViewBase extends Vue {
      * @memberof ProductPlanMobMDViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

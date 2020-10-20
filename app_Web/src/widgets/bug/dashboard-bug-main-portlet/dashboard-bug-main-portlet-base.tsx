@@ -219,4 +219,13 @@ export class DashboardBugMainPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof DashboardBugMainBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'BugDashboardMainEditView9', action: 'refresh', data: args });
+    }
+
 }

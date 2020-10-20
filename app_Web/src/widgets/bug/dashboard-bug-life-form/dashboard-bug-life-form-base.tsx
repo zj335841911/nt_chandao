@@ -67,7 +67,6 @@ export class DashboardBugLifeEditFormBase extends EditFormControlBase {
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
 
-
     /**
      * 表单数据对象
      *
@@ -91,6 +90,8 @@ export class DashboardBugLifeEditFormBase extends EditFormControlBase {
         closedby: null,
         lasteditedby: null,
         linkbug: null,
+        case: null,
+        casename: null,
         id: null,
         bug:null,
     };
@@ -159,6 +160,10 @@ export class DashboardBugLifeEditFormBase extends EditFormControlBase {
         lasteditedby: new FormItemModel({ caption: '最后修改者', detailType: 'FORMITEM', name: 'lasteditedby', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
         linkbug: new FormItemModel({ caption: '相关Bug', detailType: 'FORMITEM', name: 'linkbug', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        case: new FormItemModel({ caption: '相关用例', detailType: 'FORMITEM', name: 'case', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        casename: new FormItemModel({ caption: '相关用例', detailType: 'FORMITEM', name: 'casename', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         id: new FormItemModel({ caption: 'Bug编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 

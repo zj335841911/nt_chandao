@@ -76,7 +76,6 @@ export class CosedEditFormBase extends EditFormControlBase {
      * @memberof CosedEditFormBase
      */
     protected drCount: number = 1;
-
     /**
      * 表单数据对象
      *

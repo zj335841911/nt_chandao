@@ -20,6 +20,7 @@
         </ion-item>
       </template>
     </ion-list>
+    <div v-show="!blockUI" class="form-druipart-text">{{caption}}</div>
     <div v-show="!blockUI">
       <component
         class="viewcontainer2"
@@ -54,6 +55,14 @@ export default class AppFormDRUIPart extends Vue {
    * @memberof AppFormDRUIPart
    */
   @Prop() public data!: string;
+
+  /**
+   * 表单名称
+   *
+   * @type {string}
+   * @memberof AppFormDRUIPart
+   */
+  @Prop() public caption!: string;
 
   /**
    * 关联视图

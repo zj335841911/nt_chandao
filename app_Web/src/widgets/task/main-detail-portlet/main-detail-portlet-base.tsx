@@ -219,4 +219,13 @@ export class MainDetailPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof MainDetailBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'TaskMainDetailView9', action: 'refresh', data: args });
+    }
+
 }

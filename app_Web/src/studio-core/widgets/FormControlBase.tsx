@@ -25,6 +25,15 @@ export class FormControlBase extends MainControlBase {
     public formState: Subject<any> = new Subject();
 
     /**
+     * 主键表单项名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof FormControlBase
+     */
+    protected formKeyItemName: string = '';
+
+    /**
      * 实体值规则
      *
      * @type {*}
@@ -430,11 +439,11 @@ export class FormControlBase extends MainControlBase {
     /**
      * 部件刷新
      *
-     * @param {any[]} [args]
+     * @param {*} [args]
      * @returns {void}
      * @memberof FormControlBase
      */
-    public refresh(args?: any[]): void {
+    public refresh(args?: any): void {
         const arg: any = {};
         if (args && args.length > 0) {
             Object.assign(arg, args[0]);
@@ -534,6 +543,9 @@ export class FormControlBase extends MainControlBase {
             const data = response.data;
             this.resetDraftFormStates();
             this.onFormLoad(data, 'loadDraft');
+            if(this.formKeyItemName){
+                this.data[this.formKeyItemName] = null;
+            }
             this.$emit('load', data);
             this.$nextTick(() => {
                 this.formState.next({ type: 'load', data: data });

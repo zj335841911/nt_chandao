@@ -219,4 +219,13 @@ export class ProductExpViewPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof ProductExpViewBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'ProductListExpView', action: 'refresh', data: args });
+    }
+
 }

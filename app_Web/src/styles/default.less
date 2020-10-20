@@ -165,6 +165,25 @@ div::-webkit-scrollbar-thumb {
         }
     }
 
+    .quick-toolbar {
+
+        .toolbar-container {
+
+            .ivu-btn.ivu-btn-text {
+                height: 32px;
+                margin-right: 10px;
+                padding: 5px 10px;
+                color: var(--view-button-color);
+                background-color: var(--view-button-background-color);
+                border-color: var(--view-button-background-color);
+            }
+
+            .ivu-btn.ivu-btn-text:hover {
+                background: var(--view-button-background-color-active);
+            }
+        }
+    }
+
     .el-table::before {
         content: none;
     }
@@ -321,18 +340,33 @@ div::-webkit-scrollbar-thumb {
 
             >.ivu-page-total {
 
-                >span {
+                .page-column {
+                    position: absolute;
+                    left: 3px;
+                }
 
-                    >.page-column {
-                        position: absolute;
-                        left: 3px;
+                .batch-toolbar {
+                    position: absolute;
+                    left: 85px;
+
+                    .ivu-btn {
+                        height: 22px;
+                        margin-top: -2px;
+                        margin-right: 5px;
+                        color: var(--view-button-color);
+                        background-color: var(--view-button-background-color);
+                        border-color: var(--view-button-background-color);
                     }
 
-                    >.page-button {
+                    .ivu-btn:hover {
+                        background: var(--view-button-background-color-active);
+                    }
+                }
 
-                        .ivu-btn.ivu-btn-default.ivu-btn-icon-only {
-                            width: 26px;
-                        }
+                .page-button {
+
+                    .ivu-btn.ivu-btn-default.ivu-btn-icon-only {
+                        width: 26px;
                     }
                 }
             }
@@ -1421,16 +1455,18 @@ div::-webkit-scrollbar-thumb {
 }
 
 // 实体选择树视图（部件视图）
-.depickuptreeview{
+.depickuptreeview {
     .search-contant {
         height: 40px;
+
         .ivu-input-wrapper {
             max-width: 400px;
             padding-top: 6px;
         }
     }
-    .tree-contant {   
-        margin:  0px 0px 16px 0;
+
+    .tree-contant {
+        margin: 0px 0px 16px 0;
         overflow: auto;
     }
 }

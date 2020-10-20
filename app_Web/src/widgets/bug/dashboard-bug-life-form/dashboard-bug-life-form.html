@@ -115,6 +115,31 @@ tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," te
 </app-form-item>
 
 </i-col>
+<i-col class="form-layout-container" v-show="detailsModel.casename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
+    <app-form-item name='casename' :itemRules="this.rules.casename" class='' :caption="$t('entities.bug.dashboardbuglife_form.details.casename')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.casename.error" :isEmptyCaption="false" labelPos="LEFT">
+    
+<app-picker 
+  :formState="formState"
+  :data="data"
+  :context="context"
+  :viewparams="viewparams"
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.casename.disabled"
+  name='casename'
+  deMajorField='title'
+  deKeyField='case'
+  valueitem='case' 
+  :value="data.casename"  
+  editortype="linkonly" 
+  :linkview="{ viewname: 'CaseMainDashboardView', title: $t('entities.case.views.maindashboardview.title'), deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'cases', parameterName: 'case' }, { pathName: 'maindashboardview', parameterName: 'maindashboardview' } ], width: 0, height: 0, placement: 'DRAWER_TOP', isRedirectView: false }" 
+  style=""  
+  @formitemvaluechange="onFormItemValueChange">
+</app-picker>
+
+</app-form-item>
+
+</i-col>
     
     </row>
 </app-form-group>

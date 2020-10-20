@@ -219,4 +219,13 @@ export class BugStatus_ProjectPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof BugStatus_ProjectBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'dashboard_BugStatusProject_chart', action: 'refresh', data: args });
+    }
+
 }

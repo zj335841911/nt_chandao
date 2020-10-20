@@ -67,7 +67,6 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
      */  
     public appUIService:BugUIService = new BugUIService(this.$store);
 
-
     /**
      * 表单数据对象
      *

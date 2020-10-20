@@ -100,6 +100,27 @@ export class ListExpViewlistexpbarListexpbarBase extends ListViewExpBarControlBa
     public navViewName: string = 'project-stats-edit-view9';
 
     /**
+    * 刷新
+    *
+    * @memberof ListExpViewlistexpbarBase
+    */
+    public refresh(args?: any): void {
+        const refs: any = this.$refs;
+        if (refs && refs.listexpbar_list) {
+            refs.listexpbar_list.refresh();
+        }
+    }
+
+
+    /**
+     * 搜索字段名称
+     * 
+     * @type {(string)}
+     * @memberof ListExpViewlistexpbarBase
+     */
+    public placeholder="项目编号，项目名称";
+
+    /**
      * 呈现模式，可选值：horizontal或者vertical
      * 
      * @public

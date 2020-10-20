@@ -41,6 +41,15 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
     protected appDeMajor: string = 'name';
 
     /**
+     * 数据部件名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskTaskTypeGanttViewBase
+     */ 
+    protected dataControl:string = "gantt";
+
+    /**
      * 实体服务对象
      *
      * @type {TaskService}

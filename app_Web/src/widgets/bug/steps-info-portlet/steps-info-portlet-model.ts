@@ -225,6 +225,9 @@ export default class StepsInfoModel {
       {
         name: 'overduebugs',
       },
+      {
+        name: 'casename',
+      },
     ]
   }
 

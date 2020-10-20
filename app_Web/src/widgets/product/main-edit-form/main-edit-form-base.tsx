@@ -95,7 +95,6 @@ export class Main_EditEditFormBase extends EditFormControlBase {
         curUIService.Product_SeLine(datas,contextJO, paramJO,  $event, xData,this,"Product");
     }
 
-
     /**
      * 表单数据对象
      *

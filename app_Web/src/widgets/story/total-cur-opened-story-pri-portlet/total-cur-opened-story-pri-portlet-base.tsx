@@ -219,4 +219,13 @@ export class TotalCurOpenedStoryPriPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof TotalCurOpenedStoryPriBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'dashboard_sysportlet6_chart', action: 'refresh', data: args });
+    }
+
 }

@@ -48,6 +48,8 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
     @Autowired
     TeamHelper teamHelper;
 
+    String[] diffAttrs = {"desc"};
+
     @Override
     @Transactional
     public boolean create(Project et) {
@@ -85,18 +87,20 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
 
         //关联产品
         projectProductHelper.remove(new QueryWrapper<ProjectProduct>().eq("project", et.getId()));
-        for (int i = 0; i < projectproducts.size(); i++) {
-            JSONObject json = projectproducts.getJSONObject(i);
-            ProjectProduct projectProduct = new ProjectProduct();
-            projectProduct.setProject(et.getId());
-            if (json.containsKey("products")) {
-                projectProduct.setProduct(json.getLongValue("products"));
-            } else {
-                continue;
+        if(projectproducts != null) {
+            for (int i = 0; i < projectproducts.size(); i++) {
+                JSONObject json = projectproducts.getJSONObject(i);
+                ProjectProduct projectProduct = new ProjectProduct();
+                projectProduct.setProject(et.getId());
+                if (json.containsKey("products")) {
+                    projectProduct.setProduct(json.getLongValue("products"));
+                } else {
+                    continue;
+                }
+                projectProduct.setPlan(json.getLongValue("plans"));
+                projectProduct.setBranch(json.getLongValue("branchs"));
+                projectProductHelper.create(projectProduct);
             }
-            projectProduct.setPlan(json.getLongValue("plans"));
-            projectProduct.setBranch(json.getLongValue("branchs"));
-            projectProductHelper.create(projectProduct);
         }
 
         actionHelper.create("project", et.getId(), "opened", "",
@@ -122,23 +126,25 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
 
         //关联产品
         projectProductHelper.remove(new QueryWrapper<ProjectProduct>().eq("project", et.getId()));
-        for (int i = 0; i < projectproducts.size(); i++) {
-            JSONObject json = projectproducts.getJSONObject(i);
-            ProjectProduct projectProduct = new ProjectProduct();
-            projectProduct.setProject(et.getId());
-            if (json.containsKey("products") && json.get("products") != null) {
-                projectProduct.setProduct(json.getLongValue("products"));
-            } else {
-                continue;
+        if(projectproducts != null) {
+            for (int i = 0; i < projectproducts.size(); i++) {
+                JSONObject json = projectproducts.getJSONObject(i);
+                ProjectProduct projectProduct = new ProjectProduct();
+                projectProduct.setProject(et.getId());
+                if (json.containsKey("products") && json.get("products") != null) {
+                    projectProduct.setProduct(json.getLongValue("products"));
+                } else {
+                    continue;
+                }
+                projectProduct.setPlan(json.getLongValue("plans"));
+                projectProduct.setBranch(json.getLongValue("branchs"));
+                projectProductHelper.create(projectProduct);
             }
-            projectProduct.setPlan(json.getLongValue("plans"));
-            projectProduct.setBranch(json.getLongValue("branchs"));
-            projectProductHelper.create(projectProduct);
         }
 
         //Team 处理
 
-        List<History> changes = ChangeUtil.diff(old, et);
+        List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
         if (changes.size() > 0) {
             Action action = actionHelper.create("project", et.getId(), "edited", comment, "", null, true);
             actionHelper.logHistory(action.getId(), changes);

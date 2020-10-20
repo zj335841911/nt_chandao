@@ -391,8 +391,8 @@ export default class TaskMobMDViewBase extends Vue {
      * @type {boolean}
      * @memberof TaskMobMDView 
      */
-    public popUpGroup () {
-        this.showGrop = !this.showGrop;
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
     }
 
     
@@ -534,6 +534,7 @@ export default class TaskMobMDViewBase extends Vue {
      * @memberof TaskMobMDViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

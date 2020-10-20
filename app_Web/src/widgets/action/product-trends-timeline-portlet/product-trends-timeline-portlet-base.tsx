@@ -219,4 +219,13 @@ export class ProductTrendsTimelinePortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof ProductTrendsTimelineBase
+     */
+    public refresh(args?: any) {
+      this.viewState.next({ tag: 'ActionProductTrendsListView9', action: 'refresh', data: args });
+    }
+
 }

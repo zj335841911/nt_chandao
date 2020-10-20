@@ -295,12 +295,12 @@ export class PanelControlBase extends ControlBase {
     /**
      * 刷新
      *
-     * @param {*} [opt={}]
+     * @param {*} [args]
      * @memberof PanelControlBase
      */
-    public refresh(opt: any = {}) {
+    public refresh(args?:any) {
         if (this.parentRef.refresh && this.parentRef.refresh instanceof Function) {
-            this.parentRef.refresh(opt);
+            this.parentRef.refresh(args);
         }
     }
 

@@ -524,4 +524,12 @@ export class DashboardQuickActionPortletBase extends MainControlBase {
     }
 
 
+    /**
+     * 刷新
+     *
+     * @memberof DashboardQuickActionBase
+     */
+    public refresh(args?: any) {
+    }
+
 }
