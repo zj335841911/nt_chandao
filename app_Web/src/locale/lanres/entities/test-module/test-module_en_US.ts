@@ -85,7 +85,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-        remove: "Remove",
+        testmodule_removemodule: "删除",
 		},
 	},
 	mainrow_grid: {
@@ -96,7 +96,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-        remove: "Remove",
+        testmodule_removemodule: "删除",
 		},
 	},
 	main_grid: {

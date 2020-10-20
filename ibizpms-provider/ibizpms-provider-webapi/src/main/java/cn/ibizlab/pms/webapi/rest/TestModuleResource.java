@@ -131,6 +131,17 @@ public class TestModuleResource {
         return ResponseEntity.status(HttpStatus.OK).body(testmoduledto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-RemoveModule-all')")
+    @ApiOperation(value = "删除模块", tags = {"测试模块" },  notes = "删除模块")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/testmodules/{testmodule_id}/removemodule")
+    public ResponseEntity<TestModuleDTO> removeModule(@PathVariable("testmodule_id") Long testmodule_id, @RequestBody TestModuleDTO testmoduledto) {
+        TestModule domain = testmoduleMapping.toDomain(testmoduledto);
+        domain.setId(testmodule_id);
+        domain = testmoduleService.removeModule(domain);
+        testmoduledto = testmoduleMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testmoduledto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Save-all')")
     @ApiOperation(value = "保存测试模块", tags = {"测试模块" },  notes = "保存测试模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/testmodules/save")
@@ -371,6 +382,17 @@ public class TestModuleResource {
         TestModule domain = testmoduleMapping.toDomain(testmoduledto);
         domain.setRoot(product_id);
         domain = testmoduleService.fix(domain) ;
+        testmoduledto = testmoduleMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testmoduledto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-RemoveModule-all')")
+    @ApiOperation(value = "根据产品测试模块", tags = {"测试模块" },  notes = "根据产品测试模块")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/testmodules/{testmodule_id}/removemodule")
+    public ResponseEntity<TestModuleDTO> removeModuleByProduct(@PathVariable("product_id") Long product_id, @PathVariable("testmodule_id") Long testmodule_id, @RequestBody TestModuleDTO testmoduledto) {
+        TestModule domain = testmoduleMapping.toDomain(testmoduledto);
+        domain.setRoot(product_id);
+        domain = testmoduleService.removeModule(domain) ;
         testmoduledto = testmoduleMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(testmoduledto);
     }

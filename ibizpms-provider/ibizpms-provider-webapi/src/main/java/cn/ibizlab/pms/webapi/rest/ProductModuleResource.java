@@ -131,6 +131,17 @@ public class ProductModuleResource {
         return ResponseEntity.status(HttpStatus.OK).body(productmoduledto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-RemoveModule-all')")
+    @ApiOperation(value = "删除模块", tags = {"需求模块" },  notes = "删除模块")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/productmodules/{productmodule_id}/removemodule")
+    public ResponseEntity<ProductModuleDTO> removeModule(@PathVariable("productmodule_id") Long productmodule_id, @RequestBody ProductModuleDTO productmoduledto) {
+        ProductModule domain = productmoduleMapping.toDomain(productmoduledto);
+        domain.setId(productmodule_id);
+        domain = productmoduleService.removeModule(domain);
+        productmoduledto = productmoduleMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productmoduledto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Save-all')")
     @ApiOperation(value = "保存需求模块", tags = {"需求模块" },  notes = "保存需求模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/save")
@@ -382,6 +393,17 @@ public class ProductModuleResource {
         ProductModule domain = productmoduleMapping.toDomain(productmoduledto);
         domain.setRoot(product_id);
         domain = productmoduleService.fix(domain) ;
+        productmoduledto = productmoduleMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productmoduledto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-RemoveModule-all')")
+    @ApiOperation(value = "根据产品需求模块", tags = {"需求模块" },  notes = "根据产品需求模块")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/productmodules/{productmodule_id}/removemodule")
+    public ResponseEntity<ProductModuleDTO> removeModuleByProduct(@PathVariable("product_id") Long product_id, @PathVariable("productmodule_id") Long productmodule_id, @RequestBody ProductModuleDTO productmoduledto) {
+        ProductModule domain = productmoduleMapping.toDomain(productmoduledto);
+        domain.setRoot(product_id);
+        domain = productmoduleService.removeModule(domain) ;
         productmoduledto = productmoduleMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(productmoduledto);
     }

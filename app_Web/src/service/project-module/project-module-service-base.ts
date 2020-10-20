@@ -223,6 +223,24 @@ export default class ProjectModuleServiceBase extends EntityService {
     }
 
     /**
+     * RemoveModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectModuleServiceBase
+     */
+    public async RemoveModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule){
+            let res:any = Http.getInstance().delete(`/projects/${context.project}/projectmodules/${context.projectmodule}/removemodule`,isloading);
+            return res;
+        }
+            let res:any = Http.getInstance().delete(`/projectmodules/${context.projectmodule}/removemodule`,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]

@@ -35,6 +35,7 @@ public interface IProjectModuleService extends IService<ProjectModule>{
     ProjectModule getDraft(ProjectModule et) ;
     boolean checkKey(ProjectModule et) ;
     ProjectModule fix(ProjectModule et) ;
+    ProjectModule removeModule(ProjectModule et) ;
     boolean save(ProjectModule et) ;
     void saveBatch(List<ProjectModule> list) ;
     Page<ProjectModule> searchByPath(ProjectModuleSearchContext context) ;

@@ -732,6 +732,7 @@
 |/productmodule/getdraft|GET|需求模块 Json对象|&nbsp;|
 |/productmodule/checkkey|POST|需求模块 Json对象|&nbsp;|
 |/productmodule/fix|POST|需求模块 Json对象|&nbsp;|
+|/productmodule/removemodule|DELETE|需求模块 Json对象|&nbsp;|
 |/productmodule/save|POST|需求模块 Json对象|&nbsp;|
 |/productmodule/syncfromibiz|POST|需求模块 Json对象|&nbsp;|
 |/productmodule/fetchbypath|GET|DEDataSetFetchContext Json对象|&nbsp;|
@@ -1017,6 +1018,7 @@
 |/testmodule/getdraft|GET|测试模块 Json对象|&nbsp;|
 |/testmodule/checkkey|POST|测试模块 Json对象|&nbsp;|
 |/testmodule/fix|POST|测试模块 Json对象|&nbsp;|
+|/testmodule/removemodule|DELETE|测试模块 Json对象|&nbsp;|
 |/testmodule/save|POST|测试模块 Json对象|&nbsp;|
 |/testmodule/fetchbypath|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/testmodule/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
@@ -1049,6 +1051,7 @@
 |/projectmodule/getdraft|GET|任务模块 Json对象|&nbsp;|
 |/projectmodule/checkkey|POST|任务模块 Json对象|&nbsp;|
 |/projectmodule/fix|POST|任务模块 Json对象|&nbsp;|
+|/projectmodule/removemodule|DELETE|任务模块 Json对象|&nbsp;|
 |/projectmodule/save|POST|任务模块 Json对象|&nbsp;|
 |/projectmodule/fetchbypath|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/projectmodule/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|

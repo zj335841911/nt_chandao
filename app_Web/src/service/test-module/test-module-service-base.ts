@@ -223,6 +223,24 @@ export default class TestModuleServiceBase extends EntityService {
     }
 
     /**
+     * RemoveModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestModuleServiceBase
+     */
+    public async RemoveModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.testmodule){
+            let res:any = Http.getInstance().delete(`/products/${context.product}/testmodules/${context.testmodule}/removemodule`,isloading);
+            return res;
+        }
+            let res:any = Http.getInstance().delete(`/testmodules/${context.testmodule}/removemodule`,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]

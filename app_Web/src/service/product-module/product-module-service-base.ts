@@ -223,6 +223,24 @@ export default class ProductModuleServiceBase extends EntityService {
     }
 
     /**
+     * RemoveModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductModuleServiceBase
+     */
+    public async RemoveModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productmodule){
+            let res:any = Http.getInstance().delete(`/products/${context.product}/productmodules/${context.productmodule}/removemodule`,isloading);
+            return res;
+        }
+            let res:any = Http.getInstance().delete(`/productmodules/${context.productmodule}/removemodule`,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]

@@ -127,7 +127,7 @@
                     </template>
                     <template slot-scope="scope">
                         <div style="text-align: center;">
-                          <a v-show="scope.row.Remove.visabled" :disabled="scope.row.Remove.disabled" @click="uiAction(scope.row, 'Remove', $event)" :title="$t('entities.testmodule.mainbranch_grid.uiactions.remove')">
+                          <a v-show="scope.row.RemoveModule.visabled" :disabled="scope.row.RemoveModule.disabled" @click="uiAction(scope.row, 'RemoveModule', $event)" :title="$t('entities.testmodule.mainbranch_grid.uiactions.testmodule_removemodule')">
                             <i class='fa fa-remove'></i>
                             
                           </a>

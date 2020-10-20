@@ -59,6 +59,10 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.IProductModuleFixPathLogic fixpathLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IProductModuleRemoveModuleLogic removemoduleLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -134,6 +138,13 @@ public class ProductModuleServiceImpl extends ServiceImpl<ProductModuleMapper, P
     @Transactional
     public ProductModule fix(ProductModule et) {
         fixpathLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public ProductModule removeModule(ProductModule et) {
+        removemoduleLogic.execute(et);
          return et ;
     }
 

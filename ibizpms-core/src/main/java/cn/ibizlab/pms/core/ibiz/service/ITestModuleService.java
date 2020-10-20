@@ -35,6 +35,7 @@ public interface ITestModuleService extends IService<TestModule>{
     TestModule getDraft(TestModule et) ;
     boolean checkKey(TestModule et) ;
     TestModule fix(TestModule et) ;
+    TestModule removeModule(TestModule et) ;
     boolean save(TestModule et) ;
     void saveBatch(List<TestModule> list) ;
     Page<TestModule> searchByPath(TestModuleSearchContext context) ;
