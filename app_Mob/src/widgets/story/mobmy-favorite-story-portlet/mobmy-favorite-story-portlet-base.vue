@@ -237,8 +237,8 @@ export default class MOBMyFavoriteStoryBase extends Vue implements ControlInterf
      */
     protected actionBarModelData: any[] = [
         {
-            name: "dashboard_sysportlet1_uc30733e_click",
-            actionName: "更多",
+            viewlogicname: "dashboard_sysportlet1_uc30733e_click",
+            name: "更多",
         }
     ];
 

@@ -237,8 +237,8 @@ export default class MyBugMobBase extends Vue implements ControlInterface {
      */
     protected actionBarModelData: any[] = [
         {
-            name: "dashboard_sysportlet3_ud7e32da_click",
-            actionName: "更多",
+            viewlogicname: "dashboard_sysportlet3_ud7e32da_click",
+            name: "更多",
         }
     ];
 

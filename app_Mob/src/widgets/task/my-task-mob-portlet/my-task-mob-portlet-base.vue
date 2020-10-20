@@ -237,8 +237,8 @@ export default class MyTaskMobBase extends Vue implements ControlInterface {
      */
     protected actionBarModelData: any[] = [
         {
-            name: "dashboard_sysportlet2_ue5ceff5_click",
-            actionName: "更多",
+            viewlogicname: "dashboard_sysportlet2_ue5ceff5_click",
+            name: "更多",
         }
     ];
 

@@ -237,8 +237,8 @@ export default class MyFavoriteTaskBase extends Vue implements ControlInterface 
      */
     protected actionBarModelData: any[] = [
         {
-            name: "dashboard_sysportlet4_u02f0175_click",
-            actionName: "更多",
+            viewlogicname: "dashboard_sysportlet4_u02f0175_click",
+            name: "更多",
         }
     ];
 

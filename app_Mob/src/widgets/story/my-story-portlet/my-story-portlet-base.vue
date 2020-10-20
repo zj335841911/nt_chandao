@@ -237,8 +237,8 @@ export default class MyStoryBase extends Vue implements ControlInterface {
      */
     protected actionBarModelData: any[] = [
         {
-            name: "dashboard_sysportlet5_uc2eba09_click",
-            actionName: "更多",
+            viewlogicname: "dashboard_sysportlet5_uc2eba09_click",
+            name: "更多",
         }
     ];
 
