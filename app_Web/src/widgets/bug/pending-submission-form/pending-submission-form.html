@@ -308,8 +308,8 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ ZT_PROJECT:"%project%" }' 
-  :localParam ='{ n_project_eq:"%project%" }' 
+  :localContext ='{ ZT_PROJECT:"%project%", PROJECT:"%project%" }' 
+  :localParam ='{ project:"%project%", n_project_eq:"%project%" }' 
   :disabled="detailsModel.taskname.disabled"
   name='taskname'
   deMajorField='name'
