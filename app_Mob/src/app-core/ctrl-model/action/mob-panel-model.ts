@@ -78,6 +78,9 @@ export class MobModel {
       {
         name: 'lastmonth',
       },
+      {
+        name: 'srfkey',
+      },
     ]
   }
 

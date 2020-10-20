@@ -78,6 +78,9 @@ export class AllTrendsMobModel {
       {
         name: 'lastmonth',
       },
+      {
+        name: 'srfkey',
+      },
     ]
   }
 
