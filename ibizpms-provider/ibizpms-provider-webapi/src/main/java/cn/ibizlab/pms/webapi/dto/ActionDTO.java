@@ -164,6 +164,60 @@ public class ActionDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String date1;
 
+    /**
+     * 属性 [TODAY]
+     *
+     */
+    @JSONField(name = "today")
+    @JsonProperty("today")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String today;
+
+    /**
+     * 属性 [YESTERDAY]
+     *
+     */
+    @JSONField(name = "yesterday")
+    @JsonProperty("yesterday")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String yesterday;
+
+    /**
+     * 属性 [THISWEEK]
+     *
+     */
+    @JSONField(name = "thisweek")
+    @JsonProperty("thisweek")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String thisweek;
+
+    /**
+     * 属性 [LASTWEEK]
+     *
+     */
+    @JSONField(name = "lastweek")
+    @JsonProperty("lastweek")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String lastweek;
+
+    /**
+     * 属性 [THISMONTH]
+     *
+     */
+    @JSONField(name = "thismonth")
+    @JsonProperty("thismonth")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String thismonth;
+
+    /**
+     * 属性 [LASTMONTH]
+     *
+     */
+    @JSONField(name = "lastmonth")
+    @JsonProperty("lastmonth")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String lastmonth;
+
 
     /**
      * 设置 [EXTRA]

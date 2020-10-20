@@ -60,6 +60,24 @@ export default class ActionHistoryModel {
       {
         name: 'date1',
       },
+      {
+        name: 'today',
+      },
+      {
+        name: 'yesterday',
+      },
+      {
+        name: 'thisweek',
+      },
+      {
+        name: 'lastweek',
+      },
+      {
+        name: 'thismonth',
+      },
+      {
+        name: 'lastmonth',
+      },
     ]
   }
 

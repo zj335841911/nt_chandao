@@ -227,7 +227,6 @@ export class ProductCreateStory_POChartBase extends MainControlBase {
     },
     ecObject:{
         radius:['60%', '70%'],
-        legend:{show:false},
     },
     seriesTemp:{
         type:'pie',
@@ -245,6 +244,7 @@ export class ProductCreateStory_POChartBase extends MainControlBase {
      * @memberof ChartBase
      */   
     public chartUserParams:any ={
+        legend:{show:false},
         color:["#0068B7","#1aa1e6","#81cef2","#FF5D5D",'#FDC137','#00DA88','#7ECFF','#8666B8','#BD7B46']
     };
 
@@ -271,7 +271,7 @@ export class ProductCreateStory_POChartBase extends MainControlBase {
     public chartOption:any = {
         title:{
             show:true ,
-            text:'产品需求数及占比',
+            text:'产品需求数',
             subtext:''
         },
         legend:{

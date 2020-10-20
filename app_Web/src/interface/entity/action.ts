@@ -125,4 +125,52 @@ export interface Action {
      * @memberof Action
      */
     date1?: any;
+
+    /**
+     * 今天
+     *
+     * @returns {*}
+     * @memberof Action
+     */
+    today?: any;
+
+    /**
+     * 昨天
+     *
+     * @returns {*}
+     * @memberof Action
+     */
+    yesterday?: any;
+
+    /**
+     * 本周
+     *
+     * @returns {*}
+     * @memberof Action
+     */
+    thisweek?: any;
+
+    /**
+     * 上周
+     *
+     * @returns {*}
+     * @memberof Action
+     */
+    lastweek?: any;
+
+    /**
+     * 本月
+     *
+     * @returns {*}
+     * @memberof Action
+     */
+    thismonth?: any;
+
+    /**
+     * 上月
+     *
+     * @returns {*}
+     * @memberof Action
+     */
+    lastmonth?: any;
 }
