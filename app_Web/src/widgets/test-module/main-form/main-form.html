@@ -6,7 +6,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.rootname.visible" :style="{}"  :lg="{ span: 16, offset: 0 }" :xl="{ span: 16, offset: 0 }">
-    <app-form-item name='rootname' :itemRules="this.rules.rootname" class='' :caption="$t('entities.testmodule.main_form.details.rootname')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.rootname.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='rootname' :itemRules="this.rules.rootname" class='' :caption="$t('entities.testmodule.main_form.details.rootname')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.rootname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker  
   :formState="formState"
@@ -51,7 +51,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.parentname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='parentname' :itemRules="this.rules.parentname" class='' :caption="$t('entities.testmodule.main_form.details.parentname')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.parentname.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='parentname' :itemRules="this.rules.parentname" class='' :caption="$t('entities.testmodule.main_form.details.parentname')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.parentname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker  
   :formState="formState"
@@ -77,7 +77,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.testmodule.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.testmodule.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
     v-model="data.name"  
     @enter="onEnter($event)"  
@@ -91,7 +91,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.short.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='short' :itemRules="this.rules.short" class='' :caption="$t('entities.testmodule.main_form.details.short')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.short.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='short' :itemRules="this.rules.short" class='' :caption="$t('entities.testmodule.main_form.details.short')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.short.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
     v-model="data.short"  
     @enter="onEnter($event)"  
@@ -105,7 +105,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.order.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='order' :itemRules="this.rules.order" class='' :caption="$t('entities.testmodule.main_form.details.order')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.order.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='order' :itemRules="this.rules.order" class='' :caption="$t('entities.testmodule.main_form.details.order')" uiStyle="DEFAULT" :labelWidth="80" :isShowCaption="true" :error="detailsModel.order.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
     v-model="data.order"  
     @enter="onEnter($event)"  
