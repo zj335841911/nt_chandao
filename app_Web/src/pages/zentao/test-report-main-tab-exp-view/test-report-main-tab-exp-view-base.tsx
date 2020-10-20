@@ -118,9 +118,18 @@ export class TestReportMainTabExpViewBase extends TabExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestReportMainTabExpViewBase
      */
 	protected viewtag: string = 'ea7a4f0ccc237a45f39ffb2e3df7e9fd';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestReportMainTabExpViewBase
+     */ 
+    protected viewName:string = "TestReportMainTabExpView";
 
 
     /**

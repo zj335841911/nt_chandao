@@ -571,6 +571,83 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         ]
     },
     {
+        srfkey: "ProductActionQuickpacket",
+        emptytext: "未定义",
+        "codelisttype":"static",
+        items: [
+            {
+                id: "All",
+                label: "所有",
+                text: "所有",
+                "data":{},
+                "codename":"All",
+                value: "All",
+                
+                disabled: false,
+            },
+            {
+                id: "today",
+                label: "今天",
+                text: "今天",
+                "data":{"n_today_eq":1},
+                "codename":"Today",
+                value: "today",
+                
+                disabled: false,
+            },
+            {
+                id: "yesterday",
+                label: "昨天",
+                text: "昨天",
+                "data":{"n_yesterday_eq":1},
+                "codename":"Yesterday",
+                value: "yesterday",
+                
+                disabled: false,
+            },
+            {
+                id: "thisweek",
+                label: "本周",
+                text: "本周",
+                "data":{"n_thisweek_eq":1},
+                "codename":"Thisweek",
+                value: "thisweek",
+                
+                disabled: false,
+            },
+            {
+                id: "lastweek",
+                label: "上周",
+                text: "上周",
+                "data":{"n_lastweek_eq":1},
+                "codename":"Lastweek",
+                value: "lastweek",
+                
+                disabled: false,
+            },
+            {
+                id: "thismonth",
+                label: "本月",
+                text: "本月",
+                "data":{"n_thismonth_eq":1},
+                "codename":"Thismonth",
+                value: "thismonth",
+                
+                disabled: false,
+            },
+            {
+                id: "lastmonth",
+                label: "上月",
+                text: "上月",
+                "data":{"n_lastmonth_eq":1},
+                "codename":"Lastmonth",
+                value: "lastmonth",
+                
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: "Pri",
         emptytext: "未定义",
         "codelisttype":"static",

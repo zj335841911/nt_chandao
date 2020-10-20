@@ -21,10 +21,10 @@
   deKeyField='product'
   :service="service"
   :acParams="{ serviceName: 'ProductService', interfaceName: 'FetchDefault'}"
-  valueitem='root' 
-  :value="data.rootname" 
+  valueitem='root'
+  :value="data.rootname"
   editortype="dropdown"
-  style="" 
+  style=""
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
@@ -58,18 +58,19 @@
   :data="data"
   :context="context"
   :viewparams="viewparams"
-  :localContext ='{ N_TYPE_EQ:"story", N_ROOT_EQ:"%root%" }' 
-  :localParam ='{ n_type_eq:"story", n_root_eq:"%root%" }' 
+  :localContext ='{ N_TYPE_EQ:"story", N_BRANCH_EQ:"%branch%", N_ROOT_EQ:"%root%" }' 
+  :localParam ='{ n_type_eq:"story", n_root_eq:"%root%", n_branch_eq:"%branch%" }' 
   :disabled="detailsModel.parentname.disabled"
   name='parentname'
   deMajorField='name'
   deKeyField='productmodule'
   :service="service"
-  :acParams="{ serviceName: 'ProductModuleService', interfaceName: 'FetchDefault'}"
-  valueitem='parent' 
-  :value="data.parentname" 
+  :acParams="{ serviceName: 'ProductModuleService', interfaceName: 'FetchParentModule'}"
+  valueitem='parent'
+  :value="data.parentname"
   editortype="dropdown"
-  style="" 
+  :valFormat="{0: '/'}"
+  style=""
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>

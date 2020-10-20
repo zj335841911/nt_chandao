@@ -117,9 +117,18 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ReleaseQuickCreateViewBase
      */
 	protected viewtag: string = 'ed51615a22255e84a3b276815ef5c96e';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ReleaseQuickCreateViewBase
+     */ 
+    protected viewName:string = "ReleaseQuickCreateView";
 
 
     /**

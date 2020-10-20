@@ -117,9 +117,18 @@ export class TestSuiteGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestSuiteGridViewBase
      */
 	protected viewtag: string = 'a3bd82ec712d2e3ad12e716655e960fc';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestSuiteGridViewBase
+     */ 
+    protected viewName:string = "TestSuiteGridView";
 
 
     /**

@@ -136,9 +136,18 @@ export class CaseLinkCaseGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseLinkCaseGridViewBase
      */
 	protected viewtag: string = '14d95e9a02db631c2b9af47641fcec4e';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseLinkCaseGridViewBase
+     */ 
+    protected viewName:string = "CaseLinkCaseGridView";
 
 
     /**

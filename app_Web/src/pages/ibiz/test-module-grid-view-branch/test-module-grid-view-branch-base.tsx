@@ -140,9 +140,18 @@ export class TestModuleGridViewBranchBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestModuleGridViewBranchBase
      */
 	protected viewtag: string = '65129e5f76f96cbb1d2d1c9e9bb2afed';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestModuleGridViewBranchBase
+     */ 
+    protected viewName:string = "TestModuleGridViewBranch";
 
 
     /**

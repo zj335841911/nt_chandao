@@ -94,9 +94,18 @@ export class DeptPickupViewBase extends PickupViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof DeptPickupViewBase
      */
 	protected viewtag: string = '16b54862dad958907853dc7eb084a0c0';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DeptPickupViewBase
+     */ 
+    protected viewName:string = "DeptPickupView";
 
 
     /**

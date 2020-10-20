@@ -177,6 +177,14 @@ export class Main_EditRowGridBase extends GridControlBase {
     };
 
     /**
+     * 主信息表格列
+     *
+     * @type {string}
+     * @memberof Main_EditRowBase
+     */  
+    public majorInfoColName:string = "account";
+
+    /**
      * 本地缓存标识
      *
      * @protected

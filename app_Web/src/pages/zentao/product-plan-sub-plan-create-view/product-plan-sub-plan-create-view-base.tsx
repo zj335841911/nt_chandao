@@ -117,9 +117,18 @@ export class ProductPlanSubPlanCreateViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductPlanSubPlanCreateViewBase
      */
 	protected viewtag: string = '170c1d558f26cf37236390b28f8aca82';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductPlanSubPlanCreateViewBase
+     */ 
+    protected viewName:string = "ProductPlanSubPlanCreateView";
 
 
     /**

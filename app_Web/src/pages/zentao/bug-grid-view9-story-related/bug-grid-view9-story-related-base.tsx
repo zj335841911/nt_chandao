@@ -100,9 +100,18 @@ export class BugGridView9_StoryRelatedBase extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugGridView9_StoryRelatedBase
      */
 	protected viewtag: string = 'c959d7fe98c33b7befcad24e2596633e';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugGridView9_StoryRelatedBase
+     */ 
+    protected viewName:string = "BugGridView9_StoryRelated";
 
 
     /**

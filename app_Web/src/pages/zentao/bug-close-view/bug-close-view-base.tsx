@@ -122,9 +122,18 @@ export class BugCloseViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugCloseViewBase
      */
 	protected viewtag: string = 'e67fe0ec86d17b74944c16e187da482d';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugCloseViewBase
+     */ 
+    protected viewName:string = "BugCloseView";
 
 
     /**

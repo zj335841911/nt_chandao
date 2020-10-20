@@ -35,11 +35,13 @@ public interface IProductModuleService extends IService<ProductModule>{
     ProductModule getDraft(ProductModule et) ;
     boolean checkKey(ProductModule et) ;
     ProductModule fix(ProductModule et) ;
+    ProductModule removeModule(ProductModule et) ;
     boolean save(ProductModule et) ;
     void saveBatch(List<ProductModule> list) ;
     ProductModule syncFromIBIZ(ProductModule et) ;
     Page<ProductModule> searchByPath(ProductModuleSearchContext context) ;
     Page<ProductModule> searchDefault(ProductModuleSearchContext context) ;
+    Page<ProductModule> searchParentModule(ProductModuleSearchContext context) ;
     Page<ProductModule> searchRoot(ProductModuleSearchContext context) ;
     Page<ProductModule> searchRoot_NoBranch(ProductModuleSearchContext context) ;
     Page<ProductModule> searchStoryModule(ProductModuleSearchContext context) ;

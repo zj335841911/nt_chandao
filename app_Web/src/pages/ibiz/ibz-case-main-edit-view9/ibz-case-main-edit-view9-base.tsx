@@ -97,9 +97,18 @@ export class IbzCaseMainEditView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzCaseMainEditView9Base
      */
 	protected viewtag: string = 'b613f8c14c436a5c95be4e1b9e730e6d';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzCaseMainEditView9Base
+     */ 
+    protected viewName:string = "IbzCaseMainEditView9";
 
 
     /**

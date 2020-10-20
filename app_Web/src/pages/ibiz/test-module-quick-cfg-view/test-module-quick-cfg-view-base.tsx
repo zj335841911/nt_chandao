@@ -110,9 +110,18 @@ export class TestModuleQuickCfgViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestModuleQuickCfgViewBase
      */
 	protected viewtag: string = 'd337f5c3c125dc2641321f2d93b65476';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestModuleQuickCfgViewBase
+     */ 
+    protected viewName:string = "TestModuleQuickCfgView";
 
 
     /**

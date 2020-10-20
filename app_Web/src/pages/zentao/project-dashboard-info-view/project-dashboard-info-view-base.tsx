@@ -97,9 +97,18 @@ export class ProjectDashboardInfoViewBase extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectDashboardInfoViewBase
      */
 	protected viewtag: string = 'ef1a8c8701140368af895304274c602a';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectDashboardInfoViewBase
+     */ 
+    protected viewName:string = "ProjectDashboardInfoView";
 
 
     /**

@@ -110,9 +110,18 @@ export class TodoActiviteViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TodoActiviteViewBase
      */
 	protected viewtag: string = 'fbfc7f8548a02caba7db4438e675641b';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TodoActiviteViewBase
+     */ 
+    protected viewName:string = "TodoActiviteView";
 
 
     /**

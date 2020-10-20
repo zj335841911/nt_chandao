@@ -117,9 +117,18 @@ export class TestTaskEditView_EditBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestTaskEditView_EditBase
      */
 	protected viewtag: string = 'e8763999350c7bd92e884e0381d7ac6b';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskEditView_EditBase
+     */ 
+    protected viewName:string = "TestTaskEditView_Edit";
 
 
     /**

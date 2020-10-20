@@ -95,9 +95,18 @@ export class ProjectTestTabExpViewBase extends TabExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectTestTabExpViewBase
      */
 	protected viewtag: string = '19641dcdbd1f1973c9693859003e1f60';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectTestTabExpViewBase
+     */ 
+    protected viewName:string = "ProjectTestTabExpView";
 
 
     /**

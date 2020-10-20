@@ -95,9 +95,18 @@ export class ProductCaseTreeExpViewBase extends TreeExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductCaseTreeExpViewBase
      */
 	protected viewtag: string = '63b82c8ee288130faca83833ec1f837c';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductCaseTreeExpViewBase
+     */ 
+    protected viewName:string = "ProductCaseTreeExpView";
 
 
     /**

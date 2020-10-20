@@ -110,9 +110,18 @@ export class TodoAssignToViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TodoAssignToViewBase
      */
 	protected viewtag: string = '43582fa5b922cb77d0b1e704a7b6e5c3';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TodoAssignToViewBase
+     */ 
+    protected viewName:string = "TodoAssignToView";
 
 
     /**

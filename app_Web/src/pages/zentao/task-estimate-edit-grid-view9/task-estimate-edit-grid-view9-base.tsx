@@ -100,9 +100,18 @@ export class TaskEstimateEditGridView9Base extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskEstimateEditGridView9Base
      */
 	protected viewtag: string = '6991c25388155df89dc9c44eeb11ad90';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskEstimateEditGridView9Base
+     */ 
+    protected viewName:string = "TaskEstimateEditGridView9";
 
 
     /**

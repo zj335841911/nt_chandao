@@ -100,9 +100,18 @@ export class ActionProductTrendsListViewBase extends ListViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ActionProductTrendsListViewBase
      */
 	protected viewtag: string = 'f7a278d765ff0f85a2c59cbb2485fa30';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionProductTrendsListViewBase
+     */ 
+    protected viewName:string = "ActionProductTrendsListView";
 
 
     /**
@@ -141,7 +150,7 @@ export class ActionProductTrendsListViewBase extends ListViewBase {
             },
             keyPSDEField: 'action',
             majorPSDEField: 'comment',
-            isLoadDefault: true,
+            isLoadDefault: false,
         });
     }
 
@@ -297,4 +306,37 @@ export class ActionProductTrendsListViewBase extends ListViewBase {
     }
 
 
+
+    /**
+     * 是否展开搜索表单
+     *
+     * @protected
+     * @type {boolean}
+     * @memberof ActionProductTrendsListViewBase
+     */
+    protected isExpandSearchForm: boolean = true;
+
+    /**
+     * 加载快速分组模型
+     *
+     * @protected
+     * @memberof ActionProductTrendsListViewBase
+     */
+    protected loadQuickGroupModel(): void {
+        const quickGroupCodeList: any = { tag: 'ProductActionQuickpacket', codelistType: 'STATIC' };
+        if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
+            const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
+            if (codelist) {
+                this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
+            } else {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            }
+        } else if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
+            this.codeListService.getItems(quickGroupCodeList.tag, {}, {}).then((res: any) => {
+                this.quickGroupModel = res;
+            }).catch((error:any) => {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            });
+        }
+    }
 }

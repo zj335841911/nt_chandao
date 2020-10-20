@@ -104,9 +104,18 @@ export class TestReportEditView_TestRangeBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestReportEditView_TestRangeBase
      */
 	protected viewtag: string = 'f810cda19770327ea00f51d89a003efe';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestReportEditView_TestRangeBase
+     */ 
+    protected viewName:string = "TestReportEditView_TestRange";
 
 
     /**

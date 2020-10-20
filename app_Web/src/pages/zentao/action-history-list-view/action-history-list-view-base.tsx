@@ -124,9 +124,18 @@ export class ActionHistoryListViewBase extends ListViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ActionHistoryListViewBase
      */
 	protected viewtag: string = '770a170098d148e438a7666b248e6519';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionHistoryListViewBase
+     */ 
+    protected viewName:string = "ActionHistoryListView";
 
 
     /**

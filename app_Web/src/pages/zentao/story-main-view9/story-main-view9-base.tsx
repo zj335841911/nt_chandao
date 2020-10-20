@@ -97,9 +97,18 @@ export class StoryMainView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryMainView9Base
      */
 	protected viewtag: string = '94e0ee1a97736ff4d28b88a46cd395b7';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryMainView9Base
+     */ 
+    protected viewName:string = "StoryMainView9";
 
 
     /**

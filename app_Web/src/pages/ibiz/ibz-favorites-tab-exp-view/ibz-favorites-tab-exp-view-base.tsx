@@ -95,9 +95,18 @@ export class IbzFavoritesTabExpViewBase extends TabExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzFavoritesTabExpViewBase
      */
 	protected viewtag: string = '0bd16cd21ee2e8951fb8a86599ac1510';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzFavoritesTabExpViewBase
+     */ 
+    protected viewName:string = "IbzFavoritesTabExpView";
 
 
     /**

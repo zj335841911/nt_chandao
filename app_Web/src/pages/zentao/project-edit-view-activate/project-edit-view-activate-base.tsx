@@ -117,9 +117,18 @@ export class ProjectEditView_ActivateBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectEditView_ActivateBase
      */
 	protected viewtag: string = '4b8db6d139edb8adadbef2f0c0b3350a';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectEditView_ActivateBase
+     */ 
+    protected viewName:string = "ProjectEditView_Activate";
 
 
     /**

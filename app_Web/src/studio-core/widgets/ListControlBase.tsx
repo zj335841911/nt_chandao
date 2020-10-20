@@ -31,7 +31,12 @@ export class ListControlBase extends MDControlBase {
                     return;
                 }
                 if (Object.is(action, 'load')) {
-                    this.refresh(data)
+                    this.curPage = 1;
+                    this.items = [];
+                    this.load(data);
+                }
+                if (Object.is(action, 'refresh')) {
+                    this.refresh(data);
                 }
             });
         }
@@ -44,9 +49,10 @@ export class ListControlBase extends MDControlBase {
      * @memberof ListControlBase
      */
     protected ctrlMounted(): void {
+        const loadMoreCallBack:any = this.throttle(this.loadMore,3000);
         this.$el.addEventListener('scroll', () => {
             if (this.$el.scrollTop + this.$el.clientHeight >= this.$el.scrollHeight) {
-                this.loadMore();
+                loadMoreCallBack();
             }
         })
     }
@@ -82,11 +88,10 @@ export class ListControlBase extends MDControlBase {
      * @memberof ListControlBase
      */
     public refresh(args?: any) {
-        this.curPage = 1;
-        this.items = [];
+        this.isAddBehind = true;
         this.load(args);
     }
-
+    
     /**
      * 列表数据加载
      *
@@ -130,13 +135,14 @@ export class ListControlBase extends MDControlBase {
             if (!this.isAddBehind) {
                 this.items = [];
             }
-            if (Object.keys(data).length > 0) {
+            if (data && data.length > 0) {
                 let datas = JSON.parse(JSON.stringify(data));
                 datas.map((item: any) => {
                     Object.assign(item, { isselected: false });
                 });
                 this.totalRecord = response.total;
                 this.items.push(...datas);
+                this.items = this.arrayNonRepeatfy(this.items);
             }
             this.isAddBehind = false;
             this.$emit('load', this.items);
@@ -160,6 +166,44 @@ export class ListControlBase extends MDControlBase {
         });
     }
 
+    /**
+     * 列表数据去重
+     *
+     * @param {Array<any>} [arr]
+     * @returns {void}
+     * @memberof ListControlBase
+     */
+    public arrayNonRepeatfy(arr:Array<any>) {
+        let map = new Map();
+        let array = new Array();
+        for (let i = 0; i < arr.length; i++) { 
+            map .set(arr[i].srfkey, arr[i]);
+        }
+        map.forEach((value:any, key:string, map:any) => {
+            array.push(value);
+        });
+        return array ;
+    }
+
+    /**
+     * 节流
+     *
+     * @param {Array<any>} [arr]
+     * @returns {void}
+     * @memberof ListControlBase
+     */
+    public throttle(fn:any, wait:number){
+        let time = 0;
+        return () =>{
+          let now = Date.now()
+          let args = arguments;
+          if(now - time > wait){
+            fn.apply(this, args)
+            time = now;
+          }
+        }
+    }
+    
     /**
      * 删除
      *

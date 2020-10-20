@@ -97,9 +97,18 @@ export class ProductDashboardInfoMainView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductDashboardInfoMainView9Base
      */
 	protected viewtag: string = 'b5d2389c0dd12ae614b319090ecc2361';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductDashboardInfoMainView9Base
+     */ 
+    protected viewName:string = "ProductDashboardInfoMainView9";
 
 
     /**

@@ -78,6 +78,14 @@ export class MainMyGridBase extends GridControlBase {
     };
 
     /**
+     * 主信息表格列
+     *
+     * @type {string}
+     * @memberof MainMyBase
+     */  
+    public majorInfoColName:string = "name";
+
+    /**
      * 本地缓存标识
      *
      * @protected

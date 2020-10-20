@@ -132,9 +132,18 @@ export class CaseTestOptionViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseTestOptionViewBase
      */
 	protected viewtag: string = '6b041208cbc10321a4d9cd74eaac3689';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseTestOptionViewBase
+     */ 
+    protected viewName:string = "CaseTestOptionView";
 
 
     /**

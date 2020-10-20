@@ -110,9 +110,18 @@ export class ProductSumQaChartView9Base extends ChartView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductSumQaChartView9Base
      */
 	protected viewtag: string = 'e842d6d727d88c2c78b59c033fa27f34';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductSumQaChartView9Base
+     */ 
+    protected viewName:string = "ProductSumQaChartView9";
 
 
     /**

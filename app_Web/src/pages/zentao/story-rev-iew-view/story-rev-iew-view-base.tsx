@@ -122,9 +122,18 @@ export class StoryRevIewViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryRevIewViewBase
      */
 	protected viewtag: string = 'df5a966e312ca9c5f5a41428bc2e2672';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryRevIewViewBase
+     */ 
+    protected viewName:string = "StoryRevIewView";
 
 
     /**

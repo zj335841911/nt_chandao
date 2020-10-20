@@ -11,9 +11,7 @@
             <div class="edit_title_btn" :style="edit_title_btn"><ion-button @click="onConfirmClick(false)">取消</ion-button><ion-button @click="onConfirmClick(true)">确认</ion-button></div>
             <bug-ass-mob-mdview9 :_context="JSON.stringify(context)" :isChildView="true" :_viewparams="JSON.stringify(viewparams)" viewDefaultUsage="includedView" ></bug-ass-mob-mdview9>
         </ion-list>
-        <ion-select ref="select" v-show="false"  @ionChange="actionBarClick" interface="action-sheet" :cancel-text="$t('app.button.cancel')">
-            <ion-select-option  v-for="option of actionBarModelData" :key="option.viewlogicname"  :value="option.viewlogicname">{{option.actionName}}</ion-select-option>
-        </ion-select>
+        <van-action-sheet v-model="selectStatus" get-container="#app" :actions="actionBarModelData" cancel-text="取消" close-on-click-action @select="actionBarClick" @cancel="onCancel" />
     </ion-row>
 </template>
 
@@ -210,9 +208,25 @@ export default class MyBugMobBase extends Vue implements ControlInterface {
      * 定制标题
      *
      * @type {string}
-     * @memberof MOBMyFavoriteStory
+     * @memberof MyBugMob
      */
     @Prop() protected customizeTitle?: string;
+
+    
+    /**
+     * 选择器状态
+     *
+     * @type {boolean}
+     * @memberof MyBugMob
+     */
+    public selectStatus:boolean = false
+
+    /**
+     * 选择器状态取消事件
+     */
+    public onCancel() {
+        this.selectStatus = false;
+    }
 
     /**
      * 操作栏模型数据
@@ -224,7 +238,7 @@ export default class MyBugMobBase extends Vue implements ControlInterface {
     protected actionBarModelData: any[] = [
         {
             viewlogicname: "dashboard_sysportlet3_ud7e32da_click",
-            actionName: "更多",
+            name: "更多",
         }
     ];
 
@@ -319,9 +333,9 @@ export default class MyBugMobBase extends Vue implements ControlInterface {
     /**
      * 内置门户行为组
      *
-     * @memberof MyTaskMob
+     * @memberof MyBugMob
      */
-    public builtinItemS = [{actionName:'重命名',viewlogicname:'rename'},{actionName:"删除",viewlogicname:"delete"}]
+    public builtinItemS = [{name:'重命名',viewlogicname:'rename'},{name:"删除",viewlogicname:"delete"}]
 
     /**
      * 门户点击行为菜单
@@ -329,12 +343,7 @@ export default class MyBugMobBase extends Vue implements ControlInterface {
      * @memberof MyBugMob
      */
     public open() {
-        let select :any= this.$refs['select'];
-        if(select){
-            setTimeout(() => {
-                select.open();
-            }, 1);
-        }
+        this.selectStatus = true;
     }
 
     get edit_title_btn(){
@@ -346,20 +355,16 @@ export default class MyBugMobBase extends Vue implements ControlInterface {
      *
      * @memberof MyBugMob
      */
-    public actionBarClick(value:any) {
-        if(value.detail.value){
-            if(value.detail.value == 'rename' ){
+    public actionBarClick(data:any) {
+        if(data.viewlogicname){
+            if(data.viewlogicname == 'rename' ){
                 this.isEditTitle = true;
-            }else if(value.detail.value == 'delete' ){
+            }else if(data.viewlogicname == 'delete' ){
                 this.$emit("enableCustomizedEvent",'delete',this.item)
             }
             else{
-                this.handleItemClick(value.detail.value);
+                this.handleItemClick(data.viewlogicname);
             }
-        }
-        let select :any = this.$refs['select'];
-        if (select) {
-            select.value = null;
         }
     }
 

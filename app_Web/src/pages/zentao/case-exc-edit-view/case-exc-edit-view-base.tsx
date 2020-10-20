@@ -104,9 +104,18 @@ export class CaseExcEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseExcEditViewBase
      */
 	protected viewtag: string = '6ca0081833718834ca4bbd9ebbf1ccce';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseExcEditViewBase
+     */ 
+    protected viewName:string = "CaseExcEditView";
 
 
     /**

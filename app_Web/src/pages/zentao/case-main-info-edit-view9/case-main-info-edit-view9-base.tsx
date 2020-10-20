@@ -97,9 +97,18 @@ export class CaseMainInfoEditView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseMainInfoEditView9Base
      */
 	protected viewtag: string = '4a5cfcdc473166f49cea6c9628865006';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseMainInfoEditView9Base
+     */ 
+    protected viewName:string = "CaseMainInfoEditView9";
 
 
     /**

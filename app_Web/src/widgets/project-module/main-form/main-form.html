@@ -21,10 +21,10 @@
   deKeyField='project'
   :service="service"
   :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchDefault'}"
-  valueitem='root' 
-  :value="data.rootname" 
+  valueitem='root'
+  :value="data.rootname"
   editortype="dropdown"
-  style="" 
+  style=""
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
@@ -45,11 +45,12 @@
   deMajorField='name'
   deKeyField='projectmodule'
   :service="service"
-  :acParams="{ serviceName: 'ProjectModuleService', interfaceName: 'FetchDefault'}"
-  valueitem='parent' 
-  :value="data.parentname" 
+  :acParams="{ serviceName: 'ProjectModuleService', interfaceName: 'FetchParentModule'}"
+  valueitem='parent'
+  :value="data.parentname"
   editortype="dropdown"
-  style="" 
+  :valFormat="{0: '/'}"
+  style=""
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>

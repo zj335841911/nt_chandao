@@ -116,9 +116,18 @@ export class CaseCaseFavoriteBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseCaseFavoriteBase
      */
 	protected viewtag: string = '0f0573a5043e9bd93a605e5f1d3ca334';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseCaseFavoriteBase
+     */ 
+    protected viewName:string = "CaseCaseFavorite";
 
 
     /**

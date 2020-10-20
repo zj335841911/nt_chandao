@@ -113,9 +113,18 @@ export class BugBuildSubGridView_New_9212Base extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugBuildSubGridView_New_9212Base
      */
 	protected viewtag: string = '43c2d1a2b73b0363036aee72dc9312c5';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugBuildSubGridView_New_9212Base
+     */ 
+    protected viewName:string = "BugBuildSubGridView_New_9212";
 
 
     /**

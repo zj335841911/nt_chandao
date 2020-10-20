@@ -107,9 +107,18 @@ export class TaskMainDashboardView_LinkBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskMainDashboardView_LinkBase
      */
 	protected viewtag: string = '4fcd2a15ff88a97425e1ab1cadc5eb9f';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskMainDashboardView_LinkBase
+     */ 
+    protected viewName:string = "TaskMainDashboardView_Link";
 
 
     /**

@@ -87,9 +87,18 @@ export class ProductHtmlViewBase extends ViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductHtmlViewBase
      */
 	protected viewtag: string = '0846a45e5ffdd4d8f857575cfa955dce';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductHtmlViewBase
+     */ 
+    protected viewName:string = "ProductHtmlView";
 
 
     /**

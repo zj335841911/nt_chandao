@@ -108,9 +108,18 @@ export class IbzLibEditView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzLibEditView9Base
      */
 	protected viewtag: string = '471a8a8d5b7ebf2a2e0fa7995c4e883c';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzLibEditView9Base
+     */ 
+    protected viewName:string = "IbzLibEditView9";
 
 
     /**

@@ -117,9 +117,18 @@ export class ReleaseGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ReleaseGridViewBase
      */
 	protected viewtag: string = '9ae49b10ec96e8f7b063be2ed4172247';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ReleaseGridViewBase
+     */ 
+    protected viewName:string = "ReleaseGridView";
 
 
     /**

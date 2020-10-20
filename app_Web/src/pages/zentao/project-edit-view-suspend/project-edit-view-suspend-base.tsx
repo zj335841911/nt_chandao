@@ -117,9 +117,18 @@ export class ProjectEditView_SuspendBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectEditView_SuspendBase
      */
 	protected viewtag: string = 'edd664c8fc682d166b3a027dd08bbd8b';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectEditView_SuspendBase
+     */ 
+    protected viewName:string = "ProjectEditView_Suspend";
 
 
     /**

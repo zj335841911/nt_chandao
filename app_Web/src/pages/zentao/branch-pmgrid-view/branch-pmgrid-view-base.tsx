@@ -117,9 +117,18 @@ export class BranchPMGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BranchPMGridViewBase
      */
 	protected viewtag: string = '776ea44ea05316c9c6cb9d5948e993f9';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BranchPMGridViewBase
+     */ 
+    protected viewName:string = "BranchPMGridView";
 
 
     /**

@@ -121,9 +121,18 @@ export class TestTaskCloseOptionViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestTaskCloseOptionViewBase
      */
 	protected viewtag: string = 'ca5490c6292062cfd7ada980ed935464';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskCloseOptionViewBase
+     */ 
+    protected viewName:string = "TestTaskCloseOptionView";
 
 
     /**

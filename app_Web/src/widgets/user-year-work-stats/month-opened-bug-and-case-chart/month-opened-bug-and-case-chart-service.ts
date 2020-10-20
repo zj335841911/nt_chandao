@@ -1,4 +1,5 @@
-import { Http,Util,Errorlog } from '@/utils';
+import { Http } from '@/utils';
+import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import UserYearWorkStatsService from '@/service/user-year-work-stats/user-year-work-stats-service';
 import MonthOpenedBugAndCaseModel from './month-opened-bug-and-case-chart-model';

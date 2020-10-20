@@ -113,9 +113,18 @@ export class CaseStepMainGridView9_EditModeBase extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseStepMainGridView9_EditModeBase
      */
 	protected viewtag: string = 'ac71a1cfaecb07640c14f75b8f202b1e';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseStepMainGridView9_EditModeBase
+     */ 
+    protected viewName:string = "CaseStepMainGridView9_EditMode";
 
 
     /**

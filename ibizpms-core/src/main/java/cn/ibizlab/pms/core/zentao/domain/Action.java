@@ -151,6 +151,48 @@ public class Action extends EntityMP implements Serializable {
     @JSONField(name = "date1")
     @JsonProperty("date1")
     private String date1;
+    /**
+     * 今天
+     */
+    @TableField(exist = false)
+    @JSONField(name = "today")
+    @JsonProperty("today")
+    private String today;
+    /**
+     * 昨天
+     */
+    @TableField(exist = false)
+    @JSONField(name = "yesterday")
+    @JsonProperty("yesterday")
+    private String yesterday;
+    /**
+     * 本周
+     */
+    @TableField(exist = false)
+    @JSONField(name = "thisweek")
+    @JsonProperty("thisweek")
+    private String thisweek;
+    /**
+     * 上周
+     */
+    @TableField(exist = false)
+    @JSONField(name = "lastweek")
+    @JsonProperty("lastweek")
+    private String lastweek;
+    /**
+     * 本月
+     */
+    @TableField(exist = false)
+    @JSONField(name = "thismonth")
+    @JsonProperty("thismonth")
+    private String thismonth;
+    /**
+     * 上月
+     */
+    @TableField(exist = false)
+    @JSONField(name = "lastmonth")
+    @JsonProperty("lastmonth")
+    private String lastmonth;
 
     /**
      * 项目

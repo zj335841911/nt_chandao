@@ -104,9 +104,18 @@ export class ActionEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ActionEditViewBase
      */
 	protected viewtag: string = 'f8b69912b3ca27b5d083c8fb1971c84a';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionEditViewBase
+     */ 
+    protected viewName:string = "ActionEditView";
 
 
     /**

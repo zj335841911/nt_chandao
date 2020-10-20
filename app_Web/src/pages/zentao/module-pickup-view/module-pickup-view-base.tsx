@@ -94,9 +94,18 @@ export class ModulePickupViewBase extends PickupViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ModulePickupViewBase
      */
 	protected viewtag: string = 'cb6c278fd7205b3de3fc041816d15dd8';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ModulePickupViewBase
+     */ 
+    protected viewName:string = "ModulePickupView";
 
 
     /**

@@ -122,9 +122,18 @@ export class TaskDoneTaskViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskDoneTaskViewBase
      */
 	protected viewtag: string = 'c9c256aef78723e1bf9ddc1d38667c3f';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskDoneTaskViewBase
+     */ 
+    protected viewName:string = "TaskDoneTaskView";
 
 
     /**

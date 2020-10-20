@@ -42,6 +42,11 @@ export default class TrendsModel {
 				name: 'project',
 			},
 			{
+				name: 'srfkey',
+				prop: 'id',
+				dataType: 'ACID',
+			},
+			{
 				name: 'objectid',
 			},
 			{
@@ -49,6 +54,11 @@ export default class TrendsModel {
 			},
 			{
 				name: 'objecttype',
+			},
+			{
+				name: 'action',
+				prop: 'id',
+				dataType: 'FONTKEY',
 			},
       {
         name:'size',

@@ -97,9 +97,18 @@ export class TaskMainDetailView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskMainDetailView9Base
      */
 	protected viewtag: string = 'ef6cfafd09bb61ddb6fec7840f78e97d';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskMainDetailView9Base
+     */ 
+    protected viewName:string = "TaskMainDetailView9";
 
 
     /**

@@ -100,9 +100,18 @@ export class ActionProjectTrendsListViewBase extends ListViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ActionProjectTrendsListViewBase
      */
 	protected viewtag: string = '7d34636d1c24d613abf8d3fdc64ec7ba';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionProjectTrendsListViewBase
+     */ 
+    protected viewName:string = "ActionProjectTrendsListView";
 
 
     /**
@@ -141,7 +150,7 @@ export class ActionProjectTrendsListViewBase extends ListViewBase {
             },
             keyPSDEField: 'action',
             majorPSDEField: 'comment',
-            isLoadDefault: true,
+            isLoadDefault: false,
         });
     }
 
@@ -297,4 +306,28 @@ export class ActionProjectTrendsListViewBase extends ListViewBase {
     }
 
 
+
+    /**
+     * 加载快速分组模型
+     *
+     * @protected
+     * @memberof ActionProjectTrendsListViewBase
+     */
+    protected loadQuickGroupModel(): void {
+        const quickGroupCodeList: any = { tag: 'ProductActionQuickpacket', codelistType: 'STATIC' };
+        if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
+            const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
+            if (codelist) {
+                this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
+            } else {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            }
+        } else if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "DYNAMIC")) {
+            this.codeListService.getItems(quickGroupCodeList.tag, {}, {}).then((res: any) => {
+                this.quickGroupModel = res;
+            }).catch((error:any) => {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            });
+        }
+    }
 }

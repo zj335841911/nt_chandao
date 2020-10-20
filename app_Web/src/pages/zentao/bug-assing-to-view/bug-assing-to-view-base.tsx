@@ -122,9 +122,18 @@ export class BugAssingToViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugAssingToViewBase
      */
 	protected viewtag: string = 'e897cf80a700c92025004c4696d9ae10';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugAssingToViewBase
+     */ 
+    protected viewName:string = "BugAssingToView";
 
 
     /**

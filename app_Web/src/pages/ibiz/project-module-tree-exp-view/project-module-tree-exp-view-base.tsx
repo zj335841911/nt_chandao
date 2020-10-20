@@ -120,9 +120,18 @@ export class ProjectModuleTreeExpViewBase extends TreeExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectModuleTreeExpViewBase
      */
 	protected viewtag: string = 'bb8860972029d9947daa3652a4b5d291';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectModuleTreeExpViewBase
+     */ 
+    protected viewName:string = "ProjectModuleTreeExpView";
 
 
     /**

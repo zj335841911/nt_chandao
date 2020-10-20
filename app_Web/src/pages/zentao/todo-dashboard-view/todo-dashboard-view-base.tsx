@@ -123,9 +123,18 @@ export class TodoDashboardViewBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TodoDashboardViewBase
      */
 	protected viewtag: string = 'ebf37bf3881bb27c09db9bbe5d0b0f77';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TodoDashboardViewBase
+     */ 
+    protected viewName:string = "TodoDashboardView";
 
 
     /**

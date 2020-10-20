@@ -111,9 +111,18 @@ export class StoryGridView9_ChildBase extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryGridView9_ChildBase
      */
 	protected viewtag: string = 'd6ef7de701a935bd9023cd0eb1338f58';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryGridView9_ChildBase
+     */ 
+    protected viewName:string = "StoryGridView9_Child";
 
 
     /**

@@ -111,9 +111,18 @@ export class CaseGridView9_MeCretaeBase extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseGridView9_MeCretaeBase
      */
 	protected viewtag: string = 'c5b7fb7289325c348ca867eb86185986';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseGridView9_MeCretaeBase
+     */ 
+    protected viewName:string = "CaseGridView9_MeCretae";
 
 
     /**

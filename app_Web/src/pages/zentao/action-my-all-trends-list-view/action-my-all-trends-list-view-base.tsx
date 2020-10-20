@@ -100,9 +100,18 @@ export class ActionMyAllTrendsListViewBase extends ListViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ActionMyAllTrendsListViewBase
      */
 	protected viewtag: string = '6d466e003e0479fb8b1a16e49b889dc1';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionMyAllTrendsListViewBase
+     */ 
+    protected viewName:string = "ActionMyAllTrendsListView";
 
 
     /**

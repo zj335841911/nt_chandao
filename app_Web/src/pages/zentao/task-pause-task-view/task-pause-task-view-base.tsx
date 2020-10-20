@@ -122,9 +122,18 @@ export class TaskPauseTaskViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskPauseTaskViewBase
      */
 	protected viewtag: string = 'b03bf2445d2e295fccbb6280b2601248';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskPauseTaskViewBase
+     */ 
+    protected viewName:string = "TaskPauseTaskView";
 
 
     /**

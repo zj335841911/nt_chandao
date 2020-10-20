@@ -116,9 +116,18 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskKanbanViewBase
      */
 	protected viewtag: string = '7088260bcd6a0303378af2f8e207f479';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskKanbanViewBase
+     */ 
+    protected viewName:string = "TaskKanbanView";
 
 
     /**
@@ -476,4 +485,3 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      */
     protected viewUID: string = 'zentao-task-kanban-view';
 }
-

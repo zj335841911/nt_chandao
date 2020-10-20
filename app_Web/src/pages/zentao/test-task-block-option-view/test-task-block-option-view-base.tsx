@@ -121,9 +121,18 @@ export class TestTaskBlockOptionViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestTaskBlockOptionViewBase
      */
 	protected viewtag: string = '383716f2bcf137ecae2d212f2380246a';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskBlockOptionViewBase
+     */ 
+    protected viewName:string = "TestTaskBlockOptionView";
 
 
     /**

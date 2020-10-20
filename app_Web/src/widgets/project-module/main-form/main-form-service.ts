@@ -1,4 +1,5 @@
-import { Http,Util,Errorlog } from '@/utils';
+import { Http } from '@/utils';
+import { Util, Errorlog } from '@/utils';
 import ControlService from '@/widgets/control-service';
 import ProjectModuleService from '@/service/project-module/project-module-service';
 import MainModel from './main-form-model';
@@ -102,8 +103,8 @@ export default class MainService extends ControlService {
         if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchDefault')) {
             return this.doItems(this.projectService.FetchDefault(JSON.parse(JSON.stringify(context)),data, isloading), 'id', 'project');
         }
-        if (Object.is(serviceName, 'ProjectModuleService') && Object.is(interfaceName, 'FetchDefault')) {
-            return this.doItems(this.appEntityService.FetchDefault(JSON.parse(JSON.stringify(context)), data, isloading), 'id', 'projectmodule');
+        if (Object.is(serviceName, 'ProjectModuleService') && Object.is(interfaceName, 'FetchParentModule')) {
+            return this.doItems(this.appEntityService.FetchParentModule(JSON.parse(JSON.stringify(context)), data, isloading), 'id', 'projectmodule');
         }
 
         return Promise.reject([])

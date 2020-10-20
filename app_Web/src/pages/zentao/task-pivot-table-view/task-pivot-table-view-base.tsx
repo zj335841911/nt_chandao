@@ -100,9 +100,18 @@ export class TaskPivotTableViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskPivotTableViewBase
      */
 	protected viewtag: string = '64204774cc4b97f20aa3becb41b184d5';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskPivotTableViewBase
+     */ 
+    protected viewName:string = "TaskPivotTableView";
 
 
     /**

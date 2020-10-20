@@ -110,9 +110,18 @@ export class TodoCloseViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TodoCloseViewBase
      */
 	protected viewtag: string = '734c2c8a05995eaad9f9a0028e9b9def';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TodoCloseViewBase
+     */ 
+    protected viewName:string = "TodoCloseView";
 
 
     /**

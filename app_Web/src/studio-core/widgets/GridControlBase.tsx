@@ -30,6 +30,14 @@ export class GridControlBase extends MDControlBase {
     public isHideHeader: boolean = false;
 
     /**
+     * 主信息表格列
+     *
+     * @type {string}
+     * @memberof GridControlBase
+     */  
+    public majorInfoColName:string = "";
+
+    /**
      * 本地缓存标识
      *
      * @protected
@@ -415,7 +423,7 @@ export class GridControlBase extends MDControlBase {
             this.$Notice.success({ title: '', desc: (this.$t('app.commonWords.saveSuccess') as string) });
         } else {
             errorItems.forEach((item: any, index: number) => {
-                this.$Notice.error({ title: (this.$t('app.commonWords.saveFailed') as string), desc: item.srfmajortext?item.srfmajortext:"" + (this.$t('app.commonWords.saveFailed') as string) + '!' });
+                this.$Notice.error({ title: (this.$t('app.commonWords.saveFailed') as string), desc: (item[this.majorInfoColName]?item[this.majorInfoColName]:"") + (this.$t('app.commonWords.saveFailed') as string) + '!' });
                 console.error(errorMessage[index]);
             });
         }

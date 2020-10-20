@@ -117,9 +117,18 @@ export class DeptMainGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof DeptMainGridViewBase
      */
 	protected viewtag: string = '5c2b20935d511794aeca60376bd81fef';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof DeptMainGridViewBase
+     */ 
+    protected viewName:string = "DeptMainGridView";
 
 
     /**

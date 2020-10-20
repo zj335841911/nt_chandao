@@ -117,9 +117,18 @@ export class TestReportprojectDashboardViewBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestReportprojectDashboardViewBase
      */
 	protected viewtag: string = 'ea7b1f6631cb623ea079455b374ef9d4';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestReportprojectDashboardViewBase
+     */ 
+    protected viewName:string = "TestReportprojectDashboardView";
 
 
     /**

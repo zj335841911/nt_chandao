@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { Subject } from 'rxjs';
-import store from '../../store';
+import store from '@/store';
 import i18n from '@/locale';
 import AppDrawerCompponent from "./app-drawer.vue";
 import { studioDrawerController } from '@/studio-core/utils/studio-drawer/studio-drawer';

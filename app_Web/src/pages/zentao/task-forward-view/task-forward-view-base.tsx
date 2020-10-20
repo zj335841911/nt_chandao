@@ -122,9 +122,18 @@ export class TaskForwardViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskForwardViewBase
      */
 	protected viewtag: string = 'f27febc6ab4d30f9e419caf1e6930a94';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskForwardViewBase
+     */ 
+    protected viewName:string = "TaskForwardView";
 
 
     /**

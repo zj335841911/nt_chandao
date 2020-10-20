@@ -117,9 +117,18 @@ export class ProductMainView_EditBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductMainView_EditBase
      */
 	protected viewtag: string = 'c02574075c8c15c67231cd71be040763';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductMainView_EditBase
+     */ 
+    protected viewName:string = "ProductMainView_Edit";
 
 
     /**

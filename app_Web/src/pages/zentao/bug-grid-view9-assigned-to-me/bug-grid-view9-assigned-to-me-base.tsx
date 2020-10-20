@@ -111,9 +111,18 @@ export class BugGridView9_AssignedToMeBase extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugGridView9_AssignedToMeBase
      */
 	protected viewtag: string = '81893d14e76cac341d4218a9c5ef185d';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugGridView9_AssignedToMeBase
+     */ 
+    protected viewName:string = "BugGridView9_AssignedToMe";
 
 
     /**

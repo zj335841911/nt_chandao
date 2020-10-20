@@ -111,9 +111,18 @@ export class CaseMainMyGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseMainMyGridViewBase
      */
 	protected viewtag: string = 'cd3d221ec6771bb755a0e482b8bcd171';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseMainMyGridViewBase
+     */ 
+    protected viewName:string = "CaseMainMyGridView";
 
 
     /**

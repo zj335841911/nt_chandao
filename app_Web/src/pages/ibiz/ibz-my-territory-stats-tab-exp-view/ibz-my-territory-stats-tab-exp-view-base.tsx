@@ -95,9 +95,18 @@ export class IbzMyTerritoryStatsTabExpViewBase extends TabExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzMyTerritoryStatsTabExpViewBase
      */
 	protected viewtag: string = 'c8171c13c1ba215f65c8587df1d98ba5';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzMyTerritoryStatsTabExpViewBase
+     */ 
+    protected viewName:string = "IbzMyTerritoryStatsTabExpView";
 
 
     /**

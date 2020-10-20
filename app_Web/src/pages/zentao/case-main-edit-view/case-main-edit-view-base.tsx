@@ -129,9 +129,18 @@ export class CaseMainEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseMainEditViewBase
      */
 	protected viewtag: string = '8e070a3e9ad67b127db723463198f9ac';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseMainEditViewBase
+     */ 
+    protected viewName:string = "CaseMainEditView";
 
 
     /**

@@ -117,9 +117,18 @@ export class ProductEditView_CloseBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductEditView_CloseBase
      */
 	protected viewtag: string = '3fa1a1978a4380209df04704e2f8059f';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductEditView_CloseBase
+     */ 
+    protected viewName:string = "ProductEditView_Close";
 
 
     /**

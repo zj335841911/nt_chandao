@@ -118,9 +118,18 @@ export class TodoGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TodoGridViewBase
      */
 	protected viewtag: string = 'bedf1f50199b74a65c2e17771144329c';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TodoGridViewBase
+     */ 
+    protected viewName:string = "TodoGridView";
 
 
     /**

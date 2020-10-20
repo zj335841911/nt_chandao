@@ -121,9 +121,18 @@ export class TaskMainGridView_ByModuleBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskMainGridView_ByModuleBase
      */
 	protected viewtag: string = '8d033e1df3a5b0e948f7b6fba22dd0ac';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskMainGridView_ByModuleBase
+     */ 
+    protected viewName:string = "TaskMainGridView_ByModule";
 
 
     /**

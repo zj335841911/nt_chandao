@@ -95,9 +95,18 @@ export class ProjectListExpViewBase extends ListExpViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectListExpViewBase
      */
 	protected viewtag: string = '3aafb12bb0db2be013c0f5ced8c7dc50';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectListExpViewBase
+     */ 
+    protected viewName:string = "ProjectListExpView";
 
 
     /**

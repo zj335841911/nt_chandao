@@ -110,9 +110,18 @@ export class TodoFinishViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TodoFinishViewBase
      */
 	protected viewtag: string = '807a419a917fbfdfa3378d2fac6a2785';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TodoFinishViewBase
+     */ 
+    protected viewName:string = "TodoFinishView";
 
 
     /**

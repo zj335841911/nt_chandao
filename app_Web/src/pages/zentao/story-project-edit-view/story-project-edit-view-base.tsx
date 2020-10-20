@@ -117,9 +117,18 @@ export class StoryProjectEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryProjectEditViewBase
      */
 	protected viewtag: string = 'cad4ce05432f03f140d6ee3ad5dfe8c5';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryProjectEditViewBase
+     */ 
+    protected viewName:string = "StoryProjectEditView";
 
 
     /**

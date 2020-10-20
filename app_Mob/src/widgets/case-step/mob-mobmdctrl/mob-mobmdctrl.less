@@ -11,7 +11,7 @@
 }
 
 .mob_list_card {
-  background-color: #fafafa;
+  background-color: #fff;
   font-size: 15px;
   color: #333;
  }
@@ -54,6 +54,7 @@
         overflow: auto;
         height:100%;
         .items{
+            background: transparent;
             .loadmore_btn{
                 width: 100%;
                 margin: 0;
@@ -68,6 +69,7 @@
               --padding-start:0;
               --inner-padding-end:0;
               --background-activated:white;
+              --background: transparent;
             }
             ion-item-options{
                 margin: 0 !important;
@@ -76,6 +78,9 @@
             }
             .app-mob-mdctrl-item{
                 margin-top:10px;
+            }
+            .app-mob-mdctrl-item:last-child {
+                margin-bottom: 10px;
             }
             .item-grouped {
               .text{
@@ -86,6 +91,7 @@
             }
             .van-collapse-item__content{
               padding: 0;
+              background-color: transparent;
             }
         }
         .no-data{

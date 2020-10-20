@@ -95,9 +95,18 @@ export class ProductMainDashboardViewBase extends DashboardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductMainDashboardViewBase
      */
 	protected viewtag: string = 'bc36be2ee4a78e69c13665a8ad03ab6a';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductMainDashboardViewBase
+     */ 
+    protected viewName:string = "ProductMainDashboardView";
 
 
     /**

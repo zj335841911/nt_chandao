@@ -119,9 +119,18 @@ export class BugBugLifeEditView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugBugLifeEditView9Base
      */
 	protected viewtag: string = '443935a0b9d0fa8daf3131956a8bacc9';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugBugLifeEditView9Base
+     */ 
+    protected viewName:string = "BugBugLifeEditView9";
 
 
     /**

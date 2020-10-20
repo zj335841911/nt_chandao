@@ -5,7 +5,7 @@ import preventOverflow from '@popperjs/core/lib/modifiers/preventOverflow.js';
 import flip from '@popperjs/core/lib/modifiers/flip.js';
 import { Placement } from '@popperjs/core/lib/enums';
 import { on } from '../dom/dom';
-import store from '../../store';
+import store from '@/store';
 import i18n from '@/locale';
 import './app-popover.less';
 

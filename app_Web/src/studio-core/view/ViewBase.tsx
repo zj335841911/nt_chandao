@@ -77,6 +77,15 @@ export class ViewBase extends Vue {
     protected dataControl:string = "";
 
     /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ViewBase
+     */ 
+    protected viewName:string = "";
+
+    /**
      * 视图模型数据
      *
      * @protected
@@ -418,7 +427,7 @@ export class ViewBase extends Vue {
         }
         if(this.portletState){
             this.portletStateEvent = this.portletState.subscribe((res:any) =>{
-                if(!Object.is(res.name,'calendar-view9')){
+                if(!Object.is(res.tag,this.viewName)){
                     return;
                 }
                 if(Object.is(res.action,'refresh') && this.refresh && this.refresh instanceof Function){

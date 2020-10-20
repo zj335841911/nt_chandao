@@ -138,9 +138,18 @@ export class ProjectTeamMainGridView_EditRowBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectTeamMainGridView_EditRowBase
      */
 	protected viewtag: string = 'ac21af5f9696e38031a7c2291ed02d64';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectTeamMainGridView_EditRowBase
+     */ 
+    protected viewName:string = "ProjectTeamMainGridView_EditRow";
 
 
     /**

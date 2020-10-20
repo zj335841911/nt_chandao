@@ -115,9 +115,18 @@ export class BugTodoEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugTodoEditViewBase
      */
 	protected viewtag: string = 'b5709ef6b436135e1738304e61b5f200';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugTodoEditViewBase
+     */ 
+    protected viewName:string = "BugTodoEditView";
 
 
     /**

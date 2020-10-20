@@ -147,9 +147,18 @@ export class ProjectPlanAddEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectPlanAddEditViewBase
      */
 	protected viewtag: string = '396ab8c5ef500f859d6591e77f094ecd';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectPlanAddEditViewBase
+     */ 
+    protected viewName:string = "ProjectPlanAddEditView";
 
 
     /**

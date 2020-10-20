@@ -71,7 +71,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-			remove: "删除",
+			productmodule_removemodule: "删除",
 		},
 	},
 	main_grid: {
@@ -82,7 +82,7 @@ export default {
 			uagridcolumn1: "操作",
 		},
 		uiactions: {
-			remove: "删除",
+			productmodule_removemodule: "删除",
 		},
 	},
 	gridviewbranchtoolbar_toolbar: {

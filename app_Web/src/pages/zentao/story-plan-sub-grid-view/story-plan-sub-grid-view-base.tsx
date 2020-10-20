@@ -142,9 +142,18 @@ export class StoryPlanSubGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryPlanSubGridViewBase
      */
 	protected viewtag: string = 'b9e94e3713c82ebab002631bda872b94';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryPlanSubGridViewBase
+     */ 
+    protected viewName:string = "StoryPlanSubGridView";
 
 
     /**

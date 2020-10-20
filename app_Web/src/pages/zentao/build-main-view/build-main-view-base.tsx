@@ -126,9 +126,18 @@ export class BuildMainViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BuildMainViewBase
      */
 	protected viewtag: string = 'a6d8bd7fa388f638832b33dddaa6df86';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BuildMainViewBase
+     */ 
+    protected viewName:string = "BuildMainView";
 
 
     /**

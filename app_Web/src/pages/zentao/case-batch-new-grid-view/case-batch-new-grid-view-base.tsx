@@ -137,9 +137,18 @@ export class CaseBatchNewGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseBatchNewGridViewBase
      */
 	protected viewtag: string = '66769499a681f12bd2ebff8859f1d4ea';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseBatchNewGridViewBase
+     */ 
+    protected viewName:string = "CaseBatchNewGridView";
 
 
     /**

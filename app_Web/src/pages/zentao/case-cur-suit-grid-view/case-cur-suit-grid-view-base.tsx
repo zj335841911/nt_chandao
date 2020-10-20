@@ -122,9 +122,18 @@ export class CaseCurSuitGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseCurSuitGridViewBase
      */
 	protected viewtag: string = '74e206764fd747fa31467bd5a9f371df';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseCurSuitGridViewBase
+     */ 
+    protected viewName:string = "CaseCurSuitGridView";
 
 
     /**

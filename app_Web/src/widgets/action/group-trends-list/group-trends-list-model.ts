@@ -35,6 +35,11 @@ export default class GroupTrendsModel {
         codelist:{tag:'Action__read',codelistType:'STATIC'},
 			},
 			{
+				name: 'srfkey',
+				prop: 'id',
+				dataType: 'ACID',
+			},
+			{
 				name: 'id',
 			},
 			{
@@ -46,6 +51,11 @@ export default class GroupTrendsModel {
 			},
 			{
 				name: 'objecttype',
+			},
+			{
+				name: 'action',
+				prop: 'id',
+				dataType: 'FONTKEY',
 			},
       {
         name:'size',

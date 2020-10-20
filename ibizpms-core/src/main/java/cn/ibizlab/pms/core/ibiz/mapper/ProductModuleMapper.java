@@ -21,6 +21,7 @@ public interface ProductModuleMapper extends BaseMapper<ProductModule>{
 
     Page<ProductModule> searchByPath(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper) ;
     Page<ProductModule> searchDefault(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper) ;
+    Page<ProductModule> searchParentModule(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper) ;
     Page<ProductModule> searchRoot(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper) ;
     Page<ProductModule> searchRoot_NoBranch(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper) ;
     Page<ProductModule> searchStoryModule(IPage page, @Param("srf") ProductModuleSearchContext context, @Param("ew") Wrapper<ProductModule> wrapper) ;

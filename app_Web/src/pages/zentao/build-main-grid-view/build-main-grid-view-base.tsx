@@ -130,9 +130,18 @@ export class BuildMainGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BuildMainGridViewBase
      */
 	protected viewtag: string = '8104f8c4c275f6ba17fb969edf52eb37';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BuildMainGridViewBase
+     */ 
+    protected viewName:string = "BuildMainGridView";
 
 
     /**

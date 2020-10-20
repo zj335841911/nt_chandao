@@ -94,9 +94,18 @@ export class BugMPickupViewBase extends MPickupViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugMPickupViewBase
      */
 	protected viewtag: string = '21d716ac12c793af54b112a5a3599674';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugMPickupViewBase
+     */ 
+    protected viewName:string = "BugMPickupView";
 
 
     /**

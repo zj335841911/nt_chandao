@@ -117,9 +117,18 @@ export class TestTaskGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestTaskGridViewBase
      */
 	protected viewtag: string = 'aae1ade339fe6a2ebe367489f6393db1';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskGridViewBase
+     */ 
+    protected viewName:string = "TestTaskGridView";
 
 
     /**

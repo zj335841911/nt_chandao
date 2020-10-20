@@ -117,9 +117,18 @@ export class BugGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugGridViewBase
      */
 	protected viewtag: string = 'c9410c9f72535adf1fff569d5243edd1';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugGridViewBase
+     */ 
+    protected viewName:string = "BugGridView";
 
 
     /**

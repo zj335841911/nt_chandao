@@ -56,6 +56,10 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.logic.ITestModuleFixPathLogic fixpathLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.ITestModuleRemoveModuleLogic removemoduleLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -136,6 +140,13 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
 
     @Override
     @Transactional
+    public TestModule removeModule(TestModule et) {
+        removemoduleLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
     public boolean save(TestModule et) {
         if(!saveOrUpdate(et))
             return false;
@@ -202,6 +213,15 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
     @Override
     public Page<TestModule> searchDefault(TestModuleSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestModule> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<TestModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 父模块
+     */
+    @Override
+    public Page<TestModule> searchParentModule(TestModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestModule> pages=baseMapper.searchParentModule(context.getPages(),context,context.getSelectCond());
         return new PageImpl<TestModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

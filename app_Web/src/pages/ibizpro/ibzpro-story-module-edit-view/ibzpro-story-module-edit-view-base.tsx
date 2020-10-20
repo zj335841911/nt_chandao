@@ -115,9 +115,18 @@ export class IBZProStoryModuleEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IBZProStoryModuleEditViewBase
      */
 	protected viewtag: string = '500a15957867996d6e20e7a37db8b004';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IBZProStoryModuleEditViewBase
+     */ 
+    protected viewName:string = "IBZProStoryModuleEditView";
 
 
     /**

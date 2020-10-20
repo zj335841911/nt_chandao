@@ -126,9 +126,18 @@ export class BugUsr2GridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugUsr2GridViewBase
      */
 	protected viewtag: string = '8af65044ab1633eb5b68d99478e9350f';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugUsr2GridViewBase
+     */ 
+    protected viewName:string = "BugUsr2GridView";
 
 
     /**

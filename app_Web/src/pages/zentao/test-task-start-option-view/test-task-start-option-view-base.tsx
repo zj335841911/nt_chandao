@@ -121,9 +121,18 @@ export class TestTaskStartOptionViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestTaskStartOptionViewBase
      */
 	protected viewtag: string = 'e3daebb0eca3c90b800021c84de8c19e';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestTaskStartOptionViewBase
+     */ 
+    protected viewName:string = "TestTaskStartOptionView";
 
 
     /**

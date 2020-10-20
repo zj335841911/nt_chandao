@@ -111,9 +111,18 @@ export class FileListView9Base extends ListView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof FileListView9Base
      */
 	protected viewtag: string = '9ed41cee96088630f3d4b0a91e705930';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof FileListView9Base
+     */ 
+    protected viewName:string = "FileListView9";
 
 
     /**

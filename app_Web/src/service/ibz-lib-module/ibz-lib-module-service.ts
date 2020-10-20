@@ -1,4 +1,5 @@
-import { Http,Util } from '@/utils';
+import { Http } from '@/utils';
+import { Util } from '@/utils';
 import IbzLibModuleServiceBase from './ibz-lib-module-service-base';
 
 

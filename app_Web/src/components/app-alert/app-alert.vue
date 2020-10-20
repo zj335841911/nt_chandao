@@ -177,7 +177,7 @@ export default class AppAlert extends Vue {
                 data.showState = false;
                 if(Object.is('HTML',data.messageType) && data.hasMessageTemp) {
                     setTimeout(() => {
-                        this.$message({
+                        (this as any).$message({
                             customClass: data.codename+","+data.closeMode,
                             message: h('div',{}, [
                                 h('p',data.title),
@@ -190,7 +190,7 @@ export default class AppAlert extends Vue {
                     }, 0)
                 } else {
                     setTimeout(() => {
-                        this.$message({
+                        (this as any).$message({
                             customClass: data.codename+","+data.closeMode,
                             message: h('div',{}, [
                                 h('p',data.title),

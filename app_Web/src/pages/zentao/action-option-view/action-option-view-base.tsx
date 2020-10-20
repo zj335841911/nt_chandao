@@ -133,9 +133,18 @@ export class ActionOptionViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ActionOptionViewBase
      */
 	protected viewtag: string = 'af6f4065b0510b7994c3cd2bc6074440';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionOptionViewBase
+     */ 
+    protected viewName:string = "ActionOptionView";
 
 
     /**

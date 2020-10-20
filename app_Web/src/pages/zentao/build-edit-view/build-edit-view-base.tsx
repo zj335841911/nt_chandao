@@ -128,9 +128,18 @@ export class BuildEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BuildEditViewBase
      */
 	protected viewtag: string = 'e9d61d4506a28dec9a6f1d7b9e1fff6a';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BuildEditViewBase
+     */ 
+    protected viewName:string = "BuildEditView";
 
 
     /**

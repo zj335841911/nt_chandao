@@ -33,6 +33,11 @@ export default class ClassifyByTypeModel {
 				name: 'product',
 			},
 			{
+				name: 'srfkey',
+				prop: 'id',
+				dataType: 'ACID',
+			},
+			{
 				name: 'comment',
 			},
 			{
@@ -53,11 +58,6 @@ export default class ClassifyByTypeModel {
 			{
 				name: 'actionmanner',
         codelist:{tag:'ActionManner',codelistType:'STATIC'},
-			},
-			{
-				name: 'srfkey',
-				prop: 'id',
-				dataType: 'ACID',
 			},
 			{
 				name: 'srfmajortext',

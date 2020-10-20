@@ -115,9 +115,18 @@ export class StoryReleaseSubGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryReleaseSubGridViewBase
      */
 	protected viewtag: string = '87b3a9ce09500f304291ed2d69799d5e';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryReleaseSubGridViewBase
+     */ 
+    protected viewName:string = "StoryReleaseSubGridView";
 
 
     /**

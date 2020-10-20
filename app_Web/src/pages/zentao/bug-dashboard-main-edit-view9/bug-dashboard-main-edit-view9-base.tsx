@@ -97,9 +97,18 @@ export class BugDashboardMainEditView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugDashboardMainEditView9Base
      */
 	protected viewtag: string = 'ec9a5987de12c718961f243f4034efea';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugDashboardMainEditView9Base
+     */ 
+    protected viewName:string = "BugDashboardMainEditView9";
 
 
     /**

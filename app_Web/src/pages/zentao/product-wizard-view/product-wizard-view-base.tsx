@@ -88,9 +88,18 @@ export class ProductWizardViewBase extends WizardViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProductWizardViewBase
      */
 	protected viewtag: string = '3b4ab1882a49962f12900abeeddf60f0';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProductWizardViewBase
+     */ 
+    protected viewName:string = "ProductWizardView";
 
 
     /**

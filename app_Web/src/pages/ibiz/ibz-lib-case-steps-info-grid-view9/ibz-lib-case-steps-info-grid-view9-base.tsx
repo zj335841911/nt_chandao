@@ -100,9 +100,18 @@ export class IbzLibCaseStepsInfoGridView9Base extends GridView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof IbzLibCaseStepsInfoGridView9Base
      */
 	protected viewtag: string = '80a70857025f1c997cddb437e76ff6e1';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof IbzLibCaseStepsInfoGridView9Base
+     */ 
+    protected viewName:string = "IbzLibCaseStepsInfoGridView9";
 
 
     /**

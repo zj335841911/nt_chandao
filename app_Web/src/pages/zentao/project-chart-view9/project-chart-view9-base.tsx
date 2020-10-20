@@ -110,9 +110,18 @@ export class ProjectChartView9Base extends ChartView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ProjectChartView9Base
      */
 	protected viewtag: string = '3e8a8e6a89e8550bc64a2a8bbae01f15';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ProjectChartView9Base
+     */ 
+    protected viewName:string = "ProjectChartView9";
 
 
     /**

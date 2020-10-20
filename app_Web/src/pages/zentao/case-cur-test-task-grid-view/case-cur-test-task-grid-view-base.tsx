@@ -137,9 +137,18 @@ export class CaseCurTestTaskGridViewBase extends GridViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof CaseCurTestTaskGridViewBase
      */
 	protected viewtag: string = '36337c95eb6a21369e5673e64e708925';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof CaseCurTestTaskGridViewBase
+     */ 
+    protected viewName:string = "CaseCurTestTaskGridView";
 
 
     /**

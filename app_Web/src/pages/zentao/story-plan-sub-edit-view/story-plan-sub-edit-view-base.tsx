@@ -128,9 +128,18 @@ export class StoryPlanSubEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryPlanSubEditViewBase
      */
 	protected viewtag: string = '54a5f5fa5f8def88d2aec9c7ee6d85fe';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryPlanSubEditViewBase
+     */ 
+    protected viewName:string = "StoryPlanSubEditView";
 
 
     /**

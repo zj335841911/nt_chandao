@@ -97,9 +97,18 @@ export class TestSuiteEditView9Base extends EditView9Base {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestSuiteEditView9Base
      */
 	protected viewtag: string = '0d5db9e736e4556dcfc45c455888a1a6';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestSuiteEditView9Base
+     */ 
+    protected viewName:string = "TestSuiteEditView9";
 
 
     /**

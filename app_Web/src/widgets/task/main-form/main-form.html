@@ -21,10 +21,10 @@
   deKeyField='project'
   :service="service"
   :acParams="{ serviceName: 'ProjectService', interfaceName: 'FetchCurUser'}"
-  valueitem='project' 
-  :value="data.projectname" 
+  valueitem='project'
+  :value="data.projectname"
   editortype="dropdown"
-  style="" 
+  style=""
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
@@ -66,11 +66,11 @@
   deKeyField='projectmodule'
   :service="service"
   :acParams="{ serviceName: 'ProjectModuleService', interfaceName: 'FetchTaskModules'}"
-  valueitem='module' 
-  :value="data.modulename" 
+  valueitem='module'
+  :value="data.modulename"
   editortype="dropdown"
   :valFormat="{0: '/'}"
-  style="" 
+  style=""
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>
@@ -161,10 +161,10 @@
   deKeyField='story'
   :service="service"
   :acParams="{ serviceName: 'StoryService', interfaceName: 'FetchTaskRelatedStory'}"
-  valueitem='story' 
-  :value="data.storyname" 
+  valueitem='story'
+  :value="data.storyname"
   editortype="dropdown"
-  style="" 
+  style=""
   @formitemvaluechange="onFormItemValueChange($event)">
 </app-picker>
 </app-form-item>

@@ -554,8 +554,8 @@
     :formState="formState"
     :data="data"
     :context="context"
-    :navigateContext ='{ "n_project_eq": "%project%" } '
-    :navigateParam ='{ "n_project_eq": "%project%" } '
+    :navigateContext ='{ "project": "%project%" } '
+    :navigateParam ='{ "project": "%project%" } '
     :viewparams="viewparams"
     :itemParam='{ }' 
     :disabled="detailsModel.taskname.disabled"

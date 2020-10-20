@@ -104,9 +104,18 @@ export class BugStepsInfoEditViewBase extends EditViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof BugStepsInfoEditViewBase
      */
 	protected viewtag: string = '6558930042f15c2297572f51d7e77df5';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof BugStepsInfoEditViewBase
+     */ 
+    protected viewName:string = "BugStepsInfoEditView";
 
 
     /**

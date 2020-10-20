@@ -94,9 +94,18 @@ export class StoryUsr2MPickupViewBase extends MPickupViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof StoryUsr2MPickupViewBase
      */
 	protected viewtag: string = '0bfc1d5ae45c2a74d3b58739784ec7f7';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof StoryUsr2MPickupViewBase
+     */ 
+    protected viewName:string = "StoryUsr2MPickupView";
 
 
     /**

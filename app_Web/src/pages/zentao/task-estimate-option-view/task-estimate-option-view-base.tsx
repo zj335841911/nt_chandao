@@ -110,9 +110,18 @@ export class TaskEstimateOptionViewBase extends OptionViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TaskEstimateOptionViewBase
      */
 	protected viewtag: string = '4acc52d66d0c31e82166d85b1b0cd826';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TaskEstimateOptionViewBase
+     */ 
+    protected viewName:string = "TaskEstimateOptionView";
 
 
     /**

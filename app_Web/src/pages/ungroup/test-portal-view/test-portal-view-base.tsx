@@ -42,9 +42,18 @@ export class TestPortalViewBase extends PortalViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof TestPortalViewBase
      */
 	protected viewtag: string = 'D1283E46-401A-4CFD-A7A1-BF5B90197463';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof TestPortalViewBase
+     */ 
+    protected viewName:string = "TestPortalView";
 
 
 

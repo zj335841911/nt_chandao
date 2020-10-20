@@ -137,9 +137,18 @@ export class ActionAddCommentHistoryListViewBase extends ListViewBase {
      *
      * @protected
      * @type {string}
-     * @memberof ViewBase
+     * @memberof ActionAddCommentHistoryListViewBase
      */
 	protected viewtag: string = 'aeee411b8bffcf0c30d65557a8deeeee';
+
+    /**
+     * 视图名称
+     *
+     * @protected
+     * @type {string}
+     * @memberof ActionAddCommentHistoryListViewBase
+     */ 
+    protected viewName:string = "ActionAddCommentHistoryListView";
 
 
     /**
