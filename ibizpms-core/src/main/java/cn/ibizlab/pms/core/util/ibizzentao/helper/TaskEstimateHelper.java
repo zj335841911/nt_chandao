@@ -7,6 +7,7 @@ import cn.ibizlab.pms.core.zentao.mapper.TaskEstimateMapper;
 import cn.ibizlab.pms.core.zentao.service.*;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -15,7 +16,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
-import java.sql.Wrapper;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -95,12 +95,11 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
             data.setAssignedto(task.getOpenedby());
         }
 
-
-        List<JSONObject> teamLists = teamService.select(String.format("select * from zt_team where root = %1$s and type = 'task' order by 'order'",oldEstimate.getTask()),null);
+        List<Team> teamLists = teamService.list(new QueryWrapper<Team>().eq("root",oldEstimate.getTask()).eq("type","task").orderByDesc("`order`"));
         if (teamLists.size() != 0){
             double oldConsumed = 0;
-            for (JSONObject team : teamLists) {
-                if (team.getString("account").equals(oldEstimate.getAccount())) oldConsumed = team.getDoubleValue("consumed");
+            for (Team team : teamLists) {
+                if (team.getAccount().equals(oldEstimate.getAccount())) oldConsumed = team.getConsumed();
             }
             Team newTeamInfo = new Team();
             newTeamInfo.setConsumed(oldConsumed+et.getConsumed() - oldEstimate.getConsumed());
@@ -109,8 +108,9 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
             param.put("root",oldEstimate.getTask());
             param.put("type","task");
             param.put("account",oldEstimate.getAccount());
-            teamHelper.update(newTeamInfo,(QueryWrapper<Team>) newTeamInfo.getUpdateWrapper(true).allEq(param));
-            //data = computeHours4Multiple(task,data);
+            teamHelper.update(newTeamInfo,(Wrapper<Team>) newTeamInfo.getUpdateWrapper(true).allEq(param));
+            List<TaskTeam> teams = task.getTaskteam();
+            taskHelper.computeHours4Multiple(task,data,teams,false);
         }
         taskHelper.internalUpdate(data);
 
@@ -172,12 +172,13 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
         data.setLeft(left);
         data.setStatus((left == 0 && consumed != 0) ? "done" : task.getStatus());
 
-        List<JSONObject> teamList = teamService.select(String.format("select t1.* from zt_team t1 LEFT JOIN zt_task t2 on t1.root = t2.id and t1.TYPE = 'task' where  t1.root = %1$s ",task.getId()),null);
-        if (teamList.size() != 0){
+        //List<JSONObject> teamList = teamService.select(String.format("select t1.* from zt_team t1 LEFT JOIN zt_task t2 on t1.root = t2.id and t1.TYPE = 'task' where  t1.root = %1$s ",task.getId()),null);
+        List<Team> teamLists = teamService.list(new QueryWrapper<Team>().eq("root",task.getId()).eq("type","task"));
+        if (teamLists.size() != 0){
             double oldConsumed = 0;
-            for (JSONObject team : teamList) {
-                if (team.getString("account").equals(taskEstimate.getAccount())){
-                    oldConsumed = team.getDoubleValue("consumed");
+            for (Team team : teamLists) {
+                if (team.getAccount().equals(taskEstimate.getAccount())){
+                    oldConsumed = team.getConsumed();
                 }
             }
             Team newTeamInfo = new Team();
@@ -187,8 +188,16 @@ public class TaskEstimateHelper extends ZTBaseHelper<TaskEstimateMapper, TaskEst
             param.put("root",taskEstimate.getTask());
             param.put("type","task");
             param.put("account",taskEstimate.getAccount());
-            teamHelper.update(newTeamInfo,(QueryWrapper<Team>) newTeamInfo.getUpdateWrapper(true).allEq(param));
-            // data = this.computeHours4Multiple(task,data);
+
+            teamHelper.update(newTeamInfo,(Wrapper<Team>) newTeamInfo.getUpdateWrapper(true).allEq(param));
+            List<TaskTeam> teams = task.getTaskteam();
+//            for (int i = 0; i < teams.size(); i++) {
+//                if (teams.get(i).getAccount() == null){
+//                    teams.remove(i);
+//                    i--;
+//                }
+//            }
+            taskHelper.computeHours4Multiple(task,data,teams,false);
         }
         data.setId(taskEstimate.getTask());
         taskHelper.internalUpdate(data);
