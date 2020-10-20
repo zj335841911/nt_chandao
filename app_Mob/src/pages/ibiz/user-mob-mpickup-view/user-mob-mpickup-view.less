@@ -29,7 +29,6 @@ ion-infinite-scroll-content{
     .view-footer {
         padding: 0.5rem 1rem;
         text-align: center;
-        border-top: 1px solid #ddd;
         .van-button {
             height: 2.5rem;
             line-height: 2.5rem;
@@ -45,5 +44,8 @@ ion-infinite-scroll-content{
             width: 45%;
           }
         }
+    }
+    .footer-ios ion-toolbar:first-of-type {
+        --border-width:  0;
     }
 }

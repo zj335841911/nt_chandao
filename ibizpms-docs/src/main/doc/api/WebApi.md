@@ -736,6 +736,7 @@
 |/productmodule/syncfromibiz|POST|需求模块 Json对象|&nbsp;|
 |/productmodule/fetchbypath|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productmodule/fetchdefault|GET|DEDataSetFetchContext Json对象|&nbsp;|
+|/productmodule/fetchparentmodule|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productmodule/fetchroot|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productmodule/fetchroot_nobranch|GET|DEDataSetFetchContext Json对象|&nbsp;|
 |/productmodule/fetchstorymodule|GET|DEDataSetFetchContext Json对象|&nbsp;|

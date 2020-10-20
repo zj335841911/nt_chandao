@@ -40,6 +40,7 @@ public interface IProductModuleService extends IService<ProductModule>{
     ProductModule syncFromIBIZ(ProductModule et) ;
     Page<ProductModule> searchByPath(ProductModuleSearchContext context) ;
     Page<ProductModule> searchDefault(ProductModuleSearchContext context) ;
+    Page<ProductModule> searchParentModule(ProductModuleSearchContext context) ;
     Page<ProductModule> searchRoot(ProductModuleSearchContext context) ;
     Page<ProductModule> searchRoot_NoBranch(ProductModuleSearchContext context) ;
     Page<ProductModule> searchStoryModule(ProductModuleSearchContext context) ;

@@ -201,6 +201,28 @@ public class ProductModuleResource {
                 .body(new PageImpl(productmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchParentModule-all')")
+	@ApiOperation(value = "获取父模块", tags = {"需求模块" } ,notes = "获取父模块")
+    @RequestMapping(method= RequestMethod.GET , value="/productmodules/fetchparentmodule")
+	public ResponseEntity<List<ProductModuleDTO>> fetchParentModule(ProductModuleSearchContext context) {
+        Page<ProductModule> domains = productmoduleService.searchParentModule(context) ;
+        List<ProductModuleDTO> list = productmoduleMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchParentModule-all')")
+	@ApiOperation(value = "查询父模块", tags = {"需求模块" } ,notes = "查询父模块")
+    @RequestMapping(method= RequestMethod.POST , value="/productmodules/searchparentmodule")
+	public ResponseEntity<Page<ProductModuleDTO>> searchParentModule(@RequestBody ProductModuleSearchContext context) {
+        Page<ProductModule> domains = productmoduleService.searchParentModule(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchRoot-all')")
 	@ApiOperation(value = "获取根模块", tags = {"需求模块" } ,notes = "获取根模块")
     @RequestMapping(method= RequestMethod.GET , value="/productmodules/fetchroot")
@@ -439,6 +461,29 @@ public class ProductModuleResource {
 	public ResponseEntity<Page<ProductModuleDTO>> searchProductModuleDefaultByProduct(@PathVariable("product_id") Long product_id, @RequestBody ProductModuleSearchContext context) {
         context.setN_root_eq(product_id);
         Page<ProductModule> domains = productmoduleService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchParentModule-all')")
+	@ApiOperation(value = "根据产品获取父模块", tags = {"需求模块" } ,notes = "根据产品获取父模块")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productmodules/fetchparentmodule")
+	public ResponseEntity<List<ProductModuleDTO>> fetchProductModuleParentModuleByProduct(@PathVariable("product_id") Long product_id,ProductModuleSearchContext context) {
+        context.setN_root_eq(product_id);
+        Page<ProductModule> domains = productmoduleService.searchParentModule(context) ;
+        List<ProductModuleDTO> list = productmoduleMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchParentModule-all')")
+	@ApiOperation(value = "根据产品查询父模块", tags = {"需求模块" } ,notes = "根据产品查询父模块")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productmodules/searchparentmodule")
+	public ResponseEntity<Page<ProductModuleDTO>> searchProductModuleParentModuleByProduct(@PathVariable("product_id") Long product_id, @RequestBody ProductModuleSearchContext context) {
+        context.setN_root_eq(product_id);
+        Page<ProductModule> domains = productmoduleService.searchParentModule(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

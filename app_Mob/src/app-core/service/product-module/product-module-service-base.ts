@@ -308,6 +308,26 @@ export class ProductModuleServiceBase extends EntityService {
     }
 
     /**
+     * FetchParentModule接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductModuleServiceBase
+     */
+    public async FetchParentModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/fetchparentmodule`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productmodules/fetchparentmodule`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchRoot接口方法
      *
      * @param {*} [context={}]
