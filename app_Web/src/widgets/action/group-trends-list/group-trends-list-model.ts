@@ -25,6 +25,9 @@ export default class GroupTrendsModel {
 				name: 'date',
 			},
 			{
+				name: 'srfkey',
+			},
+			{
 				name: 'objectid',
 			},
 			{
@@ -46,21 +49,6 @@ export default class GroupTrendsModel {
 			},
 			{
 				name: 'objecttype',
-			},
-			{
-				name: 'srfkey',
-				prop: 'id',
-				dataType: 'ACID',
-			},
-			{
-				name: 'srfmajortext',
-				prop: 'comment',
-				dataType: 'LONGTEXT',
-			},
-			{
-				name: 'action',
-				prop: 'id',
-				dataType: 'FONTKEY',
 			},
       {
         name:'size',

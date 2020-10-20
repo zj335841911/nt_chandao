@@ -49,16 +49,9 @@ export default class TrendsModel {
 			},
 			{
 				name: 'srfkey',
-				prop: 'id',
-				dataType: 'ACID',
 			},
 			{
 				name: 'objecttype',
-			},
-			{
-				name: 'action',
-				prop: 'id',
-				dataType: 'FONTKEY',
 			},
       {
         name:'size',

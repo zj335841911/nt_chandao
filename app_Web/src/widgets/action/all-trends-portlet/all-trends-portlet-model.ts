@@ -78,6 +78,9 @@ export default class AllTrendsModel {
       {
         name: 'lastmonth',
       },
+      {
+        name: 'srfkey',
+      },
     ]
   }
 

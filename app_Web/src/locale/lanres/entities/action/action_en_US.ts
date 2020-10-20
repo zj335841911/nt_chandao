@@ -22,6 +22,7 @@ export default {
     lastweek: "上周",
     thismonth: "本月",
     lastmonth: "上月",
+    srfkey: "前端键值",
   },
 	views: {
 		myalltrendslistview: {
