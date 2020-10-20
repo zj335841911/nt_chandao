@@ -1,10 +1,8 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
 import cn.ibizlab.pms.core.ibiz.domain.TaskTeam;
-import cn.ibizlab.pms.core.ibiz.service.impl.TaskTeamServiceImpl;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
-import cn.ibizlab.pms.core.util.zentao.helper.ZTTodoHelper;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.TaskMapper;
 import cn.ibizlab.pms.core.zentao.service.IProjectService;
@@ -13,10 +11,8 @@ import cn.ibizlab.pms.core.zentao.service.ITaskService;
 import cn.ibizlab.pms.core.zentao.service.ITeamService;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
-import com.alibaba.druid.util.lang.Consumer;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import javafx.scene.shape.FillRule;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +23,6 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 @Component
