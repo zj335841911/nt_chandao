@@ -62,7 +62,7 @@
                     </el-table-column>
                 </template>
                 <template v-if="getColumnState('bugtotal')">
-                    <el-table-column show-overflow-tooltip :prop="'bugtotalnum'" :label="$t('entities.bugstats.bugassignedto_grid.columns.bugtotal')" :width="200"  :align="'center'">
+                    <el-table-column show-overflow-tooltip :prop="'bugtotal'" :label="$t('entities.bugstats.bugassignedto_grid.columns.bugtotal')" :width="200"  :align="'center'">
                         <template slot="header">
                         <span class="column-header ">
                             {{$t('entities.bugstats.bugassignedto_grid.columns.bugtotal')}}
@@ -128,28 +128,7 @@ export default class BugassignedToGrid extends BugassignedToGridBase {
             // 排序并合并设置合并行规则
             this.listSort();
             this.setRowSpanRule();
-            //  设置bug合计数
-            this.setBugTotal();
         }
-    }
-
-    /**
-     * 设置bug合计列总数
-     * @memberof MainGrid
-     */
-    public setBugTotal() {
-        this.infoList.forEach((info: any) => {
-            let tempArray:Array<any> = this.itemsRenderList.filter((curr: any) => {return curr.assignedto === info.firstIndex});
-            let bugTotal: number = 0;
-            tempArray.forEach((temp: any) => {
-                bugTotal += temp.bugtotal;
-            })
-            this.itemsRenderList.forEach((item: any) => {
-                if(item.assignedto === info.firstIndex) {
-                    item.bugtotalnum = bugTotal;
-                }
-            })
-        })
     }
     // assignedto
     /**
@@ -184,7 +163,7 @@ export default class BugassignedToGrid extends BugassignedToGridBase {
      * @memberof MainGrid
      */
     public rowSpanMethod({ row, column, rowIndex, columnIndex }:{row:any, column:any, rowIndex:any, columnIndex:any}) {
-        if (columnIndex === 0 || columnIndex === 3) {
+        if (columnIndex === 0) {
             let index = this.infoList.findIndex((item:any) => {
                 return item.firstIndex === rowIndex;
             })
