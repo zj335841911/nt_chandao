@@ -25,6 +25,14 @@ import cn.ibizlab.pms.util.filter.SearchContextBase;
 @Slf4j
 @Data
 public class SysEmployeeSearchContext extends SearchContextBase {
+	private String n_username_eq;//[用户全局名]
+
+	private String n_username_in;//[用户全局名]
+
+	private String n_username_like;//[用户全局名]
+
+	private String n_username_notin;//[用户全局名]
+
 	private String n_personname_like;//[姓名]
 
 	private String n_sex_eq;//[性别]

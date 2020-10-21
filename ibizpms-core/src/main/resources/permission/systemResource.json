@@ -1172,7 +1172,7 @@
     "dename":"SysEmployee",
     "delogicname":"人员",
     "sysmoudle":{"id":"OU","name":"ou组织用户管理模块"},
-    "dedataset":[{"id":"Default" , "name":"数据集"}],
+    "dedataset":[{"id":"BugUser" , "name":"Bug用户"},{"id":"Default" , "name":"数据集"},{"id":"ProjectTeamM" , "name":"项目团队管理"},{"id":"ProjectTeamUser" , "name":"项目团队成员"},{"id":"ProjectTeamUser_Task" , "name":"项目团队成员"},{"id":"TaskTeam" , "name":"数据查询2"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
      }

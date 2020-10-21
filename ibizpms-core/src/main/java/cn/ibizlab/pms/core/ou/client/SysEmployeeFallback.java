@@ -73,7 +73,32 @@ public class SysEmployeeFallback implements SysEmployeeFeignClient{
             return false;
      }
 
+    public Page<SysEmployee> searchBugUser(SysEmployeeSearchContext context){
+            return null;
+     }
+
+
     public Page<SysEmployee> searchDefault(SysEmployeeSearchContext context){
+            return null;
+     }
+
+
+    public Page<SysEmployee> searchProjectTeamM(SysEmployeeSearchContext context){
+            return null;
+     }
+
+
+    public Page<SysEmployee> searchProjectTeamUser(SysEmployeeSearchContext context){
+            return null;
+     }
+
+
+    public Page<SysEmployee> searchProjectTeamUser_Task(SysEmployeeSearchContext context){
+            return null;
+     }
+
+
+    public Page<SysEmployee> searchTaskTeam(SysEmployeeSearchContext context){
             return null;
      }
 

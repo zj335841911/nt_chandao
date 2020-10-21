@@ -139,11 +139,61 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
 
 
     /**
+     * 查询集合 Bug用户
+     */
+    @Override
+    public Page<SysEmployee> searchBugUser(SysEmployeeSearchContext context) {
+        Page<SysEmployee> sysEmployees=sysEmployeeFeignClient.searchBugUser(context);
+        return sysEmployees;
+    }
+
+
+    /**
      * 查询集合 数据集
      */
     @Override
     public Page<SysEmployee> searchDefault(SysEmployeeSearchContext context) {
         Page<SysEmployee> sysEmployees=sysEmployeeFeignClient.searchDefault(context);
+        return sysEmployees;
+    }
+
+
+    /**
+     * 查询集合 项目团队管理
+     */
+    @Override
+    public Page<SysEmployee> searchProjectTeamM(SysEmployeeSearchContext context) {
+        Page<SysEmployee> sysEmployees=sysEmployeeFeignClient.searchProjectTeamM(context);
+        return sysEmployees;
+    }
+
+
+    /**
+     * 查询集合 项目团队成员
+     */
+    @Override
+    public Page<SysEmployee> searchProjectTeamUser(SysEmployeeSearchContext context) {
+        Page<SysEmployee> sysEmployees=sysEmployeeFeignClient.searchProjectTeamUser(context);
+        return sysEmployees;
+    }
+
+
+    /**
+     * 查询集合 项目团队成员
+     */
+    @Override
+    public Page<SysEmployee> searchProjectTeamUser_Task(SysEmployeeSearchContext context) {
+        Page<SysEmployee> sysEmployees=sysEmployeeFeignClient.searchProjectTeamUser_Task(context);
+        return sysEmployees;
+    }
+
+
+    /**
+     * 查询集合 数据查询2
+     */
+    @Override
+    public Page<SysEmployee> searchTaskTeam(SysEmployeeSearchContext context) {
+        Page<SysEmployee> sysEmployees=sysEmployeeFeignClient.searchTaskTeam(context);
         return sysEmployees;
     }
 

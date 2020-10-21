@@ -34,7 +34,12 @@ public interface ISysEmployeeService{
     boolean checkKey(SysEmployee et) ;
     boolean save(SysEmployee et) ;
     void saveBatch(List<SysEmployee> list) ;
+    Page<SysEmployee> searchBugUser(SysEmployeeSearchContext context) ;
     Page<SysEmployee> searchDefault(SysEmployeeSearchContext context) ;
+    Page<SysEmployee> searchProjectTeamM(SysEmployeeSearchContext context) ;
+    Page<SysEmployee> searchProjectTeamUser(SysEmployeeSearchContext context) ;
+    Page<SysEmployee> searchProjectTeamUser_Task(SysEmployeeSearchContext context) ;
+    Page<SysEmployee> searchTaskTeam(SysEmployeeSearchContext context) ;
 
 
 }

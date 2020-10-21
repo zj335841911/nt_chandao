@@ -284,6 +284,62 @@ POST
 待补充
 ```
 
+### 获取Bug用户
+#### 访问路径
+/sysemployees/fetchbuguser
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [SysEmployeeSearchContext](#SysEmployeeSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[SysEmployeeDTO](#SysEmployeeDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 查询Bug用户
+#### 访问路径
+/sysemployees/searchbuguser
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [SysEmployeeSearchContext](#SysEmployeeSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[SysEmployeeDTO](#SysEmployeeDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
 ### 获取数据集
 #### 访问路径
 /sysemployees/fetchdefault
@@ -315,6 +371,230 @@ GET
 ### 查询数据集
 #### 访问路径
 /sysemployees/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [SysEmployeeSearchContext](#SysEmployeeSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[SysEmployeeDTO](#SysEmployeeDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 获取项目团队管理
+#### 访问路径
+/sysemployees/fetchprojectteamm
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [SysEmployeeSearchContext](#SysEmployeeSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[SysEmployeeDTO](#SysEmployeeDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 查询项目团队管理
+#### 访问路径
+/sysemployees/searchprojectteamm
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [SysEmployeeSearchContext](#SysEmployeeSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[SysEmployeeDTO](#SysEmployeeDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 获取项目团队成员
+#### 访问路径
+/sysemployees/fetchprojectteamuser
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [SysEmployeeSearchContext](#SysEmployeeSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[SysEmployeeDTO](#SysEmployeeDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 查询项目团队成员
+#### 访问路径
+/sysemployees/searchprojectteamuser
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [SysEmployeeSearchContext](#SysEmployeeSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[SysEmployeeDTO](#SysEmployeeDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 获取项目团队成员
+#### 访问路径
+/sysemployees/fetchprojectteamuser_task
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [SysEmployeeSearchContext](#SysEmployeeSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[SysEmployeeDTO](#SysEmployeeDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 查询项目团队成员
+#### 访问路径
+/sysemployees/searchprojectteamuser_task
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [SysEmployeeSearchContext](#SysEmployeeSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[SysEmployeeDTO](#SysEmployeeDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 获取数据查询2
+#### 访问路径
+/sysemployees/fetchtaskteam
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [SysEmployeeSearchContext](#SysEmployeeSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[SysEmployeeDTO](#SysEmployeeDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 查询数据查询2
+#### 访问路径
+/sysemployees/searchtaskteam
 
 #### 请求方法
 POST
