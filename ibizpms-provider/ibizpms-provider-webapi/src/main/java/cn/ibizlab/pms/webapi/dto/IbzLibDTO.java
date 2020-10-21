@@ -111,6 +111,15 @@ public class IbzLibDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String lasteditedby;
 
+    /**
+     * 属性 [PRODUCT]
+     *
+     */
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long product;
+
 
     /**
      * 设置 [DESC]
@@ -158,6 +167,14 @@ public class IbzLibDTO extends DTOBase implements Serializable {
     public void setLasteditedby(String  lasteditedby){
         this.lasteditedby = lasteditedby ;
         this.modify("lasteditedby",lasteditedby);
+    }
+
+    /**
+     * 设置 [PRODUCT]
+     */
+    public void setProduct(Long  product){
+        this.product = product ;
+        this.modify("product",product);
     }
 
 

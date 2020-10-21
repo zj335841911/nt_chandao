@@ -211,7 +211,6 @@ const data: any = {
                 menuitem22: "统计",
                 menuitem25: "年度统计",
                 menuitem10: "用例库",
-                menuitem11: "用户",
                 menuitem7: "iBiz软件生产管理",
                 menuitem16: "plus",
                 menuitem19: "产品",

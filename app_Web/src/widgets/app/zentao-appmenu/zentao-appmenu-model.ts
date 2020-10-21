@@ -204,28 +204,6 @@ export default class ZentaoModel {
                 }
                 ,
                 		        {
-                	id: 'dd9b338bb75db00a0974af4a4669e432',
-                	name: 'menuitem11',
-                	text: '用户',
-                	type: 'MENUITEM',
-                	counterid: '',
-                	tooltip: '用户',
-                	expanded: false,
-                	separator: false,
-                	hidden: false,
-                	hidesidebar: false,
-                	opendefault: false,
-                	iconcls: '',
-                	icon: '',
-                	textcls: '',
-                	appfunctag: 'Auto19',
-                	appfuncyype: 'APPVIEW',
-                	viewname: 'user-tree-exp-view',
-                	resourcetag: 'IBZ_LIB_M',
-                	authtag:'Web-zentao-menuitem11',
-                }
-                ,
-                		        {
                 	id: 'b6196a3350c20e3bba9943cfba16be09',
                 	name: 'menuitem7',
                 	text: 'iBiz软件生产管理',
@@ -748,18 +726,6 @@ export default class ZentaoModel {
             parameters: [
                 { pathName: 'ibzprostories', parameterName: 'ibzprostory' },
                 { pathName: 'gridview', parameterName: 'gridview' },
-            ],
-        },
-        {
-            appfunctag: 'Auto19',
-            appfuncyype: 'APPVIEW',
-            openmode: '',
-            codename: 'usertreeexpview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/users/:user?/treeexpview/:treeexpview?',
-            parameters: [
-                { pathName: 'users', parameterName: 'user' },
-                { pathName: 'treeexpview', parameterName: 'treeexpview' },
             ],
         },
         {

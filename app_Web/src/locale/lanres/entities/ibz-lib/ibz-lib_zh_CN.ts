@@ -9,6 +9,7 @@ export default {
     type: "类型",
     addedby: "由谁创建",
     lasteditedby: "最后编辑人",
+    product: "产品",
   },
 	views: {
 		editview9: {

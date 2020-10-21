@@ -8531,6 +8531,19 @@
     "data_length":60,
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"PRODUCT" ,
+    "codename":"Product",
+    "field_logic_name":"产品",
+    "entity_name":"IbzLib",
+    "field_type":"BIGINT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"BIGINT",
+    "data_length":20,
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[

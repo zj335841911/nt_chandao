@@ -1099,6 +1099,8 @@
                 </column>
                 <column name="LASTEDITEDBY" remarks="" type="VARCHAR(60)">
                 </column>
+                <column name="PRODUCT" remarks="" type="BIGINT">
+                </column>
         </createTable>
     </changeSet>
 

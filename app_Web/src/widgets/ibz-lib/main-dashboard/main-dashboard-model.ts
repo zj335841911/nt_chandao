@@ -42,6 +42,9 @@ export default class MainModel {
       {
         name: 'lasteditedby',
       },
+      {
+        name: 'product',
+      },
     ]
   }
 

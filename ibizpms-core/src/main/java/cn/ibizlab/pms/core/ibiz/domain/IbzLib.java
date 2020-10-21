@@ -91,6 +91,7 @@ public class IbzLib extends EntityMP implements Serializable {
     /**
      * 类型
      */
+    @DEField(defaultValue = "library")
     @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
@@ -109,6 +110,14 @@ public class IbzLib extends EntityMP implements Serializable {
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
     private String lasteditedby;
+    /**
+     * 产品
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`product`")
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private Long product;
 
 
 
@@ -168,6 +177,14 @@ public class IbzLib extends EntityMP implements Serializable {
     public void setLasteditedby(String lasteditedby){
         this.lasteditedby = lasteditedby ;
         this.modify("lasteditedby",lasteditedby);
+    }
+
+    /**
+     * 设置 [产品]
+     */
+    public void setProduct(Long product){
+        this.product = product ;
+        this.modify("product",product);
     }
 
 
