@@ -95,6 +95,16 @@
         </ion-infinite-scroll>
     </ion-content>
     <ion-footer class="view-footer">
+                <div v-show="!showCheack" class = "fab_container">
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1.disabled}" v-show="righttoolbarModels.deuiaction1.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1.disabled" @click="righttoolbar_click({ tag: 'deuiaction1' }, $event)" size="large">
+                    <ion-icon name="add"></ion-icon>
+                
+                </ion-button>
+                
+            </div>
+        
+        </div>
         
     </ion-footer>
 </ion-page>
@@ -333,6 +343,51 @@ export default class BuildMobMDViewBase extends Vue {
 
     };
 
+    /**
+     * 工具栏显示状态
+     *
+     * @type {boolean}
+     * @memberof BuildMobMDView 
+     */
+    public righttoolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof BuildMobMDView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean = false;
+        if(this.righttoolbarModels){
+            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
+                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+                    toolBarVisable = true;
+                    return;
+                }
+            })
+        }
+        return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof BuildMobMDView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof BuildMobMDView 
+     */
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
+    }
+
     
 
 
@@ -456,6 +511,7 @@ export default class BuildMobMDViewBase extends Vue {
      * @memberof BuildMobMDViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 

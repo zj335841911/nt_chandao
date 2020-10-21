@@ -2188,8 +2188,8 @@
         "srfkey": "BugUserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"User",
-        "appdedataset":"FetchBugUser",
+        "appdataentity":"",
+        "appdedataset":"",
         "items": []
     }, 
     {
@@ -5046,8 +5046,8 @@
         "srfkey": "UserRealNameProject",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"User",
-        "appdedataset":"FetchProjectTeamUser",
+        "appdataentity":"",
+        "appdedataset":"",
         "items": []
     }, 
     {
@@ -5724,8 +5724,8 @@
         "srfkey": "UserRealNameTaskTeam",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"User",
-        "appdedataset":"FetchTaskTeam",
+        "appdataentity":"",
+        "appdedataset":"",
         "items": []
     }, 
     {
