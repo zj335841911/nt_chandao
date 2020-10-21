@@ -25,7 +25,7 @@
                                     </slot>
                                 </div>
                                 <div v-if="isEdit" class="table-td-edit">
-                                    <slot :name="col.name" :row="item" :$index="index" :column="col">
+                                    <slot v-if="refreshSelect" :name="col.name" :row="item" :$index="index" :column="col">
                                         <i-input class="table-edit-input" v-model="item[col.name]" @on-change="onEditChange(item, col.name,index)"></i-input>
                                     </slot>
                                     <el-select class="table-edit-group" v-if="groupfield && i === 0" size="small" clearable v-model="item[groupfield]" @change="onEditChange(item, groupfield,index)">
@@ -52,7 +52,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+import { Vue, Component, Prop, Watch } from "vue-property-decorator";
 
 @Component({})
 export default class GroupStepTable extends Vue {
@@ -88,6 +88,24 @@ export default class GroupStepTable extends Vue {
      * @memberof GroupStepTable
      */
     @Prop() groupfield!: string;
+
+    /**
+     * 下拉列表组件刷新
+     * 
+     * @type {string}
+     * @memberof GroupStepTable
+     */
+    public refreshSelect: boolean = true;
+
+    @Watch('data')
+    public watchData(newVal: any[], oldVal: any[]) {
+        if(newVal.length != oldVal.length) {
+            this.refreshSelect = false;
+            this.$nextTick(() => {
+                this.refreshSelect = true;
+            })
+        }
+    }
 
     /**
      * 获取分组项集合
