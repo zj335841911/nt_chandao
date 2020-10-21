@@ -247,6 +247,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '236b858424b0a6f5b0c05f6d689741a1',
+            viewmodule: 'ibiz',
+            viewname: 'TestSuiteNewMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '25c88b88ef4d39886b97fe4efd5d6568',
             viewmodule: 'zentao',
             viewname: 'ProjectNewMobEditView',
@@ -981,6 +990,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '236b858424b0a6f5b0c05f6d689741a1',
                 '46c4b323d60fd1658313b26c6b3ac34d',
             ],
         },

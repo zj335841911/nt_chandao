@@ -12,11 +12,37 @@ export default {
     product: "所属产品",
   },
 	views: {
+		newmobeditview: {
+			caption: '测试套件',
+		},
 		mobeditview: {
 			caption: '测试套件',
 		},
 		mobmdview: {
 			caption: '测试套件',
+		},
+	},
+	mobedittable_form: {
+		details: {
+			group1: '测试套件基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '最后编辑时间', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			name: '名称', 
+			type: '类型', 
+			addedby: '由谁创建', 
+			addeddate: '创建时间', 
+			lasteditedby: '最后编辑人', 
+			lastediteddate: '最后编辑时间', 
+			id: '编号', 
+		},
+		uiactions: {
 		},
 	},
 	mobmain_form: {
@@ -51,7 +77,13 @@ export default {
 		uiactions: {
 		},
 	},
+	newmobeditviewrighttoolbar_toolbar: {
+	},
 	mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '新建测试套件',
+			tip: 'deuiaction1',
+		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 	},

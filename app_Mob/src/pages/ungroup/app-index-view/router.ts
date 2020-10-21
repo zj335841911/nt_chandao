@@ -2800,6 +2800,22 @@ const router = new Router({
                     component: () => import('@pages/ibiz/bug-close-mob-option-view/bug-close-mob-option-view.vue'),
                 },
                 {
+                    path: 'testsuites/:testsuite?/newmobeditview',
+                    name: 'testsuite_newmobeditview',
+                    meta: {
+                        caption: 'testsuite.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-suitcase',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'testsuites', parameterName: 'testsuite' },
+                            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/test-suite-new-mob-edit-view/test-suite-new-mob-edit-view.vue'),
+                },
+                {
                     path: 'projects/:project?/projectmodules/:projectmodule?/mobpickupmdview',
                     name: 'projectmodule_mobpickupmdview',
                     meta: {
