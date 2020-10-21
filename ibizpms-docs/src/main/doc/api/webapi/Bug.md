@@ -3385,9 +3385,9 @@ PUT
 待补充
 ```
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取指派给我Bug
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchassignedtomybug
 
 #### 请求方法
 GET
@@ -3414,9 +3414,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询指派给我Bug
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchassignedtomybug
 
 #### 请求方法
 POST
@@ -3444,9 +3444,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取版本关联bug(遗留的)
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchbugsbybuild
 
 #### 请求方法
 GET
@@ -3473,9 +3473,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询版本关联bug(遗留的)
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchbugsbybuild
 
 #### 请求方法
 POST
@@ -3503,9 +3503,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取版本关联Bug（已解决）
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchbuildbugs
 
 #### 请求方法
 GET
@@ -3532,9 +3532,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询版本关联Bug（已解决）
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchbuildbugs
 
 #### 请求方法
 POST
@@ -3562,9 +3562,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取版本可关联的已解决的Bugs集合
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchbuildlinkresolvedbugs
 
 #### 请求方法
 GET
@@ -3591,9 +3591,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询版本可关联的已解决的Bugs集合
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchbuildlinkresolvedbugs
 
 #### 请求方法
 POST
@@ -3621,9 +3621,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取版本关联Bug（已解决）
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchbuildopenbugs
 
 #### 请求方法
 GET
@@ -3650,9 +3650,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询版本关联Bug（已解决）
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchbuildopenbugs
 
 #### 请求方法
 POST
@@ -3680,9 +3680,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchbuildproducebug
 
 #### 请求方法
 GET
@@ -3709,9 +3709,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchbuildproducebug
 
 #### 请求方法
 POST
@@ -3739,9 +3739,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchbuildproducebugmodule
 
 #### 请求方法
 GET
@@ -3768,9 +3768,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchbuildproducebugmodule
 
 #### 请求方法
 POST
@@ -3798,9 +3798,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-创建者分布(项目)
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchbuildproducebugmodule_project
 
 #### 请求方法
 GET
@@ -3827,9 +3827,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-创建者分布(项目)
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchbuildproducebugmodule_project
 
 #### 请求方法
 POST
@@ -3857,9 +3857,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-创建分类
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchbuildproducebugopenedby
 
 #### 请求方法
 GET
@@ -3886,9 +3886,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-创建分类
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchbuildproducebugopenedby
 
 #### 请求方法
 POST
@@ -3916,9 +3916,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-创建者分布(项目)
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchbuildproducebugopenedby_project
 
 #### 请求方法
 GET
@@ -3945,9 +3945,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-创建者分布(项目)
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchbuildproducebugopenedby_project
 
 #### 请求方法
 POST
@@ -3975,9 +3975,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug（已解决）
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchbuildproducebugres
 
 #### 请求方法
 GET
@@ -4004,9 +4004,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug（已解决）
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchbuildproducebugres
 
 #### 请求方法
 POST
@@ -4034,9 +4034,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-解决者分布
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchbuildproducebugresolvedby
 
 #### 请求方法
 GET
@@ -4063,9 +4063,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-解决者分布
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchbuildproducebugresolvedby
 
 #### 请求方法
 POST
@@ -4093,9 +4093,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-解决者分布(项目)
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchbuildproducebugresolvedby_project
 
 #### 请求方法
 GET
@@ -4122,9 +4122,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-解决者分布(项目)
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchbuildproducebugresolvedby_project
 
 #### 请求方法
 POST
@@ -4152,9 +4152,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-解决方案分布(项目)
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchbuildproducebugresolution_project
 
 #### 请求方法
 GET
@@ -4181,9 +4181,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-解决方案分布(项目)
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchbuildproducebugresolution_project
 
 #### 请求方法
 POST
@@ -4211,9 +4211,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-严重程度分布(项目)
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchbuildproducebugseverity_project
 
 #### 请求方法
 GET
@@ -4240,9 +4240,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-严重程度分布(项目)
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchbuildproducebugseverity_project
 
 #### 请求方法
 POST
@@ -4270,9 +4270,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-状态分布(项目)
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchbuildproducebugstatus_project
 
 #### 请求方法
 GET
@@ -4299,9 +4299,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-状态分布(项目)
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchbuildproducebugstatus_project
 
 #### 请求方法
 POST
@@ -4329,9 +4329,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-类型分布(项目)
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchbuildproducebugtype_project
 
 #### 请求方法
 GET
@@ -4358,9 +4358,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-类型分布(项目)
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchbuildproducebugtype_project
 
 #### 请求方法
 POST
@@ -4388,9 +4388,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取当前用户解决的Bug
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchcuruserresolve
 
 #### 请求方法
 GET
@@ -4417,9 +4417,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询当前用户解决的Bug
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchcuruserresolve
 
 #### 请求方法
 POST
@@ -4447,9 +4447,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取DEFAULT
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchdefault
 
 #### 请求方法
 GET
@@ -4476,9 +4476,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询DEFAULT
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchdefault
 
 #### 请求方法
 POST
@@ -4506,9 +4506,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取累计创建的Bug数
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchmycuropenedbug
 
 #### 请求方法
 GET
@@ -4535,9 +4535,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询累计创建的Bug数
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchmycuropenedbug
 
 #### 请求方法
 POST
@@ -4565,9 +4565,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取我的收藏
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchmyfavorites
 
 #### 请求方法
 GET
@@ -4594,9 +4594,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询我的收藏
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchmyfavorites
 
 #### 请求方法
 POST
@@ -4624,9 +4624,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取遗留得Bug(项目)
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchprojectbugs
 
 #### 请求方法
 GET
@@ -4653,9 +4653,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询遗留得Bug(项目)
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchprojectbugs
 
 #### 请求方法
 POST
@@ -4683,9 +4683,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取发布关联Bug（已解决）
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchreleasebugs
 
 #### 请求方法
 GET
@@ -4712,9 +4712,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询发布关联Bug（已解决）
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchreleasebugs
 
 #### 请求方法
 POST
@@ -4742,9 +4742,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取发布关联Bug（已解决）
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchreleaseleftbugs
 
 #### 请求方法
 GET
@@ -4771,9 +4771,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询发布关联Bug（已解决）
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchreleaseleftbugs
 
 #### 请求方法
 POST
@@ -4801,9 +4801,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取发布可关联的bug（遗留）
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchreleaselinkableleftbug
 
 #### 请求方法
 GET
@@ -4830,9 +4830,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询发布可关联的bug（遗留）
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchreleaselinkableleftbug
 
 #### 请求方法
 POST
@@ -4860,9 +4860,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取发布可关联的bug（已解决）
 #### 访问路径
-/products/{product_id}/bugs/fetchreportbugs
+/products/{product_id}/bugs/fetchreleaselinkableresolvedbug
 
 #### 请求方法
 GET
@@ -4889,9 +4889,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询发布可关联的bug（已解决）
 #### 访问路径
-/products/{product_id}/bugs/searchreportbugs
+/products/{product_id}/bugs/searchreleaselinkableresolvedbug
 
 #### 请求方法
 POST
@@ -5929,9 +5929,9 @@ PUT
 待补充
 ```
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取指派给我Bug
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchassignedtomybug
 
 #### 请求方法
 GET
@@ -5958,9 +5958,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询指派给我Bug
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchassignedtomybug
 
 #### 请求方法
 POST
@@ -5988,9 +5988,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取版本关联bug(遗留的)
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchbugsbybuild
 
 #### 请求方法
 GET
@@ -6017,9 +6017,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询版本关联bug(遗留的)
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchbugsbybuild
 
 #### 请求方法
 POST
@@ -6047,9 +6047,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取版本关联Bug（已解决）
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchbuildbugs
 
 #### 请求方法
 GET
@@ -6076,9 +6076,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询版本关联Bug（已解决）
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchbuildbugs
 
 #### 请求方法
 POST
@@ -6106,9 +6106,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取版本可关联的已解决的Bugs集合
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchbuildlinkresolvedbugs
 
 #### 请求方法
 GET
@@ -6135,9 +6135,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询版本可关联的已解决的Bugs集合
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchbuildlinkresolvedbugs
 
 #### 请求方法
 POST
@@ -6165,9 +6165,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取版本关联Bug（已解决）
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchbuildopenbugs
 
 #### 请求方法
 GET
@@ -6194,9 +6194,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询版本关联Bug（已解决）
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchbuildopenbugs
 
 #### 请求方法
 POST
@@ -6224,9 +6224,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchbuildproducebug
 
 #### 请求方法
 GET
@@ -6253,9 +6253,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchbuildproducebug
 
 #### 请求方法
 POST
@@ -6283,9 +6283,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchbuildproducebugmodule
 
 #### 请求方法
 GET
@@ -6312,9 +6312,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchbuildproducebugmodule
 
 #### 请求方法
 POST
@@ -6342,9 +6342,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-创建者分布(项目)
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchbuildproducebugmodule_project
 
 #### 请求方法
 GET
@@ -6371,9 +6371,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-创建者分布(项目)
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchbuildproducebugmodule_project
 
 #### 请求方法
 POST
@@ -6401,9 +6401,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-创建分类
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchbuildproducebugopenedby
 
 #### 请求方法
 GET
@@ -6430,9 +6430,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-创建分类
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchbuildproducebugopenedby
 
 #### 请求方法
 POST
@@ -6460,9 +6460,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-创建者分布(项目)
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchbuildproducebugopenedby_project
 
 #### 请求方法
 GET
@@ -6489,9 +6489,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-创建者分布(项目)
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchbuildproducebugopenedby_project
 
 #### 请求方法
 POST
@@ -6519,9 +6519,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug（已解决）
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchbuildproducebugres
 
 #### 请求方法
 GET
@@ -6548,9 +6548,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug（已解决）
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchbuildproducebugres
 
 #### 请求方法
 POST
@@ -6578,9 +6578,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-解决者分布
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchbuildproducebugresolvedby
 
 #### 请求方法
 GET
@@ -6607,9 +6607,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-解决者分布
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchbuildproducebugresolvedby
 
 #### 请求方法
 POST
@@ -6637,9 +6637,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-解决者分布(项目)
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchbuildproducebugresolvedby_project
 
 #### 请求方法
 GET
@@ -6666,9 +6666,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-解决者分布(项目)
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchbuildproducebugresolvedby_project
 
 #### 请求方法
 POST
@@ -6696,9 +6696,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-解决方案分布(项目)
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchbuildproducebugresolution_project
 
 #### 请求方法
 GET
@@ -6725,9 +6725,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-解决方案分布(项目)
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchbuildproducebugresolution_project
 
 #### 请求方法
 POST
@@ -6755,9 +6755,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-严重程度分布(项目)
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchbuildproducebugseverity_project
 
 #### 请求方法
 GET
@@ -6784,9 +6784,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-严重程度分布(项目)
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchbuildproducebugseverity_project
 
 #### 请求方法
 POST
@@ -6814,9 +6814,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-状态分布(项目)
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchbuildproducebugstatus_project
 
 #### 请求方法
 GET
@@ -6843,9 +6843,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-状态分布(项目)
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchbuildproducebugstatus_project
 
 #### 请求方法
 POST
@@ -6873,9 +6873,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-类型分布(项目)
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchbuildproducebugtype_project
 
 #### 请求方法
 GET
@@ -6902,9 +6902,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-类型分布(项目)
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchbuildproducebugtype_project
 
 #### 请求方法
 POST
@@ -6932,9 +6932,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取当前用户解决的Bug
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchcuruserresolve
 
 #### 请求方法
 GET
@@ -6961,9 +6961,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询当前用户解决的Bug
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchcuruserresolve
 
 #### 请求方法
 POST
@@ -6991,9 +6991,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取DEFAULT
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchdefault
 
 #### 请求方法
 GET
@@ -7020,9 +7020,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询DEFAULT
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchdefault
 
 #### 请求方法
 POST
@@ -7050,9 +7050,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取累计创建的Bug数
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchmycuropenedbug
 
 #### 请求方法
 GET
@@ -7079,9 +7079,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询累计创建的Bug数
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchmycuropenedbug
 
 #### 请求方法
 POST
@@ -7109,9 +7109,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取我的收藏
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchmyfavorites
 
 #### 请求方法
 GET
@@ -7138,9 +7138,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询我的收藏
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchmyfavorites
 
 #### 请求方法
 POST
@@ -7168,9 +7168,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取遗留得Bug(项目)
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchprojectbugs
 
 #### 请求方法
 GET
@@ -7197,9 +7197,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询遗留得Bug(项目)
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchprojectbugs
 
 #### 请求方法
 POST
@@ -7227,9 +7227,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取发布关联Bug（已解决）
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchreleasebugs
 
 #### 请求方法
 GET
@@ -7256,9 +7256,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询发布关联Bug（已解决）
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchreleasebugs
 
 #### 请求方法
 POST
@@ -7286,9 +7286,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取发布关联Bug（已解决）
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchreleaseleftbugs
 
 #### 请求方法
 GET
@@ -7315,9 +7315,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询发布关联Bug（已解决）
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchreleaseleftbugs
 
 #### 请求方法
 POST
@@ -7345,9 +7345,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取发布可关联的bug（遗留）
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchreleaselinkableleftbug
 
 #### 请求方法
 GET
@@ -7374,9 +7374,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询发布可关联的bug（遗留）
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchreleaselinkableleftbug
 
 #### 请求方法
 POST
@@ -7404,9 +7404,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取发布可关联的bug（已解决）
 #### 访问路径
-/stories/{story_id}/bugs/fetchreportbugs
+/stories/{story_id}/bugs/fetchreleaselinkableresolvedbug
 
 #### 请求方法
 GET
@@ -7433,9 +7433,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询发布可关联的bug（已解决）
 #### 访问路径
-/stories/{story_id}/bugs/searchreportbugs
+/stories/{story_id}/bugs/searchreleaselinkableresolvedbug
 
 #### 请求方法
 POST
@@ -8473,9 +8473,9 @@ PUT
 待补充
 ```
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取指派给我Bug
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchassignedtomybug
 
 #### 请求方法
 GET
@@ -8502,9 +8502,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询指派给我Bug
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchassignedtomybug
 
 #### 请求方法
 POST
@@ -8532,9 +8532,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取版本关联bug(遗留的)
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchbugsbybuild
 
 #### 请求方法
 GET
@@ -8561,9 +8561,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询版本关联bug(遗留的)
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchbugsbybuild
 
 #### 请求方法
 POST
@@ -8591,9 +8591,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取版本关联Bug（已解决）
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchbuildbugs
 
 #### 请求方法
 GET
@@ -8620,9 +8620,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询版本关联Bug（已解决）
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchbuildbugs
 
 #### 请求方法
 POST
@@ -8650,9 +8650,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取版本可关联的已解决的Bugs集合
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchbuildlinkresolvedbugs
 
 #### 请求方法
 GET
@@ -8679,9 +8679,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询版本可关联的已解决的Bugs集合
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchbuildlinkresolvedbugs
 
 #### 请求方法
 POST
@@ -8709,9 +8709,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取版本关联Bug（已解决）
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchbuildopenbugs
 
 #### 请求方法
 GET
@@ -8738,9 +8738,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询版本关联Bug（已解决）
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchbuildopenbugs
 
 #### 请求方法
 POST
@@ -8768,9 +8768,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchbuildproducebug
 
 #### 请求方法
 GET
@@ -8797,9 +8797,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchbuildproducebug
 
 #### 请求方法
 POST
@@ -8827,9 +8827,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchbuildproducebugmodule
 
 #### 请求方法
 GET
@@ -8856,9 +8856,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchbuildproducebugmodule
 
 #### 请求方法
 POST
@@ -8886,9 +8886,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-创建者分布(项目)
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchbuildproducebugmodule_project
 
 #### 请求方法
 GET
@@ -8915,9 +8915,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-创建者分布(项目)
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchbuildproducebugmodule_project
 
 #### 请求方法
 POST
@@ -8945,9 +8945,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-创建分类
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchbuildproducebugopenedby
 
 #### 请求方法
 GET
@@ -8974,9 +8974,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-创建分类
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchbuildproducebugopenedby
 
 #### 请求方法
 POST
@@ -9004,9 +9004,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-创建者分布(项目)
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchbuildproducebugopenedby_project
 
 #### 请求方法
 GET
@@ -9033,9 +9033,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-创建者分布(项目)
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchbuildproducebugopenedby_project
 
 #### 请求方法
 POST
@@ -9063,9 +9063,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug（已解决）
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchbuildproducebugres
 
 #### 请求方法
 GET
@@ -9092,9 +9092,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug（已解决）
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchbuildproducebugres
 
 #### 请求方法
 POST
@@ -9122,9 +9122,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-解决者分布
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchbuildproducebugresolvedby
 
 #### 请求方法
 GET
@@ -9151,9 +9151,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-解决者分布
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchbuildproducebugresolvedby
 
 #### 请求方法
 POST
@@ -9181,9 +9181,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-解决者分布(项目)
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchbuildproducebugresolvedby_project
 
 #### 请求方法
 GET
@@ -9210,9 +9210,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-解决者分布(项目)
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchbuildproducebugresolvedby_project
 
 #### 请求方法
 POST
@@ -9240,9 +9240,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-解决方案分布(项目)
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchbuildproducebugresolution_project
 
 #### 请求方法
 GET
@@ -9269,9 +9269,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-解决方案分布(项目)
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchbuildproducebugresolution_project
 
 #### 请求方法
 POST
@@ -9299,9 +9299,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-严重程度分布(项目)
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchbuildproducebugseverity_project
 
 #### 请求方法
 GET
@@ -9328,9 +9328,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-严重程度分布(项目)
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchbuildproducebugseverity_project
 
 #### 请求方法
 POST
@@ -9358,9 +9358,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-状态分布(项目)
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchbuildproducebugstatus_project
 
 #### 请求方法
 GET
@@ -9387,9 +9387,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-状态分布(项目)
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchbuildproducebugstatus_project
 
 #### 请求方法
 POST
@@ -9417,9 +9417,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-类型分布(项目)
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchbuildproducebugtype_project
 
 #### 请求方法
 GET
@@ -9446,9 +9446,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-类型分布(项目)
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchbuildproducebugtype_project
 
 #### 请求方法
 POST
@@ -9476,9 +9476,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取当前用户解决的Bug
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchcuruserresolve
 
 #### 请求方法
 GET
@@ -9505,9 +9505,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询当前用户解决的Bug
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchcuruserresolve
 
 #### 请求方法
 POST
@@ -9535,9 +9535,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取DEFAULT
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchdefault
 
 #### 请求方法
 GET
@@ -9564,9 +9564,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询DEFAULT
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchdefault
 
 #### 请求方法
 POST
@@ -9594,9 +9594,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取累计创建的Bug数
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchmycuropenedbug
 
 #### 请求方法
 GET
@@ -9623,9 +9623,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询累计创建的Bug数
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchmycuropenedbug
 
 #### 请求方法
 POST
@@ -9653,9 +9653,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取我的收藏
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchmyfavorites
 
 #### 请求方法
 GET
@@ -9682,9 +9682,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询我的收藏
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchmyfavorites
 
 #### 请求方法
 POST
@@ -9712,9 +9712,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取遗留得Bug(项目)
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchprojectbugs
 
 #### 请求方法
 GET
@@ -9741,9 +9741,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询遗留得Bug(项目)
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchprojectbugs
 
 #### 请求方法
 POST
@@ -9771,9 +9771,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取发布关联Bug（已解决）
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchreleasebugs
 
 #### 请求方法
 GET
@@ -9800,9 +9800,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询发布关联Bug（已解决）
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchreleasebugs
 
 #### 请求方法
 POST
@@ -9830,9 +9830,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取发布关联Bug（已解决）
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchreleaseleftbugs
 
 #### 请求方法
 GET
@@ -9859,9 +9859,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询发布关联Bug（已解决）
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchreleaseleftbugs
 
 #### 请求方法
 POST
@@ -9889,9 +9889,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取发布可关联的bug（遗留）
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchreleaselinkableleftbug
 
 #### 请求方法
 GET
@@ -9918,9 +9918,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询发布可关联的bug（遗留）
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchreleaselinkableleftbug
 
 #### 请求方法
 POST
@@ -9948,9 +9948,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取发布可关联的bug（已解决）
 #### 访问路径
-/projects/{project_id}/bugs/fetchreportbugs
+/projects/{project_id}/bugs/fetchreleaselinkableresolvedbug
 
 #### 请求方法
 GET
@@ -9977,9 +9977,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询发布可关联的bug（已解决）
 #### 访问路径
-/projects/{project_id}/bugs/searchreportbugs
+/projects/{project_id}/bugs/searchreleaselinkableresolvedbug
 
 #### 请求方法
 POST
@@ -11017,9 +11017,9 @@ PUT
 待补充
 ```
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取指派给我Bug
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchassignedtomybug
 
 #### 请求方法
 GET
@@ -11046,9 +11046,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询指派给我Bug
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchassignedtomybug
 
 #### 请求方法
 POST
@@ -11076,9 +11076,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取版本关联bug(遗留的)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchbugsbybuild
 
 #### 请求方法
 GET
@@ -11105,9 +11105,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询版本关联bug(遗留的)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchbugsbybuild
 
 #### 请求方法
 POST
@@ -11135,9 +11135,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取版本关联Bug（已解决）
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchbuildbugs
 
 #### 请求方法
 GET
@@ -11164,9 +11164,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询版本关联Bug（已解决）
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchbuildbugs
 
 #### 请求方法
 POST
@@ -11194,9 +11194,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取版本可关联的已解决的Bugs集合
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchbuildlinkresolvedbugs
 
 #### 请求方法
 GET
@@ -11223,9 +11223,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询版本可关联的已解决的Bugs集合
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchbuildlinkresolvedbugs
 
 #### 请求方法
 POST
@@ -11253,9 +11253,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取版本关联Bug（已解决）
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchbuildopenbugs
 
 #### 请求方法
 GET
@@ -11282,9 +11282,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询版本关联Bug（已解决）
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchbuildopenbugs
 
 #### 请求方法
 POST
@@ -11312,9 +11312,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchbuildproducebug
 
 #### 请求方法
 GET
@@ -11341,9 +11341,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchbuildproducebug
 
 #### 请求方法
 POST
@@ -11371,9 +11371,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchbuildproducebugmodule
 
 #### 请求方法
 GET
@@ -11400,9 +11400,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchbuildproducebugmodule
 
 #### 请求方法
 POST
@@ -11430,9 +11430,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-创建者分布(项目)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchbuildproducebugmodule_project
 
 #### 请求方法
 GET
@@ -11459,9 +11459,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-创建者分布(项目)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchbuildproducebugmodule_project
 
 #### 请求方法
 POST
@@ -11489,9 +11489,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-创建分类
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchbuildproducebugopenedby
 
 #### 请求方法
 GET
@@ -11518,9 +11518,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-创建分类
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchbuildproducebugopenedby
 
 #### 请求方法
 POST
@@ -11548,9 +11548,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-创建者分布(项目)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchbuildproducebugopenedby_project
 
 #### 请求方法
 GET
@@ -11577,9 +11577,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-创建者分布(项目)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchbuildproducebugopenedby_project
 
 #### 请求方法
 POST
@@ -11607,9 +11607,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug（已解决）
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchbuildproducebugres
 
 #### 请求方法
 GET
@@ -11636,9 +11636,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug（已解决）
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchbuildproducebugres
 
 #### 请求方法
 POST
@@ -11666,9 +11666,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-解决者分布
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchbuildproducebugresolvedby
 
 #### 请求方法
 GET
@@ -11695,9 +11695,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-解决者分布
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchbuildproducebugresolvedby
 
 #### 请求方法
 POST
@@ -11725,9 +11725,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-解决者分布(项目)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchbuildproducebugresolvedby_project
 
 #### 请求方法
 GET
@@ -11754,9 +11754,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-解决者分布(项目)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchbuildproducebugresolvedby_project
 
 #### 请求方法
 POST
@@ -11784,9 +11784,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-解决方案分布(项目)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchbuildproducebugresolution_project
 
 #### 请求方法
 GET
@@ -11813,9 +11813,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-解决方案分布(项目)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchbuildproducebugresolution_project
 
 #### 请求方法
 POST
@@ -11843,9 +11843,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-严重程度分布(项目)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchbuildproducebugseverity_project
 
 #### 请求方法
 GET
@@ -11872,9 +11872,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-严重程度分布(项目)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchbuildproducebugseverity_project
 
 #### 请求方法
 POST
@@ -11902,9 +11902,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-状态分布(项目)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchbuildproducebugstatus_project
 
 #### 请求方法
 GET
@@ -11931,9 +11931,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-状态分布(项目)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchbuildproducebugstatus_project
 
 #### 请求方法
 POST
@@ -11961,9 +11961,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取Build产生的Bug-类型分布(项目)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchbuildproducebugtype_project
 
 #### 请求方法
 GET
@@ -11990,9 +11990,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询Build产生的Bug-类型分布(项目)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchbuildproducebugtype_project
 
 #### 请求方法
 POST
@@ -12020,9 +12020,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取当前用户解决的Bug
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchcuruserresolve
 
 #### 请求方法
 GET
@@ -12049,9 +12049,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询当前用户解决的Bug
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchcuruserresolve
 
 #### 请求方法
 POST
@@ -12079,9 +12079,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取DEFAULT
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchdefault
 
 #### 请求方法
 GET
@@ -12108,9 +12108,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询DEFAULT
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchdefault
 
 #### 请求方法
 POST
@@ -12138,9 +12138,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取累计创建的Bug数
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchmycuropenedbug
 
 #### 请求方法
 GET
@@ -12167,9 +12167,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询累计创建的Bug数
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchmycuropenedbug
 
 #### 请求方法
 POST
@@ -12197,9 +12197,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取我的收藏
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchmyfavorites
 
 #### 请求方法
 GET
@@ -12226,9 +12226,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询我的收藏
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchmyfavorites
 
 #### 请求方法
 POST
@@ -12256,9 +12256,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取遗留得Bug(项目)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchprojectbugs
 
 #### 请求方法
 GET
@@ -12285,9 +12285,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询遗留得Bug(项目)
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchprojectbugs
 
 #### 请求方法
 POST
@@ -12315,9 +12315,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取发布关联Bug（已解决）
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchreleasebugs
 
 #### 请求方法
 GET
@@ -12344,9 +12344,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询发布关联Bug（已解决）
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchreleasebugs
 
 #### 请求方法
 POST
@@ -12374,9 +12374,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取发布关联Bug（已解决）
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchreleaseleftbugs
 
 #### 请求方法
 GET
@@ -12403,9 +12403,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询发布关联Bug（已解决）
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchreleaseleftbugs
 
 #### 请求方法
 POST
@@ -12433,9 +12433,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取发布可关联的bug（遗留）
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchreleaselinkableleftbug
 
 #### 请求方法
 GET
@@ -12462,9 +12462,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询发布可关联的bug（遗留）
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchreleaselinkableleftbug
 
 #### 请求方法
 POST
@@ -12492,9 +12492,9 @@ POST
 ```
 
 
-### 根据获取发布关联Bug（未解决）
+### 根据获取发布可关联的bug（已解决）
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/fetchreleaselinkableresolvedbug
 
 #### 请求方法
 GET
@@ -12521,9 +12521,9 @@ GET
 待补充
 ```
 
-### 根据查询发布关联Bug（未解决）
+### 根据查询发布可关联的bug（已解决）
 #### 访问路径
-/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+/products/{product_id}/stories/{story_id}/bugs/searchreleaselinkableresolvedbug
 
 #### 请求方法
 POST

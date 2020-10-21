@@ -687,9 +687,9 @@ POST
 待补充
 ```
 
-### 根据获取DEFAULT
+### 根据获取CurTestRun
 #### 访问路径
-/cases/{case_id}/testresults/fetchdefault
+/cases/{case_id}/testresults/fetchcurtestrun
 
 #### 请求方法
 GET
@@ -716,9 +716,9 @@ GET
 待补充
 ```
 
-### 根据查询DEFAULT
+### 根据查询CurTestRun
 #### 访问路径
-/cases/{case_id}/testresults/searchdefault
+/cases/{case_id}/testresults/searchcurtestrun
 
 #### 请求方法
 POST
@@ -1096,9 +1096,9 @@ POST
 待补充
 ```
 
-### 根据获取DEFAULT
+### 根据获取CurTestRun
 #### 访问路径
-/products/{product_id}/cases/{case_id}/testresults/fetchdefault
+/products/{product_id}/cases/{case_id}/testresults/fetchcurtestrun
 
 #### 请求方法
 GET
@@ -1125,9 +1125,9 @@ GET
 待补充
 ```
 
-### 根据查询DEFAULT
+### 根据查询CurTestRun
 #### 访问路径
-/products/{product_id}/cases/{case_id}/testresults/searchdefault
+/products/{product_id}/cases/{case_id}/testresults/searchcurtestrun
 
 #### 请求方法
 POST
@@ -1505,9 +1505,9 @@ POST
 待补充
 ```
 
-### 根据获取DEFAULT
+### 根据获取CurTestRun
 #### 访问路径
-/stories/{story_id}/cases/{case_id}/testresults/fetchdefault
+/stories/{story_id}/cases/{case_id}/testresults/fetchcurtestrun
 
 #### 请求方法
 GET
@@ -1534,9 +1534,9 @@ GET
 待补充
 ```
 
-### 根据查询DEFAULT
+### 根据查询CurTestRun
 #### 访问路径
-/stories/{story_id}/cases/{case_id}/testresults/searchdefault
+/stories/{story_id}/cases/{case_id}/testresults/searchcurtestrun
 
 #### 请求方法
 POST
@@ -1914,9 +1914,9 @@ POST
 待补充
 ```
 
-### 根据获取DEFAULT
+### 根据获取CurTestRun
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/{case_id}/testresults/fetchdefault
+/products/{product_id}/stories/{story_id}/cases/{case_id}/testresults/fetchcurtestrun
 
 #### 请求方法
 GET
@@ -1943,9 +1943,9 @@ GET
 待补充
 ```
 
-### 根据查询DEFAULT
+### 根据查询CurTestRun
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/{case_id}/testresults/searchdefault
+/products/{product_id}/stories/{story_id}/cases/{case_id}/testresults/searchcurtestrun
 
 #### 请求方法
 POST

@@ -973,9 +973,9 @@ POST
 待补充
 ```
 
-### 根据获取测试轮次
+### 根据获取Bug产品版本
 #### 访问路径
-/products/{product_id}/builds/fetchtestrounds
+/products/{product_id}/builds/fetchbugproductbuild
 
 #### 请求方法
 GET
@@ -1002,9 +1002,9 @@ GET
 待补充
 ```
 
-### 根据查询测试轮次
+### 根据查询Bug产品版本
 #### 访问路径
-/products/{product_id}/builds/searchtestrounds
+/products/{product_id}/builds/searchbugproductbuild
 
 #### 请求方法
 POST
@@ -1032,9 +1032,9 @@ POST
 ```
 
 
-### 根据获取测试轮次
+### 根据获取产品版本
 #### 访问路径
-/products/{product_id}/builds/fetchtestrounds
+/products/{product_id}/builds/fetchcurproduct
 
 #### 请求方法
 GET
@@ -1061,9 +1061,9 @@ GET
 待补充
 ```
 
-### 根据查询测试轮次
+### 根据查询产品版本
 #### 访问路径
-/products/{product_id}/builds/searchtestrounds
+/products/{product_id}/builds/searchcurproduct
 
 #### 请求方法
 POST
@@ -1091,9 +1091,9 @@ POST
 ```
 
 
-### 根据获取测试轮次
+### 根据获取DEFAULT
 #### 访问路径
-/products/{product_id}/builds/fetchtestrounds
+/products/{product_id}/builds/fetchdefault
 
 #### 请求方法
 GET
@@ -1120,9 +1120,9 @@ GET
 待补充
 ```
 
-### 根据查询测试轮次
+### 根据查询DEFAULT
 #### 访问路径
-/products/{product_id}/builds/searchtestrounds
+/products/{product_id}/builds/searchdefault
 
 #### 请求方法
 POST
@@ -1150,9 +1150,9 @@ POST
 ```
 
 
-### 根据获取测试轮次
+### 根据获取测试版本
 #### 访问路径
-/products/{product_id}/builds/fetchtestrounds
+/products/{product_id}/builds/fetchtestbuild
 
 #### 请求方法
 GET
@@ -1179,9 +1179,9 @@ GET
 待补充
 ```
 
-### 根据查询测试轮次
+### 根据查询测试版本
 #### 访问路径
-/products/{product_id}/builds/searchtestrounds
+/products/{product_id}/builds/searchtestbuild
 
 #### 请求方法
 POST
@@ -1619,9 +1619,9 @@ POST
 待补充
 ```
 
-### 根据获取测试轮次
+### 根据获取Bug产品版本
 #### 访问路径
-/projects/{project_id}/builds/fetchtestrounds
+/projects/{project_id}/builds/fetchbugproductbuild
 
 #### 请求方法
 GET
@@ -1648,9 +1648,9 @@ GET
 待补充
 ```
 
-### 根据查询测试轮次
+### 根据查询Bug产品版本
 #### 访问路径
-/projects/{project_id}/builds/searchtestrounds
+/projects/{project_id}/builds/searchbugproductbuild
 
 #### 请求方法
 POST
@@ -1678,9 +1678,9 @@ POST
 ```
 
 
-### 根据获取测试轮次
+### 根据获取产品版本
 #### 访问路径
-/projects/{project_id}/builds/fetchtestrounds
+/projects/{project_id}/builds/fetchcurproduct
 
 #### 请求方法
 GET
@@ -1707,9 +1707,9 @@ GET
 待补充
 ```
 
-### 根据查询测试轮次
+### 根据查询产品版本
 #### 访问路径
-/projects/{project_id}/builds/searchtestrounds
+/projects/{project_id}/builds/searchcurproduct
 
 #### 请求方法
 POST
@@ -1737,9 +1737,9 @@ POST
 ```
 
 
-### 根据获取测试轮次
+### 根据获取DEFAULT
 #### 访问路径
-/projects/{project_id}/builds/fetchtestrounds
+/projects/{project_id}/builds/fetchdefault
 
 #### 请求方法
 GET
@@ -1766,9 +1766,9 @@ GET
 待补充
 ```
 
-### 根据查询测试轮次
+### 根据查询DEFAULT
 #### 访问路径
-/projects/{project_id}/builds/searchtestrounds
+/projects/{project_id}/builds/searchdefault
 
 #### 请求方法
 POST
@@ -1796,9 +1796,9 @@ POST
 ```
 
 
-### 根据获取测试轮次
+### 根据获取测试版本
 #### 访问路径
-/projects/{project_id}/builds/fetchtestrounds
+/projects/{project_id}/builds/fetchtestbuild
 
 #### 请求方法
 GET
@@ -1825,9 +1825,9 @@ GET
 待补充
 ```
 
-### 根据查询测试轮次
+### 根据查询测试版本
 #### 访问路径
-/projects/{project_id}/builds/searchtestrounds
+/projects/{project_id}/builds/searchtestbuild
 
 #### 请求方法
 POST

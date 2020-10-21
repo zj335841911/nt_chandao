@@ -1209,9 +1209,9 @@ POST
 待补充
 ```
 
-### 根据获取项目计划列表
+### 根据获取CurProductPlan
 #### 访问路径
-/products/{product_id}/productplans/fetchprojectplan
+/products/{product_id}/productplans/fetchcurproductplan
 
 #### 请求方法
 GET
@@ -1238,9 +1238,9 @@ GET
 待补充
 ```
 
-### 根据查询项目计划列表
+### 根据查询CurProductPlan
 #### 访问路径
-/products/{product_id}/productplans/searchprojectplan
+/products/{product_id}/productplans/searchcurproductplan
 
 #### 请求方法
 POST
@@ -1268,9 +1268,9 @@ POST
 ```
 
 
-### 根据获取项目计划列表
+### 根据获取DEFAULT
 #### 访问路径
-/products/{product_id}/productplans/fetchprojectplan
+/products/{product_id}/productplans/fetchdefault
 
 #### 请求方法
 GET
@@ -1297,9 +1297,9 @@ GET
 待补充
 ```
 
-### 根据查询项目计划列表
+### 根据查询DEFAULT
 #### 访问路径
-/products/{product_id}/productplans/searchprojectplan
+/products/{product_id}/productplans/searchdefault
 
 #### 请求方法
 POST
@@ -1327,9 +1327,9 @@ POST
 ```
 
 
-### 根据获取项目计划列表
+### 根据获取默认查询
 #### 访问路径
-/products/{product_id}/productplans/fetchprojectplan
+/products/{product_id}/productplans/fetchdefaultparent
 
 #### 请求方法
 GET
@@ -1356,9 +1356,9 @@ GET
 待补充
 ```
 
-### 根据查询项目计划列表
+### 根据查询默认查询
 #### 访问路径
-/products/{product_id}/productplans/searchprojectplan
+/products/{product_id}/productplans/searchdefaultparent
 
 #### 请求方法
 POST
@@ -1386,9 +1386,9 @@ POST
 ```
 
 
-### 根据获取项目计划列表
+### 根据获取计划（代码表）
 #### 访问路径
-/products/{product_id}/productplans/fetchprojectplan
+/products/{product_id}/productplans/fetchplancodelist
 
 #### 请求方法
 GET
@@ -1415,9 +1415,9 @@ GET
 待补充
 ```
 
-### 根据查询项目计划列表
+### 根据查询计划（代码表）
 #### 访问路径
-/products/{product_id}/productplans/searchprojectplan
+/products/{product_id}/productplans/searchplancodelist
 
 #### 请求方法
 POST

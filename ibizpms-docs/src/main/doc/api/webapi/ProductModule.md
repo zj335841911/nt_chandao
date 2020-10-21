@@ -1088,9 +1088,9 @@ POST
 待补充
 ```
 
-### 根据获取StoryModule
+### 根据获取BYPATH
 #### 访问路径
-/products/{product_id}/productmodules/fetchstorymodule
+/products/{product_id}/productmodules/fetchbypath
 
 #### 请求方法
 GET
@@ -1117,9 +1117,9 @@ GET
 待补充
 ```
 
-### 根据查询StoryModule
+### 根据查询BYPATH
 #### 访问路径
-/products/{product_id}/productmodules/searchstorymodule
+/products/{product_id}/productmodules/searchbypath
 
 #### 请求方法
 POST
@@ -1147,9 +1147,9 @@ POST
 ```
 
 
-### 根据获取StoryModule
+### 根据获取DEFAULT
 #### 访问路径
-/products/{product_id}/productmodules/fetchstorymodule
+/products/{product_id}/productmodules/fetchdefault
 
 #### 请求方法
 GET
@@ -1176,9 +1176,9 @@ GET
 待补充
 ```
 
-### 根据查询StoryModule
+### 根据查询DEFAULT
 #### 访问路径
-/products/{product_id}/productmodules/searchstorymodule
+/products/{product_id}/productmodules/searchdefault
 
 #### 请求方法
 POST
@@ -1206,9 +1206,9 @@ POST
 ```
 
 
-### 根据获取StoryModule
+### 根据获取父模块
 #### 访问路径
-/products/{product_id}/productmodules/fetchstorymodule
+/products/{product_id}/productmodules/fetchparentmodule
 
 #### 请求方法
 GET
@@ -1235,9 +1235,9 @@ GET
 待补充
 ```
 
-### 根据查询StoryModule
+### 根据查询父模块
 #### 访问路径
-/products/{product_id}/productmodules/searchstorymodule
+/products/{product_id}/productmodules/searchparentmodule
 
 #### 请求方法
 POST
@@ -1265,9 +1265,9 @@ POST
 ```
 
 
-### 根据获取StoryModule
+### 根据获取根模块
 #### 访问路径
-/products/{product_id}/productmodules/fetchstorymodule
+/products/{product_id}/productmodules/fetchroot
 
 #### 请求方法
 GET
@@ -1294,9 +1294,9 @@ GET
 待补充
 ```
 
-### 根据查询StoryModule
+### 根据查询根模块
 #### 访问路径
-/products/{product_id}/productmodules/searchstorymodule
+/products/{product_id}/productmodules/searchroot
 
 #### 请求方法
 POST
@@ -1324,9 +1324,9 @@ POST
 ```
 
 
-### 根据获取StoryModule
+### 根据获取根模块_无分支
 #### 访问路径
-/products/{product_id}/productmodules/fetchstorymodule
+/products/{product_id}/productmodules/fetchroot_nobranch
 
 #### 请求方法
 GET
@@ -1353,9 +1353,9 @@ GET
 待补充
 ```
 
-### 根据查询StoryModule
+### 根据查询根模块_无分支
 #### 访问路径
-/products/{product_id}/productmodules/searchstorymodule
+/products/{product_id}/productmodules/searchroot_nobranch
 
 #### 请求方法
 POST

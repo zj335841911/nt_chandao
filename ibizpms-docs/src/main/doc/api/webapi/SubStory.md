@@ -3993,9 +3993,9 @@ POST
 待补充
 ```
 
-### 根据获取任务相关需求
+### 根据获取指派给我的需求
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchassignedtomystory
 
 #### 请求方法
 GET
@@ -4022,9 +4022,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询指派给我的需求
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchassignedtomystory
 
 #### 请求方法
 POST
@@ -4052,9 +4052,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取Bug相关需求
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchbugstory
 
 #### 请求方法
 GET
@@ -4081,9 +4081,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询Bug相关需求
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchbugstory
 
 #### 请求方法
 POST
@@ -4111,9 +4111,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取版本关联已完成的需求（选择数据源）
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchbuildlinkcompletedstories
 
 #### 请求方法
 GET
@@ -4140,9 +4140,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询版本关联已完成的需求（选择数据源）
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchbuildlinkcompletedstories
 
 #### 请求方法
 POST
@@ -4170,9 +4170,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取版本可关联的需求（产品内）
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchbuildlinkablestories
 
 #### 请求方法
 GET
@@ -4199,9 +4199,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询版本可关联的需求（产品内）
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchbuildlinkablestories
 
 #### 请求方法
 POST
@@ -4229,9 +4229,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取获取版本相关需求
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchbuildstories
 
 #### 请求方法
 GET
@@ -4258,9 +4258,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询获取版本相关需求
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchbuildstories
 
 #### 请求方法
 POST
@@ -4288,9 +4288,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取通过模块查询
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchbymodule
 
 #### 请求方法
 GET
@@ -4317,9 +4317,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询通过模块查询
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchbymodule
 
 #### 请求方法
 POST
@@ -4347,9 +4347,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取相关用例需求
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchcasestory
 
 #### 请求方法
 GET
@@ -4376,9 +4376,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询相关用例需求
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchcasestory
 
 #### 请求方法
 POST
@@ -4406,9 +4406,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取DEFAULT
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchdefault
 
 #### 请求方法
 GET
@@ -4435,9 +4435,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询DEFAULT
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchdefault
 
 #### 请求方法
 POST
@@ -4465,9 +4465,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取获取产品需求
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchgetproductstories
 
 #### 请求方法
 GET
@@ -4494,9 +4494,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询获取产品需求
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchgetproductstories
 
 #### 请求方法
 POST
@@ -4524,9 +4524,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取所创建需求数和对应的优先级及状态
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchmycuropenedstory
 
 #### 请求方法
 GET
@@ -4553,9 +4553,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询所创建需求数和对应的优先级及状态
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchmycuropenedstory
 
 #### 请求方法
 POST
@@ -4583,9 +4583,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取我的收藏
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchmyfavorites
 
 #### 请求方法
 GET
@@ -4612,9 +4612,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询我的收藏
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchmyfavorites
 
 #### 请求方法
 POST
@@ -4642,9 +4642,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取数据查询
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchparentdefault
 
 #### 请求方法
 GET
@@ -4671,9 +4671,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询数据查询
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchparentdefault
 
 #### 请求方法
 POST
@@ -4701,9 +4701,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取项目关联需求
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchprojectlinkstory
 
 #### 请求方法
 GET
@@ -4730,9 +4730,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询项目关联需求
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchprojectlinkstory
 
 #### 请求方法
 POST
@@ -4760,9 +4760,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取项目相关需求
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchprojectstories
 
 #### 请求方法
 GET
@@ -4789,9 +4789,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询项目相关需求
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchprojectstories
 
 #### 请求方法
 POST
@@ -4819,9 +4819,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取版本可关联的完成的需求
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchreleaselinkablestories
 
 #### 请求方法
 GET
@@ -4848,9 +4848,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询版本可关联的完成的需求
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchreleaselinkablestories
 
 #### 请求方法
 POST
@@ -4878,9 +4878,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取获取产品发布相关需求
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchreleasestories
 
 #### 请求方法
 GET
@@ -4907,9 +4907,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询获取产品发布相关需求
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchreleasestories
 
 #### 请求方法
 POST
@@ -4937,9 +4937,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取通过模块查询
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchreportstories
 
 #### 请求方法
 GET
@@ -4966,9 +4966,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询通过模块查询
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchreportstories
 
 #### 请求方法
 POST
@@ -4996,9 +4996,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取获取产品发布相关需求
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchstorychild
 
 #### 请求方法
 GET
@@ -5025,9 +5025,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询获取产品发布相关需求
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchstorychild
 
 #### 请求方法
 POST
@@ -5055,9 +5055,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取获取产品发布相关需求
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchstoryrelated
 
 #### 请求方法
 GET
@@ -5084,9 +5084,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询获取产品发布相关需求
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchstoryrelated
 
 #### 请求方法
 POST
@@ -5114,9 +5114,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取需求细分
 #### 访问路径
-/stories/{story_id}/substories/fetchtaskrelatedstory
+/stories/{story_id}/substories/fetchsubstory
 
 #### 请求方法
 GET
@@ -5143,9 +5143,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询需求细分
 #### 访问路径
-/stories/{story_id}/substories/searchtaskrelatedstory
+/stories/{story_id}/substories/searchsubstory
 
 #### 请求方法
 POST
@@ -6663,9 +6663,9 @@ POST
 待补充
 ```
 
-### 根据获取任务相关需求
+### 根据获取指派给我的需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchassignedtomystory
 
 #### 请求方法
 GET
@@ -6692,9 +6692,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询指派给我的需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchassignedtomystory
 
 #### 请求方法
 POST
@@ -6722,9 +6722,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取Bug相关需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchbugstory
 
 #### 请求方法
 GET
@@ -6751,9 +6751,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询Bug相关需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchbugstory
 
 #### 请求方法
 POST
@@ -6781,9 +6781,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取版本关联已完成的需求（选择数据源）
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchbuildlinkcompletedstories
 
 #### 请求方法
 GET
@@ -6810,9 +6810,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询版本关联已完成的需求（选择数据源）
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchbuildlinkcompletedstories
 
 #### 请求方法
 POST
@@ -6840,9 +6840,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取版本可关联的需求（产品内）
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchbuildlinkablestories
 
 #### 请求方法
 GET
@@ -6869,9 +6869,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询版本可关联的需求（产品内）
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchbuildlinkablestories
 
 #### 请求方法
 POST
@@ -6899,9 +6899,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取获取版本相关需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchbuildstories
 
 #### 请求方法
 GET
@@ -6928,9 +6928,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询获取版本相关需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchbuildstories
 
 #### 请求方法
 POST
@@ -6958,9 +6958,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取通过模块查询
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchbymodule
 
 #### 请求方法
 GET
@@ -6987,9 +6987,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询通过模块查询
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchbymodule
 
 #### 请求方法
 POST
@@ -7017,9 +7017,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取相关用例需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchcasestory
 
 #### 请求方法
 GET
@@ -7046,9 +7046,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询相关用例需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchcasestory
 
 #### 请求方法
 POST
@@ -7076,9 +7076,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取DEFAULT
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchdefault
 
 #### 请求方法
 GET
@@ -7105,9 +7105,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询DEFAULT
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchdefault
 
 #### 请求方法
 POST
@@ -7135,9 +7135,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取获取产品需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchgetproductstories
 
 #### 请求方法
 GET
@@ -7164,9 +7164,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询获取产品需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchgetproductstories
 
 #### 请求方法
 POST
@@ -7194,9 +7194,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取所创建需求数和对应的优先级及状态
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchmycuropenedstory
 
 #### 请求方法
 GET
@@ -7223,9 +7223,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询所创建需求数和对应的优先级及状态
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchmycuropenedstory
 
 #### 请求方法
 POST
@@ -7253,9 +7253,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取我的收藏
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchmyfavorites
 
 #### 请求方法
 GET
@@ -7282,9 +7282,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询我的收藏
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchmyfavorites
 
 #### 请求方法
 POST
@@ -7312,9 +7312,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取数据查询
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchparentdefault
 
 #### 请求方法
 GET
@@ -7341,9 +7341,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询数据查询
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchparentdefault
 
 #### 请求方法
 POST
@@ -7371,9 +7371,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取项目关联需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchprojectlinkstory
 
 #### 请求方法
 GET
@@ -7400,9 +7400,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询项目关联需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchprojectlinkstory
 
 #### 请求方法
 POST
@@ -7430,9 +7430,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取项目相关需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchprojectstories
 
 #### 请求方法
 GET
@@ -7459,9 +7459,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询项目相关需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchprojectstories
 
 #### 请求方法
 POST
@@ -7489,9 +7489,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取版本可关联的完成的需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchreleaselinkablestories
 
 #### 请求方法
 GET
@@ -7518,9 +7518,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询版本可关联的完成的需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchreleaselinkablestories
 
 #### 请求方法
 POST
@@ -7548,9 +7548,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取获取产品发布相关需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchreleasestories
 
 #### 请求方法
 GET
@@ -7577,9 +7577,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询获取产品发布相关需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchreleasestories
 
 #### 请求方法
 POST
@@ -7607,9 +7607,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取通过模块查询
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchreportstories
 
 #### 请求方法
 GET
@@ -7636,9 +7636,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询通过模块查询
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchreportstories
 
 #### 请求方法
 POST
@@ -7666,9 +7666,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取获取产品发布相关需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchstorychild
 
 #### 请求方法
 GET
@@ -7695,9 +7695,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询获取产品发布相关需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchstorychild
 
 #### 请求方法
 POST
@@ -7725,9 +7725,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取获取产品发布相关需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchstoryrelated
 
 #### 请求方法
 GET
@@ -7754,9 +7754,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询获取产品发布相关需求
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchstoryrelated
 
 #### 请求方法
 POST
@@ -7784,9 +7784,9 @@ POST
 ```
 
 
-### 根据获取任务相关需求
+### 根据获取需求细分
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/fetchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/fetchsubstory
 
 #### 请求方法
 GET
@@ -7813,9 +7813,9 @@ GET
 待补充
 ```
 
-### 根据查询任务相关需求
+### 根据查询需求细分
 #### 访问路径
-/products/{product_id}/stories/{story_id}/substories/searchtaskrelatedstory
+/products/{product_id}/stories/{story_id}/substories/searchsubstory
 
 #### 请求方法
 POST

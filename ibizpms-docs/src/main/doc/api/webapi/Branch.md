@@ -746,9 +746,9 @@ POST
 待补充
 ```
 
-### 根据获取DEFAULT
+### 根据获取CurProduct
 #### 访问路径
-/products/{product_id}/branches/fetchdefault
+/products/{product_id}/branches/fetchcurproduct
 
 #### 请求方法
 GET
@@ -775,9 +775,9 @@ GET
 待补充
 ```
 
-### 根据查询DEFAULT
+### 根据查询CurProduct
 #### 访问路径
-/products/{product_id}/branches/searchdefault
+/products/{product_id}/branches/searchcurproduct
 
 #### 请求方法
 POST

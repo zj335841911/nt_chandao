@@ -2580,9 +2580,9 @@ POST
 待补充
 ```
 
-### 根据获取项目报告关联-执行结果
+### 根据获取批量新建用例
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchbatchnew
 
 #### 请求方法
 GET
@@ -2609,9 +2609,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询批量新建用例
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchbatchnew
 
 #### 请求方法
 POST
@@ -2639,9 +2639,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取累计创建的用例
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchcuropenedcase
 
 #### 请求方法
 GET
@@ -2668,9 +2668,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询累计创建的用例
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchcuropenedcase
 
 #### 请求方法
 POST
@@ -2698,9 +2698,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取套件关联用例
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchcursuite
 
 #### 请求方法
 GET
@@ -2727,9 +2727,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询套件关联用例
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchcursuite
 
 #### 请求方法
 POST
@@ -2757,9 +2757,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试单关联用例
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchcurtesttask
 
 #### 请求方法
 GET
@@ -2786,9 +2786,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试单关联用例
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchcurtesttask
 
 #### 请求方法
 POST
@@ -2816,9 +2816,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取DEFAULT
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchdefault
 
 #### 请求方法
 GET
@@ -2845,9 +2845,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询DEFAULT
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchdefault
 
 #### 请求方法
 POST
@@ -2875,9 +2875,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联用例
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchmodulereportcase
 
 #### 请求方法
 GET
@@ -2904,9 +2904,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联用例
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchmodulereportcase
 
 #### 请求方法
 POST
@@ -2934,9 +2934,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联-按模块-条目
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchmodulereportcaseentry
 
 #### 请求方法
 GET
@@ -2963,9 +2963,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联-按模块-条目
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchmodulereportcaseentry
 
 #### 请求方法
 POST
@@ -2993,9 +2993,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取项目报告关联-按模块
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchmodulereportcase_project
 
 #### 请求方法
 GET
@@ -3022,9 +3022,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询项目报告关联-按模块
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchmodulereportcase_project
 
 #### 请求方法
 POST
@@ -3052,9 +3052,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取我的收藏
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchmyfavorites
 
 #### 请求方法
 GET
@@ -3081,9 +3081,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询我的收藏
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchmyfavorites
 
 #### 请求方法
 POST
@@ -3111,9 +3111,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取套件关联用例
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchnotcurtestsuite
 
 #### 请求方法
 GET
@@ -3140,9 +3140,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询套件关联用例
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchnotcurtestsuite
 
 #### 请求方法
 POST
@@ -3170,9 +3170,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试单关联用例
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchnotcurtesttask
 
 #### 请求方法
 GET
@@ -3199,9 +3199,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试单关联用例
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchnotcurtesttask
 
 #### 请求方法
 POST
@@ -3229,9 +3229,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联用例
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchreportcase
 
 #### 请求方法
 GET
@@ -3258,9 +3258,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联用例
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchreportcase
 
 #### 请求方法
 POST
@@ -3288,9 +3288,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联用例-条目
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchreportcaseentry
 
 #### 请求方法
 GET
@@ -3317,9 +3317,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联用例-条目
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchreportcaseentry
 
 #### 请求方法
 POST
@@ -3347,9 +3347,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取项目报告关联用例-关联用例
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchreportcase_project
 
 #### 请求方法
 GET
@@ -3376,9 +3376,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询项目报告关联用例-关联用例
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchreportcase_project
 
 #### 请求方法
 POST
@@ -3406,9 +3406,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联-执行人
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchrunerreportcase
 
 #### 请求方法
 GET
@@ -3435,9 +3435,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联-执行人
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchrunerreportcase
 
 #### 请求方法
 POST
@@ -3465,9 +3465,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联-执行人-条目
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchrunerreportcaseentry
 
 #### 请求方法
 GET
@@ -3494,9 +3494,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联-执行人-条目
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchrunerreportcaseentry
 
 #### 请求方法
 POST
@@ -3524,9 +3524,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取项目报告关联-执行人
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchrunerreportcase_project
 
 #### 请求方法
 GET
@@ -3553,9 +3553,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询项目报告关联-执行人
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchrunerreportcase_project
 
 #### 请求方法
 POST
@@ -3583,9 +3583,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联用例
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchrunreportcase
 
 #### 请求方法
 GET
@@ -3612,9 +3612,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联用例
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchrunreportcase
 
 #### 请求方法
 POST
@@ -3642,9 +3642,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联--执行结果条目
 #### 访问路径
-/products/{product_id}/cases/fetchrunreportcase_project
+/products/{product_id}/cases/fetchrunreportcaseentry
 
 #### 请求方法
 GET
@@ -3671,9 +3671,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联--执行结果条目
 #### 访问路径
-/products/{product_id}/cases/searchrunreportcase_project
+/products/{product_id}/cases/searchrunreportcaseentry
 
 #### 请求方法
 POST
@@ -4501,9 +4501,9 @@ POST
 待补充
 ```
 
-### 根据获取项目报告关联-执行结果
+### 根据获取批量新建用例
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchbatchnew
 
 #### 请求方法
 GET
@@ -4530,9 +4530,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询批量新建用例
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchbatchnew
 
 #### 请求方法
 POST
@@ -4560,9 +4560,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取累计创建的用例
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchcuropenedcase
 
 #### 请求方法
 GET
@@ -4589,9 +4589,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询累计创建的用例
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchcuropenedcase
 
 #### 请求方法
 POST
@@ -4619,9 +4619,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取套件关联用例
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchcursuite
 
 #### 请求方法
 GET
@@ -4648,9 +4648,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询套件关联用例
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchcursuite
 
 #### 请求方法
 POST
@@ -4678,9 +4678,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试单关联用例
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchcurtesttask
 
 #### 请求方法
 GET
@@ -4707,9 +4707,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试单关联用例
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchcurtesttask
 
 #### 请求方法
 POST
@@ -4737,9 +4737,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取DEFAULT
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchdefault
 
 #### 请求方法
 GET
@@ -4766,9 +4766,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询DEFAULT
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchdefault
 
 #### 请求方法
 POST
@@ -4796,9 +4796,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联用例
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchmodulereportcase
 
 #### 请求方法
 GET
@@ -4825,9 +4825,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联用例
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchmodulereportcase
 
 #### 请求方法
 POST
@@ -4855,9 +4855,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联-按模块-条目
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchmodulereportcaseentry
 
 #### 请求方法
 GET
@@ -4884,9 +4884,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联-按模块-条目
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchmodulereportcaseentry
 
 #### 请求方法
 POST
@@ -4914,9 +4914,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取项目报告关联-按模块
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchmodulereportcase_project
 
 #### 请求方法
 GET
@@ -4943,9 +4943,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询项目报告关联-按模块
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchmodulereportcase_project
 
 #### 请求方法
 POST
@@ -4973,9 +4973,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取我的收藏
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchmyfavorites
 
 #### 请求方法
 GET
@@ -5002,9 +5002,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询我的收藏
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchmyfavorites
 
 #### 请求方法
 POST
@@ -5032,9 +5032,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取套件关联用例
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchnotcurtestsuite
 
 #### 请求方法
 GET
@@ -5061,9 +5061,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询套件关联用例
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchnotcurtestsuite
 
 #### 请求方法
 POST
@@ -5091,9 +5091,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试单关联用例
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchnotcurtesttask
 
 #### 请求方法
 GET
@@ -5120,9 +5120,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试单关联用例
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchnotcurtesttask
 
 #### 请求方法
 POST
@@ -5150,9 +5150,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联用例
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchreportcase
 
 #### 请求方法
 GET
@@ -5179,9 +5179,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联用例
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchreportcase
 
 #### 请求方法
 POST
@@ -5209,9 +5209,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联用例-条目
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchreportcaseentry
 
 #### 请求方法
 GET
@@ -5238,9 +5238,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联用例-条目
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchreportcaseentry
 
 #### 请求方法
 POST
@@ -5268,9 +5268,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取项目报告关联用例-关联用例
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchreportcase_project
 
 #### 请求方法
 GET
@@ -5297,9 +5297,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询项目报告关联用例-关联用例
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchreportcase_project
 
 #### 请求方法
 POST
@@ -5327,9 +5327,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联-执行人
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchrunerreportcase
 
 #### 请求方法
 GET
@@ -5356,9 +5356,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联-执行人
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchrunerreportcase
 
 #### 请求方法
 POST
@@ -5386,9 +5386,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联-执行人-条目
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchrunerreportcaseentry
 
 #### 请求方法
 GET
@@ -5415,9 +5415,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联-执行人-条目
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchrunerreportcaseentry
 
 #### 请求方法
 POST
@@ -5445,9 +5445,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取项目报告关联-执行人
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchrunerreportcase_project
 
 #### 请求方法
 GET
@@ -5474,9 +5474,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询项目报告关联-执行人
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchrunerreportcase_project
 
 #### 请求方法
 POST
@@ -5504,9 +5504,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联用例
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchrunreportcase
 
 #### 请求方法
 GET
@@ -5533,9 +5533,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联用例
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchrunreportcase
 
 #### 请求方法
 POST
@@ -5563,9 +5563,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联--执行结果条目
 #### 访问路径
-/stories/{story_id}/cases/fetchrunreportcase_project
+/stories/{story_id}/cases/fetchrunreportcaseentry
 
 #### 请求方法
 GET
@@ -5592,9 +5592,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联--执行结果条目
 #### 访问路径
-/stories/{story_id}/cases/searchrunreportcase_project
+/stories/{story_id}/cases/searchrunreportcaseentry
 
 #### 请求方法
 POST
@@ -6422,9 +6422,9 @@ POST
 待补充
 ```
 
-### 根据获取项目报告关联-执行结果
+### 根据获取批量新建用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchbatchnew
 
 #### 请求方法
 GET
@@ -6451,9 +6451,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询批量新建用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchbatchnew
 
 #### 请求方法
 POST
@@ -6481,9 +6481,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取累计创建的用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchcuropenedcase
 
 #### 请求方法
 GET
@@ -6510,9 +6510,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询累计创建的用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchcuropenedcase
 
 #### 请求方法
 POST
@@ -6540,9 +6540,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取套件关联用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchcursuite
 
 #### 请求方法
 GET
@@ -6569,9 +6569,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询套件关联用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchcursuite
 
 #### 请求方法
 POST
@@ -6599,9 +6599,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试单关联用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchcurtesttask
 
 #### 请求方法
 GET
@@ -6628,9 +6628,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试单关联用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchcurtesttask
 
 #### 请求方法
 POST
@@ -6658,9 +6658,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取DEFAULT
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchdefault
 
 #### 请求方法
 GET
@@ -6687,9 +6687,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询DEFAULT
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchdefault
 
 #### 请求方法
 POST
@@ -6717,9 +6717,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchmodulereportcase
 
 #### 请求方法
 GET
@@ -6746,9 +6746,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchmodulereportcase
 
 #### 请求方法
 POST
@@ -6776,9 +6776,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联-按模块-条目
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchmodulereportcaseentry
 
 #### 请求方法
 GET
@@ -6805,9 +6805,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联-按模块-条目
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchmodulereportcaseentry
 
 #### 请求方法
 POST
@@ -6835,9 +6835,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取项目报告关联-按模块
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchmodulereportcase_project
 
 #### 请求方法
 GET
@@ -6864,9 +6864,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询项目报告关联-按模块
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchmodulereportcase_project
 
 #### 请求方法
 POST
@@ -6894,9 +6894,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取我的收藏
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchmyfavorites
 
 #### 请求方法
 GET
@@ -6923,9 +6923,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询我的收藏
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchmyfavorites
 
 #### 请求方法
 POST
@@ -6953,9 +6953,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取套件关联用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchnotcurtestsuite
 
 #### 请求方法
 GET
@@ -6982,9 +6982,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询套件关联用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchnotcurtestsuite
 
 #### 请求方法
 POST
@@ -7012,9 +7012,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试单关联用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchnotcurtesttask
 
 #### 请求方法
 GET
@@ -7041,9 +7041,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试单关联用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchnotcurtesttask
 
 #### 请求方法
 POST
@@ -7071,9 +7071,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchreportcase
 
 #### 请求方法
 GET
@@ -7100,9 +7100,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchreportcase
 
 #### 请求方法
 POST
@@ -7130,9 +7130,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联用例-条目
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchreportcaseentry
 
 #### 请求方法
 GET
@@ -7159,9 +7159,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联用例-条目
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchreportcaseentry
 
 #### 请求方法
 POST
@@ -7189,9 +7189,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取项目报告关联用例-关联用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchreportcase_project
 
 #### 请求方法
 GET
@@ -7218,9 +7218,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询项目报告关联用例-关联用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchreportcase_project
 
 #### 请求方法
 POST
@@ -7248,9 +7248,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联-执行人
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchrunerreportcase
 
 #### 请求方法
 GET
@@ -7277,9 +7277,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联-执行人
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchrunerreportcase
 
 #### 请求方法
 POST
@@ -7307,9 +7307,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联-执行人-条目
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchrunerreportcaseentry
 
 #### 请求方法
 GET
@@ -7336,9 +7336,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联-执行人-条目
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchrunerreportcaseentry
 
 #### 请求方法
 POST
@@ -7366,9 +7366,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取项目报告关联-执行人
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchrunerreportcase_project
 
 #### 请求方法
 GET
@@ -7395,9 +7395,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询项目报告关联-执行人
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchrunerreportcase_project
 
 #### 请求方法
 POST
@@ -7425,9 +7425,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase
 
 #### 请求方法
 GET
@@ -7454,9 +7454,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联用例
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase
 
 #### 请求方法
 POST
@@ -7484,9 +7484,9 @@ POST
 ```
 
 
-### 根据获取项目报告关联-执行结果
+### 根据获取测试报告关联--执行结果条目
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcaseentry
 
 #### 请求方法
 GET
@@ -7513,9 +7513,9 @@ GET
 待补充
 ```
 
-### 根据查询项目报告关联-执行结果
+### 根据查询测试报告关联--执行结果条目
 #### 访问路径
-/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcaseentry
 
 #### 请求方法
 POST

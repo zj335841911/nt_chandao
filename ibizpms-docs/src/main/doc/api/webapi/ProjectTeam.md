@@ -746,9 +746,9 @@ POST
 待补充
 ```
 
-### 根据获取行编辑查询
+### 根据获取DEFAULT
 #### 访问路径
-/projects/{project_id}/projectteams/fetchroweditdefault
+/projects/{project_id}/projectteams/fetchdefault
 
 #### 请求方法
 GET
@@ -775,9 +775,9 @@ GET
 待补充
 ```
 
-### 根据查询行编辑查询
+### 根据查询DEFAULT
 #### 访问路径
-/projects/{project_id}/projectteams/searchroweditdefault
+/projects/{project_id}/projectteams/searchdefault
 
 #### 请求方法
 POST

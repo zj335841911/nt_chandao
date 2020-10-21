@@ -1277,9 +1277,9 @@ POST
 待补充
 ```
 
-### 根据获取测试报告关联发布
+### 根据获取DEFAULT
 #### 访问路径
-/products/{product_id}/releases/fetchreportrelease
+/products/{product_id}/releases/fetchdefault
 
 #### 请求方法
 GET
@@ -1306,9 +1306,9 @@ GET
 待补充
 ```
 
-### 根据查询测试报告关联发布
+### 根据查询DEFAULT
 #### 访问路径
-/products/{product_id}/releases/searchreportrelease
+/products/{product_id}/releases/searchdefault
 
 #### 请求方法
 POST

@@ -687,9 +687,9 @@ POST
 待补充
 ```
 
-### 根据获取版本
+### 根据获取DEFAULT
 #### 访问路径
-/stories/{story_id}/storyspecs/fetchversion
+/stories/{story_id}/storyspecs/fetchdefault
 
 #### 请求方法
 GET
@@ -716,9 +716,9 @@ GET
 待补充
 ```
 
-### 根据查询版本
+### 根据查询DEFAULT
 #### 访问路径
-/stories/{story_id}/storyspecs/searchversion
+/stories/{story_id}/storyspecs/searchdefault
 
 #### 请求方法
 POST
@@ -1096,9 +1096,9 @@ POST
 待补充
 ```
 
-### 根据获取版本
+### 根据获取DEFAULT
 #### 访问路径
-/products/{product_id}/stories/{story_id}/storyspecs/fetchversion
+/products/{product_id}/stories/{story_id}/storyspecs/fetchdefault
 
 #### 请求方法
 GET
@@ -1125,9 +1125,9 @@ GET
 待补充
 ```
 
-### 根据查询版本
+### 根据查询DEFAULT
 #### 访问路径
-/products/{product_id}/stories/{story_id}/storyspecs/searchversion
+/products/{product_id}/stories/{story_id}/storyspecs/searchdefault
 
 #### 请求方法
 POST

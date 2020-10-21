@@ -687,9 +687,9 @@ POST
 待补充
 ```
 
-### 根据获取无枝叶
+### 根据获取DEFAULT
 #### 访问路径
-/ibzlibs/{ibzlib_id}/ibzlibmodules/fetchroot_nobranch
+/ibzlibs/{ibzlib_id}/ibzlibmodules/fetchdefault
 
 #### 请求方法
 GET
@@ -716,9 +716,9 @@ GET
 待补充
 ```
 
-### 根据查询无枝叶
+### 根据查询DEFAULT
 #### 访问路径
-/ibzlibs/{ibzlib_id}/ibzlibmodules/searchroot_nobranch
+/ibzlibs/{ibzlib_id}/ibzlibmodules/searchdefault
 
 #### 请求方法
 POST

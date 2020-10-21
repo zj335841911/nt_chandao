@@ -687,9 +687,9 @@ POST
 待补充
 ```
 
-### 根据获取关联计划
+### 根据获取DEFAULT
 #### 访问路径
-/products/{product_id}/projectproducts/fetchrelationplan
+/products/{product_id}/projectproducts/fetchdefault
 
 #### 请求方法
 GET
@@ -716,9 +716,9 @@ GET
 待补充
 ```
 
-### 根据查询关联计划
+### 根据查询DEFAULT
 #### 访问路径
-/products/{product_id}/projectproducts/searchrelationplan
+/products/{product_id}/projectproducts/searchdefault
 
 #### 请求方法
 POST
@@ -1096,9 +1096,9 @@ POST
 待补充
 ```
 
-### 根据获取关联计划
+### 根据获取DEFAULT
 #### 访问路径
-/projects/{project_id}/projectproducts/fetchrelationplan
+/projects/{project_id}/projectproducts/fetchdefault
 
 #### 请求方法
 GET
@@ -1125,9 +1125,9 @@ GET
 待补充
 ```
 
-### 根据查询关联计划
+### 根据查询DEFAULT
 #### 访问路径
-/projects/{project_id}/projectproducts/searchrelationplan
+/projects/{project_id}/projectproducts/searchdefault
 
 #### 请求方法
 POST

@@ -2194,9 +2194,9 @@ PUT
 待补充
 ```
 
-### 根据获取任务类型分组
+### 根据获取指派给我任务
 #### 访问路径
-/stories/{story_id}/tasks/fetchtypegroup
+/stories/{story_id}/tasks/fetchassignedtomytask
 
 #### 请求方法
 GET
@@ -2208,7 +2208,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2223,9 +2223,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询指派给我任务
 #### 访问路径
-/stories/{story_id}/tasks/searchtypegroup
+/stories/{story_id}/tasks/searchassignedtomytask
 
 #### 请求方法
 POST
@@ -2237,7 +2237,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2253,9 +2253,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取Bug相关任务
 #### 访问路径
-/stories/{story_id}/tasks/fetchtypegroup
+/stories/{story_id}/tasks/fetchbugtask
 
 #### 请求方法
 GET
@@ -2267,7 +2267,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2282,9 +2282,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询Bug相关任务
 #### 访问路径
-/stories/{story_id}/tasks/searchtypegroup
+/stories/{story_id}/tasks/searchbugtask
 
 #### 请求方法
 POST
@@ -2296,7 +2296,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2312,9 +2312,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取通过模块查询
 #### 访问路径
-/stories/{story_id}/tasks/fetchtypegroup
+/stories/{story_id}/tasks/fetchbymodule
 
 #### 请求方法
 GET
@@ -2326,7 +2326,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2341,9 +2341,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询通过模块查询
 #### 访问路径
-/stories/{story_id}/tasks/searchtypegroup
+/stories/{story_id}/tasks/searchbymodule
 
 #### 请求方法
 POST
@@ -2355,7 +2355,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2371,9 +2371,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取子任务
 #### 访问路径
-/stories/{story_id}/tasks/fetchtypegroup
+/stories/{story_id}/tasks/fetchchildtask
 
 #### 请求方法
 GET
@@ -2385,7 +2385,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2400,9 +2400,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询子任务
 #### 访问路径
-/stories/{story_id}/tasks/searchtypegroup
+/stories/{story_id}/tasks/searchchildtask
 
 #### 请求方法
 POST
@@ -2414,7 +2414,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2430,9 +2430,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取用户年度完成任务
 #### 访问路径
-/stories/{story_id}/tasks/fetchtypegroup
+/stories/{story_id}/tasks/fetchcurfinishtask
 
 #### 请求方法
 GET
@@ -2444,7 +2444,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2459,9 +2459,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询用户年度完成任务
 #### 访问路径
-/stories/{story_id}/tasks/searchtypegroup
+/stories/{story_id}/tasks/searchcurfinishtask
 
 #### 请求方法
 POST
@@ -2473,7 +2473,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2489,9 +2489,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取DEFAULT
 #### 访问路径
-/stories/{story_id}/tasks/fetchtypegroup
+/stories/{story_id}/tasks/fetchdefault
 
 #### 请求方法
 GET
@@ -2503,7 +2503,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2518,9 +2518,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询DEFAULT
 #### 访问路径
-/stories/{story_id}/tasks/searchtypegroup
+/stories/{story_id}/tasks/searchdefault
 
 #### 请求方法
 POST
@@ -2532,7 +2532,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2548,9 +2548,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取DefaultRow
 #### 访问路径
-/stories/{story_id}/tasks/fetchtypegroup
+/stories/{story_id}/tasks/fetchdefaultrow
 
 #### 请求方法
 GET
@@ -2562,7 +2562,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2577,9 +2577,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询DefaultRow
 #### 访问路径
-/stories/{story_id}/tasks/searchtypegroup
+/stories/{story_id}/tasks/searchdefaultrow
 
 #### 请求方法
 POST
@@ -2591,7 +2591,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2607,9 +2607,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取我的收藏
 #### 访问路径
-/stories/{story_id}/tasks/fetchtypegroup
+/stories/{story_id}/tasks/fetchmyfavorites
 
 #### 请求方法
 GET
@@ -2621,7 +2621,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2636,9 +2636,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询我的收藏
 #### 访问路径
-/stories/{story_id}/tasks/searchtypegroup
+/stories/{story_id}/tasks/searchmyfavorites
 
 #### 请求方法
 POST
@@ -2650,7 +2650,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2666,9 +2666,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取项目任务
 #### 访问路径
-/stories/{story_id}/tasks/fetchtypegroup
+/stories/{story_id}/tasks/fetchprojecttask
 
 #### 请求方法
 GET
@@ -2680,7 +2680,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2695,9 +2695,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询项目任务
 #### 访问路径
-/stories/{story_id}/tasks/searchtypegroup
+/stories/{story_id}/tasks/searchprojecttask
 
 #### 请求方法
 POST
@@ -2709,7 +2709,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2725,9 +2725,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取根任务
 #### 访问路径
-/stories/{story_id}/tasks/fetchtypegroup
+/stories/{story_id}/tasks/fetchroottask
 
 #### 请求方法
 GET
@@ -2739,7 +2739,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -2754,9 +2754,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询根任务
 #### 访问路径
-/stories/{story_id}/tasks/searchtypegroup
+/stories/{story_id}/tasks/searchroottask
 
 #### 请求方法
 POST
@@ -2768,7 +2768,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -3644,9 +3644,9 @@ PUT
 待补充
 ```
 
-### 根据获取任务类型分组
+### 根据获取指派给我任务
 #### 访问路径
-/projects/{project_id}/tasks/fetchtypegroup
+/projects/{project_id}/tasks/fetchassignedtomytask
 
 #### 请求方法
 GET
@@ -3658,7 +3658,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -3673,9 +3673,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询指派给我任务
 #### 访问路径
-/projects/{project_id}/tasks/searchtypegroup
+/projects/{project_id}/tasks/searchassignedtomytask
 
 #### 请求方法
 POST
@@ -3687,7 +3687,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -3703,9 +3703,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取Bug相关任务
 #### 访问路径
-/projects/{project_id}/tasks/fetchtypegroup
+/projects/{project_id}/tasks/fetchbugtask
 
 #### 请求方法
 GET
@@ -3717,7 +3717,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -3732,9 +3732,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询Bug相关任务
 #### 访问路径
-/projects/{project_id}/tasks/searchtypegroup
+/projects/{project_id}/tasks/searchbugtask
 
 #### 请求方法
 POST
@@ -3746,7 +3746,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -3762,9 +3762,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取通过模块查询
 #### 访问路径
-/projects/{project_id}/tasks/fetchtypegroup
+/projects/{project_id}/tasks/fetchbymodule
 
 #### 请求方法
 GET
@@ -3776,7 +3776,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -3791,9 +3791,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询通过模块查询
 #### 访问路径
-/projects/{project_id}/tasks/searchtypegroup
+/projects/{project_id}/tasks/searchbymodule
 
 #### 请求方法
 POST
@@ -3805,7 +3805,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -3821,9 +3821,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取子任务
 #### 访问路径
-/projects/{project_id}/tasks/fetchtypegroup
+/projects/{project_id}/tasks/fetchchildtask
 
 #### 请求方法
 GET
@@ -3835,7 +3835,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -3850,9 +3850,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询子任务
 #### 访问路径
-/projects/{project_id}/tasks/searchtypegroup
+/projects/{project_id}/tasks/searchchildtask
 
 #### 请求方法
 POST
@@ -3864,7 +3864,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -3880,9 +3880,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取用户年度完成任务
 #### 访问路径
-/projects/{project_id}/tasks/fetchtypegroup
+/projects/{project_id}/tasks/fetchcurfinishtask
 
 #### 请求方法
 GET
@@ -3894,7 +3894,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -3909,9 +3909,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询用户年度完成任务
 #### 访问路径
-/projects/{project_id}/tasks/searchtypegroup
+/projects/{project_id}/tasks/searchcurfinishtask
 
 #### 请求方法
 POST
@@ -3923,7 +3923,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -3939,9 +3939,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取DEFAULT
 #### 访问路径
-/projects/{project_id}/tasks/fetchtypegroup
+/projects/{project_id}/tasks/fetchdefault
 
 #### 请求方法
 GET
@@ -3953,7 +3953,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -3968,9 +3968,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询DEFAULT
 #### 访问路径
-/projects/{project_id}/tasks/searchtypegroup
+/projects/{project_id}/tasks/searchdefault
 
 #### 请求方法
 POST
@@ -3982,7 +3982,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -3998,9 +3998,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取DefaultRow
 #### 访问路径
-/projects/{project_id}/tasks/fetchtypegroup
+/projects/{project_id}/tasks/fetchdefaultrow
 
 #### 请求方法
 GET
@@ -4012,7 +4012,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -4027,9 +4027,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询DefaultRow
 #### 访问路径
-/projects/{project_id}/tasks/searchtypegroup
+/projects/{project_id}/tasks/searchdefaultrow
 
 #### 请求方法
 POST
@@ -4041,7 +4041,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -4057,9 +4057,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取我的收藏
 #### 访问路径
-/projects/{project_id}/tasks/fetchtypegroup
+/projects/{project_id}/tasks/fetchmyfavorites
 
 #### 请求方法
 GET
@@ -4071,7 +4071,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -4086,9 +4086,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询我的收藏
 #### 访问路径
-/projects/{project_id}/tasks/searchtypegroup
+/projects/{project_id}/tasks/searchmyfavorites
 
 #### 请求方法
 POST
@@ -4100,7 +4100,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -4116,9 +4116,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取项目任务
 #### 访问路径
-/projects/{project_id}/tasks/fetchtypegroup
+/projects/{project_id}/tasks/fetchprojecttask
 
 #### 请求方法
 GET
@@ -4130,7 +4130,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -4145,9 +4145,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询项目任务
 #### 访问路径
-/projects/{project_id}/tasks/searchtypegroup
+/projects/{project_id}/tasks/searchprojecttask
 
 #### 请求方法
 POST
@@ -4159,7 +4159,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -4175,9 +4175,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取根任务
 #### 访问路径
-/projects/{project_id}/tasks/fetchtypegroup
+/projects/{project_id}/tasks/fetchroottask
 
 #### 请求方法
 GET
@@ -4189,7 +4189,7 @@ GET
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -4204,9 +4204,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询根任务
 #### 访问路径
-/projects/{project_id}/tasks/searchtypegroup
+/projects/{project_id}/tasks/searchroottask
 
 #### 请求方法
 POST
@@ -4218,7 +4218,7 @@ POST
 | 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5094,9 +5094,9 @@ PUT
 待补充
 ```
 
-### 根据获取任务类型分组
+### 根据获取指派给我任务
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/fetchassignedtomytask
 
 #### 请求方法
 GET
@@ -5108,7 +5108,7 @@ GET
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5123,9 +5123,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询指派给我任务
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/searchassignedtomytask
 
 #### 请求方法
 POST
@@ -5137,7 +5137,7 @@ POST
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5153,9 +5153,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取Bug相关任务
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/fetchbugtask
 
 #### 请求方法
 GET
@@ -5167,7 +5167,7 @@ GET
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5182,9 +5182,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询Bug相关任务
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/searchbugtask
 
 #### 请求方法
 POST
@@ -5196,7 +5196,7 @@ POST
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5212,9 +5212,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取通过模块查询
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/fetchbymodule
 
 #### 请求方法
 GET
@@ -5226,7 +5226,7 @@ GET
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5241,9 +5241,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询通过模块查询
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/searchbymodule
 
 #### 请求方法
 POST
@@ -5255,7 +5255,7 @@ POST
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5271,9 +5271,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取子任务
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/fetchchildtask
 
 #### 请求方法
 GET
@@ -5285,7 +5285,7 @@ GET
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5300,9 +5300,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询子任务
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/searchchildtask
 
 #### 请求方法
 POST
@@ -5314,7 +5314,7 @@ POST
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5330,9 +5330,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取用户年度完成任务
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/fetchcurfinishtask
 
 #### 请求方法
 GET
@@ -5344,7 +5344,7 @@ GET
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5359,9 +5359,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询用户年度完成任务
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/searchcurfinishtask
 
 #### 请求方法
 POST
@@ -5373,7 +5373,7 @@ POST
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5389,9 +5389,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取DEFAULT
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/fetchdefault
 
 #### 请求方法
 GET
@@ -5403,7 +5403,7 @@ GET
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5418,9 +5418,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询DEFAULT
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/searchdefault
 
 #### 请求方法
 POST
@@ -5432,7 +5432,7 @@ POST
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5448,9 +5448,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取DefaultRow
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/fetchdefaultrow
 
 #### 请求方法
 GET
@@ -5462,7 +5462,7 @@ GET
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5477,9 +5477,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询DefaultRow
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/searchdefaultrow
 
 #### 请求方法
 POST
@@ -5491,7 +5491,7 @@ POST
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5507,9 +5507,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取我的收藏
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/fetchmyfavorites
 
 #### 请求方法
 GET
@@ -5521,7 +5521,7 @@ GET
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5536,9 +5536,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询我的收藏
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/searchmyfavorites
 
 #### 请求方法
 POST
@@ -5550,7 +5550,7 @@ POST
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5566,9 +5566,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取项目任务
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/fetchprojecttask
 
 #### 请求方法
 GET
@@ -5580,7 +5580,7 @@ GET
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5595,9 +5595,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询项目任务
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/searchprojecttask
 
 #### 请求方法
 POST
@@ -5609,7 +5609,7 @@ POST
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5625,9 +5625,9 @@ POST
 ```
 
 
-### 根据获取任务类型分组
+### 根据获取根任务
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/fetchroottask
 
 #### 请求方法
 GET
@@ -5639,7 +5639,7 @@ GET
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<List<HashMap>>
+返回类型：ResponseEntity<List<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充
@@ -5654,9 +5654,9 @@ GET
 待补充
 ```
 
-### 根据查询任务类型分组
+### 根据查询根任务
 #### 访问路径
-/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+/products/{product_id}/stories/{story_id}/tasks/searchroottask
 
 #### 请求方法
 POST
@@ -5668,7 +5668,7 @@ POST
 | 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
 
 #### 返回值说明
-返回类型：ResponseEntity<Page<HashMap>>
+返回类型：ResponseEntity<Page<[TaskDTO](#TaskDTO)>>
 
 #### 权限说明
 待补充

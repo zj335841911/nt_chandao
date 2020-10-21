@@ -1029,9 +1029,9 @@ POST
 待补充
 ```
 
-### 根据获取TestModule
+### 根据获取BYPATH
 #### 访问路径
-/products/{product_id}/testmodules/fetchtestmodule
+/products/{product_id}/testmodules/fetchbypath
 
 #### 请求方法
 GET
@@ -1058,9 +1058,9 @@ GET
 待补充
 ```
 
-### 根据查询TestModule
+### 根据查询BYPATH
 #### 访问路径
-/products/{product_id}/testmodules/searchtestmodule
+/products/{product_id}/testmodules/searchbypath
 
 #### 请求方法
 POST
@@ -1088,9 +1088,9 @@ POST
 ```
 
 
-### 根据获取TestModule
+### 根据获取DEFAULT
 #### 访问路径
-/products/{product_id}/testmodules/fetchtestmodule
+/products/{product_id}/testmodules/fetchdefault
 
 #### 请求方法
 GET
@@ -1117,9 +1117,9 @@ GET
 待补充
 ```
 
-### 根据查询TestModule
+### 根据查询DEFAULT
 #### 访问路径
-/products/{product_id}/testmodules/searchtestmodule
+/products/{product_id}/testmodules/searchdefault
 
 #### 请求方法
 POST
@@ -1147,9 +1147,9 @@ POST
 ```
 
 
-### 根据获取TestModule
+### 根据获取父模块
 #### 访问路径
-/products/{product_id}/testmodules/fetchtestmodule
+/products/{product_id}/testmodules/fetchparentmodule
 
 #### 请求方法
 GET
@@ -1176,9 +1176,9 @@ GET
 待补充
 ```
 
-### 根据查询TestModule
+### 根据查询父模块
 #### 访问路径
-/products/{product_id}/testmodules/searchtestmodule
+/products/{product_id}/testmodules/searchparentmodule
 
 #### 请求方法
 POST
@@ -1206,9 +1206,9 @@ POST
 ```
 
 
-### 根据获取TestModule
+### 根据获取根模块
 #### 访问路径
-/products/{product_id}/testmodules/fetchtestmodule
+/products/{product_id}/testmodules/fetchroot
 
 #### 请求方法
 GET
@@ -1235,9 +1235,9 @@ GET
 待补充
 ```
 
-### 根据查询TestModule
+### 根据查询根模块
 #### 访问路径
-/products/{product_id}/testmodules/searchtestmodule
+/products/{product_id}/testmodules/searchroot
 
 #### 请求方法
 POST
@@ -1265,9 +1265,9 @@ POST
 ```
 
 
-### 根据获取TestModule
+### 根据获取根模块_无分支
 #### 访问路径
-/products/{product_id}/testmodules/fetchtestmodule
+/products/{product_id}/testmodules/fetchroot_nobranch
 
 #### 请求方法
 GET
@@ -1294,9 +1294,9 @@ GET
 待补充
 ```
 
-### 根据查询TestModule
+### 根据查询根模块_无分支
 #### 访问路径
-/products/{product_id}/testmodules/searchtestmodule
+/products/{product_id}/testmodules/searchroot_nobranch
 
 #### 请求方法
 POST

@@ -746,9 +746,9 @@ POST
 待补充
 ```
 
-### 根据获取燃尽图预计（含周末）
+### 根据获取DEFAULT
 #### 访问路径
-/projects/{project_id}/burns/fetchestimateandleft
+/projects/{project_id}/burns/fetchdefault
 
 #### 请求方法
 GET
@@ -775,9 +775,9 @@ GET
 待补充
 ```
 
-### 根据查询燃尽图预计（含周末）
+### 根据查询DEFAULT
 #### 访问路径
-/projects/{project_id}/burns/searchestimateandleft
+/projects/{project_id}/burns/searchdefault
 
 #### 请求方法
 POST
