@@ -154,14 +154,6 @@ public class IbzLibDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [ADDEDBY]
-     */
-    public void setAddedby(String  addedby){
-        this.addedby = addedby ;
-        this.modify("addedby",addedby);
-    }
-
-    /**
      * 设置 [LASTEDITEDBY]
      */
     public void setLasteditedby(String  lasteditedby){

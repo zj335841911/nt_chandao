@@ -99,6 +99,7 @@ public class IbzLib extends EntityMP implements Serializable {
     /**
      * 由谁创建
      */
+    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
     @TableField(value = "`addedby`")
     @JSONField(name = "addedby")
     @JsonProperty("addedby")
@@ -161,14 +162,6 @@ public class IbzLib extends EntityMP implements Serializable {
     public void setType(String type){
         this.type = type ;
         this.modify("type",type);
-    }
-
-    /**
-     * 设置 [由谁创建]
-     */
-    public void setAddedby(String addedby){
-        this.addedby = addedby ;
-        this.modify("addedby",addedby);
     }
 
     /**
