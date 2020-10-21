@@ -1010,7 +1010,7 @@
         "srfkey": "UserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"User",
+        "appdataentity":"IBZEmployee",
         "appdedataset":"FetchDefault",
         "items": []
     }, 

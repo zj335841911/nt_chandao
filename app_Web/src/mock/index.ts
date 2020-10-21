@@ -74,3 +74,4 @@ import './entity/ibz-cases/ibz-cases';
 import './entity/pssystem-dbcfgs/pssystem-dbcfgs';
 import './entity/releases/releases';
 import './entity/dyna-dashboards/dyna-dashboards';
+import './entity/ibzemployees/ibzemployees';

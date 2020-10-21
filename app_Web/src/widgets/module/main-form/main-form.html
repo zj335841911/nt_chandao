@@ -36,25 +36,25 @@
 <i-col class="form-layout-container" v-show="detailsModel.parentname.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
     <app-form-item name='parentname' :itemRules="this.rules.parentname" class='' :caption="$t('entities.module.main_form.details.parentname')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.parentname.error" :isEmptyCaption="false" labelPos="LEFT">
     
-<app-picker 
-  :formState="formState"
-  :data="data"
-  :context="context"
-  :viewparams="viewparams"
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.parentname.disabled"
-  name='parentname'
-  deMajorField='name'
-  deKeyField='module'
-  :service="service"
-  :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDefault'}"
-  valueitem='parent' 
-  :value="data.parentname"
-  :pickupView="{ viewname: 'module-pickup-view', title: $t('entities.module.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'modules', parameterName: 'module' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
-  style=""  
-  @formitemvaluechange="onFormItemValueChange($event)">
-</app-picker>
+  <app-picker 
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :localContext ='{ }' 
+    :localParam ='{ }' 
+    :disabled="detailsModel.parentname.disabled"
+    name='parentname'
+    deMajorField='name'
+    deKeyField='module'
+    :service="service"
+    :acParams="{ serviceName: 'ModuleService', interfaceName: 'FetchDefault'}"
+    valueitem='parent' 
+    :value="data.parentname"
+    :pickupView="{ viewname: 'module-pickup-view', title: $t('entities.module.views.pickupview.title'), deResParameters: [], parameters: [{ pathName: 'modules', parameterName: 'module' }, { pathName: 'pickupview', parameterName: 'pickupview' } ], placement:'' }"
+    style=""  
+    @formitemvaluechange="onFormItemValueChange($event)">
+  </app-picker>
 
 </app-form-item>
 

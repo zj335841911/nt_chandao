@@ -106,6 +106,7 @@ export class UIServiceRegister {
         this.allUIService.set('pssystemdbcfg', () => import('@/uiservice/pssystem-dbcfg/pssystem-dbcfg-ui-service'));
         this.allUIService.set('release', () => import('@/uiservice/release/release-ui-service'));
         this.allUIService.set('dynadashboard', () => import('@/uiservice/dyna-dashboard/dyna-dashboard-ui-service'));
+        this.allUIService.set('ibzemployee', () => import('@/uiservice/ibzemployee/ibzemployee-ui-service'));
     }
 
     /**

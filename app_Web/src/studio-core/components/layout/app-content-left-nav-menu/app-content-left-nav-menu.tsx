@@ -82,7 +82,7 @@ export class AppContentLeftNavMenu extends Vue {
      *
      * @memberof AppContentLeftNavMenu
      */
-    public footerRenderItem!: { remove: () => boolean };
+    public footerRenderItem!: any;
 
     /**
      * 组件创建完毕

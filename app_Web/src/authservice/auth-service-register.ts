@@ -106,6 +106,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('pssystemdbcfg', () => import('@/authservice/pssystem-dbcfg/pssystem-dbcfg-auth-service'));
         this.allAuthService.set('release', () => import('@/authservice/release/release-auth-service'));
         this.allAuthService.set('dynadashboard', () => import('@/authservice/dyna-dashboard/dyna-dashboard-auth-service'));
+        this.allAuthService.set('ibzemployee', () => import('@/authservice/ibzemployee/ibzemployee-auth-service'));
     }
 
     /**
