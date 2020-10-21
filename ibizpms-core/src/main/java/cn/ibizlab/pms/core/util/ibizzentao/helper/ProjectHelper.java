@@ -1,5 +1,6 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
+import cn.ibizlab.pms.core.ibiz.domain.ProjectTeam;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
@@ -314,7 +315,15 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
 
     @Transactional
     public Project manageMembers(Project et) {
-        throw new RuntimeException("未实现");
+        List<ProjectTeam> list = et.getProjectteam();
+        teamHelper.remove(new QueryWrapper<Team>().eq("type","project").eq("root", et.getId()));
+        for(ProjectTeam projectTeam : list) {
+            projectTeam.setType("project");
+            Team team = new Team();
+            CachedBeanCopier.copy(projectTeam, team);
+            teamHelper.create(team);
+        }
+        return et;
     }
 
     @Transactional

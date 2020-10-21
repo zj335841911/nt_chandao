@@ -26,6 +26,7 @@ import cn.ibizlab.pms.core.zentao.filter.StorySpecSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IFileService;
 import cn.ibizlab.pms.core.zentao.service.impl.StoryServiceImpl;
 import cn.ibizlab.pms.core.zentao.service.impl.StorySpecServiceImpl;
+import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import liquibase.pro.packaged.A;
@@ -102,14 +103,7 @@ public class StoryExService extends StoryServiceImpl {
         if (list.isEmpty() || list.size() == 0) {
             return;
         }
-//        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-//        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-//        JSONObject jo = new JSONObject();
-//        jo.put("product", list.get(0).getProduct());
-//        jo.put("branch", 0);
-//        jo.put("module", 0);
-//        jo.put("parent", list.get(0).getParent());
-//        jo.put("srfArray", list);
+
         boolean flag = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.StoryHelper.class).batchCreate(list);
         if (flag) {
             log.error("需求细分操作成功");
@@ -203,22 +197,8 @@ public class StoryExService extends StoryServiceImpl {
                 ibzProStory.setSource("iBiz");
                 ibzProStory.setPri(1);
                 ibzProStory.setSourcenote(psDataEntity.getCodename());
-//                List<PSDEField> psdeFields = ipsdeFieldService.selectByPsdeid(ibzProProduct.getIbizid(), psDataEntity.getPsdataentityid());
-//                StringBuilder stringBuilder = new StringBuilder();
-//                stringBuilder.append("<table style=\"border-collapse:collapse;width:100%;\" border=\"1\"><tbody>");
-//                stringBuilder.append("<tr><td style=\"width:9.72222%;\">中文名称</td><td style=\"width:9.72222%;\">实体属性名称</td><td style=\"width:9.72222%;\">代码名称</td><td style=\"width:9.72222%;\">属性类型</td><td style=\"width:9.72222%;\">长度</td></tr>");
-//                for (PSDEField psdeField : psdeFields) {
-//                    stringBuilder.append("<tr>");
-//                    stringBuilder.append("<td>" + psdeField.getLogicname() + "</td>");
-//                    stringBuilder.append("<td>" + psdeField.getPsdefieldname() + "</td>");
-//                    stringBuilder.append("<td>" + psdeField.getCodename() + "</td>");
-//                    stringBuilder.append("<td>" + psdeField.getDeftype() + "</td>");
-//                    stringBuilder.append("<td>" + psdeField.getLength() + "</td>");
-//                    stringBuilder.append("</tr>");
-//                }
-//                stringBuilder.append("</tbody></table>");
+//
                 ibzProStory.setSpec(psDataEntity.getMemo());
-//                ibzProStory.set("Spec11", stringBuilder.toString());
                 ibzProStory.setComment(psDataEntity.getMemo());
                 ibzProStory.setTitle(psDataEntity.getLogicname() + "_" + psDataEntity.getCodename());
                 ibzProStory.setIbizSourceid(psDataEntity.getCodename());
@@ -230,7 +210,6 @@ public class StoryExService extends StoryServiceImpl {
                 if (ibzProStories.size() > 0) {
                     ibzProStory.setId(ibzProStories.get(0).getId());
                     Integer version = ibzProStories.get(0).getVersion();
-//                    ibzProStory.setSpec(stringBuilder.toString());
                     String targetFilePath = targetDirPath.replaceAll("\\\\", "/");
                     if (!targetFilePath.isEmpty() && !targetFilePath.endsWith("/")) {
                         targetFilePath += "/";
@@ -302,36 +281,24 @@ public class StoryExService extends StoryServiceImpl {
                         }
                         ibzProStory.setSpec(sbf.toString());
                     }
-
-                    String zentaoSid1 = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-                    cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst1 = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-                    JSONObject jsonObject = cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(ibzProStory, "change");
-                    jsonObject.put("needNotReview", "0");
-                    boolean bRst1 = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.change(zentaoSid1, jsonObject, rst1);
-                    if (bRst1) {
-                        log.error("子需求变更操作成功");
-                    } else {
-                        log.error("子需求变更失败");
-                    }
+                    Story story = new Story();
+                    CachedBeanCopier.copy(ibzProStory, story);
+                    story.setNeednotreview("0");
+                    cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.StoryHelper.class).change(story);
                 } else {
                     ibzProStoryList.add(ibzProStory);
                 }
             }
             if(ibzProStoryList.size() > 0) {
-                String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-                cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-                JSONObject jo = new JSONObject();
-                jo.put("product", et.getProduct());
-                jo.put("branch", 0);
-                jo.put("module", 0);
-                jo.put("parent", et.getId());
-                jo.put("srfArray", ibzProStoryList);
-                boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.batchCreate(zentaoSid, jo, rst);
-                if (bRst) {
+                List<Story> list = new ArrayList<>();
+                CachedBeanCopier.copy(ibzProStoryList, list);
+                boolean flag = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.StoryHelper.class).batchCreate(list);
+                if (flag) {
                     log.error("需求细分操作成功");
                 } else {
                     log.error("需求细分失败");
                 }
+
 
                 for (IBZProStory ibzProStory : ibzProStoryList) {
                     if (ibzProStory.getId() == null) {
@@ -344,16 +311,12 @@ public class StoryExService extends StoryServiceImpl {
                             ibzProStory.setId(ibzProStories.get(0).getId());
                             ibzProStory.setSpec(ibzProStory.get("Spec11").toString());
                             ibzProStory.setVerify("");
-                            String zentaoSid1 = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-                            cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst1 = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-                            JSONObject jsonObject = cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(ibzProStory, "change");
-                            jsonObject.put("needNotReview", "0");
-                            boolean bRst1 = cn.ibizlab.pms.core.util.zentao.helper.ZTStoryHelper.change(zentaoSid1, jsonObject, rst1);
-                            if (bRst1) {
-                                log.error("子需求变更操作成功");
-                            } else {
-                                log.error("子需求变更失败");
-                            }
+
+                            Story story = new Story();
+                            CachedBeanCopier.copy(ibzProStory, story);
+                            story.setNeednotreview("0");
+                            cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.StoryHelper.class).change(story);
+
                         }
                     }
                 }
