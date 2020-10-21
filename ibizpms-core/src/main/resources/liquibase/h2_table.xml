@@ -762,7 +762,7 @@
 
 
     <!--输出实体[ZT_FILE]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_file-59-23">
+    <changeSet author="zentao" id="tab-zt_file-60-23">
         <createTable tableName="zt_file">
                 <column name="PATHNAME" remarks="" type="VARCHAR(100)">
                 </column>
@@ -2320,7 +2320,7 @@
 
 
     <!--输出实体[ZT_USERTPL]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_usertpl-18-95">
+    <changeSet author="zentao" id="tab-zt_usertpl-20-95">
         <createTable tableName="zt_usertpl">
                 <column name="TITLE" remarks="" type="VARCHAR(150)">
                 </column>
