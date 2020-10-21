@@ -1,5 +1,6 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool,Util,ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import TestResultService from '@/service/test-result/test-result-service';
 import MainService from './main-multieditviewpanel-service';

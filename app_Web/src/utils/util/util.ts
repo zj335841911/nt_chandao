@@ -523,4 +523,34 @@ export class Util {
             return '';
         }
     }
+    
+    /**
+     * 深层合并两个多层嵌套对象，对象中数组不进行深度合并
+     *
+     * @static
+     * @param {*} obj
+     * @param {*} obj2
+     * @return {*}  {*}
+     * @memberof Util
+     */
+    public static mergeDeepObject(obj: any, obj2: any): any {
+        if (Object.keys(obj2).length <= 0) {
+            return obj;
+        }
+        for (const key in obj2) {
+            if (Object.prototype.hasOwnProperty.call(obj2, key)) {
+                const val = obj2[key];
+                const itemType = this.typeOf(val);
+                if (itemType === 'object') {
+                    if (!obj[key]) {
+                        obj[key] = {};
+                    }
+                    this.mergeDeepObject(obj[key], val);
+                } else {
+                    obj[key] = val;
+                }
+            }
+        }
+        return obj;
+    }
 }

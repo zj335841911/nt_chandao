@@ -1,3 +1,4 @@
+import { Util } from '@/utils/util/util';
 import zhCNUser from '../user/zh-CN.user';
 import productplan_zh_CN from '@locale/lanres/entities/product-plan/product-plan_zh_CN';
 import projectproduct_zh_CN from '@locale/lanres/entities/project-product/project-product_zh_CN';
@@ -71,7 +72,7 @@ import components_zh_CN from '@locale/lanres/components/components_zh_CN';
 import codelist_zh_CN from '@locale/lanres/codelist/codelist_zh_CN';
 import userCustom_zh_CN from '@locale/lanres/userCustom/userCustom_zh_CN';
 
-export default {
+const data: any = {
     app: {
         commonWords:{
             error: "失败",
@@ -394,9 +395,12 @@ export default {
         release: release_zh_CN,
         dynadashboard: dynadashboard_zh_CN,
         sysemployee: sysemployee_zh_CN,
-        ...zhCNUser.entities
     },
     components: components_zh_CN,
     codelist: codelist_zh_CN,
     userCustom: userCustom_zh_CN,
 };
+// 合并用户自定义多语言
+Util.mergeDeepObject(data, zhCNUser);
+// 默认导出
+export default data;

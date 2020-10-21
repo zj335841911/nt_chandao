@@ -386,7 +386,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "srfkey": "RealNameProjectM",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"SysEmployee",
+        "appdataentity":"User",
         "appdedataset":"FetchProjectTeamM",
         "items": []
     },
@@ -1847,7 +1847,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "srfkey": "BugUserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"SysEmployee",
+        "appdataentity":"User",
         "appdedataset":"FetchBugUser",
         "items": []
     },
@@ -3566,7 +3566,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "srfkey": "UserRealNameProject",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"SysEmployee",
+        "appdataentity":"User",
         "appdedataset":"FetchProjectTeamUser",
         "items": []
     },
@@ -3837,7 +3837,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "srfkey": "UserRealNameTaskTeam",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"SysEmployee",
+        "appdataentity":"User",
         "appdedataset":"FetchTaskTeam",
         "items": []
     },
@@ -4568,7 +4568,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "srfkey": "UserRealNameTask",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"SysEmployee",
+        "appdataentity":"User",
         "appdedataset":"FetchProjectTeamUser_Task",
         "items": []
     },

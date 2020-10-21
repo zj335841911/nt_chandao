@@ -1,12 +1,12 @@
 import { Prop, Provide, Emit, Model } from 'vue-property-decorator';
 import { Subject, Subscription } from 'rxjs';
+import { UIActionTool,Util,ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import IbzProjectMemberService from '@/service/ibz-project-member/ibz-project-member-service';
 import RelatedMembersService from './related-members-portlet-service';
 import IbzProjectMemberUIService from '@/uiservice/ibz-project-member/ibz-project-member-ui-service';
 import { Environment } from '@/environments/environment';
 import UIService from '@/uiservice/ui-service';
-import { ViewTool } from '@/utils';
 
 
 /**

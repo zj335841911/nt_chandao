@@ -1,4 +1,5 @@
 import enUSUser from '../user/en-US.user';
+import { Util } from '@/utils/util/util';
 import productplan_en_US from '@locale/lanres/entities/product-plan/product-plan_en_US';
 import projectproduct_en_US from '@locale/lanres/entities/project-product/project-product_en_US';
 import case_en_US from '@locale/lanres/entities/case/case_en_US';
@@ -71,7 +72,7 @@ import components_en_US from '@locale/lanres/components/components_en_US';
 import codelist_en_US from '@locale/lanres/codelist/codelist_en_US';
 import userCustom_en_US from '@locale/lanres/userCustom/userCustom_en_US';
 
-export default {
+const data: any = {
     app: {
         commonWords:{
             error: "Error",
@@ -395,9 +396,12 @@ export default {
         release: release_en_US,
         dynadashboard: dynadashboard_en_US,
         sysemployee: sysemployee_en_US,
-        ...enUSUser.entities
     },
     components: components_en_US,
     codelist: codelist_en_US,
     userCustom: userCustom_en_US,
 };
+// 合并用户自定义多语言
+Util.mergeDeepObject(data, enUSUser);
+// 默认导出
+export default data;

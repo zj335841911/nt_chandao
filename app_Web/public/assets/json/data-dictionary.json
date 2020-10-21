@@ -408,7 +408,7 @@
         "srfkey": "RealNameProjectM",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"SysEmployee",
+        "appdataentity":"User",
         "appdedataset":"FetchProjectTeamM",
         "items": []
     }, 
@@ -1989,7 +1989,7 @@
         "srfkey": "BugUserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"SysEmployee",
+        "appdataentity":"User",
         "appdedataset":"FetchBugUser",
         "items": []
     }, 
@@ -3870,7 +3870,7 @@
         "srfkey": "UserRealNameProject",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"SysEmployee",
+        "appdataentity":"User",
         "appdedataset":"FetchProjectTeamUser",
         "items": []
     }, 
@@ -4163,7 +4163,7 @@
         "srfkey": "UserRealNameTaskTeam",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"SysEmployee",
+        "appdataentity":"User",
         "appdedataset":"FetchTaskTeam",
         "items": []
     }, 
@@ -4955,7 +4955,7 @@
         "srfkey": "UserRealNameTask",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"SysEmployee",
+        "appdataentity":"User",
         "appdedataset":"FetchProjectTeamUser_Task",
         "items": []
     }, 
