@@ -1,6 +1,6 @@
 # 服务接口-ZT_TASK
 ## 接口说明
-
+任务
 
 ## 接口清单
 ### 新建任务
@@ -1392,6 +1392,4356 @@ POST
 ```json
 待补充
 ```
+
+### 根据建立任务
+#### 访问路径
+/stories/{story_id}/tasks
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | taskdto | [TaskDTO](#TaskDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量建立任务
+#### 访问路径
+/stories/{story_id}/tasks/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据更新任务
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量更新任务
+#### 访问路径
+/stories/{story_id}/tasks/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据删除任务
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量删除任务
+#### 访问路径
+/stories/{story_id}/tasks/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | ids | List<Long> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取任务
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 激活
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/activate
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 指派/转交
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/assignto
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 取消
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/cancel
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据检查任务
+#### 访问路径
+/stories/{story_id}/tasks/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | taskdto | [TaskDTO](#TaskDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关闭
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/close
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 需求变更确认
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/confirmstorychange
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 删除工时
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/deleteestimate
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 编辑工时
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/editestimate
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 完成
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/finish
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 暂停
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/pause
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 工时录入
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/recordestimate
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 继续
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/restart
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据保存任务
+#### 访问路径
+/stories/{story_id}/tasks/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量保存任务
+#### 访问路径
+/stories/{story_id}/tasks/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 行为
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/sendmessage
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 发送消息前置处理
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/sendmsgpreprocess
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 开始
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/start
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 任务收藏
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/taskfavorites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 任务收藏
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/tasknfavorites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 更新需求版本
+#### 访问路径
+/stories/{story_id}/tasks/{task_id}/updatestoryversion
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据建立任务
+#### 访问路径
+/projects/{project_id}/tasks
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | taskdto | [TaskDTO](#TaskDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量建立任务
+#### 访问路径
+/projects/{project_id}/tasks/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据更新任务
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量更新任务
+#### 访问路径
+/projects/{project_id}/tasks/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据删除任务
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量删除任务
+#### 访问路径
+/projects/{project_id}/tasks/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | ids | List<Long> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取任务
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 激活
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/activate
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 指派/转交
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/assignto
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 取消
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/cancel
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据检查任务
+#### 访问路径
+/projects/{project_id}/tasks/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | taskdto | [TaskDTO](#TaskDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关闭
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/close
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 需求变更确认
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/confirmstorychange
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 删除工时
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/deleteestimate
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 编辑工时
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/editestimate
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 完成
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/finish
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 暂停
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/pause
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 工时录入
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/recordestimate
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 继续
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/restart
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据保存任务
+#### 访问路径
+/projects/{project_id}/tasks/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量保存任务
+#### 访问路径
+/projects/{project_id}/tasks/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 行为
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/sendmessage
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 发送消息前置处理
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/sendmsgpreprocess
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 开始
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/start
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 任务收藏
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/taskfavorites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 任务收藏
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/tasknfavorites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 更新需求版本
+#### 访问路径
+/projects/{project_id}/tasks/{task_id}/updatestoryversion
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | task_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/projects/{project_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据建立任务
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | taskdto | [TaskDTO](#TaskDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量建立任务
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据更新任务
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+| 4 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量更新任务
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据删除任务
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量删除任务
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | ids | List<Long> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取任务
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 激活
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/activate
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+| 4 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 指派/转交
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/assignto
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+| 4 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 取消
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/cancel
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+| 4 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据检查任务
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | taskdto | [TaskDTO](#TaskDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关闭
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/close
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+| 4 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 需求变更确认
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/confirmstorychange
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+| 4 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 删除工时
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/deleteestimate
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+| 4 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 编辑工时
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/editestimate
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+| 4 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 完成
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/finish
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+| 4 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 暂停
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/pause
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+| 4 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 工时录入
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/recordestimate
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+| 4 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 继续
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/restart
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+| 4 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据保存任务
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量保存任务
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 行为
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/sendmessage
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+| 4 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 发送消息前置处理
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/sendmsgpreprocess
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+| 4 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 开始
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/start
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+| 4 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 任务收藏
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/taskfavorites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+| 4 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 任务收藏
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/tasknfavorites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+| 4 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 更新需求版本
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/{task_id}/updatestoryversion
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | task_id | Long | 待补充 |
+| 4 | taskdtos | List<[TaskDTO](#TaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[TaskDTO](#TaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/fetchtypegroup
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询任务类型分组
+#### 访问路径
+/products/{product_id}/stories/{story_id}/tasks/searchtypegroup
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [TaskSearchContext](#TaskSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<HashMap>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
 
 
 ## 附录

@@ -1,6 +1,6 @@
 # 服务接口-ZT_BUG
 ## 接口说明
-
+Bug
 
 ## 接口清单
 ### 新建Bug
@@ -2433,6 +2433,10182 @@ POST
 ```json
 待补充
 ```
+
+### 根据建立Bug
+#### 访问路径
+/products/{product_id}/bugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bugdto | [BugDTO](#BugDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量建立Bug
+#### 访问路径
+/products/{product_id}/bugs/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据更新Bug
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量更新Bug
+#### 访问路径
+/products/{product_id}/bugs/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据删除Bug
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量删除Bug
+#### 访问路径
+/products/{product_id}/bugs/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | ids | List<Long> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取Bug
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 激活
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/activate
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 指派
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/assignto
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 批量解除关联Bug
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/batchunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### Bug收藏
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/bugfavorites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 取消收藏
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/bugnfavorites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 版本批量解除关联Bug
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/buildbatchunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 版本关联Bug
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/buildlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 版本解除关联Bug
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/buildunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据检查Bug
+#### 访问路径
+/products/{product_id}/bugs/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bugdto | [BugDTO](#BugDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关闭
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/close
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 确认
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/confirm
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关联Bug
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/linkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 批量解除关联Bug
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/releaasebatchunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关联Bug（解决Bug）
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/releaselinkbugbybug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关联Bug（遗留Bug）
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/releaselinkbugbyleftbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 移除关联Bug（遗留Bug）
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/releaseunlinkbugbyleftbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 解除关联Bug
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/releaseunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 解决
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/resolve
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据保存Bug
+#### 访问路径
+/products/{product_id}/bugs/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量保存Bug
+#### 访问路径
+/products/{product_id}/bugs/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 行为
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/sendmessage
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 发送消息前置处理
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/sendmsgpreprocess
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 转需求
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/tostory
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 解除关联Bug
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/unlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 更新需求版本
+#### 访问路径
+/products/{product_id}/bugs/{bug_id}/updatestoryversion
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据建立Bug
+#### 访问路径
+/stories/{story_id}/bugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bugdto | [BugDTO](#BugDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量建立Bug
+#### 访问路径
+/stories/{story_id}/bugs/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据更新Bug
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量更新Bug
+#### 访问路径
+/stories/{story_id}/bugs/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据删除Bug
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量删除Bug
+#### 访问路径
+/stories/{story_id}/bugs/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | ids | List<Long> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取Bug
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 激活
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/activate
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 指派
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/assignto
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 批量解除关联Bug
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/batchunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### Bug收藏
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/bugfavorites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 取消收藏
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/bugnfavorites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 版本批量解除关联Bug
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/buildbatchunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 版本关联Bug
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/buildlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 版本解除关联Bug
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/buildunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据检查Bug
+#### 访问路径
+/stories/{story_id}/bugs/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bugdto | [BugDTO](#BugDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关闭
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/close
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 确认
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/confirm
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关联Bug
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/linkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 批量解除关联Bug
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/releaasebatchunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关联Bug（解决Bug）
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/releaselinkbugbybug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关联Bug（遗留Bug）
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/releaselinkbugbyleftbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 移除关联Bug（遗留Bug）
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/releaseunlinkbugbyleftbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 解除关联Bug
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/releaseunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 解决
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/resolve
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据保存Bug
+#### 访问路径
+/stories/{story_id}/bugs/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量保存Bug
+#### 访问路径
+/stories/{story_id}/bugs/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 行为
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/sendmessage
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 发送消息前置处理
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/sendmsgpreprocess
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 转需求
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/tostory
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 解除关联Bug
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/unlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 更新需求版本
+#### 访问路径
+/stories/{story_id}/bugs/{bug_id}/updatestoryversion
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据建立Bug
+#### 访问路径
+/projects/{project_id}/bugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bugdto | [BugDTO](#BugDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量建立Bug
+#### 访问路径
+/projects/{project_id}/bugs/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据更新Bug
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量更新Bug
+#### 访问路径
+/projects/{project_id}/bugs/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据删除Bug
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量删除Bug
+#### 访问路径
+/projects/{project_id}/bugs/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | ids | List<Long> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取Bug
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 激活
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/activate
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 指派
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/assignto
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 批量解除关联Bug
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/batchunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### Bug收藏
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/bugfavorites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 取消收藏
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/bugnfavorites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 版本批量解除关联Bug
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/buildbatchunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 版本关联Bug
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/buildlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 版本解除关联Bug
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/buildunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据检查Bug
+#### 访问路径
+/projects/{project_id}/bugs/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bugdto | [BugDTO](#BugDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关闭
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/close
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 确认
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/confirm
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关联Bug
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/linkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 批量解除关联Bug
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/releaasebatchunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关联Bug（解决Bug）
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/releaselinkbugbybug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关联Bug（遗留Bug）
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/releaselinkbugbyleftbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 移除关联Bug（遗留Bug）
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/releaseunlinkbugbyleftbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 解除关联Bug
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/releaseunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 解决
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/resolve
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据保存Bug
+#### 访问路径
+/projects/{project_id}/bugs/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量保存Bug
+#### 访问路径
+/projects/{project_id}/bugs/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 行为
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/sendmessage
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 发送消息前置处理
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/sendmsgpreprocess
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 转需求
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/tostory
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 解除关联Bug
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/unlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 更新需求版本
+#### 访问路径
+/projects/{project_id}/bugs/{bug_id}/updatestoryversion
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | bug_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/projects/{project_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据建立Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bugdto | [BugDTO](#BugDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量建立Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据更新Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量更新Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据删除Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量删除Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | ids | List<Long> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 激活
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/activate
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 指派
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/assignto
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 批量解除关联Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/batchunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### Bug收藏
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/bugfavorites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 取消收藏
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/bugnfavorites
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 版本批量解除关联Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/buildbatchunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 版本关联Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/buildlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 版本解除关联Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/buildunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据检查Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bugdto | [BugDTO](#BugDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关闭
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/close
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 确认
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/confirm
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关联Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/linkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 批量解除关联Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/releaasebatchunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关联Bug（解决Bug）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/releaselinkbugbybug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关联Bug（遗留Bug）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/releaselinkbugbyleftbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 移除关联Bug（遗留Bug）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/releaseunlinkbugbyleftbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 解除关联Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/releaseunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 解决
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/resolve
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据保存Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量保存Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 行为
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/sendmessage
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 发送消息前置处理
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/sendmsgpreprocess
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 转需求
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/tostory
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 解除关联Bug
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/unlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 更新需求版本
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/{bug_id}/updatestoryversion
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | bug_id | Long | 待补充 |
+| 4 | bugdtos | List<[BugDTO](#BugDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[BugDTO](#BugDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/fetchreportbugs
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询发布关联Bug（未解决）
+#### 访问路径
+/products/{product_id}/stories/{story_id}/bugs/searchreportbugs
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [BugSearchContext](#BugSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[BugDTO](#BugDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
 
 
 ## 附录

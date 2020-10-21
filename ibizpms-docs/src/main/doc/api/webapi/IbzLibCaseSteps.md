@@ -1,30 +1,8 @@
-# 服务接口-IBZ_LIBCASESTEPS
-## 接口说明
+!!!!模版产生代码错误:----
+Tip: If the failing expression is known to be legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
 
-
-## 接口清单
-
-## 附录
-### 数据类型说明
-#### IbzLibCaseStepsDTO
-- 说明
-| 序号 | 属性名 | 属性类型 | 默认值 | 说明 |
-| -- | -- | -- | -- | -- |
-| 待补充 | 待补充 | 待补充 | 待补充 | 待补充 |
-
-- JSON样例
-```json
-待补充
-```
-
-#### IbzLibCaseStepsSearchContext
-- 说明
-| 序号 | 属性名 | 属性类型 | 默认值 | 说明 |
-| -- | -- | -- | -- | -- |
-| 待补充 | 待补充 | 待补充 | 待补充 | 待补充 |
-
-- JSON样例
-```json
-待补充
-```
-
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${deds.getLogicName()}  [in template "CODETEMPL_en_US" at line 923, column 21]
+----

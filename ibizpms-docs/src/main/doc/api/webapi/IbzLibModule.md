@@ -1,6 +1,6 @@
 # 服务接口-IBZ_LIBMODULE
 ## 接口说明
-
+用例库模块
 
 ## 接口清单
 ### 新建用例库模块
@@ -395,6 +395,415 @@ POST
 ```json
 待补充
 ```
+
+### 根据建立用例库模块
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzlibmodules
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ibzlibmoduledto | [IbzLibModuleDTO](#IbzLibModuleDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[IbzLibModuleDTO](#IbzLibModuleDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量建立用例库模块
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzlibmodules/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ibzlibmoduledtos | List<[IbzLibModuleDTO](#IbzLibModuleDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据更新用例库模块
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzlibmodules/{ibzlibmodule_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ibzlibmodule_id | Long | 待补充 |
+| 3 | ibzlibmoduledtos | List<[IbzLibModuleDTO](#IbzLibModuleDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[IbzLibModuleDTO](#IbzLibModuleDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量更新用例库模块
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzlibmodules/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ibzlibmoduledtos | List<[IbzLibModuleDTO](#IbzLibModuleDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据删除用例库模块
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzlibmodules/{ibzlibmodule_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ibzlibmodule_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量删除用例库模块
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzlibmodules/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ids | List<Long> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取用例库模块
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzlibmodules/{ibzlibmodule_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ibzlibmodule_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[IbzLibModuleDTO](#IbzLibModuleDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据检查用例库模块
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzlibmodules/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ibzlibmoduledto | [IbzLibModuleDTO](#IbzLibModuleDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据保存用例库模块
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzlibmodules/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ibzlibmoduledtos | List<[IbzLibModuleDTO](#IbzLibModuleDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量保存用例库模块
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzlibmodules/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ibzlibmoduledtos | List<[IbzLibModuleDTO](#IbzLibModuleDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取无枝叶
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzlibmodules/fetchroot_nobranch
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | context | [IbzLibModuleSearchContext](#IbzLibModuleSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[IbzLibModuleDTO](#IbzLibModuleDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询无枝叶
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzlibmodules/searchroot_nobranch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | context | [IbzLibModuleSearchContext](#IbzLibModuleSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[IbzLibModuleDTO](#IbzLibModuleDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取无枝叶
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzlibmodules/fetchroot_nobranch
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | context | [IbzLibModuleSearchContext](#IbzLibModuleSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[IbzLibModuleDTO](#IbzLibModuleDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询无枝叶
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzlibmodules/searchroot_nobranch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | context | [IbzLibModuleSearchContext](#IbzLibModuleSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[IbzLibModuleDTO](#IbzLibModuleDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
 
 
 ## 附录

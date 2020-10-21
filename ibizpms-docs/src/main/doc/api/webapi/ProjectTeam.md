@@ -1,6 +1,6 @@
 # 服务接口-IBZ_PROJECTTEAM
 ## 接口说明
-
+项目团队
 
 ## 接口清单
 ### 获取成员角色
@@ -424,6 +424,445 @@ POST
 ```json
 待补充
 ```
+
+### 获取成员角色
+#### 访问路径
+/projects/{project_id}/projectteams/{projectteam_id}/getuserrole
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | projectteam_id | Long | 待补充 |
+| 3 | projectteamdtos | List<[ProjectTeamDTO](#ProjectTeamDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProjectTeamDTO](#ProjectTeamDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据建立项目团队
+#### 访问路径
+/projects/{project_id}/projectteams
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | projectteamdto | [ProjectTeamDTO](#ProjectTeamDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProjectTeamDTO](#ProjectTeamDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量建立项目团队
+#### 访问路径
+/projects/{project_id}/projectteams/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | projectteamdtos | List<[ProjectTeamDTO](#ProjectTeamDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据更新项目团队
+#### 访问路径
+/projects/{project_id}/projectteams/{projectteam_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | projectteam_id | Long | 待补充 |
+| 3 | projectteamdtos | List<[ProjectTeamDTO](#ProjectTeamDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProjectTeamDTO](#ProjectTeamDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量更新项目团队
+#### 访问路径
+/projects/{project_id}/projectteams/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | projectteamdtos | List<[ProjectTeamDTO](#ProjectTeamDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据删除项目团队
+#### 访问路径
+/projects/{project_id}/projectteams/{projectteam_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | projectteam_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量删除项目团队
+#### 访问路径
+/projects/{project_id}/projectteams/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | ids | List<Long> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取项目团队
+#### 访问路径
+/projects/{project_id}/projectteams/{projectteam_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | projectteam_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProjectTeamDTO](#ProjectTeamDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据检查项目团队
+#### 访问路径
+/projects/{project_id}/projectteams/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | projectteamdto | [ProjectTeamDTO](#ProjectTeamDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据保存项目团队
+#### 访问路径
+/projects/{project_id}/projectteams/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | projectteamdtos | List<[ProjectTeamDTO](#ProjectTeamDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量保存项目团队
+#### 访问路径
+/projects/{project_id}/projectteams/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | projectteamdtos | List<[ProjectTeamDTO](#ProjectTeamDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取行编辑查询
+#### 访问路径
+/projects/{project_id}/projectteams/fetchroweditdefault
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [ProjectTeamSearchContext](#ProjectTeamSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[ProjectTeamDTO](#ProjectTeamDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询行编辑查询
+#### 访问路径
+/projects/{project_id}/projectteams/searchroweditdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [ProjectTeamSearchContext](#ProjectTeamSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[ProjectTeamDTO](#ProjectTeamDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取行编辑查询
+#### 访问路径
+/projects/{project_id}/projectteams/fetchroweditdefault
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [ProjectTeamSearchContext](#ProjectTeamSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[ProjectTeamDTO](#ProjectTeamDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询行编辑查询
+#### 访问路径
+/projects/{project_id}/projectteams/searchroweditdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 待补充 |
+| 2 | context | [ProjectTeamSearchContext](#ProjectTeamSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[ProjectTeamDTO](#ProjectTeamDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
 
 
 ## 附录

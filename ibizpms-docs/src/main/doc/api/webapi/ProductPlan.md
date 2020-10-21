@@ -1,6 +1,6 @@
 # 服务接口-ZT_PRODUCTPLAN
 ## 接口说明
-
+产品计划
 
 ## 接口清单
 ### 新建产品计划
@@ -737,6 +737,772 @@ POST
 ```json
 待补充
 ```
+
+### 根据建立产品计划
+#### 访问路径
+/products/{product_id}/productplans
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productplandto | [ProductPlanDTO](#ProductPlanDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProductPlanDTO](#ProductPlanDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量建立产品计划
+#### 访问路径
+/products/{product_id}/productplans/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productplandtos | List<[ProductPlanDTO](#ProductPlanDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据更新产品计划
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productplan_id | Long | 待补充 |
+| 3 | productplandtos | List<[ProductPlanDTO](#ProductPlanDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProductPlanDTO](#ProductPlanDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量更新产品计划
+#### 访问路径
+/products/{product_id}/productplans/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productplandtos | List<[ProductPlanDTO](#ProductPlanDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据删除产品计划
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productplan_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量删除产品计划
+#### 访问路径
+/products/{product_id}/productplans/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | ids | List<Long> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取产品计划
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productplan_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProductPlanDTO](#ProductPlanDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 批量解除关联Bug
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}/batchunlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productplan_id | Long | 待补充 |
+| 3 | productplandtos | List<[ProductPlanDTO](#ProductPlanDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProductPlanDTO](#ProductPlanDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 批量解除关联需求
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}/batchunlinkstory
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productplan_id | Long | 待补充 |
+| 3 | productplandtos | List<[ProductPlanDTO](#ProductPlanDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProductPlanDTO](#ProductPlanDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据检查产品计划
+#### 访问路径
+/products/{product_id}/productplans/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productplandto | [ProductPlanDTO](#ProductPlanDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关联Bug
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}/linkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productplan_id | Long | 待补充 |
+| 3 | productplandtos | List<[ProductPlanDTO](#ProductPlanDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProductPlanDTO](#ProductPlanDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 关联需求
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}/linkstory
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productplan_id | Long | 待补充 |
+| 3 | productplandtos | List<[ProductPlanDTO](#ProductPlanDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProductPlanDTO](#ProductPlanDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据保存产品计划
+#### 访问路径
+/products/{product_id}/productplans/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productplandtos | List<[ProductPlanDTO](#ProductPlanDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量保存产品计划
+#### 访问路径
+/products/{product_id}/productplans/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productplandtos | List<[ProductPlanDTO](#ProductPlanDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 解除关联Bug
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}/unlinkbug
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productplan_id | Long | 待补充 |
+| 3 | productplandtos | List<[ProductPlanDTO](#ProductPlanDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProductPlanDTO](#ProductPlanDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 解除关联需求
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}/unlinkstory
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productplan_id | Long | 待补充 |
+| 3 | productplandtos | List<[ProductPlanDTO](#ProductPlanDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProductPlanDTO](#ProductPlanDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取项目计划列表
+#### 访问路径
+/products/{product_id}/productplans/fetchprojectplan
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[ProductPlanDTO](#ProductPlanDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目计划列表
+#### 访问路径
+/products/{product_id}/productplans/searchprojectplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[ProductPlanDTO](#ProductPlanDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目计划列表
+#### 访问路径
+/products/{product_id}/productplans/fetchprojectplan
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[ProductPlanDTO](#ProductPlanDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目计划列表
+#### 访问路径
+/products/{product_id}/productplans/searchprojectplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[ProductPlanDTO](#ProductPlanDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目计划列表
+#### 访问路径
+/products/{product_id}/productplans/fetchprojectplan
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[ProductPlanDTO](#ProductPlanDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目计划列表
+#### 访问路径
+/products/{product_id}/productplans/searchprojectplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[ProductPlanDTO](#ProductPlanDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目计划列表
+#### 访问路径
+/products/{product_id}/productplans/fetchprojectplan
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[ProductPlanDTO](#ProductPlanDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目计划列表
+#### 访问路径
+/products/{product_id}/productplans/searchprojectplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[ProductPlanDTO](#ProductPlanDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目计划列表
+#### 访问路径
+/products/{product_id}/productplans/fetchprojectplan
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[ProductPlanDTO](#ProductPlanDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目计划列表
+#### 访问路径
+/products/{product_id}/productplans/searchprojectplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[ProductPlanDTO](#ProductPlanDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
 
 
 ## 附录

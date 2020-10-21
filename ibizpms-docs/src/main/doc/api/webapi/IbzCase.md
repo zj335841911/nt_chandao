@@ -1,6 +1,6 @@
 # 服务接口-IBZ_CASE
 ## 接口说明
-
+测试用例
 
 ## 接口清单
 ### 新建测试用例
@@ -339,6 +339,356 @@ POST
 ```json
 待补充
 ```
+
+### 根据建立测试用例
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzcases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ibzcasedto | [IbzCaseDTO](#IbzCaseDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[IbzCaseDTO](#IbzCaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量建立测试用例
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzcases/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ibzcasedtos | List<[IbzCaseDTO](#IbzCaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据更新测试用例
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzcases/{ibzcase_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ibzcase_id | Long | 待补充 |
+| 3 | ibzcasedtos | List<[IbzCaseDTO](#IbzCaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[IbzCaseDTO](#IbzCaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量更新测试用例
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzcases/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ibzcasedtos | List<[IbzCaseDTO](#IbzCaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据删除测试用例
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzcases/{ibzcase_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ibzcase_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量删除测试用例
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzcases/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ids | List<Long> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取测试用例
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzcases/{ibzcase_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ibzcase_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[IbzCaseDTO](#IbzCaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据检查测试用例
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzcases/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ibzcasedto | [IbzCaseDTO](#IbzCaseDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据保存测试用例
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzcases/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ibzcasedtos | List<[IbzCaseDTO](#IbzCaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量保存测试用例
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzcases/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | ibzcasedtos | List<[IbzCaseDTO](#IbzCaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取DEFAULT
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzcases/fetchdefault
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | context | [IbzCaseSearchContext](#IbzCaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[IbzCaseDTO](#IbzCaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询DEFAULT
+#### 访问路径
+/ibzlibs/{ibzlib_id}/ibzcases/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ibzlib_id | Long | 待补充 |
+| 2 | context | [IbzCaseSearchContext](#IbzCaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[IbzCaseDTO](#IbzCaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
 
 
 ## 附录

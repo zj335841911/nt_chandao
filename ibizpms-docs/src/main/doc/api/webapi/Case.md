@@ -1,6 +1,6 @@
 # 服务接口-ZT_CASE
 ## 接口说明
-
+测试用例
 
 ## 接口清单
 ### 新建测试用例
@@ -1838,6 +1838,5769 @@ POST
 ```json
 待补充
 ```
+
+### 根据建立测试用例
+#### 访问路径
+/products/{product_id}/cases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | casedto | [CaseDTO](#CaseDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量建立测试用例
+#### 访问路径
+/products/{product_id}/cases/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据更新测试用例
+#### 访问路径
+/products/{product_id}/cases/{case_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量更新测试用例
+#### 访问路径
+/products/{product_id}/cases/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据删除测试用例
+#### 访问路径
+/products/{product_id}/cases/{case_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量删除测试用例
+#### 访问路径
+/products/{product_id}/cases/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | ids | List<Long> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取测试用例
+#### 访问路径
+/products/{product_id}/cases/{case_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 行为
+#### 访问路径
+/products/{product_id}/cases/{case_id}/casefavorite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### CaseNFavorite
+#### 访问路径
+/products/{product_id}/cases/{case_id}/casenfavorite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据检查测试用例
+#### 访问路径
+/products/{product_id}/cases/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | casedto | [CaseDTO](#CaseDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 确认用例变更
+#### 访问路径
+/products/{product_id}/cases/{case_id}/confirmchange
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 确认需求变更
+#### 访问路径
+/products/{product_id}/cases/{case_id}/confirmstorychange
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据测试单获取或者状态
+#### 访问路径
+/products/{product_id}/cases/{case_id}/getbytesttask
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 测试单关联测试用例
+#### 访问路径
+/products/{product_id}/cases/{case_id}/linkcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 执行测试
+#### 访问路径
+/products/{product_id}/cases/{case_id}/runcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### runCases
+#### 访问路径
+/products/{product_id}/cases/{case_id}/runcases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据保存测试用例
+#### 访问路径
+/products/{product_id}/cases/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量保存测试用例
+#### 访问路径
+/products/{product_id}/cases/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 执行测试
+#### 访问路径
+/products/{product_id}/cases/{case_id}/testruncase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### testRunCases
+#### 访问路径
+/products/{product_id}/cases/{case_id}/testruncases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 套件关联
+#### 访问路径
+/products/{product_id}/cases/{case_id}/testsuitelinkcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 移除用例
+#### 访问路径
+/products/{product_id}/cases/{case_id}/unlinkcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### unlinkCases
+#### 访问路径
+/products/{product_id}/cases/{case_id}/unlinkcases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 移除用例
+#### 访问路径
+/products/{product_id}/cases/{case_id}/unlinksuitecase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### unlinkSuiteCases
+#### 访问路径
+/products/{product_id}/cases/{case_id}/unlinksuitecases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据建立测试用例
+#### 访问路径
+/stories/{story_id}/cases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | casedto | [CaseDTO](#CaseDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量建立测试用例
+#### 访问路径
+/stories/{story_id}/cases/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据更新测试用例
+#### 访问路径
+/stories/{story_id}/cases/{case_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量更新测试用例
+#### 访问路径
+/stories/{story_id}/cases/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据删除测试用例
+#### 访问路径
+/stories/{story_id}/cases/{case_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量删除测试用例
+#### 访问路径
+/stories/{story_id}/cases/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | ids | List<Long> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取测试用例
+#### 访问路径
+/stories/{story_id}/cases/{case_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 行为
+#### 访问路径
+/stories/{story_id}/cases/{case_id}/casefavorite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### CaseNFavorite
+#### 访问路径
+/stories/{story_id}/cases/{case_id}/casenfavorite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据检查测试用例
+#### 访问路径
+/stories/{story_id}/cases/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | casedto | [CaseDTO](#CaseDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 确认用例变更
+#### 访问路径
+/stories/{story_id}/cases/{case_id}/confirmchange
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 确认需求变更
+#### 访问路径
+/stories/{story_id}/cases/{case_id}/confirmstorychange
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据测试单获取或者状态
+#### 访问路径
+/stories/{story_id}/cases/{case_id}/getbytesttask
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 测试单关联测试用例
+#### 访问路径
+/stories/{story_id}/cases/{case_id}/linkcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 执行测试
+#### 访问路径
+/stories/{story_id}/cases/{case_id}/runcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### runCases
+#### 访问路径
+/stories/{story_id}/cases/{case_id}/runcases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据保存测试用例
+#### 访问路径
+/stories/{story_id}/cases/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量保存测试用例
+#### 访问路径
+/stories/{story_id}/cases/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 执行测试
+#### 访问路径
+/stories/{story_id}/cases/{case_id}/testruncase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### testRunCases
+#### 访问路径
+/stories/{story_id}/cases/{case_id}/testruncases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 套件关联
+#### 访问路径
+/stories/{story_id}/cases/{case_id}/testsuitelinkcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 移除用例
+#### 访问路径
+/stories/{story_id}/cases/{case_id}/unlinkcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### unlinkCases
+#### 访问路径
+/stories/{story_id}/cases/{case_id}/unlinkcases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 移除用例
+#### 访问路径
+/stories/{story_id}/cases/{case_id}/unlinksuitecase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### unlinkSuiteCases
+#### 访问路径
+/stories/{story_id}/cases/{case_id}/unlinksuitecases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | case_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | story_id | Long | 待补充 |
+| 2 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据建立测试用例
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | casedto | [CaseDTO](#CaseDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量建立测试用例
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据更新测试用例
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | case_id | Long | 待补充 |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量更新测试用例
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据删除测试用例
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | case_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量删除测试用例
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | ids | List<Long> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取测试用例
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | case_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 行为
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}/casefavorite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | case_id | Long | 待补充 |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### CaseNFavorite
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}/casenfavorite
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | case_id | Long | 待补充 |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据检查测试用例
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | casedto | [CaseDTO](#CaseDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 确认用例变更
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}/confirmchange
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | case_id | Long | 待补充 |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 确认需求变更
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}/confirmstorychange
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | case_id | Long | 待补充 |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据测试单获取或者状态
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}/getbytesttask
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | case_id | Long | 待补充 |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 测试单关联测试用例
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}/linkcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | case_id | Long | 待补充 |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 执行测试
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}/runcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | case_id | Long | 待补充 |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### runCases
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}/runcases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | case_id | Long | 待补充 |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据保存测试用例
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量保存测试用例
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 执行测试
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}/testruncase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | case_id | Long | 待补充 |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### testRunCases
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}/testruncases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | case_id | Long | 待补充 |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 套件关联
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}/testsuitelinkcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | case_id | Long | 待补充 |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 移除用例
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}/unlinkcase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | case_id | Long | 待补充 |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### unlinkCases
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}/unlinkcases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | case_id | Long | 待补充 |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 移除用例
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}/unlinksuitecase
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | case_id | Long | 待补充 |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### unlinkSuiteCases
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/{case_id}/unlinksuitecases
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | case_id | Long | 待补充 |
+| 4 | casedtos | List<[CaseDTO](#CaseDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[CaseDTO](#CaseDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/fetchrunreportcase_project
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询项目报告关联-执行结果
+#### 访问路径
+/products/{product_id}/stories/{story_id}/cases/searchrunreportcase_project
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |/r/n| 2 | story_id | Long | 待补充 |
+| 3 | context | [CaseSearchContext](#CaseSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[CaseDTO](#CaseDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
 
 
 ## 附录

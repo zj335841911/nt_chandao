@@ -1,6 +1,6 @@
 # 服务接口-IBZ_PRODUCTMODULE
 ## 接口说明
-
+需求模块
 
 ## 接口清单
 ### 新建需求模块
@@ -706,6 +706,741 @@ POST
 ```json
 待补充
 ```
+
+### 根据建立需求模块
+#### 访问路径
+/products/{product_id}/productmodules
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productmoduledto | [ProductModuleDTO](#ProductModuleDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProductModuleDTO](#ProductModuleDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量建立需求模块
+#### 访问路径
+/products/{product_id}/productmodules/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productmoduledtos | List<[ProductModuleDTO](#ProductModuleDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据更新需求模块
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productmodule_id | Long | 待补充 |
+| 3 | productmoduledtos | List<[ProductModuleDTO](#ProductModuleDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProductModuleDTO](#ProductModuleDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量更新需求模块
+#### 访问路径
+/products/{product_id}/productmodules/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productmoduledtos | List<[ProductModuleDTO](#ProductModuleDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据删除需求模块
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productmodule_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量删除需求模块
+#### 访问路径
+/products/{product_id}/productmodules/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | ids | List<Long> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取需求模块
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productmodule_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProductModuleDTO](#ProductModuleDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据检查需求模块
+#### 访问路径
+/products/{product_id}/productmodules/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productmoduledto | [ProductModuleDTO](#ProductModuleDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 重建模块路径
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/fix
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productmodule_id | Long | 待补充 |
+| 3 | productmoduledtos | List<[ProductModuleDTO](#ProductModuleDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProductModuleDTO](#ProductModuleDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 删除模块
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/removemodule
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productmodule_id | Long | 待补充 |
+| 3 | productmoduledtos | List<[ProductModuleDTO](#ProductModuleDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProductModuleDTO](#ProductModuleDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据保存需求模块
+#### 访问路径
+/products/{product_id}/productmodules/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productmoduledtos | List<[ProductModuleDTO](#ProductModuleDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量保存需求模块
+#### 访问路径
+/products/{product_id}/productmodules/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productmoduledtos | List<[ProductModuleDTO](#ProductModuleDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 同步Ibz平台模块
+#### 访问路径
+/products/{product_id}/productmodules/{productmodule_id}/syncfromibiz
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | productmodule_id | Long | 待补充 |
+| 3 | productmoduledtos | List<[ProductModuleDTO](#ProductModuleDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[ProductModuleDTO](#ProductModuleDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取StoryModule
+#### 访问路径
+/products/{product_id}/productmodules/fetchstorymodule
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductModuleSearchContext](#ProductModuleSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[ProductModuleDTO](#ProductModuleDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询StoryModule
+#### 访问路径
+/products/{product_id}/productmodules/searchstorymodule
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductModuleSearchContext](#ProductModuleSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[ProductModuleDTO](#ProductModuleDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取StoryModule
+#### 访问路径
+/products/{product_id}/productmodules/fetchstorymodule
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductModuleSearchContext](#ProductModuleSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[ProductModuleDTO](#ProductModuleDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询StoryModule
+#### 访问路径
+/products/{product_id}/productmodules/searchstorymodule
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductModuleSearchContext](#ProductModuleSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[ProductModuleDTO](#ProductModuleDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取StoryModule
+#### 访问路径
+/products/{product_id}/productmodules/fetchstorymodule
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductModuleSearchContext](#ProductModuleSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[ProductModuleDTO](#ProductModuleDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询StoryModule
+#### 访问路径
+/products/{product_id}/productmodules/searchstorymodule
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductModuleSearchContext](#ProductModuleSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[ProductModuleDTO](#ProductModuleDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取StoryModule
+#### 访问路径
+/products/{product_id}/productmodules/fetchstorymodule
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductModuleSearchContext](#ProductModuleSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[ProductModuleDTO](#ProductModuleDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询StoryModule
+#### 访问路径
+/products/{product_id}/productmodules/searchstorymodule
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductModuleSearchContext](#ProductModuleSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[ProductModuleDTO](#ProductModuleDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取StoryModule
+#### 访问路径
+/products/{product_id}/productmodules/fetchstorymodule
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductModuleSearchContext](#ProductModuleSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[ProductModuleDTO](#ProductModuleDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询StoryModule
+#### 访问路径
+/products/{product_id}/productmodules/searchstorymodule
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductModuleSearchContext](#ProductModuleSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[ProductModuleDTO](#ProductModuleDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+
+### 根据获取StoryModule
+#### 访问路径
+/products/{product_id}/productmodules/fetchstorymodule
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductModuleSearchContext](#ProductModuleSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[ProductModuleDTO](#ProductModuleDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询StoryModule
+#### 访问路径
+/products/{product_id}/productmodules/searchstorymodule
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 待补充 |
+| 2 | context | [ProductModuleSearchContext](#ProductModuleSearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[ProductModuleDTO](#ProductModuleDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
 
 
 ## 附录

@@ -1,6 +1,6 @@
 # 服务接口-ZT_HISTORY
 ## 接口说明
-
+操作历史
 
 ## 接口清单
 ### 新建操作历史
@@ -339,6 +339,356 @@ POST
 ```json
 待补充
 ```
+
+### 根据建立操作历史
+#### 访问路径
+/actions/{action_id}/histories
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | action_id | Long | 待补充 |
+| 2 | historydto | [HistoryDTO](#HistoryDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[HistoryDTO](#HistoryDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量建立操作历史
+#### 访问路径
+/actions/{action_id}/histories/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | action_id | Long | 待补充 |
+| 2 | historydtos | List<[HistoryDTO](#HistoryDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据更新操作历史
+#### 访问路径
+/actions/{action_id}/histories/{history_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | action_id | Long | 待补充 |
+| 2 | history_id | Long | 待补充 |
+| 3 | historydtos | List<[HistoryDTO](#HistoryDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[HistoryDTO](#HistoryDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量更新操作历史
+#### 访问路径
+/actions/{action_id}/histories/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | action_id | Long | 待补充 |
+| 2 | historydtos | List<[HistoryDTO](#HistoryDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据删除操作历史
+#### 访问路径
+/actions/{action_id}/histories/{history_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | action_id | Long | 待补充 |
+| 2 | history_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量删除操作历史
+#### 访问路径
+/actions/{action_id}/histories/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | action_id | Long | 待补充 |
+| 2 | ids | List<Long> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取操作历史
+#### 访问路径
+/actions/{action_id}/histories/{history_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | action_id | Long | 待补充 |
+| 2 | history_id | Long | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[HistoryDTO](#HistoryDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据检查操作历史
+#### 访问路径
+/actions/{action_id}/histories/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | action_id | Long | 待补充 |
+| 2 | historydto | [HistoryDTO](#HistoryDTO) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据保存操作历史
+#### 访问路径
+/actions/{action_id}/histories/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | action_id | Long | 待补充 |
+| 2 | historydtos | List<[HistoryDTO](#HistoryDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据批量保存操作历史
+#### 访问路径
+/actions/{action_id}/histories/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | action_id | Long | 待补充 |
+| 2 | historydtos | List<[HistoryDTO](#HistoryDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Boolean>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据获取DEFAULT
+#### 访问路径
+/actions/{action_id}/histories/fetchdefault
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | action_id | Long | 待补充 |
+| 2 | context | [HistorySearchContext](#HistorySearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<List<[HistoryDTO](#HistoryDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
+### 根据查询DEFAULT
+#### 访问路径
+/actions/{action_id}/histories/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | action_id | Long | 待补充 |
+| 2 | context | [HistorySearchContext](#HistorySearchContext) | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<Page<[HistoryDTO](#HistoryDTO)>>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
 
 
 ## 附录
