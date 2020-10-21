@@ -68,7 +68,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * path
      */
-    @DEField(defaultValue = "#EMPTY")
+    @DEField(defaultValue = "0")
     @TableField(value = "`path`")
     @JSONField(name = "path")
     @JsonProperty("path")
@@ -139,7 +139,6 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * scriptStatus
      */
-    @DEField(defaultValue = "#EMPTY")
     @TableField(value = "`scriptstatus`")
     @JSONField(name = "scriptstatus")
     @JsonProperty("scriptstatus")
@@ -179,7 +178,7 @@ public class IbzCase extends EntityMP implements Serializable {
     /**
      * 用例类型
      */
-    @DEField(defaultValue = "#EMPTY")
+    @DEField(defaultValue = "feature")
     @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
