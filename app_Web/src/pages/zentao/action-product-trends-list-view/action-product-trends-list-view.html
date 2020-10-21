@@ -1,5 +1,4 @@
 <studio-view viewName="actionproducttrendslistview" viewTitle="系统日志列表视图" class='delistview action-product-trends-list-view'>
-    <i-input slot='quickSearch' clearable  v-model="query" placeholder="操作者" search @on-search="onSearch($event)"/>
     <template slot="quickGroupSearch">
         <app-quick-group :items="quickGroupModel" @valuechange="quickGroupValueChange($event)"></app-quick-group>
     </template>

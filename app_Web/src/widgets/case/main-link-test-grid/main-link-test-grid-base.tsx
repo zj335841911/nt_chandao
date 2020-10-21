@@ -146,7 +146,7 @@ export class MainLinkTestGridBase extends GridControlBase {
             label: '用例标题',
             langtag: 'entities.case.mainlinktest_grid.columns.title',
             show: true,
-            unit: 'STAR',
+            unit: 'PX',
             isEnableRowEdit: false,
         },
         {
