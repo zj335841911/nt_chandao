@@ -324,6 +324,17 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-UpdateStoryVersion-all')")
+    @ApiOperation(value = "更新需求版本", tags = {"任务" },  notes = "更新需求版本")
+	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/{task_id}/updatestoryversion")
+    public ResponseEntity<TaskDTO> updateStoryVersion(@PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setId(task_id);
+        domain = taskService.updateStoryVersion(domain);
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchAssignedToMyTask-all')")
 	@ApiOperation(value = "获取指派给我任务", tags = {"任务" } ,notes = "获取指派给我任务")
     @RequestMapping(method= RequestMethod.GET , value="/tasks/fetchassignedtomytask")
@@ -843,6 +854,17 @@ public class TaskResource {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
         domain = taskService.taskNFavorites(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
+	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/tasks/{task_id}/updatestoryversion")
+    public ResponseEntity<TaskDTO> updateStoryVersionByStory(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setStory(story_id);
+        domain = taskService.updateStoryVersion(domain) ;
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
@@ -1380,6 +1402,17 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/{task_id}/updatestoryversion")
+    public ResponseEntity<TaskDTO> updateStoryVersionByProject(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setProject(project_id);
+        domain = taskService.updateStoryVersion(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchAssignedToMyTask-all')")
 	@ApiOperation(value = "根据项目获取指派给我任务", tags = {"任务" } ,notes = "根据项目获取指派给我任务")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/fetchassignedtomytask")
@@ -1909,6 +1942,17 @@ public class TaskResource {
         Task domain = taskMapping.toDomain(taskdto);
         domain.setStory(story_id);
         domain = taskService.taskNFavorites(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/updatestoryversion")
+    public ResponseEntity<TaskDTO> updateStoryVersionByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setStory(story_id);
+        domain = taskService.updateStoryVersion(domain) ;
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }

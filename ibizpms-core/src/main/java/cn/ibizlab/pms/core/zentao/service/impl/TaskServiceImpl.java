@@ -106,6 +106,14 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITaskTaskCancleFavoritesLogic taskcanclefavoritesLogic;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskUpdateStoryVersionLogic updatestoryversionLogic;
+
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskUpdateStoryVersion__MSDenyLogic updatestoryversion__msdenyLogic;
+
     protected int batchSize = 500;
 
         @Override
@@ -320,6 +328,13 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Transactional
     public Task taskNFavorites(Task et) {
         taskcanclefavoritesLogic.execute(et);
+         return et ;
+    }
+
+    @Override
+    @Transactional
+    public Task updateStoryVersion(Task et) {
+        updatestoryversionLogic.execute(et);
          return et ;
     }
 

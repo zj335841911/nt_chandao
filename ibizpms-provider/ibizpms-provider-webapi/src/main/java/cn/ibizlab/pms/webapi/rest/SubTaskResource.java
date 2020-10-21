@@ -312,6 +312,17 @@ public class SubTaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-UpdateStoryVersion-all')")
+    @ApiOperation(value = "更新需求版本", tags = {"任务" },  notes = "更新需求版本")
+	@RequestMapping(method = RequestMethod.PUT, value = "/subtasks/{subtask_id}/updatestoryversion")
+    public ResponseEntity<SubTaskDTO> updateStoryVersion(@PathVariable("subtask_id") Long subtask_id, @RequestBody SubTaskDTO subtaskdto) {
+        Task domain = subtaskMapping.toDomain(subtaskdto);
+        domain.setId(subtask_id);
+        domain = taskService.updateStoryVersion(domain);
+        subtaskdto = subtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchAssignedToMyTask-all')")
 	@ApiOperation(value = "获取指派给我任务", tags = {"任务" } ,notes = "获取指派给我任务")
     @RequestMapping(method= RequestMethod.GET , value="/subtasks/fetchassignedtomytask")
@@ -831,6 +842,17 @@ public class SubTaskResource {
         Task domain = subtaskMapping.toDomain(subtaskdto);
         domain.setParent(task_id);
         domain = taskService.taskNFavorites(domain) ;
+        subtaskdto = subtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据任务任务", tags = {"任务" },  notes = "根据任务任务")
+	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/{task_id}/subtasks/{subtask_id}/updatestoryversion")
+    public ResponseEntity<SubTaskDTO> updateStoryVersionByTask(@PathVariable("task_id") Long task_id, @PathVariable("subtask_id") Long subtask_id, @RequestBody SubTaskDTO subtaskdto) {
+        Task domain = subtaskMapping.toDomain(subtaskdto);
+        domain.setParent(task_id);
+        domain = taskService.updateStoryVersion(domain) ;
         subtaskdto = subtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
     }
@@ -1368,6 +1390,17 @@ public class SubTaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据需求任务任务", tags = {"任务" },  notes = "根据需求任务任务")
+	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/tasks/{task_id}/subtasks/{subtask_id}/updatestoryversion")
+    public ResponseEntity<SubTaskDTO> updateStoryVersionByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("subtask_id") Long subtask_id, @RequestBody SubTaskDTO subtaskdto) {
+        Task domain = subtaskMapping.toDomain(subtaskdto);
+        domain.setParent(task_id);
+        domain = taskService.updateStoryVersion(domain) ;
+        subtaskdto = subtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchAssignedToMyTask-all')")
 	@ApiOperation(value = "根据需求任务获取指派给我任务", tags = {"任务" } ,notes = "根据需求任务获取指派给我任务")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/subtasks/fetchassignedtomytask")
@@ -1901,6 +1934,17 @@ public class SubTaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据项目任务任务", tags = {"任务" },  notes = "根据项目任务任务")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/tasks/{task_id}/subtasks/{subtask_id}/updatestoryversion")
+    public ResponseEntity<SubTaskDTO> updateStoryVersionByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @PathVariable("subtask_id") Long subtask_id, @RequestBody SubTaskDTO subtaskdto) {
+        Task domain = subtaskMapping.toDomain(subtaskdto);
+        domain.setParent(task_id);
+        domain = taskService.updateStoryVersion(domain) ;
+        subtaskdto = subtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchAssignedToMyTask-all')")
 	@ApiOperation(value = "根据项目任务获取指派给我任务", tags = {"任务" } ,notes = "根据项目任务获取指派给我任务")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/subtasks/fetchassignedtomytask")
@@ -2430,6 +2474,17 @@ public class SubTaskResource {
         Task domain = subtaskMapping.toDomain(subtaskdto);
         domain.setParent(task_id);
         domain = taskService.taskNFavorites(domain) ;
+        subtaskdto = subtaskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-UpdateStoryVersion-all')")
+    @ApiOperation(value = "根据产品需求任务任务", tags = {"任务" },  notes = "根据产品需求任务任务")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/{subtask_id}/updatestoryversion")
+    public ResponseEntity<SubTaskDTO> updateStoryVersionByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @PathVariable("subtask_id") Long subtask_id, @RequestBody SubTaskDTO subtaskdto) {
+        Task domain = subtaskMapping.toDomain(subtaskdto);
+        domain.setParent(task_id);
+        domain = taskService.updateStoryVersion(domain) ;
         subtaskdto = subtaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(subtaskdto);
     }

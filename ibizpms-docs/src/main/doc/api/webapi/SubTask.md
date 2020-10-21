@@ -748,6 +748,35 @@ POST
 待补充
 ```
 
+### 更新需求版本
+#### 访问路径
+/subtasks/{subtask_id}/updatestoryversion
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | subtask_id | Long | 待补充 |
+| 2 | subtaskdtos | List<[SubTaskDTO](#SubTaskDTO)> | 待补充 |
+
+#### 返回值说明
+返回类型：ResponseEntity<[SubTaskDTO](#SubTaskDTO)>
+
+#### 权限说明
+待补充
+
+#### 使用用例
+- 请求参数
+```json
+待补充
+```
+- 相应结果
+```json
+待补充
+```
+
 ### 获取指派给我任务
 #### 访问路径
 /subtasks/fetchassignedtomytask
