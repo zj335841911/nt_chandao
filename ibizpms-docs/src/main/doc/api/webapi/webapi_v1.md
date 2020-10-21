@@ -26,7 +26,7 @@ pms-webapi
 | 13 | [任务](Task) | task ||  |
 | 14 | [待办事宜表](Todo) | todo ||  |
 | 15 | [需求](IBZProStory) | ibzprostory ||  |
-| 16 | [人员](IBZEmployee) | ibzemployee ||  |
+| 16 | [人员](SysEmployee) | sysemployee ||  |
 | 17 | [测试套件](TestSuite) | testsuite ||  |
 | 18 | [用户年度工作内容统计](UserYearWorkStats) | useryearworkstats ||  |
 | 19 | [项目](Project) | project ||  |

@@ -66,7 +66,7 @@ import ibzcase_en_US from '@locale/lanres/entities/ibz-case/ibz-case_en_US';
 import pssystemdbcfg_en_US from '@locale/lanres/entities/pssystem-dbcfg/pssystem-dbcfg_en_US';
 import release_en_US from '@locale/lanres/entities/release/release_en_US';
 import dynadashboard_en_US from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_en_US';
-import ibzemployee_en_US from '@locale/lanres/entities/ibzemployee/ibzemployee_en_US';
+import sysemployee_en_US from '@locale/lanres/entities/sys-employee/sys-employee_en_US';
 import components_en_US from '@locale/lanres/components/components_en_US';
 import codelist_en_US from '@locale/lanres/codelist/codelist_en_US';
 import userCustom_en_US from '@locale/lanres/userCustom/userCustom_en_US';
@@ -394,7 +394,7 @@ export default {
         pssystemdbcfg: pssystemdbcfg_en_US,
         release: release_en_US,
         dynadashboard: dynadashboard_en_US,
-        ibzemployee: ibzemployee_en_US,
+        sysemployee: sysemployee_en_US,
         ...enUSUser.entities
     },
     components: components_en_US,

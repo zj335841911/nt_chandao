@@ -940,7 +940,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "srfkey": "UserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"IBZEmployee",
+        "appdataentity":"SysEmployee",
         "appdedataset":"FetchDefault",
         "items": []
     },

@@ -106,7 +106,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('pssystemdbcfg', () => import('@/service/pssystem-dbcfg/pssystem-dbcfg-service'));
         this.allEntityService.set('release', () => import('@/service/release/release-service'));
         this.allEntityService.set('dynadashboard', () => import('@/service/dyna-dashboard/dyna-dashboard-service'));
-        this.allEntityService.set('ibzemployee', () => import('@/service/ibzemployee/ibzemployee-service'));
+        this.allEntityService.set('sysemployee', () => import('@/service/sys-employee/sys-employee-service'));
     }
 
     /**

@@ -66,7 +66,7 @@ import ibzcase_zh_CN from '@locale/lanres/entities/ibz-case/ibz-case_zh_CN';
 import pssystemdbcfg_zh_CN from '@locale/lanres/entities/pssystem-dbcfg/pssystem-dbcfg_zh_CN';
 import release_zh_CN from '@locale/lanres/entities/release/release_zh_CN';
 import dynadashboard_zh_CN from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_zh_CN';
-import ibzemployee_zh_CN from '@locale/lanres/entities/ibzemployee/ibzemployee_zh_CN';
+import sysemployee_zh_CN from '@locale/lanres/entities/sys-employee/sys-employee_zh_CN';
 import components_zh_CN from '@locale/lanres/components/components_zh_CN';
 import codelist_zh_CN from '@locale/lanres/codelist/codelist_zh_CN';
 import userCustom_zh_CN from '@locale/lanres/userCustom/userCustom_zh_CN';
@@ -393,7 +393,7 @@ export default {
         pssystemdbcfg: pssystemdbcfg_zh_CN,
         release: release_zh_CN,
         dynadashboard: dynadashboard_zh_CN,
-        ibzemployee: ibzemployee_zh_CN,
+        sysemployee: sysemployee_zh_CN,
         ...zhCNUser.entities
     },
     components: components_zh_CN,

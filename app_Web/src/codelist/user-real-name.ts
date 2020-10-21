@@ -1,4 +1,4 @@
-import IBZEmployeeService from '@service/ibzemployee/ibzemployee-service';
+import SysEmployeeService from '@service/sys-employee/sys-employee-service';
 /**
  * 代码表--用户真实名称（动态）
  *
@@ -90,10 +90,10 @@ export default class UserRealName {
     /**
      * 人员应用实体服务对象
      *
-     * @type {IBZEmployeeService}
+     * @type {SysEmployeeService}
      * @memberof UserRealName
      */
-    public ibzemployeeService: IBZEmployeeService = new IBZEmployeeService();
+    public sysemployeeService: SysEmployeeService = new SysEmployeeService();
 
 
     /**
@@ -130,7 +130,7 @@ export default class UserRealName {
     public getItems(context: any={}, data: any={}, isloading?: boolean): Promise<any> {
         return new Promise((resolve, reject) => {
             data = this.handleQueryParam(data);
-            const promise: Promise<any> = this.ibzemployeeService.FetchDefault(context, data, isloading);
+            const promise: Promise<any> = this.sysemployeeService.FetchDefault(context, data, isloading);
             promise.then((response: any) => {
                 if (response && response.status === 200) {
                     const data =  response.data;
