@@ -188,6 +188,7 @@
     :error="detailsModel.begin.error" 
     :isEmptyCaption="false">
         <app-mob-datetime-picker 
+    displayFormat="YYYY-MM-DD"
     class="app-form-item-datetime" 
     :value="data.begin" 
     :disabled="detailsModel.begin.disabled"
@@ -212,6 +213,7 @@
     :error="detailsModel.end.error" 
     :isEmptyCaption="false">
         <app-mob-datetime-picker 
+    displayFormat="YYYY-MM-DD"
     class="app-form-item-datetime" 
     :value="data.end" 
     :disabled="detailsModel.end.disabled"
