@@ -1555,56 +1555,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-gsmob-option-view/task-gsmob-option-view.vue'),
                 },
                 {
-                    path: 'projects/:project?/builds/:build?/newmobeditview',
-                    name: 'build_newmobeditview',
-                    meta: {
-                        caption: 'build.views.newmobeditview.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-code-fork',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'projects', parameterName: 'project' },
-                            { pathName: 'builds', parameterName: 'build' },
-                            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/build-new-mob-edit-view/build-new-mob-edit-view.vue'),
-                },
-                {
-                    path: 'products/:product?/builds/:build?/newmobeditview',
-                    name: 'build_newmobeditview',
-                    meta: {
-                        caption: 'build.views.newmobeditview.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-code-fork',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'builds', parameterName: 'build' },
-                            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/build-new-mob-edit-view/build-new-mob-edit-view.vue'),
-                },
-                {
-                    path: 'builds/:build?/newmobeditview',
-                    name: 'build_newmobeditview',
-                    meta: {
-                        caption: 'build.views.newmobeditview.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-code-fork',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'builds', parameterName: 'build' },
-                            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/build-new-mob-edit-view/build-new-mob-edit-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/tasks/:task?/favoritemoremobmdview',
                     name: 'task_favoritemoremobmdview',
                     meta: {

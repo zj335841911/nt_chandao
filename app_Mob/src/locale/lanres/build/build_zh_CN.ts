@@ -42,6 +42,30 @@ export default {
 			caption: '版本',
 		},
 	},
+	mobmain_form: {
+		details: {
+			druipart1: '', 
+			grouppanel1: '历史记录', 
+			group1: '版本基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: 'id', 
+			srfmajortext: '名称编号', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			name: '名称编号', 
+			date: '打包日期', 
+			builder: '构建者', 
+			scmpath: '源代码地址', 
+			filepath: '下载地址', 
+			desc: '描述', 
+			id: 'id', 
+		},
+		uiactions: {
+		},
+	},
 	mobnewform_form: {
 		details: {
 			grouppanel2: '分组面板', 
@@ -68,30 +92,6 @@ export default {
 		uiactions: {
 		},
 	},
-	mobmain_form: {
-		details: {
-			druipart1: '', 
-			grouppanel1: '历史记录', 
-			group1: '版本基本信息', 
-			formpage1: '基本信息', 
-			srforikey: '', 
-			srfkey: 'id', 
-			srfmajortext: '名称编号', 
-			srftempmode: '', 
-			srfuf: '', 
-			srfdeid: '', 
-			srfsourcekey: '', 
-			name: '名称编号', 
-			date: '打包日期', 
-			builder: '构建者', 
-			scmpath: '源代码地址', 
-			filepath: '下载地址', 
-			desc: '描述', 
-			id: 'id', 
-		},
-		uiactions: {
-		},
-	},
 	mobdef_searchform: {
 		details: {
 			formpage1: '常规条件', 
@@ -102,12 +102,6 @@ export default {
 		uiactions: {
 		},
 	},
-	newmobeditviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: '保存',
-			tip: '保存',
-		},
-	},
 	mobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {
 			caption: '创建版本',
@@ -115,5 +109,11 @@ export default {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
+	},
+	newmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
 	},
 };

@@ -157,7 +157,7 @@ export default class BuildUIActionBase extends EntityUIActionBase {
 
         const parameters: any[] = [
             { pathName: 'builds', parameterName: 'build' },
-            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+            { pathName: 'mobmdview', parameterName: 'mobmdview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
