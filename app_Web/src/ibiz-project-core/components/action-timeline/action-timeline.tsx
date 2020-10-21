@@ -112,6 +112,9 @@ export class ActionTimeline extends Vue {
      * @memberof ActionTimeline
      */
     protected formatData(items: any[]): void {
+        if(this.dayMap.size > 0) {
+            this.dayMap.clear();
+        }
         if (items) {
             this.$items = [];
             // 日期临时计算数据，key为日期：2020-02-20
