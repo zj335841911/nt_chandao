@@ -51,6 +51,7 @@ public class IbzLib extends EntityMP implements Serializable {
     /**
      * 最后编辑时间
      */
+    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
     @TableField(value = "`lastediteddate`")
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
@@ -107,6 +108,7 @@ public class IbzLib extends EntityMP implements Serializable {
     /**
      * 最后编辑人
      */
+    @DEField(preType = DEPredefinedFieldType.UPDATEMANNAME)
     @TableField(value = "`lasteditedby`")
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
@@ -131,24 +133,6 @@ public class IbzLib extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [最后编辑时间]
-     */
-    public void setLastediteddate(Timestamp lastediteddate){
-        this.lastediteddate = lastediteddate ;
-        this.modify("lastediteddate",lastediteddate);
-    }
-
-    /**
-     * 格式化日期 [最后编辑时间]
-     */
-    public String formatLastediteddate(){
-        if (this.lastediteddate == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return sdf.format(lastediteddate);
-    }
-    /**
      * 设置 [名称]
      */
     public void setName(String name){
@@ -162,14 +146,6 @@ public class IbzLib extends EntityMP implements Serializable {
     public void setType(String type){
         this.type = type ;
         this.modify("type",type);
-    }
-
-    /**
-     * 设置 [最后编辑人]
-     */
-    public void setLasteditedby(String lasteditedby){
-        this.lasteditedby = lasteditedby ;
-        this.modify("lasteditedby",lasteditedby);
     }
 
     /**

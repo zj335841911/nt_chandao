@@ -130,14 +130,6 @@ public class IbzLibDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [LASTEDITEDDATE]
-     */
-    public void setLastediteddate(Timestamp  lastediteddate){
-        this.lastediteddate = lastediteddate ;
-        this.modify("lastediteddate",lastediteddate);
-    }
-
-    /**
      * 设置 [NAME]
      */
     public void setName(String  name){
@@ -151,14 +143,6 @@ public class IbzLibDTO extends DTOBase implements Serializable {
     public void setType(String  type){
         this.type = type ;
         this.modify("type",type);
-    }
-
-    /**
-     * 设置 [LASTEDITEDBY]
-     */
-    public void setLasteditedby(String  lasteditedby){
-        this.lasteditedby = lasteditedby ;
-        this.modify("lasteditedby",lasteditedby);
     }
 
     /**

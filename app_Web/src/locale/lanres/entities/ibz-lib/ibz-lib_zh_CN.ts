@@ -37,6 +37,7 @@ export default {
 		details: {
 			druipart1: "", 
 			formpage1: "基本信息", 
+			srfupdatedate: "最后编辑时间", 
 			srforikey: "", 
 			srfkey: "编号", 
 			srfmajortext: "名称", 
@@ -54,6 +55,7 @@ export default {
 	main_form: {
 		details: {
 			formpage1: "基本信息", 
+			srfupdatedate: "最后编辑时间", 
 			srforikey: "", 
 			srfkey: "编号", 
 			srfmajortext: "名称", 

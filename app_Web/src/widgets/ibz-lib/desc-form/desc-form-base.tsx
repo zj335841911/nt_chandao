@@ -93,6 +93,7 @@ export class DescEditFormBase extends EditFormControlBase {
      * @memberof DescEditFormBase
      */
     public data: any = {
+        srfupdatedate: null,
         srforikey: null,
         srfkey: null,
         srfmajortext: null,
@@ -134,6 +135,8 @@ export class DescEditFormBase extends EditFormControlBase {
         druipart1: new FormDRUIPartModel({ caption: '', detailType: 'DRUIPART', name: 'druipart1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this, showMoreMode: 0 }),
+
+        srfupdatedate: new FormItemModel({ caption: '最后编辑时间', detailType: 'FORMITEM', name: 'srfupdatedate', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 0 }),
 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
