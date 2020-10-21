@@ -134,6 +134,11 @@ export default class MainEditModel {
         dataType: 'TEXT',
       },
       {
+        name: 'storyversion',
+        prop: 'storyversion',
+        dataType: 'PICKUPDATA',
+      },
+      {
         name: 'type',
         prop: 'type',
         dataType: 'SSCODELIST',

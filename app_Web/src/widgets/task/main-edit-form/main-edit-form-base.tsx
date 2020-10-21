@@ -108,6 +108,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
         parentname: null,
         parent: null,
         assignedto: null,
+        storyversion: null,
         type: null,
         status: null,
         pri: null,
@@ -234,6 +235,8 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
         assignedto: new FormItemModel({ caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        storyversion: new FormItemModel({ caption: '需求版本', detailType: 'FORMITEM', name: 'storyversion', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         type: new FormItemModel({ caption: '任务类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         status: new FormItemModel({ caption: '任务状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -348,6 +351,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
 
 
+
         if (Object.is(name, '') || Object.is(name, 'multiple')) {
             let ret = false;
             const _multiple = this.data.multiple;
@@ -384,5 +388,9 @@ export class MainEditEditFormBase extends EditFormControlBase {
 
 
 
+        if (Object.is(name, 'storyversion')) {
+            const details: string[] = ['storyversion'];
+            this.updateFormItems('updateStoryVersion', this.data, details, true);
+        }
     }
 }

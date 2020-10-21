@@ -453,6 +453,7 @@ export default {
 			parentname: "父任务", 
 			parent: "父任务", 
 			assignedto: "指派给", 
+			storyversion: "需求版本", 
 			type: "任务类型", 
 			status: "任务状态", 
 			pri: "优先级", 
