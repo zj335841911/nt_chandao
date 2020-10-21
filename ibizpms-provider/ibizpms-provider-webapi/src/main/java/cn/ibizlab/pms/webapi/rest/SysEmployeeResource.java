@@ -29,9 +29,9 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import cn.ibizlab.pms.webapi.dto.*;
 import cn.ibizlab.pms.webapi.mapping.*;
-import cn.ibizlab.pms.core.ou.domain.IBZEmployee;
-import cn.ibizlab.pms.core.ou.service.IIBZEmployeeService;
-import cn.ibizlab.pms.core.ou.filter.IBZEmployeeSearchContext;
+import cn.ibizlab.pms.core.ou.domain.SysEmployee;
+import cn.ibizlab.pms.core.ou.service.ISysEmployeeService;
+import cn.ibizlab.pms.core.ou.filter.SysEmployeeSearchContext;
 import cn.ibizlab.pms.util.annotation.VersionCheck;
 
 @Slf4j
@@ -41,7 +41,7 @@ import cn.ibizlab.pms.util.annotation.VersionCheck;
 public class SysEmployeeResource {
 
     @Autowired
-    public IIBZEmployeeService ibzemployeeService;
+    public ISysEmployeeService sysemployeeService;
 
     @Autowired
     @Lazy
@@ -50,8 +50,8 @@ public class SysEmployeeResource {
     @ApiOperation(value = "新建人员", tags = {"人员" },  notes = "新建人员")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysemployees")
     public ResponseEntity<SysEmployeeDTO> create(@Validated @RequestBody SysEmployeeDTO sysemployeedto) {
-        IBZEmployee domain = sysemployeeMapping.toDomain(sysemployeedto);
-		ibzemployeeService.create(domain);
+        SysEmployee domain = sysemployeeMapping.toDomain(sysemployeedto);
+		sysemployeeService.create(domain);
         SysEmployeeDTO dto = sysemployeeMapping.toDto(domain);
 		return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
@@ -59,16 +59,16 @@ public class SysEmployeeResource {
     @ApiOperation(value = "批量新建人员", tags = {"人员" },  notes = "批量新建人员")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysemployees/batch")
     public ResponseEntity<Boolean> createBatch(@RequestBody List<SysEmployeeDTO> sysemployeedtos) {
-        ibzemployeeService.createBatch(sysemployeeMapping.toDomain(sysemployeedtos));
+        sysemployeeService.createBatch(sysemployeeMapping.toDomain(sysemployeedtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
     @ApiOperation(value = "更新人员", tags = {"人员" },  notes = "更新人员")
 	@RequestMapping(method = RequestMethod.PUT, value = "/sysemployees/{sysemployee_id}")
     public ResponseEntity<SysEmployeeDTO> update(@PathVariable("sysemployee_id") String sysemployee_id, @RequestBody SysEmployeeDTO sysemployeedto) {
-		IBZEmployee domain  = sysemployeeMapping.toDomain(sysemployeedto);
+		SysEmployee domain  = sysemployeeMapping.toDomain(sysemployeedto);
         domain .setUserid(sysemployee_id);
-		ibzemployeeService.update(domain );
+		sysemployeeService.update(domain );
 		SysEmployeeDTO dto = sysemployeeMapping.toDto(domain );
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
@@ -76,27 +76,27 @@ public class SysEmployeeResource {
     @ApiOperation(value = "批量更新人员", tags = {"人员" },  notes = "批量更新人员")
 	@RequestMapping(method = RequestMethod.PUT, value = "/sysemployees/batch")
     public ResponseEntity<Boolean> updateBatch(@RequestBody List<SysEmployeeDTO> sysemployeedtos) {
-        ibzemployeeService.updateBatch(sysemployeeMapping.toDomain(sysemployeedtos));
+        sysemployeeService.updateBatch(sysemployeeMapping.toDomain(sysemployeedtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
     @ApiOperation(value = "删除人员", tags = {"人员" },  notes = "删除人员")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/sysemployees/{sysemployee_id}")
     public ResponseEntity<Boolean> remove(@PathVariable("sysemployee_id") String sysemployee_id) {
-         return ResponseEntity.status(HttpStatus.OK).body(ibzemployeeService.remove(sysemployee_id));
+         return ResponseEntity.status(HttpStatus.OK).body(sysemployeeService.remove(sysemployee_id));
     }
 
     @ApiOperation(value = "批量删除人员", tags = {"人员" },  notes = "批量删除人员")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/sysemployees/batch")
     public ResponseEntity<Boolean> removeBatch(@RequestBody List<String> ids) {
-        ibzemployeeService.removeBatch(ids);
+        sysemployeeService.removeBatch(ids);
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
     @ApiOperation(value = "获取人员", tags = {"人员" },  notes = "获取人员")
 	@RequestMapping(method = RequestMethod.GET, value = "/sysemployees/{sysemployee_id}")
     public ResponseEntity<SysEmployeeDTO> get(@PathVariable("sysemployee_id") String sysemployee_id) {
-        IBZEmployee domain = ibzemployeeService.get(sysemployee_id);
+        SysEmployee domain = sysemployeeService.get(sysemployee_id);
         SysEmployeeDTO dto = sysemployeeMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
@@ -104,32 +104,32 @@ public class SysEmployeeResource {
     @ApiOperation(value = "获取人员草稿", tags = {"人员" },  notes = "获取人员草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/sysemployees/getdraft")
     public ResponseEntity<SysEmployeeDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(sysemployeeMapping.toDto(ibzemployeeService.getDraft(new IBZEmployee())));
+        return ResponseEntity.status(HttpStatus.OK).body(sysemployeeMapping.toDto(sysemployeeService.getDraft(new SysEmployee())));
     }
 
     @ApiOperation(value = "检查人员", tags = {"人员" },  notes = "检查人员")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysemployees/checkkey")
     public ResponseEntity<Boolean> checkKey(@RequestBody SysEmployeeDTO sysemployeedto) {
-        return  ResponseEntity.status(HttpStatus.OK).body(ibzemployeeService.checkKey(sysemployeeMapping.toDomain(sysemployeedto)));
+        return  ResponseEntity.status(HttpStatus.OK).body(sysemployeeService.checkKey(sysemployeeMapping.toDomain(sysemployeedto)));
     }
 
     @ApiOperation(value = "保存人员", tags = {"人员" },  notes = "保存人员")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysemployees/save")
     public ResponseEntity<Boolean> save(@RequestBody SysEmployeeDTO sysemployeedto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzemployeeService.save(sysemployeeMapping.toDomain(sysemployeedto)));
+        return ResponseEntity.status(HttpStatus.OK).body(sysemployeeService.save(sysemployeeMapping.toDomain(sysemployeedto)));
     }
 
     @ApiOperation(value = "批量保存人员", tags = {"人员" },  notes = "批量保存人员")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysemployees/savebatch")
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<SysEmployeeDTO> sysemployeedtos) {
-        ibzemployeeService.saveBatch(sysemployeeMapping.toDomain(sysemployeedtos));
+        sysemployeeService.saveBatch(sysemployeeMapping.toDomain(sysemployeedtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
 	@ApiOperation(value = "获取数据集", tags = {"人员" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/sysemployees/fetchdefault")
-	public ResponseEntity<List<SysEmployeeDTO>> fetchDefault(IBZEmployeeSearchContext context) {
-        Page<IBZEmployee> domains = ibzemployeeService.searchDefault(context) ;
+	public ResponseEntity<List<SysEmployeeDTO>> fetchDefault(SysEmployeeSearchContext context) {
+        Page<SysEmployee> domains = sysemployeeService.searchDefault(context) ;
         List<SysEmployeeDTO> list = sysemployeeMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
@@ -140,8 +140,8 @@ public class SysEmployeeResource {
 
 	@ApiOperation(value = "查询数据集", tags = {"人员" } ,notes = "查询数据集")
     @RequestMapping(method= RequestMethod.POST , value="/sysemployees/searchdefault")
-	public ResponseEntity<Page<SysEmployeeDTO>> searchDefault(@RequestBody IBZEmployeeSearchContext context) {
-        Page<IBZEmployee> domains = ibzemployeeService.searchDefault(context) ;
+	public ResponseEntity<Page<SysEmployeeDTO>> searchDefault(@RequestBody SysEmployeeSearchContext context) {
+        Page<SysEmployee> domains = sysemployeeService.searchDefault(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

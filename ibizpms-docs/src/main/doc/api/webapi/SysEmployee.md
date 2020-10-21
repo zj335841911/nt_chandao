@@ -294,7 +294,7 @@ GET
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | context | [IBZEmployeeSearchContext](#IBZEmployeeSearchContext) | 待补充 |
+| 1 | context | [SysEmployeeSearchContext](#SysEmployeeSearchContext) | 待补充 |
 
 #### 返回值说明
 返回类型：ResponseEntity<List<[SysEmployeeDTO](#SysEmployeeDTO)>>
@@ -322,7 +322,7 @@ POST
 #### 参数说明
 | 序号 | 参数名 | 参数类型 | 说明 |
 | -- | -- | -- | -- |
-| 1 | context | [IBZEmployeeSearchContext](#IBZEmployeeSearchContext) | 待补充 |
+| 1 | context | [SysEmployeeSearchContext](#SysEmployeeSearchContext) | 待补充 |
 
 #### 返回值说明
 返回类型：ResponseEntity<Page<[SysEmployeeDTO](#SysEmployeeDTO)>>
@@ -354,7 +354,7 @@ POST
 待补充
 ```
 
-#### IBZEmployeeSearchContext
+#### SysEmployeeSearchContext
 - 说明
 | 序号 | 属性名 | 属性类型 | 默认值 | 说明 |
 | -- | -- | -- | -- | -- |

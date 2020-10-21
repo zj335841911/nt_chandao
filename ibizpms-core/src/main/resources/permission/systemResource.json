@@ -1169,7 +1169,7 @@
     "datascope":[{"id":"all","name":"全部数据"}, {"id":"createman","name":"创建人"}]
      }
     ,    {
-    "dename":"IBZEmployee",
+    "dename":"SysEmployee",
     "delogicname":"人员",
     "sysmoudle":{"id":"OU","name":"ou组织用户管理模块"},
     "dedataset":[{"id":"Default" , "name":"数据集"}],
