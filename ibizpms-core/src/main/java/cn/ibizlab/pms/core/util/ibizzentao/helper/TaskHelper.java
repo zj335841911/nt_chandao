@@ -1,8 +1,10 @@
 package cn.ibizlab.pms.core.util.ibizzentao.helper;
 
 import cn.ibizlab.pms.core.ibiz.domain.TaskTeam;
+import cn.ibizlab.pms.core.ibiz.service.impl.TaskTeamServiceImpl;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
+import cn.ibizlab.pms.core.util.zentao.helper.ZTTodoHelper;
 import cn.ibizlab.pms.core.zentao.domain.*;
 import cn.ibizlab.pms.core.zentao.mapper.TaskMapper;
 import cn.ibizlab.pms.core.zentao.service.IProjectService;
@@ -11,8 +13,12 @@ import cn.ibizlab.pms.core.zentao.service.ITaskService;
 import cn.ibizlab.pms.core.zentao.service.ITeamService;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
+import com.alibaba.druid.util.lang.Consumer;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import javafx.scene.shape.FillRule;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Component
 @Slf4j
@@ -146,39 +150,45 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             throw new RuntimeException("总计消耗必须大于之前消耗");
 
         if (et.getProject() != old.getProject()) {
-
+            Task data = new Task();
+            data.setProject(et.getProject());
+            data.setModule(et.getModule());
+            this.update(data,(Wrapper<Task>) data.getUpdateWrapper(true).eq("parent",et.getId()));
         }
         fileHelper.processImgURL(et, null, null);
 
         if (StringUtils.compare(multiple, "1") == 0) {
-
-            teamHelper.remove(new QueryWrapper<Team>().eq("root", et.getId()).eq("type", "task"));
+            String statusStr = "done,closed,cancel";
+            List<String> accounts = new ArrayList<>();
+            for (TaskTeam team : teams) {
+                accounts.add(team.getAccount());
+            }
+            if (!statusStr.contains(et.getStatus()) && !accounts.contains(et.getAssignedto())) throw new RuntimeException("当前状态的多人任务不能指派给任务团队以外的成员。");
             int i = 0;
             for (TaskTeam taskTeam : teams) {
-                Team team = new Team();
-                team.setType("task");
-                team.setRoot(et.getId());
-                team.setAccount(taskTeam.getAccount());
-                team.setJoin(ZTDateUtil.now());
-                team.setRole(et.getAssignedto());
-                team.setEstimate(taskTeam.getEstimate());
-                team.setConsumed(taskTeam.getConsumed());
-                team.setLeft(taskTeam.getLeft() != null ? taskTeam.getLeft() : team.getConsumed());
-                team.setOrder(i);
+//                Team team = new Team();
+                taskTeam.setType("task");
+                taskTeam.setRoot(et.getId());
+                taskTeam.setAccount(taskTeam.getAccount());
+                taskTeam.setJoin(ZTDateUtil.now());
+                taskTeam.setRole(et.getAssignedto());
+                taskTeam.setEstimate(taskTeam.getEstimate());
+                taskTeam.setConsumed(taskTeam.getConsumed());
+                taskTeam.setLeft(taskTeam.getLeft() != null ? taskTeam.getLeft() : taskTeam.getConsumed());
+                taskTeam.setOrder(i);
                 if (StringUtils.compare(et.getStatus(), "done") == 0)
-                    team.setLeft(0.0);
-//                teamHelper.create(team);
-
-                if (StringUtils.isNotBlank(et.getAssignedto())) {
-                    et.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
-                    et.setAssigneddate(ZTDateUtil.now());
-                }
+                    taskTeam.setLeft(0.0);
+//                if (StringUtils.isNotBlank(et.getAssignedto())) {
+//                    et.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
+//                    et.setAssigneddate(ZTDateUtil.now());
+//                }
                 i++;
             }
         }
 
+
         teamHelper.remove(new QueryWrapper<Team>().eq("root", et.getId()).eq("type", "task"));
-        if (teams != null){
+        if (StringUtils.compare(multiple,"1") == 0){
             for (TaskTeam team : teams) {
                 taskTeamHelper.create(team);
             }
@@ -187,6 +197,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 et.setAssignedto(teams.get(0).getAccount());
             }
         }
+
         if (!et.getStatus().equals("cancel") && (et.getName() == null || et.getType() == null)) throw new RuntimeException("非取消状态，任务名和类型不能为空！");
         if (et.getStatus().equals("wait") || et.getStatus().equals("doing")){
             et.setFinishedby("");
@@ -369,7 +380,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                     if (flag && left == 0 && !old.getFinishedlist().contains(login)) {
                         currentTask.setFinishedlist(old.getFinishedlist() + "," + login);
                     }
-                    if (old.getStatus().equals("done") || old.getStatus().equals("closed") && currentTask.getStatus().equals("doing") && old.getStatus() != null) {
+                    if ((old.getStatus().equals("done") || old.getStatus().equals("closed")) && currentTask.getStatus().equals("doing") && old.getStatus() != null) {
                         currentTask.setFinishedlist(old.getFinishedlist().substring(0, old.getFinishedlist().indexOf(old.getAssignedto())));
                     }
                 }
@@ -684,6 +695,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         et.setStatus("pause");
         this.internalUpdate(et);
+        if (old.getParent() > 0) this.updateParentStatus(et,et.getId(),true);
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create("task", et.getId(), "Paused",
@@ -743,6 +755,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         Task old =new Task();
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
+
         et.setLeft(0.0);
         et.setAssigneddate(ZTDateUtil.now());
         et.setStatus("doing");
@@ -753,8 +766,10 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         et.setClosedby("");
         et.setCloseddate(null);
         et.setClosedreason("");
+        et.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
+        et.setLastediteddate(ZTDateUtil.now());
         //team
-        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", et.getId()));
+        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", et.getId()).eq("type","task"));
         if (teams.size() > 0) {
             for (Team team : teams) {
                 if (StringUtils.compare(team.getAccount(), et.getAssignedto()) == 0) {
@@ -771,6 +786,13 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if (old.getParent() > 0)
             updateParentStatus(et, old.getParent(), true);
 
+        double left = et.getLeft();
+        et.setLeft(null);
+        if (old.getParent() == -1l) {
+            this.update(et,(Wrapper<Task>) et.getUpdateWrapper(true).eq("parent",et.getId()));
+            this.computeWorkingHours(et);
+        }
+        et.setLeft(left);
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create("task", et.getId(), "Activated",
@@ -815,27 +837,43 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         Task old =new Task();
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
+        et.setLeft(0d);
         et.setStatus("done");
         et.setAssignedto(old.getOpenedby());
         et.setAssigneddate(ZTDateUtil.now());
-        if (et.getFinisheddate() == null)
-            et.setFinisheddate(ZTDateUtil.now());
+        et.setFinisheddate(ZTDateUtil.now());
+        et.setLastediteddate(ZTDateUtil.now());
         et.setFinishedby(AuthenticationUser.getAuthenticationUser().getUsername());
+        et.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
 
 
+
+        double consumed = 0;
         //team
-        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", et.getId()));
+        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", et.getId()).eq("type","task"));
+        if (teams == null || teams.size() == 0){
+            consumed = et.getConsumed() - old.getConsumed();
+            if (consumed < 0) throw new RuntimeException("消耗必须小于原消耗");
+        }
+        else {
+            double consumed1 = 0d;
+            for (Team team : teams) {
+                if (team.getAccount().equals(AuthenticationUser.getAuthenticationUser().getUsername())) consumed1 = team.getConsumed();
+                consumed = et.getConsumed() - consumed1;
+                if (consumed < 0) throw new RuntimeException("消耗必须小于原消耗");
+            }
+        }
         //Task
         TaskEstimate taskEstimate = new TaskEstimate();
         taskEstimate.setTask(et.getId());
         taskEstimate.setAccount(AuthenticationUser.getAuthenticationUser().getUsername());
         taskEstimate.setDate(et.getFinisheddate());
         taskEstimate.setLeft(0.0);
-        taskEstimate.setConsumed(et.getConsumed());
+        taskEstimate.setConsumed(consumed);
 
         if (teams.size() > 0) {
             for (Team team : teams) {
-                if (StringUtils.compare(team.getAccount(), taskEstimate.getAccount()) == 0)
+                if (StringUtils.compare(team.getAccount(), taskEstimate.getAccount()) != 0)
                     taskEstimate.setLeft(taskEstimate.getLeft() + team.getLeft());
             }
             computeHours4Multiple(old, et, null, false);
