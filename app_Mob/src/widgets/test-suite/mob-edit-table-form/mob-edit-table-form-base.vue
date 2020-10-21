@@ -55,14 +55,10 @@
     :caption="$t('testsuite.mobedittable_form.details.desc')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.desc.disabled"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
-        <app-mob-textarea  
-    class="app-form-item-textarea" 
-        :value="data.desc" 
-    :disabled="detailsModel.desc.disabled" 
-    @change="($event)=>this.data.desc = $event" />
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""/>
+
 </app-form-item>
 
 
