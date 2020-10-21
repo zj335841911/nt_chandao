@@ -67,8 +67,33 @@ public interface SysEmployeeFeignClient {
 
 
 
+    @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/searchbuguser")
+    Page<SysEmployee> searchBugUser(@RequestBody SysEmployeeSearchContext context);
+
+
+
     @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/searchdefault")
     Page<SysEmployee> searchDefault(@RequestBody SysEmployeeSearchContext context);
+
+
+
+    @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/searchprojectteamm")
+    Page<SysEmployee> searchProjectTeamM(@RequestBody SysEmployeeSearchContext context);
+
+
+
+    @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/searchprojectteamuser")
+    Page<SysEmployee> searchProjectTeamUser(@RequestBody SysEmployeeSearchContext context);
+
+
+
+    @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/searchprojectteamuser_task")
+    Page<SysEmployee> searchProjectTeamUser_Task(@RequestBody SysEmployeeSearchContext context);
+
+
+
+    @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/searchtaskteam")
+    Page<SysEmployee> searchTaskTeam(@RequestBody SysEmployeeSearchContext context);
 
 
 }

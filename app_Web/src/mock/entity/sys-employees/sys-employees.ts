@@ -271,6 +271,50 @@ mock.onPost(new RegExp(/^\/sysemployees\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).repl
     return [status, data];
 });
     
+// FetchBugUser
+mock.onGet(new RegExp(/^\/sysemployees\/fetchbuguser$/)).reply((config: any) => {
+    console.groupCollapsed("实体:sysemployee 方法: FetchBugUser");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchBugUser
+mock.onGet(new RegExp(/^\/sysemployees\/fetchbuguser(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:sysemployee 方法: FetchBugUser");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
 // FetchDefault
 mock.onGet(new RegExp(/^\/sysemployees\/fetchdefault$/)).reply((config: any) => {
     console.groupCollapsed("实体:sysemployee 方法: FetchDefault");
@@ -289,6 +333,182 @@ mock.onGet(new RegExp(/^\/sysemployees\/fetchdefault$/)).reply((config: any) => 
 // FetchDefault
 mock.onGet(new RegExp(/^\/sysemployees\/fetchdefault(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
     console.groupCollapsed("实体:sysemployee 方法: FetchDefault");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
+// FetchProjectTeamM
+mock.onGet(new RegExp(/^\/sysemployees\/fetchprojectteamm$/)).reply((config: any) => {
+    console.groupCollapsed("实体:sysemployee 方法: FetchProjectTeamM");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchProjectTeamM
+mock.onGet(new RegExp(/^\/sysemployees\/fetchprojectteamm(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:sysemployee 方法: FetchProjectTeamM");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
+// FetchProjectTeamUser
+mock.onGet(new RegExp(/^\/sysemployees\/fetchprojectteamuser$/)).reply((config: any) => {
+    console.groupCollapsed("实体:sysemployee 方法: FetchProjectTeamUser");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchProjectTeamUser
+mock.onGet(new RegExp(/^\/sysemployees\/fetchprojectteamuser(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:sysemployee 方法: FetchProjectTeamUser");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
+// FetchProjectTeamUser_Task
+mock.onGet(new RegExp(/^\/sysemployees\/fetchprojectteamuser_task$/)).reply((config: any) => {
+    console.groupCollapsed("实体:sysemployee 方法: FetchProjectTeamUser_Task");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchProjectTeamUser_Task
+mock.onGet(new RegExp(/^\/sysemployees\/fetchprojectteamuser_task(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:sysemployee 方法: FetchProjectTeamUser_Task");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
+// FetchTaskTeam
+mock.onGet(new RegExp(/^\/sysemployees\/fetchtaskteam$/)).reply((config: any) => {
+    console.groupCollapsed("实体:sysemployee 方法: FetchTaskTeam");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchTaskTeam
+mock.onGet(new RegExp(/^\/sysemployees\/fetchtaskteam(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:sysemployee 方法: FetchTaskTeam");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];

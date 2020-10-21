@@ -172,6 +172,21 @@ export default class SysEmployeeServiceBase extends EntityService {
     }
 
     /**
+     * FetchBugUser接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async FetchBugUser(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/sysemployees/fetchbuguser`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -183,6 +198,66 @@ export default class SysEmployeeServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/sysemployees/fetchdefault`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchProjectTeamM接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async FetchProjectTeamM(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/sysemployees/fetchprojectteamm`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchProjectTeamUser接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async FetchProjectTeamUser(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/sysemployees/fetchprojectteamuser`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchProjectTeamUser_Task接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async FetchProjectTeamUser_Task(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/sysemployees/fetchprojectteamuser_task`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchTaskTeam接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysEmployeeServiceBase
+     */
+    public async FetchTaskTeam(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/sysemployees/fetchtaskteam`,tempData,isloading);
         return res;
     }
 }
