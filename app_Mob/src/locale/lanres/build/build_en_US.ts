@@ -104,7 +104,7 @@ export default {
 	},
 	mobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {
-			caption: 'New',
+			caption: '创建版本',
 			tip: 'deuiaction1',
 		},
 	},

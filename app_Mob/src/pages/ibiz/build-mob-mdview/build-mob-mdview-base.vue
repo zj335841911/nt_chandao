@@ -329,7 +329,7 @@ export default class BuildMobMDViewBase extends Vue {
     * @memberof BuildMobMDView
     */
     public righttoolbarModels: any = {
-            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', uiaction: { tag: 'New', target: '' } },
+            deuiaction1: { name: 'deuiaction1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUILD_CREATE_BUT', uiaction: { tag: 'mob', target: 'NONE' } },
 
     };
 
@@ -629,7 +629,10 @@ export default class BuildMobMDViewBase extends Vue {
             datas = [...xData.getDatas()];
         }
         // 界面行为
-        this.globaluiservice.New(datas, contextJO, paramJO, $event, xData, this);
+        const curUIService: any = await this.globaluiservice.getService('build_ui_action');
+        if (curUIService) {
+            curUIService.Build_mob(datas, contextJO, paramJO, $event, xData, this);
+        }
     }
 
     /**
