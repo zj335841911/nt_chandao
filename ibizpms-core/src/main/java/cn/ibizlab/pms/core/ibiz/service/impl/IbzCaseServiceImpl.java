@@ -61,14 +61,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
         @Override
     @Transactional
     public boolean create(IbzCase et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes()); 
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTIbzCaseHelper.create(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "create"), rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-        et.set("ztrst", rst);
-        return bRst;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzCaseHelper.class).create(et);
     }
 
     @Override
@@ -78,14 +71,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
         @Override
     @Transactional
     public boolean update(IbzCase et) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTIbzCaseHelper.edit(zentaoSid, cn.ibizlab.pms.core.util.zentao.helper.TransHelper.ET2JO(et, "update"), rst);
-        if (bRst && rst.getEtId() != null) {
-            et = this.get(rst.getEtId());
-        }
-        et.set("ztrst", rst);
-        return bRst;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzCaseHelper.class).edit(et);
     }
 
     @Override
@@ -95,12 +81,7 @@ public class IbzCaseServiceImpl extends ServiceImpl<IbzCaseMapper, IbzCase> impl
         @Override
     @Transactional
     public boolean remove(Long key) {
-        String zentaoSid = org.springframework.util.DigestUtils.md5DigestAsHex(cn.ibizlab.pms.core.util.zentao.helper.TokenHelper.getRequestToken().getBytes());
-        cn.ibizlab.pms.core.util.zentao.bean.ZTResult rst = new cn.ibizlab.pms.core.util.zentao.bean.ZTResult();
-        IbzCase et = this.get(key);
-        boolean bRst = cn.ibizlab.pms.core.util.zentao.helper.ZTIbzCaseHelper.delete(zentaoSid, (JSONObject) JSONObject.toJSON(et), rst);
-        et.set("ztrst", rst);
-        return bRst;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.IbzCaseHelper.class).delete(key);
     }
 
     @Override

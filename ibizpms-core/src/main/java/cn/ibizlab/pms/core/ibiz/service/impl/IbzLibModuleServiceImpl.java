@@ -55,6 +55,10 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.IIbzLibService ibzlibService;
 
+    @Autowired
+    @Lazy
+    protected cn.ibizlab.pms.core.ibiz.service.logic.IIbzLibModuleFixPathLogic fixpathLogic;
+
     protected int batchSize = 500;
 
     @Override
@@ -64,6 +68,7 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
         if(!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
+        fixpathLogic.execute(et);
         return true;
     }
 
@@ -80,6 +85,7 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
         if(!update(et,(Wrapper) et.getUpdateWrapper(true).eq("id",et.getId())))
             return false;
         CachedBeanCopier.copy(get(et.getId()),et);
+        fixpathLogic.execute(et);
         return true;
     }
 

@@ -2564,10 +2564,10 @@
         <!--输出实体[IBZPRO_SYSTEM]外键关系 -->
         <!--输出实体[IBZ_LOGIN]外键关系 -->
         <!--输出实体[IBZ_CASE]外键关系 -->
-    <changeSet author="zentao" id="fk-ibz_case-190-145">
+    <changeSet author="zentao" id="fk-ibz_case-193-145">
        <addForeignKeyConstraint baseColumnNames="MODULE" baseTableName="zt_case" constraintName="DER1N_IBZ_CASE_IBZ_LIBMODULE_M" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_module" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-ibz_case-190-146">
+    <changeSet author="zentao" id="fk-ibz_case-193-146">
        <addForeignKeyConstraint baseColumnNames="LIB" baseTableName="zt_case" constraintName="DER1N_IBZ_CASE_IBZ_LIB_LIB" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_testsuite" validate="true"/>
     </changeSet>
         <!--输出实体[IBZ_FAVORITES]外键关系 -->
@@ -2581,10 +2581,10 @@
        <addForeignKeyConstraint baseColumnNames="PARENT" baseTableName="zt_casestep" constraintName="DER1N_IBZ_LIBCASESTEPS_IBZ_LIB" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_casestep" validate="true"/>
     </changeSet>
         <!--输出实体[IBZ_LIBMODULE]外键关系 -->
-    <changeSet author="zentao" id="fk-ibz_libmodule-106-149">
+    <changeSet author="zentao" id="fk-ibz_libmodule-108-149">
        <addForeignKeyConstraint baseColumnNames="PARENT" baseTableName="zt_module" constraintName="DER1N_IBZ_LIBMODULE_IBZ_LIBMOD" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_module" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-ibz_libmodule-106-150">
+    <changeSet author="zentao" id="fk-ibz_libmodule-108-150">
        <addForeignKeyConstraint baseColumnNames="ROOT" baseTableName="zt_module" constraintName="DER1N_IBZ_LIBMODULE_IBZ_LIB_RO" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_testsuite" validate="true"/>
     </changeSet>
         <!--输出实体[IBZ_MYTERRITORY]外键关系 -->
