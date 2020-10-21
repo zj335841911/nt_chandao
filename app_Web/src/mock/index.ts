@@ -27,6 +27,7 @@ import './entity/story-specs/story-specs';
 import './entity/user-tpls/user-tpls';
 import './entity/ibz-favoritess/ibz-favoritess';
 import './entity/branchs/branchs';
+import './entity/sys-departments/sys-departments';
 import './entity/product-statss/product-statss';
 import './entity/ibz-project-members/ibz-project-members';
 import './entity/actions/actions';

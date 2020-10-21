@@ -5788,7 +5788,7 @@ mock.onGet('./assets/json/data-dictionary.json').reply((config: any) => {
         "srfkey": "RealDept",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"Dept",
+        "appdataentity":"SysDepartment",
         "appdedataset":"FetchDefault",
         "items": []
     },

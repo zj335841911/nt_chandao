@@ -20,6 +20,7 @@ import storyspec_en_US from '@locale/lanres/entities/story-spec/story-spec_en_US
 import usertpl_en_US from '@locale/lanres/entities/user-tpl/user-tpl_en_US';
 import ibzfavorites_en_US from '@locale/lanres/entities/ibz-favorites/ibz-favorites_en_US';
 import branch_en_US from '@locale/lanres/entities/branch/branch_en_US';
+import sysdepartment_en_US from '@locale/lanres/entities/sys-department/sys-department_en_US';
 import productstats_en_US from '@locale/lanres/entities/product-stats/product-stats_en_US';
 import ibzprojectmember_en_US from '@locale/lanres/entities/ibz-project-member/ibz-project-member_en_US';
 import action_en_US from '@locale/lanres/entities/action/action_en_US';
@@ -348,6 +349,7 @@ const data: any = {
         usertpl: usertpl_en_US,
         ibzfavorites: ibzfavorites_en_US,
         branch: branch_en_US,
+        sysdepartment: sysdepartment_en_US,
         productstats: productstats_en_US,
         ibzprojectmember: ibzprojectmember_en_US,
         action: action_en_US,

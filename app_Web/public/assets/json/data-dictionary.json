@@ -6279,7 +6279,7 @@
         "srfkey": "RealDept",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"Dept",
+        "appdataentity":"SysDepartment",
         "appdedataset":"FetchDefault",
         "items": []
     }, 

@@ -87,6 +87,10 @@ zuul:
       path: /branches/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    sys_dept:
+      path: /sysdepartments/**
+      serviceId: ${ibiz.ref.service.ibzou-api:ibzou-api}
+      stripPrefix: false
     ibz_productstats:
       path: /productstats/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

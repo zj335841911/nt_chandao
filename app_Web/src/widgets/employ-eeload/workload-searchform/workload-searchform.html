@@ -14,8 +14,8 @@
               :data="data"
               :context="context"
               :viewparams="viewparams"
-              :localContext ='{ }' 
-              :localParam ='{ }' 
+              :localContext ='{ N_ORGID_EQ:"%srforgid%" }' 
+              :localParam ='{ n_orgid_eq:"%srforgid%" }' 
               :disabled="detailsModel.dept.disabled"
               tag='RealDept'
               codelistType='DYNAMIC'
@@ -32,14 +32,14 @@
           </app-form-item>
           
           </i-col>
-          <i-col class="form-layout-container" v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 3, offset: 3 }" :xl="{ span: 3, offset: 2 }">
+          <i-col class="form-layout-container" v-show="detailsModel.end.visible" :style="{}"  :lg="{ span: 3, offset: 1 }" :xl="{ span: 3, offset: 1 }">
               <app-form-item name='end' :itemRules="this.rules.end" class='' :caption="$t('entities.employeeload.workload_searchform.details.end')" uiStyle="DEFAULT" :labelWidth="30" :isShowCaption="true" :error="detailsModel.end.error" :isEmptyCaption="false" labelPos="LEFT">
               <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.end" :disabled="detailsModel.end.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.end = val1 }"></date-picker>
           
           </app-form-item>
           
           </i-col>
-          <i-col class="form-layout-container" v-show="detailsModel.workday.visible" :style="{}"  :lg="{ span: 3, offset: 0 }" :xl="{ span: 3, offset: 2 }">
+          <i-col class="form-layout-container" v-show="detailsModel.workday.visible" :style="{}"  :lg="{ span: 3, offset: 0 }" :xl="{ span: 4, offset: 1 }">
               <app-form-item name='workday' :itemRules="this.rules.workday" class='' :caption="$t('entities.employeeload.workload_searchform.details.workday')" uiStyle="DEFAULT" :labelWidth="60" :isShowCaption="true" :error="detailsModel.workday.error" :isEmptyCaption="false" labelPos="LEFT">
               <input-box 
             v-model="data.workday"  
@@ -54,7 +54,7 @@
           </app-form-item>
           
           </i-col>
-          <i-col class="form-layout-container" v-show="detailsModel.everydaytime.visible" :style="{}"  :lg="{ span: 3, offset: 5 }" :xl="{ span: 3, offset: 1 }">
+          <i-col class="form-layout-container" v-show="detailsModel.everydaytime.visible" :style="{}"  :lg="{ span: 3, offset: 5 }" :xl="{ span: 4, offset: 0 }">
               <app-form-item name='everydaytime' :itemRules="this.rules.everydaytime" class='' :caption="$t('entities.employeeload.workload_searchform.details.everydaytime')" uiStyle="DEFAULT" :labelWidth="60" :isShowCaption="true" :error="detailsModel.everydaytime.error" :isEmptyCaption="false" labelPos="LEFT">
               <input-box 
             v-model="data.everydaytime"  

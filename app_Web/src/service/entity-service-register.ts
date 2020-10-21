@@ -59,6 +59,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('usertpl', () => import('@/service/user-tpl/user-tpl-service'));
         this.allEntityService.set('ibzfavorites', () => import('@/service/ibz-favorites/ibz-favorites-service'));
         this.allEntityService.set('branch', () => import('@/service/branch/branch-service'));
+        this.allEntityService.set('sysdepartment', () => import('@/service/sys-department/sys-department-service'));
         this.allEntityService.set('productstats', () => import('@/service/product-stats/product-stats-service'));
         this.allEntityService.set('ibzprojectmember', () => import('@/service/ibz-project-member/ibz-project-member-service'));
         this.allEntityService.set('action', () => import('@/service/action/action-service'));

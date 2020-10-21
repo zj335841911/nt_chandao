@@ -640,7 +640,7 @@
 
 
     <!--输出实体[IBZ_EMPLOYEELOAD]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_employeeload-79-19">
+    <changeSet author="zentao" id="tab-ibz_employeeload-81-19">
         <createTable tableName="ZT_TASK">
                 <column name="ID" remarks="" type="BIGINT">
                     <constraints primaryKey="true" primaryKeyName="PK_IBZ_EMPLOYEELOAD_ID"/>
@@ -1952,6 +1952,8 @@
 
 
 
+
+
     <!--输出实体[ZT_TASK]数据结构 -->
     <changeSet author="zentao" id="tab-zt_task-1584-79">
         <createTable tableName="zt_task">
@@ -2530,7 +2532,7 @@
     </changeSet>
         <!--输出实体[DYNADASHBOARD]外键关系 -->
         <!--输出实体[IBZ_EMPLOYEELOAD]外键关系 -->
-    <changeSet author="zentao" id="fk-ibz_employeeload-79-138">
+    <changeSet author="zentao" id="fk-ibz_employeeload-81-138">
        <addForeignKeyConstraint baseColumnNames="PROJECT" baseTableName="ZT_TASK" constraintName="DER1N_IBZ_EMPLOYEELOAD_ZT_PROJ" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_EFFORT]外键关系 -->
