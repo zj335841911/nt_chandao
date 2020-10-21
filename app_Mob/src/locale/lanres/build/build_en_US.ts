@@ -103,6 +103,10 @@ export default {
 		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: 'New',
+			tip: 'deuiaction1',
+		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 	},

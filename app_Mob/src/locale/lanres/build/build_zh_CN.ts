@@ -103,6 +103,10 @@ export default {
 		},
 	},
 	mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '创建版本',
+			tip: '创建版本',
+		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 	},
