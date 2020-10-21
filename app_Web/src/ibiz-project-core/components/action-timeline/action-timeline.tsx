@@ -112,6 +112,9 @@ export class ActionTimeline extends Vue {
      * @memberof ActionTimeline
      */
     protected formatData(items: any[]): void {
+        if(this.dayMap.size > 0) {
+            this.dayMap.clear();
+        }
         if (items) {
             this.$items = [];
             // 日期临时计算数据，key为日期：2020-02-20
@@ -216,9 +219,12 @@ export class ActionTimeline extends Vue {
      */
     protected renderGroupMode(): any {
         const items: any[] = [];
+        console.log(this.dayMap);
         this.dayMap.forEach((item, key) => {
             items.push(this.renderGroupItem(key, item));
         });
+        console.log(items);
+        
         return <div class="action-timeline-group-wrapper">
             {items}
         </div>;

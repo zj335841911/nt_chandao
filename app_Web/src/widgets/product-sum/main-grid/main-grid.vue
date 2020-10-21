@@ -196,6 +196,8 @@ export default class MainGrid extends MainGridBase {
             // 排序并合并设置合并行规则
             this.listSort();
             this.setRowSpanRule();
+            //  产品负责人行合并
+            this.setRowPoSpanRule();
         }
     }
 
@@ -220,10 +222,25 @@ export default class MainGrid extends MainGridBase {
         this.itemsRenderList.forEach((item:any) => {
             let firstIndex:number = this.itemsRenderList.findIndex((curr:any) => {return curr.name === item.name;});
             if (tempArray.findIndex((curr:any) => {return curr.firstIndex === firstIndex}) === -1) {
-                tempArray.push({length:this.itemsRenderList.filter((curr:any) => {return curr.name === item.name}).length,firstIndex:firstIndex})
+                tempArray.push({length:this.itemsRenderList.filter((curr:any) => {return curr.name === item.name}).length,firstIndex:firstIndex,mergeIndex: 1});
             }
-        })
+        });
         this.infoList = [...tempArray];
+    }
+
+    /**
+     * 产品负责人行合并
+     * @memberof MainGrid
+     */
+    public setRowPoSpanRule() {
+        let tempArray:Array<any> = [];
+        this.itemsRenderList.forEach((item:any) => {
+            let firstIndex: number = this.itemsRenderList.findIndex((curr: any) => {return curr.name === item.name && curr.po === item.po;});
+            if (tempArray.findIndex((curr:any) => {return curr.firstIndex === firstIndex}) === -1) {
+                tempArray.push({length:this.itemsRenderList.filter((curr:any) => {return curr.name === item.name && curr.po === item.po}).length,firstIndex:firstIndex,mergeIndex: 2});
+            }
+        });
+        this.infoList = this.infoList.concat(tempArray);
     }
 
     /**
@@ -234,6 +251,22 @@ export default class MainGrid extends MainGridBase {
         if (columnIndex === 0) {
             let index = this.infoList.findIndex((item:any) => {
                 return item.firstIndex === rowIndex;
+            })
+            if (index > -1) {
+                return {
+                    rowspan: this.infoList[index].length,
+                    colspan: 1
+                }
+            } else {
+                return {
+                    rowspan: 0,
+                    colspan: 0
+                }
+            }
+        }
+        if(columnIndex === 1) {
+            let index = this.infoList.findIndex((item: any) => {
+                return item.firstIndex === rowIndex && item.mergeIndex === 2;
             })
             if (index > -1) {
                 return {

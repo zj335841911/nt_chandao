@@ -16,6 +16,7 @@ module.exports = {
         compress: true,
         disableHostCheck: true,
         // proxy: "http://127.0.0.1:8080/Web",
+        proxy: "http://ibizpmspc.ibizlab.cn/",
     },
     pages: {
         index: {
