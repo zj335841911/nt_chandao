@@ -23,7 +23,11 @@
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 23, offset: 1 }">
     <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.ibzlib.desc_form.details.desc')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="TOP">
-    <html-container :content="data.desc"></html-container>
+    
+<app-span name='desc' :value="data.desc" dataType="LONGTEXT"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
+</app-span>
+
 </app-form-item>
 
 </i-col>

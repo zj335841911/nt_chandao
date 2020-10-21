@@ -1078,7 +1078,7 @@
 
 
     <!--输出实体[IBZ_LIB]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_lib-101-35">
+    <changeSet author="zentao" id="tab-ibz_lib-111-35">
         <createTable tableName="zt_testsuite">
                 <column name="DESC" remarks="" type="TEXT(65535)">
                 </column>
@@ -2566,10 +2566,10 @@
         <!--输出实体[IBZPRO_SYSTEM]外键关系 -->
         <!--输出实体[IBZ_LOGIN]外键关系 -->
         <!--输出实体[IBZ_CASE]外键关系 -->
-    <changeSet author="zentao" id="fk-ibz_case-193-145">
+    <changeSet author="zentao" id="fk-ibz_case-196-145">
        <addForeignKeyConstraint baseColumnNames="MODULE" baseTableName="zt_case" constraintName="DER1N_IBZ_CASE_IBZ_LIBMODULE_M" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_module" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-ibz_case-193-146">
+    <changeSet author="zentao" id="fk-ibz_case-196-146">
        <addForeignKeyConstraint baseColumnNames="LIB" baseTableName="zt_case" constraintName="DER1N_IBZ_CASE_IBZ_LIB_LIB" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_testsuite" validate="true"/>
     </changeSet>
         <!--输出实体[IBZ_FAVORITES]外键关系 -->
