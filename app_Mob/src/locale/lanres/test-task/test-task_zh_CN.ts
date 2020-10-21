@@ -28,6 +28,9 @@ export default {
 		mobmdview: {
 			caption: '测试版本',
 		},
+		newmobeditview: {
+			caption: '测试版本',
+		},
 	},
 	mobmain_form: {
 		details: {
@@ -62,7 +65,17 @@ export default {
 		uiactions: {
 		},
 	},
+	newmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
+	},
 	mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: '创建测试版本',
+			tip: '创建测试版本',
+		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
 	},

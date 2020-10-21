@@ -418,6 +418,56 @@ const router = new Router({
                     component: () => import('@pages/ibiz/product-mob-pickup-view/product-mob-pickup-view.vue'),
                 },
                 {
+                    path: 'projects/:project?/testtasks/:testtask?/newmobeditview',
+                    name: 'testtask_newmobeditview',
+                    meta: {
+                        caption: 'testtask.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/test-task-new-mob-edit-view/test-task-new-mob-edit-view.vue'),
+                },
+                {
+                    path: 'products/:product?/testtasks/:testtask?/newmobeditview',
+                    name: 'testtask_newmobeditview',
+                    meta: {
+                        caption: 'testtask.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/test-task-new-mob-edit-view/test-task-new-mob-edit-view.vue'),
+                },
+                {
+                    path: 'testtasks/:testtask?/newmobeditview',
+                    name: 'testtask_newmobeditview',
+                    meta: {
+                        caption: 'testtask.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-clipboard',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'testtasks', parameterName: 'testtask' },
+                            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/test-task-new-mob-edit-view/test-task-new-mob-edit-view.vue'),
+                },
+                {
                     path: 'actions/:action?/mobmdview9',
                     name: 'action_mobmdview9',
                     meta: {

@@ -27,6 +27,7 @@ export default class GlobalUiServiceConstructor extends ServiceConstructorBase {
         this.allService.set('story_ui_action', () => import('@/ui-service/story/story-ui-action'));
         this.allService.set('productplan_ui_action', () => import('@/ui-service/product-plan/product-plan-ui-action'));
         this.allService.set('bug_ui_action', () => import('@/ui-service/bug/bug-ui-action'));
+        this.allService.set('testtask_ui_action', () => import('@/ui-service/test-task/test-task-ui-action'));
     }
 
 }

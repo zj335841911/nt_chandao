@@ -9,6 +9,7 @@ export const PageComponents = {
         Vue.component('todo-new-mob-edit-view', () => import('@pages/ibiz/todo-new-mob-edit-view/todo-new-mob-edit-view.vue'));
         Vue.component('user-mob-pickup-mdview', () => import('@pages/ibiz/user-mob-pickup-mdview/user-mob-pickup-mdview.vue'));
         Vue.component('product-mob-pickup-view', () => import('@pages/ibiz/product-mob-pickup-view/product-mob-pickup-view.vue'));
+        Vue.component('test-task-new-mob-edit-view', () => import('@pages/ibiz/test-task-new-mob-edit-view/test-task-new-mob-edit-view.vue'));
         Vue.component('action-mob-mdview9', () => import('@pages/ibiz/action-mob-mdview9/action-mob-mdview9.vue'));
         Vue.component('build-mob-edit-view', () => import('@pages/ibiz/build-mob-edit-view/build-mob-edit-view.vue'));
         Vue.component('case-mob-edit-view', () => import('@pages/ibiz/case-mob-edit-view/case-mob-edit-view.vue'));

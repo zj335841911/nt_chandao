@@ -1331,6 +1331,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'e4b3ed76cdeea1217bbbe1b2098da73c',
                 '85742d38f356f400b16652a3f7ae714b',
                 '9576fe405a243332b6f648c8d0632e88',
             ],
@@ -1346,6 +1347,15 @@ export const viewstate: any = {
                 'fc2f8f2e45b4fb4f22e7e77d4e57a16c',
                 '5040c252f88202ad31af8159bc03524a',
                 'b5a98ab9e5bc86d5b61c77273225f276',
+            ],
+        },
+        {
+            viewtag: 'e4b3ed76cdeea1217bbbe1b2098da73c',
+            viewmodule: 'ibiz',
+            viewname: 'TestTaskNewMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {
