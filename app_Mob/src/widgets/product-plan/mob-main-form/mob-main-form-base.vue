@@ -18,6 +18,33 @@
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
+    name='branch' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="branch_item"  
+    :itemValue="this.data.branch" 
+    v-show="detailsModel.branch.visible" 
+    :itemRules="this.rules.branch" 
+    :caption="$t('productplan.mobmain_form.details.branch')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :disabled="detailsModel.branch.disabled"
+    :error="detailsModel.branch.error" 
+    :isEmptyCaption="false">
+        <app-mob-span  
+        codeListType="DYNAMIC" 
+    tag="ProductBranch_Cache"
+    :isCache="false" 
+    v-if="data.branch" 
+    :context="context" 
+    :value="data.branch" 
+    :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
     name='title' 
     class='' 
     uiStyle="DEFAULT"  
@@ -109,6 +136,26 @@
     :context="context" 
     :value="data.storycnt" 
     :itemParam="{}"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='desc' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="desc_item"  
+    :itemValue="this.data.desc" 
+    v-show="detailsModel.desc.visible" 
+    :itemRules="this.rules.desc" 
+    :caption="$t('productplan.mobmain_form.details.desc')"  
+    :labelWidth="130"  
+    :isShowCaption="true"
+    :error="detailsModel.desc.error" 
+    :isEmptyCaption="false">
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""/>
+
 </app-form-item>
 
 
@@ -548,10 +595,12 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
+        branch: null,
         title: null,
         begin: null,
         end: null,
         storycnt: null,
+        desc: null,
         bugcnt: null,
         id: null,
         productplan: null,
@@ -711,6 +760,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        branch: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         title: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'title', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         begin: new FormItemModel({ caption: '开始日期', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -718,6 +769,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         storycnt: new FormItemModel({ caption: '需求数', detailType: 'FORMITEM', name: 'storycnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         bugcnt: new FormItemModel({ caption: 'bug数', detailType: 'FORMITEM', name: 'bugcnt', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -810,6 +863,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 branch 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.branch')
+    onBranchChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'branch', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 title 值
      *
      * @param {*} newVal
@@ -855,6 +920,18 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.storycnt')
     onStorycntChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'storycnt', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 desc 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.desc')
+    onDescChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -952,6 +1029,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
             }
             this.detailsModel.grouppanel2.setVisible(ret);
         }
+
+
 
 
 

@@ -174,6 +174,14 @@ const datas: Array<any> = [
         ]
     },
     {
+        "srfkey": "ProductBranch_Cache",
+        "emptytext": "未定义",
+        "codelisttype":"dynamic",
+        "appdataentity":"Branch",
+        "appdedataset":"FetchCurProduct",
+        "items": []
+    },
+    {
         srfkey: 'Casestep__type',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -731,8 +739,8 @@ const datas: Array<any> = [
         "srfkey": "UserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"User",
-        "appdedataset":"FetchDefault",
+        "appdataentity":"",
+        "appdedataset":"",
         "items": []
     },
     {

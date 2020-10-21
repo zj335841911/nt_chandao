@@ -93,6 +93,7 @@ export default class BuildUIActionBase extends EntityUIActionBase {
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'builds'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'builds'});
         this.allViewMap.set('MOBPICKUPVIEW:',{viewname:'mobpickupview',srfappde:'builds'});
+        this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'builds'});
         this.allViewMap.set('MOBMPICKUPVIEW:',{viewname:'mobmpickupview',srfappde:'builds'});
     }
 

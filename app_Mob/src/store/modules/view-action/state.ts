@@ -703,6 +703,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
             ],
         },
         {
@@ -935,6 +936,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '99e39da3cdfea07b8886a4dd13680b02',
+            viewmodule: 'ibiz',
+            viewname: 'BuildNewMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '61b907edfc7822d020b6b2c2246ee8e0',
+            ],
+        },
+        {
             viewtag: '99f684f22f1b774d72964f4419f16d8d',
             viewmodule: 'ibiz',
             viewname: 'TaskTeamMobEditView9',
@@ -1052,6 +1063,15 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '99f684f22f1b774d72964f4419f16d8d',
+            ],
+        },
+        {
+            viewtag: 'b52bf86837838dcfd5b787fad0350f22',
+            viewmodule: 'zentao',
+            viewname: 'FileMobMDView9',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
             ],
         },
         {

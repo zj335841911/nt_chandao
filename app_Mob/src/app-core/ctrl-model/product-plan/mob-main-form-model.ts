@@ -46,6 +46,11 @@ export class MobMainModel {
                 name: 'srfsourcekey',
             },
             {
+                name: 'branch',
+                prop: 'branch',
+                dataType: 'PICKUP',
+            },
+            {
                 name: 'title',
                 prop: 'title',
                 dataType: 'TEXT',
@@ -64,6 +69,11 @@ export class MobMainModel {
                 name: 'storycnt',
                 prop: 'storycnt',
                 dataType: 'INT',
+            },
+            {
+                name: 'desc',
+                prop: 'desc',
+                dataType: 'LONGTEXT',
             },
             {
                 name: 'bugcnt',

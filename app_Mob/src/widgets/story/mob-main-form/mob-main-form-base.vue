@@ -42,24 +42,27 @@
 
 
 <app-form-item 
-    name='branchname' 
+    name='branch' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="branchname_item"  
-    :itemValue="this.data.branchname" 
-    v-show="detailsModel.branchname.visible" 
-    :itemRules="this.rules.branchname" 
-    :caption="$t('story.mobmain_form.details.branchname')"  
+    ref="branch_item"  
+    :itemValue="this.data.branch" 
+    v-show="detailsModel.branch.visible" 
+    :itemRules="this.rules.branch" 
+    :caption="$t('story.mobmain_form.details.branch')"  
     :labelWidth="130"  
     :isShowCaption="true"
-    :disabled="detailsModel.branchname.disabled"
-    :error="detailsModel.branchname.error" 
+    :disabled="detailsModel.branch.disabled"
+    :error="detailsModel.branch.error" 
     :isEmptyCaption="false">
         <app-mob-span  
-        v-if="data.branchname" 
+        codeListType="DYNAMIC" 
+    tag="ProductBranch_Cache"
+    :isCache="false" 
+    v-if="data.branch" 
     :context="context" 
-    :value="data.branchname" 
+    :value="data.branch" 
     :itemParam="{}"/>
 </app-form-item>
 
@@ -859,6 +862,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         prodoctname: null,
+        branch: null,
+        product: null,
         branchname: null,
         modulename1: null,
         title: null,
@@ -1035,6 +1040,10 @@ export default class MobMainBase extends Vue implements ControlInterface {
 , 
         prodoctname: new FormItemModel({ caption: '产品名称', detailType: 'FORMITEM', name: 'prodoctname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        branch: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branch', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         branchname: new FormItemModel({ caption: '平台/分支', detailType: 'FORMITEM', name: 'branchname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         modulename1: new FormItemModel({ caption: '所属模块名称', detailType: 'FORMITEM', name: 'modulename1', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
@@ -1181,6 +1190,30 @@ export default class MobMainBase extends Vue implements ControlInterface {
     @Watch('data.prodoctname')
     onProdoctnameChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'prodoctname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 branch 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.branch')
+    onBranchChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'branch', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 product 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobMain
+     */
+    @Watch('data.product')
+    onProductChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -1447,6 +1480,8 @@ export default class MobMainBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
 
 
 

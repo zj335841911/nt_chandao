@@ -275,6 +275,8 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			prodoctname: '产品名称', 
+			branch: '平台/分支', 
+			product: '所属产品', 
 			branchname: '平台/分支', 
 			modulename1: '所属模块名称', 
 			title: '需求名称', 

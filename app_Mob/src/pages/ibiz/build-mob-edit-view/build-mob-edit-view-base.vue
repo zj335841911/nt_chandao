@@ -172,7 +172,7 @@ export default class BuildMobEditViewBase extends Vue {
      * @type {*}
      * @memberof BuildMobEditViewBase
      */
-    protected navContext: any = {};
+    protected navContext: any = { 'objecttype': 'build', 'srfparentkey': '%build%' };
 
     /**
      * 视图导航参数
@@ -181,7 +181,7 @@ export default class BuildMobEditViewBase extends Vue {
      * @type {*}
      * @memberof BuildMobEditViewBase
      */
-    protected navParam: any = {};
+    protected navParam: any = { 'srfparentkey': '%build%', 'objecttype': 'build' };
 
     /**
      * 视图模型数据

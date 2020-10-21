@@ -366,7 +366,7 @@
     name='spec' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
+    labelPos="LEFT" 
     ref="spec_item"  
     :itemValue="this.data.spec" 
     v-show="detailsModel.spec.visible" 
@@ -386,7 +386,7 @@
     name='verify' 
     class='' 
     uiStyle="DEFAULT"  
-    labelPos="TOP" 
+    labelPos="LEFT" 
     ref="verify_item"  
     :itemValue="this.data.verify" 
     v-show="detailsModel.verify.visible" 

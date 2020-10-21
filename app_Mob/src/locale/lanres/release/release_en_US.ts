@@ -61,6 +61,7 @@ export default {
 			buildname: '版本', 
 			date: '发布日期', 
 			desc: '描述', 
+			files: '附件', 
 			id: 'ID', 
 		},
 		uiactions: {
