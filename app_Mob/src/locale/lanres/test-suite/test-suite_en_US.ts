@@ -35,11 +35,8 @@ export default {
 			srfdeid: '', 
 			srfsourcekey: '', 
 			name: '名称', 
+			desc: '描述', 
 			type: '类型', 
-			addedby: '由谁创建', 
-			addeddate: '创建时间', 
-			lasteditedby: '最后编辑人', 
-			lastediteddate: '最后编辑时间', 
 			id: '编号', 
 		},
 		uiactions: {

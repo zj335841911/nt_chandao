@@ -44,6 +44,30 @@
 
 
 <app-form-item 
+    name='desc' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="desc_item"  
+    :itemValue="this.data.desc" 
+    v-show="detailsModel.desc.visible" 
+    :itemRules="this.rules.desc" 
+    :caption="$t('testsuite.mobedittable_form.details.desc')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.desc.disabled"
+    :error="detailsModel.desc.error" 
+    :isEmptyCaption="false">
+        <app-mob-textarea  
+    class="app-form-item-textarea" 
+        :value="data.desc" 
+    :disabled="detailsModel.desc.disabled" 
+    @change="($event)=>this.data.desc = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
     name='type' 
     class='' 
     uiStyle="DEFAULT"  
@@ -58,118 +82,13 @@
     :disabled="detailsModel.type.disabled"
     :error="detailsModel.type.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
+        <app-mob-radio-list 
+    style="width: 100%;" 
+        type="static" 
     tag="Testsuite__type"
-    codeListType="STATIC" 
-    :isCache="false" 
-    :disabled="detailsModel.type.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
     :value="data.type"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.type = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='addedby' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="addedby_item"  
-    :itemValue="this.data.addedby" 
-    v-show="detailsModel.addedby.visible" 
-    :itemRules="this.rules.addedby" 
-    :caption="$t('testsuite.mobedittable_form.details.addedby')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.addedby.disabled"
-    :error="detailsModel.addedby.error" 
-    :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.addedby"
-    unit=""
-    :disabled="detailsModel.addedby.disabled" 
-    @change="($event)=>this.data.addedby = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='addeddate' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="addeddate_item"  
-    :itemValue="this.data.addeddate" 
-    v-show="detailsModel.addeddate.visible" 
-    :itemRules="this.rules.addeddate" 
-    :caption="$t('testsuite.mobedittable_form.details.addeddate')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.addeddate.disabled"
-    :error="detailsModel.addeddate.error" 
-    :isEmptyCaption="false">
-        <app-mob-datetime-picker 
-    class="app-form-item-datetime" 
-    :value="data.addeddate" 
-    :disabled="detailsModel.addeddate.disabled"
-    @change="($event)=>this.data.addeddate = $event"/>
-</app-form-item>
-
-
-
-<app-form-item 
-    name='lasteditedby' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="lasteditedby_item"  
-    :itemValue="this.data.lasteditedby" 
-    v-show="detailsModel.lasteditedby.visible" 
-    :itemRules="this.rules.lasteditedby" 
-    :caption="$t('testsuite.mobedittable_form.details.lasteditedby')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.lasteditedby.disabled"
-    :error="detailsModel.lasteditedby.error" 
-    :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.lasteditedby"
-    unit=""
-    :disabled="detailsModel.lasteditedby.disabled" 
-    @change="($event)=>this.data.lasteditedby = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='lastediteddate' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="lastediteddate_item"  
-    :itemValue="this.data.lastediteddate" 
-    v-show="detailsModel.lastediteddate.visible" 
-    :itemRules="this.rules.lastediteddate" 
-    :caption="$t('testsuite.mobedittable_form.details.lastediteddate')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.lastediteddate.disabled"
-    :error="detailsModel.lastediteddate.error" 
-    :isEmptyCaption="false">
-        <app-mob-datetime-picker 
-    class="app-form-item-datetime" 
-    :value="data.lastediteddate" 
-    :disabled="detailsModel.lastediteddate.disabled"
-    @change="($event)=>this.data.lastediteddate = $event"/>
+    :disabled="detailsModel.type.disabled" 
+    @change="($event)=>this.data.type = $event"/>
 </app-form-item>
 
 
@@ -497,11 +416,8 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
         srfdeid: null,
         srfsourcekey: null,
         name: null,
+        desc: null,
         type: null,
-        addedby: null,
-        addeddate: null,
-        lasteditedby: null,
-        lastediteddate: null,
         id: null,
         testsuite: null,
     };
@@ -660,15 +576,9 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
 , 
         name: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
+        desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
         type: new FormItemModel({ caption: '类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        addedby: new FormItemModel({ caption: '由谁创建', detailType: 'FORMITEM', name: 'addedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        addeddate: new FormItemModel({ caption: '创建时间', detailType: 'FORMITEM', name: 'addeddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        lasteditedby: new FormItemModel({ caption: '最后编辑人', detailType: 'FORMITEM', name: 'lasteditedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
-, 
-        lastediteddate: new FormItemModel({ caption: '最后编辑时间', detailType: 'FORMITEM', name: 'lastediteddate', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
         id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
@@ -783,6 +693,18 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
     }
 
     /**
+     * 监控表单属性 desc 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditTable
+     */
+    @Watch('data.desc')
+    onDescChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
      * 监控表单属性 type 值
      *
      * @param {*} newVal
@@ -792,54 +714,6 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
     @Watch('data.type')
     onTypeChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'type', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 addedby 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobEditTable
-     */
-    @Watch('data.addedby')
-    onAddedbyChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'addedby', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 addeddate 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobEditTable
-     */
-    @Watch('data.addeddate')
-    onAddeddateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'addeddate', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 lasteditedby 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobEditTable
-     */
-    @Watch('data.lasteditedby')
-    onLasteditedbyChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'lasteditedby', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 lastediteddate 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobEditTable
-     */
-    @Watch('data.lastediteddate')
-    onLastediteddateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'lastediteddate', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -890,9 +764,6 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
-
-
-
 
 
 
@@ -1668,6 +1539,9 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
      * @memberof MobEditTable
      */
     public createDefault(){                    
+                if (this.data.hasOwnProperty('type')) {
+                    this.data['type'] = 'private';
+                }
     }
 
         /**

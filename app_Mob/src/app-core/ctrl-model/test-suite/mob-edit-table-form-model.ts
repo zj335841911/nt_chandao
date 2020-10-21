@@ -56,29 +56,14 @@ export class MobEditTableModel {
                 dataType: 'TEXT',
             },
             {
+                name: 'desc',
+                prop: 'desc',
+                dataType: 'LONGTEXT',
+            },
+            {
                 name: 'type',
                 prop: 'type',
                 dataType: 'SSCODELIST',
-            },
-            {
-                name: 'addedby',
-                prop: 'addedby',
-                dataType: 'TEXT',
-            },
-            {
-                name: 'addeddate',
-                prop: 'addeddate',
-                dataType: 'DATETIME',
-            },
-            {
-                name: 'lasteditedby',
-                prop: 'lasteditedby',
-                dataType: 'TEXT',
-            },
-            {
-                name: 'lastediteddate',
-                prop: 'lastediteddate',
-                dataType: 'DATETIME',
             },
             {
                 name: 'id',
