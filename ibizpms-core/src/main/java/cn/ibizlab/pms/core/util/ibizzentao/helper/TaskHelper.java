@@ -666,7 +666,47 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         Task old =new Task();
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
-        this.start(et);
+        et.setStatus("doing");
+        et.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
+        et.setAssigneddate(ZTDateUtil.now());
+        et.setRealstarted(ZTDateUtil.now());
+        if (StringUtils.compare(old.getAssignedto(), et.getAssignedto()) != 0)
+            et.setAssigneddate(ZTDateUtil.now());
+        if (et.getLeft() == 0) {
+            et.setStatus("done");
+            et.setFinisheddate(ZTDateUtil.now());
+            et.setFinishedby(AuthenticationUser.getAuthenticationUser().getUsername());
+            et.setAssignedto(old.getOpenedby());
+        }
+
+        //taskEstimate
+        TaskEstimate taskEstimate = new TaskEstimate();
+        taskEstimate.setTask(et.getId());
+        taskEstimate.setAccount(AuthenticationUser.getAuthenticationUser().getUsername());
+        taskEstimate.setDate(et.getRealstarted());
+        taskEstimate.setLeft(get(et.getLeft(), 0.0));
+        taskEstimate.setConsumed(get(et.getConsumed(), 0.0));
+        taskEstimateHelper.create(taskEstimate);
+
+        //teams
+        List<Team> teams = teamHelper.list(new QueryWrapper<Team>().eq("root", et.getId()));
+        if (teams.size() > 0) {
+            String oldAssignTo = StringUtils.isNotBlank(old.getAssignedto()) ? old.getAssignedto() : teams.get(0).getAccount();
+            for (Team team : teams) {
+                if (StringUtils.compare(team.getAccount(), oldAssignTo) == 0) {
+                    team.setLeft(get(et.getLeft(), 0.0));
+                    team.setConsumed(get(et.getConsumed(), 0.0));
+                    teamHelper.internalUpdate(team);
+                }
+            }
+            computeHours4Multiple(old, et, null, false);
+        }
+
+        this.internalUpdate(et);
+        if (et.getParent() > 0) {
+            updateParentStatus(et, et.getParent(), true);
+            computeBeginAndEnd(this.get(et.getParent()));
+        }
 
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
@@ -690,21 +730,24 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         Task old =new Task();
         CachedBeanCopier.copy(this.get(et.getId()), old);
-
-        et.setStatus("pause");
-        this.internalUpdate(et);
-        if (old.getParent() > 0) this.updateParentStatus(et,et.getId(),true);
-        List<History> changes = ChangeUtil.diff(old, et);
+        Task newTask = new Task();
+        newTask.setId(et.getId());
+        newTask.setStatus("pause");
+        newTask.setLastediteddate(ZTDateUtil.now());
+        newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
+        this.internalUpdate(newTask);
+        if (old.getParent() > 0) this.updateParentStatus(newTask,newTask.getId(),true);
+        List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("task", et.getId(), "Paused",
+            Action action = actionHelper.create("task", newTask.getId(), "Paused",
                     comment, "", null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
         }
-        if(et.getStory() != null && et.getStory() != 0l) {
-            storyHelper.setStage(et.getZtstory());
+        if(newTask.getStory() != null && newTask.getStory() != 0l) {
+            storyHelper.setStage(newTask.getZtstory());
         }
-        return et ;
+        return newTask ;
     }
 
     @Transactional
@@ -807,26 +850,30 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         Task old =new Task();
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
-        et.setStatus("cancel");
-        et.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
-        et.setAssigneddate(ZTDateUtil.now());
-        et.setFinishedby("");
-        et.setFinisheddate(null);
-        et.setCanceledby(AuthenticationUser.getAuthenticationUser().getUsername());
-        et.setCanceleddate(ZTDateUtil.now());
-        this.internalUpdate(et);
+        Task newTask = new Task();
+        newTask.setId(et.getId());
+        newTask.setLastediteddate(ZTDateUtil.now());
+        newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
+        newTask.setStatus("cancel");
+        newTask.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
+        newTask.setAssigneddate(ZTDateUtil.now());
+        newTask.setFinishedby("");
+        newTask.setFinisheddate(null);
+        newTask.setCanceledby(AuthenticationUser.getAuthenticationUser().getUsername());
+        newTask.setCanceleddate(ZTDateUtil.now());
+        this.internalUpdate(newTask);
 
         if (old.getParent() > 0)
-            updateParentStatus(et, old.getParent(), true);
+            updateParentStatus(newTask, old.getParent(), true);
 
-        List<History> changes = ChangeUtil.diff(old, et);
+        List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("task", et.getId(), "Canceled",
-                    comment, et.getAssignedto(), null, true);
+            Action action = actionHelper.create("task", newTask.getId(), "Canceled",
+                    comment, newTask.getAssignedto(), null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
         }
-        return et;
+        return newTask;
     }
 
     @Transactional
@@ -911,36 +958,40 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         Task old =new Task();
         CachedBeanCopier.copy(this.get(et.getId()), old);
 
-        et.setStatus("closed");
-        et.setAssignedto("closed");
-        et.setAssigneddate(ZTDateUtil.now());
+        Task newTask = new Task();
+        newTask.setId(et.getId());
+        newTask.setLastediteddate(ZTDateUtil.now());
+        newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
+        newTask.setStatus("closed");
+        newTask.setAssignedto("closed");
+        newTask.setAssigneddate(ZTDateUtil.now());
 
-        et.setClosedby(AuthenticationUser.getAuthenticationUser().getUsername());
-        et.setCloseddate(ZTDateUtil.now());
+        newTask.setClosedby(AuthenticationUser.getAuthenticationUser().getUsername());
+        newTask.setCloseddate(ZTDateUtil.now());
         if (StringUtils.compare(old.getStatus(), "done") == 0) {
-            et.setClosedreason("done");
+            newTask.setClosedreason("done");
         } else if (StringUtils.compare(old.getStatus(), "cancel") == 0) {
-            et.setClosedreason("cancel");
+            newTask.setClosedreason("cancel");
         }
 
-        this.internalUpdate(et);
+        this.internalUpdate(newTask);
 
         if (old.getParent() > 0)
-            updateParentStatus(et, old.getParent(), true);
+            updateParentStatus(newTask, old.getParent(), true);
 
 
         String[] ignores = {"assigneddate","closeddate"};
-        List<History> changes = ChangeUtil.diff(old, et,ignores,null,null);
+        List<History> changes = ChangeUtil.diff(old, newTask,ignores,null,null);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("task", et.getId(), "Closed",
-                    comment, et.getAssignedto(), null, true);
+            Action action = actionHelper.create("task", newTask.getId(), "Closed",
+                    comment, newTask.getAssignedto(), null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
         }
-        if(et.getStory() != null && et.getStory() != 0l) {
-            storyHelper.setStage(et.getZtstory());
+        if(newTask.getStory() != null && newTask.getStory() != 0l) {
+            storyHelper.setStage(newTask.getZtstory());
         }
-        return et;
+        return newTask;
     }
 
     @Transactional
