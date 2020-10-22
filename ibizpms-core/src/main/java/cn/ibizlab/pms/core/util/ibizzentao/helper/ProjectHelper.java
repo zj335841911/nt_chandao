@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -57,6 +58,9 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
 
         JSONArray projectproducts = JSONArray.parseArray(et.getSrfarray());
         fileHelper.processImgURL(et, null, null);
+        et.setCloseddate(new Timestamp(-28800000l));
+        et.setCanceleddate(new Timestamp(-28800000l));
+        et.setOpeneddate(ZTDateUtil.now());
         if (!this.retBool(this.baseMapper.insert(et)))
             return false;
         CachedBeanCopier.copy(get(et.getId()), et);
