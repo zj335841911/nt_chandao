@@ -1,33 +1,33 @@
 /**
- * Mob 部件模型
+ * Mob_2622 部件模型
  *
  * @export
- * @class MobModel
+ * @class Mob_2622Model
  */
-export class MobModel {
+export class Mob_2622Model {
 
 	/**
 	 * 获取数据项集合
 	 *
 	 * @returns {any[]}
-	 * @memberof MobMdctrlModel
+	 * @memberof Mob_2622MdctrlModel
 	 */
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'status',
-			},
-			{
-				name: 'name',
-			},
-			{
-				name: 'buildname',
+				name: 'marker',
 			},
 			{
 				name: 'date',
 			},
 			{
-				name: 'marker',
+				name: 'buildname',
+			},
+			{
+				name: 'status',
+			},
+			{
+				name: 'name',
 			},
 			{
 				name: 'srfkey',
@@ -62,22 +62,6 @@ export class MobModel {
 				prop: 'id',
 				dataType: 'FONTKEY',
 			},
-            {
-                name: 'n_name_like',
-                prop: 'n_name_like', 
-                dataType: 'TEXT',
-            },
-            {
-                name: 'n_status_eq',
-                prop: 'n_status_eq', 
-                dataType: 'SSCODELIST',
-            },
-            {
-                name: 'n_date_ltandeq',
-                prop: 'n_date_ltandeq', 
-                dataType: 'DATE',
-            },
-
 			{
 				name: 'size',
 				prop: 'size'
@@ -112,4 +96,4 @@ export class MobModel {
 
 }
 // 默认导出
-export default MobModel;
+export default Mob_2622Model;
