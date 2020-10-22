@@ -5225,45 +5225,45 @@ POST
 #### StorySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 56 | n_assignedto_eq | String | 允许 |  |
-| 57 | n_plan_eq | String | 允许 |  |
-| 58 | n_pri_eq | Integer | 允许 |  |
-| 59 | n_pri_gtandeq | Integer | 允许 |  |
-| 60 | n_pri_ltandeq | Integer | 允许 |  |
-| 61 | n_status_eq | String | 允许 |  |
-| 62 | n_status_noteq | String | 允许 |  |
-| 63 | n_title_like | String | 允许 |  |
-| 64 | n_reviewedby_eq | String | 允许 |  |
-| 65 | n_stagedby_eq | String | 允许 |  |
-| 66 | n_openedby_eq | String | 允许 |  |
-| 67 | n_id_eq | Long | 允许 |  |
-| 68 | n_id_noteq | Long | 允许 |  |
-| 69 | n_source_eq | String | 允许 |  |
-| 70 | n_closedreason_eq | String | 允许 |  |
-| 71 | n_color_eq | String | 允许 |  |
-| 72 | n_lasteditedby_eq | String | 允许 |  |
-| 73 | n_stage_eq | String | 允许 |  |
-| 74 | n_stage_noteq | String | 允许 |  |
-| 75 | n_closedby_eq | String | 允许 |  |
-| 76 | n_type_eq | String | 允许 |  |
-| 77 | n_path_like | String | 允许 |  |
-| 78 | n_parentname_eq | String | 允许 |  |
-| 79 | n_parentname_like | String | 允许 |  |
-| 80 | n_modulename_eq | String | 允许 |  |
-| 81 | n_modulename_like | String | 允许 |  |
-| 82 | n_prodoctname_eq | String | 允许 |  |
-| 83 | n_prodoctname_like | String | 允许 |  |
-| 84 | n_frombug_eq | Long | 允许 |  |
-| 85 | n_parent_eq | Long | 允许 |  |
-| 86 | n_module_eq | Long | 允许 |  |
-| 87 | n_product_eq | Long | 允许 |  |
-| 88 | n_duplicatestory_eq | Long | 允许 |  |
-| 89 | n_branch_eq | Long | 允许 |  |
-| 90 | n_tobug_eq | Long | 允许 |  |
-| 91 | n_result_eq | String | 允许 |  |
-| 92 | n_branchname_eq | String | 允许 |  |
-| 93 | n_branchname_like | String | 允许 |  |
-| 94 | n_preversion_eq | Integer | 允许 |  |
+| 56 | n_assignedto_eq | String | 允许 | 条件字段：assignedto<br>条件组合方式：`=` |
+| 57 | n_plan_eq | String | 允许 | 条件字段：plan<br>条件组合方式：`=` |
+| 58 | n_pri_eq | Integer | 允许 | 条件字段：pri<br>条件组合方式：`=` |
+| 59 | n_pri_gtandeq | Integer | 允许 | 条件字段：pri<br>条件组合方式：`>=` |
+| 60 | n_pri_ltandeq | Integer | 允许 | 条件字段：pri<br>条件组合方式：`<=` |
+| 61 | n_status_eq | String | 允许 | 条件字段：status<br>条件组合方式：`=` |
+| 62 | n_status_noteq | String | 允许 | 条件字段：status<br>条件组合方式：`!=`或者`<>` |
+| 63 | n_title_like | String | 允许 | 条件字段：title<br>条件组合方式：`%like%` |
+| 64 | n_reviewedby_eq | String | 允许 | 条件字段：reviewedby<br>条件组合方式：`=` |
+| 65 | n_stagedby_eq | String | 允许 | 条件字段：stagedby<br>条件组合方式：`=` |
+| 66 | n_openedby_eq | String | 允许 | 条件字段：openedby<br>条件组合方式：`=` |
+| 67 | n_id_eq | Long | 允许 | 条件字段：id<br>条件组合方式：`=` |
+| 68 | n_id_noteq | Long | 允许 | 条件字段：id<br>条件组合方式：`!=`或者`<>` |
+| 69 | n_source_eq | String | 允许 | 条件字段：source<br>条件组合方式：`=` |
+| 70 | n_closedreason_eq | String | 允许 | 条件字段：closedreason<br>条件组合方式：`=` |
+| 71 | n_color_eq | String | 允许 | 条件字段：color<br>条件组合方式：`=` |
+| 72 | n_lasteditedby_eq | String | 允许 | 条件字段：lasteditedby<br>条件组合方式：`=` |
+| 73 | n_stage_eq | String | 允许 | 条件字段：stage<br>条件组合方式：`=` |
+| 74 | n_stage_noteq | String | 允许 | 条件字段：stage<br>条件组合方式：`!=`或者`<>` |
+| 75 | n_closedby_eq | String | 允许 | 条件字段：closedby<br>条件组合方式：`=` |
+| 76 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 77 | n_path_like | String | 允许 | 条件字段：path<br>条件组合方式：`%like%` |
+| 78 | n_parentname_eq | String | 允许 | 条件字段：parentname<br>条件组合方式：`=` |
+| 79 | n_parentname_like | String | 允许 | 条件字段：parentname<br>条件组合方式：`%like%` |
+| 80 | n_modulename_eq | String | 允许 | 条件字段：modulename<br>条件组合方式：`=` |
+| 81 | n_modulename_like | String | 允许 | 条件字段：modulename<br>条件组合方式：`%like%` |
+| 82 | n_prodoctname_eq | String | 允许 | 条件字段：prodoctname<br>条件组合方式：`=` |
+| 83 | n_prodoctname_like | String | 允许 | 条件字段：prodoctname<br>条件组合方式：`%like%` |
+| 84 | n_frombug_eq | Long | 允许 | 条件字段：frombug<br>条件组合方式：`=` |
+| 85 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
+| 86 | n_module_eq | Long | 允许 | 条件字段：module<br>条件组合方式：`=` |
+| 87 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 88 | n_duplicatestory_eq | Long | 允许 | 条件字段：duplicatestory<br>条件组合方式：`=` |
+| 89 | n_branch_eq | Long | 允许 | 条件字段：branch<br>条件组合方式：`=` |
+| 90 | n_tobug_eq | Long | 允许 | 条件字段：tobug<br>条件组合方式：`=` |
+| 91 | n_result_eq | String | 允许 | 条件字段：result<br>条件组合方式：`=` |
+| 92 | n_branchname_eq | String | 允许 | 条件字段：branchname<br>条件组合方式：`=` |
+| 93 | n_branchname_like | String | 允许 | 条件字段：branchname<br>条件组合方式：`%like%` |
+| 94 | n_preversion_eq | Integer | 允许 | 条件字段：preversion<br>条件组合方式：`=` |
 | 95 | customcond | String | 允许 | 自定义查询条件 |
 | 96 | customparams | String | 允许 | 自定义查询参数 |
 | 97 | query | String | 允许 | 快速搜索 |

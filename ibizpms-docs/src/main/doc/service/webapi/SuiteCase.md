@@ -235,9 +235,9 @@ POST
 #### SuiteCaseSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 6 | n_suite_eq | Long | 允许 |  |
-| 7 | n_case_eq | Long | 允许 |  |
-| 8 | n_product_eq | Long | 允许 |  |
+| 6 | n_suite_eq | Long | 允许 | 条件字段：suite<br>条件组合方式：`=` |
+| 7 | n_case_eq | Long | 允许 | 条件字段：case<br>条件组合方式：`=` |
+| 8 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
 | 9 | customcond | String | 允许 | 自定义查询条件 |
 | 10 | customparams | String | 允许 | 自定义查询参数 |
 | 11 | query | String | 允许 | 快速搜索 |

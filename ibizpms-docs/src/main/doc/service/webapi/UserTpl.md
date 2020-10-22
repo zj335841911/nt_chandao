@@ -236,8 +236,8 @@ POST
 #### UserTplSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 7 | n_title_like | String | 允许 |  |
-| 8 | n_public_eq | String | 允许 |  |
+| 7 | n_title_like | String | 允许 | 条件字段：title<br>条件组合方式：`%like%` |
+| 8 | n_public_eq | String | 允许 | 条件字段：public<br>条件组合方式：`=` |
 | 9 | customcond | String | 允许 | 自定义查询条件 |
 | 10 | customparams | String | 允许 | 自定义查询参数 |
 | 11 | query | String | 允许 | 快速搜索 |

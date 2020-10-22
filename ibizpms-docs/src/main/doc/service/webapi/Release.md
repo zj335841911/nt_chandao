@@ -947,19 +947,19 @@ POST
 #### ReleaseSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 25 | n_marker_eq | String | 允许 |  |
-| 26 | n_name_like | String | 允许 |  |
-| 27 | n_date_ltandeq | Timestamp | 允许 | 时间格式：yyyy-MM-dd |
-| 28 | n_status_eq | String | 允许 |  |
-| 29 | n_buildname_eq | String | 允许 |  |
-| 30 | n_buildname_like | String | 允许 |  |
-| 31 | n_product_eq | Long | 允许 |  |
-| 32 | n_build_eq | Long | 允许 |  |
-| 33 | n_branch_eq | Long | 允许 |  |
-| 34 | n_productname_eq | String | 允许 |  |
-| 35 | n_productname_like | String | 允许 |  |
-| 36 | n_rebuild_eq | Integer | 允许 |  |
-| 37 | n_releasetype_eq | String | 允许 |  |
+| 25 | n_marker_eq | String | 允许 | 条件字段：marker<br>条件组合方式：`=` |
+| 26 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 27 | n_date_ltandeq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd |
+| 28 | n_status_eq | String | 允许 | 条件字段：status<br>条件组合方式：`=` |
+| 29 | n_buildname_eq | String | 允许 | 条件字段：buildname<br>条件组合方式：`=` |
+| 30 | n_buildname_like | String | 允许 | 条件字段：buildname<br>条件组合方式：`%like%` |
+| 31 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 32 | n_build_eq | Long | 允许 | 条件字段：build<br>条件组合方式：`=` |
+| 33 | n_branch_eq | Long | 允许 | 条件字段：branch<br>条件组合方式：`=` |
+| 34 | n_productname_eq | String | 允许 | 条件字段：productname<br>条件组合方式：`=` |
+| 35 | n_productname_like | String | 允许 | 条件字段：productname<br>条件组合方式：`%like%` |
+| 36 | n_rebuild_eq | Integer | 允许 | 条件字段：rebuild<br>条件组合方式：`=` |
+| 37 | n_releasetype_eq | String | 允许 | 条件字段：releasetype<br>条件组合方式：`=` |
 | 38 | customcond | String | 允许 | 自定义查询条件 |
 | 39 | customparams | String | 允许 | 自定义查询参数 |
 | 40 | query | String | 允许 | 快速搜索 |

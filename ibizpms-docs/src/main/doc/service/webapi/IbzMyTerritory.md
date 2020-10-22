@@ -434,10 +434,10 @@ POST
 #### IbzMyTerritorySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 49 | n_account_eq | String | 允许 |  |
-| 50 | n_realname_like | String | 允许 |  |
-| 51 | n_gender_eq | String | 允许 |  |
-| 52 | n_clientstatus_eq | String | 允许 |  |
+| 49 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
+| 50 | n_realname_like | String | 允许 | 条件字段：realname<br>条件组合方式：`%like%` |
+| 51 | n_gender_eq | String | 允许 | 条件字段：gender<br>条件组合方式：`=` |
+| 52 | n_clientstatus_eq | String | 允许 | 条件字段：clientstatus<br>条件组合方式：`=` |
 | 53 | customcond | String | 允许 | 自定义查询条件 |
 | 54 | customparams | String | 允许 | 自定义查询参数 |
 | 55 | query | String | 允许 | 快速搜索 |

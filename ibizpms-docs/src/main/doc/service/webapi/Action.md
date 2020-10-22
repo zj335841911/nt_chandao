@@ -470,19 +470,19 @@ POST
 #### ActionSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 23 | n_objecttype_eq | String | 允许 |  |
-| 24 | n_comment_like | String | 允许 |  |
-| 25 | n_read_eq | String | 允许 |  |
-| 26 | n_action_eq | String | 允许 |  |
-| 27 | n_objectid_eq | Long | 允许 |  |
-| 28 | n_project_eq | Long | 允许 |  |
-| 29 | n_actionmanner_eq | String | 允许 |  |
-| 30 | n_today_eq | String | 允许 |  |
-| 31 | n_yesterday_eq | String | 允许 |  |
-| 32 | n_thisweek_eq | String | 允许 |  |
-| 33 | n_lastweek_eq | String | 允许 |  |
-| 34 | n_thismonth_eq | String | 允许 |  |
-| 35 | n_lastmonth_eq | String | 允许 |  |
+| 23 | n_objecttype_eq | String | 允许 | 条件字段：objecttype<br>条件组合方式：`=` |
+| 24 | n_comment_like | String | 允许 | 条件字段：comment<br>条件组合方式：`%like%` |
+| 25 | n_read_eq | String | 允许 | 条件字段：read<br>条件组合方式：`=` |
+| 26 | n_action_eq | String | 允许 | 条件字段：action<br>条件组合方式：`=` |
+| 27 | n_objectid_eq | Long | 允许 | 条件字段：objectid<br>条件组合方式：`=` |
+| 28 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
+| 29 | n_actionmanner_eq | String | 允许 | 条件字段：actionmanner<br>条件组合方式：`=` |
+| 30 | n_today_eq | String | 允许 | 条件字段：today<br>条件组合方式：`=` |
+| 31 | n_yesterday_eq | String | 允许 | 条件字段：yesterday<br>条件组合方式：`=` |
+| 32 | n_thisweek_eq | String | 允许 | 条件字段：thisweek<br>条件组合方式：`=` |
+| 33 | n_lastweek_eq | String | 允许 | 条件字段：lastweek<br>条件组合方式：`=` |
+| 34 | n_thismonth_eq | String | 允许 | 条件字段：thismonth<br>条件组合方式：`=` |
+| 35 | n_lastmonth_eq | String | 允许 | 条件字段：lastmonth<br>条件组合方式：`=` |
 | 36 | customcond | String | 允许 | 自定义查询条件 |
 | 37 | customparams | String | 允许 | 自定义查询参数 |
 | 38 | query | String | 允许 | 快速搜索 |

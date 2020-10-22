@@ -276,9 +276,9 @@ POST
 #### TestSuiteSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 11 | n_name_like | String | 允许 |  |
-| 12 | n_type_eq | String | 允许 |  |
-| 13 | n_product_eq | Long | 允许 |  |
+| 11 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 12 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 13 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
 | 14 | customcond | String | 允许 | 自定义查询条件 |
 | 15 | customparams | String | 允许 | 自定义查询参数 |
 | 16 | query | String | 允许 | 快速搜索 |

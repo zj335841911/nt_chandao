@@ -448,21 +448,21 @@ POST
 #### TodoSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 33 | n_account_eq | String | 允许 |  |
-| 34 | n_type_eq | String | 允许 |  |
-| 35 | n_type_noteq | String | 允许 |  |
-| 36 | n_end_eq | Integer | 允许 |  |
-| 37 | n_begin_eq | Integer | 允许 |  |
-| 38 | n_cycle_eq | Integer | 允许 |  |
-| 39 | n_status_eq | String | 允许 |  |
-| 40 | n_status_noteq | String | 允许 |  |
-| 41 | n_name_like | String | 允许 |  |
-| 42 | n_date_eq | Timestamp | 允许 | 时间格式：yyyy-MM-dd |
-| 43 | n_date_gtandeq | Timestamp | 允许 | 时间格式：yyyy-MM-dd |
-| 44 | n_date_ltandeq | Timestamp | 允许 | 时间格式：yyyy-MM-dd |
-| 45 | n_date_noteq | Timestamp | 允许 | 时间格式：yyyy-MM-dd |
-| 46 | n_private_eq | Integer | 允许 |  |
-| 47 | n_config_type_eq | String | 允许 |  |
+| 33 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
+| 34 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 35 | n_type_noteq | String | 允许 | 条件字段：type<br>条件组合方式：`!=`或者`<>` |
+| 36 | n_end_eq | Integer | 允许 | 条件字段：end<br>条件组合方式：`=` |
+| 37 | n_begin_eq | Integer | 允许 | 条件字段：begin<br>条件组合方式：`=` |
+| 38 | n_cycle_eq | Integer | 允许 | 条件字段：cycle<br>条件组合方式：`=` |
+| 39 | n_status_eq | String | 允许 | 条件字段：status<br>条件组合方式：`=` |
+| 40 | n_status_noteq | String | 允许 | 条件字段：status<br>条件组合方式：`!=`或者`<>` |
+| 41 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 42 | n_date_eq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`=`<br>时间格式：yyyy-MM-dd |
+| 43 | n_date_gtandeq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd |
+| 44 | n_date_ltandeq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd |
+| 45 | n_date_noteq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`!=`或者`<>`<br>时间格式：yyyy-MM-dd |
+| 46 | n_private_eq | Integer | 允许 | 条件字段：private<br>条件组合方式：`=` |
+| 47 | n_config_type_eq | String | 允许 | 条件字段：config_type<br>条件组合方式：`=` |
 | 48 | customcond | String | 允许 | 自定义查询条件 |
 | 49 | customparams | String | 允许 | 自定义查询参数 |
 | 50 | query | String | 允许 | 快速搜索 |

@@ -292,19 +292,19 @@ POST
 #### IBZProStorySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 44 | n_title_like | String | 允许 |  |
-| 45 | n_module_eq | Long | 允许 |  |
-| 46 | n_product_eq | Long | 允许 |  |
-| 47 | n_ibiz_id_eq | String | 允许 |  |
-| 48 | n_source_eq | String | 允许 |  |
-| 49 | n_sourcenote_eq | String | 允许 |  |
-| 50 | n_ibiz_sourceobject_eq | String | 允许 |  |
-| 51 | n_status_eq | String | 允许 |  |
-| 52 | n_type_eq | String | 允许 |  |
-| 53 | n_stage_eq | String | 允许 |  |
-| 54 | n_pri_eq | Integer | 允许 |  |
-| 55 | n_color_eq | String | 允许 |  |
-| 56 | n_stagedby_eq | String | 允许 |  |
+| 44 | n_title_like | String | 允许 | 条件字段：title<br>条件组合方式：`%like%` |
+| 45 | n_module_eq | Long | 允许 | 条件字段：module<br>条件组合方式：`=` |
+| 46 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 47 | n_ibiz_id_eq | String | 允许 | 条件字段：ibiz_id<br>条件组合方式：`=` |
+| 48 | n_source_eq | String | 允许 | 条件字段：source<br>条件组合方式：`=` |
+| 49 | n_sourcenote_eq | String | 允许 | 条件字段：sourcenote<br>条件组合方式：`=` |
+| 50 | n_ibiz_sourceobject_eq | String | 允许 | 条件字段：ibiz_sourceobject<br>条件组合方式：`=` |
+| 51 | n_status_eq | String | 允许 | 条件字段：status<br>条件组合方式：`=` |
+| 52 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 53 | n_stage_eq | String | 允许 | 条件字段：stage<br>条件组合方式：`=` |
+| 54 | n_pri_eq | Integer | 允许 | 条件字段：pri<br>条件组合方式：`=` |
+| 55 | n_color_eq | String | 允许 | 条件字段：color<br>条件组合方式：`=` |
+| 56 | n_stagedby_eq | String | 允许 | 条件字段：stagedby<br>条件组合方式：`=` |
 | 57 | customcond | String | 允许 | 自定义查询条件 |
 | 58 | customparams | String | 允许 | 自定义查询参数 |
 | 59 | query | String | 允许 | 快速搜索 |

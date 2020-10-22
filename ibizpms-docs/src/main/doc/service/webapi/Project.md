@@ -873,27 +873,27 @@ POST
 #### ProjectSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 71 | n_acl_eq | String | 允许 |  |
-| 72 | n_pm_eq | String | 允许 |  |
-| 73 | n_id_eq | Long | 允许 |  |
-| 74 | n_id_noteq | Long | 允许 |  |
-| 75 | n_name_like | String | 允许 |  |
-| 76 | n_rd_eq | String | 允许 |  |
-| 77 | n_pri_eq | String | 允许 |  |
-| 78 | n_statge_eq | String | 允许 |  |
-| 79 | n_iscat_eq | String | 允许 |  |
-| 80 | n_type_eq | String | 允许 |  |
-| 81 | n_po_eq | String | 允许 |  |
-| 82 | n_status_eq | String | 允许 |  |
-| 83 | n_status_noteq | String | 允许 |  |
-| 84 | n_qd_eq | String | 允许 |  |
-| 85 | n_parentname_eq | String | 允许 |  |
-| 86 | n_parentname_like | String | 允许 |  |
-| 87 | n_parent_eq | Long | 允许 |  |
-| 88 | n_period_eq | String | 允许 |  |
-| 89 | n_account_eq | String | 允许 |  |
-| 90 | n_dept_eq | String | 允许 |  |
-| 91 | n_managemembers_eq | String | 允许 |  |
+| 71 | n_acl_eq | String | 允许 | 条件字段：acl<br>条件组合方式：`=` |
+| 72 | n_pm_eq | String | 允许 | 条件字段：pm<br>条件组合方式：`=` |
+| 73 | n_id_eq | Long | 允许 | 条件字段：id<br>条件组合方式：`=` |
+| 74 | n_id_noteq | Long | 允许 | 条件字段：id<br>条件组合方式：`!=`或者`<>` |
+| 75 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 76 | n_rd_eq | String | 允许 | 条件字段：rd<br>条件组合方式：`=` |
+| 77 | n_pri_eq | String | 允许 | 条件字段：pri<br>条件组合方式：`=` |
+| 78 | n_statge_eq | String | 允许 | 条件字段：statge<br>条件组合方式：`=` |
+| 79 | n_iscat_eq | String | 允许 | 条件字段：iscat<br>条件组合方式：`=` |
+| 80 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 81 | n_po_eq | String | 允许 | 条件字段：po<br>条件组合方式：`=` |
+| 82 | n_status_eq | String | 允许 | 条件字段：status<br>条件组合方式：`=` |
+| 83 | n_status_noteq | String | 允许 | 条件字段：status<br>条件组合方式：`!=`或者`<>` |
+| 84 | n_qd_eq | String | 允许 | 条件字段：qd<br>条件组合方式：`=` |
+| 85 | n_parentname_eq | String | 允许 | 条件字段：parentname<br>条件组合方式：`=` |
+| 86 | n_parentname_like | String | 允许 | 条件字段：parentname<br>条件组合方式：`%like%` |
+| 87 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
+| 88 | n_period_eq | String | 允许 | 条件字段：period<br>条件组合方式：`=` |
+| 89 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
+| 90 | n_dept_eq | String | 允许 | 条件字段：dept<br>条件组合方式：`=` |
+| 91 | n_managemembers_eq | String | 允许 | 条件字段：managemembers<br>条件组合方式：`=` |
 | 92 | customcond | String | 允许 | 自定义查询条件 |
 | 93 | customparams | String | 允许 | 自定义查询参数 |
 | 94 | query | String | 允许 | 快速搜索 |

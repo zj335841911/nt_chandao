@@ -501,18 +501,18 @@ POST
 #### IbzCaseSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 29 | n_title_like | String | 允许 |  |
-| 30 | n_pri_eq | String | 允许 |  |
-| 31 | n_type_eq | String | 允许 |  |
-| 32 | n_status_eq | String | 允许 |  |
-| 33 | n_openedby_eq | String | 允许 |  |
-| 34 | n_lasteditedby_eq | String | 允许 |  |
-| 35 | n_lib_eq | Long | 允许 |  |
-| 36 | n_module_eq | Long | 允许 |  |
-| 37 | n_modulename_eq | String | 允许 |  |
-| 38 | n_modulename_like | String | 允许 |  |
-| 39 | n_libname_eq | String | 允许 |  |
-| 40 | n_libname_like | String | 允许 |  |
+| 29 | n_title_like | String | 允许 | 条件字段：title<br>条件组合方式：`%like%` |
+| 30 | n_pri_eq | String | 允许 | 条件字段：pri<br>条件组合方式：`=` |
+| 31 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 32 | n_status_eq | String | 允许 | 条件字段：status<br>条件组合方式：`=` |
+| 33 | n_openedby_eq | String | 允许 | 条件字段：openedby<br>条件组合方式：`=` |
+| 34 | n_lasteditedby_eq | String | 允许 | 条件字段：lasteditedby<br>条件组合方式：`=` |
+| 35 | n_lib_eq | Long | 允许 | 条件字段：lib<br>条件组合方式：`=` |
+| 36 | n_module_eq | Long | 允许 | 条件字段：module<br>条件组合方式：`=` |
+| 37 | n_modulename_eq | String | 允许 | 条件字段：modulename<br>条件组合方式：`=` |
+| 38 | n_modulename_like | String | 允许 | 条件字段：modulename<br>条件组合方式：`%like%` |
+| 39 | n_libname_eq | String | 允许 | 条件字段：libname<br>条件组合方式：`=` |
+| 40 | n_libname_like | String | 允许 | 条件字段：libname<br>条件组合方式：`%like%` |
 | 41 | customcond | String | 允许 | 自定义查询条件 |
 | 42 | customparams | String | 允许 | 自定义查询参数 |
 | 43 | query | String | 允许 | 快速搜索 |

@@ -3850,43 +3850,43 @@ POST
 #### TaskSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 58 | n_canceledby_eq | String | 允许 |  |
-| 59 | n_color_eq | String | 允许 |  |
-| 60 | n_id_noteq | Long | 允许 |  |
-| 61 | n_finishedby_eq | String | 允许 |  |
-| 62 | n_closedby_eq | String | 允许 |  |
-| 63 | n_closedreason_eq | String | 允许 |  |
-| 64 | n_assigneddate_gtandeq | Timestamp | 允许 | 时间格式：yyyy-MM-dd HH:mm:ss |
-| 65 | n_pri_eq | Integer | 允许 |  |
-| 66 | n_lasteditedby_eq | String | 允许 |  |
-| 67 | n_status_eq | String | 允许 |  |
-| 68 | n_status_in | String | 允许 |  |
-| 69 | n_status_noteq | String | 允许 |  |
-| 70 | n_name_like | String | 允许 |  |
-| 71 | n_closeddate_ltandeq | Timestamp | 允许 | 时间格式：yyyy-MM-dd HH:mm:ss |
-| 72 | n_type_eq | String | 允许 |  |
-| 73 | n_assignedto_eq | String | 允许 |  |
-| 74 | n_eststarted_gtandeq | Timestamp | 允许 | 时间格式：yyyy-MM-dd |
-| 75 | n_eststarted_ltandeq | Timestamp | 允许 | 时间格式：yyyy-MM-dd |
-| 76 | n_openedby_eq | String | 允许 |  |
-| 77 | n_finisheddate_ltandeq | Timestamp | 允许 | 时间格式：yyyy-MM-dd |
-| 78 | n_modulename_eq | String | 允许 |  |
-| 79 | n_modulename_like | String | 允许 |  |
-| 80 | n_storyname_eq | String | 允许 |  |
-| 81 | n_storyname_like | String | 允许 |  |
-| 82 | n_projectname_eq | String | 允许 |  |
-| 83 | n_projectname_like | String | 允许 |  |
-| 84 | n_product_eq | Long | 允许 |  |
-| 85 | n_parentname_eq | String | 允许 |  |
-| 86 | n_parentname_like | String | 允许 |  |
-| 87 | n_project_eq | Long | 允许 |  |
-| 88 | n_story_eq | Long | 允许 |  |
-| 89 | n_parent_eq | Long | 允许 |  |
-| 90 | n_frombug_eq | Long | 允许 |  |
-| 91 | n_module_eq | Long | 允许 |  |
-| 92 | n_path_like | String | 允许 |  |
-| 93 | n_status1_eq | String | 允许 |  |
-| 94 | n_tasktype_eq | String | 允许 |  |
+| 58 | n_canceledby_eq | String | 允许 | 条件字段：canceledby<br>条件组合方式：`=` |
+| 59 | n_color_eq | String | 允许 | 条件字段：color<br>条件组合方式：`=` |
+| 60 | n_id_noteq | Long | 允许 | 条件字段：id<br>条件组合方式：`!=`或者`<>` |
+| 61 | n_finishedby_eq | String | 允许 | 条件字段：finishedby<br>条件组合方式：`=` |
+| 62 | n_closedby_eq | String | 允许 | 条件字段：closedby<br>条件组合方式：`=` |
+| 63 | n_closedreason_eq | String | 允许 | 条件字段：closedreason<br>条件组合方式：`=` |
+| 64 | n_assigneddate_gtandeq | Timestamp | 允许 | 条件字段：assigneddate<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 65 | n_pri_eq | Integer | 允许 | 条件字段：pri<br>条件组合方式：`=` |
+| 66 | n_lasteditedby_eq | String | 允许 | 条件字段：lasteditedby<br>条件组合方式：`=` |
+| 67 | n_status_eq | String | 允许 | 条件字段：status<br>条件组合方式：`=` |
+| 68 | n_status_in | String | 允许 | 条件字段：status<br>条件组合方式：`in(...)` |
+| 69 | n_status_noteq | String | 允许 | 条件字段：status<br>条件组合方式：`!=`或者`<>` |
+| 70 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 71 | n_closeddate_ltandeq | Timestamp | 允许 | 条件字段：closeddate<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 72 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 73 | n_assignedto_eq | String | 允许 | 条件字段：assignedto<br>条件组合方式：`=` |
+| 74 | n_eststarted_gtandeq | Timestamp | 允许 | 条件字段：eststarted<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd |
+| 75 | n_eststarted_ltandeq | Timestamp | 允许 | 条件字段：eststarted<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd |
+| 76 | n_openedby_eq | String | 允许 | 条件字段：openedby<br>条件组合方式：`=` |
+| 77 | n_finisheddate_ltandeq | Timestamp | 允许 | 条件字段：finisheddate<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd |
+| 78 | n_modulename_eq | String | 允许 | 条件字段：modulename<br>条件组合方式：`=` |
+| 79 | n_modulename_like | String | 允许 | 条件字段：modulename<br>条件组合方式：`%like%` |
+| 80 | n_storyname_eq | String | 允许 | 条件字段：storyname<br>条件组合方式：`=` |
+| 81 | n_storyname_like | String | 允许 | 条件字段：storyname<br>条件组合方式：`%like%` |
+| 82 | n_projectname_eq | String | 允许 | 条件字段：projectname<br>条件组合方式：`=` |
+| 83 | n_projectname_like | String | 允许 | 条件字段：projectname<br>条件组合方式：`%like%` |
+| 84 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 85 | n_parentname_eq | String | 允许 | 条件字段：parentname<br>条件组合方式：`=` |
+| 86 | n_parentname_like | String | 允许 | 条件字段：parentname<br>条件组合方式：`%like%` |
+| 87 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
+| 88 | n_story_eq | Long | 允许 | 条件字段：story<br>条件组合方式：`=` |
+| 89 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
+| 90 | n_frombug_eq | Long | 允许 | 条件字段：frombug<br>条件组合方式：`=` |
+| 91 | n_module_eq | Long | 允许 | 条件字段：module<br>条件组合方式：`=` |
+| 92 | n_path_like | String | 允许 | 条件字段：path<br>条件组合方式：`%like%` |
+| 93 | n_status1_eq | String | 允许 | 条件字段：status1<br>条件组合方式：`=` |
+| 94 | n_tasktype_eq | String | 允许 | 条件字段：tasktype<br>条件组合方式：`=` |
 | 95 | customcond | String | 允许 | 自定义查询条件 |
 | 96 | customparams | String | 允许 | 自定义查询参数 |
 | 97 | query | String | 允许 | 快速搜索 |

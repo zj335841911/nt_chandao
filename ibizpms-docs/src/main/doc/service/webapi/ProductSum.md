@@ -350,9 +350,9 @@ POST
 #### ProductSumSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 13 | n_id_eq | Long | 允许 |  |
-| 14 | n_po_eq | String | 允许 |  |
-| 15 | n_plan_eq | Long | 允许 |  |
+| 13 | n_id_eq | Long | 允许 | 条件字段：id<br>条件组合方式：`=` |
+| 14 | n_po_eq | String | 允许 | 条件字段：po<br>条件组合方式：`=` |
+| 15 | n_plan_eq | Long | 允许 | 条件字段：plan<br>条件组合方式：`=` |
 | 16 | customcond | String | 允许 | 自定义查询条件 |
 | 17 | customparams | String | 允许 | 自定义查询参数 |
 | 18 | query | String | 允许 | 快速搜索 |

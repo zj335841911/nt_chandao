@@ -135,8 +135,8 @@ POST
 #### ProductLifeSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 15 | n_ibz_productlifename_like | String | 允许 |  |
-| 16 | n_year_eq | String | 允许 |  |
+| 15 | n_ibz_productlifename_like | String | 允许 | 条件字段：ibz_productlifename<br>条件组合方式：`%like%` |
+| 16 | n_year_eq | String | 允许 | 条件字段：year<br>条件组合方式：`=` |
 | 17 | customcond | String | 允许 | 自定义查询条件 |
 | 18 | customparams | String | 允许 | 自定义查询参数 |
 | 19 | query | String | 允许 | 快速搜索 |

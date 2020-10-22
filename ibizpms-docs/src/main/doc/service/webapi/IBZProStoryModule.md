@@ -263,14 +263,14 @@ POST
 #### IBZProStoryModuleSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 15 | n_name_like | String | 允许 |  |
-| 16 | n_root_eq | Long | 允许 |  |
-| 17 | n_ibiz_id_eq | String | 允许 |  |
-| 18 | n_type_eq | String | 允许 |  |
-| 19 | n_parent_eq | Long | 允许 |  |
-| 20 | n_productname_eq | String | 允许 |  |
-| 21 | n_productname_like | String | 允许 |  |
-| 22 | n_ibiz_storytype_eq | String | 允许 |  |
+| 15 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 16 | n_root_eq | Long | 允许 | 条件字段：root<br>条件组合方式：`=` |
+| 17 | n_ibiz_id_eq | String | 允许 | 条件字段：ibiz_id<br>条件组合方式：`=` |
+| 18 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 19 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
+| 20 | n_productname_eq | String | 允许 | 条件字段：productname<br>条件组合方式：`=` |
+| 21 | n_productname_like | String | 允许 | 条件字段：productname<br>条件组合方式：`%like%` |
+| 22 | n_ibiz_storytype_eq | String | 允许 | 条件字段：ibiz_storytype<br>条件组合方式：`=` |
 | 23 | customcond | String | 允许 | 自定义查询条件 |
 | 24 | customparams | String | 允许 | 自定义查询参数 |
 | 25 | query | String | 允许 | 快速搜索 |

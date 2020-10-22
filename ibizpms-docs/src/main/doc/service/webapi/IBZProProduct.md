@@ -234,7 +234,7 @@ POST
 #### IBZProProductSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 5 | n_name_like | String | 允许 |  |
+| 5 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
 | 6 | customcond | String | 允许 | 自定义查询条件 |
 | 7 | customparams | String | 允许 | 自定义查询参数 |
 | 8 | query | String | 允许 | 快速搜索 |

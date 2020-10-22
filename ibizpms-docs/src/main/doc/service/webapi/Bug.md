@@ -8283,57 +8283,57 @@ POST
 #### BugSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 72 | n_severity_eq | Integer | 允许 |  |
-| 73 | n_assignedto_eq | String | 允许 |  |
-| 74 | n_resolution_eq | String | 允许 |  |
-| 75 | n_closedby_eq | String | 允许 |  |
-| 76 | n_browser_eq | String | 允许 |  |
-| 77 | n_confirmed_eq | Integer | 允许 |  |
-| 78 | n_openedby_eq | String | 允许 |  |
-| 79 | n_assigneddate_gtandeq | Timestamp | 允许 | 时间格式：yyyy-MM-dd HH:mm:ss |
-| 80 | n_deadline_gtandeq | Timestamp | 允许 | 时间格式：yyyy-MM-dd |
-| 81 | n_deadline_lt | Timestamp | 允许 | 时间格式：yyyy-MM-dd |
-| 82 | n_deadline_ltandeq | Timestamp | 允许 | 时间格式：yyyy-MM-dd |
-| 83 | n_color_eq | String | 允许 |  |
-| 84 | n_resolveddate_ltandeq | Timestamp | 允许 | 时间格式：yyyy-MM-dd HH:mm:ss |
-| 85 | n_type_eq | String | 允许 |  |
-| 86 | n_status_eq | String | 允许 |  |
-| 87 | n_status_noteq | String | 允许 |  |
-| 88 | n_id_eq | Long | 允许 |  |
-| 89 | n_resolvedby_eq | String | 允许 |  |
-| 90 | n_resolvedbuild_eq | String | 允许 |  |
-| 91 | n_pri_eq | Integer | 允许 |  |
-| 92 | n_os_eq | String | 允许 |  |
-| 93 | n_lasteditedby_eq | String | 允许 |  |
-| 94 | n_title_like | String | 允许 |  |
-| 95 | n_productname_eq | String | 允许 |  |
-| 96 | n_productname_like | String | 允许 |  |
-| 97 | n_projectname_eq | String | 允许 |  |
-| 98 | n_projectname_like | String | 允许 |  |
-| 99 | n_storyname_eq | String | 允许 |  |
-| 100 | n_storyname_like | String | 允许 |  |
-| 101 | n_tostory_eq | Long | 允许 |  |
-| 102 | n_entry_eq | Long | 允许 |  |
-| 103 | n_product_eq | Long | 允许 |  |
-| 104 | n_totask_eq | Long | 允许 |  |
-| 105 | n_plan_eq | Long | 允许 |  |
-| 106 | n_module_eq | Long | 允许 |  |
-| 107 | n_branch_eq | Long | 允许 |  |
-| 108 | n_duplicatebug_eq | Long | 允许 |  |
-| 109 | n_repo_eq | Long | 允许 |  |
-| 110 | n_story_eq | Long | 允许 |  |
-| 111 | n_case_eq | Long | 允许 |  |
-| 112 | n_project_eq | Long | 允许 |  |
-| 113 | n_task_eq | Long | 允许 |  |
-| 114 | n_testtask_eq | Long | 允许 |  |
-| 115 | n_taskname_eq | String | 允许 |  |
-| 116 | n_taskname_like | String | 允许 |  |
-| 117 | n_modulename_eq | String | 允许 |  |
-| 118 | n_modulename_like | String | 允许 |  |
-| 119 | n_branchname_eq | String | 允许 |  |
-| 120 | n_branchname_like | String | 允许 |  |
-| 121 | n_buildproject_eq | String | 允许 |  |
-| 122 | n_overduebugs_lt | Integer | 允许 |  |
+| 72 | n_severity_eq | Integer | 允许 | 条件字段：severity<br>条件组合方式：`=` |
+| 73 | n_assignedto_eq | String | 允许 | 条件字段：assignedto<br>条件组合方式：`=` |
+| 74 | n_resolution_eq | String | 允许 | 条件字段：resolution<br>条件组合方式：`=` |
+| 75 | n_closedby_eq | String | 允许 | 条件字段：closedby<br>条件组合方式：`=` |
+| 76 | n_browser_eq | String | 允许 | 条件字段：browser<br>条件组合方式：`=` |
+| 77 | n_confirmed_eq | Integer | 允许 | 条件字段：confirmed<br>条件组合方式：`=` |
+| 78 | n_openedby_eq | String | 允许 | 条件字段：openedby<br>条件组合方式：`=` |
+| 79 | n_assigneddate_gtandeq | Timestamp | 允许 | 条件字段：assigneddate<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 80 | n_deadline_gtandeq | Timestamp | 允许 | 条件字段：deadline<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd |
+| 81 | n_deadline_lt | Timestamp | 允许 | 条件字段：deadline<br>条件组合方式：`<`<br>时间格式：yyyy-MM-dd |
+| 82 | n_deadline_ltandeq | Timestamp | 允许 | 条件字段：deadline<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd |
+| 83 | n_color_eq | String | 允许 | 条件字段：color<br>条件组合方式：`=` |
+| 84 | n_resolveddate_ltandeq | Timestamp | 允许 | 条件字段：resolveddate<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 85 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 86 | n_status_eq | String | 允许 | 条件字段：status<br>条件组合方式：`=` |
+| 87 | n_status_noteq | String | 允许 | 条件字段：status<br>条件组合方式：`!=`或者`<>` |
+| 88 | n_id_eq | Long | 允许 | 条件字段：id<br>条件组合方式：`=` |
+| 89 | n_resolvedby_eq | String | 允许 | 条件字段：resolvedby<br>条件组合方式：`=` |
+| 90 | n_resolvedbuild_eq | String | 允许 | 条件字段：resolvedbuild<br>条件组合方式：`=` |
+| 91 | n_pri_eq | Integer | 允许 | 条件字段：pri<br>条件组合方式：`=` |
+| 92 | n_os_eq | String | 允许 | 条件字段：os<br>条件组合方式：`=` |
+| 93 | n_lasteditedby_eq | String | 允许 | 条件字段：lasteditedby<br>条件组合方式：`=` |
+| 94 | n_title_like | String | 允许 | 条件字段：title<br>条件组合方式：`%like%` |
+| 95 | n_productname_eq | String | 允许 | 条件字段：productname<br>条件组合方式：`=` |
+| 96 | n_productname_like | String | 允许 | 条件字段：productname<br>条件组合方式：`%like%` |
+| 97 | n_projectname_eq | String | 允许 | 条件字段：projectname<br>条件组合方式：`=` |
+| 98 | n_projectname_like | String | 允许 | 条件字段：projectname<br>条件组合方式：`%like%` |
+| 99 | n_storyname_eq | String | 允许 | 条件字段：storyname<br>条件组合方式：`=` |
+| 100 | n_storyname_like | String | 允许 | 条件字段：storyname<br>条件组合方式：`%like%` |
+| 101 | n_tostory_eq | Long | 允许 | 条件字段：tostory<br>条件组合方式：`=` |
+| 102 | n_entry_eq | Long | 允许 | 条件字段：entry<br>条件组合方式：`=` |
+| 103 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 104 | n_totask_eq | Long | 允许 | 条件字段：totask<br>条件组合方式：`=` |
+| 105 | n_plan_eq | Long | 允许 | 条件字段：plan<br>条件组合方式：`=` |
+| 106 | n_module_eq | Long | 允许 | 条件字段：module<br>条件组合方式：`=` |
+| 107 | n_branch_eq | Long | 允许 | 条件字段：branch<br>条件组合方式：`=` |
+| 108 | n_duplicatebug_eq | Long | 允许 | 条件字段：duplicatebug<br>条件组合方式：`=` |
+| 109 | n_repo_eq | Long | 允许 | 条件字段：repo<br>条件组合方式：`=` |
+| 110 | n_story_eq | Long | 允许 | 条件字段：story<br>条件组合方式：`=` |
+| 111 | n_case_eq | Long | 允许 | 条件字段：case<br>条件组合方式：`=` |
+| 112 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
+| 113 | n_task_eq | Long | 允许 | 条件字段：task<br>条件组合方式：`=` |
+| 114 | n_testtask_eq | Long | 允许 | 条件字段：testtask<br>条件组合方式：`=` |
+| 115 | n_taskname_eq | String | 允许 | 条件字段：taskname<br>条件组合方式：`=` |
+| 116 | n_taskname_like | String | 允许 | 条件字段：taskname<br>条件组合方式：`%like%` |
+| 117 | n_modulename_eq | String | 允许 | 条件字段：modulename<br>条件组合方式：`=` |
+| 118 | n_modulename_like | String | 允许 | 条件字段：modulename<br>条件组合方式：`%like%` |
+| 119 | n_branchname_eq | String | 允许 | 条件字段：branchname<br>条件组合方式：`=` |
+| 120 | n_branchname_like | String | 允许 | 条件字段：branchname<br>条件组合方式：`%like%` |
+| 121 | n_buildproject_eq | String | 允许 | 条件字段：buildproject<br>条件组合方式：`=` |
+| 122 | n_overduebugs_lt | Integer | 允许 | 条件字段：overduebugs<br>条件组合方式：`<` |
 | 123 | customcond | String | 允许 | 自定义查询条件 |
 | 124 | customparams | String | 允许 | 自定义查询参数 |
 | 125 | query | String | 允许 | 快速搜索 |

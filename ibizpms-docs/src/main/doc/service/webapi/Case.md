@@ -5025,34 +5025,34 @@ POST
 #### CaseSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 57 | n_color_eq | String | 允许 |  |
-| 58 | n_lastrunresult_eq | String | 允许 |  |
-| 59 | n_openedby_eq | String | 允许 |  |
-| 60 | n_type_eq | String | 允许 |  |
-| 61 | n_status_eq | String | 允许 |  |
-| 62 | n_frequency_eq | String | 允许 |  |
-| 63 | n_title_like | String | 允许 |  |
-| 64 | n_pri_eq | Integer | 允许 |  |
-| 65 | n_frame_eq | String | 允许 |  |
-| 66 | n_lastrunner_eq | String | 允许 |  |
-| 67 | n_fromcaseid_eq | Long | 允许 |  |
-| 68 | n_branch_eq | Long | 允许 |  |
-| 69 | n_frombug_eq | Long | 允许 |  |
-| 70 | n_story_eq | Long | 允许 |  |
-| 71 | n_product_eq | Long | 允许 |  |
-| 72 | n_lib_eq | Long | 允许 |  |
-| 73 | n_module_eq | Long | 允许 |  |
-| 74 | n_modulename_eq | String | 允许 |  |
-| 75 | n_modulename_like | String | 允许 |  |
-| 76 | n_storyname_eq | String | 允许 |  |
-| 77 | n_storyname_like | String | 允许 |  |
-| 78 | n_productname_eq | String | 允许 |  |
-| 79 | n_productname_like | String | 允许 |  |
-| 80 | n_status1_eq | String | 允许 |  |
-| 81 | n_assignedto_eq | String | 允许 |  |
-| 82 | n_libname_eq | String | 允许 |  |
-| 83 | n_libname_like | String | 允许 |  |
-| 84 | n_lastrunresult1_eq | String | 允许 |  |
+| 57 | n_color_eq | String | 允许 | 条件字段：color<br>条件组合方式：`=` |
+| 58 | n_lastrunresult_eq | String | 允许 | 条件字段：lastrunresult<br>条件组合方式：`=` |
+| 59 | n_openedby_eq | String | 允许 | 条件字段：openedby<br>条件组合方式：`=` |
+| 60 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 61 | n_status_eq | String | 允许 | 条件字段：status<br>条件组合方式：`=` |
+| 62 | n_frequency_eq | String | 允许 | 条件字段：frequency<br>条件组合方式：`=` |
+| 63 | n_title_like | String | 允许 | 条件字段：title<br>条件组合方式：`%like%` |
+| 64 | n_pri_eq | Integer | 允许 | 条件字段：pri<br>条件组合方式：`=` |
+| 65 | n_frame_eq | String | 允许 | 条件字段：frame<br>条件组合方式：`=` |
+| 66 | n_lastrunner_eq | String | 允许 | 条件字段：lastrunner<br>条件组合方式：`=` |
+| 67 | n_fromcaseid_eq | Long | 允许 | 条件字段：fromcaseid<br>条件组合方式：`=` |
+| 68 | n_branch_eq | Long | 允许 | 条件字段：branch<br>条件组合方式：`=` |
+| 69 | n_frombug_eq | Long | 允许 | 条件字段：frombug<br>条件组合方式：`=` |
+| 70 | n_story_eq | Long | 允许 | 条件字段：story<br>条件组合方式：`=` |
+| 71 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 72 | n_lib_eq | Long | 允许 | 条件字段：lib<br>条件组合方式：`=` |
+| 73 | n_module_eq | Long | 允许 | 条件字段：module<br>条件组合方式：`=` |
+| 74 | n_modulename_eq | String | 允许 | 条件字段：modulename<br>条件组合方式：`=` |
+| 75 | n_modulename_like | String | 允许 | 条件字段：modulename<br>条件组合方式：`%like%` |
+| 76 | n_storyname_eq | String | 允许 | 条件字段：storyname<br>条件组合方式：`=` |
+| 77 | n_storyname_like | String | 允许 | 条件字段：storyname<br>条件组合方式：`%like%` |
+| 78 | n_productname_eq | String | 允许 | 条件字段：productname<br>条件组合方式：`=` |
+| 79 | n_productname_like | String | 允许 | 条件字段：productname<br>条件组合方式：`%like%` |
+| 80 | n_status1_eq | String | 允许 | 条件字段：status1<br>条件组合方式：`=` |
+| 81 | n_assignedto_eq | String | 允许 | 条件字段：assignedto<br>条件组合方式：`=` |
+| 82 | n_libname_eq | String | 允许 | 条件字段：libname<br>条件组合方式：`=` |
+| 83 | n_libname_like | String | 允许 | 条件字段：libname<br>条件组合方式：`%like%` |
+| 84 | n_lastrunresult1_eq | String | 允许 | 条件字段：lastrunresult1<br>条件组合方式：`=` |
 | 85 | customcond | String | 允许 | 自定义查询条件 |
 | 86 | customparams | String | 允许 | 自定义查询参数 |
 | 87 | query | String | 允许 | 快速搜索 |

@@ -1089,8 +1089,8 @@ POST
 #### TaskEstimateSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 9 | n_id_like | Long | 允许 |  |
-| 10 | n_task_eq | Long | 允许 |  |
+| 9 | n_id_like | Long | 允许 | 条件字段：id<br>条件组合方式：`%like%` |
+| 10 | n_task_eq | Long | 允许 | 条件字段：task<br>条件组合方式：`=` |
 | 11 | customcond | String | 允许 | 自定义查询条件 |
 | 12 | customparams | String | 允许 | 自定义查询参数 |
 | 13 | query | String | 允许 | 快速搜索 |

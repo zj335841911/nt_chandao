@@ -926,8 +926,8 @@ POST
 #### TestRunSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 10 | n_case_eq | Long | 允许 |  |
-| 11 | n_task_eq | Long | 允许 |  |
+| 10 | n_case_eq | Long | 允许 | 条件字段：case<br>条件组合方式：`=` |
+| 11 | n_task_eq | Long | 允许 | 条件字段：task<br>条件组合方式：`=` |
 | 12 | customcond | String | 允许 | 自定义查询条件 |
 | 13 | customparams | String | 允许 | 自定义查询参数 |
 | 14 | query | String | 允许 | 快速搜索 |

@@ -483,8 +483,8 @@ POST
 #### UserYearWorkStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 51 | n_realname_like | String | 允许 |  |
-| 52 | n_dept_eq | String | 允许 |  |
+| 51 | n_realname_like | String | 允许 | 条件字段：realname<br>条件组合方式：`%like%` |
+| 52 | n_dept_eq | String | 允许 | 条件字段：dept<br>条件组合方式：`=` |
 | 53 | customcond | String | 允许 | 自定义查询条件 |
 | 54 | customparams | String | 允许 | 自定义查询参数 |
 | 55 | query | String | 允许 | 快速搜索 |

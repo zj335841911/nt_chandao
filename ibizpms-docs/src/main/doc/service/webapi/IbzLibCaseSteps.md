@@ -480,11 +480,11 @@ POST
 #### IbzLibCaseStepsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 10 | n_version_eq | Integer | 允许 |  |
-| 11 | n_case_eq | Long | 允许 |  |
-| 12 | n_expect_like | String | 允许 |  |
-| 13 | n_parent_eq | Long | 允许 |  |
-| 14 | n_type_eq | String | 允许 |  |
+| 10 | n_version_eq | Integer | 允许 | 条件字段：version<br>条件组合方式：`=` |
+| 11 | n_case_eq | Long | 允许 | 条件字段：case<br>条件组合方式：`=` |
+| 12 | n_expect_like | String | 允许 | 条件字段：expect<br>条件组合方式：`%like%` |
+| 13 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
+| 14 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
 | 15 | customcond | String | 允许 | 自定义查询条件 |
 | 16 | customparams | String | 允许 | 自定义查询参数 |
 | 17 | query | String | 允许 | 快速搜索 |

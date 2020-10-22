@@ -808,16 +808,16 @@ POST
 #### ProjectProductSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 9 | n_productname_eq | String | 允许 |  |
-| 10 | n_productname_like | String | 允许 |  |
-| 11 | n_projectname_eq | String | 允许 |  |
-| 12 | n_projectname_like | String | 允许 |  |
-| 13 | n_planname_eq | String | 允许 |  |
-| 14 | n_planname_like | String | 允许 |  |
-| 15 | n_product_eq | Long | 允许 |  |
-| 16 | n_plan_eq | Long | 允许 |  |
-| 17 | n_branch_eq | Long | 允许 |  |
-| 18 | n_project_eq | Long | 允许 |  |
+| 9 | n_productname_eq | String | 允许 | 条件字段：productname<br>条件组合方式：`=` |
+| 10 | n_productname_like | String | 允许 | 条件字段：productname<br>条件组合方式：`%like%` |
+| 11 | n_projectname_eq | String | 允许 | 条件字段：projectname<br>条件组合方式：`=` |
+| 12 | n_projectname_like | String | 允许 | 条件字段：projectname<br>条件组合方式：`%like%` |
+| 13 | n_planname_eq | String | 允许 | 条件字段：planname<br>条件组合方式：`=` |
+| 14 | n_planname_like | String | 允许 | 条件字段：planname<br>条件组合方式：`%like%` |
+| 15 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 16 | n_plan_eq | Long | 允许 | 条件字段：plan<br>条件组合方式：`=` |
+| 17 | n_branch_eq | Long | 允许 | 条件字段：branch<br>条件组合方式：`=` |
+| 18 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
 | 19 | customcond | String | 允许 | 自定义查询条件 |
 | 20 | customparams | String | 允许 | 自定义查询参数 |
 | 21 | query | String | 允许 | 快速搜索 |

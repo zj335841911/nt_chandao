@@ -1010,17 +1010,17 @@ POST
 #### ProductPlanSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 22 | n_title_like | String | 允许 |  |
-| 23 | n_begin_gtandeq | Timestamp | 允许 | 时间格式：yyyy-MM-dd |
-| 24 | n_end_ltandeq | Timestamp | 允许 | 时间格式：yyyy-MM-dd |
-| 25 | n_parentname_eq | String | 允许 |  |
-| 26 | n_parentname_like | String | 允许 |  |
-| 27 | n_branch_eq | Long | 允许 |  |
-| 28 | n_parent_eq | Long | 允许 |  |
-| 29 | n_product_eq | Long | 允许 |  |
-| 30 | n_future_eq | String | 允许 |  |
-| 31 | n_delta_eq | String | 允许 |  |
-| 32 | n_isexpired_eq | String | 允许 |  |
+| 22 | n_title_like | String | 允许 | 条件字段：title<br>条件组合方式：`%like%` |
+| 23 | n_begin_gtandeq | Timestamp | 允许 | 条件字段：begin<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd |
+| 24 | n_end_ltandeq | Timestamp | 允许 | 条件字段：end<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd |
+| 25 | n_parentname_eq | String | 允许 | 条件字段：parentname<br>条件组合方式：`=` |
+| 26 | n_parentname_like | String | 允许 | 条件字段：parentname<br>条件组合方式：`%like%` |
+| 27 | n_branch_eq | Long | 允许 | 条件字段：branch<br>条件组合方式：`=` |
+| 28 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
+| 29 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 30 | n_future_eq | String | 允许 | 条件字段：future<br>条件组合方式：`=` |
+| 31 | n_delta_eq | String | 允许 | 条件字段：delta<br>条件组合方式：`=` |
+| 32 | n_isexpired_eq | String | 允许 | 条件字段：isexpired<br>条件组合方式：`=` |
 | 33 | customcond | String | 允许 | 自定义查询条件 |
 | 34 | customparams | String | 允许 | 自定义查询参数 |
 | 35 | query | String | 允许 | 快速搜索 |

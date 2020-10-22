@@ -329,9 +329,9 @@ POST
 #### ProjectStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 28 | n_name_like | String | 允许 |  |
-| 29 | n_status_eq | String | 允许 |  |
-| 30 | n_status_noteq | String | 允许 |  |
+| 28 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 29 | n_status_eq | String | 允许 | 条件字段：status<br>条件组合方式：`=` |
+| 30 | n_status_noteq | String | 允许 | 条件字段：status<br>条件组合方式：`!=`或者`<>` |
 | 31 | customcond | String | 允许 | 自定义查询条件 |
 | 32 | customparams | String | 允许 | 自定义查询参数 |
 | 33 | query | String | 允许 | 快速搜索 |
