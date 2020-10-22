@@ -14411,34 +14411,35 @@ FROM `zt_user` t1
 ```
 ### 月完成任务数及累计工时和解决Bug数(MonthFinishTaskAndBug)<div id="UserYearWorkStats_MonthFinishTaskAndBug"></div>
 ```sql
-select t1.realname,t1.account,CONCAT_WS('',CASE 
+select t1.account,CONCAT_WS('',CASE 
 	WHEN t21.`YEAR` is NULL THEN
 		#{srf.webcontext.curyear}
 	ELSE
 		t21.`YEAR`
-END ,'-',t1.CURMONTH,'-01 00:00:00') as CURMONTH,case when t11.consumed is null then 0 else t11.consumed end as MONTESTIMATE,case when t11.MONTHFINISHTASK is null then 0 else t11.MONTHFINISHTASK end as MONTHFINISHTASK,case when t21.ss is null then 0 else t21.ss end as MONTRESOLVEDBUG   from (select t.account,t.realname,'01' as curmonth from zt_user t
+END ,'-',t1.CURMONTH,'-01 00:00:00') as CURMONTH,case when t11.consumed is null then 0 else t11.consumed end as MONTESTIMATE,case when t11.MONTHFINISHTASK is null then 0 else t11.MONTHFINISHTASK end as MONTHFINISHTASK,case when t21.ss is null then 0 else t21.ss end as MONTRESOLVEDBUG   from (
+select * from (select DISTINCT t1.actor as account,'01' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'02' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'02' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'03' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'03' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'04' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'04' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'05' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'05' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'06' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'06' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'07' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'07' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'08' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'08' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'09' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'09' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'10' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'10' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'11' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'11' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'12' as curmonth from zt_user t) t1 left join (
+select * from (select DISTINCT t1.actor as account,'12' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t) t1 left join (
 SELECT
 	t11.account,
 	t11.date,
@@ -14478,7 +14479,30 @@ WHERE t1.account = #{srf.sessioncontext.srfloginname}
 ```
 ### 月创建Bug数和创建用例数(MonthOpenedBugAndCase)<div id="UserYearWorkStats_MonthOpenedBugAndCase"></div>
 ```sql
- select t1.realname,t1.account,CONCAT_WS('',case when t11.`year` is not null then t11.`YEAR` when t21.`year` is not null then t21.`year` else DATE_FORMAT( now(), '%Y' ) end  ,'-',t1.CURMONTH,'-01 00:00:00') as CURMONTH,case when t11.MONTRESOLVEDBUG is null then 0 else t11.MONTRESOLVEDBUG end as MONTRESOLVEDBUG,case when t21.YEARCASECNT is null then 0 else t21.YEARCASECNT end as YEARCASECNT  from (select t.account,t.realname,'01' as curmonth from zt_user t UNION select t.account,t.realname,'02' as curmonth from zt_user t UNION select t.account,t.realname,'03' as curmonth from zt_user t UNION select t.account,t.realname,'04' as curmonth from zt_user t UNION select t.account,t.realname,'05' as curmonth from zt_user t UNION select t.account,t.realname,'06' as curmonth from zt_user t UNION select t.account,t.realname,'07' as curmonth from zt_user t UNION select t.account,t.realname,'08' as curmonth from zt_user t UNION select t.account,t.realname,'09' as curmonth from zt_user t UNION select t.account,t.realname,'10' as curmonth from zt_user t UNION select t.account,t.realname,'11' as curmonth from zt_user t UNION select t.account,t.realname,'12' as curmonth from zt_user t) t1 left join (select t11.openedBy,t11.openedDate,COUNT(1) as MONTRESOLVEDBUG,t11.`year` from (select t11.openedBy, DATE_FORMAT( t11.openedDate, '%Y' ) AS `YEAR`, 	DATE_FORMAT( t11.openedDate, '%m' ) AS openedDate from zt_bug t11  where t11.deleted = '0') t11 where t11.`YEAR` = #{srf.webcontext.curyear}
+ select t1.account,CONCAT_WS('',case when t11.`year` is not null then t11.`YEAR` when t21.`year` is not null then t21.`year` else DATE_FORMAT( now(), '%Y' ) end  ,'-',t1.CURMONTH,'-01 00:00:00') as CURMONTH,case when t11.MONTRESOLVEDBUG is null then 0 else t11.MONTRESOLVEDBUG end as MONTRESOLVEDBUG,case when t21.YEARCASECNT is null then 0 else t21.YEARCASECNT end as YEARCASECNT  from (
+select * from (select DISTINCT t1.actor as account,'01' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
+UNION
+select * from (select DISTINCT t1.actor as account,'02' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
+UNION
+select * from (select DISTINCT t1.actor as account,'03' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
+UNION
+select * from (select DISTINCT t1.actor as account,'04' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
+UNION
+select * from (select DISTINCT t1.actor as account,'05' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
+UNION
+select * from (select DISTINCT t1.actor as account,'06' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
+UNION
+select * from (select DISTINCT t1.actor as account,'07' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
+UNION
+select * from (select DISTINCT t1.actor as account,'08' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
+UNION
+select * from (select DISTINCT t1.actor as account,'09' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
+UNION
+select * from (select DISTINCT t1.actor as account,'10' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
+UNION
+select * from (select DISTINCT t1.actor as account,'11' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
+UNION
+select * from (select DISTINCT t1.actor as account,'12' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t) t1 left join (select t11.openedBy,t11.openedDate,COUNT(1) as MONTRESOLVEDBUG,t11.`year` from (select t11.openedBy, DATE_FORMAT( t11.openedDate, '%Y' ) AS `YEAR`, 	DATE_FORMAT( t11.openedDate, '%m' ) AS openedDate from zt_bug t11  where t11.deleted = '0') t11 where t11.`YEAR` = #{srf.webcontext.curyear}
 					 GROUP BY t11.openedBy,t11.openedDate ) t11 on t11.openedBy = t1.account and t11.openedDate = t1.curmonth 	left join (select t11.openedBy,t11.openedDate,COUNT(1) as YEARCASECNT,t11.`year` from (select t11.openedBy, DATE_FORMAT( t11.openedDate, '%Y' ) AS `YEAR`, 	DATE_FORMAT( t11.openedDate, '%m' ) AS openedDate from zt_case t11  where t11.deleted = '0') t11 where t11.`YEAR` =#{srf.webcontext.curyear} 
 					 GROUP BY t11.openedBy,t11.openedDate ) t21 on t21.openedBy = t1.account and t21.openedDate = t1.curmonth
 WHERE t1.account = #{srf.sessioncontext.srfloginname} 
@@ -14486,35 +14510,36 @@ WHERE t1.account = #{srf.sessioncontext.srfloginname}
 ```
 ### 月创建需求数(MonthOpenedStory)<div id="UserYearWorkStats_MonthOpenedStory"></div>
 ```sql
-select t1.realname,t1.account,CONCAT_WS('',CASE 
+select t1.account,CONCAT_WS('',CASE 
 	WHEN t11.`YEAR` is NULL THEN
-		#{srf.webcontext.curyear}
+		 #{srf.webcontext.curyear}
 	ELSE
 		t11.`YEAR`
-END ,'-',t1.CURMONTH,'-01 00:00:00') as CURMONTH,case when t11.YEARSTORYCNT is null then 0 else t11.YEARSTORYCNT end as YEARSTORYCNT  from (select t.account,t.realname,'01' as curmonth from zt_user t
+END ,'-',t1.CURMONTH,'-01 00:00:00') as CURMONTH,case when t11.YEARSTORYCNT is null then 0 else t11.YEARSTORYCNT end as YEARSTORYCNT  from (
+select * from (select DISTINCT t1.actor as account,'01' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'02' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'02' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'03' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'03' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'04' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'04' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'05' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'05' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'06' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'06' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'07' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'07' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'08' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'08' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'09' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'09' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'10' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'10' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'11' as curmonth from zt_user t
+select * from (select DISTINCT t1.actor as account,'11' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t
 UNION
-select t.account,t.realname,'12' as curmonth from zt_user t) t1 left join (select t11.openedBy,t11.`year`,t11.openedDate,COUNT(1) as YEARSTORYCNT from (select t11.openedBy, DATE_FORMAT( t11.openedDate, '%Y' ) AS `YEAR`,
-	DATE_FORMAT( t11.openedDate, '%m' ) AS openedDate from zt_story t11  where t11.deleted = '0') t11 where t11.`YEAR` =   #{srf.webcontext.curyear}
+select * from (select DISTINCT t1.actor as account,'12' as curmonth from zt_action t1 where t1.actor <> '' and t1.actor is not null) t) t1 left join (select t11.openedBy,t11.`year`,t11.openedDate,COUNT(1) as YEARSTORYCNT from (select t11.openedBy, DATE_FORMAT( t11.openedDate, '%Y' ) AS `YEAR`,
+	DATE_FORMAT( t11.openedDate, '%m' ) AS openedDate from zt_story t11  where t11.deleted = '0') t11 where t11.`YEAR` =  #{srf.webcontext.curyear}
 	GROUP BY t11.openedBy,t11.openedDate ) t11 on t11.openedBy = t1.account and t11.openedDate = t1.curmonth
 WHERE t1.account = #{srf.sessioncontext.srfloginname} 
 
