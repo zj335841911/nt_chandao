@@ -39,8 +39,8 @@
 
     /* 底部 Start */
     // 背景色
-    --app-footer-background-color: #007acc;
-    --app-footer-background-color-rgb: 0, 122, 204;
+    --app-footer-background-color: #343434;
+    --app-footer-background-color-rgb: 52, 52, 52;
     // 字体颜色
     --app-footer-color: #FFF;
     --app-footer-color-rgb: 255, 255, 255;
@@ -225,6 +225,38 @@
                 >i {
                     color: var(--app-left-sidebar-font-color-active);
                 }
+            }
+        }
+    }
+    
+    .grid {
+
+        .page-column, .batch-toolbar {
+            --view-button-background-color: #2d8cf0;
+            --view-button-background-color-rgb: 45, 140, 240;
+            --view-button-background-color-active: #67abf1;
+            --view-button-background-color-active-rgb: 103, 171, 241;
+        }
+
+        .pull-right.ivu-page {
+
+            .ivu-select-item:hover, .ivu-select-item.ivu-select-item-selected {
+                color: var(--view-button-color);
+                background-color: var(--view-button-background-color);
+            }
+        }
+    }
+
+    .ivu-poptip-popper.ivu-poptip-transfer.grid-column {
+
+        .el-checkbox.is-checked {
+
+            .el-checkbox__inner {
+                background-color: var(--view-button-background-color) !important;
+            }
+
+            .el-checkbox__label {
+                color: var(--view-button-background-color);
             }
         }
     }

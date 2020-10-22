@@ -125,6 +125,34 @@ const datas: Array<any> = [
         "items": []
     },
     {
+        srfkey: 'Realease_sort',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'all',
+                label: '所有',
+                text: '所有',
+                value: 'all',
+                disabled: false,
+            },
+            {
+                id: 'normal',
+                label: '正常',
+                text: '正常',
+                value: 'normal',
+                disabled: false,
+            },
+            {
+                id: 'terminate',
+                label: '停止维护',
+                text: '停止维护',
+                value: 'terminate',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Testcase__stage',
         emptytext: '未定义',
         "codelisttype":"static",

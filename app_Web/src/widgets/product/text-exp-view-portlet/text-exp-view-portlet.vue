@@ -6,7 +6,7 @@ import { TextExpViewPortletBase } from './text-exp-view-portlet-base';
  
 
 /**
- * db_sysportlet2部件
+ * dashboard_sysportlet9部件
  *
  * @export
  * @class TextExpViewPortlet

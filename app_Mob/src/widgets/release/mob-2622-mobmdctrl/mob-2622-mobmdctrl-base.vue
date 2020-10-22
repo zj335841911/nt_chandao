@@ -8,10 +8,6 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                     <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.MobActive.visabled" :disabled="item.MobActive.disabled" color="primary" @click="mdctrl_click($event, 'u5b592f7', item)"><ion-icon v-if="item.MobActive.icon && item.MobActive.isShowIcon" :name="item.MobActive.icon"></ion-icon><ion-label v-if="item.MobActive.isShowCaption">激活</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobTerminal.visabled" :disabled="item.MobTerminal.disabled" color="primary" @click="mdctrl_click($event, 'u6b4bf36', item)"><ion-icon v-if="item.MobTerminal.icon && item.MobTerminal.isShowIcon" :name="item.MobTerminal.icon"></ion-icon><ion-label v-if="item.MobTerminal.isShowCaption">停止维护</ion-label></ion-item-option>
-                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -28,10 +24,6 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                       <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.MobActive.visabled" :disabled="item.MobActive.disabled" color="primary" @click="mdctrl_click($event, 'u5b592f7', item)"><ion-icon v-if="item.MobActive.icon && item.MobActive.isShowIcon" :name="item.MobActive.icon"></ion-icon><ion-label v-if="item.MobActive.isShowCaption">激活</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobTerminal.visabled" :disabled="item.MobTerminal.disabled" color="primary" @click="mdctrl_click($event, 'u6b4bf36', item)"><ion-icon v-if="item.MobTerminal.icon && item.MobTerminal.isShowIcon" :name="item.MobTerminal.icon"></ion-icon><ion-label v-if="item.MobTerminal.isShowCaption">停止维护</ion-label></ion-item-option>
-                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -109,7 +101,7 @@ import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
 import ReleaseService from '@/app-core/service/release/release-service';
-import MobService from '@/app-core/ctrl-service/release/mob-mobmdctrl-service';
+import Mob_2622Service from '@/app-core/ctrl-service/release/mob-2622-mobmdctrl-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
 import ReleaseUIService from '@/ui-service/release/release-ui-action';
@@ -120,13 +112,13 @@ import ReleaseUIService from '@/ui-service/release/release-ui-action';
     components: {
     }
 })
-export default class MobBase extends Vue implements ControlInterface {
+export default class Mob_2622Base extends Vue implements ControlInterface {
 
     /**
      * 名称
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     @Prop() protected name?: string;
 
@@ -134,7 +126,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 视图名称
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     @Prop() protected viewName!: string;
 
@@ -143,7 +135,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 视图通讯对象
      *
      * @type {Subject<ViewState>}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     @Prop() protected viewState!: Subject<ViewState>;
 
@@ -151,7 +143,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 应用上下文
      *
      * @type {*}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     @Prop({ default: {} }) protected context?: any;
 
@@ -159,7 +151,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 视图参数
      *
      * @type {*}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     @Prop({ default: {} }) protected viewparams?: any;
 
@@ -168,7 +160,7 @@ export default class MobBase extends Vue implements ControlInterface {
      *
      * @protected
      * @type {(Subscription | undefined)}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     protected viewStateEvent: Subscription | undefined;
 
@@ -176,7 +168,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 获取部件类型
      *
      * @returns {string}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     protected getControlType(): string {
         return 'MOBMDCTRL'
@@ -186,7 +178,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -195,7 +187,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 转化数据
      *
      * @param {any} args
-     * @memberof  MobBase
+     * @memberof  Mob_2622Base
      */
     public transformData(args: any) {
         let _this: any = this;
@@ -207,16 +199,16 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 建构部件服务对象
      *
-     * @type {MobService}
-     * @memberof Mob
+     * @type {Mob_2622Service}
+     * @memberof Mob_2622
      */
-    protected service: MobService = new MobService({$store:this.$store});
+    protected service: Mob_2622Service = new Mob_2622Service({$store:this.$store});
 
     /**
      * 实体服务对象
      *
      * @type {ReleaseService}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     protected appEntityService: ReleaseService = new ReleaseService();
 
@@ -224,78 +216,16 @@ export default class MobBase extends Vue implements ControlInterface {
      * 界面UI服务对象
      *
      * @type {ReleaseUIService}
-     * @memberof MobBase
+     * @memberof Mob_2622Base
      */  
     public deUIService:ReleaseUIService = new ReleaseUIService(this.$store);
     
 
     /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_u5b592f7_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('release_ui_action');
-        if (curUIService) {
-            curUIService.Release_MobActive(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_u6b4bf36_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('release_ui_action');
-        if (curUIService) {
-            curUIService.Release_MobTerminal(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     protected closeView(args: any[]): void {
         let _this: any = this;
@@ -307,7 +237,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 视图类型
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     @Prop() protected viewType?: string | 'DEMOBMDVIEW' | 'DEMOBMDVIEW9' | 'DEMOBWFMDVIEW';
 
@@ -315,7 +245,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 显示处理提示
      *
      * @type {boolean}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     @Prop({ default: true }) protected showBusyIndicator?: boolean;
 
@@ -323,7 +253,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     @Prop() protected updateAction!: string;
     
@@ -331,7 +261,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 部件行为--fetch
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     @Prop() protected fetchAction!: string;
     
@@ -339,7 +269,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 部件行为--remove
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     @Prop() protected removeAction!: string;
     
@@ -347,7 +277,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 部件行为--load
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     @Prop() protected loadAction!: string;
     
@@ -355,7 +285,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 部件行为--loaddraft
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     @Prop() protected loaddraftAction!: string;
     
@@ -363,7 +293,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 部件行为--create
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     @Prop() protected createAction!: string;
 
@@ -371,14 +301,14 @@ export default class MobBase extends Vue implements ControlInterface {
      * 部件样式
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     @Prop({default: 'LISTVIEW'}) protected controlStyle!: string | 'ICONVIEW'  | 'LISTVIEW' | 'SWIPERVIEW' | 'LISTVIEW2' | 'LISTVIEW3' | 'LISTVIEW4';
 
     /**
     *上级传递的选中项
     *@type {Array}
-    *@memberof Mob
+    *@memberof Mob_2622
     */
      @Prop() public selectedData?:Array<any>;
 
@@ -386,7 +316,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 部件行为--update
      *
      * @type {string}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     @Prop({default: true}) protected needLoadMore?: boolean;
 
@@ -394,7 +324,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 新建打开视图
     *
     * @type {Function}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     @Prop() public newdata?: Function; 
 
@@ -403,7 +333,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 打开视图
     *
     * @type {Function}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     @Prop() public opendata?: Function; 
 
@@ -419,7 +349,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 当前选中数组
     *
     * @type {array}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public  selectdata :any = [];
 
@@ -427,7 +357,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 关闭行为
     *
     * @type {Function}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     @Prop() public close?:Function;
 
@@ -436,7 +366,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 是否为临时模式
     *
     * @type {boolean}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     @Prop({ default: false}) public isTempMode?:boolean;
 
@@ -444,7 +374,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 存放多数据选择数组（多选）
     *
     * @type {array}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public checkboxList:Array<string> = [];
 
@@ -452,7 +382,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 是否为分组模式
     *
     * @type {boolean}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public isEnableGroup:boolean =  false;
 
@@ -460,7 +390,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 代码表分组细节
     *
     * @type {Object}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public group_detail:any = [];
 
@@ -468,7 +398,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 分组模式
     *
     * @type {string}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public group_mode = 'NONE';
 
@@ -476,7 +406,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 分组数据
     *
     * @type {array}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public group_data?:any = [];
 
@@ -485,7 +415,7 @@ export default class MobBase extends Vue implements ControlInterface {
      *
      * @public
      * @type {(Subscription | undefined)}
-     * @memberof MobBase
+     * @memberof Mob_2622Base
      */
     public appStateEvent: Subscription | undefined;
 
@@ -493,14 +423,14 @@ export default class MobBase extends Vue implements ControlInterface {
     * 分组标识
     *
     * @type {array}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public group_field:string = '';
 
     /**
      * 分组方法
      *
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     public group(){
       let _this:any = this;
@@ -516,7 +446,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 存放数据选择数组(单选)
     *
     * @type {object}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public radio:any = '';
 
@@ -525,7 +455,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 点击多选按钮触发
     *
     *
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public change(){
         if(this.isMutli){
@@ -547,7 +477,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 列表键值对
     *
     * @type {Map}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public listMap: any = new Map();
 
@@ -555,7 +485,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 分页大小
     *
     * @type {number}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public pageSize: number = 1000;
 
@@ -563,7 +493,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 总页数
     *
     * @type {number}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
      public pageTotal: number = 0;
 
@@ -571,7 +501,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 当前页数
     *
     * @type {number}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
      public pageNumber: number = 1;
 
@@ -579,7 +509,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 判断底部数据是否全部加载完成，若为真，则 bottomMethod 不会被再次触发
     *
     * @type {number}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     get allLoaded() {
         return ((this.pageNumber + 1) * this.pageSize) >= this.pageTotal ? true : false;
@@ -589,7 +519,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 底部状态
     *
     * @type {String}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     // public bottomStatus: String = "";
 
@@ -597,7 +527,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 顶部状态
     *
     * @type {String}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     // public topStatus: String = "";
 
@@ -605,7 +535,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 
     *
     * @type {Number}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     // public moveTranslate: Number = 0;
 
@@ -613,7 +543,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * searchKey 搜索关键字
     *
     * @type {string}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
      public searchKey:string = '';
 
@@ -621,7 +551,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 列表数组
     *
     * @param {Array<any>}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public items:Array<any> =[];
 
@@ -629,7 +559,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 选中数组
     *
     * @param {Array<any>}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public selectedArray:Array<any> = [];
 
@@ -637,7 +567,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 多选计数
     *
     * @param {number}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public selectednumber:number =0;
 
@@ -645,7 +575,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 搜索行为
     *
     * @param {string}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     @Prop() public searchAction?:string;
 
@@ -653,7 +583,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 是否为选择视图
     *
     * @param {boolean} 
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     @Prop() public isSelected?:boolean;
 
@@ -661,7 +591,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 是否多选
     *
     * @type {boolean}
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     @Prop({default:false}) public isMutli?: boolean;
 
@@ -669,7 +599,7 @@ export default class MobBase extends Vue implements ControlInterface {
     * 单选选择值
     *
     * @param {string} 
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public selectedValue:string = ""; 
 
@@ -677,14 +607,14 @@ export default class MobBase extends Vue implements ControlInterface {
     * 部件排序对象
     *
     * @param {object} 
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public sort: any = { sort:'id,desc'};
     
     /**
     * 底部改变状态
     * 
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public handleBottomChange(status: String) {
     //   this.bottomStatus = status;
@@ -693,7 +623,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
     * 顶部改变状态
     * 
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public handleTopChange(status: String) {
     //   this.moveTranslate = 1;
@@ -703,7 +633,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 上拉加载更多数据
      *
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     public async loadBottom(): Promise<any> {
         if (((this.pageNumber + 1) * this.pageSize) >= this.pageTotal) {
@@ -795,7 +725,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 长按
      *
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     public onPress(){
         let _this = this;
@@ -808,7 +738,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 长按状态改变事件
      *
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     public onCheackChange(){
         this.$emit('showCheackChange', !this.showCheack);
@@ -819,7 +749,7 @@ export default class MobBase extends Vue implements ControlInterface {
      *
      * @param {string} query
      * @returns {Promise<any>}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     public async quickSearch(query: string): Promise<any> {
         this.searchKey = query;
@@ -835,7 +765,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @param {*} [data={}]
      * @param {string} [type=""]
      * @returns {Promise<any>}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     private async load(data: any = {}, type: string = ""): Promise<any> {
         if (!data.page) {
@@ -866,7 +796,6 @@ export default class MobBase extends Vue implements ControlInterface {
 
         this.$emit('load', (response.data && response.data.records) ? response.data.records : []);
         this.pageTotal = response.data.total;
-            this.$emit('pageTotalChange',this.pageTotal);
         if (type == 'top') {
             this.items = [];
             this.items = response.data.records;
@@ -895,7 +824,7 @@ export default class MobBase extends Vue implements ControlInterface {
     *
     * @private
     * @param {*} [arg={}]
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     private handleClick() {
         this.items.forEach((item: any) => {
@@ -909,7 +838,7 @@ export default class MobBase extends Vue implements ControlInterface {
      *
      * @param {*} data
      * @returns
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     public checkboxChange(data: any) {
         let { detail } = data;
@@ -937,7 +866,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 下拉刷新
      *
      * @returns {Promise<any>}
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     public async pullDownToRefresh(): Promise<any> {
         this.pageNumber = 0;
@@ -953,7 +882,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
     * 点击回调事件
     *
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public item_click(item:any){
         if(this.showCheack){
@@ -973,7 +902,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
     * 点击列表数据跳转
     *
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public goPage(item: any) {
         this.$emit('rowclick',item);
@@ -982,7 +911,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
     * 获取多项数据
     *
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public getDatas(): any[] {
       return this.selectedArray;
@@ -991,7 +920,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
     * 获取单项数据
     *
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public getData(): any {
         return this.selectedArray[0];
@@ -1000,7 +929,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
     * vue生命周期created
     *
-    * @memberof Mob
+    * @memberof Mob_2622
     */
     public created() {
         if (this.isEnableChoose) {
@@ -1012,7 +941,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 执行created后的逻辑
      *
-     *  @memberof Mob
+     *  @memberof Mob_2622
      */    
     protected afterCreated(){
         if (this.viewState) {
@@ -1048,12 +977,24 @@ export default class MobBase extends Vue implements ControlInterface {
                 }
             })
         }
+        if (!this.isMutli) {
+            if (this.selectedData && this.selectedData.length > 0) {
+                this.radio = this.selectedData[0].srfkey;
+            }
+        } else {
+            if (this.selectedData && this.selectedData.length > 0) {
+                this.checkboxList = [];
+                this.selectedData.forEach((item: any) => {
+                    this.checkboxList.push(item.srfkey);
+                })
+            }
+        }
     }
 
     /**
      * ion-item-sliding拖动事件
      *
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     public ionDrag(){
       this.$store.commit('setPopupStatus',false)
@@ -1062,7 +1003,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     public mounted(){
       let list:any = this.$refs.mdctrl;
@@ -1085,7 +1026,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     public beforeDestroy(){
       let list:any = this.$refs.mdctrl;
@@ -1099,7 +1040,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期
      *
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     public destroyed() {
         this.afterDestroy();
@@ -1108,7 +1049,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 执行destroyed后的逻辑
      *
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     protected afterDestroy() {
         if (this.viewStateEvent) {
@@ -1123,7 +1064,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * vue 生命周期 activated
      *
-     * @memberof Mob
+     * @memberof Mob_2622
      */
     public activated() {
         this.closeSlidings()
@@ -1141,12 +1082,6 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'u5b592f7')) {
-            this.mdctrl_u5b592f7_click();
-        }
-        if (Object.is(tag, 'u6b4bf36')) {
-            this.mdctrl_u6b4bf36_click();
-        }
         this.closeSlidings();
     }
 
@@ -1242,11 +1177,9 @@ export default class MobBase extends Vue implements ControlInterface {
      * 界面行为模型
      *
      * @type {*}
-     * @memberof MobBase
+     * @memberof Mob_2622Base
      */  
     public ActionModel:any ={
-        MobActive: { name: 'MobActive',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__RELEASE_ACTIVE', target: 'SINGLEKEY',icon:'play',isShowCaption:false,isShowIcon:true},
-        MobTerminal: { name: 'MobTerminal',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__RELEASE_TERMINATE', target: 'SINGLEKEY',icon:'pause',isShowCaption:false,isShowIcon:true}
     };
 
     
@@ -1254,7 +1187,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
      * 获取界面行为权限状态
      *
-     * @memberof MobBase
+     * @memberof Mob_2622Base
      */
     public getActionState(data:any){
         //let targetData:any = this.transformData(data);
@@ -1266,7 +1199,7 @@ export default class MobBase extends Vue implements ControlInterface {
     /**
     * 判断列表项左滑右滑禁用状态
     *
-    * @memberof MobBase
+    * @memberof Mob_2622Base
     */
     public setSlidingDisabled(item:any){
         item.sliding_disabled = true;
@@ -1282,7 +1215,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * 是否开启置顶功能
      *
      * @type {GlobalUiService}
-     * @memberof MobBase
+     * @memberof Mob_2622Base
      */
     public isEnableScrollTop:boolean = true;
 
@@ -1290,14 +1223,14 @@ export default class MobBase extends Vue implements ControlInterface {
      * 显示置顶按钮
      *
      * @type {GlobalUiService}
-     * @memberof MobBase
+     * @memberof Mob_2622Base
      */
     public showScrollButton:boolean = false;
 
     /**
      * 滑回顶部
      *
-     * @memberof MobBase
+     * @memberof Mob_2622Base
      */
     public scrollToTop(){
       let mdctrl:any = this.$refs.mdctrl;
@@ -1318,5 +1251,5 @@ export default class MobBase extends Vue implements ControlInterface {
 </script>
 
 <style lang='less'>
-@import './mob-mobmdctrl.less';
+@import './mob-2622-mobmdctrl.less';
 </style>

@@ -10,7 +10,7 @@ import UIService from '@/uiservice/ui-service';
 
 
 /**
- * db_assigntomebugportlet1部件基类
+ * dashboard_sysportlet4部件基类
  *
  * @export
  * @class MainControlBase
@@ -146,7 +146,7 @@ export class AssignedToMeBugPortletBase extends MainControlBase {
                 return this.height+'px';
             }
         } else {
-            return '370px';
+            return '200px';
         }
     }
 

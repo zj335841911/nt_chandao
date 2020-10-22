@@ -53,6 +53,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     TaskTeamHelper taskTeamHelper;
 
     String[] diffAttrs = {"desc"};
+    String ignore = "totalwh,totalleft,totalconsumed,totalestimate";
+
 
     @Override
     @Transactional
@@ -256,7 +258,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
 
 //        String[] ignores = {"totalconsumed"};
+        et.setStatus1(old.getStatus1());
         List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
+        this.removeIgonreChanges(changes);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             String strAction = "Edited";
             if (changes.size() == 0) {
@@ -808,7 +812,10 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             this.computeWorkingHours(newTask);
         }
         newTask.setLeft(left);
+        newTask.setStatus1(old.getStatus1());
+
         List<History> changes = ChangeUtil.diff(old, newTask);
+        this.removeIgonreChanges(changes);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create("task", newTask.getId(), "Activated",
                     comment, newTask.getAssignedto(), null, true);
@@ -818,6 +825,14 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         return newTask;
     }
 
+    public void removeIgonreChanges(List<History> changes){
+        for (int i = 0; i < changes.size(); i++) {
+            if (ignore.contains(changes.get(i).getField())){
+                changes.remove(i);
+                i--;
+            }
+        }
+    }
     @Transactional
     public Task cancel(Task et) {
         String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
@@ -1071,7 +1086,6 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     IStoryService storyService;
     @Transactional
     public Task confirmStoryChange(Task et) {
-        et = this.get(et.getId());
         Task task = new Task();
         task.setId(et.getId());
         task.setStoryversion(storyService.get(et.getStory()).getVersion());
@@ -1088,8 +1102,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         List<String> taskNames = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             long storyId = list.get(i).getStory();
-            if (list.get(i).getName() == null || list.get(i).getType().equals("affair")) continue;
-            if (list.get(i).getType() == null || list.get(i).getType().equals("ditto") && i != 0 && list.get(i-1).getType() != null && list.get(i-1).getType().equals("affair")) continue;
+            //if (list.get(i).getName() == null || list.get(i).getType().equals("affair")) continue;
+            //if (list.get(i).getType() == null || list.get(i).getType().equals("ditto") && i != 0 && list.get(i-1).getType() != null && list.get(i-1).getType().equals("affair")) continue;
 
             boolean inNames = taskNames.contains(list.get(i).getName());
             if (!inNames || (inNames && !storyIDs.contains(storyId))){
