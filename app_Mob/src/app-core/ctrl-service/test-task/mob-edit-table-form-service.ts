@@ -78,8 +78,8 @@ export class MobEditTableService extends FormServiceBase {
             Object.assign(response.data, { 'project': 'project' });
             Object.assign(response.data, { 'build': 'build' });
             Object.assign(response.data, { 'status': 'wait' });
-            Object.assign(response.data, { 'product': 'product' });
             Object.assign(response.data, { 'name': 'name' });
+            Object.assign(response.data, { 'product': 'product' });
         }
     }
 

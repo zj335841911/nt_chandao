@@ -5,6 +5,8 @@ import { Watch, TabExpPanelControlBase } from '@/studio-core';
 import IbzLibService from '@/service/ibz-lib/ibz-lib-service';
 import TabExpViewtabexppanelService from './tab-exp-viewtabexppanel-tabexppanel-service';
 import IbzLibUIService from '@/uiservice/ibz-lib/ibz-lib-ui-service';
+import IbzLibAuthService from '@/authservice/ibz-lib/ibz-lib-auth-service';
+import { Environment } from '@/environments/environment';
 
 
 /**
@@ -72,7 +74,7 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      *
      * @protected
      * @returns {any}
-     * @memberof TabExpViewtabexppanel
+     * @memberof TabExpViewtabexppanelBase
      */
     protected isInit: any = {
         tabviewpanel:  true ,
@@ -85,15 +87,32 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
      *
      * @protected
      * @type {string}
-     * @memberof TabExpViewtabexppanel
+     * @memberof TabExpViewtabexppanelBase
      */
     protected activatedTabViewPanel: string = 'tabviewpanel';
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type IbzLibAuthServiceBase
+     * @memberof TabExpViewtabexppanelBase
+     */
+    public appAuthService: IbzLibAuthService = new IbzLibAuthService();
+
+    /**
+     * 分页面板权限标识存储对象
+     *
+     * @public
+     * @type {*}
+     * @memberof TabExpViewtabexppanelBase
+     */
+    public authResourceObject:any = {'tabviewpanel':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel2':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel3':{resourcetag:null,visabled: true,disabled: false}};
 
     /**
      * 组件创建完毕
      *
      * @protected
-     * @memberof TabExpViewtabexppanel
+     * @memberof TabExpViewtabexppanelBase
      */
     protected ctrlCreated(): void {
         //设置分页导航srfparentdename和srfparentkey
@@ -101,5 +120,47 @@ export class TabExpViewtabexppanelTabexppanelBase extends TabExpPanelControlBase
             Object.assign(this.context, { srfparentdename: 'IbzLib', srfparentkey: this.context.ibzlib });
         }
         super.ctrlCreated();
+    }
+
+    /**
+     * 计算分页面板权限
+     *
+     * @memberof TabExpViewtabexppanelBase
+     */
+    public computedAuthPanel(data:any){
+        if(!data || Object.keys(data).length === 0){
+            return;
+        }
+        if(this.authResourceObject && Object.keys(this.authResourceObject).length >0){
+            Object.keys(this.authResourceObject).forEach((key:string) =>{
+                if(this.authResourceObject[key] && this.authResourceObject[key]['dataaccaction']){
+                    let tempUIAction:any = Util.deepCopy(this.authResourceObject[key]);
+                    let result: any[] = ViewTool.calcActionItemAuthState(data,[tempUIAction],this.appUIService);
+                    this.authResourceObject[key].visabled = this.computedPanelWithResource(key,tempUIAction.visabled);
+                    this.authResourceObject[key].disabled = this.computedPanelWithResource(key,tempUIAction.disabled);
+                }
+            })
+            const keys:any = Object.keys(this.authResourceObject);
+            for(let i=0;i<keys.length;i++){
+                if(this.authResourceObject[keys[i]].visabled){
+                    this.tabPanelClick(keys[i]);
+                    return;
+                }
+            }
+        }
+    }
+
+    /**
+     * 合入统一资源权限
+     *
+     * @memberof TabExpViewtabexppanelBase
+     */
+    public computedPanelWithResource(name:string,mainState:boolean){
+        if(!this.$store.getters['authresource/getEnablePermissionValid'])
+            return mainState === false?false:true;
+        if(!this.authResourceObject[name]) 
+            return mainState === false?false:true;
+        const resouceAuth:boolean = this.appAuthService.getResourcePermission(this.authResourceObject[name]['resourcetag']);
+        return !resouceAuth?false:mainState?true:false;
     }
 }

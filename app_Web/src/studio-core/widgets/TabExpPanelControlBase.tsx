@@ -47,6 +47,13 @@ export class TabExpPanelControlBase extends ExpControlBase {
     }
 
     /**
+     * 计算分页面板权限
+     *
+     * @memberof TabExpPanelControlBase
+     */
+    public computedAuthPanel(data:any){}
+
+    /**
      * 组件创建完毕
      *
      * @protected
@@ -58,9 +65,13 @@ export class TabExpPanelControlBase extends ExpControlBase {
                 if (!Object.is(tag, this.name)) {
                     return;
                 }
-                this.action = action;
-                this.viewState.next({ tag: this.activatedTabViewPanel, action: action, data: data });
-                this.$forceUpdate();
+                if(Object.is(action,'loadmodel')){
+                    this.computedAuthPanel(data);
+                }else{
+                    this.action = action;
+                    this.viewState.next({ tag: this.activatedTabViewPanel, action: action, data: data });
+                    this.$forceUpdate();
+                }
             });
         }
     }
