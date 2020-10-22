@@ -255,8 +255,14 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
 
 
-//        String[] ignores = {"totalconsumed"};
+        String ignores = "totalestimate,totallwh,totalconsumed,totalleft,";
         List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
+        for (int i = 0; i < changes.size(); i++) {
+            if (ignores.contains(changes.get(i).getField())){
+                changes.remove(i);
+                i--;
+            }
+        }
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             String strAction = "Edited";
             if (changes.size() == 0) {
@@ -833,11 +839,13 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             this.update(et,(Wrapper<Task>) et.getUpdateWrapper(true).eq("parent",et.getId()));
             this.computeWorkingHours(et);
         }
+        if (old.getStory() != 0) storyHelper.setStage(old.getZtstory());
         et.setLeft(left);
+        et.setStatus1(old.getStatus1());
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create("task", et.getId(), "Activated",
-                    comment, et.getAssignedto(), null, true);
+                    comment, "", null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
         }
@@ -939,10 +947,12 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if (old.getParent() > 0)
             updateParentStatus(et, old.getParent(), true);
 
+
+//        String[] inclueAttrs = {"assignedto","finishedby","status","consumed","finisheddate"};
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create("task", et.getId(), "Finished",
-                    comment, et.getAssignedto(), null, true);
+                    comment, "", null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
         }
