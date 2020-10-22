@@ -22,6 +22,9 @@ export default {
     comment: "备注",
   },
 	views: {
+		moboptionviewactivite: {
+			caption: '激活',
+		},
 		mobeditview: {
 			caption: '测试版本',
 		},
@@ -31,7 +34,7 @@ export default {
 		newmobeditview: {
 			caption: '测试版本',
 		},
-		moboptionview: {
+		moboptionviewblock: {
 			caption: '阻塞',
 		},
 	},
@@ -82,6 +85,26 @@ export default {
 			owner: '负责人', 
 			begin: '开始日期', 
 			end: '结束日期', 
+			id: '编号', 
+		},
+		uiactions: {
+		},
+	},
+	mobactivite_form: {
+		details: {
+			druipart1: '', 
+			grouppanel1: '变更历史', 
+			group1: '测试版本基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			name: '', 
+			comment: '备注', 
 			id: '编号', 
 		},
 		uiactions: {

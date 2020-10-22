@@ -510,6 +510,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '548e886996944f4ac071095c9959ced3',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskMobOptionViewActivite',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
             viewtag: '58f89fab47964b5ad5b6b0f2021b188b',
             viewmodule: 'ibiz',
             viewname: 'BugMobMDView',
@@ -1490,7 +1500,7 @@ export const viewstate: any = {
         {
             viewtag: 'f5a5f7ab8c9783520a512cfbe78bb671',
             viewmodule: 'zentao',
-            viewname: 'TestTaskMobOptionView',
+            viewname: 'TestTaskMobOptionViewBlock',
             viewaction: '',
             viewdatachange: false,
             refviews: [

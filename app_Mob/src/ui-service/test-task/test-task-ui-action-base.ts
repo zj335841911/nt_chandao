@@ -89,10 +89,11 @@ export default class TestTaskUIActionBase extends EntityUIActionBase {
      * @memberof  TestTaskUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'moboptionviewactivite',srfappde:'testtasks'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'testtasks'});
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'testtasks'});
         this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'testtasks'});
-        this.allViewMap.set(':',{viewname:'moboptionview',srfappde:'testtasks'});
+        this.allViewMap.set(':',{viewname:'moboptionviewblock',srfappde:'testtasks'});
     }
 
     /**
