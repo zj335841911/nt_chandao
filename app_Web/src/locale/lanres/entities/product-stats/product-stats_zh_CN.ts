@@ -154,6 +154,7 @@ export default {
 		},
 	},
 	allproduct_grid: {
+		nodata: "",
 		columns: {
 			name: "产品名称",
 			currproject: "当前项目",
@@ -166,6 +167,7 @@ export default {
 		},
 	},
 	openitems_grid: {
+		nodata: "",
 		columns: {
 			name: "产品名称",
 			currproject: "当前项目",

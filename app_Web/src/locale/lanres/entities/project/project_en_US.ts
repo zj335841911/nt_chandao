@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     openedversion: "当前系统版本",
@@ -435,6 +434,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			name: "项目名称",
@@ -446,6 +446,7 @@ export default {
 		},
 	},
 	mainmy_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			code: "项目代号",
@@ -461,6 +462,7 @@ export default {
 		},
 	},
 	involvedproject_grid: {
+		nodata: "",
 		columns: {
 			name: "项目名称",
 			storycnt: "需求总数",
@@ -471,6 +473,7 @@ export default {
 		},
 	},
 	main2_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			name: "项目名称",
@@ -591,5 +594,26 @@ export default {
 			caption: "取消置顶",
 			tip: "取消置顶",
 		},
+	},
+	exp_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	sidebar_list: {
+		nodata: "",
+		uiactions: {
+        project_projecttop: "置顶",
+        project_cancelprojecttop: "取消置顶",
+		},
+	},
+	projectstatusbar_chart: {
+		nodata: "",
+	},
+	involvedproject_dev_chart: {
+		nodata: "",
+	},
+	burndown_chart: {
+		nodata: "",
 	},
 };

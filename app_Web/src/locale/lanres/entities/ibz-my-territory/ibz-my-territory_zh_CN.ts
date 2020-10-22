@@ -112,4 +112,14 @@ export default {
 		uiactions: {
 		},
 	},
+	mywork_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	welcome_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
 };

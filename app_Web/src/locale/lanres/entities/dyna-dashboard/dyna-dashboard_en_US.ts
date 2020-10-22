@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     dynadashboardid: "动态数据看板标识",

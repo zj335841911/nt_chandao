@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     spec: "需求描述	",

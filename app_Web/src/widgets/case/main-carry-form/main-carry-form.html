@@ -59,9 +59,16 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 2, offset: 0 }">
-    <div class="direct-content-line" style="">
-    测试结果
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle="direct-content-line"
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="测试结果"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.resultcnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 3, offset: 0 }">
@@ -85,9 +92,16 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.rawitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 4, offset: 0 }">
-    <div class="text-center-green" style="">
-    全部通过
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle="text-center-green"
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="全部通过"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
     

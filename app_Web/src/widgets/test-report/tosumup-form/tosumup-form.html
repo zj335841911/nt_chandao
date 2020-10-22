@@ -8,9 +8,16 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <div class="" style="">
-    无
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="无"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
 

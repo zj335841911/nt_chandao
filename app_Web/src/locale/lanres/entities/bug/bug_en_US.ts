@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     severity: "严重程度",
@@ -711,6 +710,7 @@ export default {
 		},
 	},
 	storyaffectbug_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			title: "Bug标题",
@@ -724,6 +724,7 @@ export default {
 		},
 	},
 	main_plansub_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -740,6 +741,7 @@ export default {
 		},
 	},
 	pickupgird_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -752,6 +754,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -778,6 +781,7 @@ export default {
 		},
 	},
 	main_buildsub2_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -794,6 +798,7 @@ export default {
 		},
 	},
 	main_buildsub3_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -810,6 +815,7 @@ export default {
 		},
 	},
 	main_buildsub_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -832,6 +838,7 @@ export default {
 		},
 	},
 	main_reportsub_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -845,6 +852,7 @@ export default {
 		},
 	},
 	storyrelated_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			title: "Bug标题",
@@ -853,6 +861,7 @@ export default {
 		},
 	},
 	main_releasesubr_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -868,6 +877,7 @@ export default {
 		},
 	},
 	main_releasesub_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -883,6 +893,7 @@ export default {
 		},
 	},
 	main_dataexport_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -903,6 +914,7 @@ export default {
 		},
 	},
 	favoritemain_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -929,6 +941,7 @@ export default {
 		},
 	},
 	main2_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "级别",
@@ -939,6 +952,7 @@ export default {
 		},
 	},
 	mygroupmain_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -1106,5 +1120,53 @@ export default {
 			caption: "Save And Close",
 			tip: "Save And Close Window",
 		},
+	},
+	bugseverity_project_chart: {
+		nodata: "无",
+	},
+	bugtype_project_chart: {
+		nodata: "",
+	},
+	bugstatus_project_chart: {
+		nodata: "无",
+	},
+	bugresolution_project_chart: {
+		nodata: "无",
+	},
+	bugopenedby_project_chart: {
+		nodata: "",
+	},
+	bugmodule_project_chart: {
+		nodata: "无",
+	},
+	bugresolvedby_project_chart: {
+		nodata: "无",
+	},
+	severity_chart: {
+		nodata: "无",
+	},
+	bugtype_chart: {
+		nodata: "无",
+	},
+	bugstatus_chart: {
+		nodata: "无",
+	},
+	bugresolution_chart: {
+		nodata: "无",
+	},
+	bugopenedby_chart: {
+		nodata: "无",
+	},
+	bugmodule_chart: {
+		nodata: "无",
+	},
+	bugresolvedby_chart: {
+		nodata: "无",
+	},
+	curuseropenedbug_chart: {
+		nodata: "无",
+	},
+	curuserresolvebug_chart: {
+		nodata: "无",
 	},
 };

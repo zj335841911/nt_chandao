@@ -154,6 +154,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			productname: "产品名称",
@@ -173,6 +174,7 @@ export default {
 		},
 	},
 	testrounds_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			productname: "产品名称",

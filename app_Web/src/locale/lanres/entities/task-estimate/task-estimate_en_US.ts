@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     account: "用户",
@@ -41,6 +40,7 @@ export default {
 		},
 	},
 	mainedit_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			dates: "日期",

@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     id: "编号",
@@ -37,6 +36,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "编号",
 			name: "产品名称",

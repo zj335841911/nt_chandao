@@ -74,6 +74,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "id",
 			name: "名称",

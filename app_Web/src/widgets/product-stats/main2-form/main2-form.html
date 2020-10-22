@@ -10,16 +10,30 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <div class="" style="">
-    <br/>
-<br/>
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="<br/>
+<br/>"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.rawitem3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 22, offset: 0 }">
-    <div class="text-center" style="">
-    需求数
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle="text-center"
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="需求数"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.storycnt.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 14, offset: 10 }">
@@ -58,9 +72,16 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.rawitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <div class="" style="">
-    <br/>
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="<br/>"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.grouppanel13.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
@@ -188,9 +209,16 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel9" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.rawitem4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 16, offset: 0 }">
-    <div class="" style="">
-    <div style="margin-top: 6px;"><Icon type="md-alert" color="red"/>&nbsp;已延期&nbsp;<b>{{data.postponedprojectcnt ? data.postponedprojectcnt : 0}}</b></div>
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="<div style="margin-top: 6px;"><Icon type="md-alert" color="red"/>&nbsp;已延期&nbsp;<b>{{data.postponedprojectcnt ? data.postponedprojectcnt : 0}}</b></div>"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.resprojectcnt.visible" :style="{}"  :lg="{ span: 8, offset: 16 }" :xl="{ span: 8, offset: 0 }">

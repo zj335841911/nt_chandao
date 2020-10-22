@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     id: "虚拟主键",
@@ -18,6 +17,16 @@ export default {
 		listview9: {
 			caption: "关联产品",
       		title: "项目产品列表视图",
+		},
+	},
+	plan_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	default_list: {
+		nodata: "",
+		uiactions: {
 		},
 	},
 };

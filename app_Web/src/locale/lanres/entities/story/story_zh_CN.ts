@@ -746,6 +746,7 @@ export default {
 		},
 	},
 	main3_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -767,6 +768,7 @@ export default {
 		},
 	},
 	main_plansub_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -784,6 +786,7 @@ export default {
 		},
 	},
 	pickupgrid_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -800,6 +803,7 @@ export default {
 		},
 	},
 	projectstory_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -818,6 +822,7 @@ export default {
 		},
 	},
 	main_buildsub_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -834,6 +839,7 @@ export default {
 		},
 	},
 	main_reportsub_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -848,6 +854,7 @@ export default {
 		},
 	},
 	storyrelated_grid: {
+		nodata: "",
 		columns: {
 			id: "编号",
 			title: "需求名称",
@@ -856,6 +863,7 @@ export default {
 		},
 	},
 	treemain_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -898,6 +906,7 @@ export default {
 		},
 	},
 	main_releasesub_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -914,6 +923,7 @@ export default {
 		},
 	},
 	myfavoritemain_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -940,6 +950,7 @@ export default {
 		},
 	},
 	main9_grid: {
+		nodata: "",
 		columns: {
 			pri: "P",
 			title: "需求名称",
@@ -949,6 +960,7 @@ export default {
 		},
 	},
 	mygroupmain_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -975,6 +987,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -1000,6 +1013,7 @@ export default {
 		},
 	},
 	main2_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -1216,6 +1230,17 @@ export default {
 		tbitem13: {
 			caption: "导出",
 			tip: "导出",
+		},
+	},
+	myopenedstory_chart: {
+		nodata: "",
+	},
+	myopenedstory_stage_chart: {
+		nodata: "",
+	},
+	storykanban_kanban: {
+		nodata: "",
+		uiactions: {
 		},
 	},
 };

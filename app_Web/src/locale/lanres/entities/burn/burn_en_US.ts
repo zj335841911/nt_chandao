@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     date: "日期",
@@ -20,5 +19,11 @@ export default {
 			caption: "更新燃尽图",
 			tip: "更新燃尽图",
 		},
+	},
+	burndown_chart: {
+		nodata: "",
+	},
+	burndown2_chart: {
+		nodata: "",
 	},
 };

@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     id: "标识",
@@ -53,6 +52,7 @@ export default {
 		},
 	},
 	bugassignedto_grid: {
+		nodata: "",
 		columns: {
 			assignedto: "姓名",
 			productname: "产品",
@@ -63,6 +63,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			openedby: "由谁创建",
 			bugwjj: "未解决",

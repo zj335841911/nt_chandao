@@ -502,6 +502,7 @@ export default {
 		},
 	},
 	storyaffectcase_grid: {
+		nodata: "",
 		columns: {
 			pri: "P",
 			title: "用例标题",
@@ -513,6 +514,7 @@ export default {
 		},
 	},
 	storyrelated_grid: {
+		nodata: "",
 		columns: {
 			pri: "P",
 			title: "用例标题",
@@ -521,6 +523,7 @@ export default {
 		},
 	},
 	testmaingrid_grid: {
+		nodata: "",
 		columns: {
 			id: "id",
 			pri: "P",
@@ -547,6 +550,7 @@ export default {
 		},
 	},
 	mainlinktest_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			version: "版本",
@@ -563,6 +567,7 @@ export default {
 		},
 	},
 	reportmaingrid_grid: {
+		nodata: "",
 		columns: {
 			id: "id",
 			pri: "P",
@@ -582,6 +587,7 @@ export default {
 		},
 	},
 	maingrid_grid: {
+		nodata: "",
 		columns: {
 			id: "id",
 			pri: "P",
@@ -627,6 +633,7 @@ export default {
 		},
 	},
 	batchnew_grid: {
+		nodata: "",
 		columns: {
 			modulename: "所属模块",
 			storyname: "相关需求",
@@ -637,6 +644,7 @@ export default {
 		},
 	},
 	maingrid_suitsub_grid: {
+		nodata: "",
 		columns: {
 			id: "id",
 			pri: "P",
@@ -656,6 +664,7 @@ export default {
 		},
 	},
 	caseresultentry_grid: {
+		nodata: "",
 		columns: {
 			lastrunresult1: "条目",
 			resultcnt: "值",
@@ -665,6 +674,7 @@ export default {
 		},
 	},
 	main2_grid: {
+		nodata: "",
 		columns: {
 			pri: "P",
 			title: "用例标题",
@@ -674,6 +684,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			pri: "P",
 			title: "用例标题",
@@ -784,5 +795,32 @@ export default {
 			caption: "导出",
 			tip: "导出",
 		},
+	},
+	caseresultproject_chart: {
+		nodata: "无",
+	},
+	casetypeproject_chart: {
+		nodata: "无",
+	},
+	casemoduleproject_chart: {
+		nodata: "无",
+	},
+	caselastrunnerproject_chart: {
+		nodata: "无",
+	},
+	caseresult_chart: {
+		nodata: "无",
+	},
+	casetype_chart: {
+		nodata: "无",
+	},
+	casemodule_chart: {
+		nodata: "无",
+	},
+	caselastrunner_chart: {
+		nodata: "无",
+	},
+	curopenedcase_chart: {
+		nodata: "无",
 	},
 };

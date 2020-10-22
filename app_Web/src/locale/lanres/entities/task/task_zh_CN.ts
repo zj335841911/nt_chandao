@@ -584,6 +584,7 @@ export default {
 		},
 	},
 	main2_grid: {
+		nodata: "",
 		columns: {
 			id: "编号",
 			pri: "P",
@@ -594,6 +595,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -637,6 +639,7 @@ export default {
 		},
 	},
 	pivottable_grid: {
+		nodata: "",
 		columns: {
 			id: "编号",
 			pri: "P",
@@ -657,6 +660,7 @@ export default {
 		},
 	},
 	storyrelated_grid: {
+		nodata: "",
 		columns: {
 			id: "编号",
 			name: "任务名称",
@@ -666,6 +670,7 @@ export default {
 		},
 	},
 	myfavoritemain_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -694,6 +699,7 @@ export default {
 		},
 	},
 	mygroupmain_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			pri: "P",
@@ -722,6 +728,7 @@ export default {
 		},
 	},
 	projectrelated_grid: {
+		nodata: "",
 		columns: {
 			id: "编号",
 			name: "任务名称",
@@ -832,6 +839,19 @@ export default {
 		deuiaction1: {
 			caption: "保存并关闭",
 			tip: "保存并关闭",
+		},
+	},
+	myfinishedbytask_chart: {
+		nodata: "无",
+	},
+	taskkanban_kanban: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	typegantt_gantt: {
+		nodata: "",
+		uiactions: {
 		},
 	},
 };

@@ -16,6 +16,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			dates: "日期",
 			consumed: "总计消耗",

@@ -1,5 +1,5 @@
 <div :class="{ 'grid': true, 'show-paging-bar': isEnablePagingBar, 'hidden-paging-bar': !isEnablePagingBar }">
-        <i-form>
+    <i-form>
         <el-table v-if="isDisplay === true"
             :default-sort="{ prop: minorSortPSDEF, order: Object.is(minorSortDir, 'ASC') ? 'ascending' : Object.is(minorSortDir, 'DESC') ? 'descending' : '' }"  
             @sort-change="onSortChange($event)"  
@@ -18,7 +18,7 @@
             ref='multipleTable' :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
-                无数据 
+                {{$t('entities.testtask.main2_grid.nodata')}} 
                 <span class="quick-toolbar">
                 </span>
             </template>

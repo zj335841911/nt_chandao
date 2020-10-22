@@ -47,6 +47,7 @@ export default {
 		},
 	},
 	platformmanagement_grid: {
+		nodata: "",
 		columns: {
 			id: "编号",
 			name: "名称",
@@ -59,6 +60,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			name: "名称",
 		},

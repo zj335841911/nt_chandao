@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     pssyssfpubname: "后台服务架构名称",

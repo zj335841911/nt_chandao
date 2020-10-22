@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     assignedto: "指派给",
@@ -64,6 +63,7 @@ export default {
 		},
 	},
 	substorynew_grid: {
+		nodata: "",
 		columns: {
 			modulename: "所属模块名称",
 			plan: "所属计划",

@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     lastrunner: "最后执行人",
@@ -75,6 +74,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			caseresult: "测试结果",
 			date: "测试时间",

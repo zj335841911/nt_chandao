@@ -24,6 +24,7 @@ export class TabExpViewBase extends ExpViewBase {
                 }
                 const { data } = response;
                 if (data && data[this.appDeMajor]) {
+                    this.engine.computeToolbarState(false,data);
                     this.viewState.next({ tag: 'tabexppanel', action: 'loadmodel', data: data});
                     data[this.appDeName] = data[this.appDeKey];
                     this.$appService.contextStore.setContextData(this.context, this.appDeName, { data });

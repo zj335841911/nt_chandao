@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     ibzdocid: "文档标识",

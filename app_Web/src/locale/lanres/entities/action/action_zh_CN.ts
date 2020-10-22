@@ -114,4 +114,19 @@ export default {
 			tip: "添加备注",
 		},
 	},
+	classifybytype_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	trends_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	grouptrends_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
 };
