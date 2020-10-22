@@ -48,8 +48,11 @@ public class UAAPipeResource {
             throw new BadRequestAlertException("系统异常，登录失败，请联系管理员", null, null);
         }
 
-        //需要登录禅道API
-        ztLogin(info);
+//        //需要登录禅道API
+//        ztLogin(info);
+
+        // 记录登陆日志
+        recordLoginLog(info.getUser().getUsername());
 
         log.info("登录成功！");
         return info;
@@ -86,7 +89,9 @@ public class UAAPipeResource {
         log.info("[UAAPipeResource.getUserByToken] code: " + code + ", openAccessId: " + openAccessId);
         AuthenticationInfo info = uaaFeignClient.getUserByToken(code, openAccessId);
         log.info("[UAAPipeResource.getUserByToken] response: " + info);
-        ztLogin(info);
+//        ztLogin(info);
+        // 记录登陆日志
+        recordLoginLog(info.getUser().getUsername());
         return ResponseEntity.ok(info);
 
     }
@@ -105,7 +110,10 @@ public class UAAPipeResource {
         user2.setAuthorities(null);
         user2.setPermissionList(null);
 
-        ztLogin(user.getLoginname(),token);
+//        ztLogin(user.getLoginname(),token);
+        // 记录登陆日志
+        recordLoginLog(user.getUsername());
+
         // 返回 token
         return ResponseEntity.ok().body(new AuthenticationInfo(token,user2));
     }
@@ -141,6 +149,19 @@ public class UAAPipeResource {
         return fromUrl;
     }
 
+    private void recordLoginLog(String username) {
+        try {
+            if (!pmsfeignClient.recordLoginLog(username)) {
+                log.info("登陆日志记录失败");
+            }
+        } catch (Exception e) {
+            log.info("登陆日志记录失败，原因为[{}]", e);
+        }
+
+
+    }
+
+    @Deprecated
     private void ztLogin(AuthenticationInfo authenticationInfo) {
         if (authenticationInfo == null) {
             log.error("系统发生异常，请联系程序猿。");
@@ -150,6 +171,7 @@ public class UAAPipeResource {
         ztLogin(authenticationInfo.getUser().getLoginname(),authenticationInfo.getToken());
     }
 
+    @Deprecated
     private void ztLogin(String account,String token){
         boolean isSucceed = false;
         try { //禅道登录。
