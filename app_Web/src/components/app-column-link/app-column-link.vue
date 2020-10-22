@@ -303,7 +303,7 @@ export default class AppColumnLink extends Vue {
         if (result.datas && Array.isArray(result.datas)) {
             Object.assign(item, result.datas[0]);
         }
-        console.log(item);
+        this.$emit('refresh',item);
     }
 
     /**

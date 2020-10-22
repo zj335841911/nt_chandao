@@ -5,6 +5,8 @@ import { Watch, TabExpPanelControlBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import TestTabExpViewtabexppanelService from './test-tab-exp-viewtabexppanel-tabexppanel-service';
 import ProductUIService from '@/uiservice/product/product-ui-service';
+import ProductAuthService from '@/authservice/product/product-auth-service';
+import { Environment } from '@/environments/environment';
 
 
 /**
@@ -72,7 +74,7 @@ export class TestTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      *
      * @protected
      * @returns {any}
-     * @memberof TestTabExpViewtabexppanel
+     * @memberof TestTabExpViewtabexppanelBase
      */
     protected isInit: any = {
         tabviewpanel2:  true ,
@@ -88,15 +90,32 @@ export class TestTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
      *
      * @protected
      * @type {string}
-     * @memberof TestTabExpViewtabexppanel
+     * @memberof TestTabExpViewtabexppanelBase
      */
     protected activatedTabViewPanel: string = 'tabviewpanel2';
+
+    /**
+     * 实体权限服务对象
+     *
+     * @type ProductAuthServiceBase
+     * @memberof TabExpViewtabexppanelBase
+     */
+    public appAuthService: ProductAuthService = new ProductAuthService();
+
+    /**
+     * 分页面板权限标识存储对象
+     *
+     * @public
+     * @type {*}
+     * @memberof TestTabExpViewtabexppanelBase
+     */
+    public authResourceObject:any = {'tabviewpanel2':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel3':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel4':{resourcetag:'TEST_TESTTASK',visabled: true,disabled: false},'tabviewpanel5':{resourcetag:'TEST_TESTREPORT',visabled: true,disabled: false},'tabviewpanel6':{resourcetag:null,visabled: true,disabled: false},'tabviewpanel7':{resourcetag:null,visabled: true,disabled: false}};
 
     /**
      * 组件创建完毕
      *
      * @protected
-     * @memberof TestTabExpViewtabexppanel
+     * @memberof TestTabExpViewtabexppanelBase
      */
     protected ctrlCreated(): void {
         //设置分页导航srfparentdename和srfparentkey
@@ -104,5 +123,47 @@ export class TestTabExpViewtabexppanelTabexppanelBase extends TabExpPanelControl
             Object.assign(this.context, { srfparentdename: 'Product', srfparentkey: this.context.product });
         }
         super.ctrlCreated();
+    }
+
+    /**
+     * 计算分页面板权限
+     *
+     * @memberof TestTabExpViewtabexppanelBase
+     */
+    public computedAuthPanel(data:any){
+        if(!data || Object.keys(data).length === 0){
+            return;
+        }
+        if(this.authResourceObject && Object.keys(this.authResourceObject).length >0){
+            Object.keys(this.authResourceObject).forEach((key:string) =>{
+                if(this.authResourceObject[key] && this.authResourceObject[key]['dataaccaction']){
+                    let tempUIAction:any = Util.deepCopy(this.authResourceObject[key]);
+                    let result: any[] = ViewTool.calcActionItemAuthState(data,[tempUIAction],this.appUIService);
+                    this.authResourceObject[key].visabled = this.computedPanelWithResource(key,tempUIAction.visabled);
+                    this.authResourceObject[key].disabled = this.computedPanelWithResource(key,tempUIAction.disabled);
+                }
+            })
+            const keys:any = Object.keys(this.authResourceObject);
+            for(let i=0;i<keys.length;i++){
+                if(this.authResourceObject[keys[i]].visabled){
+                    this.tabPanelClick(keys[i]);
+                    return;
+                }
+            }
+        }
+    }
+
+    /**
+     * 合入统一资源权限
+     *
+     * @memberof TestTabExpViewtabexppanelBase
+     */
+    public computedPanelWithResource(name:string,mainState:boolean){
+        if(!this.$store.getters['authresource/getEnablePermissionValid'])
+            return mainState === false?false:true;
+        if(!this.authResourceObject[name]) 
+            return mainState === false?false:true;
+        const resouceAuth:boolean = this.appAuthService.getResourcePermission(this.authResourceObject[name]['resourcetag']);
+        return !resouceAuth?false:mainState?true:false;
     }
 }

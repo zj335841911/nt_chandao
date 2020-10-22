@@ -37,7 +37,7 @@
     </div>
     <div v-else-if="Object.is(editortype, 'dropdown')" class='app-picker'>
         <el-select ref="appPicker" remote :remote-method="(query) => this.onSearch(query, null, true)" :value="refvalue" size='small' filterable
-            @change="onSelect" :disabled="disabled" style='width:100%;' clearable
+            @change="onSelect" :disabled="disabled" style='width:100%;' clearable popper-class="app-picker-dropdown"
             @clear="onClear" @visible-change="onSelectOpen">
             <template v-if="items">
                 <template v-for="_item in items">
@@ -253,6 +253,14 @@ export default class AppPicker extends Vue {
     public selectValue = this.value;
 
     /**
+     * 下拉列表节点元素
+     *
+     * @type {*}
+     * @memberof AppPicker
+     */
+    public dropdownDom:any = {};
+
+    /**
      * 值格式
      *
      * @type {*}
@@ -317,6 +325,8 @@ export default class AppPicker extends Vue {
      * @memberof AppPicker
      */
     public mounted() {
+        const dropdownDom:any = this.$el.getElementsByClassName('app-picker-dropdown')[0];
+        this.dropdownDom = dropdownDom;
     }
 
     /**
@@ -334,8 +344,20 @@ export default class AppPicker extends Vue {
     public onSelectOpen(flag: boolean): void {
         this.open = flag;
         if (this.open) {
+            //设置下拉列表的最大宽度
+            this.setDropdownWidth();
             this.onSearch(this.curvalue, null, true);
         }
+    }
+
+    /**
+     * 设置下拉列表最大宽度使下拉列表宽度和编辑器宽度一致
+     *
+     * @memberof AppPicker
+     */
+    public setDropdownWidth(){
+        const elInput:any = this.$el.getElementsByClassName('el-input__inner')[0];
+        this.dropdownDom.style.maxWidth = elInput.offsetWidth+'px';
     }
 
     /**
