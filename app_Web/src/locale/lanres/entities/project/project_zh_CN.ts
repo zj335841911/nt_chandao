@@ -446,7 +446,7 @@ export default {
 		},
 	},
 	mainmy_grid: {
-		nodata: "",
+		nodata: "暂无数据",
 		columns: {
 			id: "ID",
 			code: "项目代号",
