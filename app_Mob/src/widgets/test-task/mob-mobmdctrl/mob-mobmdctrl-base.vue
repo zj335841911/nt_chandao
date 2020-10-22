@@ -8,6 +8,12 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                     <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="start">
+                            <ion-item-option v-show="item.MobStart.visabled" :disabled="item.MobStart.disabled"  color="primary" @click="mdctrl_click($event, 'uded835a', item)"><ion-icon v-if="item.MobStart.icon && item.MobStart.isShowIcon" :name="item.MobStart.icon"></ion-icon><ion-label v-if="item.MobStart.isShowCaption">开始</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobBlock.visabled" :disabled="item.MobBlock.disabled"  color="primary" @click="mdctrl_click($event, 'u7ba5616', item)"><ion-icon v-if="item.MobBlock.icon && item.MobBlock.isShowIcon" :name="item.MobBlock.icon"></ion-icon><ion-label v-if="item.MobBlock.isShowCaption">阻塞</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobActivite.visabled" :disabled="item.MobActivite.disabled"  color="primary" @click="mdctrl_click($event, 'u3a9cdb8', item)"><ion-icon v-if="item.MobActivite.icon && item.MobActivite.isShowIcon" :name="item.MobActivite.icon"></ion-icon><ion-label v-if="item.MobActivite.isShowCaption">激活</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobClose.visabled" :disabled="item.MobClose.disabled"  color="primary" @click="mdctrl_click($event, 'u26d200d', item)"><ion-icon v-if="item.MobClose.icon && item.MobClose.isShowIcon" :name="item.MobClose.icon"></ion-icon><ion-label v-if="item.MobClose.isShowCaption">关闭</ion-label></ion-item-option>
+                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -24,6 +30,12 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                       <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="start">
+                            <ion-item-option v-show="item.MobStart.visabled" :disabled="item.MobStart.disabled"  color="primary" @click="mdctrl_click($event, 'uded835a', item)"><ion-icon v-if="item.MobStart.icon && item.MobStart.isShowIcon" :name="item.MobStart.icon"></ion-icon><ion-label v-if="item.MobStart.isShowCaption">开始</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobBlock.visabled" :disabled="item.MobBlock.disabled"  color="primary" @click="mdctrl_click($event, 'u7ba5616', item)"><ion-icon v-if="item.MobBlock.icon && item.MobBlock.isShowIcon" :name="item.MobBlock.icon"></ion-icon><ion-label v-if="item.MobBlock.isShowCaption">阻塞</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobActivite.visabled" :disabled="item.MobActivite.disabled"  color="primary" @click="mdctrl_click($event, 'u3a9cdb8', item)"><ion-icon v-if="item.MobActivite.icon && item.MobActivite.isShowIcon" :name="item.MobActivite.icon"></ion-icon><ion-label v-if="item.MobActivite.isShowCaption">激活</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobClose.visabled" :disabled="item.MobClose.disabled"  color="primary" @click="mdctrl_click($event, 'u26d200d', item)"><ion-icon v-if="item.MobClose.icon && item.MobClose.isShowIcon" :name="item.MobClose.icon"></ion-icon><ion-label v-if="item.MobClose.isShowCaption">关闭</ion-label></ion-item-option>
+                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox  class="iconcheck" v-show="showCheack" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -220,6 +232,130 @@ export default class MobBase extends Vue implements ControlInterface {
      */  
     public deUIService:TestTaskUIService = new TestTaskUIService(this.$store);
     
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_uded835a_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('testtask_ui_action');
+        if (curUIService) {
+            curUIService.TestTask_MobStart(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u7ba5616_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('testtask_ui_action');
+        if (curUIService) {
+            curUIService.TestTask_MobBlock(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u3a9cdb8_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('testtask_ui_action');
+        if (curUIService) {
+            curUIService.TestTask_MobActivite(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u26d200d_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('testtask_ui_action');
+        if (curUIService) {
+            curUIService.TestTask_MobClose(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 关闭视图
@@ -1070,6 +1206,18 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
+        if (Object.is(tag, 'uded835a')) {
+            this.mdctrl_uded835a_click();
+        }
+        if (Object.is(tag, 'u7ba5616')) {
+            this.mdctrl_u7ba5616_click();
+        }
+        if (Object.is(tag, 'u3a9cdb8')) {
+            this.mdctrl_u3a9cdb8_click();
+        }
+        if (Object.is(tag, 'u26d200d')) {
+            this.mdctrl_u26d200d_click();
+        }
         this.closeSlidings();
     }
 
@@ -1168,6 +1316,10 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
+        MobStart: { name: 'MobStart',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_START_BUT', target: 'SINGLEKEY',icon:'play',},
+        MobBlock: { name: 'MobBlock',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_BLOCK_BUT', target: 'SINGLEKEY',icon:'pause',},
+        MobActivite: { name: 'MobActivite',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_ACTIVITE_BUT', target: 'SINGLEKEY',icon:'magic',},
+        MobClose: { name: 'MobClose',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_CLOSED_BUT', target: 'SINGLEKEY',icon:'close',}
     };
 
     

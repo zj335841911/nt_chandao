@@ -337,6 +337,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '2fc984d9ca86500b55682a3a297f3e97',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskMobOptionViewClose',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
             viewtag: '3019f338b834faf1931f62e00d4ef414',
             viewmodule: 'ibiz',
             viewname: 'CaseMobMDView',
@@ -474,6 +484,16 @@ export const viewstate: any = {
             viewdatachange: false,
             refviews: [
                 '82f9b0fd0fdc90237c7aa1a1e543920e',
+            ],
+        },
+        {
+            viewtag: '51d18e10db20ac282c1154bac5fa9b8f',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskMobOptionViewStart',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
             ],
         },
         {
@@ -1351,7 +1371,11 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '548e886996944f4ac071095c9959ced3',
+                '51d18e10db20ac282c1154bac5fa9b8f',
                 'e4b3ed76cdeea1217bbbe1b2098da73c',
+                'f5a5f7ab8c9783520a512cfbe78bb671',
+                '2fc984d9ca86500b55682a3a297f3e97',
                 '85742d38f356f400b16652a3f7ae714b',
                 '9576fe405a243332b6f648c8d0632e88',
             ],
