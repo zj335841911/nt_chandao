@@ -51,12 +51,6 @@ export class MobEditTableService extends FormServiceBase {
      * @memberof  MobEditTableService
      */
     public async getItems(serviceName: string, interfaceName: string, context?: any, data?: any, isLoading?: boolean): Promise<any[]> {
-        if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchBugProject')) {
-            const service: any = await this.getService('project');
-            await this.onBeforeAction(interfaceName, context, data, isLoading);
-            const response: any = await service.FetchBugProject(data);
-            return this.doItems(response);
-        }
         if (Object.is(serviceName, 'BuildService') && Object.is(interfaceName, 'FetchTestBuild')) {
             const service: any = await this.getService('build');
             await this.onBeforeAction(interfaceName, context, data, isLoading);

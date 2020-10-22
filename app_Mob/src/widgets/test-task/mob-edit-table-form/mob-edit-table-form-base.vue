@@ -32,28 +32,15 @@
     :disabled="detailsModel.projecttname.disabled"
     :error="detailsModel.projecttname.error" 
     :isEmptyCaption="false">
-        <app-mob-picker
-    name='projecttname'
-    deMajorField='projectname'
-    deKeyField='projectid'
-    valueitem='project' 
-    editortype="" 
-    style=""  
-    :formState="formState"
-    :data="data"
-    :context="context"
+        <app-mob-select 
+    :disabled="detailsModel.projecttname.disabled" 
+    :data="data" 
+    :context="context" 
     :viewparams="viewparams"
+    :value="data.projecttname"  
     :navigateContext ='{ "product": "%product%" } '
     :navigateParam ='{ "product": "%product%" } '
-    :itemParam='{ }' 
-    :disabled="detailsModel.projecttname.disabled"
-    :service="service"
-    :acParams="{ serviceName: 'project', interfaceName: 'FetchBugProject'}"
-    :value="data.projecttname" 
-    :pickupView="{ viewname: 'project-mob-pickup-view', title: '项目移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange">
-</app-mob-picker>
-
+    @change="($event)=>this.data.projecttname = $event" />
 </app-form-item>
 
 
