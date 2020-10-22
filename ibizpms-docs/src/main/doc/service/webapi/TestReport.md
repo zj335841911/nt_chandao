@@ -1185,14 +1185,14 @@ POST
 #### TestReportSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 26 | n_title_like | String | 允许 |  |
-| 27 | n_objecttype_eq | String | 允许 |  |
-| 28 | n_product_eq | Long | 允许 |  |
-| 29 | n_project_eq | Long | 允许 |  |
-| 30 | n_productname_eq | String | 允许 |  |
-| 31 | n_productname_like | String | 允许 |  |
-| 32 | n_projectname_eq | String | 允许 |  |
-| 33 | n_projectname_like | String | 允许 |  |
+| 26 | n_title_like | String | 允许 | 条件字段：title<br>条件组合方式：`%like%` |
+| 27 | n_objecttype_eq | String | 允许 | 条件字段：objecttype<br>条件组合方式：`=` |
+| 28 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 29 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
+| 30 | n_productname_eq | String | 允许 | 条件字段：productname<br>条件组合方式：`=` |
+| 31 | n_productname_like | String | 允许 | 条件字段：productname<br>条件组合方式：`%like%` |
+| 32 | n_projectname_eq | String | 允许 | 条件字段：projectname<br>条件组合方式：`=` |
+| 33 | n_projectname_like | String | 允许 | 条件字段：projectname<br>条件组合方式：`%like%` |
 | 34 | customcond | String | 允许 | 自定义查询条件 |
 | 35 | customparams | String | 允许 | 自定义查询参数 |
 | 36 | query | String | 允许 | 快速搜索 |

@@ -1062,20 +1062,20 @@ POST
 #### TestTaskSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 21 | n_pri_eq | Integer | 允许 |  |
-| 22 | n_status_eq | String | 允许 |  |
-| 23 | n_status_noteq | String | 允许 |  |
-| 24 | n_owner_eq | String | 允许 |  |
-| 25 | n_name_like | String | 允许 |  |
-| 26 | n_product_eq | Long | 允许 |  |
-| 27 | n_build_eq | Long | 允许 |  |
-| 28 | n_project_eq | Long | 允许 |  |
-| 29 | n_productname_eq | String | 允许 |  |
-| 30 | n_productname_like | String | 允许 |  |
-| 31 | n_projecttname_eq | String | 允许 |  |
-| 32 | n_projecttname_like | String | 允许 |  |
-| 33 | n_buildname_eq | String | 允许 |  |
-| 34 | n_buildname_like | String | 允许 |  |
+| 21 | n_pri_eq | Integer | 允许 | 条件字段：pri<br>条件组合方式：`=` |
+| 22 | n_status_eq | String | 允许 | 条件字段：status<br>条件组合方式：`=` |
+| 23 | n_status_noteq | String | 允许 | 条件字段：status<br>条件组合方式：`!=`或者`<>` |
+| 24 | n_owner_eq | String | 允许 | 条件字段：owner<br>条件组合方式：`=` |
+| 25 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 26 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 27 | n_build_eq | Long | 允许 | 条件字段：build<br>条件组合方式：`=` |
+| 28 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
+| 29 | n_productname_eq | String | 允许 | 条件字段：productname<br>条件组合方式：`=` |
+| 30 | n_productname_like | String | 允许 | 条件字段：productname<br>条件组合方式：`%like%` |
+| 31 | n_projecttname_eq | String | 允许 | 条件字段：projecttname<br>条件组合方式：`=` |
+| 32 | n_projecttname_like | String | 允许 | 条件字段：projecttname<br>条件组合方式：`%like%` |
+| 33 | n_buildname_eq | String | 允许 | 条件字段：buildname<br>条件组合方式：`=` |
+| 34 | n_buildname_like | String | 允许 | 条件字段：buildname<br>条件组合方式：`%like%` |
 | 35 | customcond | String | 允许 | 自定义查询条件 |
 | 36 | customparams | String | 允许 | 自定义查询参数 |
 | 37 | query | String | 允许 | 快速搜索 |

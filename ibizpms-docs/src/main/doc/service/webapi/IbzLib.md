@@ -240,10 +240,10 @@ POST
 #### IbzLibSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 11 | n_name_like | String | 允许 |  |
-| 12 | n_type_eq | String | 允许 |  |
-| 13 | n_addedby_eq | String | 允许 |  |
-| 14 | n_lasteditedby_eq | String | 允许 |  |
+| 11 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 12 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 13 | n_addedby_eq | String | 允许 | 条件字段：addedby<br>条件组合方式：`=` |
+| 14 | n_lasteditedby_eq | String | 允许 | 条件字段：lasteditedby<br>条件组合方式：`=` |
 | 15 | customcond | String | 允许 | 自定义查询条件 |
 | 16 | customparams | String | 允许 | 自定义查询参数 |
 | 17 | query | String | 允许 | 快速搜索 |

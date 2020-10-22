@@ -277,10 +277,10 @@ POST
 #### DeptSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 12 | n_name_like | String | 允许 |  |
-| 13 | n_parentname_eq | String | 允许 |  |
-| 14 | n_parentname_like | String | 允许 |  |
-| 15 | n_parent_eq | Long | 允许 |  |
+| 12 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 13 | n_parentname_eq | String | 允许 | 条件字段：parentname<br>条件组合方式：`=` |
+| 14 | n_parentname_like | String | 允许 | 条件字段：parentname<br>条件组合方式：`%like%` |
+| 15 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
 | 16 | customcond | String | 允许 | 自定义查询条件 |
 | 17 | customparams | String | 允许 | 自定义查询参数 |
 | 18 | query | String | 允许 | 快速搜索 |

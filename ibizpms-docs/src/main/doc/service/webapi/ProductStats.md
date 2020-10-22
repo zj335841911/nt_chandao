@@ -316,9 +316,9 @@ POST
 #### ProductStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 32 | n_name_like | String | 允许 |  |
-| 33 | n_status_eq | String | 允许 |  |
-| 34 | n_type_eq | String | 允许 |  |
+| 32 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 33 | n_status_eq | String | 允许 | 条件字段：status<br>条件组合方式：`=` |
+| 34 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
 | 35 | customcond | String | 允许 | 自定义查询条件 |
 | 36 | customparams | String | 允许 | 自定义查询参数 |
 | 37 | query | String | 允许 | 快速搜索 |

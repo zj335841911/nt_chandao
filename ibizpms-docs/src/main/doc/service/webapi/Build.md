@@ -1275,18 +1275,18 @@ POST
 #### BuildSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 22 | n_name_like | String | 允许 |  |
-| 23 | n_date_ltandeq | Timestamp | 允许 | 时间格式：yyyy-MM-dd |
-| 24 | n_product_eq | Long | 允许 |  |
-| 25 | n_branch_eq | Long | 允许 |  |
-| 26 | n_project_eq | Long | 允许 |  |
-| 27 | n_productname_eq | String | 允许 |  |
-| 28 | n_productname_like | String | 允许 |  |
-| 29 | n_rebuild_eq | Integer | 允许 |  |
-| 30 | n_releasetype_eq | String | 允许 |  |
-| 31 | n_frontapplication_eq | String | 允许 |  |
-| 32 | n_backgroundid_eq | String | 允许 |  |
-| 33 | n_sqlid_eq | String | 允许 |  |
+| 22 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 23 | n_date_ltandeq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd |
+| 24 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 25 | n_branch_eq | Long | 允许 | 条件字段：branch<br>条件组合方式：`=` |
+| 26 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
+| 27 | n_productname_eq | String | 允许 | 条件字段：productname<br>条件组合方式：`=` |
+| 28 | n_productname_like | String | 允许 | 条件字段：productname<br>条件组合方式：`%like%` |
+| 29 | n_rebuild_eq | Integer | 允许 | 条件字段：rebuild<br>条件组合方式：`=` |
+| 30 | n_releasetype_eq | String | 允许 | 条件字段：releasetype<br>条件组合方式：`=` |
+| 31 | n_frontapplication_eq | String | 允许 | 条件字段：frontapplication<br>条件组合方式：`=` |
+| 32 | n_backgroundid_eq | String | 允许 | 条件字段：backgroundid<br>条件组合方式：`=` |
+| 33 | n_sqlid_eq | String | 允许 | 条件字段：sqlid<br>条件组合方式：`=` |
 | 34 | customcond | String | 允许 | 自定义查询条件 |
 | 35 | customparams | String | 允许 | 自定义查询参数 |
 | 36 | query | String | 允许 | 快速搜索 |

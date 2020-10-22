@@ -407,13 +407,13 @@ POST
 #### ModuleSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 15 | n_root_eq | String | 允许 |  |
-| 16 | n_type_eq | String | 允许 |  |
-| 17 | n_name_like | String | 允许 |  |
-| 18 | n_parentname_eq | String | 允许 |  |
-| 19 | n_parentname_like | String | 允许 |  |
-| 20 | n_branch_eq | Long | 允许 |  |
-| 21 | n_parent_eq | Long | 允许 |  |
+| 15 | n_root_eq | String | 允许 | 条件字段：root<br>条件组合方式：`=` |
+| 16 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 17 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 18 | n_parentname_eq | String | 允许 | 条件字段：parentname<br>条件组合方式：`=` |
+| 19 | n_parentname_like | String | 允许 | 条件字段：parentname<br>条件组合方式：`%like%` |
+| 20 | n_branch_eq | Long | 允许 | 条件字段：branch<br>条件组合方式：`=` |
+| 21 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
 | 22 | customcond | String | 允许 | 自定义查询条件 |
 | 23 | customparams | String | 允许 | 自定义查询参数 |
 | 24 | query | String | 允许 | 快速搜索 |

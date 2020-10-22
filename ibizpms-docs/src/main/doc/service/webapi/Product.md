@@ -509,15 +509,15 @@ POST
 #### ProductSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 41 | n_acl_eq | String | 允许 |  |
-| 42 | n_name_like | String | 允许 |  |
-| 43 | n_id_eq | Long | 允许 |  |
-| 44 | n_type_eq | String | 允许 |  |
-| 45 | n_status_eq | String | 允许 |  |
-| 46 | n_status_isnotnull | String | 允许 |  |
-| 47 | n_linename_eq | String | 允许 |  |
-| 48 | n_linename_like | String | 允许 |  |
-| 49 | n_line_eq | Long | 允许 |  |
+| 41 | n_acl_eq | String | 允许 | 条件字段：acl<br>条件组合方式：`=` |
+| 42 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 43 | n_id_eq | Long | 允许 | 条件字段：id<br>条件组合方式：`=` |
+| 44 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 45 | n_status_eq | String | 允许 | 条件字段：status<br>条件组合方式：`=` |
+| 46 | n_status_isnotnull | String | 允许 | 条件字段：status<br>条件组合方式：`is not NULL` |
+| 47 | n_linename_eq | String | 允许 | 条件字段：linename<br>条件组合方式：`=` |
+| 48 | n_linename_like | String | 允许 | 条件字段：linename<br>条件组合方式：`%like%` |
+| 49 | n_line_eq | Long | 允许 | 条件字段：line<br>条件组合方式：`=` |
 | 50 | customcond | String | 允许 | 自定义查询条件 |
 | 51 | customparams | String | 允许 | 自定义查询参数 |
 | 52 | query | String | 允许 | 快速搜索 |

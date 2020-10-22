@@ -1352,12 +1352,12 @@ POST
 #### TestResultSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 19 | n_job_eq | Long | 允许 |  |
-| 20 | n_case_eq | Long | 允许 |  |
-| 21 | n_run_eq | Long | 允许 |  |
-| 22 | n_compile_eq | Long | 允许 |  |
-| 23 | n_product_eq | Long | 允许 |  |
-| 24 | n_product_like | Long | 允许 |  |
+| 19 | n_job_eq | Long | 允许 | 条件字段：job<br>条件组合方式：`=` |
+| 20 | n_case_eq | Long | 允许 | 条件字段：case<br>条件组合方式：`=` |
+| 21 | n_run_eq | Long | 允许 | 条件字段：run<br>条件组合方式：`=` |
+| 22 | n_compile_eq | Long | 允许 | 条件字段：compile<br>条件组合方式：`=` |
+| 23 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 24 | n_product_like | Long | 允许 | 条件字段：product<br>条件组合方式：`%like%` |
 | 25 | customcond | String | 允许 | 自定义查询条件 |
 | 26 | customparams | String | 允许 | 自定义查询参数 |
 | 27 | query | String | 允许 | 快速搜索 |

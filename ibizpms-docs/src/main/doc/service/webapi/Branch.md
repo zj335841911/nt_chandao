@@ -577,8 +577,8 @@ POST
 #### BranchSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 6 | n_name_like | String | 允许 |  |
-| 7 | n_product_eq | Long | 允许 |  |
+| 6 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 7 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
 | 8 | customcond | String | 允许 | 自定义查询条件 |
 | 9 | customparams | String | 允许 | 自定义查询参数 |
 | 10 | query | String | 允许 | 快速搜索 |

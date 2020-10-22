@@ -579,8 +579,8 @@ POST
 #### BurnSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 8 | n_project_eq | Long | 允许 |  |
-| 9 | n_task_eq | Long | 允许 |  |
+| 8 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
+| 9 | n_task_eq | Long | 允许 | 条件字段：task<br>条件组合方式：`=` |
 | 10 | customcond | String | 允许 | 自定义查询条件 |
 | 11 | customparams | String | 允许 | 自定义查询参数 |
 | 12 | query | String | 允许 | 快速搜索 |

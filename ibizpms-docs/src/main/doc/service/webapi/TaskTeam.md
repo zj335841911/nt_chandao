@@ -944,10 +944,10 @@ POST
 #### TaskTeamSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 16 | n_root_eq | Long | 允许 |  |
-| 17 | n_limited_eq | String | 允许 |  |
-| 18 | n_type_eq | String | 允许 |  |
-| 19 | n_account_like | String | 允许 |  |
+| 16 | n_root_eq | Long | 允许 | 条件字段：root<br>条件组合方式：`=` |
+| 17 | n_limited_eq | String | 允许 | 条件字段：limited<br>条件组合方式：`=` |
+| 18 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 19 | n_account_like | String | 允许 | 条件字段：account<br>条件组合方式：`%like%` |
 | 20 | customcond | String | 允许 | 自定义查询条件 |
 | 21 | customparams | String | 允许 | 自定义查询参数 |
 | 22 | query | String | 允许 | 快速搜索 |

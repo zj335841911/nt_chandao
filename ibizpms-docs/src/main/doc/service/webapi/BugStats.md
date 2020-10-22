@@ -320,11 +320,11 @@ POST
 #### BugStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 19 | n_title_like | String | 允许 |  |
-| 20 | n_openedby_eq | String | 允许 |  |
-| 21 | n_bugwillnotfix_ltandeq | Integer | 允许 |  |
-| 22 | n_product_eq | Long | 允许 |  |
-| 23 | n_assignedto_eq | String | 允许 |  |
+| 19 | n_title_like | String | 允许 | 条件字段：title<br>条件组合方式：`%like%` |
+| 20 | n_openedby_eq | String | 允许 | 条件字段：openedby<br>条件组合方式：`=` |
+| 21 | n_bugwillnotfix_ltandeq | Integer | 允许 | 条件字段：bugwillnotfix<br>条件组合方式：`<=` |
+| 22 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 23 | n_assignedto_eq | String | 允许 | 条件字段：assignedto<br>条件组合方式：`=` |
 | 24 | customcond | String | 允许 | 自定义查询条件 |
 | 25 | customparams | String | 允许 | 自定义查询参数 |
 | 26 | query | String | 允许 | 快速搜索 |

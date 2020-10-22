@@ -32,28 +32,27 @@
     :disabled="detailsModel.projecttname.disabled"
     :error="detailsModel.projecttname.error" 
     :isEmptyCaption="false">
-        <app-mob-picker
-    name='projecttname'
-    deMajorField='projectname'
-    deKeyField='projectid'
-    valueitem='project' 
-    editortype="" 
-    style=""  
+        <app-mob-select-drop-down 
+    name='projecttname' 
+    deMajorField='name'
+    deKeyField='id'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :viewparams="viewparams"
     :navigateContext ='{ "product": "%product%" } '
     :navigateParam ='{ "product": "%product%" } '
+    :viewparams="viewparams"
     :itemParam='{ }' 
     :disabled="detailsModel.projecttname.disabled"
     :service="service"
     :acParams="{ serviceName: 'project', interfaceName: 'FetchBugProject'}"
     :value="data.projecttname" 
-    :pickupView="{ viewname: 'project-mob-pickup-view', title: '项目移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange">
-</app-mob-picker>
-
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.projecttname = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
@@ -73,28 +72,27 @@
     :disabled="detailsModel.buildname.disabled"
     :error="detailsModel.buildname.error" 
     :isEmptyCaption="false">
-        <app-mob-picker
-    name='buildname'
-    deMajorField='buildname'
-    deKeyField='buildid'
-    valueitem='build' 
-    editortype="" 
-    style=""  
+        <app-mob-select-drop-down 
+    name='buildname' 
+    deMajorField='name'
+    deKeyField='id'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
-    :viewparams="viewparams"
     :navigateContext ='{ "n_product_eq": "%product%", "n_project_eq": "%project%" } '
     :navigateParam ='{ "n_product_eq": "%product%", "n_project_eq": "%project%" } '
+    :viewparams="viewparams"
     :itemParam='{ }' 
     :disabled="detailsModel.buildname.disabled"
     :service="service"
     :acParams="{ serviceName: 'build', interfaceName: 'FetchTestBuild'}"
     :value="data.buildname" 
-    :pickupView="{ viewname: 'build-mob-pickup-view', title: '版本移动端数据选择视图', deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'builds', parameterName: 'build' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange">
-</app-mob-picker>
-
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.buildname = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
@@ -1927,17 +1925,8 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
      * @memberof MobEditTable
      */
     public createDefault(){                    
-                if (this.data.hasOwnProperty('project')) {
-                    this.data['project'] = this.viewparams['project'];
-                }
-                if (this.data.hasOwnProperty('build')) {
-                    this.data['build'] = this.viewparams['build'];
-                }
                 if (this.data.hasOwnProperty('status')) {
                     this.data['status'] = 'wait';
-                }
-                if (this.data.hasOwnProperty('product')) {
-                    this.data['product'] = this.viewparams['product'];
                 }
                 if (this.data.hasOwnProperty('name')) {
                     this.data['name'] = this.viewparams['name'];

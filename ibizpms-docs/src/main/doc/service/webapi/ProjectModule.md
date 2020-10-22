@@ -997,14 +997,14 @@ POST
 #### ProjectModuleSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 17 | n_type_eq | String | 允许 |  |
-| 18 | n_name_like | String | 允许 |  |
-| 19 | n_parent_eq | Long | 允许 |  |
-| 20 | n_root_eq | Long | 允许 |  |
-| 21 | n_rootname_eq | String | 允许 |  |
-| 22 | n_rootname_like | String | 允许 |  |
-| 23 | n_parentname_eq | String | 允许 |  |
-| 24 | n_parentname_like | String | 允许 |  |
+| 17 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 18 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 19 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
+| 20 | n_root_eq | Long | 允许 | 条件字段：root<br>条件组合方式：`=` |
+| 21 | n_rootname_eq | String | 允许 | 条件字段：rootname<br>条件组合方式：`=` |
+| 22 | n_rootname_like | String | 允许 | 条件字段：rootname<br>条件组合方式：`%like%` |
+| 23 | n_parentname_eq | String | 允许 | 条件字段：parentname<br>条件组合方式：`=` |
+| 24 | n_parentname_like | String | 允许 | 条件字段：parentname<br>条件组合方式：`%like%` |
 | 25 | customcond | String | 允许 | 自定义查询条件 |
 | 26 | customparams | String | 允许 | 自定义查询参数 |
 | 27 | query | String | 允许 | 快速搜索 |

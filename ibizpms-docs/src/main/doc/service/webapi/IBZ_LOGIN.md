@@ -56,7 +56,7 @@ POST
 #### IBZ_LOGINSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 6 | n_realname_like | String | 允许 |  |
+| 6 | n_realname_like | String | 允许 | 条件字段：realname<br>条件组合方式：`%like%` |
 | 7 | customcond | String | 允许 | 自定义查询条件 |
 | 8 | customparams | String | 允许 | 自定义查询参数 |
 | 9 | query | String | 允许 | 快速搜索 |

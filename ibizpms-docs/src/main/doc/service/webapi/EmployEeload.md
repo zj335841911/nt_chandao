@@ -281,15 +281,15 @@ POST
 #### EMPLOYEELOADSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 16 | n_name_like | String | 允许 |  |
-| 17 | n_project_eq | Long | 允许 |  |
-| 18 | n_projectname_eq | String | 允许 |  |
-| 19 | n_projectname_like | String | 允许 |  |
-| 20 | n_dept_eq | String | 允许 |  |
-| 21 | n_begin_ltandeq | Timestamp | 允许 | 时间格式：yyyy-MM-dd |
-| 22 | n_end_gtandeq | Timestamp | 允许 | 时间格式：yyyy-MM-dd |
-| 23 | n_workday_eq | Integer | 允许 |  |
-| 24 | n_assign_eq | String | 允许 |  |
+| 16 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 17 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
+| 18 | n_projectname_eq | String | 允许 | 条件字段：projectname<br>条件组合方式：`=` |
+| 19 | n_projectname_like | String | 允许 | 条件字段：projectname<br>条件组合方式：`%like%` |
+| 20 | n_dept_eq | String | 允许 | 条件字段：dept<br>条件组合方式：`=` |
+| 21 | n_begin_ltandeq | Timestamp | 允许 | 条件字段：begin<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd |
+| 22 | n_end_gtandeq | Timestamp | 允许 | 条件字段：end<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd |
+| 23 | n_workday_eq | Integer | 允许 | 条件字段：workday<br>条件组合方式：`=` |
+| 24 | n_assign_eq | String | 允许 | 条件字段：assign<br>条件组合方式：`=` |
 | 25 | customcond | String | 允许 | 自定义查询条件 |
 | 26 | customparams | String | 允许 | 自定义查询参数 |
 | 27 | query | String | 允许 | 快速搜索 |

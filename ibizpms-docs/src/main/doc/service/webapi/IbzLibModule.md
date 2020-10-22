@@ -548,9 +548,9 @@ POST
 #### IbzLibModuleSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 16 | n_name_like | String | 允许 |  |
-| 17 | n_parent_eq | Long | 允许 |  |
-| 18 | n_root_eq | Long | 允许 |  |
+| 16 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 17 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
+| 18 | n_root_eq | Long | 允许 | 条件字段：root<br>条件组合方式：`=` |
 | 19 | customcond | String | 允许 | 自定义查询条件 |
 | 20 | customparams | String | 允许 | 自定义查询参数 |
 | 21 | query | String | 允许 | 快速搜索 |

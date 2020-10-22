@@ -34,6 +34,7 @@
 |-|产品移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|需求选项操作视图（评审）|DEMOBOPTVIEW|&nbsp;|
 |-|任务预计移动端编辑视图|DEMOBEDITVIEW9|&nbsp;|
+|-|测试版本选项操作视图（关闭）|DEMOBOPTVIEW|&nbsp;|
 |-|测试用例移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|系统日志移动端多数据视图（通用）|DEMOBMDVIEW9|&nbsp;|
 |-|Bug选项操作视图（激活Bug）|DEMOBOPTVIEW|&nbsp;|
@@ -48,9 +49,11 @@
 |-|产品计划移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|需求移动端多数据选择视图（关联需求）|DEMOBMPICKUPVIEW|&nbsp;|
 |-|产品统计移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|测试版本选项操作视图（开始）|DEMOBOPTVIEW|&nbsp;|
 |-|测试|DEMOBTABEXPVIEW|&nbsp;|
 |-|任务移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|任务选项操作视图（开始）|DEMOBOPTVIEW|&nbsp;|
+|-|测试版本选项操作视图（激活）|DEMOBOPTVIEW|&nbsp;|
 |-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|项目移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|待办事宜表移动端列表视图|DEMOBLISTVIEW|&nbsp;|
@@ -139,6 +142,7 @@
 |-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|版本移动端多数据选择视图|DEMOBMPICKUPVIEW|&nbsp;|
 |-|需求移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
+|-|测试版本选项操作视图（阻塞）|DEMOBOPTVIEW|&nbsp;|
 |-|产品计划移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|任务预计移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|用户移动端编辑视图|DEMOBEDITVIEW|&nbsp;|

@@ -278,10 +278,10 @@ POST
 #### FileSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 13 | n_objectid_eq | Long | 允许 |  |
-| 14 | n_objecttype_eq | String | 允许 |  |
-| 15 | n_title_like | String | 允许 |  |
-| 16 | n_extra_eq | String | 允许 |  |
+| 13 | n_objectid_eq | Long | 允许 | 条件字段：objectid<br>条件组合方式：`=` |
+| 14 | n_objecttype_eq | String | 允许 | 条件字段：objecttype<br>条件组合方式：`=` |
+| 15 | n_title_like | String | 允许 | 条件字段：title<br>条件组合方式：`%like%` |
+| 16 | n_extra_eq | String | 允许 | 条件字段：extra<br>条件组合方式：`=` |
 | 17 | customcond | String | 允许 | 自定义查询条件 |
 | 18 | customparams | String | 允许 | 自定义查询参数 |
 | 19 | query | String | 允许 | 快速搜索 |
