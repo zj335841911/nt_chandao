@@ -18,27 +18,42 @@
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
-    name='name' 
+    name='projecttname' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="name_item"  
-    :itemValue="this.data.name" 
-    v-show="detailsModel.name.visible" 
-    :itemRules="this.rules.name" 
-    :caption="$t('testtask.mobedittable_form.details.name')"  
+    ref="projecttname_item"  
+    :itemValue="this.data.projecttname" 
+    v-show="detailsModel.projecttname.visible" 
+    :itemRules="this.rules.projecttname" 
+    :caption="$t('testtask.mobedittable_form.details.projecttname')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.name.disabled"
-    :error="detailsModel.name.error" 
+    :disabled="detailsModel.projecttname.disabled"
+    :error="detailsModel.projecttname.error" 
     :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.name"
-    unit=""
-    :disabled="detailsModel.name.disabled" 
-    @change="($event)=>this.data.name = $event" />
+        <app-mob-picker
+    name='projecttname'
+    deMajorField='projectname'
+    deKeyField='projectid'
+    valueitem='project' 
+    editortype="" 
+    style=""  
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :navigateContext ='{ "product": "%product%" } '
+    :navigateParam ='{ "product": "%product%" } '
+    :itemParam='{ }' 
+    :disabled="detailsModel.projecttname.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'project', interfaceName: 'FetchBugProject'}"
+    :value="data.projecttname" 
+    :pickupView="{ viewname: 'project-mob-pickup-view', title: '项目移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-picker>
+
 </app-form-item>
 
 
@@ -69,8 +84,8 @@
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
+    :navigateContext ='{ "n_product_eq": "%product%", "n_project_eq": "%project%" } '
+    :navigateParam ='{ "n_product_eq": "%product%", "n_project_eq": "%project%" } '
     :itemParam='{ }' 
     :disabled="detailsModel.buildname.disabled"
     :service="service"
@@ -80,6 +95,37 @@
     @formitemvaluechange="onFormItemValueChange">
 </app-mob-picker>
 
+</app-form-item>
+
+
+
+<app-form-item 
+    name='owner' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="owner_item"  
+    :itemValue="this.data.owner" 
+    v-show="detailsModel.owner.visible" 
+    :itemRules="this.rules.owner" 
+    :caption="$t('testtask.mobedittable_form.details.owner')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.owner.disabled"
+    :error="detailsModel.owner.error" 
+    :isEmptyCaption="false">
+        <app-mob-select 
+    tag="UserRealName"
+    codeListType="DYNAMIC" 
+    :isCache="false" 
+    :disabled="detailsModel.owner.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.owner"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.owner = $event" />
 </app-form-item>
 
 
@@ -111,63 +157,6 @@
     :navigateContext ='{ } '
     :navigateParam ='{ } '
     @change="($event)=>this.data.pri = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='status' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="status_item"  
-    :itemValue="this.data.status" 
-    v-show="detailsModel.status.visible" 
-    :itemRules="this.rules.status" 
-    :caption="$t('testtask.mobedittable_form.details.status')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.status.disabled"
-    :error="detailsModel.status.error" 
-    :isEmptyCaption="false">
-        <app-mob-select 
-    tag="Testtask__status"
-    codeListType="STATIC" 
-    :isCache="false" 
-    :disabled="detailsModel.status.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.status"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.status = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='owner' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="owner_item"  
-    :itemValue="this.data.owner" 
-    v-show="detailsModel.owner.visible" 
-    :itemRules="this.rules.owner" 
-    :caption="$t('testtask.mobedittable_form.details.owner')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.owner.disabled"
-    :error="detailsModel.owner.error" 
-    :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.owner"
-    unit=""
-    :disabled="detailsModel.owner.disabled" 
-    @change="($event)=>this.data.owner = $event" />
 </app-form-item>
 
 
@@ -218,6 +207,116 @@
     :value="data.end" 
     :disabled="detailsModel.end.disabled"
     @change="($event)=>this.data.end = $event"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='status' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="status_item"  
+    :itemValue="this.data.status" 
+    v-show="detailsModel.status.visible" 
+    :itemRules="this.rules.status" 
+    :caption="$t('testtask.mobedittable_form.details.status')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.status.disabled"
+    :error="detailsModel.status.error" 
+    :isEmptyCaption="false">
+        <app-mob-select 
+    tag="Testtask__status"
+    codeListType="STATIC" 
+    :isCache="false" 
+    :disabled="detailsModel.status.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.status"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.status = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
+    name='name' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="name_item"  
+    :itemValue="this.data.name" 
+    v-show="detailsModel.name.visible" 
+    :itemRules="this.rules.name" 
+    :caption="$t('testtask.mobedittable_form.details.name')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.name.disabled"
+    :error="detailsModel.name.error" 
+    :isEmptyCaption="false">
+        <app-mob-input 
+    class="app-form-item-input"  
+        type="text"  
+    :value="data.name"
+    unit=""
+    :disabled="detailsModel.name.disabled" 
+    @change="($event)=>this.data.name = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
+    name='desc' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="desc_item"  
+    :itemValue="this.data.desc" 
+    v-show="detailsModel.desc.visible" 
+    :itemRules="this.rules.desc" 
+    :caption="$t('testtask.mobedittable_form.details.desc')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :error="detailsModel.desc.error" 
+    :isEmptyCaption="false">
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"testtask",version:"editor"}' :exportparams='{objecttype:"testtask",version:"editor"}'  style=""/>
+
+</app-form-item>
+
+
+
+<app-form-item 
+    name='mailto' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="mailto_item"  
+    :itemValue="this.data.mailto" 
+    v-show="detailsModel.mailto.visible" 
+    :itemRules="this.rules.mailto" 
+    :caption="$t('testtask.mobedittable_form.details.mailto')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.mailto.disabled"
+    :error="detailsModel.mailto.error" 
+    :isEmptyCaption="false">
+        <app-mob-check-list 
+    orMode="str"
+    valueSeparator=","
+    textSeparator=","
+    type="dynamic"  
+    tag="UserRealName"
+    :disabled="detailsModel.mailto.disabled" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.mailto"   
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.mailto = $event"/>
 </app-form-item>
 
 
@@ -543,15 +642,20 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        name: null,
+        projecttname: null,
         buildname: null,
-        pri: null,
-        status: null,
         owner: null,
+        pri: null,
         begin: null,
         end: null,
-        id: null,
+        project: null,
         build: null,
+        status: null,
+        product: null,
+        name: null,
+        desc: null,
+        mailto: null,
+        id: null,
         testtask: null,
     };
 
@@ -594,9 +698,9 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
      * @memberof MobEditTable
      */
     protected rules: any = {
-        name: [
-            { required: true, type: 'string', message: '名称 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
+        projecttname: [
+            { required: true, type: 'string', message: '项目 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '项目 值不能为空', trigger: 'blur' },
         ],
         buildname: [
             { required: true, type: 'string', message: '版本 值不能为空', trigger: 'change' },
@@ -609,6 +713,10 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
         end: [
             { required: true, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
+        ],
+        name: [
+            { required: true, type: 'string', message: '名称 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -717,23 +825,33 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        name: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        projecttname: new FormItemModel({ caption: '项目', detailType: 'FORMITEM', name: 'projecttname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         buildname: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'buildname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
-        status: new FormItemModel({ caption: '当前状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
-, 
         owner: new FormItemModel({ caption: '负责人', detailType: 'FORMITEM', name: 'owner', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         begin: new FormItemModel({ caption: '开始日期', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         build: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'build', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        status: new FormItemModel({ caption: '当前状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        name: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
     };
 
@@ -822,15 +940,15 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 name 值
+     * 监控表单属性 projecttname 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobEditTable
      */
-    @Watch('data.name')
-    onNameChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'name', newVal: newVal, oldVal: oldVal });
+    @Watch('data.projecttname')
+    onProjecttnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'projecttname', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -846,30 +964,6 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 pri 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobEditTable
-     */
-    @Watch('data.pri')
-    onPriChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'pri', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 status 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobEditTable
-     */
-    @Watch('data.status')
-    onStatusChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'status', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 owner 值
      *
      * @param {*} newVal
@@ -879,6 +973,18 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
     @Watch('data.owner')
     onOwnerChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'owner', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 pri 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditTable
+     */
+    @Watch('data.pri')
+    onPriChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'pri', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -906,15 +1012,15 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 id 值
+     * 监控表单属性 project 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobEditTable
      */
-    @Watch('data.id')
-    onIdChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
+    @Watch('data.project')
+    onProjectChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'project', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -927,6 +1033,78 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
     @Watch('data.build')
     onBuildChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'build', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 status 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditTable
+     */
+    @Watch('data.status')
+    onStatusChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'status', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 product 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditTable
+     */
+    @Watch('data.product')
+    onProductChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 name 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditTable
+     */
+    @Watch('data.name')
+    onNameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'name', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 desc 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditTable
+     */
+    @Watch('data.desc')
+    onDescChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 mailto 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditTable
+     */
+    @Watch('data.mailto')
+    onMailtoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mailto', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 id 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditTable
+     */
+    @Watch('data.id')
+    onIdChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'id', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -965,6 +1143,11 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
+
+
+
 
 
 
@@ -1744,6 +1927,21 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
      * @memberof MobEditTable
      */
     public createDefault(){                    
+                if (this.data.hasOwnProperty('project')) {
+                    this.data['project'] = this.viewparams['project'];
+                }
+                if (this.data.hasOwnProperty('build')) {
+                    this.data['build'] = this.viewparams['build'];
+                }
+                if (this.data.hasOwnProperty('status')) {
+                    this.data['status'] = 'wait';
+                }
+                if (this.data.hasOwnProperty('product')) {
+                    this.data['product'] = this.viewparams['product'];
+                }
+                if (this.data.hasOwnProperty('name')) {
+                    this.data['name'] = this.viewparams['name'];
+                }
     }
 
         /**
