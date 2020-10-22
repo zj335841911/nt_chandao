@@ -1,7 +1,5 @@
 package cn.ibizlab.pms.core.util.zentao.service;
 
-import cn.ibizlab.pms.core.util.zentao.bean.ZTResult;
-import cn.ibizlab.pms.core.util.zentao.helper.ZTAPIHelper;
 import cn.ibizlab.pms.core.zentao.domain.User;
 import cn.ibizlab.pms.core.zentao.service.IUserService;
 import cn.ibizlab.pms.util.errors.InternalServerErrorException;
@@ -64,21 +62,8 @@ public class IBZZTUserService implements AuthenticationUserService{
             domains = accountInfo[1].trim();
         }
 
-        ZTResult rstSession = new ZTResult();
-        if (!ZTAPIHelper.getSessionID(rstSession)) {
-            throw new InternalServerErrorException("登录失败");
-        }
-
-        String zentaoSid1 = JSONObject.parseObject(rstSession.getResult().getString("data")).getString("sessionID");
-        ZTResult rstSession2 = new ZTResult();
-        if (!ZTAPIHelper.getSessionID(rstSession2,zentaoSid1)) {
-            throw new InternalServerErrorException("登录失败");
-        }
-
         User ztUser = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.UserHelper.class).getUserInfo(loginname);
-        if (!cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.UserHelper.class).login(ztUser)) {
-            throw new InternalServerErrorException("登录失败");
-        }
+        cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.UserHelper.class).login(ztUser);
 
         JSONObject userJO = (JSONObject) JSON.toJSON(ztUser);
         AuthenticationUser user = new AuthenticationUser();
@@ -98,8 +83,6 @@ public class IBZZTUserService implements AuthenticationUserService{
         user.setSex(userJO.getString("gender"));
         Map<String,Object> sessionParams = user.getSessionParams();
         sessionParams.put("ztuser", userJO);
-        sessionParams.put("zentaosid", zentaoSid1);
-        sessionParams.put("token", zentaoSid1);
 
         user.setSessionParams(sessionParams);
         // 权限默认给管理员（权限未接入之前）

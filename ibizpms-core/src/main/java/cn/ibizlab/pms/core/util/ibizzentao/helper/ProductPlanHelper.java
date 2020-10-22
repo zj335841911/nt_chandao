@@ -8,6 +8,7 @@ import cn.ibizlab.pms.core.zentao.service.IProductPlanService;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.security.SpringContextHolder;
 import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -117,14 +119,28 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
                 throw new RuntimeException("缺少计划");
             productPlanId = Long.parseLong(et.get("productplan").toString());
         }
-        if(et.get("stories")==null)
-            return et ;
+        String stories = "";
+        if(et.get("stories")!=null) {
+            stories = et.get("stories").toString();
+        }
+        else if(et.get("srfactionparam") != null){
+            List<Map<String,Object>> list = (List<Map<String, Object>>) et.get("srfactionparam");
+            for (Map<String, Object> jsonObject : list) {
+                if(!"".equals(stories)) {
+                    stories += ",";
+                }
+                stories += jsonObject.get("id");
+            }
+
+        }
+        if("".equals(stories))
+            return et;
         ProductPlan old  = this.get(productPlanId);
 
         Product product = productHelper.get(et.getProduct());
         String curOrder = old.getOrder();
 
-        for (String storyId :  et.get("stories").toString().split(",")) {
+        for (String storyId :  stories.split(",")) {
             if (curOrder.contains(storyId))
                 continue;
             curOrder += storyId + ",";
@@ -163,10 +179,25 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
     @Transactional
     public ProductPlan linkBug(ProductPlan et) {
 
-        if(et.get("bugs")==null)
-            return et ;
+        String bugs = "";
+        if(et.get("bugs")!=null) {
+            bugs = et.get("bugs").toString();
+        }
+        else if(et.get("srfactionparam") != null){
+            List<Map<String,Object>> list = (List<Map<String, Object>>) et.get("srfactionparam");
+            for (Map<String, Object> jsonObject : list) {
+                if(!"".equals(bugs)) {
+                    bugs += ",";
+                }
+                bugs += jsonObject.get("id");
+            }
 
-        for (String bugId :  et.get("bugs").toString().split(",")) {
+        }
+        if("".equals(bugs))
+            return et;
+
+
+        for (String bugId :  bugs.split(",")) {
             Bug bug = new Bug() ;
             bug.setId(Long.parseLong(bugId));
             bug.setPlan(et.getId());

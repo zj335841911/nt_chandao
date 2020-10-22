@@ -3,7 +3,6 @@ package cn.ibizlab.pms.core.util.ibizzentao.helper;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
 import cn.ibizlab.pms.core.util.ibizzentao.common.ZTDateUtil;
 import cn.ibizlab.pms.core.zentao.domain.*;
-import cn.ibizlab.pms.core.zentao.filter.StoryStageSearchContext;
 import cn.ibizlab.pms.core.zentao.mapper.StoryMapper;
 import cn.ibizlab.pms.core.zentao.service.IStoryService;
 import cn.ibizlab.pms.core.zentao.service.IStoryStageService;
@@ -20,9 +19,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Component
@@ -65,6 +61,9 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
     @Autowired
     IStoryService iStoryService;
 
+    @Autowired
+    ProductHelper productHelper;
+
     @Transactional
     public boolean create(Story et) {
         String strSpec = et.getSpec();
@@ -72,7 +71,14 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
         fileHelper.processImgURL(et, null, null);
         et.setVersion(1);
         et.setAssigneddate(et.getAssignedto() != null ? ZTDateUtil.now() : ZTDateUtil.nul());
-        et.setStatus((et.getNeednotreview() == null || "".equals(et.getNeednotreview()) || "1".equals(et.getNeednotreview())) ? "draft" : "active");
+        et.setStatus((et.getNeednotreview() == null || "".equals(et.getNeednotreview()) || !"1".equals(et.getNeednotreview())) ? "draft" : "active");
+        if("draft".equals(et.getStatus())) {
+            if(et.getAssignedto() == null || "".equals(et.getAssignedto())) {
+                et.setReviewedby(productHelper.get(et.getProduct()).getPo());
+            }else
+                et.setReviewedby(et.getAssignedto());
+
+        }
         et.setStage(et.getProject() != null && et.getProject() > 0 ? "projected" : et.getPlan() != null && !"".equals(et.getPlan()) && !"0".equals(et.getPlan()) ? "planned" : "wait");
         super.create(et);
         fileHelper.updateObjectID(null, et.getId(), "story");
@@ -151,10 +157,12 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             story.setProduct(product);
             story.setSource(story.getSource() != null ? story.getSource() : source);
             story.setPri(story.getPri() != null ? story.getPri() : pri);
-            story.setStatus(story.getNeednotreview() != null && "0".equals(story.getNeednotreview()) ? "active" : "draft");
-            story.setReviewedby(story.getNeednotreview() != null && "0".equals(story.getNeednotreview()) ? "" : AuthenticationUser.getAuthenticationUser().getLoginname());
+            story.setNeednotreview(story.getNeednotreview() != null &&  "0".equals(story.getNeednotreview()) ? "1": null);
+//            story.setStatus(story.getNeednotreview() != null && "0".equals(story.getNeednotreview()) ? "active" : "draft");
+//            story.setReviewedby(story.getNeednotreview() != null && "0".equals(story.getNeednotreview()) ? "" : AuthenticationUser.getAuthenticationUser().getLoginname());
             story.setOpenedby(AuthenticationUser.getAuthenticationUser().getLoginname());
-            story.setAssignedto(story.getAssignedto());
+            story.setAssignedto("");
+            story.setReviewedby("");
             story.setOpeneddate(nowDate);
             story.setBranch(story.getBranch() != null ? story.getBranch() : branch);
             story.setVersion(1);
