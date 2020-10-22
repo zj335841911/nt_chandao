@@ -55,7 +55,7 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         }
 
         //STEP1:登录UAA系统前，先查看ZT账户是否存在。
-        User ztUser = getZTUserInfo(username);
+//        User ztUser = getZTUserInfo(username);
 
         //STEP2:使用统一认证用户名，token，进行UAA认证。
         AuthenticationUser uaaUser = uaaFeignClient.loginByUsername(username);
@@ -65,12 +65,12 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         String token = getRequestToken();
 
         //STEP3:ZT API登录(设置Token）。
-        JSONObject userJO = doZTLogin(ztUser.getAccount(), ztpassword, token);
+//        JSONObject userJO = doZTLogin(ztUser.getAccount(), ztpassword, token);
 
         //STEP4：构造权限上下文用户。
-        AuthenticationUser user = constructSecurityContextUser(userJO, token, getDomains(username));
+//        AuthenticationUser user = constructSecurityContextUser(userJO, token, getDomains(username));
 
-        return user;
+        return uaaUser;
     }
 
     /**
@@ -87,19 +87,19 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
         }
 
         //STEP1:登录UAA系统前，先查看ZT账户是否存在。
-        User ztUser = getZTUserInfo(username);
+//        User ztUser = getZTUserInfo(username);
 
         //STEP2:以统一认证账户、密码，进行UAA认证。
         AuthenticationInfo authenticationInfo = loadUAAUserByLogin(username,password);
         String token = authenticationInfo.getToken();
 
         //STEP3:ZT API登录(设置Token）。
-        JSONObject userJO = doZTLogin(ztUser.getAccount(), ztpassword, token);
+//        JSONObject userJO = doZTLogin(ztUser.getAccount(), ztpassword, token);
 
         //STEP4：构造前端需要的用户数据。
-        AuthenticationUser pageUser = constructSecurityContextUser(userJO, token, getDomains(username));
+//        AuthenticationUser pageUser = constructSecurityContextUser(userJO, token, getDomains(username));
 
-        return pageUser;
+        return authenticationInfo.getUser();
     }
 
 
@@ -165,26 +165,26 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
      * @return UAA账号=git账号=【ZT】源代码账号(User-commiter属性)
      * 注意：根据commiter，查询到多个账号时，只返回符合条件的第一个账号。
      */
-    private User getZTUserInfo(String loginname) {
-        IUserService userService = SpringContextHolder.getBean(IUserService.class);
-        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("account", loginname).or().eq("commiter", loginname);
-
-        List<User> users = userService.list(queryWrapper);
-        User ztUser = null;
-        if (CollectionUtils.isEmpty(users)) {
-
-        } else if (users.size() > 1) {
-            throw new BadRequestAlertException(ZenTaoMessage.MSG_ERROR_0012, null, null);
-        } else {
-            ztUser = users.get(0);
-        }
-        if (ztUser == null || ztUser.getCommiter() == null) {
-            //（二期）没有对应账号，后台新建账号，再登录
-            throw new BadRequestAlertException(ZenTaoMessage.MSG_ERROR_0010, null, null);
-        }
-        return ztUser;
-    }
+//    private User getZTUserInfo(String loginname) {
+////        IUserService userService = SpringContextHolder.getBean(IUserService.class);
+////        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+////        queryWrapper.eq("account", loginname).or().eq("commiter", loginname);
+////
+////        List<User> users = userService.list(queryWrapper);
+////        User ztUser = null;
+////        if (CollectionUtils.isEmpty(users)) {
+////
+////        } else if (users.size() > 1) {
+////            throw new BadRequestAlertException(ZenTaoMessage.MSG_ERROR_0012, null, null);
+////        } else {
+////            ztUser = users.get(0);
+////        }
+////        if (ztUser == null || ztUser.getCommiter() == null) {
+////            //（二期）没有对应账号，后台新建账号，再登录
+////            throw new BadRequestAlertException(ZenTaoMessage.MSG_ERROR_0010, null, null);
+////        }
+//        return null;
+//    }
 
     /**
      * 根据ZT账号，登录。
@@ -193,13 +193,13 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
      */
     public static JSONObject doZTLogin(String loginname, String password, String token) {
 
-        User ztUser = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.UserHelper.class).getUserInfo(loginname);
-        if (!cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.UserHelper.class).login(ztUser)) {
+//        User ztUser = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.UserHelper.class).getUserInfo(loginname);
+        if (!cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.UserHelper.class).login(loginname)) {
             throw new BadRequestAlertException(ZenTaoMessage.MSG_ERROR_0014,null,null);
         }
 
-        JSONObject userJO = (JSONObject) JSON.toJSON(ztUser);
-        return userJO;
+//        JSONObject userJO = (JSONObject) JSON.toJSON(ztUser);
+        return null;
     }
 
     /**
