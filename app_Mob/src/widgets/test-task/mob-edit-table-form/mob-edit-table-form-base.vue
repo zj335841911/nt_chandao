@@ -1925,17 +1925,8 @@ export default class MobEditTableBase extends Vue implements ControlInterface {
      * @memberof MobEditTable
      */
     public createDefault(){                    
-                if (this.data.hasOwnProperty('project')) {
-                    this.data['project'] = this.viewparams['project'];
-                }
-                if (this.data.hasOwnProperty('build')) {
-                    this.data['build'] = this.viewparams['build'];
-                }
                 if (this.data.hasOwnProperty('status')) {
                     this.data['status'] = 'wait';
-                }
-                if (this.data.hasOwnProperty('product')) {
-                    this.data['product'] = this.viewparams['product'];
                 }
                 if (this.data.hasOwnProperty('name')) {
                     this.data['name'] = this.viewparams['name'];
