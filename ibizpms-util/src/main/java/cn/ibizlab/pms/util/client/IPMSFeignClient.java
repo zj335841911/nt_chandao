@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(value = "${ibiz.ref.service.pms:pms-webapi}", fallback = IPMSFeignFallback.class)
+@FeignClient(value = "${ibiz.ref.service.pms:pms-webapihw}", fallback = IPMSFeignFallback.class)
 public interface IPMSFeignClient {
 
     /**
@@ -28,4 +28,12 @@ public interface IPMSFeignClient {
      */
     @GetMapping(value = "/ztusers/uaaloginname")
     JSONObject getZTUser(@RequestParam("uaaloginname") String uaaloginname);
+
+    /**
+     * 记录
+     *
+     * @return true：成功
+     */
+    @PostMapping(value = "/recordloginlog")
+    Boolean recordLoginLog(@RequestParam("username") String username);
 }

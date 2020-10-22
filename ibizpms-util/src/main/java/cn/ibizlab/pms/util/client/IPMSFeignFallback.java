@@ -19,4 +19,9 @@ public class IPMSFeignFallback implements IPMSFeignClient {
     public JSONObject getZTUser(String commiter) {
         return null;
     }
+
+    @Override
+    public Boolean recordLoginLog(String username) {
+        return null;
+    }
 }
