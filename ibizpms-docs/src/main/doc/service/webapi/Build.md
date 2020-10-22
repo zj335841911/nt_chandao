@@ -1,0 +1,1296 @@
+# 服务接口-ZT_BUILD
+## 接口说明
+版本
+
+## 接口清单
+### 新建版本
+#### 访问路径
+/builds
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
+
+### 批量新建版本
+#### 访问路径
+/builds/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | builddtos | List<[BuildDTO](#BuildDTO)> | 版本实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 更新版本
+#### 访问路径
+/builds/{build_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | build_id | Long | 版本主键ID |
+| 2 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
+
+### 批量更新版本
+#### 访问路径
+/builds/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | builddtos | List<[BuildDTO](#BuildDTO)> | 版本实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 删除版本
+#### 访问路径
+/builds/{build_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | build_id | Long | 版本主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 批量删除版本
+#### 访问路径
+/builds/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | ids | List<Long> | 版本主键ID列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 获取版本
+#### 访问路径
+/builds/{build_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | build_id | Long | 版本主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
+
+### 检查版本
+#### 访问路径
+/builds/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 关联需求
+#### 访问路径
+/builds/{build_id}/linkstory
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | build_id | Long | 版本主键ID |
+| 2 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
+
+### 一键发布
+#### 访问路径
+/builds/{build_id}/oneclickrelease
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | build_id | Long | 版本主键ID |
+| 2 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
+
+### 保存版本
+#### 访问路径
+/builds/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 批量保存版本
+#### 访问路径
+/builds/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | builddtos | List<[BuildDTO](#BuildDTO)> | 版本实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 获取Bug产品版本
+#### 访问路径
+/builds/fetchbugproductbuild
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BuildDTO](#BuildDTO)>：版本实体传输对象列表 |
+
+### 查询Bug产品版本
+#### 访问路径
+/builds/searchbugproductbuild
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取产品版本
+#### 访问路径
+/builds/fetchcurproduct
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BuildDTO](#BuildDTO)>：版本实体传输对象列表 |
+
+### 查询产品版本
+#### 访问路径
+/builds/searchcurproduct
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取DEFAULT
+#### 访问路径
+/builds/fetchdefault
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BuildDTO](#BuildDTO)>：版本实体传输对象列表 |
+
+### 查询DEFAULT
+#### 访问路径
+/builds/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取测试版本
+#### 访问路径
+/builds/fetchtestbuild
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BuildDTO](#BuildDTO)>：版本实体传输对象列表 |
+
+### 查询测试版本
+#### 访问路径
+/builds/searchtestbuild
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取测试轮次
+#### 访问路径
+/builds/fetchtestrounds
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BuildDTO](#BuildDTO)>：版本实体传输对象列表 |
+
+### 查询测试轮次
+#### 访问路径
+/builds/searchtestrounds
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据建立版本
+#### 访问路径
+/products/{product_id}/builds
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
+
+### 根据批量建立版本
+#### 访问路径
+/products/{product_id}/builds/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | builddtos | List<[BuildDTO](#BuildDTO)> | 版本实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据更新版本
+#### 访问路径
+/products/{product_id}/builds/{build_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | build_id | Long | 版本主键ID |
+| 3 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
+
+### 根据批量更新版本
+#### 访问路径
+/products/{product_id}/builds/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | builddtos | List<[BuildDTO](#BuildDTO)> | 版本实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据删除版本
+#### 访问路径
+/products/{product_id}/builds/{build_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | build_id | Long | 版本主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据批量删除版本
+#### 访问路径
+/products/{product_id}/builds/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | ids | List<Long> | 版本主键ID列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据获取版本
+#### 访问路径
+/products/{product_id}/builds/{build_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | build_id | Long | 版本主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
+
+### 根据检查版本
+#### 访问路径
+/products/{product_id}/builds/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 关联需求
+#### 访问路径
+/products/{product_id}/builds/{build_id}/linkstory
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | build_id | Long | 版本主键ID |
+| 3 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
+
+### 一键发布
+#### 访问路径
+/products/{product_id}/builds/{build_id}/oneclickrelease
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | build_id | Long | 版本主键ID |
+| 3 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
+
+### 根据保存版本
+#### 访问路径
+/products/{product_id}/builds/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据批量保存版本
+#### 访问路径
+/products/{product_id}/builds/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | builddtos | List<[BuildDTO](#BuildDTO)> | 版本实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据获取Bug产品版本
+#### 访问路径
+/products/{product_id}/builds/fetchbugproductbuild
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BuildDTO](#BuildDTO)>：版本实体传输对象列表 |
+
+### 根据查询Bug产品版本
+#### 访问路径
+/products/{product_id}/builds/searchbugproductbuild
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取产品版本
+#### 访问路径
+/products/{product_id}/builds/fetchcurproduct
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BuildDTO](#BuildDTO)>：版本实体传输对象列表 |
+
+### 根据查询产品版本
+#### 访问路径
+/products/{product_id}/builds/searchcurproduct
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取DEFAULT
+#### 访问路径
+/products/{product_id}/builds/fetchdefault
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BuildDTO](#BuildDTO)>：版本实体传输对象列表 |
+
+### 根据查询DEFAULT
+#### 访问路径
+/products/{product_id}/builds/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试版本
+#### 访问路径
+/products/{product_id}/builds/fetchtestbuild
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BuildDTO](#BuildDTO)>：版本实体传输对象列表 |
+
+### 根据查询测试版本
+#### 访问路径
+/products/{product_id}/builds/searchtestbuild
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试轮次
+#### 访问路径
+/products/{product_id}/builds/fetchtestrounds
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BuildDTO](#BuildDTO)>：版本实体传输对象列表 |
+
+### 根据查询测试轮次
+#### 访问路径
+/products/{product_id}/builds/searchtestrounds
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据建立版本
+#### 访问路径
+/projects/{project_id}/builds
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
+
+### 根据批量建立版本
+#### 访问路径
+/projects/{project_id}/builds/batch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | builddtos | List<[BuildDTO](#BuildDTO)> | 版本实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据更新版本
+#### 访问路径
+/projects/{project_id}/builds/{build_id}
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | build_id | Long | 版本主键ID |
+| 3 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
+
+### 根据批量更新版本
+#### 访问路径
+/projects/{project_id}/builds/batch
+
+#### 请求方法
+PUT
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | builddtos | List<[BuildDTO](#BuildDTO)> | 版本实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据删除版本
+#### 访问路径
+/projects/{project_id}/builds/{build_id}
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | build_id | Long | 版本主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据批量删除版本
+#### 访问路径
+/projects/{project_id}/builds/batch
+
+#### 请求方法
+DELETE
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | ids | List<Long> | 版本主键ID列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据获取版本
+#### 访问路径
+/projects/{project_id}/builds/{build_id}
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | build_id | Long | 版本主键ID |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
+
+### 根据检查版本
+#### 访问路径
+/projects/{project_id}/builds/checkkey
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 关联需求
+#### 访问路径
+/projects/{project_id}/builds/{build_id}/linkstory
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | build_id | Long | 版本主键ID |
+| 3 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
+
+### 一键发布
+#### 访问路径
+/projects/{project_id}/builds/{build_id}/oneclickrelease
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | build_id | Long | 版本主键ID |
+| 3 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [BuildDTO](#BuildDTO)：版本实体传输对象 |
+
+### 根据保存版本
+#### 访问路径
+/projects/{project_id}/builds/save
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | builddto | [BuildDTO](#BuildDTO) | 版本实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据批量保存版本
+#### 访问路径
+/projects/{project_id}/builds/savebatch
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | builddtos | List<[BuildDTO](#BuildDTO)> | 版本实体传输对象列表 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | true：处理成功。false：处理失败。 |
+
+### 根据获取Bug产品版本
+#### 访问路径
+/projects/{project_id}/builds/fetchbugproductbuild
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BuildDTO](#BuildDTO)>：版本实体传输对象列表 |
+
+### 根据查询Bug产品版本
+#### 访问路径
+/projects/{project_id}/builds/searchbugproductbuild
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取产品版本
+#### 访问路径
+/projects/{project_id}/builds/fetchcurproduct
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BuildDTO](#BuildDTO)>：版本实体传输对象列表 |
+
+### 根据查询产品版本
+#### 访问路径
+/projects/{project_id}/builds/searchcurproduct
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取DEFAULT
+#### 访问路径
+/projects/{project_id}/builds/fetchdefault
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BuildDTO](#BuildDTO)>：版本实体传输对象列表 |
+
+### 根据查询DEFAULT
+#### 访问路径
+/projects/{project_id}/builds/searchdefault
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试版本
+#### 访问路径
+/projects/{project_id}/builds/fetchtestbuild
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BuildDTO](#BuildDTO)>：版本实体传输对象列表 |
+
+### 根据查询测试版本
+#### 访问路径
+/projects/{project_id}/builds/searchtestbuild
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取测试轮次
+#### 访问路径
+/projects/{project_id}/builds/fetchtestrounds
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[BuildDTO](#BuildDTO)>：版本实体传输对象列表 |
+
+### 根据查询测试轮次
+#### 访问路径
+/projects/{project_id}/builds/searchtestrounds
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| -- | -- | -- | -- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [BuildSearchContext](#BuildSearchContext) | 版本查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| -- | -- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[BuildDTO](#BuildDTO)>：版本实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+## 附录
+### 数据类型说明
+#### BuildDTO
+| 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
+| -- | -- | -- | -- | -- |
+| 1 | name | String | 不可 | 名称编号 |
+| 2 | builder | String | 允许 | 构建者 |
+| 3 | desc | String | 允许 | 描述 |
+| 4 | id | Long | 不可 | id |
+| 5 | deleted | String | 允许 | 已删除 |
+| 6 | scmpath | String | 允许 | 源代码地址 |
+| 7 | filepath | String | 允许 | 下载地址 |
+| 8 | stories | String | 允许 | 完成的需求 |
+| 9 | bugs | String | 允许 | 解决的Bug |
+| 10 | date | Timestamp | 允许 | 打包日期<br>时间格式：yyyy-MM-dd |
+| 11 | product | Long | 允许 | 产品 |
+| 12 | branch | Long | 允许 | 平台/分支 |
+| 13 | project | Long | 允许 | 所属项目 |
+| 14 | productname | String | 允许 | 产品名称 |
+| 15 | ids | String | 允许 | Bug版本健值 |
+| 16 | files | String | 允许 | 附件 |
+| 17 | rebuild | Integer | 允许 | 重新构建 |
+| 18 | releasetype | String | 允许 | 运行模式 |
+| 19 | frontapplication | String | 允许 | 系统应用 |
+| 20 | backgroundid | String | 允许 | 后台体系 |
+| 21 | sqlid | String | 允许 | 运行数据库 |
+| 22 | <动态属性> | Object | 允许 | 支持动态属性 |
+
+#### BuildSearchContext
+| 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
+| -- | -- | -- | -- | -- |
+| 22 | n_name_like | String | 允许 |  |
+| 23 | n_date_ltandeq | Timestamp | 允许 | 时间格式：yyyy-MM-dd |
+| 24 | n_product_eq | Long | 允许 |  |
+| 25 | n_branch_eq | Long | 允许 |  |
+| 26 | n_project_eq | Long | 允许 |  |
+| 27 | n_productname_eq | String | 允许 |  |
+| 28 | n_productname_like | String | 允许 |  |
+| 29 | n_rebuild_eq | Integer | 允许 |  |
+| 30 | n_releasetype_eq | String | 允许 |  |
+| 31 | n_frontapplication_eq | String | 允许 |  |
+| 32 | n_backgroundid_eq | String | 允许 |  |
+| 33 | n_sqlid_eq | String | 允许 |  |
+| 34 | customcond | String | 允许 | 自定义查询条件 |
+| 35 | customparams | String | 允许 | 自定义查询参数 |
+| 36 | query | String | 允许 | 快速搜索 |
+| 37 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 38 | page | int | 允许 | 当前页数<br>默认值0 |
+| 39 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 40 | sort | String | 允许 | 排序 |
