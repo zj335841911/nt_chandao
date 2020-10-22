@@ -2,6 +2,7 @@
     <div :class="editorClass">
         <textarea :id="id"></textarea>
         <div class="select-person" :style="[personPosi,{visibility: showSelect}]">
+            <Input search size="small" class="person-search" v-model="personSearchText" @on-change="personSearch" :element-id="'person-search'+id" style="padding-bottom: 6px;"/>
             <ul class="person-wrap">
                 <li :class="['row',item.selectState ? 'selectRow': '']" v-for="(item,index) in items" :key="index" @click="selectPerson(item)" @mouseover="onMousevoer(index)">
                     {{item.text}}
@@ -54,6 +55,22 @@ export default class AppRichTextEditor extends Vue {
      * @memberof AppRichTextEditor
      */
     public items: Array<any> = [];
+
+    /**
+     * 人员搜索值
+     * 
+     * @type {string}
+     * @memberof AppRichTextEditor
+     */
+    public personSearchText: string = '';
+
+    /**
+     * 初始化人员列表
+     * 
+     * @type {Array<any>}
+     * @memberof AppRichTextEditor
+     */
+    public personList:Array<any> = [];
 
     /**
      * 代码表服务对象
@@ -288,8 +305,10 @@ export default class AppRichTextEditor extends Vue {
                 }
             });
         }
-        //在富文本外部点击时关闭人员列表
+        //点击富文本外部区域时关闭列表(除点击搜索框)
         window.addEventListener("click", this.onClick);
+        //点击搜索框后提供的按键功能
+        window.addEventListener("keydown", this.keyDown);
     }
     
     /**
@@ -451,7 +470,7 @@ export default class AppRichTextEditor extends Vue {
 
                 //监听键盘输入@符号和删除键
                 editor.on('keydown',(event: any)=>{
-                    if(!richtexteditor.items || richtexteditor.items.length === 0) {
+                    if(!richtexteditor.personList || richtexteditor.personList.length === 0) {
                         return;
                     }
                     let selection: any = editor.selection;
@@ -685,13 +704,13 @@ export default class AppRichTextEditor extends Vue {
      * @memberof AppRichTextEditor
      */
     public stateEmpty(){
-        let items: Array<any> = [];
+        this.items = [...this.personList];
         this.items.forEach((item: any,i: number)=>{
             item.selectState = false;
-            items.push(item);
         })
-        this.items = items;
+        this.personSearchText = ''; 
         this.personNumber = -1;
+        this.keyboardSelect(0);
     }
 
     /**
@@ -708,12 +727,39 @@ export default class AppRichTextEditor extends Vue {
     }
 
     /**
-     * 点击富文本外部区域时关闭列表
+     * 点击富文本外部区域时关闭列表(除点击搜索框)
      * 
      * @memberof AppRichTextEditor
      */
-    public onClick(){
-         this.showSelect = 'hidden';
+    public onClick($event: any){
+        const activeEle: any = document.activeElement;
+        if(activeEle.id == 'person-search'+this.id){
+           return;
+        }
+        this.showSelect = 'hidden';
+    }
+
+    /**
+     * 点击搜索框后提供的按键功能
+     * 
+     * @memberof AppRichTextEditor
+     */
+    public keyDown($event: any){
+        if($event.keyCode == 38 || $event.keyCode == 40){
+            if(Object.is(this.showSelect,'visible')){
+                //取消默认动作
+                $event.preventDefault ? $event.preventDefault() : $event.returnValue = false;
+                //上下键进行选择
+                this.keyboardSelect($event.keyCode);
+            }
+        }else if($event.keyCode == 13){
+            if(Object.is(this.showSelect,'visible')){
+                //取消默认动作
+                $event.preventDefault ? $event.preventDefault() : $event.returnValue = false;
+                //回车确认上下键所选数据
+                this.enterSelect();
+            }
+        }
     }
 
     /**
@@ -807,10 +853,27 @@ export default class AppRichTextEditor extends Vue {
      */
     public readyUserItems() {
         this.codeListService.getItems('UserRealName', JSON.parse(JSON.stringify(this.context))).then((res:any) => {
-            this.items = res;
+            this.personList = res;
         }).catch((error:any) => {
             
         })
+    }
+
+    /**
+     * 根据搜索条件查询人员列表
+     * 
+     * @memberof AppRichTextEditor
+     */
+    public personSearch(){
+        let items:Array<any> = [];
+        if(this.personList && this.personList.length > 0){
+            this.personList.forEach((item: any)=>{
+                if(item.text.search(this.personSearchText) !== -1){
+                    items.push(item);
+                }
+            })
+        }
+        this.items = items;
     }
 }
 </script>
