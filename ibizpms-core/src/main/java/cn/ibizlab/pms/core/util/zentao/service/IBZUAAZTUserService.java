@@ -1,39 +1,30 @@
 package cn.ibizlab.pms.core.util.zentao.service;
 
-import cn.ibizlab.pms.core.util.zentao.bean.ZTResult;
 import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoMessage;
-import cn.ibizlab.pms.core.util.zentao.helper.ZTAPIHelper;
-import cn.ibizlab.pms.core.util.zentao.helper.ZTUserHelper;
 import cn.ibizlab.pms.core.zentao.domain.User;
-import cn.ibizlab.pms.core.zentao.mapper.UserMapper;
 import cn.ibizlab.pms.core.zentao.service.IUserService;
 import cn.ibizlab.pms.util.client.IBZUAAFeignClient;
 import cn.ibizlab.pms.util.errors.BadRequestAlertException;
-import cn.ibizlab.pms.util.errors.InternalServerErrorException;
 import cn.ibizlab.pms.util.security.AuthenticationInfo;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import cn.ibizlab.pms.util.security.AuthorizationLogin;
 import cn.ibizlab.pms.util.security.SpringContextHolder;
 import cn.ibizlab.pms.util.service.AuthenticationUserService;
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import feign.FeignException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.security.auth.login.LoginContext;
 import javax.servlet.http.HttpServletRequest;
-import java.security.MessageDigest;
 import java.util.List;
 import java.util.Map;
 
@@ -201,21 +192,13 @@ public class IBZUAAZTUserService implements AuthenticationUserService {
      * @param loginname ZT账号
      */
     public static JSONObject doZTLogin(String loginname, String password, String token) {
-        ZTResult rstSession = new ZTResult();
-        String zentaoSid = DigestUtils.md5DigestAsHex(token.getBytes());
-        if (!ZTAPIHelper.getSessionID(rstSession, zentaoSid)) {
-            throw new BadRequestAlertException(ZenTaoMessage.MSG_ERROR_0013,null,null);
-        }
 
-        ZTResult rstLogin = new ZTResult();
-        JSONObject jo = new JSONObject();
-        jo.put("account", loginname);
-        jo.put("password", password);
-        if (!ZTUserHelper.login(zentaoSid, jo, rstLogin)) {
+        User ztUser = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.UserHelper.class).getUserInfo(loginname);
+        if (!cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.UserHelper.class).login(ztUser)) {
             throw new BadRequestAlertException(ZenTaoMessage.MSG_ERROR_0014,null,null);
         }
 
-        JSONObject userJO = rstLogin.getResult().getJSONObject("user");
+        JSONObject userJO = (JSONObject) JSON.toJSON(ztUser);
         return userJO;
     }
 
