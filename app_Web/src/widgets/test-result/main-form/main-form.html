@@ -48,10 +48,10 @@ tag='Testresult__result' codelistType='STATIC' :data="data" :context="context" :
     contentStyle="medit-arrow"
     sizeStyle=""
     contentType="RAW"
-    rawContent="<icon v-if="data.formitem == '1'" type="ios-arrow-down" @click="onFormItemValueChange({name: 'formitem', value: '0'})"/>
-<icon v-if="!data.formitem || data.formitem == '0'" type="ios-arrow-back" @click="onFormItemValueChange({name: 'formitem', value: '1'})"/>"
     :htmlContent="``"
 >
+        <icon v-if="data.formitem == '1'" type="ios-arrow-down" @click="onFormItemValueChange({name: 'formitem', value: '0'})"/>
+<icon v-if="!data.formitem || data.formitem == '0'" type="ios-arrow-back" @click="onFormItemValueChange({name: 'formitem', value: '1'})"/>
 </app-rawitem>
 
 </i-col>

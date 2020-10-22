@@ -160,6 +160,9 @@ export class ViewToolbar extends Vue {
      */
     protected renderStyle2(): any {
         return this.items.map((item: ToolbarItem) => {
+            if (!item.visabled) {
+                return;
+            }
             let content: any;
             if (item.type === 'SEPERATOR') {
                 content = this.renderSeperator();

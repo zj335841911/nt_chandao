@@ -30,7 +30,7 @@ SELECT t1.`ACTION`, t2.`realname` as actor, t1.`DATE`, t1.`ID`, t1.`OBJECTID`, t
 ```sql
 select t1.* from (SELECT
 t1.`ACTION`,
-t2.`realname` as actor,
+t1.actor as actor,
 t1.`DATE`,
 t1.`ID`,
 t1.id as srfkey,
@@ -48,22 +48,63 @@ case when t1.objectType in ('bug','story','release') and t1.action in ('changest
 (case when DATE_FORMAT(t1.date,'%Y-%m') = DATE_FORMAT(now(),'%Y-%m') then '1' end) as thismonth,
 (case when DATE_FORMAT(t1.date,'%Y-%m') = DATE_FORMAT(DATE_ADD(now(),INTERVAL -1 MONTH),'%Y-%m') then '1' end) as lastmonth
 FROM `zt_action` t1 
-LEFT JOIN `zt_user` t2 on t1.`actor` = t2.`account`) t1
+) t1
 
 WHERE ( t1.`PRODUCT` LIKE  CONCAT('%,',${srfdatacontext('srfparentkey','{"defname":"PRODUCT","dename":"ZT_ACTION"}')},',%') ) 
 
 ```
 ### 项目动态(项目相关所有)(ProjectTrends)<div id="Action_ProjectTrends"></div>
 ```sql
-select t1.* from (SELECT t1.`ACTION`, t2.`realname` as actor, t1.`DATE`, t1.`ID`, t1.`OBJECTID`, t1.`OBJECTTYPE`, t1.`PRODUCT`, t1.`PROJECT`, t1.`READ`,t1.extra,case when t1.objectType in ('bug','story','release') and t1.action in ('changestatus','resolved','closed', 'reviewed') and t1.extra <> '' then CONCAT_WS('_',t1.objectType,t1.action,t1.extra) else '' end as ActionManner,
-(case when DATE_FORMAT(t1.date,'%Y-%m-%d') = DATE_FORMAT(now(),'%Y-%m-%d') then '1' end) as Today,
-t1.id as srfkey,
-(case when DATE_FORMAT(t1.date,'%Y-%m-%d') = DATE_FORMAT(DATE_ADD(now(),INTERVAL -1 DAY),'%Y-%m-%d') then '1' end) as yesterday,
-(case when YEARWEEK(now()) = YEARWEEK(t1.date) then '1' end) as thisweek,
-(case when YEARWEEK(DATE_ADD(now(),INTERVAL -1 WEEK)) = YEARWEEK(t1.date) then '1' end) as lastweek,
-(case when DATE_FORMAT(t1.date,'%Y-%m') = DATE_FORMAT(now(),'%Y-%m') then '1' end) as thismonth,
-(case when DATE_FORMAT(t1.date,'%Y-%m') = DATE_FORMAT(DATE_ADD(now(),INTERVAL -1 MONTH),'%Y-%m') then '1' end) as lastmonth
- FROM `zt_action` t1 LEFT JOIN `zt_user` t2 on t1.`actor` = t2.`account` ) t1
+SELECT
+	t1.* 
+FROM
+	(
+SELECT
+	t1.`ACTION`,
+	t1.actor AS actor,
+	t1.`DATE`,
+	t1.`ID`,
+	t1.`OBJECTID`,
+	t1.`OBJECTTYPE`,
+	t1.`PRODUCT`,
+	t1.`PROJECT`,
+	t1.`READ`,
+	t1.extra,
+CASE
+	
+	WHEN t1.objectType IN ( 'bug', 'story', 'release' ) 
+	AND t1.action IN ( 'changestatus', 'resolved', 'closed', 'reviewed' ) 
+	AND t1.extra <> '' THEN
+		CONCAT_WS( '_', t1.objectType, t1.action, t1.extra ) ELSE '' 
+	END AS ActionManner,
+	( CASE WHEN DATE_FORMAT( t1.date, '%Y-%m-%d' ) = DATE_FORMAT( now( ), '%Y-%m-%d' ) THEN '1' END ) AS Today,
+	t1.id AS srfkey,
+	(
+	CASE
+			
+			WHEN DATE_FORMAT( t1.date, '%Y-%m-%d' ) = DATE_FORMAT( DATE_ADD( now( ), INTERVAL - 1 DAY ), '%Y-%m-%d' ) THEN
+			'1' 
+		END 
+		) AS yesterday,
+		( CASE WHEN YEARWEEK( now( ) ) = YEARWEEK( t1.date ) THEN '1' END ) AS thisweek,
+		(
+		CASE
+				
+				WHEN YEARWEEK( DATE_ADD( now( ), INTERVAL - 1 WEEK ) ) = YEARWEEK( t1.date ) THEN
+				'1' 
+			END 
+			) AS lastweek,
+			( CASE WHEN DATE_FORMAT( t1.date, '%Y-%m' ) = DATE_FORMAT( now( ), '%Y-%m' ) THEN '1' END ) AS thismonth,
+			(
+			CASE
+					
+					WHEN DATE_FORMAT( t1.date, '%Y-%m' ) = DATE_FORMAT( DATE_ADD( now( ), INTERVAL - 1 MONTH ), '%Y-%m' ) THEN
+					'1' 
+				END 
+				) AS lastmonth 
+			FROM
+				`zt_action` t1
+) t1
 WHERE ( t1.`PROJECT` = ${srfdatacontext('srfparentkey','{"defname":"PROJECT","dename":"ZT_ACTION"}')} ) 
 
 ```
