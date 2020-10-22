@@ -253,6 +253,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         fileHelper.updateObjectID(et.getId(), null, null);
 
+
+
+//        String[] ignores = {"totalconsumed"};
         List<History> changes = ChangeUtil.diff(old, et,null,null,diffAttrs);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             String strAction = "Edited";
@@ -694,7 +697,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         List<History> changes = ChangeUtil.diff(old, et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             Action action = actionHelper.create("task", et.getId(), "Paused",
-                    comment, "", "", true);
+                    comment, "", null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
         }
@@ -925,9 +928,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if (old.getParent() > 0)
             updateParentStatus(et, old.getParent(), true);
 
-        List<History> changes = ChangeUtil.diff(old, et);
+
+        String[] ignores = {"assigneddate","closeddate"};
+        List<History> changes = ChangeUtil.diff(old, et,ignores,null,null);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            Action action = actionHelper.create("task", et.getId(), "Assigned",
+            Action action = actionHelper.create("task", et.getId(), "Closed",
                     comment, et.getAssignedto(), null, true);
             if (changes.size() > 0)
                 actionHelper.logHistory(action.getId(), changes);
