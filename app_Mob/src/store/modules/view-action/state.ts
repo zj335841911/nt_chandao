@@ -1488,6 +1488,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'f5a5f7ab8c9783520a512cfbe78bb671',
+            viewmodule: 'zentao',
+            viewname: 'TestTaskMobOptionView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+            ],
+        },
+        {
             viewtag: 'fa666a1ef668f58d01a55f0925d7e0fe',
             viewmodule: 'ibiz',
             viewname: 'ProductPlanMobEditView',

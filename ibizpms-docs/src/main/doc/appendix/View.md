@@ -139,6 +139,7 @@
 |-|Bug移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|版本移动端多数据选择视图|DEMOBMPICKUPVIEW|&nbsp;|
 |-|需求移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
+|-|测试版本选项操作视图（阻塞）|DEMOBOPTVIEW|&nbsp;|
 |-|产品计划移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|任务预计移动端多数据视图|DEMOBMDVIEW9|&nbsp;|
 |-|用户移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
