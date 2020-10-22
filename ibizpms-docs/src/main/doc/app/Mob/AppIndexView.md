@@ -1,0 +1,28 @@
+# 应用首页视图默认菜单
+
+
+
+{% plantuml %}
+@startmindmap
+* 应用首页视图默认菜单
+** 产品
+** 项目
+** 测试
+** 我的
+** 个人中心
+** 用户选择
+@endmindmap
+{% endplantuml %}
+
+
+
+
+| 菜单项      |  功能  |
+| --------   |   ----  |
+|产品|[查看功能](func/ProductMobMDView.md)|
+|项目|[查看功能](func/ProjectMobMDView.md)|
+|测试|[查看功能](func/ProductTestMobMDView.md)|
+|我的|[查看功能](func/IbzMyTerritoryMobTabExpView.md)|
+|个人中心|[查看功能](func/UserUserCenterMobEditView.md)|
+|用户选择|[查看功能](func/UserMobPickupView.md)|
+

@@ -1316,10 +1316,10 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
-        MobStart: { name: 'MobStart',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_START_BUT', target: 'SINGLEKEY',icon:'play',isShowCaption:true,isShowIcon:true},
-        MobBlock: { name: 'MobBlock',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_BLOCK_BUT', target: 'SINGLEKEY',icon:'pause',isShowCaption:true,isShowIcon:true},
+        MobStart: { name: 'MobStart',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_START_BUT', target: 'SINGLEKEY',icon:'play',isShowCaption:false,isShowIcon:true},
+        MobBlock: { name: 'MobBlock',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_BLOCK_BUT', target: 'SINGLEKEY',icon:'pause',isShowCaption:false,isShowIcon:true},
         MobActivite: { name: 'MobActivite',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_ACTIVITE_BUT', target: 'SINGLEKEY',icon:'magic',isShowCaption:false,isShowIcon:true},
-        MobClose: { name: 'MobClose',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_CLOSED_BUT', target: 'SINGLEKEY',icon:'close',isShowCaption:true,isShowIcon:true}
+        MobClose: { name: 'MobClose',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_CLOSED_BUT', target: 'SINGLEKEY',icon:'close',isShowCaption:false,isShowIcon:true}
     };
 
     
