@@ -6,7 +6,7 @@
 SELECT
 t1.`ACTION`,
 (case when t1.objectType in ('bug','story','release') and t1.action in ('changestatus','resolved','closed', 'reviewed') and t1.extra <> '' then CONCAT_WS('_',t1.objectType,t1.action,t1.extra) else '' end) AS `ACTIONMANNER`,
-t2.realname AS `ACTOR`,
+t1.ACTOR AS `ACTOR`,
 t1.`COMMENT`,
 t1.`DATE`,
 DATE_FORMAT(t1.date,'%m月%d日 %H:%i') as `date1`,
@@ -20,11 +20,10 @@ t1.`PRODUCT`,
 t1.`PROJECT`,
 t1.`READ`
 FROM `zt_action` t1
-LEFT JOIN zt_user t2 on t1.actor = t2.account
 ```
 ### 动态(根据类型过滤)(MobType)<div id="Action_MobType"></div>
 ```sql
-SELECT t1.`ACTION`, t2.`realname` as actor, t1.`DATE`, t1.`ID`, t1.`OBJECTID`, t1.id as srfkey,t1.`OBJECTTYPE`, t1.`PRODUCT`, t1.`PROJECT`, t1.`READ`, t1.`comment`, t1.extra, case when t1.objectType in ('bug','story','release') and t1.action in ('changestatus','resolved','closed', 'reviewed') and t1.extra <> '' then CONCAT_WS('_',t1.objectType,t1.action,t1.extra) else '' end as ActionManner FROM `zt_action` t1 LEFT JOIN `zt_user` t2 on t1.`actor` = t2.`account` WHERE ( t1.`OBJECTID` = ${srfdatacontext('srfparentkey','{"defname":"OBJECTID","dename":"ZT_ACTION"}')} AND t1.`OBJECTTYPE` = ${srfdatacontext('objecttype','{"defname":"OBJECTTYPE","dename":"ZT_ACTION"}')} )
+SELECT t1.`ACTION`, t1.`actor` as actor, t1.`DATE`, t1.`ID`, t1.`OBJECTID`, t1.id as srfkey,t1.`OBJECTTYPE`, t1.`PRODUCT`, t1.`PROJECT`, t1.`READ`, t1.`comment`, t1.extra, case when t1.objectType in ('bug','story','release') and t1.action in ('changestatus','resolved','closed', 'reviewed') and t1.extra <> '' then CONCAT_WS('_',t1.objectType,t1.action,t1.extra) else '' end as ActionManner FROM `zt_action` t1  WHERE ( t1.`OBJECTID` = ${srfdatacontext('srfparentkey','{"defname":"OBJECTID","dename":"ZT_ACTION"}')} AND t1.`OBJECTTYPE` = ${srfdatacontext('objecttype','{"defname":"OBJECTTYPE","dename":"ZT_ACTION"}')} )
 ```
 ### 产品动态(产品相关所有)(ProductTrends)<div id="Action_ProductTrends"></div>
 ```sql
@@ -118,7 +117,7 @@ WHERE  t1.actor = #{srf.sessioncontext.srfloginname}
 ```sql
 SELECT
 t1.`ACTION`,
-t2.`realname` as actor,
+t1.`actor` as actor,
 t1.`DATE`,
 t1.`ID`,
 t1.id as srfkey,
@@ -132,7 +131,6 @@ t1.extra,
 (case when t1.actor =  #{srf.sessioncontext.srfloginname} then 1 else 0 end) as ISACTORSS,
 case when t1.objectType in ('bug','story','release') and t1.action in ('changestatus','resolved','closed', 'reviewed') and t1.extra <> '' then CONCAT_WS('_',t1.objectType,t1.action,t1.extra) else '' end as ActionManner
 FROM `zt_action` t1 
-LEFT JOIN `zt_user` t2 on t1.`actor` = t2.`account`
 WHERE 
 ( t1.`OBJECTID` = ${srfdatacontext('srfparentkey','{"defname":"OBJECTID","dename":"ZT_ACTION"}')}  AND  t1.`OBJECTTYPE` =  ${srfdatacontext('objecttype','{"defname":"OBJECTTYPE","dename":"ZT_ACTION"}')} )
 ```
