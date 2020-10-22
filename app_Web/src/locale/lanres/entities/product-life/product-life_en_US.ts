@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     branch: "平台/分支",
@@ -28,6 +27,26 @@ export default {
 		roadmapslistview9: {
 			caption: "产品生命周期",
       		title: "路线图",
+		},
+	},
+	getroadmaps_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	getroadmapyears_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	getroadmap_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	getroadmapyear_list: {
+		nodata: "",
+		uiactions: {
 		},
 	},
 };

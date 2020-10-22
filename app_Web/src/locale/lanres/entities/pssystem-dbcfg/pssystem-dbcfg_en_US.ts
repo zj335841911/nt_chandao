@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     pssystemdbcfgname: "系统数据库名称",

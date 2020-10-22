@@ -19,4 +19,9 @@ export default {
       		title: "附件",
 		},
 	},
+	list_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
 };

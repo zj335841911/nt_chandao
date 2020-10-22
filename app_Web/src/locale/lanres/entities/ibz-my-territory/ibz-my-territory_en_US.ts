@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     fails: "fails",
@@ -110,6 +109,16 @@ export default {
 			employeeload: "员工负载表",
 			root: "默认根节点",
 		},
+		uiactions: {
+		},
+	},
+	mywork_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	welcome_list: {
+		nodata: "",
 		uiactions: {
 		},
 	},

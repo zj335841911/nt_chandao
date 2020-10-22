@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     manager: "负责人",
@@ -75,6 +74,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			name: "部门",

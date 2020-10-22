@@ -312,6 +312,7 @@ export default {
 		},
 	},
 	projectmain_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			title: "标题",
@@ -328,6 +329,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			title: "标题",

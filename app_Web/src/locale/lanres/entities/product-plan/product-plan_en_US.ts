@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     title: "名称",
@@ -136,6 +135,7 @@ export default {
 		},
 	},
 	mainproject_grid: {
+		nodata: "",
 		columns: {
 			title: "名称",
 		},
@@ -143,6 +143,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "编号",
 			title: "名称",

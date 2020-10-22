@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     pathname: "路径",
@@ -18,6 +17,11 @@ export default {
 		listview9: {
 			caption: "附件",
       		title: "附件",
+		},
+	},
+	list_list: {
+		nodata: "",
+		uiactions: {
 		},
 	},
 };

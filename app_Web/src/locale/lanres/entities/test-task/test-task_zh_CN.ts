@@ -339,6 +339,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			name: "名称",
@@ -360,6 +361,7 @@ export default {
 		},
 	},
 	main2_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			productname: "产品",

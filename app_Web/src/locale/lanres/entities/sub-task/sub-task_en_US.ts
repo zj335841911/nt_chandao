@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     canceledby: "由谁取消",
@@ -66,6 +65,7 @@ export default {
 		},
 	},
 	subtasknew_grid: {
+		nodata: "",
 		columns: {
 			modulename: "所属模块",
 			storyname: "相关需求",

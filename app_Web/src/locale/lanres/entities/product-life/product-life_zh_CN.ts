@@ -29,4 +29,24 @@ export default {
       		title: "路线图",
 		},
 	},
+	getroadmaps_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	getroadmapyears_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	getroadmap_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	getroadmapyear_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
 };

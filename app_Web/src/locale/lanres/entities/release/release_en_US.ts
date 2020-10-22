@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     stories: "完成的需求",
@@ -156,6 +155,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			name: "发布名称",

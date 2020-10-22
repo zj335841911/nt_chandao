@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     id: "编号",

@@ -1,5 +1,5 @@
 <div :class="{ 'grid': true, 'show-paging-bar': isEnablePagingBar, 'hidden-paging-bar': !isEnablePagingBar }">
-        <i-form>
+    <i-form>
         <el-table v-if="isDisplay === true"
             :border="isDragendCol"
             :highlight-current-row ="isSingleSelect"
@@ -16,7 +16,7 @@
             ref='multipleTable' :data="items" :show-header="!isHideHeader"
         >
             <template slot="empty">
-                无数据 
+                {{$t('entities.bug.storyaffectbug_grid.nodata')}} 
                 <span class="quick-toolbar">
                 </span>
             </template>

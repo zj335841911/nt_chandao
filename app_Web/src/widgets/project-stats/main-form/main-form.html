@@ -73,15 +73,29 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
-    <div class="" style="">
-    <div style="margin-top: 6px;padding-left: 69px;"><Icon type="md-checkmark-circle" color="#49db44"/>&nbsp;昨日完成任务数&nbsp;<b>{{data.yesterdayctaskcnt ? data.yesterdayctaskcnt : 0}}</b></div>
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="<div style="margin-top: 6px;padding-left: 69px;"><Icon type="md-checkmark-circle" color="#49db44"/>&nbsp;昨日完成任务数&nbsp;<b>{{data.yesterdayctaskcnt ? data.yesterdayctaskcnt : 0}}</b></div>"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.rawitem6.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
-    <div class="" style="">
-    <div style="margin-top: 6px;padding-left: 19px;">&nbsp;总任务&nbsp;:&nbsp;{{data.taskcnt ? data.taskcnt : 0}}</div>
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="<div style="margin-top: 6px;padding-left: 19px;">&nbsp;总任务&nbsp;:&nbsp;{{data.taskcnt ? data.taskcnt : 0}}</div>"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
@@ -91,9 +105,16 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.rawitem7.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
-    <div class="" style="">
-    <div style="margin-top: 6px;padding-left: 19px;">&nbsp;未完成&nbsp;:&nbsp;{{data.undonetaskcnt ? data.undonetaskcnt : 0}}</div>
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="<div style="margin-top: 6px;padding-left: 19px;">&nbsp;未完成&nbsp;:&nbsp;{{data.undonetaskcnt ? data.undonetaskcnt : 0}}</div>"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
     
@@ -106,15 +127,29 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.rawitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
-    <div class="" style="">
-    <div style="margin-top: 6px;padding-left: 69px;"><Icon type="md-checkmark-circle" color="#49db44"/>&nbsp;已发布需求数&nbsp;<b>{{data.releasedstorycnt ? data.releasedstorycnt : 0}}</b></div>
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="<div style="margin-top: 6px;padding-left: 69px;"><Icon type="md-checkmark-circle" color="#49db44"/>&nbsp;已发布需求数&nbsp;<b>{{data.releasedstorycnt ? data.releasedstorycnt : 0}}</b></div>"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.rawitem5.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
-    <div class="" style="">
-    <div style="margin-top: 6px;padding-left: 19px;">&nbsp;总需求&nbsp;:&nbsp;{{data.storycnt ? data.storycnt : 0}}</div>
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="<div style="margin-top: 6px;padding-left: 19px;">&nbsp;总需求&nbsp;:&nbsp;{{data.storycnt ? data.storycnt : 0}}</div>"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
@@ -124,9 +159,16 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.rawitem8.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
-    <div class="" style="">
-    <div style="margin-top: 6px;padding-left: 19px;">&nbsp;未关闭&nbsp;:&nbsp;{{data.unclosedstorycnt ? data.unclosedstorycnt : 0}}</div>
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="<div style="margin-top: 6px;padding-left: 19px;">&nbsp;未关闭&nbsp;:&nbsp;{{data.unclosedstorycnt ? data.unclosedstorycnt : 0}}</div>"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
     
@@ -139,15 +181,29 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel3" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.rawitem3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
-    <div class="" style="">
-    <div style="margin-top: 6px;padding-left: 69px;"><Icon type="md-checkmark-circle" color="#49db44"/>&nbsp;昨日解决Bug数&nbsp;<b>{{data.yesterdayrbugcnt ? data.yesterdayrbugcnt : 0}}</b></div>
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="<div style="margin-top: 6px;padding-left: 69px;"><Icon type="md-checkmark-circle" color="#49db44"/>&nbsp;昨日解决Bug数&nbsp;<b>{{data.yesterdayrbugcnt ? data.yesterdayrbugcnt : 0}}</b></div>"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.rawitem4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
-    <div class="" style="">
-    <div style="margin-top: 6px;padding-left: 31px;">&nbsp;所有&nbsp;:&nbsp;{{data.bugcnt ? data.bugcnt : 0}}</div>
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="<div style="margin-top: 6px;padding-left: 31px;">&nbsp;所有&nbsp;:&nbsp;{{data.bugcnt ? data.bugcnt : 0}}</div>"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitemex3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
@@ -157,9 +213,16 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.rawitem9.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 6, offset: 0 }">
-    <div class="" style="">
-    <div style="margin-top: 6px;padding-left: 19px;">&nbsp;未解决&nbsp;:&nbsp;{{data.activebugcnt ? data.activebugcnt : 0}}</div>
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="<div style="margin-top: 6px;padding-left: 19px;">&nbsp;未解决&nbsp;:&nbsp;{{data.activebugcnt ? data.activebugcnt : 0}}</div>"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
     

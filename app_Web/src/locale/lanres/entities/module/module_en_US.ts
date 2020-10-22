@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     root: "所属根",
@@ -64,6 +63,7 @@ export default {
 		},
 	},
 	line_grid: {
+		nodata: "",
 		columns: {
 			name: "名称",
 			short: "简称",
@@ -72,6 +72,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			name: "模块名称",
 			parentname: "上级模块",

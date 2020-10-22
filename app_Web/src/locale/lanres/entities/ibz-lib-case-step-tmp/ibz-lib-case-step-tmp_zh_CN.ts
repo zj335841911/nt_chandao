@@ -17,6 +17,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			desc: "步骤",
 			expect: "预期",

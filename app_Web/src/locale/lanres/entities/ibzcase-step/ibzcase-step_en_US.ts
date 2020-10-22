@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     type: "用例步骤类型",
@@ -25,6 +24,7 @@ export default {
 		},
 	},
 	main_rowedit_grid: {
+		nodata: "",
 		columns: {
 			desc: "步骤",
 			type: "类型",
@@ -34,6 +34,7 @@ export default {
 		},
 	},
 	main_rowedit_carryout_grid: {
+		nodata: "",
 		columns: {
 			desc: "步骤",
 			expect: "预期",

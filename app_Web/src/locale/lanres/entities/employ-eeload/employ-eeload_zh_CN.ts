@@ -45,6 +45,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			assignedto: "姓名",
 			projectname: "项目",

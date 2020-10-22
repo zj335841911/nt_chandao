@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     userid: "用户标识",

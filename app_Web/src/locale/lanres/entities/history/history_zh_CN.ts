@@ -7,4 +7,9 @@ export default {
     id: "id",
     action: "关联日志",
   },
+	default_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
 };

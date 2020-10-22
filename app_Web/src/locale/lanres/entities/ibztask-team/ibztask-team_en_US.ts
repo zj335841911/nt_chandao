@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     role: "角色",
@@ -28,6 +27,7 @@ export default {
 		},
 	},
 	maineditrow_grid: {
+		nodata: "",
 		columns: {
 			account: "用户",
 			estimate: "预计",
@@ -36,6 +36,7 @@ export default {
 		},
 	},
 	mainedit_grid: {
+		nodata: "",
 		columns: {
 			account: "用户",
 			estimate: "预计",

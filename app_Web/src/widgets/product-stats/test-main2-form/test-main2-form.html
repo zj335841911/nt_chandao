@@ -35,9 +35,16 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel3" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.rawitem1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <div class="" style="">
-    <div style="padding-left: 69px;"><Icon type="md-checkmark-circle" color="#49db44"/>&nbsp;昨天解决Bug数&nbsp;<b>{{data.yesterdayresolvedbugcnt ? data.yesterdayresolvedbugcnt : 0}}</b></div>
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="<div style="padding-left: 69px;"><Icon type="md-checkmark-circle" color="#49db44"/>&nbsp;昨天解决Bug数&nbsp;<b>{{data.yesterdayresolvedbugcnt ? data.yesterdayresolvedbugcnt : 0}}</b></div>"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
@@ -57,9 +64,16 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.rawitem2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <div class="" style="">
-    <div style="padding-left: 69px;"></div>
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="<div style="padding-left: 69px;"></div>"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitemex3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">
@@ -79,9 +93,16 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.rawitem3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <div class="" style="">
-    <div style="padding-left: 69px;"><Icon type="md-checkmark-circle" color="#49db44"/>&nbsp;昨天关闭Bug数&nbsp;<b>{{data.yesterdayClosedBugCnt ? data.yesterdayClosedBugCnt: 0}}</b></div>
-</div>
+    <app-rawitem
+    :viewparams="viewparams" 
+    :context="context"
+    contentStyle=""
+    sizeStyle=""
+    contentType="RAW"
+    rawContent="<div style="padding-left: 69px;"><Icon type="md-checkmark-circle" color="#49db44"/>&nbsp;昨天关闭Bug数&nbsp;<b>{{data.yesterdayClosedBugCnt ? data.yesterdayClosedBugCnt: 0}}</b></div>"
+    :htmlContent="``"
+>
+</app-rawitem>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitemex4.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 20, offset: 0 }">

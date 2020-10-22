@@ -77,6 +77,7 @@ export default {
 		},
 	},
 	mainbranch_grid: {
+		nodata: "",
 		columns: {
 			name: "名称",
 			branch: "平台",
@@ -88,6 +89,7 @@ export default {
 		},
 	},
 	mainrow_grid: {
+		nodata: "",
 		columns: {
 			name: "名称",
 			branch: "平台",
@@ -99,6 +101,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 		},
 		uiactions: {

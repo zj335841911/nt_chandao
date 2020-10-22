@@ -284,6 +284,7 @@ export default {
 		},
 	},
 	myupcoming_grid: {
+		nodata: "",
 		columns: {
 			date1: "日期",
 			begin: "开始",
@@ -294,6 +295,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			id: "编号",
 			date1: "日期",

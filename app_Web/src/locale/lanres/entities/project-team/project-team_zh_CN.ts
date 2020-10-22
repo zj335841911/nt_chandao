@@ -27,6 +27,7 @@ export default {
 		},
 	},
 	main_editrow_grid: {
+		nodata: "",
 		columns: {
 			account: "用户",
 			role: "角色",
@@ -41,6 +42,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			account: "用户",
 			role: "角色",

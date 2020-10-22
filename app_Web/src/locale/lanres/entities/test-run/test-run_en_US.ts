@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     lastrunresult: "结果",

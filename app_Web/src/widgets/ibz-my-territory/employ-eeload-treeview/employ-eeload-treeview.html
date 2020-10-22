@@ -20,6 +20,7 @@
         @check="onCheck.apply(_self, arguments)"
         @current-change="selectionChange.apply(_self, arguments)"
         :filter-node-method="filterNode"
+        :empty-text="$t('entities.ibzmyterritory.employeeload_treeview.nodata')"
         >
             <template slot-scope="{ node, data }">
                 <context-menu :ref='data.id'  :isBlocked="true" :contextMenuStyle="{width: '100%'}" :data="node" :renderContent="($event) => renderContextMenu($event)" @showContext="showContext(data,$event)">

@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     type: "文档类型",

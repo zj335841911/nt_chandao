@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     extra: "附加值",
@@ -113,6 +112,21 @@ export default {
 		deuiaction1: {
 			caption: "添加备注",
 			tip: "添加备注",
+		},
+	},
+	classifybytype_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	trends_list: {
+		nodata: "",
+		uiactions: {
+		},
+	},
+	grouptrends_list: {
+		nodata: "",
+		uiactions: {
 		},
 	},
 };

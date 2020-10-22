@@ -40,6 +40,7 @@ export default {
 		},
 	},
 	mainedit_grid: {
+		nodata: "",
 		columns: {
 			id: "ID",
 			dates: "日期",

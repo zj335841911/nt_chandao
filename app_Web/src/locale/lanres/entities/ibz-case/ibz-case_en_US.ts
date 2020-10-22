@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     order: "排序",
@@ -194,6 +193,7 @@ export default {
 		},
 	},
 	main_grid: {
+		nodata: "",
 		columns: {
 			lib: "编号",
 			pri: "P",

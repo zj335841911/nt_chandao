@@ -1,4 +1,3 @@
-
 export default {
   fields: {
     id: "用户编号",
@@ -185,5 +184,14 @@ export default {
 		},
 		uiactions: {
 		},
+	},
+	monthopenedbugandcase_chart: {
+		nodata: "",
+	},
+	monthfinishtaskandbug_chart: {
+		nodata: "",
+	},
+	monthopenedstory_chart: {
+		nodata: "",
 	},
 };
