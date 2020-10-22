@@ -51,19 +51,9 @@ export class MobEditTableModel {
                 dataType: 'PICKUPTEXT',
             },
             {
-                name: 'project',
-                prop: 'project',
-                dataType: 'PICKUP',
-            },
-            {
                 name: 'buildname',
                 prop: 'buildname',
                 dataType: 'PICKUPTEXT',
-            },
-            {
-                name: 'build',
-                prop: 'build',
-                dataType: 'PICKUP',
             },
             {
                 name: 'owner',
@@ -86,9 +76,24 @@ export class MobEditTableModel {
                 dataType: 'DATE',
             },
             {
+                name: 'project',
+                prop: 'project',
+                dataType: 'PICKUP',
+            },
+            {
+                name: 'build',
+                prop: 'build',
+                dataType: 'PICKUP',
+            },
+            {
                 name: 'status',
                 prop: 'status',
                 dataType: 'SSCODELIST',
+            },
+            {
+                name: 'product',
+                prop: 'product',
+                dataType: 'PICKUP',
             },
             {
                 name: 'name',
@@ -99,11 +104,6 @@ export class MobEditTableModel {
                 name: 'desc',
                 prop: 'desc',
                 dataType: 'LONGTEXT',
-            },
-            {
-                name: 'product',
-                prop: 'product',
-                dataType: 'PICKUP',
             },
             {
                 name: 'mailto',
