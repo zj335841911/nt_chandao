@@ -51,6 +51,12 @@ export class MobEditTableService extends FormServiceBase {
      * @memberof  MobEditTableService
      */
     public async getItems(serviceName: string, interfaceName: string, context?: any, data?: any, isLoading?: boolean): Promise<any[]> {
+        if (Object.is(serviceName, 'ProjectService') && Object.is(interfaceName, 'FetchBugProject')) {
+            const service: any = await this.getService('project');
+            await this.onBeforeAction(interfaceName, context, data, isLoading);
+            const response: any = await service.FetchBugProject(data);
+            return this.doItems(response);
+        }
         if (Object.is(serviceName, 'BuildService') && Object.is(interfaceName, 'FetchTestBuild')) {
             const service: any = await this.getService('build');
             await this.onBeforeAction(interfaceName, context, data, isLoading);
@@ -69,6 +75,11 @@ export class MobEditTableService extends FormServiceBase {
      */
     public mergeDefaults(response:any = {}): void {
         if (response.data) {
+            Object.assign(response.data, { 'project': 'project' });
+            Object.assign(response.data, { 'build': 'build' });
+            Object.assign(response.data, { 'status': 'wait' });
+            Object.assign(response.data, { 'product': 'product' });
+            Object.assign(response.data, { 'name': 'name' });
         }
     }
 

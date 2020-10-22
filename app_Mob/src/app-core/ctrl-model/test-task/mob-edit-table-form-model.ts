@@ -46,9 +46,9 @@ export class MobEditTableModel {
                 name: 'srfsourcekey',
             },
             {
-                name: 'name',
-                prop: 'name',
-                dataType: 'TEXT',
+                name: 'projecttname',
+                prop: 'projecttname',
+                dataType: 'PICKUPTEXT',
             },
             {
                 name: 'buildname',
@@ -56,19 +56,14 @@ export class MobEditTableModel {
                 dataType: 'PICKUPTEXT',
             },
             {
-                name: 'pri',
-                prop: 'pri',
-                dataType: 'NSCODELIST',
-            },
-            {
-                name: 'status',
-                prop: 'status',
-                dataType: 'SSCODELIST',
-            },
-            {
                 name: 'owner',
                 prop: 'owner',
                 dataType: 'TEXT',
+            },
+            {
+                name: 'pri',
+                prop: 'pri',
+                dataType: 'NSCODELIST',
             },
             {
                 name: 'begin',
@@ -81,14 +76,44 @@ export class MobEditTableModel {
                 dataType: 'DATE',
             },
             {
-                name: 'id',
-                prop: 'id',
-                dataType: 'ACID',
+                name: 'project',
+                prop: 'project',
+                dataType: 'PICKUP',
             },
             {
                 name: 'build',
                 prop: 'build',
                 dataType: 'PICKUP',
+            },
+            {
+                name: 'status',
+                prop: 'status',
+                dataType: 'SSCODELIST',
+            },
+            {
+                name: 'product',
+                prop: 'product',
+                dataType: 'PICKUP',
+            },
+            {
+                name: 'name',
+                prop: 'name',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'desc',
+                prop: 'desc',
+                dataType: 'LONGTEXT',
+            },
+            {
+                name: 'mailto',
+                prop: 'mailto',
+                dataType: 'LONGTEXT',
+            },
+            {
+                name: 'id',
+                prop: 'id',
+                dataType: 'ACID',
             },
             {
                 name: 'testtask',
