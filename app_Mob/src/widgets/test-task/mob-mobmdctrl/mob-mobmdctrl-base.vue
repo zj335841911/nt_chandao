@@ -8,11 +8,11 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                     <ion-item-sliding ref="sliding" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="start">
-                            <ion-item-option v-show="item.MobStart.visabled" :disabled="item.MobStart.disabled"  color="primary" @click="mdctrl_click($event, 'uded835a', item)"><ion-icon v-if="item.MobStart.icon && item.MobStart.isShowIcon" :name="item.MobStart.icon"></ion-icon><ion-label v-if="item.MobStart.isShowCaption">开始</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobBlock.visabled" :disabled="item.MobBlock.disabled"  color="primary" @click="mdctrl_click($event, 'u7ba5616', item)"><ion-icon v-if="item.MobBlock.icon && item.MobBlock.isShowIcon" :name="item.MobBlock.icon"></ion-icon><ion-label v-if="item.MobBlock.isShowCaption">阻塞</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobActivite.visabled" :disabled="item.MobActivite.disabled"  color="primary" @click="mdctrl_click($event, 'u3a9cdb8', item)"><ion-icon v-if="item.MobActivite.icon && item.MobActivite.isShowIcon" :name="item.MobActivite.icon"></ion-icon><ion-label v-if="item.MobActivite.isShowCaption">激活</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobClose.visabled" :disabled="item.MobClose.disabled"  color="primary" @click="mdctrl_click($event, 'u26d200d', item)"><ion-icon v-if="item.MobClose.icon && item.MobClose.isShowIcon" :name="item.MobClose.icon"></ion-icon><ion-label v-if="item.MobClose.isShowCaption">关闭</ion-label></ion-item-option>
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.MobStart.visabled" :disabled="item.MobStart.disabled" color="primary" @click="mdctrl_click($event, 'uded835a', item)"><ion-icon v-if="item.MobStart.icon && item.MobStart.isShowIcon" :name="item.MobStart.icon"></ion-icon><ion-label v-if="item.MobStart.isShowCaption">开始</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobBlock.visabled" :disabled="item.MobBlock.disabled" color="primary" @click="mdctrl_click($event, 'u7ba5616', item)"><ion-icon v-if="item.MobBlock.icon && item.MobBlock.isShowIcon" :name="item.MobBlock.icon"></ion-icon><ion-label v-if="item.MobBlock.isShowCaption">阻塞</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobActivite.visabled" :disabled="item.MobActivite.disabled" color="primary" @click="mdctrl_click($event, 'u3a9cdb8', item)"><ion-icon v-if="item.MobActivite.icon && item.MobActivite.isShowIcon" :name="item.MobActivite.icon"></ion-icon><ion-label v-if="item.MobActivite.isShowCaption">激活</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobClose.visabled" :disabled="item.MobClose.disabled" color="primary" @click="mdctrl_click($event, 'u26d200d', item)"><ion-icon v-if="item.MobClose.icon && item.MobClose.isShowIcon" :name="item.MobClose.icon"></ion-icon><ion-label v-if="item.MobClose.isShowCaption">关闭</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -30,11 +30,11 @@
                         <ion-label class="selectal-label" v-show="showCheack">全选</ion-label>
                     </div>
                       <ion-item-sliding  :ref="item.srfkey" v-for="item in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="start">
-                            <ion-item-option v-show="item.MobStart.visabled" :disabled="item.MobStart.disabled"  color="primary" @click="mdctrl_click($event, 'uded835a', item)"><ion-icon v-if="item.MobStart.icon && item.MobStart.isShowIcon" :name="item.MobStart.icon"></ion-icon><ion-label v-if="item.MobStart.isShowCaption">开始</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobBlock.visabled" :disabled="item.MobBlock.disabled"  color="primary" @click="mdctrl_click($event, 'u7ba5616', item)"><ion-icon v-if="item.MobBlock.icon && item.MobBlock.isShowIcon" :name="item.MobBlock.icon"></ion-icon><ion-label v-if="item.MobBlock.isShowCaption">阻塞</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobActivite.visabled" :disabled="item.MobActivite.disabled"  color="primary" @click="mdctrl_click($event, 'u3a9cdb8', item)"><ion-icon v-if="item.MobActivite.icon && item.MobActivite.isShowIcon" :name="item.MobActivite.icon"></ion-icon><ion-label v-if="item.MobActivite.isShowCaption">激活</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobClose.visabled" :disabled="item.MobClose.disabled"  color="primary" @click="mdctrl_click($event, 'u26d200d', item)"><ion-icon v-if="item.MobClose.icon && item.MobClose.isShowIcon" :name="item.MobClose.icon"></ion-icon><ion-label v-if="item.MobClose.isShowCaption">关闭</ion-label></ion-item-option>
+                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
+                            <ion-item-option v-show="item.MobStart.visabled" :disabled="item.MobStart.disabled" color="primary" @click="mdctrl_click($event, 'uded835a', item)"><ion-icon v-if="item.MobStart.icon && item.MobStart.isShowIcon" :name="item.MobStart.icon"></ion-icon><ion-label v-if="item.MobStart.isShowCaption">开始</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobBlock.visabled" :disabled="item.MobBlock.disabled" color="primary" @click="mdctrl_click($event, 'u7ba5616', item)"><ion-icon v-if="item.MobBlock.icon && item.MobBlock.isShowIcon" :name="item.MobBlock.icon"></ion-icon><ion-label v-if="item.MobBlock.isShowCaption">阻塞</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobActivite.visabled" :disabled="item.MobActivite.disabled" color="primary" @click="mdctrl_click($event, 'u3a9cdb8', item)"><ion-icon v-if="item.MobActivite.icon && item.MobActivite.isShowIcon" :name="item.MobActivite.icon"></ion-icon><ion-label v-if="item.MobActivite.isShowCaption">激活</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobClose.visabled" :disabled="item.MobClose.disabled" color="primary" @click="mdctrl_click($event, 'u26d200d', item)"><ion-icon v-if="item.MobClose.icon && item.MobClose.isShowIcon" :name="item.MobClose.icon"></ion-icon><ion-label v-if="item.MobClose.isShowCaption">关闭</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -1316,10 +1316,10 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
-        MobStart: { name: 'MobStart',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_START_BUT', target: 'SINGLEKEY',icon:'play',},
-        MobBlock: { name: 'MobBlock',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_BLOCK_BUT', target: 'SINGLEKEY',icon:'pause',},
-        MobActivite: { name: 'MobActivite',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_ACTIVITE_BUT', target: 'SINGLEKEY',icon:'magic',},
-        MobClose: { name: 'MobClose',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_CLOSED_BUT', target: 'SINGLEKEY',icon:'close',}
+        MobStart: { name: 'MobStart',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_START_BUT', target: 'SINGLEKEY',icon:'play',isShowCaption:true,isShowIcon:true},
+        MobBlock: { name: 'MobBlock',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_BLOCK_BUT', target: 'SINGLEKEY',icon:'pause',isShowCaption:true,isShowIcon:true},
+        MobActivite: { name: 'MobActivite',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_ACTIVITE_BUT', target: 'SINGLEKEY',icon:'magic',isShowCaption:true,isShowIcon:true},
+        MobClose: { name: 'MobClose',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_CLOSED_BUT', target: 'SINGLEKEY',icon:'close',isShowCaption:true,isShowIcon:true}
     };
 
     
