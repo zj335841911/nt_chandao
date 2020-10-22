@@ -143,6 +143,7 @@ public class WebApiSecurityConfig extends WebSecurityConfigurerAdapter {
                .antMatchers("/uaa/open/dingtalk/auth/**").permitAll()
                .antMatchers("/uaa/open/dingtalk/access_token").permitAll()
                .antMatchers("/uaa/dingtalk/jsapi/sign").permitAll()
+               .antMatchers("/recordloginlog").permitAll()
 //               .antMatchers("/depts/all").permitAll()
 //
 //               .antMatchers("/users/all").permitAll()
