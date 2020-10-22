@@ -2,9 +2,7 @@
 <script lang='tsx'>
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
-import { TypeGanttGanttBase } from './type-gantt-gantt-base';
-import GanttElastic from "ibiz-gantt-elastic/src/GanttElastic.vue";
- 
+
 
 /**
  * gantt部件
@@ -15,7 +13,6 @@ import GanttElastic from "ibiz-gantt-elastic/src/GanttElastic.vue";
  */
 @Component({
     components: {
-        GanttElastic,
  
     }
 })
