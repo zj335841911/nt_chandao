@@ -1500,8 +1500,8 @@ const datas: Array<any> = [
         "srfkey": "BugUserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"User",
-        "appdedataset":"FetchBugUser",
+        "appdataentity":"",
+        "appdedataset":"",
         "items": []
     },
     {
@@ -3350,8 +3350,8 @@ const datas: Array<any> = [
         "srfkey": "UserRealNameProject",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"User",
-        "appdedataset":"FetchProjectTeamUser",
+        "appdataentity":"",
+        "appdedataset":"",
         "items": []
     },
     {
@@ -3793,8 +3793,8 @@ const datas: Array<any> = [
         "srfkey": "UserRealNameTaskTeam",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"User",
-        "appdedataset":"FetchTaskTeam",
+        "appdataentity":"",
+        "appdedataset":"",
         "items": []
     },
     {
