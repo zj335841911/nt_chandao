@@ -104,10 +104,6 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskgetUsernamesDraftLogic getusernamesdraftLogic;
-
-    @Autowired
-    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITaskTaskFavoritesLogic taskfavoritesLogic;
 
     @Autowired
@@ -173,14 +169,12 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
             et.setTaskestimate(taskestimateService.selectByTask(key));
         }
         resettaskestimateLogic.execute(et);
-        getusernamesLogic.execute(et);
         return et;
     }
 
     @Override
     public Task getDraft(Task et) {
         fillParentData(et);
-        getusernamesdraftLogic.execute(et);
         return et;
     }
 

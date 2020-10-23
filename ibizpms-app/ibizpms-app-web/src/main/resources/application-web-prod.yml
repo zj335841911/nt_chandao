@@ -281,7 +281,7 @@ zuul:
       stripPrefix: false
     ibzemp:
       path: /sysemployees/**
-      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      serviceId: ${ibiz.ref.service.ibzou-api:ibzou-api}
       stripPrefix: false
     loginv7:
       path: /v7/login
