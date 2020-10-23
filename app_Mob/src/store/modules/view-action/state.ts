@@ -358,6 +358,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '30df85f6893d47efa69fbb2580f7ea6c',
+            viewmodule: 'ibiz',
+            viewname: 'ReleaseEditMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: '3c4e9f0d609bc0f1cf08431649cc8e67',
             viewmodule: 'ibiz',
             viewname: 'ActionMobMDView9',
@@ -585,6 +594,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '30df85f6893d47efa69fbb2580f7ea6c',
             ],
         },
         {
