@@ -212,6 +212,7 @@ export default {
 			assignedto: "指派给", 
 			multiple: "多人任务", 
 			story: "相关需求", 
+			usernames: "团队用户", 
 			storyname: "相关需求", 
 			name: "任务名称", 
 			pri: "优先级", 

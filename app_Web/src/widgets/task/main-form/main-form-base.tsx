@@ -101,6 +101,7 @@ export class MainEditFormBase extends EditFormControlBase {
         assignedto: null,
         multiple: null,
         story: null,
+        usernames: null,
         storyname: null,
         name: null,
         pri: null,
@@ -198,6 +199,8 @@ export class MainEditFormBase extends EditFormControlBase {
 
         story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
+        usernames: new FormItemModel({ caption: '团队用户', detailType: 'FORMITEM', name: 'usernames', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
         storyname: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'storyname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         name: new FormItemModel({ caption: '任务名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
@@ -294,6 +297,7 @@ export class MainEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.assignedto.setDisabled(!ret);
         }
+
 
 
 
