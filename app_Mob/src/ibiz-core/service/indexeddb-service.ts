@@ -27,7 +27,7 @@ export class IndexedDBService extends IndexedDBServiceBase {
         if (IndexedDBService.instance) {
             return IndexedDBService.instance;
         }
-        super('Oct 22, 2020');
+        super('Oct 23, 2020');
     }
 
     /**

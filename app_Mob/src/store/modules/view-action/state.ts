@@ -1502,6 +1502,15 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: 'f1a8132f2473391e383ec58c657e4e2f',
+            viewmodule: 'ibiz',
+            viewname: 'ProductPlanEditMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+            ],
+        },
+        {
             viewtag: 'f38d9a9c6a87f0fdc4c94663ce13327b',
             viewmodule: 'ibiz',
             viewname: 'BuildMobMPickupView',
