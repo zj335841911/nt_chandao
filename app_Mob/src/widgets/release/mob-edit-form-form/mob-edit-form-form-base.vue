@@ -128,15 +128,27 @@
     :disabled="detailsModel.buildname.disabled"
     :error="detailsModel.buildname.error" 
     :isEmptyCaption="false">
-        <app-mob-select 
-    :disabled="detailsModel.buildname.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.buildname"  
+        <app-mob-select-drop-down 
+    name='buildname' 
+    deMajorField='name'
+    deKeyField='id'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
+    :formState="formState"
+    :data="data"
+    :context="context"
     :navigateContext ='{ } '
     :navigateParam ='{ } '
-    @change="($event)=>this.data.buildname = $event" />
+    :viewparams="viewparams"
+    :itemParam='{ }' 
+    :disabled="detailsModel.buildname.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'build', interfaceName: 'FetchDefault'}"
+    :value="data.buildname" 
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.buildname = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
