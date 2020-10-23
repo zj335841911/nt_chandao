@@ -1020,7 +1020,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                     break;
                 }
             }
-            if (flag) throw new RuntimeException("请填写剩余或总计消耗");
+            if (!flag) throw new RuntimeException("请填写剩余或总计消耗");
             for (TaskEstimate taskEstimate : et.getTaskestimate()) {
                 taskEstimate.setTask(et.getId());
                 taskEstimate.setDate(ZTDateUtil.now());
