@@ -120,6 +120,7 @@
 |-|关闭产品|DEMOBEDITVIEW|&nbsp;|
 |-|需求选项操作视图（变更）|DEMOBOPTVIEW|&nbsp;|
 |-|系统日志移动端多数据视图（通用）|DEMOBMDVIEW9|&nbsp;|
+|-|测试版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|需求移动端选择多数据视图（关联需求）|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|任务预计多表单编辑视图|DEMOBMEDITVIEW9|&nbsp;|
 |-|产品线移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|

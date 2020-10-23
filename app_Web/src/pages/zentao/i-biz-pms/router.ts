@@ -11,7 +11,7 @@ const appService = new AppService();
 
 const router = new Router({
     routes: [
-        {
+                {
             path: '/ibizpms/:ibizpms?',
             beforeEnter: async (to: any, from: any, next: any) => {
                 const routerParamsName = 'ibizpms';
