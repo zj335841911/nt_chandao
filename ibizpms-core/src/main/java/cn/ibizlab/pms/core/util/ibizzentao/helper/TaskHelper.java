@@ -1013,6 +1013,14 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         List<TaskEstimate> taskEstimates = new ArrayList<>();
         Timestamp earliestTime = null;
         if (et.getTaskestimate() != null && et.getTaskestimate().size() > 0) {
+            boolean flag = true;
+            for (TaskEstimate taskEstimate: et.getTaskestimate()) {
+                if (taskEstimate.getConsumed() == null || taskEstimate.getLeft() == null){
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) throw new RuntimeException("请填写剩余或总计消耗");
             for (TaskEstimate taskEstimate : et.getTaskestimate()) {
                 taskEstimate.setTask(et.getId());
                 taskEstimate.setDate(ZTDateUtil.now());
