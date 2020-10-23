@@ -266,6 +266,27 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'BugCodeList2',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'All',
+                label: '所有',
+                text: '所有',
+                value: 'All',
+                disabled: false,
+            },
+            {
+                id: 'active',
+                label: '未解决',
+                text: '未解决',
+                value: 'active',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Project__status',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -2387,6 +2408,34 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'Zt__productplan',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'All',
+                label: '所有',
+                text: '所有',
+                value: 'All',
+                disabled: false,
+            },
+            {
+                id: 'UNEXPIRED',
+                label: '未过期',
+                text: '未过期',
+                value: 'UNEXPIRED',
+                disabled: false,
+            },
+            {
+                id: 'ISEXPIRED',
+                label: '已过期',
+                text: '已过期',
+                value: 'ISEXPIRED',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Team__type',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -3329,6 +3378,90 @@ const datas: Array<any> = [
                 label: '周期',
                 text: '周期',
                 value: 'cycle',
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'Bug__quickpacket',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'All',
+                label: '所有',
+                text: '所有',
+                value: 'All',
+                disabled: false,
+            },
+            {
+                id: 'UNCLOSED',
+                label: '未关闭',
+                text: '未关闭',
+                value: 'UNCLOSED',
+                disabled: false,
+            },
+            {
+                id: 'ICREATE',
+                label: '由我创建',
+                text: '由我创建',
+                value: 'ICREATE',
+                disabled: false,
+            },
+            {
+                id: 'TOME',
+                label: '指派给我',
+                text: '指派给我',
+                value: 'TOME',
+                disabled: false,
+            },
+            {
+                id: 'BYME',
+                label: '由我解决',
+                text: '由我解决',
+                value: 'BYME',
+                disabled: false,
+            },
+            {
+                id: 'WAITCLOSED',
+                label: '待关闭',
+                text: '待关闭',
+                value: 'WAITCLOSED',
+                disabled: false,
+            },
+            {
+                id: 'UNRESOLVED',
+                label: '未解决',
+                text: '未解决',
+                value: 'UNRESOLVED',
+                disabled: false,
+            },
+            {
+                id: 'MORE',
+                label: '更多',
+                text: '更多',
+                value: 'MORE',
+                disabled: false,
+            },
+            {
+                id: 'UNCONFIRMED',
+                label: '未确认',
+                text: '未确认',
+                value: 'UNCONFIRMED',
+                disabled: false,
+            },
+            {
+                id: 'UNASSIGNED',
+                label: '未指派',
+                text: '未指派',
+                value: 'UNASSIGNED',
+                disabled: false,
+            },
+            {
+                id: 'EXPIREDBUG',
+                label: '过期Bug',
+                text: '过期Bug',
+                value: 'EXPIREDBUG',
                 disabled: false,
             },
         ]

@@ -54,6 +54,11 @@ export default {
         'custom': '自定义白名单(团队成员和白名单的成员可以访问)',
         empty: '',
     },
+    BugCodeList2: {
+        'All': '所有',
+        'active': '未解决',
+        empty: '',
+    },
     Project__status: {
         'wait': '未开始',
         'doing': '进行中',
@@ -426,6 +431,12 @@ export default {
         'others': '其他',
         empty: '',
     },
+    Zt__productplan: {
+        'All': '所有',
+        'UNEXPIRED': '未过期',
+        'ISEXPIRED': '已过期',
+        empty: '',
+    },
     Team__type: {
         'project': '项目团队',
         'task': '任务团队',
@@ -581,6 +592,20 @@ export default {
         'task': '项目任务',
         'story': '项目需求',
         'cycle': '周期',
+        empty: '',
+    },
+    Bug__quickpacket: {
+        'All': '所有',
+        'UNCLOSED': '未关闭',
+        'ICREATE': '由我创建',
+        'TOME': '指派给我',
+        'BYME': '由我解决',
+        'WAITCLOSED': '待关闭',
+        'UNRESOLVED': '未解决',
+        'MORE': '更多',
+        'UNCONFIRMED': '未确认',
+        'UNASSIGNED': '未指派',
+        'EXPIREDBUG': '过期Bug',
         empty: '',
     },
     Task__closed_reason: {
