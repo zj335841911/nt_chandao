@@ -78,7 +78,7 @@ export class MyWork2PanelBase extends PanelControlBase {
      * @memberof MyWork2
      */
     public detailsModel: any = {
-        realname: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'realname', panel: this })
+        account: new PanelFieldModel({ caption: '', itemType: 'FIELD',visible: true, disabled: false, name: 'account', panel: this })
 ,
         container2: new PanelContainerModel({ caption: '', itemType: 'CONTAINER',visible: true, disabled: false, name: 'container2', panel: this })
 ,
