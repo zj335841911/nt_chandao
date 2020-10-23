@@ -241,11 +241,6 @@ export class MobMainDataEditModel {
                 dataType: 'SSCODELIST',
             },
             {
-                name: 'task',
-                prop: 'task',
-                dataType: 'PICKUP',
-            },
-            {
                 name: 'bug',
                 prop: 'id',
                 dataType: 'FONTKEY',

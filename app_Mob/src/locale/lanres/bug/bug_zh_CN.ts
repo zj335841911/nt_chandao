@@ -350,7 +350,6 @@ export default {
 			resolvedbuild: '解决版本', 
 			closedby: '由谁关闭', 
 			lasteditedby: '最后修改者', 
-			task: '相关任务', 
 		},
 		uiactions: {
 		},

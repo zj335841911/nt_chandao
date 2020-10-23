@@ -346,11 +346,32 @@
 
 
 
-!!!!模版产生代码错误:----
-FTL stack trace ("~" means nesting-related):
-	- Failed at: ${P.getEditorCode(item, "EDITOR.vue")...  [in template "TEMPLCODE_en_US" at line 38, column 9]
-----
-无法获取指定编辑器[ADDRESSPICKUP_AC]发布代码[FORMITEM][EDITOR.vue]模板
+<app-form-item 
+    name='mailto' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="mailto_item"  
+    :itemValue="this.data.mailto" 
+    v-show="detailsModel.mailto.visible" 
+    :itemRules="this.rules.mailto" 
+    :caption="$t('testtask.mobeditform_form.details.mailto')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.mailto.disabled"
+    :error="detailsModel.mailto.error" 
+    :isEmptyCaption="false">
+        <app-mob-check-list 
+    :disabled="detailsModel.mailto.disabled" 
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :value="data.mailto"   
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.mailto = $event"/>
+</app-form-item>
+
 
     
 </app-form-group>
