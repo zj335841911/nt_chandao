@@ -434,14 +434,14 @@ POST
 #### IbzMyTerritorySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 49 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
-| 50 | n_realname_like | String | 允许 | 条件字段：realname<br>条件组合方式：`%like%` |
-| 51 | n_gender_eq | String | 允许 | 条件字段：gender<br>条件组合方式：`=` |
-| 52 | n_clientstatus_eq | String | 允许 | 条件字段：clientstatus<br>条件组合方式：`=` |
-| 53 | customcond | String | 允许 | 自定义查询条件 |
-| 54 | customparams | String | 允许 | 自定义查询参数 |
-| 55 | query | String | 允许 | 快速搜索 |
-| 56 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 57 | page | int | 允许 | 当前页数<br>默认值0 |
-| 58 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 59 | sort | String | 允许 | 排序 |
+| 1 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
+| 2 | n_realname_like | String | 允许 | 条件字段：realname<br>条件组合方式：`%like%` |
+| 3 | n_gender_eq | String | 允许 | 条件字段：gender<br>条件组合方式：`=` |
+| 4 | n_clientstatus_eq | String | 允许 | 条件字段：clientstatus<br>条件组合方式：`=` |
+| 5 | customcond | String | 允许 | 自定义查询条件 |
+| 6 | customparams | String | 允许 | 自定义查询参数 |
+| 7 | query | String | 允许 | 快速搜索 |
+| 8 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 9 | page | int | 允许 | 当前页数<br>默认值0 |
+| 10 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 11 | sort | String | 允许 | 排序 |

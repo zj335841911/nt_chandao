@@ -548,13 +548,13 @@ POST
 #### IbzLibModuleSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 16 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
-| 17 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
-| 18 | n_root_eq | Long | 允许 | 条件字段：root<br>条件组合方式：`=` |
-| 19 | customcond | String | 允许 | 自定义查询条件 |
-| 20 | customparams | String | 允许 | 自定义查询参数 |
-| 21 | query | String | 允许 | 快速搜索 |
-| 22 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 23 | page | int | 允许 | 当前页数<br>默认值0 |
-| 24 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 25 | sort | String | 允许 | 排序 |
+| 1 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 2 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
+| 3 | n_root_eq | Long | 允许 | 条件字段：root<br>条件组合方式：`=` |
+| 4 | customcond | String | 允许 | 自定义查询条件 |
+| 5 | customparams | String | 允许 | 自定义查询参数 |
+| 6 | query | String | 允许 | 快速搜索 |
+| 7 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 8 | page | int | 允许 | 当前页数<br>默认值0 |
+| 9 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 10 | sort | String | 允许 | 排序 |

@@ -130,7 +130,7 @@ export default class UserRealNameTask {
     public getItems(context: any={}, data: any={}, isloading?: boolean): Promise<any> {
         return new Promise((resolve, reject) => {
             data = this.handleQueryParam(data);
-            const promise: Promise<any> = this.sysemployeeService.FetchProjectTeamUser_Task(context, data, isloading);
+            const promise: Promise<any> = this.sysemployeeService.FetchDefault(context, data, isloading);
             promise.then((response: any) => {
                 if (response && response.status === 200) {
                     const data =  response.data;

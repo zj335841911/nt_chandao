@@ -577,12 +577,12 @@ POST
 #### BranchSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 6 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
-| 7 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
-| 8 | customcond | String | 允许 | 自定义查询条件 |
-| 9 | customparams | String | 允许 | 自定义查询参数 |
-| 10 | query | String | 允许 | 快速搜索 |
-| 11 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 12 | page | int | 允许 | 当前页数<br>默认值0 |
-| 13 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 14 | sort | String | 允许 | 排序 |
+| 1 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 2 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 3 | customcond | String | 允许 | 自定义查询条件 |
+| 4 | customparams | String | 允许 | 自定义查询参数 |
+| 5 | query | String | 允许 | 快速搜索 |
+| 6 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 7 | page | int | 允许 | 当前页数<br>默认值0 |
+| 8 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 9 | sort | String | 允许 | 排序 |

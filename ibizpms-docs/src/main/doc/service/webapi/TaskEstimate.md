@@ -1089,12 +1089,12 @@ POST
 #### TaskEstimateSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 9 | n_id_like | Long | 允许 | 条件字段：id<br>条件组合方式：`%like%` |
-| 10 | n_task_eq | Long | 允许 | 条件字段：task<br>条件组合方式：`=` |
-| 11 | customcond | String | 允许 | 自定义查询条件 |
-| 12 | customparams | String | 允许 | 自定义查询参数 |
-| 13 | query | String | 允许 | 快速搜索 |
-| 14 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 15 | page | int | 允许 | 当前页数<br>默认值0 |
-| 16 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 17 | sort | String | 允许 | 排序 |
+| 1 | n_id_like | Long | 允许 | 条件字段：id<br>条件组合方式：`%like%` |
+| 2 | n_task_eq | Long | 允许 | 条件字段：task<br>条件组合方式：`=` |
+| 3 | customcond | String | 允许 | 自定义查询条件 |
+| 4 | customparams | String | 允许 | 自定义查询参数 |
+| 5 | query | String | 允许 | 快速搜索 |
+| 6 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 7 | page | int | 允许 | 当前页数<br>默认值0 |
+| 8 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 9 | sort | String | 允许 | 排序 |

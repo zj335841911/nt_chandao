@@ -22,7 +22,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Component
 @Slf4j
@@ -215,8 +217,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             et.setFinishedby("");
         }
 
-
-//        computeHours4Multiple(old, et, teams, false);
+        //computeHours4Multiple(old, et, teams, false);
 
         this.internalUpdate(et);
         boolean changeParent = false;
@@ -282,10 +283,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     public boolean delete(Long key) {
         boolean bOk = false;
         Task old = this.get(key);
+        if (old.getParent() < 0) throw  new RuntimeException("不能删除父任务");
         bOk = super.delete(key);
         if (old.getParent() != 0) {
             updateParentStatus(old, old.getParent(), false);
-            actionHelper.create("project", old.getParent(), "deleteChildrenTask", "", String.valueOf(old.getId()), null, true);
+            actionHelper.create("project", old.getParent(), "deleteChildrenTask", "", "", null, true);
         }
         if (old.getFrombug() != 0) {
             Bug bug = new Bug();
@@ -309,15 +311,24 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             Task currentTask = task != null ? task : new Task();
             if (currentTask.getStatus() == null) currentTask.setStatus(old.getStatus());
             currentTask.setAssignedto(old.getAssignedto());
-            if (old.getAssignedto() == null) {
-                TaskTeam firstMember = teams.get(0);
-                currentTask.setAssignedto(firstMember.getAccount());
-                currentTask.setAssigneddate(now);
-            } else {
-                for (TaskTeam team : teams) {
-                    if (team.getAccount() != null && team.getAccount().equals(old.getAssignedto()) && team.getLeft() == 0 && team.getConsumed() != 0) {
-                        if (!old.getAssignedto().equals(teams.get(teams.size() - 1).getAccount())) {
-                            currentTask.setAssignedto(this.getNextUser(teams,old));
+            if (task.getAssignedto() != null) {
+                currentTask.setAssignedto(task.getAssignedto());
+            }
+            else {
+                if (old.getAssignedto() == null) {
+                    TaskTeam firstMember = teams.get(0);
+                    currentTask.setAssignedto(firstMember.getAccount());
+                    currentTask.setAssigneddate(now);
+                } else {
+                    for (TaskTeam team : teams) {
+                        if (team.getAccount() != null && team.getAccount().equals(old.getAssignedto()) && team.getLeft() == 0 && team.getConsumed() != 0) {
+                            if (!old.getAssignedto().equals(teams.get(teams.size() - 1).getAccount())) {
+                                currentTask.setAssignedto(this.getNextUser(teams, old));
+                            }
+                            else {
+                                currentTask.setAssignedto(old.getOpenedby());
+                            }
+                            break;
                         }
                     }
                 }
@@ -674,6 +685,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         CachedBeanCopier.copy(this.get(et.getId()), old);
         Task newTask = new Task();
         newTask.setId(et.getId());
+        newTask.setConsumed(et.getConsumed());
+        if (newTask.getConsumed() < old.getConsumed()){
+            throw new RuntimeException("总计消耗必须大于原先消耗");
+        }
+
         starts(et,old,newTask);
 
         List<History> changes = ChangeUtil.diff(old, newTask);
@@ -875,13 +891,17 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         newTask.setLeft(0d);
         newTask.setStatus("done");
-        newTask.setAssignedto(old.getOpenedby());
+//        newTask.setAssignedto(et.getAssignedto());
         newTask.setAssigneddate(ZTDateUtil.now());
         newTask.setFinisheddate(ZTDateUtil.now());
         newTask.setLastediteddate(ZTDateUtil.now());
         newTask.setFinishedby(AuthenticationUser.getAuthenticationUser().getUsername());
         newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
         newTask.setConsumed(et.getTotaltime() != null ? et.getTotaltime() : (et.getConsumed() + et.getCurrentconsumed()));
+        if (et.getAssignedto() == null || et.getAssignedto().equals("")){
+            newTask.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
+        }
+        else newTask.setAssignedto(et.getAssignedto());
 
         if(et.getCurrentconsumed() <= 0) {
             throw new RuntimeException("总计消耗必须大于原消耗");
@@ -926,8 +946,10 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if(newTask.getStory() != null && newTask.getStory() != 0l) {
             storyHelper.setStage(newTask.getZtstory());
         }
+
         return newTask;
     }
+
 
     @Transactional
     public Task close(Task et) {
@@ -952,7 +974,6 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
 
         this.internalUpdate(newTask);
-
         if (old.getParent() > 0)
             updateParentStatus(newTask, old.getParent(), true);
 

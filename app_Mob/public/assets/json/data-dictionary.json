@@ -1138,8 +1138,8 @@
         "srfkey": "UserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"",
-        "appdedataset":"",
+        "appdataentity":"SysEmployee",
+        "appdedataset":"FetchDefault",
         "items": []
     }, 
     {
@@ -2229,8 +2229,8 @@
         "srfkey": "BugUserRealName",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"",
-        "appdedataset":"",
+        "appdataentity":"SysEmployee",
+        "appdedataset":"FetchDefault",
         "items": []
     }, 
     {
@@ -5087,8 +5087,8 @@
         "srfkey": "UserRealNameProject",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"",
-        "appdedataset":"",
+        "appdataentity":"SysEmployee",
+        "appdedataset":"FetchDefault",
         "items": []
     }, 
     {
@@ -5765,8 +5765,8 @@
         "srfkey": "UserRealNameTaskTeam",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
-        "appdataentity":"",
-        "appdedataset":"",
+        "appdataentity":"SysEmployee",
+        "appdedataset":"FetchDefault",
         "items": []
     }, 
     {
