@@ -685,6 +685,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         CachedBeanCopier.copy(this.get(et.getId()), old);
         Task newTask = new Task();
         newTask.setId(et.getId());
+        newTask.setConsumed(et.getConsumed());
+        if (newTask.getConsumed() < old.getConsumed()){
+            throw new RuntimeException("总计消耗必须大于原先消耗");
+        }
+
         starts(et,old,newTask);
 
         List<History> changes = ChangeUtil.diff(old, newTask);
@@ -886,13 +891,17 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         newTask.setLeft(0d);
         newTask.setStatus("done");
-        newTask.setAssignedto(old.getOpenedby());
+//        newTask.setAssignedto(et.getAssignedto());
         newTask.setAssigneddate(ZTDateUtil.now());
         newTask.setFinisheddate(ZTDateUtil.now());
         newTask.setLastediteddate(ZTDateUtil.now());
         newTask.setFinishedby(AuthenticationUser.getAuthenticationUser().getUsername());
         newTask.setLasteditedby(AuthenticationUser.getAuthenticationUser().getUsername());
         newTask.setConsumed(et.getTotaltime() != null ? et.getTotaltime() : (et.getConsumed() + et.getCurrentconsumed()));
+        if (et.getAssignedto() == null || et.getAssignedto().equals("")){
+            newTask.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
+        }
+        else newTask.setAssignedto(et.getAssignedto());
 
         if(et.getCurrentconsumed() <= 0) {
             throw new RuntimeException("总计消耗必须大于原消耗");
