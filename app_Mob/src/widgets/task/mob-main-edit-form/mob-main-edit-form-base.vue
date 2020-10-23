@@ -455,7 +455,25 @@
     :disabled="detailsModel.assignedto.disabled"
     :error="detailsModel.assignedto.error" 
     :isEmptyCaption="false">
-        
+        <app-mob-select-drop-down 
+    name='assignedto' 
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :navigateContext ='{ "project": "%project%", "multiple": "0" } '
+    :navigateParam ='{ "project": "%project%", "multiple": "0" } '
+    :viewparams="viewparams"
+    :itemParam='{ }' 
+    :disabled="detailsModel.assignedto.disabled"
+    :service="service"
+    :acParams="{ }"
+    :value="data.assignedto" 
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.assignedto = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
