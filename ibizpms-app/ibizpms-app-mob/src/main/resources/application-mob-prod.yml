@@ -111,6 +111,10 @@ zuul:
       path: /projectstats/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    ibzemp:
+      path: /sysemployees/**
+      serviceId: ${ibiz.ref.service.ibzou-api:ibzou-api}
+      stripPrefix: false
     ibz_taskteam:
       path: /ibztaskteams/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}

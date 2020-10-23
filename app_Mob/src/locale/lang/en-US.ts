@@ -24,6 +24,7 @@ import testmodule_en_US from '@locale/lanres/test-module/test-module_en_US';
 import productplan_en_US from '@locale/lanres/product-plan/product-plan_en_US';
 import ibztaskestimate_en_US from '@locale/lanres/ibz-taskestimate/ibz-taskestimate_en_US';
 import projectstats_en_US from '@locale/lanres/project-stats/project-stats_en_US';
+import sysemployee_en_US from '@locale/lanres/sys-employee/sys-employee_en_US';
 import ibztaskteam_en_US from '@locale/lanres/ibztaskteam/ibztaskteam_en_US';
 import bug_en_US from '@locale/lanres/bug/bug_en_US';
 import projectmodule_en_US from '@locale/lanres/project-module/project-module_en_US';
@@ -192,6 +193,7 @@ export default {
     productplan: productplan_en_US,
     ibztaskestimate: ibztaskestimate_en_US,
     projectstats: projectstats_en_US,
+    sysemployee: sysemployee_en_US,
     ibztaskteam: ibztaskteam_en_US,
     bug: bug_en_US,
     projectmodule: projectmodule_en_US,

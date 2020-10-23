@@ -144,6 +144,7 @@
     :error="detailsModel.begin.error" 
     :isEmptyCaption="false">
         <app-mob-datetime-picker 
+    displayFormat="YYYY-MM-DD"
     class="app-form-item-datetime" 
     :value="data.begin" 
     :disabled="detailsModel.begin.disabled"
@@ -167,14 +168,7 @@
     :disabled="detailsModel.future.disabled"
     :error="detailsModel.future.error" 
     :isEmptyCaption="false">
-        <app-mob-span  
-        codeListType="STATIC" 
-    tag="Date_disable"
-    :isCache="false" 
-    v-if="data.future" 
-    :context="context" 
-    :value="data.future" 
-    :itemParam="{}"/>
+        
 </app-form-item>
 
 

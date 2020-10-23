@@ -31,6 +31,7 @@ import './entity/test-modules/test-modules';
 import './entity/product-plans/product-plans';
 import './entity/ibz-taskestimates/ibz-taskestimates';
 import './entity/project-statss/project-statss';
+import './entity/sys-employees/sys-employees';
 import './entity/ibztaskteams/ibztaskteams';
 import './entity/bugs/bugs';
 import './entity/project-modules/project-modules';
