@@ -465,11 +465,11 @@ POST
 #### HistorySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 7 | n_action_eq | Long | 允许 | 条件字段：action<br>条件组合方式：`=` |
-| 8 | customcond | String | 允许 | 自定义查询条件 |
-| 9 | customparams | String | 允许 | 自定义查询参数 |
-| 10 | query | String | 允许 | 快速搜索 |
-| 11 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 12 | page | int | 允许 | 当前页数<br>默认值0 |
-| 13 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 14 | sort | String | 允许 | 排序 |
+| 1 | n_action_eq | Long | 允许 | 条件字段：action<br>条件组合方式：`=` |
+| 2 | customcond | String | 允许 | 自定义查询条件 |
+| 3 | customparams | String | 允许 | 自定义查询参数 |
+| 4 | query | String | 允许 | 快速搜索 |
+| 5 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 6 | page | int | 允许 | 当前页数<br>默认值0 |
+| 7 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 8 | sort | String | 允许 | 排序 |

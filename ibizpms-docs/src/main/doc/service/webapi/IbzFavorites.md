@@ -239,14 +239,14 @@ POST
 #### IbzFavoritesSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 10 | n_ibz_favoritesname_like | String | 允许 | 条件字段：ibz_favoritesname<br>条件组合方式：`%like%` |
-| 11 | n_objectid_eq | Long | 允许 | 条件字段：objectid<br>条件组合方式：`=` |
-| 12 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
-| 13 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
-| 14 | customcond | String | 允许 | 自定义查询条件 |
-| 15 | customparams | String | 允许 | 自定义查询参数 |
-| 16 | query | String | 允许 | 快速搜索 |
-| 17 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 18 | page | int | 允许 | 当前页数<br>默认值0 |
-| 19 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 20 | sort | String | 允许 | 排序 |
+| 1 | n_ibz_favoritesname_like | String | 允许 | 条件字段：ibz_favoritesname<br>条件组合方式：`%like%` |
+| 2 | n_objectid_eq | Long | 允许 | 条件字段：objectid<br>条件组合方式：`=` |
+| 3 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
+| 4 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 5 | customcond | String | 允许 | 自定义查询条件 |
+| 6 | customparams | String | 允许 | 自定义查询参数 |
+| 7 | query | String | 允许 | 快速搜索 |
+| 8 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 9 | page | int | 允许 | 当前页数<br>默认值0 |
+| 10 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 11 | sort | String | 允许 | 排序 |

@@ -277,14 +277,14 @@ POST
 #### DeptSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 12 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
-| 13 | n_parentname_eq | String | 允许 | 条件字段：parentname<br>条件组合方式：`=` |
-| 14 | n_parentname_like | String | 允许 | 条件字段：parentname<br>条件组合方式：`%like%` |
-| 15 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
-| 16 | customcond | String | 允许 | 自定义查询条件 |
-| 17 | customparams | String | 允许 | 自定义查询参数 |
-| 18 | query | String | 允许 | 快速搜索 |
-| 19 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 20 | page | int | 允许 | 当前页数<br>默认值0 |
-| 21 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 22 | sort | String | 允许 | 排序 |
+| 1 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 2 | n_parentname_eq | String | 允许 | 条件字段：parentname<br>条件组合方式：`=` |
+| 3 | n_parentname_like | String | 允许 | 条件字段：parentname<br>条件组合方式：`%like%` |
+| 4 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
+| 5 | customcond | String | 允许 | 自定义查询条件 |
+| 6 | customparams | String | 允许 | 自定义查询参数 |
+| 7 | query | String | 允许 | 快速搜索 |
+| 8 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 9 | page | int | 允许 | 当前页数<br>默认值0 |
+| 10 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 11 | sort | String | 允许 | 排序 |

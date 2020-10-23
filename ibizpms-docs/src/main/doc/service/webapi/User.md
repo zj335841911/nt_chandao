@@ -518,15 +518,15 @@ POST
 #### UserSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 35 | n_realname_like | String | 允许 | 条件字段：realname<br>条件组合方式：`%like%` |
-| 36 | n_dept_eq | Integer | 允许 | 条件字段：dept<br>条件组合方式：`=` |
-| 37 | n_role_eq | String | 允许 | 条件字段：role<br>条件组合方式：`=` |
-| 38 | n_clientstatus_eq | String | 允许 | 条件字段：clientstatus<br>条件组合方式：`=` |
-| 39 | n_gender_eq | String | 允许 | 条件字段：gender<br>条件组合方式：`=` |
-| 40 | customcond | String | 允许 | 自定义查询条件 |
-| 41 | customparams | String | 允许 | 自定义查询参数 |
-| 42 | query | String | 允许 | 快速搜索 |
-| 43 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 44 | page | int | 允许 | 当前页数<br>默认值0 |
-| 45 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 46 | sort | String | 允许 | 排序 |
+| 1 | n_realname_like | String | 允许 | 条件字段：realname<br>条件组合方式：`%like%` |
+| 2 | n_dept_eq | Integer | 允许 | 条件字段：dept<br>条件组合方式：`=` |
+| 3 | n_role_eq | String | 允许 | 条件字段：role<br>条件组合方式：`=` |
+| 4 | n_clientstatus_eq | String | 允许 | 条件字段：clientstatus<br>条件组合方式：`=` |
+| 5 | n_gender_eq | String | 允许 | 条件字段：gender<br>条件组合方式：`=` |
+| 6 | customcond | String | 允许 | 自定义查询条件 |
+| 7 | customparams | String | 允许 | 自定义查询参数 |
+| 8 | query | String | 允许 | 快速搜索 |
+| 9 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 10 | page | int | 允许 | 当前页数<br>默认值0 |
+| 11 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 12 | sort | String | 允许 | 排序 |

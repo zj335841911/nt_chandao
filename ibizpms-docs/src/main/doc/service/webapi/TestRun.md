@@ -926,12 +926,12 @@ POST
 #### TestRunSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 10 | n_case_eq | Long | 允许 | 条件字段：case<br>条件组合方式：`=` |
-| 11 | n_task_eq | Long | 允许 | 条件字段：task<br>条件组合方式：`=` |
-| 12 | customcond | String | 允许 | 自定义查询条件 |
-| 13 | customparams | String | 允许 | 自定义查询参数 |
-| 14 | query | String | 允许 | 快速搜索 |
-| 15 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 16 | page | int | 允许 | 当前页数<br>默认值0 |
-| 17 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 18 | sort | String | 允许 | 排序 |
+| 1 | n_case_eq | Long | 允许 | 条件字段：case<br>条件组合方式：`=` |
+| 2 | n_task_eq | Long | 允许 | 条件字段：task<br>条件组合方式：`=` |
+| 3 | customcond | String | 允许 | 自定义查询条件 |
+| 4 | customparams | String | 允许 | 自定义查询参数 |
+| 5 | query | String | 允许 | 快速搜索 |
+| 6 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 7 | page | int | 允许 | 当前页数<br>默认值0 |
+| 8 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 9 | sort | String | 允许 | 排序 |

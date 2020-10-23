@@ -235,11 +235,11 @@ POST
 #### GroupSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 6 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
-| 7 | customcond | String | 允许 | 自定义查询条件 |
-| 8 | customparams | String | 允许 | 自定义查询参数 |
-| 9 | query | String | 允许 | 快速搜索 |
-| 10 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 11 | page | int | 允许 | 当前页数<br>默认值0 |
-| 12 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 13 | sort | String | 允许 | 排序 |
+| 1 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 2 | customcond | String | 允许 | 自定义查询条件 |
+| 3 | customparams | String | 允许 | 自定义查询参数 |
+| 4 | query | String | 允许 | 快速搜索 |
+| 5 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 6 | page | int | 允许 | 当前页数<br>默认值0 |
+| 7 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 8 | sort | String | 允许 | 排序 |
