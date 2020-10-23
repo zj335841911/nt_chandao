@@ -127,11 +127,28 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             if (et.getCanceleddate() == null)
                 et.setCanceleddate(ZTDateUtil.now());
         } else if (StringUtils.compare(et.getStatus(), "closed") == 0) {
-            if (StringUtils.isBlank(et.getCanceledby())) {
-                et.setCanceledby(AuthenticationUser.getAuthenticationUser().getUsername());
+            if (et.getClosedreason() == null || et.getClosedreason().equals(""))  throw new RuntimeException("关闭原因不能为空");
+            if (StringUtils.compare(et.getClosedreason(),"cancel") == 0){
+                if (et.getFinishedby() != null || et.getFinisheddate() != null){
+                    throw new RuntimeException("由谁完成和完成时间必须为空!");
+                }
+                else {
+                    et.setCanceledby(get(et.getCanceledby(),AuthenticationUser.getAuthenticationUser().getUsername()));
+                    et.setCanceleddate(get(et.getCanceleddate(),ZTDateUtil.now()));
+                }
             }
-            if (et.getCloseddate() == null)
-                et.setCloseddate(ZTDateUtil.now());
+
+
+//            if (StringUtils.isBlank(et.getCanceledby())) {
+//                et.setCanceledby(AuthenticationUser.getAuthenticationUser().getUsername());
+//            }
+//            if (et.getCloseddate() == null)
+//                et.setCloseddate(ZTDateUtil.now());
+        }
+        else if (StringUtils.compare(et.getStatus(),"wait") == 0 || StringUtils.compare(et.getStatus(),"doing") == 0) {
+            if (et.getFinishedby() != null || et.getFinisheddate() != null){
+                throw new RuntimeException("该任务状态下，实际完成和由谁完成必须为空!");
+            }
         }
 
         if (StringUtils.compare(et.getAssignedto(), old.getAssignedto()) != 0) {
@@ -177,10 +194,10 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 taskTeam.setOrder(i);
                 if (StringUtils.compare(et.getStatus(), "done") == 0)
                     taskTeam.setLeft(0.0);
-//                if (StringUtils.isNotBlank(et.getAssignedto())) {
-//                    et.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
-//                    et.setAssigneddate(ZTDateUtil.now());
-//                }
+                if (et.getAssignedto() == null || et.getAssignedto().equals("")) {
+                    et.setAssignedto(AuthenticationUser.getAuthenticationUser().getUsername());
+                    et.setAssigneddate(ZTDateUtil.now());
+                }
                 i++;
             }
         }
@@ -790,7 +807,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         Task newTask = new Task();
         newTask.setId(et.getId());
         newTask.setLeft(et.getLeft() != null ? et.getLeft() : 0.0d);
-        newTask.setAssignedto(et.getAssignedto() != null ? et.getAssignedto() : "");
+        newTask.setAssignedto(et.getAssignedto().equals("closed")  ? "" : et.getAssignedto());
         newTask.setAssigneddate(ZTDateUtil.now());
         newTask.setStatus("doing");
         newTask.setFinishedby("");
