@@ -30,16 +30,6 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
     @Override
     public Page<SysEmployee> searchDefault(SysEmployeeSearchContext context) {
         log.info("SysEmployeeExService：searchDefault");
-        Map<String,Object> params = context.getParams();
-
-        if(params.get("srfparentdename") != null) {
-            log.info("SysEmployeeExService：searchDefault-" + params.get("srfparentdename").toString());
-            if("Bug".equals(params.get("srfparentdename"))) {
-                this.searchBugUser(context);
-            }else if("Task".equals(params.get("srfparentdename"))) {
-                this.searchTaskTeam(context);
-            }
-        }
         return super.searchDefault(context);
     }
 
@@ -60,7 +50,7 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
     public Page<SysEmployee> searchProjectTeamM(SysEmployeeSearchContext context) {
         log.info("SysEmployeeExService：searchProjectTeamM");
         Map<String,Object> params = context.getParams();
-        if(params.get("srfparentkey") != null && "0".equals(params.get("srfparentkey"))) {
+        if(params.get("srfparentkey") != null && !"0".equals(params.get("srfparentkey"))) {
             // 项目团队
             context.setN_username_notin(getAccounts("project", params.get("srfparentkey")));
         }
@@ -71,9 +61,12 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
     public Page<SysEmployee> searchProjectTeamUser(SysEmployeeSearchContext context) {
         log.info("SysEmployeeExService：searchProjectTeamUser");
         Map<String,Object> params = context.getParams();
-        if(params.get("project") != null && "0".equals(params.get("project"))) {
+        if(params.get("project") != null && !"0".equals(params.get("project"))) {
             // 项目团队
             context.setN_username_in(getAccounts("project", params.get("project")));
+            if(params.get("account") != null) {
+                context.setN_username_notin(params.get("account").toString().replace(",",";"));
+            }
 
         }
         return super.searchDefault(context);
@@ -83,9 +76,10 @@ public class SysEmployeeExService extends SysEmployeeServiceImpl {
     public Page<SysEmployee> searchProjectTeamUser_Task(SysEmployeeSearchContext context) {
         log.info("SysEmployeeExService：searchProjectTeamUser_Task");
         Map<String,Object> params = context.getParams();
-        if(params.get("srfparentkey") != null && "0".equals(params.get("srfparentkey"))) {
+        if(params.get("srfparentkey") != null && !"0".equals(params.get("srfparentkey"))) {
             // 项目团队
             context.setN_username_in(getAccounts("project", iTaskService.get(Long.parseLong(params.get("srfparentkey").toString()))));
+
         }
         return super.searchDefault(context);
     }
