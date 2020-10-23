@@ -135,12 +135,12 @@ POST
 #### ProductLifeSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 15 | n_ibz_productlifename_like | String | 允许 | 条件字段：ibz_productlifename<br>条件组合方式：`%like%` |
-| 16 | n_year_eq | String | 允许 | 条件字段：year<br>条件组合方式：`=` |
-| 17 | customcond | String | 允许 | 自定义查询条件 |
-| 18 | customparams | String | 允许 | 自定义查询参数 |
-| 19 | query | String | 允许 | 快速搜索 |
-| 20 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 21 | page | int | 允许 | 当前页数<br>默认值0 |
-| 22 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 23 | sort | String | 允许 | 排序 |
+| 1 | n_ibz_productlifename_like | String | 允许 | 条件字段：ibz_productlifename<br>条件组合方式：`%like%` |
+| 2 | n_year_eq | String | 允许 | 条件字段：year<br>条件组合方式：`=` |
+| 3 | customcond | String | 允许 | 自定义查询条件 |
+| 4 | customparams | String | 允许 | 自定义查询参数 |
+| 5 | query | String | 允许 | 快速搜索 |
+| 6 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 7 | page | int | 允许 | 当前页数<br>默认值0 |
+| 8 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 9 | sort | String | 允许 | 排序 |

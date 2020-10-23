@@ -320,15 +320,15 @@ POST
 #### BugStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 19 | n_title_like | String | 允许 | 条件字段：title<br>条件组合方式：`%like%` |
-| 20 | n_openedby_eq | String | 允许 | 条件字段：openedby<br>条件组合方式：`=` |
-| 21 | n_bugwillnotfix_ltandeq | Integer | 允许 | 条件字段：bugwillnotfix<br>条件组合方式：`<=` |
-| 22 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
-| 23 | n_assignedto_eq | String | 允许 | 条件字段：assignedto<br>条件组合方式：`=` |
-| 24 | customcond | String | 允许 | 自定义查询条件 |
-| 25 | customparams | String | 允许 | 自定义查询参数 |
-| 26 | query | String | 允许 | 快速搜索 |
-| 27 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 28 | page | int | 允许 | 当前页数<br>默认值0 |
-| 29 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 30 | sort | String | 允许 | 排序 |
+| 1 | n_title_like | String | 允许 | 条件字段：title<br>条件组合方式：`%like%` |
+| 2 | n_openedby_eq | String | 允许 | 条件字段：openedby<br>条件组合方式：`=` |
+| 3 | n_bugwillnotfix_ltandeq | Integer | 允许 | 条件字段：bugwillnotfix<br>条件组合方式：`<=` |
+| 4 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 5 | n_assignedto_eq | String | 允许 | 条件字段：assignedto<br>条件组合方式：`=` |
+| 6 | customcond | String | 允许 | 自定义查询条件 |
+| 7 | customparams | String | 允许 | 自定义查询参数 |
+| 8 | query | String | 允许 | 快速搜索 |
+| 9 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 10 | page | int | 允许 | 当前页数<br>默认值0 |
+| 11 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 12 | sort | String | 允许 | 排序 |

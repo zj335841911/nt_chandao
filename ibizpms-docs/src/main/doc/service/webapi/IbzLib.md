@@ -240,14 +240,14 @@ POST
 #### IbzLibSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 11 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
-| 12 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
-| 13 | n_addedby_eq | String | 允许 | 条件字段：addedby<br>条件组合方式：`=` |
-| 14 | n_lasteditedby_eq | String | 允许 | 条件字段：lasteditedby<br>条件组合方式：`=` |
-| 15 | customcond | String | 允许 | 自定义查询条件 |
-| 16 | customparams | String | 允许 | 自定义查询参数 |
-| 17 | query | String | 允许 | 快速搜索 |
-| 18 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 19 | page | int | 允许 | 当前页数<br>默认值0 |
-| 20 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 21 | sort | String | 允许 | 排序 |
+| 1 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 2 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 3 | n_addedby_eq | String | 允许 | 条件字段：addedby<br>条件组合方式：`=` |
+| 4 | n_lasteditedby_eq | String | 允许 | 条件字段：lasteditedby<br>条件组合方式：`=` |
+| 5 | customcond | String | 允许 | 自定义查询条件 |
+| 6 | customparams | String | 允许 | 自定义查询参数 |
+| 7 | query | String | 允许 | 快速搜索 |
+| 8 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 9 | page | int | 允许 | 当前页数<br>默认值0 |
+| 10 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 11 | sort | String | 允许 | 排序 |

@@ -235,13 +235,13 @@ POST
 #### SuiteCaseSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | -- | -- | -- | -- | -- |
-| 6 | n_suite_eq | Long | 允许 | 条件字段：suite<br>条件组合方式：`=` |
-| 7 | n_case_eq | Long | 允许 | 条件字段：case<br>条件组合方式：`=` |
-| 8 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
-| 9 | customcond | String | 允许 | 自定义查询条件 |
-| 10 | customparams | String | 允许 | 自定义查询参数 |
-| 11 | query | String | 允许 | 快速搜索 |
-| 12 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 13 | page | int | 允许 | 当前页数<br>默认值0 |
-| 14 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 15 | sort | String | 允许 | 排序 |
+| 1 | n_suite_eq | Long | 允许 | 条件字段：suite<br>条件组合方式：`=` |
+| 2 | n_case_eq | Long | 允许 | 条件字段：case<br>条件组合方式：`=` |
+| 3 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 4 | customcond | String | 允许 | 自定义查询条件 |
+| 5 | customparams | String | 允许 | 自定义查询参数 |
+| 6 | query | String | 允许 | 快速搜索 |
+| 7 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 8 | page | int | 允许 | 当前页数<br>默认值0 |
+| 9 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 10 | sort | String | 允许 | 排序 |
