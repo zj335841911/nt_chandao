@@ -238,6 +238,41 @@ const datas: Array<any> = [
         ]
     },
     {
+        srfkey: 'StoryQuickpacketMy',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'TOME',
+                label: '指给我',
+                text: '指给我',
+                value: 'TOME',
+                disabled: false,
+            },
+            {
+                id: 'ICREATE',
+                label: '由我创建',
+                text: '由我创建',
+                value: 'ICREATE',
+                disabled: false,
+            },
+            {
+                id: 'IREVIEW',
+                label: '由我评审',
+                text: '由我评审',
+                value: 'IREVIEW',
+                disabled: false,
+            },
+            {
+                id: 'ICLOSE',
+                label: '由我关闭',
+                text: '由我关闭',
+                value: 'ICLOSE',
+                disabled: false,
+            },
+        ]
+    },
+    {
         srfkey: 'Product__acl',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -261,27 +296,6 @@ const datas: Array<any> = [
                 label: '自定义白名单(团队成员和白名单的成员可以访问)',
                 text: '自定义白名单(团队成员和白名单的成员可以访问)',
                 value: 'custom',
-                disabled: false,
-            },
-        ]
-    },
-    {
-        srfkey: 'BugCodeList2',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: 'All',
-                label: '所有',
-                text: '所有',
-                value: 'All',
-                disabled: false,
-            },
-            {
-                id: 'active',
-                label: '未解决',
-                text: '未解决',
-                value: 'active',
                 disabled: false,
             },
         ]
@@ -1272,6 +1286,27 @@ const datas: Array<any> = [
         "items": []
     },
     {
+        srfkey: 'CaseQuickpachet',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'ALL',
+                label: '所有',
+                text: '所有',
+                value: 'ALL',
+                disabled: false,
+            },
+            {
+                id: 'TOME',
+                label: '需求变动',
+                text: '需求变动',
+                value: 'TOME',
+                disabled: false,
+            },
+        ]
+    },
+    {
         "srfkey": "Role",
         "emptytext": "未定义",
         "codelisttype":"dynamic",
@@ -1513,6 +1548,48 @@ const datas: Array<any> = [
                 label: '不需要评审',
                 text: '不需要评审',
                 value: '0',
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'TestQuickpacket',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'ALL',
+                label: '全部',
+                text: '全部',
+                value: 'ALL',
+                disabled: false,
+            },
+            {
+                id: 'ICREATE',
+                label: '待测测试单',
+                text: '待测测试单',
+                value: 'ICREATE',
+                disabled: false,
+            },
+            {
+                id: 'IREVIEW',
+                label: '测试中测试单',
+                text: '测试中测试单',
+                value: 'IREVIEW',
+                disabled: false,
+            },
+            {
+                id: 'ICLOSE',
+                label: '被阻塞测试单',
+                text: '被阻塞测试单',
+                value: 'ICLOSE',
+                disabled: false,
+            },
+            {
+                id: 'Tested',
+                label: '已测测试单',
+                text: '已测测试单',
+                value: 'Tested',
                 disabled: false,
             },
         ]

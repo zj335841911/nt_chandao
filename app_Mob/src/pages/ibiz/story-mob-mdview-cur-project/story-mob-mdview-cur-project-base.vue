@@ -1101,7 +1101,7 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
      * @memberof StoryMobMDViewCurProjectBase
      */
     public loadQuickGroupModel(){
-        let quickGroupCodeList:any = {tag:'Story__quickpacket',codelistType:'STATIC'};
+        let quickGroupCodeList:any = {tag:'StoryQuickpacketMy',codelistType:'STATIC'};
         if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType,"STATIC")){
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {

@@ -249,8 +249,6 @@
   
   * [iBiz平台系统模型接口](client/iBizPSSysModelAPI.md) 
 
-  * [pmsapi接口](client/pmswebapi.md) 
-
   * [ibzou-api](client/IbzOuSysAPI.md) 
 
   * [[R7RT标准接口]动态模型](client/r7rt_dyna.md) 
