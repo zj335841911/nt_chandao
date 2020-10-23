@@ -267,7 +267,7 @@ export default class ProductPlanUIActionBase extends EntityUIActionBase {
 
         const parameters: any[] = [
             { pathName: 'productplans', parameterName: 'productplan' },
-            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);

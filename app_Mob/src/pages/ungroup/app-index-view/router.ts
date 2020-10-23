@@ -1948,6 +1948,35 @@ const router = new Router({
                     component: () => import('@pages/zentao/user-mob-pickup-view/user-mob-pickup-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/editmobeditview',
+                    name: 'productplan_editmobeditview',
+                    meta: {
+                        caption: 'productplan.views.editmobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/product-plan-edit-mob-edit-view/product-plan-edit-mob-edit-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/editmobeditview',
+                    name: 'productplan_editmobeditview',
+                    meta: {
+                        caption: 'productplan.views.editmobeditview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/product-plan-edit-mob-edit-view/product-plan-edit-mob-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/stories/:story?/newmobeditview',
                     name: 'story_newmobeditview',
                     meta: {
