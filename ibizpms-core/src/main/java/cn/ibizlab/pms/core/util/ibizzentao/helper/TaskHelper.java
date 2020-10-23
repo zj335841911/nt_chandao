@@ -22,7 +22,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Component
 @Slf4j
@@ -215,7 +217,6 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             et.setFinishedby("");
         }
 
-
 //        computeHours4Multiple(old, et, teams, false);
 
         this.internalUpdate(et);
@@ -309,15 +310,24 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             Task currentTask = task != null ? task : new Task();
             if (currentTask.getStatus() == null) currentTask.setStatus(old.getStatus());
             currentTask.setAssignedto(old.getAssignedto());
-            if (old.getAssignedto() == null) {
-                TaskTeam firstMember = teams.get(0);
-                currentTask.setAssignedto(firstMember.getAccount());
-                currentTask.setAssigneddate(now);
-            } else {
-                for (TaskTeam team : teams) {
-                    if (team.getAccount() != null && team.getAccount().equals(old.getAssignedto()) && team.getLeft() == 0 && team.getConsumed() != 0) {
-                        if (!old.getAssignedto().equals(teams.get(teams.size() - 1).getAccount())) {
-                            currentTask.setAssignedto(this.getNextUser(teams,old));
+            if (task.getAssignedto() != null) {
+                currentTask.setAssignedto(task.getAssignedto());
+            }
+            else {
+                if (old.getAssignedto() == null) {
+                    TaskTeam firstMember = teams.get(0);
+                    currentTask.setAssignedto(firstMember.getAccount());
+                    currentTask.setAssigneddate(now);
+                } else {
+                    for (TaskTeam team : teams) {
+                        if (team.getAccount() != null && team.getAccount().equals(old.getAssignedto()) && team.getLeft() == 0 && team.getConsumed() != 0) {
+                            if (!old.getAssignedto().equals(teams.get(teams.size() - 1).getAccount())) {
+                                currentTask.setAssignedto(this.getNextUser(teams, old));
+                            }
+                            else {
+                                currentTask.setAssignedto(old.getOpenedby());
+                            }
+                            break;
                         }
                     }
                 }
@@ -926,8 +936,10 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if(newTask.getStory() != null && newTask.getStory() != 0l) {
             storyHelper.setStage(newTask.getZtstory());
         }
+
         return newTask;
     }
+
 
     @Transactional
     public Task close(Task et) {
@@ -952,7 +964,6 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
 
         this.internalUpdate(newTask);
-
         if (old.getParent() > 0)
             updateParentStatus(newTask, old.getParent(), true);
 
