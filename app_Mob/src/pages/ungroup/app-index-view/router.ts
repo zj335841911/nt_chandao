@@ -3142,6 +3142,74 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-mob-pickup-mdview/task-mob-pickup-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/stories/:story?/tasks/:task?/editmobeditview',
+                    name: 'task_editmobeditview',
+                    meta: {
+                        caption: 'task.views.editmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-edit-mob-edit-view/task-edit-mob-edit-view.vue'),
+                },
+                {
+                    path: 'projects/:project?/tasks/:task?/editmobeditview',
+                    name: 'task_editmobeditview',
+                    meta: {
+                        caption: 'task.views.editmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-edit-mob-edit-view/task-edit-mob-edit-view.vue'),
+                },
+                {
+                    path: 'stories/:story?/tasks/:task?/editmobeditview',
+                    name: 'task_editmobeditview',
+                    meta: {
+                        caption: 'task.views.editmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-edit-mob-edit-view/task-edit-mob-edit-view.vue'),
+                },
+                {
+                    path: 'tasks/:task?/editmobeditview',
+                    name: 'task_editmobeditview',
+                    meta: {
+                        caption: 'task.views.editmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-edit-mob-edit-view/task-edit-mob-edit-view.vue'),
+                },
+                {
                     path: 'todos/:todo?/mobmdview',
                     name: 'todo_mobmdview',
                     meta: {
@@ -4646,39 +4714,6 @@ const router = new Router({
                     component: () => import('@pages/ibiz/ibz-my-territory-mob-calendar-view/ibz-my-territory-mob-calendar-view.vue'),
                 },
                 {
-                    path: 'products/:product?/releases/:release?/editmobeditview',
-                    name: 'release_editmobeditview',
-                    meta: {
-                        caption: 'release.views.editmobeditview.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-flag-o',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'products', parameterName: 'product' },
-                            { pathName: 'releases', parameterName: 'release' },
-                            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/release-edit-mob-edit-view/release-edit-mob-edit-view.vue'),
-                },
-                {
-                    path: 'releases/:release?/editmobeditview',
-                    name: 'release_editmobeditview',
-                    meta: {
-                        caption: 'release.views.editmobeditview.caption',
-                        imgPath: '',
-                        iconCls: 'fa fa-flag-o',
-                        parameters: [
-                            { pathName: 'viewshell', parameterName: 'viewshell' },
-                            { pathName: 'releases', parameterName: 'release' },
-                            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/ibiz/release-edit-mob-edit-view/release-edit-mob-edit-view.vue'),
-                },
-                {
                     path: 'products/:product?/stories/:story?/mobmdview9',
                     name: 'story_mobmdview9',
                     meta: {
@@ -4710,6 +4745,39 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/story-mob-mdview9/story-mob-mdview9.vue'),
+                },
+                {
+                    path: 'products/:product?/releases/:release?/editmobeditview',
+                    name: 'release_editmobeditview',
+                    meta: {
+                        caption: 'release.views.editmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'releases', parameterName: 'release' },
+                            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/release-edit-mob-edit-view/release-edit-mob-edit-view.vue'),
+                },
+                {
+                    path: 'releases/:release?/editmobeditview',
+                    name: 'release_editmobeditview',
+                    meta: {
+                        caption: 'release.views.editmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-flag-o',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'releases', parameterName: 'release' },
+                            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/release-edit-mob-edit-view/release-edit-mob-edit-view.vue'),
                 },
                 {
                     path: 'projects/:project?/builds/:build?/mobmdview',

@@ -152,6 +152,7 @@ export const viewstate: any = {
                 '20d9ad91186fc647b9fd98d0b562341b',
                 '5417edd9f4126190105417c652149d76',
                 'd739ee414172cbfdc3d6e2d2e01e3676',
+                '31c08ada7e3c3bc55c550b01fd8422c6',
                 'd782757fc67316b491cc796a66a68f2b',
                 '78beacb29481bfa83dfce62ac4bd9d13',
                 'e7bc340642f7bc0346a1f220d1523954',
@@ -364,6 +365,22 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '85742d38f356f400b16652a3f7ae714b',
+            ],
+        },
+        {
+            viewtag: '31c08ada7e3c3bc55c550b01fd8422c6',
+            viewmodule: 'ibiz',
+            viewname: 'TaskEditMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'fff6b013908d42dfb7dc46a67e7467b9',
+                'e7bc340642f7bc0346a1f220d1523954',
+                '5384573c08c076ea5d17a07231e3247c',
+                'b1c76392040ff2e9ed2e3ae2b0260602',
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+                'f48661e4f3797c86502abe30dae2f89f',
             ],
         },
         {

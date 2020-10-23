@@ -71,6 +71,9 @@ export default {
 		stopmoboptionview: {
 			caption: '暂停',
 		},
+		editmobeditview: {
+			caption: '任务',
+		},
 		cancelmoboptionview: {
 			caption: '取消',
 		},
@@ -304,6 +307,67 @@ export default {
 		uiactions: {
 		},
 	},
+	mobmainedit_form: {
+		details: {
+			grouppanel6: '任务描述', 
+			grouppanel7: '备注', 
+			druipart1: '', 
+			grouppanel2: '分组面板', 
+			group1: '任务基本信息', 
+			druipart2: '', 
+			grouppanel8: '分组面板', 
+			grouppanel1: '基本信息', 
+			grouppanel4: '工时信息', 
+			grouppanel5: '任务的一生', 
+			grouppanel3: '分组面板', 
+			formpage1: '基本信息', 
+			srfupdatedate: '最后修改日期', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '任务名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			id: '编号', 
+			name: '任务名称', 
+			multiple: '多人任务', 
+			desc: '任务描述', 
+			comment: '备注', 
+			files: '附件', 
+			projectname: '所属项目', 
+			project: '所属项目', 
+			module: 'id', 
+			modulename: '所属模块', 
+			allmodules: '所有模块', 
+			storyname: '相关需求', 
+			story: '相关需求', 
+			parentname: '父任务', 
+			parent: '父任务', 
+			assignedto: '指派给', 
+			storyversion: '需求版本', 
+			type: '任务类型', 
+			status: '任务状态', 
+			pri: '优先级', 
+			mailto: '抄送给', 
+			eststarted: '预计开始', 
+			deadline: '截止日期', 
+			estimate: '最初预计', 
+			consumed: '总计消耗', 
+			left: '预计剩余', 
+			openedby: '由谁创建', 
+			realstarted: '实际开始', 
+			finishedby: '由谁完成', 
+			finisheddate: '实际完成', 
+			canceledby: '由谁取消', 
+			canceleddate: '取消时间', 
+			closedby: '由谁关闭', 
+			closedreason: '关闭原因', 
+			closeddate: '关闭时间', 
+		},
+		uiactions: {
+		},
+	},
 	mobdef_searchform: {
 		details: {
 			formpage1: '常规条件', 
@@ -325,6 +389,12 @@ export default {
 		deuiaction1: {
 			caption: '新建',
 			tip: 'deuiaction1',
+		},
+	},
+	editmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: 'Save And Close',
+			tip: 'tbitem1',
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
@@ -359,6 +429,10 @@ export default {
 		deuiaction1_closetaskmob: {
 			caption: '关闭',
 			tip: 'deuiaction1_closetaskmob',
+		},
+		deuiaction1_mobmainedit: {
+			caption: '编辑',
+			tip: 'deuiaction1_mobmainedit',
 		},
 		deuiaction1_deletemob: {
 			caption: '删除',

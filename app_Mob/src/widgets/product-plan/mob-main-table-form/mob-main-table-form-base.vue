@@ -168,7 +168,11 @@
     :disabled="detailsModel.future.disabled"
     :error="detailsModel.future.error" 
     :isEmptyCaption="false">
-        
+        <app-mob-switch 
+    class="app-form-item-switch" 
+    :value="data.future"  
+    :disabled="detailsModel.future.disabled"
+    @change="($event)=>this.data.future = $event" />
 </app-form-item>
 
 
