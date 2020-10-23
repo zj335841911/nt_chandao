@@ -238,41 +238,6 @@ const datas: Array<any> = [
         ]
     },
     {
-        srfkey: 'StoryQuickpacketMy',
-        emptytext: '未定义',
-        "codelisttype":"static",
-        items: [
-            {
-                id: 'TOME',
-                label: '指给我',
-                text: '指给我',
-                value: 'TOME',
-                disabled: false,
-            },
-            {
-                id: 'ICREATE',
-                label: '由我创建',
-                text: '由我创建',
-                value: 'ICREATE',
-                disabled: false,
-            },
-            {
-                id: 'IREVIEW',
-                label: '由我评审',
-                text: '由我评审',
-                value: 'IREVIEW',
-                disabled: false,
-            },
-            {
-                id: 'ICLOSE',
-                label: '由我关闭',
-                text: '由我关闭',
-                value: 'ICLOSE',
-                disabled: false,
-            },
-        ]
-    },
-    {
         srfkey: 'Product__acl',
         emptytext: '未定义',
         "codelisttype":"static",
@@ -296,6 +261,27 @@ const datas: Array<any> = [
                 label: '自定义白名单(团队成员和白名单的成员可以访问)',
                 text: '自定义白名单(团队成员和白名单的成员可以访问)',
                 value: 'custom',
+                disabled: false,
+            },
+        ]
+    },
+    {
+        srfkey: 'BugCodeList2',
+        emptytext: '未定义',
+        "codelisttype":"static",
+        items: [
+            {
+                id: 'All',
+                label: '所有',
+                text: '所有',
+                value: 'All',
+                disabled: false,
+            },
+            {
+                id: 'active',
+                label: '未解决',
+                text: '未解决',
+                value: 'active',
                 disabled: false,
             },
         ]
@@ -1599,7 +1585,7 @@ const datas: Array<any> = [
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"SysEmployee",
-        "appdedataset":"FetchDefault",
+        "appdedataset":"FetchBugUser",
         "items": []
     },
     {
@@ -3569,7 +3555,7 @@ const datas: Array<any> = [
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"SysEmployee",
-        "appdedataset":"FetchDefault",
+        "appdedataset":"FetchProjectTeamUser",
         "items": []
     },
     {
@@ -4103,7 +4089,7 @@ const datas: Array<any> = [
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"SysEmployee",
-        "appdedataset":"FetchDefault",
+        "appdedataset":"FetchTaskTeam",
         "items": []
     },
     {

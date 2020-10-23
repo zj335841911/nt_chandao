@@ -337,57 +337,6 @@
         ]
     }, 
     {
-        "srfkey": "StoryQuickpacketMy",
-        "emptytext": "未定义",
-        "codelisttype":"static",
-        "items": [
-             {
-                "id": "TOME",
-                "label": "指给我",
-                "text": "指给我",
-                "default": true,
-                "data": {"n_assignedto_eq":"%srfloginname%"},
-                "value": "TOME",
-                "isValueNumber":false,
-                
-                "disabled": false
-            }
-            , {
-                "id": "ICREATE",
-                "label": "由我创建",
-                "text": "由我创建",
-                "default": false,
-                "data": {"n_openedby_eq":"%srfloginname%"},
-                "value": "ICREATE",
-                "isValueNumber":false,
-                
-                "disabled": false
-            }
-            , {
-                "id": "IREVIEW",
-                "label": "由我评审",
-                "text": "由我评审",
-                "default": false,
-                "data": {"n_reviewedby_eq":"%srfloginname%"},
-                "value": "IREVIEW",
-                "isValueNumber":false,
-                
-                "disabled": false
-            }
-            , {
-                "id": "ICLOSE",
-                "label": "由我关闭",
-                "text": "由我关闭",
-                "default": false,
-                "data": {"n_closedby_eq":"%srfloginname%"},
-                "value": "ICLOSE",
-                "isValueNumber":false,
-                
-                "disabled": false
-            }
-        ]
-    }, 
-    {
         "srfkey": "Product__acl",
         "emptytext": "未定义",
         "codelisttype":"static",
@@ -421,6 +370,35 @@
                 "default": false,
                 "data": "",
                 "value": "custom",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+        ]
+    }, 
+    {
+        "srfkey": "BugCodeList2",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "All",
+                "label": "所有",
+                "text": "所有",
+                "default": true,
+                "data": {},
+                "value": "All",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+            , {
+                "id": "active",
+                "label": "未解决",
+                "text": "未解决",
+                "default": false,
+                "data": {"n_status_eq":"active"},
+                "value": "active",
                 "isValueNumber":false,
                 
                 "disabled": false
@@ -2372,7 +2350,7 @@
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"SysEmployee",
-        "appdedataset":"FetchDefault",
+        "appdedataset":"FetchBugUser",
         "items": []
     }, 
     {
@@ -5406,7 +5384,7 @@
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"SysEmployee",
-        "appdedataset":"FetchDefault",
+        "appdedataset":"FetchProjectTeamUser",
         "items": []
     }, 
     {
@@ -6223,7 +6201,7 @@
         "emptytext": "未定义",
         "codelisttype":"dynamic",
         "appdataentity":"SysEmployee",
-        "appdedataset":"FetchDefault",
+        "appdedataset":"FetchTaskTeam",
         "items": []
     }, 
     {

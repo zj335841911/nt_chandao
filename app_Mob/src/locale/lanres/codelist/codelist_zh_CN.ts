@@ -48,17 +48,15 @@ export default {
         'item': '分组步骤',
         empty: '',
     },
-    StoryQuickpacketMy: {
-        'TOME': '指给我',
-        'ICREATE': '由我创建',
-        'IREVIEW': '由我评审',
-        'ICLOSE': '由我关闭',
-        empty: '',
-    },
     Product__acl: {
         'open': '默认设置(有产品视图权限，即可访问)',
         'private': '私有产品(相关负责人和项目团队成员才能访问)',
         'custom': '自定义白名单(团队成员和白名单的成员可以访问)',
+        empty: '',
+    },
+    BugCodeList2: {
+        'All': '所有',
+        'active': '未解决',
         empty: '',
     },
     Project__status: {
