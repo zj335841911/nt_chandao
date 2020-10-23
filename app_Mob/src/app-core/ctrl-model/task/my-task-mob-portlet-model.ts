@@ -186,6 +186,9 @@ export class MyTaskMobModel {
       {
         name: 'files',
       },
+      {
+        name: 'usernames',
+      },
     ]
   }
 

@@ -79,6 +79,14 @@
                 <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_resolvebugmob.caption')}}</span>
             </div>
         
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobmainedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobmainedit.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_mobmainedit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobmainedit' }, $event)" size="large">
+                    <ion-icon name="edit"></ion-icon>
+                <span class="btn-inner-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_mobmainedit.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('bug.mobeditviewrighttoolbar_toolbar.deuiaction1_mobmainedit.caption')}}</span>
+            </div>
+        
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_closebugmob.disabled}" v-show="righttoolbarModels.deuiaction1_closebugmob.visabled">
                 <ion-button :disabled="righttoolbarModels.deuiaction1_closebugmob.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_closebugmob' }, $event)" size="large">
                     <ion-icon name="close"></ion-icon>
@@ -328,6 +336,8 @@ export default class BugMobEditViewBase extends Vue {
             deuiaction1_activationmob: { name: 'deuiaction1_activationmob', caption: '激活', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_ACTIVATE_BUT', uiaction: { tag: 'ActivationMob', target: 'SINGLEKEY' } },
 
             deuiaction1_resolvebugmob: { name: 'deuiaction1_resolvebugmob', caption: '解决', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', uiaction: { tag: 'ResolveBugMob', target: 'SINGLEKEY' } },
+
+            deuiaction1_mobmainedit: { name: 'deuiaction1_mobmainedit', caption: '编辑', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_EDIT_BUT', uiaction: { tag: 'MobMainEdit', target: 'SINGLEKEY' } },
 
             deuiaction1_closebugmob: { name: 'deuiaction1_closebugmob', caption: '关闭', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CLOSE_BUT', uiaction: { tag: 'CloseBugMob', target: 'SINGLEKEY' } },
 
@@ -624,6 +634,9 @@ export default class BugMobEditViewBase extends Vue {
         if (Object.is($event.tag, 'deuiaction1_resolvebugmob')) {
             this.righttoolbar_deuiaction1_resolvebugmob_click($event, '', $event2);
         }
+        if (Object.is($event.tag, 'deuiaction1_mobmainedit')) {
+            this.righttoolbar_deuiaction1_mobmainedit_click($event, '', $event2);
+        }
         if (Object.is($event.tag, 'deuiaction1_closebugmob')) {
             this.righttoolbar_deuiaction1_closebugmob_click($event, '', $event2);
         }
@@ -755,6 +768,38 @@ export default class BugMobEditViewBase extends Vue {
         const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
         if (curUIService) {
             curUIService.Bug_ResolveBugMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof BugMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_mobmainedit_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_MobMainEdit(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 

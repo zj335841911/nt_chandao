@@ -46,43 +46,48 @@ export class MobEditFormModel {
                 name: 'srfsourcekey',
             },
             {
-                name: 'project',
-                prop: 'project',
+                name: 'projecttname',
+                prop: 'projecttname',
+                dataType: 'PICKUPTEXT',
+            },
+            {
+                name: 'product',
+                prop: 'product',
                 dataType: 'PICKUP',
             },
             {
-                name: 'productname',
-                prop: 'productname',
+                name: 'buildname',
+                prop: 'buildname',
                 dataType: 'PICKUPTEXT',
+            },
+            {
+                name: 'owner',
+                prop: 'owner',
+                dataType: 'TEXT',
+            },
+            {
+                name: 'pri',
+                prop: 'pri',
+                dataType: 'NSCODELIST',
+            },
+            {
+                name: 'begin',
+                prop: 'begin',
+                dataType: 'DATE',
+            },
+            {
+                name: 'end',
+                prop: 'end',
+                dataType: 'DATE',
+            },
+            {
+                name: 'status',
+                prop: 'status',
+                dataType: 'SSCODELIST',
             },
             {
                 name: 'name',
                 prop: 'name',
-                dataType: 'TEXT',
-            },
-            {
-                name: 'builder',
-                prop: 'builder',
-                dataType: 'TEXT',
-            },
-            {
-                name: 'date',
-                prop: 'date',
-                dataType: 'DATE',
-            },
-            {
-                name: 'scmpath',
-                prop: 'scmpath',
-                dataType: 'TEXT',
-            },
-            {
-                name: 'filepath',
-                prop: 'filepath',
-                dataType: 'TEXT',
-            },
-            {
-                name: 'files',
-                prop: 'files',
                 dataType: 'TEXT',
             },
             {
@@ -91,17 +96,32 @@ export class MobEditFormModel {
                 dataType: 'LONGTEXT',
             },
             {
+                name: 'comment',
+                prop: 'comment',
+                dataType: 'HTMLTEXT',
+            },
+            {
+                name: 'mailto',
+                prop: 'mailto',
+                dataType: 'LONGTEXT',
+            },
+            {
                 name: 'id',
                 prop: 'id',
                 dataType: 'ACID',
             },
             {
-                name: 'product',
-                prop: 'product',
+                name: 'project',
+                prop: 'project',
                 dataType: 'PICKUP',
             },
             {
                 name: 'build',
+                prop: 'build',
+                dataType: 'PICKUP',
+            },
+            {
+                name: 'testtask',
                 prop: 'id',
                 dataType: 'FONTKEY',
             },

@@ -1,5 +1,5 @@
 <template>
-    <div ref='form' class="app-form build-form ">
+    <div ref='form' class="app-form testtask-form ">
                 
 
 <app-form-group 
@@ -9,7 +9,7 @@
     uiStyle="DEFAULT" 
     v-show="detailsModel.group1.visible" 
     :uiActionGroup="detailsModel.group1.uiActionGroup" 
-    :caption="$t('build.mobeditform_form.details.group1')" 
+    :caption="$t('testtask.mobeditform_form.details.group1')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
@@ -22,9 +22,9 @@
     layoutType='TABLE_24COL' 
     titleStyle='' 
     uiStyle="DEFAULT" 
-    v-show="detailsModel.grouppanel2.visible" 
-    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
-    :caption="$t('build.mobeditform_form.details.grouppanel2')" 
+    v-show="detailsModel.grouppanel1.visible" 
+    :uiActionGroup="detailsModel.grouppanel1.uiActionGroup" 
+    :caption="$t('testtask.mobeditform_form.details.grouppanel1')" 
     :isShowCaption="false" 
     :titleBarCloseMode="0" 
     :isInfoGroupMode="false" 
@@ -33,43 +33,250 @@
     @groupuiactionclick="groupUIActionClick($event)">
     
 <app-form-item 
-    name='productname' 
+    name='projecttname' 
     class='' 
     uiStyle="DEFAULT"  
     labelPos="LEFT" 
-    ref="productname_item"  
-    :itemValue="this.data.productname" 
-    v-show="detailsModel.productname.visible" 
-    :itemRules="this.rules.productname" 
-    :caption="$t('build.mobeditform_form.details.productname')"  
+    ref="projecttname_item"  
+    :itemValue="this.data.projecttname" 
+    v-show="detailsModel.projecttname.visible" 
+    :itemRules="this.rules.projecttname" 
+    :caption="$t('testtask.mobeditform_form.details.projecttname')"  
     :labelWidth="100"  
     :isShowCaption="true"
-    :disabled="detailsModel.productname.disabled"
-    :error="detailsModel.productname.error" 
+    :disabled="detailsModel.projecttname.disabled"
+    :error="detailsModel.projecttname.error" 
     :isEmptyCaption="false">
         <app-mob-picker
-    name='productname'
-    deMajorField='productname'
-    deKeyField='productid'
-    valueitem='product' 
+    name='projecttname'
+    deMajorField='projectname'
+    deKeyField='projectid'
+    valueitem='project' 
     editortype="" 
     style=""  
     :formState="formState"
     :data="data"
     :context="context"
     :viewparams="viewparams"
-    :navigateContext ='{ "srfparentkey": "%project%" } '
-    :navigateParam ='{ "srfparentkey": "%project%" } '
+    :navigateContext ='{ "product": "%product%" } '
+    :navigateParam ='{ "product": "%product%" } '
     :itemParam='{ }' 
-    :disabled="detailsModel.productname.disabled"
+    :disabled="detailsModel.projecttname.disabled"
     :service="service"
-    :acParams="{ serviceName: 'product', interfaceName: 'FetchCurProject'}"
-    :value="data.productname" 
-    :pickupView="{ viewname: 'product-mob-pickup-view', title: '产品移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'products', parameterName: 'product' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
+    :acParams="{ serviceName: 'project', interfaceName: 'FetchBugProject'}"
+    :value="data.projecttname" 
+    :pickupView="{ viewname: 'project-mob-pickup-view', title: '项目移动端数据选择视图', deResParameters: [], parameters: [{ pathName: 'projects', parameterName: 'project' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
     @formitemvaluechange="onFormItemValueChange">
 </app-mob-picker>
 
 </app-form-item>
+
+
+
+<app-form-item 
+    name='buildname' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="buildname_item"  
+    :itemValue="this.data.buildname" 
+    v-show="detailsModel.buildname.visible" 
+    :itemRules="this.rules.buildname" 
+    :caption="$t('testtask.mobeditform_form.details.buildname')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.buildname.disabled"
+    :error="detailsModel.buildname.error" 
+    :isEmptyCaption="false">
+        <app-mob-picker
+    name='buildname'
+    deMajorField='buildname'
+    deKeyField='buildid'
+    valueitem='build' 
+    editortype="" 
+    style=""  
+    :formState="formState"
+    :data="data"
+    :context="context"
+    :viewparams="viewparams"
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    :itemParam='{ }' 
+    :disabled="detailsModel.buildname.disabled"
+    :service="service"
+    :acParams="{ serviceName: 'build', interfaceName: 'FetchTestBuild'}"
+    :value="data.buildname" 
+    :pickupView="{ viewname: 'build-mob-pickup-view', title: '版本移动端数据选择视图', deResParameters: [{ pathName: 'products', parameterName: 'product' }, ], parameters: [{ pathName: 'builds', parameterName: 'build' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
+    @formitemvaluechange="onFormItemValueChange">
+</app-mob-picker>
+
+</app-form-item>
+
+
+
+<app-form-item 
+    name='owner' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="owner_item"  
+    :itemValue="this.data.owner" 
+    v-show="detailsModel.owner.visible" 
+    :itemRules="this.rules.owner" 
+    :caption="$t('testtask.mobeditform_form.details.owner')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.owner.disabled"
+    :error="detailsModel.owner.error" 
+    :isEmptyCaption="false">
+        <app-mob-select 
+    tag="UserRealName"
+    codeListType="DYNAMIC" 
+    :isCache="false" 
+    :disabled="detailsModel.owner.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.owner"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.owner = $event" />
+</app-form-item>
+
+
+
+<app-form-item 
+    name='pri' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="pri_item"  
+    :itemValue="this.data.pri" 
+    v-show="detailsModel.pri.visible" 
+    :itemRules="this.rules.pri" 
+    :caption="$t('testtask.mobeditform_form.details.pri')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.pri.disabled"
+    :error="detailsModel.pri.error" 
+    :isEmptyCaption="false">
+        <app-mob-select 
+    tag="Testtask__pri"
+    codeListType="STATIC" 
+    :isCache="false" 
+    :disabled="detailsModel.pri.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.pri"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.pri = $event" />
+</app-form-item>
+
+
+
+<app-form-group 
+    class='' 
+    layoutType='TABLE_24COL' 
+    titleStyle='' 
+    uiStyle="DEFAULT" 
+    v-show="detailsModel.grouppanel2.visible" 
+    :uiActionGroup="detailsModel.grouppanel2.uiActionGroup" 
+    :caption="$t('testtask.mobeditform_form.details.grouppanel2')" 
+    :isShowCaption="false" 
+    :titleBarCloseMode="0" 
+    :isInfoGroupMode="false" 
+    :data="transformData(data)"
+    :uiService="deUIService"
+    @groupuiactionclick="groupUIActionClick($event)">
+    
+<app-form-item 
+    name='begin' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="begin_item"  
+    :itemValue="this.data.begin" 
+    v-show="detailsModel.begin.visible" 
+    :itemRules="this.rules.begin" 
+    :caption="$t('testtask.mobeditform_form.details.begin')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.begin.disabled"
+    :error="detailsModel.begin.error" 
+    :isEmptyCaption="false">
+        <app-mob-datetime-picker 
+    displayFormat="YYYY-MM-DD"
+    class="app-form-item-datetime" 
+    :value="data.begin" 
+    :disabled="detailsModel.begin.disabled"
+    @change="($event)=>this.data.begin = $event"/>
+</app-form-item>
+
+
+
+<app-form-item 
+    name='end' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="end_item"  
+    :itemValue="this.data.end" 
+    v-show="detailsModel.end.visible" 
+    :itemRules="this.rules.end" 
+    :caption="$t('testtask.mobeditform_form.details.end')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.end.disabled"
+    :error="detailsModel.end.error" 
+    :isEmptyCaption="false">
+        <app-mob-datetime-picker 
+    displayFormat="YYYY-MM-DD"
+    class="app-form-item-datetime" 
+    :value="data.end" 
+    :disabled="detailsModel.end.disabled"
+    @change="($event)=>this.data.end = $event"/>
+</app-form-item>
+
+
+    
+</app-form-group>
+
+
+
+<app-form-item 
+    name='status' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="status_item"  
+    :itemValue="this.data.status" 
+    v-show="detailsModel.status.visible" 
+    :itemRules="this.rules.status" 
+    :caption="$t('testtask.mobeditform_form.details.status')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :disabled="detailsModel.status.disabled"
+    :error="detailsModel.status.error" 
+    :isEmptyCaption="false">
+        <app-mob-select 
+    tag="Testtask__status"
+    codeListType="STATIC" 
+    :isCache="false" 
+    :disabled="detailsModel.status.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.status"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.status = $event" />
+</app-form-item>
+
+
+    
+</app-form-group>
 
 
 
@@ -82,7 +289,7 @@
     :itemValue="this.data.name" 
     v-show="detailsModel.name.visible" 
     :itemRules="this.rules.name" 
-    :caption="$t('build.mobeditform_form.details.name')"  
+    :caption="$t('testtask.mobeditform_form.details.name')"  
     :labelWidth="100"  
     :isShowCaption="true"
     :disabled="detailsModel.name.disabled"
@@ -100,151 +307,6 @@
 
 
 <app-form-item 
-    name='builder' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="builder_item"  
-    :itemValue="this.data.builder" 
-    v-show="detailsModel.builder.visible" 
-    :itemRules="this.rules.builder" 
-    :caption="$t('build.mobeditform_form.details.builder')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.builder.disabled"
-    :error="detailsModel.builder.error" 
-    :isEmptyCaption="false">
-        <app-mob-select 
-    tag="UserRealName"
-    codeListType="DYNAMIC" 
-    :isCache="false" 
-    :disabled="detailsModel.builder.disabled" 
-    :data="data" 
-    :context="context" 
-    :viewparams="viewparams"
-    :value="data.builder"  
-    :navigateContext ='{ } '
-    :navigateParam ='{ } '
-    @change="($event)=>this.data.builder = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='date' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="date_item"  
-    :itemValue="this.data.date" 
-    v-show="detailsModel.date.visible" 
-    :itemRules="this.rules.date" 
-    :caption="$t('build.mobeditform_form.details.date')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.date.disabled"
-    :error="detailsModel.date.error" 
-    :isEmptyCaption="false">
-        <app-mob-datetime-picker 
-    displayFormat="YYYY-MM-DD"
-    class="app-form-item-datetime" 
-    :value="data.date" 
-    :disabled="detailsModel.date.disabled"
-    @change="($event)=>this.data.date = $event"/>
-</app-form-item>
-
-
-    
-</app-form-group>
-
-
-
-<app-form-item 
-    name='scmpath' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="scmpath_item"  
-    :itemValue="this.data.scmpath" 
-    v-show="detailsModel.scmpath.visible" 
-    :itemRules="this.rules.scmpath" 
-    :caption="$t('build.mobeditform_form.details.scmpath')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.scmpath.disabled"
-    :error="detailsModel.scmpath.error" 
-    :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.scmpath"
-    unit=""
-    :disabled="detailsModel.scmpath.disabled" 
-    @change="($event)=>this.data.scmpath = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='filepath' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="filepath_item"  
-    :itemValue="this.data.filepath" 
-    v-show="detailsModel.filepath.visible" 
-    :itemRules="this.rules.filepath" 
-    :caption="$t('build.mobeditform_form.details.filepath')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.filepath.disabled"
-    :error="detailsModel.filepath.error" 
-    :isEmptyCaption="false">
-        <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
-    :value="data.filepath"
-    unit=""
-    :disabled="detailsModel.filepath.disabled" 
-    @change="($event)=>this.data.filepath = $event" />
-</app-form-item>
-
-
-
-<app-form-item 
-    name='files' 
-    class='' 
-    uiStyle="DEFAULT"  
-    labelPos="LEFT" 
-    ref="files_item"  
-    :itemValue="this.data.files" 
-    v-show="detailsModel.files.visible" 
-    :itemRules="this.rules.files" 
-    :caption="$t('build.mobeditform_form.details.files')"  
-    :labelWidth="100"  
-    :isShowCaption="true"
-    :disabled="detailsModel.files.disabled"
-    :error="detailsModel.files.error" 
-    :isEmptyCaption="false">
-        <app-mob-file-upload 
-    name='files' 
-    style="overflow: auto;" 
-    :multiple="true" 
-    :formState="formState" 
-    :ignorefieldvaluechange="ignorefieldvaluechange" 
-    :data="JSON.stringify(this.data)" 
-    :value="data.files" 
-    :disabled="detailsModel.files.disabled" 
-    :context="context" 
-    :viewparams="viewparams" 
-    :uploadParam='{}' 
-    :exportParam='{}' 
-    @formitemvaluechange="onFormItemValueChange" />
-</app-form-item>
-
-
-
-<app-form-item 
     name='desc' 
     class='' 
     uiStyle="DEFAULT"  
@@ -253,15 +315,42 @@
     :itemValue="this.data.desc" 
     v-show="detailsModel.desc.visible" 
     :itemRules="this.rules.desc" 
-    :caption="$t('build.mobeditform_form.details.desc')"  
+    :caption="$t('testtask.mobeditform_form.details.desc')"  
     :labelWidth="100"  
     :isShowCaption="true"
     :error="detailsModel.desc.error" 
     :isEmptyCaption="false">
-        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{}' :exportparams='{}'  style=""/>
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :uploadparams='{objecttype:"testtask",version:"editor"}' :exportparams='{objecttype:"testtask",version:"editor"}'  style=""/>
 
 </app-form-item>
 
+
+
+<app-form-item 
+    name='comment' 
+    class='' 
+    uiStyle="DEFAULT"  
+    labelPos="LEFT" 
+    ref="comment_item"  
+    :itemValue="this.data.comment" 
+    v-show="detailsModel.comment.visible" 
+    :itemRules="this.rules.comment" 
+    :caption="$t('testtask.mobeditform_form.details.comment')"  
+    :labelWidth="100"  
+    :isShowCaption="true"
+    :error="detailsModel.comment.error" 
+    :isEmptyCaption="false">
+        <app-mob-rich-text-editor-pms :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :uploadparams='{objecttype:"testtask",version:"editor"}' :exportparams='{objecttype:"testtask",version:"editor"}'  style=""/>
+
+</app-form-item>
+
+
+
+!!!!模版产生代码错误:----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${P.getEditorCode(item, "EDITOR.vue")...  [in template "TEMPLCODE_en_US" at line 38, column 9]
+----
+无法获取指定编辑器[ADDRESSPICKUP_AC]发布代码[FORMITEM][EDITOR.vue]模板
 
     
 </app-form-group>
@@ -277,11 +366,11 @@ import { CreateElement } from 'vue';
 import { Subject, Subscription } from 'rxjs';
 import { ControlInterface } from '@/interface/control';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
-import BuildService from '@/app-core/service/build/build-service';
-import MobEditFormService from '@/app-core/ctrl-service/build/mob-edit-form-form-service';
+import TestTaskService from '@/app-core/service/test-task/test-task-service';
+import MobEditFormService from '@/app-core/ctrl-service/test-task/mob-edit-form-form-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
-import BuildUIService from '@/ui-service/build/build-ui-action';
+import TestTaskUIService from '@/ui-service/test-task/test-task-ui-action';
 
 import { FormButtonModel, FormPageModel, FormItemModel, FormDRUIPartModel, FormPartModel, FormGroupPanelModel, FormIFrameModel, FormRowItemModel, FormTabPageModel, FormTabPanelModel, FormUserControlModel } from '@/model/form-detail';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -387,18 +476,18 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
     /**
      * 实体服务对象
      *
-     * @type {BuildService}
+     * @type {TestTaskService}
      * @memberof MobEditForm
      */
-    protected appEntityService: BuildService = new BuildService();
+    protected appEntityService: TestTaskService = new TestTaskService();
 
     /**
      * 界面UI服务对象
      *
-     * @type {BuildUIService}
+     * @type {TestTaskUIService}
      * @memberof MobEditFormBase
      */  
-    public deUIService:BuildUIService = new BuildUIService(this.$store);
+    public deUIService:TestTaskUIService = new TestTaskUIService(this.$store);
     
 
     /**
@@ -585,18 +674,22 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         srfuf: null,
         srfdeid: null,
         srfsourcekey: null,
-        project: null,
-        productname: null,
-        name: null,
-        builder: null,
-        date: null,
-        scmpath: null,
-        filepath: null,
-        files: null,
-        desc: null,
-        id: null,
+        projecttname: null,
         product: null,
+        buildname: null,
+        owner: null,
+        pri: null,
+        begin: null,
+        end: null,
+        status: null,
+        name: null,
+        desc: null,
+        comment: null,
+        mailto: null,
+        id: null,
+        project: null,
         build: null,
+        testtask: null,
     };
 
     /**
@@ -638,21 +731,25 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
      * @memberof MobEditForm
      */
     protected rules: any = {
-        productname: [
-            { required: true, type: 'string', message: '产品 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '产品 值不能为空', trigger: 'blur' },
+        projecttname: [
+            { required: true, type: 'string', message: '项目 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '项目 值不能为空', trigger: 'blur' },
+        ],
+        buildname: [
+            { required: true, type: 'string', message: '版本 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '版本 值不能为空', trigger: 'blur' },
+        ],
+        begin: [
+            { required: true, type: 'string', message: '开始日期 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '开始日期 值不能为空', trigger: 'blur' },
+        ],
+        end: [
+            { required: true, type: 'string', message: '结束日期 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '结束日期 值不能为空', trigger: 'blur' },
         ],
         name: [
-            { required: true, type: 'string', message: '名称编号 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '名称编号 值不能为空', trigger: 'blur' },
-        ],
-        builder: [
-            { required: true, type: 'string', message: '构建者 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '构建者 值不能为空', trigger: 'blur' },
-        ],
-        date: [
-            { required: true, type: 'string', message: '打包日期 值不能为空', trigger: 'change' },
-            { required: true, type: 'string', message: '打包日期 值不能为空', trigger: 'blur' },
+            { required: true, type: 'string', message: '名称 值不能为空', trigger: 'change' },
+            { required: true, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
         ],
     }
 
@@ -743,17 +840,19 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
      * @memberof MobEditForm
      */
     protected detailsModel: any = {
-        grouppanel2: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'build.mobeditform_form', extractMode: 'ITEM', details: [] } })
+        grouppanel2: new FormGroupPanelModel({ caption: '起止日期', detailType: 'GROUPPANEL', name: 'grouppanel2', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'testtask.mobeditform_form', extractMode: 'ITEM', details: [] } })
 , 
-        group1: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'build.mobeditform_form', extractMode: 'ITEM', details: [] } })
+        grouppanel1: new FormGroupPanelModel({ caption: '分组面板', detailType: 'GROUPPANEL', name: 'grouppanel1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'testtask.mobeditform_form', extractMode: 'ITEM', details: [] } })
+, 
+        group1: new FormGroupPanelModel({ caption: '基本信息', detailType: 'GROUPPANEL', name: 'group1', visible: true, isShowCaption: false, form: this, uiActionGroup: { caption: '', langbase: 'testtask.mobeditform_form', extractMode: 'ITEM', details: [] } })
 , 
         formpage1: new FormPageModel({ caption: '基本信息', detailType: 'FORMPAGE', name: 'formpage1', visible: true, isShowCaption: true, form: this })
 , 
         srforikey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srforikey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        srfkey: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        srfkey: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'srfkey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
 , 
-        srfmajortext: new FormItemModel({ caption: '名称编号', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        srfmajortext: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'srfmajortext', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         srftempmode: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srftempmode', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
@@ -763,27 +862,35 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
 , 
         srfsourcekey: new FormItemModel({ caption: '', detailType: 'FORMITEM', name: 'srfsourcekey', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        projecttname: new FormItemModel({ caption: '项目', detailType: 'FORMITEM', name: 'projecttname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        productname: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'productname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        product: new FormItemModel({ caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        name: new FormItemModel({ caption: '名称编号', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        buildname: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'buildname', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        builder: new FormItemModel({ caption: '构建者', detailType: 'FORMITEM', name: 'builder', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        owner: new FormItemModel({ caption: '负责人', detailType: 'FORMITEM', name: 'owner', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        date: new FormItemModel({ caption: '打包日期', detailType: 'FORMITEM', name: 'date', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        pri: new FormItemModel({ caption: '优先级', detailType: 'FORMITEM', name: 'pri', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        scmpath: new FormItemModel({ caption: '源代码地址', detailType: 'FORMITEM', name: 'scmpath', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        begin: new FormItemModel({ caption: '开始日期', detailType: 'FORMITEM', name: 'begin', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        filepath: new FormItemModel({ caption: '下载地址', detailType: 'FORMITEM', name: 'filepath', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        end: new FormItemModel({ caption: '结束日期', detailType: 'FORMITEM', name: 'end', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        files: new FormItemModel({ caption: '上传发行包', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        status: new FormItemModel({ caption: '当前状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        name: new FormItemModel({ caption: '名称', detailType: 'FORMITEM', name: 'name', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         desc: new FormItemModel({ caption: '描述', detailType: 'FORMITEM', name: 'desc', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        id: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+        comment: new FormItemModel({ caption: '备注', detailType: 'FORMITEM', name: 'comment', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        product: new FormItemModel({ caption: '产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        mailto: new FormItemModel({ caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        id: new FormItemModel({ caption: '编号', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
+, 
+        project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+, 
+        build: new FormItemModel({ caption: '版本', detailType: 'FORMITEM', name: 'build', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -872,27 +979,99 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 project 值
+     * 监控表单属性 projecttname 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobEditForm
      */
-    @Watch('data.project')
-    onProjectChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'project', newVal: newVal, oldVal: oldVal });
+    @Watch('data.projecttname')
+    onProjecttnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'projecttname', newVal: newVal, oldVal: oldVal });
     }
 
     /**
-     * 监控表单属性 productname 值
+     * 监控表单属性 product 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobEditForm
      */
-    @Watch('data.productname')
-    onProductnameChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'productname', newVal: newVal, oldVal: oldVal });
+    @Watch('data.product')
+    onProductChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 buildname 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditForm
+     */
+    @Watch('data.buildname')
+    onBuildnameChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'buildname', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 owner 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditForm
+     */
+    @Watch('data.owner')
+    onOwnerChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'owner', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 pri 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditForm
+     */
+    @Watch('data.pri')
+    onPriChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'pri', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 begin 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditForm
+     */
+    @Watch('data.begin')
+    onBeginChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'begin', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 end 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditForm
+     */
+    @Watch('data.end')
+    onEndChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'end', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 status 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditForm
+     */
+    @Watch('data.status')
+    onStatusChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'status', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -908,66 +1087,6 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 builder 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobEditForm
-     */
-    @Watch('data.builder')
-    onBuilderChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'builder', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 date 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobEditForm
-     */
-    @Watch('data.date')
-    onDateChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'date', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 scmpath 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobEditForm
-     */
-    @Watch('data.scmpath')
-    onScmpathChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'scmpath', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 filepath 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobEditForm
-     */
-    @Watch('data.filepath')
-    onFilepathChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'filepath', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
-     * 监控表单属性 files 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobEditForm
-     */
-    @Watch('data.files')
-    onFilesChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'files', newVal: newVal, oldVal: oldVal });
-    }
-
-    /**
      * 监控表单属性 desc 值
      *
      * @param {*} newVal
@@ -977,6 +1096,30 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
     @Watch('data.desc')
     onDescChange(newVal: any, oldVal: any) {
         this.formDataChange({ name: 'desc', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 comment 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditForm
+     */
+    @Watch('data.comment')
+    onCommentChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'comment', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 mailto 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditForm
+     */
+    @Watch('data.mailto')
+    onMailtoChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'mailto', newVal: newVal, oldVal: oldVal });
     }
 
     /**
@@ -992,15 +1135,27 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
     }
 
     /**
-     * 监控表单属性 product 值
+     * 监控表单属性 project 值
      *
      * @param {*} newVal
      * @param {*} oldVal
      * @memberof MobEditForm
      */
-    @Watch('data.product')
-    onProductChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'product', newVal: newVal, oldVal: oldVal });
+    @Watch('data.project')
+    onProjectChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'project', newVal: newVal, oldVal: oldVal });
+    }
+
+    /**
+     * 监控表单属性 build 值
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof MobEditForm
+     */
+    @Watch('data.build')
+    onBuildChange(newVal: any, oldVal: any) {
+        this.formDataChange({ name: 'build', newVal: newVal, oldVal: oldVal });
     }
 
 
@@ -1039,6 +1194,11 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
+
+
+
+
+
 
 
 
@@ -1475,8 +1635,8 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         const response: any = await this.service.loadDraft(this.loaddraftAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
             const data = response.data;
-            if(data.build){
-                Object.assign(this.context, { build: data.build });
+            if(data.testtask){
+                Object.assign(this.context, { testtask: data.testtask });
             }
             this.resetDraftFormStates();
             this.onFormLoad(data, 'loadDraft');
@@ -1582,7 +1742,7 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
             if(!opt.saveEmit){
                 this.$emit('save', data);
             }                
-            AppCenterService.notifyMessage({name:"Build",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"TestTask",action:'appRefresh',data:data});
             this.$store.dispatch('viewaction/datasaved', { viewtag: this.viewtag });
             this.$nextTick(() => {
                 this.formState.next({ type: 'save', data: data });
@@ -1624,7 +1784,7 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
             this.$emit('remove', data);
             this.formState.next({ type: 'remove', data: data });
             this.data.ismodify = false;
-            AppCenterService.notifyMessage({name:"Build",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"TestTask",action:'appRefresh',data:data});
             this.$notice.success((data.srfmajortext ? data.srfmajortext : '') + '&nbsp;'+ this.$t('app.message.deleteSccess'));
         } else if (response && response.status !== 401) {
             const { error: _data } = response;
@@ -1648,7 +1808,7 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         let response: any = await this.service.wfstart(_this.WFStartAction, { ...this.context }, arg, this.showBusyIndicator);
         if (response && response.status === 200) {
             this.$notice.success('工作流启动成功');
-            AppCenterService.notifyMessage({name:"Build",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"TestTask",action:'appRefresh',data:data});
         } else if (response && response.status !== 401) {
             this.$notice.error('工作流启动失败, ' + response.error.message);
         }
@@ -1675,7 +1835,7 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
         const response: any = await this.service.wfsubmit(this.currentAction, { ...this.context }, datas, this.showBusyIndicator, arg);
         if (response && response.status === 200) {
             this.$notice.success('工作流提交成功');
-            AppCenterService.notifyMessage({name:"Build",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"TestTask",action:'appRefresh',data:data});
         } else if (response && response.status !== 401) {
             this.$notice.error('工作流提交失败, ' + response.error.message);
             return response;
@@ -1713,7 +1873,7 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
             this.fillForm(_data, 'updateFormItem');
             this.formLogic({ name: '', newVal: null, oldVal: null });
             this.dataChang.next(JSON.stringify(this.data));
-            AppCenterService.notifyMessage({name:"Build",action:'appRefresh',data:data});
+            AppCenterService.notifyMessage({name:"TestTask",action:'appRefresh',data:data});
             this.$nextTick(() => {
                 this.formState.next({ type: 'updateformitem', ufimode: arg.srfufimode, data: _data });
             });
@@ -1821,9 +1981,6 @@ export default class MobEditFormBase extends Vue implements ControlInterface {
      * @memberof MobEditForm
      */
     public createDefault(){                    
-                if (this.data.hasOwnProperty('builder')) {
-                    this.data['builder'] = this.viewparams['srfloginname'];
-                }
     }
 
         /**

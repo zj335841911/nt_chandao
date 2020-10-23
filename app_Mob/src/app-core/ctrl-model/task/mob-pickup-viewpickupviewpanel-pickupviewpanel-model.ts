@@ -186,6 +186,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'files',
       },
+      {
+        name: 'usernames',
+      },
     ]
   }
 

@@ -560,6 +560,9 @@ export default {
         'webhook': 'Webhook',
         empty: '',
     },
+    ProductPlan: {
+        empty: '',
+    },
     Task__pri: {
         '1': '1',
         '2': '2',

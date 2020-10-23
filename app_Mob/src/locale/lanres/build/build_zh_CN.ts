@@ -59,7 +59,6 @@ export default {
 			srfsourcekey: '', 
 			project: '所属项目', 
 			productname: '产品', 
-			product: '产品', 
 			name: '名称编号', 
 			builder: '构建者', 
 			date: '打包日期', 
@@ -68,6 +67,7 @@ export default {
 			files: '上传发行包', 
 			desc: '描述', 
 			id: 'id', 
+			product: '产品', 
 		},
 		uiactions: {
 		},

@@ -82,6 +82,9 @@ export default {
 		cmoboptionview: {
 			caption: '确认Bug',
 		},
+		editnewmobeditview: {
+			caption: 'Bug',
+		},
 		rmoboptionview: {
 			caption: '解决Bug',
 		},
@@ -290,6 +293,68 @@ export default {
 		uiactions: {
 		},
 	},
+	mobmaindataedit_form: {
+		details: {
+			druipart1: '', 
+			grouppanel6: '历史记录', 
+			grouppanel1: '分组面板', 
+			grouppanel3: '基本信息', 
+			grouppanel4: '项目/需求/任务', 
+			grouppanel5: 'Bug的一生', 
+			grouppanel2: '分组面板', 
+			group1: 'Bug基本信息', 
+			formpage1: '基本信息', 
+			srfupdatedate: '修改日期', 
+			srforikey: '', 
+			srfkey: 'Bug编号', 
+			srfmajortext: 'Bug标题', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			id: 'Bug编号', 
+			title: 'Bug标题', 
+			steps: '重现步骤', 
+			comment: '备注', 
+			files: '附件', 
+			product: '所属产品', 
+			productname: '产品', 
+			branch: '', 
+			branchname: '平台/分支', 
+			module: '所属模块', 
+			modulename: '模块名称', 
+			plan: '所属计划', 
+			type: 'Bug类型', 
+			severity: '严重程度', 
+			storyversion: '需求版本', 
+			pri: '优先级', 
+			status: 'Bug状态', 
+			activatedcount: '激活次数', 
+			activateddate: '激活日期', 
+			confirmed: '是否确认', 
+			assignedto: '当前指派', 
+			deadline: '截止日期', 
+			os: '操作系统', 
+			browser: '浏览器', 
+			keywords: '关键词', 
+			mailto: '抄送给', 
+			project: '所属项目', 
+			story: '相关需求', 
+			projectname: '项目', 
+			storyname: '相关需求', 
+			taskname: '相关任务', 
+			openedby: '由谁创建', 
+			openedbuild: '影响版本', 
+			resolvedby: '由谁解决', 
+			resolution: '解决方案', 
+			resolvedbuild: '解决版本', 
+			closedby: '由谁关闭', 
+			lasteditedby: '最后修改者', 
+			task: '相关任务', 
+		},
+		uiactions: {
+		},
+	},
 	mobnewfrom_form: {
 		details: {
 			grouppanel1: '分组面板', 
@@ -353,6 +418,12 @@ export default {
 	},
 	planmobmdview9righttoolbar_toolbar: {
 	},
+	editnewmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
+	},
 	mobeditviewrighttoolbar_toolbar: {
 		deuiaction1_assingtobugmob: {
 			caption: '指派',
@@ -369,6 +440,10 @@ export default {
 		deuiaction1_resolvebugmob: {
 			caption: '解决',
 			tip: '解决',
+		},
+		deuiaction1_mobmainedit: {
+			caption: '编辑',
+			tip: '编辑',
 		},
 		deuiaction1_closebugmob: {
 			caption: '关闭',

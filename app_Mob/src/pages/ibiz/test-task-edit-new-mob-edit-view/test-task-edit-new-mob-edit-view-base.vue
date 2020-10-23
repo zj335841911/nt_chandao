@@ -1,5 +1,5 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'test-task-mob-edit-view': true }">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'test-task-edit-new-mob-edit-view': true }">
     
     <ion-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
@@ -18,7 +18,7 @@
     <ion-content>
                 <view_form
             :viewState="viewState"
-            viewName="TestTaskMobEditView"  
+            viewName="TestTaskEditNewMobEditView"  
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 
@@ -44,27 +44,14 @@
     </ion-content>
     <ion-footer class="view-footer">
                 <div  class = "fab_container">
-            <ion-button v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
-            <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
-                <div class="container">
-                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobeditedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobeditedit.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_mobeditedit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobeditedit' }, $event)" size="large">
-                    <ion-icon name="edit"></ion-icon>
-                <span class="btn-inner-text">{{$t('testtask.mobeditviewrighttoolbar_toolbar.deuiaction1_mobeditedit.caption')}}</span>
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.tbitem1.disabled}" v-show="righttoolbarModels.tbitem1.visabled">
+                <ion-button :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" size="large">
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                
                 </ion-button>
-                <span class="btn-out-text">{{$t('testtask.mobeditviewrighttoolbar_toolbar.deuiaction1_mobeditedit.caption')}}</span>
+                
             </div>
         
-                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobdelete.disabled}" v-show="righttoolbarModels.deuiaction1_mobdelete.visabled">
-                <ion-button :disabled="righttoolbarModels.deuiaction1_mobdelete.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobdelete' }, $event)" size="large">
-                    <ion-icon name="remove"></ion-icon>
-                <span class="btn-inner-text">{{$t('testtask.mobeditviewrighttoolbar_toolbar.deuiaction1_mobdelete.caption')}}</span>
-                </ion-button>
-                <span class="btn-out-text">{{$t('testtask.mobeditviewrighttoolbar_toolbar.deuiaction1_mobdelete.caption')}}</span>
-            </div>
-        
-                </div>
-            </van-popup>
         </div>
     </ion-footer>
 </ion-page>
@@ -83,13 +70,13 @@ import TestTaskUIService from '@/ui-service/test-task/test-task-ui-action';
     components: {
     },
 })
-export default class TestTaskMobEditViewBase extends Vue {
+export default class TestTaskEditNewMobEditViewBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -97,7 +84,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * 实体服务对象
      *
      * @type {TestTaskService}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected appEntityService: TestTaskService = new TestTaskService();
 
@@ -105,7 +92,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * 实体UI服务对象
      *
      * @type TestTaskUIService
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     public appUIService: TestTaskUIService = new TestTaskUIService(this.$store);
 
@@ -114,7 +101,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      *
      * @param {*} val
      * @returns {*}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -125,7 +112,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     @Prop() protected _context!: string;
 
@@ -133,7 +120,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -141,7 +128,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -149,15 +136,15 @@ export default class TestTaskMobEditViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof TestTaskMobEditViewBase
+	 * @memberof TestTaskEditNewMobEditViewBase
 	 */
-	protected viewtag: string = '9576fe405a243332b6f648c8d0632e88';
+	protected viewtag: string = 'cce5a9e728543928168dc497b6851ecb';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected context: any = {};
 
@@ -165,7 +152,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected viewparams: any = {};
 
@@ -173,14 +160,14 @@ export default class TestTaskMobEditViewBase extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     public titleStatus :boolean = true;
 
@@ -189,7 +176,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected navContext: any = {};
 
@@ -198,7 +185,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected navParam: any = {};
 
@@ -206,14 +193,14 @@ export default class TestTaskMobEditViewBase extends Vue {
      * 视图模型数据
      *
      * @type {*}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected model: any = {
         srfTitle: '测试版本移动端编辑视图',
-        srfCaption: 'testtask.views.mobeditview.caption',
+        srfCaption: 'testtask.views.editnewmobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'testtask.mobeditview',
+        viewname:'testtask.editnewmobeditview',
         iconcls: '',
         icon: 'clipboard'
     }
@@ -223,7 +210,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  TestTaskMobEditViewBase
+     * @memberof  TestTaskEditNewMobEditViewBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -251,7 +238,7 @@ export default class TestTaskMobEditViewBase extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -264,7 +251,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected containerModel: any = {
         view_form: { name: 'form', type: 'FORM' },
@@ -275,7 +262,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -284,22 +271,20 @@ export default class TestTaskMobEditViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
 
 
    /**
-    * 工具栏 TestTaskMobEditView 模型
+    * 工具栏 TestTaskEditNewMobEditView 模型
     *
     * @type {*}
-    * @memberof TestTaskMobEditView
+    * @memberof TestTaskEditNewMobEditView
     */
     public righttoolbarModels: any = {
-            deuiaction1_mobeditedit: { name: 'deuiaction1_mobeditedit', caption: '编辑', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_EDIT_BUT', uiaction: { tag: 'MobEditEdit', target: 'SINGLEKEY' } },
-
-            deuiaction1_mobdelete: { name: 'deuiaction1_mobdelete', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_DELETE_BUT', uiaction: { tag: 'MobDelete', target: 'SINGLEKEY' } },
+            tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '' } },
 
     };
 
@@ -307,7 +292,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * 工具栏显示状态
      *
      * @type {boolean}
-     * @memberof TestTaskMobEditView 
+     * @memberof TestTaskEditNewMobEditView 
      */
     public righttoolbarShowState: boolean = false;
 
@@ -315,7 +300,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * 工具栏权限
      *
      * @type {boolean}
-     * @memberof TestTaskMobEditView 
+     * @memberof TestTaskEditNewMobEditView 
      */
     get getToolBarLimit() {
         let toolBarVisable:boolean = false;
@@ -334,7 +319,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * 工具栏分组是否显示的条件
      *
      * @type {boolean}
-     * @memberof TestTaskMobEditView 
+     * @memberof TestTaskEditNewMobEditView 
      */
     public showGrop = false;
 
@@ -342,7 +327,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * 工具栏分组是否显示的方法
      *
      * @type {boolean}
-     * @memberof TestTaskMobEditView 
+     * @memberof TestTaskEditNewMobEditView 
      */
     public popUpGroup (falg:boolean = false) {
         this.showGrop = falg;
@@ -354,14 +339,14 @@ export default class TestTaskMobEditViewBase extends Vue {
     /**
      * 工具栏模型集合名
      *
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
      *
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -374,7 +359,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -388,14 +373,14 @@ export default class TestTaskMobEditViewBase extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected engine: MobEditViewEngine = new MobEditViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected engineInit(): void {
         this.engine.init({
@@ -410,7 +395,7 @@ export default class TestTaskMobEditViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected created() {
         this.afterCreated();
@@ -419,7 +404,7 @@ export default class TestTaskMobEditViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -439,7 +424,7 @@ export default class TestTaskMobEditViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -448,7 +433,7 @@ export default class TestTaskMobEditViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     public activated() {
         this.popUpGroup();
@@ -460,7 +445,7 @@ export default class TestTaskMobEditViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected mounted() {
         this.afterMounted();
@@ -470,7 +455,7 @@ export default class TestTaskMobEditViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -485,7 +470,7 @@ export default class TestTaskMobEditViewBase extends Vue {
     /**
      * 第三方容器初始化
      * 
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -497,7 +482,7 @@ export default class TestTaskMobEditViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -506,7 +491,7 @@ export default class TestTaskMobEditViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
@@ -524,7 +509,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected form_save($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'save', $event);
@@ -535,7 +520,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected form_beforeload($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'beforeload', $event);
@@ -546,7 +531,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected form_remove($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'remove', $event);
@@ -557,7 +542,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected form_beforesave($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'beforesave', $event);
@@ -568,7 +553,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected form_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'load', $event);
@@ -579,14 +564,11 @@ export default class TestTaskMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected righttoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1_mobeditedit')) {
-            this.righttoolbar_deuiaction1_mobeditedit_click($event, '', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction1_mobdelete')) {
-            this.righttoolbar_deuiaction1_mobdelete_click($event, '', $event2);
+        if (Object.is($event.tag, 'tbitem1')) {
+            this.righttoolbar_tbitem1_click($event, '', $event2);
         }
     }
 
@@ -599,9 +581,9 @@ export default class TestTaskMobEditViewBase extends Vue {
      * @param {*} [tag]
      * @param {*} [$event]
      * @returns {Promise<any>}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
-    protected async righttoolbar_deuiaction1_mobeditedit_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async righttoolbar_tbitem1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -617,49 +599,14 @@ export default class TestTaskMobEditViewBase extends Vue {
             datas = [...xData.getDatas()];
         }
         // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('testtask_ui_action');
-        if (curUIService) {
-            curUIService.TestTask_MobEditEdit(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof TestTaskMobEditViewBase
-     */
-    protected async righttoolbar_deuiaction1_mobdelete_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('testtask_ui_action');
-        if (curUIService) {
-            curUIService.TestTask_MobDelete(datas, contextJO, paramJO, $event, xData, this);
-        }
+        this.globaluiservice.SaveAndExit(datas, contextJO, paramJO, $event, xData, this);
     }
 
     /**
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -683,7 +630,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.$store.state.searchformStatus){
@@ -713,7 +660,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -725,7 +672,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -746,7 +693,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * 保存
      *
      * @protected
-     * @memberof TestTaskMobEditViewBase
+     * @memberof TestTaskEditNewMobEditViewBase
      */
     protected defSave(): void {
         const _this: any = this;
@@ -790,5 +737,5 @@ export default class TestTaskMobEditViewBase extends Vue {
 </script>
 
 <style lang='less'>
-@import './test-task-mob-edit-view.less';
+@import './test-task-edit-new-mob-edit-view.less';
 </style>
