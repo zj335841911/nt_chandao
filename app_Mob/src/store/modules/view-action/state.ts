@@ -703,6 +703,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '8b510882cbdc2ee15775fdc7d2b069bd',
                 '99e39da3cdfea07b8886a4dd13680b02',
                 '72d73b7f458439bc2355414e5a810ad5',
             ],
@@ -771,6 +772,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '8b510882cbdc2ee15775fdc7d2b069bd',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
             ],
         },
@@ -890,6 +892,16 @@ export const viewstate: any = {
                 '14e4dca3deb3c35a8ccd12baf10c3d9c',
                 'ef4f4ba20f22ae8b09b7f5fad590ef39',
                 'e848fcc53d765ca86681f329895f792c',
+            ],
+        },
+        {
+            viewtag: '8b510882cbdc2ee15775fdc7d2b069bd',
+            viewmodule: 'ibiz',
+            viewname: 'BuildEditMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '61b907edfc7822d020b6b2c2246ee8e0',
             ],
         },
         {

@@ -50,6 +50,7 @@ export const PageComponents = {
         Vue.component('story-ass-more-mob-mdview', () => import('@pages/ibiz/story-ass-more-mob-mdview/story-ass-more-mob-mdview.vue'));
         Vue.component('release-new-mob-edit-view', () => import('@pages/zentao/release-new-mob-edit-view/release-new-mob-edit-view.vue'));
         Vue.component('bug-ass-mob-mdview9', () => import('@pages/zentao/bug-ass-mob-mdview9/bug-ass-mob-mdview9.vue'));
+        Vue.component('build-edit-mob-edit-view', () => import('@pages/ibiz/build-edit-mob-edit-view/build-edit-mob-edit-view.vue'));
         Vue.component('product-mob-mdview', () => import('@pages/ibiz/product-mob-mdview/product-mob-mdview.vue'));
         Vue.component('task-mob-pickup-view', () => import('@pages/ibiz/task-mob-pickup-view/task-mob-pickup-view.vue'));
         Vue.component('module-mob-pickup-view', () => import('@pages/ibiz/module-mob-pickup-view/module-mob-pickup-view.vue'));

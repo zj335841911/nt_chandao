@@ -1,5 +1,5 @@
 <template>
-<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'build-mob-edit-view': true }">
+<ion-page :className="{ 'view-container': true, 'default-mode-view': true, 'demobeditview': true, 'build-edit-mob-edit-view': true }">
     
     <ion-header>
         <ion-toolbar v-show="titleStatus" class="ionoc-view-header">
@@ -10,22 +10,6 @@
                 </ion-button>
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-            <ion-buttons slot="end">
-                                <div class="app-toolbar-container ">
-                    <div class="app-quick-toolbar toolbar-right-bottons">
-                            <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_mobeditbuild.visabled" :disabled="righttoolbarModels.deuiaction1_mobeditbuild.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobeditbuild' }, $event)" >
-                        <ion-icon class="ibiz-button-icon" name="edit"> </ion-icon>
-                    {{$t('build.mobeditviewrighttoolbar_toolbar.deuiaction1_mobeditbuild.caption')}}
-                    </ion-button>
-                
-                            <ion-button class="app-view-toolbar-button" v-show="righttoolbarModels.deuiaction1_mobdelete.visabled" :disabled="righttoolbarModels.deuiaction1_mobdelete.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobdelete' }, $event)" >
-                        <ion-icon class="ibiz-button-icon" name="remove"> </ion-icon>
-                    {{$t('build.mobeditviewrighttoolbar_toolbar.deuiaction1_mobdelete.caption')}}
-                    </ion-button>
-                
-                    </div>
-                </div>
-            </ion-buttons>
         </ion-toolbar>
 
     
@@ -34,7 +18,7 @@
     <ion-content>
                 <view_form
             :viewState="viewState"
-            viewName="BuildMobEditView"  
+            viewName="BuildEditMobEditView"  
             :viewparams="viewparams" 
             :context="context" 
             :autosave="false" 
@@ -58,6 +42,18 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
+    <ion-footer class="view-footer">
+                <div  class = "fab_container">
+                <div :class="{'sub-item':true,'disabled':righttoolbarModels.tbitem1.disabled}" v-show="righttoolbarModels.tbitem1.visabled">
+                <ion-button :disabled="righttoolbarModels.tbitem1.disabled" @click="righttoolbar_click({ tag: 'tbitem1' }, $event)" size="large">
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                
+                </ion-button>
+                
+            </div>
+        
+        </div>
+    </ion-footer>
 </ion-page>
 </template>
 
@@ -74,13 +70,13 @@ import BuildUIService from '@/ui-service/build/build-ui-action';
     components: {
     },
 })
-export default class BuildMobEditViewBase extends Vue {
+export default class BuildEditMobEditViewBase extends Vue {
 
     /**
      * 全局 ui 服务
      *
      * @type {GlobalUiService}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected globaluiservice: GlobalUiService = new GlobalUiService();
 
@@ -88,7 +84,7 @@ export default class BuildMobEditViewBase extends Vue {
      * 实体服务对象
      *
      * @type {BuildService}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected appEntityService: BuildService = new BuildService();
 
@@ -96,7 +92,7 @@ export default class BuildMobEditViewBase extends Vue {
      * 实体UI服务对象
      *
      * @type BuildUIService
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     public appUIService: BuildUIService = new BuildUIService(this.$store);
 
@@ -105,7 +101,7 @@ export default class BuildMobEditViewBase extends Vue {
      *
      * @param {*} val
      * @returns {*}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     @Emit() 
     protected viewDatasChange(val: any):any {
@@ -116,7 +112,7 @@ export default class BuildMobEditViewBase extends Vue {
      * 视图上下文
      *
      * @type {string}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     @Prop() protected _context!: string;
 
@@ -124,7 +120,7 @@ export default class BuildMobEditViewBase extends Vue {
      * 视图参数
      *
      * @type {string}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     @Prop() protected _viewparams!: string;
 
@@ -132,7 +128,7 @@ export default class BuildMobEditViewBase extends Vue {
      * 视图默认使用
      *
      * @type {boolean}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     @Prop({ default: "routerView" }) protected viewDefaultUsage!: string;
 
@@ -140,15 +136,15 @@ export default class BuildMobEditViewBase extends Vue {
 	 * 视图标识
 	 *
 	 * @type {string}
-	 * @memberof BuildMobEditViewBase
+	 * @memberof BuildEditMobEditViewBase
 	 */
-	protected viewtag: string = '72d73b7f458439bc2355414e5a810ad5';
+	protected viewtag: string = '8b510882cbdc2ee15775fdc7d2b069bd';
 
     /**
      * 视图上下文
      *
      * @type {*}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected context: any = {};
 
@@ -156,7 +152,7 @@ export default class BuildMobEditViewBase extends Vue {
      * 视图参数
      *
      * @type {*}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected viewparams: any = {};
 
@@ -164,14 +160,14 @@ export default class BuildMobEditViewBase extends Vue {
      * 是否为子视图
      *
      * @type {boolean}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     @Prop({ default: false }) protected isChildView?: boolean;
 
     /**
      * 标题状态
      *
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     public titleStatus :boolean = true;
 
@@ -180,31 +176,31 @@ export default class BuildMobEditViewBase extends Vue {
      *
      * @protected
      * @type {*}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
-    protected navContext: any = { 'objecttype': 'build', 'srfparentkey': '%build%' };
+    protected navContext: any = { 'objecttype': 'build' };
 
     /**
      * 视图导航参数
      *
      * @protected
      * @type {*}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
-    protected navParam: any = { 'srfparentkey': '%build%', 'objecttype': 'build' };
+    protected navParam: any = { 'objecttype': 'build' };
 
     /**
      * 视图模型数据
      *
      * @type {*}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected model: any = {
         srfTitle: '版本移动端编辑视图',
-        srfCaption: 'build.views.mobeditview.caption',
+        srfCaption: 'build.views.editmobeditview.caption',
         srfSubCaption: '',
         dataInfo: '',
-        viewname:'build.mobeditview',
+        viewname:'build.editmobeditview',
         iconcls: '',
         icon: 'code-fork'
     }
@@ -214,7 +210,7 @@ export default class BuildMobEditViewBase extends Vue {
      *
      * @param {string} newVal
      * @param {string} oldVal
-     * @memberof  BuildMobEditViewBase
+     * @memberof  BuildEditMobEditViewBase
      */
     @Watch('_context')
     on_context(newVal: string, oldVal: string) {
@@ -242,7 +238,7 @@ export default class BuildMobEditViewBase extends Vue {
     /**
      * 设置工具栏状态
      *
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     public setViewTitleStatus(){
         const thirdPartyName = this.$store.getters.getThirdPartyName();
@@ -255,7 +251,7 @@ export default class BuildMobEditViewBase extends Vue {
      * 容器模型
      *
      * @type {*}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected containerModel: any = {
         view_form: { name: 'form', type: 'FORM' },
@@ -266,7 +262,7 @@ export default class BuildMobEditViewBase extends Vue {
      * 视图状态订阅对象
      *
      * @type {Subject<{action: string, data: any}>}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected viewState: Subject<ViewState> = new Subject();
 
@@ -275,24 +271,67 @@ export default class BuildMobEditViewBase extends Vue {
      * 是否显示标题
      *
      * @type {string}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     @Prop({default:true}) protected showTitle?: boolean;
 
 
 
    /**
-    * 工具栏 BuildMobEditView 模型
+    * 工具栏 BuildEditMobEditView 模型
     *
     * @type {*}
-    * @memberof BuildMobEditView
+    * @memberof BuildEditMobEditView
     */
     public righttoolbarModels: any = {
-            deuiaction1_mobeditbuild: { name: 'deuiaction1_mobeditbuild', caption: '编辑版本', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUILD_EDIT_BUT', uiaction: { tag: 'MobEditBuild', target: 'SINGLEKEY' } },
-
-            deuiaction1_mobdelete: { name: 'deuiaction1_mobdelete', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUILD_DELETE_BUT', uiaction: { tag: 'MobDelete', target: 'SINGLEKEY' } },
+            tbitem1: { name: 'tbitem1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALSAVE', uiaction: { tag: 'SaveAndExit', target: '' } },
 
     };
+
+    /**
+     * 工具栏显示状态
+     *
+     * @type {boolean}
+     * @memberof BuildEditMobEditView 
+     */
+    public righttoolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof BuildEditMobEditView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean = false;
+        if(this.righttoolbarModels){
+            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
+                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+                    toolBarVisable = true;
+                    return;
+                }
+            })
+        }
+        return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof BuildEditMobEditView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof BuildEditMobEditView 
+     */
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
+    }
 
     
 
@@ -300,14 +339,14 @@ export default class BuildMobEditViewBase extends Vue {
     /**
      * 工具栏模型集合名
      *
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     public toolbarModelList:any = ['righttoolbarModels',]
 
     /**
      * 解析视图参数
      *
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected parseViewParam(): void {
         const { context, param } = this.$viewTool.formatNavigateViewParam(this, true);
@@ -320,7 +359,7 @@ export default class BuildMobEditViewBase extends Vue {
      *
      * @readonly
      * @type {boolean}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     get isShowBackButton(): boolean {
         // 存在路由，非路由使用，嵌入
@@ -334,14 +373,14 @@ export default class BuildMobEditViewBase extends Vue {
      * 视图引擎
      *
      * @type {Engine}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected engine: MobEditViewEngine = new MobEditViewEngine();
 
     /**
      * 引擎初始化
      *
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected engineInit(): void {
         this.engine.init({
@@ -356,7 +395,7 @@ export default class BuildMobEditViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected created() {
         this.afterCreated();
@@ -365,7 +404,7 @@ export default class BuildMobEditViewBase extends Vue {
     /**
      * 执行created后的逻辑
      *
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */    
     protected afterCreated(){
         const secondtag = this.$util.createUUID();
@@ -385,7 +424,7 @@ export default class BuildMobEditViewBase extends Vue {
     /**
      * 销毁之前
      *
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected beforeDestroy() {
         this.$store.commit('viewaction/removeView', this.viewtag);
@@ -394,9 +433,10 @@ export default class BuildMobEditViewBase extends Vue {
     /**
      * Vue声明周期
      *
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -405,7 +445,7 @@ export default class BuildMobEditViewBase extends Vue {
     /**
      * Vue声明周期(组件初始化完毕)
      *
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected mounted() {
         this.afterMounted();
@@ -415,7 +455,7 @@ export default class BuildMobEditViewBase extends Vue {
     /**
      * 执行mounted后的逻辑
      * 
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected afterMounted(){
         const _this: any = this;
@@ -430,7 +470,7 @@ export default class BuildMobEditViewBase extends Vue {
     /**
      * 第三方容器初始化
      * 
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected  thirdPartyInit(){
         if(!this.isChildView){
@@ -442,7 +482,7 @@ export default class BuildMobEditViewBase extends Vue {
     /**
      * 销毁视图回调
      *
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected destroyed(){
         this.afterDestroyed();
@@ -451,7 +491,7 @@ export default class BuildMobEditViewBase extends Vue {
     /**
      * 执行destroyed后的逻辑
      * 
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected afterDestroyed(){
         if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
@@ -469,7 +509,7 @@ export default class BuildMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected form_save($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'save', $event);
@@ -480,7 +520,7 @@ export default class BuildMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected form_beforeload($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'beforeload', $event);
@@ -491,7 +531,7 @@ export default class BuildMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected form_remove($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'remove', $event);
@@ -502,7 +542,7 @@ export default class BuildMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected form_beforesave($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'beforesave', $event);
@@ -513,7 +553,7 @@ export default class BuildMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected form_load($event: any, $event2?: any) {
         this.engine.onCtrlEvent('form', 'load', $event);
@@ -524,14 +564,11 @@ export default class BuildMobEditViewBase extends Vue {
      *
      * @param {*} [args={}]
      * @param {*} $event
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected righttoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1_mobeditbuild')) {
-            this.righttoolbar_deuiaction1_mobeditbuild_click($event, '', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction1_mobdelete')) {
-            this.righttoolbar_deuiaction1_mobdelete_click($event, '', $event2);
+        if (Object.is($event.tag, 'tbitem1')) {
+            this.righttoolbar_tbitem1_click($event, '', $event2);
         }
     }
 
@@ -544,9 +581,9 @@ export default class BuildMobEditViewBase extends Vue {
      * @param {*} [tag]
      * @param {*} [$event]
      * @returns {Promise<any>}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
-    protected async righttoolbar_deuiaction1_mobeditbuild_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async righttoolbar_tbitem1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数
@@ -562,49 +599,14 @@ export default class BuildMobEditViewBase extends Vue {
             datas = [...xData.getDatas()];
         }
         // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('build_ui_action');
-        if (curUIService) {
-            curUIService.Build_MobEditBuild(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof BuildMobEditViewBase
-     */
-    protected async righttoolbar_deuiaction1_mobdelete_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('build_ui_action');
-        if (curUIService) {
-            curUIService.Build_MobDelete(datas, contextJO, paramJO, $event, xData, this);
-        }
+        this.globaluiservice.SaveAndExit(datas, contextJO, paramJO, $event, xData, this);
     }
 
     /**
      * 第三方关闭视图
      *
      * @param {any[]} args
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     public quitFun() {
         if (!sessionStorage.getItem("firstQuit")) {  // 首次返回时
@@ -628,7 +630,7 @@ export default class BuildMobEditViewBase extends Vue {
      * 关闭视图
      *
      * @param {any[]} args
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected async closeView(args: any[]): Promise<any> {
         if(this.$store.state.searchformStatus){
@@ -658,7 +660,7 @@ export default class BuildMobEditViewBase extends Vue {
      *
      * @readonly
      * @type {(number | null)}
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     get refreshdata(): number | null {
         return this.$store.getters['viewaction/getRefreshData'](this.viewtag);
@@ -670,7 +672,7 @@ export default class BuildMobEditViewBase extends Vue {
      * @param {*} newVal
      * @param {*} oldVal
      * @returns
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     @Watch('refreshdata')
     onRefreshData(newVal: any, oldVal: any) {
@@ -691,7 +693,7 @@ export default class BuildMobEditViewBase extends Vue {
      * 保存
      *
      * @protected
-     * @memberof BuildMobEditViewBase
+     * @memberof BuildEditMobEditViewBase
      */
     protected defSave(): void {
         const _this: any = this;
@@ -735,5 +737,5 @@ export default class BuildMobEditViewBase extends Vue {
 </script>
 
 <style lang='less'>
-@import './build-mob-edit-view.less';
+@import './build-edit-mob-edit-view.less';
 </style>

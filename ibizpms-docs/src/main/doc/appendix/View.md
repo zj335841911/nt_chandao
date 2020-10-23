@@ -84,6 +84,7 @@
 |-|版本移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|测试|DEMOBMDVIEW|&nbsp;|
 |-|待办事宜表移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|用户移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|Bug移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|

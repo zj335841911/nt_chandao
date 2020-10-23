@@ -2397,6 +2397,56 @@ const router = new Router({
                     component: () => import('@pages/zentao/bug-ass-mob-mdview9/bug-ass-mob-mdview9.vue'),
                 },
                 {
+                    path: 'projects/:project?/builds/:build?/editmobeditview',
+                    name: 'build_editmobeditview',
+                    meta: {
+                        caption: 'build.views.editmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'projects', parameterName: 'project' },
+                            { pathName: 'builds', parameterName: 'build' },
+                            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/build-edit-mob-edit-view/build-edit-mob-edit-view.vue'),
+                },
+                {
+                    path: 'products/:product?/builds/:build?/editmobeditview',
+                    name: 'build_editmobeditview',
+                    meta: {
+                        caption: 'build.views.editmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'builds', parameterName: 'build' },
+                            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/build-edit-mob-edit-view/build-edit-mob-edit-view.vue'),
+                },
+                {
+                    path: 'builds/:build?/editmobeditview',
+                    name: 'build_editmobeditview',
+                    meta: {
+                        caption: 'build.views.editmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-code-fork',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'builds', parameterName: 'build' },
+                            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/build-edit-mob-edit-view/build-edit-mob-edit-view.vue'),
+                },
+                {
                     path: 'products/:product?/mobmdview',
                     name: 'product_mobmdview',
                     meta: {

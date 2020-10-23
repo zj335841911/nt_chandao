@@ -35,11 +35,41 @@ export default {
 		mobpickupview: {
 			caption: '版本',
 		},
+		editmobeditview: {
+			caption: '版本',
+		},
 		newmobeditview: {
 			caption: '版本',
 		},
 		mobmpickupview: {
 			caption: '版本',
+		},
+	},
+	mobeditform_form: {
+		details: {
+			grouppanel2: '分组面板', 
+			group1: '基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: 'id', 
+			srfmajortext: '名称编号', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			project: '所属项目', 
+			productname: '产品', 
+			name: '名称编号', 
+			builder: '构建者', 
+			date: '打包日期', 
+			scmpath: '源代码地址', 
+			filepath: '下载地址', 
+			files: '上传发行包', 
+			desc: '描述', 
+			id: 'id', 
+			product: '产品', 
+		},
+		uiactions: {
 		},
 	},
 	mobnewform_form: {
@@ -102,6 +132,12 @@ export default {
 		uiactions: {
 		},
 	},
+	editmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: 'Save And Close',
+			tip: 'tbitem1',
+		},
+	},
 	newmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: 'Save And Close',
@@ -115,5 +151,13 @@ export default {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
+		deuiaction1_mobeditbuild: {
+			caption: '编辑版本',
+			tip: 'deuiaction1_mobeditbuild',
+		},
+		deuiaction1_mobdelete: {
+			caption: '删除',
+			tip: 'deuiaction1_mobdelete',
+		},
 	},
 };
