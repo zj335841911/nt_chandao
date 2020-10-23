@@ -147,9 +147,13 @@ export default {
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: 'Save And Close',
-			tip: 'tbitem1',
+		deuiaction1_mobmainedit: {
+			caption: '编辑',
+			tip: 'deuiaction1_mobmainedit',
+		},
+		deuiaction1_mobdelete: {
+			caption: '删除',
+			tip: 'deuiaction1_mobdelete',
 		},
 	},
 };
