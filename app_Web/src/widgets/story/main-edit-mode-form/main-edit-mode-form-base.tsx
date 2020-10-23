@@ -242,7 +242,9 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof Main_EditModeEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

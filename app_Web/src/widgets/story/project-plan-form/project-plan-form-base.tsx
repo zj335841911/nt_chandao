@@ -96,7 +96,9 @@ export class ProjectPlanEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof ProjectPlanEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

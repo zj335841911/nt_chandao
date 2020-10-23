@@ -94,11 +94,13 @@ export class MainEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof MainEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
         title: [
             { required: true, type: 'string', message: '用例标题 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '用例标题 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**

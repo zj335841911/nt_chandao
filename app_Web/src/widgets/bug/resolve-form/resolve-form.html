@@ -10,7 +10,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.resolution.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
-    <app-form-item name='resolution' :itemRules="this.rules.resolution" class='' :caption="$t('entities.bug.resolve_form.details.resolution')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolution.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='resolution' :itemRules="this.rules().resolution" class='' :caption="$t('entities.bug.resolve_form.details.resolution')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolution.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.resolution"
@@ -34,7 +34,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.resolvedbuild.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
-    <app-form-item name='resolvedbuild' :itemRules="this.rules.resolvedbuild" class='' :caption="$t('entities.bug.resolve_form.details.resolvedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolvedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='resolvedbuild' :itemRules="this.rules().resolvedbuild" class='' :caption="$t('entities.bug.resolve_form.details.resolvedbuild')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolvedbuild.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.resolvedbuild"
@@ -54,7 +54,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.buildproject.visible" :style="{}"  :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
-    <app-form-item name='buildproject' :itemRules="this.rules.buildproject" class='' :caption="$t('entities.bug.resolve_form.details.buildproject')" uiStyle="DEFAULT" :labelWidth="160" :isShowCaption="true" :error="detailsModel.buildproject.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='buildproject' :itemRules="this.rules().buildproject" class='' :caption="$t('entities.bug.resolve_form.details.buildproject')" uiStyle="DEFAULT" :labelWidth="160" :isShowCaption="true" :error="detailsModel.buildproject.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.buildproject"
@@ -74,7 +74,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.buildname.visible" :style="{}"  :lg="{ span: 7, offset: 0 }" :xl="{ span: 7, offset: 0 }">
-    <app-form-item name='buildname' :itemRules="this.rules.buildname" class='' :caption="$t('entities.bug.resolve_form.details.buildname')" uiStyle="DEFAULT" :labelWidth="20" :isShowCaption="true" :error="detailsModel.buildname.error" :isEmptyCaption="true" labelPos="LEFT">
+    <app-form-item name='buildname' :itemRules="this.rules().buildname" class='' :caption="$t('entities.bug.resolve_form.details.buildname')" uiStyle="DEFAULT" :labelWidth="20" :isShowCaption="true" :error="detailsModel.buildname.error" :isEmptyCaption="true" labelPos="LEFT">
     <input-box 
     v-model="data.buildname"  
     @enter="onEnter($event)"  
@@ -89,7 +89,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.createbuild.visible" :style="{}"  :lg="{ span: 3, offset: 0 }" :xl="{ span: 3, offset: 0 }">
-    <app-form-item name='createbuild' :itemRules="this.rules.createbuild" class='' :caption="$t('entities.bug.resolve_form.details.createbuild')" uiStyle="DEFAULT" :labelWidth="5" :isShowCaption="true" :error="detailsModel.createbuild.error" :isEmptyCaption="true" labelPos="LEFT">
+    <app-form-item name='createbuild' :itemRules="this.rules().createbuild" class='' :caption="$t('entities.bug.resolve_form.details.createbuild')" uiStyle="DEFAULT" :labelWidth="5" :isShowCaption="true" :error="detailsModel.createbuild.error" :isEmptyCaption="true" labelPos="LEFT">
     
 <app-checkbox-list 
   v-model="data.createbuild" 
@@ -119,14 +119,14 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel4" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.resolveddate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='resolveddate' :itemRules="this.rules.resolveddate" class='' :caption="$t('entities.bug.resolve_form.details.resolveddate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolveddate.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='resolveddate' :itemRules="this.rules().resolveddate" class='' :caption="$t('entities.bug.resolve_form.details.resolveddate')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.resolveddate.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="datetime" :transfer="true" format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间..." :value="data.resolveddate" :disabled="detailsModel.resolveddate.disabled" style="min-width: 150px; width:160px;" @on-change="(val1, val2) => { this.data.resolveddate = val1 }"></date-picker>
 
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.bug.resolve_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='assignedto' :itemRules="this.rules().assignedto" class='' :caption="$t('entities.bug.resolve_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.assignedto"
@@ -156,13 +156,13 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.files.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='files' :itemRules="this.rules.files" class='' :caption="$t('entities.bug.resolve_form.details.files')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.files.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='files' :itemRules="this.rules().files" class='' :caption="$t('entities.bug.resolve_form.details.files')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.files.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange($event)" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" :uploadparams='{objecttype:"bug",objectid:"%id%"}' :exportparams='{objecttype:"bug",objectid:"%id%"}'  style="overflow: auto;"></app-file-upload>
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.bug.resolve_form.details.comment')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='comment' :itemRules="this.rules().comment" class='' :caption="$t('entities.bug.resolve_form.details.comment')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"bug",version:"editor"}' :exportparams='{objecttype:"bug",version:"editor"}'  style=""></app-rich-text-editor>
 
 </app-form-item>

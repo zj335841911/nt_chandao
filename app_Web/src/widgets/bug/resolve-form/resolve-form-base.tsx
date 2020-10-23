@@ -113,7 +113,8 @@ export class ResolveEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof ResolveEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
         resolution: [
             { required: true, type: 'string', message: '解决方案 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '解决方案 值不能为空', trigger: 'blur' },
@@ -130,6 +131,7 @@ export class ResolveEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**

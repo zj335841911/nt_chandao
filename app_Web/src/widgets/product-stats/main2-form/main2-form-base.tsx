@@ -255,7 +255,9 @@ export class Main2EditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof Main2EditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

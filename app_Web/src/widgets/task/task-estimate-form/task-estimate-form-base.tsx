@@ -112,7 +112,9 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof TaskEstimateEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

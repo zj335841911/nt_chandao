@@ -109,7 +109,9 @@ export class MainDataEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof MainDataEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

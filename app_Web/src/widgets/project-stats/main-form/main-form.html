@@ -10,7 +10,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel6" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.formitemex4.visible" :style="{'height': '250px !important',}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='formitemex4' :itemRules="this.rules.formitemex4" class='' :caption="$t('entities.projectstats.main_form.details.formitemex4')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitemex4.error" :isEmptyCaption="false" labelPos="NONE">
+    <app-form-item name='formitemex4' :itemRules="this.rules().formitemex4" class='' :caption="$t('entities.projectstats.main_form.details.formitemex4')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.formitemex4.error" :isEmptyCaption="false" labelPos="NONE">
     <ibiz-studio-progress-vue caption="已完成" stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="circle" :total="this.data.custom7" :progress="this.data.custom8" style="min-width: 244px;"/>
 </app-form-item>
 
@@ -25,7 +25,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel5" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.totalestimate.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
-    <app-form-item name='totalestimate' :itemRules="this.rules.totalestimate" class='text-center' :caption="$t('entities.projectstats.main_form.details.totalestimate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalestimate.error" :isEmptyCaption="false" labelPos="TOP">
+    <app-form-item name='totalestimate' :itemRules="this.rules().totalestimate" class='text-center' :caption="$t('entities.projectstats.main_form.details.totalestimate')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalestimate.error" :isEmptyCaption="false" labelPos="TOP">
     
 <app-span name='totalestimate' :value="data.totalestimate" dataType="FLOAT"     :precision="2"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -35,7 +35,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.totalconsumed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
-    <app-form-item name='totalconsumed' :itemRules="this.rules.totalconsumed" class='text-center' :caption="$t('entities.projectstats.main_form.details.totalconsumed')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalconsumed.error" :isEmptyCaption="false" labelPos="TOP">
+    <app-form-item name='totalconsumed' :itemRules="this.rules().totalconsumed" class='text-center' :caption="$t('entities.projectstats.main_form.details.totalconsumed')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalconsumed.error" :isEmptyCaption="false" labelPos="TOP">
     
 <app-span name='totalconsumed' :value="data.totalconsumed" dataType="FLOAT"     :precision="2"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -45,7 +45,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.totalleft.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 8, offset: 0 }">
-    <app-form-item name='totalleft' :itemRules="this.rules.totalleft" class='text-center' :caption="$t('entities.projectstats.main_form.details.totalleft')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalleft.error" :isEmptyCaption="false" labelPos="TOP">
+    <app-form-item name='totalleft' :itemRules="this.rules().totalleft" class='text-center' :caption="$t('entities.projectstats.main_form.details.totalleft')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.totalleft.error" :isEmptyCaption="false" labelPos="TOP">
     
 <app-span name='totalleft' :value="data.totalleft" dataType="FLOAT"     :precision="2"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -99,7 +99,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitemex1.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
-    <app-form-item name='formitemex1' :itemRules="this.rules.formitemex1" class='' :caption="$t('entities.projectstats.main_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='formitemex1' :itemRules="this.rules().formitemex1" class='' :caption="$t('entities.projectstats.main_form.details.formitemex1')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex1.error" :isEmptyCaption="false" labelPos="LEFT">
     <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom1" :progress="this.data.custom2"/>
 </app-form-item>
 
@@ -153,7 +153,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitemex2.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
-    <app-form-item name='formitemex2' :itemRules="this.rules.formitemex2" class='' :caption="$t('entities.projectstats.main_form.details.formitemex2')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex2.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='formitemex2' :itemRules="this.rules().formitemex2" class='' :caption="$t('entities.projectstats.main_form.details.formitemex2')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex2.error" :isEmptyCaption="false" labelPos="LEFT">
     <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom3" :progress="this.data.custom4"/>
 </app-form-item>
 
@@ -207,7 +207,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.formitemex3.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 18, offset: 0 }">
-    <app-form-item name='formitemex3' :itemRules="this.rules.formitemex3" class='' :caption="$t('entities.projectstats.main_form.details.formitemex3')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex3.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='formitemex3' :itemRules="this.rules().formitemex3" class='' :caption="$t('entities.projectstats.main_form.details.formitemex3')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.formitemex3.error" :isEmptyCaption="false" labelPos="LEFT">
     <ibiz-studio-progress-vue stroke-color="var(--form-editor-active-color)" :stroke-width="16" mode="line" :total="this.data.custom5" :progress="this.data.custom6"/>
 </app-form-item>
 

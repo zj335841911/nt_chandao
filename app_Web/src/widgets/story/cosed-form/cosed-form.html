@@ -6,7 +6,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.closedreason.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='closedreason' :itemRules="this.rules.closedreason" class='' :caption="$t('entities.story.cosed_form.details.closedreason')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.closedreason.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='closedreason' :itemRules="this.rules().closedreason" class='' :caption="$t('entities.story.cosed_form.details.closedreason')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.closedreason.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.closedreason"
@@ -26,7 +26,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.story.cosed_form.details.comment')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='comment' :itemRules="this.rules().comment" class='' :caption="$t('entities.story.cosed_form.details.comment')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"story",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"story",objectid: "%id%",version:"editor"}'  height={400} style="height:400px;"></app-rich-text-editor>
 
 </app-form-item>

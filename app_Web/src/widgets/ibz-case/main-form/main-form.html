@@ -2,7 +2,7 @@
     <input style="display:none;" />
     <row >
             <i-col class="form-layout-container" v-show="detailsModel.libname.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
-    <app-form-item name='libname' :itemRules="this.rules.libname" class='' :caption="$t('entities.ibzcase.main_form.details.libname')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.libname.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='libname' :itemRules="this.rules().libname" class='' :caption="$t('entities.ibzcase.main_form.details.libname')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.libname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker  
   :formState="formState"
@@ -27,7 +27,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.modulename.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
-    <app-form-item name='modulename' :itemRules="this.rules.modulename" class='' :caption="$t('entities.ibzcase.main_form.details.modulename')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.modulename.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='modulename' :itemRules="this.rules().modulename" class='' :caption="$t('entities.ibzcase.main_form.details.modulename')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.modulename.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker  
   :formState="formState"
@@ -52,7 +52,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.type.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
-    <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.ibzcase.main_form.details.type')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='type' :itemRules="this.rules().type" class='' :caption="$t('entities.ibzcase.main_form.details.type')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.type"
@@ -72,7 +72,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.stage.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 12, offset: 0 }">
-    <app-form-item name='stage' :itemRules="this.rules.stage" class='' :caption="$t('entities.ibzcase.main_form.details.stage')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.stage.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='stage' :itemRules="this.rules().stage" class='' :caption="$t('entities.ibzcase.main_form.details.stage')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.stage.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list-mpicker 
   v-model="data.stage"
@@ -91,7 +91,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 19, offset: 0 }">
-    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.ibzcase.main_form.details.title')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='title' :itemRules="this.rules().title" class='' :caption="$t('entities.ibzcase.main_form.details.title')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
     v-model="data.title"  
     @enter="onEnter($event)"  
@@ -105,7 +105,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.pri.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 5, offset: 0 }">
-    <app-form-item name='pri' :itemRules="this.rules.pri" class='' :caption="$t('entities.ibzcase.main_form.details.pri')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='pri' :itemRules="this.rules().pri" class='' :caption="$t('entities.ibzcase.main_form.details.pri')" uiStyle="DEFAULT" :labelWidth="70" :isShowCaption="true" :error="detailsModel.pri.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.pri"
@@ -125,7 +125,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.precondition.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 24, offset: 0 }">
-    <app-form-item name='precondition' :itemRules="this.rules.precondition" class='' :caption="$t('entities.ibzcase.main_form.details.precondition')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.precondition.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='precondition' :itemRules="this.rules().precondition" class='' :caption="$t('entities.ibzcase.main_form.details.precondition')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.precondition.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.precondition"  :disabled="detailsModel.precondition.disabled" type='textarea' style="" ></input-box>
 
 </app-form-item>
@@ -158,7 +158,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.keywords.visible" :style="{}"  :sm="{ span: 12, offset: 0 }" :md="{ span: 12, offset: 0 }" :lg="{ span: 12, offset: 0 }" :xl="{ span: 24, offset: 0 }">
-    <app-form-item name='keywords' :itemRules="this.rules.keywords" class='' :caption="$t('entities.ibzcase.main_form.details.keywords')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.keywords.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='keywords' :itemRules="this.rules().keywords" class='' :caption="$t('entities.ibzcase.main_form.details.keywords')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.keywords.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
     v-model="data.keywords"  
     @enter="onEnter($event)"  

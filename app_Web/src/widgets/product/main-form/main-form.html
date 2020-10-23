@@ -10,7 +10,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 21, offset: 0 }">
-    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.product.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='name' :itemRules="this.rules().name" class='' :caption="$t('entities.product.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
     v-model="data.name"  
     @enter="onEnter($event)"  
@@ -24,7 +24,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.code.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 21, offset: 0 }">
-    <app-form-item name='code' :itemRules="this.rules.code" class='' :caption="$t('entities.product.main_form.details.code')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.code.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='code' :itemRules="this.rules().code" class='' :caption="$t('entities.product.main_form.details.code')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.code.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
     v-model="data.code"  
     @enter="onEnter($event)"  
@@ -42,7 +42,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel3" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.linename.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='linename' :itemRules="this.rules.linename" class='' :caption="$t('entities.product.main_form.details.linename')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.linename.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='linename' :itemRules="this.rules().linename" class='' :caption="$t('entities.product.main_form.details.linename')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.linename.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker  
   :formState="formState"
@@ -89,7 +89,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.po.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 21, offset: 0 }">
-    <app-form-item name='po' :itemRules="this.rules.po" class='' :caption="$t('entities.product.main_form.details.po')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.po.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='po' :itemRules="this.rules().po" class='' :caption="$t('entities.product.main_form.details.po')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.po.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.po"
@@ -109,7 +109,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.qd.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 21, offset: 0 }">
-    <app-form-item name='qd' :itemRules="this.rules.qd" class='' :caption="$t('entities.product.main_form.details.qd')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.qd.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='qd' :itemRules="this.rules().qd" class='' :caption="$t('entities.product.main_form.details.qd')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.qd.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.qd"
@@ -129,7 +129,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.rd.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 21, offset: 0 }">
-    <app-form-item name='rd' :itemRules="this.rules.rd" class='' :caption="$t('entities.product.main_form.details.rd')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.rd.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='rd' :itemRules="this.rules().rd" class='' :caption="$t('entities.product.main_form.details.rd')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.rd.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.rd"
@@ -149,7 +149,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.type.visible" :style="{}"  :lg="{ span: 24, offset: 0 }" :xl="{ span: 21, offset: 0 }">
-    <app-form-item name='type' :itemRules="this.rules.type" class='' :caption="$t('entities.product.main_form.details.type')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='type' :itemRules="this.rules().type" class='' :caption="$t('entities.product.main_form.details.type')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.type.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.type"
@@ -174,7 +174,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.product.main_form.details.desc')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='desc' :itemRules="this.rules().desc" class='' :caption="$t('entities.product.main_form.details.desc')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <rich-text-editor 
     :formState="formState" 
@@ -193,7 +193,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.acl.visible" :style="{}"  :sm="{ span: 16, offset: 0 }" :md="{ span: 16, offset: 0 }" :lg="{ span: 16, offset: 0 }" :xl="{ span: 21, offset: 0 }">
-    <app-form-item name='acl' :itemRules="this.rules.acl" class='' :caption="$t('entities.product.main_form.details.acl')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.acl.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='acl' :itemRules="this.rules().acl" class='' :caption="$t('entities.product.main_form.details.acl')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.acl.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.acl"

@@ -145,7 +145,7 @@ export class FormControlBase extends MainControlBase {
      * @type {*}
      * @memberof FormControlBase
      */
-    public rules: any = {};
+    public rules():any{};
 
     /**
      * 界面服务
@@ -581,67 +581,70 @@ export class FormControlBase extends MainControlBase {
      * @returns {{isPast:boolean,infoMessage:string}}
      * @memberof FormControlBase
      */
-    public verifyDeRules(name: string, rule: any = this.deRules, op: string = "AND"): { isPast: boolean, infoMessage: string } {
-        let falg: any = { infoMessage: "" };
-        if (!rule[name]) {
+    public verifyDeRules(name:string,rule:any = this.deRules,op:string = "AND") :{isPast:boolean,infoMessage:string}{
+        let falg:any = {infoMessage:""};
+        if(!rule[name]){
             return falg;
         }
-        let opValue = op == 'AND' ? true : false;
-        let startOp = (val: boolean) => {
-            if (falg.isPast) {
-                if (opValue) {
+        let opValue = op == 'AND'? true :false;
+        let startOp = (val:boolean)=>{
+            if(falg.isPast){
+                if(opValue){
                     falg.isPast = falg && val;
-                } else {
+                }else{
                     falg.isPast = falg || val;
                 }
-            } else {
+            }else{
                 falg.isPast = val;
             }
         }
         for(let i=0;i<rule[name].length;i++){
             let item:any = rule[name][i];
-            let dataValue = item.deName ? this.data[this.service.getItemNameByDeName(item.deName)] : "";
+            let dataValue = item.deName?this.data[this.service.getItemNameByDeName(item.deName)]:"";
             // 常规规则
-            if (item.type == 'SIMPLE') {
-                startOp(!this.$verify.checkFieldSimpleRule(dataValue, item.condOP, item.paramValue, item.ruleInfo, item.paramType, this.data, item.isKeyCond));
+            if(item.type == 'SIMPLE'){
+                startOp(!this.$verify.checkFieldSimpleRule(dataValue,item.condOP,item.paramValue,item.ruleInfo,item.paramType,this.data,item.isKeyCond));
                 falg.infoMessage = item.ruleInfo;
                 if(!falg.isPast) return falg;
             }
             // 数值范围
-            if (item.type == 'VALUERANGE2') {
-                startOp(!this.$verify.checkFieldValueRangeRule(dataValue, item.minValue, item.isIncludeMinValue, item.maxValue, item.isIncludeMaxValue, item.ruleInfo, item.isKeyCond));
+            if(item.type == 'VALUERANGE2'){
+                startOp( !this.$verify.checkFieldValueRangeRule(dataValue,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond));
                 falg.infoMessage = item.ruleInfo;
                 if(!falg.isPast) return falg;
             }
             // 正则式
             if (item.type == "REGEX") {
-                startOp(!this.$verify.checkFieldRegExRule(dataValue, item.regExCode, item.ruleInfo, item.isKeyCond));
+                startOp(!this.$verify.checkFieldRegExRule(dataValue,item.regExCode,item.ruleInfo,item.isKeyCond));
                 falg.infoMessage = item.ruleInfo;
                 if(!falg.isPast) return falg;
             }
             // 长度
             if (item.type == "STRINGLENGTH") {
-                startOp(!this.$verify.checkFieldStringLengthRule(dataValue, item.minValue, item.isIncludeMinValue, item.maxValue, item.isIncludeMaxValue, item.ruleInfo, item.isKeyCond));
+                startOp(!this.$verify.checkFieldStringLengthRule(dataValue,item.minValue,item.isIncludeMinValue,item.maxValue,item.isIncludeMaxValue,item.ruleInfo,item.isKeyCond)); 
                 falg.infoMessage = item.ruleInfo;
                 if(!falg.isPast) return falg;
             }
             // 系统值规则
-            if (item.type == "SYSVALUERULE") {
-                startOp(!this.$verify.checkFieldSysValueRule(dataValue, item.sysRule.regExCode, item.ruleInfo, item.isKeyCond));
+            if(item.type == "SYSVALUERULE") {
+                startOp(!this.$verify.checkFieldSysValueRule(dataValue,item.sysRule.regExCode,item.ruleInfo,item.isKeyCond));
                 falg.infoMessage = item.ruleInfo;
                 if(!falg.isPast) return falg;
             }
             // 分组
-            if (item.type == 'GROUP') {
-                falg = this.verifyDeRules('group', item)
-                if (item.isNotMode) {
-                    falg.isPast = !falg.isPast;
+            if(item.type == 'GROUP'){
+                falg = this.verifyDeRules('group',item)
+                if(item.isNotMode){
+                   falg.isPast = !falg.isPast;
                 }
                 if(!falg.isPast) return falg;
-            }
+            }   
         }
-        if (!falg.hasOwnProperty("isPast")) {
+        if(!falg.hasOwnProperty("isPast")){
             falg.isPast = true;
+        }
+        if(!this.data[name]){
+           falg.isPast = true;
         }
         return falg;
     }

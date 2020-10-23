@@ -118,7 +118,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.title.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='title' :itemRules="this.rules.title" class='' :caption="$t('entities.productplan.maindata_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='title' :itemRules="this.rules().title" class='' :caption="$t('entities.productplan.maindata_form.details.title')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.title.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='title' :value="data.title" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -128,7 +128,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.beginstr.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='beginstr' :itemRules="this.rules.beginstr" class='' :caption="$t('entities.productplan.maindata_form.details.beginstr')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.beginstr.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='beginstr' :itemRules="this.rules().beginstr" class='' :caption="$t('entities.productplan.maindata_form.details.beginstr')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.beginstr.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='beginstr' :value="data.beginstr" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -138,7 +138,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.endstr.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='endstr' :itemRules="this.rules.endstr" class='' :caption="$t('entities.productplan.maindata_form.details.endstr')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.endstr.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='endstr' :itemRules="this.rules().endstr" class='' :caption="$t('entities.productplan.maindata_form.details.endstr')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.endstr.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='endstr' :value="data.endstr" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -183,7 +183,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.productplan.maindata_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='desc' :itemRules="this.rules().desc" class='' :caption="$t('entities.productplan.maindata_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
     <html-container :content="data.desc"></html-container>
 </app-form-item>
 

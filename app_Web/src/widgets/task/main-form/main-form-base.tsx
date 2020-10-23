@@ -122,7 +122,8 @@ export class MainEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof MainEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
         projectname: [
             { required: true, type: 'string', message: '所属项目 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '所属项目 值不能为空', trigger: 'blur' },
@@ -139,6 +140,7 @@ export class MainEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**

@@ -6,14 +6,14 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.date.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='date' :itemRules="this.rules.date" class='' :caption="$t('entities.taskestimate.main_form.details.date')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.date.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='date' :itemRules="this.rules().date" class='' :caption="$t('entities.taskestimate.main_form.details.date')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.date.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
 
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.consumed.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='consumed' :itemRules="this.rules.consumed" class='' :caption="$t('entities.taskestimate.main_form.details.consumed')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.consumed.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='consumed' :itemRules="this.rules().consumed" class='' :caption="$t('entities.taskestimate.main_form.details.consumed')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.consumed.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
     v-model="data.consumed"  
     @enter="onEnter($event)"  
@@ -28,7 +28,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.left.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='left' :itemRules="this.rules.left" class='' :caption="$t('entities.taskestimate.main_form.details.left')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.left.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='left' :itemRules="this.rules().left" class='' :caption="$t('entities.taskestimate.main_form.details.left')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.left.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
     v-model="data.left"  
     @enter="onEnter($event)"  
@@ -43,7 +43,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.work.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='work' :itemRules="this.rules.work" class='' :caption="$t('entities.taskestimate.main_form.details.work')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.work.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='work' :itemRules="this.rules().work" class='' :caption="$t('entities.taskestimate.main_form.details.work')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.work.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box v-model="data.work"  :disabled="detailsModel.work.disabled" type='textarea' style="" ></input-box>
 
 </app-form-item>

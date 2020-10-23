@@ -117,7 +117,9 @@ export class StorySpecEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof StorySpecEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

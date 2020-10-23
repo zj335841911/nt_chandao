@@ -104,7 +104,9 @@ export class ToBugEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof ToBugEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

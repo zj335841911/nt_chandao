@@ -10,7 +10,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.testtask.maindetail_form.details.desc')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="NONE">
+    <app-form-item name='desc' :itemRules="this.rules().desc" class='' :caption="$t('entities.testtask.maindetail_form.details.desc')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="NONE">
     <html-container :content="data.desc"></html-container>
 </app-form-item>
 

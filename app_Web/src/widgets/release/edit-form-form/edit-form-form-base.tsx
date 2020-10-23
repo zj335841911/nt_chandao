@@ -101,7 +101,8 @@ export class EditFormEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof EditFormEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
         name: [
             { required: true, type: 'string', message: '发布名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '发布名称 值不能为空', trigger: 'blur' },
@@ -112,6 +113,7 @@ export class EditFormEditFormBase extends EditFormControlBase {
             {validator:(rule:any, value:any)=>{return this.verifyDeRules("date").isPast},message: this.verifyDeRules("date").infoMessage, trigger: 'change' },
             {validator:(rule:any, value:any)=>{return this.verifyDeRules("date").isPast},message: this.verifyDeRules("date").infoMessage, trigger: 'blur' },
         ],
+        }
     }
 
     /**

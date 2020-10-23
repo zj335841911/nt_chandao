@@ -112,7 +112,8 @@ export class MainEditEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof MainEditEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
         owner: [
             { required: true, type: 'string', message: '负责人 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '负责人 值不能为空', trigger: 'blur' },
@@ -121,6 +122,7 @@ export class MainEditEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '标题 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '标题 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**

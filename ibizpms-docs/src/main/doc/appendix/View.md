@@ -23,6 +23,7 @@
 |-|项目图表视图|DEMOBCHARTVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|我的地盘分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
+|-|Bug移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|Bug选项操作视图（解决Bug）|DEMOBOPTVIEW|&nbsp;|
 |-|任务选项操作视图（暂停）|DEMOBOPTVIEW|&nbsp;|
 |-|测试套件移动端编辑视图|DEMOBEDITVIEW|&nbsp;|

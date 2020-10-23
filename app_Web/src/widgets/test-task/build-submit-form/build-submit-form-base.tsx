@@ -106,7 +106,8 @@ export class BuildSUBMITEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof BuildSUBMITEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
         buildname: [
             { required: true, type: 'string', message: '版本 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '版本 值不能为空', trigger: 'blur' },
@@ -123,6 +124,7 @@ export class BuildSUBMITEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '名称 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**

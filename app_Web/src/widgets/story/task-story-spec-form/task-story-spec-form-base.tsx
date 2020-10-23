@@ -104,7 +104,9 @@ export class TaskStorySpecEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof TaskStorySpecEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

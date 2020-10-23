@@ -112,7 +112,9 @@ export class BlockEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof BlockEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

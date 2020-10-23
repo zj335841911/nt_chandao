@@ -113,7 +113,8 @@ export class ReviewEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof ReviewEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
         result: [
             { required: true, type: 'string', message: '评审结果 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '评审结果 值不能为空', trigger: 'blur' },
@@ -134,6 +135,7 @@ export class ReviewEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '由谁评审 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '由谁评审 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**

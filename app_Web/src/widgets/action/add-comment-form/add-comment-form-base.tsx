@@ -95,7 +95,9 @@ export class AddCommentEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof AddCommentEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

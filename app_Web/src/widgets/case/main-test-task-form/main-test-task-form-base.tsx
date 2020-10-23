@@ -107,7 +107,9 @@ export class MainTestTaskEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof MainTestTaskEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

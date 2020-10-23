@@ -14,7 +14,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel11" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.spec.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='spec' :itemRules="this.rules.spec" class='' :caption="$t('entities.story.taskstoryspec_form.details.spec')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.spec.error" :isEmptyCaption="false" labelPos="NONE">
+    <app-form-item name='spec' :itemRules="this.rules().spec" class='' :caption="$t('entities.story.taskstoryspec_form.details.spec')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.spec.error" :isEmptyCaption="false" labelPos="NONE">
     <html-container :content="data.spec"></html-container>
 </app-form-item>
 
@@ -63,7 +63,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel21" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.verify.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='verify' :itemRules="this.rules.verify" class='' :caption="$t('entities.story.taskstoryspec_form.details.verify')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.verify.error" :isEmptyCaption="false" labelPos="NONE">
+    <app-form-item name='verify' :itemRules="this.rules().verify" class='' :caption="$t('entities.story.taskstoryspec_form.details.verify')" uiStyle="DEFAULT" :labelWidth="0" :isShowCaption="false" :error="detailsModel.verify.error" :isEmptyCaption="false" labelPos="NONE">
     <html-container :content="data.verify"></html-container>
 </app-form-item>
 

@@ -105,7 +105,9 @@ export class ActivateEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof ActivateEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**
