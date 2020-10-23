@@ -113,7 +113,8 @@ export class ReviewEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof ReviewEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
         result: [
             { required: true, type: 'string', message: '评审结果 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '评审结果 值不能为空', trigger: 'blur' },
@@ -134,6 +135,7 @@ export class ReviewEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '由谁评审 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '由谁评审 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**
@@ -274,7 +276,7 @@ export class ReviewEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_result, 'NOTEQ', 'revert')) {
                 ret = false;
             }
-            this.rules.preversion.some((rule: any) => {
+            this.rules().preversion.some((rule: any) => {
                 if (rule.hasOwnProperty('required')) {
                     rule.required = ret;
                 }
@@ -296,7 +298,7 @@ export class ReviewEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_result, 'NOTEQ', 'reject')) {
                 ret = false;
             }
-            this.rules.closedreason.some((rule: any) => {
+            this.rules().closedreason.some((rule: any) => {
                 if (rule.hasOwnProperty('required')) {
                     rule.required = ret;
                 }

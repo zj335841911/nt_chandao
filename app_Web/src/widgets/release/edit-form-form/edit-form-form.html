@@ -6,7 +6,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.release.editform_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='productname' :itemRules="this.rules().productname" class='' :caption="$t('entities.release.editform_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='productname' :value="data.productname" dataType="PICKUPTEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -20,7 +20,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.release.editform_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='name' :itemRules="this.rules().name" class='' :caption="$t('entities.release.editform_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
     v-model="data.name"  
     @enter="onEnter($event)"  
@@ -34,7 +34,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.buildname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='buildname' :itemRules="this.rules.buildname" class='' :caption="$t('entities.release.editform_form.details.buildname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.buildname.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='buildname' :itemRules="this.rules().buildname" class='' :caption="$t('entities.release.editform_form.details.buildname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.buildname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker  
   :formState="formState"
@@ -59,7 +59,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.date.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='date' :itemRules="this.rules.date" class='' :caption="$t('entities.release.editform_form.details.date')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.date.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='date' :itemRules="this.rules().date" class='' :caption="$t('entities.release.editform_form.details.date')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.date.error" :isEmptyCaption="false" labelPos="LEFT">
     <date-picker type="date" :transfer="true" format="yyyy-MM-dd" placeholder="请选择时间..." :value="data.date" :disabled="detailsModel.date.disabled" style="min-width: 150px; width:100px;" @on-change="(val1, val2) => { this.data.date = val1 }"></date-picker>
 
 </app-form-item>
@@ -75,7 +75,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.grouppanel2" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.marker.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='marker' :itemRules="this.rules.marker" class='' :caption="$t('entities.release.editform_form.details.marker')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.marker.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='marker' :itemRules="this.rules().marker" class='' :caption="$t('entities.release.editform_form.details.marker')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.marker.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.marker"
@@ -100,14 +100,14 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.release.editform_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='desc' :itemRules="this.rules().desc" class='' :caption="$t('entities.release.editform_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.desc" @change="(val) =>{this.data.desc =val}" :disabled="detailsModel.desc.disabled" :data="JSON.stringify(this.data)"  name="desc" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"release",objectid:"%id%",version:"editor"}' :exportparams='{objecttype:"release",objectid:"%id%",version:"editor"}'  style=""></app-rich-text-editor>
 
 </app-form-item>
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.files.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='files' :itemRules="this.rules.files" class='' :caption="$t('entities.release.editform_form.details.files')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.files.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='files' :itemRules="this.rules().files" class='' :caption="$t('entities.release.editform_form.details.files')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.files.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-file-upload :formState="formState" :ignorefieldvaluechange="ignorefieldvaluechange" @formitemvaluechange="onFormItemValueChange($event)" :data="JSON.stringify(this.data)" name='files' :value="data.files" :disabled="detailsModel.files.disabled" :uploadparams='{objecttype:"release",objectid:"%id%",version:"0"}' :exportparams='{objecttype:"release",objectid:"%id%",version:"0"}'  style="overflow: auto;"></app-file-upload>
 </app-form-item>
 

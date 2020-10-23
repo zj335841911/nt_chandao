@@ -92,6 +92,7 @@ export default class BugUIActionBase extends EntityUIActionBase {
         this.allViewMap.set(':',{viewname:'colsemobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'planmobmdview9',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'cmoboptionview',srfappde:'bugs'});
+        this.allViewMap.set(':',{viewname:'editnewmobeditview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'rmoboptionview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'testmobmdview',srfappde:'bugs'});
         this.allViewMap.set(':',{viewname:'acmoboptionview',srfappde:'bugs'});
@@ -470,6 +471,71 @@ export default class BugUIActionBase extends EntityUIActionBase {
             return response;
         };
         return backend();
+    }
+
+    /**
+     * 编辑
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof BugUIService
+     */
+    public async Bug_MobMainEdit(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { bug: '%bug%' });
+        Object.assign(paramJO, { id: '%bug%' });
+        Object.assign(paramJO, { title: '%title%' });
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if (context.product && context.story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if (context.story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if (context.product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'bugs', parameterName: 'bug' },
+            { pathName: 'editnewmobeditview', parameterName: 'editnewmobeditview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        return response;
     }
 
     /**

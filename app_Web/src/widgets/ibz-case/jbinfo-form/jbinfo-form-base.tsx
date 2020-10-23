@@ -100,7 +100,9 @@ export class JBInfoEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof JBInfoEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

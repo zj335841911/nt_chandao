@@ -461,4 +461,12 @@ export interface Task {
      * @memberof Task
      */
     files?: any;
+
+    /**
+     * 团队用户
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    usernames?: any;
 }

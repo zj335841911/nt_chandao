@@ -106,7 +106,9 @@ export class MainCarryEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof MainCarryEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

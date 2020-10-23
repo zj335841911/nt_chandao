@@ -27441,6 +27441,19 @@
     "data_length":1000,
     "key_field":0,
     "major_field":0
+    },
+    {
+    "fieldname":"USERNAMES" ,
+    "codename":"Usernames",
+    "field_logic_name":"团队用户",
+    "entity_name":"Task",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "major_field":0
     }
     ],
     "subEntitys":[

@@ -96,7 +96,9 @@ export class NewEditEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof NewEditEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

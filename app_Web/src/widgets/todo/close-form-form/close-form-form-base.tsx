@@ -92,7 +92,9 @@ export class CloseFormEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof CloseFormEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

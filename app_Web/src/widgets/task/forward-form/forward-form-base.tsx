@@ -107,7 +107,8 @@ export class ForwardEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof ForwardEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
         assignedto: [
             { required: true, type: 'string', message: '转交给 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '转交给 值不能为空', trigger: 'blur' },
@@ -117,6 +118,7 @@ export class ForwardEditFormBase extends EditFormControlBase {
             { required: true, type: 'number', message: '预计剩余 值不能为空', trigger: 'blur' },
             { pattern: /[0-9]*[1-9][0-9]*/, message: '内容必须为正整数', trigger: 'change' },
         ],
+        }
     }
 
     /**

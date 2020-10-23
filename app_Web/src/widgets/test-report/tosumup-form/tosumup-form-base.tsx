@@ -93,7 +93,9 @@ export class TosumupEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof TosumupEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

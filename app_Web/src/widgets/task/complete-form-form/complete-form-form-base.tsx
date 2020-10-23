@@ -110,11 +110,13 @@ export class CompleteFormEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof CompleteFormEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
         currentconsumed: [
             { required: true, type: 'number', message: '本次消耗 值不能为空', trigger: 'change' },
             { required: true, type: 'number', message: '本次消耗 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**

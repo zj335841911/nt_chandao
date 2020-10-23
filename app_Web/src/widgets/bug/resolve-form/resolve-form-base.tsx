@@ -113,7 +113,8 @@ export class ResolveEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof ResolveEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
         resolution: [
             { required: true, type: 'string', message: '解决方案 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '解决方案 值不能为空', trigger: 'blur' },
@@ -130,6 +131,7 @@ export class ResolveEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: ' 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: ' 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**
@@ -255,7 +257,7 @@ export class ResolveEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_createbuild, 'EQ', '1')) {
                 ret = false;
             }
-            this.rules.resolvedbuild.some((rule: any) => {
+            this.rules().resolvedbuild.some((rule: any) => {
                 if (rule.hasOwnProperty('required')) {
                     rule.required = ret;
                 }
@@ -277,7 +279,7 @@ export class ResolveEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_createbuild, 'ISNULL', '')) {
                 ret = false;
             }
-            this.rules.buildproject.some((rule: any) => {
+            this.rules().buildproject.some((rule: any) => {
                 if (rule.hasOwnProperty('required')) {
                     rule.required = ret;
                 }
@@ -299,7 +301,7 @@ export class ResolveEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_createbuild, 'ISNULL', '')) {
                 ret = false;
             }
-            this.rules.buildname.some((rule: any) => {
+            this.rules().buildname.some((rule: any) => {
                 if (rule.hasOwnProperty('required')) {
                     rule.required = ret;
                 }

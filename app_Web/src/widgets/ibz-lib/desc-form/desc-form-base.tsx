@@ -113,7 +113,9 @@ export class DescEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof DescEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

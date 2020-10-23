@@ -34,6 +34,9 @@ export default {
 		mobeditview: {
 			caption: '测试版本',
 		},
+		editnewmobeditview: {
+			caption: '测试版本',
+		},
 		mobmdview: {
 			caption: '测试版本',
 		},
@@ -177,6 +180,38 @@ export default {
 		uiactions: {
 		},
 	},
+	mobeditform_form: {
+		details: {
+			grouppanel2: '起止日期', 
+			grouppanel1: '分组面板', 
+			group1: '基本信息', 
+			formpage1: '基本信息', 
+			srforikey: '', 
+			srfkey: '编号', 
+			srfmajortext: '名称', 
+			srftempmode: '', 
+			srfuf: '', 
+			srfdeid: '', 
+			srfsourcekey: '', 
+			projecttname: '项目', 
+			product: '所属产品', 
+			buildname: '版本', 
+			owner: '负责人', 
+			pri: '优先级', 
+			begin: '开始日期', 
+			end: '结束日期', 
+			status: '当前状态', 
+			name: '名称', 
+			desc: '描述', 
+			comment: '备注', 
+			mailto: '抄送给', 
+			id: '编号', 
+			project: '所属项目', 
+			build: '版本', 
+		},
+		uiactions: {
+		},
+	},
 	mobdef_searchform: {
 		details: {
 			formpage1: '常规条件', 
@@ -199,6 +234,20 @@ export default {
 			tip: '创建测试版本',
 		},
 	},
+	editnewmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: '保存',
+			tip: '保存',
+		},
+	},
 	mobeditviewrighttoolbar_toolbar: {
+		deuiaction1_mobeditedit: {
+			caption: '编辑',
+			tip: '编辑',
+		},
+		deuiaction1_mobdelete: {
+			caption: '删除',
+			tip: '删除',
+		},
 	},
 };

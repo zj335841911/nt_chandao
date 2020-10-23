@@ -461,4 +461,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     files?: any;
+
+    /**
+     * 团队用户
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    usernames?: any;
 }

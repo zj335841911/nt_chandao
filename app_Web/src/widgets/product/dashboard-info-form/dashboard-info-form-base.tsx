@@ -111,7 +111,9 @@ export class DashboardInfoEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof DashboardInfoEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

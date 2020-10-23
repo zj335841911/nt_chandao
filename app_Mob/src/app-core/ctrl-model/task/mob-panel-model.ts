@@ -186,6 +186,9 @@ export class MobModel {
       {
         name: 'files',
       },
+      {
+        name: 'usernames',
+      },
     ]
   }
 

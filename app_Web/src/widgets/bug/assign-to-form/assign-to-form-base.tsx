@@ -106,7 +106,9 @@ export class AssignToEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof AssignToEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

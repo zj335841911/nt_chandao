@@ -98,11 +98,13 @@ export class AssigntoFormEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof AssigntoFormEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
         assignto: [
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '指派给 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**

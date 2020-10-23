@@ -186,6 +186,9 @@ export default class WorkInfoModel {
       {
         name: 'files',
       },
+      {
+        name: 'usernames',
+      },
     ]
   }
 

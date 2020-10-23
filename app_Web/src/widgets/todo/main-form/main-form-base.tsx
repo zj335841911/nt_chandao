@@ -115,7 +115,8 @@ export class MainEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof MainEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
         task: [
             { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'blur' },
@@ -132,6 +133,7 @@ export class MainEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '待办名称 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**
@@ -320,7 +322,7 @@ export class MainEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_type, 'NOTEQ', 'task')) {
                 ret = false;
             }
-            this.rules.task.some((rule: any) => {
+            this.rules().task.some((rule: any) => {
                 if (rule.hasOwnProperty('required')) {
                     rule.required = ret;
                 }
@@ -342,7 +344,7 @@ export class MainEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_type, 'NOTEQ', 'story')) {
                 ret = false;
             }
-            this.rules.story.some((rule: any) => {
+            this.rules().story.some((rule: any) => {
                 if (rule.hasOwnProperty('required')) {
                     rule.required = ret;
                 }
@@ -364,7 +366,7 @@ export class MainEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_type, 'NOTEQ', 'bug')) {
                 ret = false;
             }
-            this.rules.bug.some((rule: any) => {
+            this.rules().bug.some((rule: any) => {
                 if (rule.hasOwnProperty('required')) {
                     rule.required = ret;
                 }
@@ -386,7 +388,7 @@ export class MainEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_type, 'NOTEQ', 'custom') && this.$verify.testCond(_type, 'ISNOTNULL', '')) {
                 ret = false;
             }
-            this.rules.name.some((rule: any) => {
+            this.rules().name.some((rule: any) => {
                 if (rule.hasOwnProperty('required')) {
                     rule.required = ret;
                 }

@@ -106,7 +106,9 @@ export class StartFormEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof StartFormEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

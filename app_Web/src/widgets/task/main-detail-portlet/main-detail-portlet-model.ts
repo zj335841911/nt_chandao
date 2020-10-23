@@ -186,6 +186,9 @@ export default class MainDetailModel {
       {
         name: 'files',
       },
+      {
+        name: 'usernames',
+      },
     ]
   }
 

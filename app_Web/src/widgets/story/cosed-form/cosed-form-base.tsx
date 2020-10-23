@@ -104,11 +104,13 @@ export class CosedEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof CosedEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
         closedreason: [
             { required: true, type: 'string', message: '关闭原因 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '关闭原因 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**

@@ -6,7 +6,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.branch.platformmanagement_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='name' :itemRules="this.rules().name" class='' :caption="$t('entities.branch.platformmanagement_form.details.name')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
     v-model="data.name"  
     @enter="onEnter($event)"  
@@ -20,7 +20,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.order.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='order' :itemRules="this.rules.order" class='' :caption="$t('entities.branch.platformmanagement_form.details.order')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.order.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='order' :itemRules="this.rules().order" class='' :caption="$t('entities.branch.platformmanagement_form.details.order')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.order.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
     v-model="data.order"  
     @enter="onEnter($event)"  

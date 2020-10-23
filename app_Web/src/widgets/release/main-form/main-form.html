@@ -6,7 +6,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.productname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='productname' :itemRules="this.rules.productname" class='' :caption="$t('entities.release.main_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='productname' :itemRules="this.rules().productname" class='' :caption="$t('entities.release.main_form.details.productname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.productname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker 
   :formState="formState"
@@ -31,7 +31,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.name.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='name' :itemRules="this.rules.name" class='' :caption="$t('entities.release.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='name' :itemRules="this.rules().name" class='' :caption="$t('entities.release.main_form.details.name')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.name.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='name' :value="data.name" dataType="TEXT"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -41,7 +41,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.buildname.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='buildname' :itemRules="this.rules.buildname" class='' :caption="$t('entities.release.main_form.details.buildname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.buildname.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='buildname' :itemRules="this.rules().buildname" class='' :caption="$t('entities.release.main_form.details.buildname')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.buildname.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-picker 
   :formState="formState"
@@ -66,7 +66,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.status.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='status' :itemRules="this.rules.status" class='' :caption="$t('entities.release.main_form.details.status')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='status' :itemRules="this.rules().status" class='' :caption="$t('entities.release.main_form.details.status')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.status.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='status' :value="data.status" dataType="SSCODELIST"     :precision="0"
 tag='Release__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -76,7 +76,7 @@ tag='Release__status' codelistType='STATIC' :data="data" :context="context" :vie
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.date.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='date' :itemRules="this.rules.date" class='' :caption="$t('entities.release.main_form.details.date')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.date.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='date' :itemRules="this.rules().date" class='' :caption="$t('entities.release.main_form.details.date')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.date.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <app-span name='date' :value="data.date" dataType="DATE" valueFormat="%1$tY-%1$tm-%1$td"     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'  style="">  
@@ -86,7 +86,7 @@ tag='Release__status' codelistType='STATIC' :data="data" :context="context" :vie
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.desc.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='desc' :itemRules="this.rules.desc" class='' :caption="$t('entities.release.main_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='desc' :itemRules="this.rules().desc" class='' :caption="$t('entities.release.main_form.details.desc')" uiStyle="DEFAULT" :labelWidth="100" :isShowCaption="true" :error="detailsModel.desc.error" :isEmptyCaption="false" labelPos="LEFT">
     <html-container :content="data.desc"></html-container>
 </app-form-item>
 

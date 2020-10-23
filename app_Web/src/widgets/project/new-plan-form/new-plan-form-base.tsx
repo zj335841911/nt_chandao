@@ -107,7 +107,8 @@ export class NewPlanEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof NewPlanEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
         name: [
             { required: true, type: 'string', message: '项目名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '项目名称 值不能为空', trigger: 'blur' },
@@ -130,6 +131,7 @@ export class NewPlanEditFormBase extends EditFormControlBase {
             { required: true, type: 'number', message: '可用工作日 值不能为空', trigger: 'change' },
             { required: true, type: 'number', message: '可用工作日 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**

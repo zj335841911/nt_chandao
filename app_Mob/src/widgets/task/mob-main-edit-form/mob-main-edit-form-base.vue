@@ -455,7 +455,18 @@
     :disabled="detailsModel.assignedto.disabled"
     :error="detailsModel.assignedto.error" 
     :isEmptyCaption="false">
-        
+        <app-mob-select 
+    tag="UserRealNameTaskTeam"
+    codeListType="DYNAMIC" 
+    :isCache="false" 
+    :disabled="detailsModel.assignedto.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.assignedto"  
+    :navigateContext ='{ "project": "%project%", "multiple": "0" } '
+    :navigateParam ='{ "project": "%project%", "multiple": "0" } '
+    @change="($event)=>this.data.assignedto = $event" />
 </app-form-item>
 
 

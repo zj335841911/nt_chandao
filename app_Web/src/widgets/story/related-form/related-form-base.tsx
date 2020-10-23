@@ -105,7 +105,9 @@ export class RelatedEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof RelatedEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

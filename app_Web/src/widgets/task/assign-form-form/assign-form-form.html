@@ -6,7 +6,7 @@
     <app-form-group-data-panel slot="dataInfoPanel" :model="detailsModel.group1" :data="data" :context="context" :viewparams="viewparams"/>
     <row>
         <i-col class="form-layout-container" v-show="detailsModel.assignedto.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='assignedto' :itemRules="this.rules.assignedto" class='' :caption="$t('entities.task.assignform_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='assignedto' :itemRules="this.rules().assignedto" class='' :caption="$t('entities.task.assignform_form.details.assignedto')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.assignedto.error" :isEmptyCaption="false" labelPos="LEFT">
     
 <dropdown-list 
     v-model="data.assignedto"
@@ -26,7 +26,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.left.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='left' :itemRules="this.rules.left" class='' :caption="$t('entities.task.assignform_form.details.left')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.left.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='left' :itemRules="this.rules().left" class='' :caption="$t('entities.task.assignform_form.details.left')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.left.error" :isEmptyCaption="false" labelPos="LEFT">
     <input-box 
     v-model="data.left"  
     @enter="onEnter($event)"  
@@ -41,7 +41,7 @@
 
 </i-col>
 <i-col class="form-layout-container" v-show="detailsModel.comment.visible" :style="{}"  :lg="{ span: 24, offset: 0 }">
-    <app-form-item name='comment' :itemRules="this.rules.comment" class='' :caption="$t('entities.task.assignform_form.details.comment')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
+    <app-form-item name='comment' :itemRules="this.rules().comment" class='' :caption="$t('entities.task.assignform_form.details.comment')" uiStyle="DEFAULT" :labelWidth="130" :isShowCaption="true" :error="detailsModel.comment.error" :isEmptyCaption="false" labelPos="LEFT">
     <app-rich-text-editor :formState="formState" :value="data.comment" @change="(val) =>{this.data.comment =val}" :disabled="detailsModel.comment.disabled" :data="JSON.stringify(this.data)"  name="comment" :context="context" :viewparams="viewparams" :uploadparams='{objecttype:"task",objectid: "%id%",version:"editor"}' :exportparams='{objecttype:"task",objectid: "%id%",version:"editor"}'  style=""></app-rich-text-editor>
 
 </app-form-item>

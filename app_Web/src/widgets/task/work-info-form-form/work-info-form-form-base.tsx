@@ -99,7 +99,9 @@ export class WorkInfoFormEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof WorkInfoFormEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

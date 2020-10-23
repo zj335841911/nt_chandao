@@ -101,6 +101,7 @@ export class MainEditFormBase extends EditFormControlBase {
         assignedto: null,
         multiple: null,
         story: null,
+        usernames: null,
         storyname: null,
         name: null,
         pri: null,
@@ -121,7 +122,8 @@ export class MainEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof MainEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
         projectname: [
             { required: true, type: 'string', message: '所属项目 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '所属项目 值不能为空', trigger: 'blur' },
@@ -138,6 +140,7 @@ export class MainEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**
@@ -197,6 +200,8 @@ export class MainEditFormBase extends EditFormControlBase {
         multiple: new FormItemModel({ caption: '多人任务', detailType: 'FORMITEM', name: 'multiple', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         story: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'story', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
+
+        usernames: new FormItemModel({ caption: '团队用户', detailType: 'FORMITEM', name: 'usernames', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
         storyname: new FormItemModel({ caption: '相关需求', detailType: 'FORMITEM', name: 'storyname', visible: true, isShowCaption: true, form: this, showMoreMode: 0, disabled: false, enableCond: 3 }),
 
@@ -279,7 +284,7 @@ export class MainEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_multiple, 'EQ', '1')) {
                 ret = false;
             }
-            this.rules.assignedto.some((rule: any) => {
+            this.rules().assignedto.some((rule: any) => {
                 if (rule.hasOwnProperty('required')) {
                     rule.required = ret;
                 }
@@ -294,6 +299,7 @@ export class MainEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.assignedto.setDisabled(!ret);
         }
+
 
 
 

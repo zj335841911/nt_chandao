@@ -186,6 +186,9 @@ export class MyFavoriteTaskModel {
       {
         name: 'files',
       },
+      {
+        name: 'usernames',
+      },
     ]
   }
 

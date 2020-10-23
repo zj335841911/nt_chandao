@@ -23,6 +23,7 @@
 |-|项目图表视图|DEMOBCHARTVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|我的地盘分页导航视图|DEMOBTABEXPVIEW|&nbsp;|
+|-|Bug移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
 |-|Bug选项操作视图（解决Bug）|DEMOBOPTVIEW|&nbsp;|
 |-|任务选项操作视图（暂停）|DEMOBOPTVIEW|&nbsp;|
 |-|测试套件移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
@@ -84,6 +85,7 @@
 |-|版本移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|
 |-|测试|DEMOBMDVIEW|&nbsp;|
 |-|待办事宜表移动端多数据视图|DEMOBMDVIEW|&nbsp;|
+|-|版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|用户移动端选择多数据视图|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|任务移动端多数据视图|DEMOBMDVIEW|&nbsp;|
 |-|Bug移动端编辑视图（新建）|DEMOBEDITVIEW|&nbsp;|
@@ -118,6 +120,7 @@
 |-|关闭产品|DEMOBEDITVIEW|&nbsp;|
 |-|需求选项操作视图（变更）|DEMOBOPTVIEW|&nbsp;|
 |-|系统日志移动端多数据视图（通用）|DEMOBMDVIEW9|&nbsp;|
+|-|测试版本移动端编辑视图|DEMOBEDITVIEW|&nbsp;|
 |-|需求移动端选择多数据视图（关联需求）|DEMOBPICKUPMDVIEW|&nbsp;|
 |-|任务预计多表单编辑视图|DEMOBMEDITVIEW9|&nbsp;|
 |-|产品线移动端数据选择视图|DEMOBPICKUPVIEW|&nbsp;|

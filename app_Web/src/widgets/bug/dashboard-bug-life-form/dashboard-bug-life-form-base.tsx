@@ -103,7 +103,9 @@ export class DashboardBugLifeEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof DashboardBugLifeEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

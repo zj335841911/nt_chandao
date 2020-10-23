@@ -103,7 +103,9 @@ export class ClosePauseCancelFormEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof ClosePauseCancelFormEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

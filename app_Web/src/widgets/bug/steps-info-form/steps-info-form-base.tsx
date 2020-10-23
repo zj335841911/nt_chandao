@@ -113,7 +113,9 @@ export class StepsInfoEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof StepsInfoEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

@@ -108,7 +108,9 @@ export class ConfirmEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof ConfirmEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

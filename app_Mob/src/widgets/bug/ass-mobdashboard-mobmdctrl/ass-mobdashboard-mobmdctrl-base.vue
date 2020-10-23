@@ -13,6 +13,7 @@
                             <ion-item-option v-show="item.ConfirmBugMob.visabled" :disabled="item.ConfirmBugMob.disabled" color="primary" @click="mdctrl_click($event, 'uf4807eb', item)"><ion-icon v-if="item.ConfirmBugMob.icon && item.ConfirmBugMob.isShowIcon" :name="item.ConfirmBugMob.icon"></ion-icon><ion-label v-if="item.ConfirmBugMob.isShowCaption">确认</ion-label></ion-item-option>
                             <ion-item-option v-show="item.ActivationMob.visabled" :disabled="item.ActivationMob.disabled" color="primary" @click="mdctrl_click($event, 'ub160c90', item)"><ion-icon v-if="item.ActivationMob.icon && item.ActivationMob.isShowIcon" :name="item.ActivationMob.icon"></ion-icon><ion-label v-if="item.ActivationMob.isShowCaption">激活</ion-label></ion-item-option>
                             <ion-item-option v-show="item.ResolveBugMob.visabled" :disabled="item.ResolveBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u9ab7459', item)"><ion-icon v-if="item.ResolveBugMob.icon && item.ResolveBugMob.isShowIcon" :name="item.ResolveBugMob.icon"></ion-icon><ion-label v-if="item.ResolveBugMob.isShowCaption">解决</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobMainEdit.visabled" :disabled="item.MobMainEdit.disabled" color="primary" @click="mdctrl_click($event, 'u49b4a99', item)"><ion-icon v-if="item.MobMainEdit.icon && item.MobMainEdit.isShowIcon" :name="item.MobMainEdit.icon"></ion-icon><ion-label v-if="item.MobMainEdit.isShowCaption">编辑</ion-label></ion-item-option>
                             <ion-item-option v-show="item.CloseBugMob.visabled" :disabled="item.CloseBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u704707e', item)"><ion-icon v-if="item.CloseBugMob.icon && item.CloseBugMob.isShowIcon" :name="item.CloseBugMob.icon"></ion-icon><ion-label v-if="item.CloseBugMob.isShowCaption">关闭</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
@@ -36,6 +37,7 @@
                             <ion-item-option v-show="item.ConfirmBugMob.visabled" :disabled="item.ConfirmBugMob.disabled" color="primary" @click="mdctrl_click($event, 'uf4807eb', item)"><ion-icon v-if="item.ConfirmBugMob.icon && item.ConfirmBugMob.isShowIcon" :name="item.ConfirmBugMob.icon"></ion-icon><ion-label v-if="item.ConfirmBugMob.isShowCaption">确认</ion-label></ion-item-option>
                             <ion-item-option v-show="item.ActivationMob.visabled" :disabled="item.ActivationMob.disabled" color="primary" @click="mdctrl_click($event, 'ub160c90', item)"><ion-icon v-if="item.ActivationMob.icon && item.ActivationMob.isShowIcon" :name="item.ActivationMob.icon"></ion-icon><ion-label v-if="item.ActivationMob.isShowCaption">激活</ion-label></ion-item-option>
                             <ion-item-option v-show="item.ResolveBugMob.visabled" :disabled="item.ResolveBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u9ab7459', item)"><ion-icon v-if="item.ResolveBugMob.icon && item.ResolveBugMob.isShowIcon" :name="item.ResolveBugMob.icon"></ion-icon><ion-label v-if="item.ResolveBugMob.isShowCaption">解决</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobMainEdit.visabled" :disabled="item.MobMainEdit.disabled" color="primary" @click="mdctrl_click($event, 'u49b4a99', item)"><ion-icon v-if="item.MobMainEdit.icon && item.MobMainEdit.isShowIcon" :name="item.MobMainEdit.icon"></ion-icon><ion-label v-if="item.MobMainEdit.isShowCaption">编辑</ion-label></ion-item-option>
                             <ion-item-option v-show="item.CloseBugMob.visabled" :disabled="item.CloseBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u704707e', item)"><ion-icon v-if="item.CloseBugMob.icon && item.CloseBugMob.isShowIcon" :name="item.CloseBugMob.icon"></ion-icon><ion-label v-if="item.CloseBugMob.isShowCaption">关闭</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
@@ -356,6 +358,37 @@ export default class AssMOBDASHBOARDBase extends Vue implements ControlInterface
         const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
         if (curUIService) {
             curUIService.Bug_ResolveBugMob(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof MdctrlBase
+     */
+    protected async mdctrl_u49b4a99_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('bug_ui_action');
+        if (curUIService) {
+            curUIService.Bug_MobMainEdit(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 
@@ -1251,6 +1284,9 @@ export default class AssMOBDASHBOARDBase extends Vue implements ControlInterface
         if (Object.is(tag, 'u9ab7459')) {
             this.mdctrl_u9ab7459_click();
         }
+        if (Object.is(tag, 'u49b4a99')) {
+            this.mdctrl_u49b4a99_click();
+        }
         if (Object.is(tag, 'u704707e')) {
             this.mdctrl_u704707e_click();
         }
@@ -1356,6 +1392,7 @@ export default class AssMOBDASHBOARDBase extends Vue implements ControlInterface
         ConfirmBugMob: { name: 'ConfirmBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CONFIRM_BUT', target: 'SINGLEKEY',icon:'eye',isShowCaption:false,isShowIcon:true},
         ActivationMob: { name: 'ActivationMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_ACTIVATE_BUT', target: 'SINGLEKEY',icon:'color-wand',isShowCaption:false,isShowIcon:true},
         ResolveBugMob: { name: 'ResolveBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_RESOLVE_BUT', target: 'SINGLEKEY',icon:'check-square-o',isShowCaption:false,isShowIcon:true},
+        MobMainEdit: { name: 'MobMainEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_EDIT_BUT', target: 'SINGLEKEY',icon:'edit',isShowCaption:true,isShowIcon:true},
         CloseBugMob: { name: 'CloseBugMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__BUG_CLOSE_BUT', target: 'SINGLEKEY',icon:'close',isShowCaption:false,isShowIcon:true}
     };
 

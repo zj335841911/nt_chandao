@@ -107,7 +107,9 @@ export class PutoffEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof PutoffEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

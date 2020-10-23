@@ -92,7 +92,9 @@ export class FinishFromEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof FinishFromEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

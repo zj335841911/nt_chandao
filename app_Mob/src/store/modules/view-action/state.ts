@@ -228,6 +228,21 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '1d574776cd9473839f14855ebebd5a5a',
+            viewmodule: 'ibiz',
+            viewname: 'BugEditNewMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '5384573c08c076ea5d17a07231e3247c',
+                '61b907edfc7822d020b6b2c2246ee8e0',
+                'b1c76392040ff2e9ed2e3ae2b0260602',
+                '0e2762177f3bf384b00d863798bd744c',
+                '3c4e9f0d609bc0f1cf08431649cc8e67',
+                'f48661e4f3797c86502abe30dae2f89f',
+            ],
+        },
+        {
             viewtag: '206584f40a0caade6c253a360fad96c1',
             viewmodule: 'ibiz',
             viewname: 'BugRMobOptionView',
@@ -663,6 +678,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '1d574776cd9473839f14855ebebd5a5a',
                 '9349ea1684c700138349df5c672a7c19',
                 '206584f40a0caade6c253a360fad96c1',
                 '3cada37cd0f6b5c0492af340b3aa0a65',
@@ -688,6 +704,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '1d574776cd9473839f14855ebebd5a5a',
                 '9349ea1684c700138349df5c672a7c19',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
                 '206584f40a0caade6c253a360fad96c1',
@@ -703,6 +720,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '8b510882cbdc2ee15775fdc7d2b069bd',
                 '99e39da3cdfea07b8886a4dd13680b02',
                 '72d73b7f458439bc2355414e5a810ad5',
             ],
@@ -771,6 +789,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '8b510882cbdc2ee15775fdc7d2b069bd',
                 '3c4e9f0d609bc0f1cf08431649cc8e67',
             ],
         },
@@ -893,6 +912,16 @@ export const viewstate: any = {
             ],
         },
         {
+            viewtag: '8b510882cbdc2ee15775fdc7d2b069bd',
+            viewmodule: 'ibiz',
+            viewname: 'BuildEditMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                '61b907edfc7822d020b6b2c2246ee8e0',
+            ],
+        },
+        {
             viewtag: '8ca2ced94768f27ac028aaea323e33b5',
             viewmodule: 'ibiz',
             viewname: 'UserMobPickupMDView',
@@ -970,6 +999,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                'cce5a9e728543928168dc497b6851ecb',
             ],
         },
         {
@@ -1093,6 +1123,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '1d574776cd9473839f14855ebebd5a5a',
                 '9349ea1684c700138349df5c672a7c19',
                 '206584f40a0caade6c253a360fad96c1',
                 '3cada37cd0f6b5c0492af340b3aa0a65',
@@ -1257,6 +1288,17 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+            ],
+        },
+        {
+            viewtag: 'cce5a9e728543928168dc497b6851ecb',
+            viewmodule: 'ibiz',
+            viewname: 'TestTaskEditNewMobEditView',
+            viewaction: '',
+            viewdatachange: false,
+            refviews: [
+                'b1c76392040ff2e9ed2e3ae2b0260602',
+                '85742d38f356f400b16652a3f7ae714b',
             ],
         },
         {
@@ -1521,6 +1563,7 @@ export const viewstate: any = {
             viewaction: '',
             viewdatachange: false,
             refviews: [
+                '1d574776cd9473839f14855ebebd5a5a',
                 '9349ea1684c700138349df5c672a7c19',
                 '206584f40a0caade6c253a360fad96c1',
                 '3cada37cd0f6b5c0492af340b3aa0a65',

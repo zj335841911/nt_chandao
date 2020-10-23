@@ -101,7 +101,9 @@ export class TestRangeEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof TestRangeEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

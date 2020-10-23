@@ -101,7 +101,8 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof QuickCreateEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
         productname: [
             { required: true, type: 'string', message: '产品 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '产品 值不能为空', trigger: 'blur' },
@@ -118,6 +119,7 @@ export class QuickCreateEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '打包日期 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '打包日期 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**

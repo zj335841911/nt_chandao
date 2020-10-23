@@ -10,12 +10,6 @@
                 </ion-button>
             </ion-buttons>
             <ion-title class="view-title"><label class="title-label"><ion-icon v-if="model.icon" :name="model.icon"></ion-icon> <img v-else-if="model.iconcls" :src="model.iconcls" alt=""> {{$t(model.srfCaption)}}</label></ion-title>
-            <ion-buttons slot="end">
-                                <div class="app-toolbar-container ">
-                    <div class="app-quick-toolbar toolbar-right-bottons">
-                    </div>
-                </div>
-            </ion-buttons>
         </ion-toolbar>
 
     
@@ -48,6 +42,31 @@
             @closeview="closeView($event)">
         </view_form>
     </ion-content>
+    <ion-footer class="view-footer">
+                <div  class = "fab_container">
+            <ion-button v-if="getToolBarLimit" @click="popUpGroup(true)" class="app-view-toolbar-button"><ion-icon name="chevron-up-circle-outline"></ion-icon></ion-button>
+            <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
+                <div class="container">
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobeditedit.disabled}" v-show="righttoolbarModels.deuiaction1_mobeditedit.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_mobeditedit.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobeditedit' }, $event)" size="large">
+                    <ion-icon name="edit"></ion-icon>
+                <span class="btn-inner-text">{{$t('testtask.mobeditviewrighttoolbar_toolbar.deuiaction1_mobeditedit.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('testtask.mobeditviewrighttoolbar_toolbar.deuiaction1_mobeditedit.caption')}}</span>
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobdelete.disabled}" v-show="righttoolbarModels.deuiaction1_mobdelete.visabled">
+                <ion-button :disabled="righttoolbarModels.deuiaction1_mobdelete.disabled" @click="righttoolbar_click({ tag: 'deuiaction1_mobdelete' }, $event)" size="large">
+                    <ion-icon name="remove"></ion-icon>
+                <span class="btn-inner-text">{{$t('testtask.mobeditviewrighttoolbar_toolbar.deuiaction1_mobdelete.caption')}}</span>
+                </ion-button>
+                <span class="btn-out-text">{{$t('testtask.mobeditviewrighttoolbar_toolbar.deuiaction1_mobdelete.caption')}}</span>
+            </div>
+        
+                </div>
+            </van-popup>
+        </div>
+    </ion-footer>
 </ion-page>
 </template>
 
@@ -278,7 +297,56 @@ export default class TestTaskMobEditViewBase extends Vue {
     * @memberof TestTaskMobEditView
     */
     public righttoolbarModels: any = {
+            deuiaction1_mobeditedit: { name: 'deuiaction1_mobeditedit', caption: '编辑', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_EDIT_BUT', uiaction: { tag: 'MobEditEdit', target: 'SINGLEKEY' } },
+
+            deuiaction1_mobdelete: { name: 'deuiaction1_mobdelete', caption: '删除', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__TESTT_DELETE_BUT', uiaction: { tag: 'MobDelete', target: 'SINGLEKEY' } },
+
     };
+
+    /**
+     * 工具栏显示状态
+     *
+     * @type {boolean}
+     * @memberof TestTaskMobEditView 
+     */
+    public righttoolbarShowState: boolean = false;
+
+    /**
+     * 工具栏权限
+     *
+     * @type {boolean}
+     * @memberof TestTaskMobEditView 
+     */
+    get getToolBarLimit() {
+        let toolBarVisable:boolean = false;
+        if(this.righttoolbarModels){
+            Object.keys(this.righttoolbarModels).forEach((tbitem:any)=>{
+                if(this.righttoolbarModels[tbitem].type !== 'ITEMS' && this.righttoolbarModels[tbitem].visabled === true){
+                    toolBarVisable = true;
+                    return;
+                }
+            })
+        }
+        return toolBarVisable;
+    }
+
+    /**
+     * 工具栏分组是否显示的条件
+     *
+     * @type {boolean}
+     * @memberof TestTaskMobEditView 
+     */
+    public showGrop = false;
+
+    /**
+     * 工具栏分组是否显示的方法
+     *
+     * @type {boolean}
+     * @memberof TestTaskMobEditView 
+     */
+    public popUpGroup (falg:boolean = false) {
+        this.showGrop = falg;
+    }
 
     
 
@@ -383,6 +451,7 @@ export default class TestTaskMobEditViewBase extends Vue {
      * @memberof TestTaskMobEditViewBase
      */
     public activated() {
+        this.popUpGroup();
         this.thirdPartyInit();
     }
 
@@ -505,6 +574,86 @@ export default class TestTaskMobEditViewBase extends Vue {
         this.engine.onCtrlEvent('form', 'load', $event);
     }
 
+    /**
+     * righttoolbar 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TestTaskMobEditViewBase
+     */
+    protected righttoolbar_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1_mobeditedit')) {
+            this.righttoolbar_deuiaction1_mobeditedit_click($event, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction1_mobdelete')) {
+            this.righttoolbar_deuiaction1_mobdelete_click($event, '', $event2);
+        }
+    }
+
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TestTaskMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_mobeditedit_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('testtask_ui_action');
+        if (curUIService) {
+            curUIService.TestTask_MobEditEdit(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TestTaskMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_mobdelete_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('testtask_ui_action');
+        if (curUIService) {
+            curUIService.TestTask_MobDelete(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
 
     /**
      * 第三方关闭视图

@@ -112,7 +112,9 @@ export class ActiviteEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof ActiviteEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

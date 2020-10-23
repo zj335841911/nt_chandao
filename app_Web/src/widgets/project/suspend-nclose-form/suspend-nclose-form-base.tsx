@@ -102,7 +102,9 @@ export class SuspendNCloseEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof SuspendNCloseEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

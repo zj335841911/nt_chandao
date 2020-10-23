@@ -186,6 +186,9 @@ export default class AssignToMeModel {
       {
         name: 'files',
       },
+      {
+        name: 'usernames',
+      },
     ]
   }
 

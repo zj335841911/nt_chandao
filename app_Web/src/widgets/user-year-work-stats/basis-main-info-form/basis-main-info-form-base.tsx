@@ -116,7 +116,9 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof BasisMainInfoEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
+        }
     }
 
     /**

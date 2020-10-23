@@ -120,7 +120,8 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
      * @type {*}
      * @memberof PendingSubmissionEditFormBase
      */
-    public rules: any = {
+    public rules():any{
+        return {
         projectname: [
             { required: true, type: 'string', message: '所属项目 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '所属项目 值不能为空', trigger: 'blur' },
@@ -137,6 +138,7 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'change' },
             { required: true, type: 'string', message: '任务名称 值不能为空', trigger: 'blur' },
         ],
+        }
     }
 
     /**
@@ -271,7 +273,7 @@ export class PendingSubmissionEditFormBase extends EditFormControlBase {
             if (this.$verify.testCond(_multiple, 'EQ', '1')) {
                 ret = false;
             }
-            this.rules.assignedto.some((rule: any) => {
+            this.rules().assignedto.some((rule: any) => {
                 if (rule.hasOwnProperty('required')) {
                     rule.required = ret;
                 }
