@@ -5309,6 +5309,145 @@
         ]
     }, 
     {
+        "srfkey": "Story__quickpacket",
+        "emptytext": "未定义",
+        "codelisttype":"static",
+        "items": [
+             {
+                "id": "ALL",
+                "label": "所有",
+                "text": "所有",
+                "default": false,
+                "data": "",
+                "value": "ALL",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+            , {
+                "id": "UNCLOSED",
+                "label": "未关闭",
+                "text": "未关闭",
+                "default": true,
+                "data": {"n_stage_noteq":"closed"},
+                "value": "UNCLOSED",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+            , {
+                "id": "TOME",
+                "label": "指给我",
+                "text": "指给我",
+                "default": false,
+                "data": {"n_assignedto_eq":"%srfloginname%"},
+                "value": "TOME",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+            , {
+                "id": "ICREATE",
+                "label": "我创建",
+                "text": "我创建",
+                "default": false,
+                "data": {"n_openedby_eq":"%srfloginname%"},
+                "value": "ICREATE",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+            , {
+                "id": "IREVIEW",
+                "label": "我评审",
+                "text": "我评审",
+                "default": false,
+                "data": {"n_reviewedby_eq":"%srfloginname%"},
+                "value": "IREVIEW",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+            , {
+                "id": "DRAFT",
+                "label": "草稿",
+                "text": "草稿",
+                "default": false,
+                "data": {"n_status_eq":"draft"},
+                "value": "DRAFT",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+            , {
+                "id": "MORE",
+                "label": "更多",
+                "text": "更多",
+                "default": false,
+                "data": "",
+                "value": "MORE",
+                "isValueNumber":false,
+                
+                "disabled": false
+            }
+            , {
+                "id": "ICLOSE",
+                "label": "我关闭",
+                "text": "我关闭",
+                "default": false,
+                "data": {"n_closedby_eq":"%srfloginname%"},
+                "value": "ICLOSE",
+                "isValueNumber":false,
+                "pvalue": "MORE",
+                "disabled": false
+            }
+            , {
+                "id": "ACTIVED",
+                "label": "激活",
+                "text": "激活",
+                "default": false,
+                "data": {"n_status_eq":"active"},
+                "value": "ACTIVED",
+                "isValueNumber":false,
+                "pvalue": "MORE",
+                "disabled": false
+            }
+            , {
+                "id": "CHANGED",
+                "label": "已变更",
+                "text": "已变更",
+                "default": false,
+                "data": {"n_status_eq":"changed"},
+                "value": "CHANGED",
+                "isValueNumber":false,
+                "pvalue": "MORE",
+                "disabled": false
+            }
+            , {
+                "id": "TOBECLOSED",
+                "label": "待关闭",
+                "text": "待关闭",
+                "default": false,
+                "data": {"n_stage_eq":"released"},
+                "value": "TOBECLOSED",
+                "isValueNumber":false,
+                "pvalue": "MORE",
+                "disabled": false
+            }
+            , {
+                "id": "CLOSED",
+                "label": "已关闭",
+                "text": "已关闭",
+                "default": false,
+                "data": {"n_status_eq":"closed"},
+                "value": "CLOSED",
+                "isValueNumber":false,
+                "pvalue": "MORE",
+                "disabled": false
+            }
+        ]
+    }, 
+    {
         "srfkey": "Story__stage",
         "emptytext": "未定义",
         "codelisttype":"static",

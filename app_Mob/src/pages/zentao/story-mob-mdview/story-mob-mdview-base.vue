@@ -4,6 +4,11 @@
     <ion-header>
         <app-search-history @quickValueChange="quickValueChange" :model="model" :showfilter="true"></app-search-history>
 
+    <app-quick-group-tab
+        :items="quickGroupModel"
+        @valuechange="quickGroupValueChange($event)"
+        :pageTotal="pageTotal"
+    ></app-quick-group-tab>
     
     </ion-header>
 
@@ -77,6 +82,7 @@
             :isMutli="!isSingleSelect"
             :showCheack="showCheack"
             @showCheackChange="showCheackChange"
+            @pageTotalChange="pageTotalChange($event)"
             :isTempMode="false"
             :isEnableChoose="false"
             name="mdctrl"  
@@ -114,6 +120,7 @@
 import { Vue, Component, Prop, Provide, Emit, Watch } from 'vue-property-decorator';
 import { Subject } from 'rxjs';
 import GlobalUiService from '@/global-ui-service/global-ui-service';
+import { CodeListService } from "@/ibiz-core";
 import StoryService from '@/app-core/service/story/story-service';
 
 import MobMDViewEngine from '@engine/view/mob-mdview-engine';
@@ -491,10 +498,26 @@ export default class StoryMobMDViewBase extends Vue {
         this.viewtag = secondtag;
         this.parseViewParam();
         this.setViewTitleStatus();
+        this.loadQuickGroupModel();
 
 
     }
 
+       /**
+        * 部件计数
+        *
+        * @memberof TaskMobMDViewBase
+        */
+        public pageTotal:number = 0;
+
+       /**
+        * 获取部件计数
+        *
+        * @memberof TaskMobMDViewBase
+        */
+        public pageTotalChange($event:any) {
+            this.pageTotal = $event;
+        }
 
     /**
      * 销毁之前
@@ -1097,6 +1120,97 @@ export default class StoryMobMDViewBase extends Vue {
     }
 
 
+
+    /**
+     * 代码表服务对象
+     *
+     * @type {CodeListService}
+     * @memberof StoryMobMDViewBase
+     */  
+    public codeListService:CodeListService = new CodeListService();
+
+    /**
+     * 快速分组数据对象
+     *
+     * @memberof StoryMobMDViewBase
+     */
+    public quickGroupData:any;
+
+    /**
+     * 快速分组是否有抛值
+     *
+     * @memberof StoryMobMDViewBase
+     */
+    public isEmitQuickGroupValue:boolean = false;
+
+    /**
+     * 快速分组模型
+     *
+     * @memberof StoryMobMDViewBase
+     */
+    public quickGroupModel:Array<any> = [];
+
+    /**
+     * 加载快速分组模型
+     *
+     * @memberof StoryMobMDViewBase
+     */
+    public loadQuickGroupModel(){
+        let quickGroupCodeList:any = {tag:'Story__quickpacket',codelistType:'STATIC'};
+        if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType,"STATIC")){
+            const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
+            if (codelist) {
+                this.quickGroupModel = [...this.handleDynamicData(JSON.parse(JSON.stringify(codelist.items)))];
+            } else {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            }
+        }else if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType,"DYNAMIC")){
+            this.codeListService.getItems(quickGroupCodeList.tag,{},{}).then((res:any) => {
+                this.quickGroupModel = res;
+            }).catch((error:any) => {
+                console.log(`----${quickGroupCodeList.tag}----代码表不存在`);
+            });
+        }
+    }
+
+    /**
+     * 处理快速分组模型动态数据部分(%xxx%)
+     *
+     * @memberof StoryMobMDViewBase
+     */
+    public handleDynamicData(inputArray:Array<any>){
+        if(inputArray.length >0){
+            inputArray.forEach((item:any) =>{
+               if(item.data && Object.keys(item.data).length >0){
+                   Object.keys(item.data).forEach((name:any) =>{
+                        let value: any = item.data[name];
+                        if (value && typeof(value)=='string' && value.startsWith('%') && value.endsWith('%')) {
+                            const key = (value.substring(1, value.length - 1)).toLowerCase();
+                            if (this.context[key]) {
+                                value = this.context[key];
+                            } else if(this.viewparams[key]){
+                                value = this.viewparams[key];
+                            }
+                        }
+                        item.data[name] = value;
+                   })
+               }
+            })
+        }
+        return inputArray;
+    }
+
+    /**
+     * 快速分组值变化
+     *
+     * @memberof StoryMobMDViewBase
+     */
+    public quickGroupValueChange($event:any) {
+        if($event){
+            this.quickGroupData = $event.data;
+            this.engine.onViewEvent('mdctrl','viewload',$event.data);
+        }
+    }
 
 }
 </script>

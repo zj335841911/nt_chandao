@@ -501,12 +501,12 @@
     :error="detailsModel.activatedcount.error" 
     :isEmptyCaption="false">
         <app-mob-input 
-    class="app-form-item-input"  
-        type="text"  
+    class="app-form-item-number" 
+        type="number"  
     :value="data.activatedcount"
     unit=""
     :disabled="detailsModel.activatedcount.disabled" 
-    @change="($event)=>this.data.activatedcount = $event" />
+    @change="($event)=>this.data.activatedcount = $event"/>
 </app-form-item>
 
 
@@ -845,28 +845,27 @@
     :disabled="detailsModel.taskname.disabled"
     :error="detailsModel.taskname.error" 
     :isEmptyCaption="false">
-        <app-mob-picker
-    name='taskname'
-    deMajorField='taskname'
-    deKeyField='taskid'
-    valueitem='task' 
-    editortype="" 
-    style=""  
+        <app-mob-select-drop-down 
+    name='taskname' 
+    deMajorField='name'
+    deKeyField='id'
+    valueitem='' 
+    style="" 
+    editortype="dropdown" 
     :formState="formState"
     :data="data"
     :context="context"
+    :navigateContext ='{ "project": "%project%" } '
+    :navigateParam ='{ "project": "%project%" } '
     :viewparams="viewparams"
-    :navigateContext ='{ "zt_project": "%project%", "project": "%project%" } '
-    :navigateParam ='{ "project": "%project%", "n_project_eq": "%project%" } '
-    :itemParam='{ context:{"ZT_PROJECT":"%project%"},param:{"n_project_eq":"%project%"},}' 
+    :itemParam='{ }' 
     :disabled="detailsModel.taskname.disabled"
     :service="service"
     :acParams="{ serviceName: 'task', interfaceName: 'FetchBugTask'}"
     :value="data.taskname" 
-    :pickupView="{ viewname: 'task-mob-pickup-view', title: '任务移动端数据选择视图', deResParameters: [{ pathName: 'stories', parameterName: 'story' }, ], parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'mobpickupview', parameterName: 'mobpickupview' } ], placement:'' }"
-    @formitemvaluechange="onFormItemValueChange">
-</app-mob-picker>
-
+    @formitemvaluechange="onFormItemValueChange"
+    @change="($event)=>this.data.taskname = $event">
+</app-mob-select-drop-down>
 </app-form-item>
 
 
@@ -1055,7 +1054,18 @@
     :disabled="detailsModel.closedby.disabled"
     :error="detailsModel.closedby.error" 
     :isEmptyCaption="false">
-        
+        <app-mob-select 
+    tag="UserRealName"
+    codeListType="DYNAMIC" 
+    :isCache="false" 
+    :disabled="detailsModel.closedby.disabled" 
+    :data="data" 
+    :context="context" 
+    :viewparams="viewparams"
+    :value="data.closedby"  
+    :navigateContext ='{ } '
+    :navigateParam ='{ } '
+    @change="($event)=>this.data.closedby = $event" />
 </app-form-item>
 
 
@@ -1459,7 +1469,6 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
         resolvedbuild: null,
         closedby: null,
         lasteditedby: null,
-        task: null,
         bug: null,
     };
 
@@ -1708,8 +1717,6 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
         closedby: new FormItemModel({ caption: '由谁关闭', detailType: 'FORMITEM', name: 'closedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         lasteditedby: new FormItemModel({ caption: '最后修改者', detailType: 'FORMITEM', name: 'lasteditedby', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 0 })
-, 
-        task: new FormItemModel({ caption: '相关任务', detailType: 'FORMITEM', name: 'task', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
     };
 
@@ -2265,18 +2272,6 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
         this.formDataChange({ name: 'lasteditedby', newVal: newVal, oldVal: oldVal });
     }
 
-    /**
-     * 监控表单属性 task 值
-     *
-     * @param {*} newVal
-     * @param {*} oldVal
-     * @memberof MobMainDataEdit
-     */
-    @Watch('data.task')
-    onTaskChange(newVal: any, oldVal: any) {
-        this.formDataChange({ name: 'task', newVal: newVal, oldVal: oldVal });
-    }
-
 
     /**
      * 重置表单项值
@@ -2306,10 +2301,6 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
         }
         if (Object.is(name, 'projectname')) {
             this.onFormItemValueChange({ name: 'taskname', value: null });
-            this.onFormItemValueChange({ name: 'task', value: null });
-        }
-        if (Object.is(name, 'project')) {
-            this.onFormItemValueChange({ name: 'task', value: null });
         }
     }
 
@@ -2338,7 +2329,6 @@ export default class MobMainDataEditBase extends Vue implements ControlInterface
      */
     private async formLogic({ name, newVal, oldVal }: { name: string, newVal: any, oldVal: any }){
                 
-
 
 
 
